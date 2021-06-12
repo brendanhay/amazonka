@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,8 @@ module Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -67,15 +65,15 @@ import Network.AWS.WorkSpaces.Types
 data ListAvailableManagementCidrRanges = ListAvailableManagementCidrRanges'
   { -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The IP address range to search. Specify an IP address range that is
     -- compatible with your network and in CIDR notation (that is, specify the
     -- range as an IPv4 CIDR block).
-    managementCidrRangeConstraint :: Prelude.Text
+    managementCidrRangeConstraint :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAvailableManagementCidrRanges' with all optional fields omitted.
@@ -95,142 +93,140 @@ data ListAvailableManagementCidrRanges = ListAvailableManagementCidrRanges'
 -- range as an IPv4 CIDR block).
 newListAvailableManagementCidrRanges ::
   -- | 'managementCidrRangeConstraint'
-  Prelude.Text ->
+  Core.Text ->
   ListAvailableManagementCidrRanges
 newListAvailableManagementCidrRanges
   pManagementCidrRangeConstraint_ =
     ListAvailableManagementCidrRanges'
       { nextToken =
-          Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+          Core.Nothing,
+        maxResults = Core.Nothing,
         managementCidrRangeConstraint =
           pManagementCidrRangeConstraint_
       }
 
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
-listAvailableManagementCidrRanges_nextToken :: Lens.Lens' ListAvailableManagementCidrRanges (Prelude.Maybe Prelude.Text)
+listAvailableManagementCidrRanges_nextToken :: Lens.Lens' ListAvailableManagementCidrRanges (Core.Maybe Core.Text)
 listAvailableManagementCidrRanges_nextToken = Lens.lens (\ListAvailableManagementCidrRanges' {nextToken} -> nextToken) (\s@ListAvailableManagementCidrRanges' {} a -> s {nextToken = a} :: ListAvailableManagementCidrRanges)
 
 -- | The maximum number of items to return.
-listAvailableManagementCidrRanges_maxResults :: Lens.Lens' ListAvailableManagementCidrRanges (Prelude.Maybe Prelude.Natural)
+listAvailableManagementCidrRanges_maxResults :: Lens.Lens' ListAvailableManagementCidrRanges (Core.Maybe Core.Natural)
 listAvailableManagementCidrRanges_maxResults = Lens.lens (\ListAvailableManagementCidrRanges' {maxResults} -> maxResults) (\s@ListAvailableManagementCidrRanges' {} a -> s {maxResults = a} :: ListAvailableManagementCidrRanges)
 
 -- | The IP address range to search. Specify an IP address range that is
 -- compatible with your network and in CIDR notation (that is, specify the
 -- range as an IPv4 CIDR block).
-listAvailableManagementCidrRanges_managementCidrRangeConstraint :: Lens.Lens' ListAvailableManagementCidrRanges Prelude.Text
+listAvailableManagementCidrRanges_managementCidrRangeConstraint :: Lens.Lens' ListAvailableManagementCidrRanges Core.Text
 listAvailableManagementCidrRanges_managementCidrRangeConstraint = Lens.lens (\ListAvailableManagementCidrRanges' {managementCidrRangeConstraint} -> managementCidrRangeConstraint) (\s@ListAvailableManagementCidrRanges' {} a -> s {managementCidrRangeConstraint = a} :: ListAvailableManagementCidrRanges)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     ListAvailableManagementCidrRanges
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listAvailableManagementCidrRangesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listAvailableManagementCidrRangesResponse_managementCidrRanges
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listAvailableManagementCidrRanges_nextToken
           Lens..~ rs
           Lens.^? listAvailableManagementCidrRangesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListAvailableManagementCidrRanges
   where
   type
-    Rs ListAvailableManagementCidrRanges =
+    AWSResponse ListAvailableManagementCidrRanges =
       ListAvailableManagementCidrRangesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAvailableManagementCidrRangesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-              Prelude.<*> ( x Prelude..?> "ManagementCidrRanges"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "ManagementCidrRanges"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListAvailableManagementCidrRanges
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListAvailableManagementCidrRanges
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListAvailableManagementCidrRanges
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.ListAvailableManagementCidrRanges" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.ListAvailableManagementCidrRanges" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ListAvailableManagementCidrRanges
   where
   toJSON ListAvailableManagementCidrRanges' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just
               ( "ManagementCidrRangeConstraint"
-                  Prelude..= managementCidrRangeConstraint
+                  Core..= managementCidrRangeConstraint
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     ListAvailableManagementCidrRanges
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ListAvailableManagementCidrRanges
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAvailableManagementCidrRangesResponse' smart constructor.
 data ListAvailableManagementCidrRangesResponse = ListAvailableManagementCidrRangesResponse'
   { -- | The token to use to retrieve the next set of results, or null if no more
     -- results are available.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of available IP address ranges, specified as IPv4 CIDR blocks.
-    managementCidrRanges :: Prelude.Maybe [Prelude.Text],
+    managementCidrRanges :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAvailableManagementCidrRangesResponse' with all optional fields omitted.
@@ -248,31 +244,31 @@ data ListAvailableManagementCidrRangesResponse = ListAvailableManagementCidrRang
 -- 'httpStatus', 'listAvailableManagementCidrRangesResponse_httpStatus' - The response's http status code.
 newListAvailableManagementCidrRangesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAvailableManagementCidrRangesResponse
 newListAvailableManagementCidrRangesResponse
   pHttpStatus_ =
     ListAvailableManagementCidrRangesResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         managementCidrRanges =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next set of results, or null if no more
 -- results are available.
-listAvailableManagementCidrRangesResponse_nextToken :: Lens.Lens' ListAvailableManagementCidrRangesResponse (Prelude.Maybe Prelude.Text)
+listAvailableManagementCidrRangesResponse_nextToken :: Lens.Lens' ListAvailableManagementCidrRangesResponse (Core.Maybe Core.Text)
 listAvailableManagementCidrRangesResponse_nextToken = Lens.lens (\ListAvailableManagementCidrRangesResponse' {nextToken} -> nextToken) (\s@ListAvailableManagementCidrRangesResponse' {} a -> s {nextToken = a} :: ListAvailableManagementCidrRangesResponse)
 
 -- | The list of available IP address ranges, specified as IPv4 CIDR blocks.
-listAvailableManagementCidrRangesResponse_managementCidrRanges :: Lens.Lens' ListAvailableManagementCidrRangesResponse (Prelude.Maybe [Prelude.Text])
-listAvailableManagementCidrRangesResponse_managementCidrRanges = Lens.lens (\ListAvailableManagementCidrRangesResponse' {managementCidrRanges} -> managementCidrRanges) (\s@ListAvailableManagementCidrRangesResponse' {} a -> s {managementCidrRanges = a} :: ListAvailableManagementCidrRangesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAvailableManagementCidrRangesResponse_managementCidrRanges :: Lens.Lens' ListAvailableManagementCidrRangesResponse (Core.Maybe [Core.Text])
+listAvailableManagementCidrRangesResponse_managementCidrRanges = Lens.lens (\ListAvailableManagementCidrRangesResponse' {managementCidrRanges} -> managementCidrRanges) (\s@ListAvailableManagementCidrRangesResponse' {} a -> s {managementCidrRanges = a} :: ListAvailableManagementCidrRangesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAvailableManagementCidrRangesResponse_httpStatus :: Lens.Lens' ListAvailableManagementCidrRangesResponse Prelude.Int
+listAvailableManagementCidrRangesResponse_httpStatus :: Lens.Lens' ListAvailableManagementCidrRangesResponse Core.Int
 listAvailableManagementCidrRangesResponse_httpStatus = Lens.lens (\ListAvailableManagementCidrRangesResponse' {httpStatus} -> httpStatus) (\s@ListAvailableManagementCidrRangesResponse' {} a -> s {httpStatus = a} :: ListAvailableManagementCidrRangesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListAvailableManagementCidrRangesResponse

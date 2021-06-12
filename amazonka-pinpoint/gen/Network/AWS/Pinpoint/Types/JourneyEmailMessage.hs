@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.JourneyEmailMessage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the \"From\" address for an email message that\'s sent to
 -- participants in a journey.
@@ -31,9 +30,9 @@ data JourneyEmailMessage = JourneyEmailMessage'
   { -- | The verified email address to send the email message from. The default
     -- address is the FromAddress specified for the email channel for the
     -- application.
-    fromAddress :: Prelude.Maybe Prelude.Text
+    fromAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JourneyEmailMessage' with all optional fields omitted.
@@ -49,30 +48,30 @@ data JourneyEmailMessage = JourneyEmailMessage'
 newJourneyEmailMessage ::
   JourneyEmailMessage
 newJourneyEmailMessage =
-  JourneyEmailMessage' {fromAddress = Prelude.Nothing}
+  JourneyEmailMessage' {fromAddress = Core.Nothing}
 
 -- | The verified email address to send the email message from. The default
 -- address is the FromAddress specified for the email channel for the
 -- application.
-journeyEmailMessage_fromAddress :: Lens.Lens' JourneyEmailMessage (Prelude.Maybe Prelude.Text)
+journeyEmailMessage_fromAddress :: Lens.Lens' JourneyEmailMessage (Core.Maybe Core.Text)
 journeyEmailMessage_fromAddress = Lens.lens (\JourneyEmailMessage' {fromAddress} -> fromAddress) (\s@JourneyEmailMessage' {} a -> s {fromAddress = a} :: JourneyEmailMessage)
 
-instance Prelude.FromJSON JourneyEmailMessage where
+instance Core.FromJSON JourneyEmailMessage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JourneyEmailMessage"
       ( \x ->
           JourneyEmailMessage'
-            Prelude.<$> (x Prelude..:? "FromAddress")
+            Core.<$> (x Core..:? "FromAddress")
       )
 
-instance Prelude.Hashable JourneyEmailMessage
+instance Core.Hashable JourneyEmailMessage
 
-instance Prelude.NFData JourneyEmailMessage
+instance Core.NFData JourneyEmailMessage
 
-instance Prelude.ToJSON JourneyEmailMessage where
+instance Core.ToJSON JourneyEmailMessage where
   toJSON JourneyEmailMessage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("FromAddress" Prelude..=) Prelude.<$> fromAddress]
+    Core.object
+      ( Core.catMaybes
+          [("FromAddress" Core..=) Core.<$> fromAddress]
       )

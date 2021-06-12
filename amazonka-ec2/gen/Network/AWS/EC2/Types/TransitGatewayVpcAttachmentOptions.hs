@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TransitGatewayVpcAttachmentOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ApplianceModeSupportValue
 import Network.AWS.EC2.Types.DnsSupportValue
 import Network.AWS.EC2.Types.Ipv6SupportValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the VPC attachment options.
 --
 -- /See:/ 'newTransitGatewayVpcAttachmentOptions' smart constructor.
 data TransitGatewayVpcAttachmentOptions = TransitGatewayVpcAttachmentOptions'
   { -- | Indicates whether appliance mode support is enabled.
-    applianceModeSupport :: Prelude.Maybe ApplianceModeSupportValue,
+    applianceModeSupport :: Core.Maybe ApplianceModeSupportValue,
     -- | Indicates whether DNS support is enabled.
-    dnsSupport :: Prelude.Maybe DnsSupportValue,
+    dnsSupport :: Core.Maybe DnsSupportValue,
     -- | Indicates whether IPv6 support is disabled.
-    ipv6Support :: Prelude.Maybe Ipv6SupportValue
+    ipv6Support :: Core.Maybe Ipv6SupportValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayVpcAttachmentOptions' with all optional fields omitted.
@@ -58,37 +57,37 @@ newTransitGatewayVpcAttachmentOptions ::
 newTransitGatewayVpcAttachmentOptions =
   TransitGatewayVpcAttachmentOptions'
     { applianceModeSupport =
-        Prelude.Nothing,
-      dnsSupport = Prelude.Nothing,
-      ipv6Support = Prelude.Nothing
+        Core.Nothing,
+      dnsSupport = Core.Nothing,
+      ipv6Support = Core.Nothing
     }
 
 -- | Indicates whether appliance mode support is enabled.
-transitGatewayVpcAttachmentOptions_applianceModeSupport :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Prelude.Maybe ApplianceModeSupportValue)
+transitGatewayVpcAttachmentOptions_applianceModeSupport :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Core.Maybe ApplianceModeSupportValue)
 transitGatewayVpcAttachmentOptions_applianceModeSupport = Lens.lens (\TransitGatewayVpcAttachmentOptions' {applianceModeSupport} -> applianceModeSupport) (\s@TransitGatewayVpcAttachmentOptions' {} a -> s {applianceModeSupport = a} :: TransitGatewayVpcAttachmentOptions)
 
 -- | Indicates whether DNS support is enabled.
-transitGatewayVpcAttachmentOptions_dnsSupport :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Prelude.Maybe DnsSupportValue)
+transitGatewayVpcAttachmentOptions_dnsSupport :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Core.Maybe DnsSupportValue)
 transitGatewayVpcAttachmentOptions_dnsSupport = Lens.lens (\TransitGatewayVpcAttachmentOptions' {dnsSupport} -> dnsSupport) (\s@TransitGatewayVpcAttachmentOptions' {} a -> s {dnsSupport = a} :: TransitGatewayVpcAttachmentOptions)
 
 -- | Indicates whether IPv6 support is disabled.
-transitGatewayVpcAttachmentOptions_ipv6Support :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Prelude.Maybe Ipv6SupportValue)
+transitGatewayVpcAttachmentOptions_ipv6Support :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Core.Maybe Ipv6SupportValue)
 transitGatewayVpcAttachmentOptions_ipv6Support = Lens.lens (\TransitGatewayVpcAttachmentOptions' {ipv6Support} -> ipv6Support) (\s@TransitGatewayVpcAttachmentOptions' {} a -> s {ipv6Support = a} :: TransitGatewayVpcAttachmentOptions)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     TransitGatewayVpcAttachmentOptions
   where
   parseXML x =
     TransitGatewayVpcAttachmentOptions'
-      Prelude.<$> (x Prelude..@? "applianceModeSupport")
-      Prelude.<*> (x Prelude..@? "dnsSupport")
-      Prelude.<*> (x Prelude..@? "ipv6Support")
+      Core.<$> (x Core..@? "applianceModeSupport")
+      Core.<*> (x Core..@? "dnsSupport")
+      Core.<*> (x Core..@? "ipv6Support")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     TransitGatewayVpcAttachmentOptions
 
 instance
-  Prelude.NFData
+  Core.NFData
     TransitGatewayVpcAttachmentOptions

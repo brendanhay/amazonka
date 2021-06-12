@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,9 +56,9 @@ module Network.AWS.EC2.ReleaseAddress
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,11 +68,11 @@ data ReleaseAddress = ReleaseAddress'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-    publicIp :: Prelude.Maybe Prelude.Text,
+    publicIp :: Core.Maybe Core.Text,
     -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
-    allocationId :: Prelude.Maybe Prelude.Text,
+    allocationId :: Core.Maybe Core.Text,
     -- | The set of Availability Zones, Local Zones, or Wavelength Zones from
     -- which AWS advertises IP addresses.
     --
@@ -85,9 +84,9 @@ data ReleaseAddress = ReleaseAddress'
     -- this operation on EC2 classic, you will receive an
     -- @InvalidParameterCombination@ error. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
-    networkBorderGroup :: Prelude.Maybe Prelude.Text
+    networkBorderGroup :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReleaseAddress' with all optional fields omitted.
@@ -121,25 +120,25 @@ newReleaseAddress ::
   ReleaseAddress
 newReleaseAddress =
   ReleaseAddress'
-    { dryRun = Prelude.Nothing,
-      publicIp = Prelude.Nothing,
-      allocationId = Prelude.Nothing,
-      networkBorderGroup = Prelude.Nothing
+    { dryRun = Core.Nothing,
+      publicIp = Core.Nothing,
+      allocationId = Core.Nothing,
+      networkBorderGroup = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-releaseAddress_dryRun :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Bool)
+releaseAddress_dryRun :: Lens.Lens' ReleaseAddress (Core.Maybe Core.Bool)
 releaseAddress_dryRun = Lens.lens (\ReleaseAddress' {dryRun} -> dryRun) (\s@ReleaseAddress' {} a -> s {dryRun = a} :: ReleaseAddress)
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-releaseAddress_publicIp :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
+releaseAddress_publicIp :: Lens.Lens' ReleaseAddress (Core.Maybe Core.Text)
 releaseAddress_publicIp = Lens.lens (\ReleaseAddress' {publicIp} -> publicIp) (\s@ReleaseAddress' {} a -> s {publicIp = a} :: ReleaseAddress)
 
 -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
-releaseAddress_allocationId :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
+releaseAddress_allocationId :: Lens.Lens' ReleaseAddress (Core.Maybe Core.Text)
 releaseAddress_allocationId = Lens.lens (\ReleaseAddress' {allocationId} -> allocationId) (\s@ReleaseAddress' {} a -> s {allocationId = a} :: ReleaseAddress)
 
 -- | The set of Availability Zones, Local Zones, or Wavelength Zones from
@@ -153,43 +152,44 @@ releaseAddress_allocationId = Lens.lens (\ReleaseAddress' {allocationId} -> allo
 -- this operation on EC2 classic, you will receive an
 -- @InvalidParameterCombination@ error. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
-releaseAddress_networkBorderGroup :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
+releaseAddress_networkBorderGroup :: Lens.Lens' ReleaseAddress (Core.Maybe Core.Text)
 releaseAddress_networkBorderGroup = Lens.lens (\ReleaseAddress' {networkBorderGroup} -> networkBorderGroup) (\s@ReleaseAddress' {} a -> s {networkBorderGroup = a} :: ReleaseAddress)
 
-instance Prelude.AWSRequest ReleaseAddress where
-  type Rs ReleaseAddress = ReleaseAddressResponse
+instance Core.AWSRequest ReleaseAddress where
+  type
+    AWSResponse ReleaseAddress =
+      ReleaseAddressResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull ReleaseAddressResponse'
 
-instance Prelude.Hashable ReleaseAddress
+instance Core.Hashable ReleaseAddress
 
-instance Prelude.NFData ReleaseAddress
+instance Core.NFData ReleaseAddress
 
-instance Prelude.ToHeaders ReleaseAddress where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ReleaseAddress where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ReleaseAddress where
-  toPath = Prelude.const "/"
+instance Core.ToPath ReleaseAddress where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ReleaseAddress where
+instance Core.ToQuery ReleaseAddress where
   toQuery ReleaseAddress' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ReleaseAddress" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "PublicIp" Prelude.=: publicIp,
-        "AllocationId" Prelude.=: allocationId,
-        "NetworkBorderGroup" Prelude.=: networkBorderGroup
+          Core.=: ("ReleaseAddress" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "PublicIp" Core.=: publicIp,
+        "AllocationId" Core.=: allocationId,
+        "NetworkBorderGroup" Core.=: networkBorderGroup
       ]
 
 -- | /See:/ 'newReleaseAddressResponse' smart constructor.
 data ReleaseAddressResponse = ReleaseAddressResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReleaseAddressResponse' with all optional fields omitted.
@@ -199,4 +199,4 @@ newReleaseAddressResponse ::
   ReleaseAddressResponse
 newReleaseAddressResponse = ReleaseAddressResponse'
 
-instance Prelude.NFData ReleaseAddressResponse
+instance Core.NFData ReleaseAddressResponse

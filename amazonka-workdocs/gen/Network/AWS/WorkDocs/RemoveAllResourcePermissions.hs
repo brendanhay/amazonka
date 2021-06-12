@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.WorkDocs.RemoveAllResourcePermissions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -47,11 +46,11 @@ import Network.AWS.WorkDocs.Types
 data RemoveAllResourcePermissions = RemoveAllResourcePermissions'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The ID of the resource.
-    resourceId :: Prelude.Text
+    resourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveAllResourcePermissions' with all optional fields omitted.
@@ -67,69 +66,61 @@ data RemoveAllResourcePermissions = RemoveAllResourcePermissions'
 -- 'resourceId', 'removeAllResourcePermissions_resourceId' - The ID of the resource.
 newRemoveAllResourcePermissions ::
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   RemoveAllResourcePermissions
 newRemoveAllResourcePermissions pResourceId_ =
   RemoveAllResourcePermissions'
     { authenticationToken =
-        Prelude.Nothing,
+        Core.Nothing,
       resourceId = pResourceId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-removeAllResourcePermissions_authenticationToken :: Lens.Lens' RemoveAllResourcePermissions (Prelude.Maybe Prelude.Text)
-removeAllResourcePermissions_authenticationToken = Lens.lens (\RemoveAllResourcePermissions' {authenticationToken} -> authenticationToken) (\s@RemoveAllResourcePermissions' {} a -> s {authenticationToken = a} :: RemoveAllResourcePermissions) Prelude.. Lens.mapping Prelude._Sensitive
+removeAllResourcePermissions_authenticationToken :: Lens.Lens' RemoveAllResourcePermissions (Core.Maybe Core.Text)
+removeAllResourcePermissions_authenticationToken = Lens.lens (\RemoveAllResourcePermissions' {authenticationToken} -> authenticationToken) (\s@RemoveAllResourcePermissions' {} a -> s {authenticationToken = a} :: RemoveAllResourcePermissions) Core.. Lens.mapping Core._Sensitive
 
 -- | The ID of the resource.
-removeAllResourcePermissions_resourceId :: Lens.Lens' RemoveAllResourcePermissions Prelude.Text
+removeAllResourcePermissions_resourceId :: Lens.Lens' RemoveAllResourcePermissions Core.Text
 removeAllResourcePermissions_resourceId = Lens.lens (\RemoveAllResourcePermissions' {resourceId} -> resourceId) (\s@RemoveAllResourcePermissions' {} a -> s {resourceId = a} :: RemoveAllResourcePermissions)
 
-instance
-  Prelude.AWSRequest
-    RemoveAllResourcePermissions
-  where
+instance Core.AWSRequest RemoveAllResourcePermissions where
   type
-    Rs RemoveAllResourcePermissions =
+    AWSResponse RemoveAllResourcePermissions =
       RemoveAllResourcePermissionsResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       RemoveAllResourcePermissionsResponse'
 
-instance
-  Prelude.Hashable
-    RemoveAllResourcePermissions
+instance Core.Hashable RemoveAllResourcePermissions
 
-instance Prelude.NFData RemoveAllResourcePermissions
+instance Core.NFData RemoveAllResourcePermissions
 
-instance
-  Prelude.ToHeaders
-    RemoveAllResourcePermissions
-  where
+instance Core.ToHeaders RemoveAllResourcePermissions where
   toHeaders RemoveAllResourcePermissions' {..} =
-    Prelude.mconcat
-      [ "Authentication" Prelude.=# authenticationToken,
+    Core.mconcat
+      [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToPath RemoveAllResourcePermissions where
+instance Core.ToPath RemoveAllResourcePermissions where
   toPath RemoveAllResourcePermissions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/api/v1/resources/",
-        Prelude.toBS resourceId,
+        Core.toBS resourceId,
         "/permissions"
       ]
 
-instance Prelude.ToQuery RemoveAllResourcePermissions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RemoveAllResourcePermissions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRemoveAllResourcePermissionsResponse' smart constructor.
 data RemoveAllResourcePermissionsResponse = RemoveAllResourcePermissionsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveAllResourcePermissionsResponse' with all optional fields omitted.
@@ -141,5 +132,5 @@ newRemoveAllResourcePermissionsResponse =
   RemoveAllResourcePermissionsResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     RemoveAllResourcePermissionsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.CognitoIdentityProvider.GetSigningCertificate
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetSigningCertificate' smart constructor.
 data GetSigningCertificate = GetSigningCertificate'
   { -- | The user pool ID.
-    userPoolId :: Prelude.Text
+    userPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSigningCertificate' with all optional fields omitted.
@@ -66,70 +65,68 @@ data GetSigningCertificate = GetSigningCertificate'
 -- 'userPoolId', 'getSigningCertificate_userPoolId' - The user pool ID.
 newGetSigningCertificate ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   GetSigningCertificate
 newGetSigningCertificate pUserPoolId_ =
   GetSigningCertificate' {userPoolId = pUserPoolId_}
 
 -- | The user pool ID.
-getSigningCertificate_userPoolId :: Lens.Lens' GetSigningCertificate Prelude.Text
+getSigningCertificate_userPoolId :: Lens.Lens' GetSigningCertificate Core.Text
 getSigningCertificate_userPoolId = Lens.lens (\GetSigningCertificate' {userPoolId} -> userPoolId) (\s@GetSigningCertificate' {} a -> s {userPoolId = a} :: GetSigningCertificate)
 
-instance Prelude.AWSRequest GetSigningCertificate where
+instance Core.AWSRequest GetSigningCertificate where
   type
-    Rs GetSigningCertificate =
+    AWSResponse GetSigningCertificate =
       GetSigningCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetSigningCertificateResponse'
-            Prelude.<$> (x Prelude..?> "Certificate")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Certificate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSigningCertificate
+instance Core.Hashable GetSigningCertificate
 
-instance Prelude.NFData GetSigningCertificate
+instance Core.NFData GetSigningCertificate
 
-instance Prelude.ToHeaders GetSigningCertificate where
+instance Core.ToHeaders GetSigningCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.GetSigningCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.GetSigningCertificate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetSigningCertificate where
+instance Core.ToJSON GetSigningCertificate where
   toJSON GetSigningCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("UserPoolId" Prelude..= userPoolId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("UserPoolId" Core..= userPoolId)]
       )
 
-instance Prelude.ToPath GetSigningCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetSigningCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetSigningCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetSigningCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | Response from Cognito for a signing certificate request.
 --
 -- /See:/ 'newGetSigningCertificateResponse' smart constructor.
 data GetSigningCertificateResponse = GetSigningCertificateResponse'
   { -- | The signing certificate.
-    certificate :: Prelude.Maybe Prelude.Text,
+    certificate :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSigningCertificateResponse' with all optional fields omitted.
@@ -144,21 +141,21 @@ data GetSigningCertificateResponse = GetSigningCertificateResponse'
 -- 'httpStatus', 'getSigningCertificateResponse_httpStatus' - The response's http status code.
 newGetSigningCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSigningCertificateResponse
 newGetSigningCertificateResponse pHttpStatus_ =
   GetSigningCertificateResponse'
     { certificate =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The signing certificate.
-getSigningCertificateResponse_certificate :: Lens.Lens' GetSigningCertificateResponse (Prelude.Maybe Prelude.Text)
+getSigningCertificateResponse_certificate :: Lens.Lens' GetSigningCertificateResponse (Core.Maybe Core.Text)
 getSigningCertificateResponse_certificate = Lens.lens (\GetSigningCertificateResponse' {certificate} -> certificate) (\s@GetSigningCertificateResponse' {} a -> s {certificate = a} :: GetSigningCertificateResponse)
 
 -- | The response's http status code.
-getSigningCertificateResponse_httpStatus :: Lens.Lens' GetSigningCertificateResponse Prelude.Int
+getSigningCertificateResponse_httpStatus :: Lens.Lens' GetSigningCertificateResponse Core.Int
 getSigningCertificateResponse_httpStatus = Lens.lens (\GetSigningCertificateResponse' {httpStatus} -> httpStatus) (\s@GetSigningCertificateResponse' {} a -> s {httpStatus = a} :: GetSigningCertificateResponse)
 
-instance Prelude.NFData GetSigningCertificateResponse
+instance Core.NFData GetSigningCertificateResponse

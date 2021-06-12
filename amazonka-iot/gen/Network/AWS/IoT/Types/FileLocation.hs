@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.FileLocation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.S3Location
 import Network.AWS.IoT.Types.Stream
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The location of the OTA update.
 --
 -- /See:/ 'newFileLocation' smart constructor.
 data FileLocation = FileLocation'
   { -- | The stream that contains the OTA update.
-    stream :: Prelude.Maybe Stream,
+    stream :: Core.Maybe Stream,
     -- | The location of the updated firmware in S3.
-    s3Location :: Prelude.Maybe S3Location
+    s3Location :: Core.Maybe S3Location
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FileLocation' with all optional fields omitted.
@@ -51,37 +50,37 @@ newFileLocation ::
   FileLocation
 newFileLocation =
   FileLocation'
-    { stream = Prelude.Nothing,
-      s3Location = Prelude.Nothing
+    { stream = Core.Nothing,
+      s3Location = Core.Nothing
     }
 
 -- | The stream that contains the OTA update.
-fileLocation_stream :: Lens.Lens' FileLocation (Prelude.Maybe Stream)
+fileLocation_stream :: Lens.Lens' FileLocation (Core.Maybe Stream)
 fileLocation_stream = Lens.lens (\FileLocation' {stream} -> stream) (\s@FileLocation' {} a -> s {stream = a} :: FileLocation)
 
 -- | The location of the updated firmware in S3.
-fileLocation_s3Location :: Lens.Lens' FileLocation (Prelude.Maybe S3Location)
+fileLocation_s3Location :: Lens.Lens' FileLocation (Core.Maybe S3Location)
 fileLocation_s3Location = Lens.lens (\FileLocation' {s3Location} -> s3Location) (\s@FileLocation' {} a -> s {s3Location = a} :: FileLocation)
 
-instance Prelude.FromJSON FileLocation where
+instance Core.FromJSON FileLocation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FileLocation"
       ( \x ->
           FileLocation'
-            Prelude.<$> (x Prelude..:? "stream")
-            Prelude.<*> (x Prelude..:? "s3Location")
+            Core.<$> (x Core..:? "stream")
+            Core.<*> (x Core..:? "s3Location")
       )
 
-instance Prelude.Hashable FileLocation
+instance Core.Hashable FileLocation
 
-instance Prelude.NFData FileLocation
+instance Core.NFData FileLocation
 
-instance Prelude.ToJSON FileLocation where
+instance Core.ToJSON FileLocation where
   toJSON FileLocation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("stream" Prelude..=) Prelude.<$> stream,
-            ("s3Location" Prelude..=) Prelude.<$> s3Location
+    Core.object
+      ( Core.catMaybes
+          [ ("stream" Core..=) Core.<$> stream,
+            ("s3Location" Core..=) Core.<$> s3Location
           ]
       )

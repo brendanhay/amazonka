@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.DvbTdtSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Inserts DVB Time and Date Table (TDT) at the specified table repetition
 -- interval.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data DvbTdtSettings = DvbTdtSettings'
   { -- | The number of milliseconds between instances of this table in the output
     -- transport stream.
-    tdtInterval :: Prelude.Maybe Prelude.Natural
+    tdtInterval :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DvbTdtSettings' with all optional fields omitted.
@@ -47,29 +46,28 @@ data DvbTdtSettings = DvbTdtSettings'
 newDvbTdtSettings ::
   DvbTdtSettings
 newDvbTdtSettings =
-  DvbTdtSettings' {tdtInterval = Prelude.Nothing}
+  DvbTdtSettings' {tdtInterval = Core.Nothing}
 
 -- | The number of milliseconds between instances of this table in the output
 -- transport stream.
-dvbTdtSettings_tdtInterval :: Lens.Lens' DvbTdtSettings (Prelude.Maybe Prelude.Natural)
+dvbTdtSettings_tdtInterval :: Lens.Lens' DvbTdtSettings (Core.Maybe Core.Natural)
 dvbTdtSettings_tdtInterval = Lens.lens (\DvbTdtSettings' {tdtInterval} -> tdtInterval) (\s@DvbTdtSettings' {} a -> s {tdtInterval = a} :: DvbTdtSettings)
 
-instance Prelude.FromJSON DvbTdtSettings where
+instance Core.FromJSON DvbTdtSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DvbTdtSettings"
       ( \x ->
-          DvbTdtSettings'
-            Prelude.<$> (x Prelude..:? "tdtInterval")
+          DvbTdtSettings' Core.<$> (x Core..:? "tdtInterval")
       )
 
-instance Prelude.Hashable DvbTdtSettings
+instance Core.Hashable DvbTdtSettings
 
-instance Prelude.NFData DvbTdtSettings
+instance Core.NFData DvbTdtSettings
 
-instance Prelude.ToJSON DvbTdtSettings where
+instance Core.ToJSON DvbTdtSettings where
   toJSON DvbTdtSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("tdtInterval" Prelude..=) Prelude.<$> tdtInterval]
+    Core.object
+      ( Core.catMaybes
+          [("tdtInterval" Core..=) Core.<$> tdtInterval]
       )

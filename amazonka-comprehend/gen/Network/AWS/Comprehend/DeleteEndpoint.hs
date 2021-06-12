@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.Comprehend.DeleteEndpoint
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteEndpoint' smart constructor.
 data DeleteEndpoint = DeleteEndpoint'
   { -- | The Amazon Resource Number (ARN) of the endpoint being deleted.
-    endpointArn :: Prelude.Text
+    endpointArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEndpoint' with all optional fields omitted.
@@ -64,65 +63,63 @@ data DeleteEndpoint = DeleteEndpoint'
 -- 'endpointArn', 'deleteEndpoint_endpointArn' - The Amazon Resource Number (ARN) of the endpoint being deleted.
 newDeleteEndpoint ::
   -- | 'endpointArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteEndpoint
 newDeleteEndpoint pEndpointArn_ =
   DeleteEndpoint' {endpointArn = pEndpointArn_}
 
 -- | The Amazon Resource Number (ARN) of the endpoint being deleted.
-deleteEndpoint_endpointArn :: Lens.Lens' DeleteEndpoint Prelude.Text
+deleteEndpoint_endpointArn :: Lens.Lens' DeleteEndpoint Core.Text
 deleteEndpoint_endpointArn = Lens.lens (\DeleteEndpoint' {endpointArn} -> endpointArn) (\s@DeleteEndpoint' {} a -> s {endpointArn = a} :: DeleteEndpoint)
 
-instance Prelude.AWSRequest DeleteEndpoint where
-  type Rs DeleteEndpoint = DeleteEndpointResponse
+instance Core.AWSRequest DeleteEndpoint where
+  type
+    AWSResponse DeleteEndpoint =
+      DeleteEndpointResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEndpointResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEndpoint
+instance Core.Hashable DeleteEndpoint
 
-instance Prelude.NFData DeleteEndpoint
+instance Core.NFData DeleteEndpoint
 
-instance Prelude.ToHeaders DeleteEndpoint where
+instance Core.ToHeaders DeleteEndpoint where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.DeleteEndpoint" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.DeleteEndpoint" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteEndpoint where
+instance Core.ToJSON DeleteEndpoint where
   toJSON DeleteEndpoint' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointArn" Prelude..= endpointArn)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EndpointArn" Core..= endpointArn)]
       )
 
-instance Prelude.ToPath DeleteEndpoint where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteEndpoint where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteEndpoint where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteEndpoint where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEndpointResponse' with all optional fields omitted.
@@ -135,13 +132,13 @@ data DeleteEndpointResponse = DeleteEndpointResponse'
 -- 'httpStatus', 'deleteEndpointResponse_httpStatus' - The response's http status code.
 newDeleteEndpointResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteEndpointResponse
 newDeleteEndpointResponse pHttpStatus_ =
   DeleteEndpointResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteEndpointResponse_httpStatus :: Lens.Lens' DeleteEndpointResponse Prelude.Int
+deleteEndpointResponse_httpStatus :: Lens.Lens' DeleteEndpointResponse Core.Int
 deleteEndpointResponse_httpStatus = Lens.lens (\DeleteEndpointResponse' {httpStatus} -> httpStatus) (\s@DeleteEndpointResponse' {} a -> s {httpStatus = a} :: DeleteEndpointResponse)
 
-instance Prelude.NFData DeleteEndpointResponse
+instance Core.NFData DeleteEndpointResponse

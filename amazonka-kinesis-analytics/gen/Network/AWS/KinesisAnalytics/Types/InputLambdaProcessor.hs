@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.InputLambdaProcessor where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains the Amazon Resource Name (ARN) of the
 -- <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used
@@ -37,11 +36,11 @@ data InputLambdaProcessor = InputLambdaProcessor'
     -- include the Lambda function version in the Lambda function ARN. For more
     -- information about Lambda ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
-    resourceARN :: Prelude.Text,
+    resourceARN :: Core.Text,
     -- | The ARN of the IAM role that is used to access the AWS Lambda function.
-    roleARN :: Prelude.Text
+    roleARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputLambdaProcessor' with all optional fields omitted.
@@ -62,9 +61,9 @@ data InputLambdaProcessor = InputLambdaProcessor'
 -- 'roleARN', 'inputLambdaProcessor_roleARN' - The ARN of the IAM role that is used to access the AWS Lambda function.
 newInputLambdaProcessor ::
   -- | 'resourceARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleARN'
-  Prelude.Text ->
+  Core.Text ->
   InputLambdaProcessor
 newInputLambdaProcessor pResourceARN_ pRoleARN_ =
   InputLambdaProcessor'
@@ -79,22 +78,22 @@ newInputLambdaProcessor pResourceARN_ pRoleARN_ =
 -- include the Lambda function version in the Lambda function ARN. For more
 -- information about Lambda ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
-inputLambdaProcessor_resourceARN :: Lens.Lens' InputLambdaProcessor Prelude.Text
+inputLambdaProcessor_resourceARN :: Lens.Lens' InputLambdaProcessor Core.Text
 inputLambdaProcessor_resourceARN = Lens.lens (\InputLambdaProcessor' {resourceARN} -> resourceARN) (\s@InputLambdaProcessor' {} a -> s {resourceARN = a} :: InputLambdaProcessor)
 
 -- | The ARN of the IAM role that is used to access the AWS Lambda function.
-inputLambdaProcessor_roleARN :: Lens.Lens' InputLambdaProcessor Prelude.Text
+inputLambdaProcessor_roleARN :: Lens.Lens' InputLambdaProcessor Core.Text
 inputLambdaProcessor_roleARN = Lens.lens (\InputLambdaProcessor' {roleARN} -> roleARN) (\s@InputLambdaProcessor' {} a -> s {roleARN = a} :: InputLambdaProcessor)
 
-instance Prelude.Hashable InputLambdaProcessor
+instance Core.Hashable InputLambdaProcessor
 
-instance Prelude.NFData InputLambdaProcessor
+instance Core.NFData InputLambdaProcessor
 
-instance Prelude.ToJSON InputLambdaProcessor where
+instance Core.ToJSON InputLambdaProcessor where
   toJSON InputLambdaProcessor' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceARN" Prelude..= resourceARN),
-            Prelude.Just ("RoleARN" Prelude..= roleARN)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceARN" Core..= resourceARN),
+            Core.Just ("RoleARN" Core..= roleARN)
           ]
       )

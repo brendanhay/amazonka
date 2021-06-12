@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CloudFormation.SignalResource
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,21 +56,21 @@ import qualified Network.AWS.Response as Response
 data SignalResource = SignalResource'
   { -- | The stack name or unique stack ID that includes the resource that you
     -- want to signal.
-    stackName :: Prelude.Text,
+    stackName :: Core.Text,
     -- | The logical ID of the resource that you want to signal. The logical ID
     -- is the name of the resource that given in the template.
-    logicalResourceId :: Prelude.Text,
+    logicalResourceId :: Core.Text,
     -- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto
     -- Scaling groups, specify the instance ID that you are signaling as the
     -- unique ID. If you send multiple signals to a single resource (such as
     -- signaling a wait condition), each signal requires a different unique ID.
-    uniqueId :: Prelude.Text,
+    uniqueId :: Core.Text,
     -- | The status of the signal, which is either success or failure. A failure
     -- signal causes AWS CloudFormation to immediately fail the stack creation
     -- or update.
     status :: ResourceSignalStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SignalResource' with all optional fields omitted.
@@ -97,11 +96,11 @@ data SignalResource = SignalResource'
 -- or update.
 newSignalResource ::
   -- | 'stackName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'logicalResourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'uniqueId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   ResourceSignalStatus ->
   SignalResource
@@ -119,19 +118,19 @@ newSignalResource
 
 -- | The stack name or unique stack ID that includes the resource that you
 -- want to signal.
-signalResource_stackName :: Lens.Lens' SignalResource Prelude.Text
+signalResource_stackName :: Lens.Lens' SignalResource Core.Text
 signalResource_stackName = Lens.lens (\SignalResource' {stackName} -> stackName) (\s@SignalResource' {} a -> s {stackName = a} :: SignalResource)
 
 -- | The logical ID of the resource that you want to signal. The logical ID
 -- is the name of the resource that given in the template.
-signalResource_logicalResourceId :: Lens.Lens' SignalResource Prelude.Text
+signalResource_logicalResourceId :: Lens.Lens' SignalResource Core.Text
 signalResource_logicalResourceId = Lens.lens (\SignalResource' {logicalResourceId} -> logicalResourceId) (\s@SignalResource' {} a -> s {logicalResourceId = a} :: SignalResource)
 
 -- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto
 -- Scaling groups, specify the instance ID that you are signaling as the
 -- unique ID. If you send multiple signals to a single resource (such as
 -- signaling a wait condition), each signal requires a different unique ID.
-signalResource_uniqueId :: Lens.Lens' SignalResource Prelude.Text
+signalResource_uniqueId :: Lens.Lens' SignalResource Core.Text
 signalResource_uniqueId = Lens.lens (\SignalResource' {uniqueId} -> uniqueId) (\s@SignalResource' {} a -> s {uniqueId = a} :: SignalResource)
 
 -- | The status of the signal, which is either success or failure. A failure
@@ -140,40 +139,41 @@ signalResource_uniqueId = Lens.lens (\SignalResource' {uniqueId} -> uniqueId) (\
 signalResource_status :: Lens.Lens' SignalResource ResourceSignalStatus
 signalResource_status = Lens.lens (\SignalResource' {status} -> status) (\s@SignalResource' {} a -> s {status = a} :: SignalResource)
 
-instance Prelude.AWSRequest SignalResource where
-  type Rs SignalResource = SignalResourceResponse
+instance Core.AWSRequest SignalResource where
+  type
+    AWSResponse SignalResource =
+      SignalResourceResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull SignalResourceResponse'
 
-instance Prelude.Hashable SignalResource
+instance Core.Hashable SignalResource
 
-instance Prelude.NFData SignalResource
+instance Core.NFData SignalResource
 
-instance Prelude.ToHeaders SignalResource where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SignalResource where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SignalResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath SignalResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SignalResource where
+instance Core.ToQuery SignalResource where
   toQuery SignalResource' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SignalResource" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackName" Prelude.=: stackName,
-        "LogicalResourceId" Prelude.=: logicalResourceId,
-        "UniqueId" Prelude.=: uniqueId,
-        "Status" Prelude.=: status
+          Core.=: ("SignalResource" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "StackName" Core.=: stackName,
+        "LogicalResourceId" Core.=: logicalResourceId,
+        "UniqueId" Core.=: uniqueId,
+        "Status" Core.=: status
       ]
 
 -- | /See:/ 'newSignalResourceResponse' smart constructor.
 data SignalResourceResponse = SignalResourceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SignalResourceResponse' with all optional fields omitted.
@@ -183,4 +183,4 @@ newSignalResourceResponse ::
   SignalResourceResponse
 newSignalResourceResponse = SignalResourceResponse'
 
-instance Prelude.NFData SignalResourceResponse
+instance Core.NFData SignalResourceResponse

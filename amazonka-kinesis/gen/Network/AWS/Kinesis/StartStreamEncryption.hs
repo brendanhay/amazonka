@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,16 +55,16 @@ module Network.AWS.Kinesis.StartStreamEncryption
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartStreamEncryption' smart constructor.
 data StartStreamEncryption = StartStreamEncryption'
   { -- | The name of the stream for which to start encrypting records.
-    streamName :: Prelude.Text,
+    streamName :: Core.Text,
     -- | The encryption type to use. The only valid value is @KMS@.
     encryptionType :: EncryptionType,
     -- | The GUID for the customer-managed AWS KMS key to use for encryption.
@@ -86,9 +85,9 @@ data StartStreamEncryption = StartStreamEncryption'
     -- -   Alias name example: @alias\/MyAliasName@
     --
     -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
-    keyId :: Prelude.Text
+    keyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartStreamEncryption' with all optional fields omitted.
@@ -122,11 +121,11 @@ data StartStreamEncryption = StartStreamEncryption'
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
 newStartStreamEncryption ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'encryptionType'
   EncryptionType ->
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   StartStreamEncryption
 newStartStreamEncryption
   pStreamName_
@@ -139,7 +138,7 @@ newStartStreamEncryption
       }
 
 -- | The name of the stream for which to start encrypting records.
-startStreamEncryption_streamName :: Lens.Lens' StartStreamEncryption Prelude.Text
+startStreamEncryption_streamName :: Lens.Lens' StartStreamEncryption Core.Text
 startStreamEncryption_streamName = Lens.lens (\StartStreamEncryption' {streamName} -> streamName) (\s@StartStreamEncryption' {} a -> s {streamName = a} :: StartStreamEncryption)
 
 -- | The encryption type to use. The only valid value is @KMS@.
@@ -164,58 +163,55 @@ startStreamEncryption_encryptionType = Lens.lens (\StartStreamEncryption' {encry
 -- -   Alias name example: @alias\/MyAliasName@
 --
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
-startStreamEncryption_keyId :: Lens.Lens' StartStreamEncryption Prelude.Text
+startStreamEncryption_keyId :: Lens.Lens' StartStreamEncryption Core.Text
 startStreamEncryption_keyId = Lens.lens (\StartStreamEncryption' {keyId} -> keyId) (\s@StartStreamEncryption' {} a -> s {keyId = a} :: StartStreamEncryption)
 
-instance Prelude.AWSRequest StartStreamEncryption where
+instance Core.AWSRequest StartStreamEncryption where
   type
-    Rs StartStreamEncryption =
+    AWSResponse StartStreamEncryption =
       StartStreamEncryptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull StartStreamEncryptionResponse'
 
-instance Prelude.Hashable StartStreamEncryption
+instance Core.Hashable StartStreamEncryption
 
-instance Prelude.NFData StartStreamEncryption
+instance Core.NFData StartStreamEncryption
 
-instance Prelude.ToHeaders StartStreamEncryption where
+instance Core.ToHeaders StartStreamEncryption where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.StartStreamEncryption" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Kinesis_20131202.StartStreamEncryption" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartStreamEncryption where
+instance Core.ToJSON StartStreamEncryption where
   toJSON StartStreamEncryption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Prelude..= streamName),
-            Prelude.Just
-              ("EncryptionType" Prelude..= encryptionType),
-            Prelude.Just ("KeyId" Prelude..= keyId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("EncryptionType" Core..= encryptionType),
+            Core.Just ("KeyId" Core..= keyId)
           ]
       )
 
-instance Prelude.ToPath StartStreamEncryption where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartStreamEncryption where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartStreamEncryption where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartStreamEncryption where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartStreamEncryptionResponse' smart constructor.
 data StartStreamEncryptionResponse = StartStreamEncryptionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartStreamEncryptionResponse' with all optional fields omitted.
@@ -226,4 +222,4 @@ newStartStreamEncryptionResponse ::
 newStartStreamEncryptionResponse =
   StartStreamEncryptionResponse'
 
-instance Prelude.NFData StartStreamEncryptionResponse
+instance Core.NFData StartStreamEncryptionResponse

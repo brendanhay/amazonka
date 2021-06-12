@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.Shield.DeleteProtection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -48,9 +47,9 @@ import Network.AWS.Shield.Types
 -- | /See:/ 'newDeleteProtection' smart constructor.
 data DeleteProtection = DeleteProtection'
   { -- | The unique identifier (ID) for the Protection object to be deleted.
-    protectionId :: Prelude.Text
+    protectionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProtection' with all optional fields omitted.
@@ -63,65 +62,63 @@ data DeleteProtection = DeleteProtection'
 -- 'protectionId', 'deleteProtection_protectionId' - The unique identifier (ID) for the Protection object to be deleted.
 newDeleteProtection ::
   -- | 'protectionId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteProtection
 newDeleteProtection pProtectionId_ =
   DeleteProtection' {protectionId = pProtectionId_}
 
 -- | The unique identifier (ID) for the Protection object to be deleted.
-deleteProtection_protectionId :: Lens.Lens' DeleteProtection Prelude.Text
+deleteProtection_protectionId :: Lens.Lens' DeleteProtection Core.Text
 deleteProtection_protectionId = Lens.lens (\DeleteProtection' {protectionId} -> protectionId) (\s@DeleteProtection' {} a -> s {protectionId = a} :: DeleteProtection)
 
-instance Prelude.AWSRequest DeleteProtection where
-  type Rs DeleteProtection = DeleteProtectionResponse
+instance Core.AWSRequest DeleteProtection where
+  type
+    AWSResponse DeleteProtection =
+      DeleteProtectionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProtectionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProtection
+instance Core.Hashable DeleteProtection
 
-instance Prelude.NFData DeleteProtection
+instance Core.NFData DeleteProtection
 
-instance Prelude.ToHeaders DeleteProtection where
+instance Core.ToHeaders DeleteProtection where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.DeleteProtection" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.DeleteProtection" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteProtection where
+instance Core.ToJSON DeleteProtection where
   toJSON DeleteProtection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ProtectionId" Prelude..= protectionId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ProtectionId" Core..= protectionId)]
       )
 
-instance Prelude.ToPath DeleteProtection where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteProtection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteProtection where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteProtection where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteProtectionResponse' smart constructor.
 data DeleteProtectionResponse = DeleteProtectionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProtectionResponse' with all optional fields omitted.
@@ -134,7 +131,7 @@ data DeleteProtectionResponse = DeleteProtectionResponse'
 -- 'httpStatus', 'deleteProtectionResponse_httpStatus' - The response's http status code.
 newDeleteProtectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteProtectionResponse
 newDeleteProtectionResponse pHttpStatus_ =
   DeleteProtectionResponse'
@@ -143,7 +140,7 @@ newDeleteProtectionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteProtectionResponse_httpStatus :: Lens.Lens' DeleteProtectionResponse Prelude.Int
+deleteProtectionResponse_httpStatus :: Lens.Lens' DeleteProtectionResponse Core.Int
 deleteProtectionResponse_httpStatus = Lens.lens (\DeleteProtectionResponse' {httpStatus} -> httpStatus) (\s@DeleteProtectionResponse' {} a -> s {httpStatus = a} :: DeleteProtectionResponse)
 
-instance Prelude.NFData DeleteProtectionResponse
+instance Core.NFData DeleteProtectionResponse

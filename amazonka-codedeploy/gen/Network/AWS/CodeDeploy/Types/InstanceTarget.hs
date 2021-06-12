@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CodeDeploy.Types.InstanceTarget where
 import Network.AWS.CodeDeploy.Types.LifecycleEvent
 import Network.AWS.CodeDeploy.Types.TargetLabel
 import Network.AWS.CodeDeploy.Types.TargetStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A target Amazon EC2 or on-premises instance during a deployment that
 -- uses the EC2\/On-premises compute platform.
@@ -32,23 +31,23 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInstanceTarget' smart constructor.
 data InstanceTarget = InstanceTarget'
   { -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text,
+    deploymentId :: Core.Maybe Core.Text,
     -- | The status an EC2\/On-premises deployment\'s target instance.
-    status :: Prelude.Maybe TargetStatus,
+    status :: Core.Maybe TargetStatus,
     -- | The unique ID of a deployment target that has a type of
     -- @instanceTarget@.
-    targetId :: Prelude.Maybe Prelude.Text,
+    targetId :: Core.Maybe Core.Text,
     -- | A label that identifies whether the instance is an original target
     -- (@BLUE@) or a replacement target (@GREEN@).
-    instanceLabel :: Prelude.Maybe TargetLabel,
+    instanceLabel :: Core.Maybe TargetLabel,
     -- | The Amazon Resource Name (ARN) of the target.
-    targetArn :: Prelude.Maybe Prelude.Text,
+    targetArn :: Core.Maybe Core.Text,
     -- | The lifecycle events of the deployment to this target instance.
-    lifecycleEvents :: Prelude.Maybe [LifecycleEvent],
+    lifecycleEvents :: Core.Maybe [LifecycleEvent],
     -- | The date and time when the target instance was updated by a deployment.
-    lastUpdatedAt :: Prelude.Maybe Prelude.POSIX
+    lastUpdatedAt :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceTarget' with all optional fields omitted.
@@ -77,62 +76,60 @@ newInstanceTarget ::
   InstanceTarget
 newInstanceTarget =
   InstanceTarget'
-    { deploymentId = Prelude.Nothing,
-      status = Prelude.Nothing,
-      targetId = Prelude.Nothing,
-      instanceLabel = Prelude.Nothing,
-      targetArn = Prelude.Nothing,
-      lifecycleEvents = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing
+    { deploymentId = Core.Nothing,
+      status = Core.Nothing,
+      targetId = Core.Nothing,
+      instanceLabel = Core.Nothing,
+      targetArn = Core.Nothing,
+      lifecycleEvents = Core.Nothing,
+      lastUpdatedAt = Core.Nothing
     }
 
 -- | The unique ID of a deployment.
-instanceTarget_deploymentId :: Lens.Lens' InstanceTarget (Prelude.Maybe Prelude.Text)
+instanceTarget_deploymentId :: Lens.Lens' InstanceTarget (Core.Maybe Core.Text)
 instanceTarget_deploymentId = Lens.lens (\InstanceTarget' {deploymentId} -> deploymentId) (\s@InstanceTarget' {} a -> s {deploymentId = a} :: InstanceTarget)
 
 -- | The status an EC2\/On-premises deployment\'s target instance.
-instanceTarget_status :: Lens.Lens' InstanceTarget (Prelude.Maybe TargetStatus)
+instanceTarget_status :: Lens.Lens' InstanceTarget (Core.Maybe TargetStatus)
 instanceTarget_status = Lens.lens (\InstanceTarget' {status} -> status) (\s@InstanceTarget' {} a -> s {status = a} :: InstanceTarget)
 
 -- | The unique ID of a deployment target that has a type of
 -- @instanceTarget@.
-instanceTarget_targetId :: Lens.Lens' InstanceTarget (Prelude.Maybe Prelude.Text)
+instanceTarget_targetId :: Lens.Lens' InstanceTarget (Core.Maybe Core.Text)
 instanceTarget_targetId = Lens.lens (\InstanceTarget' {targetId} -> targetId) (\s@InstanceTarget' {} a -> s {targetId = a} :: InstanceTarget)
 
 -- | A label that identifies whether the instance is an original target
 -- (@BLUE@) or a replacement target (@GREEN@).
-instanceTarget_instanceLabel :: Lens.Lens' InstanceTarget (Prelude.Maybe TargetLabel)
+instanceTarget_instanceLabel :: Lens.Lens' InstanceTarget (Core.Maybe TargetLabel)
 instanceTarget_instanceLabel = Lens.lens (\InstanceTarget' {instanceLabel} -> instanceLabel) (\s@InstanceTarget' {} a -> s {instanceLabel = a} :: InstanceTarget)
 
 -- | The Amazon Resource Name (ARN) of the target.
-instanceTarget_targetArn :: Lens.Lens' InstanceTarget (Prelude.Maybe Prelude.Text)
+instanceTarget_targetArn :: Lens.Lens' InstanceTarget (Core.Maybe Core.Text)
 instanceTarget_targetArn = Lens.lens (\InstanceTarget' {targetArn} -> targetArn) (\s@InstanceTarget' {} a -> s {targetArn = a} :: InstanceTarget)
 
 -- | The lifecycle events of the deployment to this target instance.
-instanceTarget_lifecycleEvents :: Lens.Lens' InstanceTarget (Prelude.Maybe [LifecycleEvent])
-instanceTarget_lifecycleEvents = Lens.lens (\InstanceTarget' {lifecycleEvents} -> lifecycleEvents) (\s@InstanceTarget' {} a -> s {lifecycleEvents = a} :: InstanceTarget) Prelude.. Lens.mapping Prelude._Coerce
+instanceTarget_lifecycleEvents :: Lens.Lens' InstanceTarget (Core.Maybe [LifecycleEvent])
+instanceTarget_lifecycleEvents = Lens.lens (\InstanceTarget' {lifecycleEvents} -> lifecycleEvents) (\s@InstanceTarget' {} a -> s {lifecycleEvents = a} :: InstanceTarget) Core.. Lens.mapping Lens._Coerce
 
 -- | The date and time when the target instance was updated by a deployment.
-instanceTarget_lastUpdatedAt :: Lens.Lens' InstanceTarget (Prelude.Maybe Prelude.UTCTime)
-instanceTarget_lastUpdatedAt = Lens.lens (\InstanceTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@InstanceTarget' {} a -> s {lastUpdatedAt = a} :: InstanceTarget) Prelude.. Lens.mapping Prelude._Time
+instanceTarget_lastUpdatedAt :: Lens.Lens' InstanceTarget (Core.Maybe Core.UTCTime)
+instanceTarget_lastUpdatedAt = Lens.lens (\InstanceTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@InstanceTarget' {} a -> s {lastUpdatedAt = a} :: InstanceTarget) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON InstanceTarget where
+instance Core.FromJSON InstanceTarget where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceTarget"
       ( \x ->
           InstanceTarget'
-            Prelude.<$> (x Prelude..:? "deploymentId")
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "targetId")
-            Prelude.<*> (x Prelude..:? "instanceLabel")
-            Prelude.<*> (x Prelude..:? "targetArn")
-            Prelude.<*> ( x Prelude..:? "lifecycleEvents"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "lastUpdatedAt")
+            Core.<$> (x Core..:? "deploymentId")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "targetId")
+            Core.<*> (x Core..:? "instanceLabel")
+            Core.<*> (x Core..:? "targetArn")
+            Core.<*> (x Core..:? "lifecycleEvents" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "lastUpdatedAt")
       )
 
-instance Prelude.Hashable InstanceTarget
+instance Core.Hashable InstanceTarget
 
-instance Prelude.NFData InstanceTarget
+instance Core.NFData InstanceTarget

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.MediaConvert.DeletePreset
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeletePreset' smart constructor.
 data DeletePreset = DeletePreset'
   { -- | The name of the preset to be deleted.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePreset' with all optional fields omitted.
@@ -63,53 +62,51 @@ data DeletePreset = DeletePreset'
 -- 'name', 'deletePreset_name' - The name of the preset to be deleted.
 newDeletePreset ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeletePreset
 newDeletePreset pName_ = DeletePreset' {name = pName_}
 
 -- | The name of the preset to be deleted.
-deletePreset_name :: Lens.Lens' DeletePreset Prelude.Text
+deletePreset_name :: Lens.Lens' DeletePreset Core.Text
 deletePreset_name = Lens.lens (\DeletePreset' {name} -> name) (\s@DeletePreset' {} a -> s {name = a} :: DeletePreset)
 
-instance Prelude.AWSRequest DeletePreset where
-  type Rs DeletePreset = DeletePresetResponse
+instance Core.AWSRequest DeletePreset where
+  type AWSResponse DeletePreset = DeletePresetResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePresetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePreset
+instance Core.Hashable DeletePreset
 
-instance Prelude.NFData DeletePreset
+instance Core.NFData DeletePreset
 
-instance Prelude.ToHeaders DeletePreset where
+instance Core.ToHeaders DeletePreset where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeletePreset where
+instance Core.ToPath DeletePreset where
   toPath DeletePreset' {..} =
-    Prelude.mconcat
-      ["/2017-08-29/presets/", Prelude.toBS name]
+    Core.mconcat
+      ["/2017-08-29/presets/", Core.toBS name]
 
-instance Prelude.ToQuery DeletePreset where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePreset where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeletePresetResponse' smart constructor.
 data DeletePresetResponse = DeletePresetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePresetResponse' with all optional fields omitted.
@@ -122,13 +119,13 @@ data DeletePresetResponse = DeletePresetResponse'
 -- 'httpStatus', 'deletePresetResponse_httpStatus' - The response's http status code.
 newDeletePresetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeletePresetResponse
 newDeletePresetResponse pHttpStatus_ =
   DeletePresetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deletePresetResponse_httpStatus :: Lens.Lens' DeletePresetResponse Prelude.Int
+deletePresetResponse_httpStatus :: Lens.Lens' DeletePresetResponse Core.Int
 deletePresetResponse_httpStatus = Lens.lens (\DeletePresetResponse' {httpStatus} -> httpStatus) (\s@DeletePresetResponse' {} a -> s {httpStatus = a} :: DeletePresetResponse)
 
-instance Prelude.NFData DeletePresetResponse
+instance Core.NFData DeletePresetResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.Support.DescribeSeverityLevels
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -63,9 +62,9 @@ data DescribeSeverityLevels = DescribeSeverityLevels'
     -- Support currently supports English (\"en\") and Japanese (\"ja\").
     -- Language parameters must be passed explicitly for operations that take
     -- them.
-    language :: Prelude.Maybe Prelude.Text
+    language :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSeverityLevels' with all optional fields omitted.
@@ -82,61 +81,57 @@ data DescribeSeverityLevels = DescribeSeverityLevels'
 newDescribeSeverityLevels ::
   DescribeSeverityLevels
 newDescribeSeverityLevels =
-  DescribeSeverityLevels' {language = Prelude.Nothing}
+  DescribeSeverityLevels' {language = Core.Nothing}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-describeSeverityLevels_language :: Lens.Lens' DescribeSeverityLevels (Prelude.Maybe Prelude.Text)
+describeSeverityLevels_language :: Lens.Lens' DescribeSeverityLevels (Core.Maybe Core.Text)
 describeSeverityLevels_language = Lens.lens (\DescribeSeverityLevels' {language} -> language) (\s@DescribeSeverityLevels' {} a -> s {language = a} :: DescribeSeverityLevels)
 
-instance Prelude.AWSRequest DescribeSeverityLevels where
+instance Core.AWSRequest DescribeSeverityLevels where
   type
-    Rs DescribeSeverityLevels =
+    AWSResponse DescribeSeverityLevels =
       DescribeSeverityLevelsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeSeverityLevelsResponse'
-            Prelude.<$> ( x Prelude..?> "severityLevels"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "severityLevels" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSeverityLevels
+instance Core.Hashable DescribeSeverityLevels
 
-instance Prelude.NFData DescribeSeverityLevels
+instance Core.NFData DescribeSeverityLevels
 
-instance Prelude.ToHeaders DescribeSeverityLevels where
+instance Core.ToHeaders DescribeSeverityLevels where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSSupport_20130415.DescribeSeverityLevels" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSSupport_20130415.DescribeSeverityLevels" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeSeverityLevels where
+instance Core.ToJSON DescribeSeverityLevels where
   toJSON DescribeSeverityLevels' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("language" Prelude..=) Prelude.<$> language]
+    Core.object
+      ( Core.catMaybes
+          [("language" Core..=) Core.<$> language]
       )
 
-instance Prelude.ToPath DescribeSeverityLevels where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSeverityLevels where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeSeverityLevels where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeSeverityLevels where
+  toQuery = Core.const Core.mempty
 
 -- | The list of severity levels returned by the DescribeSeverityLevels
 -- operation.
@@ -145,11 +140,11 @@ instance Prelude.ToQuery DescribeSeverityLevels where
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
   { -- | The available severity levels for the support case. Available severity
     -- levels are defined by your service level agreement with AWS.
-    severityLevels :: Prelude.Maybe [SeverityLevel],
+    severityLevels :: Core.Maybe [SeverityLevel],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSeverityLevelsResponse' with all optional fields omitted.
@@ -165,24 +160,22 @@ data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
 -- 'httpStatus', 'describeSeverityLevelsResponse_httpStatus' - The response's http status code.
 newDescribeSeverityLevelsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSeverityLevelsResponse
 newDescribeSeverityLevelsResponse pHttpStatus_ =
   DescribeSeverityLevelsResponse'
     { severityLevels =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.
-describeSeverityLevelsResponse_severityLevels :: Lens.Lens' DescribeSeverityLevelsResponse (Prelude.Maybe [SeverityLevel])
-describeSeverityLevelsResponse_severityLevels = Lens.lens (\DescribeSeverityLevelsResponse' {severityLevels} -> severityLevels) (\s@DescribeSeverityLevelsResponse' {} a -> s {severityLevels = a} :: DescribeSeverityLevelsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeSeverityLevelsResponse_severityLevels :: Lens.Lens' DescribeSeverityLevelsResponse (Core.Maybe [SeverityLevel])
+describeSeverityLevelsResponse_severityLevels = Lens.lens (\DescribeSeverityLevelsResponse' {severityLevels} -> severityLevels) (\s@DescribeSeverityLevelsResponse' {} a -> s {severityLevels = a} :: DescribeSeverityLevelsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSeverityLevelsResponse_httpStatus :: Lens.Lens' DescribeSeverityLevelsResponse Prelude.Int
+describeSeverityLevelsResponse_httpStatus :: Lens.Lens' DescribeSeverityLevelsResponse Core.Int
 describeSeverityLevelsResponse_httpStatus = Lens.lens (\DescribeSeverityLevelsResponse' {httpStatus} -> httpStatus) (\s@DescribeSeverityLevelsResponse' {} a -> s {httpStatus = a} :: DescribeSeverityLevelsResponse)
 
-instance
-  Prelude.NFData
-    DescribeSeverityLevelsResponse
+instance Core.NFData DescribeSeverityLevelsResponse

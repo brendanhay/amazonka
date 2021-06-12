@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.CommandFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.CommandFilterKey
 
 -- | Describes a command filter.
@@ -73,9 +72,9 @@ data CommandFilter = CommandFilter'
     --
     --     -   @Complete@: Returns a list of command executions that have
     --         already completed.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CommandFilter' with all optional fields omitted.
@@ -131,7 +130,7 @@ newCommandFilter ::
   -- | 'key'
   CommandFilterKey ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   CommandFilter
 newCommandFilter pKey_ pValue_ =
   CommandFilter' {key = pKey_, value = pValue_}
@@ -180,18 +179,18 @@ commandFilter_key = Lens.lens (\CommandFilter' {key} -> key) (\s@CommandFilter' 
 --
 --     -   @Complete@: Returns a list of command executions that have
 --         already completed.
-commandFilter_value :: Lens.Lens' CommandFilter Prelude.Text
+commandFilter_value :: Lens.Lens' CommandFilter Core.Text
 commandFilter_value = Lens.lens (\CommandFilter' {value} -> value) (\s@CommandFilter' {} a -> s {value = a} :: CommandFilter)
 
-instance Prelude.Hashable CommandFilter
+instance Core.Hashable CommandFilter
 
-instance Prelude.NFData CommandFilter
+instance Core.NFData CommandFilter
 
-instance Prelude.ToJSON CommandFilter where
+instance Core.ToJSON CommandFilter where
   toJSON CommandFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("key" Prelude..= key),
-            Prelude.Just ("value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("key" Core..= key),
+            Core.Just ("value" Core..= value)
           ]
       )

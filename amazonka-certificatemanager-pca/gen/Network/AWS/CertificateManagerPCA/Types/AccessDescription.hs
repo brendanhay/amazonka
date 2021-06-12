@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CertificateManagerPCA.Types.AccessDescription where
 
 import Network.AWS.CertificateManagerPCA.Types.AccessMethod
 import Network.AWS.CertificateManagerPCA.Types.GeneralName
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides access information used by the @authorityInfoAccess@ and
 -- @subjectInfoAccess@ extensions described in
@@ -36,7 +35,7 @@ data AccessDescription = AccessDescription'
     -- | The location of @AccessDescription@ information.
     accessLocation :: GeneralName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccessDescription' with all optional fields omitted.
@@ -69,27 +68,25 @@ accessDescription_accessMethod = Lens.lens (\AccessDescription' {accessMethod} -
 accessDescription_accessLocation :: Lens.Lens' AccessDescription GeneralName
 accessDescription_accessLocation = Lens.lens (\AccessDescription' {accessLocation} -> accessLocation) (\s@AccessDescription' {} a -> s {accessLocation = a} :: AccessDescription)
 
-instance Prelude.FromJSON AccessDescription where
+instance Core.FromJSON AccessDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AccessDescription"
       ( \x ->
           AccessDescription'
-            Prelude.<$> (x Prelude..: "AccessMethod")
-            Prelude.<*> (x Prelude..: "AccessLocation")
+            Core.<$> (x Core..: "AccessMethod")
+            Core.<*> (x Core..: "AccessLocation")
       )
 
-instance Prelude.Hashable AccessDescription
+instance Core.Hashable AccessDescription
 
-instance Prelude.NFData AccessDescription
+instance Core.NFData AccessDescription
 
-instance Prelude.ToJSON AccessDescription where
+instance Core.ToJSON AccessDescription where
   toJSON AccessDescription' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AccessMethod" Prelude..= accessMethod),
-            Prelude.Just
-              ("AccessLocation" Prelude..= accessLocation)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccessMethod" Core..= accessMethod),
+            Core.Just ("AccessLocation" Core..= accessLocation)
           ]
       )

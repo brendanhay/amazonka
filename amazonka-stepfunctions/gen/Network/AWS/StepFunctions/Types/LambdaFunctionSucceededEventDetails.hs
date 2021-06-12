@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 
 -- | Contains details about a lambda function that successfully terminated
@@ -31,11 +30,11 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 data LambdaFunctionSucceededEventDetails = LambdaFunctionSucceededEventDetails'
   { -- | The JSON data output by the lambda function. Length constraints apply to
     -- the payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    output :: Core.Maybe (Core.Sensitive Core.Text),
     -- | Contains details about the output of an execution history event.
-    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails
+    outputDetails :: Core.Maybe HistoryEventExecutionDataDetails
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LambdaFunctionSucceededEventDetails' with all optional fields omitted.
@@ -54,36 +53,36 @@ newLambdaFunctionSucceededEventDetails ::
 newLambdaFunctionSucceededEventDetails =
   LambdaFunctionSucceededEventDetails'
     { output =
-        Prelude.Nothing,
-      outputDetails = Prelude.Nothing
+        Core.Nothing,
+      outputDetails = Core.Nothing
     }
 
 -- | The JSON data output by the lambda function. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
-lambdaFunctionSucceededEventDetails_output :: Lens.Lens' LambdaFunctionSucceededEventDetails (Prelude.Maybe Prelude.Text)
-lambdaFunctionSucceededEventDetails_output = Lens.lens (\LambdaFunctionSucceededEventDetails' {output} -> output) (\s@LambdaFunctionSucceededEventDetails' {} a -> s {output = a} :: LambdaFunctionSucceededEventDetails) Prelude.. Lens.mapping Prelude._Sensitive
+lambdaFunctionSucceededEventDetails_output :: Lens.Lens' LambdaFunctionSucceededEventDetails (Core.Maybe Core.Text)
+lambdaFunctionSucceededEventDetails_output = Lens.lens (\LambdaFunctionSucceededEventDetails' {output} -> output) (\s@LambdaFunctionSucceededEventDetails' {} a -> s {output = a} :: LambdaFunctionSucceededEventDetails) Core.. Lens.mapping Core._Sensitive
 
 -- | Contains details about the output of an execution history event.
-lambdaFunctionSucceededEventDetails_outputDetails :: Lens.Lens' LambdaFunctionSucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
+lambdaFunctionSucceededEventDetails_outputDetails :: Lens.Lens' LambdaFunctionSucceededEventDetails (Core.Maybe HistoryEventExecutionDataDetails)
 lambdaFunctionSucceededEventDetails_outputDetails = Lens.lens (\LambdaFunctionSucceededEventDetails' {outputDetails} -> outputDetails) (\s@LambdaFunctionSucceededEventDetails' {} a -> s {outputDetails = a} :: LambdaFunctionSucceededEventDetails)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     LambdaFunctionSucceededEventDetails
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LambdaFunctionSucceededEventDetails"
       ( \x ->
           LambdaFunctionSucceededEventDetails'
-            Prelude.<$> (x Prelude..:? "output")
-            Prelude.<*> (x Prelude..:? "outputDetails")
+            Core.<$> (x Core..:? "output")
+            Core.<*> (x Core..:? "outputDetails")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LambdaFunctionSucceededEventDetails
 
 instance
-  Prelude.NFData
+  Core.NFData
     LambdaFunctionSucceededEventDetails

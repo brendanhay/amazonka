@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.EmailChannelRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the status and settings of the email channel for an
 -- application.
@@ -31,22 +30,22 @@ data EmailChannelRequest = EmailChannelRequest'
   { -- | The ARN of the AWS Identity and Access Management (IAM) role that you
     -- want Amazon Pinpoint to use when it submits email-related event data for
     -- the channel.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | Specifies whether to enable the email channel for the application.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The
     -- <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set>
     -- that you want to apply to messages that you send through the channel.
-    configurationSet :: Prelude.Maybe Prelude.Text,
+    configurationSet :: Core.Maybe Core.Text,
     -- | The verified email address that you want to send email from when you
     -- send email through the channel.
-    fromAddress :: Prelude.Text,
+    fromAddress :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the identity, verified with Amazon
     -- Simple Email Service (Amazon SES), that you want to use when you send
     -- email through the channel.
-    identity :: Prelude.Text
+    identity :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EmailChannelRequest' with all optional fields omitted.
@@ -74,15 +73,15 @@ data EmailChannelRequest = EmailChannelRequest'
 -- email through the channel.
 newEmailChannelRequest ::
   -- | 'fromAddress'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identity'
-  Prelude.Text ->
+  Core.Text ->
   EmailChannelRequest
 newEmailChannelRequest pFromAddress_ pIdentity_ =
   EmailChannelRequest'
-    { roleArn = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      configurationSet = Prelude.Nothing,
+    { roleArn = Core.Nothing,
+      enabled = Core.Nothing,
+      configurationSet = Core.Nothing,
       fromAddress = pFromAddress_,
       identity = pIdentity_
     }
@@ -90,43 +89,43 @@ newEmailChannelRequest pFromAddress_ pIdentity_ =
 -- | The ARN of the AWS Identity and Access Management (IAM) role that you
 -- want Amazon Pinpoint to use when it submits email-related event data for
 -- the channel.
-emailChannelRequest_roleArn :: Lens.Lens' EmailChannelRequest (Prelude.Maybe Prelude.Text)
+emailChannelRequest_roleArn :: Lens.Lens' EmailChannelRequest (Core.Maybe Core.Text)
 emailChannelRequest_roleArn = Lens.lens (\EmailChannelRequest' {roleArn} -> roleArn) (\s@EmailChannelRequest' {} a -> s {roleArn = a} :: EmailChannelRequest)
 
 -- | Specifies whether to enable the email channel for the application.
-emailChannelRequest_enabled :: Lens.Lens' EmailChannelRequest (Prelude.Maybe Prelude.Bool)
+emailChannelRequest_enabled :: Lens.Lens' EmailChannelRequest (Core.Maybe Core.Bool)
 emailChannelRequest_enabled = Lens.lens (\EmailChannelRequest' {enabled} -> enabled) (\s@EmailChannelRequest' {} a -> s {enabled = a} :: EmailChannelRequest)
 
 -- | The
 -- <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set>
 -- that you want to apply to messages that you send through the channel.
-emailChannelRequest_configurationSet :: Lens.Lens' EmailChannelRequest (Prelude.Maybe Prelude.Text)
+emailChannelRequest_configurationSet :: Lens.Lens' EmailChannelRequest (Core.Maybe Core.Text)
 emailChannelRequest_configurationSet = Lens.lens (\EmailChannelRequest' {configurationSet} -> configurationSet) (\s@EmailChannelRequest' {} a -> s {configurationSet = a} :: EmailChannelRequest)
 
 -- | The verified email address that you want to send email from when you
 -- send email through the channel.
-emailChannelRequest_fromAddress :: Lens.Lens' EmailChannelRequest Prelude.Text
+emailChannelRequest_fromAddress :: Lens.Lens' EmailChannelRequest Core.Text
 emailChannelRequest_fromAddress = Lens.lens (\EmailChannelRequest' {fromAddress} -> fromAddress) (\s@EmailChannelRequest' {} a -> s {fromAddress = a} :: EmailChannelRequest)
 
 -- | The Amazon Resource Name (ARN) of the identity, verified with Amazon
 -- Simple Email Service (Amazon SES), that you want to use when you send
 -- email through the channel.
-emailChannelRequest_identity :: Lens.Lens' EmailChannelRequest Prelude.Text
+emailChannelRequest_identity :: Lens.Lens' EmailChannelRequest Core.Text
 emailChannelRequest_identity = Lens.lens (\EmailChannelRequest' {identity} -> identity) (\s@EmailChannelRequest' {} a -> s {identity = a} :: EmailChannelRequest)
 
-instance Prelude.Hashable EmailChannelRequest
+instance Core.Hashable EmailChannelRequest
 
-instance Prelude.NFData EmailChannelRequest
+instance Core.NFData EmailChannelRequest
 
-instance Prelude.ToJSON EmailChannelRequest where
+instance Core.ToJSON EmailChannelRequest where
   toJSON EmailChannelRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RoleArn" Prelude..=) Prelude.<$> roleArn,
-            ("Enabled" Prelude..=) Prelude.<$> enabled,
-            ("ConfigurationSet" Prelude..=)
-              Prelude.<$> configurationSet,
-            Prelude.Just ("FromAddress" Prelude..= fromAddress),
-            Prelude.Just ("Identity" Prelude..= identity)
+    Core.object
+      ( Core.catMaybes
+          [ ("RoleArn" Core..=) Core.<$> roleArn,
+            ("Enabled" Core..=) Core.<$> enabled,
+            ("ConfigurationSet" Core..=)
+              Core.<$> configurationSet,
+            Core.Just ("FromAddress" Core..= fromAddress),
+            Core.Just ("Identity" Core..= identity)
           ]
       )

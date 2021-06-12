@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,27 +52,27 @@ module Network.AWS.ELBv2.CreateRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateRule' smart constructor.
 data CreateRule = CreateRule'
   { -- | The tags to assign to the rule.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The Amazon Resource Name (ARN) of the listener.
-    listenerArn :: Prelude.Text,
+    listenerArn :: Core.Text,
     -- | The conditions.
     conditions :: [RuleCondition],
     -- | The rule priority. A listener can\'t have multiple rules with the same
     -- priority.
-    priority :: Prelude.Natural,
+    priority :: Core.Natural,
     -- | The actions.
     actions :: [Action]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRule' with all optional fields omitted.
@@ -95,90 +94,87 @@ data CreateRule = CreateRule'
 -- 'actions', 'createRule_actions' - The actions.
 newCreateRule ::
   -- | 'listenerArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'priority'
-  Prelude.Natural ->
+  Core.Natural ->
   CreateRule
 newCreateRule pListenerArn_ pPriority_ =
   CreateRule'
-    { tags = Prelude.Nothing,
+    { tags = Core.Nothing,
       listenerArn = pListenerArn_,
-      conditions = Prelude.mempty,
+      conditions = Core.mempty,
       priority = pPriority_,
-      actions = Prelude.mempty
+      actions = Core.mempty
     }
 
 -- | The tags to assign to the rule.
-createRule_tags :: Lens.Lens' CreateRule (Prelude.Maybe (Prelude.NonEmpty Tag))
-createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Prelude.. Lens.mapping Prelude._Coerce
+createRule_tags :: Lens.Lens' CreateRule (Core.Maybe (Core.NonEmpty Tag))
+createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the listener.
-createRule_listenerArn :: Lens.Lens' CreateRule Prelude.Text
+createRule_listenerArn :: Lens.Lens' CreateRule Core.Text
 createRule_listenerArn = Lens.lens (\CreateRule' {listenerArn} -> listenerArn) (\s@CreateRule' {} a -> s {listenerArn = a} :: CreateRule)
 
 -- | The conditions.
 createRule_conditions :: Lens.Lens' CreateRule [RuleCondition]
-createRule_conditions = Lens.lens (\CreateRule' {conditions} -> conditions) (\s@CreateRule' {} a -> s {conditions = a} :: CreateRule) Prelude.. Prelude._Coerce
+createRule_conditions = Lens.lens (\CreateRule' {conditions} -> conditions) (\s@CreateRule' {} a -> s {conditions = a} :: CreateRule) Core.. Lens._Coerce
 
 -- | The rule priority. A listener can\'t have multiple rules with the same
 -- priority.
-createRule_priority :: Lens.Lens' CreateRule Prelude.Natural
+createRule_priority :: Lens.Lens' CreateRule Core.Natural
 createRule_priority = Lens.lens (\CreateRule' {priority} -> priority) (\s@CreateRule' {} a -> s {priority = a} :: CreateRule)
 
 -- | The actions.
 createRule_actions :: Lens.Lens' CreateRule [Action]
-createRule_actions = Lens.lens (\CreateRule' {actions} -> actions) (\s@CreateRule' {} a -> s {actions = a} :: CreateRule) Prelude.. Prelude._Coerce
+createRule_actions = Lens.lens (\CreateRule' {actions} -> actions) (\s@CreateRule' {} a -> s {actions = a} :: CreateRule) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateRule where
-  type Rs CreateRule = CreateRuleResponse
+instance Core.AWSRequest CreateRule where
+  type AWSResponse CreateRule = CreateRuleResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateRuleResult"
       ( \s h x ->
           CreateRuleResponse'
-            Prelude.<$> ( x Prelude..@? "Rules" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Rules" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRule
+instance Core.Hashable CreateRule
 
-instance Prelude.NFData CreateRule
+instance Core.NFData CreateRule
 
-instance Prelude.ToHeaders CreateRule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateRule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateRule where
+instance Core.ToQuery CreateRule where
   toQuery CreateRule' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("CreateRule" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
+    Core.mconcat
+      [ "Action" Core.=: ("CreateRule" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> tags),
-        "ListenerArn" Prelude.=: listenerArn,
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> tags),
+        "ListenerArn" Core.=: listenerArn,
         "Conditions"
-          Prelude.=: Prelude.toQueryList "member" conditions,
-        "Priority" Prelude.=: priority,
-        "Actions"
-          Prelude.=: Prelude.toQueryList "member" actions
+          Core.=: Core.toQueryList "member" conditions,
+        "Priority" Core.=: priority,
+        "Actions" Core.=: Core.toQueryList "member" actions
       ]
 
 -- | /See:/ 'newCreateRuleResponse' smart constructor.
 data CreateRuleResponse = CreateRuleResponse'
   { -- | Information about the rule.
-    rules :: Prelude.Maybe [Rule],
+    rules :: Core.Maybe [Rule],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRuleResponse' with all optional fields omitted.
@@ -193,20 +189,20 @@ data CreateRuleResponse = CreateRuleResponse'
 -- 'httpStatus', 'createRuleResponse_httpStatus' - The response's http status code.
 newCreateRuleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateRuleResponse
 newCreateRuleResponse pHttpStatus_ =
   CreateRuleResponse'
-    { rules = Prelude.Nothing,
+    { rules = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the rule.
-createRuleResponse_rules :: Lens.Lens' CreateRuleResponse (Prelude.Maybe [Rule])
-createRuleResponse_rules = Lens.lens (\CreateRuleResponse' {rules} -> rules) (\s@CreateRuleResponse' {} a -> s {rules = a} :: CreateRuleResponse) Prelude.. Lens.mapping Prelude._Coerce
+createRuleResponse_rules :: Lens.Lens' CreateRuleResponse (Core.Maybe [Rule])
+createRuleResponse_rules = Lens.lens (\CreateRuleResponse' {rules} -> rules) (\s@CreateRuleResponse' {} a -> s {rules = a} :: CreateRuleResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createRuleResponse_httpStatus :: Lens.Lens' CreateRuleResponse Prelude.Int
+createRuleResponse_httpStatus :: Lens.Lens' CreateRuleResponse Core.Int
 createRuleResponse_httpStatus = Lens.lens (\CreateRuleResponse' {httpStatus} -> httpStatus) (\s@CreateRuleResponse' {} a -> s {httpStatus = a} :: CreateRuleResponse)
 
-instance Prelude.NFData CreateRuleResponse
+instance Core.NFData CreateRuleResponse

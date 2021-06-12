@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +52,13 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The source\/destination checking attribute. Resets the value to @true@.
-    sourceDestCheck :: Prelude.Maybe Prelude.Text,
+    sourceDestCheck :: Core.Maybe Core.Text,
     -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Text
+    networkInterfaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetNetworkInterfaceAttribute' with all optional fields omitted.
@@ -79,14 +78,14 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
 -- 'networkInterfaceId', 'resetNetworkInterfaceAttribute_networkInterfaceId' - The ID of the network interface.
 newResetNetworkInterfaceAttribute ::
   -- | 'networkInterfaceId'
-  Prelude.Text ->
+  Core.Text ->
   ResetNetworkInterfaceAttribute
 newResetNetworkInterfaceAttribute
   pNetworkInterfaceId_ =
     ResetNetworkInterfaceAttribute'
       { dryRun =
-          Prelude.Nothing,
-        sourceDestCheck = Prelude.Nothing,
+          Core.Nothing,
+        sourceDestCheck = Core.Nothing,
         networkInterfaceId = pNetworkInterfaceId_
       }
 
@@ -94,71 +93,60 @@ newResetNetworkInterfaceAttribute
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-resetNetworkInterfaceAttribute_dryRun :: Lens.Lens' ResetNetworkInterfaceAttribute (Prelude.Maybe Prelude.Bool)
+resetNetworkInterfaceAttribute_dryRun :: Lens.Lens' ResetNetworkInterfaceAttribute (Core.Maybe Core.Bool)
 resetNetworkInterfaceAttribute_dryRun = Lens.lens (\ResetNetworkInterfaceAttribute' {dryRun} -> dryRun) (\s@ResetNetworkInterfaceAttribute' {} a -> s {dryRun = a} :: ResetNetworkInterfaceAttribute)
 
 -- | The source\/destination checking attribute. Resets the value to @true@.
-resetNetworkInterfaceAttribute_sourceDestCheck :: Lens.Lens' ResetNetworkInterfaceAttribute (Prelude.Maybe Prelude.Text)
+resetNetworkInterfaceAttribute_sourceDestCheck :: Lens.Lens' ResetNetworkInterfaceAttribute (Core.Maybe Core.Text)
 resetNetworkInterfaceAttribute_sourceDestCheck = Lens.lens (\ResetNetworkInterfaceAttribute' {sourceDestCheck} -> sourceDestCheck) (\s@ResetNetworkInterfaceAttribute' {} a -> s {sourceDestCheck = a} :: ResetNetworkInterfaceAttribute)
 
 -- | The ID of the network interface.
-resetNetworkInterfaceAttribute_networkInterfaceId :: Lens.Lens' ResetNetworkInterfaceAttribute Prelude.Text
+resetNetworkInterfaceAttribute_networkInterfaceId :: Lens.Lens' ResetNetworkInterfaceAttribute Core.Text
 resetNetworkInterfaceAttribute_networkInterfaceId = Lens.lens (\ResetNetworkInterfaceAttribute' {networkInterfaceId} -> networkInterfaceId) (\s@ResetNetworkInterfaceAttribute' {} a -> s {networkInterfaceId = a} :: ResetNetworkInterfaceAttribute)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ResetNetworkInterfaceAttribute
   where
   type
-    Rs ResetNetworkInterfaceAttribute =
+    AWSResponse ResetNetworkInterfaceAttribute =
       ResetNetworkInterfaceAttributeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       ResetNetworkInterfaceAttributeResponse'
 
-instance
-  Prelude.Hashable
-    ResetNetworkInterfaceAttribute
+instance Core.Hashable ResetNetworkInterfaceAttribute
+
+instance Core.NFData ResetNetworkInterfaceAttribute
 
 instance
-  Prelude.NFData
-    ResetNetworkInterfaceAttribute
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ResetNetworkInterfaceAttribute
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    ResetNetworkInterfaceAttribute
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath ResetNetworkInterfaceAttribute where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ResetNetworkInterfaceAttribute
-  where
+instance Core.ToQuery ResetNetworkInterfaceAttribute where
   toQuery ResetNetworkInterfaceAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ResetNetworkInterfaceAttribute" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "SourceDestCheck" Prelude.=: sourceDestCheck,
-        "NetworkInterfaceId" Prelude.=: networkInterfaceId
+          Core.=: ( "ResetNetworkInterfaceAttribute" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "SourceDestCheck" Core.=: sourceDestCheck,
+        "NetworkInterfaceId" Core.=: networkInterfaceId
       ]
 
 -- | /See:/ 'newResetNetworkInterfaceAttributeResponse' smart constructor.
 data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetNetworkInterfaceAttributeResponse' with all optional fields omitted.
@@ -170,5 +158,5 @@ newResetNetworkInterfaceAttributeResponse =
   ResetNetworkInterfaceAttributeResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     ResetNetworkInterfaceAttributeResponse

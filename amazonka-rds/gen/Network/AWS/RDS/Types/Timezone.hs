@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.Timezone where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A time zone associated with a @DBInstance@ or a @DBSnapshot@. This data
 -- type is an element in the response to the @DescribeDBInstances@, the
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTimezone' smart constructor.
 data Timezone = Timezone'
   { -- | The name of the time zone.
-    timezoneName :: Prelude.Maybe Prelude.Text
+    timezoneName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Timezone' with all optional fields omitted.
@@ -45,18 +44,16 @@ data Timezone = Timezone'
 -- 'timezoneName', 'timezone_timezoneName' - The name of the time zone.
 newTimezone ::
   Timezone
-newTimezone =
-  Timezone' {timezoneName = Prelude.Nothing}
+newTimezone = Timezone' {timezoneName = Core.Nothing}
 
 -- | The name of the time zone.
-timezone_timezoneName :: Lens.Lens' Timezone (Prelude.Maybe Prelude.Text)
+timezone_timezoneName :: Lens.Lens' Timezone (Core.Maybe Core.Text)
 timezone_timezoneName = Lens.lens (\Timezone' {timezoneName} -> timezoneName) (\s@Timezone' {} a -> s {timezoneName = a} :: Timezone)
 
-instance Prelude.FromXML Timezone where
+instance Core.FromXML Timezone where
   parseXML x =
-    Timezone'
-      Prelude.<$> (x Prelude..@? "TimezoneName")
+    Timezone' Core.<$> (x Core..@? "TimezoneName")
 
-instance Prelude.Hashable Timezone
+instance Core.Hashable Timezone
 
-instance Prelude.NFData Timezone
+instance Core.NFData Timezone

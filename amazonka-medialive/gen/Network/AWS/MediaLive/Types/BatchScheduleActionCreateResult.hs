@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ScheduleAction
-import qualified Network.AWS.Prelude as Prelude
 
 -- | List of actions that have been created in the schedule.
 --
@@ -31,7 +30,7 @@ data BatchScheduleActionCreateResult = BatchScheduleActionCreateResult'
   { -- | List of actions that have been created in the schedule.
     scheduleActions :: [ScheduleAction]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchScheduleActionCreateResult' with all optional fields omitted.
@@ -47,31 +46,27 @@ newBatchScheduleActionCreateResult ::
 newBatchScheduleActionCreateResult =
   BatchScheduleActionCreateResult'
     { scheduleActions =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | List of actions that have been created in the schedule.
 batchScheduleActionCreateResult_scheduleActions :: Lens.Lens' BatchScheduleActionCreateResult [ScheduleAction]
-batchScheduleActionCreateResult_scheduleActions = Lens.lens (\BatchScheduleActionCreateResult' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionCreateResult' {} a -> s {scheduleActions = a} :: BatchScheduleActionCreateResult) Prelude.. Prelude._Coerce
+batchScheduleActionCreateResult_scheduleActions = Lens.lens (\BatchScheduleActionCreateResult' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionCreateResult' {} a -> s {scheduleActions = a} :: BatchScheduleActionCreateResult) Core.. Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     BatchScheduleActionCreateResult
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchScheduleActionCreateResult"
       ( \x ->
           BatchScheduleActionCreateResult'
-            Prelude.<$> ( x Prelude..:? "scheduleActions"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "scheduleActions" Core..!= Core.mempty)
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchScheduleActionCreateResult
 
-instance
-  Prelude.NFData
-    BatchScheduleActionCreateResult
+instance Core.NFData BatchScheduleActionCreateResult

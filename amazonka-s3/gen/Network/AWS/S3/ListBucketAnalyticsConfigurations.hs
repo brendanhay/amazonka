@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -75,8 +74,8 @@ module Network.AWS.S3.ListBucketAnalyticsConfigurations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -86,15 +85,15 @@ data ListBucketAnalyticsConfigurations = ListBucketAnalyticsConfigurations'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The ContinuationToken that represents a placeholder from where this
     -- request should begin.
-    continuationToken :: Prelude.Maybe Prelude.Text,
+    continuationToken :: Core.Maybe Core.Text,
     -- | The name of the bucket from which analytics configurations are
     -- retrieved.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListBucketAnalyticsConfigurations' with all optional fields omitted.
@@ -120,20 +119,20 @@ newListBucketAnalyticsConfigurations ::
 newListBucketAnalyticsConfigurations pBucket_ =
   ListBucketAnalyticsConfigurations'
     { expectedBucketOwner =
-        Prelude.Nothing,
-      continuationToken = Prelude.Nothing,
+        Core.Nothing,
+      continuationToken = Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-listBucketAnalyticsConfigurations_expectedBucketOwner :: Lens.Lens' ListBucketAnalyticsConfigurations (Prelude.Maybe Prelude.Text)
+listBucketAnalyticsConfigurations_expectedBucketOwner :: Lens.Lens' ListBucketAnalyticsConfigurations (Core.Maybe Core.Text)
 listBucketAnalyticsConfigurations_expectedBucketOwner = Lens.lens (\ListBucketAnalyticsConfigurations' {expectedBucketOwner} -> expectedBucketOwner) (\s@ListBucketAnalyticsConfigurations' {} a -> s {expectedBucketOwner = a} :: ListBucketAnalyticsConfigurations)
 
 -- | The ContinuationToken that represents a placeholder from where this
 -- request should begin.
-listBucketAnalyticsConfigurations_continuationToken :: Lens.Lens' ListBucketAnalyticsConfigurations (Prelude.Maybe Prelude.Text)
+listBucketAnalyticsConfigurations_continuationToken :: Lens.Lens' ListBucketAnalyticsConfigurations (Core.Maybe Core.Text)
 listBucketAnalyticsConfigurations_continuationToken = Lens.lens (\ListBucketAnalyticsConfigurations' {continuationToken} -> continuationToken) (\s@ListBucketAnalyticsConfigurations' {} a -> s {continuationToken = a} :: ListBucketAnalyticsConfigurations)
 
 -- | The name of the bucket from which analytics configurations are
@@ -142,83 +141,83 @@ listBucketAnalyticsConfigurations_bucket :: Lens.Lens' ListBucketAnalyticsConfig
 listBucketAnalyticsConfigurations_bucket = Lens.lens (\ListBucketAnalyticsConfigurations' {bucket} -> bucket) (\s@ListBucketAnalyticsConfigurations' {} a -> s {bucket = a} :: ListBucketAnalyticsConfigurations)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListBucketAnalyticsConfigurations
   where
   type
-    Rs ListBucketAnalyticsConfigurations =
+    AWSResponse ListBucketAnalyticsConfigurations =
       ListBucketAnalyticsConfigurationsResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListBucketAnalyticsConfigurationsResponse'
-            Prelude.<$> ( Prelude.may
-                            (Prelude.parseXMLList "AnalyticsConfiguration")
-                            x
-                        )
-              Prelude.<*> (x Prelude..@? "IsTruncated")
-              Prelude.<*> (x Prelude..@? "NextContinuationToken")
-              Prelude.<*> (x Prelude..@? "ContinuationToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( Core.may
+                         (Core.parseXMLList "AnalyticsConfiguration")
+                         x
+                     )
+            Core.<*> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "NextContinuationToken")
+            Core.<*> (x Core..@? "ContinuationToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListBucketAnalyticsConfigurations
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListBucketAnalyticsConfigurations
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListBucketAnalyticsConfigurations
   where
   toHeaders ListBucketAnalyticsConfigurations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     ListBucketAnalyticsConfigurations
   where
   toPath ListBucketAnalyticsConfigurations' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ListBucketAnalyticsConfigurations
   where
   toQuery ListBucketAnalyticsConfigurations' {..} =
-    Prelude.mconcat
-      [ "continuation-token" Prelude.=: continuationToken,
+    Core.mconcat
+      [ "continuation-token" Core.=: continuationToken,
         "analytics"
       ]
 
 -- | /See:/ 'newListBucketAnalyticsConfigurationsResponse' smart constructor.
 data ListBucketAnalyticsConfigurationsResponse = ListBucketAnalyticsConfigurationsResponse'
   { -- | The list of analytics configurations for a bucket.
-    analyticsConfigurationList :: Prelude.Maybe [AnalyticsConfiguration],
+    analyticsConfigurationList :: Core.Maybe [AnalyticsConfiguration],
     -- | Indicates whether the returned list of analytics configurations is
     -- complete. A value of true indicates that the list is not complete and
     -- the NextContinuationToken will be provided for a subsequent request.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | @NextContinuationToken@ is sent when @isTruncated@ is true, which
     -- indicates that there are more analytics configurations to list. The next
     -- request must include this @NextContinuationToken@. The token is
     -- obfuscated and is not a usable value.
-    nextContinuationToken :: Prelude.Maybe Prelude.Text,
+    nextContinuationToken :: Core.Maybe Core.Text,
     -- | The marker that is used as a starting point for this analytics
     -- configuration list response. This value is present if it was sent in the
     -- request.
-    continuationToken :: Prelude.Maybe Prelude.Text,
+    continuationToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListBucketAnalyticsConfigurationsResponse' with all optional fields omitted.
@@ -246,48 +245,47 @@ data ListBucketAnalyticsConfigurationsResponse = ListBucketAnalyticsConfiguratio
 -- 'httpStatus', 'listBucketAnalyticsConfigurationsResponse_httpStatus' - The response's http status code.
 newListBucketAnalyticsConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListBucketAnalyticsConfigurationsResponse
 newListBucketAnalyticsConfigurationsResponse
   pHttpStatus_ =
     ListBucketAnalyticsConfigurationsResponse'
       { analyticsConfigurationList =
-          Prelude.Nothing,
-        isTruncated = Prelude.Nothing,
+          Core.Nothing,
+        isTruncated = Core.Nothing,
         nextContinuationToken =
-          Prelude.Nothing,
-        continuationToken =
-          Prelude.Nothing,
+          Core.Nothing,
+        continuationToken = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The list of analytics configurations for a bucket.
-listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Prelude.Maybe [AnalyticsConfiguration])
-listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList = Lens.lens (\ListBucketAnalyticsConfigurationsResponse' {analyticsConfigurationList} -> analyticsConfigurationList) (\s@ListBucketAnalyticsConfigurationsResponse' {} a -> s {analyticsConfigurationList = a} :: ListBucketAnalyticsConfigurationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Core.Maybe [AnalyticsConfiguration])
+listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList = Lens.lens (\ListBucketAnalyticsConfigurationsResponse' {analyticsConfigurationList} -> analyticsConfigurationList) (\s@ListBucketAnalyticsConfigurationsResponse' {} a -> s {analyticsConfigurationList = a} :: ListBucketAnalyticsConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether the returned list of analytics configurations is
 -- complete. A value of true indicates that the list is not complete and
 -- the NextContinuationToken will be provided for a subsequent request.
-listBucketAnalyticsConfigurationsResponse_isTruncated :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Prelude.Maybe Prelude.Bool)
+listBucketAnalyticsConfigurationsResponse_isTruncated :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Core.Maybe Core.Bool)
 listBucketAnalyticsConfigurationsResponse_isTruncated = Lens.lens (\ListBucketAnalyticsConfigurationsResponse' {isTruncated} -> isTruncated) (\s@ListBucketAnalyticsConfigurationsResponse' {} a -> s {isTruncated = a} :: ListBucketAnalyticsConfigurationsResponse)
 
 -- | @NextContinuationToken@ is sent when @isTruncated@ is true, which
 -- indicates that there are more analytics configurations to list. The next
 -- request must include this @NextContinuationToken@. The token is
 -- obfuscated and is not a usable value.
-listBucketAnalyticsConfigurationsResponse_nextContinuationToken :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Prelude.Maybe Prelude.Text)
+listBucketAnalyticsConfigurationsResponse_nextContinuationToken :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Core.Maybe Core.Text)
 listBucketAnalyticsConfigurationsResponse_nextContinuationToken = Lens.lens (\ListBucketAnalyticsConfigurationsResponse' {nextContinuationToken} -> nextContinuationToken) (\s@ListBucketAnalyticsConfigurationsResponse' {} a -> s {nextContinuationToken = a} :: ListBucketAnalyticsConfigurationsResponse)
 
 -- | The marker that is used as a starting point for this analytics
 -- configuration list response. This value is present if it was sent in the
 -- request.
-listBucketAnalyticsConfigurationsResponse_continuationToken :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Prelude.Maybe Prelude.Text)
+listBucketAnalyticsConfigurationsResponse_continuationToken :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Core.Maybe Core.Text)
 listBucketAnalyticsConfigurationsResponse_continuationToken = Lens.lens (\ListBucketAnalyticsConfigurationsResponse' {continuationToken} -> continuationToken) (\s@ListBucketAnalyticsConfigurationsResponse' {} a -> s {continuationToken = a} :: ListBucketAnalyticsConfigurationsResponse)
 
 -- | The response's http status code.
-listBucketAnalyticsConfigurationsResponse_httpStatus :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse Prelude.Int
+listBucketAnalyticsConfigurationsResponse_httpStatus :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse Core.Int
 listBucketAnalyticsConfigurationsResponse_httpStatus = Lens.lens (\ListBucketAnalyticsConfigurationsResponse' {httpStatus} -> httpStatus) (\s@ListBucketAnalyticsConfigurationsResponse' {} a -> s {httpStatus = a} :: ListBucketAnalyticsConfigurationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListBucketAnalyticsConfigurationsResponse

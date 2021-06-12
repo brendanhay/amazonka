@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.Allowed where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.Policy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information that allowed the authorization.
 --
 -- /See:/ 'newAllowed' smart constructor.
 data Allowed = Allowed'
   { -- | A list of policies that allowed the authentication.
-    policies :: Prelude.Maybe [Policy]
+    policies :: Core.Maybe [Policy]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Allowed' with all optional fields omitted.
@@ -44,23 +43,21 @@ data Allowed = Allowed'
 -- 'policies', 'allowed_policies' - A list of policies that allowed the authentication.
 newAllowed ::
   Allowed
-newAllowed = Allowed' {policies = Prelude.Nothing}
+newAllowed = Allowed' {policies = Core.Nothing}
 
 -- | A list of policies that allowed the authentication.
-allowed_policies :: Lens.Lens' Allowed (Prelude.Maybe [Policy])
-allowed_policies = Lens.lens (\Allowed' {policies} -> policies) (\s@Allowed' {} a -> s {policies = a} :: Allowed) Prelude.. Lens.mapping Prelude._Coerce
+allowed_policies :: Lens.Lens' Allowed (Core.Maybe [Policy])
+allowed_policies = Lens.lens (\Allowed' {policies} -> policies) (\s@Allowed' {} a -> s {policies = a} :: Allowed) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Allowed where
+instance Core.FromJSON Allowed where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Allowed"
       ( \x ->
           Allowed'
-            Prelude.<$> ( x Prelude..:? "policies"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "policies" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Allowed
+instance Core.Hashable Allowed
 
-instance Prelude.NFData Allowed
+instance Core.NFData Allowed

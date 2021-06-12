@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,26 +47,25 @@ module Network.AWS.EC2.GetTransitGatewayRouteTableAssociations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetTransitGatewayRouteTableAssociations' smart constructor.
 data GetTransitGatewayRouteTableAssociations = GetTransitGatewayRouteTableAssociations'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more filters. The possible values are:
     --
     -- -   @resource-id@ - The ID of the resource.
@@ -76,11 +74,11 @@ data GetTransitGatewayRouteTableAssociations = GetTransitGatewayRouteTableAssoci
     --     | @direct-connect-gateway@ | @peering@ | @connect@.
     --
     -- -   @transit-gateway-attachment-id@ - The ID of the attachment.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | The ID of the transit gateway route table.
-    transitGatewayRouteTableId :: Prelude.Text
+    transitGatewayRouteTableId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTransitGatewayRouteTableAssociations' with all optional fields omitted.
@@ -113,35 +111,35 @@ data GetTransitGatewayRouteTableAssociations = GetTransitGatewayRouteTableAssoci
 -- 'transitGatewayRouteTableId', 'getTransitGatewayRouteTableAssociations_transitGatewayRouteTableId' - The ID of the transit gateway route table.
 newGetTransitGatewayRouteTableAssociations ::
   -- | 'transitGatewayRouteTableId'
-  Prelude.Text ->
+  Core.Text ->
   GetTransitGatewayRouteTableAssociations
 newGetTransitGatewayRouteTableAssociations
   pTransitGatewayRouteTableId_ =
     GetTransitGatewayRouteTableAssociations'
       { nextToken =
-          Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
-        filters = Prelude.Nothing,
+          Core.Nothing,
+        dryRun = Core.Nothing,
+        maxResults = Core.Nothing,
+        filters = Core.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_
       }
 
 -- | The token for the next page of results.
-getTransitGatewayRouteTableAssociations_nextToken :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Prelude.Maybe Prelude.Text)
+getTransitGatewayRouteTableAssociations_nextToken :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Core.Maybe Core.Text)
 getTransitGatewayRouteTableAssociations_nextToken = Lens.lens (\GetTransitGatewayRouteTableAssociations' {nextToken} -> nextToken) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {nextToken = a} :: GetTransitGatewayRouteTableAssociations)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-getTransitGatewayRouteTableAssociations_dryRun :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Prelude.Maybe Prelude.Bool)
+getTransitGatewayRouteTableAssociations_dryRun :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Core.Maybe Core.Bool)
 getTransitGatewayRouteTableAssociations_dryRun = Lens.lens (\GetTransitGatewayRouteTableAssociations' {dryRun} -> dryRun) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {dryRun = a} :: GetTransitGatewayRouteTableAssociations)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-getTransitGatewayRouteTableAssociations_maxResults :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Prelude.Maybe Prelude.Natural)
+getTransitGatewayRouteTableAssociations_maxResults :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Core.Maybe Core.Natural)
 getTransitGatewayRouteTableAssociations_maxResults = Lens.lens (\GetTransitGatewayRouteTableAssociations' {maxResults} -> maxResults) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {maxResults = a} :: GetTransitGatewayRouteTableAssociations)
 
 -- | One or more filters. The possible values are:
@@ -152,110 +150,109 @@ getTransitGatewayRouteTableAssociations_maxResults = Lens.lens (\GetTransitGatew
 --     | @direct-connect-gateway@ | @peering@ | @connect@.
 --
 -- -   @transit-gateway-attachment-id@ - The ID of the attachment.
-getTransitGatewayRouteTableAssociations_filters :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Prelude.Maybe [Filter])
-getTransitGatewayRouteTableAssociations_filters = Lens.lens (\GetTransitGatewayRouteTableAssociations' {filters} -> filters) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {filters = a} :: GetTransitGatewayRouteTableAssociations) Prelude.. Lens.mapping Prelude._Coerce
+getTransitGatewayRouteTableAssociations_filters :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Core.Maybe [Filter])
+getTransitGatewayRouteTableAssociations_filters = Lens.lens (\GetTransitGatewayRouteTableAssociations' {filters} -> filters) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {filters = a} :: GetTransitGatewayRouteTableAssociations) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the transit gateway route table.
-getTransitGatewayRouteTableAssociations_transitGatewayRouteTableId :: Lens.Lens' GetTransitGatewayRouteTableAssociations Prelude.Text
+getTransitGatewayRouteTableAssociations_transitGatewayRouteTableId :: Lens.Lens' GetTransitGatewayRouteTableAssociations Core.Text
 getTransitGatewayRouteTableAssociations_transitGatewayRouteTableId = Lens.lens (\GetTransitGatewayRouteTableAssociations' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {transitGatewayRouteTableId = a} :: GetTransitGatewayRouteTableAssociations)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     GetTransitGatewayRouteTableAssociations
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getTransitGatewayRouteTableAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getTransitGatewayRouteTableAssociationsResponse_associations
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getTransitGatewayRouteTableAssociations_nextToken
           Lens..~ rs
             Lens.^? getTransitGatewayRouteTableAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetTransitGatewayRouteTableAssociations
   where
   type
-    Rs GetTransitGatewayRouteTableAssociations =
+    AWSResponse
+      GetTransitGatewayRouteTableAssociations =
       GetTransitGatewayRouteTableAssociationsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetTransitGatewayRouteTableAssociationsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-              Prelude.<*> ( x Prelude..@? "associations"
-                              Prelude..!@ Prelude.mempty
-                              Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+              Core.<*> ( x Core..@? "associations" Core..!@ Core.mempty
+                           Core.>>= Core.may (Core.parseXMLList "item")
+                       )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetTransitGatewayRouteTableAssociations
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetTransitGatewayRouteTableAssociations
 
 instance
-  Prelude.ToHeaders
-    GetTransitGatewayRouteTableAssociations
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     GetTransitGatewayRouteTableAssociations
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    GetTransitGatewayRouteTableAssociations
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     GetTransitGatewayRouteTableAssociations
   where
   toQuery GetTransitGatewayRouteTableAssociations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "GetTransitGatewayRouteTableAssociations" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters),
+          Core.=: ( "GetTransitGatewayRouteTableAssociations" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters),
         "TransitGatewayRouteTableId"
-          Prelude.=: transitGatewayRouteTableId
+          Core.=: transitGatewayRouteTableId
       ]
 
 -- | /See:/ 'newGetTransitGatewayRouteTableAssociationsResponse' smart constructor.
 data GetTransitGatewayRouteTableAssociationsResponse = GetTransitGatewayRouteTableAssociationsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the associations.
-    associations :: Prelude.Maybe [TransitGatewayRouteTableAssociation],
+    associations :: Core.Maybe [TransitGatewayRouteTableAssociation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTransitGatewayRouteTableAssociationsResponse' with all optional fields omitted.
@@ -273,31 +270,31 @@ data GetTransitGatewayRouteTableAssociationsResponse = GetTransitGatewayRouteTab
 -- 'httpStatus', 'getTransitGatewayRouteTableAssociationsResponse_httpStatus' - The response's http status code.
 newGetTransitGatewayRouteTableAssociationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetTransitGatewayRouteTableAssociationsResponse
 newGetTransitGatewayRouteTableAssociationsResponse
   pHttpStatus_ =
     GetTransitGatewayRouteTableAssociationsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         associations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-getTransitGatewayRouteTableAssociationsResponse_nextToken :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse (Prelude.Maybe Prelude.Text)
+getTransitGatewayRouteTableAssociationsResponse_nextToken :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse (Core.Maybe Core.Text)
 getTransitGatewayRouteTableAssociationsResponse_nextToken = Lens.lens (\GetTransitGatewayRouteTableAssociationsResponse' {nextToken} -> nextToken) (\s@GetTransitGatewayRouteTableAssociationsResponse' {} a -> s {nextToken = a} :: GetTransitGatewayRouteTableAssociationsResponse)
 
 -- | Information about the associations.
-getTransitGatewayRouteTableAssociationsResponse_associations :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse (Prelude.Maybe [TransitGatewayRouteTableAssociation])
-getTransitGatewayRouteTableAssociationsResponse_associations = Lens.lens (\GetTransitGatewayRouteTableAssociationsResponse' {associations} -> associations) (\s@GetTransitGatewayRouteTableAssociationsResponse' {} a -> s {associations = a} :: GetTransitGatewayRouteTableAssociationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getTransitGatewayRouteTableAssociationsResponse_associations :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse (Core.Maybe [TransitGatewayRouteTableAssociation])
+getTransitGatewayRouteTableAssociationsResponse_associations = Lens.lens (\GetTransitGatewayRouteTableAssociationsResponse' {associations} -> associations) (\s@GetTransitGatewayRouteTableAssociationsResponse' {} a -> s {associations = a} :: GetTransitGatewayRouteTableAssociationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getTransitGatewayRouteTableAssociationsResponse_httpStatus :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse Prelude.Int
+getTransitGatewayRouteTableAssociationsResponse_httpStatus :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse Core.Int
 getTransitGatewayRouteTableAssociationsResponse_httpStatus = Lens.lens (\GetTransitGatewayRouteTableAssociationsResponse' {httpStatus} -> httpStatus) (\s@GetTransitGatewayRouteTableAssociationsResponse' {} a -> s {httpStatus = a} :: GetTransitGatewayRouteTableAssociationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetTransitGatewayRouteTableAssociationsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.Deserializer where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.HiveJsonSerDe
 import Network.AWS.Firehose.Types.OpenXJsonSerDe
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The deserializer you want Kinesis Data Firehose to use for converting
 -- the input data from JSON. Kinesis Data Firehose then serializes the data
@@ -39,16 +38,16 @@ data Deserializer = Deserializer'
     -- preparation for serializing it to the Parquet or ORC format. This is one
     -- of two deserializers you can choose, depending on which one offers the
     -- functionality you need. The other option is the OpenX SerDe.
-    hiveJsonSerDe :: Prelude.Maybe HiveJsonSerDe,
+    hiveJsonSerDe :: Core.Maybe HiveJsonSerDe,
     -- | The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data,
     -- which means converting it from the JSON format in preparation for
     -- serializing it to the Parquet or ORC format. This is one of two
     -- deserializers you can choose, depending on which one offers the
     -- functionality you need. The other option is the native Hive \/ HCatalog
     -- JsonSerDe.
-    openXJsonSerDe :: Prelude.Maybe OpenXJsonSerDe
+    openXJsonSerDe :: Core.Maybe OpenXJsonSerDe
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Deserializer' with all optional fields omitted.
@@ -74,8 +73,8 @@ newDeserializer ::
   Deserializer
 newDeserializer =
   Deserializer'
-    { hiveJsonSerDe = Prelude.Nothing,
-      openXJsonSerDe = Prelude.Nothing
+    { hiveJsonSerDe = Core.Nothing,
+      openXJsonSerDe = Core.Nothing
     }
 
 -- | The native Hive \/ HCatalog JsonSerDe. Used by Kinesis Data Firehose for
@@ -83,7 +82,7 @@ newDeserializer =
 -- preparation for serializing it to the Parquet or ORC format. This is one
 -- of two deserializers you can choose, depending on which one offers the
 -- functionality you need. The other option is the OpenX SerDe.
-deserializer_hiveJsonSerDe :: Lens.Lens' Deserializer (Prelude.Maybe HiveJsonSerDe)
+deserializer_hiveJsonSerDe :: Lens.Lens' Deserializer (Core.Maybe HiveJsonSerDe)
 deserializer_hiveJsonSerDe = Lens.lens (\Deserializer' {hiveJsonSerDe} -> hiveJsonSerDe) (\s@Deserializer' {} a -> s {hiveJsonSerDe = a} :: Deserializer)
 
 -- | The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data,
@@ -92,30 +91,28 @@ deserializer_hiveJsonSerDe = Lens.lens (\Deserializer' {hiveJsonSerDe} -> hiveJs
 -- deserializers you can choose, depending on which one offers the
 -- functionality you need. The other option is the native Hive \/ HCatalog
 -- JsonSerDe.
-deserializer_openXJsonSerDe :: Lens.Lens' Deserializer (Prelude.Maybe OpenXJsonSerDe)
+deserializer_openXJsonSerDe :: Lens.Lens' Deserializer (Core.Maybe OpenXJsonSerDe)
 deserializer_openXJsonSerDe = Lens.lens (\Deserializer' {openXJsonSerDe} -> openXJsonSerDe) (\s@Deserializer' {} a -> s {openXJsonSerDe = a} :: Deserializer)
 
-instance Prelude.FromJSON Deserializer where
+instance Core.FromJSON Deserializer where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Deserializer"
       ( \x ->
           Deserializer'
-            Prelude.<$> (x Prelude..:? "HiveJsonSerDe")
-            Prelude.<*> (x Prelude..:? "OpenXJsonSerDe")
+            Core.<$> (x Core..:? "HiveJsonSerDe")
+            Core.<*> (x Core..:? "OpenXJsonSerDe")
       )
 
-instance Prelude.Hashable Deserializer
+instance Core.Hashable Deserializer
 
-instance Prelude.NFData Deserializer
+instance Core.NFData Deserializer
 
-instance Prelude.ToJSON Deserializer where
+instance Core.ToJSON Deserializer where
   toJSON Deserializer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("HiveJsonSerDe" Prelude..=)
-              Prelude.<$> hiveJsonSerDe,
-            ("OpenXJsonSerDe" Prelude..=)
-              Prelude.<$> openXJsonSerDe
+    Core.object
+      ( Core.catMaybes
+          [ ("HiveJsonSerDe" Core..=) Core.<$> hiveJsonSerDe,
+            ("OpenXJsonSerDe" Core..=) Core.<$> openXJsonSerDe
           ]
       )

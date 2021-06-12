@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,22 +41,22 @@ module Network.AWS.Glue.GetJobRun
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetJobRun' smart constructor.
 data GetJobRun = GetJobRun'
   { -- | True if a list of predecessor runs should be returned.
-    predecessorsIncluded :: Prelude.Maybe Prelude.Bool,
+    predecessorsIncluded :: Core.Maybe Core.Bool,
     -- | Name of the job definition being run.
-    jobName :: Prelude.Text,
+    jobName :: Core.Text,
     -- | The ID of the job run.
-    runId :: Prelude.Text
+    runId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobRun' with all optional fields omitted.
@@ -74,82 +73,80 @@ data GetJobRun = GetJobRun'
 -- 'runId', 'getJobRun_runId' - The ID of the job run.
 newGetJobRun ::
   -- | 'jobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'runId'
-  Prelude.Text ->
+  Core.Text ->
   GetJobRun
 newGetJobRun pJobName_ pRunId_ =
   GetJobRun'
-    { predecessorsIncluded = Prelude.Nothing,
+    { predecessorsIncluded = Core.Nothing,
       jobName = pJobName_,
       runId = pRunId_
     }
 
 -- | True if a list of predecessor runs should be returned.
-getJobRun_predecessorsIncluded :: Lens.Lens' GetJobRun (Prelude.Maybe Prelude.Bool)
+getJobRun_predecessorsIncluded :: Lens.Lens' GetJobRun (Core.Maybe Core.Bool)
 getJobRun_predecessorsIncluded = Lens.lens (\GetJobRun' {predecessorsIncluded} -> predecessorsIncluded) (\s@GetJobRun' {} a -> s {predecessorsIncluded = a} :: GetJobRun)
 
 -- | Name of the job definition being run.
-getJobRun_jobName :: Lens.Lens' GetJobRun Prelude.Text
+getJobRun_jobName :: Lens.Lens' GetJobRun Core.Text
 getJobRun_jobName = Lens.lens (\GetJobRun' {jobName} -> jobName) (\s@GetJobRun' {} a -> s {jobName = a} :: GetJobRun)
 
 -- | The ID of the job run.
-getJobRun_runId :: Lens.Lens' GetJobRun Prelude.Text
+getJobRun_runId :: Lens.Lens' GetJobRun Core.Text
 getJobRun_runId = Lens.lens (\GetJobRun' {runId} -> runId) (\s@GetJobRun' {} a -> s {runId = a} :: GetJobRun)
 
-instance Prelude.AWSRequest GetJobRun where
-  type Rs GetJobRun = GetJobRunResponse
+instance Core.AWSRequest GetJobRun where
+  type AWSResponse GetJobRun = GetJobRunResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetJobRunResponse'
-            Prelude.<$> (x Prelude..?> "JobRun")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobRun")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetJobRun
+instance Core.Hashable GetJobRun
 
-instance Prelude.NFData GetJobRun
+instance Core.NFData GetJobRun
 
-instance Prelude.ToHeaders GetJobRun where
+instance Core.ToHeaders GetJobRun where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.GetJobRun" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.GetJobRun" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetJobRun where
+instance Core.ToJSON GetJobRun where
   toJSON GetJobRun' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PredecessorsIncluded" Prelude..=)
-              Prelude.<$> predecessorsIncluded,
-            Prelude.Just ("JobName" Prelude..= jobName),
-            Prelude.Just ("RunId" Prelude..= runId)
+    Core.object
+      ( Core.catMaybes
+          [ ("PredecessorsIncluded" Core..=)
+              Core.<$> predecessorsIncluded,
+            Core.Just ("JobName" Core..= jobName),
+            Core.Just ("RunId" Core..= runId)
           ]
       )
 
-instance Prelude.ToPath GetJobRun where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetJobRun where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetJobRun where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetJobRun where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetJobRunResponse' smart constructor.
 data GetJobRunResponse = GetJobRunResponse'
   { -- | The requested job-run metadata.
-    jobRun :: Prelude.Maybe JobRun,
+    jobRun :: Core.Maybe JobRun,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobRunResponse' with all optional fields omitted.
@@ -164,20 +161,20 @@ data GetJobRunResponse = GetJobRunResponse'
 -- 'httpStatus', 'getJobRunResponse_httpStatus' - The response's http status code.
 newGetJobRunResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetJobRunResponse
 newGetJobRunResponse pHttpStatus_ =
   GetJobRunResponse'
-    { jobRun = Prelude.Nothing,
+    { jobRun = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested job-run metadata.
-getJobRunResponse_jobRun :: Lens.Lens' GetJobRunResponse (Prelude.Maybe JobRun)
+getJobRunResponse_jobRun :: Lens.Lens' GetJobRunResponse (Core.Maybe JobRun)
 getJobRunResponse_jobRun = Lens.lens (\GetJobRunResponse' {jobRun} -> jobRun) (\s@GetJobRunResponse' {} a -> s {jobRun = a} :: GetJobRunResponse)
 
 -- | The response's http status code.
-getJobRunResponse_httpStatus :: Lens.Lens' GetJobRunResponse Prelude.Int
+getJobRunResponse_httpStatus :: Lens.Lens' GetJobRunResponse Core.Int
 getJobRunResponse_httpStatus = Lens.lens (\GetJobRunResponse' {httpStatus} -> httpStatus) (\s@GetJobRunResponse' {} a -> s {httpStatus = a} :: GetJobRunResponse)
 
-instance Prelude.NFData GetJobRunResponse
+instance Core.NFData GetJobRunResponse

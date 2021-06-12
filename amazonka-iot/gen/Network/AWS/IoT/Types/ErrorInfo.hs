@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ErrorInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Error information.
 --
 -- /See:/ 'newErrorInfo' smart constructor.
 data ErrorInfo = ErrorInfo'
   { -- | The error message.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The error code.
-    code :: Prelude.Maybe Prelude.Text
+    code :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ErrorInfo' with all optional fields omitted.
@@ -49,28 +48,27 @@ newErrorInfo ::
   ErrorInfo
 newErrorInfo =
   ErrorInfo'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { message = Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | The error message.
-errorInfo_message :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
+errorInfo_message :: Lens.Lens' ErrorInfo (Core.Maybe Core.Text)
 errorInfo_message = Lens.lens (\ErrorInfo' {message} -> message) (\s@ErrorInfo' {} a -> s {message = a} :: ErrorInfo)
 
 -- | The error code.
-errorInfo_code :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
+errorInfo_code :: Lens.Lens' ErrorInfo (Core.Maybe Core.Text)
 errorInfo_code = Lens.lens (\ErrorInfo' {code} -> code) (\s@ErrorInfo' {} a -> s {code = a} :: ErrorInfo)
 
-instance Prelude.FromJSON ErrorInfo where
+instance Core.FromJSON ErrorInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ErrorInfo"
       ( \x ->
           ErrorInfo'
-            Prelude.<$> (x Prelude..:? "message")
-            Prelude.<*> (x Prelude..:? "code")
+            Core.<$> (x Core..:? "message") Core.<*> (x Core..:? "code")
       )
 
-instance Prelude.Hashable ErrorInfo
+instance Core.Hashable ErrorInfo
 
-instance Prelude.NFData ErrorInfo
+instance Core.NFData ErrorInfo

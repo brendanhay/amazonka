@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceMetadataOptionsResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.HttpTokensState
 import Network.AWS.EC2.Types.InstanceMetadataEndpointState
 import Network.AWS.EC2.Types.InstanceMetadataOptionsState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The metadata options for the instance.
 --
@@ -37,7 +36,7 @@ data InstanceMetadataOptionsResponse = InstanceMetadataOptionsResponse'
     --
     -- If you specify a value of @disabled@, you will not be able to access
     -- your instance metadata.
-    httpEndpoint :: Prelude.Maybe InstanceMetadataEndpointState,
+    httpEndpoint :: Core.Maybe InstanceMetadataEndpointState,
     -- | The desired HTTP PUT response hop limit for instance metadata requests.
     -- The larger the number, the further instance metadata requests can
     -- travel.
@@ -45,7 +44,7 @@ data InstanceMetadataOptionsResponse = InstanceMetadataOptionsResponse'
     -- Default: 1
     --
     -- Possible values: Integers from 1 to 64
-    httpPutResponseHopLimit :: Prelude.Maybe Prelude.Int,
+    httpPutResponseHopLimit :: Core.Maybe Core.Int,
     -- | The state of the metadata option changes.
     --
     -- @pending@ - The metadata options are being updated and the instance is
@@ -53,7 +52,7 @@ data InstanceMetadataOptionsResponse = InstanceMetadataOptionsResponse'
     --
     -- @applied@ - The metadata options have been successfully applied on the
     -- instance.
-    state :: Prelude.Maybe InstanceMetadataOptionsState,
+    state :: Core.Maybe InstanceMetadataOptionsState,
     -- | The state of token usage for your instance metadata requests. If the
     -- parameter is not specified in the request, the default state is
     -- @optional@.
@@ -68,9 +67,9 @@ data InstanceMetadataOptionsResponse = InstanceMetadataOptionsResponse'
     -- instance metadata retrieval requests. In this state, retrieving the IAM
     -- role credential always returns the version 2.0 credentials; the version
     -- 1.0 credentials are not available.
-    httpTokens :: Prelude.Maybe HttpTokensState
+    httpTokens :: Core.Maybe HttpTokensState
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceMetadataOptionsResponse' with all optional fields omitted.
@@ -122,10 +121,10 @@ newInstanceMetadataOptionsResponse ::
 newInstanceMetadataOptionsResponse =
   InstanceMetadataOptionsResponse'
     { httpEndpoint =
-        Prelude.Nothing,
-      httpPutResponseHopLimit = Prelude.Nothing,
-      state = Prelude.Nothing,
-      httpTokens = Prelude.Nothing
+        Core.Nothing,
+      httpPutResponseHopLimit = Core.Nothing,
+      state = Core.Nothing,
+      httpTokens = Core.Nothing
     }
 
 -- | This parameter enables or disables the HTTP metadata endpoint on your
@@ -134,7 +133,7 @@ newInstanceMetadataOptionsResponse =
 --
 -- If you specify a value of @disabled@, you will not be able to access
 -- your instance metadata.
-instanceMetadataOptionsResponse_httpEndpoint :: Lens.Lens' InstanceMetadataOptionsResponse (Prelude.Maybe InstanceMetadataEndpointState)
+instanceMetadataOptionsResponse_httpEndpoint :: Lens.Lens' InstanceMetadataOptionsResponse (Core.Maybe InstanceMetadataEndpointState)
 instanceMetadataOptionsResponse_httpEndpoint = Lens.lens (\InstanceMetadataOptionsResponse' {httpEndpoint} -> httpEndpoint) (\s@InstanceMetadataOptionsResponse' {} a -> s {httpEndpoint = a} :: InstanceMetadataOptionsResponse)
 
 -- | The desired HTTP PUT response hop limit for instance metadata requests.
@@ -144,7 +143,7 @@ instanceMetadataOptionsResponse_httpEndpoint = Lens.lens (\InstanceMetadataOptio
 -- Default: 1
 --
 -- Possible values: Integers from 1 to 64
-instanceMetadataOptionsResponse_httpPutResponseHopLimit :: Lens.Lens' InstanceMetadataOptionsResponse (Prelude.Maybe Prelude.Int)
+instanceMetadataOptionsResponse_httpPutResponseHopLimit :: Lens.Lens' InstanceMetadataOptionsResponse (Core.Maybe Core.Int)
 instanceMetadataOptionsResponse_httpPutResponseHopLimit = Lens.lens (\InstanceMetadataOptionsResponse' {httpPutResponseHopLimit} -> httpPutResponseHopLimit) (\s@InstanceMetadataOptionsResponse' {} a -> s {httpPutResponseHopLimit = a} :: InstanceMetadataOptionsResponse)
 
 -- | The state of the metadata option changes.
@@ -154,7 +153,7 @@ instanceMetadataOptionsResponse_httpPutResponseHopLimit = Lens.lens (\InstanceMe
 --
 -- @applied@ - The metadata options have been successfully applied on the
 -- instance.
-instanceMetadataOptionsResponse_state :: Lens.Lens' InstanceMetadataOptionsResponse (Prelude.Maybe InstanceMetadataOptionsState)
+instanceMetadataOptionsResponse_state :: Lens.Lens' InstanceMetadataOptionsResponse (Core.Maybe InstanceMetadataOptionsState)
 instanceMetadataOptionsResponse_state = Lens.lens (\InstanceMetadataOptionsResponse' {state} -> state) (\s@InstanceMetadataOptionsResponse' {} a -> s {state = a} :: InstanceMetadataOptionsResponse)
 
 -- | The state of token usage for your instance metadata requests. If the
@@ -171,24 +170,19 @@ instanceMetadataOptionsResponse_state = Lens.lens (\InstanceMetadataOptionsRespo
 -- instance metadata retrieval requests. In this state, retrieving the IAM
 -- role credential always returns the version 2.0 credentials; the version
 -- 1.0 credentials are not available.
-instanceMetadataOptionsResponse_httpTokens :: Lens.Lens' InstanceMetadataOptionsResponse (Prelude.Maybe HttpTokensState)
+instanceMetadataOptionsResponse_httpTokens :: Lens.Lens' InstanceMetadataOptionsResponse (Core.Maybe HttpTokensState)
 instanceMetadataOptionsResponse_httpTokens = Lens.lens (\InstanceMetadataOptionsResponse' {httpTokens} -> httpTokens) (\s@InstanceMetadataOptionsResponse' {} a -> s {httpTokens = a} :: InstanceMetadataOptionsResponse)
 
-instance
-  Prelude.FromXML
-    InstanceMetadataOptionsResponse
-  where
+instance Core.FromXML InstanceMetadataOptionsResponse where
   parseXML x =
     InstanceMetadataOptionsResponse'
-      Prelude.<$> (x Prelude..@? "httpEndpoint")
-      Prelude.<*> (x Prelude..@? "httpPutResponseHopLimit")
-      Prelude.<*> (x Prelude..@? "state")
-      Prelude.<*> (x Prelude..@? "httpTokens")
+      Core.<$> (x Core..@? "httpEndpoint")
+      Core.<*> (x Core..@? "httpPutResponseHopLimit")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "httpTokens")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     InstanceMetadataOptionsResponse
 
-instance
-  Prelude.NFData
-    InstanceMetadataOptionsResponse
+instance Core.NFData InstanceMetadataOptionsResponse

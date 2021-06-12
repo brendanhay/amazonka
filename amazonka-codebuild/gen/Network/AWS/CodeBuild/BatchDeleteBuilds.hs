@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,17 +41,17 @@ module Network.AWS.CodeBuild.BatchDeleteBuilds
 where
 
 import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchDeleteBuilds' smart constructor.
 data BatchDeleteBuilds = BatchDeleteBuilds'
   { -- | The IDs of the builds to delete.
-    ids :: Prelude.NonEmpty Prelude.Text
+    ids :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteBuilds' with all optional fields omitted.
@@ -65,74 +64,67 @@ data BatchDeleteBuilds = BatchDeleteBuilds'
 -- 'ids', 'batchDeleteBuilds_ids' - The IDs of the builds to delete.
 newBatchDeleteBuilds ::
   -- | 'ids'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   BatchDeleteBuilds
 newBatchDeleteBuilds pIds_ =
-  BatchDeleteBuilds'
-    { ids =
-        Prelude._Coerce Lens.# pIds_
-    }
+  BatchDeleteBuilds' {ids = Lens._Coerce Lens.# pIds_}
 
 -- | The IDs of the builds to delete.
-batchDeleteBuilds_ids :: Lens.Lens' BatchDeleteBuilds (Prelude.NonEmpty Prelude.Text)
-batchDeleteBuilds_ids = Lens.lens (\BatchDeleteBuilds' {ids} -> ids) (\s@BatchDeleteBuilds' {} a -> s {ids = a} :: BatchDeleteBuilds) Prelude.. Prelude._Coerce
+batchDeleteBuilds_ids :: Lens.Lens' BatchDeleteBuilds (Core.NonEmpty Core.Text)
+batchDeleteBuilds_ids = Lens.lens (\BatchDeleteBuilds' {ids} -> ids) (\s@BatchDeleteBuilds' {} a -> s {ids = a} :: BatchDeleteBuilds) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchDeleteBuilds where
-  type Rs BatchDeleteBuilds = BatchDeleteBuildsResponse
+instance Core.AWSRequest BatchDeleteBuilds where
+  type
+    AWSResponse BatchDeleteBuilds =
+      BatchDeleteBuildsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteBuildsResponse'
-            Prelude.<$> (x Prelude..?> "buildsDeleted")
-            Prelude.<*> ( x Prelude..?> "buildsNotDeleted"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "buildsDeleted")
+            Core.<*> (x Core..?> "buildsNotDeleted" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeleteBuilds
+instance Core.Hashable BatchDeleteBuilds
 
-instance Prelude.NFData BatchDeleteBuilds
+instance Core.NFData BatchDeleteBuilds
 
-instance Prelude.ToHeaders BatchDeleteBuilds where
+instance Core.ToHeaders BatchDeleteBuilds where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeBuild_20161006.BatchDeleteBuilds" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeBuild_20161006.BatchDeleteBuilds" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchDeleteBuilds where
+instance Core.ToJSON BatchDeleteBuilds where
   toJSON BatchDeleteBuilds' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("ids" Prelude..= ids)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("ids" Core..= ids)])
 
-instance Prelude.ToPath BatchDeleteBuilds where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchDeleteBuilds where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchDeleteBuilds where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchDeleteBuilds where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchDeleteBuildsResponse' smart constructor.
 data BatchDeleteBuildsResponse = BatchDeleteBuildsResponse'
   { -- | The IDs of the builds that were successfully deleted.
-    buildsDeleted :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    buildsDeleted :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | Information about any builds that could not be successfully deleted.
-    buildsNotDeleted :: Prelude.Maybe [BuildNotDeleted],
+    buildsNotDeleted :: Core.Maybe [BuildNotDeleted],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteBuildsResponse' with all optional fields omitted.
@@ -149,26 +141,26 @@ data BatchDeleteBuildsResponse = BatchDeleteBuildsResponse'
 -- 'httpStatus', 'batchDeleteBuildsResponse_httpStatus' - The response's http status code.
 newBatchDeleteBuildsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchDeleteBuildsResponse
 newBatchDeleteBuildsResponse pHttpStatus_ =
   BatchDeleteBuildsResponse'
     { buildsDeleted =
-        Prelude.Nothing,
-      buildsNotDeleted = Prelude.Nothing,
+        Core.Nothing,
+      buildsNotDeleted = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IDs of the builds that were successfully deleted.
-batchDeleteBuildsResponse_buildsDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-batchDeleteBuildsResponse_buildsDeleted = Lens.lens (\BatchDeleteBuildsResponse' {buildsDeleted} -> buildsDeleted) (\s@BatchDeleteBuildsResponse' {} a -> s {buildsDeleted = a} :: BatchDeleteBuildsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchDeleteBuildsResponse_buildsDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Core.Maybe (Core.NonEmpty Core.Text))
+batchDeleteBuildsResponse_buildsDeleted = Lens.lens (\BatchDeleteBuildsResponse' {buildsDeleted} -> buildsDeleted) (\s@BatchDeleteBuildsResponse' {} a -> s {buildsDeleted = a} :: BatchDeleteBuildsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about any builds that could not be successfully deleted.
-batchDeleteBuildsResponse_buildsNotDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Prelude.Maybe [BuildNotDeleted])
-batchDeleteBuildsResponse_buildsNotDeleted = Lens.lens (\BatchDeleteBuildsResponse' {buildsNotDeleted} -> buildsNotDeleted) (\s@BatchDeleteBuildsResponse' {} a -> s {buildsNotDeleted = a} :: BatchDeleteBuildsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchDeleteBuildsResponse_buildsNotDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Core.Maybe [BuildNotDeleted])
+batchDeleteBuildsResponse_buildsNotDeleted = Lens.lens (\BatchDeleteBuildsResponse' {buildsNotDeleted} -> buildsNotDeleted) (\s@BatchDeleteBuildsResponse' {} a -> s {buildsNotDeleted = a} :: BatchDeleteBuildsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchDeleteBuildsResponse_httpStatus :: Lens.Lens' BatchDeleteBuildsResponse Prelude.Int
+batchDeleteBuildsResponse_httpStatus :: Lens.Lens' BatchDeleteBuildsResponse Core.Int
 batchDeleteBuildsResponse_httpStatus = Lens.lens (\BatchDeleteBuildsResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteBuildsResponse' {} a -> s {httpStatus = a} :: BatchDeleteBuildsResponse)
 
-instance Prelude.NFData BatchDeleteBuildsResponse
+instance Core.NFData BatchDeleteBuildsResponse

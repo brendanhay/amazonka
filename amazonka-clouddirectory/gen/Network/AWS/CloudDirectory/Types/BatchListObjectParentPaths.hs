@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudDirectory.Types.BatchListObjectParentPaths where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Retrieves all available parent paths for any object type such as node,
 -- leaf node, policy node, and index node objects inside a BatchRead
@@ -32,14 +31,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBatchListObjectParentPaths' smart constructor.
 data BatchListObjectParentPaths = BatchListObjectParentPaths'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The reference that identifies the object whose attributes will be
     -- listed.
     objectReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchListObjectParentPaths' with all optional fields omitted.
@@ -62,17 +61,17 @@ newBatchListObjectParentPaths ::
 newBatchListObjectParentPaths pObjectReference_ =
   BatchListObjectParentPaths'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+        Core.Nothing,
+      maxResults = Core.Nothing,
       objectReference = pObjectReference_
     }
 
 -- | The pagination token.
-batchListObjectParentPaths_nextToken :: Lens.Lens' BatchListObjectParentPaths (Prelude.Maybe Prelude.Text)
+batchListObjectParentPaths_nextToken :: Lens.Lens' BatchListObjectParentPaths (Core.Maybe Core.Text)
 batchListObjectParentPaths_nextToken = Lens.lens (\BatchListObjectParentPaths' {nextToken} -> nextToken) (\s@BatchListObjectParentPaths' {} a -> s {nextToken = a} :: BatchListObjectParentPaths)
 
 -- | The maximum number of results to retrieve.
-batchListObjectParentPaths_maxResults :: Lens.Lens' BatchListObjectParentPaths (Prelude.Maybe Prelude.Natural)
+batchListObjectParentPaths_maxResults :: Lens.Lens' BatchListObjectParentPaths (Core.Maybe Core.Natural)
 batchListObjectParentPaths_maxResults = Lens.lens (\BatchListObjectParentPaths' {maxResults} -> maxResults) (\s@BatchListObjectParentPaths' {} a -> s {maxResults = a} :: BatchListObjectParentPaths)
 
 -- | The reference that identifies the object whose attributes will be
@@ -80,17 +79,17 @@ batchListObjectParentPaths_maxResults = Lens.lens (\BatchListObjectParentPaths' 
 batchListObjectParentPaths_objectReference :: Lens.Lens' BatchListObjectParentPaths ObjectReference
 batchListObjectParentPaths_objectReference = Lens.lens (\BatchListObjectParentPaths' {objectReference} -> objectReference) (\s@BatchListObjectParentPaths' {} a -> s {objectReference = a} :: BatchListObjectParentPaths)
 
-instance Prelude.Hashable BatchListObjectParentPaths
+instance Core.Hashable BatchListObjectParentPaths
 
-instance Prelude.NFData BatchListObjectParentPaths
+instance Core.NFData BatchListObjectParentPaths
 
-instance Prelude.ToJSON BatchListObjectParentPaths where
+instance Core.ToJSON BatchListObjectParentPaths where
   toJSON BatchListObjectParentPaths' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ("ObjectReference" Prelude..= objectReference)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just
+              ("ObjectReference" Core..= objectReference)
           ]
       )

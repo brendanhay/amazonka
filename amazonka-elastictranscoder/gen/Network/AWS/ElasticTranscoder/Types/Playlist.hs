@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Types.Playlist where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.HlsContentProtection
 import Network.AWS.ElasticTranscoder.Types.PlayReadyDrm
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset
 -- for which the value of Container is @fmp4@ (Fragmented MP4) or @ts@
@@ -35,10 +34,10 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPlaylist' smart constructor.
 data Playlist = Playlist'
   { -- | The status of the job with which the playlist is associated.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The DRM settings, if any, that you want Elastic Transcoder to apply to
     -- the output files associated with this playlist.
-    playReadyDrm :: Prelude.Maybe PlayReadyDrm,
+    playReadyDrm :: Core.Maybe PlayReadyDrm,
     -- | For each output in this job that you want to include in a master
     -- playlist, the value of the Outputs:Key object.
     --
@@ -79,15 +78,15 @@ data Playlist = Playlist'
     -- outputs in the playlist. For @Smooth@ playlists, the @Audio:Profile@,
     -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
     -- must be the same for all outputs.
-    outputKeys :: Prelude.Maybe [Prelude.Text],
+    outputKeys :: Core.Maybe [Core.Text],
     -- | The format of the output playlist. Valid formats include @HLSv3@,
     -- @HLSv4@, and @Smooth@.
-    format :: Prelude.Maybe Prelude.Text,
+    format :: Core.Maybe Core.Text,
     -- | The HLS content protection settings, if any, that you want Elastic
     -- Transcoder to apply to the output files associated with this playlist.
-    hlsContentProtection :: Prelude.Maybe HlsContentProtection,
+    hlsContentProtection :: Core.Maybe HlsContentProtection,
     -- | Information that further explains the status.
-    statusDetail :: Prelude.Maybe Prelude.Text,
+    statusDetail :: Core.Maybe Core.Text,
     -- | The name that you want Elastic Transcoder to assign to the master
     -- playlist, for example, nyc-vacation.m3u8. If the name includes a @\/@
     -- character, the section of the name before the last @\/@ must be
@@ -98,9 +97,9 @@ data Playlist = Playlist'
     -- the file name (@.m3u8@ for @HLSv3@ and @HLSv4@ playlists, and @.ism@ and
     -- @.ismc@ for @Smooth@ playlists). If you include a file extension in
     -- @Name@, the file name will have two extensions.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Playlist' with all optional fields omitted.
@@ -178,22 +177,22 @@ newPlaylist ::
   Playlist
 newPlaylist =
   Playlist'
-    { status = Prelude.Nothing,
-      playReadyDrm = Prelude.Nothing,
-      outputKeys = Prelude.Nothing,
-      format = Prelude.Nothing,
-      hlsContentProtection = Prelude.Nothing,
-      statusDetail = Prelude.Nothing,
-      name = Prelude.Nothing
+    { status = Core.Nothing,
+      playReadyDrm = Core.Nothing,
+      outputKeys = Core.Nothing,
+      format = Core.Nothing,
+      hlsContentProtection = Core.Nothing,
+      statusDetail = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The status of the job with which the playlist is associated.
-playlist_status :: Lens.Lens' Playlist (Prelude.Maybe Prelude.Text)
+playlist_status :: Lens.Lens' Playlist (Core.Maybe Core.Text)
 playlist_status = Lens.lens (\Playlist' {status} -> status) (\s@Playlist' {} a -> s {status = a} :: Playlist)
 
 -- | The DRM settings, if any, that you want Elastic Transcoder to apply to
 -- the output files associated with this playlist.
-playlist_playReadyDrm :: Lens.Lens' Playlist (Prelude.Maybe PlayReadyDrm)
+playlist_playReadyDrm :: Lens.Lens' Playlist (Core.Maybe PlayReadyDrm)
 playlist_playReadyDrm = Lens.lens (\Playlist' {playReadyDrm} -> playReadyDrm) (\s@Playlist' {} a -> s {playReadyDrm = a} :: Playlist)
 
 -- | For each output in this job that you want to include in a master
@@ -236,21 +235,21 @@ playlist_playReadyDrm = Lens.lens (\Playlist' {playReadyDrm} -> playReadyDrm) (\
 -- outputs in the playlist. For @Smooth@ playlists, the @Audio:Profile@,
 -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
 -- must be the same for all outputs.
-playlist_outputKeys :: Lens.Lens' Playlist (Prelude.Maybe [Prelude.Text])
-playlist_outputKeys = Lens.lens (\Playlist' {outputKeys} -> outputKeys) (\s@Playlist' {} a -> s {outputKeys = a} :: Playlist) Prelude.. Lens.mapping Prelude._Coerce
+playlist_outputKeys :: Lens.Lens' Playlist (Core.Maybe [Core.Text])
+playlist_outputKeys = Lens.lens (\Playlist' {outputKeys} -> outputKeys) (\s@Playlist' {} a -> s {outputKeys = a} :: Playlist) Core.. Lens.mapping Lens._Coerce
 
 -- | The format of the output playlist. Valid formats include @HLSv3@,
 -- @HLSv4@, and @Smooth@.
-playlist_format :: Lens.Lens' Playlist (Prelude.Maybe Prelude.Text)
+playlist_format :: Lens.Lens' Playlist (Core.Maybe Core.Text)
 playlist_format = Lens.lens (\Playlist' {format} -> format) (\s@Playlist' {} a -> s {format = a} :: Playlist)
 
 -- | The HLS content protection settings, if any, that you want Elastic
 -- Transcoder to apply to the output files associated with this playlist.
-playlist_hlsContentProtection :: Lens.Lens' Playlist (Prelude.Maybe HlsContentProtection)
+playlist_hlsContentProtection :: Lens.Lens' Playlist (Core.Maybe HlsContentProtection)
 playlist_hlsContentProtection = Lens.lens (\Playlist' {hlsContentProtection} -> hlsContentProtection) (\s@Playlist' {} a -> s {hlsContentProtection = a} :: Playlist)
 
 -- | Information that further explains the status.
-playlist_statusDetail :: Lens.Lens' Playlist (Prelude.Maybe Prelude.Text)
+playlist_statusDetail :: Lens.Lens' Playlist (Core.Maybe Core.Text)
 playlist_statusDetail = Lens.lens (\Playlist' {statusDetail} -> statusDetail) (\s@Playlist' {} a -> s {statusDetail = a} :: Playlist)
 
 -- | The name that you want Elastic Transcoder to assign to the master
@@ -263,26 +262,24 @@ playlist_statusDetail = Lens.lens (\Playlist' {statusDetail} -> statusDetail) (\
 -- the file name (@.m3u8@ for @HLSv3@ and @HLSv4@ playlists, and @.ism@ and
 -- @.ismc@ for @Smooth@ playlists). If you include a file extension in
 -- @Name@, the file name will have two extensions.
-playlist_name :: Lens.Lens' Playlist (Prelude.Maybe Prelude.Text)
+playlist_name :: Lens.Lens' Playlist (Core.Maybe Core.Text)
 playlist_name = Lens.lens (\Playlist' {name} -> name) (\s@Playlist' {} a -> s {name = a} :: Playlist)
 
-instance Prelude.FromJSON Playlist where
+instance Core.FromJSON Playlist where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Playlist"
       ( \x ->
           Playlist'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "PlayReadyDrm")
-            Prelude.<*> ( x Prelude..:? "OutputKeys"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Format")
-            Prelude.<*> (x Prelude..:? "HlsContentProtection")
-            Prelude.<*> (x Prelude..:? "StatusDetail")
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "PlayReadyDrm")
+            Core.<*> (x Core..:? "OutputKeys" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Format")
+            Core.<*> (x Core..:? "HlsContentProtection")
+            Core.<*> (x Core..:? "StatusDetail")
+            Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable Playlist
+instance Core.Hashable Playlist
 
-instance Prelude.NFData Playlist
+instance Core.NFData Playlist

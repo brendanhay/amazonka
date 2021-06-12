@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,20 +52,20 @@ module Network.AWS.DynamoDB.UpdateContinuousBackups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateContinuousBackups' smart constructor.
 data UpdateContinuousBackups = UpdateContinuousBackups'
   { -- | The name of the table.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | Represents the settings used to enable point in time recovery.
     pointInTimeRecoverySpecification :: PointInTimeRecoverySpecification
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateContinuousBackups' with all optional fields omitted.
@@ -81,7 +80,7 @@ data UpdateContinuousBackups = UpdateContinuousBackups'
 -- 'pointInTimeRecoverySpecification', 'updateContinuousBackups_pointInTimeRecoverySpecification' - Represents the settings used to enable point in time recovery.
 newUpdateContinuousBackups ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'pointInTimeRecoverySpecification'
   PointInTimeRecoverySpecification ->
   UpdateContinuousBackups
@@ -95,72 +94,70 @@ newUpdateContinuousBackups
       }
 
 -- | The name of the table.
-updateContinuousBackups_tableName :: Lens.Lens' UpdateContinuousBackups Prelude.Text
+updateContinuousBackups_tableName :: Lens.Lens' UpdateContinuousBackups Core.Text
 updateContinuousBackups_tableName = Lens.lens (\UpdateContinuousBackups' {tableName} -> tableName) (\s@UpdateContinuousBackups' {} a -> s {tableName = a} :: UpdateContinuousBackups)
 
 -- | Represents the settings used to enable point in time recovery.
 updateContinuousBackups_pointInTimeRecoverySpecification :: Lens.Lens' UpdateContinuousBackups PointInTimeRecoverySpecification
 updateContinuousBackups_pointInTimeRecoverySpecification = Lens.lens (\UpdateContinuousBackups' {pointInTimeRecoverySpecification} -> pointInTimeRecoverySpecification) (\s@UpdateContinuousBackups' {} a -> s {pointInTimeRecoverySpecification = a} :: UpdateContinuousBackups)
 
-instance Prelude.AWSRequest UpdateContinuousBackups where
+instance Core.AWSRequest UpdateContinuousBackups where
   type
-    Rs UpdateContinuousBackups =
+    AWSResponse UpdateContinuousBackups =
       UpdateContinuousBackupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateContinuousBackupsResponse'
-            Prelude.<$> (x Prelude..?> "ContinuousBackupsDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ContinuousBackupsDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateContinuousBackups
+instance Core.Hashable UpdateContinuousBackups
 
-instance Prelude.NFData UpdateContinuousBackups
+instance Core.NFData UpdateContinuousBackups
 
-instance Prelude.ToHeaders UpdateContinuousBackups where
+instance Core.ToHeaders UpdateContinuousBackups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.UpdateContinuousBackups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DynamoDB_20120810.UpdateContinuousBackups" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateContinuousBackups where
+instance Core.ToJSON UpdateContinuousBackups where
   toJSON UpdateContinuousBackups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TableName" Core..= tableName),
+            Core.Just
               ( "PointInTimeRecoverySpecification"
-                  Prelude..= pointInTimeRecoverySpecification
+                  Core..= pointInTimeRecoverySpecification
               )
           ]
       )
 
-instance Prelude.ToPath UpdateContinuousBackups where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateContinuousBackups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateContinuousBackups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateContinuousBackups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateContinuousBackupsResponse' smart constructor.
 data UpdateContinuousBackupsResponse = UpdateContinuousBackupsResponse'
   { -- | Represents the continuous backups and point in time recovery settings on
     -- the table.
-    continuousBackupsDescription :: Prelude.Maybe ContinuousBackupsDescription,
+    continuousBackupsDescription :: Core.Maybe ContinuousBackupsDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateContinuousBackupsResponse' with all optional fields omitted.
@@ -176,24 +173,22 @@ data UpdateContinuousBackupsResponse = UpdateContinuousBackupsResponse'
 -- 'httpStatus', 'updateContinuousBackupsResponse_httpStatus' - The response's http status code.
 newUpdateContinuousBackupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateContinuousBackupsResponse
 newUpdateContinuousBackupsResponse pHttpStatus_ =
   UpdateContinuousBackupsResponse'
     { continuousBackupsDescription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Represents the continuous backups and point in time recovery settings on
 -- the table.
-updateContinuousBackupsResponse_continuousBackupsDescription :: Lens.Lens' UpdateContinuousBackupsResponse (Prelude.Maybe ContinuousBackupsDescription)
+updateContinuousBackupsResponse_continuousBackupsDescription :: Lens.Lens' UpdateContinuousBackupsResponse (Core.Maybe ContinuousBackupsDescription)
 updateContinuousBackupsResponse_continuousBackupsDescription = Lens.lens (\UpdateContinuousBackupsResponse' {continuousBackupsDescription} -> continuousBackupsDescription) (\s@UpdateContinuousBackupsResponse' {} a -> s {continuousBackupsDescription = a} :: UpdateContinuousBackupsResponse)
 
 -- | The response's http status code.
-updateContinuousBackupsResponse_httpStatus :: Lens.Lens' UpdateContinuousBackupsResponse Prelude.Int
+updateContinuousBackupsResponse_httpStatus :: Lens.Lens' UpdateContinuousBackupsResponse Core.Int
 updateContinuousBackupsResponse_httpStatus = Lens.lens (\UpdateContinuousBackupsResponse' {httpStatus} -> httpStatus) (\s@UpdateContinuousBackupsResponse' {} a -> s {httpStatus = a} :: UpdateContinuousBackupsResponse)
 
-instance
-  Prelude.NFData
-    UpdateContinuousBackupsResponse
+instance Core.NFData UpdateContinuousBackupsResponse

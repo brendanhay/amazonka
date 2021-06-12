@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ContinuousParameterRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.HyperParameterScalingType
 
 -- | A list of continuous hyperparameters to tune.
@@ -54,18 +53,18 @@ data ContinuousParameterRange = ContinuousParameterRange'
     --
     --     Reverse logarithmic scaling works only for ranges that are entirely
     --     within the range 0\<=x\<1.0.
-    scalingType :: Prelude.Maybe HyperParameterScalingType,
+    scalingType :: Core.Maybe HyperParameterScalingType,
     -- | The name of the continuous hyperparameter to tune.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The minimum value for the hyperparameter. The tuning job uses
     -- floating-point values between this value and @MaxValue@for tuning.
-    minValue :: Prelude.Text,
+    minValue :: Core.Text,
     -- | The maximum value for the hyperparameter. The tuning job uses
     -- floating-point values between @MinValue@ value and this value for
     -- tuning.
-    maxValue :: Prelude.Text
+    maxValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContinuousParameterRange' with all optional fields omitted.
@@ -112,11 +111,11 @@ data ContinuousParameterRange = ContinuousParameterRange'
 -- tuning.
 newContinuousParameterRange ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'minValue'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'maxValue'
-  Prelude.Text ->
+  Core.Text ->
   ContinuousParameterRange
 newContinuousParameterRange
   pName_
@@ -124,7 +123,7 @@ newContinuousParameterRange
   pMaxValue_ =
     ContinuousParameterRange'
       { scalingType =
-          Prelude.Nothing,
+          Core.Nothing,
         name = pName_,
         minValue = pMinValue_,
         maxValue = pMaxValue_
@@ -156,47 +155,47 @@ newContinuousParameterRange
 --
 --     Reverse logarithmic scaling works only for ranges that are entirely
 --     within the range 0\<=x\<1.0.
-continuousParameterRange_scalingType :: Lens.Lens' ContinuousParameterRange (Prelude.Maybe HyperParameterScalingType)
+continuousParameterRange_scalingType :: Lens.Lens' ContinuousParameterRange (Core.Maybe HyperParameterScalingType)
 continuousParameterRange_scalingType = Lens.lens (\ContinuousParameterRange' {scalingType} -> scalingType) (\s@ContinuousParameterRange' {} a -> s {scalingType = a} :: ContinuousParameterRange)
 
 -- | The name of the continuous hyperparameter to tune.
-continuousParameterRange_name :: Lens.Lens' ContinuousParameterRange Prelude.Text
+continuousParameterRange_name :: Lens.Lens' ContinuousParameterRange Core.Text
 continuousParameterRange_name = Lens.lens (\ContinuousParameterRange' {name} -> name) (\s@ContinuousParameterRange' {} a -> s {name = a} :: ContinuousParameterRange)
 
 -- | The minimum value for the hyperparameter. The tuning job uses
 -- floating-point values between this value and @MaxValue@for tuning.
-continuousParameterRange_minValue :: Lens.Lens' ContinuousParameterRange Prelude.Text
+continuousParameterRange_minValue :: Lens.Lens' ContinuousParameterRange Core.Text
 continuousParameterRange_minValue = Lens.lens (\ContinuousParameterRange' {minValue} -> minValue) (\s@ContinuousParameterRange' {} a -> s {minValue = a} :: ContinuousParameterRange)
 
 -- | The maximum value for the hyperparameter. The tuning job uses
 -- floating-point values between @MinValue@ value and this value for
 -- tuning.
-continuousParameterRange_maxValue :: Lens.Lens' ContinuousParameterRange Prelude.Text
+continuousParameterRange_maxValue :: Lens.Lens' ContinuousParameterRange Core.Text
 continuousParameterRange_maxValue = Lens.lens (\ContinuousParameterRange' {maxValue} -> maxValue) (\s@ContinuousParameterRange' {} a -> s {maxValue = a} :: ContinuousParameterRange)
 
-instance Prelude.FromJSON ContinuousParameterRange where
+instance Core.FromJSON ContinuousParameterRange where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContinuousParameterRange"
       ( \x ->
           ContinuousParameterRange'
-            Prelude.<$> (x Prelude..:? "ScalingType")
-            Prelude.<*> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "MinValue")
-            Prelude.<*> (x Prelude..: "MaxValue")
+            Core.<$> (x Core..:? "ScalingType")
+            Core.<*> (x Core..: "Name")
+            Core.<*> (x Core..: "MinValue")
+            Core.<*> (x Core..: "MaxValue")
       )
 
-instance Prelude.Hashable ContinuousParameterRange
+instance Core.Hashable ContinuousParameterRange
 
-instance Prelude.NFData ContinuousParameterRange
+instance Core.NFData ContinuousParameterRange
 
-instance Prelude.ToJSON ContinuousParameterRange where
+instance Core.ToJSON ContinuousParameterRange where
   toJSON ContinuousParameterRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ScalingType" Prelude..=) Prelude.<$> scalingType,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("MinValue" Prelude..= minValue),
-            Prelude.Just ("MaxValue" Prelude..= maxValue)
+    Core.object
+      ( Core.catMaybes
+          [ ("ScalingType" Core..=) Core.<$> scalingType,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("MinValue" Core..= minValue),
+            Core.Just ("MaxValue" Core..= maxValue)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.AlexaBusiness.SearchAddressBooks
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,19 +57,19 @@ data SearchAddressBooks = SearchAddressBooks'
     -- pagination of results from this action. If this parameter is specified,
     -- the response only includes results beyond the token, up to the value
     -- specified by MaxResults.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The sort order to use in listing the specified set of address books. The
     -- supported sort key is AddressBookName.
-    sortCriteria :: Prelude.Maybe [Sort],
+    sortCriteria :: Core.Maybe [Sort],
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified MaxResults value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The filters to use to list a specified set of address books. The
     -- supported filter key is AddressBookName.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SearchAddressBooks' with all optional fields omitted.
@@ -98,101 +97,97 @@ newSearchAddressBooks ::
   SearchAddressBooks
 newSearchAddressBooks =
   SearchAddressBooks'
-    { nextToken = Prelude.Nothing,
-      sortCriteria = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      sortCriteria = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response only includes results beyond the token, up to the value
 -- specified by MaxResults.
-searchAddressBooks_nextToken :: Lens.Lens' SearchAddressBooks (Prelude.Maybe Prelude.Text)
+searchAddressBooks_nextToken :: Lens.Lens' SearchAddressBooks (Core.Maybe Core.Text)
 searchAddressBooks_nextToken = Lens.lens (\SearchAddressBooks' {nextToken} -> nextToken) (\s@SearchAddressBooks' {} a -> s {nextToken = a} :: SearchAddressBooks)
 
 -- | The sort order to use in listing the specified set of address books. The
 -- supported sort key is AddressBookName.
-searchAddressBooks_sortCriteria :: Lens.Lens' SearchAddressBooks (Prelude.Maybe [Sort])
-searchAddressBooks_sortCriteria = Lens.lens (\SearchAddressBooks' {sortCriteria} -> sortCriteria) (\s@SearchAddressBooks' {} a -> s {sortCriteria = a} :: SearchAddressBooks) Prelude.. Lens.mapping Prelude._Coerce
+searchAddressBooks_sortCriteria :: Lens.Lens' SearchAddressBooks (Core.Maybe [Sort])
+searchAddressBooks_sortCriteria = Lens.lens (\SearchAddressBooks' {sortCriteria} -> sortCriteria) (\s@SearchAddressBooks' {} a -> s {sortCriteria = a} :: SearchAddressBooks) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
-searchAddressBooks_maxResults :: Lens.Lens' SearchAddressBooks (Prelude.Maybe Prelude.Natural)
+searchAddressBooks_maxResults :: Lens.Lens' SearchAddressBooks (Core.Maybe Core.Natural)
 searchAddressBooks_maxResults = Lens.lens (\SearchAddressBooks' {maxResults} -> maxResults) (\s@SearchAddressBooks' {} a -> s {maxResults = a} :: SearchAddressBooks)
 
 -- | The filters to use to list a specified set of address books. The
 -- supported filter key is AddressBookName.
-searchAddressBooks_filters :: Lens.Lens' SearchAddressBooks (Prelude.Maybe [Filter])
-searchAddressBooks_filters = Lens.lens (\SearchAddressBooks' {filters} -> filters) (\s@SearchAddressBooks' {} a -> s {filters = a} :: SearchAddressBooks) Prelude.. Lens.mapping Prelude._Coerce
+searchAddressBooks_filters :: Lens.Lens' SearchAddressBooks (Core.Maybe [Filter])
+searchAddressBooks_filters = Lens.lens (\SearchAddressBooks' {filters} -> filters) (\s@SearchAddressBooks' {} a -> s {filters = a} :: SearchAddressBooks) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest SearchAddressBooks where
+instance Core.AWSRequest SearchAddressBooks where
   type
-    Rs SearchAddressBooks =
+    AWSResponse SearchAddressBooks =
       SearchAddressBooksResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SearchAddressBooksResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "AddressBooks"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "TotalCount")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "AddressBooks" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "TotalCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SearchAddressBooks
+instance Core.Hashable SearchAddressBooks
 
-instance Prelude.NFData SearchAddressBooks
+instance Core.NFData SearchAddressBooks
 
-instance Prelude.ToHeaders SearchAddressBooks where
+instance Core.ToHeaders SearchAddressBooks where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.SearchAddressBooks" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.SearchAddressBooks" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SearchAddressBooks where
+instance Core.ToJSON SearchAddressBooks where
   toJSON SearchAddressBooks' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("SortCriteria" Prelude..=) Prelude.<$> sortCriteria,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortCriteria" Core..=) Core.<$> sortCriteria,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters
           ]
       )
 
-instance Prelude.ToPath SearchAddressBooks where
-  toPath = Prelude.const "/"
+instance Core.ToPath SearchAddressBooks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SearchAddressBooks where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SearchAddressBooks where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSearchAddressBooksResponse' smart constructor.
 data SearchAddressBooksResponse = SearchAddressBooksResponse'
   { -- | The token returned to indicate that there is more data available.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The address books that meet the specified set of filter criteria, in
     -- sort order.
-    addressBooks :: Prelude.Maybe [AddressBookData],
+    addressBooks :: Core.Maybe [AddressBookData],
     -- | The total number of address books returned.
-    totalCount :: Prelude.Maybe Prelude.Int,
+    totalCount :: Core.Maybe Core.Int,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SearchAddressBooksResponse' with all optional fields omitted.
@@ -212,32 +207,32 @@ data SearchAddressBooksResponse = SearchAddressBooksResponse'
 -- 'httpStatus', 'searchAddressBooksResponse_httpStatus' - The response's http status code.
 newSearchAddressBooksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SearchAddressBooksResponse
 newSearchAddressBooksResponse pHttpStatus_ =
   SearchAddressBooksResponse'
     { nextToken =
-        Prelude.Nothing,
-      addressBooks = Prelude.Nothing,
-      totalCount = Prelude.Nothing,
+        Core.Nothing,
+      addressBooks = Core.Nothing,
+      totalCount = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token returned to indicate that there is more data available.
-searchAddressBooksResponse_nextToken :: Lens.Lens' SearchAddressBooksResponse (Prelude.Maybe Prelude.Text)
+searchAddressBooksResponse_nextToken :: Lens.Lens' SearchAddressBooksResponse (Core.Maybe Core.Text)
 searchAddressBooksResponse_nextToken = Lens.lens (\SearchAddressBooksResponse' {nextToken} -> nextToken) (\s@SearchAddressBooksResponse' {} a -> s {nextToken = a} :: SearchAddressBooksResponse)
 
 -- | The address books that meet the specified set of filter criteria, in
 -- sort order.
-searchAddressBooksResponse_addressBooks :: Lens.Lens' SearchAddressBooksResponse (Prelude.Maybe [AddressBookData])
-searchAddressBooksResponse_addressBooks = Lens.lens (\SearchAddressBooksResponse' {addressBooks} -> addressBooks) (\s@SearchAddressBooksResponse' {} a -> s {addressBooks = a} :: SearchAddressBooksResponse) Prelude.. Lens.mapping Prelude._Coerce
+searchAddressBooksResponse_addressBooks :: Lens.Lens' SearchAddressBooksResponse (Core.Maybe [AddressBookData])
+searchAddressBooksResponse_addressBooks = Lens.lens (\SearchAddressBooksResponse' {addressBooks} -> addressBooks) (\s@SearchAddressBooksResponse' {} a -> s {addressBooks = a} :: SearchAddressBooksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The total number of address books returned.
-searchAddressBooksResponse_totalCount :: Lens.Lens' SearchAddressBooksResponse (Prelude.Maybe Prelude.Int)
+searchAddressBooksResponse_totalCount :: Lens.Lens' SearchAddressBooksResponse (Core.Maybe Core.Int)
 searchAddressBooksResponse_totalCount = Lens.lens (\SearchAddressBooksResponse' {totalCount} -> totalCount) (\s@SearchAddressBooksResponse' {} a -> s {totalCount = a} :: SearchAddressBooksResponse)
 
 -- | The response's http status code.
-searchAddressBooksResponse_httpStatus :: Lens.Lens' SearchAddressBooksResponse Prelude.Int
+searchAddressBooksResponse_httpStatus :: Lens.Lens' SearchAddressBooksResponse Core.Int
 searchAddressBooksResponse_httpStatus = Lens.lens (\SearchAddressBooksResponse' {httpStatus} -> httpStatus) (\s@SearchAddressBooksResponse' {} a -> s {httpStatus = a} :: SearchAddressBooksResponse)
 
-instance Prelude.NFData SearchAddressBooksResponse
+instance Core.NFData SearchAddressBooksResponse

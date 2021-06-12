@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.UserIdentityInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the identity of a user.
 --
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 data UserIdentityInfo = UserIdentityInfo'
   { -- | The email address. If you are using SAML for identity management and
     -- include this parameter, an error is returned.
-    email :: Prelude.Maybe Prelude.Text,
+    email :: Core.Maybe Core.Text,
     -- | The first name. This is required if you are using Amazon Connect or SAML
     -- for identity management.
-    firstName :: Prelude.Maybe Prelude.Text,
+    firstName :: Core.Maybe Core.Text,
     -- | The last name. This is required if you are using Amazon Connect or SAML
     -- for identity management.
-    lastName :: Prelude.Maybe Prelude.Text
+    lastName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserIdentityInfo' with all optional fields omitted.
@@ -59,47 +58,47 @@ newUserIdentityInfo ::
   UserIdentityInfo
 newUserIdentityInfo =
   UserIdentityInfo'
-    { email = Prelude.Nothing,
-      firstName = Prelude.Nothing,
-      lastName = Prelude.Nothing
+    { email = Core.Nothing,
+      firstName = Core.Nothing,
+      lastName = Core.Nothing
     }
 
 -- | The email address. If you are using SAML for identity management and
 -- include this parameter, an error is returned.
-userIdentityInfo_email :: Lens.Lens' UserIdentityInfo (Prelude.Maybe Prelude.Text)
+userIdentityInfo_email :: Lens.Lens' UserIdentityInfo (Core.Maybe Core.Text)
 userIdentityInfo_email = Lens.lens (\UserIdentityInfo' {email} -> email) (\s@UserIdentityInfo' {} a -> s {email = a} :: UserIdentityInfo)
 
 -- | The first name. This is required if you are using Amazon Connect or SAML
 -- for identity management.
-userIdentityInfo_firstName :: Lens.Lens' UserIdentityInfo (Prelude.Maybe Prelude.Text)
+userIdentityInfo_firstName :: Lens.Lens' UserIdentityInfo (Core.Maybe Core.Text)
 userIdentityInfo_firstName = Lens.lens (\UserIdentityInfo' {firstName} -> firstName) (\s@UserIdentityInfo' {} a -> s {firstName = a} :: UserIdentityInfo)
 
 -- | The last name. This is required if you are using Amazon Connect or SAML
 -- for identity management.
-userIdentityInfo_lastName :: Lens.Lens' UserIdentityInfo (Prelude.Maybe Prelude.Text)
+userIdentityInfo_lastName :: Lens.Lens' UserIdentityInfo (Core.Maybe Core.Text)
 userIdentityInfo_lastName = Lens.lens (\UserIdentityInfo' {lastName} -> lastName) (\s@UserIdentityInfo' {} a -> s {lastName = a} :: UserIdentityInfo)
 
-instance Prelude.FromJSON UserIdentityInfo where
+instance Core.FromJSON UserIdentityInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserIdentityInfo"
       ( \x ->
           UserIdentityInfo'
-            Prelude.<$> (x Prelude..:? "Email")
-            Prelude.<*> (x Prelude..:? "FirstName")
-            Prelude.<*> (x Prelude..:? "LastName")
+            Core.<$> (x Core..:? "Email")
+            Core.<*> (x Core..:? "FirstName")
+            Core.<*> (x Core..:? "LastName")
       )
 
-instance Prelude.Hashable UserIdentityInfo
+instance Core.Hashable UserIdentityInfo
 
-instance Prelude.NFData UserIdentityInfo
+instance Core.NFData UserIdentityInfo
 
-instance Prelude.ToJSON UserIdentityInfo where
+instance Core.ToJSON UserIdentityInfo where
   toJSON UserIdentityInfo' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Email" Prelude..=) Prelude.<$> email,
-            ("FirstName" Prelude..=) Prelude.<$> firstName,
-            ("LastName" Prelude..=) Prelude.<$> lastName
+    Core.object
+      ( Core.catMaybes
+          [ ("Email" Core..=) Core.<$> email,
+            ("FirstName" Core..=) Core.<$> firstName,
+            ("LastName" Core..=) Core.<$> lastName
           ]
       )

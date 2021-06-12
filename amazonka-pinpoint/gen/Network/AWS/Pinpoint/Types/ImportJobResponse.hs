@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.ImportJobResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ImportJobResource
 import Network.AWS.Pinpoint.Types.JobStatus
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the status and settings of a job that imports
 -- endpoint definitions from one or more files. The files can be stored in
@@ -35,41 +34,41 @@ data ImportJobResponse = ImportJobResponse'
   { -- | The total number of endpoint definitions that weren\'t processed
     -- successfully (failed) by the import job, typically because an error,
     -- such as a syntax error, occurred.
-    totalFailures :: Prelude.Maybe Prelude.Int,
+    totalFailures :: Core.Maybe Core.Int,
     -- | An array of entries, one for each of the first 100 entries that weren\'t
     -- processed successfully (failed) by the import job, if any.
-    failures :: Prelude.Maybe [Prelude.Text],
+    failures :: Core.Maybe [Core.Text],
     -- | The total number of endpoint definitions that were processed by the
     -- import job.
-    totalProcessed :: Prelude.Maybe Prelude.Int,
+    totalProcessed :: Core.Maybe Core.Int,
     -- | The number of pieces that weren\'t processed successfully (failed) by
     -- the import job, as of the time of the request.
-    failedPieces :: Prelude.Maybe Prelude.Int,
+    failedPieces :: Core.Maybe Core.Int,
     -- | The number of pieces that were processed successfully (completed) by the
     -- import job, as of the time of the request.
-    completedPieces :: Prelude.Maybe Prelude.Int,
+    completedPieces :: Core.Maybe Core.Int,
     -- | The total number of pieces that must be processed to complete the import
     -- job. Each piece consists of an approximately equal portion of the
     -- endpoint definitions that are part of the import job.
-    totalPieces :: Prelude.Maybe Prelude.Int,
+    totalPieces :: Core.Maybe Core.Int,
     -- | The date, in ISO 8601 format, when the import job was completed.
-    completionDate :: Prelude.Maybe Prelude.Text,
+    completionDate :: Core.Maybe Core.Text,
     -- | The status of the import job. The job status is FAILED if Amazon
     -- Pinpoint wasn\'t able to process one or more pieces in the job.
     jobStatus :: JobStatus,
     -- | The date, in ISO 8601 format, when the import job was created.
-    creationDate :: Prelude.Text,
+    creationDate :: Core.Text,
     -- | The job type. This value is IMPORT for import jobs.
-    type' :: Prelude.Text,
+    type' :: Core.Text,
     -- | The resource settings that apply to the import job.
     definition :: ImportJobResource,
     -- | The unique identifier for the import job.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The unique identifier for the application that\'s associated with the
     -- import job.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportJobResponse' with all optional fields omitted.
@@ -118,15 +117,15 @@ newImportJobResponse ::
   -- | 'jobStatus'
   JobStatus ->
   -- | 'creationDate'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
-  Prelude.Text ->
+  Core.Text ->
   -- | 'definition'
   ImportJobResource ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   ImportJobResponse
 newImportJobResponse
   pJobStatus_
@@ -136,13 +135,13 @@ newImportJobResponse
   pId_
   pApplicationId_ =
     ImportJobResponse'
-      { totalFailures = Prelude.Nothing,
-        failures = Prelude.Nothing,
-        totalProcessed = Prelude.Nothing,
-        failedPieces = Prelude.Nothing,
-        completedPieces = Prelude.Nothing,
-        totalPieces = Prelude.Nothing,
-        completionDate = Prelude.Nothing,
+      { totalFailures = Core.Nothing,
+        failures = Core.Nothing,
+        totalProcessed = Core.Nothing,
+        failedPieces = Core.Nothing,
+        completedPieces = Core.Nothing,
+        totalPieces = Core.Nothing,
+        completionDate = Core.Nothing,
         jobStatus = pJobStatus_,
         creationDate = pCreationDate_,
         type' = pType_,
@@ -154,37 +153,37 @@ newImportJobResponse
 -- | The total number of endpoint definitions that weren\'t processed
 -- successfully (failed) by the import job, typically because an error,
 -- such as a syntax error, occurred.
-importJobResponse_totalFailures :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Int)
+importJobResponse_totalFailures :: Lens.Lens' ImportJobResponse (Core.Maybe Core.Int)
 importJobResponse_totalFailures = Lens.lens (\ImportJobResponse' {totalFailures} -> totalFailures) (\s@ImportJobResponse' {} a -> s {totalFailures = a} :: ImportJobResponse)
 
 -- | An array of entries, one for each of the first 100 entries that weren\'t
 -- processed successfully (failed) by the import job, if any.
-importJobResponse_failures :: Lens.Lens' ImportJobResponse (Prelude.Maybe [Prelude.Text])
-importJobResponse_failures = Lens.lens (\ImportJobResponse' {failures} -> failures) (\s@ImportJobResponse' {} a -> s {failures = a} :: ImportJobResponse) Prelude.. Lens.mapping Prelude._Coerce
+importJobResponse_failures :: Lens.Lens' ImportJobResponse (Core.Maybe [Core.Text])
+importJobResponse_failures = Lens.lens (\ImportJobResponse' {failures} -> failures) (\s@ImportJobResponse' {} a -> s {failures = a} :: ImportJobResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The total number of endpoint definitions that were processed by the
 -- import job.
-importJobResponse_totalProcessed :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Int)
+importJobResponse_totalProcessed :: Lens.Lens' ImportJobResponse (Core.Maybe Core.Int)
 importJobResponse_totalProcessed = Lens.lens (\ImportJobResponse' {totalProcessed} -> totalProcessed) (\s@ImportJobResponse' {} a -> s {totalProcessed = a} :: ImportJobResponse)
 
 -- | The number of pieces that weren\'t processed successfully (failed) by
 -- the import job, as of the time of the request.
-importJobResponse_failedPieces :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Int)
+importJobResponse_failedPieces :: Lens.Lens' ImportJobResponse (Core.Maybe Core.Int)
 importJobResponse_failedPieces = Lens.lens (\ImportJobResponse' {failedPieces} -> failedPieces) (\s@ImportJobResponse' {} a -> s {failedPieces = a} :: ImportJobResponse)
 
 -- | The number of pieces that were processed successfully (completed) by the
 -- import job, as of the time of the request.
-importJobResponse_completedPieces :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Int)
+importJobResponse_completedPieces :: Lens.Lens' ImportJobResponse (Core.Maybe Core.Int)
 importJobResponse_completedPieces = Lens.lens (\ImportJobResponse' {completedPieces} -> completedPieces) (\s@ImportJobResponse' {} a -> s {completedPieces = a} :: ImportJobResponse)
 
 -- | The total number of pieces that must be processed to complete the import
 -- job. Each piece consists of an approximately equal portion of the
 -- endpoint definitions that are part of the import job.
-importJobResponse_totalPieces :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Int)
+importJobResponse_totalPieces :: Lens.Lens' ImportJobResponse (Core.Maybe Core.Int)
 importJobResponse_totalPieces = Lens.lens (\ImportJobResponse' {totalPieces} -> totalPieces) (\s@ImportJobResponse' {} a -> s {totalPieces = a} :: ImportJobResponse)
 
 -- | The date, in ISO 8601 format, when the import job was completed.
-importJobResponse_completionDate :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Text)
+importJobResponse_completionDate :: Lens.Lens' ImportJobResponse (Core.Maybe Core.Text)
 importJobResponse_completionDate = Lens.lens (\ImportJobResponse' {completionDate} -> completionDate) (\s@ImportJobResponse' {} a -> s {completionDate = a} :: ImportJobResponse)
 
 -- | The status of the import job. The job status is FAILED if Amazon
@@ -193,11 +192,11 @@ importJobResponse_jobStatus :: Lens.Lens' ImportJobResponse JobStatus
 importJobResponse_jobStatus = Lens.lens (\ImportJobResponse' {jobStatus} -> jobStatus) (\s@ImportJobResponse' {} a -> s {jobStatus = a} :: ImportJobResponse)
 
 -- | The date, in ISO 8601 format, when the import job was created.
-importJobResponse_creationDate :: Lens.Lens' ImportJobResponse Prelude.Text
+importJobResponse_creationDate :: Lens.Lens' ImportJobResponse Core.Text
 importJobResponse_creationDate = Lens.lens (\ImportJobResponse' {creationDate} -> creationDate) (\s@ImportJobResponse' {} a -> s {creationDate = a} :: ImportJobResponse)
 
 -- | The job type. This value is IMPORT for import jobs.
-importJobResponse_type :: Lens.Lens' ImportJobResponse Prelude.Text
+importJobResponse_type :: Lens.Lens' ImportJobResponse Core.Text
 importJobResponse_type = Lens.lens (\ImportJobResponse' {type'} -> type') (\s@ImportJobResponse' {} a -> s {type' = a} :: ImportJobResponse)
 
 -- | The resource settings that apply to the import job.
@@ -205,35 +204,35 @@ importJobResponse_definition :: Lens.Lens' ImportJobResponse ImportJobResource
 importJobResponse_definition = Lens.lens (\ImportJobResponse' {definition} -> definition) (\s@ImportJobResponse' {} a -> s {definition = a} :: ImportJobResponse)
 
 -- | The unique identifier for the import job.
-importJobResponse_id :: Lens.Lens' ImportJobResponse Prelude.Text
+importJobResponse_id :: Lens.Lens' ImportJobResponse Core.Text
 importJobResponse_id = Lens.lens (\ImportJobResponse' {id} -> id) (\s@ImportJobResponse' {} a -> s {id = a} :: ImportJobResponse)
 
 -- | The unique identifier for the application that\'s associated with the
 -- import job.
-importJobResponse_applicationId :: Lens.Lens' ImportJobResponse Prelude.Text
+importJobResponse_applicationId :: Lens.Lens' ImportJobResponse Core.Text
 importJobResponse_applicationId = Lens.lens (\ImportJobResponse' {applicationId} -> applicationId) (\s@ImportJobResponse' {} a -> s {applicationId = a} :: ImportJobResponse)
 
-instance Prelude.FromJSON ImportJobResponse where
+instance Core.FromJSON ImportJobResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImportJobResponse"
       ( \x ->
           ImportJobResponse'
-            Prelude.<$> (x Prelude..:? "TotalFailures")
-            Prelude.<*> (x Prelude..:? "Failures" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "TotalProcessed")
-            Prelude.<*> (x Prelude..:? "FailedPieces")
-            Prelude.<*> (x Prelude..:? "CompletedPieces")
-            Prelude.<*> (x Prelude..:? "TotalPieces")
-            Prelude.<*> (x Prelude..:? "CompletionDate")
-            Prelude.<*> (x Prelude..: "JobStatus")
-            Prelude.<*> (x Prelude..: "CreationDate")
-            Prelude.<*> (x Prelude..: "Type")
-            Prelude.<*> (x Prelude..: "Definition")
-            Prelude.<*> (x Prelude..: "Id")
-            Prelude.<*> (x Prelude..: "ApplicationId")
+            Core.<$> (x Core..:? "TotalFailures")
+            Core.<*> (x Core..:? "Failures" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "TotalProcessed")
+            Core.<*> (x Core..:? "FailedPieces")
+            Core.<*> (x Core..:? "CompletedPieces")
+            Core.<*> (x Core..:? "TotalPieces")
+            Core.<*> (x Core..:? "CompletionDate")
+            Core.<*> (x Core..: "JobStatus")
+            Core.<*> (x Core..: "CreationDate")
+            Core.<*> (x Core..: "Type")
+            Core.<*> (x Core..: "Definition")
+            Core.<*> (x Core..: "Id")
+            Core.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable ImportJobResponse
+instance Core.Hashable ImportJobResponse
 
-instance Prelude.NFData ImportJobResponse
+instance Core.NFData ImportJobResponse

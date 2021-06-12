@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.PolicyAttribute where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a policy attribute.
 --
 -- /See:/ 'newPolicyAttribute' smart constructor.
 data PolicyAttribute = PolicyAttribute'
   { -- | The value of the attribute.
-    attributeValue :: Prelude.Maybe Prelude.Text,
+    attributeValue :: Core.Maybe Core.Text,
     -- | The name of the attribute.
-    attributeName :: Prelude.Maybe Prelude.Text
+    attributeName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyAttribute' with all optional fields omitted.
@@ -50,25 +49,25 @@ newPolicyAttribute ::
   PolicyAttribute
 newPolicyAttribute =
   PolicyAttribute'
-    { attributeValue = Prelude.Nothing,
-      attributeName = Prelude.Nothing
+    { attributeValue = Core.Nothing,
+      attributeName = Core.Nothing
     }
 
 -- | The value of the attribute.
-policyAttribute_attributeValue :: Lens.Lens' PolicyAttribute (Prelude.Maybe Prelude.Text)
+policyAttribute_attributeValue :: Lens.Lens' PolicyAttribute (Core.Maybe Core.Text)
 policyAttribute_attributeValue = Lens.lens (\PolicyAttribute' {attributeValue} -> attributeValue) (\s@PolicyAttribute' {} a -> s {attributeValue = a} :: PolicyAttribute)
 
 -- | The name of the attribute.
-policyAttribute_attributeName :: Lens.Lens' PolicyAttribute (Prelude.Maybe Prelude.Text)
+policyAttribute_attributeName :: Lens.Lens' PolicyAttribute (Core.Maybe Core.Text)
 policyAttribute_attributeName = Lens.lens (\PolicyAttribute' {attributeName} -> attributeName) (\s@PolicyAttribute' {} a -> s {attributeName = a} :: PolicyAttribute)
 
-instance Prelude.Hashable PolicyAttribute
+instance Core.Hashable PolicyAttribute
 
-instance Prelude.NFData PolicyAttribute
+instance Core.NFData PolicyAttribute
 
-instance Prelude.ToQuery PolicyAttribute where
+instance Core.ToQuery PolicyAttribute where
   toQuery PolicyAttribute' {..} =
-    Prelude.mconcat
-      [ "AttributeValue" Prelude.=: attributeValue,
-        "AttributeName" Prelude.=: attributeName
+    Core.mconcat
+      [ "AttributeValue" Core.=: attributeValue,
+        "AttributeName" Core.=: attributeName
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types.GroupMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the metadata of a user group.
 --
 -- /See:/ 'newGroupMetadata' smart constructor.
 data GroupMetadata = GroupMetadata'
   { -- | The ID of the user group.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the group.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GroupMetadata' with all optional fields omitted.
@@ -49,28 +48,27 @@ newGroupMetadata ::
   GroupMetadata
 newGroupMetadata =
   GroupMetadata'
-    { id = Prelude.Nothing,
-      name = Prelude.Nothing
+    { id = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The ID of the user group.
-groupMetadata_id :: Lens.Lens' GroupMetadata (Prelude.Maybe Prelude.Text)
+groupMetadata_id :: Lens.Lens' GroupMetadata (Core.Maybe Core.Text)
 groupMetadata_id = Lens.lens (\GroupMetadata' {id} -> id) (\s@GroupMetadata' {} a -> s {id = a} :: GroupMetadata)
 
 -- | The name of the group.
-groupMetadata_name :: Lens.Lens' GroupMetadata (Prelude.Maybe Prelude.Text)
+groupMetadata_name :: Lens.Lens' GroupMetadata (Core.Maybe Core.Text)
 groupMetadata_name = Lens.lens (\GroupMetadata' {name} -> name) (\s@GroupMetadata' {} a -> s {name = a} :: GroupMetadata)
 
-instance Prelude.FromJSON GroupMetadata where
+instance Core.FromJSON GroupMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GroupMetadata"
       ( \x ->
           GroupMetadata'
-            Prelude.<$> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "Id") Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable GroupMetadata
+instance Core.Hashable GroupMetadata
 
-instance Prelude.NFData GroupMetadata
+instance Core.NFData GroupMetadata

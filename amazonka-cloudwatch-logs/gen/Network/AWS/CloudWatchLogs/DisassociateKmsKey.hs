@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,17 +45,17 @@ module Network.AWS.CloudWatchLogs.DisassociateKmsKey
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateKmsKey' smart constructor.
 data DisassociateKmsKey = DisassociateKmsKey'
   { -- | The name of the log group.
-    logGroupName :: Prelude.Text
+    logGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateKmsKey' with all optional fields omitted.
@@ -69,62 +68,58 @@ data DisassociateKmsKey = DisassociateKmsKey'
 -- 'logGroupName', 'disassociateKmsKey_logGroupName' - The name of the log group.
 newDisassociateKmsKey ::
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateKmsKey
 newDisassociateKmsKey pLogGroupName_ =
   DisassociateKmsKey' {logGroupName = pLogGroupName_}
 
 -- | The name of the log group.
-disassociateKmsKey_logGroupName :: Lens.Lens' DisassociateKmsKey Prelude.Text
+disassociateKmsKey_logGroupName :: Lens.Lens' DisassociateKmsKey Core.Text
 disassociateKmsKey_logGroupName = Lens.lens (\DisassociateKmsKey' {logGroupName} -> logGroupName) (\s@DisassociateKmsKey' {} a -> s {logGroupName = a} :: DisassociateKmsKey)
 
-instance Prelude.AWSRequest DisassociateKmsKey where
+instance Core.AWSRequest DisassociateKmsKey where
   type
-    Rs DisassociateKmsKey =
+    AWSResponse DisassociateKmsKey =
       DisassociateKmsKeyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DisassociateKmsKeyResponse'
 
-instance Prelude.Hashable DisassociateKmsKey
+instance Core.Hashable DisassociateKmsKey
 
-instance Prelude.NFData DisassociateKmsKey
+instance Core.NFData DisassociateKmsKey
 
-instance Prelude.ToHeaders DisassociateKmsKey where
+instance Core.ToHeaders DisassociateKmsKey where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.DisassociateKmsKey" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Logs_20140328.DisassociateKmsKey" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisassociateKmsKey where
+instance Core.ToJSON DisassociateKmsKey where
   toJSON DisassociateKmsKey' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("logGroupName" Prelude..= logGroupName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("logGroupName" Core..= logGroupName)]
       )
 
-instance Prelude.ToPath DisassociateKmsKey where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateKmsKey where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisassociateKmsKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateKmsKey where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateKmsKeyResponse' smart constructor.
 data DisassociateKmsKeyResponse = DisassociateKmsKeyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateKmsKeyResponse' with all optional fields omitted.
@@ -135,4 +130,4 @@ newDisassociateKmsKeyResponse ::
 newDisassociateKmsKeyResponse =
   DisassociateKmsKeyResponse'
 
-instance Prelude.NFData DisassociateKmsKeyResponse
+instance Core.NFData DisassociateKmsKeyResponse

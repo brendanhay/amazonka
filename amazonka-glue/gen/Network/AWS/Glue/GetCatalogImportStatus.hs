@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.Glue.GetCatalogImportStatus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data GetCatalogImportStatus = GetCatalogImportStatus'
   { -- | The ID of the catalog to migrate. Currently, this should be the AWS
     -- account ID.
-    catalogId :: Prelude.Maybe Prelude.Text
+    catalogId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCatalogImportStatus' with all optional fields omitted.
@@ -67,69 +66,64 @@ data GetCatalogImportStatus = GetCatalogImportStatus'
 newGetCatalogImportStatus ::
   GetCatalogImportStatus
 newGetCatalogImportStatus =
-  GetCatalogImportStatus'
-    { catalogId =
-        Prelude.Nothing
-    }
+  GetCatalogImportStatus' {catalogId = Core.Nothing}
 
 -- | The ID of the catalog to migrate. Currently, this should be the AWS
 -- account ID.
-getCatalogImportStatus_catalogId :: Lens.Lens' GetCatalogImportStatus (Prelude.Maybe Prelude.Text)
+getCatalogImportStatus_catalogId :: Lens.Lens' GetCatalogImportStatus (Core.Maybe Core.Text)
 getCatalogImportStatus_catalogId = Lens.lens (\GetCatalogImportStatus' {catalogId} -> catalogId) (\s@GetCatalogImportStatus' {} a -> s {catalogId = a} :: GetCatalogImportStatus)
 
-instance Prelude.AWSRequest GetCatalogImportStatus where
+instance Core.AWSRequest GetCatalogImportStatus where
   type
-    Rs GetCatalogImportStatus =
+    AWSResponse GetCatalogImportStatus =
       GetCatalogImportStatusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCatalogImportStatusResponse'
-            Prelude.<$> (x Prelude..?> "ImportStatus")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ImportStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetCatalogImportStatus
+instance Core.Hashable GetCatalogImportStatus
 
-instance Prelude.NFData GetCatalogImportStatus
+instance Core.NFData GetCatalogImportStatus
 
-instance Prelude.ToHeaders GetCatalogImportStatus where
+instance Core.ToHeaders GetCatalogImportStatus where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.GetCatalogImportStatus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSGlue.GetCatalogImportStatus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetCatalogImportStatus where
+instance Core.ToJSON GetCatalogImportStatus where
   toJSON GetCatalogImportStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("CatalogId" Prelude..=) Prelude.<$> catalogId]
+    Core.object
+      ( Core.catMaybes
+          [("CatalogId" Core..=) Core.<$> catalogId]
       )
 
-instance Prelude.ToPath GetCatalogImportStatus where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetCatalogImportStatus where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetCatalogImportStatus where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCatalogImportStatus where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCatalogImportStatusResponse' smart constructor.
 data GetCatalogImportStatusResponse = GetCatalogImportStatusResponse'
   { -- | The status of the specified catalog migration.
-    importStatus :: Prelude.Maybe CatalogImportStatus,
+    importStatus :: Core.Maybe CatalogImportStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCatalogImportStatusResponse' with all optional fields omitted.
@@ -144,23 +138,21 @@ data GetCatalogImportStatusResponse = GetCatalogImportStatusResponse'
 -- 'httpStatus', 'getCatalogImportStatusResponse_httpStatus' - The response's http status code.
 newGetCatalogImportStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCatalogImportStatusResponse
 newGetCatalogImportStatusResponse pHttpStatus_ =
   GetCatalogImportStatusResponse'
     { importStatus =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the specified catalog migration.
-getCatalogImportStatusResponse_importStatus :: Lens.Lens' GetCatalogImportStatusResponse (Prelude.Maybe CatalogImportStatus)
+getCatalogImportStatusResponse_importStatus :: Lens.Lens' GetCatalogImportStatusResponse (Core.Maybe CatalogImportStatus)
 getCatalogImportStatusResponse_importStatus = Lens.lens (\GetCatalogImportStatusResponse' {importStatus} -> importStatus) (\s@GetCatalogImportStatusResponse' {} a -> s {importStatus = a} :: GetCatalogImportStatusResponse)
 
 -- | The response's http status code.
-getCatalogImportStatusResponse_httpStatus :: Lens.Lens' GetCatalogImportStatusResponse Prelude.Int
+getCatalogImportStatusResponse_httpStatus :: Lens.Lens' GetCatalogImportStatusResponse Core.Int
 getCatalogImportStatusResponse_httpStatus = Lens.lens (\GetCatalogImportStatusResponse' {httpStatus} -> httpStatus) (\s@GetCatalogImportStatusResponse' {} a -> s {httpStatus = a} :: GetCatalogImportStatusResponse)
 
-instance
-  Prelude.NFData
-    GetCatalogImportStatusResponse
+instance Core.NFData GetCatalogImportStatusResponse

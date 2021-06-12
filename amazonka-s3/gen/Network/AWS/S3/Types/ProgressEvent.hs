@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ProgressEvent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Progress
 
@@ -31,9 +30,9 @@ import Network.AWS.S3.Types.Progress
 -- /See:/ 'newProgressEvent' smart constructor.
 data ProgressEvent = ProgressEvent'
   { -- | The Progress event details.
-    details :: Prelude.Maybe Progress
+    details :: Core.Maybe Progress
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProgressEvent' with all optional fields omitted.
@@ -47,17 +46,16 @@ data ProgressEvent = ProgressEvent'
 newProgressEvent ::
   ProgressEvent
 newProgressEvent =
-  ProgressEvent' {details = Prelude.Nothing}
+  ProgressEvent' {details = Core.Nothing}
 
 -- | The Progress event details.
-progressEvent_details :: Lens.Lens' ProgressEvent (Prelude.Maybe Progress)
+progressEvent_details :: Lens.Lens' ProgressEvent (Core.Maybe Progress)
 progressEvent_details = Lens.lens (\ProgressEvent' {details} -> details) (\s@ProgressEvent' {} a -> s {details = a} :: ProgressEvent)
 
-instance Prelude.FromXML ProgressEvent where
+instance Core.FromXML ProgressEvent where
   parseXML x =
-    ProgressEvent'
-      Prelude.<$> (x Prelude..@? "Details")
+    ProgressEvent' Core.<$> (x Core..@? "Details")
 
-instance Prelude.Hashable ProgressEvent
+instance Core.Hashable ProgressEvent
 
-instance Prelude.NFData ProgressEvent
+instance Core.NFData ProgressEvent

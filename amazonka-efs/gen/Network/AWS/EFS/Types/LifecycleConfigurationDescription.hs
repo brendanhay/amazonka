@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EFS.Types.LifecycleConfigurationDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types.LifecyclePolicy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newLifecycleConfigurationDescription' smart constructor.
 data LifecycleConfigurationDescription = LifecycleConfigurationDescription'
   { -- | An array of lifecycle management policies. Currently, EFS supports a
     -- maximum of one policy per file system.
-    lifecyclePolicies :: Prelude.Maybe [LifecyclePolicy]
+    lifecyclePolicies :: Core.Maybe [LifecyclePolicy]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LifecycleConfigurationDescription' with all optional fields omitted.
@@ -47,32 +46,32 @@ newLifecycleConfigurationDescription ::
 newLifecycleConfigurationDescription =
   LifecycleConfigurationDescription'
     { lifecyclePolicies =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | An array of lifecycle management policies. Currently, EFS supports a
 -- maximum of one policy per file system.
-lifecycleConfigurationDescription_lifecyclePolicies :: Lens.Lens' LifecycleConfigurationDescription (Prelude.Maybe [LifecyclePolicy])
-lifecycleConfigurationDescription_lifecyclePolicies = Lens.lens (\LifecycleConfigurationDescription' {lifecyclePolicies} -> lifecyclePolicies) (\s@LifecycleConfigurationDescription' {} a -> s {lifecyclePolicies = a} :: LifecycleConfigurationDescription) Prelude.. Lens.mapping Prelude._Coerce
+lifecycleConfigurationDescription_lifecyclePolicies :: Lens.Lens' LifecycleConfigurationDescription (Core.Maybe [LifecyclePolicy])
+lifecycleConfigurationDescription_lifecyclePolicies = Lens.lens (\LifecycleConfigurationDescription' {lifecyclePolicies} -> lifecyclePolicies) (\s@LifecycleConfigurationDescription' {} a -> s {lifecyclePolicies = a} :: LifecycleConfigurationDescription) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     LifecycleConfigurationDescription
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LifecycleConfigurationDescription"
       ( \x ->
           LifecycleConfigurationDescription'
-            Prelude.<$> ( x Prelude..:? "LifecyclePolicies"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> ( x Core..:? "LifecyclePolicies"
+                         Core..!= Core.mempty
+                     )
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LifecycleConfigurationDescription
 
 instance
-  Prelude.NFData
+  Core.NFData
     LifecycleConfigurationDescription

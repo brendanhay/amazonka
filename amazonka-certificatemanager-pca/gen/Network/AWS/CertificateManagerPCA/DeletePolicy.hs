@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,8 +71,8 @@ module Network.AWS.CertificateManagerPCA.DeletePolicy
 where
 
 import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,9 +83,9 @@ data DeletePolicy = DeletePolicy'
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action. The ARN value must have the form
     -- @arn:aws:acm-pca:region:account:certificate-authority\/01234567-89ab-cdef-0123-0123456789ab@.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicy' with all optional fields omitted.
@@ -103,7 +102,7 @@ data DeletePolicy = DeletePolicy'
 -- @arn:aws:acm-pca:region:account:certificate-authority\/01234567-89ab-cdef-0123-0123456789ab@.
 newDeletePolicy ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   DeletePolicy
 newDeletePolicy pResourceArn_ =
   DeletePolicy' {resourceArn = pResourceArn_}
@@ -113,51 +112,47 @@ newDeletePolicy pResourceArn_ =
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action. The ARN value must have the form
 -- @arn:aws:acm-pca:region:account:certificate-authority\/01234567-89ab-cdef-0123-0123456789ab@.
-deletePolicy_resourceArn :: Lens.Lens' DeletePolicy Prelude.Text
+deletePolicy_resourceArn :: Lens.Lens' DeletePolicy Core.Text
 deletePolicy_resourceArn = Lens.lens (\DeletePolicy' {resourceArn} -> resourceArn) (\s@DeletePolicy' {} a -> s {resourceArn = a} :: DeletePolicy)
 
-instance Prelude.AWSRequest DeletePolicy where
-  type Rs DeletePolicy = DeletePolicyResponse
+instance Core.AWSRequest DeletePolicy where
+  type AWSResponse DeletePolicy = DeletePolicyResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull DeletePolicyResponse'
 
-instance Prelude.Hashable DeletePolicy
+instance Core.Hashable DeletePolicy
 
-instance Prelude.NFData DeletePolicy
+instance Core.NFData DeletePolicy
 
-instance Prelude.ToHeaders DeletePolicy where
+instance Core.ToHeaders DeletePolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("ACMPrivateCA.DeletePolicy" :: Prelude.ByteString),
+              Core.=# ("ACMPrivateCA.DeletePolicy" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeletePolicy where
+instance Core.ToJSON DeletePolicy where
   toJSON DeletePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ResourceArn" Prelude..= resourceArn)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ResourceArn" Core..= resourceArn)]
       )
 
-instance Prelude.ToPath DeletePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeletePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeletePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeletePolicyResponse' smart constructor.
 data DeletePolicyResponse = DeletePolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicyResponse' with all optional fields omitted.
@@ -167,4 +162,4 @@ newDeletePolicyResponse ::
   DeletePolicyResponse
 newDeletePolicyResponse = DeletePolicyResponse'
 
-instance Prelude.NFData DeletePolicyResponse
+instance Core.NFData DeletePolicyResponse

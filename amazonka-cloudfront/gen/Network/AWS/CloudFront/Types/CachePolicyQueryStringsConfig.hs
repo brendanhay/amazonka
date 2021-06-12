@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFront.Types.CachePolicyQueryStringsConfig where
 
 import Network.AWS.CloudFront.Types.CachePolicyQueryStringBehavior
 import Network.AWS.CloudFront.Types.QueryStringNames
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that determines whether any URL query strings in viewer
 -- requests (and if so, which query strings) are included in the cache key
@@ -39,7 +38,7 @@ data CachePolicyQueryStringsConfig = CachePolicyQueryStringsConfig'
     -- @CachePolicyQueryStringsConfig@ type is set to @whitelist@ (the listed
     -- query strings /__are__/ included) or @allExcept@ (the listed query
     -- strings /__are not__/ included, but all other query strings are).
-    queryStrings :: Prelude.Maybe QueryStringNames,
+    queryStrings :: Core.Maybe QueryStringNames,
     -- | Determines whether any URL query strings in viewer requests are included
     -- in the cache key and automatically included in requests that CloudFront
     -- sends to the origin. Valid values are:
@@ -65,7 +64,7 @@ data CachePolicyQueryStringsConfig = CachePolicyQueryStringsConfig'
     --     sends to the origin.
     queryStringBehavior :: CachePolicyQueryStringBehavior
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CachePolicyQueryStringsConfig' with all optional fields omitted.
@@ -114,7 +113,7 @@ newCachePolicyQueryStringsConfig
   pQueryStringBehavior_ =
     CachePolicyQueryStringsConfig'
       { queryStrings =
-          Prelude.Nothing,
+          Core.Nothing,
         queryStringBehavior = pQueryStringBehavior_
       }
 
@@ -125,7 +124,7 @@ newCachePolicyQueryStringsConfig
 -- @CachePolicyQueryStringsConfig@ type is set to @whitelist@ (the listed
 -- query strings /__are__/ included) or @allExcept@ (the listed query
 -- strings /__are not__/ included, but all other query strings are).
-cachePolicyQueryStringsConfig_queryStrings :: Lens.Lens' CachePolicyQueryStringsConfig (Prelude.Maybe QueryStringNames)
+cachePolicyQueryStringsConfig_queryStrings :: Lens.Lens' CachePolicyQueryStringsConfig (Core.Maybe QueryStringNames)
 cachePolicyQueryStringsConfig_queryStrings = Lens.lens (\CachePolicyQueryStringsConfig' {queryStrings} -> queryStrings) (\s@CachePolicyQueryStringsConfig' {} a -> s {queryStrings = a} :: CachePolicyQueryStringsConfig)
 
 -- | Determines whether any URL query strings in viewer requests are included
@@ -154,24 +153,19 @@ cachePolicyQueryStringsConfig_queryStrings = Lens.lens (\CachePolicyQueryStrings
 cachePolicyQueryStringsConfig_queryStringBehavior :: Lens.Lens' CachePolicyQueryStringsConfig CachePolicyQueryStringBehavior
 cachePolicyQueryStringsConfig_queryStringBehavior = Lens.lens (\CachePolicyQueryStringsConfig' {queryStringBehavior} -> queryStringBehavior) (\s@CachePolicyQueryStringsConfig' {} a -> s {queryStringBehavior = a} :: CachePolicyQueryStringsConfig)
 
-instance
-  Prelude.FromXML
-    CachePolicyQueryStringsConfig
-  where
+instance Core.FromXML CachePolicyQueryStringsConfig where
   parseXML x =
     CachePolicyQueryStringsConfig'
-      Prelude.<$> (x Prelude..@? "QueryStrings")
-      Prelude.<*> (x Prelude..@ "QueryStringBehavior")
+      Core.<$> (x Core..@? "QueryStrings")
+      Core.<*> (x Core..@ "QueryStringBehavior")
 
-instance
-  Prelude.Hashable
-    CachePolicyQueryStringsConfig
+instance Core.Hashable CachePolicyQueryStringsConfig
 
-instance Prelude.NFData CachePolicyQueryStringsConfig
+instance Core.NFData CachePolicyQueryStringsConfig
 
-instance Prelude.ToXML CachePolicyQueryStringsConfig where
+instance Core.ToXML CachePolicyQueryStringsConfig where
   toXML CachePolicyQueryStringsConfig' {..} =
-    Prelude.mconcat
-      [ "QueryStrings" Prelude.@= queryStrings,
-        "QueryStringBehavior" Prelude.@= queryStringBehavior
+    Core.mconcat
+      [ "QueryStrings" Core.@= queryStrings,
+        "QueryStringBehavior" Core.@= queryStringBehavior
       ]

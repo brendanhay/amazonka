@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.PipelineSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns a summary of a pipeline.
 --
 -- /See:/ 'newPipelineSummary' smart constructor.
 data PipelineSummary = PipelineSummary'
   { -- | The version number of the pipeline.
-    version :: Prelude.Maybe Prelude.Natural,
+    version :: Core.Maybe Core.Natural,
     -- | The name of the pipeline.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The date and time the pipeline was created, in timestamp format.
-    created :: Prelude.Maybe Prelude.POSIX,
+    created :: Core.Maybe Core.POSIX,
     -- | The date and time of the last update to the pipeline, in timestamp
     -- format.
-    updated :: Prelude.Maybe Prelude.POSIX
+    updated :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PipelineSummary' with all optional fields omitted.
@@ -59,41 +58,41 @@ newPipelineSummary ::
   PipelineSummary
 newPipelineSummary =
   PipelineSummary'
-    { version = Prelude.Nothing,
-      name = Prelude.Nothing,
-      created = Prelude.Nothing,
-      updated = Prelude.Nothing
+    { version = Core.Nothing,
+      name = Core.Nothing,
+      created = Core.Nothing,
+      updated = Core.Nothing
     }
 
 -- | The version number of the pipeline.
-pipelineSummary_version :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Natural)
+pipelineSummary_version :: Lens.Lens' PipelineSummary (Core.Maybe Core.Natural)
 pipelineSummary_version = Lens.lens (\PipelineSummary' {version} -> version) (\s@PipelineSummary' {} a -> s {version = a} :: PipelineSummary)
 
 -- | The name of the pipeline.
-pipelineSummary_name :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Text)
+pipelineSummary_name :: Lens.Lens' PipelineSummary (Core.Maybe Core.Text)
 pipelineSummary_name = Lens.lens (\PipelineSummary' {name} -> name) (\s@PipelineSummary' {} a -> s {name = a} :: PipelineSummary)
 
 -- | The date and time the pipeline was created, in timestamp format.
-pipelineSummary_created :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineSummary_created = Lens.lens (\PipelineSummary' {created} -> created) (\s@PipelineSummary' {} a -> s {created = a} :: PipelineSummary) Prelude.. Lens.mapping Prelude._Time
+pipelineSummary_created :: Lens.Lens' PipelineSummary (Core.Maybe Core.UTCTime)
+pipelineSummary_created = Lens.lens (\PipelineSummary' {created} -> created) (\s@PipelineSummary' {} a -> s {created = a} :: PipelineSummary) Core.. Lens.mapping Core._Time
 
 -- | The date and time of the last update to the pipeline, in timestamp
 -- format.
-pipelineSummary_updated :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineSummary_updated = Lens.lens (\PipelineSummary' {updated} -> updated) (\s@PipelineSummary' {} a -> s {updated = a} :: PipelineSummary) Prelude.. Lens.mapping Prelude._Time
+pipelineSummary_updated :: Lens.Lens' PipelineSummary (Core.Maybe Core.UTCTime)
+pipelineSummary_updated = Lens.lens (\PipelineSummary' {updated} -> updated) (\s@PipelineSummary' {} a -> s {updated = a} :: PipelineSummary) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON PipelineSummary where
+instance Core.FromJSON PipelineSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PipelineSummary"
       ( \x ->
           PipelineSummary'
-            Prelude.<$> (x Prelude..:? "version")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "created")
-            Prelude.<*> (x Prelude..:? "updated")
+            Core.<$> (x Core..:? "version")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "created")
+            Core.<*> (x Core..:? "updated")
       )
 
-instance Prelude.Hashable PipelineSummary
+instance Core.Hashable PipelineSummary
 
-instance Prelude.NFData PipelineSummary
+instance Core.NFData PipelineSummary

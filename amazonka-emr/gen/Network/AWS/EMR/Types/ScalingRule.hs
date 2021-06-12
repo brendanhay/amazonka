@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.ScalingRule where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ScalingAction
 import Network.AWS.EMR.Types.ScalingTrigger
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A scale-in or scale-out rule that defines scaling activity, including
 -- the CloudWatch metric alarm that triggers activity, how EC2 instances
@@ -34,17 +33,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newScalingRule' smart constructor.
 data ScalingRule = ScalingRule'
   { -- | A friendly, more verbose description of the automatic scaling rule.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name used to identify an automatic scaling rule. Rule names must be
     -- unique within a scaling policy.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The conditions that trigger an automatic scaling activity.
     action :: ScalingAction,
     -- | The CloudWatch alarm definition that determines when automatic scaling
     -- activity is triggered.
     trigger :: ScalingTrigger
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScalingRule' with all optional fields omitted.
@@ -65,7 +64,7 @@ data ScalingRule = ScalingRule'
 -- activity is triggered.
 newScalingRule ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'action'
   ScalingAction ->
   -- | 'trigger'
@@ -73,19 +72,19 @@ newScalingRule ::
   ScalingRule
 newScalingRule pName_ pAction_ pTrigger_ =
   ScalingRule'
-    { description = Prelude.Nothing,
+    { description = Core.Nothing,
       name = pName_,
       action = pAction_,
       trigger = pTrigger_
     }
 
 -- | A friendly, more verbose description of the automatic scaling rule.
-scalingRule_description :: Lens.Lens' ScalingRule (Prelude.Maybe Prelude.Text)
+scalingRule_description :: Lens.Lens' ScalingRule (Core.Maybe Core.Text)
 scalingRule_description = Lens.lens (\ScalingRule' {description} -> description) (\s@ScalingRule' {} a -> s {description = a} :: ScalingRule)
 
 -- | The name used to identify an automatic scaling rule. Rule names must be
 -- unique within a scaling policy.
-scalingRule_name :: Lens.Lens' ScalingRule Prelude.Text
+scalingRule_name :: Lens.Lens' ScalingRule Core.Text
 scalingRule_name = Lens.lens (\ScalingRule' {name} -> name) (\s@ScalingRule' {} a -> s {name = a} :: ScalingRule)
 
 -- | The conditions that trigger an automatic scaling activity.
@@ -97,29 +96,29 @@ scalingRule_action = Lens.lens (\ScalingRule' {action} -> action) (\s@ScalingRul
 scalingRule_trigger :: Lens.Lens' ScalingRule ScalingTrigger
 scalingRule_trigger = Lens.lens (\ScalingRule' {trigger} -> trigger) (\s@ScalingRule' {} a -> s {trigger = a} :: ScalingRule)
 
-instance Prelude.FromJSON ScalingRule where
+instance Core.FromJSON ScalingRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScalingRule"
       ( \x ->
           ScalingRule'
-            Prelude.<$> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "Action")
-            Prelude.<*> (x Prelude..: "Trigger")
+            Core.<$> (x Core..:? "Description")
+            Core.<*> (x Core..: "Name")
+            Core.<*> (x Core..: "Action")
+            Core.<*> (x Core..: "Trigger")
       )
 
-instance Prelude.Hashable ScalingRule
+instance Core.Hashable ScalingRule
 
-instance Prelude.NFData ScalingRule
+instance Core.NFData ScalingRule
 
-instance Prelude.ToJSON ScalingRule where
+instance Core.ToJSON ScalingRule where
   toJSON ScalingRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Action" Prelude..= action),
-            Prelude.Just ("Trigger" Prelude..= trigger)
+    Core.object
+      ( Core.catMaybes
+          [ ("Description" Core..=) Core.<$> description,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Action" Core..= action),
+            Core.Just ("Trigger" Core..= trigger)
           ]
       )

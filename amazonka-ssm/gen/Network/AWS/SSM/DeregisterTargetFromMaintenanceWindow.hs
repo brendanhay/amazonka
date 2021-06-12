@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -54,13 +53,13 @@ data DeregisterTargetFromMaintenanceWindow = DeregisterTargetFromMaintenanceWind
   { -- | The system checks if the target is being referenced by a task. If the
     -- target is being referenced, the system returns an error and does not
     -- deregister the target from the maintenance window.
-    safe :: Prelude.Maybe Prelude.Bool,
+    safe :: Core.Maybe Core.Bool,
     -- | The ID of the maintenance window the target should be removed from.
-    windowId :: Prelude.Text,
+    windowId :: Core.Text,
     -- | The ID of the target definition to remove.
-    windowTargetId :: Prelude.Text
+    windowTargetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterTargetFromMaintenanceWindow' with all optional fields omitted.
@@ -79,16 +78,16 @@ data DeregisterTargetFromMaintenanceWindow = DeregisterTargetFromMaintenanceWind
 -- 'windowTargetId', 'deregisterTargetFromMaintenanceWindow_windowTargetId' - The ID of the target definition to remove.
 newDeregisterTargetFromMaintenanceWindow ::
   -- | 'windowId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'windowTargetId'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterTargetFromMaintenanceWindow
 newDeregisterTargetFromMaintenanceWindow
   pWindowId_
   pWindowTargetId_ =
     DeregisterTargetFromMaintenanceWindow'
       { safe =
-          Prelude.Nothing,
+          Core.Nothing,
         windowId = pWindowId_,
         windowTargetId = pWindowTargetId_
       }
@@ -96,96 +95,94 @@ newDeregisterTargetFromMaintenanceWindow
 -- | The system checks if the target is being referenced by a task. If the
 -- target is being referenced, the system returns an error and does not
 -- deregister the target from the maintenance window.
-deregisterTargetFromMaintenanceWindow_safe :: Lens.Lens' DeregisterTargetFromMaintenanceWindow (Prelude.Maybe Prelude.Bool)
+deregisterTargetFromMaintenanceWindow_safe :: Lens.Lens' DeregisterTargetFromMaintenanceWindow (Core.Maybe Core.Bool)
 deregisterTargetFromMaintenanceWindow_safe = Lens.lens (\DeregisterTargetFromMaintenanceWindow' {safe} -> safe) (\s@DeregisterTargetFromMaintenanceWindow' {} a -> s {safe = a} :: DeregisterTargetFromMaintenanceWindow)
 
 -- | The ID of the maintenance window the target should be removed from.
-deregisterTargetFromMaintenanceWindow_windowId :: Lens.Lens' DeregisterTargetFromMaintenanceWindow Prelude.Text
+deregisterTargetFromMaintenanceWindow_windowId :: Lens.Lens' DeregisterTargetFromMaintenanceWindow Core.Text
 deregisterTargetFromMaintenanceWindow_windowId = Lens.lens (\DeregisterTargetFromMaintenanceWindow' {windowId} -> windowId) (\s@DeregisterTargetFromMaintenanceWindow' {} a -> s {windowId = a} :: DeregisterTargetFromMaintenanceWindow)
 
 -- | The ID of the target definition to remove.
-deregisterTargetFromMaintenanceWindow_windowTargetId :: Lens.Lens' DeregisterTargetFromMaintenanceWindow Prelude.Text
+deregisterTargetFromMaintenanceWindow_windowTargetId :: Lens.Lens' DeregisterTargetFromMaintenanceWindow Core.Text
 deregisterTargetFromMaintenanceWindow_windowTargetId = Lens.lens (\DeregisterTargetFromMaintenanceWindow' {windowTargetId} -> windowTargetId) (\s@DeregisterTargetFromMaintenanceWindow' {} a -> s {windowTargetId = a} :: DeregisterTargetFromMaintenanceWindow)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeregisterTargetFromMaintenanceWindow
   where
   type
-    Rs DeregisterTargetFromMaintenanceWindow =
+    AWSResponse
+      DeregisterTargetFromMaintenanceWindow =
       DeregisterTargetFromMaintenanceWindowResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeregisterTargetFromMaintenanceWindowResponse'
-            Prelude.<$> (x Prelude..?> "WindowTargetId")
-              Prelude.<*> (x Prelude..?> "WindowId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "WindowTargetId")
+              Core.<*> (x Core..?> "WindowId")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeregisterTargetFromMaintenanceWindow
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeregisterTargetFromMaintenanceWindow
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeregisterTargetFromMaintenanceWindow
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DeregisterTargetFromMaintenanceWindow" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.DeregisterTargetFromMaintenanceWindow" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DeregisterTargetFromMaintenanceWindow
   where
   toJSON DeregisterTargetFromMaintenanceWindow' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Safe" Prelude..=) Prelude.<$> safe,
-            Prelude.Just ("WindowId" Prelude..= windowId),
-            Prelude.Just
-              ("WindowTargetId" Prelude..= windowTargetId)
+    Core.object
+      ( Core.catMaybes
+          [ ("Safe" Core..=) Core.<$> safe,
+            Core.Just ("WindowId" Core..= windowId),
+            Core.Just ("WindowTargetId" Core..= windowTargetId)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeregisterTargetFromMaintenanceWindow
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeregisterTargetFromMaintenanceWindow
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterTargetFromMaintenanceWindowResponse' smart constructor.
 data DeregisterTargetFromMaintenanceWindowResponse = DeregisterTargetFromMaintenanceWindowResponse'
   { -- | The ID of the removed target definition.
-    windowTargetId :: Prelude.Maybe Prelude.Text,
+    windowTargetId :: Core.Maybe Core.Text,
     -- | The ID of the maintenance window the target was removed from.
-    windowId :: Prelude.Maybe Prelude.Text,
+    windowId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterTargetFromMaintenanceWindowResponse' with all optional fields omitted.
@@ -202,29 +199,29 @@ data DeregisterTargetFromMaintenanceWindowResponse = DeregisterTargetFromMainten
 -- 'httpStatus', 'deregisterTargetFromMaintenanceWindowResponse_httpStatus' - The response's http status code.
 newDeregisterTargetFromMaintenanceWindowResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeregisterTargetFromMaintenanceWindowResponse
 newDeregisterTargetFromMaintenanceWindowResponse
   pHttpStatus_ =
     DeregisterTargetFromMaintenanceWindowResponse'
       { windowTargetId =
-          Prelude.Nothing,
-        windowId = Prelude.Nothing,
+          Core.Nothing,
+        windowId = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The ID of the removed target definition.
-deregisterTargetFromMaintenanceWindowResponse_windowTargetId :: Lens.Lens' DeregisterTargetFromMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
+deregisterTargetFromMaintenanceWindowResponse_windowTargetId :: Lens.Lens' DeregisterTargetFromMaintenanceWindowResponse (Core.Maybe Core.Text)
 deregisterTargetFromMaintenanceWindowResponse_windowTargetId = Lens.lens (\DeregisterTargetFromMaintenanceWindowResponse' {windowTargetId} -> windowTargetId) (\s@DeregisterTargetFromMaintenanceWindowResponse' {} a -> s {windowTargetId = a} :: DeregisterTargetFromMaintenanceWindowResponse)
 
 -- | The ID of the maintenance window the target was removed from.
-deregisterTargetFromMaintenanceWindowResponse_windowId :: Lens.Lens' DeregisterTargetFromMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
+deregisterTargetFromMaintenanceWindowResponse_windowId :: Lens.Lens' DeregisterTargetFromMaintenanceWindowResponse (Core.Maybe Core.Text)
 deregisterTargetFromMaintenanceWindowResponse_windowId = Lens.lens (\DeregisterTargetFromMaintenanceWindowResponse' {windowId} -> windowId) (\s@DeregisterTargetFromMaintenanceWindowResponse' {} a -> s {windowId = a} :: DeregisterTargetFromMaintenanceWindowResponse)
 
 -- | The response's http status code.
-deregisterTargetFromMaintenanceWindowResponse_httpStatus :: Lens.Lens' DeregisterTargetFromMaintenanceWindowResponse Prelude.Int
+deregisterTargetFromMaintenanceWindowResponse_httpStatus :: Lens.Lens' DeregisterTargetFromMaintenanceWindowResponse Core.Int
 deregisterTargetFromMaintenanceWindowResponse_httpStatus = Lens.lens (\DeregisterTargetFromMaintenanceWindowResponse' {httpStatus} -> httpStatus) (\s@DeregisterTargetFromMaintenanceWindowResponse' {} a -> s {httpStatus = a} :: DeregisterTargetFromMaintenanceWindowResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeregisterTargetFromMaintenanceWindowResponse

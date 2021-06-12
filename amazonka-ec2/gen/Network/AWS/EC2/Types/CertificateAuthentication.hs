@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CertificateAuthentication where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the client certificate used for authentication.
 --
 -- /See:/ 'newCertificateAuthentication' smart constructor.
 data CertificateAuthentication = CertificateAuthentication'
   { -- | The ARN of the client certificate.
-    clientRootCertificateChain :: Prelude.Maybe Prelude.Text
+    clientRootCertificateChain :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CertificateAuthentication' with all optional fields omitted.
@@ -47,18 +46,18 @@ newCertificateAuthentication ::
 newCertificateAuthentication =
   CertificateAuthentication'
     { clientRootCertificateChain =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ARN of the client certificate.
-certificateAuthentication_clientRootCertificateChain :: Lens.Lens' CertificateAuthentication (Prelude.Maybe Prelude.Text)
+certificateAuthentication_clientRootCertificateChain :: Lens.Lens' CertificateAuthentication (Core.Maybe Core.Text)
 certificateAuthentication_clientRootCertificateChain = Lens.lens (\CertificateAuthentication' {clientRootCertificateChain} -> clientRootCertificateChain) (\s@CertificateAuthentication' {} a -> s {clientRootCertificateChain = a} :: CertificateAuthentication)
 
-instance Prelude.FromXML CertificateAuthentication where
+instance Core.FromXML CertificateAuthentication where
   parseXML x =
     CertificateAuthentication'
-      Prelude.<$> (x Prelude..@? "clientRootCertificateChain")
+      Core.<$> (x Core..@? "clientRootCertificateChain")
 
-instance Prelude.Hashable CertificateAuthentication
+instance Core.Hashable CertificateAuthentication
 
-instance Prelude.NFData CertificateAuthentication
+instance Core.NFData CertificateAuthentication

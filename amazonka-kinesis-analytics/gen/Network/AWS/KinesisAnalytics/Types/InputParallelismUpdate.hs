@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.InputParallelismUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides updates to the parallelism count.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data InputParallelismUpdate = InputParallelismUpdate'
   { -- | Number of in-application streams to create for the specified streaming
     -- source.
-    countUpdate :: Prelude.Maybe Prelude.Natural
+    countUpdate :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputParallelismUpdate' with all optional fields omitted.
@@ -46,23 +45,20 @@ data InputParallelismUpdate = InputParallelismUpdate'
 newInputParallelismUpdate ::
   InputParallelismUpdate
 newInputParallelismUpdate =
-  InputParallelismUpdate'
-    { countUpdate =
-        Prelude.Nothing
-    }
+  InputParallelismUpdate' {countUpdate = Core.Nothing}
 
 -- | Number of in-application streams to create for the specified streaming
 -- source.
-inputParallelismUpdate_countUpdate :: Lens.Lens' InputParallelismUpdate (Prelude.Maybe Prelude.Natural)
+inputParallelismUpdate_countUpdate :: Lens.Lens' InputParallelismUpdate (Core.Maybe Core.Natural)
 inputParallelismUpdate_countUpdate = Lens.lens (\InputParallelismUpdate' {countUpdate} -> countUpdate) (\s@InputParallelismUpdate' {} a -> s {countUpdate = a} :: InputParallelismUpdate)
 
-instance Prelude.Hashable InputParallelismUpdate
+instance Core.Hashable InputParallelismUpdate
 
-instance Prelude.NFData InputParallelismUpdate
+instance Core.NFData InputParallelismUpdate
 
-instance Prelude.ToJSON InputParallelismUpdate where
+instance Core.ToJSON InputParallelismUpdate where
   toJSON InputParallelismUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("CountUpdate" Prelude..=) Prelude.<$> countUpdate]
+    Core.object
+      ( Core.catMaybes
+          [("CountUpdate" Core..=) Core.<$> countUpdate]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary metrics for your Savings Plans Purchase Recommendations.
 --
@@ -29,41 +28,41 @@ import qualified Network.AWS.Prelude as Prelude
 data SavingsPlansPurchaseRecommendationSummary = SavingsPlansPurchaseRecommendationSummary'
   { -- | The estimated monthly savings amount, based on the recommended Savings
     -- Plans purchase.
-    estimatedMonthlySavingsAmount :: Prelude.Maybe Prelude.Text,
+    estimatedMonthlySavingsAmount :: Core.Maybe Core.Text,
     -- | The estimated total savings over the lookback period, based on the
     -- purchase of the recommended Savings Plans.
-    estimatedSavingsAmount :: Prelude.Maybe Prelude.Text,
+    estimatedSavingsAmount :: Core.Maybe Core.Text,
     -- | The recommended hourly commitment based on the recommendation
     -- parameters.
-    hourlyCommitmentToPurchase :: Prelude.Maybe Prelude.Text,
+    hourlyCommitmentToPurchase :: Core.Maybe Core.Text,
     -- | The estimated total cost of the usage after purchasing the recommended
     -- Savings Plans. This is a sum of the cost of Savings Plans during this
     -- term, and the remaining On-Demand usage.
-    estimatedTotalCost :: Prelude.Maybe Prelude.Text,
+    estimatedTotalCost :: Core.Maybe Core.Text,
     -- | The estimated savings relative to the total cost of On-Demand usage,
     -- over the lookback period. This is calculated as
     -- @estimatedSavingsAmount@\/ @CurrentOnDemandSpend@*100.
-    estimatedSavingsPercentage :: Prelude.Maybe Prelude.Text,
+    estimatedSavingsPercentage :: Core.Maybe Core.Text,
     -- | The currency code AWS used to generate the recommendations and present
     -- potential savings.
-    currencyCode :: Prelude.Maybe Prelude.Text,
+    currencyCode :: Core.Maybe Core.Text,
     -- | The estimated On-Demand costs you would expect with no additional
     -- commitment, based on your usage of the selected time period and the
     -- Savings Plans you own.
-    estimatedOnDemandCostWithCurrentCommitment :: Prelude.Maybe Prelude.Text,
+    estimatedOnDemandCostWithCurrentCommitment :: Core.Maybe Core.Text,
     -- | The estimated return on investment based on the recommended Savings
     -- Plans and estimated savings.
-    estimatedROI :: Prelude.Maybe Prelude.Text,
+    estimatedROI :: Core.Maybe Core.Text,
     -- | The current total on demand spend of the applicable usage types over the
     -- lookback period.
-    currentOnDemandSpend :: Prelude.Maybe Prelude.Text,
+    currentOnDemandSpend :: Core.Maybe Core.Text,
     -- | The aggregate number of Savings Plans recommendations that exist for
     -- your account.
-    totalRecommendationCount :: Prelude.Maybe Prelude.Text,
+    totalRecommendationCount :: Core.Maybe Core.Text,
     -- | The recommended Savings Plans cost on a daily (24 hourly) basis.
-    dailyCommitmentToPurchase :: Prelude.Maybe Prelude.Text
+    dailyCommitmentToPurchase :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansPurchaseRecommendationSummary' with all optional fields omitted.
@@ -112,112 +111,112 @@ newSavingsPlansPurchaseRecommendationSummary ::
 newSavingsPlansPurchaseRecommendationSummary =
   SavingsPlansPurchaseRecommendationSummary'
     { estimatedMonthlySavingsAmount =
-        Prelude.Nothing,
+        Core.Nothing,
       estimatedSavingsAmount =
-        Prelude.Nothing,
+        Core.Nothing,
       hourlyCommitmentToPurchase =
-        Prelude.Nothing,
+        Core.Nothing,
       estimatedTotalCost =
-        Prelude.Nothing,
+        Core.Nothing,
       estimatedSavingsPercentage =
-        Prelude.Nothing,
-      currencyCode = Prelude.Nothing,
+        Core.Nothing,
+      currencyCode = Core.Nothing,
       estimatedOnDemandCostWithCurrentCommitment =
-        Prelude.Nothing,
-      estimatedROI = Prelude.Nothing,
+        Core.Nothing,
+      estimatedROI = Core.Nothing,
       currentOnDemandSpend =
-        Prelude.Nothing,
+        Core.Nothing,
       totalRecommendationCount =
-        Prelude.Nothing,
+        Core.Nothing,
       dailyCommitmentToPurchase =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The estimated monthly savings amount, based on the recommended Savings
 -- Plans purchase.
-savingsPlansPurchaseRecommendationSummary_estimatedMonthlySavingsAmount :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationSummary_estimatedMonthlySavingsAmount :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationSummary_estimatedMonthlySavingsAmount = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {estimatedMonthlySavingsAmount} -> estimatedMonthlySavingsAmount) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {estimatedMonthlySavingsAmount = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 -- | The estimated total savings over the lookback period, based on the
 -- purchase of the recommended Savings Plans.
-savingsPlansPurchaseRecommendationSummary_estimatedSavingsAmount :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationSummary_estimatedSavingsAmount :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationSummary_estimatedSavingsAmount = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {estimatedSavingsAmount} -> estimatedSavingsAmount) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {estimatedSavingsAmount = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 -- | The recommended hourly commitment based on the recommendation
 -- parameters.
-savingsPlansPurchaseRecommendationSummary_hourlyCommitmentToPurchase :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationSummary_hourlyCommitmentToPurchase :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationSummary_hourlyCommitmentToPurchase = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {hourlyCommitmentToPurchase} -> hourlyCommitmentToPurchase) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {hourlyCommitmentToPurchase = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 -- | The estimated total cost of the usage after purchasing the recommended
 -- Savings Plans. This is a sum of the cost of Savings Plans during this
 -- term, and the remaining On-Demand usage.
-savingsPlansPurchaseRecommendationSummary_estimatedTotalCost :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationSummary_estimatedTotalCost :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationSummary_estimatedTotalCost = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {estimatedTotalCost} -> estimatedTotalCost) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {estimatedTotalCost = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 -- | The estimated savings relative to the total cost of On-Demand usage,
 -- over the lookback period. This is calculated as
 -- @estimatedSavingsAmount@\/ @CurrentOnDemandSpend@*100.
-savingsPlansPurchaseRecommendationSummary_estimatedSavingsPercentage :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationSummary_estimatedSavingsPercentage :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationSummary_estimatedSavingsPercentage = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {estimatedSavingsPercentage} -> estimatedSavingsPercentage) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {estimatedSavingsPercentage = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 -- | The currency code AWS used to generate the recommendations and present
 -- potential savings.
-savingsPlansPurchaseRecommendationSummary_currencyCode :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationSummary_currencyCode :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationSummary_currencyCode = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {currencyCode} -> currencyCode) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {currencyCode = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 -- | The estimated On-Demand costs you would expect with no additional
 -- commitment, based on your usage of the selected time period and the
 -- Savings Plans you own.
-savingsPlansPurchaseRecommendationSummary_estimatedOnDemandCostWithCurrentCommitment :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationSummary_estimatedOnDemandCostWithCurrentCommitment :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationSummary_estimatedOnDemandCostWithCurrentCommitment = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {estimatedOnDemandCostWithCurrentCommitment} -> estimatedOnDemandCostWithCurrentCommitment) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {estimatedOnDemandCostWithCurrentCommitment = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 -- | The estimated return on investment based on the recommended Savings
 -- Plans and estimated savings.
-savingsPlansPurchaseRecommendationSummary_estimatedROI :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationSummary_estimatedROI :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationSummary_estimatedROI = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {estimatedROI} -> estimatedROI) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {estimatedROI = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 -- | The current total on demand spend of the applicable usage types over the
 -- lookback period.
-savingsPlansPurchaseRecommendationSummary_currentOnDemandSpend :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationSummary_currentOnDemandSpend :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationSummary_currentOnDemandSpend = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {currentOnDemandSpend} -> currentOnDemandSpend) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {currentOnDemandSpend = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 -- | The aggregate number of Savings Plans recommendations that exist for
 -- your account.
-savingsPlansPurchaseRecommendationSummary_totalRecommendationCount :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationSummary_totalRecommendationCount :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationSummary_totalRecommendationCount = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {totalRecommendationCount} -> totalRecommendationCount) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {totalRecommendationCount = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 -- | The recommended Savings Plans cost on a daily (24 hourly) basis.
-savingsPlansPurchaseRecommendationSummary_dailyCommitmentToPurchase :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationSummary_dailyCommitmentToPurchase :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationSummary_dailyCommitmentToPurchase = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {dailyCommitmentToPurchase} -> dailyCommitmentToPurchase) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {dailyCommitmentToPurchase = a} :: SavingsPlansPurchaseRecommendationSummary)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     SavingsPlansPurchaseRecommendationSummary
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SavingsPlansPurchaseRecommendationSummary"
       ( \x ->
           SavingsPlansPurchaseRecommendationSummary'
-            Prelude.<$> (x Prelude..:? "EstimatedMonthlySavingsAmount")
-              Prelude.<*> (x Prelude..:? "EstimatedSavingsAmount")
-              Prelude.<*> (x Prelude..:? "HourlyCommitmentToPurchase")
-              Prelude.<*> (x Prelude..:? "EstimatedTotalCost")
-              Prelude.<*> (x Prelude..:? "EstimatedSavingsPercentage")
-              Prelude.<*> (x Prelude..:? "CurrencyCode")
-              Prelude.<*> ( x
-                              Prelude..:? "EstimatedOnDemandCostWithCurrentCommitment"
-                          )
-              Prelude.<*> (x Prelude..:? "EstimatedROI")
-              Prelude.<*> (x Prelude..:? "CurrentOnDemandSpend")
-              Prelude.<*> (x Prelude..:? "TotalRecommendationCount")
-              Prelude.<*> (x Prelude..:? "DailyCommitmentToPurchase")
+            Core.<$> (x Core..:? "EstimatedMonthlySavingsAmount")
+            Core.<*> (x Core..:? "EstimatedSavingsAmount")
+            Core.<*> (x Core..:? "HourlyCommitmentToPurchase")
+            Core.<*> (x Core..:? "EstimatedTotalCost")
+            Core.<*> (x Core..:? "EstimatedSavingsPercentage")
+            Core.<*> (x Core..:? "CurrencyCode")
+            Core.<*> ( x
+                         Core..:? "EstimatedOnDemandCostWithCurrentCommitment"
+                     )
+            Core.<*> (x Core..:? "EstimatedROI")
+            Core.<*> (x Core..:? "CurrentOnDemandSpend")
+            Core.<*> (x Core..:? "TotalRecommendationCount")
+            Core.<*> (x Core..:? "DailyCommitmentToPurchase")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     SavingsPlansPurchaseRecommendationSummary
 
 instance
-  Prelude.NFData
+  Core.NFData
     SavingsPlansPurchaseRecommendationSummary

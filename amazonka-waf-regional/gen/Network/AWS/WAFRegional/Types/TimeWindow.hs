@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.TimeWindow where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -57,16 +56,16 @@ data TimeWindow = TimeWindow'
     -- format. UTC format includes the special designator, @Z@. For example,
     -- @\"2016-09-27T14:50Z\"@. You can specify any time range in the previous
     -- three hours.
-    startTime :: Prelude.POSIX,
+    startTime :: Core.POSIX,
     -- | The end of the time range from which you want @GetSampledRequests@ to
     -- return a sample of the requests that your AWS resource received. You
     -- must specify the date and time in Coordinated Universal Time (UTC)
     -- format. UTC format includes the special designator, @Z@. For example,
     -- @\"2016-09-27T14:50Z\"@. You can specify any time range in the previous
     -- three hours.
-    endTime :: Prelude.POSIX
+    endTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TimeWindow' with all optional fields omitted.
@@ -91,15 +90,15 @@ data TimeWindow = TimeWindow'
 -- three hours.
 newTimeWindow ::
   -- | 'startTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'endTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   TimeWindow
 newTimeWindow pStartTime_ pEndTime_ =
   TimeWindow'
     { startTime =
-        Prelude._Time Lens.# pStartTime_,
-      endTime = Prelude._Time Lens.# pEndTime_
+        Core._Time Lens.# pStartTime_,
+      endTime = Core._Time Lens.# pEndTime_
     }
 
 -- | The beginning of the time range from which you want @GetSampledRequests@
@@ -108,8 +107,8 @@ newTimeWindow pStartTime_ pEndTime_ =
 -- format. UTC format includes the special designator, @Z@. For example,
 -- @\"2016-09-27T14:50Z\"@. You can specify any time range in the previous
 -- three hours.
-timeWindow_startTime :: Lens.Lens' TimeWindow Prelude.UTCTime
-timeWindow_startTime = Lens.lens (\TimeWindow' {startTime} -> startTime) (\s@TimeWindow' {} a -> s {startTime = a} :: TimeWindow) Prelude.. Prelude._Time
+timeWindow_startTime :: Lens.Lens' TimeWindow Core.UTCTime
+timeWindow_startTime = Lens.lens (\TimeWindow' {startTime} -> startTime) (\s@TimeWindow' {} a -> s {startTime = a} :: TimeWindow) Core.. Core._Time
 
 -- | The end of the time range from which you want @GetSampledRequests@ to
 -- return a sample of the requests that your AWS resource received. You
@@ -117,28 +116,28 @@ timeWindow_startTime = Lens.lens (\TimeWindow' {startTime} -> startTime) (\s@Tim
 -- format. UTC format includes the special designator, @Z@. For example,
 -- @\"2016-09-27T14:50Z\"@. You can specify any time range in the previous
 -- three hours.
-timeWindow_endTime :: Lens.Lens' TimeWindow Prelude.UTCTime
-timeWindow_endTime = Lens.lens (\TimeWindow' {endTime} -> endTime) (\s@TimeWindow' {} a -> s {endTime = a} :: TimeWindow) Prelude.. Prelude._Time
+timeWindow_endTime :: Lens.Lens' TimeWindow Core.UTCTime
+timeWindow_endTime = Lens.lens (\TimeWindow' {endTime} -> endTime) (\s@TimeWindow' {} a -> s {endTime = a} :: TimeWindow) Core.. Core._Time
 
-instance Prelude.FromJSON TimeWindow where
+instance Core.FromJSON TimeWindow where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TimeWindow"
       ( \x ->
           TimeWindow'
-            Prelude.<$> (x Prelude..: "StartTime")
-            Prelude.<*> (x Prelude..: "EndTime")
+            Core.<$> (x Core..: "StartTime")
+            Core.<*> (x Core..: "EndTime")
       )
 
-instance Prelude.Hashable TimeWindow
+instance Core.Hashable TimeWindow
 
-instance Prelude.NFData TimeWindow
+instance Core.NFData TimeWindow
 
-instance Prelude.ToJSON TimeWindow where
+instance Core.ToJSON TimeWindow where
   toJSON TimeWindow' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StartTime" Prelude..= startTime),
-            Prelude.Just ("EndTime" Prelude..= endTime)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StartTime" Core..= startTime),
+            Core.Just ("EndTime" Core..= endTime)
           ]
       )

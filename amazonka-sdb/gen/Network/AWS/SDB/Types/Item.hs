@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SDB.Types.Item where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SDB.Types.Attribute
 
 -- |
 --
 -- /See:/ 'newItem' smart constructor.
 data Item = Item'
-  { alternateNameEncoding :: Prelude.Maybe Prelude.Text,
+  { alternateNameEncoding :: Core.Maybe Core.Text,
     -- | The name of the item.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | A list of attributes.
     attributes :: [Attribute]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Item' with all optional fields omitted.
@@ -51,34 +50,34 @@ data Item = Item'
 -- 'attributes', 'item_attributes' - A list of attributes.
 newItem ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Item
 newItem pName_ =
   Item'
-    { alternateNameEncoding = Prelude.Nothing,
+    { alternateNameEncoding = Core.Nothing,
       name = pName_,
-      attributes = Prelude.mempty
+      attributes = Core.mempty
     }
 
 -- |
-item_alternateNameEncoding :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
+item_alternateNameEncoding :: Lens.Lens' Item (Core.Maybe Core.Text)
 item_alternateNameEncoding = Lens.lens (\Item' {alternateNameEncoding} -> alternateNameEncoding) (\s@Item' {} a -> s {alternateNameEncoding = a} :: Item)
 
 -- | The name of the item.
-item_name :: Lens.Lens' Item Prelude.Text
+item_name :: Lens.Lens' Item Core.Text
 item_name = Lens.lens (\Item' {name} -> name) (\s@Item' {} a -> s {name = a} :: Item)
 
 -- | A list of attributes.
 item_attributes :: Lens.Lens' Item [Attribute]
-item_attributes = Lens.lens (\Item' {attributes} -> attributes) (\s@Item' {} a -> s {attributes = a} :: Item) Prelude.. Prelude._Coerce
+item_attributes = Lens.lens (\Item' {attributes} -> attributes) (\s@Item' {} a -> s {attributes = a} :: Item) Core.. Lens._Coerce
 
-instance Prelude.FromXML Item where
+instance Core.FromXML Item where
   parseXML x =
     Item'
-      Prelude.<$> (x Prelude..@? "AlternateNameEncoding")
-      Prelude.<*> (x Prelude..@ "Name")
-      Prelude.<*> (Prelude.parseXMLList "Attribute" x)
+      Core.<$> (x Core..@? "AlternateNameEncoding")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (Core.parseXMLList "Attribute" x)
 
-instance Prelude.Hashable Item
+instance Core.Hashable Item
 
-instance Prelude.NFData Item
+instance Core.NFData Item

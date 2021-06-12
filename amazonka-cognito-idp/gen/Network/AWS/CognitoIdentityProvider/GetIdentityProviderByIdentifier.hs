@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,19 +41,19 @@ module Network.AWS.CognitoIdentityProvider.GetIdentityProviderByIdentifier
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetIdentityProviderByIdentifier' smart constructor.
 data GetIdentityProviderByIdentifier = GetIdentityProviderByIdentifier'
   { -- | The user pool ID.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The identity provider ID.
-    idpIdentifier :: Prelude.Text
+    idpIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIdentityProviderByIdentifier' with all optional fields omitted.
@@ -69,9 +68,9 @@ data GetIdentityProviderByIdentifier = GetIdentityProviderByIdentifier'
 -- 'idpIdentifier', 'getIdentityProviderByIdentifier_idpIdentifier' - The identity provider ID.
 newGetIdentityProviderByIdentifier ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'idpIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   GetIdentityProviderByIdentifier
 newGetIdentityProviderByIdentifier
   pUserPoolId_
@@ -83,88 +82,74 @@ newGetIdentityProviderByIdentifier
       }
 
 -- | The user pool ID.
-getIdentityProviderByIdentifier_userPoolId :: Lens.Lens' GetIdentityProviderByIdentifier Prelude.Text
+getIdentityProviderByIdentifier_userPoolId :: Lens.Lens' GetIdentityProviderByIdentifier Core.Text
 getIdentityProviderByIdentifier_userPoolId = Lens.lens (\GetIdentityProviderByIdentifier' {userPoolId} -> userPoolId) (\s@GetIdentityProviderByIdentifier' {} a -> s {userPoolId = a} :: GetIdentityProviderByIdentifier)
 
 -- | The identity provider ID.
-getIdentityProviderByIdentifier_idpIdentifier :: Lens.Lens' GetIdentityProviderByIdentifier Prelude.Text
+getIdentityProviderByIdentifier_idpIdentifier :: Lens.Lens' GetIdentityProviderByIdentifier Core.Text
 getIdentityProviderByIdentifier_idpIdentifier = Lens.lens (\GetIdentityProviderByIdentifier' {idpIdentifier} -> idpIdentifier) (\s@GetIdentityProviderByIdentifier' {} a -> s {idpIdentifier = a} :: GetIdentityProviderByIdentifier)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetIdentityProviderByIdentifier
   where
   type
-    Rs GetIdentityProviderByIdentifier =
+    AWSResponse GetIdentityProviderByIdentifier =
       GetIdentityProviderByIdentifierResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetIdentityProviderByIdentifierResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "IdentityProvider")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "IdentityProvider")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetIdentityProviderByIdentifier
 
-instance
-  Prelude.NFData
-    GetIdentityProviderByIdentifier
+instance Core.NFData GetIdentityProviderByIdentifier
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetIdentityProviderByIdentifier
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    GetIdentityProviderByIdentifier
-  where
+instance Core.ToJSON GetIdentityProviderByIdentifier where
   toJSON GetIdentityProviderByIdentifier' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just
-              ("IdpIdentifier" Prelude..= idpIdentifier)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("IdpIdentifier" Core..= idpIdentifier)
           ]
       )
 
-instance
-  Prelude.ToPath
-    GetIdentityProviderByIdentifier
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetIdentityProviderByIdentifier where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    GetIdentityProviderByIdentifier
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetIdentityProviderByIdentifier where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetIdentityProviderByIdentifierResponse' smart constructor.
 data GetIdentityProviderByIdentifierResponse = GetIdentityProviderByIdentifierResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The identity provider object.
     identityProvider :: IdentityProviderType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIdentityProviderByIdentifierResponse' with all optional fields omitted.
@@ -179,7 +164,7 @@ data GetIdentityProviderByIdentifierResponse = GetIdentityProviderByIdentifierRe
 -- 'identityProvider', 'getIdentityProviderByIdentifierResponse_identityProvider' - The identity provider object.
 newGetIdentityProviderByIdentifierResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'identityProvider'
   IdentityProviderType ->
   GetIdentityProviderByIdentifierResponse
@@ -194,7 +179,7 @@ newGetIdentityProviderByIdentifierResponse
       }
 
 -- | The response's http status code.
-getIdentityProviderByIdentifierResponse_httpStatus :: Lens.Lens' GetIdentityProviderByIdentifierResponse Prelude.Int
+getIdentityProviderByIdentifierResponse_httpStatus :: Lens.Lens' GetIdentityProviderByIdentifierResponse Core.Int
 getIdentityProviderByIdentifierResponse_httpStatus = Lens.lens (\GetIdentityProviderByIdentifierResponse' {httpStatus} -> httpStatus) (\s@GetIdentityProviderByIdentifierResponse' {} a -> s {httpStatus = a} :: GetIdentityProviderByIdentifierResponse)
 
 -- | The identity provider object.
@@ -202,5 +187,5 @@ getIdentityProviderByIdentifierResponse_identityProvider :: Lens.Lens' GetIdenti
 getIdentityProviderByIdentifierResponse_identityProvider = Lens.lens (\GetIdentityProviderByIdentifierResponse' {identityProvider} -> identityProvider) (\s@GetIdentityProviderByIdentifierResponse' {} a -> s {identityProvider = a} :: GetIdentityProviderByIdentifierResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetIdentityProviderByIdentifierResponse

@@ -715,6 +715,7 @@ module Network.AWS.ElastiCache.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.AZMode
 import Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus
 import Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType
@@ -793,156 +794,153 @@ import Network.AWS.ElastiCache.Types.UserGroup
 import Network.AWS.ElastiCache.Types.UserGroupPendingChanges
 import Network.AWS.ElastiCache.Types.UserGroupsUpdateStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-02-02@ of the Amazon ElastiCache SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "ElastiCache",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "elasticache",
-      Prelude._svcSigningName = "elasticache",
-      Prelude._svcVersion = "2015-02-02",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseXMLError "ElastiCache",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "ElastiCache",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "elasticache",
+      Core._serviceSigningName = "elasticache",
+      Core._serviceVersion = "2015-02-02",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseXMLError "ElastiCache",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The requested subnet is being used by another cache subnet group.
-_SubnetInUse :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetInUse =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetInUse"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache subnet groups.
-_CacheSubnetGroupQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheSubnetGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheSubnetGroupQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheSubnetGroupQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The VPC network is in an invalid state.
-_InvalidVPCNetworkStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidVPCNetworkStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidVPCNetworkStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidVPCNetworkStateFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested cluster ID does not refer to an existing cluster.
-_CacheClusterNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheClusterNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheClusterNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheClusterNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The requested replication group is not in the @available@ state.
-_InvalidReplicationGroupStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidReplicationGroupStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidReplicationGroupStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidReplicationGroupState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | At least one subnet ID does not match the other subnet IDs. This
 -- mismatch typically occurs when a user sets one subnet ID to a regional
 -- Availability Zone and a different one to an outpost. Or when a user sets
 -- the subnet ID to an Outpost when not subscribed on this service.
-_SubnetNotAllowedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetNotAllowedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetNotAllowedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetNotAllowedFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested cache subnet group name is already in use by an existing
 -- cache subnet group.
-_CacheSubnetGroupAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheSubnetGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheSubnetGroupAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheSubnetGroupAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The @TestFailover@ action is not available.
-_TestFailoverNotAvailableFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TestFailoverNotAvailableFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TestFailoverNotAvailableFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TestFailoverNotAvailableFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The Global Datastore name already exists.
-_GlobalReplicationGroupAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_GlobalReplicationGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _GlobalReplicationGroupAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "GlobalReplicationGroupAlreadyExistsFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You attempted one of the following operations:
 --
@@ -953,490 +951,488 @@ _GlobalReplicationGroupAlreadyExistsFault =
 --     than Redis.
 --
 -- Neither of these are supported by ElastiCache.
-_SnapshotFeatureNotSupportedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotFeatureNotSupportedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotFeatureNotSupportedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotFeatureNotSupportedFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The number of users exceeds the user group limit.
-_UserGroupQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UserGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UserGroupQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UserGroupQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The KMS key supplied is not valid.
-_InvalidKMSKeyFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidKMSKeyFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidKMSKeyFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidKMSKeyFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The current state of the cache security group does not allow deletion.
-_InvalidCacheSecurityGroupStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidCacheSecurityGroupStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidCacheSecurityGroupStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidCacheSecurityGroupState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested reserved cache node was not found.
-_ReservedCacheNodeNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReservedCacheNodeNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReservedCacheNodeNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReservedCacheNodeNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The specified service linked role (SLR) was not found.
-_ServiceLinkedRoleNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceLinkedRoleNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceLinkedRoleNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceLinkedRoleNotFoundFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The customer has exceeded the allowed rate of API calls.
-_APICallRateForCustomerExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_APICallRateForCustomerExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _APICallRateForCustomerExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "APICallRateForCustomerExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The current state of the cache parameter group does not allow the
 -- requested operation to occur.
-_InvalidCacheParameterGroupStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidCacheParameterGroupStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidCacheParameterGroupStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidCacheParameterGroupState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The quota of users has been exceeded.
-_UserQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UserQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UserQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UserQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The operation was not performed because no changes were required.
-_NoOperationFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoOperationFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoOperationFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoOperationFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Two or more incompatible parameters were specified.
-_InvalidParameterCombinationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterCombinationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameterCombination"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A cache parameter group with the requested name already exists.
-_CacheParameterGroupAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheParameterGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheParameterGroupAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheParameterGroupAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would exceed the maximum
 -- number of snapshots.
-_SnapshotQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotQuotaExceededFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested tag was not found on this resource.
-_TagNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TagNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TagNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TagNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of subnets in a cache subnet group.
-_CacheSubnetQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheSubnetQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheSubnetQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheSubnetQuotaExceededFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You already have a snapshot with the given name.
-_SnapshotAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotAlreadyExistsFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache nodes per customer.
-_NodeQuotaForCustomerExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NodeQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NodeQuotaForCustomerExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NodeQuotaForCustomerExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The user does not exist or could not be found.
-_UserNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UserNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UserNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UserNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The requested cache node type is not available in the specified
 -- Availability Zone. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY InsufficientCacheClusterCapacity>
 -- in the ElastiCache User Guide.
-_InsufficientCacheClusterCapacityFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InsufficientCacheClusterCapacityFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InsufficientCacheClusterCapacityFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InsufficientCacheClusterCapacity"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The user is not in active state.
-_InvalidUserStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidUserStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidUserStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidUserState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The service update doesn\'t exist
-_ServiceUpdateNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceUpdateNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceUpdateNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceUpdateNotFoundFault"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The requested snapshot name does not refer to an existing snapshot.
-_SnapshotNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotNotFoundFault"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The user group with this ID already exists.
-_UserGroupAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UserGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UserGroupAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UserGroupAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The user group is not in an active state.
-_InvalidUserGroupStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidUserGroupStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidUserGroupStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidUserGroupState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested cluster is not in the @available@ state.
-_InvalidCacheClusterStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidCacheClusterStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidCacheClusterStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidCacheClusterState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The user group was not found or does not exist
-_UserGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UserGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UserGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UserGroupNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The request cannot be processed because it would exceed the maximum
 -- allowed number of node groups (shards) in a single replication group.
 -- The default maximum is 90
-_NodeGroupsPerReplicationGroupQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NodeGroupsPerReplicationGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NodeGroupsPerReplicationGroupQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NodeGroupsPerReplicationGroupQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified replication group already exists.
-_ReplicationGroupAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReplicationGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReplicationGroupAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReplicationGroupAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified Amazon EC2 security group is already authorized for the
 -- specified cache security group.
-_AuthorizationAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AuthorizationAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AuthorizationAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AuthorizationAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would exceed the user\'s
 -- cache node quota.
-_ReservedCacheNodeQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReservedCacheNodeQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReservedCacheNodeQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReservedCacheNodeQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The value for a parameter is invalid.
-_InvalidParameterValueException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterValueException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameterValue"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested cache security group name does not refer to an existing
 -- cache security group.
-_CacheSecurityGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheSecurityGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheSecurityGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheSecurityGroupNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | You already have a reservation with the given identifier.
-_ReservedCacheNodeAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReservedCacheNodeAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReservedCacheNodeAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReservedCacheNodeAlreadyExists"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The requested cache subnet group is currently in use.
-_CacheSubnetGroupInUse :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheSubnetGroupInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheSubnetGroupInUse =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheSubnetGroupInUse"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The Global Datastore is not available or in primary-only state.
-_InvalidGlobalReplicationGroupStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidGlobalReplicationGroupStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidGlobalReplicationGroupStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidGlobalReplicationGroupState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The Global Datastore does not exist
-_GlobalReplicationGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_GlobalReplicationGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _GlobalReplicationGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "GlobalReplicationGroupNotFoundFault"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The requested cache subnet group name does not refer to an existing
 -- cache subnet group.
-_CacheSubnetGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheSubnetGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheSubnetGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheSubnetGroupNotFoundFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A cache security group with the specified name already exists.
-_CacheSecurityGroupAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheSecurityGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheSecurityGroupAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheSecurityGroupAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested Amazon Resource Name (ARN) does not refer to an existing
 -- resource.
-_InvalidARNFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidARNFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidARNFault =
-  Prelude._MatchServiceError
-    defaultService
-    "InvalidARN"
-    Prelude.. Prelude.hasStatus 400
+  Core._MatchServiceError defaultService "InvalidARN"
+    Core.. Core.hasStatus 400
 
 -- | The node group specified by the @NodeGroupId@ parameter could not be
 -- found. Please verify that the node group exists and that you spelled the
 -- @NodeGroupId@ value correctly.
-_NodeGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NodeGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NodeGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NodeGroupNotFoundFault"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache nodes in a single cluster.
-_NodeQuotaForClusterExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NodeQuotaForClusterExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NodeQuotaForClusterExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NodeQuotaForClusterExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The targeted replication group is not available.
-_ReplicationGroupAlreadyUnderMigrationFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReplicationGroupAlreadyUnderMigrationFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReplicationGroupAlreadyUnderMigrationFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReplicationGroupAlreadyUnderMigrationFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You must add default user to a user group.
-_DefaultUserRequired :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DefaultUserRequired :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DefaultUserRequired =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DefaultUserRequired"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested cache parameter group name does not refer to an existing
 -- cache parameter group.
-_CacheParameterGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheParameterGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheParameterGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheParameterGroupNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | A user with this username already exists.
-_DuplicateUserNameFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateUserNameFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateUserNameFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateUserName"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The current state of the snapshot does not allow the requested operation
 -- to occur.
-_InvalidSnapshotStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSnapshotStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSnapshotStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSnapshotState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The designated replication group is not available for data migration.
-_ReplicationGroupNotUnderMigrationFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReplicationGroupNotUnderMigrationFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReplicationGroupNotUnderMigrationFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReplicationGroupNotUnderMigrationFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A user with this ID already exists.
-_UserAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UserAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UserAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UserAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- |
-_DefaultUserAssociatedToUserGroupFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DefaultUserAssociatedToUserGroupFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DefaultUserAssociatedToUserGroupFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DefaultUserAssociatedToUserGroup"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would exceed the maximum
 -- number of cache security groups.
-_CacheParameterGroupQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheParameterGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheParameterGroupQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheParameterGroupQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified Amazon EC2 security group is not authorized for the
 -- specified cache security group.
-_AuthorizationNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AuthorizationNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AuthorizationNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AuthorizationNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The requested cache node offering does not exist.
-_ReservedCacheNodesOfferingNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReservedCacheNodesOfferingNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReservedCacheNodesOfferingNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReservedCacheNodesOfferingNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | An invalid subnet identifier was specified.
-_InvalidSubnet :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSubnet :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSubnet =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSubnet"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of clusters per customer.
-_ClusterQuotaForCustomerExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterQuotaForCustomerExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterQuotaForCustomerExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified replication group does not exist.
-_ReplicationGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReplicationGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReplicationGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReplicationGroupNotFoundFault"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | You already have a cluster with the given identifier.
-_CacheClusterAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheClusterAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CacheClusterAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would cause the resource to
 -- have more than the allowed number of tags. The maximum number of tags
 -- permitted on a resource is 50.
-_TagQuotaPerResourceExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TagQuotaPerResourceExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TagQuotaPerResourceExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TagQuotaPerResourceExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache security groups.
-_CacheSecurityGroupQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CacheSecurityGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CacheSecurityGroupQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "QuotaExceeded.CacheSecurityGroup"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400

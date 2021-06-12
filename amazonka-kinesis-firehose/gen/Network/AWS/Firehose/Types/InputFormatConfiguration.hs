@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.InputFormatConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.Deserializer
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the deserializer you want to use to convert the format of the
 -- input data. This parameter is required if @Enabled@ is set to true.
@@ -32,9 +31,9 @@ data InputFormatConfiguration = InputFormatConfiguration'
   { -- | Specifies which deserializer to use. You can choose either the Apache
     -- Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the
     -- server rejects the request.
-    deserializer :: Prelude.Maybe Deserializer
+    deserializer :: Core.Maybe Deserializer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputFormatConfiguration' with all optional fields omitted.
@@ -52,33 +51,31 @@ newInputFormatConfiguration ::
 newInputFormatConfiguration =
   InputFormatConfiguration'
     { deserializer =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies which deserializer to use. You can choose either the Apache
 -- Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the
 -- server rejects the request.
-inputFormatConfiguration_deserializer :: Lens.Lens' InputFormatConfiguration (Prelude.Maybe Deserializer)
+inputFormatConfiguration_deserializer :: Lens.Lens' InputFormatConfiguration (Core.Maybe Deserializer)
 inputFormatConfiguration_deserializer = Lens.lens (\InputFormatConfiguration' {deserializer} -> deserializer) (\s@InputFormatConfiguration' {} a -> s {deserializer = a} :: InputFormatConfiguration)
 
-instance Prelude.FromJSON InputFormatConfiguration where
+instance Core.FromJSON InputFormatConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputFormatConfiguration"
       ( \x ->
           InputFormatConfiguration'
-            Prelude.<$> (x Prelude..:? "Deserializer")
+            Core.<$> (x Core..:? "Deserializer")
       )
 
-instance Prelude.Hashable InputFormatConfiguration
+instance Core.Hashable InputFormatConfiguration
 
-instance Prelude.NFData InputFormatConfiguration
+instance Core.NFData InputFormatConfiguration
 
-instance Prelude.ToJSON InputFormatConfiguration where
+instance Core.ToJSON InputFormatConfiguration where
   toJSON InputFormatConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Deserializer" Prelude..=)
-              Prelude.<$> deserializer
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("Deserializer" Core..=) Core.<$> deserializer]
       )

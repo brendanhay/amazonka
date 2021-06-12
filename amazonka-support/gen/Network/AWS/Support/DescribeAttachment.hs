@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.Support.DescribeAttachment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -64,9 +63,9 @@ import Network.AWS.Support.Types
 data DescribeAttachment = DescribeAttachment'
   { -- | The ID of the attachment to return. Attachment IDs are returned by the
     -- DescribeCommunications operation.
-    attachmentId :: Prelude.Text
+    attachmentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAttachment' with all optional fields omitted.
@@ -80,62 +79,58 @@ data DescribeAttachment = DescribeAttachment'
 -- DescribeCommunications operation.
 newDescribeAttachment ::
   -- | 'attachmentId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeAttachment
 newDescribeAttachment pAttachmentId_ =
   DescribeAttachment' {attachmentId = pAttachmentId_}
 
 -- | The ID of the attachment to return. Attachment IDs are returned by the
 -- DescribeCommunications operation.
-describeAttachment_attachmentId :: Lens.Lens' DescribeAttachment Prelude.Text
+describeAttachment_attachmentId :: Lens.Lens' DescribeAttachment Core.Text
 describeAttachment_attachmentId = Lens.lens (\DescribeAttachment' {attachmentId} -> attachmentId) (\s@DescribeAttachment' {} a -> s {attachmentId = a} :: DescribeAttachment)
 
-instance Prelude.AWSRequest DescribeAttachment where
+instance Core.AWSRequest DescribeAttachment where
   type
-    Rs DescribeAttachment =
+    AWSResponse DescribeAttachment =
       DescribeAttachmentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAttachmentResponse'
-            Prelude.<$> (x Prelude..?> "attachment")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "attachment")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAttachment
+instance Core.Hashable DescribeAttachment
 
-instance Prelude.NFData DescribeAttachment
+instance Core.NFData DescribeAttachment
 
-instance Prelude.ToHeaders DescribeAttachment where
+instance Core.ToHeaders DescribeAttachment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSSupport_20130415.DescribeAttachment" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSSupport_20130415.DescribeAttachment" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeAttachment where
+instance Core.ToJSON DescribeAttachment where
   toJSON DescribeAttachment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("attachmentId" Prelude..= attachmentId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("attachmentId" Core..= attachmentId)]
       )
 
-instance Prelude.ToPath DescribeAttachment where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAttachment where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAttachment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAttachment where
+  toQuery = Core.const Core.mempty
 
 -- | The content and file name of the attachment returned by the
 -- DescribeAttachment operation.
@@ -148,11 +143,11 @@ data DescribeAttachmentResponse = DescribeAttachmentResponse'
     -- appears as @blob@, which is represented as a base64-encoded string. The
     -- value for @fileName@ is the name of the attachment, such as
     -- @troubleshoot-screenshot.png@.
-    attachment :: Prelude.Maybe Attachment,
+    attachment :: Core.Maybe Attachment,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAttachmentResponse' with all optional fields omitted.
@@ -172,12 +167,12 @@ data DescribeAttachmentResponse = DescribeAttachmentResponse'
 -- 'httpStatus', 'describeAttachmentResponse_httpStatus' - The response's http status code.
 newDescribeAttachmentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAttachmentResponse
 newDescribeAttachmentResponse pHttpStatus_ =
   DescribeAttachmentResponse'
     { attachment =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -187,11 +182,11 @@ newDescribeAttachmentResponse pHttpStatus_ =
 -- appears as @blob@, which is represented as a base64-encoded string. The
 -- value for @fileName@ is the name of the attachment, such as
 -- @troubleshoot-screenshot.png@.
-describeAttachmentResponse_attachment :: Lens.Lens' DescribeAttachmentResponse (Prelude.Maybe Attachment)
+describeAttachmentResponse_attachment :: Lens.Lens' DescribeAttachmentResponse (Core.Maybe Attachment)
 describeAttachmentResponse_attachment = Lens.lens (\DescribeAttachmentResponse' {attachment} -> attachment) (\s@DescribeAttachmentResponse' {} a -> s {attachment = a} :: DescribeAttachmentResponse)
 
 -- | The response's http status code.
-describeAttachmentResponse_httpStatus :: Lens.Lens' DescribeAttachmentResponse Prelude.Int
+describeAttachmentResponse_httpStatus :: Lens.Lens' DescribeAttachmentResponse Core.Int
 describeAttachmentResponse_httpStatus = Lens.lens (\DescribeAttachmentResponse' {httpStatus} -> httpStatus) (\s@DescribeAttachmentResponse' {} a -> s {httpStatus = a} :: DescribeAttachmentResponse)
 
-instance Prelude.NFData DescribeAttachmentResponse
+instance Core.NFData DescribeAttachmentResponse

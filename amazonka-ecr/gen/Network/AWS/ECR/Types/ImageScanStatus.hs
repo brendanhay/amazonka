@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.ImageScanStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.ScanStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The current status of an image scan.
 --
 -- /See:/ 'newImageScanStatus' smart constructor.
 data ImageScanStatus = ImageScanStatus'
   { -- | The current state of an image scan.
-    status :: Prelude.Maybe ScanStatus,
+    status :: Core.Maybe ScanStatus,
     -- | The description of the image scan status.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImageScanStatus' with all optional fields omitted.
@@ -50,28 +49,28 @@ newImageScanStatus ::
   ImageScanStatus
 newImageScanStatus =
   ImageScanStatus'
-    { status = Prelude.Nothing,
-      description = Prelude.Nothing
+    { status = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The current state of an image scan.
-imageScanStatus_status :: Lens.Lens' ImageScanStatus (Prelude.Maybe ScanStatus)
+imageScanStatus_status :: Lens.Lens' ImageScanStatus (Core.Maybe ScanStatus)
 imageScanStatus_status = Lens.lens (\ImageScanStatus' {status} -> status) (\s@ImageScanStatus' {} a -> s {status = a} :: ImageScanStatus)
 
 -- | The description of the image scan status.
-imageScanStatus_description :: Lens.Lens' ImageScanStatus (Prelude.Maybe Prelude.Text)
+imageScanStatus_description :: Lens.Lens' ImageScanStatus (Core.Maybe Core.Text)
 imageScanStatus_description = Lens.lens (\ImageScanStatus' {description} -> description) (\s@ImageScanStatus' {} a -> s {description = a} :: ImageScanStatus)
 
-instance Prelude.FromJSON ImageScanStatus where
+instance Core.FromJSON ImageScanStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImageScanStatus"
       ( \x ->
           ImageScanStatus'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "description")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ImageScanStatus
+instance Core.Hashable ImageScanStatus
 
-instance Prelude.NFData ImageScanStatus
+instance Core.NFData ImageScanStatus

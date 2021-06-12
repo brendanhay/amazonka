@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,18 +44,18 @@ module Network.AWS.DynamoDB.DescribeTableReplicaAutoScaling
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTableReplicaAutoScaling' smart constructor.
 data DescribeTableReplicaAutoScaling = DescribeTableReplicaAutoScaling'
   { -- | The name of the table.
-    tableName :: Prelude.Text
+    tableName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTableReplicaAutoScaling' with all optional fields omitted.
@@ -69,7 +68,7 @@ data DescribeTableReplicaAutoScaling = DescribeTableReplicaAutoScaling'
 -- 'tableName', 'describeTableReplicaAutoScaling_tableName' - The name of the table.
 newDescribeTableReplicaAutoScaling ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeTableReplicaAutoScaling
 newDescribeTableReplicaAutoScaling pTableName_ =
   DescribeTableReplicaAutoScaling'
@@ -78,81 +77,68 @@ newDescribeTableReplicaAutoScaling pTableName_ =
     }
 
 -- | The name of the table.
-describeTableReplicaAutoScaling_tableName :: Lens.Lens' DescribeTableReplicaAutoScaling Prelude.Text
+describeTableReplicaAutoScaling_tableName :: Lens.Lens' DescribeTableReplicaAutoScaling Core.Text
 describeTableReplicaAutoScaling_tableName = Lens.lens (\DescribeTableReplicaAutoScaling' {tableName} -> tableName) (\s@DescribeTableReplicaAutoScaling' {} a -> s {tableName = a} :: DescribeTableReplicaAutoScaling)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeTableReplicaAutoScaling
   where
   type
-    Rs DescribeTableReplicaAutoScaling =
+    AWSResponse DescribeTableReplicaAutoScaling =
       DescribeTableReplicaAutoScalingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTableReplicaAutoScalingResponse'
-            Prelude.<$> (x Prelude..?> "TableAutoScalingDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TableAutoScalingDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeTableReplicaAutoScaling
 
-instance
-  Prelude.NFData
-    DescribeTableReplicaAutoScaling
+instance Core.NFData DescribeTableReplicaAutoScaling
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeTableReplicaAutoScaling
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.DescribeTableReplicaAutoScaling" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DynamoDB_20120810.DescribeTableReplicaAutoScaling" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DescribeTableReplicaAutoScaling
-  where
+instance Core.ToJSON DescribeTableReplicaAutoScaling where
   toJSON DescribeTableReplicaAutoScaling' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TableName" Prelude..= tableName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TableName" Core..= tableName)]
       )
 
-instance
-  Prelude.ToPath
-    DescribeTableReplicaAutoScaling
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTableReplicaAutoScaling where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeTableReplicaAutoScaling
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTableReplicaAutoScaling where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeTableReplicaAutoScalingResponse' smart constructor.
 data DescribeTableReplicaAutoScalingResponse = DescribeTableReplicaAutoScalingResponse'
   { -- | Represents the auto scaling properties of the table.
-    tableAutoScalingDescription :: Prelude.Maybe TableAutoScalingDescription,
+    tableAutoScalingDescription :: Core.Maybe TableAutoScalingDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTableReplicaAutoScalingResponse' with all optional fields omitted.
@@ -167,24 +153,24 @@ data DescribeTableReplicaAutoScalingResponse = DescribeTableReplicaAutoScalingRe
 -- 'httpStatus', 'describeTableReplicaAutoScalingResponse_httpStatus' - The response's http status code.
 newDescribeTableReplicaAutoScalingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTableReplicaAutoScalingResponse
 newDescribeTableReplicaAutoScalingResponse
   pHttpStatus_ =
     DescribeTableReplicaAutoScalingResponse'
       { tableAutoScalingDescription =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Represents the auto scaling properties of the table.
-describeTableReplicaAutoScalingResponse_tableAutoScalingDescription :: Lens.Lens' DescribeTableReplicaAutoScalingResponse (Prelude.Maybe TableAutoScalingDescription)
+describeTableReplicaAutoScalingResponse_tableAutoScalingDescription :: Lens.Lens' DescribeTableReplicaAutoScalingResponse (Core.Maybe TableAutoScalingDescription)
 describeTableReplicaAutoScalingResponse_tableAutoScalingDescription = Lens.lens (\DescribeTableReplicaAutoScalingResponse' {tableAutoScalingDescription} -> tableAutoScalingDescription) (\s@DescribeTableReplicaAutoScalingResponse' {} a -> s {tableAutoScalingDescription = a} :: DescribeTableReplicaAutoScalingResponse)
 
 -- | The response's http status code.
-describeTableReplicaAutoScalingResponse_httpStatus :: Lens.Lens' DescribeTableReplicaAutoScalingResponse Prelude.Int
+describeTableReplicaAutoScalingResponse_httpStatus :: Lens.Lens' DescribeTableReplicaAutoScalingResponse Core.Int
 describeTableReplicaAutoScalingResponse_httpStatus = Lens.lens (\DescribeTableReplicaAutoScalingResponse' {httpStatus} -> httpStatus) (\s@DescribeTableReplicaAutoScalingResponse' {} a -> s {httpStatus = a} :: DescribeTableReplicaAutoScalingResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeTableReplicaAutoScalingResponse

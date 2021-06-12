@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,17 +46,17 @@ module Network.AWS.CloudWatchEvents.DescribeEventSource
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeEventSource' smart constructor.
 data DescribeEventSource = DescribeEventSource'
   { -- | The name of the partner event source to display the details of.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventSource' with all optional fields omitted.
@@ -70,89 +69,83 @@ data DescribeEventSource = DescribeEventSource'
 -- 'name', 'describeEventSource_name' - The name of the partner event source to display the details of.
 newDescribeEventSource ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DescribeEventSource
 newDescribeEventSource pName_ =
   DescribeEventSource' {name = pName_}
 
 -- | The name of the partner event source to display the details of.
-describeEventSource_name :: Lens.Lens' DescribeEventSource Prelude.Text
+describeEventSource_name :: Lens.Lens' DescribeEventSource Core.Text
 describeEventSource_name = Lens.lens (\DescribeEventSource' {name} -> name) (\s@DescribeEventSource' {} a -> s {name = a} :: DescribeEventSource)
 
-instance Prelude.AWSRequest DescribeEventSource where
+instance Core.AWSRequest DescribeEventSource where
   type
-    Rs DescribeEventSource =
+    AWSResponse DescribeEventSource =
       DescribeEventSourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEventSourceResponse'
-            Prelude.<$> (x Prelude..?> "CreationTime")
-            Prelude.<*> (x Prelude..?> "ExpirationTime")
-            Prelude.<*> (x Prelude..?> "Arn")
-            Prelude.<*> (x Prelude..?> "State")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "CreatedBy")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CreationTime")
+            Core.<*> (x Core..?> "ExpirationTime")
+            Core.<*> (x Core..?> "Arn")
+            Core.<*> (x Core..?> "State")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "CreatedBy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventSource
+instance Core.Hashable DescribeEventSource
 
-instance Prelude.NFData DescribeEventSource
+instance Core.NFData DescribeEventSource
 
-instance Prelude.ToHeaders DescribeEventSource where
+instance Core.ToHeaders DescribeEventSource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSEvents.DescribeEventSource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSEvents.DescribeEventSource" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeEventSource where
+instance Core.ToJSON DescribeEventSource where
   toJSON DescribeEventSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath DescribeEventSource where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEventSource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEventSource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEventSource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEventSourceResponse' smart constructor.
 data DescribeEventSourceResponse = DescribeEventSourceResponse'
   { -- | The date and time that the event source was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The date and time that the event source will expire if you do not create
     -- a matching event bus.
-    expirationTime :: Prelude.Maybe Prelude.POSIX,
+    expirationTime :: Core.Maybe Core.POSIX,
     -- | The ARN of the partner event source.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The state of the event source. If it is ACTIVE, you have already created
     -- a matching event bus for this event source, and that event bus is
     -- active. If it is PENDING, either you haven\'t yet created a matching
     -- event bus, or that event bus is deactivated. If it is DELETED, you have
     -- created a matching event bus, but the event source has since been
     -- deleted.
-    state :: Prelude.Maybe EventSourceState,
+    state :: Core.Maybe EventSourceState,
     -- | The name of the partner event source.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The name of the SaaS partner that created the event source.
-    createdBy :: Prelude.Maybe Prelude.Text,
+    createdBy :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventSourceResponse' with all optional fields omitted.
@@ -183,31 +176,31 @@ data DescribeEventSourceResponse = DescribeEventSourceResponse'
 -- 'httpStatus', 'describeEventSourceResponse_httpStatus' - The response's http status code.
 newDescribeEventSourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEventSourceResponse
 newDescribeEventSourceResponse pHttpStatus_ =
   DescribeEventSourceResponse'
     { creationTime =
-        Prelude.Nothing,
-      expirationTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
+        Core.Nothing,
+      expirationTime = Core.Nothing,
+      arn = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      createdBy = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date and time that the event source was created.
-describeEventSourceResponse_creationTime :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeEventSourceResponse_creationTime = Lens.lens (\DescribeEventSourceResponse' {creationTime} -> creationTime) (\s@DescribeEventSourceResponse' {} a -> s {creationTime = a} :: DescribeEventSourceResponse) Prelude.. Lens.mapping Prelude._Time
+describeEventSourceResponse_creationTime :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe Core.UTCTime)
+describeEventSourceResponse_creationTime = Lens.lens (\DescribeEventSourceResponse' {creationTime} -> creationTime) (\s@DescribeEventSourceResponse' {} a -> s {creationTime = a} :: DescribeEventSourceResponse) Core.. Lens.mapping Core._Time
 
 -- | The date and time that the event source will expire if you do not create
 -- a matching event bus.
-describeEventSourceResponse_expirationTime :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeEventSourceResponse_expirationTime = Lens.lens (\DescribeEventSourceResponse' {expirationTime} -> expirationTime) (\s@DescribeEventSourceResponse' {} a -> s {expirationTime = a} :: DescribeEventSourceResponse) Prelude.. Lens.mapping Prelude._Time
+describeEventSourceResponse_expirationTime :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe Core.UTCTime)
+describeEventSourceResponse_expirationTime = Lens.lens (\DescribeEventSourceResponse' {expirationTime} -> expirationTime) (\s@DescribeEventSourceResponse' {} a -> s {expirationTime = a} :: DescribeEventSourceResponse) Core.. Lens.mapping Core._Time
 
 -- | The ARN of the partner event source.
-describeEventSourceResponse_arn :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.Text)
+describeEventSourceResponse_arn :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe Core.Text)
 describeEventSourceResponse_arn = Lens.lens (\DescribeEventSourceResponse' {arn} -> arn) (\s@DescribeEventSourceResponse' {} a -> s {arn = a} :: DescribeEventSourceResponse)
 
 -- | The state of the event source. If it is ACTIVE, you have already created
@@ -216,19 +209,19 @@ describeEventSourceResponse_arn = Lens.lens (\DescribeEventSourceResponse' {arn}
 -- event bus, or that event bus is deactivated. If it is DELETED, you have
 -- created a matching event bus, but the event source has since been
 -- deleted.
-describeEventSourceResponse_state :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe EventSourceState)
+describeEventSourceResponse_state :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe EventSourceState)
 describeEventSourceResponse_state = Lens.lens (\DescribeEventSourceResponse' {state} -> state) (\s@DescribeEventSourceResponse' {} a -> s {state = a} :: DescribeEventSourceResponse)
 
 -- | The name of the partner event source.
-describeEventSourceResponse_name :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.Text)
+describeEventSourceResponse_name :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe Core.Text)
 describeEventSourceResponse_name = Lens.lens (\DescribeEventSourceResponse' {name} -> name) (\s@DescribeEventSourceResponse' {} a -> s {name = a} :: DescribeEventSourceResponse)
 
 -- | The name of the SaaS partner that created the event source.
-describeEventSourceResponse_createdBy :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.Text)
+describeEventSourceResponse_createdBy :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe Core.Text)
 describeEventSourceResponse_createdBy = Lens.lens (\DescribeEventSourceResponse' {createdBy} -> createdBy) (\s@DescribeEventSourceResponse' {} a -> s {createdBy = a} :: DescribeEventSourceResponse)
 
 -- | The response's http status code.
-describeEventSourceResponse_httpStatus :: Lens.Lens' DescribeEventSourceResponse Prelude.Int
+describeEventSourceResponse_httpStatus :: Lens.Lens' DescribeEventSourceResponse Core.Int
 describeEventSourceResponse_httpStatus = Lens.lens (\DescribeEventSourceResponse' {httpStatus} -> httpStatus) (\s@DescribeEventSourceResponse' {} a -> s {httpStatus = a} :: DescribeEventSourceResponse)
 
-instance Prelude.NFData DescribeEventSourceResponse
+instance Core.NFData DescribeEventSourceResponse

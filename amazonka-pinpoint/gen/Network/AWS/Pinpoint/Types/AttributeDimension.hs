@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.AttributeDimension where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.AttributeType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies attribute-based criteria for including or excluding endpoints
 -- from a segment.
@@ -51,13 +50,13 @@ data AttributeDimension = AttributeDimension'
     --
     -- BETWEEN - endpoints with attributes read as ISO_INSTANT datetimes
     -- between the values are included in the segment.
-    attributeType :: Prelude.Maybe AttributeType,
+    attributeType :: Core.Maybe AttributeType,
     -- | The criteria values to use for the segment dimension. Depending on the
     -- value of the AttributeType property, endpoints are included or excluded
     -- from the segment if their attribute values match the criteria values.
-    values :: [Prelude.Text]
+    values :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributeDimension' with all optional fields omitted.
@@ -97,9 +96,8 @@ newAttributeDimension ::
   AttributeDimension
 newAttributeDimension =
   AttributeDimension'
-    { attributeType =
-        Prelude.Nothing,
-      values = Prelude.mempty
+    { attributeType = Core.Nothing,
+      values = Core.mempty
     }
 
 -- | The type of segment dimension to use. Valid values are:
@@ -124,35 +122,34 @@ newAttributeDimension =
 --
 -- BETWEEN - endpoints with attributes read as ISO_INSTANT datetimes
 -- between the values are included in the segment.
-attributeDimension_attributeType :: Lens.Lens' AttributeDimension (Prelude.Maybe AttributeType)
+attributeDimension_attributeType :: Lens.Lens' AttributeDimension (Core.Maybe AttributeType)
 attributeDimension_attributeType = Lens.lens (\AttributeDimension' {attributeType} -> attributeType) (\s@AttributeDimension' {} a -> s {attributeType = a} :: AttributeDimension)
 
 -- | The criteria values to use for the segment dimension. Depending on the
 -- value of the AttributeType property, endpoints are included or excluded
 -- from the segment if their attribute values match the criteria values.
-attributeDimension_values :: Lens.Lens' AttributeDimension [Prelude.Text]
-attributeDimension_values = Lens.lens (\AttributeDimension' {values} -> values) (\s@AttributeDimension' {} a -> s {values = a} :: AttributeDimension) Prelude.. Prelude._Coerce
+attributeDimension_values :: Lens.Lens' AttributeDimension [Core.Text]
+attributeDimension_values = Lens.lens (\AttributeDimension' {values} -> values) (\s@AttributeDimension' {} a -> s {values = a} :: AttributeDimension) Core.. Lens._Coerce
 
-instance Prelude.FromJSON AttributeDimension where
+instance Core.FromJSON AttributeDimension where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttributeDimension"
       ( \x ->
           AttributeDimension'
-            Prelude.<$> (x Prelude..:? "AttributeType")
-            Prelude.<*> (x Prelude..:? "Values" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "AttributeType")
+            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AttributeDimension
+instance Core.Hashable AttributeDimension
 
-instance Prelude.NFData AttributeDimension
+instance Core.NFData AttributeDimension
 
-instance Prelude.ToJSON AttributeDimension where
+instance Core.ToJSON AttributeDimension where
   toJSON AttributeDimension' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AttributeType" Prelude..=)
-              Prelude.<$> attributeType,
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ ("AttributeType" Core..=) Core.<$> attributeType,
+            Core.Just ("Values" Core..= values)
           ]
       )

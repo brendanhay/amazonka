@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.Route53Domains.ListDomains
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -59,7 +57,7 @@ data ListDomains = ListDomains'
   { -- | Number of domains to be returned.
     --
     -- Default: 20
-    maxItems :: Prelude.Maybe Prelude.Int,
+    maxItems :: Core.Maybe Core.Int,
     -- | For an initial request for a list of domains, omit this element. If the
     -- number of domains that are associated with the current AWS account is
     -- greater than the value that you specified for @MaxItems@, you can use
@@ -69,9 +67,9 @@ data ListDomains = ListDomains'
     --
     -- Constraints: The marker must match the value specified in the previous
     -- request.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDomains' with all optional fields omitted.
@@ -98,14 +96,14 @@ newListDomains ::
   ListDomains
 newListDomains =
   ListDomains'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { maxItems = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | Number of domains to be returned.
 --
 -- Default: 20
-listDomains_maxItems :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Int)
+listDomains_maxItems :: Lens.Lens' ListDomains (Core.Maybe Core.Int)
 listDomains_maxItems = Lens.lens (\ListDomains' {maxItems} -> maxItems) (\s@ListDomains' {} a -> s {maxItems = a} :: ListDomains)
 
 -- | For an initial request for a list of domains, omit this element. If the
@@ -117,72 +115,68 @@ listDomains_maxItems = Lens.lens (\ListDomains' {maxItems} -> maxItems) (\s@List
 --
 -- Constraints: The marker must match the value specified in the previous
 -- request.
-listDomains_marker :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Text)
+listDomains_marker :: Lens.Lens' ListDomains (Core.Maybe Core.Text)
 listDomains_marker = Lens.lens (\ListDomains' {marker} -> marker) (\s@ListDomains' {} a -> s {marker = a} :: ListDomains)
 
-instance Pager.AWSPager ListDomains where
+instance Core.AWSPager ListDomains where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listDomainsResponse_nextPageMarker
-              Prelude.. Lens._Just
+            Lens.^? listDomainsResponse_nextPageMarker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop (rs Lens.^. listDomainsResponse_domains) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.stop (rs Lens.^. listDomainsResponse_domains) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listDomains_marker
           Lens..~ rs
-          Lens.^? listDomainsResponse_nextPageMarker
-            Prelude.. Lens._Just
+          Lens.^? listDomainsResponse_nextPageMarker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListDomains where
-  type Rs ListDomains = ListDomainsResponse
+instance Core.AWSRequest ListDomains where
+  type AWSResponse ListDomains = ListDomainsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListDomainsResponse'
-            Prelude.<$> (x Prelude..?> "NextPageMarker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..?> "Domains" Prelude..!@ Prelude.mempty)
+            Core.<$> (x Core..?> "NextPageMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "Domains" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListDomains
+instance Core.Hashable ListDomains
 
-instance Prelude.NFData ListDomains
+instance Core.NFData ListDomains
 
-instance Prelude.ToHeaders ListDomains where
+instance Core.ToHeaders ListDomains where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53Domains_v20140515.ListDomains" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53Domains_v20140515.ListDomains" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListDomains where
+instance Core.ToJSON ListDomains where
   toJSON ListDomains' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaxItems" Prelude..=) Prelude.<$> maxItems,
-            ("Marker" Prelude..=) Prelude.<$> marker
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxItems" Core..=) Core.<$> maxItems,
+            ("Marker" Core..=) Core.<$> marker
           ]
       )
 
-instance Prelude.ToPath ListDomains where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListDomains where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListDomains where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListDomains where
+  toQuery = Core.const Core.mempty
 
 -- | The ListDomains response includes the following elements.
 --
@@ -191,13 +185,13 @@ data ListDomainsResponse = ListDomainsResponse'
   { -- | If there are more domains than you specified for @MaxItems@ in the
     -- request, submit another request and include the value of
     -- @NextPageMarker@ in the value of @Marker@.
-    nextPageMarker :: Prelude.Maybe Prelude.Text,
+    nextPageMarker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A summary of domains.
     domains :: [DomainSummary]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDomainsResponse' with all optional fields omitted.
@@ -216,28 +210,27 @@ data ListDomainsResponse = ListDomainsResponse'
 -- 'domains', 'listDomainsResponse_domains' - A summary of domains.
 newListDomainsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDomainsResponse
 newListDomainsResponse pHttpStatus_ =
   ListDomainsResponse'
-    { nextPageMarker =
-        Prelude.Nothing,
+    { nextPageMarker = Core.Nothing,
       httpStatus = pHttpStatus_,
-      domains = Prelude.mempty
+      domains = Core.mempty
     }
 
 -- | If there are more domains than you specified for @MaxItems@ in the
 -- request, submit another request and include the value of
 -- @NextPageMarker@ in the value of @Marker@.
-listDomainsResponse_nextPageMarker :: Lens.Lens' ListDomainsResponse (Prelude.Maybe Prelude.Text)
+listDomainsResponse_nextPageMarker :: Lens.Lens' ListDomainsResponse (Core.Maybe Core.Text)
 listDomainsResponse_nextPageMarker = Lens.lens (\ListDomainsResponse' {nextPageMarker} -> nextPageMarker) (\s@ListDomainsResponse' {} a -> s {nextPageMarker = a} :: ListDomainsResponse)
 
 -- | The response's http status code.
-listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Prelude.Int
+listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Core.Int
 listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -> httpStatus) (\s@ListDomainsResponse' {} a -> s {httpStatus = a} :: ListDomainsResponse)
 
 -- | A summary of domains.
 listDomainsResponse_domains :: Lens.Lens' ListDomainsResponse [DomainSummary]
-listDomainsResponse_domains = Lens.lens (\ListDomainsResponse' {domains} -> domains) (\s@ListDomainsResponse' {} a -> s {domains = a} :: ListDomainsResponse) Prelude.. Prelude._Coerce
+listDomainsResponse_domains = Lens.lens (\ListDomainsResponse' {domains} -> domains) (\s@ListDomainsResponse' {} a -> s {domains = a} :: ListDomainsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListDomainsResponse
+instance Core.NFData ListDomainsResponse

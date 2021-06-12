@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -79,9 +78,9 @@ module Network.AWS.KinesisAnalytics.CreateApplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -105,9 +104,9 @@ data CreateApplication = CreateApplication'
     -- specified in the @Outputs@. For example, if your @Outputs@ defines
     -- output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@,
     -- then your application code must create these streams.
-    applicationCode :: Prelude.Maybe Prelude.Text,
+    applicationCode :: Core.Maybe Core.Text,
     -- | Summary description of the application.
-    applicationDescription :: Prelude.Maybe Prelude.Text,
+    applicationDescription :: Core.Maybe Core.Text,
     -- | You can configure application output to write data from any of the
     -- in-application streams to up to three destinations.
     --
@@ -126,17 +125,17 @@ data CreateApplication = CreateApplication'
     -- data in the stream (for example, JSON, CSV). You also must provide an
     -- IAM role that Amazon Kinesis Analytics can assume to write to the stream
     -- or Lambda function on your behalf.
-    outputs :: Prelude.Maybe [Output],
+    outputs :: Core.Maybe [Output],
     -- | Use this parameter to configure a CloudWatch log stream to monitor
     -- application configuration errors. For more information, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
-    cloudWatchLoggingOptions :: Prelude.Maybe [CloudWatchLoggingOption],
+    cloudWatchLoggingOptions :: Core.Maybe [CloudWatchLoggingOption],
     -- | A list of one or more tags to assign to the application. A tag is a
     -- key-value pair that identifies an application. Note that the maximum
     -- number of application tags includes system tags. The maximum number of
     -- user-defined application tags is 50. For more information, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html Using Tagging>.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | Use this parameter to configure the application input.
     --
     -- You can configure your application to receive input from a single
@@ -154,12 +153,12 @@ data CreateApplication = CreateApplication'
     -- transform your data into a schematized version used in SQL. In the
     -- schema, you provide the necessary mapping of the data elements in the
     -- streaming source to record columns in the in-app stream.
-    inputs :: Prelude.Maybe [Input],
+    inputs :: Core.Maybe [Input],
     -- | Name of your Amazon Kinesis Analytics application (for example,
     -- @sample-app@).
-    applicationName :: Prelude.Text
+    applicationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApplication' with all optional fields omitted.
@@ -239,17 +238,16 @@ data CreateApplication = CreateApplication'
 -- @sample-app@).
 newCreateApplication ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   CreateApplication
 newCreateApplication pApplicationName_ =
   CreateApplication'
-    { applicationCode =
-        Prelude.Nothing,
-      applicationDescription = Prelude.Nothing,
-      outputs = Prelude.Nothing,
-      cloudWatchLoggingOptions = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      inputs = Prelude.Nothing,
+    { applicationCode = Core.Nothing,
+      applicationDescription = Core.Nothing,
+      outputs = Core.Nothing,
+      cloudWatchLoggingOptions = Core.Nothing,
+      tags = Core.Nothing,
+      inputs = Core.Nothing,
       applicationName = pApplicationName_
     }
 
@@ -269,11 +267,11 @@ newCreateApplication pApplicationName_ =
 -- specified in the @Outputs@. For example, if your @Outputs@ defines
 -- output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@,
 -- then your application code must create these streams.
-createApplication_applicationCode :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_applicationCode :: Lens.Lens' CreateApplication (Core.Maybe Core.Text)
 createApplication_applicationCode = Lens.lens (\CreateApplication' {applicationCode} -> applicationCode) (\s@CreateApplication' {} a -> s {applicationCode = a} :: CreateApplication)
 
 -- | Summary description of the application.
-createApplication_applicationDescription :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_applicationDescription :: Lens.Lens' CreateApplication (Core.Maybe Core.Text)
 createApplication_applicationDescription = Lens.lens (\CreateApplication' {applicationDescription} -> applicationDescription) (\s@CreateApplication' {} a -> s {applicationDescription = a} :: CreateApplication)
 
 -- | You can configure application output to write data from any of the
@@ -294,22 +292,22 @@ createApplication_applicationDescription = Lens.lens (\CreateApplication' {appli
 -- data in the stream (for example, JSON, CSV). You also must provide an
 -- IAM role that Amazon Kinesis Analytics can assume to write to the stream
 -- or Lambda function on your behalf.
-createApplication_outputs :: Lens.Lens' CreateApplication (Prelude.Maybe [Output])
-createApplication_outputs = Lens.lens (\CreateApplication' {outputs} -> outputs) (\s@CreateApplication' {} a -> s {outputs = a} :: CreateApplication) Prelude.. Lens.mapping Prelude._Coerce
+createApplication_outputs :: Lens.Lens' CreateApplication (Core.Maybe [Output])
+createApplication_outputs = Lens.lens (\CreateApplication' {outputs} -> outputs) (\s@CreateApplication' {} a -> s {outputs = a} :: CreateApplication) Core.. Lens.mapping Lens._Coerce
 
 -- | Use this parameter to configure a CloudWatch log stream to monitor
 -- application configuration errors. For more information, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
-createApplication_cloudWatchLoggingOptions :: Lens.Lens' CreateApplication (Prelude.Maybe [CloudWatchLoggingOption])
-createApplication_cloudWatchLoggingOptions = Lens.lens (\CreateApplication' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@CreateApplication' {} a -> s {cloudWatchLoggingOptions = a} :: CreateApplication) Prelude.. Lens.mapping Prelude._Coerce
+createApplication_cloudWatchLoggingOptions :: Lens.Lens' CreateApplication (Core.Maybe [CloudWatchLoggingOption])
+createApplication_cloudWatchLoggingOptions = Lens.lens (\CreateApplication' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@CreateApplication' {} a -> s {cloudWatchLoggingOptions = a} :: CreateApplication) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of one or more tags to assign to the application. A tag is a
 -- key-value pair that identifies an application. Note that the maximum
 -- number of application tags includes system tags. The maximum number of
 -- user-defined application tags is 50. For more information, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html Using Tagging>.
-createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.NonEmpty Tag))
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Prelude._Coerce
+createApplication_tags :: Lens.Lens' CreateApplication (Core.Maybe (Core.NonEmpty Tag))
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Core.. Lens.mapping Lens._Coerce
 
 -- | Use this parameter to configure the application input.
 --
@@ -328,81 +326,81 @@ createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@Crea
 -- transform your data into a schematized version used in SQL. In the
 -- schema, you provide the necessary mapping of the data elements in the
 -- streaming source to record columns in the in-app stream.
-createApplication_inputs :: Lens.Lens' CreateApplication (Prelude.Maybe [Input])
-createApplication_inputs = Lens.lens (\CreateApplication' {inputs} -> inputs) (\s@CreateApplication' {} a -> s {inputs = a} :: CreateApplication) Prelude.. Lens.mapping Prelude._Coerce
+createApplication_inputs :: Lens.Lens' CreateApplication (Core.Maybe [Input])
+createApplication_inputs = Lens.lens (\CreateApplication' {inputs} -> inputs) (\s@CreateApplication' {} a -> s {inputs = a} :: CreateApplication) Core.. Lens.mapping Lens._Coerce
 
 -- | Name of your Amazon Kinesis Analytics application (for example,
 -- @sample-app@).
-createApplication_applicationName :: Lens.Lens' CreateApplication Prelude.Text
+createApplication_applicationName :: Lens.Lens' CreateApplication Core.Text
 createApplication_applicationName = Lens.lens (\CreateApplication' {applicationName} -> applicationName) (\s@CreateApplication' {} a -> s {applicationName = a} :: CreateApplication)
 
-instance Prelude.AWSRequest CreateApplication where
-  type Rs CreateApplication = CreateApplicationResponse
+instance Core.AWSRequest CreateApplication where
+  type
+    AWSResponse CreateApplication =
+      CreateApplicationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "ApplicationSummary")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "ApplicationSummary")
       )
 
-instance Prelude.Hashable CreateApplication
+instance Core.Hashable CreateApplication
 
-instance Prelude.NFData CreateApplication
+instance Core.NFData CreateApplication
 
-instance Prelude.ToHeaders CreateApplication where
+instance Core.ToHeaders CreateApplication where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "KinesisAnalytics_20150814.CreateApplication" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "KinesisAnalytics_20150814.CreateApplication" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateApplication where
+instance Core.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ApplicationCode" Prelude..=)
-              Prelude.<$> applicationCode,
-            ("ApplicationDescription" Prelude..=)
-              Prelude.<$> applicationDescription,
-            ("Outputs" Prelude..=) Prelude.<$> outputs,
-            ("CloudWatchLoggingOptions" Prelude..=)
-              Prelude.<$> cloudWatchLoggingOptions,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Inputs" Prelude..=) Prelude.<$> inputs,
-            Prelude.Just
-              ("ApplicationName" Prelude..= applicationName)
+    Core.object
+      ( Core.catMaybes
+          [ ("ApplicationCode" Core..=)
+              Core.<$> applicationCode,
+            ("ApplicationDescription" Core..=)
+              Core.<$> applicationDescription,
+            ("Outputs" Core..=) Core.<$> outputs,
+            ("CloudWatchLoggingOptions" Core..=)
+              Core.<$> cloudWatchLoggingOptions,
+            ("Tags" Core..=) Core.<$> tags,
+            ("Inputs" Core..=) Core.<$> inputs,
+            Core.Just
+              ("ApplicationName" Core..= applicationName)
           ]
       )
 
-instance Prelude.ToPath CreateApplication where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateApplication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateApplication where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateApplication where
+  toQuery = Core.const Core.mempty
 
 -- | TBD
 --
 -- /See:/ 'newCreateApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | In response to your @CreateApplication@ request, Amazon Kinesis
     -- Analytics returns a response with a summary of the application it
     -- created, including the application Amazon Resource Name (ARN), name, and
     -- status.
     applicationSummary :: ApplicationSummary
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApplicationResponse' with all optional fields omitted.
@@ -420,7 +418,7 @@ data CreateApplicationResponse = CreateApplicationResponse'
 -- status.
 newCreateApplicationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'applicationSummary'
   ApplicationSummary ->
   CreateApplicationResponse
@@ -434,7 +432,7 @@ newCreateApplicationResponse
       }
 
 -- | The response's http status code.
-createApplicationResponse_httpStatus :: Lens.Lens' CreateApplicationResponse Prelude.Int
+createApplicationResponse_httpStatus :: Lens.Lens' CreateApplicationResponse Core.Int
 createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {httpStatus} -> httpStatus) (\s@CreateApplicationResponse' {} a -> s {httpStatus = a} :: CreateApplicationResponse)
 
 -- | In response to your @CreateApplication@ request, Amazon Kinesis
@@ -444,4 +442,4 @@ createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {h
 createApplicationResponse_applicationSummary :: Lens.Lens' CreateApplicationResponse ApplicationSummary
 createApplicationResponse_applicationSummary = Lens.lens (\CreateApplicationResponse' {applicationSummary} -> applicationSummary) (\s@CreateApplicationResponse' {} a -> s {applicationSummary = a} :: CreateApplicationResponse)
 
-instance Prelude.NFData CreateApplicationResponse
+instance Core.NFData CreateApplicationResponse

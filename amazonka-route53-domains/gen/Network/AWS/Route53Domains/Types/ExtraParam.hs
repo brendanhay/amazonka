@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53Domains.Types.ExtraParam where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53Domains.Types.ExtraParamName
 
 -- | ExtraParam includes the following elements.
@@ -377,9 +376,9 @@ data ExtraParam = ExtraParam'
     -- In addition, many TLDs require a @VAT_NUMBER@.
     name :: ExtraParamName,
     -- | The value that corresponds with the name of an extra parameter.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExtraParam' with all optional fields omitted.
@@ -742,7 +741,7 @@ newExtraParam ::
   -- | 'name'
   ExtraParamName ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   ExtraParam
 newExtraParam pName_ pValue_ =
   ExtraParam' {name = pName_, value = pValue_}
@@ -1098,28 +1097,27 @@ extraParam_name :: Lens.Lens' ExtraParam ExtraParamName
 extraParam_name = Lens.lens (\ExtraParam' {name} -> name) (\s@ExtraParam' {} a -> s {name = a} :: ExtraParam)
 
 -- | The value that corresponds with the name of an extra parameter.
-extraParam_value :: Lens.Lens' ExtraParam Prelude.Text
+extraParam_value :: Lens.Lens' ExtraParam Core.Text
 extraParam_value = Lens.lens (\ExtraParam' {value} -> value) (\s@ExtraParam' {} a -> s {value = a} :: ExtraParam)
 
-instance Prelude.FromJSON ExtraParam where
+instance Core.FromJSON ExtraParam where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExtraParam"
       ( \x ->
           ExtraParam'
-            Prelude.<$> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "Name") Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable ExtraParam
+instance Core.Hashable ExtraParam
 
-instance Prelude.NFData ExtraParam
+instance Core.NFData ExtraParam
 
-instance Prelude.ToJSON ExtraParam where
+instance Core.ToJSON ExtraParam where
   toJSON ExtraParam' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Value" Core..= value)
           ]
       )

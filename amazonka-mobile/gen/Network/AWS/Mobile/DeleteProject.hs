@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Mobile.DeleteProject
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteProject' smart constructor.
 data DeleteProject = DeleteProject'
   { -- | Unique project identifier.
-    projectId :: Prelude.Text
+    projectId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProject' with all optional fields omitted.
@@ -67,67 +66,62 @@ data DeleteProject = DeleteProject'
 -- 'projectId', 'deleteProject_projectId' - Unique project identifier.
 newDeleteProject ::
   -- | 'projectId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteProject
 newDeleteProject pProjectId_ =
   DeleteProject' {projectId = pProjectId_}
 
 -- | Unique project identifier.
-deleteProject_projectId :: Lens.Lens' DeleteProject Prelude.Text
+deleteProject_projectId :: Lens.Lens' DeleteProject Core.Text
 deleteProject_projectId = Lens.lens (\DeleteProject' {projectId} -> projectId) (\s@DeleteProject' {} a -> s {projectId = a} :: DeleteProject)
 
-instance Prelude.AWSRequest DeleteProject where
-  type Rs DeleteProject = DeleteProjectResponse
+instance Core.AWSRequest DeleteProject where
+  type
+    AWSResponse DeleteProject =
+      DeleteProjectResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteProjectResponse'
-            Prelude.<$> ( x Prelude..?> "deletedResources"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "orphanedResources"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "deletedResources" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "orphanedResources" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProject
+instance Core.Hashable DeleteProject
 
-instance Prelude.NFData DeleteProject
+instance Core.NFData DeleteProject
 
-instance Prelude.ToHeaders DeleteProject where
+instance Core.ToHeaders DeleteProject where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteProject where
+instance Core.ToPath DeleteProject where
   toPath DeleteProject' {..} =
-    Prelude.mconcat
-      ["/projects/", Prelude.toBS projectId]
+    Core.mconcat ["/projects/", Core.toBS projectId]
 
-instance Prelude.ToQuery DeleteProject where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteProject where
+  toQuery = Core.const Core.mempty
 
 -- | Result structure used in response to request to delete a project.
 --
 -- /See:/ 'newDeleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
   { -- | Resources which were deleted.
-    deletedResources :: Prelude.Maybe [Resource],
+    deletedResources :: Core.Maybe [Resource],
     -- | Resources which were not deleted, due to a risk of losing potentially
     -- important data or files.
-    orphanedResources :: Prelude.Maybe [Resource],
+    orphanedResources :: Core.Maybe [Resource],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProjectResponse' with all optional fields omitted.
@@ -145,27 +139,27 @@ data DeleteProjectResponse = DeleteProjectResponse'
 -- 'httpStatus', 'deleteProjectResponse_httpStatus' - The response's http status code.
 newDeleteProjectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteProjectResponse
 newDeleteProjectResponse pHttpStatus_ =
   DeleteProjectResponse'
     { deletedResources =
-        Prelude.Nothing,
-      orphanedResources = Prelude.Nothing,
+        Core.Nothing,
+      orphanedResources = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Resources which were deleted.
-deleteProjectResponse_deletedResources :: Lens.Lens' DeleteProjectResponse (Prelude.Maybe [Resource])
-deleteProjectResponse_deletedResources = Lens.lens (\DeleteProjectResponse' {deletedResources} -> deletedResources) (\s@DeleteProjectResponse' {} a -> s {deletedResources = a} :: DeleteProjectResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteProjectResponse_deletedResources :: Lens.Lens' DeleteProjectResponse (Core.Maybe [Resource])
+deleteProjectResponse_deletedResources = Lens.lens (\DeleteProjectResponse' {deletedResources} -> deletedResources) (\s@DeleteProjectResponse' {} a -> s {deletedResources = a} :: DeleteProjectResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Resources which were not deleted, due to a risk of losing potentially
 -- important data or files.
-deleteProjectResponse_orphanedResources :: Lens.Lens' DeleteProjectResponse (Prelude.Maybe [Resource])
-deleteProjectResponse_orphanedResources = Lens.lens (\DeleteProjectResponse' {orphanedResources} -> orphanedResources) (\s@DeleteProjectResponse' {} a -> s {orphanedResources = a} :: DeleteProjectResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteProjectResponse_orphanedResources :: Lens.Lens' DeleteProjectResponse (Core.Maybe [Resource])
+deleteProjectResponse_orphanedResources = Lens.lens (\DeleteProjectResponse' {orphanedResources} -> orphanedResources) (\s@DeleteProjectResponse' {} a -> s {orphanedResources = a} :: DeleteProjectResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteProjectResponse_httpStatus :: Lens.Lens' DeleteProjectResponse Prelude.Int
+deleteProjectResponse_httpStatus :: Lens.Lens' DeleteProjectResponse Core.Int
 deleteProjectResponse_httpStatus = Lens.lens (\DeleteProjectResponse' {httpStatus} -> httpStatus) (\s@DeleteProjectResponse' {} a -> s {httpStatus = a} :: DeleteProjectResponse)
 
-instance Prelude.NFData DeleteProjectResponse
+instance Core.NFData DeleteProjectResponse

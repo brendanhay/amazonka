@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,30 +48,29 @@ module Network.AWS.CloudDirectory.ListPolicyAttachments
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListPolicyAttachments' smart constructor.
 data ListPolicyAttachments = ListPolicyAttachments'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Represents the manner and timing in which the successful write or update
     -- of an object is reflected in a subsequent read operation of that same
     -- object.
-    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
+    consistencyLevel :: Core.Maybe ConsistencyLevel,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where objects reside. For more information, see arns.
-    directoryArn :: Prelude.Text,
+    directoryArn :: Core.Text,
     -- | The reference that identifies the policy object.
     policyReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPolicyAttachments' with all optional fields omitted.
@@ -97,7 +95,7 @@ data ListPolicyAttachments = ListPolicyAttachments'
 -- 'policyReference', 'listPolicyAttachments_policyReference' - The reference that identifies the policy object.
 newListPolicyAttachments ::
   -- | 'directoryArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyReference'
   ObjectReference ->
   ListPolicyAttachments
@@ -105,116 +103,113 @@ newListPolicyAttachments
   pDirectoryArn_
   pPolicyReference_ =
     ListPolicyAttachments'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
-        consistencyLevel = Prelude.Nothing,
+      { nextToken = Core.Nothing,
+        maxResults = Core.Nothing,
+        consistencyLevel = Core.Nothing,
         directoryArn = pDirectoryArn_,
         policyReference = pPolicyReference_
       }
 
 -- | The pagination token.
-listPolicyAttachments_nextToken :: Lens.Lens' ListPolicyAttachments (Prelude.Maybe Prelude.Text)
+listPolicyAttachments_nextToken :: Lens.Lens' ListPolicyAttachments (Core.Maybe Core.Text)
 listPolicyAttachments_nextToken = Lens.lens (\ListPolicyAttachments' {nextToken} -> nextToken) (\s@ListPolicyAttachments' {} a -> s {nextToken = a} :: ListPolicyAttachments)
 
 -- | The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
-listPolicyAttachments_maxResults :: Lens.Lens' ListPolicyAttachments (Prelude.Maybe Prelude.Natural)
+listPolicyAttachments_maxResults :: Lens.Lens' ListPolicyAttachments (Core.Maybe Core.Natural)
 listPolicyAttachments_maxResults = Lens.lens (\ListPolicyAttachments' {maxResults} -> maxResults) (\s@ListPolicyAttachments' {} a -> s {maxResults = a} :: ListPolicyAttachments)
 
 -- | Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
 -- object.
-listPolicyAttachments_consistencyLevel :: Lens.Lens' ListPolicyAttachments (Prelude.Maybe ConsistencyLevel)
+listPolicyAttachments_consistencyLevel :: Lens.Lens' ListPolicyAttachments (Core.Maybe ConsistencyLevel)
 listPolicyAttachments_consistencyLevel = Lens.lens (\ListPolicyAttachments' {consistencyLevel} -> consistencyLevel) (\s@ListPolicyAttachments' {} a -> s {consistencyLevel = a} :: ListPolicyAttachments)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where objects reside. For more information, see arns.
-listPolicyAttachments_directoryArn :: Lens.Lens' ListPolicyAttachments Prelude.Text
+listPolicyAttachments_directoryArn :: Lens.Lens' ListPolicyAttachments Core.Text
 listPolicyAttachments_directoryArn = Lens.lens (\ListPolicyAttachments' {directoryArn} -> directoryArn) (\s@ListPolicyAttachments' {} a -> s {directoryArn = a} :: ListPolicyAttachments)
 
 -- | The reference that identifies the policy object.
 listPolicyAttachments_policyReference :: Lens.Lens' ListPolicyAttachments ObjectReference
 listPolicyAttachments_policyReference = Lens.lens (\ListPolicyAttachments' {policyReference} -> policyReference) (\s@ListPolicyAttachments' {} a -> s {policyReference = a} :: ListPolicyAttachments)
 
-instance Pager.AWSPager ListPolicyAttachments where
+instance Core.AWSPager ListPolicyAttachments where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listPolicyAttachmentsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listPolicyAttachmentsResponse_objectIdentifiers
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listPolicyAttachments_nextToken
           Lens..~ rs
           Lens.^? listPolicyAttachmentsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListPolicyAttachments where
+instance Core.AWSRequest ListPolicyAttachments where
   type
-    Rs ListPolicyAttachments =
+    AWSResponse ListPolicyAttachments =
       ListPolicyAttachmentsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPolicyAttachmentsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ObjectIdentifiers"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "ObjectIdentifiers" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListPolicyAttachments
+instance Core.Hashable ListPolicyAttachments
 
-instance Prelude.NFData ListPolicyAttachments
+instance Core.NFData ListPolicyAttachments
 
-instance Prelude.ToHeaders ListPolicyAttachments where
+instance Core.ToHeaders ListPolicyAttachments where
   toHeaders ListPolicyAttachments' {..} =
-    Prelude.mconcat
-      [ "x-amz-consistency-level"
-          Prelude.=# consistencyLevel,
-        "x-amz-data-partition" Prelude.=# directoryArn
+    Core.mconcat
+      [ "x-amz-consistency-level" Core.=# consistencyLevel,
+        "x-amz-data-partition" Core.=# directoryArn
       ]
 
-instance Prelude.ToJSON ListPolicyAttachments where
+instance Core.ToJSON ListPolicyAttachments where
   toJSON ListPolicyAttachments' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ("PolicyReference" Prelude..= policyReference)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just
+              ("PolicyReference" Core..= policyReference)
           ]
       )
 
-instance Prelude.ToPath ListPolicyAttachments where
+instance Core.ToPath ListPolicyAttachments where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/policy/attachment"
 
-instance Prelude.ToQuery ListPolicyAttachments where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListPolicyAttachments where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListPolicyAttachmentsResponse' smart constructor.
 data ListPolicyAttachmentsResponse = ListPolicyAttachmentsResponse'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @ObjectIdentifiers@ to which the policy is attached.
-    objectIdentifiers :: Prelude.Maybe [Prelude.Text],
+    objectIdentifiers :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPolicyAttachmentsResponse' with all optional fields omitted.
@@ -231,26 +226,26 @@ data ListPolicyAttachmentsResponse = ListPolicyAttachmentsResponse'
 -- 'httpStatus', 'listPolicyAttachmentsResponse_httpStatus' - The response's http status code.
 newListPolicyAttachmentsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPolicyAttachmentsResponse
 newListPolicyAttachmentsResponse pHttpStatus_ =
   ListPolicyAttachmentsResponse'
     { nextToken =
-        Prelude.Nothing,
-      objectIdentifiers = Prelude.Nothing,
+        Core.Nothing,
+      objectIdentifiers = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token.
-listPolicyAttachmentsResponse_nextToken :: Lens.Lens' ListPolicyAttachmentsResponse (Prelude.Maybe Prelude.Text)
+listPolicyAttachmentsResponse_nextToken :: Lens.Lens' ListPolicyAttachmentsResponse (Core.Maybe Core.Text)
 listPolicyAttachmentsResponse_nextToken = Lens.lens (\ListPolicyAttachmentsResponse' {nextToken} -> nextToken) (\s@ListPolicyAttachmentsResponse' {} a -> s {nextToken = a} :: ListPolicyAttachmentsResponse)
 
 -- | A list of @ObjectIdentifiers@ to which the policy is attached.
-listPolicyAttachmentsResponse_objectIdentifiers :: Lens.Lens' ListPolicyAttachmentsResponse (Prelude.Maybe [Prelude.Text])
-listPolicyAttachmentsResponse_objectIdentifiers = Lens.lens (\ListPolicyAttachmentsResponse' {objectIdentifiers} -> objectIdentifiers) (\s@ListPolicyAttachmentsResponse' {} a -> s {objectIdentifiers = a} :: ListPolicyAttachmentsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listPolicyAttachmentsResponse_objectIdentifiers :: Lens.Lens' ListPolicyAttachmentsResponse (Core.Maybe [Core.Text])
+listPolicyAttachmentsResponse_objectIdentifiers = Lens.lens (\ListPolicyAttachmentsResponse' {objectIdentifiers} -> objectIdentifiers) (\s@ListPolicyAttachmentsResponse' {} a -> s {objectIdentifiers = a} :: ListPolicyAttachmentsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPolicyAttachmentsResponse_httpStatus :: Lens.Lens' ListPolicyAttachmentsResponse Prelude.Int
+listPolicyAttachmentsResponse_httpStatus :: Lens.Lens' ListPolicyAttachmentsResponse Core.Int
 listPolicyAttachmentsResponse_httpStatus = Lens.lens (\ListPolicyAttachmentsResponse' {httpStatus} -> httpStatus) (\s@ListPolicyAttachmentsResponse' {} a -> s {httpStatus = a} :: ListPolicyAttachmentsResponse)
 
-instance Prelude.NFData ListPolicyAttachmentsResponse
+instance Core.NFData ListPolicyAttachmentsResponse

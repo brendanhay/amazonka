@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,18 +43,18 @@ module Network.AWS.OpsWorks.DisassociateElasticIp
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateElasticIp' smart constructor.
 data DisassociateElasticIp = DisassociateElasticIp'
   { -- | The Elastic IP address.
-    elasticIp :: Prelude.Text
+    elasticIp :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateElasticIp' with all optional fields omitted.
@@ -68,60 +67,58 @@ data DisassociateElasticIp = DisassociateElasticIp'
 -- 'elasticIp', 'disassociateElasticIp_elasticIp' - The Elastic IP address.
 newDisassociateElasticIp ::
   -- | 'elasticIp'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateElasticIp
 newDisassociateElasticIp pElasticIp_ =
   DisassociateElasticIp' {elasticIp = pElasticIp_}
 
 -- | The Elastic IP address.
-disassociateElasticIp_elasticIp :: Lens.Lens' DisassociateElasticIp Prelude.Text
+disassociateElasticIp_elasticIp :: Lens.Lens' DisassociateElasticIp Core.Text
 disassociateElasticIp_elasticIp = Lens.lens (\DisassociateElasticIp' {elasticIp} -> elasticIp) (\s@DisassociateElasticIp' {} a -> s {elasticIp = a} :: DisassociateElasticIp)
 
-instance Prelude.AWSRequest DisassociateElasticIp where
+instance Core.AWSRequest DisassociateElasticIp where
   type
-    Rs DisassociateElasticIp =
+    AWSResponse DisassociateElasticIp =
       DisassociateElasticIpResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DisassociateElasticIpResponse'
 
-instance Prelude.Hashable DisassociateElasticIp
+instance Core.Hashable DisassociateElasticIp
 
-instance Prelude.NFData DisassociateElasticIp
+instance Core.NFData DisassociateElasticIp
 
-instance Prelude.ToHeaders DisassociateElasticIp where
+instance Core.ToHeaders DisassociateElasticIp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DisassociateElasticIp" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DisassociateElasticIp" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisassociateElasticIp where
+instance Core.ToJSON DisassociateElasticIp where
   toJSON DisassociateElasticIp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("ElasticIp" Prelude..= elasticIp)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ElasticIp" Core..= elasticIp)]
       )
 
-instance Prelude.ToPath DisassociateElasticIp where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateElasticIp where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisassociateElasticIp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateElasticIp where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateElasticIpResponse' smart constructor.
 data DisassociateElasticIpResponse = DisassociateElasticIpResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateElasticIpResponse' with all optional fields omitted.
@@ -132,4 +129,4 @@ newDisassociateElasticIpResponse ::
 newDisassociateElasticIpResponse =
   DisassociateElasticIpResponse'
 
-instance Prelude.NFData DisassociateElasticIpResponse
+instance Core.NFData DisassociateElasticIpResponse

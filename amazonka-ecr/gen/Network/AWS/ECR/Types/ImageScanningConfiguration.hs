@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.ImageScanningConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The image scanning configuration for a repository.
 --
@@ -32,9 +31,9 @@ data ImageScanningConfiguration = ImageScanningConfiguration'
     -- being pushed. If this parameter is not specified, it will default to
     -- @false@ and images will not be scanned unless a scan is manually started
     -- with the StartImageScan API.
-    scanOnPush :: Prelude.Maybe Prelude.Bool
+    scanOnPush :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImageScanningConfiguration' with all optional fields omitted.
@@ -54,7 +53,7 @@ newImageScanningConfiguration ::
 newImageScanningConfiguration =
   ImageScanningConfiguration'
     { scanOnPush =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The setting that determines whether images are scanned after being
@@ -62,25 +61,25 @@ newImageScanningConfiguration =
 -- being pushed. If this parameter is not specified, it will default to
 -- @false@ and images will not be scanned unless a scan is manually started
 -- with the StartImageScan API.
-imageScanningConfiguration_scanOnPush :: Lens.Lens' ImageScanningConfiguration (Prelude.Maybe Prelude.Bool)
+imageScanningConfiguration_scanOnPush :: Lens.Lens' ImageScanningConfiguration (Core.Maybe Core.Bool)
 imageScanningConfiguration_scanOnPush = Lens.lens (\ImageScanningConfiguration' {scanOnPush} -> scanOnPush) (\s@ImageScanningConfiguration' {} a -> s {scanOnPush = a} :: ImageScanningConfiguration)
 
-instance Prelude.FromJSON ImageScanningConfiguration where
+instance Core.FromJSON ImageScanningConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImageScanningConfiguration"
       ( \x ->
           ImageScanningConfiguration'
-            Prelude.<$> (x Prelude..:? "scanOnPush")
+            Core.<$> (x Core..:? "scanOnPush")
       )
 
-instance Prelude.Hashable ImageScanningConfiguration
+instance Core.Hashable ImageScanningConfiguration
 
-instance Prelude.NFData ImageScanningConfiguration
+instance Core.NFData ImageScanningConfiguration
 
-instance Prelude.ToJSON ImageScanningConfiguration where
+instance Core.ToJSON ImageScanningConfiguration where
   toJSON ImageScanningConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("scanOnPush" Prelude..=) Prelude.<$> scanOnPush]
+    Core.object
+      ( Core.catMaybes
+          [("scanOnPush" Core..=) Core.<$> scanOnPush]
       )

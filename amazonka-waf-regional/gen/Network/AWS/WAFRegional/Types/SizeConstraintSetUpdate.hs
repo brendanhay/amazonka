@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.SizeConstraintSetUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ChangeAction
 import Network.AWS.WAFRegional.Types.SizeConstraint
 
@@ -51,7 +50,7 @@ data SizeConstraintSetUpdate = SizeConstraintSetUpdate'
     -- considered to match.
     sizeConstraint :: SizeConstraint
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SizeConstraintSetUpdate' with all optional fields omitted.
@@ -96,16 +95,15 @@ sizeConstraintSetUpdate_action = Lens.lens (\SizeConstraintSetUpdate' {action} -
 sizeConstraintSetUpdate_sizeConstraint :: Lens.Lens' SizeConstraintSetUpdate SizeConstraint
 sizeConstraintSetUpdate_sizeConstraint = Lens.lens (\SizeConstraintSetUpdate' {sizeConstraint} -> sizeConstraint) (\s@SizeConstraintSetUpdate' {} a -> s {sizeConstraint = a} :: SizeConstraintSetUpdate)
 
-instance Prelude.Hashable SizeConstraintSetUpdate
+instance Core.Hashable SizeConstraintSetUpdate
 
-instance Prelude.NFData SizeConstraintSetUpdate
+instance Core.NFData SizeConstraintSetUpdate
 
-instance Prelude.ToJSON SizeConstraintSetUpdate where
+instance Core.ToJSON SizeConstraintSetUpdate where
   toJSON SizeConstraintSetUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Prelude..= action),
-            Prelude.Just
-              ("SizeConstraint" Prelude..= sizeConstraint)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just ("SizeConstraint" Core..= sizeConstraint)
           ]
       )

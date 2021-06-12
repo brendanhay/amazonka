@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,9 +56,8 @@ module Network.AWS.WAF.GetRateBasedRuleManagedKeys
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -68,13 +66,13 @@ import Network.AWS.WAF.Types
 data GetRateBasedRuleManagedKeys = GetRateBasedRuleManagedKeys'
   { -- | A null value and not currently used. Do not include this in your
     -- request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | The @RuleId@ of the RateBasedRule for which you want to get a list of
     -- @ManagedKeys@. @RuleId@ is returned by CreateRateBasedRule and by
     -- ListRateBasedRules.
-    ruleId :: Prelude.Text
+    ruleId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRateBasedRuleManagedKeys' with all optional fields omitted.
@@ -92,115 +90,105 @@ data GetRateBasedRuleManagedKeys = GetRateBasedRuleManagedKeys'
 -- ListRateBasedRules.
 newGetRateBasedRuleManagedKeys ::
   -- | 'ruleId'
-  Prelude.Text ->
+  Core.Text ->
   GetRateBasedRuleManagedKeys
 newGetRateBasedRuleManagedKeys pRuleId_ =
   GetRateBasedRuleManagedKeys'
     { nextMarker =
-        Prelude.Nothing,
+        Core.Nothing,
       ruleId = pRuleId_
     }
 
 -- | A null value and not currently used. Do not include this in your
 -- request.
-getRateBasedRuleManagedKeys_nextMarker :: Lens.Lens' GetRateBasedRuleManagedKeys (Prelude.Maybe Prelude.Text)
+getRateBasedRuleManagedKeys_nextMarker :: Lens.Lens' GetRateBasedRuleManagedKeys (Core.Maybe Core.Text)
 getRateBasedRuleManagedKeys_nextMarker = Lens.lens (\GetRateBasedRuleManagedKeys' {nextMarker} -> nextMarker) (\s@GetRateBasedRuleManagedKeys' {} a -> s {nextMarker = a} :: GetRateBasedRuleManagedKeys)
 
 -- | The @RuleId@ of the RateBasedRule for which you want to get a list of
 -- @ManagedKeys@. @RuleId@ is returned by CreateRateBasedRule and by
 -- ListRateBasedRules.
-getRateBasedRuleManagedKeys_ruleId :: Lens.Lens' GetRateBasedRuleManagedKeys Prelude.Text
+getRateBasedRuleManagedKeys_ruleId :: Lens.Lens' GetRateBasedRuleManagedKeys Core.Text
 getRateBasedRuleManagedKeys_ruleId = Lens.lens (\GetRateBasedRuleManagedKeys' {ruleId} -> ruleId) (\s@GetRateBasedRuleManagedKeys' {} a -> s {ruleId = a} :: GetRateBasedRuleManagedKeys)
 
-instance Pager.AWSPager GetRateBasedRuleManagedKeys where
+instance Core.AWSPager GetRateBasedRuleManagedKeys where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getRateBasedRuleManagedKeysResponse_nextMarker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getRateBasedRuleManagedKeysResponse_managedKeys
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getRateBasedRuleManagedKeys_nextMarker
           Lens..~ rs
           Lens.^? getRateBasedRuleManagedKeysResponse_nextMarker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    GetRateBasedRuleManagedKeys
-  where
+instance Core.AWSRequest GetRateBasedRuleManagedKeys where
   type
-    Rs GetRateBasedRuleManagedKeys =
+    AWSResponse GetRateBasedRuleManagedKeys =
       GetRateBasedRuleManagedKeysResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRateBasedRuleManagedKeysResponse'
-            Prelude.<$> ( x Prelude..?> "ManagedKeys"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextMarker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ManagedKeys" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetRateBasedRuleManagedKeys
+instance Core.Hashable GetRateBasedRuleManagedKeys
 
-instance Prelude.NFData GetRateBasedRuleManagedKeys
+instance Core.NFData GetRateBasedRuleManagedKeys
 
-instance
-  Prelude.ToHeaders
-    GetRateBasedRuleManagedKeys
-  where
+instance Core.ToHeaders GetRateBasedRuleManagedKeys where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.GetRateBasedRuleManagedKeys" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.GetRateBasedRuleManagedKeys" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetRateBasedRuleManagedKeys where
+instance Core.ToJSON GetRateBasedRuleManagedKeys where
   toJSON GetRateBasedRuleManagedKeys' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextMarker" Prelude..=) Prelude.<$> nextMarker,
-            Prelude.Just ("RuleId" Prelude..= ruleId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextMarker" Core..=) Core.<$> nextMarker,
+            Core.Just ("RuleId" Core..= ruleId)
           ]
       )
 
-instance Prelude.ToPath GetRateBasedRuleManagedKeys where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRateBasedRuleManagedKeys where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetRateBasedRuleManagedKeys where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRateBasedRuleManagedKeys where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetRateBasedRuleManagedKeysResponse' smart constructor.
 data GetRateBasedRuleManagedKeysResponse = GetRateBasedRuleManagedKeysResponse'
   { -- | An array of IP addresses that currently are blocked by the specified
     -- RateBasedRule.
-    managedKeys :: Prelude.Maybe [Prelude.Text],
+    managedKeys :: Core.Maybe [Core.Text],
     -- | A null value and not currently used.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRateBasedRuleManagedKeysResponse' with all optional fields omitted.
@@ -218,29 +206,29 @@ data GetRateBasedRuleManagedKeysResponse = GetRateBasedRuleManagedKeysResponse'
 -- 'httpStatus', 'getRateBasedRuleManagedKeysResponse_httpStatus' - The response's http status code.
 newGetRateBasedRuleManagedKeysResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRateBasedRuleManagedKeysResponse
 newGetRateBasedRuleManagedKeysResponse pHttpStatus_ =
   GetRateBasedRuleManagedKeysResponse'
     { managedKeys =
-        Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+        Core.Nothing,
+      nextMarker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of IP addresses that currently are blocked by the specified
 -- RateBasedRule.
-getRateBasedRuleManagedKeysResponse_managedKeys :: Lens.Lens' GetRateBasedRuleManagedKeysResponse (Prelude.Maybe [Prelude.Text])
-getRateBasedRuleManagedKeysResponse_managedKeys = Lens.lens (\GetRateBasedRuleManagedKeysResponse' {managedKeys} -> managedKeys) (\s@GetRateBasedRuleManagedKeysResponse' {} a -> s {managedKeys = a} :: GetRateBasedRuleManagedKeysResponse) Prelude.. Lens.mapping Prelude._Coerce
+getRateBasedRuleManagedKeysResponse_managedKeys :: Lens.Lens' GetRateBasedRuleManagedKeysResponse (Core.Maybe [Core.Text])
+getRateBasedRuleManagedKeysResponse_managedKeys = Lens.lens (\GetRateBasedRuleManagedKeysResponse' {managedKeys} -> managedKeys) (\s@GetRateBasedRuleManagedKeysResponse' {} a -> s {managedKeys = a} :: GetRateBasedRuleManagedKeysResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A null value and not currently used.
-getRateBasedRuleManagedKeysResponse_nextMarker :: Lens.Lens' GetRateBasedRuleManagedKeysResponse (Prelude.Maybe Prelude.Text)
+getRateBasedRuleManagedKeysResponse_nextMarker :: Lens.Lens' GetRateBasedRuleManagedKeysResponse (Core.Maybe Core.Text)
 getRateBasedRuleManagedKeysResponse_nextMarker = Lens.lens (\GetRateBasedRuleManagedKeysResponse' {nextMarker} -> nextMarker) (\s@GetRateBasedRuleManagedKeysResponse' {} a -> s {nextMarker = a} :: GetRateBasedRuleManagedKeysResponse)
 
 -- | The response's http status code.
-getRateBasedRuleManagedKeysResponse_httpStatus :: Lens.Lens' GetRateBasedRuleManagedKeysResponse Prelude.Int
+getRateBasedRuleManagedKeysResponse_httpStatus :: Lens.Lens' GetRateBasedRuleManagedKeysResponse Core.Int
 getRateBasedRuleManagedKeysResponse_httpStatus = Lens.lens (\GetRateBasedRuleManagedKeysResponse' {httpStatus} -> httpStatus) (\s@GetRateBasedRuleManagedKeysResponse' {} a -> s {httpStatus = a} :: GetRateBasedRuleManagedKeysResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetRateBasedRuleManagedKeysResponse

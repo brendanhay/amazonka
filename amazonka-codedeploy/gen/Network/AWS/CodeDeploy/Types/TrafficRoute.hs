@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeDeploy.Types.TrafficRoute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a listener. The listener contains the path used to
 -- route traffic that is received from the load balancer to a target group.
@@ -31,9 +30,9 @@ data TrafficRoute = TrafficRoute'
   { -- | The Amazon Resource Name (ARN) of one listener. The listener identifies
     -- the route between a target group and a load balancer. This is an array
     -- of strings with a maximum size of one.
-    listenerArns :: Prelude.Maybe [Prelude.Text]
+    listenerArns :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrafficRoute' with all optional fields omitted.
@@ -49,34 +48,30 @@ data TrafficRoute = TrafficRoute'
 newTrafficRoute ::
   TrafficRoute
 newTrafficRoute =
-  TrafficRoute' {listenerArns = Prelude.Nothing}
+  TrafficRoute' {listenerArns = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of one listener. The listener identifies
 -- the route between a target group and a load balancer. This is an array
 -- of strings with a maximum size of one.
-trafficRoute_listenerArns :: Lens.Lens' TrafficRoute (Prelude.Maybe [Prelude.Text])
-trafficRoute_listenerArns = Lens.lens (\TrafficRoute' {listenerArns} -> listenerArns) (\s@TrafficRoute' {} a -> s {listenerArns = a} :: TrafficRoute) Prelude.. Lens.mapping Prelude._Coerce
+trafficRoute_listenerArns :: Lens.Lens' TrafficRoute (Core.Maybe [Core.Text])
+trafficRoute_listenerArns = Lens.lens (\TrafficRoute' {listenerArns} -> listenerArns) (\s@TrafficRoute' {} a -> s {listenerArns = a} :: TrafficRoute) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON TrafficRoute where
+instance Core.FromJSON TrafficRoute where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrafficRoute"
       ( \x ->
           TrafficRoute'
-            Prelude.<$> ( x Prelude..:? "listenerArns"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "listenerArns" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable TrafficRoute
+instance Core.Hashable TrafficRoute
 
-instance Prelude.NFData TrafficRoute
+instance Core.NFData TrafficRoute
 
-instance Prelude.ToJSON TrafficRoute where
+instance Core.ToJSON TrafficRoute where
   toJSON TrafficRoute' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("listenerArns" Prelude..=)
-              Prelude.<$> listenerArns
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("listenerArns" Core..=) Core.<$> listenerArns]
       )

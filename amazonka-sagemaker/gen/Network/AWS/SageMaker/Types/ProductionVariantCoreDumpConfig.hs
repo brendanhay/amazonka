@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ProductionVariantCoreDumpConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration for a core dump from the model container when
 -- the process crashes.
@@ -65,11 +64,11 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
     -- information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
     -- in the /AWS Key Management Service Developer Guide/.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The Amazon S3 bucket to send the core dump to.
-    destinationS3Uri :: Prelude.Text
+    destinationS3Uri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProductionVariantCoreDumpConfig' with all optional fields omitted.
@@ -120,12 +119,12 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
 -- 'destinationS3Uri', 'productionVariantCoreDumpConfig_destinationS3Uri' - The Amazon S3 bucket to send the core dump to.
 newProductionVariantCoreDumpConfig ::
   -- | 'destinationS3Uri'
-  Prelude.Text ->
+  Core.Text ->
   ProductionVariantCoreDumpConfig
 newProductionVariantCoreDumpConfig pDestinationS3Uri_ =
   ProductionVariantCoreDumpConfig'
     { kmsKeyId =
-        Prelude.Nothing,
+        Core.Nothing,
       destinationS3Uri = pDestinationS3Uri_
     }
 
@@ -166,43 +165,38 @@ newProductionVariantCoreDumpConfig pDestinationS3Uri_ =
 -- information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
 -- in the /AWS Key Management Service Developer Guide/.
-productionVariantCoreDumpConfig_kmsKeyId :: Lens.Lens' ProductionVariantCoreDumpConfig (Prelude.Maybe Prelude.Text)
+productionVariantCoreDumpConfig_kmsKeyId :: Lens.Lens' ProductionVariantCoreDumpConfig (Core.Maybe Core.Text)
 productionVariantCoreDumpConfig_kmsKeyId = Lens.lens (\ProductionVariantCoreDumpConfig' {kmsKeyId} -> kmsKeyId) (\s@ProductionVariantCoreDumpConfig' {} a -> s {kmsKeyId = a} :: ProductionVariantCoreDumpConfig)
 
 -- | The Amazon S3 bucket to send the core dump to.
-productionVariantCoreDumpConfig_destinationS3Uri :: Lens.Lens' ProductionVariantCoreDumpConfig Prelude.Text
+productionVariantCoreDumpConfig_destinationS3Uri :: Lens.Lens' ProductionVariantCoreDumpConfig Core.Text
 productionVariantCoreDumpConfig_destinationS3Uri = Lens.lens (\ProductionVariantCoreDumpConfig' {destinationS3Uri} -> destinationS3Uri) (\s@ProductionVariantCoreDumpConfig' {} a -> s {destinationS3Uri = a} :: ProductionVariantCoreDumpConfig)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ProductionVariantCoreDumpConfig
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProductionVariantCoreDumpConfig"
       ( \x ->
           ProductionVariantCoreDumpConfig'
-            Prelude.<$> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..: "DestinationS3Uri")
+            Core.<$> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..: "DestinationS3Uri")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ProductionVariantCoreDumpConfig
 
-instance
-  Prelude.NFData
-    ProductionVariantCoreDumpConfig
+instance Core.NFData ProductionVariantCoreDumpConfig
 
-instance
-  Prelude.ToJSON
-    ProductionVariantCoreDumpConfig
-  where
+instance Core.ToJSON ProductionVariantCoreDumpConfig where
   toJSON ProductionVariantCoreDumpConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            Prelude.Just
-              ("DestinationS3Uri" Prelude..= destinationS3Uri)
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            Core.Just
+              ("DestinationS3Uri" Core..= destinationS3Uri)
           ]
       )

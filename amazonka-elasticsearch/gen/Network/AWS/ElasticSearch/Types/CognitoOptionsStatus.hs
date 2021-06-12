@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.CognitoOptionsStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.CognitoOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of the Cognito options for the specified Elasticsearch domain.
 --
@@ -35,7 +34,7 @@ data CognitoOptionsStatus = CognitoOptionsStatus'
     -- Elasticsearch domain.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CognitoOptionsStatus' with all optional fields omitted.
@@ -70,16 +69,15 @@ cognitoOptionsStatus_options = Lens.lens (\CognitoOptionsStatus' {options} -> op
 cognitoOptionsStatus_status :: Lens.Lens' CognitoOptionsStatus OptionStatus
 cognitoOptionsStatus_status = Lens.lens (\CognitoOptionsStatus' {status} -> status) (\s@CognitoOptionsStatus' {} a -> s {status = a} :: CognitoOptionsStatus)
 
-instance Prelude.FromJSON CognitoOptionsStatus where
+instance Core.FromJSON CognitoOptionsStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CognitoOptionsStatus"
       ( \x ->
           CognitoOptionsStatus'
-            Prelude.<$> (x Prelude..: "Options")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable CognitoOptionsStatus
+instance Core.Hashable CognitoOptionsStatus
 
-instance Prelude.NFData CognitoOptionsStatus
+instance Core.NFData CognitoOptionsStatus

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.EC2.AuthorizeClientVpnIngress
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,29 +59,29 @@ data AuthorizeClientVpnIngress = AuthorizeClientVpnIngress'
   { -- | The ID of the group to grant access to, for example, the Active
     -- Directory group or identity provider (IdP) group. Required if
     -- @AuthorizeAllGroups@ is @false@ or not specified.
-    accessGroupId :: Prelude.Maybe Prelude.Text,
+    accessGroupId :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Indicates whether to grant access to all clients. Specify @true@ to
     -- grant all clients who successfully establish a VPN connection access to
     -- the network. Must be set to @true@ if @AccessGroupId@ is not specified.
-    authorizeAllGroups :: Prelude.Maybe Prelude.Bool,
+    authorizeAllGroups :: Core.Maybe Core.Bool,
     -- | A brief description of the authorization rule.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | The ID of the Client VPN endpoint.
-    clientVpnEndpointId :: Prelude.Text,
+    clientVpnEndpointId :: Core.Text,
     -- | The IPv4 address range, in CIDR notation, of the network for which
     -- access is being authorized.
-    targetNetworkCidr :: Prelude.Text
+    targetNetworkCidr :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AuthorizeClientVpnIngress' with all optional fields omitted.
@@ -117,20 +116,20 @@ data AuthorizeClientVpnIngress = AuthorizeClientVpnIngress'
 -- access is being authorized.
 newAuthorizeClientVpnIngress ::
   -- | 'clientVpnEndpointId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetNetworkCidr'
-  Prelude.Text ->
+  Core.Text ->
   AuthorizeClientVpnIngress
 newAuthorizeClientVpnIngress
   pClientVpnEndpointId_
   pTargetNetworkCidr_ =
     AuthorizeClientVpnIngress'
       { accessGroupId =
-          Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        authorizeAllGroups = Prelude.Nothing,
-        description = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+          Core.Nothing,
+        dryRun = Core.Nothing,
+        authorizeAllGroups = Core.Nothing,
+        description = Core.Nothing,
+        clientToken = Core.Nothing,
         clientVpnEndpointId = pClientVpnEndpointId_,
         targetNetworkCidr = pTargetNetworkCidr_
       }
@@ -138,88 +137,87 @@ newAuthorizeClientVpnIngress
 -- | The ID of the group to grant access to, for example, the Active
 -- Directory group or identity provider (IdP) group. Required if
 -- @AuthorizeAllGroups@ is @false@ or not specified.
-authorizeClientVpnIngress_accessGroupId :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Text)
+authorizeClientVpnIngress_accessGroupId :: Lens.Lens' AuthorizeClientVpnIngress (Core.Maybe Core.Text)
 authorizeClientVpnIngress_accessGroupId = Lens.lens (\AuthorizeClientVpnIngress' {accessGroupId} -> accessGroupId) (\s@AuthorizeClientVpnIngress' {} a -> s {accessGroupId = a} :: AuthorizeClientVpnIngress)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-authorizeClientVpnIngress_dryRun :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Bool)
+authorizeClientVpnIngress_dryRun :: Lens.Lens' AuthorizeClientVpnIngress (Core.Maybe Core.Bool)
 authorizeClientVpnIngress_dryRun = Lens.lens (\AuthorizeClientVpnIngress' {dryRun} -> dryRun) (\s@AuthorizeClientVpnIngress' {} a -> s {dryRun = a} :: AuthorizeClientVpnIngress)
 
 -- | Indicates whether to grant access to all clients. Specify @true@ to
 -- grant all clients who successfully establish a VPN connection access to
 -- the network. Must be set to @true@ if @AccessGroupId@ is not specified.
-authorizeClientVpnIngress_authorizeAllGroups :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Bool)
+authorizeClientVpnIngress_authorizeAllGroups :: Lens.Lens' AuthorizeClientVpnIngress (Core.Maybe Core.Bool)
 authorizeClientVpnIngress_authorizeAllGroups = Lens.lens (\AuthorizeClientVpnIngress' {authorizeAllGroups} -> authorizeAllGroups) (\s@AuthorizeClientVpnIngress' {} a -> s {authorizeAllGroups = a} :: AuthorizeClientVpnIngress)
 
 -- | A brief description of the authorization rule.
-authorizeClientVpnIngress_description :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Text)
+authorizeClientVpnIngress_description :: Lens.Lens' AuthorizeClientVpnIngress (Core.Maybe Core.Text)
 authorizeClientVpnIngress_description = Lens.lens (\AuthorizeClientVpnIngress' {description} -> description) (\s@AuthorizeClientVpnIngress' {} a -> s {description = a} :: AuthorizeClientVpnIngress)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-authorizeClientVpnIngress_clientToken :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Text)
+authorizeClientVpnIngress_clientToken :: Lens.Lens' AuthorizeClientVpnIngress (Core.Maybe Core.Text)
 authorizeClientVpnIngress_clientToken = Lens.lens (\AuthorizeClientVpnIngress' {clientToken} -> clientToken) (\s@AuthorizeClientVpnIngress' {} a -> s {clientToken = a} :: AuthorizeClientVpnIngress)
 
 -- | The ID of the Client VPN endpoint.
-authorizeClientVpnIngress_clientVpnEndpointId :: Lens.Lens' AuthorizeClientVpnIngress Prelude.Text
+authorizeClientVpnIngress_clientVpnEndpointId :: Lens.Lens' AuthorizeClientVpnIngress Core.Text
 authorizeClientVpnIngress_clientVpnEndpointId = Lens.lens (\AuthorizeClientVpnIngress' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@AuthorizeClientVpnIngress' {} a -> s {clientVpnEndpointId = a} :: AuthorizeClientVpnIngress)
 
 -- | The IPv4 address range, in CIDR notation, of the network for which
 -- access is being authorized.
-authorizeClientVpnIngress_targetNetworkCidr :: Lens.Lens' AuthorizeClientVpnIngress Prelude.Text
+authorizeClientVpnIngress_targetNetworkCidr :: Lens.Lens' AuthorizeClientVpnIngress Core.Text
 authorizeClientVpnIngress_targetNetworkCidr = Lens.lens (\AuthorizeClientVpnIngress' {targetNetworkCidr} -> targetNetworkCidr) (\s@AuthorizeClientVpnIngress' {} a -> s {targetNetworkCidr = a} :: AuthorizeClientVpnIngress)
 
-instance Prelude.AWSRequest AuthorizeClientVpnIngress where
+instance Core.AWSRequest AuthorizeClientVpnIngress where
   type
-    Rs AuthorizeClientVpnIngress =
+    AWSResponse AuthorizeClientVpnIngress =
       AuthorizeClientVpnIngressResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           AuthorizeClientVpnIngressResponse'
-            Prelude.<$> (x Prelude..@? "status")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AuthorizeClientVpnIngress
+instance Core.Hashable AuthorizeClientVpnIngress
 
-instance Prelude.NFData AuthorizeClientVpnIngress
+instance Core.NFData AuthorizeClientVpnIngress
 
-instance Prelude.ToHeaders AuthorizeClientVpnIngress where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AuthorizeClientVpnIngress where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AuthorizeClientVpnIngress where
-  toPath = Prelude.const "/"
+instance Core.ToPath AuthorizeClientVpnIngress where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AuthorizeClientVpnIngress where
+instance Core.ToQuery AuthorizeClientVpnIngress where
   toQuery AuthorizeClientVpnIngress' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AuthorizeClientVpnIngress" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "AccessGroupId" Prelude.=: accessGroupId,
-        "DryRun" Prelude.=: dryRun,
-        "AuthorizeAllGroups" Prelude.=: authorizeAllGroups,
-        "Description" Prelude.=: description,
-        "ClientToken" Prelude.=: clientToken,
-        "ClientVpnEndpointId" Prelude.=: clientVpnEndpointId,
-        "TargetNetworkCidr" Prelude.=: targetNetworkCidr
+          Core.=: ("AuthorizeClientVpnIngress" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "AccessGroupId" Core.=: accessGroupId,
+        "DryRun" Core.=: dryRun,
+        "AuthorizeAllGroups" Core.=: authorizeAllGroups,
+        "Description" Core.=: description,
+        "ClientToken" Core.=: clientToken,
+        "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
+        "TargetNetworkCidr" Core.=: targetNetworkCidr
       ]
 
 -- | /See:/ 'newAuthorizeClientVpnIngressResponse' smart constructor.
 data AuthorizeClientVpnIngressResponse = AuthorizeClientVpnIngressResponse'
   { -- | The current state of the authorization rule.
-    status :: Prelude.Maybe ClientVpnAuthorizationRuleStatus,
+    status :: Core.Maybe ClientVpnAuthorizationRuleStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AuthorizeClientVpnIngressResponse' with all optional fields omitted.
@@ -234,23 +232,23 @@ data AuthorizeClientVpnIngressResponse = AuthorizeClientVpnIngressResponse'
 -- 'httpStatus', 'authorizeClientVpnIngressResponse_httpStatus' - The response's http status code.
 newAuthorizeClientVpnIngressResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AuthorizeClientVpnIngressResponse
 newAuthorizeClientVpnIngressResponse pHttpStatus_ =
   AuthorizeClientVpnIngressResponse'
     { status =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current state of the authorization rule.
-authorizeClientVpnIngressResponse_status :: Lens.Lens' AuthorizeClientVpnIngressResponse (Prelude.Maybe ClientVpnAuthorizationRuleStatus)
+authorizeClientVpnIngressResponse_status :: Lens.Lens' AuthorizeClientVpnIngressResponse (Core.Maybe ClientVpnAuthorizationRuleStatus)
 authorizeClientVpnIngressResponse_status = Lens.lens (\AuthorizeClientVpnIngressResponse' {status} -> status) (\s@AuthorizeClientVpnIngressResponse' {} a -> s {status = a} :: AuthorizeClientVpnIngressResponse)
 
 -- | The response's http status code.
-authorizeClientVpnIngressResponse_httpStatus :: Lens.Lens' AuthorizeClientVpnIngressResponse Prelude.Int
+authorizeClientVpnIngressResponse_httpStatus :: Lens.Lens' AuthorizeClientVpnIngressResponse Core.Int
 authorizeClientVpnIngressResponse_httpStatus = Lens.lens (\AuthorizeClientVpnIngressResponse' {httpStatus} -> httpStatus) (\s@AuthorizeClientVpnIngressResponse' {} a -> s {httpStatus = a} :: AuthorizeClientVpnIngressResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AuthorizeClientVpnIngressResponse

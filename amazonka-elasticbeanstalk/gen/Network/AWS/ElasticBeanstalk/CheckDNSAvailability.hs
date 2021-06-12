@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCheckDNSAvailability' smart constructor.
 data CheckDNSAvailability = CheckDNSAvailability'
   { -- | The prefix used when this CNAME is reserved.
-    cNAMEPrefix :: Prelude.Text
+    cNAMEPrefix :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CheckDNSAvailability' with all optional fields omitted.
@@ -67,18 +66,18 @@ data CheckDNSAvailability = CheckDNSAvailability'
 -- 'cNAMEPrefix', 'checkDNSAvailability_cNAMEPrefix' - The prefix used when this CNAME is reserved.
 newCheckDNSAvailability ::
   -- | 'cNAMEPrefix'
-  Prelude.Text ->
+  Core.Text ->
   CheckDNSAvailability
 newCheckDNSAvailability pCNAMEPrefix_ =
   CheckDNSAvailability' {cNAMEPrefix = pCNAMEPrefix_}
 
 -- | The prefix used when this CNAME is reserved.
-checkDNSAvailability_cNAMEPrefix :: Lens.Lens' CheckDNSAvailability Prelude.Text
+checkDNSAvailability_cNAMEPrefix :: Lens.Lens' CheckDNSAvailability Core.Text
 checkDNSAvailability_cNAMEPrefix = Lens.lens (\CheckDNSAvailability' {cNAMEPrefix} -> cNAMEPrefix) (\s@CheckDNSAvailability' {} a -> s {cNAMEPrefix = a} :: CheckDNSAvailability)
 
-instance Prelude.AWSRequest CheckDNSAvailability where
+instance Core.AWSRequest CheckDNSAvailability where
   type
-    Rs CheckDNSAvailability =
+    AWSResponse CheckDNSAvailability =
       CheckDNSAvailabilityResponse
   request = Request.postQuery defaultService
   response =
@@ -86,29 +85,28 @@ instance Prelude.AWSRequest CheckDNSAvailability where
       "CheckDNSAvailabilityResult"
       ( \s h x ->
           CheckDNSAvailabilityResponse'
-            Prelude.<$> (x Prelude..@? "Available")
-            Prelude.<*> (x Prelude..@? "FullyQualifiedCNAME")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Available")
+            Core.<*> (x Core..@? "FullyQualifiedCNAME")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CheckDNSAvailability
+instance Core.Hashable CheckDNSAvailability
 
-instance Prelude.NFData CheckDNSAvailability
+instance Core.NFData CheckDNSAvailability
 
-instance Prelude.ToHeaders CheckDNSAvailability where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CheckDNSAvailability where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CheckDNSAvailability where
-  toPath = Prelude.const "/"
+instance Core.ToPath CheckDNSAvailability where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CheckDNSAvailability where
+instance Core.ToQuery CheckDNSAvailability where
   toQuery CheckDNSAvailability' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CheckDNSAvailability" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "CNAMEPrefix" Prelude.=: cNAMEPrefix
+          Core.=: ("CheckDNSAvailability" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "CNAMEPrefix" Core.=: cNAMEPrefix
       ]
 
 -- | Indicates if the specified CNAME is available.
@@ -120,14 +118,14 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
     -- -   @true@ : The CNAME is available.
     --
     -- -   @false@ : The CNAME is not available.
-    available :: Prelude.Maybe Prelude.Bool,
+    available :: Core.Maybe Core.Bool,
     -- | The fully qualified CNAME to reserve when CreateEnvironment is called
     -- with the provided prefix.
-    fullyQualifiedCNAME :: Prelude.Maybe Prelude.Text,
+    fullyQualifiedCNAME :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CheckDNSAvailabilityResponse' with all optional fields omitted.
@@ -149,13 +147,13 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
 -- 'httpStatus', 'checkDNSAvailabilityResponse_httpStatus' - The response's http status code.
 newCheckDNSAvailabilityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CheckDNSAvailabilityResponse
 newCheckDNSAvailabilityResponse pHttpStatus_ =
   CheckDNSAvailabilityResponse'
     { available =
-        Prelude.Nothing,
-      fullyQualifiedCNAME = Prelude.Nothing,
+        Core.Nothing,
+      fullyQualifiedCNAME = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -164,16 +162,16 @@ newCheckDNSAvailabilityResponse pHttpStatus_ =
 -- -   @true@ : The CNAME is available.
 --
 -- -   @false@ : The CNAME is not available.
-checkDNSAvailabilityResponse_available :: Lens.Lens' CheckDNSAvailabilityResponse (Prelude.Maybe Prelude.Bool)
+checkDNSAvailabilityResponse_available :: Lens.Lens' CheckDNSAvailabilityResponse (Core.Maybe Core.Bool)
 checkDNSAvailabilityResponse_available = Lens.lens (\CheckDNSAvailabilityResponse' {available} -> available) (\s@CheckDNSAvailabilityResponse' {} a -> s {available = a} :: CheckDNSAvailabilityResponse)
 
 -- | The fully qualified CNAME to reserve when CreateEnvironment is called
 -- with the provided prefix.
-checkDNSAvailabilityResponse_fullyQualifiedCNAME :: Lens.Lens' CheckDNSAvailabilityResponse (Prelude.Maybe Prelude.Text)
+checkDNSAvailabilityResponse_fullyQualifiedCNAME :: Lens.Lens' CheckDNSAvailabilityResponse (Core.Maybe Core.Text)
 checkDNSAvailabilityResponse_fullyQualifiedCNAME = Lens.lens (\CheckDNSAvailabilityResponse' {fullyQualifiedCNAME} -> fullyQualifiedCNAME) (\s@CheckDNSAvailabilityResponse' {} a -> s {fullyQualifiedCNAME = a} :: CheckDNSAvailabilityResponse)
 
 -- | The response's http status code.
-checkDNSAvailabilityResponse_httpStatus :: Lens.Lens' CheckDNSAvailabilityResponse Prelude.Int
+checkDNSAvailabilityResponse_httpStatus :: Lens.Lens' CheckDNSAvailabilityResponse Core.Int
 checkDNSAvailabilityResponse_httpStatus = Lens.lens (\CheckDNSAvailabilityResponse' {httpStatus} -> httpStatus) (\s@CheckDNSAvailabilityResponse' {} a -> s {httpStatus = a} :: CheckDNSAvailabilityResponse)
 
-instance Prelude.NFData CheckDNSAvailabilityResponse
+instance Core.NFData CheckDNSAvailabilityResponse

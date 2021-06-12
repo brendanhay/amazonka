@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.Glue.UpdateColumnStatisticsForPartition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,17 +56,17 @@ import qualified Network.AWS.Response as Response
 data UpdateColumnStatisticsForPartition = UpdateColumnStatisticsForPartition'
   { -- | The ID of the Data Catalog where the partitions in question reside. If
     -- none is supplied, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the catalog database where the partitions reside.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the partitions\' table.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | A list of partition values identifying the partition.
-    partitionValues :: [Prelude.Text],
+    partitionValues :: [Core.Text],
     -- | A list of the column statistics.
     columnStatisticsList :: [ColumnStatistics]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateColumnStatisticsForPartition' with all optional fields omitted.
@@ -89,125 +88,122 @@ data UpdateColumnStatisticsForPartition = UpdateColumnStatisticsForPartition'
 -- 'columnStatisticsList', 'updateColumnStatisticsForPartition_columnStatisticsList' - A list of the column statistics.
 newUpdateColumnStatisticsForPartition ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateColumnStatisticsForPartition
 newUpdateColumnStatisticsForPartition
   pDatabaseName_
   pTableName_ =
     UpdateColumnStatisticsForPartition'
       { catalogId =
-          Prelude.Nothing,
+          Core.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
-        partitionValues = Prelude.mempty,
-        columnStatisticsList = Prelude.mempty
+        partitionValues = Core.mempty,
+        columnStatisticsList = Core.mempty
       }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If
 -- none is supplied, the AWS account ID is used by default.
-updateColumnStatisticsForPartition_catalogId :: Lens.Lens' UpdateColumnStatisticsForPartition (Prelude.Maybe Prelude.Text)
+updateColumnStatisticsForPartition_catalogId :: Lens.Lens' UpdateColumnStatisticsForPartition (Core.Maybe Core.Text)
 updateColumnStatisticsForPartition_catalogId = Lens.lens (\UpdateColumnStatisticsForPartition' {catalogId} -> catalogId) (\s@UpdateColumnStatisticsForPartition' {} a -> s {catalogId = a} :: UpdateColumnStatisticsForPartition)
 
 -- | The name of the catalog database where the partitions reside.
-updateColumnStatisticsForPartition_databaseName :: Lens.Lens' UpdateColumnStatisticsForPartition Prelude.Text
+updateColumnStatisticsForPartition_databaseName :: Lens.Lens' UpdateColumnStatisticsForPartition Core.Text
 updateColumnStatisticsForPartition_databaseName = Lens.lens (\UpdateColumnStatisticsForPartition' {databaseName} -> databaseName) (\s@UpdateColumnStatisticsForPartition' {} a -> s {databaseName = a} :: UpdateColumnStatisticsForPartition)
 
 -- | The name of the partitions\' table.
-updateColumnStatisticsForPartition_tableName :: Lens.Lens' UpdateColumnStatisticsForPartition Prelude.Text
+updateColumnStatisticsForPartition_tableName :: Lens.Lens' UpdateColumnStatisticsForPartition Core.Text
 updateColumnStatisticsForPartition_tableName = Lens.lens (\UpdateColumnStatisticsForPartition' {tableName} -> tableName) (\s@UpdateColumnStatisticsForPartition' {} a -> s {tableName = a} :: UpdateColumnStatisticsForPartition)
 
 -- | A list of partition values identifying the partition.
-updateColumnStatisticsForPartition_partitionValues :: Lens.Lens' UpdateColumnStatisticsForPartition [Prelude.Text]
-updateColumnStatisticsForPartition_partitionValues = Lens.lens (\UpdateColumnStatisticsForPartition' {partitionValues} -> partitionValues) (\s@UpdateColumnStatisticsForPartition' {} a -> s {partitionValues = a} :: UpdateColumnStatisticsForPartition) Prelude.. Prelude._Coerce
+updateColumnStatisticsForPartition_partitionValues :: Lens.Lens' UpdateColumnStatisticsForPartition [Core.Text]
+updateColumnStatisticsForPartition_partitionValues = Lens.lens (\UpdateColumnStatisticsForPartition' {partitionValues} -> partitionValues) (\s@UpdateColumnStatisticsForPartition' {} a -> s {partitionValues = a} :: UpdateColumnStatisticsForPartition) Core.. Lens._Coerce
 
 -- | A list of the column statistics.
 updateColumnStatisticsForPartition_columnStatisticsList :: Lens.Lens' UpdateColumnStatisticsForPartition [ColumnStatistics]
-updateColumnStatisticsForPartition_columnStatisticsList = Lens.lens (\UpdateColumnStatisticsForPartition' {columnStatisticsList} -> columnStatisticsList) (\s@UpdateColumnStatisticsForPartition' {} a -> s {columnStatisticsList = a} :: UpdateColumnStatisticsForPartition) Prelude.. Prelude._Coerce
+updateColumnStatisticsForPartition_columnStatisticsList = Lens.lens (\UpdateColumnStatisticsForPartition' {columnStatisticsList} -> columnStatisticsList) (\s@UpdateColumnStatisticsForPartition' {} a -> s {columnStatisticsList = a} :: UpdateColumnStatisticsForPartition) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateColumnStatisticsForPartition
   where
   type
-    Rs UpdateColumnStatisticsForPartition =
+    AWSResponse UpdateColumnStatisticsForPartition =
       UpdateColumnStatisticsForPartitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateColumnStatisticsForPartitionResponse'
-            Prelude.<$> (x Prelude..?> "Errors" Prelude..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Errors" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateColumnStatisticsForPartition
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateColumnStatisticsForPartition
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateColumnStatisticsForPartition
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.UpdateColumnStatisticsForPartition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSGlue.UpdateColumnStatisticsForPartition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     UpdateColumnStatisticsForPartition
   where
   toJSON UpdateColumnStatisticsForPartition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just
-              ("PartitionValues" Prelude..= partitionValues),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just
+              ("PartitionValues" Core..= partitionValues),
+            Core.Just
               ( "ColumnStatisticsList"
-                  Prelude..= columnStatisticsList
+                  Core..= columnStatisticsList
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     UpdateColumnStatisticsForPartition
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     UpdateColumnStatisticsForPartition
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateColumnStatisticsForPartitionResponse' smart constructor.
 data UpdateColumnStatisticsForPartitionResponse = UpdateColumnStatisticsForPartitionResponse'
   { -- | Error occurred during updating column statistics data.
-    errors :: Prelude.Maybe [ColumnStatisticsError],
+    errors :: Core.Maybe [ColumnStatisticsError],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateColumnStatisticsForPartitionResponse' with all optional fields omitted.
@@ -222,24 +218,24 @@ data UpdateColumnStatisticsForPartitionResponse = UpdateColumnStatisticsForParti
 -- 'httpStatus', 'updateColumnStatisticsForPartitionResponse_httpStatus' - The response's http status code.
 newUpdateColumnStatisticsForPartitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateColumnStatisticsForPartitionResponse
 newUpdateColumnStatisticsForPartitionResponse
   pHttpStatus_ =
     UpdateColumnStatisticsForPartitionResponse'
       { errors =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Error occurred during updating column statistics data.
-updateColumnStatisticsForPartitionResponse_errors :: Lens.Lens' UpdateColumnStatisticsForPartitionResponse (Prelude.Maybe [ColumnStatisticsError])
-updateColumnStatisticsForPartitionResponse_errors = Lens.lens (\UpdateColumnStatisticsForPartitionResponse' {errors} -> errors) (\s@UpdateColumnStatisticsForPartitionResponse' {} a -> s {errors = a} :: UpdateColumnStatisticsForPartitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateColumnStatisticsForPartitionResponse_errors :: Lens.Lens' UpdateColumnStatisticsForPartitionResponse (Core.Maybe [ColumnStatisticsError])
+updateColumnStatisticsForPartitionResponse_errors = Lens.lens (\UpdateColumnStatisticsForPartitionResponse' {errors} -> errors) (\s@UpdateColumnStatisticsForPartitionResponse' {} a -> s {errors = a} :: UpdateColumnStatisticsForPartitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-updateColumnStatisticsForPartitionResponse_httpStatus :: Lens.Lens' UpdateColumnStatisticsForPartitionResponse Prelude.Int
+updateColumnStatisticsForPartitionResponse_httpStatus :: Lens.Lens' UpdateColumnStatisticsForPartitionResponse Core.Int
 updateColumnStatisticsForPartitionResponse_httpStatus = Lens.lens (\UpdateColumnStatisticsForPartitionResponse' {httpStatus} -> httpStatus) (\s@UpdateColumnStatisticsForPartitionResponse' {} a -> s {httpStatus = a} :: UpdateColumnStatisticsForPartitionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateColumnStatisticsForPartitionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Comprehend.DescribeEntitiesDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DescribeEntitiesDetectionJob = DescribeEntitiesDetectionJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The
     -- operation returns this identifier in its response.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEntitiesDetectionJob' with all optional fields omitted.
@@ -67,78 +66,66 @@ data DescribeEntitiesDetectionJob = DescribeEntitiesDetectionJob'
 -- operation returns this identifier in its response.
 newDescribeEntitiesDetectionJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeEntitiesDetectionJob
 newDescribeEntitiesDetectionJob pJobId_ =
   DescribeEntitiesDetectionJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The
 -- operation returns this identifier in its response.
-describeEntitiesDetectionJob_jobId :: Lens.Lens' DescribeEntitiesDetectionJob Prelude.Text
+describeEntitiesDetectionJob_jobId :: Lens.Lens' DescribeEntitiesDetectionJob Core.Text
 describeEntitiesDetectionJob_jobId = Lens.lens (\DescribeEntitiesDetectionJob' {jobId} -> jobId) (\s@DescribeEntitiesDetectionJob' {} a -> s {jobId = a} :: DescribeEntitiesDetectionJob)
 
-instance
-  Prelude.AWSRequest
-    DescribeEntitiesDetectionJob
-  where
+instance Core.AWSRequest DescribeEntitiesDetectionJob where
   type
-    Rs DescribeEntitiesDetectionJob =
+    AWSResponse DescribeEntitiesDetectionJob =
       DescribeEntitiesDetectionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEntitiesDetectionJobResponse'
-            Prelude.<$> (x Prelude..?> "EntitiesDetectionJobProperties")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "EntitiesDetectionJobProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeEntitiesDetectionJob
+instance Core.Hashable DescribeEntitiesDetectionJob
 
-instance Prelude.NFData DescribeEntitiesDetectionJob
+instance Core.NFData DescribeEntitiesDetectionJob
 
-instance
-  Prelude.ToHeaders
-    DescribeEntitiesDetectionJob
-  where
+instance Core.ToHeaders DescribeEntitiesDetectionJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.DescribeEntitiesDetectionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.DescribeEntitiesDetectionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeEntitiesDetectionJob where
+instance Core.ToJSON DescribeEntitiesDetectionJob where
   toJSON DescribeEntitiesDetectionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
 
-instance Prelude.ToPath DescribeEntitiesDetectionJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEntitiesDetectionJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEntitiesDetectionJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEntitiesDetectionJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEntitiesDetectionJobResponse' smart constructor.
 data DescribeEntitiesDetectionJobResponse = DescribeEntitiesDetectionJobResponse'
   { -- | An object that contains the properties associated with an entities
     -- detection job.
-    entitiesDetectionJobProperties :: Prelude.Maybe EntitiesDetectionJobProperties,
+    entitiesDetectionJobProperties :: Core.Maybe EntitiesDetectionJobProperties,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEntitiesDetectionJobResponse' with all optional fields omitted.
@@ -154,24 +141,24 @@ data DescribeEntitiesDetectionJobResponse = DescribeEntitiesDetectionJobResponse
 -- 'httpStatus', 'describeEntitiesDetectionJobResponse_httpStatus' - The response's http status code.
 newDescribeEntitiesDetectionJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEntitiesDetectionJobResponse
 newDescribeEntitiesDetectionJobResponse pHttpStatus_ =
   DescribeEntitiesDetectionJobResponse'
     { entitiesDetectionJobProperties =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains the properties associated with an entities
 -- detection job.
-describeEntitiesDetectionJobResponse_entitiesDetectionJobProperties :: Lens.Lens' DescribeEntitiesDetectionJobResponse (Prelude.Maybe EntitiesDetectionJobProperties)
+describeEntitiesDetectionJobResponse_entitiesDetectionJobProperties :: Lens.Lens' DescribeEntitiesDetectionJobResponse (Core.Maybe EntitiesDetectionJobProperties)
 describeEntitiesDetectionJobResponse_entitiesDetectionJobProperties = Lens.lens (\DescribeEntitiesDetectionJobResponse' {entitiesDetectionJobProperties} -> entitiesDetectionJobProperties) (\s@DescribeEntitiesDetectionJobResponse' {} a -> s {entitiesDetectionJobProperties = a} :: DescribeEntitiesDetectionJobResponse)
 
 -- | The response's http status code.
-describeEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' DescribeEntitiesDetectionJobResponse Prelude.Int
+describeEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' DescribeEntitiesDetectionJobResponse Core.Int
 describeEntitiesDetectionJobResponse_httpStatus = Lens.lens (\DescribeEntitiesDetectionJobResponse' {httpStatus} -> httpStatus) (\s@DescribeEntitiesDetectionJobResponse' {} a -> s {httpStatus = a} :: DescribeEntitiesDetectionJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeEntitiesDetectionJobResponse

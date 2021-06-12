@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkMail.Types.Delegate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkMail.Types.MemberType
 
 -- | The name of the attribute, which is one of the values defined in the
@@ -31,11 +30,11 @@ import Network.AWS.WorkMail.Types.MemberType
 data Delegate = Delegate'
   { -- | The identifier for the user or group associated as the resource\'s
     -- delegate.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The type of the delegate: user or group.
     type' :: MemberType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Delegate' with all optional fields omitted.
@@ -51,7 +50,7 @@ data Delegate = Delegate'
 -- 'type'', 'delegate_type' - The type of the delegate: user or group.
 newDelegate ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   MemberType ->
   Delegate
@@ -60,23 +59,22 @@ newDelegate pId_ pType_ =
 
 -- | The identifier for the user or group associated as the resource\'s
 -- delegate.
-delegate_id :: Lens.Lens' Delegate Prelude.Text
+delegate_id :: Lens.Lens' Delegate Core.Text
 delegate_id = Lens.lens (\Delegate' {id} -> id) (\s@Delegate' {} a -> s {id = a} :: Delegate)
 
 -- | The type of the delegate: user or group.
 delegate_type :: Lens.Lens' Delegate MemberType
 delegate_type = Lens.lens (\Delegate' {type'} -> type') (\s@Delegate' {} a -> s {type' = a} :: Delegate)
 
-instance Prelude.FromJSON Delegate where
+instance Core.FromJSON Delegate where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Delegate"
       ( \x ->
           Delegate'
-            Prelude.<$> (x Prelude..: "Id")
-            Prelude.<*> (x Prelude..: "Type")
+            Core.<$> (x Core..: "Id") Core.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable Delegate
+instance Core.Hashable Delegate
 
-instance Prelude.NFData Delegate
+instance Core.NFData Delegate

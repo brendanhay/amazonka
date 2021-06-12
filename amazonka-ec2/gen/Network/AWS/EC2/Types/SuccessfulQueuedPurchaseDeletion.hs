@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SuccessfulQueuedPurchaseDeletion where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Reserved Instance whose queued purchase was successfully
 -- deleted.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSuccessfulQueuedPurchaseDeletion' smart constructor.
 data SuccessfulQueuedPurchaseDeletion = SuccessfulQueuedPurchaseDeletion'
   { -- | The ID of the Reserved Instance.
-    reservedInstancesId :: Prelude.Maybe Prelude.Text
+    reservedInstancesId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuccessfulQueuedPurchaseDeletion' with all optional fields omitted.
@@ -48,25 +47,23 @@ newSuccessfulQueuedPurchaseDeletion ::
 newSuccessfulQueuedPurchaseDeletion =
   SuccessfulQueuedPurchaseDeletion'
     { reservedInstancesId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the Reserved Instance.
-successfulQueuedPurchaseDeletion_reservedInstancesId :: Lens.Lens' SuccessfulQueuedPurchaseDeletion (Prelude.Maybe Prelude.Text)
+successfulQueuedPurchaseDeletion_reservedInstancesId :: Lens.Lens' SuccessfulQueuedPurchaseDeletion (Core.Maybe Core.Text)
 successfulQueuedPurchaseDeletion_reservedInstancesId = Lens.lens (\SuccessfulQueuedPurchaseDeletion' {reservedInstancesId} -> reservedInstancesId) (\s@SuccessfulQueuedPurchaseDeletion' {} a -> s {reservedInstancesId = a} :: SuccessfulQueuedPurchaseDeletion)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     SuccessfulQueuedPurchaseDeletion
   where
   parseXML x =
     SuccessfulQueuedPurchaseDeletion'
-      Prelude.<$> (x Prelude..@? "reservedInstancesId")
+      Core.<$> (x Core..@? "reservedInstancesId")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     SuccessfulQueuedPurchaseDeletion
 
-instance
-  Prelude.NFData
-    SuccessfulQueuedPurchaseDeletion
+instance Core.NFData SuccessfulQueuedPurchaseDeletion

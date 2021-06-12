@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.CaptionSourceFramerate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Ignore this setting unless your input captions format is SCC. To have
 -- the service compensate for differing frame rates between your input
@@ -37,14 +36,14 @@ data CaptionSourceFramerate = CaptionSourceFramerate'
     -- the setting Caption source frame rate (CaptionSourceFramerate). Use this
     -- setting along with the setting Framerate denominator
     -- (framerateDenominator).
-    framerateNumerator :: Prelude.Maybe Prelude.Natural,
+    framerateNumerator :: Core.Maybe Core.Natural,
     -- | Specify the denominator of the fraction that represents the frame rate
     -- for the setting Caption source frame rate (CaptionSourceFramerate). Use
     -- this setting along with the setting Framerate numerator
     -- (framerateNumerator).
-    framerateDenominator :: Prelude.Maybe Prelude.Natural
+    framerateDenominator :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CaptionSourceFramerate' with all optional fields omitted.
@@ -68,45 +67,45 @@ newCaptionSourceFramerate ::
 newCaptionSourceFramerate =
   CaptionSourceFramerate'
     { framerateNumerator =
-        Prelude.Nothing,
-      framerateDenominator = Prelude.Nothing
+        Core.Nothing,
+      framerateDenominator = Core.Nothing
     }
 
 -- | Specify the numerator of the fraction that represents the frame rate for
 -- the setting Caption source frame rate (CaptionSourceFramerate). Use this
 -- setting along with the setting Framerate denominator
 -- (framerateDenominator).
-captionSourceFramerate_framerateNumerator :: Lens.Lens' CaptionSourceFramerate (Prelude.Maybe Prelude.Natural)
+captionSourceFramerate_framerateNumerator :: Lens.Lens' CaptionSourceFramerate (Core.Maybe Core.Natural)
 captionSourceFramerate_framerateNumerator = Lens.lens (\CaptionSourceFramerate' {framerateNumerator} -> framerateNumerator) (\s@CaptionSourceFramerate' {} a -> s {framerateNumerator = a} :: CaptionSourceFramerate)
 
 -- | Specify the denominator of the fraction that represents the frame rate
 -- for the setting Caption source frame rate (CaptionSourceFramerate). Use
 -- this setting along with the setting Framerate numerator
 -- (framerateNumerator).
-captionSourceFramerate_framerateDenominator :: Lens.Lens' CaptionSourceFramerate (Prelude.Maybe Prelude.Natural)
+captionSourceFramerate_framerateDenominator :: Lens.Lens' CaptionSourceFramerate (Core.Maybe Core.Natural)
 captionSourceFramerate_framerateDenominator = Lens.lens (\CaptionSourceFramerate' {framerateDenominator} -> framerateDenominator) (\s@CaptionSourceFramerate' {} a -> s {framerateDenominator = a} :: CaptionSourceFramerate)
 
-instance Prelude.FromJSON CaptionSourceFramerate where
+instance Core.FromJSON CaptionSourceFramerate where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CaptionSourceFramerate"
       ( \x ->
           CaptionSourceFramerate'
-            Prelude.<$> (x Prelude..:? "framerateNumerator")
-            Prelude.<*> (x Prelude..:? "framerateDenominator")
+            Core.<$> (x Core..:? "framerateNumerator")
+            Core.<*> (x Core..:? "framerateDenominator")
       )
 
-instance Prelude.Hashable CaptionSourceFramerate
+instance Core.Hashable CaptionSourceFramerate
 
-instance Prelude.NFData CaptionSourceFramerate
+instance Core.NFData CaptionSourceFramerate
 
-instance Prelude.ToJSON CaptionSourceFramerate where
+instance Core.ToJSON CaptionSourceFramerate where
   toJSON CaptionSourceFramerate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("framerateNumerator" Prelude..=)
-              Prelude.<$> framerateNumerator,
-            ("framerateDenominator" Prelude..=)
-              Prelude.<$> framerateDenominator
+    Core.object
+      ( Core.catMaybes
+          [ ("framerateNumerator" Core..=)
+              Core.<$> framerateNumerator,
+            ("framerateDenominator" Core..=)
+              Core.<$> framerateDenominator
           ]
       )

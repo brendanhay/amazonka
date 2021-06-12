@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -62,9 +61,9 @@ import Network.AWS.StorageGateway.Types
 -- | /See:/ 'newDeleteSnapshotSchedule' smart constructor.
 data DeleteSnapshotSchedule = DeleteSnapshotSchedule'
   { -- | The volume which snapshot schedule to delete.
-    volumeARN :: Prelude.Text
+    volumeARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshotSchedule' with all optional fields omitted.
@@ -77,68 +76,66 @@ data DeleteSnapshotSchedule = DeleteSnapshotSchedule'
 -- 'volumeARN', 'deleteSnapshotSchedule_volumeARN' - The volume which snapshot schedule to delete.
 newDeleteSnapshotSchedule ::
   -- | 'volumeARN'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSnapshotSchedule
 newDeleteSnapshotSchedule pVolumeARN_ =
   DeleteSnapshotSchedule' {volumeARN = pVolumeARN_}
 
 -- | The volume which snapshot schedule to delete.
-deleteSnapshotSchedule_volumeARN :: Lens.Lens' DeleteSnapshotSchedule Prelude.Text
+deleteSnapshotSchedule_volumeARN :: Lens.Lens' DeleteSnapshotSchedule Core.Text
 deleteSnapshotSchedule_volumeARN = Lens.lens (\DeleteSnapshotSchedule' {volumeARN} -> volumeARN) (\s@DeleteSnapshotSchedule' {} a -> s {volumeARN = a} :: DeleteSnapshotSchedule)
 
-instance Prelude.AWSRequest DeleteSnapshotSchedule where
+instance Core.AWSRequest DeleteSnapshotSchedule where
   type
-    Rs DeleteSnapshotSchedule =
+    AWSResponse DeleteSnapshotSchedule =
       DeleteSnapshotScheduleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteSnapshotScheduleResponse'
-            Prelude.<$> (x Prelude..?> "VolumeARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "VolumeARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSnapshotSchedule
+instance Core.Hashable DeleteSnapshotSchedule
 
-instance Prelude.NFData DeleteSnapshotSchedule
+instance Core.NFData DeleteSnapshotSchedule
 
-instance Prelude.ToHeaders DeleteSnapshotSchedule where
+instance Core.ToHeaders DeleteSnapshotSchedule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.DeleteSnapshotSchedule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.DeleteSnapshotSchedule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteSnapshotSchedule where
+instance Core.ToJSON DeleteSnapshotSchedule where
   toJSON DeleteSnapshotSchedule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("VolumeARN" Prelude..= volumeARN)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("VolumeARN" Core..= volumeARN)]
       )
 
-instance Prelude.ToPath DeleteSnapshotSchedule where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSnapshotSchedule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSnapshotSchedule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteSnapshotSchedule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteSnapshotScheduleResponse' smart constructor.
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
   { -- | The volume which snapshot schedule was deleted.
-    volumeARN :: Prelude.Maybe Prelude.Text,
+    volumeARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshotScheduleResponse' with all optional fields omitted.
@@ -153,23 +150,21 @@ data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
 -- 'httpStatus', 'deleteSnapshotScheduleResponse_httpStatus' - The response's http status code.
 newDeleteSnapshotScheduleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteSnapshotScheduleResponse
 newDeleteSnapshotScheduleResponse pHttpStatus_ =
   DeleteSnapshotScheduleResponse'
     { volumeARN =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The volume which snapshot schedule was deleted.
-deleteSnapshotScheduleResponse_volumeARN :: Lens.Lens' DeleteSnapshotScheduleResponse (Prelude.Maybe Prelude.Text)
+deleteSnapshotScheduleResponse_volumeARN :: Lens.Lens' DeleteSnapshotScheduleResponse (Core.Maybe Core.Text)
 deleteSnapshotScheduleResponse_volumeARN = Lens.lens (\DeleteSnapshotScheduleResponse' {volumeARN} -> volumeARN) (\s@DeleteSnapshotScheduleResponse' {} a -> s {volumeARN = a} :: DeleteSnapshotScheduleResponse)
 
 -- | The response's http status code.
-deleteSnapshotScheduleResponse_httpStatus :: Lens.Lens' DeleteSnapshotScheduleResponse Prelude.Int
+deleteSnapshotScheduleResponse_httpStatus :: Lens.Lens' DeleteSnapshotScheduleResponse Core.Int
 deleteSnapshotScheduleResponse_httpStatus = Lens.lens (\DeleteSnapshotScheduleResponse' {httpStatus} -> httpStatus) (\s@DeleteSnapshotScheduleResponse' {} a -> s {httpStatus = a} :: DeleteSnapshotScheduleResponse)
 
-instance
-  Prelude.NFData
-    DeleteSnapshotScheduleResponse
+instance Core.NFData DeleteSnapshotScheduleResponse

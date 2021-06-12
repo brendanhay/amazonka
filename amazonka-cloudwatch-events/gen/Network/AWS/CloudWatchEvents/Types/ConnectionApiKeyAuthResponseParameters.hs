@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.ConnectionApiKeyAuthResponseParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the authorization parameters for the connection if API Key is
 -- specified as the authorization type.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ConnectionApiKeyAuthResponseParameters = ConnectionApiKeyAuthResponseParameters'
   { -- | The name of the header to use for the @APIKeyValue@ used for
     -- authorization.
-    apiKeyName :: Prelude.Maybe Prelude.Text
+    apiKeyName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectionApiKeyAuthResponseParameters' with all optional fields omitted.
@@ -49,30 +48,30 @@ newConnectionApiKeyAuthResponseParameters ::
 newConnectionApiKeyAuthResponseParameters =
   ConnectionApiKeyAuthResponseParameters'
     { apiKeyName =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The name of the header to use for the @APIKeyValue@ used for
 -- authorization.
-connectionApiKeyAuthResponseParameters_apiKeyName :: Lens.Lens' ConnectionApiKeyAuthResponseParameters (Prelude.Maybe Prelude.Text)
+connectionApiKeyAuthResponseParameters_apiKeyName :: Lens.Lens' ConnectionApiKeyAuthResponseParameters (Core.Maybe Core.Text)
 connectionApiKeyAuthResponseParameters_apiKeyName = Lens.lens (\ConnectionApiKeyAuthResponseParameters' {apiKeyName} -> apiKeyName) (\s@ConnectionApiKeyAuthResponseParameters' {} a -> s {apiKeyName = a} :: ConnectionApiKeyAuthResponseParameters)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ConnectionApiKeyAuthResponseParameters
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConnectionApiKeyAuthResponseParameters"
       ( \x ->
           ConnectionApiKeyAuthResponseParameters'
-            Prelude.<$> (x Prelude..:? "ApiKeyName")
+            Core.<$> (x Core..:? "ApiKeyName")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ConnectionApiKeyAuthResponseParameters
 
 instance
-  Prelude.NFData
+  Core.NFData
     ConnectionApiKeyAuthResponseParameters

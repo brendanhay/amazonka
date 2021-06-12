@@ -257,8 +257,8 @@ module Network.AWS.Route53AutoNaming.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.CustomHealthStatus
 import Network.AWS.Route53AutoNaming.Types.DnsConfig
 import Network.AWS.Route53AutoNaming.Types.DnsConfigChange
@@ -300,115 +300,113 @@ import Network.AWS.Route53AutoNaming.Types.Tag
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-03-14@ of the Amazon Cloud Map SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev =
+  Core.Service
+    { Core._serviceAbbrev =
         "Route53AutoNaming",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "servicediscovery",
-      Prelude._svcSigningName = "servicediscovery",
-      Prelude._svcVersion = "2017-03-14",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "Route53AutoNaming",
-      Prelude._svcRetry = retry
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "servicediscovery",
+      Core._serviceSigningName = "servicediscovery",
+      Core._serviceVersion = "2017-03-14",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "Route53AutoNaming",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | One or more specified values aren\'t valid. For example, a required
 -- value might be missing, a numeric value might be outside the allowed
 -- range, or a string value might exceed length constraints.
-_InvalidInput :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidInput :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidInput =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidInput"
 
 -- | The list of tags on the resource is over the quota. The maximum number
 -- of tags that can be applied to a resource is 50.
-_TooManyTagsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyTagsException"
 
 -- | The operation is already in progress.
-_DuplicateRequest :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateRequest :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateRequest =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateRequest"
 
 -- | The specified resource can\'t be deleted because it contains other
 -- resources. For example, you can\'t delete a service that contains any
 -- instances.
-_ResourceInUse :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceInUse =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceInUse"
 
 -- | The service can\'t be created because a service with the same name
 -- already exists.
-_ServiceAlreadyExists :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceAlreadyExists =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceAlreadyExists"
 
@@ -416,67 +414,67 @@ _ServiceAlreadyExists =
 -- the number of requests. For more information, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html AWS Cloud Map API request throttling quota>
 -- in the /AWS Cloud Map Developer Guide/.
-_RequestLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RequestLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _RequestLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "RequestLimitExceeded"
 
 -- | The resource can\'t be created because you\'ve reached the quota on the
 -- number of resources.
-_ResourceLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceLimitExceeded"
 
 -- | The health check for the instance that is specified by @ServiceId@ and
 -- @InstanceId@ is not a custom health check.
-_CustomHealthNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CustomHealthNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CustomHealthNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CustomHealthNotFound"
 
 -- | No operation exists with the specified ID.
-_OperationNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OperationNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OperationNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OperationNotFound"
 
 -- | No service exists with the specified ID.
-_ServiceNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceNotFound"
 
 -- | The operation can\'t be completed because the resource was not found.
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | No namespace exists with the specified ID.
-_NamespaceNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NamespaceNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NamespaceNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NamespaceNotFound"
 
 -- | The namespace that you\'re trying to create already exists.
-_NamespaceAlreadyExists :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NamespaceAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NamespaceAlreadyExists =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NamespaceAlreadyExists"
 
 -- | No instance exists with the specified ID, or the instance was recently
 -- registered, and information about the instance hasn\'t propagated yet.
-_InstanceNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InstanceNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InstanceNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InstanceNotFound"

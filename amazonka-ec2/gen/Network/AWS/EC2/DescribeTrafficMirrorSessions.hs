@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,28 +48,27 @@ module Network.AWS.EC2.DescribeTrafficMirrorSessions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTrafficMirrorSessions' smart constructor.
 data DescribeTrafficMirrorSessions = DescribeTrafficMirrorSessions'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The ID of the Traffic Mirror session.
-    trafficMirrorSessionIds :: Prelude.Maybe [Prelude.Text],
+    trafficMirrorSessionIds :: Core.Maybe [Core.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more filters. The possible values are:
     --
     -- -   @description@: The Traffic Mirror session description.
@@ -93,9 +91,9 @@ data DescribeTrafficMirrorSessions = DescribeTrafficMirrorSessions'
     --
     -- -   @virtual-network-id@: The virtual network ID of the Traffic Mirror
     --     session.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTrafficMirrorSessions' with all optional fields omitted.
@@ -145,32 +143,32 @@ newDescribeTrafficMirrorSessions ::
 newDescribeTrafficMirrorSessions =
   DescribeTrafficMirrorSessions'
     { nextToken =
-        Prelude.Nothing,
-      trafficMirrorSessionIds = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+        Core.Nothing,
+      trafficMirrorSessionIds = Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token for the next page of results.
-describeTrafficMirrorSessions_nextToken :: Lens.Lens' DescribeTrafficMirrorSessions (Prelude.Maybe Prelude.Text)
+describeTrafficMirrorSessions_nextToken :: Lens.Lens' DescribeTrafficMirrorSessions (Core.Maybe Core.Text)
 describeTrafficMirrorSessions_nextToken = Lens.lens (\DescribeTrafficMirrorSessions' {nextToken} -> nextToken) (\s@DescribeTrafficMirrorSessions' {} a -> s {nextToken = a} :: DescribeTrafficMirrorSessions)
 
 -- | The ID of the Traffic Mirror session.
-describeTrafficMirrorSessions_trafficMirrorSessionIds :: Lens.Lens' DescribeTrafficMirrorSessions (Prelude.Maybe [Prelude.Text])
-describeTrafficMirrorSessions_trafficMirrorSessionIds = Lens.lens (\DescribeTrafficMirrorSessions' {trafficMirrorSessionIds} -> trafficMirrorSessionIds) (\s@DescribeTrafficMirrorSessions' {} a -> s {trafficMirrorSessionIds = a} :: DescribeTrafficMirrorSessions) Prelude.. Lens.mapping Prelude._Coerce
+describeTrafficMirrorSessions_trafficMirrorSessionIds :: Lens.Lens' DescribeTrafficMirrorSessions (Core.Maybe [Core.Text])
+describeTrafficMirrorSessions_trafficMirrorSessionIds = Lens.lens (\DescribeTrafficMirrorSessions' {trafficMirrorSessionIds} -> trafficMirrorSessionIds) (\s@DescribeTrafficMirrorSessions' {} a -> s {trafficMirrorSessionIds = a} :: DescribeTrafficMirrorSessions) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeTrafficMirrorSessions_dryRun :: Lens.Lens' DescribeTrafficMirrorSessions (Prelude.Maybe Prelude.Bool)
+describeTrafficMirrorSessions_dryRun :: Lens.Lens' DescribeTrafficMirrorSessions (Core.Maybe Core.Bool)
 describeTrafficMirrorSessions_dryRun = Lens.lens (\DescribeTrafficMirrorSessions' {dryRun} -> dryRun) (\s@DescribeTrafficMirrorSessions' {} a -> s {dryRun = a} :: DescribeTrafficMirrorSessions)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeTrafficMirrorSessions_maxResults :: Lens.Lens' DescribeTrafficMirrorSessions (Prelude.Maybe Prelude.Natural)
+describeTrafficMirrorSessions_maxResults :: Lens.Lens' DescribeTrafficMirrorSessions (Core.Maybe Core.Natural)
 describeTrafficMirrorSessions_maxResults = Lens.lens (\DescribeTrafficMirrorSessions' {maxResults} -> maxResults) (\s@DescribeTrafficMirrorSessions' {} a -> s {maxResults = a} :: DescribeTrafficMirrorSessions)
 
 -- | One or more filters. The possible values are:
@@ -195,102 +193,91 @@ describeTrafficMirrorSessions_maxResults = Lens.lens (\DescribeTrafficMirrorSess
 --
 -- -   @virtual-network-id@: The virtual network ID of the Traffic Mirror
 --     session.
-describeTrafficMirrorSessions_filters :: Lens.Lens' DescribeTrafficMirrorSessions (Prelude.Maybe [Filter])
-describeTrafficMirrorSessions_filters = Lens.lens (\DescribeTrafficMirrorSessions' {filters} -> filters) (\s@DescribeTrafficMirrorSessions' {} a -> s {filters = a} :: DescribeTrafficMirrorSessions) Prelude.. Lens.mapping Prelude._Coerce
+describeTrafficMirrorSessions_filters :: Lens.Lens' DescribeTrafficMirrorSessions (Core.Maybe [Filter])
+describeTrafficMirrorSessions_filters = Lens.lens (\DescribeTrafficMirrorSessions' {filters} -> filters) (\s@DescribeTrafficMirrorSessions' {} a -> s {filters = a} :: DescribeTrafficMirrorSessions) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeTrafficMirrorSessions where
+instance Core.AWSPager DescribeTrafficMirrorSessions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeTrafficMirrorSessionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeTrafficMirrorSessionsResponse_trafficMirrorSessions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeTrafficMirrorSessions_nextToken
           Lens..~ rs
           Lens.^? describeTrafficMirrorSessionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeTrafficMirrorSessions
   where
   type
-    Rs DescribeTrafficMirrorSessions =
+    AWSResponse DescribeTrafficMirrorSessions =
       DescribeTrafficMirrorSessionsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeTrafficMirrorSessionsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "trafficMirrorSessionSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "trafficMirrorSessionSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeTrafficMirrorSessions
+instance Core.Hashable DescribeTrafficMirrorSessions
 
-instance Prelude.NFData DescribeTrafficMirrorSessions
+instance Core.NFData DescribeTrafficMirrorSessions
 
-instance
-  Prelude.ToHeaders
-    DescribeTrafficMirrorSessions
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeTrafficMirrorSessions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeTrafficMirrorSessions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTrafficMirrorSessions where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeTrafficMirrorSessions
-  where
+instance Core.ToQuery DescribeTrafficMirrorSessions where
   toQuery DescribeTrafficMirrorSessions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeTrafficMirrorSessions" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        Prelude.toQuery
-          ( Prelude.toQueryList "TrafficMirrorSessionId"
-              Prelude.<$> trafficMirrorSessionIds
+          Core.=: ("DescribeTrafficMirrorSessions" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          ( Core.toQueryList "TrafficMirrorSessionId"
+              Core.<$> trafficMirrorSessionIds
           ),
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeTrafficMirrorSessionsResponse' smart constructor.
 data DescribeTrafficMirrorSessionsResponse = DescribeTrafficMirrorSessionsResponse'
   { -- | The token to use to retrieve the next page of results. The value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Describes one or more Traffic Mirror sessions. By default, all Traffic
     -- Mirror sessions are described. Alternatively, you can filter the
     -- results.
-    trafficMirrorSessions :: Prelude.Maybe [TrafficMirrorSession],
+    trafficMirrorSessions :: Core.Maybe [TrafficMirrorSession],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTrafficMirrorSessionsResponse' with all optional fields omitted.
@@ -310,32 +297,31 @@ data DescribeTrafficMirrorSessionsResponse = DescribeTrafficMirrorSessionsRespon
 -- 'httpStatus', 'describeTrafficMirrorSessionsResponse_httpStatus' - The response's http status code.
 newDescribeTrafficMirrorSessionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTrafficMirrorSessionsResponse
 newDescribeTrafficMirrorSessionsResponse pHttpStatus_ =
   DescribeTrafficMirrorSessionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      trafficMirrorSessions =
-        Prelude.Nothing,
+        Core.Nothing,
+      trafficMirrorSessions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. The value is
 -- @null@ when there are no more results to return.
-describeTrafficMirrorSessionsResponse_nextToken :: Lens.Lens' DescribeTrafficMirrorSessionsResponse (Prelude.Maybe Prelude.Text)
+describeTrafficMirrorSessionsResponse_nextToken :: Lens.Lens' DescribeTrafficMirrorSessionsResponse (Core.Maybe Core.Text)
 describeTrafficMirrorSessionsResponse_nextToken = Lens.lens (\DescribeTrafficMirrorSessionsResponse' {nextToken} -> nextToken) (\s@DescribeTrafficMirrorSessionsResponse' {} a -> s {nextToken = a} :: DescribeTrafficMirrorSessionsResponse)
 
 -- | Describes one or more Traffic Mirror sessions. By default, all Traffic
 -- Mirror sessions are described. Alternatively, you can filter the
 -- results.
-describeTrafficMirrorSessionsResponse_trafficMirrorSessions :: Lens.Lens' DescribeTrafficMirrorSessionsResponse (Prelude.Maybe [TrafficMirrorSession])
-describeTrafficMirrorSessionsResponse_trafficMirrorSessions = Lens.lens (\DescribeTrafficMirrorSessionsResponse' {trafficMirrorSessions} -> trafficMirrorSessions) (\s@DescribeTrafficMirrorSessionsResponse' {} a -> s {trafficMirrorSessions = a} :: DescribeTrafficMirrorSessionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTrafficMirrorSessionsResponse_trafficMirrorSessions :: Lens.Lens' DescribeTrafficMirrorSessionsResponse (Core.Maybe [TrafficMirrorSession])
+describeTrafficMirrorSessionsResponse_trafficMirrorSessions = Lens.lens (\DescribeTrafficMirrorSessionsResponse' {trafficMirrorSessions} -> trafficMirrorSessions) (\s@DescribeTrafficMirrorSessionsResponse' {} a -> s {trafficMirrorSessions = a} :: DescribeTrafficMirrorSessionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTrafficMirrorSessionsResponse_httpStatus :: Lens.Lens' DescribeTrafficMirrorSessionsResponse Prelude.Int
+describeTrafficMirrorSessionsResponse_httpStatus :: Lens.Lens' DescribeTrafficMirrorSessionsResponse Core.Int
 describeTrafficMirrorSessionsResponse_httpStatus = Lens.lens (\DescribeTrafficMirrorSessionsResponse' {httpStatus} -> httpStatus) (\s@DescribeTrafficMirrorSessionsResponse' {} a -> s {httpStatus = a} :: DescribeTrafficMirrorSessionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeTrafficMirrorSessionsResponse

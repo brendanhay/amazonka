@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.TagOptionSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information about a TagOption.
 --
 -- /See:/ 'newTagOptionSummary' smart constructor.
 data TagOptionSummary = TagOptionSummary'
   { -- | The TagOption key.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The TagOption value.
-    values :: Prelude.Maybe [Prelude.Text]
+    values :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagOptionSummary' with all optional fields omitted.
@@ -49,28 +48,28 @@ newTagOptionSummary ::
   TagOptionSummary
 newTagOptionSummary =
   TagOptionSummary'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing
     }
 
 -- | The TagOption key.
-tagOptionSummary_key :: Lens.Lens' TagOptionSummary (Prelude.Maybe Prelude.Text)
+tagOptionSummary_key :: Lens.Lens' TagOptionSummary (Core.Maybe Core.Text)
 tagOptionSummary_key = Lens.lens (\TagOptionSummary' {key} -> key) (\s@TagOptionSummary' {} a -> s {key = a} :: TagOptionSummary)
 
 -- | The TagOption value.
-tagOptionSummary_values :: Lens.Lens' TagOptionSummary (Prelude.Maybe [Prelude.Text])
-tagOptionSummary_values = Lens.lens (\TagOptionSummary' {values} -> values) (\s@TagOptionSummary' {} a -> s {values = a} :: TagOptionSummary) Prelude.. Lens.mapping Prelude._Coerce
+tagOptionSummary_values :: Lens.Lens' TagOptionSummary (Core.Maybe [Core.Text])
+tagOptionSummary_values = Lens.lens (\TagOptionSummary' {values} -> values) (\s@TagOptionSummary' {} a -> s {values = a} :: TagOptionSummary) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON TagOptionSummary where
+instance Core.FromJSON TagOptionSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TagOptionSummary"
       ( \x ->
           TagOptionSummary'
-            Prelude.<$> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "Values" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Key")
+            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable TagOptionSummary
+instance Core.Hashable TagOptionSummary
 
-instance Prelude.NFData TagOptionSummary
+instance Core.NFData TagOptionSummary

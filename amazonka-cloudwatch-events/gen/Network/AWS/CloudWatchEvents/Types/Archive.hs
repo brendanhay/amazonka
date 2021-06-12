@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,33 +20,33 @@
 module Network.AWS.CloudWatchEvents.Types.Archive where
 
 import Network.AWS.CloudWatchEvents.Types.ArchiveState
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An @Archive@ object that contains details about an archive.
 --
 -- /See:/ 'newArchive' smart constructor.
 data Archive = Archive'
   { -- | The number of events in the archive.
-    eventCount :: Prelude.Maybe Prelude.Integer,
+    eventCount :: Core.Maybe Core.Integer,
     -- | The ARN of the event bus associated with the archive. Only events from
     -- this event bus are sent to the archive.
-    eventSourceArn :: Prelude.Maybe Prelude.Text,
+    eventSourceArn :: Core.Maybe Core.Text,
     -- | The time stamp for the time that the archive was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | A description for the reason that the archive is in the current state.
-    stateReason :: Prelude.Maybe Prelude.Text,
+    stateReason :: Core.Maybe Core.Text,
     -- | The name of the archive.
-    archiveName :: Prelude.Maybe Prelude.Text,
+    archiveName :: Core.Maybe Core.Text,
     -- | The current state of the archive.
-    state :: Prelude.Maybe ArchiveState,
+    state :: Core.Maybe ArchiveState,
     -- | The size of the archive, in bytes.
-    sizeBytes :: Prelude.Maybe Prelude.Integer,
+    sizeBytes :: Core.Maybe Core.Integer,
     -- | The number of days to retain events in the archive before they are
     -- deleted.
-    retentionDays :: Prelude.Maybe Prelude.Natural
+    retentionDays :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Archive' with all optional fields omitted.
@@ -78,66 +77,66 @@ newArchive ::
   Archive
 newArchive =
   Archive'
-    { eventCount = Prelude.Nothing,
-      eventSourceArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      stateReason = Prelude.Nothing,
-      archiveName = Prelude.Nothing,
-      state = Prelude.Nothing,
-      sizeBytes = Prelude.Nothing,
-      retentionDays = Prelude.Nothing
+    { eventCount = Core.Nothing,
+      eventSourceArn = Core.Nothing,
+      creationTime = Core.Nothing,
+      stateReason = Core.Nothing,
+      archiveName = Core.Nothing,
+      state = Core.Nothing,
+      sizeBytes = Core.Nothing,
+      retentionDays = Core.Nothing
     }
 
 -- | The number of events in the archive.
-archive_eventCount :: Lens.Lens' Archive (Prelude.Maybe Prelude.Integer)
+archive_eventCount :: Lens.Lens' Archive (Core.Maybe Core.Integer)
 archive_eventCount = Lens.lens (\Archive' {eventCount} -> eventCount) (\s@Archive' {} a -> s {eventCount = a} :: Archive)
 
 -- | The ARN of the event bus associated with the archive. Only events from
 -- this event bus are sent to the archive.
-archive_eventSourceArn :: Lens.Lens' Archive (Prelude.Maybe Prelude.Text)
+archive_eventSourceArn :: Lens.Lens' Archive (Core.Maybe Core.Text)
 archive_eventSourceArn = Lens.lens (\Archive' {eventSourceArn} -> eventSourceArn) (\s@Archive' {} a -> s {eventSourceArn = a} :: Archive)
 
 -- | The time stamp for the time that the archive was created.
-archive_creationTime :: Lens.Lens' Archive (Prelude.Maybe Prelude.UTCTime)
-archive_creationTime = Lens.lens (\Archive' {creationTime} -> creationTime) (\s@Archive' {} a -> s {creationTime = a} :: Archive) Prelude.. Lens.mapping Prelude._Time
+archive_creationTime :: Lens.Lens' Archive (Core.Maybe Core.UTCTime)
+archive_creationTime = Lens.lens (\Archive' {creationTime} -> creationTime) (\s@Archive' {} a -> s {creationTime = a} :: Archive) Core.. Lens.mapping Core._Time
 
 -- | A description for the reason that the archive is in the current state.
-archive_stateReason :: Lens.Lens' Archive (Prelude.Maybe Prelude.Text)
+archive_stateReason :: Lens.Lens' Archive (Core.Maybe Core.Text)
 archive_stateReason = Lens.lens (\Archive' {stateReason} -> stateReason) (\s@Archive' {} a -> s {stateReason = a} :: Archive)
 
 -- | The name of the archive.
-archive_archiveName :: Lens.Lens' Archive (Prelude.Maybe Prelude.Text)
+archive_archiveName :: Lens.Lens' Archive (Core.Maybe Core.Text)
 archive_archiveName = Lens.lens (\Archive' {archiveName} -> archiveName) (\s@Archive' {} a -> s {archiveName = a} :: Archive)
 
 -- | The current state of the archive.
-archive_state :: Lens.Lens' Archive (Prelude.Maybe ArchiveState)
+archive_state :: Lens.Lens' Archive (Core.Maybe ArchiveState)
 archive_state = Lens.lens (\Archive' {state} -> state) (\s@Archive' {} a -> s {state = a} :: Archive)
 
 -- | The size of the archive, in bytes.
-archive_sizeBytes :: Lens.Lens' Archive (Prelude.Maybe Prelude.Integer)
+archive_sizeBytes :: Lens.Lens' Archive (Core.Maybe Core.Integer)
 archive_sizeBytes = Lens.lens (\Archive' {sizeBytes} -> sizeBytes) (\s@Archive' {} a -> s {sizeBytes = a} :: Archive)
 
 -- | The number of days to retain events in the archive before they are
 -- deleted.
-archive_retentionDays :: Lens.Lens' Archive (Prelude.Maybe Prelude.Natural)
+archive_retentionDays :: Lens.Lens' Archive (Core.Maybe Core.Natural)
 archive_retentionDays = Lens.lens (\Archive' {retentionDays} -> retentionDays) (\s@Archive' {} a -> s {retentionDays = a} :: Archive)
 
-instance Prelude.FromJSON Archive where
+instance Core.FromJSON Archive where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Archive"
       ( \x ->
           Archive'
-            Prelude.<$> (x Prelude..:? "EventCount")
-            Prelude.<*> (x Prelude..:? "EventSourceArn")
-            Prelude.<*> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "StateReason")
-            Prelude.<*> (x Prelude..:? "ArchiveName")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "SizeBytes")
-            Prelude.<*> (x Prelude..:? "RetentionDays")
+            Core.<$> (x Core..:? "EventCount")
+            Core.<*> (x Core..:? "EventSourceArn")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "StateReason")
+            Core.<*> (x Core..:? "ArchiveName")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "SizeBytes")
+            Core.<*> (x Core..:? "RetentionDays")
       )
 
-instance Prelude.Hashable Archive
+instance Core.Hashable Archive
 
-instance Prelude.NFData Archive
+instance Core.NFData Archive

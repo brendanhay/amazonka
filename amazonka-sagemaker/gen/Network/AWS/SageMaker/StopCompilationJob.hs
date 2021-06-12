@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.SageMaker.StopCompilationJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -54,9 +53,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopCompilationJob' smart constructor.
 data StopCompilationJob = StopCompilationJob'
   { -- | The name of the model compilation job to stop.
-    compilationJobName :: Prelude.Text
+    compilationJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopCompilationJob' with all optional fields omitted.
@@ -69,7 +68,7 @@ data StopCompilationJob = StopCompilationJob'
 -- 'compilationJobName', 'stopCompilationJob_compilationJobName' - The name of the model compilation job to stop.
 newStopCompilationJob ::
   -- | 'compilationJobName'
-  Prelude.Text ->
+  Core.Text ->
   StopCompilationJob
 newStopCompilationJob pCompilationJobName_ =
   StopCompilationJob'
@@ -78,58 +77,52 @@ newStopCompilationJob pCompilationJobName_ =
     }
 
 -- | The name of the model compilation job to stop.
-stopCompilationJob_compilationJobName :: Lens.Lens' StopCompilationJob Prelude.Text
+stopCompilationJob_compilationJobName :: Lens.Lens' StopCompilationJob Core.Text
 stopCompilationJob_compilationJobName = Lens.lens (\StopCompilationJob' {compilationJobName} -> compilationJobName) (\s@StopCompilationJob' {} a -> s {compilationJobName = a} :: StopCompilationJob)
 
-instance Prelude.AWSRequest StopCompilationJob where
+instance Core.AWSRequest StopCompilationJob where
   type
-    Rs StopCompilationJob =
+    AWSResponse StopCompilationJob =
       StopCompilationJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull StopCompilationJobResponse'
 
-instance Prelude.Hashable StopCompilationJob
+instance Core.Hashable StopCompilationJob
 
-instance Prelude.NFData StopCompilationJob
+instance Core.NFData StopCompilationJob
 
-instance Prelude.ToHeaders StopCompilationJob where
+instance Core.ToHeaders StopCompilationJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.StopCompilationJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.StopCompilationJob" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopCompilationJob where
+instance Core.ToJSON StopCompilationJob where
   toJSON StopCompilationJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "CompilationJobName"
-                  Prelude..= compilationJobName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CompilationJobName" Core..= compilationJobName)
           ]
       )
 
-instance Prelude.ToPath StopCompilationJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopCompilationJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopCompilationJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopCompilationJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopCompilationJobResponse' smart constructor.
 data StopCompilationJobResponse = StopCompilationJobResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopCompilationJobResponse' with all optional fields omitted.
@@ -140,4 +133,4 @@ newStopCompilationJobResponse ::
 newStopCompilationJobResponse =
   StopCompilationJobResponse'
 
-instance Prelude.NFData StopCompilationJobResponse
+instance Core.NFData StopCompilationJobResponse

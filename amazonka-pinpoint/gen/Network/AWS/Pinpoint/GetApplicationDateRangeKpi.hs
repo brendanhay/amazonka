@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.Pinpoint.GetApplicationDateRangeKpi
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,25 +56,25 @@ data GetApplicationDateRangeKpi = GetApplicationDateRangeKpi'
   { -- | The string that specifies which page of results to return in a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Prelude.Maybe Prelude.Text,
+    pageSize :: Core.Maybe Core.Text,
     -- | The first date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
     -- should also be fewer than 90 days from the current day.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The last date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     -- | The name of the metric, also referred to as a /key performance indicator
     -- (KPI)/, to retrieve data for. This value describes the associated metric
     -- and consists of two or more terms, which are comprised of lowercase
@@ -83,9 +82,9 @@ data GetApplicationDateRangeKpi = GetApplicationDateRangeKpi'
     -- email-open-rate and successful-delivery-rate. For a list of valid
     -- values, see the
     -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-    kpiName :: Prelude.Text
+    kpiName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetApplicationDateRangeKpi' with all optional fields omitted.
@@ -126,19 +125,19 @@ data GetApplicationDateRangeKpi = GetApplicationDateRangeKpi'
 -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
 newGetApplicationDateRangeKpi ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'kpiName'
-  Prelude.Text ->
+  Core.Text ->
   GetApplicationDateRangeKpi
 newGetApplicationDateRangeKpi
   pApplicationId_
   pKpiName_ =
     GetApplicationDateRangeKpi'
       { nextToken =
-          Prelude.Nothing,
-        pageSize = Prelude.Nothing,
-        startTime = Prelude.Nothing,
-        endTime = Prelude.Nothing,
+          Core.Nothing,
+        pageSize = Core.Nothing,
+        startTime = Core.Nothing,
+        endTime = Core.Nothing,
         applicationId = pApplicationId_,
         kpiName = pKpiName_
       }
@@ -146,13 +145,13 @@ newGetApplicationDateRangeKpi
 -- | The string that specifies which page of results to return in a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getApplicationDateRangeKpi_nextToken :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.Text)
+getApplicationDateRangeKpi_nextToken :: Lens.Lens' GetApplicationDateRangeKpi (Core.Maybe Core.Text)
 getApplicationDateRangeKpi_nextToken = Lens.lens (\GetApplicationDateRangeKpi' {nextToken} -> nextToken) (\s@GetApplicationDateRangeKpi' {} a -> s {nextToken = a} :: GetApplicationDateRangeKpi)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getApplicationDateRangeKpi_pageSize :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.Text)
+getApplicationDateRangeKpi_pageSize :: Lens.Lens' GetApplicationDateRangeKpi (Core.Maybe Core.Text)
 getApplicationDateRangeKpi_pageSize = Lens.lens (\GetApplicationDateRangeKpi' {pageSize} -> pageSize) (\s@GetApplicationDateRangeKpi' {} a -> s {pageSize = a} :: GetApplicationDateRangeKpi)
 
 -- | The first date and time to retrieve data for, as part of an inclusive
@@ -160,19 +159,19 @@ getApplicationDateRangeKpi_pageSize = Lens.lens (\GetApplicationDateRangeKpi' {p
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
 -- should also be fewer than 90 days from the current day.
-getApplicationDateRangeKpi_startTime :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
-getApplicationDateRangeKpi_startTime = Lens.lens (\GetApplicationDateRangeKpi' {startTime} -> startTime) (\s@GetApplicationDateRangeKpi' {} a -> s {startTime = a} :: GetApplicationDateRangeKpi) Prelude.. Lens.mapping Prelude._Time
+getApplicationDateRangeKpi_startTime :: Lens.Lens' GetApplicationDateRangeKpi (Core.Maybe Core.UTCTime)
+getApplicationDateRangeKpi_startTime = Lens.lens (\GetApplicationDateRangeKpi' {startTime} -> startTime) (\s@GetApplicationDateRangeKpi' {} a -> s {startTime = a} :: GetApplicationDateRangeKpi) Core.. Lens.mapping Core._Time
 
 -- | The last date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-getApplicationDateRangeKpi_endTime :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
-getApplicationDateRangeKpi_endTime = Lens.lens (\GetApplicationDateRangeKpi' {endTime} -> endTime) (\s@GetApplicationDateRangeKpi' {} a -> s {endTime = a} :: GetApplicationDateRangeKpi) Prelude.. Lens.mapping Prelude._Time
+getApplicationDateRangeKpi_endTime :: Lens.Lens' GetApplicationDateRangeKpi (Core.Maybe Core.UTCTime)
+getApplicationDateRangeKpi_endTime = Lens.lens (\GetApplicationDateRangeKpi' {endTime} -> endTime) (\s@GetApplicationDateRangeKpi' {} a -> s {endTime = a} :: GetApplicationDateRangeKpi) Core.. Lens.mapping Core._Time
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getApplicationDateRangeKpi_applicationId :: Lens.Lens' GetApplicationDateRangeKpi Prelude.Text
+getApplicationDateRangeKpi_applicationId :: Lens.Lens' GetApplicationDateRangeKpi Core.Text
 getApplicationDateRangeKpi_applicationId = Lens.lens (\GetApplicationDateRangeKpi' {applicationId} -> applicationId) (\s@GetApplicationDateRangeKpi' {} a -> s {applicationId = a} :: GetApplicationDateRangeKpi)
 
 -- | The name of the metric, also referred to as a /key performance indicator
@@ -182,65 +181,60 @@ getApplicationDateRangeKpi_applicationId = Lens.lens (\GetApplicationDateRangeKp
 -- email-open-rate and successful-delivery-rate. For a list of valid
 -- values, see the
 -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-getApplicationDateRangeKpi_kpiName :: Lens.Lens' GetApplicationDateRangeKpi Prelude.Text
+getApplicationDateRangeKpi_kpiName :: Lens.Lens' GetApplicationDateRangeKpi Core.Text
 getApplicationDateRangeKpi_kpiName = Lens.lens (\GetApplicationDateRangeKpi' {kpiName} -> kpiName) (\s@GetApplicationDateRangeKpi' {} a -> s {kpiName = a} :: GetApplicationDateRangeKpi)
 
-instance
-  Prelude.AWSRequest
-    GetApplicationDateRangeKpi
-  where
+instance Core.AWSRequest GetApplicationDateRangeKpi where
   type
-    Rs GetApplicationDateRangeKpi =
+    AWSResponse GetApplicationDateRangeKpi =
       GetApplicationDateRangeKpiResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetApplicationDateRangeKpiResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetApplicationDateRangeKpi
+instance Core.Hashable GetApplicationDateRangeKpi
 
-instance Prelude.NFData GetApplicationDateRangeKpi
+instance Core.NFData GetApplicationDateRangeKpi
 
-instance Prelude.ToHeaders GetApplicationDateRangeKpi where
+instance Core.ToHeaders GetApplicationDateRangeKpi where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetApplicationDateRangeKpi where
+instance Core.ToPath GetApplicationDateRangeKpi where
   toPath GetApplicationDateRangeKpi' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/kpis/daterange/",
-        Prelude.toBS kpiName
+        Core.toBS kpiName
       ]
 
-instance Prelude.ToQuery GetApplicationDateRangeKpi where
+instance Core.ToQuery GetApplicationDateRangeKpi where
   toQuery GetApplicationDateRangeKpi' {..} =
-    Prelude.mconcat
-      [ "next-token" Prelude.=: nextToken,
-        "page-size" Prelude.=: pageSize,
-        "start-time" Prelude.=: startTime,
-        "end-time" Prelude.=: endTime
+    Core.mconcat
+      [ "next-token" Core.=: nextToken,
+        "page-size" Core.=: pageSize,
+        "start-time" Core.=: startTime,
+        "end-time" Core.=: endTime
       ]
 
 -- | /See:/ 'newGetApplicationDateRangeKpiResponse' smart constructor.
 data GetApplicationDateRangeKpiResponse = GetApplicationDateRangeKpiResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     applicationDateRangeKpiResponse :: ApplicationDateRangeKpiResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetApplicationDateRangeKpiResponse' with all optional fields omitted.
@@ -255,7 +249,7 @@ data GetApplicationDateRangeKpiResponse = GetApplicationDateRangeKpiResponse'
 -- 'applicationDateRangeKpiResponse', 'getApplicationDateRangeKpiResponse_applicationDateRangeKpiResponse' - Undocumented member.
 newGetApplicationDateRangeKpiResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'applicationDateRangeKpiResponse'
   ApplicationDateRangeKpiResponse ->
   GetApplicationDateRangeKpiResponse
@@ -270,7 +264,7 @@ newGetApplicationDateRangeKpiResponse
       }
 
 -- | The response's http status code.
-getApplicationDateRangeKpiResponse_httpStatus :: Lens.Lens' GetApplicationDateRangeKpiResponse Prelude.Int
+getApplicationDateRangeKpiResponse_httpStatus :: Lens.Lens' GetApplicationDateRangeKpiResponse Core.Int
 getApplicationDateRangeKpiResponse_httpStatus = Lens.lens (\GetApplicationDateRangeKpiResponse' {httpStatus} -> httpStatus) (\s@GetApplicationDateRangeKpiResponse' {} a -> s {httpStatus = a} :: GetApplicationDateRangeKpiResponse)
 
 -- | Undocumented member.
@@ -278,5 +272,5 @@ getApplicationDateRangeKpiResponse_applicationDateRangeKpiResponse :: Lens.Lens'
 getApplicationDateRangeKpiResponse_applicationDateRangeKpiResponse = Lens.lens (\GetApplicationDateRangeKpiResponse' {applicationDateRangeKpiResponse} -> applicationDateRangeKpiResponse) (\s@GetApplicationDateRangeKpiResponse' {} a -> s {applicationDateRangeKpiResponse = a} :: GetApplicationDateRangeKpiResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetApplicationDateRangeKpiResponse

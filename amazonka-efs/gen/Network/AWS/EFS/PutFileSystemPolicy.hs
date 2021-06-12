@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.EFS.PutFileSystemPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,17 +67,17 @@ data PutFileSystemPolicy = PutFileSystemPolicy'
     -- when you intend to prevent the principal that is making the request from
     -- making a subsequent @PutFileSystemPolicy@ request on the file system.
     -- The default value is False.
-    bypassPolicyLockoutSafetyCheck :: Prelude.Maybe Prelude.Bool,
+    bypassPolicyLockoutSafetyCheck :: Core.Maybe Core.Bool,
     -- | The ID of the EFS file system that you want to create or update the
     -- @FileSystemPolicy@ for.
-    fileSystemId :: Prelude.Text,
+    fileSystemId :: Core.Text,
     -- | The @FileSystemPolicy@ that you\'re creating. Accepts a JSON formatted
     -- policy definition. To find out more about the elements that make up a
     -- file system policy, see
     -- <https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies EFS Resource-based Policies>.
-    policy :: Prelude.Text
+    policy :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutFileSystemPolicy' with all optional fields omitted.
@@ -106,14 +105,14 @@ data PutFileSystemPolicy = PutFileSystemPolicy'
 -- <https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies EFS Resource-based Policies>.
 newPutFileSystemPolicy ::
   -- | 'fileSystemId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policy'
-  Prelude.Text ->
+  Core.Text ->
   PutFileSystemPolicy
 newPutFileSystemPolicy pFileSystemId_ pPolicy_ =
   PutFileSystemPolicy'
     { bypassPolicyLockoutSafetyCheck =
-        Prelude.Nothing,
+        Core.Nothing,
       fileSystemId = pFileSystemId_,
       policy = pPolicy_
     }
@@ -126,54 +125,54 @@ newPutFileSystemPolicy pFileSystemId_ pPolicy_ =
 -- when you intend to prevent the principal that is making the request from
 -- making a subsequent @PutFileSystemPolicy@ request on the file system.
 -- The default value is False.
-putFileSystemPolicy_bypassPolicyLockoutSafetyCheck :: Lens.Lens' PutFileSystemPolicy (Prelude.Maybe Prelude.Bool)
+putFileSystemPolicy_bypassPolicyLockoutSafetyCheck :: Lens.Lens' PutFileSystemPolicy (Core.Maybe Core.Bool)
 putFileSystemPolicy_bypassPolicyLockoutSafetyCheck = Lens.lens (\PutFileSystemPolicy' {bypassPolicyLockoutSafetyCheck} -> bypassPolicyLockoutSafetyCheck) (\s@PutFileSystemPolicy' {} a -> s {bypassPolicyLockoutSafetyCheck = a} :: PutFileSystemPolicy)
 
 -- | The ID of the EFS file system that you want to create or update the
 -- @FileSystemPolicy@ for.
-putFileSystemPolicy_fileSystemId :: Lens.Lens' PutFileSystemPolicy Prelude.Text
+putFileSystemPolicy_fileSystemId :: Lens.Lens' PutFileSystemPolicy Core.Text
 putFileSystemPolicy_fileSystemId = Lens.lens (\PutFileSystemPolicy' {fileSystemId} -> fileSystemId) (\s@PutFileSystemPolicy' {} a -> s {fileSystemId = a} :: PutFileSystemPolicy)
 
 -- | The @FileSystemPolicy@ that you\'re creating. Accepts a JSON formatted
 -- policy definition. To find out more about the elements that make up a
 -- file system policy, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies EFS Resource-based Policies>.
-putFileSystemPolicy_policy :: Lens.Lens' PutFileSystemPolicy Prelude.Text
+putFileSystemPolicy_policy :: Lens.Lens' PutFileSystemPolicy Core.Text
 putFileSystemPolicy_policy = Lens.lens (\PutFileSystemPolicy' {policy} -> policy) (\s@PutFileSystemPolicy' {} a -> s {policy = a} :: PutFileSystemPolicy)
 
-instance Prelude.AWSRequest PutFileSystemPolicy where
+instance Core.AWSRequest PutFileSystemPolicy where
   type
-    Rs PutFileSystemPolicy =
+    AWSResponse PutFileSystemPolicy =
       FileSystemPolicyDescription
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutFileSystemPolicy
+instance Core.Hashable PutFileSystemPolicy
 
-instance Prelude.NFData PutFileSystemPolicy
+instance Core.NFData PutFileSystemPolicy
 
-instance Prelude.ToHeaders PutFileSystemPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutFileSystemPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON PutFileSystemPolicy where
+instance Core.ToJSON PutFileSystemPolicy where
   toJSON PutFileSystemPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("BypassPolicyLockoutSafetyCheck" Prelude..=)
-              Prelude.<$> bypassPolicyLockoutSafetyCheck,
-            Prelude.Just ("Policy" Prelude..= policy)
+    Core.object
+      ( Core.catMaybes
+          [ ("BypassPolicyLockoutSafetyCheck" Core..=)
+              Core.<$> bypassPolicyLockoutSafetyCheck,
+            Core.Just ("Policy" Core..= policy)
           ]
       )
 
-instance Prelude.ToPath PutFileSystemPolicy where
+instance Core.ToPath PutFileSystemPolicy where
   toPath PutFileSystemPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-02-01/file-systems/",
-        Prelude.toBS fileSystemId,
+        Core.toBS fileSystemId,
         "/policy"
       ]
 
-instance Prelude.ToQuery PutFileSystemPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutFileSystemPolicy where
+  toQuery = Core.const Core.mempty

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TrafficRoutingConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CapacitySize
 import Network.AWS.SageMaker.Types.TrafficRoutingConfigType
 
@@ -29,11 +28,11 @@ import Network.AWS.SageMaker.Types.TrafficRoutingConfigType
 --
 -- /See:/ 'newTrafficRoutingConfig' smart constructor.
 data TrafficRoutingConfig = TrafficRoutingConfig'
-  { canarySize :: Prelude.Maybe CapacitySize,
+  { canarySize :: Core.Maybe CapacitySize,
     type' :: TrafficRoutingConfigType,
-    waitIntervalInSeconds :: Prelude.Natural
+    waitIntervalInSeconds :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrafficRoutingConfig' with all optional fields omitted.
@@ -52,19 +51,19 @@ newTrafficRoutingConfig ::
   -- | 'type''
   TrafficRoutingConfigType ->
   -- | 'waitIntervalInSeconds'
-  Prelude.Natural ->
+  Core.Natural ->
   TrafficRoutingConfig
 newTrafficRoutingConfig
   pType_
   pWaitIntervalInSeconds_ =
     TrafficRoutingConfig'
-      { canarySize = Prelude.Nothing,
+      { canarySize = Core.Nothing,
         type' = pType_,
         waitIntervalInSeconds = pWaitIntervalInSeconds_
       }
 
 -- |
-trafficRoutingConfig_canarySize :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe CapacitySize)
+trafficRoutingConfig_canarySize :: Lens.Lens' TrafficRoutingConfig (Core.Maybe CapacitySize)
 trafficRoutingConfig_canarySize = Lens.lens (\TrafficRoutingConfig' {canarySize} -> canarySize) (\s@TrafficRoutingConfig' {} a -> s {canarySize = a} :: TrafficRoutingConfig)
 
 -- |
@@ -72,33 +71,33 @@ trafficRoutingConfig_type :: Lens.Lens' TrafficRoutingConfig TrafficRoutingConfi
 trafficRoutingConfig_type = Lens.lens (\TrafficRoutingConfig' {type'} -> type') (\s@TrafficRoutingConfig' {} a -> s {type' = a} :: TrafficRoutingConfig)
 
 -- |
-trafficRoutingConfig_waitIntervalInSeconds :: Lens.Lens' TrafficRoutingConfig Prelude.Natural
+trafficRoutingConfig_waitIntervalInSeconds :: Lens.Lens' TrafficRoutingConfig Core.Natural
 trafficRoutingConfig_waitIntervalInSeconds = Lens.lens (\TrafficRoutingConfig' {waitIntervalInSeconds} -> waitIntervalInSeconds) (\s@TrafficRoutingConfig' {} a -> s {waitIntervalInSeconds = a} :: TrafficRoutingConfig)
 
-instance Prelude.FromJSON TrafficRoutingConfig where
+instance Core.FromJSON TrafficRoutingConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrafficRoutingConfig"
       ( \x ->
           TrafficRoutingConfig'
-            Prelude.<$> (x Prelude..:? "CanarySize")
-            Prelude.<*> (x Prelude..: "Type")
-            Prelude.<*> (x Prelude..: "WaitIntervalInSeconds")
+            Core.<$> (x Core..:? "CanarySize")
+            Core.<*> (x Core..: "Type")
+            Core.<*> (x Core..: "WaitIntervalInSeconds")
       )
 
-instance Prelude.Hashable TrafficRoutingConfig
+instance Core.Hashable TrafficRoutingConfig
 
-instance Prelude.NFData TrafficRoutingConfig
+instance Core.NFData TrafficRoutingConfig
 
-instance Prelude.ToJSON TrafficRoutingConfig where
+instance Core.ToJSON TrafficRoutingConfig where
   toJSON TrafficRoutingConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CanarySize" Prelude..=) Prelude.<$> canarySize,
-            Prelude.Just ("Type" Prelude..= type'),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("CanarySize" Core..=) Core.<$> canarySize,
+            Core.Just ("Type" Core..= type'),
+            Core.Just
               ( "WaitIntervalInSeconds"
-                  Prelude..= waitIntervalInSeconds
+                  Core..= waitIntervalInSeconds
               )
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,32 +19,32 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.SAMLOptionsInput where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.SAMLIdp
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the SAML application configuration for the domain.
 --
 -- /See:/ 'newSAMLOptionsInput' smart constructor.
 data SAMLOptionsInput = SAMLOptionsInput'
   { -- | The backend role to which the SAML master user is mapped to.
-    masterBackendRole :: Prelude.Maybe Prelude.Text,
+    masterBackendRole :: Core.Maybe Core.Text,
     -- | The key to use for matching the SAML Roles attribute.
-    rolesKey :: Prelude.Maybe Prelude.Text,
+    rolesKey :: Core.Maybe Core.Text,
     -- | The duration, in minutes, after which a user session becomes inactive.
     -- Acceptable values are between 1 and 1440, and the default value is 60.
-    sessionTimeoutMinutes :: Prelude.Maybe Prelude.Int,
+    sessionTimeoutMinutes :: Core.Maybe Core.Int,
     -- | Specifies the SAML Identity Provider\'s information.
-    idp :: Prelude.Maybe SAMLIdp,
+    idp :: Core.Maybe SAMLIdp,
     -- | True if SAML is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The SAML master username, which is stored in the Amazon Elasticsearch
     -- Service domain\'s internal database.
-    masterUserName :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    masterUserName :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The key to use for matching the SAML Subject attribute.
-    subjectKey :: Prelude.Maybe Prelude.Text
+    subjectKey :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SAMLOptionsInput' with all optional fields omitted.
@@ -74,63 +73,61 @@ newSAMLOptionsInput ::
   SAMLOptionsInput
 newSAMLOptionsInput =
   SAMLOptionsInput'
-    { masterBackendRole =
-        Prelude.Nothing,
-      rolesKey = Prelude.Nothing,
-      sessionTimeoutMinutes = Prelude.Nothing,
-      idp = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      masterUserName = Prelude.Nothing,
-      subjectKey = Prelude.Nothing
+    { masterBackendRole = Core.Nothing,
+      rolesKey = Core.Nothing,
+      sessionTimeoutMinutes = Core.Nothing,
+      idp = Core.Nothing,
+      enabled = Core.Nothing,
+      masterUserName = Core.Nothing,
+      subjectKey = Core.Nothing
     }
 
 -- | The backend role to which the SAML master user is mapped to.
-sAMLOptionsInput_masterBackendRole :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Text)
+sAMLOptionsInput_masterBackendRole :: Lens.Lens' SAMLOptionsInput (Core.Maybe Core.Text)
 sAMLOptionsInput_masterBackendRole = Lens.lens (\SAMLOptionsInput' {masterBackendRole} -> masterBackendRole) (\s@SAMLOptionsInput' {} a -> s {masterBackendRole = a} :: SAMLOptionsInput)
 
 -- | The key to use for matching the SAML Roles attribute.
-sAMLOptionsInput_rolesKey :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Text)
+sAMLOptionsInput_rolesKey :: Lens.Lens' SAMLOptionsInput (Core.Maybe Core.Text)
 sAMLOptionsInput_rolesKey = Lens.lens (\SAMLOptionsInput' {rolesKey} -> rolesKey) (\s@SAMLOptionsInput' {} a -> s {rolesKey = a} :: SAMLOptionsInput)
 
 -- | The duration, in minutes, after which a user session becomes inactive.
 -- Acceptable values are between 1 and 1440, and the default value is 60.
-sAMLOptionsInput_sessionTimeoutMinutes :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Int)
+sAMLOptionsInput_sessionTimeoutMinutes :: Lens.Lens' SAMLOptionsInput (Core.Maybe Core.Int)
 sAMLOptionsInput_sessionTimeoutMinutes = Lens.lens (\SAMLOptionsInput' {sessionTimeoutMinutes} -> sessionTimeoutMinutes) (\s@SAMLOptionsInput' {} a -> s {sessionTimeoutMinutes = a} :: SAMLOptionsInput)
 
 -- | Specifies the SAML Identity Provider\'s information.
-sAMLOptionsInput_idp :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe SAMLIdp)
+sAMLOptionsInput_idp :: Lens.Lens' SAMLOptionsInput (Core.Maybe SAMLIdp)
 sAMLOptionsInput_idp = Lens.lens (\SAMLOptionsInput' {idp} -> idp) (\s@SAMLOptionsInput' {} a -> s {idp = a} :: SAMLOptionsInput)
 
 -- | True if SAML is enabled.
-sAMLOptionsInput_enabled :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Bool)
+sAMLOptionsInput_enabled :: Lens.Lens' SAMLOptionsInput (Core.Maybe Core.Bool)
 sAMLOptionsInput_enabled = Lens.lens (\SAMLOptionsInput' {enabled} -> enabled) (\s@SAMLOptionsInput' {} a -> s {enabled = a} :: SAMLOptionsInput)
 
 -- | The SAML master username, which is stored in the Amazon Elasticsearch
 -- Service domain\'s internal database.
-sAMLOptionsInput_masterUserName :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Text)
-sAMLOptionsInput_masterUserName = Lens.lens (\SAMLOptionsInput' {masterUserName} -> masterUserName) (\s@SAMLOptionsInput' {} a -> s {masterUserName = a} :: SAMLOptionsInput) Prelude.. Lens.mapping Prelude._Sensitive
+sAMLOptionsInput_masterUserName :: Lens.Lens' SAMLOptionsInput (Core.Maybe Core.Text)
+sAMLOptionsInput_masterUserName = Lens.lens (\SAMLOptionsInput' {masterUserName} -> masterUserName) (\s@SAMLOptionsInput' {} a -> s {masterUserName = a} :: SAMLOptionsInput) Core.. Lens.mapping Core._Sensitive
 
 -- | The key to use for matching the SAML Subject attribute.
-sAMLOptionsInput_subjectKey :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Text)
+sAMLOptionsInput_subjectKey :: Lens.Lens' SAMLOptionsInput (Core.Maybe Core.Text)
 sAMLOptionsInput_subjectKey = Lens.lens (\SAMLOptionsInput' {subjectKey} -> subjectKey) (\s@SAMLOptionsInput' {} a -> s {subjectKey = a} :: SAMLOptionsInput)
 
-instance Prelude.Hashable SAMLOptionsInput
+instance Core.Hashable SAMLOptionsInput
 
-instance Prelude.NFData SAMLOptionsInput
+instance Core.NFData SAMLOptionsInput
 
-instance Prelude.ToJSON SAMLOptionsInput where
+instance Core.ToJSON SAMLOptionsInput where
   toJSON SAMLOptionsInput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MasterBackendRole" Prelude..=)
-              Prelude.<$> masterBackendRole,
-            ("RolesKey" Prelude..=) Prelude.<$> rolesKey,
-            ("SessionTimeoutMinutes" Prelude..=)
-              Prelude.<$> sessionTimeoutMinutes,
-            ("Idp" Prelude..=) Prelude.<$> idp,
-            ("Enabled" Prelude..=) Prelude.<$> enabled,
-            ("MasterUserName" Prelude..=)
-              Prelude.<$> masterUserName,
-            ("SubjectKey" Prelude..=) Prelude.<$> subjectKey
+    Core.object
+      ( Core.catMaybes
+          [ ("MasterBackendRole" Core..=)
+              Core.<$> masterBackendRole,
+            ("RolesKey" Core..=) Core.<$> rolesKey,
+            ("SessionTimeoutMinutes" Core..=)
+              Core.<$> sessionTimeoutMinutes,
+            ("Idp" Core..=) Core.<$> idp,
+            ("Enabled" Core..=) Core.<$> enabled,
+            ("MasterUserName" Core..=) Core.<$> masterUserName,
+            ("SubjectKey" Core..=) Core.<$> subjectKey
           ]
       )

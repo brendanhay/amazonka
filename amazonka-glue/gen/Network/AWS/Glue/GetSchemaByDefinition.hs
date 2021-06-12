@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.Glue.GetSchemaByDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,9 +67,9 @@ data GetSchemaByDefinition = GetSchemaByDefinition'
     --     @SchemaName@ has to be provided.
     schemaId :: SchemaId,
     -- | The definition of the schema for which schema details are required.
-    schemaDefinition :: Prelude.Text
+    schemaDefinition :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSchemaByDefinition' with all optional fields omitted.
@@ -94,7 +93,7 @@ newGetSchemaByDefinition ::
   -- | 'schemaId'
   SchemaId ->
   -- | 'schemaDefinition'
-  Prelude.Text ->
+  Core.Text ->
   GetSchemaByDefinition
 newGetSchemaByDefinition
   pSchemaId_
@@ -116,78 +115,74 @@ getSchemaByDefinition_schemaId :: Lens.Lens' GetSchemaByDefinition SchemaId
 getSchemaByDefinition_schemaId = Lens.lens (\GetSchemaByDefinition' {schemaId} -> schemaId) (\s@GetSchemaByDefinition' {} a -> s {schemaId = a} :: GetSchemaByDefinition)
 
 -- | The definition of the schema for which schema details are required.
-getSchemaByDefinition_schemaDefinition :: Lens.Lens' GetSchemaByDefinition Prelude.Text
+getSchemaByDefinition_schemaDefinition :: Lens.Lens' GetSchemaByDefinition Core.Text
 getSchemaByDefinition_schemaDefinition = Lens.lens (\GetSchemaByDefinition' {schemaDefinition} -> schemaDefinition) (\s@GetSchemaByDefinition' {} a -> s {schemaDefinition = a} :: GetSchemaByDefinition)
 
-instance Prelude.AWSRequest GetSchemaByDefinition where
+instance Core.AWSRequest GetSchemaByDefinition where
   type
-    Rs GetSchemaByDefinition =
+    AWSResponse GetSchemaByDefinition =
       GetSchemaByDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetSchemaByDefinitionResponse'
-            Prelude.<$> (x Prelude..?> "SchemaArn")
-            Prelude.<*> (x Prelude..?> "Status")
-            Prelude.<*> (x Prelude..?> "SchemaVersionId")
-            Prelude.<*> (x Prelude..?> "DataFormat")
-            Prelude.<*> (x Prelude..?> "CreatedTime")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SchemaArn")
+            Core.<*> (x Core..?> "Status")
+            Core.<*> (x Core..?> "SchemaVersionId")
+            Core.<*> (x Core..?> "DataFormat")
+            Core.<*> (x Core..?> "CreatedTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSchemaByDefinition
+instance Core.Hashable GetSchemaByDefinition
 
-instance Prelude.NFData GetSchemaByDefinition
+instance Core.NFData GetSchemaByDefinition
 
-instance Prelude.ToHeaders GetSchemaByDefinition where
+instance Core.ToHeaders GetSchemaByDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.GetSchemaByDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSGlue.GetSchemaByDefinition" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetSchemaByDefinition where
+instance Core.ToJSON GetSchemaByDefinition where
   toJSON GetSchemaByDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaId" Prelude..= schemaId),
-            Prelude.Just
-              ("SchemaDefinition" Prelude..= schemaDefinition)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaId" Core..= schemaId),
+            Core.Just
+              ("SchemaDefinition" Core..= schemaDefinition)
           ]
       )
 
-instance Prelude.ToPath GetSchemaByDefinition where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetSchemaByDefinition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetSchemaByDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetSchemaByDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetSchemaByDefinitionResponse' smart constructor.
 data GetSchemaByDefinitionResponse = GetSchemaByDefinitionResponse'
   { -- | The Amazon Resource Name (ARN) of the schema.
-    schemaArn :: Prelude.Maybe Prelude.Text,
+    schemaArn :: Core.Maybe Core.Text,
     -- | The status of the schema version.
-    status :: Prelude.Maybe SchemaVersionStatus,
+    status :: Core.Maybe SchemaVersionStatus,
     -- | The schema ID of the schema version.
-    schemaVersionId :: Prelude.Maybe Prelude.Text,
+    schemaVersionId :: Core.Maybe Core.Text,
     -- | The data format of the schema definition. Currently only @AVRO@ is
     -- supported.
-    dataFormat :: Prelude.Maybe DataFormat,
+    dataFormat :: Core.Maybe DataFormat,
     -- | The date and time the schema was created.
-    createdTime :: Prelude.Maybe Prelude.Text,
+    createdTime :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSchemaByDefinitionResponse' with all optional fields omitted.
@@ -211,42 +206,42 @@ data GetSchemaByDefinitionResponse = GetSchemaByDefinitionResponse'
 -- 'httpStatus', 'getSchemaByDefinitionResponse_httpStatus' - The response's http status code.
 newGetSchemaByDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSchemaByDefinitionResponse
 newGetSchemaByDefinitionResponse pHttpStatus_ =
   GetSchemaByDefinitionResponse'
     { schemaArn =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      schemaVersionId = Prelude.Nothing,
-      dataFormat = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
+        Core.Nothing,
+      status = Core.Nothing,
+      schemaVersionId = Core.Nothing,
+      dataFormat = Core.Nothing,
+      createdTime = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the schema.
-getSchemaByDefinitionResponse_schemaArn :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe Prelude.Text)
+getSchemaByDefinitionResponse_schemaArn :: Lens.Lens' GetSchemaByDefinitionResponse (Core.Maybe Core.Text)
 getSchemaByDefinitionResponse_schemaArn = Lens.lens (\GetSchemaByDefinitionResponse' {schemaArn} -> schemaArn) (\s@GetSchemaByDefinitionResponse' {} a -> s {schemaArn = a} :: GetSchemaByDefinitionResponse)
 
 -- | The status of the schema version.
-getSchemaByDefinitionResponse_status :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe SchemaVersionStatus)
+getSchemaByDefinitionResponse_status :: Lens.Lens' GetSchemaByDefinitionResponse (Core.Maybe SchemaVersionStatus)
 getSchemaByDefinitionResponse_status = Lens.lens (\GetSchemaByDefinitionResponse' {status} -> status) (\s@GetSchemaByDefinitionResponse' {} a -> s {status = a} :: GetSchemaByDefinitionResponse)
 
 -- | The schema ID of the schema version.
-getSchemaByDefinitionResponse_schemaVersionId :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe Prelude.Text)
+getSchemaByDefinitionResponse_schemaVersionId :: Lens.Lens' GetSchemaByDefinitionResponse (Core.Maybe Core.Text)
 getSchemaByDefinitionResponse_schemaVersionId = Lens.lens (\GetSchemaByDefinitionResponse' {schemaVersionId} -> schemaVersionId) (\s@GetSchemaByDefinitionResponse' {} a -> s {schemaVersionId = a} :: GetSchemaByDefinitionResponse)
 
 -- | The data format of the schema definition. Currently only @AVRO@ is
 -- supported.
-getSchemaByDefinitionResponse_dataFormat :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe DataFormat)
+getSchemaByDefinitionResponse_dataFormat :: Lens.Lens' GetSchemaByDefinitionResponse (Core.Maybe DataFormat)
 getSchemaByDefinitionResponse_dataFormat = Lens.lens (\GetSchemaByDefinitionResponse' {dataFormat} -> dataFormat) (\s@GetSchemaByDefinitionResponse' {} a -> s {dataFormat = a} :: GetSchemaByDefinitionResponse)
 
 -- | The date and time the schema was created.
-getSchemaByDefinitionResponse_createdTime :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe Prelude.Text)
+getSchemaByDefinitionResponse_createdTime :: Lens.Lens' GetSchemaByDefinitionResponse (Core.Maybe Core.Text)
 getSchemaByDefinitionResponse_createdTime = Lens.lens (\GetSchemaByDefinitionResponse' {createdTime} -> createdTime) (\s@GetSchemaByDefinitionResponse' {} a -> s {createdTime = a} :: GetSchemaByDefinitionResponse)
 
 -- | The response's http status code.
-getSchemaByDefinitionResponse_httpStatus :: Lens.Lens' GetSchemaByDefinitionResponse Prelude.Int
+getSchemaByDefinitionResponse_httpStatus :: Lens.Lens' GetSchemaByDefinitionResponse Core.Int
 getSchemaByDefinitionResponse_httpStatus = Lens.lens (\GetSchemaByDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetSchemaByDefinitionResponse' {} a -> s {httpStatus = a} :: GetSchemaByDefinitionResponse)
 
-instance Prelude.NFData GetSchemaByDefinitionResponse
+instance Core.NFData GetSchemaByDefinitionResponse

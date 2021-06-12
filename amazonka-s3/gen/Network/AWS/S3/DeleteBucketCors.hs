@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.S3.DeleteBucketCors
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -62,11 +61,11 @@ data DeleteBucketCors = DeleteBucketCors'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | Specifies the bucket whose @cors@ configuration is being deleted.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketCors' with all optional fields omitted.
@@ -88,49 +87,51 @@ newDeleteBucketCors ::
 newDeleteBucketCors pBucket_ =
   DeleteBucketCors'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketCors_expectedBucketOwner :: Lens.Lens' DeleteBucketCors (Prelude.Maybe Prelude.Text)
+deleteBucketCors_expectedBucketOwner :: Lens.Lens' DeleteBucketCors (Core.Maybe Core.Text)
 deleteBucketCors_expectedBucketOwner = Lens.lens (\DeleteBucketCors' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketCors' {} a -> s {expectedBucketOwner = a} :: DeleteBucketCors)
 
 -- | Specifies the bucket whose @cors@ configuration is being deleted.
 deleteBucketCors_bucket :: Lens.Lens' DeleteBucketCors BucketName
 deleteBucketCors_bucket = Lens.lens (\DeleteBucketCors' {bucket} -> bucket) (\s@DeleteBucketCors' {} a -> s {bucket = a} :: DeleteBucketCors)
 
-instance Prelude.AWSRequest DeleteBucketCors where
-  type Rs DeleteBucketCors = DeleteBucketCorsResponse
+instance Core.AWSRequest DeleteBucketCors where
+  type
+    AWSResponse DeleteBucketCors =
+      DeleteBucketCorsResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteBucketCorsResponse'
 
-instance Prelude.Hashable DeleteBucketCors
+instance Core.Hashable DeleteBucketCors
 
-instance Prelude.NFData DeleteBucketCors
+instance Core.NFData DeleteBucketCors
 
-instance Prelude.ToHeaders DeleteBucketCors where
+instance Core.ToHeaders DeleteBucketCors where
   toHeaders DeleteBucketCors' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath DeleteBucketCors where
+instance Core.ToPath DeleteBucketCors where
   toPath DeleteBucketCors' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery DeleteBucketCors where
-  toQuery = Prelude.const (Prelude.mconcat ["cors"])
+instance Core.ToQuery DeleteBucketCors where
+  toQuery = Core.const (Core.mconcat ["cors"])
 
 -- | /See:/ 'newDeleteBucketCorsResponse' smart constructor.
 data DeleteBucketCorsResponse = DeleteBucketCorsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketCorsResponse' with all optional fields omitted.
@@ -141,4 +142,4 @@ newDeleteBucketCorsResponse ::
 newDeleteBucketCorsResponse =
   DeleteBucketCorsResponse'
 
-instance Prelude.NFData DeleteBucketCorsResponse
+instance Core.NFData DeleteBucketCorsResponse

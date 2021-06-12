@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.IoT.CreateTopicRuleDestination
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ data CreateTopicRuleDestination = CreateTopicRuleDestination'
   { -- | The topic rule destination configuration.
     destinationConfiguration :: TopicRuleDestinationConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTopicRuleDestination' with all optional fields omitted.
@@ -78,54 +77,51 @@ newCreateTopicRuleDestination
 createTopicRuleDestination_destinationConfiguration :: Lens.Lens' CreateTopicRuleDestination TopicRuleDestinationConfiguration
 createTopicRuleDestination_destinationConfiguration = Lens.lens (\CreateTopicRuleDestination' {destinationConfiguration} -> destinationConfiguration) (\s@CreateTopicRuleDestination' {} a -> s {destinationConfiguration = a} :: CreateTopicRuleDestination)
 
-instance
-  Prelude.AWSRequest
-    CreateTopicRuleDestination
-  where
+instance Core.AWSRequest CreateTopicRuleDestination where
   type
-    Rs CreateTopicRuleDestination =
+    AWSResponse CreateTopicRuleDestination =
       CreateTopicRuleDestinationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateTopicRuleDestinationResponse'
-            Prelude.<$> (x Prelude..?> "topicRuleDestination")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "topicRuleDestination")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTopicRuleDestination
+instance Core.Hashable CreateTopicRuleDestination
 
-instance Prelude.NFData CreateTopicRuleDestination
+instance Core.NFData CreateTopicRuleDestination
 
-instance Prelude.ToHeaders CreateTopicRuleDestination where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateTopicRuleDestination where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CreateTopicRuleDestination where
+instance Core.ToJSON CreateTopicRuleDestination where
   toJSON CreateTopicRuleDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "destinationConfiguration"
-                  Prelude..= destinationConfiguration
+                  Core..= destinationConfiguration
               )
           ]
       )
 
-instance Prelude.ToPath CreateTopicRuleDestination where
-  toPath = Prelude.const "/destinations"
+instance Core.ToPath CreateTopicRuleDestination where
+  toPath = Core.const "/destinations"
 
-instance Prelude.ToQuery CreateTopicRuleDestination where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateTopicRuleDestination where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateTopicRuleDestinationResponse' smart constructor.
 data CreateTopicRuleDestinationResponse = CreateTopicRuleDestinationResponse'
   { -- | The topic rule destination.
-    topicRuleDestination :: Prelude.Maybe TopicRuleDestination,
+    topicRuleDestination :: Core.Maybe TopicRuleDestination,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTopicRuleDestinationResponse' with all optional fields omitted.
@@ -140,23 +136,23 @@ data CreateTopicRuleDestinationResponse = CreateTopicRuleDestinationResponse'
 -- 'httpStatus', 'createTopicRuleDestinationResponse_httpStatus' - The response's http status code.
 newCreateTopicRuleDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateTopicRuleDestinationResponse
 newCreateTopicRuleDestinationResponse pHttpStatus_ =
   CreateTopicRuleDestinationResponse'
     { topicRuleDestination =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The topic rule destination.
-createTopicRuleDestinationResponse_topicRuleDestination :: Lens.Lens' CreateTopicRuleDestinationResponse (Prelude.Maybe TopicRuleDestination)
+createTopicRuleDestinationResponse_topicRuleDestination :: Lens.Lens' CreateTopicRuleDestinationResponse (Core.Maybe TopicRuleDestination)
 createTopicRuleDestinationResponse_topicRuleDestination = Lens.lens (\CreateTopicRuleDestinationResponse' {topicRuleDestination} -> topicRuleDestination) (\s@CreateTopicRuleDestinationResponse' {} a -> s {topicRuleDestination = a} :: CreateTopicRuleDestinationResponse)
 
 -- | The response's http status code.
-createTopicRuleDestinationResponse_httpStatus :: Lens.Lens' CreateTopicRuleDestinationResponse Prelude.Int
+createTopicRuleDestinationResponse_httpStatus :: Lens.Lens' CreateTopicRuleDestinationResponse Core.Int
 createTopicRuleDestinationResponse_httpStatus = Lens.lens (\CreateTopicRuleDestinationResponse' {httpStatus} -> httpStatus) (\s@CreateTopicRuleDestinationResponse' {} a -> s {httpStatus = a} :: CreateTopicRuleDestinationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateTopicRuleDestinationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.FileSourceSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.CaptionSourceFramerate
 import Network.AWS.MediaConvert.Types.FileSourceConvert608To708
-import qualified Network.AWS.Prelude as Prelude
 
 -- | If your input captions are SCC, SMI, SRT, STL, TTML, or IMSC 1.1 in an
 -- xml file, specify the URI of the input caption source file. If your
@@ -37,7 +36,7 @@ data FileSourceSettings = FileSourceSettings'
     -- MediaConvert includes the captions data in two ways: it passes the 608
     -- data through using the 608 compatibility bytes fields of the 708
     -- wrapper, and it also translates the 608 data into 708.
-    convert608To708 :: Prelude.Maybe FileSourceConvert608To708,
+    convert608To708 :: Core.Maybe FileSourceConvert608To708,
     -- | Ignore this setting unless your input captions format is SCC. To have
     -- the service compensate for differing frame rates between your input
     -- captions and input video, specify the frame rate of the captions file.
@@ -45,16 +44,16 @@ data FileSourceSettings = FileSourceSettings'
     -- (framerateNumerator) and Framerate denominator (framerateDenominator).
     -- For example, you might specify 24 \/ 1 for 24 fps, 25 \/ 1 for 25 fps,
     -- 24000 \/ 1001 for 23.976 fps, or 30000 \/ 1001 for 29.97 fps.
-    framerate :: Prelude.Maybe CaptionSourceFramerate,
+    framerate :: Core.Maybe CaptionSourceFramerate,
     -- | External caption file used for loading captions. Accepted file
     -- extensions are \'scc\', \'ttml\', \'dfxp\', \'stl\', \'srt\', \'xml\',
     -- and \'smi\'.
-    sourceFile :: Prelude.Maybe Prelude.Text,
+    sourceFile :: Core.Maybe Core.Text,
     -- | Specifies a time delta in seconds to offset the captions from the source
     -- file.
-    timeDelta :: Prelude.Maybe Prelude.Int
+    timeDelta :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FileSourceSettings' with all optional fields omitted.
@@ -88,11 +87,10 @@ newFileSourceSettings ::
   FileSourceSettings
 newFileSourceSettings =
   FileSourceSettings'
-    { convert608To708 =
-        Prelude.Nothing,
-      framerate = Prelude.Nothing,
-      sourceFile = Prelude.Nothing,
-      timeDelta = Prelude.Nothing
+    { convert608To708 = Core.Nothing,
+      framerate = Core.Nothing,
+      sourceFile = Core.Nothing,
+      timeDelta = Core.Nothing
     }
 
 -- | Specify whether this set of input captions appears in your outputs in
@@ -100,7 +98,7 @@ newFileSourceSettings =
 -- MediaConvert includes the captions data in two ways: it passes the 608
 -- data through using the 608 compatibility bytes fields of the 708
 -- wrapper, and it also translates the 608 data into 708.
-fileSourceSettings_convert608To708 :: Lens.Lens' FileSourceSettings (Prelude.Maybe FileSourceConvert608To708)
+fileSourceSettings_convert608To708 :: Lens.Lens' FileSourceSettings (Core.Maybe FileSourceConvert608To708)
 fileSourceSettings_convert608To708 = Lens.lens (\FileSourceSettings' {convert608To708} -> convert608To708) (\s@FileSourceSettings' {} a -> s {convert608To708 = a} :: FileSourceSettings)
 
 -- | Ignore this setting unless your input captions format is SCC. To have
@@ -110,44 +108,44 @@ fileSourceSettings_convert608To708 = Lens.lens (\FileSourceSettings' {convert608
 -- (framerateNumerator) and Framerate denominator (framerateDenominator).
 -- For example, you might specify 24 \/ 1 for 24 fps, 25 \/ 1 for 25 fps,
 -- 24000 \/ 1001 for 23.976 fps, or 30000 \/ 1001 for 29.97 fps.
-fileSourceSettings_framerate :: Lens.Lens' FileSourceSettings (Prelude.Maybe CaptionSourceFramerate)
+fileSourceSettings_framerate :: Lens.Lens' FileSourceSettings (Core.Maybe CaptionSourceFramerate)
 fileSourceSettings_framerate = Lens.lens (\FileSourceSettings' {framerate} -> framerate) (\s@FileSourceSettings' {} a -> s {framerate = a} :: FileSourceSettings)
 
 -- | External caption file used for loading captions. Accepted file
 -- extensions are \'scc\', \'ttml\', \'dfxp\', \'stl\', \'srt\', \'xml\',
 -- and \'smi\'.
-fileSourceSettings_sourceFile :: Lens.Lens' FileSourceSettings (Prelude.Maybe Prelude.Text)
+fileSourceSettings_sourceFile :: Lens.Lens' FileSourceSettings (Core.Maybe Core.Text)
 fileSourceSettings_sourceFile = Lens.lens (\FileSourceSettings' {sourceFile} -> sourceFile) (\s@FileSourceSettings' {} a -> s {sourceFile = a} :: FileSourceSettings)
 
 -- | Specifies a time delta in seconds to offset the captions from the source
 -- file.
-fileSourceSettings_timeDelta :: Lens.Lens' FileSourceSettings (Prelude.Maybe Prelude.Int)
+fileSourceSettings_timeDelta :: Lens.Lens' FileSourceSettings (Core.Maybe Core.Int)
 fileSourceSettings_timeDelta = Lens.lens (\FileSourceSettings' {timeDelta} -> timeDelta) (\s@FileSourceSettings' {} a -> s {timeDelta = a} :: FileSourceSettings)
 
-instance Prelude.FromJSON FileSourceSettings where
+instance Core.FromJSON FileSourceSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FileSourceSettings"
       ( \x ->
           FileSourceSettings'
-            Prelude.<$> (x Prelude..:? "convert608To708")
-            Prelude.<*> (x Prelude..:? "framerate")
-            Prelude.<*> (x Prelude..:? "sourceFile")
-            Prelude.<*> (x Prelude..:? "timeDelta")
+            Core.<$> (x Core..:? "convert608To708")
+            Core.<*> (x Core..:? "framerate")
+            Core.<*> (x Core..:? "sourceFile")
+            Core.<*> (x Core..:? "timeDelta")
       )
 
-instance Prelude.Hashable FileSourceSettings
+instance Core.Hashable FileSourceSettings
 
-instance Prelude.NFData FileSourceSettings
+instance Core.NFData FileSourceSettings
 
-instance Prelude.ToJSON FileSourceSettings where
+instance Core.ToJSON FileSourceSettings where
   toJSON FileSourceSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("convert608To708" Prelude..=)
-              Prelude.<$> convert608To708,
-            ("framerate" Prelude..=) Prelude.<$> framerate,
-            ("sourceFile" Prelude..=) Prelude.<$> sourceFile,
-            ("timeDelta" Prelude..=) Prelude.<$> timeDelta
+    Core.object
+      ( Core.catMaybes
+          [ ("convert608To708" Core..=)
+              Core.<$> convert608To708,
+            ("framerate" Core..=) Core.<$> framerate,
+            ("sourceFile" Core..=) Core.<$> sourceFile,
+            ("timeDelta" Core..=) Core.<$> timeDelta
           ]
       )

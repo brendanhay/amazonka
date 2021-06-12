@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.CoverageCost where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | How much it costs to run an instance.
 --
 -- /See:/ 'newCoverageCost' smart constructor.
 data CoverageCost = CoverageCost'
   { -- | How much an On-Demand Instance costs.
-    onDemandCost :: Prelude.Maybe Prelude.Text
+    onDemandCost :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CoverageCost' with all optional fields omitted.
@@ -44,21 +43,20 @@ data CoverageCost = CoverageCost'
 newCoverageCost ::
   CoverageCost
 newCoverageCost =
-  CoverageCost' {onDemandCost = Prelude.Nothing}
+  CoverageCost' {onDemandCost = Core.Nothing}
 
 -- | How much an On-Demand Instance costs.
-coverageCost_onDemandCost :: Lens.Lens' CoverageCost (Prelude.Maybe Prelude.Text)
+coverageCost_onDemandCost :: Lens.Lens' CoverageCost (Core.Maybe Core.Text)
 coverageCost_onDemandCost = Lens.lens (\CoverageCost' {onDemandCost} -> onDemandCost) (\s@CoverageCost' {} a -> s {onDemandCost = a} :: CoverageCost)
 
-instance Prelude.FromJSON CoverageCost where
+instance Core.FromJSON CoverageCost where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CoverageCost"
       ( \x ->
-          CoverageCost'
-            Prelude.<$> (x Prelude..:? "OnDemandCost")
+          CoverageCost' Core.<$> (x Core..:? "OnDemandCost")
       )
 
-instance Prelude.Hashable CoverageCost
+instance Core.Hashable CoverageCost
 
-instance Prelude.NFData CoverageCost
+instance Core.NFData CoverageCost

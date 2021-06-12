@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.TrustedSigners where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of AWS accounts whose public keys CloudFront can use to verify
 -- the signatures of signed URLs and signed cookies.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTrustedSigners' smart constructor.
 data TrustedSigners = TrustedSigners'
   { -- | A list of AWS account identifiers.
-    items :: Prelude.Maybe [Prelude.Text],
+    items :: Core.Maybe [Core.Text],
     -- | This field is @true@ if any of the AWS accounts have public keys that
     -- CloudFront can use to verify the signatures of signed URLs and signed
     -- cookies. If not, this field is @false@.
-    enabled :: Prelude.Bool,
+    enabled :: Core.Bool,
     -- | The number of AWS accounts in the list.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrustedSigners' with all optional fields omitted.
@@ -56,53 +55,50 @@ data TrustedSigners = TrustedSigners'
 -- 'quantity', 'trustedSigners_quantity' - The number of AWS accounts in the list.
 newTrustedSigners ::
   -- | 'enabled'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   TrustedSigners
 newTrustedSigners pEnabled_ pQuantity_ =
   TrustedSigners'
-    { items = Prelude.Nothing,
+    { items = Core.Nothing,
       enabled = pEnabled_,
       quantity = pQuantity_
     }
 
 -- | A list of AWS account identifiers.
-trustedSigners_items :: Lens.Lens' TrustedSigners (Prelude.Maybe [Prelude.Text])
-trustedSigners_items = Lens.lens (\TrustedSigners' {items} -> items) (\s@TrustedSigners' {} a -> s {items = a} :: TrustedSigners) Prelude.. Lens.mapping Prelude._Coerce
+trustedSigners_items :: Lens.Lens' TrustedSigners (Core.Maybe [Core.Text])
+trustedSigners_items = Lens.lens (\TrustedSigners' {items} -> items) (\s@TrustedSigners' {} a -> s {items = a} :: TrustedSigners) Core.. Lens.mapping Lens._Coerce
 
 -- | This field is @true@ if any of the AWS accounts have public keys that
 -- CloudFront can use to verify the signatures of signed URLs and signed
 -- cookies. If not, this field is @false@.
-trustedSigners_enabled :: Lens.Lens' TrustedSigners Prelude.Bool
+trustedSigners_enabled :: Lens.Lens' TrustedSigners Core.Bool
 trustedSigners_enabled = Lens.lens (\TrustedSigners' {enabled} -> enabled) (\s@TrustedSigners' {} a -> s {enabled = a} :: TrustedSigners)
 
 -- | The number of AWS accounts in the list.
-trustedSigners_quantity :: Lens.Lens' TrustedSigners Prelude.Int
+trustedSigners_quantity :: Lens.Lens' TrustedSigners Core.Int
 trustedSigners_quantity = Lens.lens (\TrustedSigners' {quantity} -> quantity) (\s@TrustedSigners' {} a -> s {quantity = a} :: TrustedSigners)
 
-instance Prelude.FromXML TrustedSigners where
+instance Core.FromXML TrustedSigners where
   parseXML x =
     TrustedSigners'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLList "AwsAccountNumber")
-                  )
-      Prelude.<*> (x Prelude..@ "Enabled")
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "AwsAccountNumber")
+               )
+      Core.<*> (x Core..@ "Enabled")
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable TrustedSigners
+instance Core.Hashable TrustedSigners
 
-instance Prelude.NFData TrustedSigners
+instance Core.NFData TrustedSigners
 
-instance Prelude.ToXML TrustedSigners where
+instance Core.ToXML TrustedSigners where
   toXML TrustedSigners' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            ( Prelude.toXMLList "AwsAccountNumber"
-                Prelude.<$> items
-            ),
-        "Enabled" Prelude.@= enabled,
-        "Quantity" Prelude.@= quantity
+          Core.@= Core.toXML
+            (Core.toXMLList "AwsAccountNumber" Core.<$> items),
+        "Enabled" Core.@= enabled,
+        "Quantity" Core.@= quantity
       ]

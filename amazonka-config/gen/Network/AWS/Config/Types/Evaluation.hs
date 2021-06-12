@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.Evaluation where
 
 import Network.AWS.Config.Types.ComplianceType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies an AWS resource and indicates whether it complies with the
 -- AWS Config rule that it was evaluated against.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data Evaluation = Evaluation'
   { -- | Supplementary information about how the evaluation determined the
     -- compliance.
-    annotation :: Prelude.Maybe Prelude.Text,
+    annotation :: Core.Maybe Core.Text,
     -- | The type of AWS resource that was evaluated.
-    complianceResourceType :: Prelude.Text,
+    complianceResourceType :: Core.Text,
     -- | The ID of the AWS resource that was evaluated.
-    complianceResourceId :: Prelude.Text,
+    complianceResourceId :: Core.Text,
     -- | Indicates whether the AWS resource complies with the AWS Config rule
     -- that it was evaluated against.
     --
@@ -53,9 +52,9 @@ data Evaluation = Evaluation'
     -- configuration item that triggered the evaluation. For periodic
     -- evaluations, the time indicates when AWS Config triggered the evaluation
     -- at the frequency that you specified (for example, every 24 hours).
-    orderingTimestamp :: Prelude.POSIX
+    orderingTimestamp :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Evaluation' with all optional fields omitted.
@@ -91,13 +90,13 @@ data Evaluation = Evaluation'
 -- at the frequency that you specified (for example, every 24 hours).
 newEvaluation ::
   -- | 'complianceResourceType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'complianceResourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'complianceType'
   ComplianceType ->
   -- | 'orderingTimestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   Evaluation
 newEvaluation
   pComplianceResourceType_
@@ -105,25 +104,25 @@ newEvaluation
   pComplianceType_
   pOrderingTimestamp_ =
     Evaluation'
-      { annotation = Prelude.Nothing,
+      { annotation = Core.Nothing,
         complianceResourceType = pComplianceResourceType_,
         complianceResourceId = pComplianceResourceId_,
         complianceType = pComplianceType_,
         orderingTimestamp =
-          Prelude._Time Lens.# pOrderingTimestamp_
+          Core._Time Lens.# pOrderingTimestamp_
       }
 
 -- | Supplementary information about how the evaluation determined the
 -- compliance.
-evaluation_annotation :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Text)
+evaluation_annotation :: Lens.Lens' Evaluation (Core.Maybe Core.Text)
 evaluation_annotation = Lens.lens (\Evaluation' {annotation} -> annotation) (\s@Evaluation' {} a -> s {annotation = a} :: Evaluation)
 
 -- | The type of AWS resource that was evaluated.
-evaluation_complianceResourceType :: Lens.Lens' Evaluation Prelude.Text
+evaluation_complianceResourceType :: Lens.Lens' Evaluation Core.Text
 evaluation_complianceResourceType = Lens.lens (\Evaluation' {complianceResourceType} -> complianceResourceType) (\s@Evaluation' {} a -> s {complianceResourceType = a} :: Evaluation)
 
 -- | The ID of the AWS resource that was evaluated.
-evaluation_complianceResourceId :: Lens.Lens' Evaluation Prelude.Text
+evaluation_complianceResourceId :: Lens.Lens' Evaluation Core.Text
 evaluation_complianceResourceId = Lens.lens (\Evaluation' {complianceResourceId} -> complianceResourceId) (\s@Evaluation' {} a -> s {complianceResourceId = a} :: Evaluation)
 
 -- | Indicates whether the AWS resource complies with the AWS Config rule
@@ -145,42 +144,41 @@ evaluation_complianceType = Lens.lens (\Evaluation' {complianceType} -> complian
 -- configuration item that triggered the evaluation. For periodic
 -- evaluations, the time indicates when AWS Config triggered the evaluation
 -- at the frequency that you specified (for example, every 24 hours).
-evaluation_orderingTimestamp :: Lens.Lens' Evaluation Prelude.UTCTime
-evaluation_orderingTimestamp = Lens.lens (\Evaluation' {orderingTimestamp} -> orderingTimestamp) (\s@Evaluation' {} a -> s {orderingTimestamp = a} :: Evaluation) Prelude.. Prelude._Time
+evaluation_orderingTimestamp :: Lens.Lens' Evaluation Core.UTCTime
+evaluation_orderingTimestamp = Lens.lens (\Evaluation' {orderingTimestamp} -> orderingTimestamp) (\s@Evaluation' {} a -> s {orderingTimestamp = a} :: Evaluation) Core.. Core._Time
 
-instance Prelude.FromJSON Evaluation where
+instance Core.FromJSON Evaluation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Evaluation"
       ( \x ->
           Evaluation'
-            Prelude.<$> (x Prelude..:? "Annotation")
-            Prelude.<*> (x Prelude..: "ComplianceResourceType")
-            Prelude.<*> (x Prelude..: "ComplianceResourceId")
-            Prelude.<*> (x Prelude..: "ComplianceType")
-            Prelude.<*> (x Prelude..: "OrderingTimestamp")
+            Core.<$> (x Core..:? "Annotation")
+            Core.<*> (x Core..: "ComplianceResourceType")
+            Core.<*> (x Core..: "ComplianceResourceId")
+            Core.<*> (x Core..: "ComplianceType")
+            Core.<*> (x Core..: "OrderingTimestamp")
       )
 
-instance Prelude.Hashable Evaluation
+instance Core.Hashable Evaluation
 
-instance Prelude.NFData Evaluation
+instance Core.NFData Evaluation
 
-instance Prelude.ToJSON Evaluation where
+instance Core.ToJSON Evaluation where
   toJSON Evaluation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Annotation" Prelude..=) Prelude.<$> annotation,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("Annotation" Core..=) Core.<$> annotation,
+            Core.Just
               ( "ComplianceResourceType"
-                  Prelude..= complianceResourceType
+                  Core..= complianceResourceType
               ),
-            Prelude.Just
+            Core.Just
               ( "ComplianceResourceId"
-                  Prelude..= complianceResourceId
+                  Core..= complianceResourceId
               ),
-            Prelude.Just
-              ("ComplianceType" Prelude..= complianceType),
-            Prelude.Just
-              ("OrderingTimestamp" Prelude..= orderingTimestamp)
+            Core.Just ("ComplianceType" Core..= complianceType),
+            Core.Just
+              ("OrderingTimestamp" Core..= orderingTimestamp)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.APIGateway.Types.Account where
 
 import Network.AWS.APIGateway.Types.ThrottleSettings
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an AWS account that is associated with API Gateway.
 --
@@ -63,16 +62,16 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAccount' smart constructor.
 data Account = Account'
   { -- | Specifies the API request limits configured for the current Account.
-    throttleSettings :: Prelude.Maybe ThrottleSettings,
+    throttleSettings :: Core.Maybe ThrottleSettings,
     -- | The version of the API keys used for the account.
-    apiKeyVersion :: Prelude.Maybe Prelude.Text,
+    apiKeyVersion :: Core.Maybe Core.Text,
     -- | A list of features supported for the account. When usage plans are
     -- enabled, the features list will include an entry of @\"UsagePlans\"@.
-    features :: Prelude.Maybe [Prelude.Text],
+    features :: Core.Maybe [Core.Text],
     -- | The ARN of an Amazon CloudWatch role for the current Account.
-    cloudwatchRoleArn :: Prelude.Maybe Prelude.Text
+    cloudwatchRoleArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Account' with all optional fields omitted.
@@ -94,41 +93,41 @@ newAccount ::
   Account
 newAccount =
   Account'
-    { throttleSettings = Prelude.Nothing,
-      apiKeyVersion = Prelude.Nothing,
-      features = Prelude.Nothing,
-      cloudwatchRoleArn = Prelude.Nothing
+    { throttleSettings = Core.Nothing,
+      apiKeyVersion = Core.Nothing,
+      features = Core.Nothing,
+      cloudwatchRoleArn = Core.Nothing
     }
 
 -- | Specifies the API request limits configured for the current Account.
-account_throttleSettings :: Lens.Lens' Account (Prelude.Maybe ThrottleSettings)
+account_throttleSettings :: Lens.Lens' Account (Core.Maybe ThrottleSettings)
 account_throttleSettings = Lens.lens (\Account' {throttleSettings} -> throttleSettings) (\s@Account' {} a -> s {throttleSettings = a} :: Account)
 
 -- | The version of the API keys used for the account.
-account_apiKeyVersion :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
+account_apiKeyVersion :: Lens.Lens' Account (Core.Maybe Core.Text)
 account_apiKeyVersion = Lens.lens (\Account' {apiKeyVersion} -> apiKeyVersion) (\s@Account' {} a -> s {apiKeyVersion = a} :: Account)
 
 -- | A list of features supported for the account. When usage plans are
 -- enabled, the features list will include an entry of @\"UsagePlans\"@.
-account_features :: Lens.Lens' Account (Prelude.Maybe [Prelude.Text])
-account_features = Lens.lens (\Account' {features} -> features) (\s@Account' {} a -> s {features = a} :: Account) Prelude.. Lens.mapping Prelude._Coerce
+account_features :: Lens.Lens' Account (Core.Maybe [Core.Text])
+account_features = Lens.lens (\Account' {features} -> features) (\s@Account' {} a -> s {features = a} :: Account) Core.. Lens.mapping Lens._Coerce
 
 -- | The ARN of an Amazon CloudWatch role for the current Account.
-account_cloudwatchRoleArn :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
+account_cloudwatchRoleArn :: Lens.Lens' Account (Core.Maybe Core.Text)
 account_cloudwatchRoleArn = Lens.lens (\Account' {cloudwatchRoleArn} -> cloudwatchRoleArn) (\s@Account' {} a -> s {cloudwatchRoleArn = a} :: Account)
 
-instance Prelude.FromJSON Account where
+instance Core.FromJSON Account where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Account"
       ( \x ->
           Account'
-            Prelude.<$> (x Prelude..:? "throttleSettings")
-            Prelude.<*> (x Prelude..:? "apiKeyVersion")
-            Prelude.<*> (x Prelude..:? "features" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "cloudwatchRoleArn")
+            Core.<$> (x Core..:? "throttleSettings")
+            Core.<*> (x Core..:? "apiKeyVersion")
+            Core.<*> (x Core..:? "features" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "cloudwatchRoleArn")
       )
 
-instance Prelude.Hashable Account
+instance Core.Hashable Account
 
-instance Prelude.NFData Account
+instance Core.NFData Account

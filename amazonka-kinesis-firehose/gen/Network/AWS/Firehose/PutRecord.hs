@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -82,20 +81,20 @@ module Network.AWS.Firehose.PutRecord
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutRecord' smart constructor.
 data PutRecord = PutRecord'
   { -- | The name of the delivery stream.
-    deliveryStreamName :: Prelude.Text,
+    deliveryStreamName :: Core.Text,
     -- | The record.
     record :: Record
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRecord' with all optional fields omitted.
@@ -110,7 +109,7 @@ data PutRecord = PutRecord'
 -- 'record', 'putRecord_record' - The record.
 newPutRecord ::
   -- | 'deliveryStreamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'record'
   Record ->
   PutRecord
@@ -122,71 +121,67 @@ newPutRecord pDeliveryStreamName_ pRecord_ =
     }
 
 -- | The name of the delivery stream.
-putRecord_deliveryStreamName :: Lens.Lens' PutRecord Prelude.Text
+putRecord_deliveryStreamName :: Lens.Lens' PutRecord Core.Text
 putRecord_deliveryStreamName = Lens.lens (\PutRecord' {deliveryStreamName} -> deliveryStreamName) (\s@PutRecord' {} a -> s {deliveryStreamName = a} :: PutRecord)
 
 -- | The record.
 putRecord_record :: Lens.Lens' PutRecord Record
 putRecord_record = Lens.lens (\PutRecord' {record} -> record) (\s@PutRecord' {} a -> s {record = a} :: PutRecord)
 
-instance Prelude.AWSRequest PutRecord where
-  type Rs PutRecord = PutRecordResponse
+instance Core.AWSRequest PutRecord where
+  type AWSResponse PutRecord = PutRecordResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutRecordResponse'
-            Prelude.<$> (x Prelude..?> "Encrypted")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "RecordId")
+            Core.<$> (x Core..?> "Encrypted")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "RecordId")
       )
 
-instance Prelude.Hashable PutRecord
+instance Core.Hashable PutRecord
 
-instance Prelude.NFData PutRecord
+instance Core.NFData PutRecord
 
-instance Prelude.ToHeaders PutRecord where
+instance Core.ToHeaders PutRecord where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Firehose_20150804.PutRecord" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Firehose_20150804.PutRecord" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutRecord where
+instance Core.ToJSON PutRecord where
   toJSON PutRecord' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DeliveryStreamName" Prelude..= deliveryStreamName),
-            Prelude.Just ("Record" Prelude..= record)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("DeliveryStreamName" Core..= deliveryStreamName),
+            Core.Just ("Record" Core..= record)
           ]
       )
 
-instance Prelude.ToPath PutRecord where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutRecord where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutRecord where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutRecord where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'
   { -- | Indicates whether server-side encryption (SSE) was enabled during this
     -- operation.
-    encrypted :: Prelude.Maybe Prelude.Bool,
+    encrypted :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The ID of the record.
-    recordId :: Prelude.Text
+    recordId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRecordResponse' with all optional fields omitted.
@@ -204,28 +199,28 @@ data PutRecordResponse = PutRecordResponse'
 -- 'recordId', 'putRecordResponse_recordId' - The ID of the record.
 newPutRecordResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'recordId'
-  Prelude.Text ->
+  Core.Text ->
   PutRecordResponse
 newPutRecordResponse pHttpStatus_ pRecordId_ =
   PutRecordResponse'
-    { encrypted = Prelude.Nothing,
+    { encrypted = Core.Nothing,
       httpStatus = pHttpStatus_,
       recordId = pRecordId_
     }
 
 -- | Indicates whether server-side encryption (SSE) was enabled during this
 -- operation.
-putRecordResponse_encrypted :: Lens.Lens' PutRecordResponse (Prelude.Maybe Prelude.Bool)
+putRecordResponse_encrypted :: Lens.Lens' PutRecordResponse (Core.Maybe Core.Bool)
 putRecordResponse_encrypted = Lens.lens (\PutRecordResponse' {encrypted} -> encrypted) (\s@PutRecordResponse' {} a -> s {encrypted = a} :: PutRecordResponse)
 
 -- | The response's http status code.
-putRecordResponse_httpStatus :: Lens.Lens' PutRecordResponse Prelude.Int
+putRecordResponse_httpStatus :: Lens.Lens' PutRecordResponse Core.Int
 putRecordResponse_httpStatus = Lens.lens (\PutRecordResponse' {httpStatus} -> httpStatus) (\s@PutRecordResponse' {} a -> s {httpStatus = a} :: PutRecordResponse)
 
 -- | The ID of the record.
-putRecordResponse_recordId :: Lens.Lens' PutRecordResponse Prelude.Text
+putRecordResponse_recordId :: Lens.Lens' PutRecordResponse Core.Text
 putRecordResponse_recordId = Lens.lens (\PutRecordResponse' {recordId} -> recordId) (\s@PutRecordResponse' {} a -> s {recordId = a} :: PutRecordResponse)
 
-instance Prelude.NFData PutRecordResponse
+instance Core.NFData PutRecordResponse

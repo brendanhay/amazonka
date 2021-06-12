@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.ResourceKey where
 
 import Network.AWS.Config.Types.ResourceType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The details that identify a resource within AWS Config, including the
 -- resource type and resource ID.
@@ -32,9 +31,9 @@ data ResourceKey = ResourceKey'
   { -- | The resource type.
     resourceType :: ResourceType,
     -- | The ID of the resource (for example., sg-xxxxxx).
-    resourceId :: Prelude.Text
+    resourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceKey' with all optional fields omitted.
@@ -51,7 +50,7 @@ newResourceKey ::
   -- | 'resourceType'
   ResourceType ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   ResourceKey
 newResourceKey pResourceType_ pResourceId_ =
   ResourceKey'
@@ -64,29 +63,28 @@ resourceKey_resourceType :: Lens.Lens' ResourceKey ResourceType
 resourceKey_resourceType = Lens.lens (\ResourceKey' {resourceType} -> resourceType) (\s@ResourceKey' {} a -> s {resourceType = a} :: ResourceKey)
 
 -- | The ID of the resource (for example., sg-xxxxxx).
-resourceKey_resourceId :: Lens.Lens' ResourceKey Prelude.Text
+resourceKey_resourceId :: Lens.Lens' ResourceKey Core.Text
 resourceKey_resourceId = Lens.lens (\ResourceKey' {resourceId} -> resourceId) (\s@ResourceKey' {} a -> s {resourceId = a} :: ResourceKey)
 
-instance Prelude.FromJSON ResourceKey where
+instance Core.FromJSON ResourceKey where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceKey"
       ( \x ->
           ResourceKey'
-            Prelude.<$> (x Prelude..: "resourceType")
-            Prelude.<*> (x Prelude..: "resourceId")
+            Core.<$> (x Core..: "resourceType")
+            Core.<*> (x Core..: "resourceId")
       )
 
-instance Prelude.Hashable ResourceKey
+instance Core.Hashable ResourceKey
 
-instance Prelude.NFData ResourceKey
+instance Core.NFData ResourceKey
 
-instance Prelude.ToJSON ResourceKey where
+instance Core.ToJSON ResourceKey where
   toJSON ResourceKey' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("resourceType" Prelude..= resourceType),
-            Prelude.Just ("resourceId" Prelude..= resourceId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("resourceType" Core..= resourceType),
+            Core.Just ("resourceId" Core..= resourceId)
           ]
       )

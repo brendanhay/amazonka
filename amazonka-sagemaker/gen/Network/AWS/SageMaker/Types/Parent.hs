@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.Parent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The trial that a trial component is associated with and the experiment
 -- the trial is part of. A component might not be associated with a trial.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newParent' smart constructor.
 data Parent = Parent'
   { -- | The name of the experiment.
-    experimentName :: Prelude.Maybe Prelude.Text,
+    experimentName :: Core.Maybe Core.Text,
     -- | The name of the trial.
-    trialName :: Prelude.Maybe Prelude.Text
+    trialName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Parent' with all optional fields omitted.
@@ -51,28 +50,28 @@ newParent ::
   Parent
 newParent =
   Parent'
-    { experimentName = Prelude.Nothing,
-      trialName = Prelude.Nothing
+    { experimentName = Core.Nothing,
+      trialName = Core.Nothing
     }
 
 -- | The name of the experiment.
-parent_experimentName :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
+parent_experimentName :: Lens.Lens' Parent (Core.Maybe Core.Text)
 parent_experimentName = Lens.lens (\Parent' {experimentName} -> experimentName) (\s@Parent' {} a -> s {experimentName = a} :: Parent)
 
 -- | The name of the trial.
-parent_trialName :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
+parent_trialName :: Lens.Lens' Parent (Core.Maybe Core.Text)
 parent_trialName = Lens.lens (\Parent' {trialName} -> trialName) (\s@Parent' {} a -> s {trialName = a} :: Parent)
 
-instance Prelude.FromJSON Parent where
+instance Core.FromJSON Parent where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Parent"
       ( \x ->
           Parent'
-            Prelude.<$> (x Prelude..:? "ExperimentName")
-            Prelude.<*> (x Prelude..:? "TrialName")
+            Core.<$> (x Core..:? "ExperimentName")
+            Core.<*> (x Core..:? "TrialName")
       )
 
-instance Prelude.Hashable Parent
+instance Core.Hashable Parent
 
-instance Prelude.NFData Parent
+instance Core.NFData Parent

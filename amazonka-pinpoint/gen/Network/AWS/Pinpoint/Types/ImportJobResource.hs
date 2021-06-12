@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.ImportJobResource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.DefinitionFormat
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the resource settings for a job that imports
 -- endpoint definitions from one or more files. The files can be stored in
@@ -33,22 +32,22 @@ import qualified Network.AWS.Prelude as Prelude
 data ImportJobResource = ImportJobResource'
   { -- | Specifies whether the import job creates a segment that contains the
     -- endpoints, when the endpoint definitions are imported.
-    defineSegment :: Prelude.Maybe Prelude.Bool,
+    defineSegment :: Core.Maybe Core.Bool,
     -- | The custom name for the segment that\'s created by the import job, if
     -- the value of the DefineSegment property is true.
-    segmentName :: Prelude.Maybe Prelude.Text,
+    segmentName :: Core.Maybe Core.Text,
     -- | Specifies whether the import job registers the endpoints with Amazon
     -- Pinpoint, when the endpoint definitions are imported.
-    registerEndpoints :: Prelude.Maybe Prelude.Bool,
+    registerEndpoints :: Core.Maybe Core.Bool,
     -- | The identifier for the segment that the import job updates or adds
     -- endpoint definitions to, if the import job updates an existing segment.
-    segmentId :: Prelude.Maybe Prelude.Text,
+    segmentId :: Core.Maybe Core.Text,
     -- | (Deprecated) Your AWS account ID, which you assigned to an external ID
     -- key in an IAM trust policy. Amazon Pinpoint previously used this value
     -- to assume an IAM role when importing endpoint definitions, but we
     -- removed this requirement. We don\'t recommend use of external IDs for
     -- IAM roles that are assumed by Amazon Pinpoint.
-    externalId :: Prelude.Maybe Prelude.Text,
+    externalId :: Core.Maybe Core.Text,
     -- | The format of the files that contain the endpoint definitions to import.
     -- Valid values are: CSV, for comma-separated values format; and, JSON, for
     -- newline-delimited JSON format.
@@ -67,13 +66,13 @@ data ImportJobResource = ImportJobResource'
     -- s3:\/\/bucket-name\/folder-name\/file-name. The location can end with
     -- the key for an individual object or a prefix that qualifies multiple
     -- objects.
-    s3Url :: Prelude.Text,
+    s3Url :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
     -- (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3
     -- location to import endpoint definitions from.
-    roleArn :: Prelude.Text
+    roleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportJobResource' with all optional fields omitted.
@@ -127,17 +126,17 @@ newImportJobResource ::
   -- | 'format'
   DefinitionFormat ->
   -- | 's3Url'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   ImportJobResource
 newImportJobResource pFormat_ pS3Url_ pRoleArn_ =
   ImportJobResource'
-    { defineSegment = Prelude.Nothing,
-      segmentName = Prelude.Nothing,
-      registerEndpoints = Prelude.Nothing,
-      segmentId = Prelude.Nothing,
-      externalId = Prelude.Nothing,
+    { defineSegment = Core.Nothing,
+      segmentName = Core.Nothing,
+      registerEndpoints = Core.Nothing,
+      segmentId = Core.Nothing,
+      externalId = Core.Nothing,
       format = pFormat_,
       s3Url = pS3Url_,
       roleArn = pRoleArn_
@@ -145,22 +144,22 @@ newImportJobResource pFormat_ pS3Url_ pRoleArn_ =
 
 -- | Specifies whether the import job creates a segment that contains the
 -- endpoints, when the endpoint definitions are imported.
-importJobResource_defineSegment :: Lens.Lens' ImportJobResource (Prelude.Maybe Prelude.Bool)
+importJobResource_defineSegment :: Lens.Lens' ImportJobResource (Core.Maybe Core.Bool)
 importJobResource_defineSegment = Lens.lens (\ImportJobResource' {defineSegment} -> defineSegment) (\s@ImportJobResource' {} a -> s {defineSegment = a} :: ImportJobResource)
 
 -- | The custom name for the segment that\'s created by the import job, if
 -- the value of the DefineSegment property is true.
-importJobResource_segmentName :: Lens.Lens' ImportJobResource (Prelude.Maybe Prelude.Text)
+importJobResource_segmentName :: Lens.Lens' ImportJobResource (Core.Maybe Core.Text)
 importJobResource_segmentName = Lens.lens (\ImportJobResource' {segmentName} -> segmentName) (\s@ImportJobResource' {} a -> s {segmentName = a} :: ImportJobResource)
 
 -- | Specifies whether the import job registers the endpoints with Amazon
 -- Pinpoint, when the endpoint definitions are imported.
-importJobResource_registerEndpoints :: Lens.Lens' ImportJobResource (Prelude.Maybe Prelude.Bool)
+importJobResource_registerEndpoints :: Lens.Lens' ImportJobResource (Core.Maybe Core.Bool)
 importJobResource_registerEndpoints = Lens.lens (\ImportJobResource' {registerEndpoints} -> registerEndpoints) (\s@ImportJobResource' {} a -> s {registerEndpoints = a} :: ImportJobResource)
 
 -- | The identifier for the segment that the import job updates or adds
 -- endpoint definitions to, if the import job updates an existing segment.
-importJobResource_segmentId :: Lens.Lens' ImportJobResource (Prelude.Maybe Prelude.Text)
+importJobResource_segmentId :: Lens.Lens' ImportJobResource (Core.Maybe Core.Text)
 importJobResource_segmentId = Lens.lens (\ImportJobResource' {segmentId} -> segmentId) (\s@ImportJobResource' {} a -> s {segmentId = a} :: ImportJobResource)
 
 -- | (Deprecated) Your AWS account ID, which you assigned to an external ID
@@ -168,7 +167,7 @@ importJobResource_segmentId = Lens.lens (\ImportJobResource' {segmentId} -> segm
 -- to assume an IAM role when importing endpoint definitions, but we
 -- removed this requirement. We don\'t recommend use of external IDs for
 -- IAM roles that are assumed by Amazon Pinpoint.
-importJobResource_externalId :: Lens.Lens' ImportJobResource (Prelude.Maybe Prelude.Text)
+importJobResource_externalId :: Lens.Lens' ImportJobResource (Core.Maybe Core.Text)
 importJobResource_externalId = Lens.lens (\ImportJobResource' {externalId} -> externalId) (\s@ImportJobResource' {} a -> s {externalId = a} :: ImportJobResource)
 
 -- | The format of the files that contain the endpoint definitions to import.
@@ -191,31 +190,31 @@ importJobResource_format = Lens.lens (\ImportJobResource' {format} -> format) (\
 -- s3:\/\/bucket-name\/folder-name\/file-name. The location can end with
 -- the key for an individual object or a prefix that qualifies multiple
 -- objects.
-importJobResource_s3Url :: Lens.Lens' ImportJobResource Prelude.Text
+importJobResource_s3Url :: Lens.Lens' ImportJobResource Core.Text
 importJobResource_s3Url = Lens.lens (\ImportJobResource' {s3Url} -> s3Url) (\s@ImportJobResource' {} a -> s {s3Url = a} :: ImportJobResource)
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
 -- (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3
 -- location to import endpoint definitions from.
-importJobResource_roleArn :: Lens.Lens' ImportJobResource Prelude.Text
+importJobResource_roleArn :: Lens.Lens' ImportJobResource Core.Text
 importJobResource_roleArn = Lens.lens (\ImportJobResource' {roleArn} -> roleArn) (\s@ImportJobResource' {} a -> s {roleArn = a} :: ImportJobResource)
 
-instance Prelude.FromJSON ImportJobResource where
+instance Core.FromJSON ImportJobResource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImportJobResource"
       ( \x ->
           ImportJobResource'
-            Prelude.<$> (x Prelude..:? "DefineSegment")
-            Prelude.<*> (x Prelude..:? "SegmentName")
-            Prelude.<*> (x Prelude..:? "RegisterEndpoints")
-            Prelude.<*> (x Prelude..:? "SegmentId")
-            Prelude.<*> (x Prelude..:? "ExternalId")
-            Prelude.<*> (x Prelude..: "Format")
-            Prelude.<*> (x Prelude..: "S3Url")
-            Prelude.<*> (x Prelude..: "RoleArn")
+            Core.<$> (x Core..:? "DefineSegment")
+            Core.<*> (x Core..:? "SegmentName")
+            Core.<*> (x Core..:? "RegisterEndpoints")
+            Core.<*> (x Core..:? "SegmentId")
+            Core.<*> (x Core..:? "ExternalId")
+            Core.<*> (x Core..: "Format")
+            Core.<*> (x Core..: "S3Url")
+            Core.<*> (x Core..: "RoleArn")
       )
 
-instance Prelude.Hashable ImportJobResource
+instance Core.Hashable ImportJobResource
 
-instance Prelude.NFData ImportJobResource
+instance Core.NFData ImportJobResource

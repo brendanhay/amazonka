@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CodeCommit.CreateBranch
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +51,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateBranch' smart constructor.
 data CreateBranch = CreateBranch'
   { -- | The name of the repository in which you want to create the new branch.
-    repositoryName :: Prelude.Text,
+    repositoryName :: Core.Text,
     -- | The name of the new branch to create.
-    branchName :: Prelude.Text,
+    branchName :: Core.Text,
     -- | The ID of the commit to point the new branch to.
-    commitId :: Prelude.Text
+    commitId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateBranch' with all optional fields omitted.
@@ -75,11 +74,11 @@ data CreateBranch = CreateBranch'
 -- 'commitId', 'createBranch_commitId' - The ID of the commit to point the new branch to.
 newCreateBranch ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'branchName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'commitId'
-  Prelude.Text ->
+  Core.Text ->
   CreateBranch
 newCreateBranch
   pRepositoryName_
@@ -92,63 +91,60 @@ newCreateBranch
       }
 
 -- | The name of the repository in which you want to create the new branch.
-createBranch_repositoryName :: Lens.Lens' CreateBranch Prelude.Text
+createBranch_repositoryName :: Lens.Lens' CreateBranch Core.Text
 createBranch_repositoryName = Lens.lens (\CreateBranch' {repositoryName} -> repositoryName) (\s@CreateBranch' {} a -> s {repositoryName = a} :: CreateBranch)
 
 -- | The name of the new branch to create.
-createBranch_branchName :: Lens.Lens' CreateBranch Prelude.Text
+createBranch_branchName :: Lens.Lens' CreateBranch Core.Text
 createBranch_branchName = Lens.lens (\CreateBranch' {branchName} -> branchName) (\s@CreateBranch' {} a -> s {branchName = a} :: CreateBranch)
 
 -- | The ID of the commit to point the new branch to.
-createBranch_commitId :: Lens.Lens' CreateBranch Prelude.Text
+createBranch_commitId :: Lens.Lens' CreateBranch Core.Text
 createBranch_commitId = Lens.lens (\CreateBranch' {commitId} -> commitId) (\s@CreateBranch' {} a -> s {commitId = a} :: CreateBranch)
 
-instance Prelude.AWSRequest CreateBranch where
-  type Rs CreateBranch = CreateBranchResponse
+instance Core.AWSRequest CreateBranch where
+  type AWSResponse CreateBranch = CreateBranchResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull CreateBranchResponse'
 
-instance Prelude.Hashable CreateBranch
+instance Core.Hashable CreateBranch
 
-instance Prelude.NFData CreateBranch
+instance Core.NFData CreateBranch
 
-instance Prelude.ToHeaders CreateBranch where
+instance Core.ToHeaders CreateBranch where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.CreateBranch" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.CreateBranch" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateBranch where
+instance Core.ToJSON CreateBranch where
   toJSON CreateBranch' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("repositoryName" Prelude..= repositoryName),
-            Prelude.Just ("branchName" Prelude..= branchName),
-            Prelude.Just ("commitId" Prelude..= commitId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("branchName" Core..= branchName),
+            Core.Just ("commitId" Core..= commitId)
           ]
       )
 
-instance Prelude.ToPath CreateBranch where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateBranch where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateBranch where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateBranch where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateBranchResponse' smart constructor.
 data CreateBranchResponse = CreateBranchResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateBranchResponse' with all optional fields omitted.
@@ -158,4 +154,4 @@ newCreateBranchResponse ::
   CreateBranchResponse
 newCreateBranchResponse = CreateBranchResponse'
 
-instance Prelude.NFData CreateBranchResponse
+instance Core.NFData CreateBranchResponse

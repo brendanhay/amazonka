@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.SSM.StartAssociationsOnce
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -49,9 +48,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newStartAssociationsOnce' smart constructor.
 data StartAssociationsOnce = StartAssociationsOnce'
   { -- | The association IDs that you want to run immediately and only one time.
-    associationIds :: Prelude.NonEmpty Prelude.Text
+    associationIds :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartAssociationsOnce' with all optional fields omitted.
@@ -64,70 +63,68 @@ data StartAssociationsOnce = StartAssociationsOnce'
 -- 'associationIds', 'startAssociationsOnce_associationIds' - The association IDs that you want to run immediately and only one time.
 newStartAssociationsOnce ::
   -- | 'associationIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   StartAssociationsOnce
 newStartAssociationsOnce pAssociationIds_ =
   StartAssociationsOnce'
     { associationIds =
-        Prelude._Coerce Lens.# pAssociationIds_
+        Lens._Coerce Lens.# pAssociationIds_
     }
 
 -- | The association IDs that you want to run immediately and only one time.
-startAssociationsOnce_associationIds :: Lens.Lens' StartAssociationsOnce (Prelude.NonEmpty Prelude.Text)
-startAssociationsOnce_associationIds = Lens.lens (\StartAssociationsOnce' {associationIds} -> associationIds) (\s@StartAssociationsOnce' {} a -> s {associationIds = a} :: StartAssociationsOnce) Prelude.. Prelude._Coerce
+startAssociationsOnce_associationIds :: Lens.Lens' StartAssociationsOnce (Core.NonEmpty Core.Text)
+startAssociationsOnce_associationIds = Lens.lens (\StartAssociationsOnce' {associationIds} -> associationIds) (\s@StartAssociationsOnce' {} a -> s {associationIds = a} :: StartAssociationsOnce) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest StartAssociationsOnce where
+instance Core.AWSRequest StartAssociationsOnce where
   type
-    Rs StartAssociationsOnce =
+    AWSResponse StartAssociationsOnce =
       StartAssociationsOnceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartAssociationsOnceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartAssociationsOnce
+instance Core.Hashable StartAssociationsOnce
 
-instance Prelude.NFData StartAssociationsOnce
+instance Core.NFData StartAssociationsOnce
 
-instance Prelude.ToHeaders StartAssociationsOnce where
+instance Core.ToHeaders StartAssociationsOnce where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.StartAssociationsOnce" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.StartAssociationsOnce" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartAssociationsOnce where
+instance Core.ToJSON StartAssociationsOnce where
   toJSON StartAssociationsOnce' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AssociationIds" Prelude..= associationIds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("AssociationIds" Core..= associationIds)
           ]
       )
 
-instance Prelude.ToPath StartAssociationsOnce where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartAssociationsOnce where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartAssociationsOnce where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartAssociationsOnce where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartAssociationsOnceResponse' smart constructor.
 data StartAssociationsOnceResponse = StartAssociationsOnceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartAssociationsOnceResponse' with all optional fields omitted.
@@ -140,7 +137,7 @@ data StartAssociationsOnceResponse = StartAssociationsOnceResponse'
 -- 'httpStatus', 'startAssociationsOnceResponse_httpStatus' - The response's http status code.
 newStartAssociationsOnceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartAssociationsOnceResponse
 newStartAssociationsOnceResponse pHttpStatus_ =
   StartAssociationsOnceResponse'
@@ -149,7 +146,7 @@ newStartAssociationsOnceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startAssociationsOnceResponse_httpStatus :: Lens.Lens' StartAssociationsOnceResponse Prelude.Int
+startAssociationsOnceResponse_httpStatus :: Lens.Lens' StartAssociationsOnceResponse Core.Int
 startAssociationsOnceResponse_httpStatus = Lens.lens (\StartAssociationsOnceResponse' {httpStatus} -> httpStatus) (\s@StartAssociationsOnceResponse' {} a -> s {httpStatus = a} :: StartAssociationsOnceResponse)
 
-instance Prelude.NFData StartAssociationsOnceResponse
+instance Core.NFData StartAssociationsOnceResponse

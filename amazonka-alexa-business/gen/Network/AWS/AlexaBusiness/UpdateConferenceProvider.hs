@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,25 +43,25 @@ module Network.AWS.AlexaBusiness.UpdateConferenceProvider
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateConferenceProvider' smart constructor.
 data UpdateConferenceProvider = UpdateConferenceProvider'
   { -- | The IP endpoint and protocol for calling.
-    iPDialIn :: Prelude.Maybe IPDialIn,
+    iPDialIn :: Core.Maybe IPDialIn,
     -- | The information for PSTN conferencing.
-    pSTNDialIn :: Prelude.Maybe PSTNDialIn,
+    pSTNDialIn :: Core.Maybe PSTNDialIn,
     -- | The ARN of the conference provider.
-    conferenceProviderArn :: Prelude.Text,
+    conferenceProviderArn :: Core.Text,
     -- | The type of the conference provider.
     conferenceProviderType :: ConferenceProviderType,
     -- | The meeting settings for the conference provider.
     meetingSetting :: MeetingSetting
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConferenceProvider' with all optional fields omitted.
@@ -83,7 +82,7 @@ data UpdateConferenceProvider = UpdateConferenceProvider'
 -- 'meetingSetting', 'updateConferenceProvider_meetingSetting' - The meeting settings for the conference provider.
 newUpdateConferenceProvider ::
   -- | 'conferenceProviderArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'conferenceProviderType'
   ConferenceProviderType ->
   -- | 'meetingSetting'
@@ -94,24 +93,23 @@ newUpdateConferenceProvider
   pConferenceProviderType_
   pMeetingSetting_ =
     UpdateConferenceProvider'
-      { iPDialIn =
-          Prelude.Nothing,
-        pSTNDialIn = Prelude.Nothing,
+      { iPDialIn = Core.Nothing,
+        pSTNDialIn = Core.Nothing,
         conferenceProviderArn = pConferenceProviderArn_,
         conferenceProviderType = pConferenceProviderType_,
         meetingSetting = pMeetingSetting_
       }
 
 -- | The IP endpoint and protocol for calling.
-updateConferenceProvider_iPDialIn :: Lens.Lens' UpdateConferenceProvider (Prelude.Maybe IPDialIn)
+updateConferenceProvider_iPDialIn :: Lens.Lens' UpdateConferenceProvider (Core.Maybe IPDialIn)
 updateConferenceProvider_iPDialIn = Lens.lens (\UpdateConferenceProvider' {iPDialIn} -> iPDialIn) (\s@UpdateConferenceProvider' {} a -> s {iPDialIn = a} :: UpdateConferenceProvider)
 
 -- | The information for PSTN conferencing.
-updateConferenceProvider_pSTNDialIn :: Lens.Lens' UpdateConferenceProvider (Prelude.Maybe PSTNDialIn)
+updateConferenceProvider_pSTNDialIn :: Lens.Lens' UpdateConferenceProvider (Core.Maybe PSTNDialIn)
 updateConferenceProvider_pSTNDialIn = Lens.lens (\UpdateConferenceProvider' {pSTNDialIn} -> pSTNDialIn) (\s@UpdateConferenceProvider' {} a -> s {pSTNDialIn = a} :: UpdateConferenceProvider)
 
 -- | The ARN of the conference provider.
-updateConferenceProvider_conferenceProviderArn :: Lens.Lens' UpdateConferenceProvider Prelude.Text
+updateConferenceProvider_conferenceProviderArn :: Lens.Lens' UpdateConferenceProvider Core.Text
 updateConferenceProvider_conferenceProviderArn = Lens.lens (\UpdateConferenceProvider' {conferenceProviderArn} -> conferenceProviderArn) (\s@UpdateConferenceProvider' {} a -> s {conferenceProviderArn = a} :: UpdateConferenceProvider)
 
 -- | The type of the conference provider.
@@ -122,68 +120,65 @@ updateConferenceProvider_conferenceProviderType = Lens.lens (\UpdateConferencePr
 updateConferenceProvider_meetingSetting :: Lens.Lens' UpdateConferenceProvider MeetingSetting
 updateConferenceProvider_meetingSetting = Lens.lens (\UpdateConferenceProvider' {meetingSetting} -> meetingSetting) (\s@UpdateConferenceProvider' {} a -> s {meetingSetting = a} :: UpdateConferenceProvider)
 
-instance Prelude.AWSRequest UpdateConferenceProvider where
+instance Core.AWSRequest UpdateConferenceProvider where
   type
-    Rs UpdateConferenceProvider =
+    AWSResponse UpdateConferenceProvider =
       UpdateConferenceProviderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateConferenceProviderResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConferenceProvider
+instance Core.Hashable UpdateConferenceProvider
 
-instance Prelude.NFData UpdateConferenceProvider
+instance Core.NFData UpdateConferenceProvider
 
-instance Prelude.ToHeaders UpdateConferenceProvider where
+instance Core.ToHeaders UpdateConferenceProvider where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.UpdateConferenceProvider" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.UpdateConferenceProvider" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateConferenceProvider where
+instance Core.ToJSON UpdateConferenceProvider where
   toJSON UpdateConferenceProvider' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IPDialIn" Prelude..=) Prelude.<$> iPDialIn,
-            ("PSTNDialIn" Prelude..=) Prelude.<$> pSTNDialIn,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("IPDialIn" Core..=) Core.<$> iPDialIn,
+            ("PSTNDialIn" Core..=) Core.<$> pSTNDialIn,
+            Core.Just
               ( "ConferenceProviderArn"
-                  Prelude..= conferenceProviderArn
+                  Core..= conferenceProviderArn
               ),
-            Prelude.Just
+            Core.Just
               ( "ConferenceProviderType"
-                  Prelude..= conferenceProviderType
+                  Core..= conferenceProviderType
               ),
-            Prelude.Just
-              ("MeetingSetting" Prelude..= meetingSetting)
+            Core.Just ("MeetingSetting" Core..= meetingSetting)
           ]
       )
 
-instance Prelude.ToPath UpdateConferenceProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateConferenceProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateConferenceProvider where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateConferenceProvider where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateConferenceProviderResponse' smart constructor.
 data UpdateConferenceProviderResponse = UpdateConferenceProviderResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConferenceProviderResponse' with all optional fields omitted.
@@ -196,7 +191,7 @@ data UpdateConferenceProviderResponse = UpdateConferenceProviderResponse'
 -- 'httpStatus', 'updateConferenceProviderResponse_httpStatus' - The response's http status code.
 newUpdateConferenceProviderResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateConferenceProviderResponse
 newUpdateConferenceProviderResponse pHttpStatus_ =
   UpdateConferenceProviderResponse'
@@ -205,9 +200,7 @@ newUpdateConferenceProviderResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateConferenceProviderResponse_httpStatus :: Lens.Lens' UpdateConferenceProviderResponse Prelude.Int
+updateConferenceProviderResponse_httpStatus :: Lens.Lens' UpdateConferenceProviderResponse Core.Int
 updateConferenceProviderResponse_httpStatus = Lens.lens (\UpdateConferenceProviderResponse' {httpStatus} -> httpStatus) (\s@UpdateConferenceProviderResponse' {} a -> s {httpStatus = a} :: UpdateConferenceProviderResponse)
 
-instance
-  Prelude.NFData
-    UpdateConferenceProviderResponse
+instance Core.NFData UpdateConferenceProviderResponse

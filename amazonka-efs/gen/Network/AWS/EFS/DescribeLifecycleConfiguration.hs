@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EFS.DescribeLifecycleConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ import qualified Network.AWS.Response as Response
 data DescribeLifecycleConfiguration = DescribeLifecycleConfiguration'
   { -- | The ID of the file system whose @LifecycleConfiguration@ object you want
     -- to retrieve (String).
-    fileSystemId :: Prelude.Text
+    fileSystemId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLifecycleConfiguration' with all optional fields omitted.
@@ -73,7 +72,7 @@ data DescribeLifecycleConfiguration = DescribeLifecycleConfiguration'
 -- to retrieve (String).
 newDescribeLifecycleConfiguration ::
   -- | 'fileSystemId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeLifecycleConfiguration
 newDescribeLifecycleConfiguration pFileSystemId_ =
   DescribeLifecycleConfiguration'
@@ -83,48 +82,38 @@ newDescribeLifecycleConfiguration pFileSystemId_ =
 
 -- | The ID of the file system whose @LifecycleConfiguration@ object you want
 -- to retrieve (String).
-describeLifecycleConfiguration_fileSystemId :: Lens.Lens' DescribeLifecycleConfiguration Prelude.Text
+describeLifecycleConfiguration_fileSystemId :: Lens.Lens' DescribeLifecycleConfiguration Core.Text
 describeLifecycleConfiguration_fileSystemId = Lens.lens (\DescribeLifecycleConfiguration' {fileSystemId} -> fileSystemId) (\s@DescribeLifecycleConfiguration' {} a -> s {fileSystemId = a} :: DescribeLifecycleConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeLifecycleConfiguration
   where
   type
-    Rs DescribeLifecycleConfiguration =
+    AWSResponse DescribeLifecycleConfiguration =
       LifecycleConfigurationDescription
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
+
+instance Core.Hashable DescribeLifecycleConfiguration
+
+instance Core.NFData DescribeLifecycleConfiguration
 
 instance
-  Prelude.Hashable
-    DescribeLifecycleConfiguration
-
-instance
-  Prelude.NFData
-    DescribeLifecycleConfiguration
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeLifecycleConfiguration
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DescribeLifecycleConfiguration
-  where
+instance Core.ToPath DescribeLifecycleConfiguration where
   toPath DescribeLifecycleConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-02-01/file-systems/",
-        Prelude.toBS fileSystemId,
+        Core.toBS fileSystemId,
         "/lifecycle-configuration"
       ]
 
-instance
-  Prelude.ToQuery
-    DescribeLifecycleConfiguration
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeLifecycleConfiguration where
+  toQuery = Core.const Core.mempty

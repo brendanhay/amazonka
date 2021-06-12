@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CodeBuild.DeleteReportGroup
 where
 
 import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +57,11 @@ data DeleteReportGroup = DeleteReportGroup'
     -- <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html DeleteReport>
     -- to delete the reports. If you call @DeleteReportGroup@ for a report
     -- group that contains one or more reports, an exception is thrown.
-    deleteReports :: Prelude.Maybe Prelude.Bool,
+    deleteReports :: Core.Maybe Core.Bool,
     -- | The ARN of the report group to delete.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReportGroup' with all optional fields omitted.
@@ -85,11 +84,11 @@ data DeleteReportGroup = DeleteReportGroup'
 -- 'arn', 'deleteReportGroup_arn' - The ARN of the report group to delete.
 newDeleteReportGroup ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteReportGroup
 newDeleteReportGroup pArn_ =
   DeleteReportGroup'
-    { deleteReports = Prelude.Nothing,
+    { deleteReports = Core.Nothing,
       arn = pArn_
     }
 
@@ -102,64 +101,63 @@ newDeleteReportGroup pArn_ =
 -- <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html DeleteReport>
 -- to delete the reports. If you call @DeleteReportGroup@ for a report
 -- group that contains one or more reports, an exception is thrown.
-deleteReportGroup_deleteReports :: Lens.Lens' DeleteReportGroup (Prelude.Maybe Prelude.Bool)
+deleteReportGroup_deleteReports :: Lens.Lens' DeleteReportGroup (Core.Maybe Core.Bool)
 deleteReportGroup_deleteReports = Lens.lens (\DeleteReportGroup' {deleteReports} -> deleteReports) (\s@DeleteReportGroup' {} a -> s {deleteReports = a} :: DeleteReportGroup)
 
 -- | The ARN of the report group to delete.
-deleteReportGroup_arn :: Lens.Lens' DeleteReportGroup Prelude.Text
+deleteReportGroup_arn :: Lens.Lens' DeleteReportGroup Core.Text
 deleteReportGroup_arn = Lens.lens (\DeleteReportGroup' {arn} -> arn) (\s@DeleteReportGroup' {} a -> s {arn = a} :: DeleteReportGroup)
 
-instance Prelude.AWSRequest DeleteReportGroup where
-  type Rs DeleteReportGroup = DeleteReportGroupResponse
+instance Core.AWSRequest DeleteReportGroup where
+  type
+    AWSResponse DeleteReportGroup =
+      DeleteReportGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteReportGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReportGroup
+instance Core.Hashable DeleteReportGroup
 
-instance Prelude.NFData DeleteReportGroup
+instance Core.NFData DeleteReportGroup
 
-instance Prelude.ToHeaders DeleteReportGroup where
+instance Core.ToHeaders DeleteReportGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeBuild_20161006.DeleteReportGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeBuild_20161006.DeleteReportGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteReportGroup where
+instance Core.ToJSON DeleteReportGroup where
   toJSON DeleteReportGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deleteReports" Prelude..=)
-              Prelude.<$> deleteReports,
-            Prelude.Just ("arn" Prelude..= arn)
+    Core.object
+      ( Core.catMaybes
+          [ ("deleteReports" Core..=) Core.<$> deleteReports,
+            Core.Just ("arn" Core..= arn)
           ]
       )
 
-instance Prelude.ToPath DeleteReportGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteReportGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteReportGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteReportGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteReportGroupResponse' smart constructor.
 data DeleteReportGroupResponse = DeleteReportGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReportGroupResponse' with all optional fields omitted.
@@ -172,7 +170,7 @@ data DeleteReportGroupResponse = DeleteReportGroupResponse'
 -- 'httpStatus', 'deleteReportGroupResponse_httpStatus' - The response's http status code.
 newDeleteReportGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteReportGroupResponse
 newDeleteReportGroupResponse pHttpStatus_ =
   DeleteReportGroupResponse'
@@ -181,7 +179,7 @@ newDeleteReportGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteReportGroupResponse_httpStatus :: Lens.Lens' DeleteReportGroupResponse Prelude.Int
+deleteReportGroupResponse_httpStatus :: Lens.Lens' DeleteReportGroupResponse Core.Int
 deleteReportGroupResponse_httpStatus = Lens.lens (\DeleteReportGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteReportGroupResponse' {} a -> s {httpStatus = a} :: DeleteReportGroupResponse)
 
-instance Prelude.NFData DeleteReportGroupResponse
+instance Core.NFData DeleteReportGroupResponse

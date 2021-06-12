@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.ResourceRequirement where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.ResourceType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The type and amount of a resource to assign to a container. The
 -- supported resource types are GPUs and Elastic Inference accelerators.
@@ -44,12 +43,12 @@ data ResourceRequirement = ResourceRequirement'
     --
     -- If the @InferenceAccelerator@ type is used, the @value@ should match the
     -- @deviceName@ for an InferenceAccelerator specified in a task definition.
-    value :: Prelude.Text,
+    value :: Core.Text,
     -- | The type of resource to assign to a container. The supported values are
     -- @GPU@ or @InferenceAccelerator@.
     type' :: ResourceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceRequirement' with all optional fields omitted.
@@ -74,7 +73,7 @@ data ResourceRequirement = ResourceRequirement'
 -- @GPU@ or @InferenceAccelerator@.
 newResourceRequirement ::
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   ResourceType ->
   ResourceRequirement
@@ -94,7 +93,7 @@ newResourceRequirement pValue_ pType_ =
 --
 -- If the @InferenceAccelerator@ type is used, the @value@ should match the
 -- @deviceName@ for an InferenceAccelerator specified in a task definition.
-resourceRequirement_value :: Lens.Lens' ResourceRequirement Prelude.Text
+resourceRequirement_value :: Lens.Lens' ResourceRequirement Core.Text
 resourceRequirement_value = Lens.lens (\ResourceRequirement' {value} -> value) (\s@ResourceRequirement' {} a -> s {value = a} :: ResourceRequirement)
 
 -- | The type of resource to assign to a container. The supported values are
@@ -102,25 +101,24 @@ resourceRequirement_value = Lens.lens (\ResourceRequirement' {value} -> value) (
 resourceRequirement_type :: Lens.Lens' ResourceRequirement ResourceType
 resourceRequirement_type = Lens.lens (\ResourceRequirement' {type'} -> type') (\s@ResourceRequirement' {} a -> s {type' = a} :: ResourceRequirement)
 
-instance Prelude.FromJSON ResourceRequirement where
+instance Core.FromJSON ResourceRequirement where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceRequirement"
       ( \x ->
           ResourceRequirement'
-            Prelude.<$> (x Prelude..: "value")
-            Prelude.<*> (x Prelude..: "type")
+            Core.<$> (x Core..: "value") Core.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable ResourceRequirement
+instance Core.Hashable ResourceRequirement
 
-instance Prelude.NFData ResourceRequirement
+instance Core.NFData ResourceRequirement
 
-instance Prelude.ToJSON ResourceRequirement where
+instance Core.ToJSON ResourceRequirement where
   toJSON ResourceRequirement' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("value" Prelude..= value),
-            Prelude.Just ("type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("value" Core..= value),
+            Core.Just ("type" Core..= type')
           ]
       )

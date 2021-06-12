@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.CodePipeline.PutJobFailureResult
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +49,11 @@ import qualified Network.AWS.Response as Response
 data PutJobFailureResult = PutJobFailureResult'
   { -- | The unique system-generated ID of the job that failed. This is the same
     -- ID returned from @PollForJobs@.
-    jobId :: Prelude.Text,
+    jobId :: Core.Text,
     -- | The details about the failure of a job.
     failureDetails :: FailureDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutJobFailureResult' with all optional fields omitted.
@@ -70,7 +69,7 @@ data PutJobFailureResult = PutJobFailureResult'
 -- 'failureDetails', 'putJobFailureResult_failureDetails' - The details about the failure of a job.
 newPutJobFailureResult ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'failureDetails'
   FailureDetails ->
   PutJobFailureResult
@@ -82,61 +81,58 @@ newPutJobFailureResult pJobId_ pFailureDetails_ =
 
 -- | The unique system-generated ID of the job that failed. This is the same
 -- ID returned from @PollForJobs@.
-putJobFailureResult_jobId :: Lens.Lens' PutJobFailureResult Prelude.Text
+putJobFailureResult_jobId :: Lens.Lens' PutJobFailureResult Core.Text
 putJobFailureResult_jobId = Lens.lens (\PutJobFailureResult' {jobId} -> jobId) (\s@PutJobFailureResult' {} a -> s {jobId = a} :: PutJobFailureResult)
 
 -- | The details about the failure of a job.
 putJobFailureResult_failureDetails :: Lens.Lens' PutJobFailureResult FailureDetails
 putJobFailureResult_failureDetails = Lens.lens (\PutJobFailureResult' {failureDetails} -> failureDetails) (\s@PutJobFailureResult' {} a -> s {failureDetails = a} :: PutJobFailureResult)
 
-instance Prelude.AWSRequest PutJobFailureResult where
+instance Core.AWSRequest PutJobFailureResult where
   type
-    Rs PutJobFailureResult =
+    AWSResponse PutJobFailureResult =
       PutJobFailureResultResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull PutJobFailureResultResponse'
 
-instance Prelude.Hashable PutJobFailureResult
+instance Core.Hashable PutJobFailureResult
 
-instance Prelude.NFData PutJobFailureResult
+instance Core.NFData PutJobFailureResult
 
-instance Prelude.ToHeaders PutJobFailureResult where
+instance Core.ToHeaders PutJobFailureResult where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.PutJobFailureResult" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.PutJobFailureResult" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutJobFailureResult where
+instance Core.ToJSON PutJobFailureResult where
   toJSON PutJobFailureResult' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("jobId" Prelude..= jobId),
-            Prelude.Just
-              ("failureDetails" Prelude..= failureDetails)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("jobId" Core..= jobId),
+            Core.Just ("failureDetails" Core..= failureDetails)
           ]
       )
 
-instance Prelude.ToPath PutJobFailureResult where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutJobFailureResult where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutJobFailureResult where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutJobFailureResult where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutJobFailureResultResponse' smart constructor.
 data PutJobFailureResultResponse = PutJobFailureResultResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutJobFailureResultResponse' with all optional fields omitted.
@@ -147,4 +143,4 @@ newPutJobFailureResultResponse ::
 newPutJobFailureResultResponse =
   PutJobFailureResultResponse'
 
-instance Prelude.NFData PutJobFailureResultResponse
+instance Core.NFData PutJobFailureResultResponse

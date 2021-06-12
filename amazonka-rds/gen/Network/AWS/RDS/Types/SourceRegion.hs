@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.SourceRegion where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains an AWS Region name as the result of a successful call to the
 -- @DescribeSourceRegions@ action.
@@ -29,16 +28,16 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSourceRegion' smart constructor.
 data SourceRegion = SourceRegion'
   { -- | The name of the source AWS Region.
-    regionName :: Prelude.Maybe Prelude.Text,
+    regionName :: Core.Maybe Core.Text,
     -- | The status of the source AWS Region.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | Whether the source AWS Region supports replicating automated backups to
     -- the current AWS Region.
-    supportsDBInstanceAutomatedBackupsReplication :: Prelude.Maybe Prelude.Bool,
+    supportsDBInstanceAutomatedBackupsReplication :: Core.Maybe Core.Bool,
     -- | The endpoint for the source AWS Region endpoint.
-    endpoint :: Prelude.Maybe Prelude.Text
+    endpoint :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SourceRegion' with all optional fields omitted.
@@ -60,40 +59,40 @@ newSourceRegion ::
   SourceRegion
 newSourceRegion =
   SourceRegion'
-    { regionName = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { regionName = Core.Nothing,
+      status = Core.Nothing,
       supportsDBInstanceAutomatedBackupsReplication =
-        Prelude.Nothing,
-      endpoint = Prelude.Nothing
+        Core.Nothing,
+      endpoint = Core.Nothing
     }
 
 -- | The name of the source AWS Region.
-sourceRegion_regionName :: Lens.Lens' SourceRegion (Prelude.Maybe Prelude.Text)
+sourceRegion_regionName :: Lens.Lens' SourceRegion (Core.Maybe Core.Text)
 sourceRegion_regionName = Lens.lens (\SourceRegion' {regionName} -> regionName) (\s@SourceRegion' {} a -> s {regionName = a} :: SourceRegion)
 
 -- | The status of the source AWS Region.
-sourceRegion_status :: Lens.Lens' SourceRegion (Prelude.Maybe Prelude.Text)
+sourceRegion_status :: Lens.Lens' SourceRegion (Core.Maybe Core.Text)
 sourceRegion_status = Lens.lens (\SourceRegion' {status} -> status) (\s@SourceRegion' {} a -> s {status = a} :: SourceRegion)
 
 -- | Whether the source AWS Region supports replicating automated backups to
 -- the current AWS Region.
-sourceRegion_supportsDBInstanceAutomatedBackupsReplication :: Lens.Lens' SourceRegion (Prelude.Maybe Prelude.Bool)
+sourceRegion_supportsDBInstanceAutomatedBackupsReplication :: Lens.Lens' SourceRegion (Core.Maybe Core.Bool)
 sourceRegion_supportsDBInstanceAutomatedBackupsReplication = Lens.lens (\SourceRegion' {supportsDBInstanceAutomatedBackupsReplication} -> supportsDBInstanceAutomatedBackupsReplication) (\s@SourceRegion' {} a -> s {supportsDBInstanceAutomatedBackupsReplication = a} :: SourceRegion)
 
 -- | The endpoint for the source AWS Region endpoint.
-sourceRegion_endpoint :: Lens.Lens' SourceRegion (Prelude.Maybe Prelude.Text)
+sourceRegion_endpoint :: Lens.Lens' SourceRegion (Core.Maybe Core.Text)
 sourceRegion_endpoint = Lens.lens (\SourceRegion' {endpoint} -> endpoint) (\s@SourceRegion' {} a -> s {endpoint = a} :: SourceRegion)
 
-instance Prelude.FromXML SourceRegion where
+instance Core.FromXML SourceRegion where
   parseXML x =
     SourceRegion'
-      Prelude.<$> (x Prelude..@? "RegionName")
-      Prelude.<*> (x Prelude..@? "Status")
-      Prelude.<*> ( x
-                      Prelude..@? "SupportsDBInstanceAutomatedBackupsReplication"
-                  )
-      Prelude.<*> (x Prelude..@? "Endpoint")
+      Core.<$> (x Core..@? "RegionName")
+      Core.<*> (x Core..@? "Status")
+      Core.<*> ( x
+                   Core..@? "SupportsDBInstanceAutomatedBackupsReplication"
+               )
+      Core.<*> (x Core..@? "Endpoint")
 
-instance Prelude.Hashable SourceRegion
+instance Core.Hashable SourceRegion
 
-instance Prelude.NFData SourceRegion
+instance Core.NFData SourceRegion

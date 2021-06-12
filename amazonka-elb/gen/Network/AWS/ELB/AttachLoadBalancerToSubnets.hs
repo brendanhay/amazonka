@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +57,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAttachLoadBalancerToSubnets' smart constructor.
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
   { -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The IDs of the subnets to add. You can add only one subnet per
     -- Availability Zone.
-    subnets :: [Prelude.Text]
+    subnets :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachLoadBalancerToSubnets' with all optional fields omitted.
@@ -79,30 +78,27 @@ data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
 -- Availability Zone.
 newAttachLoadBalancerToSubnets ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   AttachLoadBalancerToSubnets
 newAttachLoadBalancerToSubnets pLoadBalancerName_ =
   AttachLoadBalancerToSubnets'
     { loadBalancerName =
         pLoadBalancerName_,
-      subnets = Prelude.mempty
+      subnets = Core.mempty
     }
 
 -- | The name of the load balancer.
-attachLoadBalancerToSubnets_loadBalancerName :: Lens.Lens' AttachLoadBalancerToSubnets Prelude.Text
+attachLoadBalancerToSubnets_loadBalancerName :: Lens.Lens' AttachLoadBalancerToSubnets Core.Text
 attachLoadBalancerToSubnets_loadBalancerName = Lens.lens (\AttachLoadBalancerToSubnets' {loadBalancerName} -> loadBalancerName) (\s@AttachLoadBalancerToSubnets' {} a -> s {loadBalancerName = a} :: AttachLoadBalancerToSubnets)
 
 -- | The IDs of the subnets to add. You can add only one subnet per
 -- Availability Zone.
-attachLoadBalancerToSubnets_subnets :: Lens.Lens' AttachLoadBalancerToSubnets [Prelude.Text]
-attachLoadBalancerToSubnets_subnets = Lens.lens (\AttachLoadBalancerToSubnets' {subnets} -> subnets) (\s@AttachLoadBalancerToSubnets' {} a -> s {subnets = a} :: AttachLoadBalancerToSubnets) Prelude.. Prelude._Coerce
+attachLoadBalancerToSubnets_subnets :: Lens.Lens' AttachLoadBalancerToSubnets [Core.Text]
+attachLoadBalancerToSubnets_subnets = Lens.lens (\AttachLoadBalancerToSubnets' {subnets} -> subnets) (\s@AttachLoadBalancerToSubnets' {} a -> s {subnets = a} :: AttachLoadBalancerToSubnets) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    AttachLoadBalancerToSubnets
-  where
+instance Core.AWSRequest AttachLoadBalancerToSubnets where
   type
-    Rs AttachLoadBalancerToSubnets =
+    AWSResponse AttachLoadBalancerToSubnets =
       AttachLoadBalancerToSubnetsResponse
   request = Request.postQuery defaultService
   response =
@@ -110,37 +106,30 @@ instance
       "AttachLoadBalancerToSubnetsResult"
       ( \s h x ->
           AttachLoadBalancerToSubnetsResponse'
-            Prelude.<$> ( x Prelude..@? "Subnets" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Subnets" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AttachLoadBalancerToSubnets
+instance Core.Hashable AttachLoadBalancerToSubnets
 
-instance Prelude.NFData AttachLoadBalancerToSubnets
+instance Core.NFData AttachLoadBalancerToSubnets
 
-instance
-  Prelude.ToHeaders
-    AttachLoadBalancerToSubnets
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AttachLoadBalancerToSubnets where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AttachLoadBalancerToSubnets where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachLoadBalancerToSubnets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AttachLoadBalancerToSubnets where
+instance Core.ToQuery AttachLoadBalancerToSubnets where
   toQuery AttachLoadBalancerToSubnets' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "AttachLoadBalancerToSubnets" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Prelude.=: loadBalancerName,
-        "Subnets"
-          Prelude.=: Prelude.toQueryList "member" subnets
+          Core.=: ("AttachLoadBalancerToSubnets" :: Core.ByteString),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "LoadBalancerName" Core.=: loadBalancerName,
+        "Subnets" Core.=: Core.toQueryList "member" subnets
       ]
 
 -- | Contains the output of AttachLoadBalancerToSubnets.
@@ -148,11 +137,11 @@ instance Prelude.ToQuery AttachLoadBalancerToSubnets where
 -- /See:/ 'newAttachLoadBalancerToSubnetsResponse' smart constructor.
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
   { -- | The IDs of the subnets attached to the load balancer.
-    subnets :: Prelude.Maybe [Prelude.Text],
+    subnets :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachLoadBalancerToSubnetsResponse' with all optional fields omitted.
@@ -167,23 +156,23 @@ data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
 -- 'httpStatus', 'attachLoadBalancerToSubnetsResponse_httpStatus' - The response's http status code.
 newAttachLoadBalancerToSubnetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AttachLoadBalancerToSubnetsResponse
 newAttachLoadBalancerToSubnetsResponse pHttpStatus_ =
   AttachLoadBalancerToSubnetsResponse'
     { subnets =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IDs of the subnets attached to the load balancer.
-attachLoadBalancerToSubnetsResponse_subnets :: Lens.Lens' AttachLoadBalancerToSubnetsResponse (Prelude.Maybe [Prelude.Text])
-attachLoadBalancerToSubnetsResponse_subnets = Lens.lens (\AttachLoadBalancerToSubnetsResponse' {subnets} -> subnets) (\s@AttachLoadBalancerToSubnetsResponse' {} a -> s {subnets = a} :: AttachLoadBalancerToSubnetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+attachLoadBalancerToSubnetsResponse_subnets :: Lens.Lens' AttachLoadBalancerToSubnetsResponse (Core.Maybe [Core.Text])
+attachLoadBalancerToSubnetsResponse_subnets = Lens.lens (\AttachLoadBalancerToSubnetsResponse' {subnets} -> subnets) (\s@AttachLoadBalancerToSubnetsResponse' {} a -> s {subnets = a} :: AttachLoadBalancerToSubnetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-attachLoadBalancerToSubnetsResponse_httpStatus :: Lens.Lens' AttachLoadBalancerToSubnetsResponse Prelude.Int
+attachLoadBalancerToSubnetsResponse_httpStatus :: Lens.Lens' AttachLoadBalancerToSubnetsResponse Core.Int
 attachLoadBalancerToSubnetsResponse_httpStatus = Lens.lens (\AttachLoadBalancerToSubnetsResponse' {httpStatus} -> httpStatus) (\s@AttachLoadBalancerToSubnetsResponse' {} a -> s {httpStatus = a} :: AttachLoadBalancerToSubnetsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AttachLoadBalancerToSubnetsResponse

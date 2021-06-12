@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.ServiceCatalog.UpdateProduct
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -60,23 +59,23 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newUpdateProduct' smart constructor.
 data UpdateProduct = UpdateProduct'
   { -- | The updated distributor of the product.
-    distributor :: Prelude.Maybe Prelude.Text,
+    distributor :: Core.Maybe Core.Text,
     -- | The tags to remove from the product.
-    removeTags :: Prelude.Maybe [Prelude.Text],
+    removeTags :: Core.Maybe [Core.Text],
     -- | The tags to add to the product.
-    addTags :: Prelude.Maybe [Tag],
+    addTags :: Core.Maybe [Tag],
     -- | The updated product name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The updated support URL for the product.
-    supportUrl :: Prelude.Maybe Prelude.Text,
+    supportUrl :: Core.Maybe Core.Text,
     -- | The updated support description for the product.
-    supportDescription :: Prelude.Maybe Prelude.Text,
+    supportDescription :: Core.Maybe Core.Text,
     -- | The updated owner of the product.
-    owner :: Prelude.Maybe Prelude.Text,
+    owner :: Core.Maybe Core.Text,
     -- | The updated description of the product.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The updated support email for the product.
-    supportEmail :: Prelude.Maybe Prelude.Text,
+    supportEmail :: Core.Maybe Core.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -84,11 +83,11 @@ data UpdateProduct = UpdateProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The product identifier.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateProduct' with all optional fields omitted.
@@ -127,57 +126,57 @@ data UpdateProduct = UpdateProduct'
 -- 'id', 'updateProduct_id' - The product identifier.
 newUpdateProduct ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   UpdateProduct
 newUpdateProduct pId_ =
   UpdateProduct'
-    { distributor = Prelude.Nothing,
-      removeTags = Prelude.Nothing,
-      addTags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      supportUrl = Prelude.Nothing,
-      supportDescription = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      description = Prelude.Nothing,
-      supportEmail = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+    { distributor = Core.Nothing,
+      removeTags = Core.Nothing,
+      addTags = Core.Nothing,
+      name = Core.Nothing,
+      supportUrl = Core.Nothing,
+      supportDescription = Core.Nothing,
+      owner = Core.Nothing,
+      description = Core.Nothing,
+      supportEmail = Core.Nothing,
+      acceptLanguage = Core.Nothing,
       id = pId_
     }
 
 -- | The updated distributor of the product.
-updateProduct_distributor :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
+updateProduct_distributor :: Lens.Lens' UpdateProduct (Core.Maybe Core.Text)
 updateProduct_distributor = Lens.lens (\UpdateProduct' {distributor} -> distributor) (\s@UpdateProduct' {} a -> s {distributor = a} :: UpdateProduct)
 
 -- | The tags to remove from the product.
-updateProduct_removeTags :: Lens.Lens' UpdateProduct (Prelude.Maybe [Prelude.Text])
-updateProduct_removeTags = Lens.lens (\UpdateProduct' {removeTags} -> removeTags) (\s@UpdateProduct' {} a -> s {removeTags = a} :: UpdateProduct) Prelude.. Lens.mapping Prelude._Coerce
+updateProduct_removeTags :: Lens.Lens' UpdateProduct (Core.Maybe [Core.Text])
+updateProduct_removeTags = Lens.lens (\UpdateProduct' {removeTags} -> removeTags) (\s@UpdateProduct' {} a -> s {removeTags = a} :: UpdateProduct) Core.. Lens.mapping Lens._Coerce
 
 -- | The tags to add to the product.
-updateProduct_addTags :: Lens.Lens' UpdateProduct (Prelude.Maybe [Tag])
-updateProduct_addTags = Lens.lens (\UpdateProduct' {addTags} -> addTags) (\s@UpdateProduct' {} a -> s {addTags = a} :: UpdateProduct) Prelude.. Lens.mapping Prelude._Coerce
+updateProduct_addTags :: Lens.Lens' UpdateProduct (Core.Maybe [Tag])
+updateProduct_addTags = Lens.lens (\UpdateProduct' {addTags} -> addTags) (\s@UpdateProduct' {} a -> s {addTags = a} :: UpdateProduct) Core.. Lens.mapping Lens._Coerce
 
 -- | The updated product name.
-updateProduct_name :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
+updateProduct_name :: Lens.Lens' UpdateProduct (Core.Maybe Core.Text)
 updateProduct_name = Lens.lens (\UpdateProduct' {name} -> name) (\s@UpdateProduct' {} a -> s {name = a} :: UpdateProduct)
 
 -- | The updated support URL for the product.
-updateProduct_supportUrl :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
+updateProduct_supportUrl :: Lens.Lens' UpdateProduct (Core.Maybe Core.Text)
 updateProduct_supportUrl = Lens.lens (\UpdateProduct' {supportUrl} -> supportUrl) (\s@UpdateProduct' {} a -> s {supportUrl = a} :: UpdateProduct)
 
 -- | The updated support description for the product.
-updateProduct_supportDescription :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
+updateProduct_supportDescription :: Lens.Lens' UpdateProduct (Core.Maybe Core.Text)
 updateProduct_supportDescription = Lens.lens (\UpdateProduct' {supportDescription} -> supportDescription) (\s@UpdateProduct' {} a -> s {supportDescription = a} :: UpdateProduct)
 
 -- | The updated owner of the product.
-updateProduct_owner :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
+updateProduct_owner :: Lens.Lens' UpdateProduct (Core.Maybe Core.Text)
 updateProduct_owner = Lens.lens (\UpdateProduct' {owner} -> owner) (\s@UpdateProduct' {} a -> s {owner = a} :: UpdateProduct)
 
 -- | The updated description of the product.
-updateProduct_description :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
+updateProduct_description :: Lens.Lens' UpdateProduct (Core.Maybe Core.Text)
 updateProduct_description = Lens.lens (\UpdateProduct' {description} -> description) (\s@UpdateProduct' {} a -> s {description = a} :: UpdateProduct)
 
 -- | The updated support email for the product.
-updateProduct_supportEmail :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
+updateProduct_supportEmail :: Lens.Lens' UpdateProduct (Core.Maybe Core.Text)
 updateProduct_supportEmail = Lens.lens (\UpdateProduct' {supportEmail} -> supportEmail) (\s@UpdateProduct' {} a -> s {supportEmail = a} :: UpdateProduct)
 
 -- | The language code.
@@ -187,80 +186,79 @@ updateProduct_supportEmail = Lens.lens (\UpdateProduct' {supportEmail} -> suppor
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-updateProduct_acceptLanguage :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
+updateProduct_acceptLanguage :: Lens.Lens' UpdateProduct (Core.Maybe Core.Text)
 updateProduct_acceptLanguage = Lens.lens (\UpdateProduct' {acceptLanguage} -> acceptLanguage) (\s@UpdateProduct' {} a -> s {acceptLanguage = a} :: UpdateProduct)
 
 -- | The product identifier.
-updateProduct_id :: Lens.Lens' UpdateProduct Prelude.Text
+updateProduct_id :: Lens.Lens' UpdateProduct Core.Text
 updateProduct_id = Lens.lens (\UpdateProduct' {id} -> id) (\s@UpdateProduct' {} a -> s {id = a} :: UpdateProduct)
 
-instance Prelude.AWSRequest UpdateProduct where
-  type Rs UpdateProduct = UpdateProductResponse
+instance Core.AWSRequest UpdateProduct where
+  type
+    AWSResponse UpdateProduct =
+      UpdateProductResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateProductResponse'
-            Prelude.<$> (x Prelude..?> "ProductViewDetail")
-            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ProductViewDetail")
+            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProduct
+instance Core.Hashable UpdateProduct
 
-instance Prelude.NFData UpdateProduct
+instance Core.NFData UpdateProduct
 
-instance Prelude.ToHeaders UpdateProduct where
+instance Core.ToHeaders UpdateProduct where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.UpdateProduct" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.UpdateProduct" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateProduct where
+instance Core.ToJSON UpdateProduct where
   toJSON UpdateProduct' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Distributor" Prelude..=) Prelude.<$> distributor,
-            ("RemoveTags" Prelude..=) Prelude.<$> removeTags,
-            ("AddTags" Prelude..=) Prelude.<$> addTags,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("SupportUrl" Prelude..=) Prelude.<$> supportUrl,
-            ("SupportDescription" Prelude..=)
-              Prelude.<$> supportDescription,
-            ("Owner" Prelude..=) Prelude.<$> owner,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("SupportEmail" Prelude..=) Prelude.<$> supportEmail,
-            ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ ("Distributor" Core..=) Core.<$> distributor,
+            ("RemoveTags" Core..=) Core.<$> removeTags,
+            ("AddTags" Core..=) Core.<$> addTags,
+            ("Name" Core..=) Core.<$> name,
+            ("SupportUrl" Core..=) Core.<$> supportUrl,
+            ("SupportDescription" Core..=)
+              Core.<$> supportDescription,
+            ("Owner" Core..=) Core.<$> owner,
+            ("Description" Core..=) Core.<$> description,
+            ("SupportEmail" Core..=) Core.<$> supportEmail,
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("Id" Core..= id)
           ]
       )
 
-instance Prelude.ToPath UpdateProduct where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateProduct where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateProduct where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateProduct where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateProductResponse' smart constructor.
 data UpdateProductResponse = UpdateProductResponse'
   { -- | Information about the product view.
-    productViewDetail :: Prelude.Maybe ProductViewDetail,
+    productViewDetail :: Core.Maybe ProductViewDetail,
     -- | Information about the tags associated with the product.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateProductResponse' with all optional fields omitted.
@@ -277,26 +275,26 @@ data UpdateProductResponse = UpdateProductResponse'
 -- 'httpStatus', 'updateProductResponse_httpStatus' - The response's http status code.
 newUpdateProductResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateProductResponse
 newUpdateProductResponse pHttpStatus_ =
   UpdateProductResponse'
     { productViewDetail =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
+        Core.Nothing,
+      tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the product view.
-updateProductResponse_productViewDetail :: Lens.Lens' UpdateProductResponse (Prelude.Maybe ProductViewDetail)
+updateProductResponse_productViewDetail :: Lens.Lens' UpdateProductResponse (Core.Maybe ProductViewDetail)
 updateProductResponse_productViewDetail = Lens.lens (\UpdateProductResponse' {productViewDetail} -> productViewDetail) (\s@UpdateProductResponse' {} a -> s {productViewDetail = a} :: UpdateProductResponse)
 
 -- | Information about the tags associated with the product.
-updateProductResponse_tags :: Lens.Lens' UpdateProductResponse (Prelude.Maybe [Tag])
-updateProductResponse_tags = Lens.lens (\UpdateProductResponse' {tags} -> tags) (\s@UpdateProductResponse' {} a -> s {tags = a} :: UpdateProductResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateProductResponse_tags :: Lens.Lens' UpdateProductResponse (Core.Maybe [Tag])
+updateProductResponse_tags = Lens.lens (\UpdateProductResponse' {tags} -> tags) (\s@UpdateProductResponse' {} a -> s {tags = a} :: UpdateProductResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-updateProductResponse_httpStatus :: Lens.Lens' UpdateProductResponse Prelude.Int
+updateProductResponse_httpStatus :: Lens.Lens' UpdateProductResponse Core.Int
 updateProductResponse_httpStatus = Lens.lens (\UpdateProductResponse' {httpStatus} -> httpStatus) (\s@UpdateProductResponse' {} a -> s {httpStatus = a} :: UpdateProductResponse)
 
-instance Prelude.NFData UpdateProductResponse
+instance Core.NFData UpdateProductResponse

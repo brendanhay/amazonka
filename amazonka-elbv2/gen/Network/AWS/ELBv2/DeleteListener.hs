@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,18 +41,18 @@ module Network.AWS.ELBv2.DeleteListener
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteListener' smart constructor.
 data DeleteListener = DeleteListener'
   { -- | The Amazon Resource Name (ARN) of the listener.
-    listenerArn :: Prelude.Text
+    listenerArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteListener' with all optional fields omitted.
@@ -66,52 +65,53 @@ data DeleteListener = DeleteListener'
 -- 'listenerArn', 'deleteListener_listenerArn' - The Amazon Resource Name (ARN) of the listener.
 newDeleteListener ::
   -- | 'listenerArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteListener
 newDeleteListener pListenerArn_ =
   DeleteListener' {listenerArn = pListenerArn_}
 
 -- | The Amazon Resource Name (ARN) of the listener.
-deleteListener_listenerArn :: Lens.Lens' DeleteListener Prelude.Text
+deleteListener_listenerArn :: Lens.Lens' DeleteListener Core.Text
 deleteListener_listenerArn = Lens.lens (\DeleteListener' {listenerArn} -> listenerArn) (\s@DeleteListener' {} a -> s {listenerArn = a} :: DeleteListener)
 
-instance Prelude.AWSRequest DeleteListener where
-  type Rs DeleteListener = DeleteListenerResponse
+instance Core.AWSRequest DeleteListener where
+  type
+    AWSResponse DeleteListener =
+      DeleteListenerResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteListenerResult"
       ( \s h x ->
           DeleteListenerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteListener
+instance Core.Hashable DeleteListener
 
-instance Prelude.NFData DeleteListener
+instance Core.NFData DeleteListener
 
-instance Prelude.ToHeaders DeleteListener where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteListener where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteListener where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteListener where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteListener where
+instance Core.ToQuery DeleteListener where
   toQuery DeleteListener' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteListener" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
-        "ListenerArn" Prelude.=: listenerArn
+          Core.=: ("DeleteListener" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+        "ListenerArn" Core.=: listenerArn
       ]
 
 -- | /See:/ 'newDeleteListenerResponse' smart constructor.
 data DeleteListenerResponse = DeleteListenerResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteListenerResponse' with all optional fields omitted.
@@ -124,13 +124,13 @@ data DeleteListenerResponse = DeleteListenerResponse'
 -- 'httpStatus', 'deleteListenerResponse_httpStatus' - The response's http status code.
 newDeleteListenerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteListenerResponse
 newDeleteListenerResponse pHttpStatus_ =
   DeleteListenerResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteListenerResponse_httpStatus :: Lens.Lens' DeleteListenerResponse Prelude.Int
+deleteListenerResponse_httpStatus :: Lens.Lens' DeleteListenerResponse Core.Int
 deleteListenerResponse_httpStatus = Lens.lens (\DeleteListenerResponse' {httpStatus} -> httpStatus) (\s@DeleteListenerResponse' {} a -> s {httpStatus = a} :: DeleteListenerResponse)
 
-instance Prelude.NFData DeleteListenerResponse
+instance Core.NFData DeleteListenerResponse

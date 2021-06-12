@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DAX.Types.ParameterGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A named set of parameters that are applied to all of the nodes in a DAX
 -- cluster.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newParameterGroup' smart constructor.
 data ParameterGroup = ParameterGroup'
   { -- | The name of the parameter group.
-    parameterGroupName :: Prelude.Maybe Prelude.Text,
+    parameterGroupName :: Core.Maybe Core.Text,
     -- | A description of the parameter group.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterGroup' with all optional fields omitted.
@@ -50,29 +49,28 @@ newParameterGroup ::
   ParameterGroup
 newParameterGroup =
   ParameterGroup'
-    { parameterGroupName =
-        Prelude.Nothing,
-      description = Prelude.Nothing
+    { parameterGroupName = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The name of the parameter group.
-parameterGroup_parameterGroupName :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
+parameterGroup_parameterGroupName :: Lens.Lens' ParameterGroup (Core.Maybe Core.Text)
 parameterGroup_parameterGroupName = Lens.lens (\ParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@ParameterGroup' {} a -> s {parameterGroupName = a} :: ParameterGroup)
 
 -- | A description of the parameter group.
-parameterGroup_description :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
+parameterGroup_description :: Lens.Lens' ParameterGroup (Core.Maybe Core.Text)
 parameterGroup_description = Lens.lens (\ParameterGroup' {description} -> description) (\s@ParameterGroup' {} a -> s {description = a} :: ParameterGroup)
 
-instance Prelude.FromJSON ParameterGroup where
+instance Core.FromJSON ParameterGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParameterGroup"
       ( \x ->
           ParameterGroup'
-            Prelude.<$> (x Prelude..:? "ParameterGroupName")
-            Prelude.<*> (x Prelude..:? "Description")
+            Core.<$> (x Core..:? "ParameterGroupName")
+            Core.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ParameterGroup
+instance Core.Hashable ParameterGroup
 
-instance Prelude.NFData ParameterGroup
+instance Core.NFData ParameterGroup

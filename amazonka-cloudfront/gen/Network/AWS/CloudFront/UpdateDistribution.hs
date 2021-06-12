@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -114,8 +113,8 @@ module Network.AWS.CloudFront.UpdateDistribution
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -125,13 +124,13 @@ import qualified Network.AWS.Response as Response
 data UpdateDistribution = UpdateDistribution'
   { -- | The value of the @ETag@ header that you received when retrieving the
     -- distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Prelude.Maybe Prelude.Text,
+    ifMatch :: Core.Maybe Core.Text,
     -- | The distribution\'s configuration information.
     distributionConfig :: DistributionConfig,
     -- | The distribution\'s id.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDistribution' with all optional fields omitted.
@@ -151,18 +150,18 @@ newUpdateDistribution ::
   -- | 'distributionConfig'
   DistributionConfig ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   UpdateDistribution
 newUpdateDistribution pDistributionConfig_ pId_ =
   UpdateDistribution'
-    { ifMatch = Prelude.Nothing,
+    { ifMatch = Core.Nothing,
       distributionConfig = pDistributionConfig_,
       id = pId_
     }
 
 -- | The value of the @ETag@ header that you received when retrieving the
 -- distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.
-updateDistribution_ifMatch :: Lens.Lens' UpdateDistribution (Prelude.Maybe Prelude.Text)
+updateDistribution_ifMatch :: Lens.Lens' UpdateDistribution (Core.Maybe Core.Text)
 updateDistribution_ifMatch = Lens.lens (\UpdateDistribution' {ifMatch} -> ifMatch) (\s@UpdateDistribution' {} a -> s {ifMatch = a} :: UpdateDistribution)
 
 -- | The distribution\'s configuration information.
@@ -170,60 +169,60 @@ updateDistribution_distributionConfig :: Lens.Lens' UpdateDistribution Distribut
 updateDistribution_distributionConfig = Lens.lens (\UpdateDistribution' {distributionConfig} -> distributionConfig) (\s@UpdateDistribution' {} a -> s {distributionConfig = a} :: UpdateDistribution)
 
 -- | The distribution\'s id.
-updateDistribution_id :: Lens.Lens' UpdateDistribution Prelude.Text
+updateDistribution_id :: Lens.Lens' UpdateDistribution Core.Text
 updateDistribution_id = Lens.lens (\UpdateDistribution' {id} -> id) (\s@UpdateDistribution' {} a -> s {id = a} :: UpdateDistribution)
 
-instance Prelude.AWSRequest UpdateDistribution where
+instance Core.AWSRequest UpdateDistribution where
   type
-    Rs UpdateDistribution =
+    AWSResponse UpdateDistribution =
       UpdateDistributionResponse
   request = Request.putXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           UpdateDistributionResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-            Prelude.<*> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag")
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDistribution
+instance Core.Hashable UpdateDistribution
 
-instance Prelude.NFData UpdateDistribution
+instance Core.NFData UpdateDistribution
 
-instance Prelude.ToElement UpdateDistribution where
+instance Core.ToElement UpdateDistribution where
   toElement UpdateDistribution' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DistributionConfig"
       distributionConfig
 
-instance Prelude.ToHeaders UpdateDistribution where
+instance Core.ToHeaders UpdateDistribution where
   toHeaders UpdateDistribution' {..} =
-    Prelude.mconcat ["If-Match" Prelude.=# ifMatch]
+    Core.mconcat ["If-Match" Core.=# ifMatch]
 
-instance Prelude.ToPath UpdateDistribution where
+instance Core.ToPath UpdateDistribution where
   toPath UpdateDistribution' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2020-05-31/distribution/",
-        Prelude.toBS id,
+        Core.toBS id,
         "/config"
       ]
 
-instance Prelude.ToQuery UpdateDistribution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDistribution where
+  toQuery = Core.const Core.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newUpdateDistributionResponse' smart constructor.
 data UpdateDistributionResponse = UpdateDistributionResponse'
   { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The distribution\'s information.
-    distribution :: Prelude.Maybe Distribution,
+    distribution :: Core.Maybe Distribution,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDistributionResponse' with all optional fields omitted.
@@ -240,25 +239,25 @@ data UpdateDistributionResponse = UpdateDistributionResponse'
 -- 'httpStatus', 'updateDistributionResponse_httpStatus' - The response's http status code.
 newUpdateDistributionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateDistributionResponse
 newUpdateDistributionResponse pHttpStatus_ =
   UpdateDistributionResponse'
-    { eTag = Prelude.Nothing,
-      distribution = Prelude.Nothing,
+    { eTag = Core.Nothing,
+      distribution = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-updateDistributionResponse_eTag :: Lens.Lens' UpdateDistributionResponse (Prelude.Maybe Prelude.Text)
+updateDistributionResponse_eTag :: Lens.Lens' UpdateDistributionResponse (Core.Maybe Core.Text)
 updateDistributionResponse_eTag = Lens.lens (\UpdateDistributionResponse' {eTag} -> eTag) (\s@UpdateDistributionResponse' {} a -> s {eTag = a} :: UpdateDistributionResponse)
 
 -- | The distribution\'s information.
-updateDistributionResponse_distribution :: Lens.Lens' UpdateDistributionResponse (Prelude.Maybe Distribution)
+updateDistributionResponse_distribution :: Lens.Lens' UpdateDistributionResponse (Core.Maybe Distribution)
 updateDistributionResponse_distribution = Lens.lens (\UpdateDistributionResponse' {distribution} -> distribution) (\s@UpdateDistributionResponse' {} a -> s {distribution = a} :: UpdateDistributionResponse)
 
 -- | The response's http status code.
-updateDistributionResponse_httpStatus :: Lens.Lens' UpdateDistributionResponse Prelude.Int
+updateDistributionResponse_httpStatus :: Lens.Lens' UpdateDistributionResponse Core.Int
 updateDistributionResponse_httpStatus = Lens.lens (\UpdateDistributionResponse' {httpStatus} -> httpStatus) (\s@UpdateDistributionResponse' {} a -> s {httpStatus = a} :: UpdateDistributionResponse)
 
-instance Prelude.NFData UpdateDistributionResponse
+instance Core.NFData UpdateDistributionResponse

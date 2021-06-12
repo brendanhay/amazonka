@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MigrationHub.Types.ResourceAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types.ResourceAttributeType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Attribute associated with a resource.
 --
@@ -49,9 +48,9 @@ data ResourceAttribute = ResourceAttribute'
   { -- | Type of resource.
     type' :: ResourceAttributeType,
     -- | Value of the resource type.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceAttribute' with all optional fields omitted.
@@ -68,7 +67,7 @@ newResourceAttribute ::
   -- | 'type''
   ResourceAttributeType ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   ResourceAttribute
 newResourceAttribute pType_ pValue_ =
   ResourceAttribute' {type' = pType_, value = pValue_}
@@ -78,28 +77,27 @@ resourceAttribute_type :: Lens.Lens' ResourceAttribute ResourceAttributeType
 resourceAttribute_type = Lens.lens (\ResourceAttribute' {type'} -> type') (\s@ResourceAttribute' {} a -> s {type' = a} :: ResourceAttribute)
 
 -- | Value of the resource type.
-resourceAttribute_value :: Lens.Lens' ResourceAttribute Prelude.Text
+resourceAttribute_value :: Lens.Lens' ResourceAttribute Core.Text
 resourceAttribute_value = Lens.lens (\ResourceAttribute' {value} -> value) (\s@ResourceAttribute' {} a -> s {value = a} :: ResourceAttribute)
 
-instance Prelude.FromJSON ResourceAttribute where
+instance Core.FromJSON ResourceAttribute where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceAttribute"
       ( \x ->
           ResourceAttribute'
-            Prelude.<$> (x Prelude..: "Type")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable ResourceAttribute
+instance Core.Hashable ResourceAttribute
 
-instance Prelude.NFData ResourceAttribute
+instance Core.NFData ResourceAttribute
 
-instance Prelude.ToJSON ResourceAttribute where
+instance Core.ToJSON ResourceAttribute where
   toJSON ResourceAttribute' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Prelude..= type'),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            Core.Just ("Value" Core..= value)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.APIGateway.GetModels
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +55,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetModels' smart constructor.
 data GetModels = GetModels'
   { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
+    position :: Core.Maybe Core.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int,
+    limit :: Core.Maybe Core.Int,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text
+    restApiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetModels' with all optional fields omitted.
@@ -82,83 +80,81 @@ data GetModels = GetModels'
 -- 'restApiId', 'getModels_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetModels ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   GetModels
 newGetModels pRestApiId_ =
   GetModels'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { position = Core.Nothing,
+      limit = Core.Nothing,
       restApiId = pRestApiId_
     }
 
 -- | The current pagination position in the paged result set.
-getModels_position :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Text)
+getModels_position :: Lens.Lens' GetModels (Core.Maybe Core.Text)
 getModels_position = Lens.lens (\GetModels' {position} -> position) (\s@GetModels' {} a -> s {position = a} :: GetModels)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getModels_limit :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Int)
+getModels_limit :: Lens.Lens' GetModels (Core.Maybe Core.Int)
 getModels_limit = Lens.lens (\GetModels' {limit} -> limit) (\s@GetModels' {} a -> s {limit = a} :: GetModels)
 
 -- | [Required] The string identifier of the associated RestApi.
-getModels_restApiId :: Lens.Lens' GetModels Prelude.Text
+getModels_restApiId :: Lens.Lens' GetModels Core.Text
 getModels_restApiId = Lens.lens (\GetModels' {restApiId} -> restApiId) (\s@GetModels' {} a -> s {restApiId = a} :: GetModels)
 
-instance Pager.AWSPager GetModels where
+instance Core.AWSPager GetModels where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? getModelsResponse_position Prelude.. Lens._Just
+            Lens.^? getModelsResponse_position Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? getModelsResponse_items Prelude.. Lens._Just
+            Lens.^? getModelsResponse_items Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getModels_position
           Lens..~ rs
-          Lens.^? getModelsResponse_position Prelude.. Lens._Just
+          Lens.^? getModelsResponse_position Core.. Lens._Just
 
-instance Prelude.AWSRequest GetModels where
-  type Rs GetModels = GetModelsResponse
+instance Core.AWSRequest GetModels where
+  type AWSResponse GetModels = GetModelsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetModelsResponse'
-            Prelude.<$> (x Prelude..?> "item" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "position")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "position")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetModels
+instance Core.Hashable GetModels
 
-instance Prelude.NFData GetModels
+instance Core.NFData GetModels
 
-instance Prelude.ToHeaders GetModels where
+instance Core.ToHeaders GetModels where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetModels where
+instance Core.ToPath GetModels where
   toPath GetModels' {..} =
-    Prelude.mconcat
-      ["/restapis/", Prelude.toBS restApiId, "/models"]
+    Core.mconcat
+      ["/restapis/", Core.toBS restApiId, "/models"]
 
-instance Prelude.ToQuery GetModels where
+instance Core.ToQuery GetModels where
   toQuery GetModels' {..} =
-    Prelude.mconcat
-      [ "position" Prelude.=: position,
-        "limit" Prelude.=: limit
-      ]
+    Core.mconcat
+      ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | Represents a collection of Model resources.
 --
@@ -168,12 +164,12 @@ instance Prelude.ToQuery GetModels where
 -- /See:/ 'newGetModelsResponse' smart constructor.
 data GetModelsResponse = GetModelsResponse'
   { -- | The current page of elements from this collection.
-    items :: Prelude.Maybe [Model],
-    position :: Prelude.Maybe Prelude.Text,
+    items :: Core.Maybe [Model],
+    position :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetModelsResponse' with all optional fields omitted.
@@ -190,25 +186,25 @@ data GetModelsResponse = GetModelsResponse'
 -- 'httpStatus', 'getModelsResponse_httpStatus' - The response's http status code.
 newGetModelsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetModelsResponse
 newGetModelsResponse pHttpStatus_ =
   GetModelsResponse'
-    { items = Prelude.Nothing,
-      position = Prelude.Nothing,
+    { items = Core.Nothing,
+      position = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getModelsResponse_items :: Lens.Lens' GetModelsResponse (Prelude.Maybe [Model])
-getModelsResponse_items = Lens.lens (\GetModelsResponse' {items} -> items) (\s@GetModelsResponse' {} a -> s {items = a} :: GetModelsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getModelsResponse_items :: Lens.Lens' GetModelsResponse (Core.Maybe [Model])
+getModelsResponse_items = Lens.lens (\GetModelsResponse' {items} -> items) (\s@GetModelsResponse' {} a -> s {items = a} :: GetModelsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getModelsResponse_position :: Lens.Lens' GetModelsResponse (Prelude.Maybe Prelude.Text)
+getModelsResponse_position :: Lens.Lens' GetModelsResponse (Core.Maybe Core.Text)
 getModelsResponse_position = Lens.lens (\GetModelsResponse' {position} -> position) (\s@GetModelsResponse' {} a -> s {position = a} :: GetModelsResponse)
 
 -- | The response's http status code.
-getModelsResponse_httpStatus :: Lens.Lens' GetModelsResponse Prelude.Int
+getModelsResponse_httpStatus :: Lens.Lens' GetModelsResponse Core.Int
 getModelsResponse_httpStatus = Lens.lens (\GetModelsResponse' {httpStatus} -> httpStatus) (\s@GetModelsResponse' {} a -> s {httpStatus = a} :: GetModelsResponse)
 
-instance Prelude.NFData GetModelsResponse
+instance Core.NFData GetModelsResponse

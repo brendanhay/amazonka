@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.ContextDataType where
 
 import Network.AWS.CognitoIdentityProvider.Types.HttpHeader
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contextual user data type used for evaluating the risk of an unexpected
 -- event by Amazon Cognito advanced security.
@@ -31,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 data ContextDataType = ContextDataType'
   { -- | Encoded data containing device fingerprinting details, collected using
     -- the Amazon Cognito context data collection library.
-    encodedData :: Prelude.Maybe Prelude.Text,
+    encodedData :: Core.Maybe Core.Text,
     -- | Source IP address of your user.
-    ipAddress :: Prelude.Text,
+    ipAddress :: Core.Text,
     -- | Your server endpoint where this API is invoked.
-    serverName :: Prelude.Text,
+    serverName :: Core.Text,
     -- | Your server path where this API is invoked.
-    serverPath :: Prelude.Text,
+    serverPath :: Core.Text,
     -- | HttpHeaders received on your server in same order.
     httpHeaders :: [HttpHeader]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContextDataType' with all optional fields omitted.
@@ -63,57 +62,57 @@ data ContextDataType = ContextDataType'
 -- 'httpHeaders', 'contextDataType_httpHeaders' - HttpHeaders received on your server in same order.
 newContextDataType ::
   -- | 'ipAddress'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serverName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serverPath'
-  Prelude.Text ->
+  Core.Text ->
   ContextDataType
 newContextDataType
   pIpAddress_
   pServerName_
   pServerPath_ =
     ContextDataType'
-      { encodedData = Prelude.Nothing,
+      { encodedData = Core.Nothing,
         ipAddress = pIpAddress_,
         serverName = pServerName_,
         serverPath = pServerPath_,
-        httpHeaders = Prelude.mempty
+        httpHeaders = Core.mempty
       }
 
 -- | Encoded data containing device fingerprinting details, collected using
 -- the Amazon Cognito context data collection library.
-contextDataType_encodedData :: Lens.Lens' ContextDataType (Prelude.Maybe Prelude.Text)
+contextDataType_encodedData :: Lens.Lens' ContextDataType (Core.Maybe Core.Text)
 contextDataType_encodedData = Lens.lens (\ContextDataType' {encodedData} -> encodedData) (\s@ContextDataType' {} a -> s {encodedData = a} :: ContextDataType)
 
 -- | Source IP address of your user.
-contextDataType_ipAddress :: Lens.Lens' ContextDataType Prelude.Text
+contextDataType_ipAddress :: Lens.Lens' ContextDataType Core.Text
 contextDataType_ipAddress = Lens.lens (\ContextDataType' {ipAddress} -> ipAddress) (\s@ContextDataType' {} a -> s {ipAddress = a} :: ContextDataType)
 
 -- | Your server endpoint where this API is invoked.
-contextDataType_serverName :: Lens.Lens' ContextDataType Prelude.Text
+contextDataType_serverName :: Lens.Lens' ContextDataType Core.Text
 contextDataType_serverName = Lens.lens (\ContextDataType' {serverName} -> serverName) (\s@ContextDataType' {} a -> s {serverName = a} :: ContextDataType)
 
 -- | Your server path where this API is invoked.
-contextDataType_serverPath :: Lens.Lens' ContextDataType Prelude.Text
+contextDataType_serverPath :: Lens.Lens' ContextDataType Core.Text
 contextDataType_serverPath = Lens.lens (\ContextDataType' {serverPath} -> serverPath) (\s@ContextDataType' {} a -> s {serverPath = a} :: ContextDataType)
 
 -- | HttpHeaders received on your server in same order.
 contextDataType_httpHeaders :: Lens.Lens' ContextDataType [HttpHeader]
-contextDataType_httpHeaders = Lens.lens (\ContextDataType' {httpHeaders} -> httpHeaders) (\s@ContextDataType' {} a -> s {httpHeaders = a} :: ContextDataType) Prelude.. Prelude._Coerce
+contextDataType_httpHeaders = Lens.lens (\ContextDataType' {httpHeaders} -> httpHeaders) (\s@ContextDataType' {} a -> s {httpHeaders = a} :: ContextDataType) Core.. Lens._Coerce
 
-instance Prelude.Hashable ContextDataType
+instance Core.Hashable ContextDataType
 
-instance Prelude.NFData ContextDataType
+instance Core.NFData ContextDataType
 
-instance Prelude.ToJSON ContextDataType where
+instance Core.ToJSON ContextDataType where
   toJSON ContextDataType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EncodedData" Prelude..=) Prelude.<$> encodedData,
-            Prelude.Just ("IpAddress" Prelude..= ipAddress),
-            Prelude.Just ("ServerName" Prelude..= serverName),
-            Prelude.Just ("ServerPath" Prelude..= serverPath),
-            Prelude.Just ("HttpHeaders" Prelude..= httpHeaders)
+    Core.object
+      ( Core.catMaybes
+          [ ("EncodedData" Core..=) Core.<$> encodedData,
+            Core.Just ("IpAddress" Core..= ipAddress),
+            Core.Just ("ServerName" Core..= serverName),
+            Core.Just ("ServerPath" Core..= serverPath),
+            Core.Just ("HttpHeaders" Core..= httpHeaders)
           ]
       )

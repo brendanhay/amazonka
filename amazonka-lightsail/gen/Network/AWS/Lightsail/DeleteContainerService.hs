@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.Lightsail.DeleteContainerService
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteContainerService' smart constructor.
 data DeleteContainerService = DeleteContainerService'
   { -- | The name of the container service to delete.
-    serviceName :: Prelude.Text
+    serviceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteContainerService' with all optional fields omitted.
@@ -63,7 +62,7 @@ data DeleteContainerService = DeleteContainerService'
 -- 'serviceName', 'deleteContainerService_serviceName' - The name of the container service to delete.
 newDeleteContainerService ::
   -- | 'serviceName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteContainerService
 newDeleteContainerService pServiceName_ =
   DeleteContainerService'
@@ -72,61 +71,57 @@ newDeleteContainerService pServiceName_ =
     }
 
 -- | The name of the container service to delete.
-deleteContainerService_serviceName :: Lens.Lens' DeleteContainerService Prelude.Text
+deleteContainerService_serviceName :: Lens.Lens' DeleteContainerService Core.Text
 deleteContainerService_serviceName = Lens.lens (\DeleteContainerService' {serviceName} -> serviceName) (\s@DeleteContainerService' {} a -> s {serviceName = a} :: DeleteContainerService)
 
-instance Prelude.AWSRequest DeleteContainerService where
+instance Core.AWSRequest DeleteContainerService where
   type
-    Rs DeleteContainerService =
+    AWSResponse DeleteContainerService =
       DeleteContainerServiceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteContainerServiceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContainerService
+instance Core.Hashable DeleteContainerService
 
-instance Prelude.NFData DeleteContainerService
+instance Core.NFData DeleteContainerService
 
-instance Prelude.ToHeaders DeleteContainerService where
+instance Core.ToHeaders DeleteContainerService where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.DeleteContainerService" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.DeleteContainerService" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteContainerService where
+instance Core.ToJSON DeleteContainerService where
   toJSON DeleteContainerService' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("serviceName" Prelude..= serviceName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("serviceName" Core..= serviceName)]
       )
 
-instance Prelude.ToPath DeleteContainerService where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteContainerService where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteContainerService where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteContainerService where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteContainerServiceResponse' smart constructor.
 data DeleteContainerServiceResponse = DeleteContainerServiceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteContainerServiceResponse' with all optional fields omitted.
@@ -139,7 +134,7 @@ data DeleteContainerServiceResponse = DeleteContainerServiceResponse'
 -- 'httpStatus', 'deleteContainerServiceResponse_httpStatus' - The response's http status code.
 newDeleteContainerServiceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteContainerServiceResponse
 newDeleteContainerServiceResponse pHttpStatus_ =
   DeleteContainerServiceResponse'
@@ -148,9 +143,7 @@ newDeleteContainerServiceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteContainerServiceResponse_httpStatus :: Lens.Lens' DeleteContainerServiceResponse Prelude.Int
+deleteContainerServiceResponse_httpStatus :: Lens.Lens' DeleteContainerServiceResponse Core.Int
 deleteContainerServiceResponse_httpStatus = Lens.lens (\DeleteContainerServiceResponse' {httpStatus} -> httpStatus) (\s@DeleteContainerServiceResponse' {} a -> s {httpStatus = a} :: DeleteContainerServiceResponse)
 
-instance
-  Prelude.NFData
-    DeleteContainerServiceResponse
+instance Core.NFData DeleteContainerServiceResponse

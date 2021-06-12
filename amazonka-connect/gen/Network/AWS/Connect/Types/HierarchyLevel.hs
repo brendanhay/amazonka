@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.HierarchyLevel where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a hierarchy level.
 --
 -- /See:/ 'newHierarchyLevel' smart constructor.
 data HierarchyLevel = HierarchyLevel'
   { -- | The Amazon Resource Name (ARN) of the hierarchy level.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The identifier of the hierarchy level.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the hierarchy level.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HierarchyLevel' with all optional fields omitted.
@@ -53,34 +52,34 @@ newHierarchyLevel ::
   HierarchyLevel
 newHierarchyLevel =
   HierarchyLevel'
-    { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the hierarchy level.
-hierarchyLevel_arn :: Lens.Lens' HierarchyLevel (Prelude.Maybe Prelude.Text)
+hierarchyLevel_arn :: Lens.Lens' HierarchyLevel (Core.Maybe Core.Text)
 hierarchyLevel_arn = Lens.lens (\HierarchyLevel' {arn} -> arn) (\s@HierarchyLevel' {} a -> s {arn = a} :: HierarchyLevel)
 
 -- | The identifier of the hierarchy level.
-hierarchyLevel_id :: Lens.Lens' HierarchyLevel (Prelude.Maybe Prelude.Text)
+hierarchyLevel_id :: Lens.Lens' HierarchyLevel (Core.Maybe Core.Text)
 hierarchyLevel_id = Lens.lens (\HierarchyLevel' {id} -> id) (\s@HierarchyLevel' {} a -> s {id = a} :: HierarchyLevel)
 
 -- | The name of the hierarchy level.
-hierarchyLevel_name :: Lens.Lens' HierarchyLevel (Prelude.Maybe Prelude.Text)
+hierarchyLevel_name :: Lens.Lens' HierarchyLevel (Core.Maybe Core.Text)
 hierarchyLevel_name = Lens.lens (\HierarchyLevel' {name} -> name) (\s@HierarchyLevel' {} a -> s {name = a} :: HierarchyLevel)
 
-instance Prelude.FromJSON HierarchyLevel where
+instance Core.FromJSON HierarchyLevel where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HierarchyLevel"
       ( \x ->
           HierarchyLevel'
-            Prelude.<$> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable HierarchyLevel
+instance Core.Hashable HierarchyLevel
 
-instance Prelude.NFData HierarchyLevel
+instance Core.NFData HierarchyLevel

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.ContentModerationDetection where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.ModerationLabel
 
 -- | Information about an unsafe content label detection in a stored video.
@@ -30,11 +29,11 @@ import Network.AWS.Rekognition.Types.ModerationLabel
 data ContentModerationDetection = ContentModerationDetection'
   { -- | Time, in milliseconds from the beginning of the video, that the unsafe
     -- content label was detected.
-    timestamp :: Prelude.Maybe Prelude.Integer,
+    timestamp :: Core.Maybe Core.Integer,
     -- | The unsafe content label detected by in the stored video.
-    moderationLabel :: Prelude.Maybe ModerationLabel
+    moderationLabel :: Core.Maybe ModerationLabel
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContentModerationDetection' with all optional fields omitted.
@@ -53,29 +52,29 @@ newContentModerationDetection ::
 newContentModerationDetection =
   ContentModerationDetection'
     { timestamp =
-        Prelude.Nothing,
-      moderationLabel = Prelude.Nothing
+        Core.Nothing,
+      moderationLabel = Core.Nothing
     }
 
 -- | Time, in milliseconds from the beginning of the video, that the unsafe
 -- content label was detected.
-contentModerationDetection_timestamp :: Lens.Lens' ContentModerationDetection (Prelude.Maybe Prelude.Integer)
+contentModerationDetection_timestamp :: Lens.Lens' ContentModerationDetection (Core.Maybe Core.Integer)
 contentModerationDetection_timestamp = Lens.lens (\ContentModerationDetection' {timestamp} -> timestamp) (\s@ContentModerationDetection' {} a -> s {timestamp = a} :: ContentModerationDetection)
 
 -- | The unsafe content label detected by in the stored video.
-contentModerationDetection_moderationLabel :: Lens.Lens' ContentModerationDetection (Prelude.Maybe ModerationLabel)
+contentModerationDetection_moderationLabel :: Lens.Lens' ContentModerationDetection (Core.Maybe ModerationLabel)
 contentModerationDetection_moderationLabel = Lens.lens (\ContentModerationDetection' {moderationLabel} -> moderationLabel) (\s@ContentModerationDetection' {} a -> s {moderationLabel = a} :: ContentModerationDetection)
 
-instance Prelude.FromJSON ContentModerationDetection where
+instance Core.FromJSON ContentModerationDetection where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContentModerationDetection"
       ( \x ->
           ContentModerationDetection'
-            Prelude.<$> (x Prelude..:? "Timestamp")
-            Prelude.<*> (x Prelude..:? "ModerationLabel")
+            Core.<$> (x Core..:? "Timestamp")
+            Core.<*> (x Core..:? "ModerationLabel")
       )
 
-instance Prelude.Hashable ContentModerationDetection
+instance Core.Hashable ContentModerationDetection
 
-instance Prelude.NFData ContentModerationDetection
+instance Core.NFData ContentModerationDetection

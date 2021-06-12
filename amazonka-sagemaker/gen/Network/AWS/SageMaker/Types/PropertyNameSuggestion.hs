@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.PropertyNameSuggestion where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A property name returned from a @GetSearchSuggestions@ call that
 -- specifies a value in the @PropertyNameQuery@ field.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data PropertyNameSuggestion = PropertyNameSuggestion'
   { -- | A suggested property name based on what you entered in the search
     -- textbox in the Amazon SageMaker console.
-    propertyName :: Prelude.Maybe Prelude.Text
+    propertyName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PropertyNameSuggestion' with all optional fields omitted.
@@ -49,23 +48,23 @@ newPropertyNameSuggestion ::
 newPropertyNameSuggestion =
   PropertyNameSuggestion'
     { propertyName =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | A suggested property name based on what you entered in the search
 -- textbox in the Amazon SageMaker console.
-propertyNameSuggestion_propertyName :: Lens.Lens' PropertyNameSuggestion (Prelude.Maybe Prelude.Text)
+propertyNameSuggestion_propertyName :: Lens.Lens' PropertyNameSuggestion (Core.Maybe Core.Text)
 propertyNameSuggestion_propertyName = Lens.lens (\PropertyNameSuggestion' {propertyName} -> propertyName) (\s@PropertyNameSuggestion' {} a -> s {propertyName = a} :: PropertyNameSuggestion)
 
-instance Prelude.FromJSON PropertyNameSuggestion where
+instance Core.FromJSON PropertyNameSuggestion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PropertyNameSuggestion"
       ( \x ->
           PropertyNameSuggestion'
-            Prelude.<$> (x Prelude..:? "PropertyName")
+            Core.<$> (x Core..:? "PropertyName")
       )
 
-instance Prelude.Hashable PropertyNameSuggestion
+instance Core.Hashable PropertyNameSuggestion
 
-instance Prelude.NFData PropertyNameSuggestion
+instance Core.NFData PropertyNameSuggestion

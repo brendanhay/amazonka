@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.ECR.DeleteRegistryPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data DeleteRegistryPolicy = DeleteRegistryPolicy'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRegistryPolicy' with all optional fields omitted.
@@ -58,59 +57,56 @@ newDeleteRegistryPolicy ::
   DeleteRegistryPolicy
 newDeleteRegistryPolicy = DeleteRegistryPolicy'
 
-instance Prelude.AWSRequest DeleteRegistryPolicy where
+instance Core.AWSRequest DeleteRegistryPolicy where
   type
-    Rs DeleteRegistryPolicy =
+    AWSResponse DeleteRegistryPolicy =
       DeleteRegistryPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteRegistryPolicyResponse'
-            Prelude.<$> (x Prelude..?> "registryId")
-            Prelude.<*> (x Prelude..?> "policyText")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "registryId")
+            Core.<*> (x Core..?> "policyText")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRegistryPolicy
+instance Core.Hashable DeleteRegistryPolicy
 
-instance Prelude.NFData DeleteRegistryPolicy
+instance Core.NFData DeleteRegistryPolicy
 
-instance Prelude.ToHeaders DeleteRegistryPolicy where
+instance Core.ToHeaders DeleteRegistryPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerRegistry_V20150921.DeleteRegistryPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DeleteRegistryPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteRegistryPolicy where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DeleteRegistryPolicy where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DeleteRegistryPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteRegistryPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteRegistryPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteRegistryPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteRegistryPolicyResponse' smart constructor.
 data DeleteRegistryPolicyResponse = DeleteRegistryPolicyResponse'
   { -- | The registry ID associated with the request.
-    registryId :: Prelude.Maybe Prelude.Text,
+    registryId :: Core.Maybe Core.Text,
     -- | The contents of the registry permissions policy that was deleted.
-    policyText :: Prelude.Maybe Prelude.Text,
+    policyText :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRegistryPolicyResponse' with all optional fields omitted.
@@ -127,26 +123,26 @@ data DeleteRegistryPolicyResponse = DeleteRegistryPolicyResponse'
 -- 'httpStatus', 'deleteRegistryPolicyResponse_httpStatus' - The response's http status code.
 newDeleteRegistryPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteRegistryPolicyResponse
 newDeleteRegistryPolicyResponse pHttpStatus_ =
   DeleteRegistryPolicyResponse'
     { registryId =
-        Prelude.Nothing,
-      policyText = Prelude.Nothing,
+        Core.Nothing,
+      policyText = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The registry ID associated with the request.
-deleteRegistryPolicyResponse_registryId :: Lens.Lens' DeleteRegistryPolicyResponse (Prelude.Maybe Prelude.Text)
+deleteRegistryPolicyResponse_registryId :: Lens.Lens' DeleteRegistryPolicyResponse (Core.Maybe Core.Text)
 deleteRegistryPolicyResponse_registryId = Lens.lens (\DeleteRegistryPolicyResponse' {registryId} -> registryId) (\s@DeleteRegistryPolicyResponse' {} a -> s {registryId = a} :: DeleteRegistryPolicyResponse)
 
 -- | The contents of the registry permissions policy that was deleted.
-deleteRegistryPolicyResponse_policyText :: Lens.Lens' DeleteRegistryPolicyResponse (Prelude.Maybe Prelude.Text)
+deleteRegistryPolicyResponse_policyText :: Lens.Lens' DeleteRegistryPolicyResponse (Core.Maybe Core.Text)
 deleteRegistryPolicyResponse_policyText = Lens.lens (\DeleteRegistryPolicyResponse' {policyText} -> policyText) (\s@DeleteRegistryPolicyResponse' {} a -> s {policyText = a} :: DeleteRegistryPolicyResponse)
 
 -- | The response's http status code.
-deleteRegistryPolicyResponse_httpStatus :: Lens.Lens' DeleteRegistryPolicyResponse Prelude.Int
+deleteRegistryPolicyResponse_httpStatus :: Lens.Lens' DeleteRegistryPolicyResponse Core.Int
 deleteRegistryPolicyResponse_httpStatus = Lens.lens (\DeleteRegistryPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteRegistryPolicyResponse' {} a -> s {httpStatus = a} :: DeleteRegistryPolicyResponse)
 
-instance Prelude.NFData DeleteRegistryPolicyResponse
+instance Core.NFData DeleteRegistryPolicyResponse

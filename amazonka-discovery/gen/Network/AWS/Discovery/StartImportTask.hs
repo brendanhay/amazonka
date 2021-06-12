@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -71,9 +70,9 @@ module Network.AWS.Discovery.StartImportTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -86,19 +85,19 @@ data StartImportTask = StartImportTask'
     -- Sending more than one @StartImportTask@ request with the same client
     -- request token will return information about the original import task
     -- with that client request token.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | A descriptive name for this request. You can use this name to filter
     -- future requests related to this import task, such as identifying
     -- applications and servers that were included in this import task. We
     -- recommend that you use a meaningful name for each import task.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The URL for your import file that you\'ve uploaded to Amazon S3.
     --
     -- If you\'re using the AWS CLI, this URL is structured as follows:
     -- @s3:\/\/BucketName\/ImportFileName.CSV@
-    importUrl :: Prelude.Text
+    importUrl :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartImportTask' with all optional fields omitted.
@@ -127,14 +126,13 @@ data StartImportTask = StartImportTask'
 -- @s3:\/\/BucketName\/ImportFileName.CSV@
 newStartImportTask ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'importUrl'
-  Prelude.Text ->
+  Core.Text ->
   StartImportTask
 newStartImportTask pName_ pImportUrl_ =
   StartImportTask'
-    { clientRequestToken =
-        Prelude.Nothing,
+    { clientRequestToken = Core.Nothing,
       name = pName_,
       importUrl = pImportUrl_
     }
@@ -146,80 +144,80 @@ newStartImportTask pName_ pImportUrl_ =
 -- Sending more than one @StartImportTask@ request with the same client
 -- request token will return information about the original import task
 -- with that client request token.
-startImportTask_clientRequestToken :: Lens.Lens' StartImportTask (Prelude.Maybe Prelude.Text)
+startImportTask_clientRequestToken :: Lens.Lens' StartImportTask (Core.Maybe Core.Text)
 startImportTask_clientRequestToken = Lens.lens (\StartImportTask' {clientRequestToken} -> clientRequestToken) (\s@StartImportTask' {} a -> s {clientRequestToken = a} :: StartImportTask)
 
 -- | A descriptive name for this request. You can use this name to filter
 -- future requests related to this import task, such as identifying
 -- applications and servers that were included in this import task. We
 -- recommend that you use a meaningful name for each import task.
-startImportTask_name :: Lens.Lens' StartImportTask Prelude.Text
+startImportTask_name :: Lens.Lens' StartImportTask Core.Text
 startImportTask_name = Lens.lens (\StartImportTask' {name} -> name) (\s@StartImportTask' {} a -> s {name = a} :: StartImportTask)
 
 -- | The URL for your import file that you\'ve uploaded to Amazon S3.
 --
 -- If you\'re using the AWS CLI, this URL is structured as follows:
 -- @s3:\/\/BucketName\/ImportFileName.CSV@
-startImportTask_importUrl :: Lens.Lens' StartImportTask Prelude.Text
+startImportTask_importUrl :: Lens.Lens' StartImportTask Core.Text
 startImportTask_importUrl = Lens.lens (\StartImportTask' {importUrl} -> importUrl) (\s@StartImportTask' {} a -> s {importUrl = a} :: StartImportTask)
 
-instance Prelude.AWSRequest StartImportTask where
-  type Rs StartImportTask = StartImportTaskResponse
+instance Core.AWSRequest StartImportTask where
+  type
+    AWSResponse StartImportTask =
+      StartImportTaskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartImportTaskResponse'
-            Prelude.<$> (x Prelude..?> "task")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "task")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartImportTask
+instance Core.Hashable StartImportTask
 
-instance Prelude.NFData StartImportTask
+instance Core.NFData StartImportTask
 
-instance Prelude.ToHeaders StartImportTask where
+instance Core.ToHeaders StartImportTask where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSPoseidonService_V2015_11_01.StartImportTask" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSPoseidonService_V2015_11_01.StartImportTask" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartImportTask where
+instance Core.ToJSON StartImportTask where
   toJSON StartImportTask' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("clientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("importUrl" Prelude..= importUrl)
+    Core.object
+      ( Core.catMaybes
+          [ ("clientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            Core.Just ("name" Core..= name),
+            Core.Just ("importUrl" Core..= importUrl)
           ]
       )
 
-instance Prelude.ToPath StartImportTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartImportTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartImportTask where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartImportTask where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartImportTaskResponse' smart constructor.
 data StartImportTaskResponse = StartImportTaskResponse'
   { -- | An array of information related to the import task request including
     -- status information, times, IDs, the Amazon S3 Object URL for the import
     -- file, and more.
-    task :: Prelude.Maybe ImportTask,
+    task :: Core.Maybe ImportTask,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartImportTaskResponse' with all optional fields omitted.
@@ -236,22 +234,22 @@ data StartImportTaskResponse = StartImportTaskResponse'
 -- 'httpStatus', 'startImportTaskResponse_httpStatus' - The response's http status code.
 newStartImportTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartImportTaskResponse
 newStartImportTaskResponse pHttpStatus_ =
   StartImportTaskResponse'
-    { task = Prelude.Nothing,
+    { task = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of information related to the import task request including
 -- status information, times, IDs, the Amazon S3 Object URL for the import
 -- file, and more.
-startImportTaskResponse_task :: Lens.Lens' StartImportTaskResponse (Prelude.Maybe ImportTask)
+startImportTaskResponse_task :: Lens.Lens' StartImportTaskResponse (Core.Maybe ImportTask)
 startImportTaskResponse_task = Lens.lens (\StartImportTaskResponse' {task} -> task) (\s@StartImportTaskResponse' {} a -> s {task = a} :: StartImportTaskResponse)
 
 -- | The response's http status code.
-startImportTaskResponse_httpStatus :: Lens.Lens' StartImportTaskResponse Prelude.Int
+startImportTaskResponse_httpStatus :: Lens.Lens' StartImportTaskResponse Core.Int
 startImportTaskResponse_httpStatus = Lens.lens (\StartImportTaskResponse' {httpStatus} -> httpStatus) (\s@StartImportTaskResponse' {} a -> s {httpStatus = a} :: StartImportTaskResponse)
 
-instance Prelude.NFData StartImportTaskResponse
+instance Core.NFData StartImportTaskResponse

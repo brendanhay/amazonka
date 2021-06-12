@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.Lightsail.CreateContactMethod
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -91,9 +90,9 @@ data CreateContactMethod = CreateContactMethod'
     -- and the country code. For example, a U.S. phone number in E.164 format
     -- would be specified as +1XXX5550100. For more information, see
     -- <https://en.wikipedia.org/wiki/E.164 E.164> on /Wikipedia/.
-    contactEndpoint :: Prelude.Text
+    contactEndpoint :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateContactMethod' with all optional fields omitted.
@@ -142,7 +141,7 @@ newCreateContactMethod ::
   -- | 'protocol'
   ContactProtocol ->
   -- | 'contactEndpoint'
-  Prelude.Text ->
+  Core.Text ->
   CreateContactMethod
 newCreateContactMethod pProtocol_ pContactEndpoint_ =
   CreateContactMethod'
@@ -187,69 +186,65 @@ createContactMethod_protocol = Lens.lens (\CreateContactMethod' {protocol} -> pr
 -- and the country code. For example, a U.S. phone number in E.164 format
 -- would be specified as +1XXX5550100. For more information, see
 -- <https://en.wikipedia.org/wiki/E.164 E.164> on /Wikipedia/.
-createContactMethod_contactEndpoint :: Lens.Lens' CreateContactMethod Prelude.Text
+createContactMethod_contactEndpoint :: Lens.Lens' CreateContactMethod Core.Text
 createContactMethod_contactEndpoint = Lens.lens (\CreateContactMethod' {contactEndpoint} -> contactEndpoint) (\s@CreateContactMethod' {} a -> s {contactEndpoint = a} :: CreateContactMethod)
 
-instance Prelude.AWSRequest CreateContactMethod where
+instance Core.AWSRequest CreateContactMethod where
   type
-    Rs CreateContactMethod =
+    AWSResponse CreateContactMethod =
       CreateContactMethodResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateContactMethodResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateContactMethod
+instance Core.Hashable CreateContactMethod
 
-instance Prelude.NFData CreateContactMethod
+instance Core.NFData CreateContactMethod
 
-instance Prelude.ToHeaders CreateContactMethod where
+instance Core.ToHeaders CreateContactMethod where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.CreateContactMethod" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.CreateContactMethod" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateContactMethod where
+instance Core.ToJSON CreateContactMethod where
   toJSON CreateContactMethod' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("protocol" Prelude..= protocol),
-            Prelude.Just
-              ("contactEndpoint" Prelude..= contactEndpoint)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("protocol" Core..= protocol),
+            Core.Just
+              ("contactEndpoint" Core..= contactEndpoint)
           ]
       )
 
-instance Prelude.ToPath CreateContactMethod where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateContactMethod where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateContactMethod where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateContactMethod where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateContactMethodResponse' smart constructor.
 data CreateContactMethodResponse = CreateContactMethodResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateContactMethodResponse' with all optional fields omitted.
@@ -266,23 +261,23 @@ data CreateContactMethodResponse = CreateContactMethodResponse'
 -- 'httpStatus', 'createContactMethodResponse_httpStatus' - The response's http status code.
 newCreateContactMethodResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateContactMethodResponse
 newCreateContactMethodResponse pHttpStatus_ =
   CreateContactMethodResponse'
     { operations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createContactMethodResponse_operations :: Lens.Lens' CreateContactMethodResponse (Prelude.Maybe [Operation])
-createContactMethodResponse_operations = Lens.lens (\CreateContactMethodResponse' {operations} -> operations) (\s@CreateContactMethodResponse' {} a -> s {operations = a} :: CreateContactMethodResponse) Prelude.. Lens.mapping Prelude._Coerce
+createContactMethodResponse_operations :: Lens.Lens' CreateContactMethodResponse (Core.Maybe [Operation])
+createContactMethodResponse_operations = Lens.lens (\CreateContactMethodResponse' {operations} -> operations) (\s@CreateContactMethodResponse' {} a -> s {operations = a} :: CreateContactMethodResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createContactMethodResponse_httpStatus :: Lens.Lens' CreateContactMethodResponse Prelude.Int
+createContactMethodResponse_httpStatus :: Lens.Lens' CreateContactMethodResponse Core.Int
 createContactMethodResponse_httpStatus = Lens.lens (\CreateContactMethodResponse' {httpStatus} -> httpStatus) (\s@CreateContactMethodResponse' {} a -> s {httpStatus = a} :: CreateContactMethodResponse)
 
-instance Prelude.NFData CreateContactMethodResponse
+instance Core.NFData CreateContactMethodResponse

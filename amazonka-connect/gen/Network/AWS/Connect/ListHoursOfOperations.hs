@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,8 @@ module Network.AWS.Connect.ListHoursOfOperations
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,13 +60,13 @@ data ListHoursOfOperations = ListHoursOfOperations'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListHoursOfOperations' with all optional fields omitted.
@@ -87,107 +85,105 @@ data ListHoursOfOperations = ListHoursOfOperations'
 -- 'instanceId', 'listHoursOfOperations_instanceId' - The identifier of the Amazon Connect instance.
 newListHoursOfOperations ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   ListHoursOfOperations
 newListHoursOfOperations pInstanceId_ =
   ListHoursOfOperations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listHoursOfOperations_nextToken :: Lens.Lens' ListHoursOfOperations (Prelude.Maybe Prelude.Text)
+listHoursOfOperations_nextToken :: Lens.Lens' ListHoursOfOperations (Core.Maybe Core.Text)
 listHoursOfOperations_nextToken = Lens.lens (\ListHoursOfOperations' {nextToken} -> nextToken) (\s@ListHoursOfOperations' {} a -> s {nextToken = a} :: ListHoursOfOperations)
 
 -- | The maximum number of results to return per page.
-listHoursOfOperations_maxResults :: Lens.Lens' ListHoursOfOperations (Prelude.Maybe Prelude.Natural)
+listHoursOfOperations_maxResults :: Lens.Lens' ListHoursOfOperations (Core.Maybe Core.Natural)
 listHoursOfOperations_maxResults = Lens.lens (\ListHoursOfOperations' {maxResults} -> maxResults) (\s@ListHoursOfOperations' {} a -> s {maxResults = a} :: ListHoursOfOperations)
 
 -- | The identifier of the Amazon Connect instance.
-listHoursOfOperations_instanceId :: Lens.Lens' ListHoursOfOperations Prelude.Text
+listHoursOfOperations_instanceId :: Lens.Lens' ListHoursOfOperations Core.Text
 listHoursOfOperations_instanceId = Lens.lens (\ListHoursOfOperations' {instanceId} -> instanceId) (\s@ListHoursOfOperations' {} a -> s {instanceId = a} :: ListHoursOfOperations)
 
-instance Pager.AWSPager ListHoursOfOperations where
+instance Core.AWSPager ListHoursOfOperations where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listHoursOfOperationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listHoursOfOperationsResponse_hoursOfOperationSummaryList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listHoursOfOperations_nextToken
           Lens..~ rs
           Lens.^? listHoursOfOperationsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListHoursOfOperations where
+instance Core.AWSRequest ListHoursOfOperations where
   type
-    Rs ListHoursOfOperations =
+    AWSResponse ListHoursOfOperations =
       ListHoursOfOperationsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListHoursOfOperationsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "HoursOfOperationSummaryList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "HoursOfOperationSummaryList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListHoursOfOperations
+instance Core.Hashable ListHoursOfOperations
 
-instance Prelude.NFData ListHoursOfOperations
+instance Core.NFData ListHoursOfOperations
 
-instance Prelude.ToHeaders ListHoursOfOperations where
+instance Core.ToHeaders ListHoursOfOperations where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListHoursOfOperations where
+instance Core.ToPath ListHoursOfOperations where
   toPath ListHoursOfOperations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/hours-of-operations-summary/",
-        Prelude.toBS instanceId
+        Core.toBS instanceId
       ]
 
-instance Prelude.ToQuery ListHoursOfOperations where
+instance Core.ToQuery ListHoursOfOperations where
   toQuery ListHoursOfOperations' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListHoursOfOperationsResponse' smart constructor.
 data ListHoursOfOperationsResponse = ListHoursOfOperationsResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the hours of operation.
-    hoursOfOperationSummaryList :: Prelude.Maybe [HoursOfOperationSummary],
+    hoursOfOperationSummaryList :: Core.Maybe [HoursOfOperationSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListHoursOfOperationsResponse' with all optional fields omitted.
@@ -205,28 +201,27 @@ data ListHoursOfOperationsResponse = ListHoursOfOperationsResponse'
 -- 'httpStatus', 'listHoursOfOperationsResponse_httpStatus' - The response's http status code.
 newListHoursOfOperationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListHoursOfOperationsResponse
 newListHoursOfOperationsResponse pHttpStatus_ =
   ListHoursOfOperationsResponse'
     { nextToken =
-        Prelude.Nothing,
-      hoursOfOperationSummaryList =
-        Prelude.Nothing,
+        Core.Nothing,
+      hoursOfOperationSummaryList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listHoursOfOperationsResponse_nextToken :: Lens.Lens' ListHoursOfOperationsResponse (Prelude.Maybe Prelude.Text)
+listHoursOfOperationsResponse_nextToken :: Lens.Lens' ListHoursOfOperationsResponse (Core.Maybe Core.Text)
 listHoursOfOperationsResponse_nextToken = Lens.lens (\ListHoursOfOperationsResponse' {nextToken} -> nextToken) (\s@ListHoursOfOperationsResponse' {} a -> s {nextToken = a} :: ListHoursOfOperationsResponse)
 
 -- | Information about the hours of operation.
-listHoursOfOperationsResponse_hoursOfOperationSummaryList :: Lens.Lens' ListHoursOfOperationsResponse (Prelude.Maybe [HoursOfOperationSummary])
-listHoursOfOperationsResponse_hoursOfOperationSummaryList = Lens.lens (\ListHoursOfOperationsResponse' {hoursOfOperationSummaryList} -> hoursOfOperationSummaryList) (\s@ListHoursOfOperationsResponse' {} a -> s {hoursOfOperationSummaryList = a} :: ListHoursOfOperationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listHoursOfOperationsResponse_hoursOfOperationSummaryList :: Lens.Lens' ListHoursOfOperationsResponse (Core.Maybe [HoursOfOperationSummary])
+listHoursOfOperationsResponse_hoursOfOperationSummaryList = Lens.lens (\ListHoursOfOperationsResponse' {hoursOfOperationSummaryList} -> hoursOfOperationSummaryList) (\s@ListHoursOfOperationsResponse' {} a -> s {hoursOfOperationSummaryList = a} :: ListHoursOfOperationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listHoursOfOperationsResponse_httpStatus :: Lens.Lens' ListHoursOfOperationsResponse Prelude.Int
+listHoursOfOperationsResponse_httpStatus :: Lens.Lens' ListHoursOfOperationsResponse Core.Int
 listHoursOfOperationsResponse_httpStatus = Lens.lens (\ListHoursOfOperationsResponse' {httpStatus} -> httpStatus) (\s@ListHoursOfOperationsResponse' {} a -> s {httpStatus = a} :: ListHoursOfOperationsResponse)
 
-instance Prelude.NFData ListHoursOfOperationsResponse
+instance Core.NFData ListHoursOfOperationsResponse

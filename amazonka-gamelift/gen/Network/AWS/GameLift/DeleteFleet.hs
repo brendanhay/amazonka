@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,9 +63,9 @@ module Network.AWS.GameLift.DeleteFleet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,9 +75,9 @@ import qualified Network.AWS.Response as Response
 data DeleteFleet = DeleteFleet'
   { -- | A unique identifier for a fleet to be deleted. You can use either the
     -- fleet ID or ARN value.
-    fleetId :: Prelude.Text
+    fleetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFleet' with all optional fields omitted.
@@ -92,56 +91,54 @@ data DeleteFleet = DeleteFleet'
 -- fleet ID or ARN value.
 newDeleteFleet ::
   -- | 'fleetId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteFleet
 newDeleteFleet pFleetId_ =
   DeleteFleet' {fleetId = pFleetId_}
 
 -- | A unique identifier for a fleet to be deleted. You can use either the
 -- fleet ID or ARN value.
-deleteFleet_fleetId :: Lens.Lens' DeleteFleet Prelude.Text
+deleteFleet_fleetId :: Lens.Lens' DeleteFleet Core.Text
 deleteFleet_fleetId = Lens.lens (\DeleteFleet' {fleetId} -> fleetId) (\s@DeleteFleet' {} a -> s {fleetId = a} :: DeleteFleet)
 
-instance Prelude.AWSRequest DeleteFleet where
-  type Rs DeleteFleet = DeleteFleetResponse
+instance Core.AWSRequest DeleteFleet where
+  type AWSResponse DeleteFleet = DeleteFleetResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteFleetResponse'
 
-instance Prelude.Hashable DeleteFleet
+instance Core.Hashable DeleteFleet
 
-instance Prelude.NFData DeleteFleet
+instance Core.NFData DeleteFleet
 
-instance Prelude.ToHeaders DeleteFleet where
+instance Core.ToHeaders DeleteFleet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.DeleteFleet" :: Prelude.ByteString),
+              Core.=# ("GameLift.DeleteFleet" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteFleet where
+instance Core.ToJSON DeleteFleet where
   toJSON DeleteFleet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("FleetId" Prelude..= fleetId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("FleetId" Core..= fleetId)]
       )
 
-instance Prelude.ToPath DeleteFleet where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteFleet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteFleet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteFleet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteFleetResponse' smart constructor.
 data DeleteFleetResponse = DeleteFleetResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFleetResponse' with all optional fields omitted.
@@ -151,4 +148,4 @@ newDeleteFleetResponse ::
   DeleteFleetResponse
 newDeleteFleetResponse = DeleteFleetResponse'
 
-instance Prelude.NFData DeleteFleetResponse
+instance Core.NFData DeleteFleetResponse

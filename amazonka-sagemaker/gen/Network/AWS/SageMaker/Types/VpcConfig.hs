@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.VpcConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a VPC that your training jobs and hosted models have access
 -- to. Control access to and from your training and model containers by
@@ -34,14 +33,14 @@ import qualified Network.AWS.Prelude as Prelude
 data VpcConfig = VpcConfig'
   { -- | The VPC security group IDs, in the form sg-xxxxxxxx. Specify the
     -- security groups for the VPC that is specified in the @Subnets@ field.
-    securityGroupIds :: Prelude.NonEmpty Prelude.Text,
+    securityGroupIds :: Core.NonEmpty Core.Text,
     -- | The ID of the subnets in the VPC to which you want to connect your
     -- training job or model. For information about the availability of
     -- specific instance types, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html Supported Instance Types and Availability Zones>.
-    subnets :: Prelude.NonEmpty Prelude.Text
+    subnets :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VpcConfig' with all optional fields omitted.
@@ -60,49 +59,49 @@ data VpcConfig = VpcConfig'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html Supported Instance Types and Availability Zones>.
 newVpcConfig ::
   -- | 'securityGroupIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   -- | 'subnets'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   VpcConfig
 newVpcConfig pSecurityGroupIds_ pSubnets_ =
   VpcConfig'
     { securityGroupIds =
-        Prelude._Coerce Lens.# pSecurityGroupIds_,
-      subnets = Prelude._Coerce Lens.# pSubnets_
+        Lens._Coerce Lens.# pSecurityGroupIds_,
+      subnets = Lens._Coerce Lens.# pSubnets_
     }
 
 -- | The VPC security group IDs, in the form sg-xxxxxxxx. Specify the
 -- security groups for the VPC that is specified in the @Subnets@ field.
-vpcConfig_securityGroupIds :: Lens.Lens' VpcConfig (Prelude.NonEmpty Prelude.Text)
-vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Prelude.. Prelude._Coerce
+vpcConfig_securityGroupIds :: Lens.Lens' VpcConfig (Core.NonEmpty Core.Text)
+vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Core.. Lens._Coerce
 
 -- | The ID of the subnets in the VPC to which you want to connect your
 -- training job or model. For information about the availability of
 -- specific instance types, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html Supported Instance Types and Availability Zones>.
-vpcConfig_subnets :: Lens.Lens' VpcConfig (Prelude.NonEmpty Prelude.Text)
-vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Prelude.. Prelude._Coerce
+vpcConfig_subnets :: Lens.Lens' VpcConfig (Core.NonEmpty Core.Text)
+vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Core.. Lens._Coerce
 
-instance Prelude.FromJSON VpcConfig where
+instance Core.FromJSON VpcConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VpcConfig"
       ( \x ->
           VpcConfig'
-            Prelude.<$> (x Prelude..: "SecurityGroupIds")
-            Prelude.<*> (x Prelude..: "Subnets")
+            Core.<$> (x Core..: "SecurityGroupIds")
+            Core.<*> (x Core..: "Subnets")
       )
 
-instance Prelude.Hashable VpcConfig
+instance Core.Hashable VpcConfig
 
-instance Prelude.NFData VpcConfig
+instance Core.NFData VpcConfig
 
-instance Prelude.ToJSON VpcConfig where
+instance Core.ToJSON VpcConfig where
   toJSON VpcConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("SecurityGroupIds" Prelude..= securityGroupIds),
-            Prelude.Just ("Subnets" Prelude..= subnets)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("SecurityGroupIds" Core..= securityGroupIds),
+            Core.Just ("Subnets" Core..= subnets)
           ]
       )

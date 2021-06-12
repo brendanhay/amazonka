@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TuningJobCompletionCriteria where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The job completion criteria.
 --
 -- /See:/ 'newTuningJobCompletionCriteria' smart constructor.
 data TuningJobCompletionCriteria = TuningJobCompletionCriteria'
   { -- | The value of the objective metric.
-    targetObjectiveMetricValue :: Prelude.Double
+    targetObjectiveMetricValue :: Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TuningJobCompletionCriteria' with all optional fields omitted.
@@ -43,7 +42,7 @@ data TuningJobCompletionCriteria = TuningJobCompletionCriteria'
 -- 'targetObjectiveMetricValue', 'tuningJobCompletionCriteria_targetObjectiveMetricValue' - The value of the objective metric.
 newTuningJobCompletionCriteria ::
   -- | 'targetObjectiveMetricValue'
-  Prelude.Double ->
+  Core.Double ->
   TuningJobCompletionCriteria
 newTuningJobCompletionCriteria
   pTargetObjectiveMetricValue_ =
@@ -53,29 +52,29 @@ newTuningJobCompletionCriteria
       }
 
 -- | The value of the objective metric.
-tuningJobCompletionCriteria_targetObjectiveMetricValue :: Lens.Lens' TuningJobCompletionCriteria Prelude.Double
+tuningJobCompletionCriteria_targetObjectiveMetricValue :: Lens.Lens' TuningJobCompletionCriteria Core.Double
 tuningJobCompletionCriteria_targetObjectiveMetricValue = Lens.lens (\TuningJobCompletionCriteria' {targetObjectiveMetricValue} -> targetObjectiveMetricValue) (\s@TuningJobCompletionCriteria' {} a -> s {targetObjectiveMetricValue = a} :: TuningJobCompletionCriteria)
 
-instance Prelude.FromJSON TuningJobCompletionCriteria where
+instance Core.FromJSON TuningJobCompletionCriteria where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TuningJobCompletionCriteria"
       ( \x ->
           TuningJobCompletionCriteria'
-            Prelude.<$> (x Prelude..: "TargetObjectiveMetricValue")
+            Core.<$> (x Core..: "TargetObjectiveMetricValue")
       )
 
-instance Prelude.Hashable TuningJobCompletionCriteria
+instance Core.Hashable TuningJobCompletionCriteria
 
-instance Prelude.NFData TuningJobCompletionCriteria
+instance Core.NFData TuningJobCompletionCriteria
 
-instance Prelude.ToJSON TuningJobCompletionCriteria where
+instance Core.ToJSON TuningJobCompletionCriteria where
   toJSON TuningJobCompletionCriteria' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "TargetObjectiveMetricValue"
-                  Prelude..= targetObjectiveMetricValue
+                  Core..= targetObjectiveMetricValue
               )
           ]
       )

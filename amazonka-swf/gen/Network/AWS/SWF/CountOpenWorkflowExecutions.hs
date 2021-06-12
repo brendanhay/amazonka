@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -78,8 +77,8 @@ module Network.AWS.SWF.CountOpenWorkflowExecutions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -90,26 +89,26 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
     --
     -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
     -- You can specify at most one of these in a request.
-    typeFilter :: Prelude.Maybe WorkflowTypeFilter,
+    typeFilter :: Core.Maybe WorkflowTypeFilter,
     -- | If specified, only executions that have a tag that matches the filter
     -- are counted.
     --
     -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
     -- You can specify at most one of these in a request.
-    tagFilter :: Prelude.Maybe TagFilter,
+    tagFilter :: Core.Maybe TagFilter,
     -- | If specified, only workflow executions matching the @WorkflowId@ in the
     -- filter are counted.
     --
     -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
     -- You can specify at most one of these in a request.
-    executionFilter :: Prelude.Maybe WorkflowExecutionFilter,
+    executionFilter :: Core.Maybe WorkflowExecutionFilter,
     -- | The name of the domain containing the workflow executions to count.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | Specifies the start time criteria that workflow executions must meet in
     -- order to be counted.
     startTimeFilter :: ExecutionTimeFilter
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CountOpenWorkflowExecutions' with all optional fields omitted.
@@ -142,7 +141,7 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
 -- order to be counted.
 newCountOpenWorkflowExecutions ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'startTimeFilter'
   ExecutionTimeFilter ->
   CountOpenWorkflowExecutions
@@ -151,9 +150,9 @@ newCountOpenWorkflowExecutions
   pStartTimeFilter_ =
     CountOpenWorkflowExecutions'
       { typeFilter =
-          Prelude.Nothing,
-        tagFilter = Prelude.Nothing,
-        executionFilter = Prelude.Nothing,
+          Core.Nothing,
+        tagFilter = Core.Nothing,
+        executionFilter = Core.Nothing,
         domain = pDomain_,
         startTimeFilter = pStartTimeFilter_
       }
@@ -162,7 +161,7 @@ newCountOpenWorkflowExecutions
 --
 -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
 -- You can specify at most one of these in a request.
-countOpenWorkflowExecutions_typeFilter :: Lens.Lens' CountOpenWorkflowExecutions (Prelude.Maybe WorkflowTypeFilter)
+countOpenWorkflowExecutions_typeFilter :: Lens.Lens' CountOpenWorkflowExecutions (Core.Maybe WorkflowTypeFilter)
 countOpenWorkflowExecutions_typeFilter = Lens.lens (\CountOpenWorkflowExecutions' {typeFilter} -> typeFilter) (\s@CountOpenWorkflowExecutions' {} a -> s {typeFilter = a} :: CountOpenWorkflowExecutions)
 
 -- | If specified, only executions that have a tag that matches the filter
@@ -170,7 +169,7 @@ countOpenWorkflowExecutions_typeFilter = Lens.lens (\CountOpenWorkflowExecutions
 --
 -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
 -- You can specify at most one of these in a request.
-countOpenWorkflowExecutions_tagFilter :: Lens.Lens' CountOpenWorkflowExecutions (Prelude.Maybe TagFilter)
+countOpenWorkflowExecutions_tagFilter :: Lens.Lens' CountOpenWorkflowExecutions (Core.Maybe TagFilter)
 countOpenWorkflowExecutions_tagFilter = Lens.lens (\CountOpenWorkflowExecutions' {tagFilter} -> tagFilter) (\s@CountOpenWorkflowExecutions' {} a -> s {tagFilter = a} :: CountOpenWorkflowExecutions)
 
 -- | If specified, only workflow executions matching the @WorkflowId@ in the
@@ -178,11 +177,11 @@ countOpenWorkflowExecutions_tagFilter = Lens.lens (\CountOpenWorkflowExecutions'
 --
 -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
 -- You can specify at most one of these in a request.
-countOpenWorkflowExecutions_executionFilter :: Lens.Lens' CountOpenWorkflowExecutions (Prelude.Maybe WorkflowExecutionFilter)
+countOpenWorkflowExecutions_executionFilter :: Lens.Lens' CountOpenWorkflowExecutions (Core.Maybe WorkflowExecutionFilter)
 countOpenWorkflowExecutions_executionFilter = Lens.lens (\CountOpenWorkflowExecutions' {executionFilter} -> executionFilter) (\s@CountOpenWorkflowExecutions' {} a -> s {executionFilter = a} :: CountOpenWorkflowExecutions)
 
 -- | The name of the domain containing the workflow executions to count.
-countOpenWorkflowExecutions_domain :: Lens.Lens' CountOpenWorkflowExecutions Prelude.Text
+countOpenWorkflowExecutions_domain :: Lens.Lens' CountOpenWorkflowExecutions Core.Text
 countOpenWorkflowExecutions_domain = Lens.lens (\CountOpenWorkflowExecutions' {domain} -> domain) (\s@CountOpenWorkflowExecutions' {} a -> s {domain = a} :: CountOpenWorkflowExecutions)
 
 -- | Specifies the start time criteria that workflow executions must meet in
@@ -190,56 +189,47 @@ countOpenWorkflowExecutions_domain = Lens.lens (\CountOpenWorkflowExecutions' {d
 countOpenWorkflowExecutions_startTimeFilter :: Lens.Lens' CountOpenWorkflowExecutions ExecutionTimeFilter
 countOpenWorkflowExecutions_startTimeFilter = Lens.lens (\CountOpenWorkflowExecutions' {startTimeFilter} -> startTimeFilter) (\s@CountOpenWorkflowExecutions' {} a -> s {startTimeFilter = a} :: CountOpenWorkflowExecutions)
 
-instance
-  Prelude.AWSRequest
-    CountOpenWorkflowExecutions
-  where
+instance Core.AWSRequest CountOpenWorkflowExecutions where
   type
-    Rs CountOpenWorkflowExecutions =
+    AWSResponse CountOpenWorkflowExecutions =
       WorkflowExecutionCount
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CountOpenWorkflowExecutions
+instance Core.Hashable CountOpenWorkflowExecutions
 
-instance Prelude.NFData CountOpenWorkflowExecutions
+instance Core.NFData CountOpenWorkflowExecutions
 
-instance
-  Prelude.ToHeaders
-    CountOpenWorkflowExecutions
-  where
+instance Core.ToHeaders CountOpenWorkflowExecutions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.CountOpenWorkflowExecutions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.CountOpenWorkflowExecutions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CountOpenWorkflowExecutions where
+instance Core.ToJSON CountOpenWorkflowExecutions where
   toJSON CountOpenWorkflowExecutions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("typeFilter" Prelude..=) Prelude.<$> typeFilter,
-            ("tagFilter" Prelude..=) Prelude.<$> tagFilter,
-            ("executionFilter" Prelude..=)
-              Prelude.<$> executionFilter,
-            Prelude.Just ("domain" Prelude..= domain),
-            Prelude.Just
-              ("startTimeFilter" Prelude..= startTimeFilter)
+    Core.object
+      ( Core.catMaybes
+          [ ("typeFilter" Core..=) Core.<$> typeFilter,
+            ("tagFilter" Core..=) Core.<$> tagFilter,
+            ("executionFilter" Core..=) Core.<$> executionFilter,
+            Core.Just ("domain" Core..= domain),
+            Core.Just
+              ("startTimeFilter" Core..= startTimeFilter)
           ]
       )
 
-instance Prelude.ToPath CountOpenWorkflowExecutions where
-  toPath = Prelude.const "/"
+instance Core.ToPath CountOpenWorkflowExecutions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CountOpenWorkflowExecutions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CountOpenWorkflowExecutions where
+  toQuery = Core.const Core.mempty

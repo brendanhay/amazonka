@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.IAM.DeleteAccessKey
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,16 +56,16 @@ data DeleteAccessKey = DeleteAccessKey'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Maybe Prelude.Text,
+    userName :: Core.Maybe Core.Text,
     -- | The access key ID for the access key ID and secret access key you want
     -- to delete.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that can consist of any upper or lowercased letter or digit.
-    accessKeyId :: Prelude.AccessKey
+    accessKeyId :: Core.AccessKey
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAccessKey' with all optional fields omitted.
@@ -91,11 +90,11 @@ data DeleteAccessKey = DeleteAccessKey'
 -- that can consist of any upper or lowercased letter or digit.
 newDeleteAccessKey ::
   -- | 'accessKeyId'
-  Prelude.AccessKey ->
+  Core.AccessKey ->
   DeleteAccessKey
 newDeleteAccessKey pAccessKeyId_ =
   DeleteAccessKey'
-    { userName = Prelude.Nothing,
+    { userName = Core.Nothing,
       accessKeyId = pAccessKeyId_
     }
 
@@ -105,7 +104,7 @@ newDeleteAccessKey pAccessKeyId_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteAccessKey_userName :: Lens.Lens' DeleteAccessKey (Prelude.Maybe Prelude.Text)
+deleteAccessKey_userName :: Lens.Lens' DeleteAccessKey (Core.Maybe Core.Text)
 deleteAccessKey_userName = Lens.lens (\DeleteAccessKey' {userName} -> userName) (\s@DeleteAccessKey' {} a -> s {userName = a} :: DeleteAccessKey)
 
 -- | The access key ID for the access key ID and secret access key you want
@@ -114,41 +113,42 @@ deleteAccessKey_userName = Lens.lens (\DeleteAccessKey' {userName} -> userName) 
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that can consist of any upper or lowercased letter or digit.
-deleteAccessKey_accessKeyId :: Lens.Lens' DeleteAccessKey Prelude.AccessKey
+deleteAccessKey_accessKeyId :: Lens.Lens' DeleteAccessKey Core.AccessKey
 deleteAccessKey_accessKeyId = Lens.lens (\DeleteAccessKey' {accessKeyId} -> accessKeyId) (\s@DeleteAccessKey' {} a -> s {accessKeyId = a} :: DeleteAccessKey)
 
-instance Prelude.AWSRequest DeleteAccessKey where
-  type Rs DeleteAccessKey = DeleteAccessKeyResponse
+instance Core.AWSRequest DeleteAccessKey where
+  type
+    AWSResponse DeleteAccessKey =
+      DeleteAccessKeyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteAccessKeyResponse'
 
-instance Prelude.Hashable DeleteAccessKey
+instance Core.Hashable DeleteAccessKey
 
-instance Prelude.NFData DeleteAccessKey
+instance Core.NFData DeleteAccessKey
 
-instance Prelude.ToHeaders DeleteAccessKey where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteAccessKey where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteAccessKey where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAccessKey where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAccessKey where
+instance Core.ToQuery DeleteAccessKey where
   toQuery DeleteAccessKey' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteAccessKey" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "AccessKeyId" Prelude.=: accessKeyId
+          Core.=: ("DeleteAccessKey" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "AccessKeyId" Core.=: accessKeyId
       ]
 
 -- | /See:/ 'newDeleteAccessKeyResponse' smart constructor.
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAccessKeyResponse' with all optional fields omitted.
@@ -158,4 +158,4 @@ newDeleteAccessKeyResponse ::
   DeleteAccessKeyResponse
 newDeleteAccessKeyResponse = DeleteAccessKeyResponse'
 
-instance Prelude.NFData DeleteAccessKeyResponse
+instance Core.NFData DeleteAccessKeyResponse

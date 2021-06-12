@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,9 +64,9 @@ module Network.AWS.EMR.AddJobFlowSteps
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,11 +76,11 @@ import qualified Network.AWS.Response as Response
 data AddJobFlowSteps = AddJobFlowSteps'
   { -- | A string that uniquely identifies the job flow. This identifier is
     -- returned by RunJobFlow and can also be obtained from ListClusters.
-    jobFlowId :: Prelude.Text,
+    jobFlowId :: Core.Text,
     -- | A list of StepConfig to be executed by the job flow.
     steps :: [StepConfig]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddJobFlowSteps' with all optional fields omitted.
@@ -97,78 +96,78 @@ data AddJobFlowSteps = AddJobFlowSteps'
 -- 'steps', 'addJobFlowSteps_steps' - A list of StepConfig to be executed by the job flow.
 newAddJobFlowSteps ::
   -- | 'jobFlowId'
-  Prelude.Text ->
+  Core.Text ->
   AddJobFlowSteps
 newAddJobFlowSteps pJobFlowId_ =
   AddJobFlowSteps'
     { jobFlowId = pJobFlowId_,
-      steps = Prelude.mempty
+      steps = Core.mempty
     }
 
 -- | A string that uniquely identifies the job flow. This identifier is
 -- returned by RunJobFlow and can also be obtained from ListClusters.
-addJobFlowSteps_jobFlowId :: Lens.Lens' AddJobFlowSteps Prelude.Text
+addJobFlowSteps_jobFlowId :: Lens.Lens' AddJobFlowSteps Core.Text
 addJobFlowSteps_jobFlowId = Lens.lens (\AddJobFlowSteps' {jobFlowId} -> jobFlowId) (\s@AddJobFlowSteps' {} a -> s {jobFlowId = a} :: AddJobFlowSteps)
 
 -- | A list of StepConfig to be executed by the job flow.
 addJobFlowSteps_steps :: Lens.Lens' AddJobFlowSteps [StepConfig]
-addJobFlowSteps_steps = Lens.lens (\AddJobFlowSteps' {steps} -> steps) (\s@AddJobFlowSteps' {} a -> s {steps = a} :: AddJobFlowSteps) Prelude.. Prelude._Coerce
+addJobFlowSteps_steps = Lens.lens (\AddJobFlowSteps' {steps} -> steps) (\s@AddJobFlowSteps' {} a -> s {steps = a} :: AddJobFlowSteps) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddJobFlowSteps where
-  type Rs AddJobFlowSteps = AddJobFlowStepsResponse
+instance Core.AWSRequest AddJobFlowSteps where
+  type
+    AWSResponse AddJobFlowSteps =
+      AddJobFlowStepsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AddJobFlowStepsResponse'
-            Prelude.<$> (x Prelude..?> "StepIds" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StepIds" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AddJobFlowSteps
+instance Core.Hashable AddJobFlowSteps
 
-instance Prelude.NFData AddJobFlowSteps
+instance Core.NFData AddJobFlowSteps
 
-instance Prelude.ToHeaders AddJobFlowSteps where
+instance Core.ToHeaders AddJobFlowSteps where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.AddJobFlowSteps" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.AddJobFlowSteps" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AddJobFlowSteps where
+instance Core.ToJSON AddJobFlowSteps where
   toJSON AddJobFlowSteps' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("JobFlowId" Prelude..= jobFlowId),
-            Prelude.Just ("Steps" Prelude..= steps)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobFlowId" Core..= jobFlowId),
+            Core.Just ("Steps" Core..= steps)
           ]
       )
 
-instance Prelude.ToPath AddJobFlowSteps where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddJobFlowSteps where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddJobFlowSteps where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AddJobFlowSteps where
+  toQuery = Core.const Core.mempty
 
 -- | The output for the AddJobFlowSteps operation.
 --
 -- /See:/ 'newAddJobFlowStepsResponse' smart constructor.
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
   { -- | The identifiers of the list of steps added to the job flow.
-    stepIds :: Prelude.Maybe [Prelude.Text],
+    stepIds :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddJobFlowStepsResponse' with all optional fields omitted.
@@ -183,20 +182,20 @@ data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
 -- 'httpStatus', 'addJobFlowStepsResponse_httpStatus' - The response's http status code.
 newAddJobFlowStepsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AddJobFlowStepsResponse
 newAddJobFlowStepsResponse pHttpStatus_ =
   AddJobFlowStepsResponse'
-    { stepIds = Prelude.Nothing,
+    { stepIds = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifiers of the list of steps added to the job flow.
-addJobFlowStepsResponse_stepIds :: Lens.Lens' AddJobFlowStepsResponse (Prelude.Maybe [Prelude.Text])
-addJobFlowStepsResponse_stepIds = Lens.lens (\AddJobFlowStepsResponse' {stepIds} -> stepIds) (\s@AddJobFlowStepsResponse' {} a -> s {stepIds = a} :: AddJobFlowStepsResponse) Prelude.. Lens.mapping Prelude._Coerce
+addJobFlowStepsResponse_stepIds :: Lens.Lens' AddJobFlowStepsResponse (Core.Maybe [Core.Text])
+addJobFlowStepsResponse_stepIds = Lens.lens (\AddJobFlowStepsResponse' {stepIds} -> stepIds) (\s@AddJobFlowStepsResponse' {} a -> s {stepIds = a} :: AddJobFlowStepsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-addJobFlowStepsResponse_httpStatus :: Lens.Lens' AddJobFlowStepsResponse Prelude.Int
+addJobFlowStepsResponse_httpStatus :: Lens.Lens' AddJobFlowStepsResponse Core.Int
 addJobFlowStepsResponse_httpStatus = Lens.lens (\AddJobFlowStepsResponse' {httpStatus} -> httpStatus) (\s@AddJobFlowStepsResponse' {} a -> s {httpStatus = a} :: AddJobFlowStepsResponse)
 
-instance Prelude.NFData AddJobFlowStepsResponse
+instance Core.NFData AddJobFlowStepsResponse

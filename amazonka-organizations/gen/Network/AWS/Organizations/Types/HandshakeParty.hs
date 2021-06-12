@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Organizations.Types.HandshakeParty where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.HandshakePartyType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies a participant in a handshake.
 --
@@ -33,11 +32,11 @@ data HandshakeParty = HandshakeParty'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
     -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
     -- digits.
-    id :: Prelude.Sensitive Prelude.Text,
+    id :: Core.Sensitive Core.Text,
     -- | The type of party.
     type' :: HandshakePartyType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HandshakeParty' with all optional fields omitted.
@@ -56,14 +55,13 @@ data HandshakeParty = HandshakeParty'
 -- 'type'', 'handshakeParty_type' - The type of party.
 newHandshakeParty ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   HandshakePartyType ->
   HandshakeParty
 newHandshakeParty pId_ pType_ =
   HandshakeParty'
-    { id =
-        Prelude._Sensitive Lens.# pId_,
+    { id = Core._Sensitive Lens.# pId_,
       type' = pType_
     }
 
@@ -72,32 +70,31 @@ newHandshakeParty pId_ pType_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
 -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
 -- digits.
-handshakeParty_id :: Lens.Lens' HandshakeParty Prelude.Text
-handshakeParty_id = Lens.lens (\HandshakeParty' {id} -> id) (\s@HandshakeParty' {} a -> s {id = a} :: HandshakeParty) Prelude.. Prelude._Sensitive
+handshakeParty_id :: Lens.Lens' HandshakeParty Core.Text
+handshakeParty_id = Lens.lens (\HandshakeParty' {id} -> id) (\s@HandshakeParty' {} a -> s {id = a} :: HandshakeParty) Core.. Core._Sensitive
 
 -- | The type of party.
 handshakeParty_type :: Lens.Lens' HandshakeParty HandshakePartyType
 handshakeParty_type = Lens.lens (\HandshakeParty' {type'} -> type') (\s@HandshakeParty' {} a -> s {type' = a} :: HandshakeParty)
 
-instance Prelude.FromJSON HandshakeParty where
+instance Core.FromJSON HandshakeParty where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HandshakeParty"
       ( \x ->
           HandshakeParty'
-            Prelude.<$> (x Prelude..: "Id")
-            Prelude.<*> (x Prelude..: "Type")
+            Core.<$> (x Core..: "Id") Core.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable HandshakeParty
+instance Core.Hashable HandshakeParty
 
-instance Prelude.NFData HandshakeParty
+instance Core.NFData HandshakeParty
 
-instance Prelude.ToJSON HandshakeParty where
+instance Core.ToJSON HandshakeParty where
   toJSON HandshakeParty' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Prelude..= id),
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            Core.Just ("Type" Core..= type')
           ]
       )

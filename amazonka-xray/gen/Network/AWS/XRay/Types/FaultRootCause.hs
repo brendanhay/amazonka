@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.FaultRootCause where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.FaultRootCauseService
 
 -- | The root cause information for a trace summary fault.
@@ -30,11 +29,11 @@ import Network.AWS.XRay.Types.FaultRootCauseService
 data FaultRootCause = FaultRootCause'
   { -- | A list of corresponding services. A service identifies a segment and it
     -- contains a name, account ID, type, and inferred flag.
-    services :: Prelude.Maybe [FaultRootCauseService],
+    services :: Core.Maybe [FaultRootCauseService],
     -- | A flag that denotes that the root cause impacts the trace client.
-    clientImpacting :: Prelude.Maybe Prelude.Bool
+    clientImpacting :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FaultRootCause' with all optional fields omitted.
@@ -52,29 +51,29 @@ newFaultRootCause ::
   FaultRootCause
 newFaultRootCause =
   FaultRootCause'
-    { services = Prelude.Nothing,
-      clientImpacting = Prelude.Nothing
+    { services = Core.Nothing,
+      clientImpacting = Core.Nothing
     }
 
 -- | A list of corresponding services. A service identifies a segment and it
 -- contains a name, account ID, type, and inferred flag.
-faultRootCause_services :: Lens.Lens' FaultRootCause (Prelude.Maybe [FaultRootCauseService])
-faultRootCause_services = Lens.lens (\FaultRootCause' {services} -> services) (\s@FaultRootCause' {} a -> s {services = a} :: FaultRootCause) Prelude.. Lens.mapping Prelude._Coerce
+faultRootCause_services :: Lens.Lens' FaultRootCause (Core.Maybe [FaultRootCauseService])
+faultRootCause_services = Lens.lens (\FaultRootCause' {services} -> services) (\s@FaultRootCause' {} a -> s {services = a} :: FaultRootCause) Core.. Lens.mapping Lens._Coerce
 
 -- | A flag that denotes that the root cause impacts the trace client.
-faultRootCause_clientImpacting :: Lens.Lens' FaultRootCause (Prelude.Maybe Prelude.Bool)
+faultRootCause_clientImpacting :: Lens.Lens' FaultRootCause (Core.Maybe Core.Bool)
 faultRootCause_clientImpacting = Lens.lens (\FaultRootCause' {clientImpacting} -> clientImpacting) (\s@FaultRootCause' {} a -> s {clientImpacting = a} :: FaultRootCause)
 
-instance Prelude.FromJSON FaultRootCause where
+instance Core.FromJSON FaultRootCause where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FaultRootCause"
       ( \x ->
           FaultRootCause'
-            Prelude.<$> (x Prelude..:? "Services" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "ClientImpacting")
+            Core.<$> (x Core..:? "Services" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ClientImpacting")
       )
 
-instance Prelude.Hashable FaultRootCause
+instance Core.Hashable FaultRootCause
 
-instance Prelude.NFData FaultRootCause
+instance Core.NFData FaultRootCause

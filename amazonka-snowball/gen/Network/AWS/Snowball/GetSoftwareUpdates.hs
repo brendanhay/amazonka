@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.Snowball.GetSoftwareUpdates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -51,9 +50,9 @@ import Network.AWS.Snowball.Types
 data GetSoftwareUpdates = GetSoftwareUpdates'
   { -- | The ID for a job that you want to get the software update file for, for
     -- example @JID123e4567-e89b-12d3-a456-426655440000@.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSoftwareUpdates' with all optional fields omitted.
@@ -67,60 +66,56 @@ data GetSoftwareUpdates = GetSoftwareUpdates'
 -- example @JID123e4567-e89b-12d3-a456-426655440000@.
 newGetSoftwareUpdates ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   GetSoftwareUpdates
 newGetSoftwareUpdates pJobId_ =
   GetSoftwareUpdates' {jobId = pJobId_}
 
 -- | The ID for a job that you want to get the software update file for, for
 -- example @JID123e4567-e89b-12d3-a456-426655440000@.
-getSoftwareUpdates_jobId :: Lens.Lens' GetSoftwareUpdates Prelude.Text
+getSoftwareUpdates_jobId :: Lens.Lens' GetSoftwareUpdates Core.Text
 getSoftwareUpdates_jobId = Lens.lens (\GetSoftwareUpdates' {jobId} -> jobId) (\s@GetSoftwareUpdates' {} a -> s {jobId = a} :: GetSoftwareUpdates)
 
-instance Prelude.AWSRequest GetSoftwareUpdates where
+instance Core.AWSRequest GetSoftwareUpdates where
   type
-    Rs GetSoftwareUpdates =
+    AWSResponse GetSoftwareUpdates =
       GetSoftwareUpdatesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetSoftwareUpdatesResponse'
-            Prelude.<$> (x Prelude..?> "UpdatesURI")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UpdatesURI")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSoftwareUpdates
+instance Core.Hashable GetSoftwareUpdates
 
-instance Prelude.NFData GetSoftwareUpdates
+instance Core.NFData GetSoftwareUpdates
 
-instance Prelude.ToHeaders GetSoftwareUpdates where
+instance Core.ToHeaders GetSoftwareUpdates where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSIESnowballJobManagementService.GetSoftwareUpdates" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSIESnowballJobManagementService.GetSoftwareUpdates" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetSoftwareUpdates where
+instance Core.ToJSON GetSoftwareUpdates where
   toJSON GetSoftwareUpdates' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
 
-instance Prelude.ToPath GetSoftwareUpdates where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetSoftwareUpdates where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetSoftwareUpdates where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetSoftwareUpdates where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetSoftwareUpdatesResponse' smart constructor.
 data GetSoftwareUpdatesResponse = GetSoftwareUpdatesResponse'
@@ -128,11 +123,11 @@ data GetSoftwareUpdatesResponse = GetSoftwareUpdatesResponse'
     -- specified @JobId@ value. The software update will be available for 2
     -- days after this request is made. To access an update after the 2 days
     -- have passed, you\'ll have to make another call to @GetSoftwareUpdates@.
-    updatesURI :: Prelude.Maybe Prelude.Text,
+    updatesURI :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSoftwareUpdatesResponse' with all optional fields omitted.
@@ -150,12 +145,12 @@ data GetSoftwareUpdatesResponse = GetSoftwareUpdatesResponse'
 -- 'httpStatus', 'getSoftwareUpdatesResponse_httpStatus' - The response's http status code.
 newGetSoftwareUpdatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSoftwareUpdatesResponse
 newGetSoftwareUpdatesResponse pHttpStatus_ =
   GetSoftwareUpdatesResponse'
     { updatesURI =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -163,11 +158,11 @@ newGetSoftwareUpdatesResponse pHttpStatus_ =
 -- specified @JobId@ value. The software update will be available for 2
 -- days after this request is made. To access an update after the 2 days
 -- have passed, you\'ll have to make another call to @GetSoftwareUpdates@.
-getSoftwareUpdatesResponse_updatesURI :: Lens.Lens' GetSoftwareUpdatesResponse (Prelude.Maybe Prelude.Text)
+getSoftwareUpdatesResponse_updatesURI :: Lens.Lens' GetSoftwareUpdatesResponse (Core.Maybe Core.Text)
 getSoftwareUpdatesResponse_updatesURI = Lens.lens (\GetSoftwareUpdatesResponse' {updatesURI} -> updatesURI) (\s@GetSoftwareUpdatesResponse' {} a -> s {updatesURI = a} :: GetSoftwareUpdatesResponse)
 
 -- | The response's http status code.
-getSoftwareUpdatesResponse_httpStatus :: Lens.Lens' GetSoftwareUpdatesResponse Prelude.Int
+getSoftwareUpdatesResponse_httpStatus :: Lens.Lens' GetSoftwareUpdatesResponse Core.Int
 getSoftwareUpdatesResponse_httpStatus = Lens.lens (\GetSoftwareUpdatesResponse' {httpStatus} -> httpStatus) (\s@GetSoftwareUpdatesResponse' {} a -> s {httpStatus = a} :: GetSoftwareUpdatesResponse)
 
-instance Prelude.NFData GetSoftwareUpdatesResponse
+instance Core.NFData GetSoftwareUpdatesResponse

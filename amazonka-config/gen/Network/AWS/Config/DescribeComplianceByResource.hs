@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -73,9 +72,8 @@ module Network.AWS.Config.DescribeComplianceByResource
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -86,25 +84,25 @@ data DescribeComplianceByResource = DescribeComplianceByResource'
   { -- | The ID of the AWS resource for which you want compliance information.
     -- You can specify only one resource ID. If you specify a resource ID, you
     -- must also specify a type for @ResourceType@.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
     -- @INSUFFICIENT_DATA@.
-    complianceTypes :: Prelude.Maybe [ComplianceType],
+    complianceTypes :: Core.Maybe [ComplianceType],
     -- | The types of AWS resources for which you want compliance information
     -- (for example, @AWS::EC2::Instance@). For this action, you can specify
     -- that the resource type is an AWS account by specifying @AWS::::Account@.
-    resourceType :: Prelude.Maybe Prelude.Text,
+    resourceType :: Core.Maybe Core.Text,
     -- | The maximum number of evaluation results returned on each page. The
     -- default is 10. You cannot specify a number greater than 100. If you
     -- specify 0, AWS Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeComplianceByResource' with all optional fields omitted.
@@ -138,126 +136,115 @@ newDescribeComplianceByResource ::
 newDescribeComplianceByResource =
   DescribeComplianceByResource'
     { resourceId =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      complianceTypes = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      limit = Prelude.Nothing
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      complianceTypes = Core.Nothing,
+      resourceType = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | The ID of the AWS resource for which you want compliance information.
 -- You can specify only one resource ID. If you specify a resource ID, you
 -- must also specify a type for @ResourceType@.
-describeComplianceByResource_resourceId :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Text)
+describeComplianceByResource_resourceId :: Lens.Lens' DescribeComplianceByResource (Core.Maybe Core.Text)
 describeComplianceByResource_resourceId = Lens.lens (\DescribeComplianceByResource' {resourceId} -> resourceId) (\s@DescribeComplianceByResource' {} a -> s {resourceId = a} :: DescribeComplianceByResource)
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-describeComplianceByResource_nextToken :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Text)
+describeComplianceByResource_nextToken :: Lens.Lens' DescribeComplianceByResource (Core.Maybe Core.Text)
 describeComplianceByResource_nextToken = Lens.lens (\DescribeComplianceByResource' {nextToken} -> nextToken) (\s@DescribeComplianceByResource' {} a -> s {nextToken = a} :: DescribeComplianceByResource)
 
 -- | Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
 -- @INSUFFICIENT_DATA@.
-describeComplianceByResource_complianceTypes :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe [ComplianceType])
-describeComplianceByResource_complianceTypes = Lens.lens (\DescribeComplianceByResource' {complianceTypes} -> complianceTypes) (\s@DescribeComplianceByResource' {} a -> s {complianceTypes = a} :: DescribeComplianceByResource) Prelude.. Lens.mapping Prelude._Coerce
+describeComplianceByResource_complianceTypes :: Lens.Lens' DescribeComplianceByResource (Core.Maybe [ComplianceType])
+describeComplianceByResource_complianceTypes = Lens.lens (\DescribeComplianceByResource' {complianceTypes} -> complianceTypes) (\s@DescribeComplianceByResource' {} a -> s {complianceTypes = a} :: DescribeComplianceByResource) Core.. Lens.mapping Lens._Coerce
 
 -- | The types of AWS resources for which you want compliance information
 -- (for example, @AWS::EC2::Instance@). For this action, you can specify
 -- that the resource type is an AWS account by specifying @AWS::::Account@.
-describeComplianceByResource_resourceType :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Text)
+describeComplianceByResource_resourceType :: Lens.Lens' DescribeComplianceByResource (Core.Maybe Core.Text)
 describeComplianceByResource_resourceType = Lens.lens (\DescribeComplianceByResource' {resourceType} -> resourceType) (\s@DescribeComplianceByResource' {} a -> s {resourceType = a} :: DescribeComplianceByResource)
 
 -- | The maximum number of evaluation results returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
 -- specify 0, AWS Config uses the default.
-describeComplianceByResource_limit :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Natural)
+describeComplianceByResource_limit :: Lens.Lens' DescribeComplianceByResource (Core.Maybe Core.Natural)
 describeComplianceByResource_limit = Lens.lens (\DescribeComplianceByResource' {limit} -> limit) (\s@DescribeComplianceByResource' {} a -> s {limit = a} :: DescribeComplianceByResource)
 
-instance Pager.AWSPager DescribeComplianceByResource where
+instance Core.AWSPager DescribeComplianceByResource where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeComplianceByResourceResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeComplianceByResourceResponse_complianceByResources
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeComplianceByResource_nextToken
           Lens..~ rs
           Lens.^? describeComplianceByResourceResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeComplianceByResource
-  where
+instance Core.AWSRequest DescribeComplianceByResource where
   type
-    Rs DescribeComplianceByResource =
+    AWSResponse DescribeComplianceByResource =
       DescribeComplianceByResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeComplianceByResourceResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ComplianceByResources"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "ComplianceByResources"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeComplianceByResource
+instance Core.Hashable DescribeComplianceByResource
 
-instance Prelude.NFData DescribeComplianceByResource
+instance Core.NFData DescribeComplianceByResource
 
-instance
-  Prelude.ToHeaders
-    DescribeComplianceByResource
-  where
+instance Core.ToHeaders DescribeComplianceByResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DescribeComplianceByResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DescribeComplianceByResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeComplianceByResource where
+instance Core.ToJSON DescribeComplianceByResource where
   toJSON DescribeComplianceByResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResourceId" Prelude..=) Prelude.<$> resourceId,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("ComplianceTypes" Prelude..=)
-              Prelude.<$> complianceTypes,
-            ("ResourceType" Prelude..=) Prelude.<$> resourceType,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceId" Core..=) Core.<$> resourceId,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("ComplianceTypes" Core..=) Core.<$> complianceTypes,
+            ("ResourceType" Core..=) Core.<$> resourceType,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath DescribeComplianceByResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeComplianceByResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeComplianceByResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeComplianceByResource where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
@@ -265,14 +252,14 @@ instance Prelude.ToQuery DescribeComplianceByResource where
 data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse'
   { -- | The string that you use in a subsequent request to get the next page of
     -- results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Indicates whether the specified AWS resource complies with all of the
     -- AWS Config rules that evaluate it.
-    complianceByResources :: Prelude.Maybe [ComplianceByResource],
+    complianceByResources :: Core.Maybe [ComplianceByResource],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeComplianceByResourceResponse' with all optional fields omitted.
@@ -291,31 +278,30 @@ data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse
 -- 'httpStatus', 'describeComplianceByResourceResponse_httpStatus' - The response's http status code.
 newDescribeComplianceByResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeComplianceByResourceResponse
 newDescribeComplianceByResourceResponse pHttpStatus_ =
   DescribeComplianceByResourceResponse'
     { nextToken =
-        Prelude.Nothing,
-      complianceByResources =
-        Prelude.Nothing,
+        Core.Nothing,
+      complianceByResources = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
-describeComplianceByResourceResponse_nextToken :: Lens.Lens' DescribeComplianceByResourceResponse (Prelude.Maybe Prelude.Text)
+describeComplianceByResourceResponse_nextToken :: Lens.Lens' DescribeComplianceByResourceResponse (Core.Maybe Core.Text)
 describeComplianceByResourceResponse_nextToken = Lens.lens (\DescribeComplianceByResourceResponse' {nextToken} -> nextToken) (\s@DescribeComplianceByResourceResponse' {} a -> s {nextToken = a} :: DescribeComplianceByResourceResponse)
 
 -- | Indicates whether the specified AWS resource complies with all of the
 -- AWS Config rules that evaluate it.
-describeComplianceByResourceResponse_complianceByResources :: Lens.Lens' DescribeComplianceByResourceResponse (Prelude.Maybe [ComplianceByResource])
-describeComplianceByResourceResponse_complianceByResources = Lens.lens (\DescribeComplianceByResourceResponse' {complianceByResources} -> complianceByResources) (\s@DescribeComplianceByResourceResponse' {} a -> s {complianceByResources = a} :: DescribeComplianceByResourceResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeComplianceByResourceResponse_complianceByResources :: Lens.Lens' DescribeComplianceByResourceResponse (Core.Maybe [ComplianceByResource])
+describeComplianceByResourceResponse_complianceByResources = Lens.lens (\DescribeComplianceByResourceResponse' {complianceByResources} -> complianceByResources) (\s@DescribeComplianceByResourceResponse' {} a -> s {complianceByResources = a} :: DescribeComplianceByResourceResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeComplianceByResourceResponse_httpStatus :: Lens.Lens' DescribeComplianceByResourceResponse Prelude.Int
+describeComplianceByResourceResponse_httpStatus :: Lens.Lens' DescribeComplianceByResourceResponse Core.Int
 describeComplianceByResourceResponse_httpStatus = Lens.lens (\DescribeComplianceByResourceResponse' {httpStatus} -> httpStatus) (\s@DescribeComplianceByResourceResponse' {} a -> s {httpStatus = a} :: DescribeComplianceByResourceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeComplianceByResourceResponse

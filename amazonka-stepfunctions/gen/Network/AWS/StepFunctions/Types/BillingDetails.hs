@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.BillingDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that describes workflow billing details.
 --
 -- /See:/ 'newBillingDetails' smart constructor.
 data BillingDetails = BillingDetails'
   { -- | Billed memory consumption of your workflow, in MB.
-    billedMemoryUsedInMB :: Prelude.Maybe Prelude.Natural,
+    billedMemoryUsedInMB :: Core.Maybe Core.Natural,
     -- | Billed duration of your workflow, in milliseconds.
-    billedDurationInMilliseconds :: Prelude.Maybe Prelude.Natural
+    billedDurationInMilliseconds :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BillingDetails' with all optional fields omitted.
@@ -50,28 +49,28 @@ newBillingDetails ::
 newBillingDetails =
   BillingDetails'
     { billedMemoryUsedInMB =
-        Prelude.Nothing,
-      billedDurationInMilliseconds = Prelude.Nothing
+        Core.Nothing,
+      billedDurationInMilliseconds = Core.Nothing
     }
 
 -- | Billed memory consumption of your workflow, in MB.
-billingDetails_billedMemoryUsedInMB :: Lens.Lens' BillingDetails (Prelude.Maybe Prelude.Natural)
+billingDetails_billedMemoryUsedInMB :: Lens.Lens' BillingDetails (Core.Maybe Core.Natural)
 billingDetails_billedMemoryUsedInMB = Lens.lens (\BillingDetails' {billedMemoryUsedInMB} -> billedMemoryUsedInMB) (\s@BillingDetails' {} a -> s {billedMemoryUsedInMB = a} :: BillingDetails)
 
 -- | Billed duration of your workflow, in milliseconds.
-billingDetails_billedDurationInMilliseconds :: Lens.Lens' BillingDetails (Prelude.Maybe Prelude.Natural)
+billingDetails_billedDurationInMilliseconds :: Lens.Lens' BillingDetails (Core.Maybe Core.Natural)
 billingDetails_billedDurationInMilliseconds = Lens.lens (\BillingDetails' {billedDurationInMilliseconds} -> billedDurationInMilliseconds) (\s@BillingDetails' {} a -> s {billedDurationInMilliseconds = a} :: BillingDetails)
 
-instance Prelude.FromJSON BillingDetails where
+instance Core.FromJSON BillingDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BillingDetails"
       ( \x ->
           BillingDetails'
-            Prelude.<$> (x Prelude..:? "billedMemoryUsedInMB")
-            Prelude.<*> (x Prelude..:? "billedDurationInMilliseconds")
+            Core.<$> (x Core..:? "billedMemoryUsedInMB")
+            Core.<*> (x Core..:? "billedDurationInMilliseconds")
       )
 
-instance Prelude.Hashable BillingDetails
+instance Core.Hashable BillingDetails
 
-instance Prelude.NFData BillingDetails
+instance Core.NFData BillingDetails

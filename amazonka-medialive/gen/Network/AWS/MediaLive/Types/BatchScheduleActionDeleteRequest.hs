@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of schedule actions to delete.
 --
 -- /See:/ 'newBatchScheduleActionDeleteRequest' smart constructor.
 data BatchScheduleActionDeleteRequest = BatchScheduleActionDeleteRequest'
   { -- | A list of schedule actions to delete.
-    actionNames :: [Prelude.Text]
+    actionNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchScheduleActionDeleteRequest' with all optional fields omitted.
@@ -46,29 +45,22 @@ newBatchScheduleActionDeleteRequest ::
 newBatchScheduleActionDeleteRequest =
   BatchScheduleActionDeleteRequest'
     { actionNames =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | A list of schedule actions to delete.
-batchScheduleActionDeleteRequest_actionNames :: Lens.Lens' BatchScheduleActionDeleteRequest [Prelude.Text]
-batchScheduleActionDeleteRequest_actionNames = Lens.lens (\BatchScheduleActionDeleteRequest' {actionNames} -> actionNames) (\s@BatchScheduleActionDeleteRequest' {} a -> s {actionNames = a} :: BatchScheduleActionDeleteRequest) Prelude.. Prelude._Coerce
+batchScheduleActionDeleteRequest_actionNames :: Lens.Lens' BatchScheduleActionDeleteRequest [Core.Text]
+batchScheduleActionDeleteRequest_actionNames = Lens.lens (\BatchScheduleActionDeleteRequest' {actionNames} -> actionNames) (\s@BatchScheduleActionDeleteRequest' {} a -> s {actionNames = a} :: BatchScheduleActionDeleteRequest) Core.. Lens._Coerce
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchScheduleActionDeleteRequest
 
-instance
-  Prelude.NFData
-    BatchScheduleActionDeleteRequest
+instance Core.NFData BatchScheduleActionDeleteRequest
 
-instance
-  Prelude.ToJSON
-    BatchScheduleActionDeleteRequest
-  where
+instance Core.ToJSON BatchScheduleActionDeleteRequest where
   toJSON BatchScheduleActionDeleteRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("actionNames" Prelude..= actionNames)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("actionNames" Core..= actionNames)]
       )

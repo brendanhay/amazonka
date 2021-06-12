@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -84,9 +83,9 @@ module Network.AWS.GameLift.StartMatchmaking
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -98,18 +97,18 @@ data StartMatchmaking = StartMatchmaking'
     -- specified here, Amazon GameLift will generate one in the form of a UUID.
     -- Use this identifier to track the matchmaking ticket status and retrieve
     -- match results.
-    ticketId :: Prelude.Maybe Prelude.Text,
+    ticketId :: Core.Maybe Core.Text,
     -- | Name of the matchmaking configuration to use for this request.
     -- Matchmaking configurations must exist in the same Region as this
     -- request. You can use either the configuration name or ARN value.
-    configurationName :: Prelude.Text,
+    configurationName :: Core.Text,
     -- | Information on each player to be matched. This information must include
     -- a player ID, and may contain player attributes and latency data to be
     -- used in the matchmaking process. After a successful match, @Player@
     -- objects contain the name of the team the player is assigned to.
     players :: [Player]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartMatchmaking' with all optional fields omitted.
@@ -134,26 +133,26 @@ data StartMatchmaking = StartMatchmaking'
 -- objects contain the name of the team the player is assigned to.
 newStartMatchmaking ::
   -- | 'configurationName'
-  Prelude.Text ->
+  Core.Text ->
   StartMatchmaking
 newStartMatchmaking pConfigurationName_ =
   StartMatchmaking'
-    { ticketId = Prelude.Nothing,
+    { ticketId = Core.Nothing,
       configurationName = pConfigurationName_,
-      players = Prelude.mempty
+      players = Core.mempty
     }
 
 -- | A unique identifier for a matchmaking ticket. If no ticket ID is
 -- specified here, Amazon GameLift will generate one in the form of a UUID.
 -- Use this identifier to track the matchmaking ticket status and retrieve
 -- match results.
-startMatchmaking_ticketId :: Lens.Lens' StartMatchmaking (Prelude.Maybe Prelude.Text)
+startMatchmaking_ticketId :: Lens.Lens' StartMatchmaking (Core.Maybe Core.Text)
 startMatchmaking_ticketId = Lens.lens (\StartMatchmaking' {ticketId} -> ticketId) (\s@StartMatchmaking' {} a -> s {ticketId = a} :: StartMatchmaking)
 
 -- | Name of the matchmaking configuration to use for this request.
 -- Matchmaking configurations must exist in the same Region as this
 -- request. You can use either the configuration name or ARN value.
-startMatchmaking_configurationName :: Lens.Lens' StartMatchmaking Prelude.Text
+startMatchmaking_configurationName :: Lens.Lens' StartMatchmaking Core.Text
 startMatchmaking_configurationName = Lens.lens (\StartMatchmaking' {configurationName} -> configurationName) (\s@StartMatchmaking' {} a -> s {configurationName = a} :: StartMatchmaking)
 
 -- | Information on each player to be matched. This information must include
@@ -161,52 +160,52 @@ startMatchmaking_configurationName = Lens.lens (\StartMatchmaking' {configuratio
 -- used in the matchmaking process. After a successful match, @Player@
 -- objects contain the name of the team the player is assigned to.
 startMatchmaking_players :: Lens.Lens' StartMatchmaking [Player]
-startMatchmaking_players = Lens.lens (\StartMatchmaking' {players} -> players) (\s@StartMatchmaking' {} a -> s {players = a} :: StartMatchmaking) Prelude.. Prelude._Coerce
+startMatchmaking_players = Lens.lens (\StartMatchmaking' {players} -> players) (\s@StartMatchmaking' {} a -> s {players = a} :: StartMatchmaking) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest StartMatchmaking where
-  type Rs StartMatchmaking = StartMatchmakingResponse
+instance Core.AWSRequest StartMatchmaking where
+  type
+    AWSResponse StartMatchmaking =
+      StartMatchmakingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartMatchmakingResponse'
-            Prelude.<$> (x Prelude..?> "MatchmakingTicket")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "MatchmakingTicket")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartMatchmaking
+instance Core.Hashable StartMatchmaking
 
-instance Prelude.NFData StartMatchmaking
+instance Core.NFData StartMatchmaking
 
-instance Prelude.ToHeaders StartMatchmaking where
+instance Core.ToHeaders StartMatchmaking where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.StartMatchmaking" :: Prelude.ByteString),
+              Core.=# ("GameLift.StartMatchmaking" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartMatchmaking where
+instance Core.ToJSON StartMatchmaking where
   toJSON StartMatchmaking' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TicketId" Prelude..=) Prelude.<$> ticketId,
-            Prelude.Just
-              ("ConfigurationName" Prelude..= configurationName),
-            Prelude.Just ("Players" Prelude..= players)
+    Core.object
+      ( Core.catMaybes
+          [ ("TicketId" Core..=) Core.<$> ticketId,
+            Core.Just
+              ("ConfigurationName" Core..= configurationName),
+            Core.Just ("Players" Core..= players)
           ]
       )
 
-instance Prelude.ToPath StartMatchmaking where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartMatchmaking where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartMatchmaking where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartMatchmaking where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -215,11 +214,11 @@ data StartMatchmakingResponse = StartMatchmakingResponse'
   { -- | Ticket representing the matchmaking request. This object include the
     -- information included in the request, ticket status, and match results as
     -- generated during the matchmaking process.
-    matchmakingTicket :: Prelude.Maybe MatchmakingTicket,
+    matchmakingTicket :: Core.Maybe MatchmakingTicket,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartMatchmakingResponse' with all optional fields omitted.
@@ -236,23 +235,23 @@ data StartMatchmakingResponse = StartMatchmakingResponse'
 -- 'httpStatus', 'startMatchmakingResponse_httpStatus' - The response's http status code.
 newStartMatchmakingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartMatchmakingResponse
 newStartMatchmakingResponse pHttpStatus_ =
   StartMatchmakingResponse'
     { matchmakingTicket =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Ticket representing the matchmaking request. This object include the
 -- information included in the request, ticket status, and match results as
 -- generated during the matchmaking process.
-startMatchmakingResponse_matchmakingTicket :: Lens.Lens' StartMatchmakingResponse (Prelude.Maybe MatchmakingTicket)
+startMatchmakingResponse_matchmakingTicket :: Lens.Lens' StartMatchmakingResponse (Core.Maybe MatchmakingTicket)
 startMatchmakingResponse_matchmakingTicket = Lens.lens (\StartMatchmakingResponse' {matchmakingTicket} -> matchmakingTicket) (\s@StartMatchmakingResponse' {} a -> s {matchmakingTicket = a} :: StartMatchmakingResponse)
 
 -- | The response's http status code.
-startMatchmakingResponse_httpStatus :: Lens.Lens' StartMatchmakingResponse Prelude.Int
+startMatchmakingResponse_httpStatus :: Lens.Lens' StartMatchmakingResponse Core.Int
 startMatchmakingResponse_httpStatus = Lens.lens (\StartMatchmakingResponse' {httpStatus} -> httpStatus) (\s@StartMatchmakingResponse' {} a -> s {httpStatus = a} :: StartMatchmakingResponse)
 
-instance Prelude.NFData StartMatchmakingResponse
+instance Core.NFData StartMatchmakingResponse

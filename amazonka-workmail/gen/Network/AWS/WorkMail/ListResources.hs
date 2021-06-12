@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.WorkMail.ListResources
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -56,13 +54,13 @@ import Network.AWS.WorkMail.Types
 data ListResources = ListResources'
   { -- | The token to use to retrieve the next page of results. The first call
     -- does not contain any tokens.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The identifier for the organization under which the resources exist.
-    organizationId :: Prelude.Text
+    organizationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListResources' with all optional fields omitted.
@@ -80,109 +78,104 @@ data ListResources = ListResources'
 -- 'organizationId', 'listResources_organizationId' - The identifier for the organization under which the resources exist.
 newListResources ::
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   ListResources
 newListResources pOrganizationId_ =
   ListResources'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       organizationId = pOrganizationId_
     }
 
 -- | The token to use to retrieve the next page of results. The first call
 -- does not contain any tokens.
-listResources_nextToken :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
+listResources_nextToken :: Lens.Lens' ListResources (Core.Maybe Core.Text)
 listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (\s@ListResources' {} a -> s {nextToken = a} :: ListResources)
 
 -- | The maximum number of results to return in a single call.
-listResources_maxResults :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Natural)
+listResources_maxResults :: Lens.Lens' ListResources (Core.Maybe Core.Natural)
 listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults) (\s@ListResources' {} a -> s {maxResults = a} :: ListResources)
 
 -- | The identifier for the organization under which the resources exist.
-listResources_organizationId :: Lens.Lens' ListResources Prelude.Text
+listResources_organizationId :: Lens.Lens' ListResources Core.Text
 listResources_organizationId = Lens.lens (\ListResources' {organizationId} -> organizationId) (\s@ListResources' {} a -> s {organizationId = a} :: ListResources)
 
-instance Pager.AWSPager ListResources where
+instance Core.AWSPager ListResources where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listResourcesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listResourcesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listResourcesResponse_resources Prelude.. Lens._Just
+            Lens.^? listResourcesResponse_resources Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listResources_nextToken
           Lens..~ rs
-          Lens.^? listResourcesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listResourcesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListResources where
-  type Rs ListResources = ListResourcesResponse
+instance Core.AWSRequest ListResources where
+  type
+    AWSResponse ListResources =
+      ListResourcesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListResourcesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Resources"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Resources" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListResources
+instance Core.Hashable ListResources
 
-instance Prelude.NFData ListResources
+instance Core.NFData ListResources
 
-instance Prelude.ToHeaders ListResources where
+instance Core.ToHeaders ListResources where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.ListResources" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("WorkMailService.ListResources" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListResources where
+instance Core.ToJSON ListResources where
   toJSON ListResources' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ("OrganizationId" Prelude..= organizationId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("OrganizationId" Core..= organizationId)
           ]
       )
 
-instance Prelude.ToPath ListResources where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListResources where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListResources where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListResources where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListResourcesResponse' smart constructor.
 data ListResourcesResponse = ListResourcesResponse'
   { -- | The token used to paginate through all the organization\'s resources.
     -- While results are still available, it has an associated value. When the
     -- last page is reached, the token is empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | One page of the organization\'s resource representation.
-    resources :: Prelude.Maybe [Resource],
+    resources :: Core.Maybe [Resource],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListResourcesResponse' with all optional fields omitted.
@@ -201,27 +194,27 @@ data ListResourcesResponse = ListResourcesResponse'
 -- 'httpStatus', 'listResourcesResponse_httpStatus' - The response's http status code.
 newListResourcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListResourcesResponse
 newListResourcesResponse pHttpStatus_ =
   ListResourcesResponse'
-    { nextToken = Prelude.Nothing,
-      resources = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      resources = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token used to paginate through all the organization\'s resources.
 -- While results are still available, it has an associated value. When the
 -- last page is reached, the token is empty.
-listResourcesResponse_nextToken :: Lens.Lens' ListResourcesResponse (Prelude.Maybe Prelude.Text)
+listResourcesResponse_nextToken :: Lens.Lens' ListResourcesResponse (Core.Maybe Core.Text)
 listResourcesResponse_nextToken = Lens.lens (\ListResourcesResponse' {nextToken} -> nextToken) (\s@ListResourcesResponse' {} a -> s {nextToken = a} :: ListResourcesResponse)
 
 -- | One page of the organization\'s resource representation.
-listResourcesResponse_resources :: Lens.Lens' ListResourcesResponse (Prelude.Maybe [Resource])
-listResourcesResponse_resources = Lens.lens (\ListResourcesResponse' {resources} -> resources) (\s@ListResourcesResponse' {} a -> s {resources = a} :: ListResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listResourcesResponse_resources :: Lens.Lens' ListResourcesResponse (Core.Maybe [Resource])
+listResourcesResponse_resources = Lens.lens (\ListResourcesResponse' {resources} -> resources) (\s@ListResourcesResponse' {} a -> s {resources = a} :: ListResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listResourcesResponse_httpStatus :: Lens.Lens' ListResourcesResponse Prelude.Int
+listResourcesResponse_httpStatus :: Lens.Lens' ListResourcesResponse Core.Int
 listResourcesResponse_httpStatus = Lens.lens (\ListResourcesResponse' {httpStatus} -> httpStatus) (\s@ListResourcesResponse' {} a -> s {httpStatus = a} :: ListResourcesResponse)
 
-instance Prelude.NFData ListResourcesResponse
+instance Core.NFData ListResourcesResponse

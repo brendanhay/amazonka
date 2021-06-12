@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EMR.PutBlockPublicAccessConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,7 +68,7 @@ data PutBlockPublicAccessConfiguration = PutBlockPublicAccessConfiguration'
     -- access is enabled by default in that Region.
     blockPublicAccessConfiguration :: BlockPublicAccessConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBlockPublicAccessConfiguration' with all optional fields omitted.
@@ -128,78 +127,76 @@ putBlockPublicAccessConfiguration_blockPublicAccessConfiguration :: Lens.Lens' P
 putBlockPublicAccessConfiguration_blockPublicAccessConfiguration = Lens.lens (\PutBlockPublicAccessConfiguration' {blockPublicAccessConfiguration} -> blockPublicAccessConfiguration) (\s@PutBlockPublicAccessConfiguration' {} a -> s {blockPublicAccessConfiguration = a} :: PutBlockPublicAccessConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PutBlockPublicAccessConfiguration
   where
   type
-    Rs PutBlockPublicAccessConfiguration =
+    AWSResponse PutBlockPublicAccessConfiguration =
       PutBlockPublicAccessConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutBlockPublicAccessConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PutBlockPublicAccessConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutBlockPublicAccessConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     PutBlockPublicAccessConfiguration
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.PutBlockPublicAccessConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.PutBlockPublicAccessConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     PutBlockPublicAccessConfiguration
   where
   toJSON PutBlockPublicAccessConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "BlockPublicAccessConfiguration"
-                  Prelude..= blockPublicAccessConfiguration
+                  Core..= blockPublicAccessConfiguration
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     PutBlockPublicAccessConfiguration
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     PutBlockPublicAccessConfiguration
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutBlockPublicAccessConfigurationResponse' smart constructor.
 data PutBlockPublicAccessConfigurationResponse = PutBlockPublicAccessConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBlockPublicAccessConfigurationResponse' with all optional fields omitted.
@@ -212,7 +209,7 @@ data PutBlockPublicAccessConfigurationResponse = PutBlockPublicAccessConfigurati
 -- 'httpStatus', 'putBlockPublicAccessConfigurationResponse_httpStatus' - The response's http status code.
 newPutBlockPublicAccessConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutBlockPublicAccessConfigurationResponse
 newPutBlockPublicAccessConfigurationResponse
   pHttpStatus_ =
@@ -222,9 +219,9 @@ newPutBlockPublicAccessConfigurationResponse
       }
 
 -- | The response's http status code.
-putBlockPublicAccessConfigurationResponse_httpStatus :: Lens.Lens' PutBlockPublicAccessConfigurationResponse Prelude.Int
+putBlockPublicAccessConfigurationResponse_httpStatus :: Lens.Lens' PutBlockPublicAccessConfigurationResponse Core.Int
 putBlockPublicAccessConfigurationResponse_httpStatus = Lens.lens (\PutBlockPublicAccessConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutBlockPublicAccessConfigurationResponse' {} a -> s {httpStatus = a} :: PutBlockPublicAccessConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutBlockPublicAccessConfigurationResponse

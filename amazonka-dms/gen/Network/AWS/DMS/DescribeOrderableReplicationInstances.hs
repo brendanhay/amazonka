@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.DMS.DescribeOrderableReplicationInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,7 +57,7 @@ data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstanc
   { -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -68,9 +66,9 @@ data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstanc
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeOrderableReplicationInstances' with all optional fields omitted.
@@ -97,14 +95,14 @@ newDescribeOrderableReplicationInstances ::
 newDescribeOrderableReplicationInstances =
   DescribeOrderableReplicationInstances'
     { marker =
-        Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeOrderableReplicationInstances_marker :: Lens.Lens' DescribeOrderableReplicationInstances (Prelude.Maybe Prelude.Text)
+describeOrderableReplicationInstances_marker :: Lens.Lens' DescribeOrderableReplicationInstances (Core.Maybe Core.Text)
 describeOrderableReplicationInstances_marker = Lens.lens (\DescribeOrderableReplicationInstances' {marker} -> marker) (\s@DescribeOrderableReplicationInstances' {} a -> s {marker = a} :: DescribeOrderableReplicationInstances)
 
 -- | The maximum number of records to include in the response. If more
@@ -115,117 +113,116 @@ describeOrderableReplicationInstances_marker = Lens.lens (\DescribeOrderableRepl
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeOrderableReplicationInstances_maxRecords :: Lens.Lens' DescribeOrderableReplicationInstances (Prelude.Maybe Prelude.Int)
+describeOrderableReplicationInstances_maxRecords :: Lens.Lens' DescribeOrderableReplicationInstances (Core.Maybe Core.Int)
 describeOrderableReplicationInstances_maxRecords = Lens.lens (\DescribeOrderableReplicationInstances' {maxRecords} -> maxRecords) (\s@DescribeOrderableReplicationInstances' {} a -> s {maxRecords = a} :: DescribeOrderableReplicationInstances)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeOrderableReplicationInstances
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeOrderableReplicationInstancesResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeOrderableReplicationInstancesResponse_orderableReplicationInstances
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeOrderableReplicationInstances_marker
           Lens..~ rs
           Lens.^? describeOrderableReplicationInstancesResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeOrderableReplicationInstances
   where
   type
-    Rs DescribeOrderableReplicationInstances =
+    AWSResponse
+      DescribeOrderableReplicationInstances =
       DescribeOrderableReplicationInstancesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeOrderableReplicationInstancesResponse'
-            Prelude.<$> ( x Prelude..?> "OrderableReplicationInstances"
-                            Prelude..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Prelude..?> "Marker")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "OrderableReplicationInstances"
+                         Core..!@ Core.mempty
+                     )
+              Core.<*> (x Core..?> "Marker")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeOrderableReplicationInstances
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeOrderableReplicationInstances
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeOrderableReplicationInstances
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.DescribeOrderableReplicationInstances" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.DescribeOrderableReplicationInstances" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeOrderableReplicationInstances
   where
   toJSON DescribeOrderableReplicationInstances' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Marker" Prelude..=) Prelude.<$> marker,
-            ("MaxRecords" Prelude..=) Prelude.<$> maxRecords
+    Core.object
+      ( Core.catMaybes
+          [ ("Marker" Core..=) Core.<$> marker,
+            ("MaxRecords" Core..=) Core.<$> maxRecords
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeOrderableReplicationInstances
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeOrderableReplicationInstances
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newDescribeOrderableReplicationInstancesResponse' smart constructor.
 data DescribeOrderableReplicationInstancesResponse = DescribeOrderableReplicationInstancesResponse'
   { -- | The order-able replication instances available.
-    orderableReplicationInstances :: Prelude.Maybe [OrderableReplicationInstance],
+    orderableReplicationInstances :: Core.Maybe [OrderableReplicationInstance],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeOrderableReplicationInstancesResponse' with all optional fields omitted.
@@ -244,31 +241,31 @@ data DescribeOrderableReplicationInstancesResponse = DescribeOrderableReplicatio
 -- 'httpStatus', 'describeOrderableReplicationInstancesResponse_httpStatus' - The response's http status code.
 newDescribeOrderableReplicationInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeOrderableReplicationInstancesResponse
 newDescribeOrderableReplicationInstancesResponse
   pHttpStatus_ =
     DescribeOrderableReplicationInstancesResponse'
       { orderableReplicationInstances =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+          Core.Nothing,
+        marker = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The order-able replication instances available.
-describeOrderableReplicationInstancesResponse_orderableReplicationInstances :: Lens.Lens' DescribeOrderableReplicationInstancesResponse (Prelude.Maybe [OrderableReplicationInstance])
-describeOrderableReplicationInstancesResponse_orderableReplicationInstances = Lens.lens (\DescribeOrderableReplicationInstancesResponse' {orderableReplicationInstances} -> orderableReplicationInstances) (\s@DescribeOrderableReplicationInstancesResponse' {} a -> s {orderableReplicationInstances = a} :: DescribeOrderableReplicationInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeOrderableReplicationInstancesResponse_orderableReplicationInstances :: Lens.Lens' DescribeOrderableReplicationInstancesResponse (Core.Maybe [OrderableReplicationInstance])
+describeOrderableReplicationInstancesResponse_orderableReplicationInstances = Lens.lens (\DescribeOrderableReplicationInstancesResponse' {orderableReplicationInstances} -> orderableReplicationInstances) (\s@DescribeOrderableReplicationInstancesResponse' {} a -> s {orderableReplicationInstances = a} :: DescribeOrderableReplicationInstancesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeOrderableReplicationInstancesResponse_marker :: Lens.Lens' DescribeOrderableReplicationInstancesResponse (Prelude.Maybe Prelude.Text)
+describeOrderableReplicationInstancesResponse_marker :: Lens.Lens' DescribeOrderableReplicationInstancesResponse (Core.Maybe Core.Text)
 describeOrderableReplicationInstancesResponse_marker = Lens.lens (\DescribeOrderableReplicationInstancesResponse' {marker} -> marker) (\s@DescribeOrderableReplicationInstancesResponse' {} a -> s {marker = a} :: DescribeOrderableReplicationInstancesResponse)
 
 -- | The response's http status code.
-describeOrderableReplicationInstancesResponse_httpStatus :: Lens.Lens' DescribeOrderableReplicationInstancesResponse Prelude.Int
+describeOrderableReplicationInstancesResponse_httpStatus :: Lens.Lens' DescribeOrderableReplicationInstancesResponse Core.Int
 describeOrderableReplicationInstancesResponse_httpStatus = Lens.lens (\DescribeOrderableReplicationInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeOrderableReplicationInstancesResponse' {} a -> s {httpStatus = a} :: DescribeOrderableReplicationInstancesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeOrderableReplicationInstancesResponse

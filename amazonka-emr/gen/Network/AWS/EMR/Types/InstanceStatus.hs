@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.InstanceStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.InstanceState
 import Network.AWS.EMR.Types.InstanceStateChangeReason
 import Network.AWS.EMR.Types.InstanceTimeline
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The instance status details.
 --
 -- /See:/ 'newInstanceStatus' smart constructor.
 data InstanceStatus = InstanceStatus'
   { -- | The details of the status change reason for the instance.
-    stateChangeReason :: Prelude.Maybe InstanceStateChangeReason,
+    stateChangeReason :: Core.Maybe InstanceStateChangeReason,
     -- | The current state of the instance.
-    state :: Prelude.Maybe InstanceState,
+    state :: Core.Maybe InstanceState,
     -- | The timeline of the instance status over time.
-    timeline :: Prelude.Maybe InstanceTimeline
+    timeline :: Core.Maybe InstanceTimeline
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceStatus' with all optional fields omitted.
@@ -56,35 +55,34 @@ newInstanceStatus ::
   InstanceStatus
 newInstanceStatus =
   InstanceStatus'
-    { stateChangeReason =
-        Prelude.Nothing,
-      state = Prelude.Nothing,
-      timeline = Prelude.Nothing
+    { stateChangeReason = Core.Nothing,
+      state = Core.Nothing,
+      timeline = Core.Nothing
     }
 
 -- | The details of the status change reason for the instance.
-instanceStatus_stateChangeReason :: Lens.Lens' InstanceStatus (Prelude.Maybe InstanceStateChangeReason)
+instanceStatus_stateChangeReason :: Lens.Lens' InstanceStatus (Core.Maybe InstanceStateChangeReason)
 instanceStatus_stateChangeReason = Lens.lens (\InstanceStatus' {stateChangeReason} -> stateChangeReason) (\s@InstanceStatus' {} a -> s {stateChangeReason = a} :: InstanceStatus)
 
 -- | The current state of the instance.
-instanceStatus_state :: Lens.Lens' InstanceStatus (Prelude.Maybe InstanceState)
+instanceStatus_state :: Lens.Lens' InstanceStatus (Core.Maybe InstanceState)
 instanceStatus_state = Lens.lens (\InstanceStatus' {state} -> state) (\s@InstanceStatus' {} a -> s {state = a} :: InstanceStatus)
 
 -- | The timeline of the instance status over time.
-instanceStatus_timeline :: Lens.Lens' InstanceStatus (Prelude.Maybe InstanceTimeline)
+instanceStatus_timeline :: Lens.Lens' InstanceStatus (Core.Maybe InstanceTimeline)
 instanceStatus_timeline = Lens.lens (\InstanceStatus' {timeline} -> timeline) (\s@InstanceStatus' {} a -> s {timeline = a} :: InstanceStatus)
 
-instance Prelude.FromJSON InstanceStatus where
+instance Core.FromJSON InstanceStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceStatus"
       ( \x ->
           InstanceStatus'
-            Prelude.<$> (x Prelude..:? "StateChangeReason")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "Timeline")
+            Core.<$> (x Core..:? "StateChangeReason")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "Timeline")
       )
 
-instance Prelude.Hashable InstanceStatus
+instance Core.Hashable InstanceStatus
 
-instance Prelude.NFData InstanceStatus
+instance Core.NFData InstanceStatus

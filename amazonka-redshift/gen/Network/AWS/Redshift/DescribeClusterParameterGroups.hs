@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,9 +64,8 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -83,11 +81,11 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
     -- keys in the request, Amazon Redshift returns a response with the
     -- parameter groups that have either or both of these tag keys associated
     -- with them.
-    tagKeys :: Prelude.Maybe [Prelude.Text],
+    tagKeys :: Core.Maybe [Core.Text],
     -- | The name of a specific parameter group for which to return details. By
     -- default, details about all parameter groups and the default parameter
     -- group are returned.
-    parameterGroupName :: Prelude.Maybe Prelude.Text,
+    parameterGroupName :: Core.Maybe Core.Text,
     -- | A tag value or values for which you want to return all matching cluster
     -- parameter groups that are associated with the specified tag value or
     -- values. For example, suppose that you have parameter groups that are
@@ -95,7 +93,7 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
     -- these tag values in the request, Amazon Redshift returns a response with
     -- the parameter groups that have either or both of these tag values
     -- associated with them.
-    tagValues :: Prelude.Maybe [Prelude.Text],
+    tagValues :: Core.Maybe [Core.Text],
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a
     -- DescribeClusterParameterGroups request exceed the value specified in
@@ -103,7 +101,7 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
     -- You can retrieve the next set of response records by providing the
     -- returned marker value in the @Marker@ parameter and retrying the
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -113,9 +111,9 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeClusterParameterGroups' with all optional fields omitted.
@@ -167,11 +165,11 @@ newDescribeClusterParameterGroups ::
 newDescribeClusterParameterGroups =
   DescribeClusterParameterGroups'
     { tagKeys =
-        Prelude.Nothing,
-      parameterGroupName = Prelude.Nothing,
-      tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      parameterGroupName = Core.Nothing,
+      tagValues = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | A tag key or keys for which you want to return all matching cluster
@@ -181,13 +179,13 @@ newDescribeClusterParameterGroups =
 -- keys in the request, Amazon Redshift returns a response with the
 -- parameter groups that have either or both of these tag keys associated
 -- with them.
-describeClusterParameterGroups_tagKeys :: Lens.Lens' DescribeClusterParameterGroups (Prelude.Maybe [Prelude.Text])
-describeClusterParameterGroups_tagKeys = Lens.lens (\DescribeClusterParameterGroups' {tagKeys} -> tagKeys) (\s@DescribeClusterParameterGroups' {} a -> s {tagKeys = a} :: DescribeClusterParameterGroups) Prelude.. Lens.mapping Prelude._Coerce
+describeClusterParameterGroups_tagKeys :: Lens.Lens' DescribeClusterParameterGroups (Core.Maybe [Core.Text])
+describeClusterParameterGroups_tagKeys = Lens.lens (\DescribeClusterParameterGroups' {tagKeys} -> tagKeys) (\s@DescribeClusterParameterGroups' {} a -> s {tagKeys = a} :: DescribeClusterParameterGroups) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of a specific parameter group for which to return details. By
 -- default, details about all parameter groups and the default parameter
 -- group are returned.
-describeClusterParameterGroups_parameterGroupName :: Lens.Lens' DescribeClusterParameterGroups (Prelude.Maybe Prelude.Text)
+describeClusterParameterGroups_parameterGroupName :: Lens.Lens' DescribeClusterParameterGroups (Core.Maybe Core.Text)
 describeClusterParameterGroups_parameterGroupName = Lens.lens (\DescribeClusterParameterGroups' {parameterGroupName} -> parameterGroupName) (\s@DescribeClusterParameterGroups' {} a -> s {parameterGroupName = a} :: DescribeClusterParameterGroups)
 
 -- | A tag value or values for which you want to return all matching cluster
@@ -197,8 +195,8 @@ describeClusterParameterGroups_parameterGroupName = Lens.lens (\DescribeClusterP
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the parameter groups that have either or both of these tag values
 -- associated with them.
-describeClusterParameterGroups_tagValues :: Lens.Lens' DescribeClusterParameterGroups (Prelude.Maybe [Prelude.Text])
-describeClusterParameterGroups_tagValues = Lens.lens (\DescribeClusterParameterGroups' {tagValues} -> tagValues) (\s@DescribeClusterParameterGroups' {} a -> s {tagValues = a} :: DescribeClusterParameterGroups) Prelude.. Lens.mapping Prelude._Coerce
+describeClusterParameterGroups_tagValues :: Lens.Lens' DescribeClusterParameterGroups (Core.Maybe [Core.Text])
+describeClusterParameterGroups_tagValues = Lens.lens (\DescribeClusterParameterGroups' {tagValues} -> tagValues) (\s@DescribeClusterParameterGroups' {} a -> s {tagValues = a} :: DescribeClusterParameterGroups) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
@@ -207,7 +205,7 @@ describeClusterParameterGroups_tagValues = Lens.lens (\DescribeClusterParameterG
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the @Marker@ parameter and retrying the
 -- request.
-describeClusterParameterGroups_marker :: Lens.Lens' DescribeClusterParameterGroups (Prelude.Maybe Prelude.Text)
+describeClusterParameterGroups_marker :: Lens.Lens' DescribeClusterParameterGroups (Core.Maybe Core.Text)
 describeClusterParameterGroups_marker = Lens.lens (\DescribeClusterParameterGroups' {marker} -> marker) (\s@DescribeClusterParameterGroups' {} a -> s {marker = a} :: DescribeClusterParameterGroups)
 
 -- | The maximum number of response records to return in each call. If the
@@ -219,40 +217,37 @@ describeClusterParameterGroups_marker = Lens.lens (\DescribeClusterParameterGrou
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-describeClusterParameterGroups_maxRecords :: Lens.Lens' DescribeClusterParameterGroups (Prelude.Maybe Prelude.Int)
+describeClusterParameterGroups_maxRecords :: Lens.Lens' DescribeClusterParameterGroups (Core.Maybe Core.Int)
 describeClusterParameterGroups_maxRecords = Lens.lens (\DescribeClusterParameterGroups' {maxRecords} -> maxRecords) (\s@DescribeClusterParameterGroups' {} a -> s {maxRecords = a} :: DescribeClusterParameterGroups)
 
-instance
-  Pager.AWSPager
-    DescribeClusterParameterGroups
-  where
+instance Core.AWSPager DescribeClusterParameterGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeClusterParameterGroupsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeClusterParameterGroupsResponse_parameterGroups
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeClusterParameterGroups_marker
           Lens..~ rs
           Lens.^? describeClusterParameterGroupsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeClusterParameterGroups
   where
   type
-    Rs DescribeClusterParameterGroups =
+    AWSResponse DescribeClusterParameterGroups =
       DescribeClusterParameterGroupsResponse
   request = Request.postQuery defaultService
   response =
@@ -260,58 +255,43 @@ instance
       "DescribeClusterParameterGroupsResult"
       ( \s h x ->
           DescribeClusterParameterGroupsResponse'
-            Prelude.<$> ( x Prelude..@? "ParameterGroups"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "ClusterParameterGroup")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "ParameterGroups" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "ClusterParameterGroup")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeClusterParameterGroups
+instance Core.Hashable DescribeClusterParameterGroups
+
+instance Core.NFData DescribeClusterParameterGroups
 
 instance
-  Prelude.NFData
-    DescribeClusterParameterGroups
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeClusterParameterGroups
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DescribeClusterParameterGroups
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeClusterParameterGroups where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeClusterParameterGroups
-  where
+instance Core.ToQuery DescribeClusterParameterGroups where
   toQuery DescribeClusterParameterGroups' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeClusterParameterGroups" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+          Core.=: ( "DescribeClusterParameterGroups" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
         "TagKeys"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "ParameterGroupName" Prelude.=: parameterGroupName,
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagKey" Core.<$> tagKeys),
+        "ParameterGroupName" Core.=: parameterGroupName,
         "TagValues"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "TagValue"
-                Prelude.<$> tagValues
-            ),
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Core.<$> tagValues),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Contains the output from the DescribeClusterParameterGroups action.
@@ -320,18 +300,18 @@ instance
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'
   { -- | A list of ClusterParameterGroup instances. Each instance describes one
     -- cluster parameter group.
-    parameterGroups :: Prelude.Maybe [ClusterParameterGroup],
+    parameterGroups :: Core.Maybe [ClusterParameterGroup],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
     -- @Marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeClusterParameterGroupsResponse' with all optional fields omitted.
@@ -354,21 +334,21 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
 -- 'httpStatus', 'describeClusterParameterGroupsResponse_httpStatus' - The response's http status code.
 newDescribeClusterParameterGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeClusterParameterGroupsResponse
 newDescribeClusterParameterGroupsResponse
   pHttpStatus_ =
     DescribeClusterParameterGroupsResponse'
       { parameterGroups =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+          Core.Nothing,
+        marker = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A list of ClusterParameterGroup instances. Each instance describes one
 -- cluster parameter group.
-describeClusterParameterGroupsResponse_parameterGroups :: Lens.Lens' DescribeClusterParameterGroupsResponse (Prelude.Maybe [ClusterParameterGroup])
-describeClusterParameterGroupsResponse_parameterGroups = Lens.lens (\DescribeClusterParameterGroupsResponse' {parameterGroups} -> parameterGroups) (\s@DescribeClusterParameterGroupsResponse' {} a -> s {parameterGroups = a} :: DescribeClusterParameterGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeClusterParameterGroupsResponse_parameterGroups :: Lens.Lens' DescribeClusterParameterGroupsResponse (Core.Maybe [ClusterParameterGroup])
+describeClusterParameterGroupsResponse_parameterGroups = Lens.lens (\DescribeClusterParameterGroupsResponse' {parameterGroups} -> parameterGroups) (\s@DescribeClusterParameterGroupsResponse' {} a -> s {parameterGroups = a} :: DescribeClusterParameterGroupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -376,13 +356,13 @@ describeClusterParameterGroupsResponse_parameterGroups = Lens.lens (\DescribeClu
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-describeClusterParameterGroupsResponse_marker :: Lens.Lens' DescribeClusterParameterGroupsResponse (Prelude.Maybe Prelude.Text)
+describeClusterParameterGroupsResponse_marker :: Lens.Lens' DescribeClusterParameterGroupsResponse (Core.Maybe Core.Text)
 describeClusterParameterGroupsResponse_marker = Lens.lens (\DescribeClusterParameterGroupsResponse' {marker} -> marker) (\s@DescribeClusterParameterGroupsResponse' {} a -> s {marker = a} :: DescribeClusterParameterGroupsResponse)
 
 -- | The response's http status code.
-describeClusterParameterGroupsResponse_httpStatus :: Lens.Lens' DescribeClusterParameterGroupsResponse Prelude.Int
+describeClusterParameterGroupsResponse_httpStatus :: Lens.Lens' DescribeClusterParameterGroupsResponse Core.Int
 describeClusterParameterGroupsResponse_httpStatus = Lens.lens (\DescribeClusterParameterGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeClusterParameterGroupsResponse' {} a -> s {httpStatus = a} :: DescribeClusterParameterGroupsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeClusterParameterGroupsResponse

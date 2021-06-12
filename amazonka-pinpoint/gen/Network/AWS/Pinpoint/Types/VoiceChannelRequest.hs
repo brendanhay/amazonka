@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.VoiceChannelRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the status and settings of the voice channel for an
 -- application.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newVoiceChannelRequest' smart constructor.
 data VoiceChannelRequest = VoiceChannelRequest'
   { -- | Specifies whether to enable the voice channel for the application.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VoiceChannelRequest' with all optional fields omitted.
@@ -45,19 +44,19 @@ data VoiceChannelRequest = VoiceChannelRequest'
 newVoiceChannelRequest ::
   VoiceChannelRequest
 newVoiceChannelRequest =
-  VoiceChannelRequest' {enabled = Prelude.Nothing}
+  VoiceChannelRequest' {enabled = Core.Nothing}
 
 -- | Specifies whether to enable the voice channel for the application.
-voiceChannelRequest_enabled :: Lens.Lens' VoiceChannelRequest (Prelude.Maybe Prelude.Bool)
+voiceChannelRequest_enabled :: Lens.Lens' VoiceChannelRequest (Core.Maybe Core.Bool)
 voiceChannelRequest_enabled = Lens.lens (\VoiceChannelRequest' {enabled} -> enabled) (\s@VoiceChannelRequest' {} a -> s {enabled = a} :: VoiceChannelRequest)
 
-instance Prelude.Hashable VoiceChannelRequest
+instance Core.Hashable VoiceChannelRequest
 
-instance Prelude.NFData VoiceChannelRequest
+instance Core.NFData VoiceChannelRequest
 
-instance Prelude.ToJSON VoiceChannelRequest where
+instance Core.ToJSON VoiceChannelRequest where
   toJSON VoiceChannelRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Enabled" Prelude..=) Prelude.<$> enabled]
+    Core.object
+      ( Core.catMaybes
+          [("Enabled" Core..=) Core.<$> enabled]
       )

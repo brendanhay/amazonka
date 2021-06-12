@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,19 +41,19 @@ module Network.AWS.Connect.DescribeUserHierarchyGroup
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeUserHierarchyGroup' smart constructor.
 data DescribeUserHierarchyGroup = DescribeUserHierarchyGroup'
   { -- | The identifier of the hierarchy group.
-    hierarchyGroupId :: Prelude.Text,
+    hierarchyGroupId :: Core.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeUserHierarchyGroup' with all optional fields omitted.
@@ -69,9 +68,9 @@ data DescribeUserHierarchyGroup = DescribeUserHierarchyGroup'
 -- 'instanceId', 'describeUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance.
 newDescribeUserHierarchyGroup ::
   -- | 'hierarchyGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeUserHierarchyGroup
 newDescribeUserHierarchyGroup
   pHierarchyGroupId_
@@ -83,64 +82,59 @@ newDescribeUserHierarchyGroup
       }
 
 -- | The identifier of the hierarchy group.
-describeUserHierarchyGroup_hierarchyGroupId :: Lens.Lens' DescribeUserHierarchyGroup Prelude.Text
+describeUserHierarchyGroup_hierarchyGroupId :: Lens.Lens' DescribeUserHierarchyGroup Core.Text
 describeUserHierarchyGroup_hierarchyGroupId = Lens.lens (\DescribeUserHierarchyGroup' {hierarchyGroupId} -> hierarchyGroupId) (\s@DescribeUserHierarchyGroup' {} a -> s {hierarchyGroupId = a} :: DescribeUserHierarchyGroup)
 
 -- | The identifier of the Amazon Connect instance.
-describeUserHierarchyGroup_instanceId :: Lens.Lens' DescribeUserHierarchyGroup Prelude.Text
+describeUserHierarchyGroup_instanceId :: Lens.Lens' DescribeUserHierarchyGroup Core.Text
 describeUserHierarchyGroup_instanceId = Lens.lens (\DescribeUserHierarchyGroup' {instanceId} -> instanceId) (\s@DescribeUserHierarchyGroup' {} a -> s {instanceId = a} :: DescribeUserHierarchyGroup)
 
-instance
-  Prelude.AWSRequest
-    DescribeUserHierarchyGroup
-  where
+instance Core.AWSRequest DescribeUserHierarchyGroup where
   type
-    Rs DescribeUserHierarchyGroup =
+    AWSResponse DescribeUserHierarchyGroup =
       DescribeUserHierarchyGroupResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeUserHierarchyGroupResponse'
-            Prelude.<$> (x Prelude..?> "HierarchyGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "HierarchyGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUserHierarchyGroup
+instance Core.Hashable DescribeUserHierarchyGroup
 
-instance Prelude.NFData DescribeUserHierarchyGroup
+instance Core.NFData DescribeUserHierarchyGroup
 
-instance Prelude.ToHeaders DescribeUserHierarchyGroup where
+instance Core.ToHeaders DescribeUserHierarchyGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeUserHierarchyGroup where
+instance Core.ToPath DescribeUserHierarchyGroup where
   toPath DescribeUserHierarchyGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/user-hierarchy-groups/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS hierarchyGroupId
+        Core.toBS hierarchyGroupId
       ]
 
-instance Prelude.ToQuery DescribeUserHierarchyGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeUserHierarchyGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeUserHierarchyGroupResponse' smart constructor.
 data DescribeUserHierarchyGroupResponse = DescribeUserHierarchyGroupResponse'
   { -- | Information about the hierarchy group.
-    hierarchyGroup :: Prelude.Maybe HierarchyGroup,
+    hierarchyGroup :: Core.Maybe HierarchyGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeUserHierarchyGroupResponse' with all optional fields omitted.
@@ -155,23 +149,23 @@ data DescribeUserHierarchyGroupResponse = DescribeUserHierarchyGroupResponse'
 -- 'httpStatus', 'describeUserHierarchyGroupResponse_httpStatus' - The response's http status code.
 newDescribeUserHierarchyGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeUserHierarchyGroupResponse
 newDescribeUserHierarchyGroupResponse pHttpStatus_ =
   DescribeUserHierarchyGroupResponse'
     { hierarchyGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the hierarchy group.
-describeUserHierarchyGroupResponse_hierarchyGroup :: Lens.Lens' DescribeUserHierarchyGroupResponse (Prelude.Maybe HierarchyGroup)
+describeUserHierarchyGroupResponse_hierarchyGroup :: Lens.Lens' DescribeUserHierarchyGroupResponse (Core.Maybe HierarchyGroup)
 describeUserHierarchyGroupResponse_hierarchyGroup = Lens.lens (\DescribeUserHierarchyGroupResponse' {hierarchyGroup} -> hierarchyGroup) (\s@DescribeUserHierarchyGroupResponse' {} a -> s {hierarchyGroup = a} :: DescribeUserHierarchyGroupResponse)
 
 -- | The response's http status code.
-describeUserHierarchyGroupResponse_httpStatus :: Lens.Lens' DescribeUserHierarchyGroupResponse Prelude.Int
+describeUserHierarchyGroupResponse_httpStatus :: Lens.Lens' DescribeUserHierarchyGroupResponse Core.Int
 describeUserHierarchyGroupResponse_httpStatus = Lens.lens (\DescribeUserHierarchyGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeUserHierarchyGroupResponse' {} a -> s {httpStatus = a} :: DescribeUserHierarchyGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeUserHierarchyGroupResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,8 @@ module Network.AWS.Redshift.DescribeHsmConfigurations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -77,11 +75,11 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
     -- keys in the request, Amazon Redshift returns a response with the HSM
     -- configurations that have either or both of these tag keys associated
     -- with them.
-    tagKeys :: Prelude.Maybe [Prelude.Text],
+    tagKeys :: Core.Maybe [Core.Text],
     -- | The identifier of a specific Amazon Redshift HSM configuration to be
     -- described. If no identifier is specified, information is returned for
     -- all HSM configurations owned by your AWS customer account.
-    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
+    hsmConfigurationIdentifier :: Core.Maybe Core.Text,
     -- | A tag value or values for which you want to return all matching HSM
     -- configurations that are associated with the specified tag value or
     -- values. For example, suppose that you have HSM configurations that are
@@ -89,14 +87,14 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
     -- these tag values in the request, Amazon Redshift returns a response with
     -- the HSM configurations that have either or both of these tag values
     -- associated with them.
-    tagValues :: Prelude.Maybe [Prelude.Text],
+    tagValues :: Core.Maybe [Core.Text],
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeHsmConfigurations
     -- request exceed the value specified in @MaxRecords@, AWS returns a value
     -- in the @Marker@ field of the response. You can retrieve the next set of
     -- response records by providing the returned marker value in the @Marker@
     -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -106,9 +104,9 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHsmConfigurations' with all optional fields omitted.
@@ -158,12 +156,11 @@ newDescribeHsmConfigurations ::
   DescribeHsmConfigurations
 newDescribeHsmConfigurations =
   DescribeHsmConfigurations'
-    { tagKeys =
-        Prelude.Nothing,
-      hsmConfigurationIdentifier = Prelude.Nothing,
-      tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+    { tagKeys = Core.Nothing,
+      hsmConfigurationIdentifier = Core.Nothing,
+      tagValues = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | A tag key or keys for which you want to return all matching HSM
@@ -173,13 +170,13 @@ newDescribeHsmConfigurations =
 -- keys in the request, Amazon Redshift returns a response with the HSM
 -- configurations that have either or both of these tag keys associated
 -- with them.
-describeHsmConfigurations_tagKeys :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe [Prelude.Text])
-describeHsmConfigurations_tagKeys = Lens.lens (\DescribeHsmConfigurations' {tagKeys} -> tagKeys) (\s@DescribeHsmConfigurations' {} a -> s {tagKeys = a} :: DescribeHsmConfigurations) Prelude.. Lens.mapping Prelude._Coerce
+describeHsmConfigurations_tagKeys :: Lens.Lens' DescribeHsmConfigurations (Core.Maybe [Core.Text])
+describeHsmConfigurations_tagKeys = Lens.lens (\DescribeHsmConfigurations' {tagKeys} -> tagKeys) (\s@DescribeHsmConfigurations' {} a -> s {tagKeys = a} :: DescribeHsmConfigurations) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifier of a specific Amazon Redshift HSM configuration to be
 -- described. If no identifier is specified, information is returned for
 -- all HSM configurations owned by your AWS customer account.
-describeHsmConfigurations_hsmConfigurationIdentifier :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe Prelude.Text)
+describeHsmConfigurations_hsmConfigurationIdentifier :: Lens.Lens' DescribeHsmConfigurations (Core.Maybe Core.Text)
 describeHsmConfigurations_hsmConfigurationIdentifier = Lens.lens (\DescribeHsmConfigurations' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@DescribeHsmConfigurations' {} a -> s {hsmConfigurationIdentifier = a} :: DescribeHsmConfigurations)
 
 -- | A tag value or values for which you want to return all matching HSM
@@ -189,8 +186,8 @@ describeHsmConfigurations_hsmConfigurationIdentifier = Lens.lens (\DescribeHsmCo
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the HSM configurations that have either or both of these tag values
 -- associated with them.
-describeHsmConfigurations_tagValues :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe [Prelude.Text])
-describeHsmConfigurations_tagValues = Lens.lens (\DescribeHsmConfigurations' {tagValues} -> tagValues) (\s@DescribeHsmConfigurations' {} a -> s {tagValues = a} :: DescribeHsmConfigurations) Prelude.. Lens.mapping Prelude._Coerce
+describeHsmConfigurations_tagValues :: Lens.Lens' DescribeHsmConfigurations (Core.Maybe [Core.Text])
+describeHsmConfigurations_tagValues = Lens.lens (\DescribeHsmConfigurations' {tagValues} -> tagValues) (\s@DescribeHsmConfigurations' {} a -> s {tagValues = a} :: DescribeHsmConfigurations) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeHsmConfigurations
@@ -198,7 +195,7 @@ describeHsmConfigurations_tagValues = Lens.lens (\DescribeHsmConfigurations' {ta
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-describeHsmConfigurations_marker :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe Prelude.Text)
+describeHsmConfigurations_marker :: Lens.Lens' DescribeHsmConfigurations (Core.Maybe Core.Text)
 describeHsmConfigurations_marker = Lens.lens (\DescribeHsmConfigurations' {marker} -> marker) (\s@DescribeHsmConfigurations' {} a -> s {marker = a} :: DescribeHsmConfigurations)
 
 -- | The maximum number of response records to return in each call. If the
@@ -210,34 +207,34 @@ describeHsmConfigurations_marker = Lens.lens (\DescribeHsmConfigurations' {marke
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-describeHsmConfigurations_maxRecords :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe Prelude.Int)
+describeHsmConfigurations_maxRecords :: Lens.Lens' DescribeHsmConfigurations (Core.Maybe Core.Int)
 describeHsmConfigurations_maxRecords = Lens.lens (\DescribeHsmConfigurations' {maxRecords} -> maxRecords) (\s@DescribeHsmConfigurations' {} a -> s {maxRecords = a} :: DescribeHsmConfigurations)
 
-instance Pager.AWSPager DescribeHsmConfigurations where
+instance Core.AWSPager DescribeHsmConfigurations where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeHsmConfigurationsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeHsmConfigurationsResponse_hsmConfigurations
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeHsmConfigurations_marker
           Lens..~ rs
           Lens.^? describeHsmConfigurationsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeHsmConfigurations where
+instance Core.AWSRequest DescribeHsmConfigurations where
   type
-    Rs DescribeHsmConfigurations =
+    AWSResponse DescribeHsmConfigurations =
       DescribeHsmConfigurationsResponse
   request = Request.postQuery defaultService
   response =
@@ -245,44 +242,39 @@ instance Prelude.AWSRequest DescribeHsmConfigurations where
       "DescribeHsmConfigurationsResult"
       ( \s h x ->
           DescribeHsmConfigurationsResponse'
-            Prelude.<$> ( x Prelude..@? "HsmConfigurations"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "HsmConfiguration")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "HsmConfigurations" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "HsmConfiguration")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHsmConfigurations
+instance Core.Hashable DescribeHsmConfigurations
 
-instance Prelude.NFData DescribeHsmConfigurations
+instance Core.NFData DescribeHsmConfigurations
 
-instance Prelude.ToHeaders DescribeHsmConfigurations where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeHsmConfigurations where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeHsmConfigurations where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeHsmConfigurations where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeHsmConfigurations where
+instance Core.ToQuery DescribeHsmConfigurations where
   toQuery DescribeHsmConfigurations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeHsmConfigurations" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+          Core.=: ("DescribeHsmConfigurations" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
         "TagKeys"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "TagKey" Prelude.<$> tagKeys),
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagKey" Core.<$> tagKeys),
         "HsmConfigurationIdentifier"
-          Prelude.=: hsmConfigurationIdentifier,
+          Core.=: hsmConfigurationIdentifier,
         "TagValues"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "TagValue"
-                Prelude.<$> tagValues
-            ),
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Core.<$> tagValues),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- |
@@ -290,18 +282,18 @@ instance Prelude.ToQuery DescribeHsmConfigurations where
 -- /See:/ 'newDescribeHsmConfigurationsResponse' smart constructor.
 data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse'
   { -- | A list of @HsmConfiguration@ objects.
-    hsmConfigurations :: Prelude.Maybe [HsmConfiguration],
+    hsmConfigurations :: Core.Maybe [HsmConfiguration],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
     -- @Marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHsmConfigurationsResponse' with all optional fields omitted.
@@ -323,19 +315,19 @@ data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse'
 -- 'httpStatus', 'describeHsmConfigurationsResponse_httpStatus' - The response's http status code.
 newDescribeHsmConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeHsmConfigurationsResponse
 newDescribeHsmConfigurationsResponse pHttpStatus_ =
   DescribeHsmConfigurationsResponse'
     { hsmConfigurations =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of @HsmConfiguration@ objects.
-describeHsmConfigurationsResponse_hsmConfigurations :: Lens.Lens' DescribeHsmConfigurationsResponse (Prelude.Maybe [HsmConfiguration])
-describeHsmConfigurationsResponse_hsmConfigurations = Lens.lens (\DescribeHsmConfigurationsResponse' {hsmConfigurations} -> hsmConfigurations) (\s@DescribeHsmConfigurationsResponse' {} a -> s {hsmConfigurations = a} :: DescribeHsmConfigurationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeHsmConfigurationsResponse_hsmConfigurations :: Lens.Lens' DescribeHsmConfigurationsResponse (Core.Maybe [HsmConfiguration])
+describeHsmConfigurationsResponse_hsmConfigurations = Lens.lens (\DescribeHsmConfigurationsResponse' {hsmConfigurations} -> hsmConfigurations) (\s@DescribeHsmConfigurationsResponse' {} a -> s {hsmConfigurations = a} :: DescribeHsmConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -343,13 +335,13 @@ describeHsmConfigurationsResponse_hsmConfigurations = Lens.lens (\DescribeHsmCon
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-describeHsmConfigurationsResponse_marker :: Lens.Lens' DescribeHsmConfigurationsResponse (Prelude.Maybe Prelude.Text)
+describeHsmConfigurationsResponse_marker :: Lens.Lens' DescribeHsmConfigurationsResponse (Core.Maybe Core.Text)
 describeHsmConfigurationsResponse_marker = Lens.lens (\DescribeHsmConfigurationsResponse' {marker} -> marker) (\s@DescribeHsmConfigurationsResponse' {} a -> s {marker = a} :: DescribeHsmConfigurationsResponse)
 
 -- | The response's http status code.
-describeHsmConfigurationsResponse_httpStatus :: Lens.Lens' DescribeHsmConfigurationsResponse Prelude.Int
+describeHsmConfigurationsResponse_httpStatus :: Lens.Lens' DescribeHsmConfigurationsResponse Core.Int
 describeHsmConfigurationsResponse_httpStatus = Lens.lens (\DescribeHsmConfigurationsResponse' {httpStatus} -> httpStatus) (\s@DescribeHsmConfigurationsResponse' {} a -> s {httpStatus = a} :: DescribeHsmConfigurationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeHsmConfigurationsResponse

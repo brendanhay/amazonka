@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.UsageCriteria where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DataSource
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the criteria used to query usage statistics.
 --
 -- /See:/ 'newUsageCriteria' smart constructor.
 data UsageCriteria = UsageCriteria'
   { -- | The account IDs to aggregate usage statistics from.
-    accountIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    accountIds :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The resources to aggregate usage statistics from. Only accepts exact
     -- resource names.
-    resources :: Prelude.Maybe [Prelude.Text],
+    resources :: Core.Maybe [Core.Text],
     -- | The data sources to aggregate usage statistics from.
     dataSources :: [DataSource]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UsageCriteria' with all optional fields omitted.
@@ -56,34 +55,34 @@ newUsageCriteria ::
   UsageCriteria
 newUsageCriteria =
   UsageCriteria'
-    { accountIds = Prelude.Nothing,
-      resources = Prelude.Nothing,
-      dataSources = Prelude.mempty
+    { accountIds = Core.Nothing,
+      resources = Core.Nothing,
+      dataSources = Core.mempty
     }
 
 -- | The account IDs to aggregate usage statistics from.
-usageCriteria_accountIds :: Lens.Lens' UsageCriteria (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-usageCriteria_accountIds = Lens.lens (\UsageCriteria' {accountIds} -> accountIds) (\s@UsageCriteria' {} a -> s {accountIds = a} :: UsageCriteria) Prelude.. Lens.mapping Prelude._Coerce
+usageCriteria_accountIds :: Lens.Lens' UsageCriteria (Core.Maybe (Core.NonEmpty Core.Text))
+usageCriteria_accountIds = Lens.lens (\UsageCriteria' {accountIds} -> accountIds) (\s@UsageCriteria' {} a -> s {accountIds = a} :: UsageCriteria) Core.. Lens.mapping Lens._Coerce
 
 -- | The resources to aggregate usage statistics from. Only accepts exact
 -- resource names.
-usageCriteria_resources :: Lens.Lens' UsageCriteria (Prelude.Maybe [Prelude.Text])
-usageCriteria_resources = Lens.lens (\UsageCriteria' {resources} -> resources) (\s@UsageCriteria' {} a -> s {resources = a} :: UsageCriteria) Prelude.. Lens.mapping Prelude._Coerce
+usageCriteria_resources :: Lens.Lens' UsageCriteria (Core.Maybe [Core.Text])
+usageCriteria_resources = Lens.lens (\UsageCriteria' {resources} -> resources) (\s@UsageCriteria' {} a -> s {resources = a} :: UsageCriteria) Core.. Lens.mapping Lens._Coerce
 
 -- | The data sources to aggregate usage statistics from.
 usageCriteria_dataSources :: Lens.Lens' UsageCriteria [DataSource]
-usageCriteria_dataSources = Lens.lens (\UsageCriteria' {dataSources} -> dataSources) (\s@UsageCriteria' {} a -> s {dataSources = a} :: UsageCriteria) Prelude.. Prelude._Coerce
+usageCriteria_dataSources = Lens.lens (\UsageCriteria' {dataSources} -> dataSources) (\s@UsageCriteria' {} a -> s {dataSources = a} :: UsageCriteria) Core.. Lens._Coerce
 
-instance Prelude.Hashable UsageCriteria
+instance Core.Hashable UsageCriteria
 
-instance Prelude.NFData UsageCriteria
+instance Core.NFData UsageCriteria
 
-instance Prelude.ToJSON UsageCriteria where
+instance Core.ToJSON UsageCriteria where
   toJSON UsageCriteria' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("accountIds" Prelude..=) Prelude.<$> accountIds,
-            ("resources" Prelude..=) Prelude.<$> resources,
-            Prelude.Just ("dataSources" Prelude..= dataSources)
+    Core.object
+      ( Core.catMaybes
+          [ ("accountIds" Core..=) Core.<$> accountIds,
+            ("resources" Core..=) Core.<$> resources,
+            Core.Just ("dataSources" Core..= dataSources)
           ]
       )

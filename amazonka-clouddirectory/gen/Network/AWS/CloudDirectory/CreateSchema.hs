@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.CloudDirectory.CreateSchema
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,9 +62,9 @@ import qualified Network.AWS.Response as Response
 data CreateSchema = CreateSchema'
   { -- | The name that is associated with the schema. This is unique to each
     -- account and in each region.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSchema' with all optional fields omitted.
@@ -79,57 +78,55 @@ data CreateSchema = CreateSchema'
 -- account and in each region.
 newCreateSchema ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CreateSchema
 newCreateSchema pName_ = CreateSchema' {name = pName_}
 
 -- | The name that is associated with the schema. This is unique to each
 -- account and in each region.
-createSchema_name :: Lens.Lens' CreateSchema Prelude.Text
+createSchema_name :: Lens.Lens' CreateSchema Core.Text
 createSchema_name = Lens.lens (\CreateSchema' {name} -> name) (\s@CreateSchema' {} a -> s {name = a} :: CreateSchema)
 
-instance Prelude.AWSRequest CreateSchema where
-  type Rs CreateSchema = CreateSchemaResponse
+instance Core.AWSRequest CreateSchema where
+  type AWSResponse CreateSchema = CreateSchemaResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateSchemaResponse'
-            Prelude.<$> (x Prelude..?> "SchemaArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SchemaArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSchema
+instance Core.Hashable CreateSchema
 
-instance Prelude.NFData CreateSchema
+instance Core.NFData CreateSchema
 
-instance Prelude.ToHeaders CreateSchema where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateSchema where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CreateSchema where
+instance Core.ToJSON CreateSchema where
   toJSON CreateSchema' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath CreateSchema where
+instance Core.ToPath CreateSchema where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/schema/create"
 
-instance Prelude.ToQuery CreateSchema where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateSchema where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateSchemaResponse' smart constructor.
 data CreateSchemaResponse = CreateSchemaResponse'
   { -- | The Amazon Resource Name (ARN) that is associated with the schema. For
     -- more information, see arns.
-    schemaArn :: Prelude.Maybe Prelude.Text,
+    schemaArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSchemaResponse' with all optional fields omitted.
@@ -145,21 +142,21 @@ data CreateSchemaResponse = CreateSchemaResponse'
 -- 'httpStatus', 'createSchemaResponse_httpStatus' - The response's http status code.
 newCreateSchemaResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateSchemaResponse
 newCreateSchemaResponse pHttpStatus_ =
   CreateSchemaResponse'
-    { schemaArn = Prelude.Nothing,
+    { schemaArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For
 -- more information, see arns.
-createSchemaResponse_schemaArn :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
+createSchemaResponse_schemaArn :: Lens.Lens' CreateSchemaResponse (Core.Maybe Core.Text)
 createSchemaResponse_schemaArn = Lens.lens (\CreateSchemaResponse' {schemaArn} -> schemaArn) (\s@CreateSchemaResponse' {} a -> s {schemaArn = a} :: CreateSchemaResponse)
 
 -- | The response's http status code.
-createSchemaResponse_httpStatus :: Lens.Lens' CreateSchemaResponse Prelude.Int
+createSchemaResponse_httpStatus :: Lens.Lens' CreateSchemaResponse Core.Int
 createSchemaResponse_httpStatus = Lens.lens (\CreateSchemaResponse' {httpStatus} -> httpStatus) (\s@CreateSchemaResponse' {} a -> s {httpStatus = a} :: CreateSchemaResponse)
 
-instance Prelude.NFData CreateSchemaResponse
+instance Core.NFData CreateSchemaResponse

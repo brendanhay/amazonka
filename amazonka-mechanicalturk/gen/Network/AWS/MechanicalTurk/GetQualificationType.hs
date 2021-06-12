@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,18 +40,18 @@ module Network.AWS.MechanicalTurk.GetQualificationType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetQualificationType' smart constructor.
 data GetQualificationType = GetQualificationType'
   { -- | The ID of the QualificationType.
-    qualificationTypeId :: Prelude.Text
+    qualificationTypeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetQualificationType' with all optional fields omitted.
@@ -65,7 +64,7 @@ data GetQualificationType = GetQualificationType'
 -- 'qualificationTypeId', 'getQualificationType_qualificationTypeId' - The ID of the QualificationType.
 newGetQualificationType ::
   -- | 'qualificationTypeId'
-  Prelude.Text ->
+  Core.Text ->
   GetQualificationType
 newGetQualificationType pQualificationTypeId_ =
   GetQualificationType'
@@ -74,66 +73,62 @@ newGetQualificationType pQualificationTypeId_ =
     }
 
 -- | The ID of the QualificationType.
-getQualificationType_qualificationTypeId :: Lens.Lens' GetQualificationType Prelude.Text
+getQualificationType_qualificationTypeId :: Lens.Lens' GetQualificationType Core.Text
 getQualificationType_qualificationTypeId = Lens.lens (\GetQualificationType' {qualificationTypeId} -> qualificationTypeId) (\s@GetQualificationType' {} a -> s {qualificationTypeId = a} :: GetQualificationType)
 
-instance Prelude.AWSRequest GetQualificationType where
+instance Core.AWSRequest GetQualificationType where
   type
-    Rs GetQualificationType =
+    AWSResponse GetQualificationType =
       GetQualificationTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetQualificationTypeResponse'
-            Prelude.<$> (x Prelude..?> "QualificationType")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "QualificationType")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetQualificationType
+instance Core.Hashable GetQualificationType
 
-instance Prelude.NFData GetQualificationType
+instance Core.NFData GetQualificationType
 
-instance Prelude.ToHeaders GetQualificationType where
+instance Core.ToHeaders GetQualificationType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.GetQualificationType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.GetQualificationType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetQualificationType where
+instance Core.ToJSON GetQualificationType where
   toJSON GetQualificationType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "QualificationTypeId"
-                  Prelude..= qualificationTypeId
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("QualificationTypeId" Core..= qualificationTypeId)
           ]
       )
 
-instance Prelude.ToPath GetQualificationType where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetQualificationType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetQualificationType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetQualificationType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetQualificationTypeResponse' smart constructor.
 data GetQualificationTypeResponse = GetQualificationTypeResponse'
   { -- | The returned Qualification Type
-    qualificationType :: Prelude.Maybe QualificationType,
+    qualificationType :: Core.Maybe QualificationType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetQualificationTypeResponse' with all optional fields omitted.
@@ -148,21 +143,21 @@ data GetQualificationTypeResponse = GetQualificationTypeResponse'
 -- 'httpStatus', 'getQualificationTypeResponse_httpStatus' - The response's http status code.
 newGetQualificationTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetQualificationTypeResponse
 newGetQualificationTypeResponse pHttpStatus_ =
   GetQualificationTypeResponse'
     { qualificationType =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The returned Qualification Type
-getQualificationTypeResponse_qualificationType :: Lens.Lens' GetQualificationTypeResponse (Prelude.Maybe QualificationType)
+getQualificationTypeResponse_qualificationType :: Lens.Lens' GetQualificationTypeResponse (Core.Maybe QualificationType)
 getQualificationTypeResponse_qualificationType = Lens.lens (\GetQualificationTypeResponse' {qualificationType} -> qualificationType) (\s@GetQualificationTypeResponse' {} a -> s {qualificationType = a} :: GetQualificationTypeResponse)
 
 -- | The response's http status code.
-getQualificationTypeResponse_httpStatus :: Lens.Lens' GetQualificationTypeResponse Prelude.Int
+getQualificationTypeResponse_httpStatus :: Lens.Lens' GetQualificationTypeResponse Core.Int
 getQualificationTypeResponse_httpStatus = Lens.lens (\GetQualificationTypeResponse' {httpStatus} -> httpStatus) (\s@GetQualificationTypeResponse' {} a -> s {httpStatus = a} :: GetQualificationTypeResponse)
 
-instance Prelude.NFData GetQualificationTypeResponse
+instance Core.NFData GetQualificationTypeResponse

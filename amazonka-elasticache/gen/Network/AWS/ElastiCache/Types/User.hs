@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,31 +19,31 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.User where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.Authentication
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newUser' smart constructor.
 data User = User'
   { -- | Indicates the user status. Can be \"active\", \"modifying\" or
     -- \"deleting\".
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | Access permissions string used for this user.
-    accessString :: Prelude.Maybe Prelude.Text,
+    accessString :: Core.Maybe Core.Text,
     -- | Returns a list of the user group IDs the user belongs to.
-    userGroupIds :: Prelude.Maybe [Prelude.Text],
+    userGroupIds :: Core.Maybe [Core.Text],
     -- | Denotes whether the user requires a password to authenticate.
-    authentication :: Prelude.Maybe Authentication,
+    authentication :: Core.Maybe Authentication,
     -- | The Amazon Resource Name (ARN) of the user.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The ID of the user.
-    userId :: Prelude.Maybe Prelude.Text,
+    userId :: Core.Maybe Core.Text,
     -- | The current supported value is Redis.
-    engine :: Prelude.Maybe Prelude.Text,
+    engine :: Core.Maybe Core.Text,
     -- | The username of the user.
-    userName :: Prelude.Maybe Prelude.Text
+    userName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'User' with all optional fields omitted.
@@ -74,64 +73,63 @@ newUser ::
   User
 newUser =
   User'
-    { status = Prelude.Nothing,
-      accessString = Prelude.Nothing,
-      userGroupIds = Prelude.Nothing,
-      authentication = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      userId = Prelude.Nothing,
-      engine = Prelude.Nothing,
-      userName = Prelude.Nothing
+    { status = Core.Nothing,
+      accessString = Core.Nothing,
+      userGroupIds = Core.Nothing,
+      authentication = Core.Nothing,
+      arn = Core.Nothing,
+      userId = Core.Nothing,
+      engine = Core.Nothing,
+      userName = Core.Nothing
     }
 
 -- | Indicates the user status. Can be \"active\", \"modifying\" or
 -- \"deleting\".
-user_status :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_status :: Lens.Lens' User (Core.Maybe Core.Text)
 user_status = Lens.lens (\User' {status} -> status) (\s@User' {} a -> s {status = a} :: User)
 
 -- | Access permissions string used for this user.
-user_accessString :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_accessString :: Lens.Lens' User (Core.Maybe Core.Text)
 user_accessString = Lens.lens (\User' {accessString} -> accessString) (\s@User' {} a -> s {accessString = a} :: User)
 
 -- | Returns a list of the user group IDs the user belongs to.
-user_userGroupIds :: Lens.Lens' User (Prelude.Maybe [Prelude.Text])
-user_userGroupIds = Lens.lens (\User' {userGroupIds} -> userGroupIds) (\s@User' {} a -> s {userGroupIds = a} :: User) Prelude.. Lens.mapping Prelude._Coerce
+user_userGroupIds :: Lens.Lens' User (Core.Maybe [Core.Text])
+user_userGroupIds = Lens.lens (\User' {userGroupIds} -> userGroupIds) (\s@User' {} a -> s {userGroupIds = a} :: User) Core.. Lens.mapping Lens._Coerce
 
 -- | Denotes whether the user requires a password to authenticate.
-user_authentication :: Lens.Lens' User (Prelude.Maybe Authentication)
+user_authentication :: Lens.Lens' User (Core.Maybe Authentication)
 user_authentication = Lens.lens (\User' {authentication} -> authentication) (\s@User' {} a -> s {authentication = a} :: User)
 
 -- | The Amazon Resource Name (ARN) of the user.
-user_arn :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_arn :: Lens.Lens' User (Core.Maybe Core.Text)
 user_arn = Lens.lens (\User' {arn} -> arn) (\s@User' {} a -> s {arn = a} :: User)
 
 -- | The ID of the user.
-user_userId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_userId :: Lens.Lens' User (Core.Maybe Core.Text)
 user_userId = Lens.lens (\User' {userId} -> userId) (\s@User' {} a -> s {userId = a} :: User)
 
 -- | The current supported value is Redis.
-user_engine :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_engine :: Lens.Lens' User (Core.Maybe Core.Text)
 user_engine = Lens.lens (\User' {engine} -> engine) (\s@User' {} a -> s {engine = a} :: User)
 
 -- | The username of the user.
-user_userName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_userName :: Lens.Lens' User (Core.Maybe Core.Text)
 user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User)
 
-instance Prelude.FromXML User where
+instance Core.FromXML User where
   parseXML x =
     User'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "AccessString")
-      Prelude.<*> ( x Prelude..@? "UserGroupIds"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "Authentication")
-      Prelude.<*> (x Prelude..@? "ARN")
-      Prelude.<*> (x Prelude..@? "UserId")
-      Prelude.<*> (x Prelude..@? "Engine")
-      Prelude.<*> (x Prelude..@? "UserName")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "AccessString")
+      Core.<*> ( x Core..@? "UserGroupIds" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "Authentication")
+      Core.<*> (x Core..@? "ARN")
+      Core.<*> (x Core..@? "UserId")
+      Core.<*> (x Core..@? "Engine")
+      Core.<*> (x Core..@? "UserName")
 
-instance Prelude.Hashable User
+instance Core.Hashable User
 
-instance Prelude.NFData User
+instance Core.NFData User

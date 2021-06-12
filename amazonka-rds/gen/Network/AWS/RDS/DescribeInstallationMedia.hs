@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,8 @@ module Network.AWS.RDS.DescribeInstallationMedia
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -57,7 +55,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDescribeInstallationMedia' smart constructor.
 data DescribeInstallationMedia = DescribeInstallationMedia'
   { -- | The installation medium ID.
-    installationMediaId :: Prelude.Maybe Prelude.Text,
+    installationMediaId :: Core.Maybe Core.Text,
     -- | A filter that specifies one or more installation media to describe.
     -- Supported filters include the following:
     --
@@ -71,18 +69,18 @@ data DescribeInstallationMedia = DescribeInstallationMedia'
     --
     --     For more information about the valid engines for installation media,
     --     see ImportInstallationMedia.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | An optional pagination token provided by a previous
     -- DescribeInstallationMedia request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstallationMedia' with all optional fields omitted.
@@ -121,14 +119,14 @@ newDescribeInstallationMedia ::
 newDescribeInstallationMedia =
   DescribeInstallationMedia'
     { installationMediaId =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The installation medium ID.
-describeInstallationMedia_installationMediaId :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe Prelude.Text)
+describeInstallationMedia_installationMediaId :: Lens.Lens' DescribeInstallationMedia (Core.Maybe Core.Text)
 describeInstallationMedia_installationMediaId = Lens.lens (\DescribeInstallationMedia' {installationMediaId} -> installationMediaId) (\s@DescribeInstallationMedia' {} a -> s {installationMediaId = a} :: DescribeInstallationMedia)
 
 -- | A filter that specifies one or more installation media to describe.
@@ -144,47 +142,47 @@ describeInstallationMedia_installationMediaId = Lens.lens (\DescribeInstallation
 --
 --     For more information about the valid engines for installation media,
 --     see ImportInstallationMedia.
-describeInstallationMedia_filters :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe [Filter])
-describeInstallationMedia_filters = Lens.lens (\DescribeInstallationMedia' {filters} -> filters) (\s@DescribeInstallationMedia' {} a -> s {filters = a} :: DescribeInstallationMedia) Prelude.. Lens.mapping Prelude._Coerce
+describeInstallationMedia_filters :: Lens.Lens' DescribeInstallationMedia (Core.Maybe [Filter])
+describeInstallationMedia_filters = Lens.lens (\DescribeInstallationMedia' {filters} -> filters) (\s@DescribeInstallationMedia' {} a -> s {filters = a} :: DescribeInstallationMedia) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeInstallationMedia_marker :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe Prelude.Text)
+describeInstallationMedia_marker :: Lens.Lens' DescribeInstallationMedia (Core.Maybe Core.Text)
 describeInstallationMedia_marker = Lens.lens (\DescribeInstallationMedia' {marker} -> marker) (\s@DescribeInstallationMedia' {} a -> s {marker = a} :: DescribeInstallationMedia)
 
 -- | An optional pagination token provided by a previous
 -- DescribeInstallationMedia request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-describeInstallationMedia_maxRecords :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe Prelude.Int)
+describeInstallationMedia_maxRecords :: Lens.Lens' DescribeInstallationMedia (Core.Maybe Core.Int)
 describeInstallationMedia_maxRecords = Lens.lens (\DescribeInstallationMedia' {maxRecords} -> maxRecords) (\s@DescribeInstallationMedia' {} a -> s {maxRecords = a} :: DescribeInstallationMedia)
 
-instance Pager.AWSPager DescribeInstallationMedia where
+instance Core.AWSPager DescribeInstallationMedia where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeInstallationMediaResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeInstallationMediaResponse_installationMedia
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeInstallationMedia_marker
           Lens..~ rs
           Lens.^? describeInstallationMediaResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeInstallationMedia where
+instance Core.AWSRequest DescribeInstallationMedia where
   type
-    Rs DescribeInstallationMedia =
+    AWSResponse DescribeInstallationMedia =
       DescribeInstallationMediaResponse
   request = Request.postQuery defaultService
   response =
@@ -192,53 +190,50 @@ instance Prelude.AWSRequest DescribeInstallationMedia where
       "DescribeInstallationMediaResult"
       ( \s h x ->
           DescribeInstallationMediaResponse'
-            Prelude.<$> ( x Prelude..@? "InstallationMedia"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "InstallationMedia")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "InstallationMedia" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "InstallationMedia")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstallationMedia
+instance Core.Hashable DescribeInstallationMedia
 
-instance Prelude.NFData DescribeInstallationMedia
+instance Core.NFData DescribeInstallationMedia
 
-instance Prelude.ToHeaders DescribeInstallationMedia where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeInstallationMedia where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeInstallationMedia where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeInstallationMedia where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeInstallationMedia where
+instance Core.ToQuery DescribeInstallationMedia where
   toQuery DescribeInstallationMedia' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeInstallationMedia" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "InstallationMediaId" Prelude.=: installationMediaId,
+          Core.=: ("DescribeInstallationMedia" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "InstallationMediaId" Core.=: installationMediaId,
         "Filters"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: Core.toQuery
+            (Core.toQueryList "Filter" Core.<$> filters),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeInstallationMediaResponse' smart constructor.
 data DescribeInstallationMediaResponse = DescribeInstallationMediaResponse'
   { -- | The list of InstallationMedia objects for the AWS account.
-    installationMedia :: Prelude.Maybe [InstallationMedia],
+    installationMedia :: Core.Maybe [InstallationMedia],
     -- | An optional pagination token provided by a previous
     -- DescribeInstallationMedia request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstallationMediaResponse' with all optional fields omitted.
@@ -258,31 +253,31 @@ data DescribeInstallationMediaResponse = DescribeInstallationMediaResponse'
 -- 'httpStatus', 'describeInstallationMediaResponse_httpStatus' - The response's http status code.
 newDescribeInstallationMediaResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeInstallationMediaResponse
 newDescribeInstallationMediaResponse pHttpStatus_ =
   DescribeInstallationMediaResponse'
     { installationMedia =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of InstallationMedia objects for the AWS account.
-describeInstallationMediaResponse_installationMedia :: Lens.Lens' DescribeInstallationMediaResponse (Prelude.Maybe [InstallationMedia])
-describeInstallationMediaResponse_installationMedia = Lens.lens (\DescribeInstallationMediaResponse' {installationMedia} -> installationMedia) (\s@DescribeInstallationMediaResponse' {} a -> s {installationMedia = a} :: DescribeInstallationMediaResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeInstallationMediaResponse_installationMedia :: Lens.Lens' DescribeInstallationMediaResponse (Core.Maybe [InstallationMedia])
+describeInstallationMediaResponse_installationMedia = Lens.lens (\DescribeInstallationMediaResponse' {installationMedia} -> installationMedia) (\s@DescribeInstallationMediaResponse' {} a -> s {installationMedia = a} :: DescribeInstallationMediaResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous
 -- DescribeInstallationMedia request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-describeInstallationMediaResponse_marker :: Lens.Lens' DescribeInstallationMediaResponse (Prelude.Maybe Prelude.Text)
+describeInstallationMediaResponse_marker :: Lens.Lens' DescribeInstallationMediaResponse (Core.Maybe Core.Text)
 describeInstallationMediaResponse_marker = Lens.lens (\DescribeInstallationMediaResponse' {marker} -> marker) (\s@DescribeInstallationMediaResponse' {} a -> s {marker = a} :: DescribeInstallationMediaResponse)
 
 -- | The response's http status code.
-describeInstallationMediaResponse_httpStatus :: Lens.Lens' DescribeInstallationMediaResponse Prelude.Int
+describeInstallationMediaResponse_httpStatus :: Lens.Lens' DescribeInstallationMediaResponse Core.Int
 describeInstallationMediaResponse_httpStatus = Lens.lens (\DescribeInstallationMediaResponse' {httpStatus} -> httpStatus) (\s@DescribeInstallationMediaResponse' {} a -> s {httpStatus = a} :: DescribeInstallationMediaResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeInstallationMediaResponse

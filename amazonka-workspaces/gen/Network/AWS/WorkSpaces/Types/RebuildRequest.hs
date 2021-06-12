@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.RebuildRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the information used to rebuild a WorkSpace.
 --
 -- /See:/ 'newRebuildRequest' smart constructor.
 data RebuildRequest = RebuildRequest'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Prelude.Text
+    workspaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebuildRequest' with all optional fields omitted.
@@ -43,24 +42,22 @@ data RebuildRequest = RebuildRequest'
 -- 'workspaceId', 'rebuildRequest_workspaceId' - The identifier of the WorkSpace.
 newRebuildRequest ::
   -- | 'workspaceId'
-  Prelude.Text ->
+  Core.Text ->
   RebuildRequest
 newRebuildRequest pWorkspaceId_ =
   RebuildRequest' {workspaceId = pWorkspaceId_}
 
 -- | The identifier of the WorkSpace.
-rebuildRequest_workspaceId :: Lens.Lens' RebuildRequest Prelude.Text
+rebuildRequest_workspaceId :: Lens.Lens' RebuildRequest Core.Text
 rebuildRequest_workspaceId = Lens.lens (\RebuildRequest' {workspaceId} -> workspaceId) (\s@RebuildRequest' {} a -> s {workspaceId = a} :: RebuildRequest)
 
-instance Prelude.Hashable RebuildRequest
+instance Core.Hashable RebuildRequest
 
-instance Prelude.NFData RebuildRequest
+instance Core.NFData RebuildRequest
 
-instance Prelude.ToJSON RebuildRequest where
+instance Core.ToJSON RebuildRequest where
   toJSON RebuildRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("WorkspaceId" Prelude..= workspaceId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WorkspaceId" Core..= workspaceId)]
       )

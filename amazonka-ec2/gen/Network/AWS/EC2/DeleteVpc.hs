@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EC2.DeleteVpc
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +53,11 @@ data DeleteVpc = DeleteVpc'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the VPC.
-    vpcId :: Prelude.Text
+    vpcId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpc' with all optional fields omitted.
@@ -76,56 +75,51 @@ data DeleteVpc = DeleteVpc'
 -- 'vpcId', 'deleteVpc_vpcId' - The ID of the VPC.
 newDeleteVpc ::
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVpc
 newDeleteVpc pVpcId_ =
-  DeleteVpc'
-    { dryRun = Prelude.Nothing,
-      vpcId = pVpcId_
-    }
+  DeleteVpc' {dryRun = Core.Nothing, vpcId = pVpcId_}
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteVpc_dryRun :: Lens.Lens' DeleteVpc (Prelude.Maybe Prelude.Bool)
+deleteVpc_dryRun :: Lens.Lens' DeleteVpc (Core.Maybe Core.Bool)
 deleteVpc_dryRun = Lens.lens (\DeleteVpc' {dryRun} -> dryRun) (\s@DeleteVpc' {} a -> s {dryRun = a} :: DeleteVpc)
 
 -- | The ID of the VPC.
-deleteVpc_vpcId :: Lens.Lens' DeleteVpc Prelude.Text
+deleteVpc_vpcId :: Lens.Lens' DeleteVpc Core.Text
 deleteVpc_vpcId = Lens.lens (\DeleteVpc' {vpcId} -> vpcId) (\s@DeleteVpc' {} a -> s {vpcId = a} :: DeleteVpc)
 
-instance Prelude.AWSRequest DeleteVpc where
-  type Rs DeleteVpc = DeleteVpcResponse
+instance Core.AWSRequest DeleteVpc where
+  type AWSResponse DeleteVpc = DeleteVpcResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteVpcResponse'
 
-instance Prelude.Hashable DeleteVpc
+instance Core.Hashable DeleteVpc
 
-instance Prelude.NFData DeleteVpc
+instance Core.NFData DeleteVpc
 
-instance Prelude.ToHeaders DeleteVpc where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteVpc where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteVpc where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteVpc where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteVpc where
+instance Core.ToQuery DeleteVpc where
   toQuery DeleteVpc' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("DeleteVpc" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "VpcId" Prelude.=: vpcId
+    Core.mconcat
+      [ "Action" Core.=: ("DeleteVpc" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "VpcId" Core.=: vpcId
       ]
 
 -- | /See:/ 'newDeleteVpcResponse' smart constructor.
 data DeleteVpcResponse = DeleteVpcResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcResponse' with all optional fields omitted.
@@ -135,4 +129,4 @@ newDeleteVpcResponse ::
   DeleteVpcResponse
 newDeleteVpcResponse = DeleteVpcResponse'
 
-instance Prelude.NFData DeleteVpcResponse
+instance Core.NFData DeleteVpcResponse

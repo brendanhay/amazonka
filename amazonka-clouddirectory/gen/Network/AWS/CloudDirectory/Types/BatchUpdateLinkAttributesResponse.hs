@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributesResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a UpdateLinkAttributes response operation.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data BatchUpdateLinkAttributesResponse = BatchUpdateLinkAttributesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchUpdateLinkAttributesResponse' with all optional fields omitted.
@@ -41,20 +40,18 @@ newBatchUpdateLinkAttributesResponse =
   BatchUpdateLinkAttributesResponse'
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     BatchUpdateLinkAttributesResponse
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchUpdateLinkAttributesResponse"
-      ( \x ->
-          Prelude.pure BatchUpdateLinkAttributesResponse'
-      )
+      (\x -> Core.pure BatchUpdateLinkAttributesResponse')
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchUpdateLinkAttributesResponse
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchUpdateLinkAttributesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.SseKmsEncryptedObjects where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus
 
@@ -35,7 +34,7 @@ data SseKmsEncryptedObjects = SseKmsEncryptedObjects'
     -- Management Service.
     status :: SseKmsEncryptedObjectsStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SseKmsEncryptedObjects' with all optional fields omitted.
@@ -61,15 +60,15 @@ newSseKmsEncryptedObjects pStatus_ =
 sseKmsEncryptedObjects_status :: Lens.Lens' SseKmsEncryptedObjects SseKmsEncryptedObjectsStatus
 sseKmsEncryptedObjects_status = Lens.lens (\SseKmsEncryptedObjects' {status} -> status) (\s@SseKmsEncryptedObjects' {} a -> s {status = a} :: SseKmsEncryptedObjects)
 
-instance Prelude.FromXML SseKmsEncryptedObjects where
+instance Core.FromXML SseKmsEncryptedObjects where
   parseXML x =
     SseKmsEncryptedObjects'
-      Prelude.<$> (x Prelude..@ "Status")
+      Core.<$> (x Core..@ "Status")
 
-instance Prelude.Hashable SseKmsEncryptedObjects
+instance Core.Hashable SseKmsEncryptedObjects
 
-instance Prelude.NFData SseKmsEncryptedObjects
+instance Core.NFData SseKmsEncryptedObjects
 
-instance Prelude.ToXML SseKmsEncryptedObjects where
+instance Core.ToXML SseKmsEncryptedObjects where
   toXML SseKmsEncryptedObjects' {..} =
-    Prelude.mconcat ["Status" Prelude.@= status]
+    Core.mconcat ["Status" Core.@= status]

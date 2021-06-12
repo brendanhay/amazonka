@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,10 +59,9 @@ module Network.AWS.IAM.ListAccessKeys
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,7 +73,7 @@ data ListAccessKeys = ListAccessKeys'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Maybe Prelude.Text,
+    userName :: Core.Maybe Core.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -85,14 +83,14 @@ data ListAccessKeys = ListAccessKeys'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAccessKeys' with all optional fields omitted.
@@ -127,9 +125,9 @@ newListAccessKeys ::
   ListAccessKeys
 newListAccessKeys =
   ListAccessKeys'
-    { userName = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { userName = Core.Nothing,
+      maxItems = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The name of the user.
@@ -138,7 +136,7 @@ newListAccessKeys =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-listAccessKeys_userName :: Lens.Lens' ListAccessKeys (Prelude.Maybe Prelude.Text)
+listAccessKeys_userName :: Lens.Lens' ListAccessKeys (Core.Maybe Core.Text)
 listAccessKeys_userName = Lens.lens (\ListAccessKeys' {userName} -> userName) (\s@ListAccessKeys' {} a -> s {userName = a} :: ListAccessKeys)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -150,73 +148,72 @@ listAccessKeys_userName = Lens.lens (\ListAccessKeys' {userName} -> userName) (\
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listAccessKeys_maxItems :: Lens.Lens' ListAccessKeys (Prelude.Maybe Prelude.Natural)
+listAccessKeys_maxItems :: Lens.Lens' ListAccessKeys (Core.Maybe Core.Natural)
 listAccessKeys_maxItems = Lens.lens (\ListAccessKeys' {maxItems} -> maxItems) (\s@ListAccessKeys' {} a -> s {maxItems = a} :: ListAccessKeys)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listAccessKeys_marker :: Lens.Lens' ListAccessKeys (Prelude.Maybe Prelude.Text)
+listAccessKeys_marker :: Lens.Lens' ListAccessKeys (Core.Maybe Core.Text)
 listAccessKeys_marker = Lens.lens (\ListAccessKeys' {marker} -> marker) (\s@ListAccessKeys' {} a -> s {marker = a} :: ListAccessKeys)
 
-instance Pager.AWSPager ListAccessKeys where
+instance Core.AWSPager ListAccessKeys where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listAccessKeysResponse_isTruncated
-              Prelude.. Lens._Just
+            Lens.^? listAccessKeysResponse_isTruncated Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^? listAccessKeysResponse_marker Prelude.. Lens._Just
+            Lens.^? listAccessKeysResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listAccessKeys_marker
           Lens..~ rs
-          Lens.^? listAccessKeysResponse_marker Prelude.. Lens._Just
+          Lens.^? listAccessKeysResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListAccessKeys where
-  type Rs ListAccessKeys = ListAccessKeysResponse
+instance Core.AWSRequest ListAccessKeys where
+  type
+    AWSResponse ListAccessKeys =
+      ListAccessKeysResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListAccessKeysResult"
       ( \s h x ->
           ListAccessKeysResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "AccessKeyMetadata"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "AccessKeyMetadata" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable ListAccessKeys
+instance Core.Hashable ListAccessKeys
 
-instance Prelude.NFData ListAccessKeys
+instance Core.NFData ListAccessKeys
 
-instance Prelude.ToHeaders ListAccessKeys where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListAccessKeys where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListAccessKeys where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListAccessKeys where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListAccessKeys where
+instance Core.ToQuery ListAccessKeys where
   toQuery ListAccessKeys' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListAccessKeys" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+          Core.=: ("ListAccessKeys" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the response to a successful ListAccessKeys request.
@@ -230,17 +227,17 @@ data ListAccessKeysResponse = ListAccessKeysResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of objects containing metadata about the access keys.
     accessKeyMetadata :: [AccessKeyMetadata]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAccessKeysResponse' with all optional fields omitted.
@@ -267,15 +264,14 @@ data ListAccessKeysResponse = ListAccessKeysResponse'
 -- 'accessKeyMetadata', 'listAccessKeysResponse_accessKeyMetadata' - A list of objects containing metadata about the access keys.
 newListAccessKeysResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAccessKeysResponse
 newListAccessKeysResponse pHttpStatus_ =
   ListAccessKeysResponse'
-    { isTruncated =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { isTruncated = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_,
-      accessKeyMetadata = Prelude.mempty
+      accessKeyMetadata = Core.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -285,21 +281,21 @@ newListAccessKeysResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listAccessKeysResponse_isTruncated :: Lens.Lens' ListAccessKeysResponse (Prelude.Maybe Prelude.Bool)
+listAccessKeysResponse_isTruncated :: Lens.Lens' ListAccessKeysResponse (Core.Maybe Core.Bool)
 listAccessKeysResponse_isTruncated = Lens.lens (\ListAccessKeysResponse' {isTruncated} -> isTruncated) (\s@ListAccessKeysResponse' {} a -> s {isTruncated = a} :: ListAccessKeysResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listAccessKeysResponse_marker :: Lens.Lens' ListAccessKeysResponse (Prelude.Maybe Prelude.Text)
+listAccessKeysResponse_marker :: Lens.Lens' ListAccessKeysResponse (Core.Maybe Core.Text)
 listAccessKeysResponse_marker = Lens.lens (\ListAccessKeysResponse' {marker} -> marker) (\s@ListAccessKeysResponse' {} a -> s {marker = a} :: ListAccessKeysResponse)
 
 -- | The response's http status code.
-listAccessKeysResponse_httpStatus :: Lens.Lens' ListAccessKeysResponse Prelude.Int
+listAccessKeysResponse_httpStatus :: Lens.Lens' ListAccessKeysResponse Core.Int
 listAccessKeysResponse_httpStatus = Lens.lens (\ListAccessKeysResponse' {httpStatus} -> httpStatus) (\s@ListAccessKeysResponse' {} a -> s {httpStatus = a} :: ListAccessKeysResponse)
 
 -- | A list of objects containing metadata about the access keys.
 listAccessKeysResponse_accessKeyMetadata :: Lens.Lens' ListAccessKeysResponse [AccessKeyMetadata]
-listAccessKeysResponse_accessKeyMetadata = Lens.lens (\ListAccessKeysResponse' {accessKeyMetadata} -> accessKeyMetadata) (\s@ListAccessKeysResponse' {} a -> s {accessKeyMetadata = a} :: ListAccessKeysResponse) Prelude.. Prelude._Coerce
+listAccessKeysResponse_accessKeyMetadata = Lens.lens (\ListAccessKeysResponse' {accessKeyMetadata} -> accessKeyMetadata) (\s@ListAccessKeysResponse' {} a -> s {accessKeyMetadata = a} :: ListAccessKeysResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListAccessKeysResponse
+instance Core.NFData ListAccessKeysResponse

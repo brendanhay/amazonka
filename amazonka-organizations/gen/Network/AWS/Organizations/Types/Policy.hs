@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Organizations.Types.Policy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.PolicySummary
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains rules to be applied to the affected accounts. Policies can be
 -- attached directly to accounts, or to roots and OUs to affect all
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPolicy' smart constructor.
 data Policy = Policy'
   { -- | A structure that contains additional details about the policy.
-    policySummary :: Prelude.Maybe PolicySummary,
+    policySummary :: Core.Maybe PolicySummary,
     -- | The text content of the policy.
-    content :: Prelude.Maybe Prelude.Text
+    content :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Policy' with all optional fields omitted.
@@ -52,28 +51,28 @@ newPolicy ::
   Policy
 newPolicy =
   Policy'
-    { policySummary = Prelude.Nothing,
-      content = Prelude.Nothing
+    { policySummary = Core.Nothing,
+      content = Core.Nothing
     }
 
 -- | A structure that contains additional details about the policy.
-policy_policySummary :: Lens.Lens' Policy (Prelude.Maybe PolicySummary)
+policy_policySummary :: Lens.Lens' Policy (Core.Maybe PolicySummary)
 policy_policySummary = Lens.lens (\Policy' {policySummary} -> policySummary) (\s@Policy' {} a -> s {policySummary = a} :: Policy)
 
 -- | The text content of the policy.
-policy_content :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
+policy_content :: Lens.Lens' Policy (Core.Maybe Core.Text)
 policy_content = Lens.lens (\Policy' {content} -> content) (\s@Policy' {} a -> s {content = a} :: Policy)
 
-instance Prelude.FromJSON Policy where
+instance Core.FromJSON Policy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Policy"
       ( \x ->
           Policy'
-            Prelude.<$> (x Prelude..:? "PolicySummary")
-            Prelude.<*> (x Prelude..:? "Content")
+            Core.<$> (x Core..:? "PolicySummary")
+            Core.<*> (x Core..:? "Content")
       )
 
-instance Prelude.Hashable Policy
+instance Core.Hashable Policy
 
-instance Prelude.NFData Policy
+instance Core.NFData Policy

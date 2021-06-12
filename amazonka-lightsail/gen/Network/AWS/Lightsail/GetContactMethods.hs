@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.Lightsail.GetContactMethods
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,9 +61,9 @@ data GetContactMethods = GetContactMethods'
     --
     -- Specify a protocol in your request to return information about a
     -- specific contact method protocol.
-    protocols :: Prelude.Maybe [ContactProtocol]
+    protocols :: Core.Maybe [ContactProtocol]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContactMethods' with all optional fields omitted.
@@ -82,69 +81,67 @@ data GetContactMethods = GetContactMethods'
 newGetContactMethods ::
   GetContactMethods
 newGetContactMethods =
-  GetContactMethods' {protocols = Prelude.Nothing}
+  GetContactMethods' {protocols = Core.Nothing}
 
 -- | The protocols used to send notifications, such as @Email@, or @SMS@
 -- (text messaging).
 --
 -- Specify a protocol in your request to return information about a
 -- specific contact method protocol.
-getContactMethods_protocols :: Lens.Lens' GetContactMethods (Prelude.Maybe [ContactProtocol])
-getContactMethods_protocols = Lens.lens (\GetContactMethods' {protocols} -> protocols) (\s@GetContactMethods' {} a -> s {protocols = a} :: GetContactMethods) Prelude.. Lens.mapping Prelude._Coerce
+getContactMethods_protocols :: Lens.Lens' GetContactMethods (Core.Maybe [ContactProtocol])
+getContactMethods_protocols = Lens.lens (\GetContactMethods' {protocols} -> protocols) (\s@GetContactMethods' {} a -> s {protocols = a} :: GetContactMethods) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest GetContactMethods where
-  type Rs GetContactMethods = GetContactMethodsResponse
+instance Core.AWSRequest GetContactMethods where
+  type
+    AWSResponse GetContactMethods =
+      GetContactMethodsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetContactMethodsResponse'
-            Prelude.<$> ( x Prelude..?> "contactMethods"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "contactMethods" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetContactMethods
+instance Core.Hashable GetContactMethods
 
-instance Prelude.NFData GetContactMethods
+instance Core.NFData GetContactMethods
 
-instance Prelude.ToHeaders GetContactMethods where
+instance Core.ToHeaders GetContactMethods where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetContactMethods" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetContactMethods" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetContactMethods where
+instance Core.ToJSON GetContactMethods where
   toJSON GetContactMethods' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("protocols" Prelude..=) Prelude.<$> protocols]
+    Core.object
+      ( Core.catMaybes
+          [("protocols" Core..=) Core.<$> protocols]
       )
 
-instance Prelude.ToPath GetContactMethods where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetContactMethods where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetContactMethods where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetContactMethods where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetContactMethodsResponse' smart constructor.
 data GetContactMethodsResponse = GetContactMethodsResponse'
   { -- | An array of objects that describe the contact methods.
-    contactMethods :: Prelude.Maybe [ContactMethod],
+    contactMethods :: Core.Maybe [ContactMethod],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContactMethodsResponse' with all optional fields omitted.
@@ -159,21 +156,21 @@ data GetContactMethodsResponse = GetContactMethodsResponse'
 -- 'httpStatus', 'getContactMethodsResponse_httpStatus' - The response's http status code.
 newGetContactMethodsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetContactMethodsResponse
 newGetContactMethodsResponse pHttpStatus_ =
   GetContactMethodsResponse'
     { contactMethods =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the contact methods.
-getContactMethodsResponse_contactMethods :: Lens.Lens' GetContactMethodsResponse (Prelude.Maybe [ContactMethod])
-getContactMethodsResponse_contactMethods = Lens.lens (\GetContactMethodsResponse' {contactMethods} -> contactMethods) (\s@GetContactMethodsResponse' {} a -> s {contactMethods = a} :: GetContactMethodsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getContactMethodsResponse_contactMethods :: Lens.Lens' GetContactMethodsResponse (Core.Maybe [ContactMethod])
+getContactMethodsResponse_contactMethods = Lens.lens (\GetContactMethodsResponse' {contactMethods} -> contactMethods) (\s@GetContactMethodsResponse' {} a -> s {contactMethods = a} :: GetContactMethodsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getContactMethodsResponse_httpStatus :: Lens.Lens' GetContactMethodsResponse Prelude.Int
+getContactMethodsResponse_httpStatus :: Lens.Lens' GetContactMethodsResponse Core.Int
 getContactMethodsResponse_httpStatus = Lens.lens (\GetContactMethodsResponse' {httpStatus} -> httpStatus) (\s@GetContactMethodsResponse' {} a -> s {httpStatus = a} :: GetContactMethodsResponse)
 
-instance Prelude.NFData GetContactMethodsResponse
+instance Core.NFData GetContactMethodsResponse

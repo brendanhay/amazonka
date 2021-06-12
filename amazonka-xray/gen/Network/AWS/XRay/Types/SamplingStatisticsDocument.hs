@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.SamplingStatisticsDocument where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Request sampling results for a single rule from a service. Results are
 -- for the last 10 seconds unless the service has been assigned a longer
@@ -30,19 +29,19 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSamplingStatisticsDocument' smart constructor.
 data SamplingStatisticsDocument = SamplingStatisticsDocument'
   { -- | The number of requests recorded with borrowed reservoir quota.
-    borrowCount :: Prelude.Maybe Prelude.Natural,
+    borrowCount :: Core.Maybe Core.Natural,
     -- | The name of the sampling rule.
-    ruleName :: Prelude.Text,
+    ruleName :: Core.Text,
     -- | A unique identifier for the service in hexadecimal.
-    clientID :: Prelude.Text,
+    clientID :: Core.Text,
     -- | The current time.
-    timestamp :: Prelude.POSIX,
+    timestamp :: Core.POSIX,
     -- | The number of requests that matched the rule.
-    requestCount :: Prelude.Natural,
+    requestCount :: Core.Natural,
     -- | The number of requests recorded.
-    sampledCount :: Prelude.Natural
+    sampledCount :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SamplingStatisticsDocument' with all optional fields omitted.
@@ -65,15 +64,15 @@ data SamplingStatisticsDocument = SamplingStatisticsDocument'
 -- 'sampledCount', 'samplingStatisticsDocument_sampledCount' - The number of requests recorded.
 newSamplingStatisticsDocument ::
   -- | 'ruleName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'clientID'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'timestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'requestCount'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'sampledCount'
-  Prelude.Natural ->
+  Core.Natural ->
   SamplingStatisticsDocument
 newSamplingStatisticsDocument
   pRuleName_
@@ -83,53 +82,51 @@ newSamplingStatisticsDocument
   pSampledCount_ =
     SamplingStatisticsDocument'
       { borrowCount =
-          Prelude.Nothing,
+          Core.Nothing,
         ruleName = pRuleName_,
         clientID = pClientID_,
-        timestamp = Prelude._Time Lens.# pTimestamp_,
+        timestamp = Core._Time Lens.# pTimestamp_,
         requestCount = pRequestCount_,
         sampledCount = pSampledCount_
       }
 
 -- | The number of requests recorded with borrowed reservoir quota.
-samplingStatisticsDocument_borrowCount :: Lens.Lens' SamplingStatisticsDocument (Prelude.Maybe Prelude.Natural)
+samplingStatisticsDocument_borrowCount :: Lens.Lens' SamplingStatisticsDocument (Core.Maybe Core.Natural)
 samplingStatisticsDocument_borrowCount = Lens.lens (\SamplingStatisticsDocument' {borrowCount} -> borrowCount) (\s@SamplingStatisticsDocument' {} a -> s {borrowCount = a} :: SamplingStatisticsDocument)
 
 -- | The name of the sampling rule.
-samplingStatisticsDocument_ruleName :: Lens.Lens' SamplingStatisticsDocument Prelude.Text
+samplingStatisticsDocument_ruleName :: Lens.Lens' SamplingStatisticsDocument Core.Text
 samplingStatisticsDocument_ruleName = Lens.lens (\SamplingStatisticsDocument' {ruleName} -> ruleName) (\s@SamplingStatisticsDocument' {} a -> s {ruleName = a} :: SamplingStatisticsDocument)
 
 -- | A unique identifier for the service in hexadecimal.
-samplingStatisticsDocument_clientID :: Lens.Lens' SamplingStatisticsDocument Prelude.Text
+samplingStatisticsDocument_clientID :: Lens.Lens' SamplingStatisticsDocument Core.Text
 samplingStatisticsDocument_clientID = Lens.lens (\SamplingStatisticsDocument' {clientID} -> clientID) (\s@SamplingStatisticsDocument' {} a -> s {clientID = a} :: SamplingStatisticsDocument)
 
 -- | The current time.
-samplingStatisticsDocument_timestamp :: Lens.Lens' SamplingStatisticsDocument Prelude.UTCTime
-samplingStatisticsDocument_timestamp = Lens.lens (\SamplingStatisticsDocument' {timestamp} -> timestamp) (\s@SamplingStatisticsDocument' {} a -> s {timestamp = a} :: SamplingStatisticsDocument) Prelude.. Prelude._Time
+samplingStatisticsDocument_timestamp :: Lens.Lens' SamplingStatisticsDocument Core.UTCTime
+samplingStatisticsDocument_timestamp = Lens.lens (\SamplingStatisticsDocument' {timestamp} -> timestamp) (\s@SamplingStatisticsDocument' {} a -> s {timestamp = a} :: SamplingStatisticsDocument) Core.. Core._Time
 
 -- | The number of requests that matched the rule.
-samplingStatisticsDocument_requestCount :: Lens.Lens' SamplingStatisticsDocument Prelude.Natural
+samplingStatisticsDocument_requestCount :: Lens.Lens' SamplingStatisticsDocument Core.Natural
 samplingStatisticsDocument_requestCount = Lens.lens (\SamplingStatisticsDocument' {requestCount} -> requestCount) (\s@SamplingStatisticsDocument' {} a -> s {requestCount = a} :: SamplingStatisticsDocument)
 
 -- | The number of requests recorded.
-samplingStatisticsDocument_sampledCount :: Lens.Lens' SamplingStatisticsDocument Prelude.Natural
+samplingStatisticsDocument_sampledCount :: Lens.Lens' SamplingStatisticsDocument Core.Natural
 samplingStatisticsDocument_sampledCount = Lens.lens (\SamplingStatisticsDocument' {sampledCount} -> sampledCount) (\s@SamplingStatisticsDocument' {} a -> s {sampledCount = a} :: SamplingStatisticsDocument)
 
-instance Prelude.Hashable SamplingStatisticsDocument
+instance Core.Hashable SamplingStatisticsDocument
 
-instance Prelude.NFData SamplingStatisticsDocument
+instance Core.NFData SamplingStatisticsDocument
 
-instance Prelude.ToJSON SamplingStatisticsDocument where
+instance Core.ToJSON SamplingStatisticsDocument where
   toJSON SamplingStatisticsDocument' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("BorrowCount" Prelude..=) Prelude.<$> borrowCount,
-            Prelude.Just ("RuleName" Prelude..= ruleName),
-            Prelude.Just ("ClientID" Prelude..= clientID),
-            Prelude.Just ("Timestamp" Prelude..= timestamp),
-            Prelude.Just
-              ("RequestCount" Prelude..= requestCount),
-            Prelude.Just
-              ("SampledCount" Prelude..= sampledCount)
+    Core.object
+      ( Core.catMaybes
+          [ ("BorrowCount" Core..=) Core.<$> borrowCount,
+            Core.Just ("RuleName" Core..= ruleName),
+            Core.Just ("ClientID" Core..= clientID),
+            Core.Just ("Timestamp" Core..= timestamp),
+            Core.Just ("RequestCount" Core..= requestCount),
+            Core.Just ("SampledCount" Core..= sampledCount)
           ]
       )

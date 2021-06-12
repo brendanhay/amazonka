@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.ElasticTranscoder.ReadPreset
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data ReadPreset = ReadPreset'
   { -- | The identifier of the preset for which you want to get detailed
     -- information.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReadPreset' with all optional fields omitted.
@@ -68,40 +67,39 @@ data ReadPreset = ReadPreset'
 -- information.
 newReadPreset ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   ReadPreset
 newReadPreset pId_ = ReadPreset' {id = pId_}
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
-readPreset_id :: Lens.Lens' ReadPreset Prelude.Text
+readPreset_id :: Lens.Lens' ReadPreset Core.Text
 readPreset_id = Lens.lens (\ReadPreset' {id} -> id) (\s@ReadPreset' {} a -> s {id = a} :: ReadPreset)
 
-instance Prelude.AWSRequest ReadPreset where
-  type Rs ReadPreset = ReadPresetResponse
+instance Core.AWSRequest ReadPreset where
+  type AWSResponse ReadPreset = ReadPresetResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ReadPresetResponse'
-            Prelude.<$> (x Prelude..?> "Preset")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Preset")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ReadPreset
+instance Core.Hashable ReadPreset
 
-instance Prelude.NFData ReadPreset
+instance Core.NFData ReadPreset
 
-instance Prelude.ToHeaders ReadPreset where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ReadPreset where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ReadPreset where
+instance Core.ToPath ReadPreset where
   toPath ReadPreset' {..} =
-    Prelude.mconcat
-      ["/2012-09-25/presets/", Prelude.toBS id]
+    Core.mconcat ["/2012-09-25/presets/", Core.toBS id]
 
-instance Prelude.ToQuery ReadPreset where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ReadPreset where
+  toQuery = Core.const Core.mempty
 
 -- | The @ReadPresetResponse@ structure.
 --
@@ -109,11 +107,11 @@ instance Prelude.ToQuery ReadPreset where
 data ReadPresetResponse = ReadPresetResponse'
   { -- | A section of the response body that provides information about the
     -- preset.
-    preset :: Prelude.Maybe Preset,
+    preset :: Core.Maybe Preset,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReadPresetResponse' with all optional fields omitted.
@@ -129,21 +127,21 @@ data ReadPresetResponse = ReadPresetResponse'
 -- 'httpStatus', 'readPresetResponse_httpStatus' - The response's http status code.
 newReadPresetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ReadPresetResponse
 newReadPresetResponse pHttpStatus_ =
   ReadPresetResponse'
-    { preset = Prelude.Nothing,
+    { preset = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A section of the response body that provides information about the
 -- preset.
-readPresetResponse_preset :: Lens.Lens' ReadPresetResponse (Prelude.Maybe Preset)
+readPresetResponse_preset :: Lens.Lens' ReadPresetResponse (Core.Maybe Preset)
 readPresetResponse_preset = Lens.lens (\ReadPresetResponse' {preset} -> preset) (\s@ReadPresetResponse' {} a -> s {preset = a} :: ReadPresetResponse)
 
 -- | The response's http status code.
-readPresetResponse_httpStatus :: Lens.Lens' ReadPresetResponse Prelude.Int
+readPresetResponse_httpStatus :: Lens.Lens' ReadPresetResponse Core.Int
 readPresetResponse_httpStatus = Lens.lens (\ReadPresetResponse' {httpStatus} -> httpStatus) (\s@ReadPresetResponse' {} a -> s {httpStatus = a} :: ReadPresetResponse)
 
-instance Prelude.NFData ReadPresetResponse
+instance Core.NFData ReadPresetResponse

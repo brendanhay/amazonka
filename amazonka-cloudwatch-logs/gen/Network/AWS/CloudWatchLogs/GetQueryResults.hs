@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,17 +56,17 @@ module Network.AWS.CloudWatchLogs.GetQueryResults
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetQueryResults' smart constructor.
 data GetQueryResults = GetQueryResults'
   { -- | The ID number of the query.
-    queryId :: Prelude.Text
+    queryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetQueryResults' with all optional fields omitted.
@@ -80,59 +79,57 @@ data GetQueryResults = GetQueryResults'
 -- 'queryId', 'getQueryResults_queryId' - The ID number of the query.
 newGetQueryResults ::
   -- | 'queryId'
-  Prelude.Text ->
+  Core.Text ->
   GetQueryResults
 newGetQueryResults pQueryId_ =
   GetQueryResults' {queryId = pQueryId_}
 
 -- | The ID number of the query.
-getQueryResults_queryId :: Lens.Lens' GetQueryResults Prelude.Text
+getQueryResults_queryId :: Lens.Lens' GetQueryResults Core.Text
 getQueryResults_queryId = Lens.lens (\GetQueryResults' {queryId} -> queryId) (\s@GetQueryResults' {} a -> s {queryId = a} :: GetQueryResults)
 
-instance Prelude.AWSRequest GetQueryResults where
-  type Rs GetQueryResults = GetQueryResultsResponse
+instance Core.AWSRequest GetQueryResults where
+  type
+    AWSResponse GetQueryResults =
+      GetQueryResultsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetQueryResultsResponse'
-            Prelude.<$> (x Prelude..?> "status")
-            Prelude.<*> (x Prelude..?> "statistics")
-            Prelude.<*> (x Prelude..?> "results" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "status")
+            Core.<*> (x Core..?> "statistics")
+            Core.<*> (x Core..?> "results" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetQueryResults
+instance Core.Hashable GetQueryResults
 
-instance Prelude.NFData GetQueryResults
+instance Core.NFData GetQueryResults
 
-instance Prelude.ToHeaders GetQueryResults where
+instance Core.ToHeaders GetQueryResults where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.GetQueryResults" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Logs_20140328.GetQueryResults" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetQueryResults where
+instance Core.ToJSON GetQueryResults where
   toJSON GetQueryResults' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("queryId" Prelude..= queryId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("queryId" Core..= queryId)]
       )
 
-instance Prelude.ToPath GetQueryResults where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetQueryResults where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetQueryResults where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetQueryResults where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetQueryResultsResponse' smart constructor.
 data GetQueryResultsResponse = GetQueryResultsResponse'
@@ -143,23 +140,23 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
     -- Queries time out after 15 minutes of execution. To avoid having your
     -- queries time out, reduce the time range being searched or partition your
     -- query into a number of queries.
-    status :: Prelude.Maybe QueryStatus,
+    status :: Core.Maybe QueryStatus,
     -- | Includes the number of log events scanned by the query, the number of
     -- log events that matched the query criteria, and the total number of
     -- bytes in the log events that were scanned. These values reflect the full
     -- raw results of the query.
-    statistics :: Prelude.Maybe QueryStatistics,
+    statistics :: Core.Maybe QueryStatistics,
     -- | The log events that matched the query criteria during the most recent
     -- time it ran.
     --
     -- The @results@ value is an array of arrays. Each log event is one object
     -- in the top-level array. Each of these log event objects is an array of
     -- @field@\/@value@ pairs.
-    results :: Prelude.Maybe [[ResultField]],
+    results :: Core.Maybe [[ResultField]],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetQueryResultsResponse' with all optional fields omitted.
@@ -192,13 +189,13 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
 -- 'httpStatus', 'getQueryResultsResponse_httpStatus' - The response's http status code.
 newGetQueryResultsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetQueryResultsResponse
 newGetQueryResultsResponse pHttpStatus_ =
   GetQueryResultsResponse'
-    { status = Prelude.Nothing,
-      statistics = Prelude.Nothing,
-      results = Prelude.Nothing,
+    { status = Core.Nothing,
+      statistics = Core.Nothing,
+      results = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -209,14 +206,14 @@ newGetQueryResultsResponse pHttpStatus_ =
 -- Queries time out after 15 minutes of execution. To avoid having your
 -- queries time out, reduce the time range being searched or partition your
 -- query into a number of queries.
-getQueryResultsResponse_status :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe QueryStatus)
+getQueryResultsResponse_status :: Lens.Lens' GetQueryResultsResponse (Core.Maybe QueryStatus)
 getQueryResultsResponse_status = Lens.lens (\GetQueryResultsResponse' {status} -> status) (\s@GetQueryResultsResponse' {} a -> s {status = a} :: GetQueryResultsResponse)
 
 -- | Includes the number of log events scanned by the query, the number of
 -- log events that matched the query criteria, and the total number of
 -- bytes in the log events that were scanned. These values reflect the full
 -- raw results of the query.
-getQueryResultsResponse_statistics :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe QueryStatistics)
+getQueryResultsResponse_statistics :: Lens.Lens' GetQueryResultsResponse (Core.Maybe QueryStatistics)
 getQueryResultsResponse_statistics = Lens.lens (\GetQueryResultsResponse' {statistics} -> statistics) (\s@GetQueryResultsResponse' {} a -> s {statistics = a} :: GetQueryResultsResponse)
 
 -- | The log events that matched the query criteria during the most recent
@@ -225,11 +222,11 @@ getQueryResultsResponse_statistics = Lens.lens (\GetQueryResultsResponse' {stati
 -- The @results@ value is an array of arrays. Each log event is one object
 -- in the top-level array. Each of these log event objects is an array of
 -- @field@\/@value@ pairs.
-getQueryResultsResponse_results :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe [[ResultField]])
-getQueryResultsResponse_results = Lens.lens (\GetQueryResultsResponse' {results} -> results) (\s@GetQueryResultsResponse' {} a -> s {results = a} :: GetQueryResultsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getQueryResultsResponse_results :: Lens.Lens' GetQueryResultsResponse (Core.Maybe [[ResultField]])
+getQueryResultsResponse_results = Lens.lens (\GetQueryResultsResponse' {results} -> results) (\s@GetQueryResultsResponse' {} a -> s {results = a} :: GetQueryResultsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getQueryResultsResponse_httpStatus :: Lens.Lens' GetQueryResultsResponse Prelude.Int
+getQueryResultsResponse_httpStatus :: Lens.Lens' GetQueryResultsResponse Core.Int
 getQueryResultsResponse_httpStatus = Lens.lens (\GetQueryResultsResponse' {httpStatus} -> httpStatus) (\s@GetQueryResultsResponse' {} a -> s {httpStatus = a} :: GetQueryResultsResponse)
 
-instance Prelude.NFData GetQueryResultsResponse
+instance Core.NFData GetQueryResultsResponse

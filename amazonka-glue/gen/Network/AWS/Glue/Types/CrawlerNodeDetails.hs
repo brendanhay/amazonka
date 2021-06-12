@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.CrawlerNodeDetails where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Crawl
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of a Crawler node present in the workflow.
 --
 -- /See:/ 'newCrawlerNodeDetails' smart constructor.
 data CrawlerNodeDetails = CrawlerNodeDetails'
   { -- | A list of crawls represented by the crawl node.
-    crawls :: Prelude.Maybe [Crawl]
+    crawls :: Core.Maybe [Crawl]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CrawlerNodeDetails' with all optional fields omitted.
@@ -45,21 +44,21 @@ data CrawlerNodeDetails = CrawlerNodeDetails'
 newCrawlerNodeDetails ::
   CrawlerNodeDetails
 newCrawlerNodeDetails =
-  CrawlerNodeDetails' {crawls = Prelude.Nothing}
+  CrawlerNodeDetails' {crawls = Core.Nothing}
 
 -- | A list of crawls represented by the crawl node.
-crawlerNodeDetails_crawls :: Lens.Lens' CrawlerNodeDetails (Prelude.Maybe [Crawl])
-crawlerNodeDetails_crawls = Lens.lens (\CrawlerNodeDetails' {crawls} -> crawls) (\s@CrawlerNodeDetails' {} a -> s {crawls = a} :: CrawlerNodeDetails) Prelude.. Lens.mapping Prelude._Coerce
+crawlerNodeDetails_crawls :: Lens.Lens' CrawlerNodeDetails (Core.Maybe [Crawl])
+crawlerNodeDetails_crawls = Lens.lens (\CrawlerNodeDetails' {crawls} -> crawls) (\s@CrawlerNodeDetails' {} a -> s {crawls = a} :: CrawlerNodeDetails) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON CrawlerNodeDetails where
+instance Core.FromJSON CrawlerNodeDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CrawlerNodeDetails"
       ( \x ->
           CrawlerNodeDetails'
-            Prelude.<$> (x Prelude..:? "Crawls" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Crawls" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable CrawlerNodeDetails
+instance Core.Hashable CrawlerNodeDetails
 
-instance Prelude.NFData CrawlerNodeDetails
+instance Core.NFData CrawlerNodeDetails

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.OutputContext where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The specification of an output context that is set when an intent is
 -- fulfilled.
@@ -29,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newOutputContext' smart constructor.
 data OutputContext = OutputContext'
   { -- | The name of the context.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The number of seconds that the context should be active after it is
     -- first sent in a @PostContent@ or @PostText@ response. You can set the
     -- value between 5 and 86,400 seconds (24 hours).
-    timeToLiveInSeconds :: Prelude.Natural,
+    timeToLiveInSeconds :: Core.Natural,
     -- | The number of conversation turns that the context should be active. A
     -- conversation turn is one @PostContent@ or @PostText@ request and the
     -- corresponding response from Amazon Lex.
-    turnsToLive :: Prelude.Natural
+    turnsToLive :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputContext' with all optional fields omitted.
@@ -60,11 +59,11 @@ data OutputContext = OutputContext'
 -- corresponding response from Amazon Lex.
 newOutputContext ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'timeToLiveInSeconds'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'turnsToLive'
-  Prelude.Natural ->
+  Core.Natural ->
   OutputContext
 newOutputContext
   pName_
@@ -77,45 +76,43 @@ newOutputContext
       }
 
 -- | The name of the context.
-outputContext_name :: Lens.Lens' OutputContext Prelude.Text
+outputContext_name :: Lens.Lens' OutputContext Core.Text
 outputContext_name = Lens.lens (\OutputContext' {name} -> name) (\s@OutputContext' {} a -> s {name = a} :: OutputContext)
 
 -- | The number of seconds that the context should be active after it is
 -- first sent in a @PostContent@ or @PostText@ response. You can set the
 -- value between 5 and 86,400 seconds (24 hours).
-outputContext_timeToLiveInSeconds :: Lens.Lens' OutputContext Prelude.Natural
+outputContext_timeToLiveInSeconds :: Lens.Lens' OutputContext Core.Natural
 outputContext_timeToLiveInSeconds = Lens.lens (\OutputContext' {timeToLiveInSeconds} -> timeToLiveInSeconds) (\s@OutputContext' {} a -> s {timeToLiveInSeconds = a} :: OutputContext)
 
 -- | The number of conversation turns that the context should be active. A
 -- conversation turn is one @PostContent@ or @PostText@ request and the
 -- corresponding response from Amazon Lex.
-outputContext_turnsToLive :: Lens.Lens' OutputContext Prelude.Natural
+outputContext_turnsToLive :: Lens.Lens' OutputContext Core.Natural
 outputContext_turnsToLive = Lens.lens (\OutputContext' {turnsToLive} -> turnsToLive) (\s@OutputContext' {} a -> s {turnsToLive = a} :: OutputContext)
 
-instance Prelude.FromJSON OutputContext where
+instance Core.FromJSON OutputContext where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputContext"
       ( \x ->
           OutputContext'
-            Prelude.<$> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "timeToLiveInSeconds")
-            Prelude.<*> (x Prelude..: "turnsToLive")
+            Core.<$> (x Core..: "name")
+            Core.<*> (x Core..: "timeToLiveInSeconds")
+            Core.<*> (x Core..: "turnsToLive")
       )
 
-instance Prelude.Hashable OutputContext
+instance Core.Hashable OutputContext
 
-instance Prelude.NFData OutputContext
+instance Core.NFData OutputContext
 
-instance Prelude.ToJSON OutputContext where
+instance Core.ToJSON OutputContext where
   toJSON OutputContext' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("name" Prelude..= name),
-            Prelude.Just
-              ( "timeToLiveInSeconds"
-                  Prelude..= timeToLiveInSeconds
-              ),
-            Prelude.Just ("turnsToLive" Prelude..= turnsToLive)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just
+              ("timeToLiveInSeconds" Core..= timeToLiveInSeconds),
+            Core.Just ("turnsToLive" Core..= turnsToLive)
           ]
       )

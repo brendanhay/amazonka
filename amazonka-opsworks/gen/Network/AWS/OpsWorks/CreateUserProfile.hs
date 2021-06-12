@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.OpsWorks.CreateUserProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,19 +58,19 @@ data CreateUserProfile = CreateUserProfile'
   { -- | Whether users can specify their own SSH public key through the My
     -- Settings page. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
-    allowSelfManagement :: Prelude.Maybe Prelude.Bool,
+    allowSelfManagement :: Core.Maybe Core.Bool,
     -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
     -- [0-9], \'-\', and \'_\'. If the specified name includes other
     -- punctuation marks, AWS OpsWorks Stacks removes them. For example,
     -- @my.name@ will be changed to @myname@. If you do not specify an SSH user
     -- name, AWS OpsWorks Stacks generates one from the IAM user name.
-    sshUsername :: Prelude.Maybe Prelude.Text,
+    sshUsername :: Core.Maybe Core.Text,
     -- | The user\'s public SSH key.
-    sshPublicKey :: Prelude.Maybe Prelude.Text,
+    sshPublicKey :: Core.Maybe Core.Text,
     -- | The user\'s IAM ARN; this can also be a federated user\'s ARN.
-    iamUserArn :: Prelude.Text
+    iamUserArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUserProfile' with all optional fields omitted.
@@ -96,21 +95,21 @@ data CreateUserProfile = CreateUserProfile'
 -- 'iamUserArn', 'createUserProfile_iamUserArn' - The user\'s IAM ARN; this can also be a federated user\'s ARN.
 newCreateUserProfile ::
   -- | 'iamUserArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateUserProfile
 newCreateUserProfile pIamUserArn_ =
   CreateUserProfile'
     { allowSelfManagement =
-        Prelude.Nothing,
-      sshUsername = Prelude.Nothing,
-      sshPublicKey = Prelude.Nothing,
+        Core.Nothing,
+      sshUsername = Core.Nothing,
+      sshPublicKey = Core.Nothing,
       iamUserArn = pIamUserArn_
     }
 
 -- | Whether users can specify their own SSH public key through the My
 -- Settings page. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
-createUserProfile_allowSelfManagement :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Bool)
+createUserProfile_allowSelfManagement :: Lens.Lens' CreateUserProfile (Core.Maybe Core.Bool)
 createUserProfile_allowSelfManagement = Lens.lens (\CreateUserProfile' {allowSelfManagement} -> allowSelfManagement) (\s@CreateUserProfile' {} a -> s {allowSelfManagement = a} :: CreateUserProfile)
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
@@ -118,75 +117,75 @@ createUserProfile_allowSelfManagement = Lens.lens (\CreateUserProfile' {allowSel
 -- punctuation marks, AWS OpsWorks Stacks removes them. For example,
 -- @my.name@ will be changed to @myname@. If you do not specify an SSH user
 -- name, AWS OpsWorks Stacks generates one from the IAM user name.
-createUserProfile_sshUsername :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
+createUserProfile_sshUsername :: Lens.Lens' CreateUserProfile (Core.Maybe Core.Text)
 createUserProfile_sshUsername = Lens.lens (\CreateUserProfile' {sshUsername} -> sshUsername) (\s@CreateUserProfile' {} a -> s {sshUsername = a} :: CreateUserProfile)
 
 -- | The user\'s public SSH key.
-createUserProfile_sshPublicKey :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
+createUserProfile_sshPublicKey :: Lens.Lens' CreateUserProfile (Core.Maybe Core.Text)
 createUserProfile_sshPublicKey = Lens.lens (\CreateUserProfile' {sshPublicKey} -> sshPublicKey) (\s@CreateUserProfile' {} a -> s {sshPublicKey = a} :: CreateUserProfile)
 
 -- | The user\'s IAM ARN; this can also be a federated user\'s ARN.
-createUserProfile_iamUserArn :: Lens.Lens' CreateUserProfile Prelude.Text
+createUserProfile_iamUserArn :: Lens.Lens' CreateUserProfile Core.Text
 createUserProfile_iamUserArn = Lens.lens (\CreateUserProfile' {iamUserArn} -> iamUserArn) (\s@CreateUserProfile' {} a -> s {iamUserArn = a} :: CreateUserProfile)
 
-instance Prelude.AWSRequest CreateUserProfile where
-  type Rs CreateUserProfile = CreateUserProfileResponse
+instance Core.AWSRequest CreateUserProfile where
+  type
+    AWSResponse CreateUserProfile =
+      CreateUserProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateUserProfileResponse'
-            Prelude.<$> (x Prelude..?> "IamUserArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "IamUserArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUserProfile
+instance Core.Hashable CreateUserProfile
 
-instance Prelude.NFData CreateUserProfile
+instance Core.NFData CreateUserProfile
 
-instance Prelude.ToHeaders CreateUserProfile where
+instance Core.ToHeaders CreateUserProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.CreateUserProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.CreateUserProfile" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateUserProfile where
+instance Core.ToJSON CreateUserProfile where
   toJSON CreateUserProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AllowSelfManagement" Prelude..=)
-              Prelude.<$> allowSelfManagement,
-            ("SshUsername" Prelude..=) Prelude.<$> sshUsername,
-            ("SshPublicKey" Prelude..=) Prelude.<$> sshPublicKey,
-            Prelude.Just ("IamUserArn" Prelude..= iamUserArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("AllowSelfManagement" Core..=)
+              Core.<$> allowSelfManagement,
+            ("SshUsername" Core..=) Core.<$> sshUsername,
+            ("SshPublicKey" Core..=) Core.<$> sshPublicKey,
+            Core.Just ("IamUserArn" Core..= iamUserArn)
           ]
       )
 
-instance Prelude.ToPath CreateUserProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateUserProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateUserProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateUserProfile where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @CreateUserProfile@ request.
 --
 -- /See:/ 'newCreateUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
   { -- | The user\'s IAM ARN.
-    iamUserArn :: Prelude.Maybe Prelude.Text,
+    iamUserArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUserProfileResponse' with all optional fields omitted.
@@ -201,21 +200,21 @@ data CreateUserProfileResponse = CreateUserProfileResponse'
 -- 'httpStatus', 'createUserProfileResponse_httpStatus' - The response's http status code.
 newCreateUserProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateUserProfileResponse
 newCreateUserProfileResponse pHttpStatus_ =
   CreateUserProfileResponse'
     { iamUserArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The user\'s IAM ARN.
-createUserProfileResponse_iamUserArn :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.Text)
+createUserProfileResponse_iamUserArn :: Lens.Lens' CreateUserProfileResponse (Core.Maybe Core.Text)
 createUserProfileResponse_iamUserArn = Lens.lens (\CreateUserProfileResponse' {iamUserArn} -> iamUserArn) (\s@CreateUserProfileResponse' {} a -> s {iamUserArn = a} :: CreateUserProfileResponse)
 
 -- | The response's http status code.
-createUserProfileResponse_httpStatus :: Lens.Lens' CreateUserProfileResponse Prelude.Int
+createUserProfileResponse_httpStatus :: Lens.Lens' CreateUserProfileResponse Core.Int
 createUserProfileResponse_httpStatus = Lens.lens (\CreateUserProfileResponse' {httpStatus} -> httpStatus) (\s@CreateUserProfileResponse' {} a -> s {httpStatus = a} :: CreateUserProfileResponse)
 
-instance Prelude.NFData CreateUserProfileResponse
+instance Core.NFData CreateUserProfileResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,17 +53,17 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAcknowledgeThirdPartyJob' smart constructor.
 data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
   { -- | The unique system-generated ID of the job.
-    jobId :: Prelude.Text,
+    jobId :: Core.Text,
     -- | A system-generated random number that AWS CodePipeline uses to ensure
     -- that the job is being worked on by only one job worker. Get this number
     -- from the response to a GetThirdPartyJobDetails request.
-    nonce :: Prelude.Text,
+    nonce :: Core.Text,
     -- | The clientToken portion of the clientId and clientToken pair used to
     -- verify that the calling entity is allowed access to the job and its
     -- details.
-    clientToken :: Prelude.Text
+    clientToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcknowledgeThirdPartyJob' with all optional fields omitted.
@@ -85,11 +84,11 @@ data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
 -- details.
 newAcknowledgeThirdPartyJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'nonce'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'clientToken'
-  Prelude.Text ->
+  Core.Text ->
   AcknowledgeThirdPartyJob
 newAcknowledgeThirdPartyJob
   pJobId_
@@ -102,79 +101,77 @@ newAcknowledgeThirdPartyJob
       }
 
 -- | The unique system-generated ID of the job.
-acknowledgeThirdPartyJob_jobId :: Lens.Lens' AcknowledgeThirdPartyJob Prelude.Text
+acknowledgeThirdPartyJob_jobId :: Lens.Lens' AcknowledgeThirdPartyJob Core.Text
 acknowledgeThirdPartyJob_jobId = Lens.lens (\AcknowledgeThirdPartyJob' {jobId} -> jobId) (\s@AcknowledgeThirdPartyJob' {} a -> s {jobId = a} :: AcknowledgeThirdPartyJob)
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure
 -- that the job is being worked on by only one job worker. Get this number
 -- from the response to a GetThirdPartyJobDetails request.
-acknowledgeThirdPartyJob_nonce :: Lens.Lens' AcknowledgeThirdPartyJob Prelude.Text
+acknowledgeThirdPartyJob_nonce :: Lens.Lens' AcknowledgeThirdPartyJob Core.Text
 acknowledgeThirdPartyJob_nonce = Lens.lens (\AcknowledgeThirdPartyJob' {nonce} -> nonce) (\s@AcknowledgeThirdPartyJob' {} a -> s {nonce = a} :: AcknowledgeThirdPartyJob)
 
 -- | The clientToken portion of the clientId and clientToken pair used to
 -- verify that the calling entity is allowed access to the job and its
 -- details.
-acknowledgeThirdPartyJob_clientToken :: Lens.Lens' AcknowledgeThirdPartyJob Prelude.Text
+acknowledgeThirdPartyJob_clientToken :: Lens.Lens' AcknowledgeThirdPartyJob Core.Text
 acknowledgeThirdPartyJob_clientToken = Lens.lens (\AcknowledgeThirdPartyJob' {clientToken} -> clientToken) (\s@AcknowledgeThirdPartyJob' {} a -> s {clientToken = a} :: AcknowledgeThirdPartyJob)
 
-instance Prelude.AWSRequest AcknowledgeThirdPartyJob where
+instance Core.AWSRequest AcknowledgeThirdPartyJob where
   type
-    Rs AcknowledgeThirdPartyJob =
+    AWSResponse AcknowledgeThirdPartyJob =
       AcknowledgeThirdPartyJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AcknowledgeThirdPartyJobResponse'
-            Prelude.<$> (x Prelude..?> "status")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AcknowledgeThirdPartyJob
+instance Core.Hashable AcknowledgeThirdPartyJob
 
-instance Prelude.NFData AcknowledgeThirdPartyJob
+instance Core.NFData AcknowledgeThirdPartyJob
 
-instance Prelude.ToHeaders AcknowledgeThirdPartyJob where
+instance Core.ToHeaders AcknowledgeThirdPartyJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.AcknowledgeThirdPartyJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.AcknowledgeThirdPartyJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AcknowledgeThirdPartyJob where
+instance Core.ToJSON AcknowledgeThirdPartyJob where
   toJSON AcknowledgeThirdPartyJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("jobId" Prelude..= jobId),
-            Prelude.Just ("nonce" Prelude..= nonce),
-            Prelude.Just ("clientToken" Prelude..= clientToken)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("jobId" Core..= jobId),
+            Core.Just ("nonce" Core..= nonce),
+            Core.Just ("clientToken" Core..= clientToken)
           ]
       )
 
-instance Prelude.ToPath AcknowledgeThirdPartyJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath AcknowledgeThirdPartyJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AcknowledgeThirdPartyJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AcknowledgeThirdPartyJob where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of an AcknowledgeThirdPartyJob action.
 --
 -- /See:/ 'newAcknowledgeThirdPartyJobResponse' smart constructor.
 data AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
   { -- | The status information for the third party job, if any.
-    status :: Prelude.Maybe JobStatus,
+    status :: Core.Maybe JobStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcknowledgeThirdPartyJobResponse' with all optional fields omitted.
@@ -189,23 +186,21 @@ data AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
 -- 'httpStatus', 'acknowledgeThirdPartyJobResponse_httpStatus' - The response's http status code.
 newAcknowledgeThirdPartyJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AcknowledgeThirdPartyJobResponse
 newAcknowledgeThirdPartyJobResponse pHttpStatus_ =
   AcknowledgeThirdPartyJobResponse'
     { status =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status information for the third party job, if any.
-acknowledgeThirdPartyJobResponse_status :: Lens.Lens' AcknowledgeThirdPartyJobResponse (Prelude.Maybe JobStatus)
+acknowledgeThirdPartyJobResponse_status :: Lens.Lens' AcknowledgeThirdPartyJobResponse (Core.Maybe JobStatus)
 acknowledgeThirdPartyJobResponse_status = Lens.lens (\AcknowledgeThirdPartyJobResponse' {status} -> status) (\s@AcknowledgeThirdPartyJobResponse' {} a -> s {status = a} :: AcknowledgeThirdPartyJobResponse)
 
 -- | The response's http status code.
-acknowledgeThirdPartyJobResponse_httpStatus :: Lens.Lens' AcknowledgeThirdPartyJobResponse Prelude.Int
+acknowledgeThirdPartyJobResponse_httpStatus :: Lens.Lens' AcknowledgeThirdPartyJobResponse Core.Int
 acknowledgeThirdPartyJobResponse_httpStatus = Lens.lens (\AcknowledgeThirdPartyJobResponse' {httpStatus} -> httpStatus) (\s@AcknowledgeThirdPartyJobResponse' {} a -> s {httpStatus = a} :: AcknowledgeThirdPartyJobResponse)
 
-instance
-  Prelude.NFData
-    AcknowledgeThirdPartyJobResponse
+instance Core.NFData AcknowledgeThirdPartyJobResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.InstanceFleetTimeline where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides historical timestamps for the instance fleet, including the
 -- time of creation, the time it became ready to run jobs, and the time of
@@ -33,13 +32,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInstanceFleetTimeline' smart constructor.
 data InstanceFleetTimeline = InstanceFleetTimeline'
   { -- | The time and date the instance fleet terminated.
-    endDateTime :: Prelude.Maybe Prelude.POSIX,
+    endDateTime :: Core.Maybe Core.POSIX,
     -- | The time and date the instance fleet was created.
-    creationDateTime :: Prelude.Maybe Prelude.POSIX,
+    creationDateTime :: Core.Maybe Core.POSIX,
     -- | The time and date the instance fleet was ready to run jobs.
-    readyDateTime :: Prelude.Maybe Prelude.POSIX
+    readyDateTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceFleetTimeline' with all optional fields omitted.
@@ -58,35 +57,34 @@ newInstanceFleetTimeline ::
   InstanceFleetTimeline
 newInstanceFleetTimeline =
   InstanceFleetTimeline'
-    { endDateTime =
-        Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
-      readyDateTime = Prelude.Nothing
+    { endDateTime = Core.Nothing,
+      creationDateTime = Core.Nothing,
+      readyDateTime = Core.Nothing
     }
 
 -- | The time and date the instance fleet terminated.
-instanceFleetTimeline_endDateTime :: Lens.Lens' InstanceFleetTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceFleetTimeline_endDateTime = Lens.lens (\InstanceFleetTimeline' {endDateTime} -> endDateTime) (\s@InstanceFleetTimeline' {} a -> s {endDateTime = a} :: InstanceFleetTimeline) Prelude.. Lens.mapping Prelude._Time
+instanceFleetTimeline_endDateTime :: Lens.Lens' InstanceFleetTimeline (Core.Maybe Core.UTCTime)
+instanceFleetTimeline_endDateTime = Lens.lens (\InstanceFleetTimeline' {endDateTime} -> endDateTime) (\s@InstanceFleetTimeline' {} a -> s {endDateTime = a} :: InstanceFleetTimeline) Core.. Lens.mapping Core._Time
 
 -- | The time and date the instance fleet was created.
-instanceFleetTimeline_creationDateTime :: Lens.Lens' InstanceFleetTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceFleetTimeline_creationDateTime = Lens.lens (\InstanceFleetTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceFleetTimeline' {} a -> s {creationDateTime = a} :: InstanceFleetTimeline) Prelude.. Lens.mapping Prelude._Time
+instanceFleetTimeline_creationDateTime :: Lens.Lens' InstanceFleetTimeline (Core.Maybe Core.UTCTime)
+instanceFleetTimeline_creationDateTime = Lens.lens (\InstanceFleetTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceFleetTimeline' {} a -> s {creationDateTime = a} :: InstanceFleetTimeline) Core.. Lens.mapping Core._Time
 
 -- | The time and date the instance fleet was ready to run jobs.
-instanceFleetTimeline_readyDateTime :: Lens.Lens' InstanceFleetTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceFleetTimeline_readyDateTime = Lens.lens (\InstanceFleetTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceFleetTimeline' {} a -> s {readyDateTime = a} :: InstanceFleetTimeline) Prelude.. Lens.mapping Prelude._Time
+instanceFleetTimeline_readyDateTime :: Lens.Lens' InstanceFleetTimeline (Core.Maybe Core.UTCTime)
+instanceFleetTimeline_readyDateTime = Lens.lens (\InstanceFleetTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceFleetTimeline' {} a -> s {readyDateTime = a} :: InstanceFleetTimeline) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON InstanceFleetTimeline where
+instance Core.FromJSON InstanceFleetTimeline where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceFleetTimeline"
       ( \x ->
           InstanceFleetTimeline'
-            Prelude.<$> (x Prelude..:? "EndDateTime")
-            Prelude.<*> (x Prelude..:? "CreationDateTime")
-            Prelude.<*> (x Prelude..:? "ReadyDateTime")
+            Core.<$> (x Core..:? "EndDateTime")
+            Core.<*> (x Core..:? "CreationDateTime")
+            Core.<*> (x Core..:? "ReadyDateTime")
       )
 
-instance Prelude.Hashable InstanceFleetTimeline
+instance Core.Hashable InstanceFleetTimeline
 
-instance Prelude.NFData InstanceFleetTimeline
+instance Core.NFData InstanceFleetTimeline

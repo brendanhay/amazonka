@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.IAM.DeleteOpenIDConnectProvider
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ data DeleteOpenIDConnectProvider = DeleteOpenIDConnectProvider'
   { -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider
     -- resource object to delete. You can get a list of OpenID Connect provider
     -- resource ARNs by using the ListOpenIDConnectProviders operation.
-    openIDConnectProviderArn :: Prelude.Text
+    openIDConnectProviderArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOpenIDConnectProvider' with all optional fields omitted.
@@ -72,7 +71,7 @@ data DeleteOpenIDConnectProvider = DeleteOpenIDConnectProvider'
 -- resource ARNs by using the ListOpenIDConnectProviders operation.
 newDeleteOpenIDConnectProvider ::
   -- | 'openIDConnectProviderArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteOpenIDConnectProvider
 newDeleteOpenIDConnectProvider
   pOpenIDConnectProviderArn_ =
@@ -84,52 +83,43 @@ newDeleteOpenIDConnectProvider
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider
 -- resource object to delete. You can get a list of OpenID Connect provider
 -- resource ARNs by using the ListOpenIDConnectProviders operation.
-deleteOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' DeleteOpenIDConnectProvider Prelude.Text
+deleteOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' DeleteOpenIDConnectProvider Core.Text
 deleteOpenIDConnectProvider_openIDConnectProviderArn = Lens.lens (\DeleteOpenIDConnectProvider' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@DeleteOpenIDConnectProvider' {} a -> s {openIDConnectProviderArn = a} :: DeleteOpenIDConnectProvider)
 
-instance
-  Prelude.AWSRequest
-    DeleteOpenIDConnectProvider
-  where
+instance Core.AWSRequest DeleteOpenIDConnectProvider where
   type
-    Rs DeleteOpenIDConnectProvider =
+    AWSResponse DeleteOpenIDConnectProvider =
       DeleteOpenIDConnectProviderResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteOpenIDConnectProviderResponse'
 
-instance Prelude.Hashable DeleteOpenIDConnectProvider
+instance Core.Hashable DeleteOpenIDConnectProvider
 
-instance Prelude.NFData DeleteOpenIDConnectProvider
+instance Core.NFData DeleteOpenIDConnectProvider
 
-instance
-  Prelude.ToHeaders
-    DeleteOpenIDConnectProvider
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteOpenIDConnectProvider where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteOpenIDConnectProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteOpenIDConnectProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteOpenIDConnectProvider where
+instance Core.ToQuery DeleteOpenIDConnectProvider where
   toQuery DeleteOpenIDConnectProvider' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteOpenIDConnectProvider" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+          Core.=: ("DeleteOpenIDConnectProvider" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
         "OpenIDConnectProviderArn"
-          Prelude.=: openIDConnectProviderArn
+          Core.=: openIDConnectProviderArn
       ]
 
 -- | /See:/ 'newDeleteOpenIDConnectProviderResponse' smart constructor.
 data DeleteOpenIDConnectProviderResponse = DeleteOpenIDConnectProviderResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOpenIDConnectProviderResponse' with all optional fields omitted.
@@ -141,5 +131,5 @@ newDeleteOpenIDConnectProviderResponse =
   DeleteOpenIDConnectProviderResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteOpenIDConnectProviderResponse

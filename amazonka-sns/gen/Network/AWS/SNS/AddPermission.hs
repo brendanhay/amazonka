@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.SNS.AddPermission
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -49,19 +48,19 @@ import Network.AWS.SNS.Types
 -- | /See:/ 'newAddPermission' smart constructor.
 data AddPermission = AddPermission'
   { -- | The ARN of the topic whose access control policy you wish to modify.
-    topicArn :: Prelude.Text,
+    topicArn :: Core.Text,
     -- | A unique identifier for the new policy statement.
-    label :: Prelude.Text,
+    label :: Core.Text,
     -- | The AWS account IDs of the users (principals) who will be given access
     -- to the specified actions. The users must have AWS accounts, but do not
     -- need to be signed up for this service.
-    aWSAccountId :: [Prelude.Text],
+    aWSAccountId :: [Core.Text],
     -- | The action you want to allow for the specified principal(s).
     --
     -- Valid values: Any Amazon SNS action name, for example @Publish@.
-    actionName :: [Prelude.Text]
+    actionName :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddPermission' with all optional fields omitted.
@@ -84,74 +83,75 @@ data AddPermission = AddPermission'
 -- Valid values: Any Amazon SNS action name, for example @Publish@.
 newAddPermission ::
   -- | 'topicArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'label'
-  Prelude.Text ->
+  Core.Text ->
   AddPermission
 newAddPermission pTopicArn_ pLabel_ =
   AddPermission'
     { topicArn = pTopicArn_,
       label = pLabel_,
-      aWSAccountId = Prelude.mempty,
-      actionName = Prelude.mempty
+      aWSAccountId = Core.mempty,
+      actionName = Core.mempty
     }
 
 -- | The ARN of the topic whose access control policy you wish to modify.
-addPermission_topicArn :: Lens.Lens' AddPermission Prelude.Text
+addPermission_topicArn :: Lens.Lens' AddPermission Core.Text
 addPermission_topicArn = Lens.lens (\AddPermission' {topicArn} -> topicArn) (\s@AddPermission' {} a -> s {topicArn = a} :: AddPermission)
 
 -- | A unique identifier for the new policy statement.
-addPermission_label :: Lens.Lens' AddPermission Prelude.Text
+addPermission_label :: Lens.Lens' AddPermission Core.Text
 addPermission_label = Lens.lens (\AddPermission' {label} -> label) (\s@AddPermission' {} a -> s {label = a} :: AddPermission)
 
 -- | The AWS account IDs of the users (principals) who will be given access
 -- to the specified actions. The users must have AWS accounts, but do not
 -- need to be signed up for this service.
-addPermission_aWSAccountId :: Lens.Lens' AddPermission [Prelude.Text]
-addPermission_aWSAccountId = Lens.lens (\AddPermission' {aWSAccountId} -> aWSAccountId) (\s@AddPermission' {} a -> s {aWSAccountId = a} :: AddPermission) Prelude.. Prelude._Coerce
+addPermission_aWSAccountId :: Lens.Lens' AddPermission [Core.Text]
+addPermission_aWSAccountId = Lens.lens (\AddPermission' {aWSAccountId} -> aWSAccountId) (\s@AddPermission' {} a -> s {aWSAccountId = a} :: AddPermission) Core.. Lens._Coerce
 
 -- | The action you want to allow for the specified principal(s).
 --
 -- Valid values: Any Amazon SNS action name, for example @Publish@.
-addPermission_actionName :: Lens.Lens' AddPermission [Prelude.Text]
-addPermission_actionName = Lens.lens (\AddPermission' {actionName} -> actionName) (\s@AddPermission' {} a -> s {actionName = a} :: AddPermission) Prelude.. Prelude._Coerce
+addPermission_actionName :: Lens.Lens' AddPermission [Core.Text]
+addPermission_actionName = Lens.lens (\AddPermission' {actionName} -> actionName) (\s@AddPermission' {} a -> s {actionName = a} :: AddPermission) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddPermission where
-  type Rs AddPermission = AddPermissionResponse
+instance Core.AWSRequest AddPermission where
+  type
+    AWSResponse AddPermission =
+      AddPermissionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull AddPermissionResponse'
 
-instance Prelude.Hashable AddPermission
+instance Core.Hashable AddPermission
 
-instance Prelude.NFData AddPermission
+instance Core.NFData AddPermission
 
-instance Prelude.ToHeaders AddPermission where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AddPermission where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AddPermission where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddPermission where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddPermission where
+instance Core.ToQuery AddPermission where
   toQuery AddPermission' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AddPermission" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "TopicArn" Prelude.=: topicArn,
-        "Label" Prelude.=: label,
+          Core.=: ("AddPermission" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "TopicArn" Core.=: topicArn,
+        "Label" Core.=: label,
         "AWSAccountId"
-          Prelude.=: Prelude.toQueryList "member" aWSAccountId,
+          Core.=: Core.toQueryList "member" aWSAccountId,
         "ActionName"
-          Prelude.=: Prelude.toQueryList "member" actionName
+          Core.=: Core.toQueryList "member" actionName
       ]
 
 -- | /See:/ 'newAddPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddPermissionResponse' with all optional fields omitted.
@@ -161,4 +161,4 @@ newAddPermissionResponse ::
   AddPermissionResponse
 newAddPermissionResponse = AddPermissionResponse'
 
-instance Prelude.NFData AddPermissionResponse
+instance Core.NFData AddPermissionResponse

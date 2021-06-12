@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,26 +49,26 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newUpdateGatewayInformation' smart constructor.
 data UpdateGatewayInformation = UpdateGatewayInformation'
-  { gatewayName :: Prelude.Maybe Prelude.Text,
+  { gatewayName :: Core.Maybe Core.Text,
     -- | A value that indicates the time zone of the gateway.
-    gatewayTimezone :: Prelude.Maybe Prelude.Text,
+    gatewayTimezone :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
     -- you want to use to monitor and log events in the gateway.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?>
-    cloudWatchLogGroupARN :: Prelude.Maybe Prelude.Text,
-    gatewayARN :: Prelude.Text
+    cloudWatchLogGroupARN :: Core.Maybe Core.Text,
+    gatewayARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGatewayInformation' with all optional fields omitted.
@@ -92,23 +91,23 @@ data UpdateGatewayInformation = UpdateGatewayInformation'
 -- 'gatewayARN', 'updateGatewayInformation_gatewayARN' - Undocumented member.
 newUpdateGatewayInformation ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   UpdateGatewayInformation
 newUpdateGatewayInformation pGatewayARN_ =
   UpdateGatewayInformation'
     { gatewayName =
-        Prelude.Nothing,
-      gatewayTimezone = Prelude.Nothing,
-      cloudWatchLogGroupARN = Prelude.Nothing,
+        Core.Nothing,
+      gatewayTimezone = Core.Nothing,
+      cloudWatchLogGroupARN = Core.Nothing,
       gatewayARN = pGatewayARN_
     }
 
 -- | Undocumented member.
-updateGatewayInformation_gatewayName :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe Prelude.Text)
+updateGatewayInformation_gatewayName :: Lens.Lens' UpdateGatewayInformation (Core.Maybe Core.Text)
 updateGatewayInformation_gatewayName = Lens.lens (\UpdateGatewayInformation' {gatewayName} -> gatewayName) (\s@UpdateGatewayInformation' {} a -> s {gatewayName = a} :: UpdateGatewayInformation)
 
 -- | A value that indicates the time zone of the gateway.
-updateGatewayInformation_gatewayTimezone :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe Prelude.Text)
+updateGatewayInformation_gatewayTimezone :: Lens.Lens' UpdateGatewayInformation (Core.Maybe Core.Text)
 updateGatewayInformation_gatewayTimezone = Lens.lens (\UpdateGatewayInformation' {gatewayTimezone} -> gatewayTimezone) (\s@UpdateGatewayInformation' {} a -> s {gatewayTimezone = a} :: UpdateGatewayInformation)
 
 -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
@@ -116,64 +115,61 @@ updateGatewayInformation_gatewayTimezone = Lens.lens (\UpdateGatewayInformation'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?>
-updateGatewayInformation_cloudWatchLogGroupARN :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe Prelude.Text)
+updateGatewayInformation_cloudWatchLogGroupARN :: Lens.Lens' UpdateGatewayInformation (Core.Maybe Core.Text)
 updateGatewayInformation_cloudWatchLogGroupARN = Lens.lens (\UpdateGatewayInformation' {cloudWatchLogGroupARN} -> cloudWatchLogGroupARN) (\s@UpdateGatewayInformation' {} a -> s {cloudWatchLogGroupARN = a} :: UpdateGatewayInformation)
 
 -- | Undocumented member.
-updateGatewayInformation_gatewayARN :: Lens.Lens' UpdateGatewayInformation Prelude.Text
+updateGatewayInformation_gatewayARN :: Lens.Lens' UpdateGatewayInformation Core.Text
 updateGatewayInformation_gatewayARN = Lens.lens (\UpdateGatewayInformation' {gatewayARN} -> gatewayARN) (\s@UpdateGatewayInformation' {} a -> s {gatewayARN = a} :: UpdateGatewayInformation)
 
-instance Prelude.AWSRequest UpdateGatewayInformation where
+instance Core.AWSRequest UpdateGatewayInformation where
   type
-    Rs UpdateGatewayInformation =
+    AWSResponse UpdateGatewayInformation =
       UpdateGatewayInformationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateGatewayInformationResponse'
-            Prelude.<$> (x Prelude..?> "GatewayName")
-            Prelude.<*> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GatewayName")
+            Core.<*> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGatewayInformation
+instance Core.Hashable UpdateGatewayInformation
 
-instance Prelude.NFData UpdateGatewayInformation
+instance Core.NFData UpdateGatewayInformation
 
-instance Prelude.ToHeaders UpdateGatewayInformation where
+instance Core.ToHeaders UpdateGatewayInformation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.UpdateGatewayInformation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.UpdateGatewayInformation" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateGatewayInformation where
+instance Core.ToJSON UpdateGatewayInformation where
   toJSON UpdateGatewayInformation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("GatewayName" Prelude..=) Prelude.<$> gatewayName,
-            ("GatewayTimezone" Prelude..=)
-              Prelude.<$> gatewayTimezone,
-            ("CloudWatchLogGroupARN" Prelude..=)
-              Prelude.<$> cloudWatchLogGroupARN,
-            Prelude.Just ("GatewayARN" Prelude..= gatewayARN)
+    Core.object
+      ( Core.catMaybes
+          [ ("GatewayName" Core..=) Core.<$> gatewayName,
+            ("GatewayTimezone" Core..=) Core.<$> gatewayTimezone,
+            ("CloudWatchLogGroupARN" Core..=)
+              Core.<$> cloudWatchLogGroupARN,
+            Core.Just ("GatewayARN" Core..= gatewayARN)
           ]
       )
 
-instance Prelude.ToPath UpdateGatewayInformation where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateGatewayInformation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateGatewayInformation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateGatewayInformation where
+  toQuery = Core.const Core.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway
 -- that was updated.
@@ -181,12 +177,12 @@ instance Prelude.ToQuery UpdateGatewayInformation where
 -- /See:/ 'newUpdateGatewayInformationResponse' smart constructor.
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
   { -- | The name you configured for your gateway.
-    gatewayName :: Prelude.Maybe Prelude.Text,
-    gatewayARN :: Prelude.Maybe Prelude.Text,
+    gatewayName :: Core.Maybe Core.Text,
+    gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGatewayInformationResponse' with all optional fields omitted.
@@ -203,28 +199,26 @@ data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
 -- 'httpStatus', 'updateGatewayInformationResponse_httpStatus' - The response's http status code.
 newUpdateGatewayInformationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateGatewayInformationResponse
 newUpdateGatewayInformationResponse pHttpStatus_ =
   UpdateGatewayInformationResponse'
     { gatewayName =
-        Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
+        Core.Nothing,
+      gatewayARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name you configured for your gateway.
-updateGatewayInformationResponse_gatewayName :: Lens.Lens' UpdateGatewayInformationResponse (Prelude.Maybe Prelude.Text)
+updateGatewayInformationResponse_gatewayName :: Lens.Lens' UpdateGatewayInformationResponse (Core.Maybe Core.Text)
 updateGatewayInformationResponse_gatewayName = Lens.lens (\UpdateGatewayInformationResponse' {gatewayName} -> gatewayName) (\s@UpdateGatewayInformationResponse' {} a -> s {gatewayName = a} :: UpdateGatewayInformationResponse)
 
 -- | Undocumented member.
-updateGatewayInformationResponse_gatewayARN :: Lens.Lens' UpdateGatewayInformationResponse (Prelude.Maybe Prelude.Text)
+updateGatewayInformationResponse_gatewayARN :: Lens.Lens' UpdateGatewayInformationResponse (Core.Maybe Core.Text)
 updateGatewayInformationResponse_gatewayARN = Lens.lens (\UpdateGatewayInformationResponse' {gatewayARN} -> gatewayARN) (\s@UpdateGatewayInformationResponse' {} a -> s {gatewayARN = a} :: UpdateGatewayInformationResponse)
 
 -- | The response's http status code.
-updateGatewayInformationResponse_httpStatus :: Lens.Lens' UpdateGatewayInformationResponse Prelude.Int
+updateGatewayInformationResponse_httpStatus :: Lens.Lens' UpdateGatewayInformationResponse Core.Int
 updateGatewayInformationResponse_httpStatus = Lens.lens (\UpdateGatewayInformationResponse' {httpStatus} -> httpStatus) (\s@UpdateGatewayInformationResponse' {} a -> s {httpStatus = a} :: UpdateGatewayInformationResponse)
 
-instance
-  Prelude.NFData
-    UpdateGatewayInformationResponse
+instance Core.NFData UpdateGatewayInformationResponse

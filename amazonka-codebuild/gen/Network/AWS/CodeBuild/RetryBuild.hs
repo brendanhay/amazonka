@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CodeBuild.RetryBuild
 where
 
 import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +53,11 @@ data RetryBuild = RetryBuild'
     -- @RetryBuild@ request and is valid for five minutes. If you repeat the
     -- @RetryBuild@ request with the same token, but change a parameter, AWS
     -- CodeBuild returns a parameter mismatch error.
-    idempotencyToken :: Prelude.Maybe Prelude.Text,
+    idempotencyToken :: Core.Maybe Core.Text,
     -- | Specifies the identifier of the build to restart.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RetryBuild' with all optional fields omitted.
@@ -79,8 +78,8 @@ newRetryBuild ::
   RetryBuild
 newRetryBuild =
   RetryBuild'
-    { idempotencyToken = Prelude.Nothing,
-      id = Prelude.Nothing
+    { idempotencyToken = Core.Nothing,
+      id = Core.Nothing
     }
 
 -- | A unique, case sensitive identifier you provide to ensure the
@@ -88,66 +87,62 @@ newRetryBuild =
 -- @RetryBuild@ request and is valid for five minutes. If you repeat the
 -- @RetryBuild@ request with the same token, but change a parameter, AWS
 -- CodeBuild returns a parameter mismatch error.
-retryBuild_idempotencyToken :: Lens.Lens' RetryBuild (Prelude.Maybe Prelude.Text)
+retryBuild_idempotencyToken :: Lens.Lens' RetryBuild (Core.Maybe Core.Text)
 retryBuild_idempotencyToken = Lens.lens (\RetryBuild' {idempotencyToken} -> idempotencyToken) (\s@RetryBuild' {} a -> s {idempotencyToken = a} :: RetryBuild)
 
 -- | Specifies the identifier of the build to restart.
-retryBuild_id :: Lens.Lens' RetryBuild (Prelude.Maybe Prelude.Text)
+retryBuild_id :: Lens.Lens' RetryBuild (Core.Maybe Core.Text)
 retryBuild_id = Lens.lens (\RetryBuild' {id} -> id) (\s@RetryBuild' {} a -> s {id = a} :: RetryBuild)
 
-instance Prelude.AWSRequest RetryBuild where
-  type Rs RetryBuild = RetryBuildResponse
+instance Core.AWSRequest RetryBuild where
+  type AWSResponse RetryBuild = RetryBuildResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RetryBuildResponse'
-            Prelude.<$> (x Prelude..?> "build")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "build")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RetryBuild
+instance Core.Hashable RetryBuild
 
-instance Prelude.NFData RetryBuild
+instance Core.NFData RetryBuild
 
-instance Prelude.ToHeaders RetryBuild where
+instance Core.ToHeaders RetryBuild where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeBuild_20161006.RetryBuild" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("CodeBuild_20161006.RetryBuild" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RetryBuild where
+instance Core.ToJSON RetryBuild where
   toJSON RetryBuild' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("idempotencyToken" Prelude..=)
-              Prelude.<$> idempotencyToken,
-            ("id" Prelude..=) Prelude.<$> id
+    Core.object
+      ( Core.catMaybes
+          [ ("idempotencyToken" Core..=)
+              Core.<$> idempotencyToken,
+            ("id" Core..=) Core.<$> id
           ]
       )
 
-instance Prelude.ToPath RetryBuild where
-  toPath = Prelude.const "/"
+instance Core.ToPath RetryBuild where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RetryBuild where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RetryBuild where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRetryBuildResponse' smart constructor.
 data RetryBuildResponse = RetryBuildResponse'
-  { build :: Prelude.Maybe Build,
+  { build :: Core.Maybe Build,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RetryBuildResponse' with all optional fields omitted.
@@ -162,20 +157,20 @@ data RetryBuildResponse = RetryBuildResponse'
 -- 'httpStatus', 'retryBuildResponse_httpStatus' - The response's http status code.
 newRetryBuildResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RetryBuildResponse
 newRetryBuildResponse pHttpStatus_ =
   RetryBuildResponse'
-    { build = Prelude.Nothing,
+    { build = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-retryBuildResponse_build :: Lens.Lens' RetryBuildResponse (Prelude.Maybe Build)
+retryBuildResponse_build :: Lens.Lens' RetryBuildResponse (Core.Maybe Build)
 retryBuildResponse_build = Lens.lens (\RetryBuildResponse' {build} -> build) (\s@RetryBuildResponse' {} a -> s {build = a} :: RetryBuildResponse)
 
 -- | The response's http status code.
-retryBuildResponse_httpStatus :: Lens.Lens' RetryBuildResponse Prelude.Int
+retryBuildResponse_httpStatus :: Lens.Lens' RetryBuildResponse Core.Int
 retryBuildResponse_httpStatus = Lens.lens (\RetryBuildResponse' {httpStatus} -> httpStatus) (\s@RetryBuildResponse' {} a -> s {httpStatus = a} :: RetryBuildResponse)
 
-instance Prelude.NFData RetryBuildResponse
+instance Core.NFData RetryBuildResponse

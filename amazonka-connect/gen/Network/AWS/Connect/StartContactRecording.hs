@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,24 +55,24 @@ module Network.AWS.Connect.StartContactRecording
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartContactRecording' smart constructor.
 data StartContactRecording = StartContactRecording'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier of the contact.
-    contactId :: Prelude.Text,
+    contactId :: Core.Text,
     -- | The identifier of the contact. This is the identifier of the contact
     -- associated with the first interaction with the contact center.
-    initialContactId :: Prelude.Text,
+    initialContactId :: Core.Text,
     -- | The person being recorded.
     voiceRecordingConfiguration :: VoiceRecordingConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartContactRecording' with all optional fields omitted.
@@ -93,11 +92,11 @@ data StartContactRecording = StartContactRecording'
 -- 'voiceRecordingConfiguration', 'startContactRecording_voiceRecordingConfiguration' - The person being recorded.
 newStartContactRecording ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'contactId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'initialContactId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'voiceRecordingConfiguration'
   VoiceRecordingConfiguration ->
   StartContactRecording
@@ -115,76 +114,74 @@ newStartContactRecording
       }
 
 -- | The identifier of the Amazon Connect instance.
-startContactRecording_instanceId :: Lens.Lens' StartContactRecording Prelude.Text
+startContactRecording_instanceId :: Lens.Lens' StartContactRecording Core.Text
 startContactRecording_instanceId = Lens.lens (\StartContactRecording' {instanceId} -> instanceId) (\s@StartContactRecording' {} a -> s {instanceId = a} :: StartContactRecording)
 
 -- | The identifier of the contact.
-startContactRecording_contactId :: Lens.Lens' StartContactRecording Prelude.Text
+startContactRecording_contactId :: Lens.Lens' StartContactRecording Core.Text
 startContactRecording_contactId = Lens.lens (\StartContactRecording' {contactId} -> contactId) (\s@StartContactRecording' {} a -> s {contactId = a} :: StartContactRecording)
 
 -- | The identifier of the contact. This is the identifier of the contact
 -- associated with the first interaction with the contact center.
-startContactRecording_initialContactId :: Lens.Lens' StartContactRecording Prelude.Text
+startContactRecording_initialContactId :: Lens.Lens' StartContactRecording Core.Text
 startContactRecording_initialContactId = Lens.lens (\StartContactRecording' {initialContactId} -> initialContactId) (\s@StartContactRecording' {} a -> s {initialContactId = a} :: StartContactRecording)
 
 -- | The person being recorded.
 startContactRecording_voiceRecordingConfiguration :: Lens.Lens' StartContactRecording VoiceRecordingConfiguration
 startContactRecording_voiceRecordingConfiguration = Lens.lens (\StartContactRecording' {voiceRecordingConfiguration} -> voiceRecordingConfiguration) (\s@StartContactRecording' {} a -> s {voiceRecordingConfiguration = a} :: StartContactRecording)
 
-instance Prelude.AWSRequest StartContactRecording where
+instance Core.AWSRequest StartContactRecording where
   type
-    Rs StartContactRecording =
+    AWSResponse StartContactRecording =
       StartContactRecordingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartContactRecordingResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartContactRecording
+instance Core.Hashable StartContactRecording
 
-instance Prelude.NFData StartContactRecording
+instance Core.NFData StartContactRecording
 
-instance Prelude.ToHeaders StartContactRecording where
+instance Core.ToHeaders StartContactRecording where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartContactRecording where
+instance Core.ToJSON StartContactRecording where
   toJSON StartContactRecording' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceId" Prelude..= instanceId),
-            Prelude.Just ("ContactId" Prelude..= contactId),
-            Prelude.Just
-              ("InitialContactId" Prelude..= initialContactId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("ContactId" Core..= contactId),
+            Core.Just
+              ("InitialContactId" Core..= initialContactId),
+            Core.Just
               ( "VoiceRecordingConfiguration"
-                  Prelude..= voiceRecordingConfiguration
+                  Core..= voiceRecordingConfiguration
               )
           ]
       )
 
-instance Prelude.ToPath StartContactRecording where
-  toPath = Prelude.const "/contact/start-recording"
+instance Core.ToPath StartContactRecording where
+  toPath = Core.const "/contact/start-recording"
 
-instance Prelude.ToQuery StartContactRecording where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartContactRecording where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartContactRecordingResponse' smart constructor.
 data StartContactRecordingResponse = StartContactRecordingResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartContactRecordingResponse' with all optional fields omitted.
@@ -197,7 +194,7 @@ data StartContactRecordingResponse = StartContactRecordingResponse'
 -- 'httpStatus', 'startContactRecordingResponse_httpStatus' - The response's http status code.
 newStartContactRecordingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartContactRecordingResponse
 newStartContactRecordingResponse pHttpStatus_ =
   StartContactRecordingResponse'
@@ -206,7 +203,7 @@ newStartContactRecordingResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startContactRecordingResponse_httpStatus :: Lens.Lens' StartContactRecordingResponse Prelude.Int
+startContactRecordingResponse_httpStatus :: Lens.Lens' StartContactRecordingResponse Core.Int
 startContactRecordingResponse_httpStatus = Lens.lens (\StartContactRecordingResponse' {httpStatus} -> httpStatus) (\s@StartContactRecordingResponse' {} a -> s {httpStatus = a} :: StartContactRecordingResponse)
 
-instance Prelude.NFData StartContactRecordingResponse
+instance Core.NFData StartContactRecordingResponse

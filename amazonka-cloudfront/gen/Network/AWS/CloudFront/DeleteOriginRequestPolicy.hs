@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CloudFront.DeleteOriginRequestPolicy
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +56,13 @@ data DeleteOriginRequestPolicy = DeleteOriginRequestPolicy'
     -- version is the origin request policy’s @ETag@ value, which you can get
     -- using @ListOriginRequestPolicies@, @GetOriginRequestPolicy@, or
     -- @GetOriginRequestPolicyConfig@.
-    ifMatch :: Prelude.Maybe Prelude.Text,
+    ifMatch :: Core.Maybe Core.Text,
     -- | The unique identifier for the origin request policy that you are
     -- deleting. To get the identifier, you can use
     -- @ListOriginRequestPolicies@.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOriginRequestPolicy' with all optional fields omitted.
@@ -83,12 +82,11 @@ data DeleteOriginRequestPolicy = DeleteOriginRequestPolicy'
 -- @ListOriginRequestPolicies@.
 newDeleteOriginRequestPolicy ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteOriginRequestPolicy
 newDeleteOriginRequestPolicy pId_ =
   DeleteOriginRequestPolicy'
-    { ifMatch =
-        Prelude.Nothing,
+    { ifMatch = Core.Nothing,
       id = pId_
     }
 
@@ -96,47 +94,45 @@ newDeleteOriginRequestPolicy pId_ =
 -- version is the origin request policy’s @ETag@ value, which you can get
 -- using @ListOriginRequestPolicies@, @GetOriginRequestPolicy@, or
 -- @GetOriginRequestPolicyConfig@.
-deleteOriginRequestPolicy_ifMatch :: Lens.Lens' DeleteOriginRequestPolicy (Prelude.Maybe Prelude.Text)
+deleteOriginRequestPolicy_ifMatch :: Lens.Lens' DeleteOriginRequestPolicy (Core.Maybe Core.Text)
 deleteOriginRequestPolicy_ifMatch = Lens.lens (\DeleteOriginRequestPolicy' {ifMatch} -> ifMatch) (\s@DeleteOriginRequestPolicy' {} a -> s {ifMatch = a} :: DeleteOriginRequestPolicy)
 
 -- | The unique identifier for the origin request policy that you are
 -- deleting. To get the identifier, you can use
 -- @ListOriginRequestPolicies@.
-deleteOriginRequestPolicy_id :: Lens.Lens' DeleteOriginRequestPolicy Prelude.Text
+deleteOriginRequestPolicy_id :: Lens.Lens' DeleteOriginRequestPolicy Core.Text
 deleteOriginRequestPolicy_id = Lens.lens (\DeleteOriginRequestPolicy' {id} -> id) (\s@DeleteOriginRequestPolicy' {} a -> s {id = a} :: DeleteOriginRequestPolicy)
 
-instance Prelude.AWSRequest DeleteOriginRequestPolicy where
+instance Core.AWSRequest DeleteOriginRequestPolicy where
   type
-    Rs DeleteOriginRequestPolicy =
+    AWSResponse DeleteOriginRequestPolicy =
       DeleteOriginRequestPolicyResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteOriginRequestPolicyResponse'
 
-instance Prelude.Hashable DeleteOriginRequestPolicy
+instance Core.Hashable DeleteOriginRequestPolicy
 
-instance Prelude.NFData DeleteOriginRequestPolicy
+instance Core.NFData DeleteOriginRequestPolicy
 
-instance Prelude.ToHeaders DeleteOriginRequestPolicy where
+instance Core.ToHeaders DeleteOriginRequestPolicy where
   toHeaders DeleteOriginRequestPolicy' {..} =
-    Prelude.mconcat ["If-Match" Prelude.=# ifMatch]
+    Core.mconcat ["If-Match" Core.=# ifMatch]
 
-instance Prelude.ToPath DeleteOriginRequestPolicy where
+instance Core.ToPath DeleteOriginRequestPolicy where
   toPath DeleteOriginRequestPolicy' {..} =
-    Prelude.mconcat
-      [ "/2020-05-31/origin-request-policy/",
-        Prelude.toBS id
-      ]
+    Core.mconcat
+      ["/2020-05-31/origin-request-policy/", Core.toBS id]
 
-instance Prelude.ToQuery DeleteOriginRequestPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteOriginRequestPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteOriginRequestPolicyResponse' smart constructor.
 data DeleteOriginRequestPolicyResponse = DeleteOriginRequestPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOriginRequestPolicyResponse' with all optional fields omitted.
@@ -148,5 +144,5 @@ newDeleteOriginRequestPolicyResponse =
   DeleteOriginRequestPolicyResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteOriginRequestPolicyResponse

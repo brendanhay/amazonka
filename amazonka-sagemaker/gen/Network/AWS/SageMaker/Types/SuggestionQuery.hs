@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.SuggestionQuery where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.PropertyNameQuery
 
 -- | Specified in the GetSearchSuggestions request. Limits the property names
@@ -31,9 +30,9 @@ import Network.AWS.SageMaker.Types.PropertyNameQuery
 data SuggestionQuery = SuggestionQuery'
   { -- | Defines a property name hint. Only property names that begin with the
     -- specified hint are included in the response.
-    propertyNameQuery :: Prelude.Maybe PropertyNameQuery
+    propertyNameQuery :: Core.Maybe PropertyNameQuery
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuggestionQuery' with all optional fields omitted.
@@ -48,25 +47,22 @@ data SuggestionQuery = SuggestionQuery'
 newSuggestionQuery ::
   SuggestionQuery
 newSuggestionQuery =
-  SuggestionQuery'
-    { propertyNameQuery =
-        Prelude.Nothing
-    }
+  SuggestionQuery' {propertyNameQuery = Core.Nothing}
 
 -- | Defines a property name hint. Only property names that begin with the
 -- specified hint are included in the response.
-suggestionQuery_propertyNameQuery :: Lens.Lens' SuggestionQuery (Prelude.Maybe PropertyNameQuery)
+suggestionQuery_propertyNameQuery :: Lens.Lens' SuggestionQuery (Core.Maybe PropertyNameQuery)
 suggestionQuery_propertyNameQuery = Lens.lens (\SuggestionQuery' {propertyNameQuery} -> propertyNameQuery) (\s@SuggestionQuery' {} a -> s {propertyNameQuery = a} :: SuggestionQuery)
 
-instance Prelude.Hashable SuggestionQuery
+instance Core.Hashable SuggestionQuery
 
-instance Prelude.NFData SuggestionQuery
+instance Core.NFData SuggestionQuery
 
-instance Prelude.ToJSON SuggestionQuery where
+instance Core.ToJSON SuggestionQuery where
   toJSON SuggestionQuery' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PropertyNameQuery" Prelude..=)
-              Prelude.<$> propertyNameQuery
+    Core.object
+      ( Core.catMaybes
+          [ ("PropertyNameQuery" Core..=)
+              Core.<$> propertyNameQuery
           ]
       )

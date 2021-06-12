@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +48,11 @@ import qualified Network.AWS.Response as Response
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
   { -- | The value of the @ETag@ header you received from a previous @GET@ or
     -- @PUT@ request. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Prelude.Maybe Prelude.Text,
+    ifMatch :: Core.Maybe Core.Text,
     -- | The origin access identity\'s ID.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCloudFrontOriginAccessIdentity' with all optional fields omitted.
@@ -69,30 +68,30 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 -- 'id', 'deleteCloudFrontOriginAccessIdentity_id' - The origin access identity\'s ID.
 newDeleteCloudFrontOriginAccessIdentity ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCloudFrontOriginAccessIdentity
 newDeleteCloudFrontOriginAccessIdentity pId_ =
   DeleteCloudFrontOriginAccessIdentity'
     { ifMatch =
-        Prelude.Nothing,
+        Core.Nothing,
       id = pId_
     }
 
 -- | The value of the @ETag@ header you received from a previous @GET@ or
 -- @PUT@ request. For example: @E2QWRUHAPOMQZL@.
-deleteCloudFrontOriginAccessIdentity_ifMatch :: Lens.Lens' DeleteCloudFrontOriginAccessIdentity (Prelude.Maybe Prelude.Text)
+deleteCloudFrontOriginAccessIdentity_ifMatch :: Lens.Lens' DeleteCloudFrontOriginAccessIdentity (Core.Maybe Core.Text)
 deleteCloudFrontOriginAccessIdentity_ifMatch = Lens.lens (\DeleteCloudFrontOriginAccessIdentity' {ifMatch} -> ifMatch) (\s@DeleteCloudFrontOriginAccessIdentity' {} a -> s {ifMatch = a} :: DeleteCloudFrontOriginAccessIdentity)
 
 -- | The origin access identity\'s ID.
-deleteCloudFrontOriginAccessIdentity_id :: Lens.Lens' DeleteCloudFrontOriginAccessIdentity Prelude.Text
+deleteCloudFrontOriginAccessIdentity_id :: Lens.Lens' DeleteCloudFrontOriginAccessIdentity Core.Text
 deleteCloudFrontOriginAccessIdentity_id = Lens.lens (\DeleteCloudFrontOriginAccessIdentity' {id} -> id) (\s@DeleteCloudFrontOriginAccessIdentity' {} a -> s {id = a} :: DeleteCloudFrontOriginAccessIdentity)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteCloudFrontOriginAccessIdentity
   where
   type
-    Rs DeleteCloudFrontOriginAccessIdentity =
+    AWSResponse DeleteCloudFrontOriginAccessIdentity =
       DeleteCloudFrontOriginAccessIdentityResponse
   request = Request.delete defaultService
   response =
@@ -100,41 +99,41 @@ instance
       DeleteCloudFrontOriginAccessIdentityResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteCloudFrontOriginAccessIdentity
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteCloudFrontOriginAccessIdentity
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteCloudFrontOriginAccessIdentity
   where
   toHeaders DeleteCloudFrontOriginAccessIdentity' {..} =
-    Prelude.mconcat ["If-Match" Prelude.=# ifMatch]
+    Core.mconcat ["If-Match" Core.=# ifMatch]
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteCloudFrontOriginAccessIdentity
   where
   toPath DeleteCloudFrontOriginAccessIdentity' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2020-05-31/origin-access-identity/cloudfront/",
-        Prelude.toBS id
+        Core.toBS id
       ]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteCloudFrontOriginAccessIdentity
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteCloudFrontOriginAccessIdentityResponse' smart constructor.
 data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCloudFrontOriginAccessIdentityResponse' with all optional fields omitted.
@@ -146,5 +145,5 @@ newDeleteCloudFrontOriginAccessIdentityResponse =
   DeleteCloudFrontOriginAccessIdentityResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteCloudFrontOriginAccessIdentityResponse

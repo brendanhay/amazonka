@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.SegmentsResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.SegmentResponse
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about all the segments that are associated with an
 -- application.
@@ -32,13 +31,13 @@ data SegmentsResponse = SegmentsResponse'
   { -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of responses, one for each segment that\'s associated with the
     -- application (Segments resource) or each version of a segment that\'s
     -- associated with the application (Segment Versions resource).
     item :: [SegmentResponse]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SegmentsResponse' with all optional fields omitted.
@@ -59,32 +58,32 @@ newSegmentsResponse ::
   SegmentsResponse
 newSegmentsResponse =
   SegmentsResponse'
-    { nextToken = Prelude.Nothing,
-      item = Prelude.mempty
+    { nextToken = Core.Nothing,
+      item = Core.mempty
     }
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
-segmentsResponse_nextToken :: Lens.Lens' SegmentsResponse (Prelude.Maybe Prelude.Text)
+segmentsResponse_nextToken :: Lens.Lens' SegmentsResponse (Core.Maybe Core.Text)
 segmentsResponse_nextToken = Lens.lens (\SegmentsResponse' {nextToken} -> nextToken) (\s@SegmentsResponse' {} a -> s {nextToken = a} :: SegmentsResponse)
 
 -- | An array of responses, one for each segment that\'s associated with the
 -- application (Segments resource) or each version of a segment that\'s
 -- associated with the application (Segment Versions resource).
 segmentsResponse_item :: Lens.Lens' SegmentsResponse [SegmentResponse]
-segmentsResponse_item = Lens.lens (\SegmentsResponse' {item} -> item) (\s@SegmentsResponse' {} a -> s {item = a} :: SegmentsResponse) Prelude.. Prelude._Coerce
+segmentsResponse_item = Lens.lens (\SegmentsResponse' {item} -> item) (\s@SegmentsResponse' {} a -> s {item = a} :: SegmentsResponse) Core.. Lens._Coerce
 
-instance Prelude.FromJSON SegmentsResponse where
+instance Core.FromJSON SegmentsResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SegmentsResponse"
       ( \x ->
           SegmentsResponse'
-            Prelude.<$> (x Prelude..:? "NextToken")
-            Prelude.<*> (x Prelude..:? "Item" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Item" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable SegmentsResponse
+instance Core.Hashable SegmentsResponse
 
-instance Prelude.NFData SegmentsResponse
+instance Core.NFData SegmentsResponse

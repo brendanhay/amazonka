@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Glue.UpdatePartition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,20 +52,20 @@ import qualified Network.AWS.Response as Response
 data UpdatePartition = UpdatePartition'
   { -- | The ID of the Data Catalog where the partition to be updated resides. If
     -- none is provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the catalog database in which the table in question resides.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the table in which the partition to be updated is located.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | List of partition key values that define the partition to update.
-    partitionValueList :: [Prelude.Text],
+    partitionValueList :: [Core.Text],
     -- | The new partition object to update the partition to.
     --
     -- The @Values@ property can\'t be changed. If you want to change the
     -- partition key values for a partition, delete and recreate the partition.
     partitionInput :: PartitionInput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePartition' with all optional fields omitted.
@@ -91,9 +90,9 @@ data UpdatePartition = UpdatePartition'
 -- partition key values for a partition, delete and recreate the partition.
 newUpdatePartition ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'partitionInput'
   PartitionInput ->
   UpdatePartition
@@ -102,29 +101,29 @@ newUpdatePartition
   pTableName_
   pPartitionInput_ =
     UpdatePartition'
-      { catalogId = Prelude.Nothing,
+      { catalogId = Core.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
-        partitionValueList = Prelude.mempty,
+        partitionValueList = Core.mempty,
         partitionInput = pPartitionInput_
       }
 
 -- | The ID of the Data Catalog where the partition to be updated resides. If
 -- none is provided, the AWS account ID is used by default.
-updatePartition_catalogId :: Lens.Lens' UpdatePartition (Prelude.Maybe Prelude.Text)
+updatePartition_catalogId :: Lens.Lens' UpdatePartition (Core.Maybe Core.Text)
 updatePartition_catalogId = Lens.lens (\UpdatePartition' {catalogId} -> catalogId) (\s@UpdatePartition' {} a -> s {catalogId = a} :: UpdatePartition)
 
 -- | The name of the catalog database in which the table in question resides.
-updatePartition_databaseName :: Lens.Lens' UpdatePartition Prelude.Text
+updatePartition_databaseName :: Lens.Lens' UpdatePartition Core.Text
 updatePartition_databaseName = Lens.lens (\UpdatePartition' {databaseName} -> databaseName) (\s@UpdatePartition' {} a -> s {databaseName = a} :: UpdatePartition)
 
 -- | The name of the table in which the partition to be updated is located.
-updatePartition_tableName :: Lens.Lens' UpdatePartition Prelude.Text
+updatePartition_tableName :: Lens.Lens' UpdatePartition Core.Text
 updatePartition_tableName = Lens.lens (\UpdatePartition' {tableName} -> tableName) (\s@UpdatePartition' {} a -> s {tableName = a} :: UpdatePartition)
 
 -- | List of partition key values that define the partition to update.
-updatePartition_partitionValueList :: Lens.Lens' UpdatePartition [Prelude.Text]
-updatePartition_partitionValueList = Lens.lens (\UpdatePartition' {partitionValueList} -> partitionValueList) (\s@UpdatePartition' {} a -> s {partitionValueList = a} :: UpdatePartition) Prelude.. Prelude._Coerce
+updatePartition_partitionValueList :: Lens.Lens' UpdatePartition [Core.Text]
+updatePartition_partitionValueList = Lens.lens (\UpdatePartition' {partitionValueList} -> partitionValueList) (\s@UpdatePartition' {} a -> s {partitionValueList = a} :: UpdatePartition) Core.. Lens._Coerce
 
 -- | The new partition object to update the partition to.
 --
@@ -133,60 +132,58 @@ updatePartition_partitionValueList = Lens.lens (\UpdatePartition' {partitionValu
 updatePartition_partitionInput :: Lens.Lens' UpdatePartition PartitionInput
 updatePartition_partitionInput = Lens.lens (\UpdatePartition' {partitionInput} -> partitionInput) (\s@UpdatePartition' {} a -> s {partitionInput = a} :: UpdatePartition)
 
-instance Prelude.AWSRequest UpdatePartition where
-  type Rs UpdatePartition = UpdatePartitionResponse
+instance Core.AWSRequest UpdatePartition where
+  type
+    AWSResponse UpdatePartition =
+      UpdatePartitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdatePartitionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePartition
+instance Core.Hashable UpdatePartition
 
-instance Prelude.NFData UpdatePartition
+instance Core.NFData UpdatePartition
 
-instance Prelude.ToHeaders UpdatePartition where
+instance Core.ToHeaders UpdatePartition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.UpdatePartition" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.UpdatePartition" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdatePartition where
+instance Core.ToJSON UpdatePartition where
   toJSON UpdatePartition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just
-              ("PartitionValueList" Prelude..= partitionValueList),
-            Prelude.Just
-              ("PartitionInput" Prelude..= partitionInput)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just
+              ("PartitionValueList" Core..= partitionValueList),
+            Core.Just ("PartitionInput" Core..= partitionInput)
           ]
       )
 
-instance Prelude.ToPath UpdatePartition where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdatePartition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdatePartition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdatePartition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdatePartitionResponse' smart constructor.
 data UpdatePartitionResponse = UpdatePartitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePartitionResponse' with all optional fields omitted.
@@ -199,13 +196,13 @@ data UpdatePartitionResponse = UpdatePartitionResponse'
 -- 'httpStatus', 'updatePartitionResponse_httpStatus' - The response's http status code.
 newUpdatePartitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdatePartitionResponse
 newUpdatePartitionResponse pHttpStatus_ =
   UpdatePartitionResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updatePartitionResponse_httpStatus :: Lens.Lens' UpdatePartitionResponse Prelude.Int
+updatePartitionResponse_httpStatus :: Lens.Lens' UpdatePartitionResponse Core.Int
 updatePartitionResponse_httpStatus = Lens.lens (\UpdatePartitionResponse' {httpStatus} -> httpStatus) (\s@UpdatePartitionResponse' {} a -> s {httpStatus = a} :: UpdatePartitionResponse)
 
-instance Prelude.NFData UpdatePartitionResponse
+instance Core.NFData UpdatePartitionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DAX.Types.SecurityGroupMembership where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An individual VPC security group and its status.
 --
 -- /See:/ 'newSecurityGroupMembership' smart constructor.
 data SecurityGroupMembership = SecurityGroupMembership'
   { -- | The status of this security group.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The unique ID for this security group.
-    securityGroupIdentifier :: Prelude.Maybe Prelude.Text
+    securityGroupIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SecurityGroupMembership' with all optional fields omitted.
@@ -49,28 +48,28 @@ newSecurityGroupMembership ::
   SecurityGroupMembership
 newSecurityGroupMembership =
   SecurityGroupMembership'
-    { status = Prelude.Nothing,
-      securityGroupIdentifier = Prelude.Nothing
+    { status = Core.Nothing,
+      securityGroupIdentifier = Core.Nothing
     }
 
 -- | The status of this security group.
-securityGroupMembership_status :: Lens.Lens' SecurityGroupMembership (Prelude.Maybe Prelude.Text)
+securityGroupMembership_status :: Lens.Lens' SecurityGroupMembership (Core.Maybe Core.Text)
 securityGroupMembership_status = Lens.lens (\SecurityGroupMembership' {status} -> status) (\s@SecurityGroupMembership' {} a -> s {status = a} :: SecurityGroupMembership)
 
 -- | The unique ID for this security group.
-securityGroupMembership_securityGroupIdentifier :: Lens.Lens' SecurityGroupMembership (Prelude.Maybe Prelude.Text)
+securityGroupMembership_securityGroupIdentifier :: Lens.Lens' SecurityGroupMembership (Core.Maybe Core.Text)
 securityGroupMembership_securityGroupIdentifier = Lens.lens (\SecurityGroupMembership' {securityGroupIdentifier} -> securityGroupIdentifier) (\s@SecurityGroupMembership' {} a -> s {securityGroupIdentifier = a} :: SecurityGroupMembership)
 
-instance Prelude.FromJSON SecurityGroupMembership where
+instance Core.FromJSON SecurityGroupMembership where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SecurityGroupMembership"
       ( \x ->
           SecurityGroupMembership'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "SecurityGroupIdentifier")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "SecurityGroupIdentifier")
       )
 
-instance Prelude.Hashable SecurityGroupMembership
+instance Core.Hashable SecurityGroupMembership
 
-instance Prelude.NFData SecurityGroupMembership
+instance Core.NFData SecurityGroupMembership

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,21 +43,20 @@ module Network.AWS.IoT.ListCustomMetrics
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListCustomMetrics' smart constructor.
 data ListCustomMetrics = ListCustomMetrics'
   { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCustomMetrics' with all optional fields omitted.
@@ -75,82 +73,81 @@ newListCustomMetrics ::
   ListCustomMetrics
 newListCustomMetrics =
   ListCustomMetrics'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The token for the next set of results.
-listCustomMetrics_nextToken :: Lens.Lens' ListCustomMetrics (Prelude.Maybe Prelude.Text)
+listCustomMetrics_nextToken :: Lens.Lens' ListCustomMetrics (Core.Maybe Core.Text)
 listCustomMetrics_nextToken = Lens.lens (\ListCustomMetrics' {nextToken} -> nextToken) (\s@ListCustomMetrics' {} a -> s {nextToken = a} :: ListCustomMetrics)
 
 -- | The maximum number of results to return at one time. The default is 25.
-listCustomMetrics_maxResults :: Lens.Lens' ListCustomMetrics (Prelude.Maybe Prelude.Natural)
+listCustomMetrics_maxResults :: Lens.Lens' ListCustomMetrics (Core.Maybe Core.Natural)
 listCustomMetrics_maxResults = Lens.lens (\ListCustomMetrics' {maxResults} -> maxResults) (\s@ListCustomMetrics' {} a -> s {maxResults = a} :: ListCustomMetrics)
 
-instance Pager.AWSPager ListCustomMetrics where
+instance Core.AWSPager ListCustomMetrics where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listCustomMetricsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listCustomMetricsResponse_metricNames
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listCustomMetrics_nextToken
           Lens..~ rs
-          Lens.^? listCustomMetricsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listCustomMetricsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListCustomMetrics where
-  type Rs ListCustomMetrics = ListCustomMetricsResponse
+instance Core.AWSRequest ListCustomMetrics where
+  type
+    AWSResponse ListCustomMetrics =
+      ListCustomMetricsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListCustomMetricsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "metricNames"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "metricNames" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListCustomMetrics
+instance Core.Hashable ListCustomMetrics
 
-instance Prelude.NFData ListCustomMetrics
+instance Core.NFData ListCustomMetrics
 
-instance Prelude.ToHeaders ListCustomMetrics where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListCustomMetrics where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListCustomMetrics where
-  toPath = Prelude.const "/custom-metrics"
+instance Core.ToPath ListCustomMetrics where
+  toPath = Core.const "/custom-metrics"
 
-instance Prelude.ToQuery ListCustomMetrics where
+instance Core.ToQuery ListCustomMetrics where
   toQuery ListCustomMetrics' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListCustomMetricsResponse' smart constructor.
 data ListCustomMetricsResponse = ListCustomMetricsResponse'
   { -- | A token that can be used to retrieve the next set of results, or @null@
     -- if there are no additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The name of the custom metric.
-    metricNames :: Prelude.Maybe [Prelude.Text],
+    metricNames :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCustomMetricsResponse' with all optional fields omitted.
@@ -168,27 +165,27 @@ data ListCustomMetricsResponse = ListCustomMetricsResponse'
 -- 'httpStatus', 'listCustomMetricsResponse_httpStatus' - The response's http status code.
 newListCustomMetricsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListCustomMetricsResponse
 newListCustomMetricsResponse pHttpStatus_ =
   ListCustomMetricsResponse'
     { nextToken =
-        Prelude.Nothing,
-      metricNames = Prelude.Nothing,
+        Core.Nothing,
+      metricNames = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
-listCustomMetricsResponse_nextToken :: Lens.Lens' ListCustomMetricsResponse (Prelude.Maybe Prelude.Text)
+listCustomMetricsResponse_nextToken :: Lens.Lens' ListCustomMetricsResponse (Core.Maybe Core.Text)
 listCustomMetricsResponse_nextToken = Lens.lens (\ListCustomMetricsResponse' {nextToken} -> nextToken) (\s@ListCustomMetricsResponse' {} a -> s {nextToken = a} :: ListCustomMetricsResponse)
 
 -- | The name of the custom metric.
-listCustomMetricsResponse_metricNames :: Lens.Lens' ListCustomMetricsResponse (Prelude.Maybe [Prelude.Text])
-listCustomMetricsResponse_metricNames = Lens.lens (\ListCustomMetricsResponse' {metricNames} -> metricNames) (\s@ListCustomMetricsResponse' {} a -> s {metricNames = a} :: ListCustomMetricsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listCustomMetricsResponse_metricNames :: Lens.Lens' ListCustomMetricsResponse (Core.Maybe [Core.Text])
+listCustomMetricsResponse_metricNames = Lens.lens (\ListCustomMetricsResponse' {metricNames} -> metricNames) (\s@ListCustomMetricsResponse' {} a -> s {metricNames = a} :: ListCustomMetricsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCustomMetricsResponse_httpStatus :: Lens.Lens' ListCustomMetricsResponse Prelude.Int
+listCustomMetricsResponse_httpStatus :: Lens.Lens' ListCustomMetricsResponse Core.Int
 listCustomMetricsResponse_httpStatus = Lens.lens (\ListCustomMetricsResponse' {httpStatus} -> httpStatus) (\s@ListCustomMetricsResponse' {} a -> s {httpStatus = a} :: ListCustomMetricsResponse)
 
-instance Prelude.NFData ListCustomMetricsResponse
+instance Core.NFData ListCustomMetricsResponse

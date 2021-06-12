@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.Route53AutoNaming.ListServices
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -66,19 +64,19 @@ data ListServices = ListServices'
     -- @MaxResults@ services matched the specified criteria but that subsequent
     -- groups of @MaxResults@ services do contain services that match the
     -- criteria.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of services that you want AWS Cloud Map to return in
     -- the response to a @ListServices@ request. If you don\'t specify a value
     -- for @MaxResults@, AWS Cloud Map returns up to 100 services.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | A complex type that contains specifications for the namespaces that you
     -- want to list services for.
     --
     -- If you specify more than one filter, an operation must match all filters
     -- to be returned by @ListServices@.
-    filters :: Prelude.Maybe [ServiceFilter]
+    filters :: Core.Maybe [ServiceFilter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListServices' with all optional fields omitted.
@@ -113,9 +111,9 @@ newListServices ::
   ListServices
 newListServices =
   ListServices'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | For the first @ListServices@ request, omit this value.
@@ -129,13 +127,13 @@ newListServices =
 -- @MaxResults@ services matched the specified criteria but that subsequent
 -- groups of @MaxResults@ services do contain services that match the
 -- criteria.
-listServices_nextToken :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
+listServices_nextToken :: Lens.Lens' ListServices (Core.Maybe Core.Text)
 listServices_nextToken = Lens.lens (\ListServices' {nextToken} -> nextToken) (\s@ListServices' {} a -> s {nextToken = a} :: ListServices)
 
 -- | The maximum number of services that you want AWS Cloud Map to return in
 -- the response to a @ListServices@ request. If you don\'t specify a value
 -- for @MaxResults@, AWS Cloud Map returns up to 100 services.
-listServices_maxResults :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Natural)
+listServices_maxResults :: Lens.Lens' ListServices (Core.Maybe Core.Natural)
 listServices_maxResults = Lens.lens (\ListServices' {maxResults} -> maxResults) (\s@ListServices' {} a -> s {maxResults = a} :: ListServices)
 
 -- | A complex type that contains specifications for the namespaces that you
@@ -143,74 +141,72 @@ listServices_maxResults = Lens.lens (\ListServices' {maxResults} -> maxResults) 
 --
 -- If you specify more than one filter, an operation must match all filters
 -- to be returned by @ListServices@.
-listServices_filters :: Lens.Lens' ListServices (Prelude.Maybe [ServiceFilter])
-listServices_filters = Lens.lens (\ListServices' {filters} -> filters) (\s@ListServices' {} a -> s {filters = a} :: ListServices) Prelude.. Lens.mapping Prelude._Coerce
+listServices_filters :: Lens.Lens' ListServices (Core.Maybe [ServiceFilter])
+listServices_filters = Lens.lens (\ListServices' {filters} -> filters) (\s@ListServices' {} a -> s {filters = a} :: ListServices) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager ListServices where
+instance Core.AWSPager ListServices where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listServicesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listServicesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listServicesResponse_services Prelude.. Lens._Just
+            Lens.^? listServicesResponse_services Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listServices_nextToken
           Lens..~ rs
-          Lens.^? listServicesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listServicesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListServices where
-  type Rs ListServices = ListServicesResponse
+instance Core.AWSRequest ListServices where
+  type AWSResponse ListServices = ListServicesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListServicesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Services" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Services" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListServices
+instance Core.Hashable ListServices
 
-instance Prelude.NFData ListServices
+instance Core.NFData ListServices
 
-instance Prelude.ToHeaders ListServices where
+instance Core.ToHeaders ListServices where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53AutoNaming_v20170314.ListServices" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53AutoNaming_v20170314.ListServices" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListServices where
+instance Core.ToJSON ListServices where
   toJSON ListServices' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters
           ]
       )
 
-instance Prelude.ToPath ListServices where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListServices where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListServices where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListServices where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListServicesResponse' smart constructor.
 data ListServicesResponse = ListServicesResponse'
@@ -223,14 +219,14 @@ data ListServicesResponse = ListServicesResponse'
     -- @MaxResults@ services matched the specified criteria but that subsequent
     -- groups of @MaxResults@ services do contain services that match the
     -- criteria.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array that contains one @ServiceSummary@ object for each service that
     -- matches the specified filter criteria.
-    services :: Prelude.Maybe [ServiceSummary],
+    services :: Core.Maybe [ServiceSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListServicesResponse' with all optional fields omitted.
@@ -256,12 +252,12 @@ data ListServicesResponse = ListServicesResponse'
 -- 'httpStatus', 'listServicesResponse_httpStatus' - The response's http status code.
 newListServicesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListServicesResponse
 newListServicesResponse pHttpStatus_ =
   ListServicesResponse'
-    { nextToken = Prelude.Nothing,
-      services = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      services = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -274,16 +270,16 @@ newListServicesResponse pHttpStatus_ =
 -- @MaxResults@ services matched the specified criteria but that subsequent
 -- groups of @MaxResults@ services do contain services that match the
 -- criteria.
-listServicesResponse_nextToken :: Lens.Lens' ListServicesResponse (Prelude.Maybe Prelude.Text)
+listServicesResponse_nextToken :: Lens.Lens' ListServicesResponse (Core.Maybe Core.Text)
 listServicesResponse_nextToken = Lens.lens (\ListServicesResponse' {nextToken} -> nextToken) (\s@ListServicesResponse' {} a -> s {nextToken = a} :: ListServicesResponse)
 
 -- | An array that contains one @ServiceSummary@ object for each service that
 -- matches the specified filter criteria.
-listServicesResponse_services :: Lens.Lens' ListServicesResponse (Prelude.Maybe [ServiceSummary])
-listServicesResponse_services = Lens.lens (\ListServicesResponse' {services} -> services) (\s@ListServicesResponse' {} a -> s {services = a} :: ListServicesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listServicesResponse_services :: Lens.Lens' ListServicesResponse (Core.Maybe [ServiceSummary])
+listServicesResponse_services = Lens.lens (\ListServicesResponse' {services} -> services) (\s@ListServicesResponse' {} a -> s {services = a} :: ListServicesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listServicesResponse_httpStatus :: Lens.Lens' ListServicesResponse Prelude.Int
+listServicesResponse_httpStatus :: Lens.Lens' ListServicesResponse Core.Int
 listServicesResponse_httpStatus = Lens.lens (\ListServicesResponse' {httpStatus} -> httpStatus) (\s@ListServicesResponse' {} a -> s {httpStatus = a} :: ListServicesResponse)
 
-instance Prelude.NFData ListServicesResponse
+instance Core.NFData ListServicesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DeleteQueuedReservedInstancesError where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DeleteQueuedReservedInstancesErrorCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the error for a Reserved Instance whose queued purchase could
 -- not be deleted.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDeleteQueuedReservedInstancesError' smart constructor.
 data DeleteQueuedReservedInstancesError = DeleteQueuedReservedInstancesError'
   { -- | The error message.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The error code.
-    code :: Prelude.Maybe DeleteQueuedReservedInstancesErrorCode
+    code :: Core.Maybe DeleteQueuedReservedInstancesErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteQueuedReservedInstancesError' with all optional fields omitted.
@@ -53,31 +52,30 @@ newDeleteQueuedReservedInstancesError ::
 newDeleteQueuedReservedInstancesError =
   DeleteQueuedReservedInstancesError'
     { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+        Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | The error message.
-deleteQueuedReservedInstancesError_message :: Lens.Lens' DeleteQueuedReservedInstancesError (Prelude.Maybe Prelude.Text)
+deleteQueuedReservedInstancesError_message :: Lens.Lens' DeleteQueuedReservedInstancesError (Core.Maybe Core.Text)
 deleteQueuedReservedInstancesError_message = Lens.lens (\DeleteQueuedReservedInstancesError' {message} -> message) (\s@DeleteQueuedReservedInstancesError' {} a -> s {message = a} :: DeleteQueuedReservedInstancesError)
 
 -- | The error code.
-deleteQueuedReservedInstancesError_code :: Lens.Lens' DeleteQueuedReservedInstancesError (Prelude.Maybe DeleteQueuedReservedInstancesErrorCode)
+deleteQueuedReservedInstancesError_code :: Lens.Lens' DeleteQueuedReservedInstancesError (Core.Maybe DeleteQueuedReservedInstancesErrorCode)
 deleteQueuedReservedInstancesError_code = Lens.lens (\DeleteQueuedReservedInstancesError' {code} -> code) (\s@DeleteQueuedReservedInstancesError' {} a -> s {code = a} :: DeleteQueuedReservedInstancesError)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     DeleteQueuedReservedInstancesError
   where
   parseXML x =
     DeleteQueuedReservedInstancesError'
-      Prelude.<$> (x Prelude..@? "message")
-      Prelude.<*> (x Prelude..@? "code")
+      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteQueuedReservedInstancesError
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteQueuedReservedInstancesError

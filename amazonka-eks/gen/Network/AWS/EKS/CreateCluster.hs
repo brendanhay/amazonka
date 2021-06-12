@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -75,16 +74,16 @@ module Network.AWS.EKS.CreateCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
   { -- | The Kubernetes network configuration for the cluster.
-    kubernetesNetworkConfig :: Prelude.Maybe KubernetesNetworkConfigRequest,
+    kubernetesNetworkConfig :: Core.Maybe KubernetesNetworkConfigRequest,
     -- | Enable or disable exporting the Kubernetes control plane logs for your
     -- cluster to CloudWatch Logs. By default, cluster control plane logs
     -- aren\'t exported to CloudWatch Logs. For more information, see
@@ -94,27 +93,27 @@ data CreateCluster = CreateCluster'
     -- CloudWatch Logs ingestion, archive storage, and data scanning rates
     -- apply to exported control plane logs. For more information, see
     -- <http://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
-    logging :: Prelude.Maybe Logging,
+    logging :: Core.Maybe Logging,
     -- | The encryption configuration for the cluster.
-    encryptionConfig :: Prelude.Maybe [EncryptionConfig],
+    encryptionConfig :: Core.Maybe [EncryptionConfig],
     -- | The desired Kubernetes version for your cluster. If you don\'t specify a
     -- value here, the latest version available in Amazon EKS is used.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The metadata to apply to the cluster to assist with categorization and
     -- organization. Each tag consists of a key and an optional value, both of
     -- which you define.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The unique name to give to your cluster.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that provides permissions
     -- for the Kubernetes control plane to make calls to AWS API operations on
     -- your behalf. For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html Amazon EKS Service IAM Role>
     -- in the //Amazon EKS User Guide// .
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The VPC configuration used by the cluster control plane. Amazon EKS VPC
     -- resources have specific requirements to work properly with Kubernetes.
     -- For more information, see
@@ -126,7 +125,7 @@ data CreateCluster = CreateCluster'
     -- use a dedicated security group for your cluster control plane.
     resourcesVpcConfig :: VpcConfigRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCluster' with all optional fields omitted.
@@ -179,9 +178,9 @@ data CreateCluster = CreateCluster'
 -- use a dedicated security group for your cluster control plane.
 newCreateCluster ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourcesVpcConfig'
   VpcConfigRequest ->
   CreateCluster
@@ -191,19 +190,19 @@ newCreateCluster
   pResourcesVpcConfig_ =
     CreateCluster'
       { kubernetesNetworkConfig =
-          Prelude.Nothing,
-        logging = Prelude.Nothing,
-        encryptionConfig = Prelude.Nothing,
-        version = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+          Core.Nothing,
+        logging = Core.Nothing,
+        encryptionConfig = Core.Nothing,
+        version = Core.Nothing,
+        tags = Core.Nothing,
+        clientRequestToken = Core.Nothing,
         name = pName_,
         roleArn = pRoleArn_,
         resourcesVpcConfig = pResourcesVpcConfig_
       }
 
 -- | The Kubernetes network configuration for the cluster.
-createCluster_kubernetesNetworkConfig :: Lens.Lens' CreateCluster (Prelude.Maybe KubernetesNetworkConfigRequest)
+createCluster_kubernetesNetworkConfig :: Lens.Lens' CreateCluster (Core.Maybe KubernetesNetworkConfigRequest)
 createCluster_kubernetesNetworkConfig = Lens.lens (\CreateCluster' {kubernetesNetworkConfig} -> kubernetesNetworkConfig) (\s@CreateCluster' {} a -> s {kubernetesNetworkConfig = a} :: CreateCluster)
 
 -- | Enable or disable exporting the Kubernetes control plane logs for your
@@ -215,31 +214,31 @@ createCluster_kubernetesNetworkConfig = Lens.lens (\CreateCluster' {kubernetesNe
 -- CloudWatch Logs ingestion, archive storage, and data scanning rates
 -- apply to exported control plane logs. For more information, see
 -- <http://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
-createCluster_logging :: Lens.Lens' CreateCluster (Prelude.Maybe Logging)
+createCluster_logging :: Lens.Lens' CreateCluster (Core.Maybe Logging)
 createCluster_logging = Lens.lens (\CreateCluster' {logging} -> logging) (\s@CreateCluster' {} a -> s {logging = a} :: CreateCluster)
 
 -- | The encryption configuration for the cluster.
-createCluster_encryptionConfig :: Lens.Lens' CreateCluster (Prelude.Maybe [EncryptionConfig])
-createCluster_encryptionConfig = Lens.lens (\CreateCluster' {encryptionConfig} -> encryptionConfig) (\s@CreateCluster' {} a -> s {encryptionConfig = a} :: CreateCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCluster_encryptionConfig :: Lens.Lens' CreateCluster (Core.Maybe [EncryptionConfig])
+createCluster_encryptionConfig = Lens.lens (\CreateCluster' {encryptionConfig} -> encryptionConfig) (\s@CreateCluster' {} a -> s {encryptionConfig = a} :: CreateCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The desired Kubernetes version for your cluster. If you don\'t specify a
 -- value here, the latest version available in Amazon EKS is used.
-createCluster_version :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_version :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
 createCluster_version = Lens.lens (\CreateCluster' {version} -> version) (\s@CreateCluster' {} a -> s {version = a} :: CreateCluster)
 
 -- | The metadata to apply to the cluster to assist with categorization and
 -- organization. Each tag consists of a key and an optional value, both of
 -- which you define.
-createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCluster_tags :: Lens.Lens' CreateCluster (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-createCluster_clientRequestToken :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_clientRequestToken :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
 createCluster_clientRequestToken = Lens.lens (\CreateCluster' {clientRequestToken} -> clientRequestToken) (\s@CreateCluster' {} a -> s {clientRequestToken = a} :: CreateCluster)
 
 -- | The unique name to give to your cluster.
-createCluster_name :: Lens.Lens' CreateCluster Prelude.Text
+createCluster_name :: Lens.Lens' CreateCluster Core.Text
 createCluster_name = Lens.lens (\CreateCluster' {name} -> name) (\s@CreateCluster' {} a -> s {name = a} :: CreateCluster)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that provides permissions
@@ -247,7 +246,7 @@ createCluster_name = Lens.lens (\CreateCluster' {name} -> name) (\s@CreateCluste
 -- your behalf. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html Amazon EKS Service IAM Role>
 -- in the //Amazon EKS User Guide// .
-createCluster_roleArn :: Lens.Lens' CreateCluster Prelude.Text
+createCluster_roleArn :: Lens.Lens' CreateCluster Core.Text
 createCluster_roleArn = Lens.lens (\CreateCluster' {roleArn} -> roleArn) (\s@CreateCluster' {} a -> s {roleArn = a} :: CreateCluster)
 
 -- | The VPC configuration used by the cluster control plane. Amazon EKS VPC
@@ -262,68 +261,66 @@ createCluster_roleArn = Lens.lens (\CreateCluster' {roleArn} -> roleArn) (\s@Cre
 createCluster_resourcesVpcConfig :: Lens.Lens' CreateCluster VpcConfigRequest
 createCluster_resourcesVpcConfig = Lens.lens (\CreateCluster' {resourcesVpcConfig} -> resourcesVpcConfig) (\s@CreateCluster' {} a -> s {resourcesVpcConfig = a} :: CreateCluster)
 
-instance Prelude.AWSRequest CreateCluster where
-  type Rs CreateCluster = CreateClusterResponse
+instance Core.AWSRequest CreateCluster where
+  type
+    AWSResponse CreateCluster =
+      CreateClusterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Prelude.<$> (x Prelude..?> "cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCluster
+instance Core.Hashable CreateCluster
 
-instance Prelude.NFData CreateCluster
+instance Core.NFData CreateCluster
 
-instance Prelude.ToHeaders CreateCluster where
+instance Core.ToHeaders CreateCluster where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCluster where
+instance Core.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("kubernetesNetworkConfig" Prelude..=)
-              Prelude.<$> kubernetesNetworkConfig,
-            ("logging" Prelude..=) Prelude.<$> logging,
-            ("encryptionConfig" Prelude..=)
-              Prelude.<$> encryptionConfig,
-            ("version" Prelude..=) Prelude.<$> version,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("clientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("roleArn" Prelude..= roleArn),
-            Prelude.Just
-              ( "resourcesVpcConfig"
-                  Prelude..= resourcesVpcConfig
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("kubernetesNetworkConfig" Core..=)
+              Core.<$> kubernetesNetworkConfig,
+            ("logging" Core..=) Core.<$> logging,
+            ("encryptionConfig" Core..=)
+              Core.<$> encryptionConfig,
+            ("version" Core..=) Core.<$> version,
+            ("tags" Core..=) Core.<$> tags,
+            ("clientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            Core.Just ("name" Core..= name),
+            Core.Just ("roleArn" Core..= roleArn),
+            Core.Just
+              ("resourcesVpcConfig" Core..= resourcesVpcConfig)
           ]
       )
 
-instance Prelude.ToPath CreateCluster where
-  toPath = Prelude.const "/clusters"
+instance Core.ToPath CreateCluster where
+  toPath = Core.const "/clusters"
 
-instance Prelude.ToQuery CreateCluster where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCluster where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
   { -- | The full description of your new cluster.
-    cluster :: Prelude.Maybe Cluster,
+    cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateClusterResponse' with all optional fields omitted.
@@ -338,20 +335,20 @@ data CreateClusterResponse = CreateClusterResponse'
 -- 'httpStatus', 'createClusterResponse_httpStatus' - The response's http status code.
 newCreateClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateClusterResponse
 newCreateClusterResponse pHttpStatus_ =
   CreateClusterResponse'
-    { cluster = Prelude.Nothing,
+    { cluster = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of your new cluster.
-createClusterResponse_cluster :: Lens.Lens' CreateClusterResponse (Prelude.Maybe Cluster)
+createClusterResponse_cluster :: Lens.Lens' CreateClusterResponse (Core.Maybe Cluster)
 createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> cluster) (\s@CreateClusterResponse' {} a -> s {cluster = a} :: CreateClusterResponse)
 
 -- | The response's http status code.
-createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
+createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Core.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Prelude.NFData CreateClusterResponse
+instance Core.NFData CreateClusterResponse

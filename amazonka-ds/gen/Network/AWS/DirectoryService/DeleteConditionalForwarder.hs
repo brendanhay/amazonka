@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.DirectoryService.DeleteConditionalForwarder
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +51,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteConditionalForwarder' smart constructor.
 data DeleteConditionalForwarder = DeleteConditionalForwarder'
   { -- | The directory ID for which you are deleting the conditional forwarder.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The fully qualified domain name (FQDN) of the remote domain with which
     -- you are deleting the conditional forwarder.
-    remoteDomainName :: Prelude.Text
+    remoteDomainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConditionalForwarder' with all optional fields omitted.
@@ -73,9 +72,9 @@ data DeleteConditionalForwarder = DeleteConditionalForwarder'
 -- you are deleting the conditional forwarder.
 newDeleteConditionalForwarder ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'remoteDomainName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteConditionalForwarder
 newDeleteConditionalForwarder
   pDirectoryId_
@@ -87,72 +86,67 @@ newDeleteConditionalForwarder
       }
 
 -- | The directory ID for which you are deleting the conditional forwarder.
-deleteConditionalForwarder_directoryId :: Lens.Lens' DeleteConditionalForwarder Prelude.Text
+deleteConditionalForwarder_directoryId :: Lens.Lens' DeleteConditionalForwarder Core.Text
 deleteConditionalForwarder_directoryId = Lens.lens (\DeleteConditionalForwarder' {directoryId} -> directoryId) (\s@DeleteConditionalForwarder' {} a -> s {directoryId = a} :: DeleteConditionalForwarder)
 
 -- | The fully qualified domain name (FQDN) of the remote domain with which
 -- you are deleting the conditional forwarder.
-deleteConditionalForwarder_remoteDomainName :: Lens.Lens' DeleteConditionalForwarder Prelude.Text
+deleteConditionalForwarder_remoteDomainName :: Lens.Lens' DeleteConditionalForwarder Core.Text
 deleteConditionalForwarder_remoteDomainName = Lens.lens (\DeleteConditionalForwarder' {remoteDomainName} -> remoteDomainName) (\s@DeleteConditionalForwarder' {} a -> s {remoteDomainName = a} :: DeleteConditionalForwarder)
 
-instance
-  Prelude.AWSRequest
-    DeleteConditionalForwarder
-  where
+instance Core.AWSRequest DeleteConditionalForwarder where
   type
-    Rs DeleteConditionalForwarder =
+    AWSResponse DeleteConditionalForwarder =
       DeleteConditionalForwarderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteConditionalForwarderResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteConditionalForwarder
+instance Core.Hashable DeleteConditionalForwarder
 
-instance Prelude.NFData DeleteConditionalForwarder
+instance Core.NFData DeleteConditionalForwarder
 
-instance Prelude.ToHeaders DeleteConditionalForwarder where
+instance Core.ToHeaders DeleteConditionalForwarder where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.DeleteConditionalForwarder" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.DeleteConditionalForwarder" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteConditionalForwarder where
+instance Core.ToJSON DeleteConditionalForwarder where
   toJSON DeleteConditionalForwarder' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just
-              ("RemoteDomainName" Prelude..= remoteDomainName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just
+              ("RemoteDomainName" Core..= remoteDomainName)
           ]
       )
 
-instance Prelude.ToPath DeleteConditionalForwarder where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteConditionalForwarder where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteConditionalForwarder where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteConditionalForwarder where
+  toQuery = Core.const Core.mempty
 
 -- | The result of a DeleteConditionalForwarder request.
 --
 -- /See:/ 'newDeleteConditionalForwarderResponse' smart constructor.
 data DeleteConditionalForwarderResponse = DeleteConditionalForwarderResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConditionalForwarderResponse' with all optional fields omitted.
@@ -165,7 +159,7 @@ data DeleteConditionalForwarderResponse = DeleteConditionalForwarderResponse'
 -- 'httpStatus', 'deleteConditionalForwarderResponse_httpStatus' - The response's http status code.
 newDeleteConditionalForwarderResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteConditionalForwarderResponse
 newDeleteConditionalForwarderResponse pHttpStatus_ =
   DeleteConditionalForwarderResponse'
@@ -174,9 +168,9 @@ newDeleteConditionalForwarderResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteConditionalForwarderResponse_httpStatus :: Lens.Lens' DeleteConditionalForwarderResponse Prelude.Int
+deleteConditionalForwarderResponse_httpStatus :: Lens.Lens' DeleteConditionalForwarderResponse Core.Int
 deleteConditionalForwarderResponse_httpStatus = Lens.lens (\DeleteConditionalForwarderResponse' {httpStatus} -> httpStatus) (\s@DeleteConditionalForwarderResponse' {} a -> s {httpStatus = a} :: DeleteConditionalForwarderResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteConditionalForwarderResponse

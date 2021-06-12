@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.Transcribe.ListMedicalVocabularies
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -58,19 +57,19 @@ data ListMedicalVocabularies = ListMedicalVocabularies'
   { -- | If the result of your previous request to @ListMedicalVocabularies@ was
     -- truncated, include the @NextToken@ to fetch the next set of
     -- vocabularies.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Returns vocabularies whose names contain the specified string. The
     -- search is not case sensitive. @ListMedicalVocabularies@ returns both
     -- \"@vocabularyname@\" and \"@VocabularyName@\".
-    nameContains :: Prelude.Maybe Prelude.Text,
+    nameContains :: Core.Maybe Core.Text,
     -- | The maximum number of vocabularies to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | When specified, returns only vocabularies with the @VocabularyState@
     -- equal to the specified vocabulary state. Use this field to see which
     -- vocabularies are ready for your medical transcription jobs.
-    stateEquals :: Prelude.Maybe VocabularyState
+    stateEquals :: Core.Maybe VocabularyState
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMedicalVocabularies' with all optional fields omitted.
@@ -97,106 +96,101 @@ newListMedicalVocabularies ::
   ListMedicalVocabularies
 newListMedicalVocabularies =
   ListMedicalVocabularies'
-    { nextToken =
-        Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      stateEquals = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      nameContains = Core.Nothing,
+      maxResults = Core.Nothing,
+      stateEquals = Core.Nothing
     }
 
 -- | If the result of your previous request to @ListMedicalVocabularies@ was
 -- truncated, include the @NextToken@ to fetch the next set of
 -- vocabularies.
-listMedicalVocabularies_nextToken :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe Prelude.Text)
+listMedicalVocabularies_nextToken :: Lens.Lens' ListMedicalVocabularies (Core.Maybe Core.Text)
 listMedicalVocabularies_nextToken = Lens.lens (\ListMedicalVocabularies' {nextToken} -> nextToken) (\s@ListMedicalVocabularies' {} a -> s {nextToken = a} :: ListMedicalVocabularies)
 
 -- | Returns vocabularies whose names contain the specified string. The
 -- search is not case sensitive. @ListMedicalVocabularies@ returns both
 -- \"@vocabularyname@\" and \"@VocabularyName@\".
-listMedicalVocabularies_nameContains :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe Prelude.Text)
+listMedicalVocabularies_nameContains :: Lens.Lens' ListMedicalVocabularies (Core.Maybe Core.Text)
 listMedicalVocabularies_nameContains = Lens.lens (\ListMedicalVocabularies' {nameContains} -> nameContains) (\s@ListMedicalVocabularies' {} a -> s {nameContains = a} :: ListMedicalVocabularies)
 
 -- | The maximum number of vocabularies to return in the response.
-listMedicalVocabularies_maxResults :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe Prelude.Natural)
+listMedicalVocabularies_maxResults :: Lens.Lens' ListMedicalVocabularies (Core.Maybe Core.Natural)
 listMedicalVocabularies_maxResults = Lens.lens (\ListMedicalVocabularies' {maxResults} -> maxResults) (\s@ListMedicalVocabularies' {} a -> s {maxResults = a} :: ListMedicalVocabularies)
 
 -- | When specified, returns only vocabularies with the @VocabularyState@
 -- equal to the specified vocabulary state. Use this field to see which
 -- vocabularies are ready for your medical transcription jobs.
-listMedicalVocabularies_stateEquals :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe VocabularyState)
+listMedicalVocabularies_stateEquals :: Lens.Lens' ListMedicalVocabularies (Core.Maybe VocabularyState)
 listMedicalVocabularies_stateEquals = Lens.lens (\ListMedicalVocabularies' {stateEquals} -> stateEquals) (\s@ListMedicalVocabularies' {} a -> s {stateEquals = a} :: ListMedicalVocabularies)
 
-instance Prelude.AWSRequest ListMedicalVocabularies where
+instance Core.AWSRequest ListMedicalVocabularies where
   type
-    Rs ListMedicalVocabularies =
+    AWSResponse ListMedicalVocabularies =
       ListMedicalVocabulariesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListMedicalVocabulariesResponse'
-            Prelude.<$> (x Prelude..?> "Status")
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Vocabularies"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Status")
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Vocabularies" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListMedicalVocabularies
+instance Core.Hashable ListMedicalVocabularies
 
-instance Prelude.NFData ListMedicalVocabularies
+instance Core.NFData ListMedicalVocabularies
 
-instance Prelude.ToHeaders ListMedicalVocabularies where
+instance Core.ToHeaders ListMedicalVocabularies where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Transcribe.ListMedicalVocabularies" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Transcribe.ListMedicalVocabularies" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListMedicalVocabularies where
+instance Core.ToJSON ListMedicalVocabularies where
   toJSON ListMedicalVocabularies' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("NameContains" Prelude..=) Prelude.<$> nameContains,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("StateEquals" Prelude..=) Prelude.<$> stateEquals
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("StateEquals" Core..=) Core.<$> stateEquals
           ]
       )
 
-instance Prelude.ToPath ListMedicalVocabularies where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListMedicalVocabularies where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListMedicalVocabularies where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListMedicalVocabularies where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListMedicalVocabulariesResponse' smart constructor.
 data ListMedicalVocabulariesResponse = ListMedicalVocabulariesResponse'
   { -- | The requested vocabulary state.
-    status :: Prelude.Maybe VocabularyState,
+    status :: Core.Maybe VocabularyState,
     -- | The @ListMedicalVocabularies@ operation returns a page of vocabularies
     -- at a time. You set the maximum number of vocabularies to return on a
     -- page with the @MaxResults@ parameter. If there are more jobs in the list
     -- will fit on a page, Amazon Transcribe Medical returns the @NextPage@
     -- token. To return the next page of vocabularies, include the token in the
     -- next request to the @ListMedicalVocabularies@ operation .
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of objects that describe the vocabularies that match your search
     -- criteria.
-    vocabularies :: Prelude.Maybe [VocabularyInfo],
+    vocabularies :: Core.Maybe [VocabularyInfo],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMedicalVocabulariesResponse' with all optional fields omitted.
@@ -221,19 +215,19 @@ data ListMedicalVocabulariesResponse = ListMedicalVocabulariesResponse'
 -- 'httpStatus', 'listMedicalVocabulariesResponse_httpStatus' - The response's http status code.
 newListMedicalVocabulariesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListMedicalVocabulariesResponse
 newListMedicalVocabulariesResponse pHttpStatus_ =
   ListMedicalVocabulariesResponse'
     { status =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      vocabularies = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      vocabularies = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested vocabulary state.
-listMedicalVocabulariesResponse_status :: Lens.Lens' ListMedicalVocabulariesResponse (Prelude.Maybe VocabularyState)
+listMedicalVocabulariesResponse_status :: Lens.Lens' ListMedicalVocabulariesResponse (Core.Maybe VocabularyState)
 listMedicalVocabulariesResponse_status = Lens.lens (\ListMedicalVocabulariesResponse' {status} -> status) (\s@ListMedicalVocabulariesResponse' {} a -> s {status = a} :: ListMedicalVocabulariesResponse)
 
 -- | The @ListMedicalVocabularies@ operation returns a page of vocabularies
@@ -242,18 +236,16 @@ listMedicalVocabulariesResponse_status = Lens.lens (\ListMedicalVocabulariesResp
 -- will fit on a page, Amazon Transcribe Medical returns the @NextPage@
 -- token. To return the next page of vocabularies, include the token in the
 -- next request to the @ListMedicalVocabularies@ operation .
-listMedicalVocabulariesResponse_nextToken :: Lens.Lens' ListMedicalVocabulariesResponse (Prelude.Maybe Prelude.Text)
+listMedicalVocabulariesResponse_nextToken :: Lens.Lens' ListMedicalVocabulariesResponse (Core.Maybe Core.Text)
 listMedicalVocabulariesResponse_nextToken = Lens.lens (\ListMedicalVocabulariesResponse' {nextToken} -> nextToken) (\s@ListMedicalVocabulariesResponse' {} a -> s {nextToken = a} :: ListMedicalVocabulariesResponse)
 
 -- | A list of objects that describe the vocabularies that match your search
 -- criteria.
-listMedicalVocabulariesResponse_vocabularies :: Lens.Lens' ListMedicalVocabulariesResponse (Prelude.Maybe [VocabularyInfo])
-listMedicalVocabulariesResponse_vocabularies = Lens.lens (\ListMedicalVocabulariesResponse' {vocabularies} -> vocabularies) (\s@ListMedicalVocabulariesResponse' {} a -> s {vocabularies = a} :: ListMedicalVocabulariesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listMedicalVocabulariesResponse_vocabularies :: Lens.Lens' ListMedicalVocabulariesResponse (Core.Maybe [VocabularyInfo])
+listMedicalVocabulariesResponse_vocabularies = Lens.lens (\ListMedicalVocabulariesResponse' {vocabularies} -> vocabularies) (\s@ListMedicalVocabulariesResponse' {} a -> s {vocabularies = a} :: ListMedicalVocabulariesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listMedicalVocabulariesResponse_httpStatus :: Lens.Lens' ListMedicalVocabulariesResponse Prelude.Int
+listMedicalVocabulariesResponse_httpStatus :: Lens.Lens' ListMedicalVocabulariesResponse Core.Int
 listMedicalVocabulariesResponse_httpStatus = Lens.lens (\ListMedicalVocabulariesResponse' {httpStatus} -> httpStatus) (\s@ListMedicalVocabulariesResponse' {} a -> s {httpStatus = a} :: ListMedicalVocabulariesResponse)
 
-instance
-  Prelude.NFData
-    ListMedicalVocabulariesResponse
+instance Core.NFData ListMedicalVocabulariesResponse

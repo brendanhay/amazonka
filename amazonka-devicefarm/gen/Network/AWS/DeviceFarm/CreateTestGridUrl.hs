@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.DeviceFarm.CreateTestGridUrl
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data CreateTestGridUrl = CreateTestGridUrl'
   { -- | ARN (from CreateTestGridProject or ListTestGridProjects) to associate
     -- with the short-term URL.
-    projectArn :: Prelude.Text,
+    projectArn :: Core.Text,
     -- | Lifetime, in seconds, of the URL.
-    expiresInSeconds :: Prelude.Natural
+    expiresInSeconds :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTestGridUrl' with all optional fields omitted.
@@ -73,9 +72,9 @@ data CreateTestGridUrl = CreateTestGridUrl'
 -- 'expiresInSeconds', 'createTestGridUrl_expiresInSeconds' - Lifetime, in seconds, of the URL.
 newCreateTestGridUrl ::
   -- | 'projectArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'expiresInSeconds'
-  Prelude.Natural ->
+  Core.Natural ->
   CreateTestGridUrl
 newCreateTestGridUrl pProjectArn_ pExpiresInSeconds_ =
   CreateTestGridUrl'
@@ -85,72 +84,72 @@ newCreateTestGridUrl pProjectArn_ pExpiresInSeconds_ =
 
 -- | ARN (from CreateTestGridProject or ListTestGridProjects) to associate
 -- with the short-term URL.
-createTestGridUrl_projectArn :: Lens.Lens' CreateTestGridUrl Prelude.Text
+createTestGridUrl_projectArn :: Lens.Lens' CreateTestGridUrl Core.Text
 createTestGridUrl_projectArn = Lens.lens (\CreateTestGridUrl' {projectArn} -> projectArn) (\s@CreateTestGridUrl' {} a -> s {projectArn = a} :: CreateTestGridUrl)
 
 -- | Lifetime, in seconds, of the URL.
-createTestGridUrl_expiresInSeconds :: Lens.Lens' CreateTestGridUrl Prelude.Natural
+createTestGridUrl_expiresInSeconds :: Lens.Lens' CreateTestGridUrl Core.Natural
 createTestGridUrl_expiresInSeconds = Lens.lens (\CreateTestGridUrl' {expiresInSeconds} -> expiresInSeconds) (\s@CreateTestGridUrl' {} a -> s {expiresInSeconds = a} :: CreateTestGridUrl)
 
-instance Prelude.AWSRequest CreateTestGridUrl where
-  type Rs CreateTestGridUrl = CreateTestGridUrlResponse
+instance Core.AWSRequest CreateTestGridUrl where
+  type
+    AWSResponse CreateTestGridUrl =
+      CreateTestGridUrlResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateTestGridUrlResponse'
-            Prelude.<$> (x Prelude..?> "url")
-            Prelude.<*> (x Prelude..?> "expires")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "url")
+            Core.<*> (x Core..?> "expires")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTestGridUrl
+instance Core.Hashable CreateTestGridUrl
 
-instance Prelude.NFData CreateTestGridUrl
+instance Core.NFData CreateTestGridUrl
 
-instance Prelude.ToHeaders CreateTestGridUrl where
+instance Core.ToHeaders CreateTestGridUrl where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.CreateTestGridUrl" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.CreateTestGridUrl" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateTestGridUrl where
+instance Core.ToJSON CreateTestGridUrl where
   toJSON CreateTestGridUrl' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("projectArn" Prelude..= projectArn),
-            Prelude.Just
-              ("expiresInSeconds" Prelude..= expiresInSeconds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("projectArn" Core..= projectArn),
+            Core.Just
+              ("expiresInSeconds" Core..= expiresInSeconds)
           ]
       )
 
-instance Prelude.ToPath CreateTestGridUrl where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateTestGridUrl where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateTestGridUrl where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateTestGridUrl where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateTestGridUrlResponse' smart constructor.
 data CreateTestGridUrlResponse = CreateTestGridUrlResponse'
   { -- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds
     -- seconds, to be passed to a @RemoteWebDriver@.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Core.Maybe Core.Text,
     -- | The number of seconds the URL from CreateTestGridUrlResult$url stays
     -- active.
-    expires :: Prelude.Maybe Prelude.POSIX,
+    expires :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTestGridUrlResponse' with all optional fields omitted.
@@ -169,27 +168,27 @@ data CreateTestGridUrlResponse = CreateTestGridUrlResponse'
 -- 'httpStatus', 'createTestGridUrlResponse_httpStatus' - The response's http status code.
 newCreateTestGridUrlResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateTestGridUrlResponse
 newCreateTestGridUrlResponse pHttpStatus_ =
   CreateTestGridUrlResponse'
-    { url = Prelude.Nothing,
-      expires = Prelude.Nothing,
+    { url = Core.Nothing,
+      expires = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds
 -- seconds, to be passed to a @RemoteWebDriver@.
-createTestGridUrlResponse_url :: Lens.Lens' CreateTestGridUrlResponse (Prelude.Maybe Prelude.Text)
+createTestGridUrlResponse_url :: Lens.Lens' CreateTestGridUrlResponse (Core.Maybe Core.Text)
 createTestGridUrlResponse_url = Lens.lens (\CreateTestGridUrlResponse' {url} -> url) (\s@CreateTestGridUrlResponse' {} a -> s {url = a} :: CreateTestGridUrlResponse)
 
 -- | The number of seconds the URL from CreateTestGridUrlResult$url stays
 -- active.
-createTestGridUrlResponse_expires :: Lens.Lens' CreateTestGridUrlResponse (Prelude.Maybe Prelude.UTCTime)
-createTestGridUrlResponse_expires = Lens.lens (\CreateTestGridUrlResponse' {expires} -> expires) (\s@CreateTestGridUrlResponse' {} a -> s {expires = a} :: CreateTestGridUrlResponse) Prelude.. Lens.mapping Prelude._Time
+createTestGridUrlResponse_expires :: Lens.Lens' CreateTestGridUrlResponse (Core.Maybe Core.UTCTime)
+createTestGridUrlResponse_expires = Lens.lens (\CreateTestGridUrlResponse' {expires} -> expires) (\s@CreateTestGridUrlResponse' {} a -> s {expires = a} :: CreateTestGridUrlResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-createTestGridUrlResponse_httpStatus :: Lens.Lens' CreateTestGridUrlResponse Prelude.Int
+createTestGridUrlResponse_httpStatus :: Lens.Lens' CreateTestGridUrlResponse Core.Int
 createTestGridUrlResponse_httpStatus = Lens.lens (\CreateTestGridUrlResponse' {httpStatus} -> httpStatus) (\s@CreateTestGridUrlResponse' {} a -> s {httpStatus = a} :: CreateTestGridUrlResponse)
 
-instance Prelude.NFData CreateTestGridUrlResponse
+instance Core.NFData CreateTestGridUrlResponse

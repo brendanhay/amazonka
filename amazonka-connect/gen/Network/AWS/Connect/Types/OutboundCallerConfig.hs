@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.OutboundCallerConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The outbound caller ID name, number, and outbound whisper flow.
 --
 -- /See:/ 'newOutboundCallerConfig' smart constructor.
 data OutboundCallerConfig = OutboundCallerConfig'
   { -- | The caller ID number.
-    outboundCallerIdNumberId :: Prelude.Maybe Prelude.Text,
+    outboundCallerIdNumberId :: Core.Maybe Core.Text,
     -- | The outbound whisper flow to be used during an outbound call.
-    outboundFlowId :: Prelude.Maybe Prelude.Text,
+    outboundFlowId :: Core.Maybe Core.Text,
     -- | The caller ID name.
-    outboundCallerIdName :: Prelude.Maybe Prelude.Text
+    outboundCallerIdName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutboundCallerConfig' with all optional fields omitted.
@@ -54,47 +53,46 @@ newOutboundCallerConfig ::
 newOutboundCallerConfig =
   OutboundCallerConfig'
     { outboundCallerIdNumberId =
-        Prelude.Nothing,
-      outboundFlowId = Prelude.Nothing,
-      outboundCallerIdName = Prelude.Nothing
+        Core.Nothing,
+      outboundFlowId = Core.Nothing,
+      outboundCallerIdName = Core.Nothing
     }
 
 -- | The caller ID number.
-outboundCallerConfig_outboundCallerIdNumberId :: Lens.Lens' OutboundCallerConfig (Prelude.Maybe Prelude.Text)
+outboundCallerConfig_outboundCallerIdNumberId :: Lens.Lens' OutboundCallerConfig (Core.Maybe Core.Text)
 outboundCallerConfig_outboundCallerIdNumberId = Lens.lens (\OutboundCallerConfig' {outboundCallerIdNumberId} -> outboundCallerIdNumberId) (\s@OutboundCallerConfig' {} a -> s {outboundCallerIdNumberId = a} :: OutboundCallerConfig)
 
 -- | The outbound whisper flow to be used during an outbound call.
-outboundCallerConfig_outboundFlowId :: Lens.Lens' OutboundCallerConfig (Prelude.Maybe Prelude.Text)
+outboundCallerConfig_outboundFlowId :: Lens.Lens' OutboundCallerConfig (Core.Maybe Core.Text)
 outboundCallerConfig_outboundFlowId = Lens.lens (\OutboundCallerConfig' {outboundFlowId} -> outboundFlowId) (\s@OutboundCallerConfig' {} a -> s {outboundFlowId = a} :: OutboundCallerConfig)
 
 -- | The caller ID name.
-outboundCallerConfig_outboundCallerIdName :: Lens.Lens' OutboundCallerConfig (Prelude.Maybe Prelude.Text)
+outboundCallerConfig_outboundCallerIdName :: Lens.Lens' OutboundCallerConfig (Core.Maybe Core.Text)
 outboundCallerConfig_outboundCallerIdName = Lens.lens (\OutboundCallerConfig' {outboundCallerIdName} -> outboundCallerIdName) (\s@OutboundCallerConfig' {} a -> s {outboundCallerIdName = a} :: OutboundCallerConfig)
 
-instance Prelude.FromJSON OutboundCallerConfig where
+instance Core.FromJSON OutboundCallerConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutboundCallerConfig"
       ( \x ->
           OutboundCallerConfig'
-            Prelude.<$> (x Prelude..:? "OutboundCallerIdNumberId")
-            Prelude.<*> (x Prelude..:? "OutboundFlowId")
-            Prelude.<*> (x Prelude..:? "OutboundCallerIdName")
+            Core.<$> (x Core..:? "OutboundCallerIdNumberId")
+            Core.<*> (x Core..:? "OutboundFlowId")
+            Core.<*> (x Core..:? "OutboundCallerIdName")
       )
 
-instance Prelude.Hashable OutboundCallerConfig
+instance Core.Hashable OutboundCallerConfig
 
-instance Prelude.NFData OutboundCallerConfig
+instance Core.NFData OutboundCallerConfig
 
-instance Prelude.ToJSON OutboundCallerConfig where
+instance Core.ToJSON OutboundCallerConfig where
   toJSON OutboundCallerConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("OutboundCallerIdNumberId" Prelude..=)
-              Prelude.<$> outboundCallerIdNumberId,
-            ("OutboundFlowId" Prelude..=)
-              Prelude.<$> outboundFlowId,
-            ("OutboundCallerIdName" Prelude..=)
-              Prelude.<$> outboundCallerIdName
+    Core.object
+      ( Core.catMaybes
+          [ ("OutboundCallerIdNumberId" Core..=)
+              Core.<$> outboundCallerIdNumberId,
+            ("OutboundFlowId" Core..=) Core.<$> outboundFlowId,
+            ("OutboundCallerIdName" Core..=)
+              Core.<$> outboundCallerIdName
           ]
       )

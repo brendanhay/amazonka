@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.AlexaBusiness.DisassociateSkillFromUsers
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateSkillFromUsers' smart constructor.
 data DisassociateSkillFromUsers = DisassociateSkillFromUsers'
   { -- | The private skill ID you want to make unavailable for enrolled users.
-    skillId :: Prelude.Text
+    skillId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateSkillFromUsers' with all optional fields omitted.
@@ -64,68 +63,63 @@ data DisassociateSkillFromUsers = DisassociateSkillFromUsers'
 -- 'skillId', 'disassociateSkillFromUsers_skillId' - The private skill ID you want to make unavailable for enrolled users.
 newDisassociateSkillFromUsers ::
   -- | 'skillId'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateSkillFromUsers
 newDisassociateSkillFromUsers pSkillId_ =
   DisassociateSkillFromUsers' {skillId = pSkillId_}
 
 -- | The private skill ID you want to make unavailable for enrolled users.
-disassociateSkillFromUsers_skillId :: Lens.Lens' DisassociateSkillFromUsers Prelude.Text
+disassociateSkillFromUsers_skillId :: Lens.Lens' DisassociateSkillFromUsers Core.Text
 disassociateSkillFromUsers_skillId = Lens.lens (\DisassociateSkillFromUsers' {skillId} -> skillId) (\s@DisassociateSkillFromUsers' {} a -> s {skillId = a} :: DisassociateSkillFromUsers)
 
-instance
-  Prelude.AWSRequest
-    DisassociateSkillFromUsers
-  where
+instance Core.AWSRequest DisassociateSkillFromUsers where
   type
-    Rs DisassociateSkillFromUsers =
+    AWSResponse DisassociateSkillFromUsers =
       DisassociateSkillFromUsersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateSkillFromUsersResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateSkillFromUsers
+instance Core.Hashable DisassociateSkillFromUsers
 
-instance Prelude.NFData DisassociateSkillFromUsers
+instance Core.NFData DisassociateSkillFromUsers
 
-instance Prelude.ToHeaders DisassociateSkillFromUsers where
+instance Core.ToHeaders DisassociateSkillFromUsers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.DisassociateSkillFromUsers" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.DisassociateSkillFromUsers" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisassociateSkillFromUsers where
+instance Core.ToJSON DisassociateSkillFromUsers where
   toJSON DisassociateSkillFromUsers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("SkillId" Prelude..= skillId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SkillId" Core..= skillId)]
       )
 
-instance Prelude.ToPath DisassociateSkillFromUsers where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateSkillFromUsers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisassociateSkillFromUsers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateSkillFromUsers where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateSkillFromUsersResponse' smart constructor.
 data DisassociateSkillFromUsersResponse = DisassociateSkillFromUsersResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateSkillFromUsersResponse' with all optional fields omitted.
@@ -138,7 +132,7 @@ data DisassociateSkillFromUsersResponse = DisassociateSkillFromUsersResponse'
 -- 'httpStatus', 'disassociateSkillFromUsersResponse_httpStatus' - The response's http status code.
 newDisassociateSkillFromUsersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateSkillFromUsersResponse
 newDisassociateSkillFromUsersResponse pHttpStatus_ =
   DisassociateSkillFromUsersResponse'
@@ -147,9 +141,9 @@ newDisassociateSkillFromUsersResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateSkillFromUsersResponse_httpStatus :: Lens.Lens' DisassociateSkillFromUsersResponse Prelude.Int
+disassociateSkillFromUsersResponse_httpStatus :: Lens.Lens' DisassociateSkillFromUsersResponse Core.Int
 disassociateSkillFromUsersResponse_httpStatus = Lens.lens (\DisassociateSkillFromUsersResponse' {httpStatus} -> httpStatus) (\s@DisassociateSkillFromUsersResponse' {} a -> s {httpStatus = a} :: DisassociateSkillFromUsersResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateSkillFromUsersResponse

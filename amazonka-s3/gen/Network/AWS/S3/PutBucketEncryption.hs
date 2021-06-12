@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -70,8 +69,8 @@ module Network.AWS.S3.PutBucketEncryption
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -81,13 +80,13 @@ data PutBucketEncryption = PutBucketEncryption'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The base64-encoded 128-bit MD5 digest of the server-side encryption
     -- configuration.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
+    contentMD5 :: Core.Maybe Core.Text,
     -- | Specifies default encryption for a bucket using server-side encryption
     -- with Amazon S3-managed keys (SSE-S3) or customer master keys stored in
     -- AWS KMS (SSE-KMS). For information about the Amazon S3 default
@@ -97,7 +96,7 @@ data PutBucketEncryption = PutBucketEncryption'
     bucket :: BucketName,
     serverSideEncryptionConfiguration :: ServerSideEncryptionConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketEncryption' with all optional fields omitted.
@@ -136,8 +135,8 @@ newPutBucketEncryption
   pServerSideEncryptionConfiguration_ =
     PutBucketEncryption'
       { expectedBucketOwner =
-          Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
+          Core.Nothing,
+        contentMD5 = Core.Nothing,
         bucket = pBucket_,
         serverSideEncryptionConfiguration =
           pServerSideEncryptionConfiguration_
@@ -146,7 +145,7 @@ newPutBucketEncryption
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketEncryption_expectedBucketOwner :: Lens.Lens' PutBucketEncryption (Prelude.Maybe Prelude.Text)
+putBucketEncryption_expectedBucketOwner :: Lens.Lens' PutBucketEncryption (Core.Maybe Core.Text)
 putBucketEncryption_expectedBucketOwner = Lens.lens (\PutBucketEncryption' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketEncryption' {} a -> s {expectedBucketOwner = a} :: PutBucketEncryption)
 
 -- | The base64-encoded 128-bit MD5 digest of the server-side encryption
@@ -154,7 +153,7 @@ putBucketEncryption_expectedBucketOwner = Lens.lens (\PutBucketEncryption' {expe
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketEncryption_contentMD5 :: Lens.Lens' PutBucketEncryption (Prelude.Maybe Prelude.Text)
+putBucketEncryption_contentMD5 :: Lens.Lens' PutBucketEncryption (Core.Maybe Core.Text)
 putBucketEncryption_contentMD5 = Lens.lens (\PutBucketEncryption' {contentMD5} -> contentMD5) (\s@PutBucketEncryption' {} a -> s {contentMD5 = a} :: PutBucketEncryption)
 
 -- | Specifies default encryption for a bucket using server-side encryption
@@ -170,45 +169,44 @@ putBucketEncryption_bucket = Lens.lens (\PutBucketEncryption' {bucket} -> bucket
 putBucketEncryption_serverSideEncryptionConfiguration :: Lens.Lens' PutBucketEncryption ServerSideEncryptionConfiguration
 putBucketEncryption_serverSideEncryptionConfiguration = Lens.lens (\PutBucketEncryption' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@PutBucketEncryption' {} a -> s {serverSideEncryptionConfiguration = a} :: PutBucketEncryption)
 
-instance Prelude.AWSRequest PutBucketEncryption where
+instance Core.AWSRequest PutBucketEncryption where
   type
-    Rs PutBucketEncryption =
+    AWSResponse PutBucketEncryption =
       PutBucketEncryptionResponse
   request = Request.putXML defaultService
   response =
     Response.receiveNull PutBucketEncryptionResponse'
 
-instance Prelude.Hashable PutBucketEncryption
+instance Core.Hashable PutBucketEncryption
 
-instance Prelude.NFData PutBucketEncryption
+instance Core.NFData PutBucketEncryption
 
-instance Prelude.ToElement PutBucketEncryption where
+instance Core.ToElement PutBucketEncryption where
   toElement PutBucketEncryption' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}ServerSideEncryptionConfiguration"
       serverSideEncryptionConfiguration
 
-instance Prelude.ToHeaders PutBucketEncryption where
+instance Core.ToHeaders PutBucketEncryption where
   toHeaders PutBucketEncryption' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "Content-MD5" Prelude.=# contentMD5
+          Core.=# expectedBucketOwner,
+        "Content-MD5" Core.=# contentMD5
       ]
 
-instance Prelude.ToPath PutBucketEncryption where
+instance Core.ToPath PutBucketEncryption where
   toPath PutBucketEncryption' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery PutBucketEncryption where
-  toQuery =
-    Prelude.const (Prelude.mconcat ["encryption"])
+instance Core.ToQuery PutBucketEncryption where
+  toQuery = Core.const (Core.mconcat ["encryption"])
 
 -- | /See:/ 'newPutBucketEncryptionResponse' smart constructor.
 data PutBucketEncryptionResponse = PutBucketEncryptionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketEncryptionResponse' with all optional fields omitted.
@@ -219,4 +217,4 @@ newPutBucketEncryptionResponse ::
 newPutBucketEncryptionResponse =
   PutBucketEncryptionResponse'
 
-instance Prelude.NFData PutBucketEncryptionResponse
+instance Core.NFData PutBucketEncryptionResponse

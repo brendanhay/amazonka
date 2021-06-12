@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -89,9 +88,9 @@ module Network.AWS.KMS.Verify
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -102,7 +101,7 @@ data Verify = Verify'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
     -- in the /AWS Key Management Service Developer Guide/.
-    grantTokens :: Prelude.Maybe [Prelude.Text],
+    grantTokens :: Core.Maybe [Core.Text],
     -- | Tells AWS KMS whether the value of the @Message@ parameter is a message
     -- or message digest. The default value, RAW, indicates a message. To
     -- indicate a message digest, enter @DIGEST@.
@@ -110,7 +109,7 @@ data Verify = Verify'
     -- Use the @DIGEST@ value only when the value of the @Message@ parameter is
     -- a message digest. If you use the @DIGEST@ value with a raw message, the
     -- security of the verification operation can be compromised.
-    messageType :: Prelude.Maybe MessageType,
+    messageType :: Core.Maybe MessageType,
     -- | Identifies the asymmetric CMK that will be used to verify the signature.
     -- This must be the same CMK that was used to generate the signature. If
     -- you specify a different CMK, the signature verification fails.
@@ -133,7 +132,7 @@ data Verify = Verify'
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
     -- get the alias name and alias ARN, use ListAliases.
-    keyId :: Prelude.Text,
+    keyId :: Core.Text,
     -- | Specifies the message that was signed. You can submit a raw message of
     -- up to 4096 bytes, or a hash digest of the message. If you submit a
     -- digest, use the @MessageType@ parameter with a value of @DIGEST@.
@@ -141,14 +140,14 @@ data Verify = Verify'
     -- If the message specified here is different from the message that was
     -- signed, the signature verification fails. A message and its hash digest
     -- are considered to be the same message.
-    message :: Prelude.Sensitive Prelude.Base64,
+    message :: Core.Sensitive Core.Base64,
     -- | The signature that the @Sign@ operation generated.
-    signature :: Prelude.Base64,
+    signature :: Core.Base64,
     -- | The signing algorithm that was used to sign the message. If you submit a
     -- different algorithm, the signature verification fails.
     signingAlgorithm :: SigningAlgorithmSpec
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Verify' with all optional fields omitted.
@@ -217,11 +216,11 @@ data Verify = Verify'
 -- different algorithm, the signature verification fails.
 newVerify ::
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'message'
-  Prelude.ByteString ->
+  Core.ByteString ->
   -- | 'signature'
-  Prelude.ByteString ->
+  Core.ByteString ->
   -- | 'signingAlgorithm'
   SigningAlgorithmSpec ->
   Verify
@@ -231,13 +230,12 @@ newVerify
   pSignature_
   pSigningAlgorithm_ =
     Verify'
-      { grantTokens = Prelude.Nothing,
-        messageType = Prelude.Nothing,
+      { grantTokens = Core.Nothing,
+        messageType = Core.Nothing,
         keyId = pKeyId_,
         message =
-          Prelude._Sensitive Prelude.. Prelude._Base64
-            Lens.# pMessage_,
-        signature = Prelude._Base64 Lens.# pSignature_,
+          Core._Sensitive Core.. Core._Base64 Lens.# pMessage_,
+        signature = Core._Base64 Lens.# pSignature_,
         signingAlgorithm = pSigningAlgorithm_
       }
 
@@ -246,8 +244,8 @@ newVerify
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
 -- in the /AWS Key Management Service Developer Guide/.
-verify_grantTokens :: Lens.Lens' Verify (Prelude.Maybe [Prelude.Text])
-verify_grantTokens = Lens.lens (\Verify' {grantTokens} -> grantTokens) (\s@Verify' {} a -> s {grantTokens = a} :: Verify) Prelude.. Lens.mapping Prelude._Coerce
+verify_grantTokens :: Lens.Lens' Verify (Core.Maybe [Core.Text])
+verify_grantTokens = Lens.lens (\Verify' {grantTokens} -> grantTokens) (\s@Verify' {} a -> s {grantTokens = a} :: Verify) Core.. Lens.mapping Lens._Coerce
 
 -- | Tells AWS KMS whether the value of the @Message@ parameter is a message
 -- or message digest. The default value, RAW, indicates a message. To
@@ -256,7 +254,7 @@ verify_grantTokens = Lens.lens (\Verify' {grantTokens} -> grantTokens) (\s@Verif
 -- Use the @DIGEST@ value only when the value of the @Message@ parameter is
 -- a message digest. If you use the @DIGEST@ value with a raw message, the
 -- security of the verification operation can be compromised.
-verify_messageType :: Lens.Lens' Verify (Prelude.Maybe MessageType)
+verify_messageType :: Lens.Lens' Verify (Core.Maybe MessageType)
 verify_messageType = Lens.lens (\Verify' {messageType} -> messageType) (\s@Verify' {} a -> s {messageType = a} :: Verify)
 
 -- | Identifies the asymmetric CMK that will be used to verify the signature.
@@ -281,7 +279,7 @@ verify_messageType = Lens.lens (\Verify' {messageType} -> messageType) (\s@Verif
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
 -- get the alias name and alias ARN, use ListAliases.
-verify_keyId :: Lens.Lens' Verify Prelude.Text
+verify_keyId :: Lens.Lens' Verify Core.Text
 verify_keyId = Lens.lens (\Verify' {keyId} -> keyId) (\s@Verify' {} a -> s {keyId = a} :: Verify)
 
 -- | Specifies the message that was signed. You can submit a raw message of
@@ -295,90 +293,88 @@ verify_keyId = Lens.lens (\Verify' {keyId} -> keyId) (\s@Verify' {} a -> s {keyI
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-verify_message :: Lens.Lens' Verify Prelude.ByteString
-verify_message = Lens.lens (\Verify' {message} -> message) (\s@Verify' {} a -> s {message = a} :: Verify) Prelude.. Prelude._Sensitive Prelude.. Prelude._Base64
+verify_message :: Lens.Lens' Verify Core.ByteString
+verify_message = Lens.lens (\Verify' {message} -> message) (\s@Verify' {} a -> s {message = a} :: Verify) Core.. Core._Sensitive Core.. Core._Base64
 
 -- | The signature that the @Sign@ operation generated.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-verify_signature :: Lens.Lens' Verify Prelude.ByteString
-verify_signature = Lens.lens (\Verify' {signature} -> signature) (\s@Verify' {} a -> s {signature = a} :: Verify) Prelude.. Prelude._Base64
+verify_signature :: Lens.Lens' Verify Core.ByteString
+verify_signature = Lens.lens (\Verify' {signature} -> signature) (\s@Verify' {} a -> s {signature = a} :: Verify) Core.. Core._Base64
 
 -- | The signing algorithm that was used to sign the message. If you submit a
 -- different algorithm, the signature verification fails.
 verify_signingAlgorithm :: Lens.Lens' Verify SigningAlgorithmSpec
 verify_signingAlgorithm = Lens.lens (\Verify' {signingAlgorithm} -> signingAlgorithm) (\s@Verify' {} a -> s {signingAlgorithm = a} :: Verify)
 
-instance Prelude.AWSRequest Verify where
-  type Rs Verify = VerifyResponse
+instance Core.AWSRequest Verify where
+  type AWSResponse Verify = VerifyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           VerifyResponse'
-            Prelude.<$> (x Prelude..?> "SigningAlgorithm")
-            Prelude.<*> (x Prelude..?> "SignatureValid")
-            Prelude.<*> (x Prelude..?> "KeyId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SigningAlgorithm")
+            Core.<*> (x Core..?> "SignatureValid")
+            Core.<*> (x Core..?> "KeyId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable Verify
+instance Core.Hashable Verify
 
-instance Prelude.NFData Verify
+instance Core.NFData Verify
 
-instance Prelude.ToHeaders Verify where
+instance Core.ToHeaders Verify where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("TrentService.Verify" :: Prelude.ByteString),
+              Core.=# ("TrentService.Verify" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON Verify where
+instance Core.ToJSON Verify where
   toJSON Verify' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("GrantTokens" Prelude..=) Prelude.<$> grantTokens,
-            ("MessageType" Prelude..=) Prelude.<$> messageType,
-            Prelude.Just ("KeyId" Prelude..= keyId),
-            Prelude.Just ("Message" Prelude..= message),
-            Prelude.Just ("Signature" Prelude..= signature),
-            Prelude.Just
-              ("SigningAlgorithm" Prelude..= signingAlgorithm)
+    Core.object
+      ( Core.catMaybes
+          [ ("GrantTokens" Core..=) Core.<$> grantTokens,
+            ("MessageType" Core..=) Core.<$> messageType,
+            Core.Just ("KeyId" Core..= keyId),
+            Core.Just ("Message" Core..= message),
+            Core.Just ("Signature" Core..= signature),
+            Core.Just
+              ("SigningAlgorithm" Core..= signingAlgorithm)
           ]
       )
 
-instance Prelude.ToPath Verify where
-  toPath = Prelude.const "/"
+instance Core.ToPath Verify where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery Verify where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery Verify where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newVerifyResponse' smart constructor.
 data VerifyResponse = VerifyResponse'
   { -- | The signing algorithm that was used to verify the signature.
-    signingAlgorithm :: Prelude.Maybe SigningAlgorithmSpec,
+    signingAlgorithm :: Core.Maybe SigningAlgorithmSpec,
     -- | A Boolean value that indicates whether the signature was verified. A
     -- value of @True@ indicates that the @Signature@ was produced by signing
     -- the @Message@ with the specified @KeyID@ and @SigningAlgorithm.@ If the
     -- signature is not verified, the @Verify@ operation fails with a
     -- @KMSInvalidSignatureException@ exception.
-    signatureValid :: Prelude.Maybe Prelude.Bool,
+    signatureValid :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the asymmetric CMK that was used to verify the signature.
-    keyId :: Prelude.Maybe Prelude.Text,
+    keyId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VerifyResponse' with all optional fields omitted.
@@ -403,18 +399,18 @@ data VerifyResponse = VerifyResponse'
 -- 'httpStatus', 'verifyResponse_httpStatus' - The response's http status code.
 newVerifyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   VerifyResponse
 newVerifyResponse pHttpStatus_ =
   VerifyResponse'
-    { signingAlgorithm = Prelude.Nothing,
-      signatureValid = Prelude.Nothing,
-      keyId = Prelude.Nothing,
+    { signingAlgorithm = Core.Nothing,
+      signatureValid = Core.Nothing,
+      keyId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The signing algorithm that was used to verify the signature.
-verifyResponse_signingAlgorithm :: Lens.Lens' VerifyResponse (Prelude.Maybe SigningAlgorithmSpec)
+verifyResponse_signingAlgorithm :: Lens.Lens' VerifyResponse (Core.Maybe SigningAlgorithmSpec)
 verifyResponse_signingAlgorithm = Lens.lens (\VerifyResponse' {signingAlgorithm} -> signingAlgorithm) (\s@VerifyResponse' {} a -> s {signingAlgorithm = a} :: VerifyResponse)
 
 -- | A Boolean value that indicates whether the signature was verified. A
@@ -422,17 +418,17 @@ verifyResponse_signingAlgorithm = Lens.lens (\VerifyResponse' {signingAlgorithm}
 -- the @Message@ with the specified @KeyID@ and @SigningAlgorithm.@ If the
 -- signature is not verified, the @Verify@ operation fails with a
 -- @KMSInvalidSignatureException@ exception.
-verifyResponse_signatureValid :: Lens.Lens' VerifyResponse (Prelude.Maybe Prelude.Bool)
+verifyResponse_signatureValid :: Lens.Lens' VerifyResponse (Core.Maybe Core.Bool)
 verifyResponse_signatureValid = Lens.lens (\VerifyResponse' {signatureValid} -> signatureValid) (\s@VerifyResponse' {} a -> s {signatureValid = a} :: VerifyResponse)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
 -- of the asymmetric CMK that was used to verify the signature.
-verifyResponse_keyId :: Lens.Lens' VerifyResponse (Prelude.Maybe Prelude.Text)
+verifyResponse_keyId :: Lens.Lens' VerifyResponse (Core.Maybe Core.Text)
 verifyResponse_keyId = Lens.lens (\VerifyResponse' {keyId} -> keyId) (\s@VerifyResponse' {} a -> s {keyId = a} :: VerifyResponse)
 
 -- | The response's http status code.
-verifyResponse_httpStatus :: Lens.Lens' VerifyResponse Prelude.Int
+verifyResponse_httpStatus :: Lens.Lens' VerifyResponse Core.Int
 verifyResponse_httpStatus = Lens.lens (\VerifyResponse' {httpStatus} -> httpStatus) (\s@VerifyResponse' {} a -> s {httpStatus = a} :: VerifyResponse)
 
-instance Prelude.NFData VerifyResponse
+instance Core.NFData VerifyResponse

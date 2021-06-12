@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
 where
 
 import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetIdentityPoolRoles' smart constructor.
 data GetIdentityPoolRoles = GetIdentityPoolRoles'
   { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Text
+    identityPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIdentityPoolRoles' with all optional fields omitted.
@@ -70,7 +69,7 @@ data GetIdentityPoolRoles = GetIdentityPoolRoles'
 -- 'identityPoolId', 'getIdentityPoolRoles_identityPoolId' - An identity pool ID in the format REGION:GUID.
 newGetIdentityPoolRoles ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   GetIdentityPoolRoles
 newGetIdentityPoolRoles pIdentityPoolId_ =
   GetIdentityPoolRoles'
@@ -79,78 +78,74 @@ newGetIdentityPoolRoles pIdentityPoolId_ =
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-getIdentityPoolRoles_identityPoolId :: Lens.Lens' GetIdentityPoolRoles Prelude.Text
+getIdentityPoolRoles_identityPoolId :: Lens.Lens' GetIdentityPoolRoles Core.Text
 getIdentityPoolRoles_identityPoolId = Lens.lens (\GetIdentityPoolRoles' {identityPoolId} -> identityPoolId) (\s@GetIdentityPoolRoles' {} a -> s {identityPoolId = a} :: GetIdentityPoolRoles)
 
-instance Prelude.AWSRequest GetIdentityPoolRoles where
+instance Core.AWSRequest GetIdentityPoolRoles where
   type
-    Rs GetIdentityPoolRoles =
+    AWSResponse GetIdentityPoolRoles =
       GetIdentityPoolRolesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetIdentityPoolRolesResponse'
-            Prelude.<$> (x Prelude..?> "IdentityPoolId")
-            Prelude.<*> (x Prelude..?> "Roles" Prelude..!@ Prelude.mempty)
-            Prelude.<*> ( x Prelude..?> "RoleMappings"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "IdentityPoolId")
+            Core.<*> (x Core..?> "Roles" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "RoleMappings" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetIdentityPoolRoles
+instance Core.Hashable GetIdentityPoolRoles
 
-instance Prelude.NFData GetIdentityPoolRoles
+instance Core.NFData GetIdentityPoolRoles
 
-instance Prelude.ToHeaders GetIdentityPoolRoles where
+instance Core.ToHeaders GetIdentityPoolRoles where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityService.GetIdentityPoolRoles" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityService.GetIdentityPoolRoles" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetIdentityPoolRoles where
+instance Core.ToJSON GetIdentityPoolRoles where
   toJSON GetIdentityPoolRoles' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("IdentityPoolId" Prelude..= identityPoolId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("IdentityPoolId" Core..= identityPoolId)
           ]
       )
 
-instance Prelude.ToPath GetIdentityPoolRoles where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetIdentityPoolRoles where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetIdentityPoolRoles where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetIdentityPoolRoles where
+  toQuery = Core.const Core.mempty
 
 -- | Returned in response to a successful @GetIdentityPoolRoles@ operation.
 --
 -- /See:/ 'newGetIdentityPoolRolesResponse' smart constructor.
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
   { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Maybe Prelude.Text,
+    identityPoolId :: Core.Maybe Core.Text,
     -- | The map of roles associated with this pool. Currently only authenticated
     -- and unauthenticated roles are supported.
-    roles :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    roles :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | How users for a specific identity provider are to mapped to roles. This
     -- is a String-to-RoleMapping object map. The string identifies the
     -- identity provider, for example, \"graph.facebook.com\" or
     -- \"cognito-idp.us-east-1.amazonaws.com\/us-east-1_abcdefghi:app_client_id\".
-    roleMappings :: Prelude.Maybe (Prelude.HashMap Prelude.Text RoleMapping),
+    roleMappings :: Core.Maybe (Core.HashMap Core.Text RoleMapping),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIdentityPoolRolesResponse' with all optional fields omitted.
@@ -173,35 +168,35 @@ data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
 -- 'httpStatus', 'getIdentityPoolRolesResponse_httpStatus' - The response's http status code.
 newGetIdentityPoolRolesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetIdentityPoolRolesResponse
 newGetIdentityPoolRolesResponse pHttpStatus_ =
   GetIdentityPoolRolesResponse'
     { identityPoolId =
-        Prelude.Nothing,
-      roles = Prelude.Nothing,
-      roleMappings = Prelude.Nothing,
+        Core.Nothing,
+      roles = Core.Nothing,
+      roleMappings = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-getIdentityPoolRolesResponse_identityPoolId :: Lens.Lens' GetIdentityPoolRolesResponse (Prelude.Maybe Prelude.Text)
+getIdentityPoolRolesResponse_identityPoolId :: Lens.Lens' GetIdentityPoolRolesResponse (Core.Maybe Core.Text)
 getIdentityPoolRolesResponse_identityPoolId = Lens.lens (\GetIdentityPoolRolesResponse' {identityPoolId} -> identityPoolId) (\s@GetIdentityPoolRolesResponse' {} a -> s {identityPoolId = a} :: GetIdentityPoolRolesResponse)
 
 -- | The map of roles associated with this pool. Currently only authenticated
 -- and unauthenticated roles are supported.
-getIdentityPoolRolesResponse_roles :: Lens.Lens' GetIdentityPoolRolesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getIdentityPoolRolesResponse_roles = Lens.lens (\GetIdentityPoolRolesResponse' {roles} -> roles) (\s@GetIdentityPoolRolesResponse' {} a -> s {roles = a} :: GetIdentityPoolRolesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getIdentityPoolRolesResponse_roles :: Lens.Lens' GetIdentityPoolRolesResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getIdentityPoolRolesResponse_roles = Lens.lens (\GetIdentityPoolRolesResponse' {roles} -> roles) (\s@GetIdentityPoolRolesResponse' {} a -> s {roles = a} :: GetIdentityPoolRolesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | How users for a specific identity provider are to mapped to roles. This
 -- is a String-to-RoleMapping object map. The string identifies the
 -- identity provider, for example, \"graph.facebook.com\" or
 -- \"cognito-idp.us-east-1.amazonaws.com\/us-east-1_abcdefghi:app_client_id\".
-getIdentityPoolRolesResponse_roleMappings :: Lens.Lens' GetIdentityPoolRolesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text RoleMapping))
-getIdentityPoolRolesResponse_roleMappings = Lens.lens (\GetIdentityPoolRolesResponse' {roleMappings} -> roleMappings) (\s@GetIdentityPoolRolesResponse' {} a -> s {roleMappings = a} :: GetIdentityPoolRolesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getIdentityPoolRolesResponse_roleMappings :: Lens.Lens' GetIdentityPoolRolesResponse (Core.Maybe (Core.HashMap Core.Text RoleMapping))
+getIdentityPoolRolesResponse_roleMappings = Lens.lens (\GetIdentityPoolRolesResponse' {roleMappings} -> roleMappings) (\s@GetIdentityPoolRolesResponse' {} a -> s {roleMappings = a} :: GetIdentityPoolRolesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getIdentityPoolRolesResponse_httpStatus :: Lens.Lens' GetIdentityPoolRolesResponse Prelude.Int
+getIdentityPoolRolesResponse_httpStatus :: Lens.Lens' GetIdentityPoolRolesResponse Core.Int
 getIdentityPoolRolesResponse_httpStatus = Lens.lens (\GetIdentityPoolRolesResponse' {httpStatus} -> httpStatus) (\s@GetIdentityPoolRolesResponse' {} a -> s {httpStatus = a} :: GetIdentityPoolRolesResponse)
 
-instance Prelude.NFData GetIdentityPoolRolesResponse
+instance Core.NFData GetIdentityPoolRolesResponse

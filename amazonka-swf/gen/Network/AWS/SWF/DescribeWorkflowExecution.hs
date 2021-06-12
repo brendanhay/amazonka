@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,8 +68,8 @@ module Network.AWS.SWF.DescribeWorkflowExecution
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -78,11 +77,11 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newDescribeWorkflowExecution' smart constructor.
 data DescribeWorkflowExecution = DescribeWorkflowExecution'
   { -- | The name of the domain containing the workflow execution.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | The workflow execution to describe.
     execution :: WorkflowExecution
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkflowExecution' with all optional fields omitted.
@@ -97,7 +96,7 @@ data DescribeWorkflowExecution = DescribeWorkflowExecution'
 -- 'execution', 'describeWorkflowExecution_execution' - The workflow execution to describe.
 newDescribeWorkflowExecution ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'execution'
   WorkflowExecution ->
   DescribeWorkflowExecution
@@ -108,63 +107,61 @@ newDescribeWorkflowExecution pDomain_ pExecution_ =
     }
 
 -- | The name of the domain containing the workflow execution.
-describeWorkflowExecution_domain :: Lens.Lens' DescribeWorkflowExecution Prelude.Text
+describeWorkflowExecution_domain :: Lens.Lens' DescribeWorkflowExecution Core.Text
 describeWorkflowExecution_domain = Lens.lens (\DescribeWorkflowExecution' {domain} -> domain) (\s@DescribeWorkflowExecution' {} a -> s {domain = a} :: DescribeWorkflowExecution)
 
 -- | The workflow execution to describe.
 describeWorkflowExecution_execution :: Lens.Lens' DescribeWorkflowExecution WorkflowExecution
 describeWorkflowExecution_execution = Lens.lens (\DescribeWorkflowExecution' {execution} -> execution) (\s@DescribeWorkflowExecution' {} a -> s {execution = a} :: DescribeWorkflowExecution)
 
-instance Prelude.AWSRequest DescribeWorkflowExecution where
+instance Core.AWSRequest DescribeWorkflowExecution where
   type
-    Rs DescribeWorkflowExecution =
+    AWSResponse DescribeWorkflowExecution =
       DescribeWorkflowExecutionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkflowExecutionResponse'
-            Prelude.<$> (x Prelude..?> "latestExecutionContext")
-            Prelude.<*> (x Prelude..?> "latestActivityTaskTimestamp")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "executionInfo")
-            Prelude.<*> (x Prelude..:> "executionConfiguration")
-            Prelude.<*> (x Prelude..:> "openCounts")
+            Core.<$> (x Core..?> "latestExecutionContext")
+            Core.<*> (x Core..?> "latestActivityTaskTimestamp")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "executionInfo")
+            Core.<*> (x Core..:> "executionConfiguration")
+            Core.<*> (x Core..:> "openCounts")
       )
 
-instance Prelude.Hashable DescribeWorkflowExecution
+instance Core.Hashable DescribeWorkflowExecution
 
-instance Prelude.NFData DescribeWorkflowExecution
+instance Core.NFData DescribeWorkflowExecution
 
-instance Prelude.ToHeaders DescribeWorkflowExecution where
+instance Core.ToHeaders DescribeWorkflowExecution where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.DescribeWorkflowExecution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.DescribeWorkflowExecution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeWorkflowExecution where
+instance Core.ToJSON DescribeWorkflowExecution where
   toJSON DescribeWorkflowExecution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("domain" Prelude..= domain),
-            Prelude.Just ("execution" Prelude..= execution)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("execution" Core..= execution)
           ]
       )
 
-instance Prelude.ToPath DescribeWorkflowExecution where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeWorkflowExecution where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeWorkflowExecution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeWorkflowExecution where
+  toQuery = Core.const Core.mempty
 
 -- | Contains details about a workflow execution.
 --
@@ -173,14 +170,14 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
   { -- | The latest executionContext provided by the decider for this workflow
     -- execution. A decider can provide an executionContext (a free-form
     -- string) when closing a decision task using RespondDecisionTaskCompleted.
-    latestExecutionContext :: Prelude.Maybe Prelude.Text,
+    latestExecutionContext :: Core.Maybe Core.Text,
     -- | The time when the last activity task was scheduled for this workflow
     -- execution. You can use this information to determine if the workflow has
     -- not made progress for an unusually long period of time and might require
     -- a corrective action.
-    latestActivityTaskTimestamp :: Prelude.Maybe Prelude.POSIX,
+    latestActivityTaskTimestamp :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Information about the workflow execution.
     executionInfo :: WorkflowExecutionInfo,
     -- | The configuration settings for this workflow execution including timeout
@@ -190,7 +187,7 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
     -- closed tasks of all types.
     openCounts :: WorkflowExecutionOpenCounts
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkflowExecutionResponse' with all optional fields omitted.
@@ -220,7 +217,7 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
 -- closed tasks of all types.
 newDescribeWorkflowExecutionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'executionInfo'
   WorkflowExecutionInfo ->
   -- | 'executionConfiguration'
@@ -235,9 +232,9 @@ newDescribeWorkflowExecutionResponse
   pOpenCounts_ =
     DescribeWorkflowExecutionResponse'
       { latestExecutionContext =
-          Prelude.Nothing,
+          Core.Nothing,
         latestActivityTaskTimestamp =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_,
         executionInfo = pExecutionInfo_,
         executionConfiguration =
@@ -248,18 +245,18 @@ newDescribeWorkflowExecutionResponse
 -- | The latest executionContext provided by the decider for this workflow
 -- execution. A decider can provide an executionContext (a free-form
 -- string) when closing a decision task using RespondDecisionTaskCompleted.
-describeWorkflowExecutionResponse_latestExecutionContext :: Lens.Lens' DescribeWorkflowExecutionResponse (Prelude.Maybe Prelude.Text)
+describeWorkflowExecutionResponse_latestExecutionContext :: Lens.Lens' DescribeWorkflowExecutionResponse (Core.Maybe Core.Text)
 describeWorkflowExecutionResponse_latestExecutionContext = Lens.lens (\DescribeWorkflowExecutionResponse' {latestExecutionContext} -> latestExecutionContext) (\s@DescribeWorkflowExecutionResponse' {} a -> s {latestExecutionContext = a} :: DescribeWorkflowExecutionResponse)
 
 -- | The time when the last activity task was scheduled for this workflow
 -- execution. You can use this information to determine if the workflow has
 -- not made progress for an unusually long period of time and might require
 -- a corrective action.
-describeWorkflowExecutionResponse_latestActivityTaskTimestamp :: Lens.Lens' DescribeWorkflowExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describeWorkflowExecutionResponse_latestActivityTaskTimestamp = Lens.lens (\DescribeWorkflowExecutionResponse' {latestActivityTaskTimestamp} -> latestActivityTaskTimestamp) (\s@DescribeWorkflowExecutionResponse' {} a -> s {latestActivityTaskTimestamp = a} :: DescribeWorkflowExecutionResponse) Prelude.. Lens.mapping Prelude._Time
+describeWorkflowExecutionResponse_latestActivityTaskTimestamp :: Lens.Lens' DescribeWorkflowExecutionResponse (Core.Maybe Core.UTCTime)
+describeWorkflowExecutionResponse_latestActivityTaskTimestamp = Lens.lens (\DescribeWorkflowExecutionResponse' {latestActivityTaskTimestamp} -> latestActivityTaskTimestamp) (\s@DescribeWorkflowExecutionResponse' {} a -> s {latestActivityTaskTimestamp = a} :: DescribeWorkflowExecutionResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-describeWorkflowExecutionResponse_httpStatus :: Lens.Lens' DescribeWorkflowExecutionResponse Prelude.Int
+describeWorkflowExecutionResponse_httpStatus :: Lens.Lens' DescribeWorkflowExecutionResponse Core.Int
 describeWorkflowExecutionResponse_httpStatus = Lens.lens (\DescribeWorkflowExecutionResponse' {httpStatus} -> httpStatus) (\s@DescribeWorkflowExecutionResponse' {} a -> s {httpStatus = a} :: DescribeWorkflowExecutionResponse)
 
 -- | Information about the workflow execution.
@@ -277,5 +274,5 @@ describeWorkflowExecutionResponse_openCounts :: Lens.Lens' DescribeWorkflowExecu
 describeWorkflowExecutionResponse_openCounts = Lens.lens (\DescribeWorkflowExecutionResponse' {openCounts} -> openCounts) (\s@DescribeWorkflowExecutionResponse' {} a -> s {openCounts = a} :: DescribeWorkflowExecutionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeWorkflowExecutionResponse

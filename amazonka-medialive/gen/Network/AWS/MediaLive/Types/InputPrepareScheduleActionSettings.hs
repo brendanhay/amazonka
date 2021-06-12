@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputPrepareScheduleActionSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputClippingSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Action to prepare an input for a future immediate input switch.
 --
@@ -31,17 +30,17 @@ data InputPrepareScheduleActionSettings = InputPrepareScheduleActionSettings'
   { -- | The name of the input attachment that should be prepared by this action.
     -- If no name is provided, the action will stop the most recent prepare (if
     -- any) when activated.
-    inputAttachmentNameReference :: Prelude.Maybe Prelude.Text,
+    inputAttachmentNameReference :: Core.Maybe Core.Text,
     -- | The value for the variable portion of the URL for the dynamic input, for
     -- this instance of the input. Each time you use the same dynamic input in
     -- an input switch action, you can provide a different value, in order to
     -- connect the input to a different content source.
-    urlPath :: Prelude.Maybe [Prelude.Text],
+    urlPath :: Core.Maybe [Core.Text],
     -- | Settings to let you create a clip of the file input, in order to set up
     -- the input to ingest only a portion of the file.
-    inputClippingSettings :: Prelude.Maybe InputClippingSettings
+    inputClippingSettings :: Core.Maybe InputClippingSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputPrepareScheduleActionSettings' with all optional fields omitted.
@@ -67,62 +66,62 @@ newInputPrepareScheduleActionSettings ::
 newInputPrepareScheduleActionSettings =
   InputPrepareScheduleActionSettings'
     { inputAttachmentNameReference =
-        Prelude.Nothing,
-      urlPath = Prelude.Nothing,
-      inputClippingSettings = Prelude.Nothing
+        Core.Nothing,
+      urlPath = Core.Nothing,
+      inputClippingSettings = Core.Nothing
     }
 
 -- | The name of the input attachment that should be prepared by this action.
 -- If no name is provided, the action will stop the most recent prepare (if
 -- any) when activated.
-inputPrepareScheduleActionSettings_inputAttachmentNameReference :: Lens.Lens' InputPrepareScheduleActionSettings (Prelude.Maybe Prelude.Text)
+inputPrepareScheduleActionSettings_inputAttachmentNameReference :: Lens.Lens' InputPrepareScheduleActionSettings (Core.Maybe Core.Text)
 inputPrepareScheduleActionSettings_inputAttachmentNameReference = Lens.lens (\InputPrepareScheduleActionSettings' {inputAttachmentNameReference} -> inputAttachmentNameReference) (\s@InputPrepareScheduleActionSettings' {} a -> s {inputAttachmentNameReference = a} :: InputPrepareScheduleActionSettings)
 
 -- | The value for the variable portion of the URL for the dynamic input, for
 -- this instance of the input. Each time you use the same dynamic input in
 -- an input switch action, you can provide a different value, in order to
 -- connect the input to a different content source.
-inputPrepareScheduleActionSettings_urlPath :: Lens.Lens' InputPrepareScheduleActionSettings (Prelude.Maybe [Prelude.Text])
-inputPrepareScheduleActionSettings_urlPath = Lens.lens (\InputPrepareScheduleActionSettings' {urlPath} -> urlPath) (\s@InputPrepareScheduleActionSettings' {} a -> s {urlPath = a} :: InputPrepareScheduleActionSettings) Prelude.. Lens.mapping Prelude._Coerce
+inputPrepareScheduleActionSettings_urlPath :: Lens.Lens' InputPrepareScheduleActionSettings (Core.Maybe [Core.Text])
+inputPrepareScheduleActionSettings_urlPath = Lens.lens (\InputPrepareScheduleActionSettings' {urlPath} -> urlPath) (\s@InputPrepareScheduleActionSettings' {} a -> s {urlPath = a} :: InputPrepareScheduleActionSettings) Core.. Lens.mapping Lens._Coerce
 
 -- | Settings to let you create a clip of the file input, in order to set up
 -- the input to ingest only a portion of the file.
-inputPrepareScheduleActionSettings_inputClippingSettings :: Lens.Lens' InputPrepareScheduleActionSettings (Prelude.Maybe InputClippingSettings)
+inputPrepareScheduleActionSettings_inputClippingSettings :: Lens.Lens' InputPrepareScheduleActionSettings (Core.Maybe InputClippingSettings)
 inputPrepareScheduleActionSettings_inputClippingSettings = Lens.lens (\InputPrepareScheduleActionSettings' {inputClippingSettings} -> inputClippingSettings) (\s@InputPrepareScheduleActionSettings' {} a -> s {inputClippingSettings = a} :: InputPrepareScheduleActionSettings)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     InputPrepareScheduleActionSettings
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputPrepareScheduleActionSettings"
       ( \x ->
           InputPrepareScheduleActionSettings'
-            Prelude.<$> (x Prelude..:? "inputAttachmentNameReference")
-            Prelude.<*> (x Prelude..:? "urlPath" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "inputClippingSettings")
+            Core.<$> (x Core..:? "inputAttachmentNameReference")
+            Core.<*> (x Core..:? "urlPath" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "inputClippingSettings")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     InputPrepareScheduleActionSettings
 
 instance
-  Prelude.NFData
+  Core.NFData
     InputPrepareScheduleActionSettings
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     InputPrepareScheduleActionSettings
   where
   toJSON InputPrepareScheduleActionSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("inputAttachmentNameReference" Prelude..=)
-              Prelude.<$> inputAttachmentNameReference,
-            ("urlPath" Prelude..=) Prelude.<$> urlPath,
-            ("inputClippingSettings" Prelude..=)
-              Prelude.<$> inputClippingSettings
+    Core.object
+      ( Core.catMaybes
+          [ ("inputAttachmentNameReference" Core..=)
+              Core.<$> inputAttachmentNameReference,
+            ("urlPath" Core..=) Core.<$> urlPath,
+            ("inputClippingSettings" Core..=)
+              Core.<$> inputClippingSettings
           ]
       )

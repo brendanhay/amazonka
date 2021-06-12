@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.CodeDeploy.DeleteResourcesByExternalId
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +48,9 @@ import qualified Network.AWS.Response as Response
 data DeleteResourcesByExternalId = DeleteResourcesByExternalId'
   { -- | The unique ID of an external resource (for example, a CloudFormation
     -- stack ID) that is linked to one or more CodeDeploy resources.
-    externalId :: Prelude.Maybe Prelude.Text
+    externalId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourcesByExternalId' with all optional fields omitted.
@@ -68,70 +67,62 @@ newDeleteResourcesByExternalId ::
 newDeleteResourcesByExternalId =
   DeleteResourcesByExternalId'
     { externalId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The unique ID of an external resource (for example, a CloudFormation
 -- stack ID) that is linked to one or more CodeDeploy resources.
-deleteResourcesByExternalId_externalId :: Lens.Lens' DeleteResourcesByExternalId (Prelude.Maybe Prelude.Text)
+deleteResourcesByExternalId_externalId :: Lens.Lens' DeleteResourcesByExternalId (Core.Maybe Core.Text)
 deleteResourcesByExternalId_externalId = Lens.lens (\DeleteResourcesByExternalId' {externalId} -> externalId) (\s@DeleteResourcesByExternalId' {} a -> s {externalId = a} :: DeleteResourcesByExternalId)
 
-instance
-  Prelude.AWSRequest
-    DeleteResourcesByExternalId
-  where
+instance Core.AWSRequest DeleteResourcesByExternalId where
   type
-    Rs DeleteResourcesByExternalId =
+    AWSResponse DeleteResourcesByExternalId =
       DeleteResourcesByExternalIdResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteResourcesByExternalIdResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResourcesByExternalId
+instance Core.Hashable DeleteResourcesByExternalId
 
-instance Prelude.NFData DeleteResourcesByExternalId
+instance Core.NFData DeleteResourcesByExternalId
 
-instance
-  Prelude.ToHeaders
-    DeleteResourcesByExternalId
-  where
+instance Core.ToHeaders DeleteResourcesByExternalId where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.DeleteResourcesByExternalId" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.DeleteResourcesByExternalId" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteResourcesByExternalId where
+instance Core.ToJSON DeleteResourcesByExternalId where
   toJSON DeleteResourcesByExternalId' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("externalId" Prelude..=) Prelude.<$> externalId]
+    Core.object
+      ( Core.catMaybes
+          [("externalId" Core..=) Core.<$> externalId]
       )
 
-instance Prelude.ToPath DeleteResourcesByExternalId where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteResourcesByExternalId where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteResourcesByExternalId where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteResourcesByExternalId where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteResourcesByExternalIdResponse' smart constructor.
 data DeleteResourcesByExternalIdResponse = DeleteResourcesByExternalIdResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourcesByExternalIdResponse' with all optional fields omitted.
@@ -144,7 +135,7 @@ data DeleteResourcesByExternalIdResponse = DeleteResourcesByExternalIdResponse'
 -- 'httpStatus', 'deleteResourcesByExternalIdResponse_httpStatus' - The response's http status code.
 newDeleteResourcesByExternalIdResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteResourcesByExternalIdResponse
 newDeleteResourcesByExternalIdResponse pHttpStatus_ =
   DeleteResourcesByExternalIdResponse'
@@ -153,9 +144,9 @@ newDeleteResourcesByExternalIdResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteResourcesByExternalIdResponse_httpStatus :: Lens.Lens' DeleteResourcesByExternalIdResponse Prelude.Int
+deleteResourcesByExternalIdResponse_httpStatus :: Lens.Lens' DeleteResourcesByExternalIdResponse Core.Int
 deleteResourcesByExternalIdResponse_httpStatus = Lens.lens (\DeleteResourcesByExternalIdResponse' {httpStatus} -> httpStatus) (\s@DeleteResourcesByExternalIdResponse' {} a -> s {httpStatus = a} :: DeleteResourcesByExternalIdResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteResourcesByExternalIdResponse

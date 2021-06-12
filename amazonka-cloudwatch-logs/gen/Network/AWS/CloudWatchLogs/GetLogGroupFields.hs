@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.CloudWatchLogs.GetLogGroupFields
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,11 +66,11 @@ data GetLogGroupFields = GetLogGroupFields'
     --
     -- The @time@ value is specified as epoch time, the number of seconds since
     -- January 1, 1970, 00:00:00 UTC.
-    time :: Prelude.Maybe Prelude.Natural,
+    time :: Core.Maybe Core.Natural,
     -- | The name of the log group to search.
-    logGroupName :: Prelude.Text
+    logGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLogGroupFields' with all optional fields omitted.
@@ -91,11 +90,11 @@ data GetLogGroupFields = GetLogGroupFields'
 -- 'logGroupName', 'getLogGroupFields_logGroupName' - The name of the log group to search.
 newGetLogGroupFields ::
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   GetLogGroupFields
 newGetLogGroupFields pLogGroupName_ =
   GetLogGroupFields'
-    { time = Prelude.Nothing,
+    { time = Core.Nothing,
       logGroupName = pLogGroupName_
     }
 
@@ -105,71 +104,68 @@ newGetLogGroupFields pLogGroupName_ =
 --
 -- The @time@ value is specified as epoch time, the number of seconds since
 -- January 1, 1970, 00:00:00 UTC.
-getLogGroupFields_time :: Lens.Lens' GetLogGroupFields (Prelude.Maybe Prelude.Natural)
+getLogGroupFields_time :: Lens.Lens' GetLogGroupFields (Core.Maybe Core.Natural)
 getLogGroupFields_time = Lens.lens (\GetLogGroupFields' {time} -> time) (\s@GetLogGroupFields' {} a -> s {time = a} :: GetLogGroupFields)
 
 -- | The name of the log group to search.
-getLogGroupFields_logGroupName :: Lens.Lens' GetLogGroupFields Prelude.Text
+getLogGroupFields_logGroupName :: Lens.Lens' GetLogGroupFields Core.Text
 getLogGroupFields_logGroupName = Lens.lens (\GetLogGroupFields' {logGroupName} -> logGroupName) (\s@GetLogGroupFields' {} a -> s {logGroupName = a} :: GetLogGroupFields)
 
-instance Prelude.AWSRequest GetLogGroupFields where
-  type Rs GetLogGroupFields = GetLogGroupFieldsResponse
+instance Core.AWSRequest GetLogGroupFields where
+  type
+    AWSResponse GetLogGroupFields =
+      GetLogGroupFieldsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetLogGroupFieldsResponse'
-            Prelude.<$> ( x Prelude..?> "logGroupFields"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "logGroupFields" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetLogGroupFields
+instance Core.Hashable GetLogGroupFields
 
-instance Prelude.NFData GetLogGroupFields
+instance Core.NFData GetLogGroupFields
 
-instance Prelude.ToHeaders GetLogGroupFields where
+instance Core.ToHeaders GetLogGroupFields where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.GetLogGroupFields" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Logs_20140328.GetLogGroupFields" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetLogGroupFields where
+instance Core.ToJSON GetLogGroupFields where
   toJSON GetLogGroupFields' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("time" Prelude..=) Prelude.<$> time,
-            Prelude.Just
-              ("logGroupName" Prelude..= logGroupName)
+    Core.object
+      ( Core.catMaybes
+          [ ("time" Core..=) Core.<$> time,
+            Core.Just ("logGroupName" Core..= logGroupName)
           ]
       )
 
-instance Prelude.ToPath GetLogGroupFields where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetLogGroupFields where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetLogGroupFields where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetLogGroupFields where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetLogGroupFieldsResponse' smart constructor.
 data GetLogGroupFieldsResponse = GetLogGroupFieldsResponse'
   { -- | The array of fields found in the query. Each object in the array
     -- contains the name of the field, along with the percentage of time it
     -- appeared in the log events that were queried.
-    logGroupFields :: Prelude.Maybe [LogGroupField],
+    logGroupFields :: Core.Maybe [LogGroupField],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLogGroupFieldsResponse' with all optional fields omitted.
@@ -186,23 +182,23 @@ data GetLogGroupFieldsResponse = GetLogGroupFieldsResponse'
 -- 'httpStatus', 'getLogGroupFieldsResponse_httpStatus' - The response's http status code.
 newGetLogGroupFieldsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetLogGroupFieldsResponse
 newGetLogGroupFieldsResponse pHttpStatus_ =
   GetLogGroupFieldsResponse'
     { logGroupFields =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The array of fields found in the query. Each object in the array
 -- contains the name of the field, along with the percentage of time it
 -- appeared in the log events that were queried.
-getLogGroupFieldsResponse_logGroupFields :: Lens.Lens' GetLogGroupFieldsResponse (Prelude.Maybe [LogGroupField])
-getLogGroupFieldsResponse_logGroupFields = Lens.lens (\GetLogGroupFieldsResponse' {logGroupFields} -> logGroupFields) (\s@GetLogGroupFieldsResponse' {} a -> s {logGroupFields = a} :: GetLogGroupFieldsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getLogGroupFieldsResponse_logGroupFields :: Lens.Lens' GetLogGroupFieldsResponse (Core.Maybe [LogGroupField])
+getLogGroupFieldsResponse_logGroupFields = Lens.lens (\GetLogGroupFieldsResponse' {logGroupFields} -> logGroupFields) (\s@GetLogGroupFieldsResponse' {} a -> s {logGroupFields = a} :: GetLogGroupFieldsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getLogGroupFieldsResponse_httpStatus :: Lens.Lens' GetLogGroupFieldsResponse Prelude.Int
+getLogGroupFieldsResponse_httpStatus :: Lens.Lens' GetLogGroupFieldsResponse Core.Int
 getLogGroupFieldsResponse_httpStatus = Lens.lens (\GetLogGroupFieldsResponse' {httpStatus} -> httpStatus) (\s@GetLogGroupFieldsResponse' {} a -> s {httpStatus = a} :: GetLogGroupFieldsResponse)
 
-instance Prelude.NFData GetLogGroupFieldsResponse
+instance Core.NFData GetLogGroupFieldsResponse

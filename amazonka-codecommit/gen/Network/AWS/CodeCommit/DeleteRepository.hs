@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CodeCommit.DeleteRepository
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +55,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteRepository' smart constructor.
 data DeleteRepository = DeleteRepository'
   { -- | The name of the repository to delete.
-    repositoryName :: Prelude.Text
+    repositoryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRepository' with all optional fields omitted.
@@ -71,7 +70,7 @@ data DeleteRepository = DeleteRepository'
 -- 'repositoryName', 'deleteRepository_repositoryName' - The name of the repository to delete.
 newDeleteRepository ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteRepository
 newDeleteRepository pRepositoryName_ =
   DeleteRepository'
@@ -80,64 +79,64 @@ newDeleteRepository pRepositoryName_ =
     }
 
 -- | The name of the repository to delete.
-deleteRepository_repositoryName :: Lens.Lens' DeleteRepository Prelude.Text
+deleteRepository_repositoryName :: Lens.Lens' DeleteRepository Core.Text
 deleteRepository_repositoryName = Lens.lens (\DeleteRepository' {repositoryName} -> repositoryName) (\s@DeleteRepository' {} a -> s {repositoryName = a} :: DeleteRepository)
 
-instance Prelude.AWSRequest DeleteRepository where
-  type Rs DeleteRepository = DeleteRepositoryResponse
+instance Core.AWSRequest DeleteRepository where
+  type
+    AWSResponse DeleteRepository =
+      DeleteRepositoryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteRepositoryResponse'
-            Prelude.<$> (x Prelude..?> "repositoryId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "repositoryId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRepository
+instance Core.Hashable DeleteRepository
 
-instance Prelude.NFData DeleteRepository
+instance Core.NFData DeleteRepository
 
-instance Prelude.ToHeaders DeleteRepository where
+instance Core.ToHeaders DeleteRepository where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.DeleteRepository" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.DeleteRepository" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteRepository where
+instance Core.ToJSON DeleteRepository where
   toJSON DeleteRepository' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("repositoryName" Prelude..= repositoryName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("repositoryName" Core..= repositoryName)
           ]
       )
 
-instance Prelude.ToPath DeleteRepository where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteRepository where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteRepository where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteRepository where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a delete repository operation.
 --
 -- /See:/ 'newDeleteRepositoryResponse' smart constructor.
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
   { -- | The ID of the repository that was deleted.
-    repositoryId :: Prelude.Maybe Prelude.Text,
+    repositoryId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRepositoryResponse' with all optional fields omitted.
@@ -152,21 +151,21 @@ data DeleteRepositoryResponse = DeleteRepositoryResponse'
 -- 'httpStatus', 'deleteRepositoryResponse_httpStatus' - The response's http status code.
 newDeleteRepositoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteRepositoryResponse
 newDeleteRepositoryResponse pHttpStatus_ =
   DeleteRepositoryResponse'
     { repositoryId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the repository that was deleted.
-deleteRepositoryResponse_repositoryId :: Lens.Lens' DeleteRepositoryResponse (Prelude.Maybe Prelude.Text)
+deleteRepositoryResponse_repositoryId :: Lens.Lens' DeleteRepositoryResponse (Core.Maybe Core.Text)
 deleteRepositoryResponse_repositoryId = Lens.lens (\DeleteRepositoryResponse' {repositoryId} -> repositoryId) (\s@DeleteRepositoryResponse' {} a -> s {repositoryId = a} :: DeleteRepositoryResponse)
 
 -- | The response's http status code.
-deleteRepositoryResponse_httpStatus :: Lens.Lens' DeleteRepositoryResponse Prelude.Int
+deleteRepositoryResponse_httpStatus :: Lens.Lens' DeleteRepositoryResponse Core.Int
 deleteRepositoryResponse_httpStatus = Lens.lens (\DeleteRepositoryResponse' {httpStatus} -> httpStatus) (\s@DeleteRepositoryResponse' {} a -> s {httpStatus = a} :: DeleteRepositoryResponse)
 
-instance Prelude.NFData DeleteRepositoryResponse
+instance Core.NFData DeleteRepositoryResponse

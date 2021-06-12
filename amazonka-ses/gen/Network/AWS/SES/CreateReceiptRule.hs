@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.SES.CreateReceiptRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -61,14 +60,14 @@ data CreateReceiptRule = CreateReceiptRule'
   { -- | The name of an existing rule after which the new rule will be placed. If
     -- this parameter is null, the new rule will be inserted at the beginning
     -- of the rule list.
-    after :: Prelude.Maybe Prelude.Text,
+    after :: Core.Maybe Core.Text,
     -- | The name of the rule set that the receipt rule will be added to.
-    ruleSetName :: Prelude.Text,
+    ruleSetName :: Core.Text,
     -- | A data structure that contains the specified rule\'s name, actions,
     -- recipients, domains, enabled status, scan status, and TLS policy.
     rule :: ReceiptRule
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateReceiptRule' with all optional fields omitted.
@@ -88,13 +87,13 @@ data CreateReceiptRule = CreateReceiptRule'
 -- recipients, domains, enabled status, scan status, and TLS policy.
 newCreateReceiptRule ::
   -- | 'ruleSetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'rule'
   ReceiptRule ->
   CreateReceiptRule
 newCreateReceiptRule pRuleSetName_ pRule_ =
   CreateReceiptRule'
-    { after = Prelude.Nothing,
+    { after = Core.Nothing,
       ruleSetName = pRuleSetName_,
       rule = pRule_
     }
@@ -102,11 +101,11 @@ newCreateReceiptRule pRuleSetName_ pRule_ =
 -- | The name of an existing rule after which the new rule will be placed. If
 -- this parameter is null, the new rule will be inserted at the beginning
 -- of the rule list.
-createReceiptRule_after :: Lens.Lens' CreateReceiptRule (Prelude.Maybe Prelude.Text)
+createReceiptRule_after :: Lens.Lens' CreateReceiptRule (Core.Maybe Core.Text)
 createReceiptRule_after = Lens.lens (\CreateReceiptRule' {after} -> after) (\s@CreateReceiptRule' {} a -> s {after = a} :: CreateReceiptRule)
 
 -- | The name of the rule set that the receipt rule will be added to.
-createReceiptRule_ruleSetName :: Lens.Lens' CreateReceiptRule Prelude.Text
+createReceiptRule_ruleSetName :: Lens.Lens' CreateReceiptRule Core.Text
 createReceiptRule_ruleSetName = Lens.lens (\CreateReceiptRule' {ruleSetName} -> ruleSetName) (\s@CreateReceiptRule' {} a -> s {ruleSetName = a} :: CreateReceiptRule)
 
 -- | A data structure that contains the specified rule\'s name, actions,
@@ -114,37 +113,38 @@ createReceiptRule_ruleSetName = Lens.lens (\CreateReceiptRule' {ruleSetName} -> 
 createReceiptRule_rule :: Lens.Lens' CreateReceiptRule ReceiptRule
 createReceiptRule_rule = Lens.lens (\CreateReceiptRule' {rule} -> rule) (\s@CreateReceiptRule' {} a -> s {rule = a} :: CreateReceiptRule)
 
-instance Prelude.AWSRequest CreateReceiptRule where
-  type Rs CreateReceiptRule = CreateReceiptRuleResponse
+instance Core.AWSRequest CreateReceiptRule where
+  type
+    AWSResponse CreateReceiptRule =
+      CreateReceiptRuleResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateReceiptRuleResult"
       ( \s h x ->
           CreateReceiptRuleResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateReceiptRule
+instance Core.Hashable CreateReceiptRule
 
-instance Prelude.NFData CreateReceiptRule
+instance Core.NFData CreateReceiptRule
 
-instance Prelude.ToHeaders CreateReceiptRule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateReceiptRule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateReceiptRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateReceiptRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateReceiptRule where
+instance Core.ToQuery CreateReceiptRule where
   toQuery CreateReceiptRule' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateReceiptRule" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "After" Prelude.=: after,
-        "RuleSetName" Prelude.=: ruleSetName,
-        "Rule" Prelude.=: rule
+          Core.=: ("CreateReceiptRule" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "After" Core.=: after,
+        "RuleSetName" Core.=: ruleSetName,
+        "Rule" Core.=: rule
       ]
 
 -- | An empty element returned on a successful request.
@@ -152,9 +152,9 @@ instance Prelude.ToQuery CreateReceiptRule where
 -- /See:/ 'newCreateReceiptRuleResponse' smart constructor.
 data CreateReceiptRuleResponse = CreateReceiptRuleResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateReceiptRuleResponse' with all optional fields omitted.
@@ -167,7 +167,7 @@ data CreateReceiptRuleResponse = CreateReceiptRuleResponse'
 -- 'httpStatus', 'createReceiptRuleResponse_httpStatus' - The response's http status code.
 newCreateReceiptRuleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateReceiptRuleResponse
 newCreateReceiptRuleResponse pHttpStatus_ =
   CreateReceiptRuleResponse'
@@ -176,7 +176,7 @@ newCreateReceiptRuleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createReceiptRuleResponse_httpStatus :: Lens.Lens' CreateReceiptRuleResponse Prelude.Int
+createReceiptRuleResponse_httpStatus :: Lens.Lens' CreateReceiptRuleResponse Core.Int
 createReceiptRuleResponse_httpStatus = Lens.lens (\CreateReceiptRuleResponse' {httpStatus} -> httpStatus) (\s@CreateReceiptRuleResponse' {} a -> s {httpStatus = a} :: CreateReceiptRuleResponse)
 
-instance Prelude.NFData CreateReceiptRuleResponse
+instance Core.NFData CreateReceiptRuleResponse

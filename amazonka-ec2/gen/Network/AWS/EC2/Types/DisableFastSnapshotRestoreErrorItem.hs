@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DisableFastSnapshotRestoreErrorItem where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateErrorItem
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the errors that occurred when disabling fast
 -- snapshot restores.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDisableFastSnapshotRestoreErrorItem' smart constructor.
 data DisableFastSnapshotRestoreErrorItem = DisableFastSnapshotRestoreErrorItem'
   { -- | The errors.
-    fastSnapshotRestoreStateErrors :: Prelude.Maybe [DisableFastSnapshotRestoreStateErrorItem],
+    fastSnapshotRestoreStateErrors :: Core.Maybe [DisableFastSnapshotRestoreStateErrorItem],
     -- | The ID of the snapshot.
-    snapshotId :: Prelude.Maybe Prelude.Text
+    snapshotId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableFastSnapshotRestoreErrorItem' with all optional fields omitted.
@@ -53,34 +52,34 @@ newDisableFastSnapshotRestoreErrorItem ::
 newDisableFastSnapshotRestoreErrorItem =
   DisableFastSnapshotRestoreErrorItem'
     { fastSnapshotRestoreStateErrors =
-        Prelude.Nothing,
-      snapshotId = Prelude.Nothing
+        Core.Nothing,
+      snapshotId = Core.Nothing
     }
 
 -- | The errors.
-disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Prelude.Maybe [DisableFastSnapshotRestoreStateErrorItem])
-disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors = Lens.lens (\DisableFastSnapshotRestoreErrorItem' {fastSnapshotRestoreStateErrors} -> fastSnapshotRestoreStateErrors) (\s@DisableFastSnapshotRestoreErrorItem' {} a -> s {fastSnapshotRestoreStateErrors = a} :: DisableFastSnapshotRestoreErrorItem) Prelude.. Lens.mapping Prelude._Coerce
+disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Core.Maybe [DisableFastSnapshotRestoreStateErrorItem])
+disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors = Lens.lens (\DisableFastSnapshotRestoreErrorItem' {fastSnapshotRestoreStateErrors} -> fastSnapshotRestoreStateErrors) (\s@DisableFastSnapshotRestoreErrorItem' {} a -> s {fastSnapshotRestoreStateErrors = a} :: DisableFastSnapshotRestoreErrorItem) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the snapshot.
-disableFastSnapshotRestoreErrorItem_snapshotId :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Prelude.Maybe Prelude.Text)
+disableFastSnapshotRestoreErrorItem_snapshotId :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Core.Maybe Core.Text)
 disableFastSnapshotRestoreErrorItem_snapshotId = Lens.lens (\DisableFastSnapshotRestoreErrorItem' {snapshotId} -> snapshotId) (\s@DisableFastSnapshotRestoreErrorItem' {} a -> s {snapshotId = a} :: DisableFastSnapshotRestoreErrorItem)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     DisableFastSnapshotRestoreErrorItem
   where
   parseXML x =
     DisableFastSnapshotRestoreErrorItem'
-      Prelude.<$> ( x Prelude..@? "fastSnapshotRestoreStateErrorSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "snapshotId")
+      Core.<$> ( x Core..@? "fastSnapshotRestoreStateErrorSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "snapshotId")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisableFastSnapshotRestoreErrorItem
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisableFastSnapshotRestoreErrorItem

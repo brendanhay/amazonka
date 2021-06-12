@@ -15,8 +15,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Waiters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.DescribeEndpoint
 import Network.AWS.SageMaker.DescribeNotebookInstance
 import Network.AWS.SageMaker.DescribeProcessingJob
@@ -24,223 +24,222 @@ import Network.AWS.SageMaker.DescribeTrainingJob
 import Network.AWS.SageMaker.DescribeTransformJob
 import Network.AWS.SageMaker.Lens
 import Network.AWS.SageMaker.Types
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newNotebookInstanceStopped :: Waiter.Wait DescribeNotebookInstance
+newNotebookInstanceStopped :: Core.Wait DescribeNotebookInstance
 newNotebookInstanceStopped =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "NotebookInstanceStopped",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "Stopped"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newEndpointDeleted :: Waiter.Wait DescribeEndpoint
+newEndpointDeleted :: Core.Wait DescribeEndpoint
 newEndpointDeleted =
-  Waiter.Wait
-    { Waiter._waitName = "EndpointDeleted",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchError
+  Core.Wait
+    { Core._waitName = "EndpointDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchError
             "ValidationException"
-            Waiter.AcceptSuccess,
-          Waiter.matchAll
+            Core.AcceptSuccess,
+          Core.matchAll
             "Failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeEndpointResponse_endpointStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newNotebookInstanceDeleted :: Waiter.Wait DescribeNotebookInstance
+newNotebookInstanceDeleted :: Core.Wait DescribeNotebookInstance
 newNotebookInstanceDeleted =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "NotebookInstanceDeleted",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchError
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchError
             "ValidationException"
-            Waiter.AcceptSuccess,
-          Waiter.matchAll
+            Core.AcceptSuccess,
+          Core.matchAll
             "Failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newNotebookInstanceInService :: Waiter.Wait DescribeNotebookInstance
+newNotebookInstanceInService :: Core.Wait DescribeNotebookInstance
 newNotebookInstanceInService =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "NotebookInstanceInService",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "InService"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
-newEndpointInService :: Waiter.Wait DescribeEndpoint
+newEndpointInService :: Core.Wait DescribeEndpoint
 newEndpointInService =
-  Waiter.Wait
-    { Waiter._waitName = "EndpointInService",
-      Waiter._waitAttempts = 120,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "EndpointInService",
+      Core._waitAttempts = 120,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "InService"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeEndpointResponse_endpointStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeEndpointResponse_endpointStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "ValidationException"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeTrainingJob' every 120 seconds until a successful state is reached. An error is returned after 180 failed checks.
-newTrainingJobCompletedOrStopped :: Waiter.Wait DescribeTrainingJob
+newTrainingJobCompletedOrStopped :: Core.Wait DescribeTrainingJob
 newTrainingJobCompletedOrStopped =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "TrainingJobCompletedOrStopped",
-      Waiter._waitAttempts = 180,
-      Waiter._waitDelay = 120,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 180,
+      Core._waitDelay = 120,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "Completed"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeTrainingJobResponse_trainingJobStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Stopped"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeTrainingJobResponse_trainingJobStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeTrainingJobResponse_trainingJobStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "ValidationException"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeProcessingJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newProcessingJobCompletedOrStopped :: Waiter.Wait DescribeProcessingJob
+newProcessingJobCompletedOrStopped :: Core.Wait DescribeProcessingJob
 newProcessingJobCompletedOrStopped =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "ProcessingJobCompletedOrStopped",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 60,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "Completed"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeProcessingJobResponse_processingJobStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Stopped"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeProcessingJobResponse_processingJobStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeProcessingJobResponse_processingJobStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "ValidationException"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
         ]
     }
 
 -- | Polls 'Network.AWS.SageMaker.DescribeTransformJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newTransformJobCompletedOrStopped :: Waiter.Wait DescribeTransformJob
+newTransformJobCompletedOrStopped :: Core.Wait DescribeTransformJob
 newTransformJobCompletedOrStopped =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "TransformJobCompletedOrStopped",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 60,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "Completed"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeTransformJobResponse_transformJobStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Stopped"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeTransformJobResponse_transformJobStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeTransformJobResponse_transformJobStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "ValidationException"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
         ]
     }

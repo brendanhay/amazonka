@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.UpdateConnectionOAuthClientRequestParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the OAuth authorization parameters to use for the connection.
 --
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 data UpdateConnectionOAuthClientRequestParameters = UpdateConnectionOAuthClientRequestParameters'
   { -- | The client secret assciated with the client ID to use for OAuth
     -- authorization.
-    clientSecret :: Prelude.Maybe Prelude.Text,
+    clientSecret :: Core.Maybe Core.Text,
     -- | The client ID to use for OAuth authorization.
-    clientID :: Prelude.Maybe Prelude.Text
+    clientID :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConnectionOAuthClientRequestParameters' with all optional fields omitted.
@@ -52,37 +51,36 @@ newUpdateConnectionOAuthClientRequestParameters ::
 newUpdateConnectionOAuthClientRequestParameters =
   UpdateConnectionOAuthClientRequestParameters'
     { clientSecret =
-        Prelude.Nothing,
-      clientID = Prelude.Nothing
+        Core.Nothing,
+      clientID = Core.Nothing
     }
 
 -- | The client secret assciated with the client ID to use for OAuth
 -- authorization.
-updateConnectionOAuthClientRequestParameters_clientSecret :: Lens.Lens' UpdateConnectionOAuthClientRequestParameters (Prelude.Maybe Prelude.Text)
+updateConnectionOAuthClientRequestParameters_clientSecret :: Lens.Lens' UpdateConnectionOAuthClientRequestParameters (Core.Maybe Core.Text)
 updateConnectionOAuthClientRequestParameters_clientSecret = Lens.lens (\UpdateConnectionOAuthClientRequestParameters' {clientSecret} -> clientSecret) (\s@UpdateConnectionOAuthClientRequestParameters' {} a -> s {clientSecret = a} :: UpdateConnectionOAuthClientRequestParameters)
 
 -- | The client ID to use for OAuth authorization.
-updateConnectionOAuthClientRequestParameters_clientID :: Lens.Lens' UpdateConnectionOAuthClientRequestParameters (Prelude.Maybe Prelude.Text)
+updateConnectionOAuthClientRequestParameters_clientID :: Lens.Lens' UpdateConnectionOAuthClientRequestParameters (Core.Maybe Core.Text)
 updateConnectionOAuthClientRequestParameters_clientID = Lens.lens (\UpdateConnectionOAuthClientRequestParameters' {clientID} -> clientID) (\s@UpdateConnectionOAuthClientRequestParameters' {} a -> s {clientID = a} :: UpdateConnectionOAuthClientRequestParameters)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateConnectionOAuthClientRequestParameters
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateConnectionOAuthClientRequestParameters
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     UpdateConnectionOAuthClientRequestParameters
   where
   toJSON
     UpdateConnectionOAuthClientRequestParameters' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ ("ClientSecret" Prelude..=)
-                Prelude.<$> clientSecret,
-              ("ClientID" Prelude..=) Prelude.<$> clientID
+      Core.object
+        ( Core.catMaybes
+            [ ("ClientSecret" Core..=) Core.<$> clientSecret,
+              ("ClientID" Core..=) Core.<$> clientID
             ]
         )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,17 +37,17 @@ module Network.AWS.Config.DeleteConfigurationAggregator
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteConfigurationAggregator' smart constructor.
 data DeleteConfigurationAggregator = DeleteConfigurationAggregator'
   { -- | The name of the configuration aggregator.
-    configurationAggregatorName :: Prelude.Text
+    configurationAggregatorName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationAggregator' with all optional fields omitted.
@@ -61,7 +60,7 @@ data DeleteConfigurationAggregator = DeleteConfigurationAggregator'
 -- 'configurationAggregatorName', 'deleteConfigurationAggregator_configurationAggregatorName' - The name of the configuration aggregator.
 newDeleteConfigurationAggregator ::
   -- | 'configurationAggregatorName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteConfigurationAggregator
 newDeleteConfigurationAggregator
   pConfigurationAggregatorName_ =
@@ -71,70 +70,60 @@ newDeleteConfigurationAggregator
       }
 
 -- | The name of the configuration aggregator.
-deleteConfigurationAggregator_configurationAggregatorName :: Lens.Lens' DeleteConfigurationAggregator Prelude.Text
+deleteConfigurationAggregator_configurationAggregatorName :: Lens.Lens' DeleteConfigurationAggregator Core.Text
 deleteConfigurationAggregator_configurationAggregatorName = Lens.lens (\DeleteConfigurationAggregator' {configurationAggregatorName} -> configurationAggregatorName) (\s@DeleteConfigurationAggregator' {} a -> s {configurationAggregatorName = a} :: DeleteConfigurationAggregator)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteConfigurationAggregator
   where
   type
-    Rs DeleteConfigurationAggregator =
+    AWSResponse DeleteConfigurationAggregator =
       DeleteConfigurationAggregatorResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteConfigurationAggregatorResponse'
 
-instance
-  Prelude.Hashable
-    DeleteConfigurationAggregator
+instance Core.Hashable DeleteConfigurationAggregator
 
-instance Prelude.NFData DeleteConfigurationAggregator
+instance Core.NFData DeleteConfigurationAggregator
 
-instance
-  Prelude.ToHeaders
-    DeleteConfigurationAggregator
-  where
+instance Core.ToHeaders DeleteConfigurationAggregator where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DeleteConfigurationAggregator" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DeleteConfigurationAggregator" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteConfigurationAggregator where
+instance Core.ToJSON DeleteConfigurationAggregator where
   toJSON DeleteConfigurationAggregator' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ConfigurationAggregatorName"
-                  Prelude..= configurationAggregatorName
+                  Core..= configurationAggregatorName
               )
           ]
       )
 
-instance Prelude.ToPath DeleteConfigurationAggregator where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteConfigurationAggregator where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteConfigurationAggregator
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteConfigurationAggregator where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteConfigurationAggregatorResponse' smart constructor.
 data DeleteConfigurationAggregatorResponse = DeleteConfigurationAggregatorResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationAggregatorResponse' with all optional fields omitted.
@@ -146,5 +135,5 @@ newDeleteConfigurationAggregatorResponse =
   DeleteConfigurationAggregatorResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteConfigurationAggregatorResponse

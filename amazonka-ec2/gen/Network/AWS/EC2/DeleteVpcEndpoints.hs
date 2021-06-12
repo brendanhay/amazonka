@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,9 +61,9 @@ module Network.AWS.EC2.DeleteVpcEndpoints
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,11 +75,11 @@ data DeleteVpcEndpoints = DeleteVpcEndpoints'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more VPC endpoint IDs.
-    vpcEndpointIds :: [Prelude.Text]
+    vpcEndpointIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcEndpoints' with all optional fields omitted.
@@ -100,56 +99,54 @@ newDeleteVpcEndpoints ::
   DeleteVpcEndpoints
 newDeleteVpcEndpoints =
   DeleteVpcEndpoints'
-    { dryRun = Prelude.Nothing,
-      vpcEndpointIds = Prelude.mempty
+    { dryRun = Core.Nothing,
+      vpcEndpointIds = Core.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteVpcEndpoints_dryRun :: Lens.Lens' DeleteVpcEndpoints (Prelude.Maybe Prelude.Bool)
+deleteVpcEndpoints_dryRun :: Lens.Lens' DeleteVpcEndpoints (Core.Maybe Core.Bool)
 deleteVpcEndpoints_dryRun = Lens.lens (\DeleteVpcEndpoints' {dryRun} -> dryRun) (\s@DeleteVpcEndpoints' {} a -> s {dryRun = a} :: DeleteVpcEndpoints)
 
 -- | One or more VPC endpoint IDs.
-deleteVpcEndpoints_vpcEndpointIds :: Lens.Lens' DeleteVpcEndpoints [Prelude.Text]
-deleteVpcEndpoints_vpcEndpointIds = Lens.lens (\DeleteVpcEndpoints' {vpcEndpointIds} -> vpcEndpointIds) (\s@DeleteVpcEndpoints' {} a -> s {vpcEndpointIds = a} :: DeleteVpcEndpoints) Prelude.. Prelude._Coerce
+deleteVpcEndpoints_vpcEndpointIds :: Lens.Lens' DeleteVpcEndpoints [Core.Text]
+deleteVpcEndpoints_vpcEndpointIds = Lens.lens (\DeleteVpcEndpoints' {vpcEndpointIds} -> vpcEndpointIds) (\s@DeleteVpcEndpoints' {} a -> s {vpcEndpointIds = a} :: DeleteVpcEndpoints) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DeleteVpcEndpoints where
+instance Core.AWSRequest DeleteVpcEndpoints where
   type
-    Rs DeleteVpcEndpoints =
+    AWSResponse DeleteVpcEndpoints =
       DeleteVpcEndpointsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteVpcEndpointsResponse'
-            Prelude.<$> ( x Prelude..@? "unsuccessful"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "unsuccessful" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVpcEndpoints
+instance Core.Hashable DeleteVpcEndpoints
 
-instance Prelude.NFData DeleteVpcEndpoints
+instance Core.NFData DeleteVpcEndpoints
 
-instance Prelude.ToHeaders DeleteVpcEndpoints where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteVpcEndpoints where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteVpcEndpoints where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteVpcEndpoints where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteVpcEndpoints where
+instance Core.ToQuery DeleteVpcEndpoints where
   toQuery DeleteVpcEndpoints' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteVpcEndpoints" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQueryList "VpcEndpointId" vpcEndpointIds
+          Core.=: ("DeleteVpcEndpoints" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQueryList "VpcEndpointId" vpcEndpointIds
       ]
 
 -- | Contains the output of DeleteVpcEndpoints.
@@ -157,11 +154,11 @@ instance Prelude.ToQuery DeleteVpcEndpoints where
 -- /See:/ 'newDeleteVpcEndpointsResponse' smart constructor.
 data DeleteVpcEndpointsResponse = DeleteVpcEndpointsResponse'
   { -- | Information about the VPC endpoints that were not successfully deleted.
-    unsuccessful :: Prelude.Maybe [UnsuccessfulItem],
+    unsuccessful :: Core.Maybe [UnsuccessfulItem],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcEndpointsResponse' with all optional fields omitted.
@@ -176,21 +173,21 @@ data DeleteVpcEndpointsResponse = DeleteVpcEndpointsResponse'
 -- 'httpStatus', 'deleteVpcEndpointsResponse_httpStatus' - The response's http status code.
 newDeleteVpcEndpointsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteVpcEndpointsResponse
 newDeleteVpcEndpointsResponse pHttpStatus_ =
   DeleteVpcEndpointsResponse'
     { unsuccessful =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the VPC endpoints that were not successfully deleted.
-deleteVpcEndpointsResponse_unsuccessful :: Lens.Lens' DeleteVpcEndpointsResponse (Prelude.Maybe [UnsuccessfulItem])
-deleteVpcEndpointsResponse_unsuccessful = Lens.lens (\DeleteVpcEndpointsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteVpcEndpointsResponse' {} a -> s {unsuccessful = a} :: DeleteVpcEndpointsResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteVpcEndpointsResponse_unsuccessful :: Lens.Lens' DeleteVpcEndpointsResponse (Core.Maybe [UnsuccessfulItem])
+deleteVpcEndpointsResponse_unsuccessful = Lens.lens (\DeleteVpcEndpointsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteVpcEndpointsResponse' {} a -> s {unsuccessful = a} :: DeleteVpcEndpointsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteVpcEndpointsResponse_httpStatus :: Lens.Lens' DeleteVpcEndpointsResponse Prelude.Int
+deleteVpcEndpointsResponse_httpStatus :: Lens.Lens' DeleteVpcEndpointsResponse Core.Int
 deleteVpcEndpointsResponse_httpStatus = Lens.lens (\DeleteVpcEndpointsResponse' {httpStatus} -> httpStatus) (\s@DeleteVpcEndpointsResponse' {} a -> s {httpStatus = a} :: DeleteVpcEndpointsResponse)
 
-instance Prelude.NFData DeleteVpcEndpointsResponse
+instance Core.NFData DeleteVpcEndpointsResponse

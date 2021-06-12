@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,21 +41,21 @@ module Network.AWS.Connect.UpdateQueueStatus
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateQueueStatus' smart constructor.
 data UpdateQueueStatus = UpdateQueueStatus'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier for the queue.
-    queueId :: Prelude.Text,
+    queueId :: Core.Text,
     -- | The status of the queue.
     status :: QueueStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateQueueStatus' with all optional fields omitted.
@@ -73,9 +72,9 @@ data UpdateQueueStatus = UpdateQueueStatus'
 -- 'status', 'updateQueueStatus_status' - The status of the queue.
 newUpdateQueueStatus ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'queueId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   QueueStatus ->
   UpdateQueueStatus
@@ -87,63 +86,63 @@ newUpdateQueueStatus pInstanceId_ pQueueId_ pStatus_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-updateQueueStatus_instanceId :: Lens.Lens' UpdateQueueStatus Prelude.Text
+updateQueueStatus_instanceId :: Lens.Lens' UpdateQueueStatus Core.Text
 updateQueueStatus_instanceId = Lens.lens (\UpdateQueueStatus' {instanceId} -> instanceId) (\s@UpdateQueueStatus' {} a -> s {instanceId = a} :: UpdateQueueStatus)
 
 -- | The identifier for the queue.
-updateQueueStatus_queueId :: Lens.Lens' UpdateQueueStatus Prelude.Text
+updateQueueStatus_queueId :: Lens.Lens' UpdateQueueStatus Core.Text
 updateQueueStatus_queueId = Lens.lens (\UpdateQueueStatus' {queueId} -> queueId) (\s@UpdateQueueStatus' {} a -> s {queueId = a} :: UpdateQueueStatus)
 
 -- | The status of the queue.
 updateQueueStatus_status :: Lens.Lens' UpdateQueueStatus QueueStatus
 updateQueueStatus_status = Lens.lens (\UpdateQueueStatus' {status} -> status) (\s@UpdateQueueStatus' {} a -> s {status = a} :: UpdateQueueStatus)
 
-instance Prelude.AWSRequest UpdateQueueStatus where
-  type Rs UpdateQueueStatus = UpdateQueueStatusResponse
+instance Core.AWSRequest UpdateQueueStatus where
+  type
+    AWSResponse UpdateQueueStatus =
+      UpdateQueueStatusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UpdateQueueStatusResponse'
 
-instance Prelude.Hashable UpdateQueueStatus
+instance Core.Hashable UpdateQueueStatus
 
-instance Prelude.NFData UpdateQueueStatus
+instance Core.NFData UpdateQueueStatus
 
-instance Prelude.ToHeaders UpdateQueueStatus where
+instance Core.ToHeaders UpdateQueueStatus where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateQueueStatus where
+instance Core.ToJSON UpdateQueueStatus where
   toJSON UpdateQueueStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Status" Prelude..= status)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Status" Core..= status)]
       )
 
-instance Prelude.ToPath UpdateQueueStatus where
+instance Core.ToPath UpdateQueueStatus where
   toPath UpdateQueueStatus' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/queues/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS queueId,
+        Core.toBS queueId,
         "/status"
       ]
 
-instance Prelude.ToQuery UpdateQueueStatus where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateQueueStatus where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateQueueStatusResponse' smart constructor.
 data UpdateQueueStatusResponse = UpdateQueueStatusResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateQueueStatusResponse' with all optional fields omitted.
@@ -154,4 +153,4 @@ newUpdateQueueStatusResponse ::
 newUpdateQueueStatusResponse =
   UpdateQueueStatusResponse'
 
-instance Prelude.NFData UpdateQueueStatusResponse
+instance Core.NFData UpdateQueueStatusResponse

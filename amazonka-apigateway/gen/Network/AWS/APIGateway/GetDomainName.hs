@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.APIGateway.GetDomainName
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,9 +65,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetDomainName' smart constructor.
 data GetDomainName = GetDomainName'
   { -- | [Required] The name of the DomainName resource.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDomainName' with all optional fields omitted.
@@ -81,39 +80,39 @@ data GetDomainName = GetDomainName'
 -- 'domainName', 'getDomainName_domainName' - [Required] The name of the DomainName resource.
 newGetDomainName ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   GetDomainName
 newGetDomainName pDomainName_ =
   GetDomainName' {domainName = pDomainName_}
 
 -- | [Required] The name of the DomainName resource.
-getDomainName_domainName :: Lens.Lens' GetDomainName Prelude.Text
+getDomainName_domainName :: Lens.Lens' GetDomainName Core.Text
 getDomainName_domainName = Lens.lens (\GetDomainName' {domainName} -> domainName) (\s@GetDomainName' {} a -> s {domainName = a} :: GetDomainName)
 
-instance Prelude.AWSRequest GetDomainName where
-  type Rs GetDomainName = DomainName
+instance Core.AWSRequest GetDomainName where
+  type AWSResponse GetDomainName = DomainName
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetDomainName
+instance Core.Hashable GetDomainName
 
-instance Prelude.NFData GetDomainName
+instance Core.NFData GetDomainName
 
-instance Prelude.ToHeaders GetDomainName where
+instance Core.ToHeaders GetDomainName where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetDomainName where
+instance Core.ToPath GetDomainName where
   toPath GetDomainName' {..} =
-    Prelude.mconcat
-      ["/domainnames/", Prelude.toBS domainName]
+    Core.mconcat
+      ["/domainnames/", Core.toBS domainName]
 
-instance Prelude.ToQuery GetDomainName where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDomainName where
+  toQuery = Core.const Core.mempty

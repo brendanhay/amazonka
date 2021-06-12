@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.EKS.DeleteNodegroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ import qualified Network.AWS.Response as Response
 data DeleteNodegroup = DeleteNodegroup'
   { -- | The name of the Amazon EKS cluster that is associated with your node
     -- group.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | The name of the node group to delete.
-    nodegroupName :: Prelude.Text
+    nodegroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNodegroup' with all optional fields omitted.
@@ -71,9 +70,9 @@ data DeleteNodegroup = DeleteNodegroup'
 -- 'nodegroupName', 'deleteNodegroup_nodegroupName' - The name of the node group to delete.
 newDeleteNodegroup ::
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'nodegroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteNodegroup
 newDeleteNodegroup pClusterName_ pNodegroupName_ =
   DeleteNodegroup'
@@ -83,59 +82,59 @@ newDeleteNodegroup pClusterName_ pNodegroupName_ =
 
 -- | The name of the Amazon EKS cluster that is associated with your node
 -- group.
-deleteNodegroup_clusterName :: Lens.Lens' DeleteNodegroup Prelude.Text
+deleteNodegroup_clusterName :: Lens.Lens' DeleteNodegroup Core.Text
 deleteNodegroup_clusterName = Lens.lens (\DeleteNodegroup' {clusterName} -> clusterName) (\s@DeleteNodegroup' {} a -> s {clusterName = a} :: DeleteNodegroup)
 
 -- | The name of the node group to delete.
-deleteNodegroup_nodegroupName :: Lens.Lens' DeleteNodegroup Prelude.Text
+deleteNodegroup_nodegroupName :: Lens.Lens' DeleteNodegroup Core.Text
 deleteNodegroup_nodegroupName = Lens.lens (\DeleteNodegroup' {nodegroupName} -> nodegroupName) (\s@DeleteNodegroup' {} a -> s {nodegroupName = a} :: DeleteNodegroup)
 
-instance Prelude.AWSRequest DeleteNodegroup where
-  type Rs DeleteNodegroup = DeleteNodegroupResponse
+instance Core.AWSRequest DeleteNodegroup where
+  type
+    AWSResponse DeleteNodegroup =
+      DeleteNodegroupResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteNodegroupResponse'
-            Prelude.<$> (x Prelude..?> "nodegroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nodegroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteNodegroup
+instance Core.Hashable DeleteNodegroup
 
-instance Prelude.NFData DeleteNodegroup
+instance Core.NFData DeleteNodegroup
 
-instance Prelude.ToHeaders DeleteNodegroup where
+instance Core.ToHeaders DeleteNodegroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteNodegroup where
+instance Core.ToPath DeleteNodegroup where
   toPath DeleteNodegroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clusters/",
-        Prelude.toBS clusterName,
+        Core.toBS clusterName,
         "/node-groups/",
-        Prelude.toBS nodegroupName
+        Core.toBS nodegroupName
       ]
 
-instance Prelude.ToQuery DeleteNodegroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteNodegroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteNodegroupResponse' smart constructor.
 data DeleteNodegroupResponse = DeleteNodegroupResponse'
   { -- | The full description of your deleted node group.
-    nodegroup :: Prelude.Maybe Nodegroup,
+    nodegroup :: Core.Maybe Nodegroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNodegroupResponse' with all optional fields omitted.
@@ -150,21 +149,20 @@ data DeleteNodegroupResponse = DeleteNodegroupResponse'
 -- 'httpStatus', 'deleteNodegroupResponse_httpStatus' - The response's http status code.
 newDeleteNodegroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteNodegroupResponse
 newDeleteNodegroupResponse pHttpStatus_ =
   DeleteNodegroupResponse'
-    { nodegroup =
-        Prelude.Nothing,
+    { nodegroup = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of your deleted node group.
-deleteNodegroupResponse_nodegroup :: Lens.Lens' DeleteNodegroupResponse (Prelude.Maybe Nodegroup)
+deleteNodegroupResponse_nodegroup :: Lens.Lens' DeleteNodegroupResponse (Core.Maybe Nodegroup)
 deleteNodegroupResponse_nodegroup = Lens.lens (\DeleteNodegroupResponse' {nodegroup} -> nodegroup) (\s@DeleteNodegroupResponse' {} a -> s {nodegroup = a} :: DeleteNodegroupResponse)
 
 -- | The response's http status code.
-deleteNodegroupResponse_httpStatus :: Lens.Lens' DeleteNodegroupResponse Prelude.Int
+deleteNodegroupResponse_httpStatus :: Lens.Lens' DeleteNodegroupResponse Core.Int
 deleteNodegroupResponse_httpStatus = Lens.lens (\DeleteNodegroupResponse' {httpStatus} -> httpStatus) (\s@DeleteNodegroupResponse' {} a -> s {httpStatus = a} :: DeleteNodegroupResponse)
 
-instance Prelude.NFData DeleteNodegroupResponse
+instance Core.NFData DeleteNodegroupResponse

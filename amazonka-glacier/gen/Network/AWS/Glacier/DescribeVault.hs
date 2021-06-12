@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -67,9 +66,9 @@ module Network.AWS.Glacier.DescribeVault
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,11 +82,11 @@ data DescribeVault = DescribeVault'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVault' with all optional fields omitted.
@@ -106,9 +105,9 @@ data DescribeVault = DescribeVault'
 -- 'vaultName', 'describeVault_vaultName' - The name of the vault.
 newDescribeVault ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeVault
 newDescribeVault pAccountId_ pVaultName_ =
   DescribeVault'
@@ -121,37 +120,37 @@ newDescribeVault pAccountId_ pVaultName_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-describeVault_accountId :: Lens.Lens' DescribeVault Prelude.Text
+describeVault_accountId :: Lens.Lens' DescribeVault Core.Text
 describeVault_accountId = Lens.lens (\DescribeVault' {accountId} -> accountId) (\s@DescribeVault' {} a -> s {accountId = a} :: DescribeVault)
 
 -- | The name of the vault.
-describeVault_vaultName :: Lens.Lens' DescribeVault Prelude.Text
+describeVault_vaultName :: Lens.Lens' DescribeVault Core.Text
 describeVault_vaultName = Lens.lens (\DescribeVault' {vaultName} -> vaultName) (\s@DescribeVault' {} a -> s {vaultName = a} :: DescribeVault)
 
-instance Prelude.AWSRequest DescribeVault where
-  type Rs DescribeVault = DescribeVaultOutput
+instance Core.AWSRequest DescribeVault where
+  type AWSResponse DescribeVault = DescribeVaultOutput
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.get defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DescribeVault
+instance Core.Hashable DescribeVault
 
-instance Prelude.NFData DescribeVault
+instance Core.NFData DescribeVault
 
-instance Prelude.ToHeaders DescribeVault where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeVault where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeVault where
+instance Core.ToPath DescribeVault where
   toPath DescribeVault' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName
+        Core.toBS vaultName
       ]
 
-instance Prelude.ToQuery DescribeVault where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeVault where
+  toQuery = Core.const Core.mempty

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.CopyObjectResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for all response elements.
@@ -31,11 +30,11 @@ data CopyObjectResult = CopyObjectResult'
   { -- | Returns the ETag of the new object. The ETag reflects only changes to
     -- the contents of an object, not its metadata. The source and destination
     -- ETag is identical for a successfully copied non-multipart object.
-    eTag :: Prelude.Maybe ETag,
+    eTag :: Core.Maybe ETag,
     -- | Creation date of the object.
-    lastModified :: Prelude.Maybe Prelude.ISO8601
+    lastModified :: Core.Maybe Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopyObjectResult' with all optional fields omitted.
@@ -54,26 +53,26 @@ newCopyObjectResult ::
   CopyObjectResult
 newCopyObjectResult =
   CopyObjectResult'
-    { eTag = Prelude.Nothing,
-      lastModified = Prelude.Nothing
+    { eTag = Core.Nothing,
+      lastModified = Core.Nothing
     }
 
 -- | Returns the ETag of the new object. The ETag reflects only changes to
 -- the contents of an object, not its metadata. The source and destination
 -- ETag is identical for a successfully copied non-multipart object.
-copyObjectResult_eTag :: Lens.Lens' CopyObjectResult (Prelude.Maybe ETag)
+copyObjectResult_eTag :: Lens.Lens' CopyObjectResult (Core.Maybe ETag)
 copyObjectResult_eTag = Lens.lens (\CopyObjectResult' {eTag} -> eTag) (\s@CopyObjectResult' {} a -> s {eTag = a} :: CopyObjectResult)
 
 -- | Creation date of the object.
-copyObjectResult_lastModified :: Lens.Lens' CopyObjectResult (Prelude.Maybe Prelude.UTCTime)
-copyObjectResult_lastModified = Lens.lens (\CopyObjectResult' {lastModified} -> lastModified) (\s@CopyObjectResult' {} a -> s {lastModified = a} :: CopyObjectResult) Prelude.. Lens.mapping Prelude._Time
+copyObjectResult_lastModified :: Lens.Lens' CopyObjectResult (Core.Maybe Core.UTCTime)
+copyObjectResult_lastModified = Lens.lens (\CopyObjectResult' {lastModified} -> lastModified) (\s@CopyObjectResult' {} a -> s {lastModified = a} :: CopyObjectResult) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromXML CopyObjectResult where
+instance Core.FromXML CopyObjectResult where
   parseXML x =
     CopyObjectResult'
-      Prelude.<$> (x Prelude..@? "ETag")
-      Prelude.<*> (x Prelude..@? "LastModified")
+      Core.<$> (x Core..@? "ETag")
+      Core.<*> (x Core..@? "LastModified")
 
-instance Prelude.Hashable CopyObjectResult
+instance Core.Hashable CopyObjectResult
 
-instance Prelude.NFData CopyObjectResult
+instance Core.NFData CopyObjectResult

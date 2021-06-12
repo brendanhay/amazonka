@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.TagListMessage where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output from the @AddTagsToResource@,
 -- @ListTagsForResource@, and @RemoveTagsFromResource@ operations.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTagListMessage' smart constructor.
 data TagListMessage = TagListMessage'
   { -- | A list of cost allocation tags as key-value pairs.
-    tagList :: Prelude.Maybe [Tag]
+    tagList :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagListMessage' with all optional fields omitted.
@@ -46,19 +45,19 @@ data TagListMessage = TagListMessage'
 newTagListMessage ::
   TagListMessage
 newTagListMessage =
-  TagListMessage' {tagList = Prelude.Nothing}
+  TagListMessage' {tagList = Core.Nothing}
 
 -- | A list of cost allocation tags as key-value pairs.
-tagListMessage_tagList :: Lens.Lens' TagListMessage (Prelude.Maybe [Tag])
-tagListMessage_tagList = Lens.lens (\TagListMessage' {tagList} -> tagList) (\s@TagListMessage' {} a -> s {tagList = a} :: TagListMessage) Prelude.. Lens.mapping Prelude._Coerce
+tagListMessage_tagList :: Lens.Lens' TagListMessage (Core.Maybe [Tag])
+tagListMessage_tagList = Lens.lens (\TagListMessage' {tagList} -> tagList) (\s@TagListMessage' {} a -> s {tagList = a} :: TagListMessage) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML TagListMessage where
+instance Core.FromXML TagListMessage where
   parseXML x =
     TagListMessage'
-      Prelude.<$> ( x Prelude..@? "TagList" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "Tag")
-                  )
+      Core.<$> ( x Core..@? "TagList" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "Tag")
+               )
 
-instance Prelude.Hashable TagListMessage
+instance Core.Hashable TagListMessage
 
-instance Prelude.NFData TagListMessage
+instance Core.NFData TagListMessage

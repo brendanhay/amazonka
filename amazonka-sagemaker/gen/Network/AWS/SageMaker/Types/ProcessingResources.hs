@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ProcessingResources where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ProcessingClusterConfig
 
 -- | Identifies the resources, ML compute instances, and ML storage volumes
@@ -34,7 +33,7 @@ data ProcessingResources = ProcessingResources'
     -- processing job.
     clusterConfig :: ProcessingClusterConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProcessingResources' with all optional fields omitted.
@@ -61,24 +60,22 @@ newProcessingResources pClusterConfig_ =
 processingResources_clusterConfig :: Lens.Lens' ProcessingResources ProcessingClusterConfig
 processingResources_clusterConfig = Lens.lens (\ProcessingResources' {clusterConfig} -> clusterConfig) (\s@ProcessingResources' {} a -> s {clusterConfig = a} :: ProcessingResources)
 
-instance Prelude.FromJSON ProcessingResources where
+instance Core.FromJSON ProcessingResources where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProcessingResources"
       ( \x ->
           ProcessingResources'
-            Prelude.<$> (x Prelude..: "ClusterConfig")
+            Core.<$> (x Core..: "ClusterConfig")
       )
 
-instance Prelude.Hashable ProcessingResources
+instance Core.Hashable ProcessingResources
 
-instance Prelude.NFData ProcessingResources
+instance Core.NFData ProcessingResources
 
-instance Prelude.ToJSON ProcessingResources where
+instance Core.ToJSON ProcessingResources where
   toJSON ProcessingResources' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ClusterConfig" Prelude..= clusterConfig)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ClusterConfig" Core..= clusterConfig)]
       )

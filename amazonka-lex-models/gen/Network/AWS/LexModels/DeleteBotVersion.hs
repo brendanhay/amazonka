@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,22 +40,22 @@ module Network.AWS.LexModels.DeleteBotVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteBotVersion' smart constructor.
 data DeleteBotVersion = DeleteBotVersion'
   { -- | The name of the bot.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The version of the bot to delete. You cannot delete the @$LATEST@
     -- version of the bot. To delete the @$LATEST@ version, use the DeleteBot
     -- operation.
-    version :: Prelude.Text
+    version :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBotVersion' with all optional fields omitted.
@@ -73,9 +72,9 @@ data DeleteBotVersion = DeleteBotVersion'
 -- operation.
 newDeleteBotVersion ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBotVersion
 newDeleteBotVersion pName_ pVersion_ =
   DeleteBotVersion'
@@ -84,53 +83,53 @@ newDeleteBotVersion pName_ pVersion_ =
     }
 
 -- | The name of the bot.
-deleteBotVersion_name :: Lens.Lens' DeleteBotVersion Prelude.Text
+deleteBotVersion_name :: Lens.Lens' DeleteBotVersion Core.Text
 deleteBotVersion_name = Lens.lens (\DeleteBotVersion' {name} -> name) (\s@DeleteBotVersion' {} a -> s {name = a} :: DeleteBotVersion)
 
 -- | The version of the bot to delete. You cannot delete the @$LATEST@
 -- version of the bot. To delete the @$LATEST@ version, use the DeleteBot
 -- operation.
-deleteBotVersion_version :: Lens.Lens' DeleteBotVersion Prelude.Text
+deleteBotVersion_version :: Lens.Lens' DeleteBotVersion Core.Text
 deleteBotVersion_version = Lens.lens (\DeleteBotVersion' {version} -> version) (\s@DeleteBotVersion' {} a -> s {version = a} :: DeleteBotVersion)
 
-instance Prelude.AWSRequest DeleteBotVersion where
-  type Rs DeleteBotVersion = DeleteBotVersionResponse
+instance Core.AWSRequest DeleteBotVersion where
+  type
+    AWSResponse DeleteBotVersion =
+      DeleteBotVersionResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteBotVersionResponse'
 
-instance Prelude.Hashable DeleteBotVersion
+instance Core.Hashable DeleteBotVersion
 
-instance Prelude.NFData DeleteBotVersion
+instance Core.NFData DeleteBotVersion
 
-instance Prelude.ToHeaders DeleteBotVersion where
+instance Core.ToHeaders DeleteBotVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteBotVersion where
+instance Core.ToPath DeleteBotVersion where
   toPath DeleteBotVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/bots/",
-        Prelude.toBS name,
+        Core.toBS name,
         "/versions/",
-        Prelude.toBS version
+        Core.toBS version
       ]
 
-instance Prelude.ToQuery DeleteBotVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteBotVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteBotVersionResponse' smart constructor.
 data DeleteBotVersionResponse = DeleteBotVersionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBotVersionResponse' with all optional fields omitted.
@@ -141,4 +140,4 @@ newDeleteBotVersionResponse ::
 newDeleteBotVersionResponse =
   DeleteBotVersionResponse'
 
-instance Prelude.NFData DeleteBotVersionResponse
+instance Core.NFData DeleteBotVersionResponse

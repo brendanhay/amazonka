@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DataPipeline.Types.ParameterAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The attributes allowed or specified with a parameter object.
 --
 -- /See:/ 'newParameterAttribute' smart constructor.
 data ParameterAttribute = ParameterAttribute'
   { -- | The field identifier.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | The field value, expressed as a String.
-    stringValue :: Prelude.Text
+    stringValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterAttribute' with all optional fields omitted.
@@ -47,9 +46,9 @@ data ParameterAttribute = ParameterAttribute'
 -- 'stringValue', 'parameterAttribute_stringValue' - The field value, expressed as a String.
 newParameterAttribute ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stringValue'
-  Prelude.Text ->
+  Core.Text ->
   ParameterAttribute
 newParameterAttribute pKey_ pStringValue_ =
   ParameterAttribute'
@@ -58,32 +57,31 @@ newParameterAttribute pKey_ pStringValue_ =
     }
 
 -- | The field identifier.
-parameterAttribute_key :: Lens.Lens' ParameterAttribute Prelude.Text
+parameterAttribute_key :: Lens.Lens' ParameterAttribute Core.Text
 parameterAttribute_key = Lens.lens (\ParameterAttribute' {key} -> key) (\s@ParameterAttribute' {} a -> s {key = a} :: ParameterAttribute)
 
 -- | The field value, expressed as a String.
-parameterAttribute_stringValue :: Lens.Lens' ParameterAttribute Prelude.Text
+parameterAttribute_stringValue :: Lens.Lens' ParameterAttribute Core.Text
 parameterAttribute_stringValue = Lens.lens (\ParameterAttribute' {stringValue} -> stringValue) (\s@ParameterAttribute' {} a -> s {stringValue = a} :: ParameterAttribute)
 
-instance Prelude.FromJSON ParameterAttribute where
+instance Core.FromJSON ParameterAttribute where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParameterAttribute"
       ( \x ->
           ParameterAttribute'
-            Prelude.<$> (x Prelude..: "key")
-            Prelude.<*> (x Prelude..: "stringValue")
+            Core.<$> (x Core..: "key") Core.<*> (x Core..: "stringValue")
       )
 
-instance Prelude.Hashable ParameterAttribute
+instance Core.Hashable ParameterAttribute
 
-instance Prelude.NFData ParameterAttribute
+instance Core.NFData ParameterAttribute
 
-instance Prelude.ToJSON ParameterAttribute where
+instance Core.ToJSON ParameterAttribute where
   toJSON ParameterAttribute' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("key" Prelude..= key),
-            Prelude.Just ("stringValue" Prelude..= stringValue)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("key" Core..= key),
+            Core.Just ("stringValue" Core..= stringValue)
           ]
       )

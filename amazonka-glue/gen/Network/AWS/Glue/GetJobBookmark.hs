@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,20 +40,20 @@ module Network.AWS.Glue.GetJobBookmark
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetJobBookmark' smart constructor.
 data GetJobBookmark = GetJobBookmark'
   { -- | The unique run identifier associated with this job run.
-    runId :: Prelude.Maybe Prelude.Text,
+    runId :: Core.Maybe Core.Text,
     -- | The name of the job in question.
-    jobName :: Prelude.Text
+    jobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobBookmark' with all optional fields omitted.
@@ -69,73 +68,73 @@ data GetJobBookmark = GetJobBookmark'
 -- 'jobName', 'getJobBookmark_jobName' - The name of the job in question.
 newGetJobBookmark ::
   -- | 'jobName'
-  Prelude.Text ->
+  Core.Text ->
   GetJobBookmark
 newGetJobBookmark pJobName_ =
   GetJobBookmark'
-    { runId = Prelude.Nothing,
+    { runId = Core.Nothing,
       jobName = pJobName_
     }
 
 -- | The unique run identifier associated with this job run.
-getJobBookmark_runId :: Lens.Lens' GetJobBookmark (Prelude.Maybe Prelude.Text)
+getJobBookmark_runId :: Lens.Lens' GetJobBookmark (Core.Maybe Core.Text)
 getJobBookmark_runId = Lens.lens (\GetJobBookmark' {runId} -> runId) (\s@GetJobBookmark' {} a -> s {runId = a} :: GetJobBookmark)
 
 -- | The name of the job in question.
-getJobBookmark_jobName :: Lens.Lens' GetJobBookmark Prelude.Text
+getJobBookmark_jobName :: Lens.Lens' GetJobBookmark Core.Text
 getJobBookmark_jobName = Lens.lens (\GetJobBookmark' {jobName} -> jobName) (\s@GetJobBookmark' {} a -> s {jobName = a} :: GetJobBookmark)
 
-instance Prelude.AWSRequest GetJobBookmark where
-  type Rs GetJobBookmark = GetJobBookmarkResponse
+instance Core.AWSRequest GetJobBookmark where
+  type
+    AWSResponse GetJobBookmark =
+      GetJobBookmarkResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetJobBookmarkResponse'
-            Prelude.<$> (x Prelude..?> "JobBookmarkEntry")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobBookmarkEntry")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetJobBookmark
+instance Core.Hashable GetJobBookmark
 
-instance Prelude.NFData GetJobBookmark
+instance Core.NFData GetJobBookmark
 
-instance Prelude.ToHeaders GetJobBookmark where
+instance Core.ToHeaders GetJobBookmark where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.GetJobBookmark" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.GetJobBookmark" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetJobBookmark where
+instance Core.ToJSON GetJobBookmark where
   toJSON GetJobBookmark' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RunId" Prelude..=) Prelude.<$> runId,
-            Prelude.Just ("JobName" Prelude..= jobName)
+    Core.object
+      ( Core.catMaybes
+          [ ("RunId" Core..=) Core.<$> runId,
+            Core.Just ("JobName" Core..= jobName)
           ]
       )
 
-instance Prelude.ToPath GetJobBookmark where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetJobBookmark where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetJobBookmark where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetJobBookmark where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetJobBookmarkResponse' smart constructor.
 data GetJobBookmarkResponse = GetJobBookmarkResponse'
   { -- | A structure that defines a point that a job can resume processing.
-    jobBookmarkEntry :: Prelude.Maybe JobBookmarkEntry,
+    jobBookmarkEntry :: Core.Maybe JobBookmarkEntry,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobBookmarkResponse' with all optional fields omitted.
@@ -150,21 +149,21 @@ data GetJobBookmarkResponse = GetJobBookmarkResponse'
 -- 'httpStatus', 'getJobBookmarkResponse_httpStatus' - The response's http status code.
 newGetJobBookmarkResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetJobBookmarkResponse
 newGetJobBookmarkResponse pHttpStatus_ =
   GetJobBookmarkResponse'
     { jobBookmarkEntry =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that defines a point that a job can resume processing.
-getJobBookmarkResponse_jobBookmarkEntry :: Lens.Lens' GetJobBookmarkResponse (Prelude.Maybe JobBookmarkEntry)
+getJobBookmarkResponse_jobBookmarkEntry :: Lens.Lens' GetJobBookmarkResponse (Core.Maybe JobBookmarkEntry)
 getJobBookmarkResponse_jobBookmarkEntry = Lens.lens (\GetJobBookmarkResponse' {jobBookmarkEntry} -> jobBookmarkEntry) (\s@GetJobBookmarkResponse' {} a -> s {jobBookmarkEntry = a} :: GetJobBookmarkResponse)
 
 -- | The response's http status code.
-getJobBookmarkResponse_httpStatus :: Lens.Lens' GetJobBookmarkResponse Prelude.Int
+getJobBookmarkResponse_httpStatus :: Lens.Lens' GetJobBookmarkResponse Core.Int
 getJobBookmarkResponse_httpStatus = Lens.lens (\GetJobBookmarkResponse' {httpStatus} -> httpStatus) (\s@GetJobBookmarkResponse' {} a -> s {httpStatus = a} :: GetJobBookmarkResponse)
 
-instance Prelude.NFData GetJobBookmarkResponse
+instance Core.NFData GetJobBookmarkResponse

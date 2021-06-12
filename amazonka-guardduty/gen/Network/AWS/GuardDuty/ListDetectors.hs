@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.GuardDuty.ListDetectors
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +56,13 @@ data ListDetectors = ListDetectors'
     -- this parameter to null on your first call to the list action. For
     -- subsequent calls to the action, fill nextToken in the request with the
     -- value of NextToken from the previous response to continue listing data.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | You can use this parameter to indicate the maximum number of items that
     -- you want in the response. The default value is 50. The maximum value is
     -- 50.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDetectors' with all optional fields omitted.
@@ -86,90 +84,88 @@ newListDetectors ::
   ListDetectors
 newListDetectors =
   ListDetectors'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the list action. For
 -- subsequent calls to the action, fill nextToken in the request with the
 -- value of NextToken from the previous response to continue listing data.
-listDetectors_nextToken :: Lens.Lens' ListDetectors (Prelude.Maybe Prelude.Text)
+listDetectors_nextToken :: Lens.Lens' ListDetectors (Core.Maybe Core.Text)
 listDetectors_nextToken = Lens.lens (\ListDetectors' {nextToken} -> nextToken) (\s@ListDetectors' {} a -> s {nextToken = a} :: ListDetectors)
 
 -- | You can use this parameter to indicate the maximum number of items that
 -- you want in the response. The default value is 50. The maximum value is
 -- 50.
-listDetectors_maxResults :: Lens.Lens' ListDetectors (Prelude.Maybe Prelude.Natural)
+listDetectors_maxResults :: Lens.Lens' ListDetectors (Core.Maybe Core.Natural)
 listDetectors_maxResults = Lens.lens (\ListDetectors' {maxResults} -> maxResults) (\s@ListDetectors' {} a -> s {maxResults = a} :: ListDetectors)
 
-instance Pager.AWSPager ListDetectors where
+instance Core.AWSPager ListDetectors where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listDetectorsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listDetectorsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. listDetectorsResponse_detectorIds) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listDetectors_nextToken
           Lens..~ rs
-          Lens.^? listDetectorsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDetectorsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListDetectors where
-  type Rs ListDetectors = ListDetectorsResponse
+instance Core.AWSRequest ListDetectors where
+  type
+    AWSResponse ListDetectors =
+      ListDetectorsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListDetectorsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "detectorIds"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "detectorIds" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListDetectors
+instance Core.Hashable ListDetectors
 
-instance Prelude.NFData ListDetectors
+instance Core.NFData ListDetectors
 
-instance Prelude.ToHeaders ListDetectors where
+instance Core.ToHeaders ListDetectors where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListDetectors where
-  toPath = Prelude.const "/detector"
+instance Core.ToPath ListDetectors where
+  toPath = Core.const "/detector"
 
-instance Prelude.ToQuery ListDetectors where
+instance Core.ToQuery ListDetectors where
   toQuery ListDetectors' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListDetectorsResponse' smart constructor.
 data ListDetectorsResponse = ListDetectorsResponse'
   { -- | The pagination parameter to be used on the next list operation to
     -- retrieve more items.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of detector IDs.
-    detectorIds :: [Prelude.Text]
+    detectorIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDetectorsResponse' with all optional fields omitted.
@@ -187,26 +183,26 @@ data ListDetectorsResponse = ListDetectorsResponse'
 -- 'detectorIds', 'listDetectorsResponse_detectorIds' - A list of detector IDs.
 newListDetectorsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDetectorsResponse
 newListDetectorsResponse pHttpStatus_ =
   ListDetectorsResponse'
-    { nextToken = Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      detectorIds = Prelude.mempty
+      detectorIds = Core.mempty
     }
 
 -- | The pagination parameter to be used on the next list operation to
 -- retrieve more items.
-listDetectorsResponse_nextToken :: Lens.Lens' ListDetectorsResponse (Prelude.Maybe Prelude.Text)
+listDetectorsResponse_nextToken :: Lens.Lens' ListDetectorsResponse (Core.Maybe Core.Text)
 listDetectorsResponse_nextToken = Lens.lens (\ListDetectorsResponse' {nextToken} -> nextToken) (\s@ListDetectorsResponse' {} a -> s {nextToken = a} :: ListDetectorsResponse)
 
 -- | The response's http status code.
-listDetectorsResponse_httpStatus :: Lens.Lens' ListDetectorsResponse Prelude.Int
+listDetectorsResponse_httpStatus :: Lens.Lens' ListDetectorsResponse Core.Int
 listDetectorsResponse_httpStatus = Lens.lens (\ListDetectorsResponse' {httpStatus} -> httpStatus) (\s@ListDetectorsResponse' {} a -> s {httpStatus = a} :: ListDetectorsResponse)
 
 -- | A list of detector IDs.
-listDetectorsResponse_detectorIds :: Lens.Lens' ListDetectorsResponse [Prelude.Text]
-listDetectorsResponse_detectorIds = Lens.lens (\ListDetectorsResponse' {detectorIds} -> detectorIds) (\s@ListDetectorsResponse' {} a -> s {detectorIds = a} :: ListDetectorsResponse) Prelude.. Prelude._Coerce
+listDetectorsResponse_detectorIds :: Lens.Lens' ListDetectorsResponse [Core.Text]
+listDetectorsResponse_detectorIds = Lens.lens (\ListDetectorsResponse' {detectorIds} -> detectorIds) (\s@ListDetectorsResponse' {} a -> s {detectorIds = a} :: ListDetectorsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListDetectorsResponse
+instance Core.NFData ListDetectorsResponse

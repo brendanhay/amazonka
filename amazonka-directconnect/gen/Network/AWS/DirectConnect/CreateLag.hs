@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -87,34 +86,34 @@ module Network.AWS.DirectConnect.CreateLag
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateLag' smart constructor.
 data CreateLag = CreateLag'
   { -- | The name of the service provider associated with the LAG.
-    providerName :: Prelude.Maybe Prelude.Text,
+    providerName :: Core.Maybe Core.Text,
     -- | The ID of an existing dedicated connection to migrate to the LAG.
-    connectionId :: Prelude.Maybe Prelude.Text,
+    connectionId :: Core.Maybe Core.Text,
     -- | The tags to associate with the automtically created LAGs.
-    childConnectionTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    childConnectionTags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The tags to associate with the LAG.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The number of physical dedicated connections initially provisioned and
     -- bundled by the LAG.
-    numberOfConnections :: Prelude.Int,
+    numberOfConnections :: Core.Int,
     -- | The location for the LAG.
-    location :: Prelude.Text,
+    location :: Core.Text,
     -- | The bandwidth of the individual physical dedicated connections bundled
     -- by the LAG. The possible values are 1Gbps and 10Gbps.
-    connectionsBandwidth :: Prelude.Text,
+    connectionsBandwidth :: Core.Text,
     -- | The name of the LAG.
-    lagName :: Prelude.Text
+    lagName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLag' with all optional fields omitted.
@@ -143,13 +142,13 @@ data CreateLag = CreateLag'
 -- 'lagName', 'createLag_lagName' - The name of the LAG.
 newCreateLag ::
   -- | 'numberOfConnections'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'location'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'connectionsBandwidth'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lagName'
-  Prelude.Text ->
+  Core.Text ->
   CreateLag
 newCreateLag
   pNumberOfConnections_
@@ -157,10 +156,10 @@ newCreateLag
   pConnectionsBandwidth_
   pLagName_ =
     CreateLag'
-      { providerName = Prelude.Nothing,
-        connectionId = Prelude.Nothing,
-        childConnectionTags = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { providerName = Core.Nothing,
+        connectionId = Core.Nothing,
+        childConnectionTags = Core.Nothing,
+        tags = Core.Nothing,
         numberOfConnections = pNumberOfConnections_,
         location = pLocation_,
         connectionsBandwidth = pConnectionsBandwidth_,
@@ -168,88 +167,83 @@ newCreateLag
       }
 
 -- | The name of the service provider associated with the LAG.
-createLag_providerName :: Lens.Lens' CreateLag (Prelude.Maybe Prelude.Text)
+createLag_providerName :: Lens.Lens' CreateLag (Core.Maybe Core.Text)
 createLag_providerName = Lens.lens (\CreateLag' {providerName} -> providerName) (\s@CreateLag' {} a -> s {providerName = a} :: CreateLag)
 
 -- | The ID of an existing dedicated connection to migrate to the LAG.
-createLag_connectionId :: Lens.Lens' CreateLag (Prelude.Maybe Prelude.Text)
+createLag_connectionId :: Lens.Lens' CreateLag (Core.Maybe Core.Text)
 createLag_connectionId = Lens.lens (\CreateLag' {connectionId} -> connectionId) (\s@CreateLag' {} a -> s {connectionId = a} :: CreateLag)
 
 -- | The tags to associate with the automtically created LAGs.
-createLag_childConnectionTags :: Lens.Lens' CreateLag (Prelude.Maybe (Prelude.NonEmpty Tag))
-createLag_childConnectionTags = Lens.lens (\CreateLag' {childConnectionTags} -> childConnectionTags) (\s@CreateLag' {} a -> s {childConnectionTags = a} :: CreateLag) Prelude.. Lens.mapping Prelude._Coerce
+createLag_childConnectionTags :: Lens.Lens' CreateLag (Core.Maybe (Core.NonEmpty Tag))
+createLag_childConnectionTags = Lens.lens (\CreateLag' {childConnectionTags} -> childConnectionTags) (\s@CreateLag' {} a -> s {childConnectionTags = a} :: CreateLag) Core.. Lens.mapping Lens._Coerce
 
 -- | The tags to associate with the LAG.
-createLag_tags :: Lens.Lens' CreateLag (Prelude.Maybe (Prelude.NonEmpty Tag))
-createLag_tags = Lens.lens (\CreateLag' {tags} -> tags) (\s@CreateLag' {} a -> s {tags = a} :: CreateLag) Prelude.. Lens.mapping Prelude._Coerce
+createLag_tags :: Lens.Lens' CreateLag (Core.Maybe (Core.NonEmpty Tag))
+createLag_tags = Lens.lens (\CreateLag' {tags} -> tags) (\s@CreateLag' {} a -> s {tags = a} :: CreateLag) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of physical dedicated connections initially provisioned and
 -- bundled by the LAG.
-createLag_numberOfConnections :: Lens.Lens' CreateLag Prelude.Int
+createLag_numberOfConnections :: Lens.Lens' CreateLag Core.Int
 createLag_numberOfConnections = Lens.lens (\CreateLag' {numberOfConnections} -> numberOfConnections) (\s@CreateLag' {} a -> s {numberOfConnections = a} :: CreateLag)
 
 -- | The location for the LAG.
-createLag_location :: Lens.Lens' CreateLag Prelude.Text
+createLag_location :: Lens.Lens' CreateLag Core.Text
 createLag_location = Lens.lens (\CreateLag' {location} -> location) (\s@CreateLag' {} a -> s {location = a} :: CreateLag)
 
 -- | The bandwidth of the individual physical dedicated connections bundled
 -- by the LAG. The possible values are 1Gbps and 10Gbps.
-createLag_connectionsBandwidth :: Lens.Lens' CreateLag Prelude.Text
+createLag_connectionsBandwidth :: Lens.Lens' CreateLag Core.Text
 createLag_connectionsBandwidth = Lens.lens (\CreateLag' {connectionsBandwidth} -> connectionsBandwidth) (\s@CreateLag' {} a -> s {connectionsBandwidth = a} :: CreateLag)
 
 -- | The name of the LAG.
-createLag_lagName :: Lens.Lens' CreateLag Prelude.Text
+createLag_lagName :: Lens.Lens' CreateLag Core.Text
 createLag_lagName = Lens.lens (\CreateLag' {lagName} -> lagName) (\s@CreateLag' {} a -> s {lagName = a} :: CreateLag)
 
-instance Prelude.AWSRequest CreateLag where
-  type Rs CreateLag = Lag
+instance Core.AWSRequest CreateLag where
+  type AWSResponse CreateLag = Lag
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateLag
+instance Core.Hashable CreateLag
 
-instance Prelude.NFData CreateLag
+instance Core.NFData CreateLag
 
-instance Prelude.ToHeaders CreateLag where
+instance Core.ToHeaders CreateLag where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("OvertureService.CreateLag" :: Prelude.ByteString),
+              Core.=# ("OvertureService.CreateLag" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateLag where
+instance Core.ToJSON CreateLag where
   toJSON CreateLag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("providerName" Prelude..=)
-              Prelude.<$> providerName,
-            ("connectionId" Prelude..=) Prelude.<$> connectionId,
-            ("childConnectionTags" Prelude..=)
-              Prelude.<$> childConnectionTags,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
-              ( "numberOfConnections"
-                  Prelude..= numberOfConnections
-              ),
-            Prelude.Just ("location" Prelude..= location),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("providerName" Core..=) Core.<$> providerName,
+            ("connectionId" Core..=) Core.<$> connectionId,
+            ("childConnectionTags" Core..=)
+              Core.<$> childConnectionTags,
+            ("tags" Core..=) Core.<$> tags,
+            Core.Just
+              ("numberOfConnections" Core..= numberOfConnections),
+            Core.Just ("location" Core..= location),
+            Core.Just
               ( "connectionsBandwidth"
-                  Prelude..= connectionsBandwidth
+                  Core..= connectionsBandwidth
               ),
-            Prelude.Just ("lagName" Prelude..= lagName)
+            Core.Just ("lagName" Core..= lagName)
           ]
       )
 
-instance Prelude.ToPath CreateLag where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateLag where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateLag where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateLag where
+  toQuery = Core.const Core.mempty

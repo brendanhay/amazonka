@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.SizeConstraintSetSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -45,11 +44,11 @@ data SizeConstraintSetSummary = SizeConstraintSetSummary'
     --
     -- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by
     -- ListSizeConstraintSets.
-    sizeConstraintSetId :: Prelude.Text,
+    sizeConstraintSetId :: Core.Text,
     -- | The name of the @SizeConstraintSet@, if any.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SizeConstraintSetSummary' with all optional fields omitted.
@@ -72,9 +71,9 @@ data SizeConstraintSetSummary = SizeConstraintSetSummary'
 -- 'name', 'sizeConstraintSetSummary_name' - The name of the @SizeConstraintSet@, if any.
 newSizeConstraintSetSummary ::
   -- | 'sizeConstraintSetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   SizeConstraintSetSummary
 newSizeConstraintSetSummary
   pSizeConstraintSetId_
@@ -94,23 +93,23 @@ newSizeConstraintSetSummary
 --
 -- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by
 -- ListSizeConstraintSets.
-sizeConstraintSetSummary_sizeConstraintSetId :: Lens.Lens' SizeConstraintSetSummary Prelude.Text
+sizeConstraintSetSummary_sizeConstraintSetId :: Lens.Lens' SizeConstraintSetSummary Core.Text
 sizeConstraintSetSummary_sizeConstraintSetId = Lens.lens (\SizeConstraintSetSummary' {sizeConstraintSetId} -> sizeConstraintSetId) (\s@SizeConstraintSetSummary' {} a -> s {sizeConstraintSetId = a} :: SizeConstraintSetSummary)
 
 -- | The name of the @SizeConstraintSet@, if any.
-sizeConstraintSetSummary_name :: Lens.Lens' SizeConstraintSetSummary Prelude.Text
+sizeConstraintSetSummary_name :: Lens.Lens' SizeConstraintSetSummary Core.Text
 sizeConstraintSetSummary_name = Lens.lens (\SizeConstraintSetSummary' {name} -> name) (\s@SizeConstraintSetSummary' {} a -> s {name = a} :: SizeConstraintSetSummary)
 
-instance Prelude.FromJSON SizeConstraintSetSummary where
+instance Core.FromJSON SizeConstraintSetSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SizeConstraintSetSummary"
       ( \x ->
           SizeConstraintSetSummary'
-            Prelude.<$> (x Prelude..: "SizeConstraintSetId")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..: "SizeConstraintSetId")
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable SizeConstraintSetSummary
+instance Core.Hashable SizeConstraintSetSummary
 
-instance Prelude.NFData SizeConstraintSetSummary
+instance Core.NFData SizeConstraintSetSummary

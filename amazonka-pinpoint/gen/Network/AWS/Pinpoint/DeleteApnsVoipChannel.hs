@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.DeleteApnsVoipChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DeleteApnsVoipChannel = DeleteApnsVoipChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApnsVoipChannel' with all optional fields omitted.
@@ -67,7 +66,7 @@ data DeleteApnsVoipChannel = DeleteApnsVoipChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteApnsVoipChannel ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteApnsVoipChannel
 newDeleteApnsVoipChannel pApplicationId_ =
   DeleteApnsVoipChannel'
@@ -77,55 +76,53 @@ newDeleteApnsVoipChannel pApplicationId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteApnsVoipChannel_applicationId :: Lens.Lens' DeleteApnsVoipChannel Prelude.Text
+deleteApnsVoipChannel_applicationId :: Lens.Lens' DeleteApnsVoipChannel Core.Text
 deleteApnsVoipChannel_applicationId = Lens.lens (\DeleteApnsVoipChannel' {applicationId} -> applicationId) (\s@DeleteApnsVoipChannel' {} a -> s {applicationId = a} :: DeleteApnsVoipChannel)
 
-instance Prelude.AWSRequest DeleteApnsVoipChannel where
+instance Core.AWSRequest DeleteApnsVoipChannel where
   type
-    Rs DeleteApnsVoipChannel =
+    AWSResponse DeleteApnsVoipChannel =
       DeleteApnsVoipChannelResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteApnsVoipChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteApnsVoipChannel
+instance Core.Hashable DeleteApnsVoipChannel
 
-instance Prelude.NFData DeleteApnsVoipChannel
+instance Core.NFData DeleteApnsVoipChannel
 
-instance Prelude.ToHeaders DeleteApnsVoipChannel where
+instance Core.ToHeaders DeleteApnsVoipChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteApnsVoipChannel where
+instance Core.ToPath DeleteApnsVoipChannel where
   toPath DeleteApnsVoipChannel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/channels/apns_voip"
       ]
 
-instance Prelude.ToQuery DeleteApnsVoipChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteApnsVoipChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteApnsVoipChannelResponse' smart constructor.
 data DeleteApnsVoipChannelResponse = DeleteApnsVoipChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     aPNSVoipChannelResponse :: APNSVoipChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApnsVoipChannelResponse' with all optional fields omitted.
@@ -140,7 +137,7 @@ data DeleteApnsVoipChannelResponse = DeleteApnsVoipChannelResponse'
 -- 'aPNSVoipChannelResponse', 'deleteApnsVoipChannelResponse_aPNSVoipChannelResponse' - Undocumented member.
 newDeleteApnsVoipChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'aPNSVoipChannelResponse'
   APNSVoipChannelResponse ->
   DeleteApnsVoipChannelResponse
@@ -155,11 +152,11 @@ newDeleteApnsVoipChannelResponse
       }
 
 -- | The response's http status code.
-deleteApnsVoipChannelResponse_httpStatus :: Lens.Lens' DeleteApnsVoipChannelResponse Prelude.Int
+deleteApnsVoipChannelResponse_httpStatus :: Lens.Lens' DeleteApnsVoipChannelResponse Core.Int
 deleteApnsVoipChannelResponse_httpStatus = Lens.lens (\DeleteApnsVoipChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteApnsVoipChannelResponse' {} a -> s {httpStatus = a} :: DeleteApnsVoipChannelResponse)
 
 -- | Undocumented member.
 deleteApnsVoipChannelResponse_aPNSVoipChannelResponse :: Lens.Lens' DeleteApnsVoipChannelResponse APNSVoipChannelResponse
 deleteApnsVoipChannelResponse_aPNSVoipChannelResponse = Lens.lens (\DeleteApnsVoipChannelResponse' {aPNSVoipChannelResponse} -> aPNSVoipChannelResponse) (\s@DeleteApnsVoipChannelResponse' {} a -> s {aPNSVoipChannelResponse = a} :: DeleteApnsVoipChannelResponse)
 
-instance Prelude.NFData DeleteApnsVoipChannelResponse
+instance Core.NFData DeleteApnsVoipChannelResponse

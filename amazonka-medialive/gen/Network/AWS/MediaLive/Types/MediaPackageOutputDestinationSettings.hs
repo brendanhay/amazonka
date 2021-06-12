@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.MediaPackageOutputDestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | MediaPackage Output Destination Settings
 --
@@ -32,9 +31,9 @@ data MediaPackageOutputDestinationSettings = MediaPackageOutputDestinationSettin
     -- MediaPackage; MediaLive will handle the connection of the two MediaLive
     -- pipelines to the two MediaPackage inputs. The MediaPackage channel and
     -- MediaLive channel must be in the same region.
-    channelId :: Prelude.Maybe Prelude.Text
+    channelId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MediaPackageOutputDestinationSettings' with all optional fields omitted.
@@ -54,7 +53,7 @@ newMediaPackageOutputDestinationSettings ::
 newMediaPackageOutputDestinationSettings =
   MediaPackageOutputDestinationSettings'
     { channelId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | ID of the channel in MediaPackage that is the destination for this
@@ -62,35 +61,35 @@ newMediaPackageOutputDestinationSettings =
 -- MediaPackage; MediaLive will handle the connection of the two MediaLive
 -- pipelines to the two MediaPackage inputs. The MediaPackage channel and
 -- MediaLive channel must be in the same region.
-mediaPackageOutputDestinationSettings_channelId :: Lens.Lens' MediaPackageOutputDestinationSettings (Prelude.Maybe Prelude.Text)
+mediaPackageOutputDestinationSettings_channelId :: Lens.Lens' MediaPackageOutputDestinationSettings (Core.Maybe Core.Text)
 mediaPackageOutputDestinationSettings_channelId = Lens.lens (\MediaPackageOutputDestinationSettings' {channelId} -> channelId) (\s@MediaPackageOutputDestinationSettings' {} a -> s {channelId = a} :: MediaPackageOutputDestinationSettings)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     MediaPackageOutputDestinationSettings
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MediaPackageOutputDestinationSettings"
       ( \x ->
           MediaPackageOutputDestinationSettings'
-            Prelude.<$> (x Prelude..:? "channelId")
+            Core.<$> (x Core..:? "channelId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     MediaPackageOutputDestinationSettings
 
 instance
-  Prelude.NFData
+  Core.NFData
     MediaPackageOutputDestinationSettings
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     MediaPackageOutputDestinationSettings
   where
   toJSON MediaPackageOutputDestinationSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("channelId" Prelude..=) Prelude.<$> channelId]
+    Core.object
+      ( Core.catMaybes
+          [("channelId" Core..=) Core.<$> channelId]
       )

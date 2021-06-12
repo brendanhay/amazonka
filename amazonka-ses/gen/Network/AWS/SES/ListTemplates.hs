@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,8 @@ module Network.AWS.SES.ListTemplates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -58,14 +56,14 @@ import Network.AWS.SES.Types
 data ListTemplates = ListTemplates'
   { -- | A token returned from a previous call to @ListTemplates@ to indicate the
     -- position in the list of email templates.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of templates to return. This value must be at least 1
     -- and less than or equal to 10. If you do not specify a value, or if you
     -- specify a value less than 1 or greater than 10, the operation will
     -- return up to 10 results.
-    maxItems :: Prelude.Maybe Prelude.Int
+    maxItems :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTemplates' with all optional fields omitted.
@@ -86,77 +84,77 @@ newListTemplates ::
   ListTemplates
 newListTemplates =
   ListTemplates'
-    { nextToken = Prelude.Nothing,
-      maxItems = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxItems = Core.Nothing
     }
 
 -- | A token returned from a previous call to @ListTemplates@ to indicate the
 -- position in the list of email templates.
-listTemplates_nextToken :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
+listTemplates_nextToken :: Lens.Lens' ListTemplates (Core.Maybe Core.Text)
 listTemplates_nextToken = Lens.lens (\ListTemplates' {nextToken} -> nextToken) (\s@ListTemplates' {} a -> s {nextToken = a} :: ListTemplates)
 
 -- | The maximum number of templates to return. This value must be at least 1
 -- and less than or equal to 10. If you do not specify a value, or if you
 -- specify a value less than 1 or greater than 10, the operation will
 -- return up to 10 results.
-listTemplates_maxItems :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Int)
+listTemplates_maxItems :: Lens.Lens' ListTemplates (Core.Maybe Core.Int)
 listTemplates_maxItems = Lens.lens (\ListTemplates' {maxItems} -> maxItems) (\s@ListTemplates' {} a -> s {maxItems = a} :: ListTemplates)
 
-instance Pager.AWSPager ListTemplates where
+instance Core.AWSPager ListTemplates where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listTemplatesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTemplatesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listTemplatesResponse_templatesMetadata
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTemplates_nextToken
           Lens..~ rs
-          Lens.^? listTemplatesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTemplatesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTemplates where
-  type Rs ListTemplates = ListTemplatesResponse
+instance Core.AWSRequest ListTemplates where
+  type
+    AWSResponse ListTemplates =
+      ListTemplatesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListTemplatesResult"
       ( \s h x ->
           ListTemplatesResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> ( x Prelude..@? "TemplatesMetadata"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "TemplatesMetadata" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTemplates
+instance Core.Hashable ListTemplates
 
-instance Prelude.NFData ListTemplates
+instance Core.NFData ListTemplates
 
-instance Prelude.ToHeaders ListTemplates where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListTemplates where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListTemplates where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTemplates where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTemplates where
+instance Core.ToQuery ListTemplates where
   toQuery ListTemplates' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListTemplates" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "MaxItems" Prelude.=: maxItems
+          Core.=: ("ListTemplates" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListTemplatesResponse' smart constructor.
@@ -164,14 +162,14 @@ data ListTemplatesResponse = ListTemplatesResponse'
   { -- | A token indicating that there are additional email templates available
     -- to be listed. Pass this token to a subsequent call to @ListTemplates@ to
     -- retrieve the next 50 email templates.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array the contains the name and creation time stamp for each template
     -- in your Amazon SES account.
-    templatesMetadata :: Prelude.Maybe [TemplateMetadata],
+    templatesMetadata :: Core.Maybe [TemplateMetadata],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTemplatesResponse' with all optional fields omitted.
@@ -191,28 +189,28 @@ data ListTemplatesResponse = ListTemplatesResponse'
 -- 'httpStatus', 'listTemplatesResponse_httpStatus' - The response's http status code.
 newListTemplatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTemplatesResponse
 newListTemplatesResponse pHttpStatus_ =
   ListTemplatesResponse'
-    { nextToken = Prelude.Nothing,
-      templatesMetadata = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      templatesMetadata = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token indicating that there are additional email templates available
 -- to be listed. Pass this token to a subsequent call to @ListTemplates@ to
 -- retrieve the next 50 email templates.
-listTemplatesResponse_nextToken :: Lens.Lens' ListTemplatesResponse (Prelude.Maybe Prelude.Text)
+listTemplatesResponse_nextToken :: Lens.Lens' ListTemplatesResponse (Core.Maybe Core.Text)
 listTemplatesResponse_nextToken = Lens.lens (\ListTemplatesResponse' {nextToken} -> nextToken) (\s@ListTemplatesResponse' {} a -> s {nextToken = a} :: ListTemplatesResponse)
 
 -- | An array the contains the name and creation time stamp for each template
 -- in your Amazon SES account.
-listTemplatesResponse_templatesMetadata :: Lens.Lens' ListTemplatesResponse (Prelude.Maybe [TemplateMetadata])
-listTemplatesResponse_templatesMetadata = Lens.lens (\ListTemplatesResponse' {templatesMetadata} -> templatesMetadata) (\s@ListTemplatesResponse' {} a -> s {templatesMetadata = a} :: ListTemplatesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTemplatesResponse_templatesMetadata :: Lens.Lens' ListTemplatesResponse (Core.Maybe [TemplateMetadata])
+listTemplatesResponse_templatesMetadata = Lens.lens (\ListTemplatesResponse' {templatesMetadata} -> templatesMetadata) (\s@ListTemplatesResponse' {} a -> s {templatesMetadata = a} :: ListTemplatesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTemplatesResponse_httpStatus :: Lens.Lens' ListTemplatesResponse Prelude.Int
+listTemplatesResponse_httpStatus :: Lens.Lens' ListTemplatesResponse Core.Int
 listTemplatesResponse_httpStatus = Lens.lens (\ListTemplatesResponse' {httpStatus} -> httpStatus) (\s@ListTemplatesResponse' {} a -> s {httpStatus = a} :: ListTemplatesResponse)
 
-instance Prelude.NFData ListTemplatesResponse
+instance Core.NFData ListTemplatesResponse

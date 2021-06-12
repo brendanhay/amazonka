@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.APIGateway.DeleteRequestValidator
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,11 +47,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteRequestValidator' smart constructor.
 data DeleteRequestValidator = DeleteRequestValidator'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The identifier of the RequestValidator to be deleted.
-    requestValidatorId :: Prelude.Text
+    requestValidatorId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRequestValidator' with all optional fields omitted.
@@ -67,9 +66,9 @@ data DeleteRequestValidator = DeleteRequestValidator'
 -- 'requestValidatorId', 'deleteRequestValidator_requestValidatorId' - [Required] The identifier of the RequestValidator to be deleted.
 newDeleteRequestValidator ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'requestValidatorId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteRequestValidator
 newDeleteRequestValidator
   pRestApiId_
@@ -80,52 +79,52 @@ newDeleteRequestValidator
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteRequestValidator_restApiId :: Lens.Lens' DeleteRequestValidator Prelude.Text
+deleteRequestValidator_restApiId :: Lens.Lens' DeleteRequestValidator Core.Text
 deleteRequestValidator_restApiId = Lens.lens (\DeleteRequestValidator' {restApiId} -> restApiId) (\s@DeleteRequestValidator' {} a -> s {restApiId = a} :: DeleteRequestValidator)
 
 -- | [Required] The identifier of the RequestValidator to be deleted.
-deleteRequestValidator_requestValidatorId :: Lens.Lens' DeleteRequestValidator Prelude.Text
+deleteRequestValidator_requestValidatorId :: Lens.Lens' DeleteRequestValidator Core.Text
 deleteRequestValidator_requestValidatorId = Lens.lens (\DeleteRequestValidator' {requestValidatorId} -> requestValidatorId) (\s@DeleteRequestValidator' {} a -> s {requestValidatorId = a} :: DeleteRequestValidator)
 
-instance Prelude.AWSRequest DeleteRequestValidator where
+instance Core.AWSRequest DeleteRequestValidator where
   type
-    Rs DeleteRequestValidator =
+    AWSResponse DeleteRequestValidator =
       DeleteRequestValidatorResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteRequestValidatorResponse'
 
-instance Prelude.Hashable DeleteRequestValidator
+instance Core.Hashable DeleteRequestValidator
 
-instance Prelude.NFData DeleteRequestValidator
+instance Core.NFData DeleteRequestValidator
 
-instance Prelude.ToHeaders DeleteRequestValidator where
+instance Core.ToHeaders DeleteRequestValidator where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteRequestValidator where
+instance Core.ToPath DeleteRequestValidator where
   toPath DeleteRequestValidator' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/requestvalidators/",
-        Prelude.toBS requestValidatorId
+        Core.toBS requestValidatorId
       ]
 
-instance Prelude.ToQuery DeleteRequestValidator where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteRequestValidator where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteRequestValidatorResponse' smart constructor.
 data DeleteRequestValidatorResponse = DeleteRequestValidatorResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRequestValidatorResponse' with all optional fields omitted.
@@ -136,6 +135,4 @@ newDeleteRequestValidatorResponse ::
 newDeleteRequestValidatorResponse =
   DeleteRequestValidatorResponse'
 
-instance
-  Prelude.NFData
-    DeleteRequestValidatorResponse
+instance Core.NFData DeleteRequestValidatorResponse

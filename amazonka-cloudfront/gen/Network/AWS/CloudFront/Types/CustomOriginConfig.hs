@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFront.Types.CustomOriginConfig where
 
 import Network.AWS.CloudFront.Types.OriginProtocolPolicy
 import Network.AWS.CloudFront.Types.OriginSslProtocols
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A custom origin. A custom origin is any origin that is /not/ an Amazon
 -- S3 bucket, with one exception. An Amazon S3 bucket that is
@@ -39,7 +38,7 @@ data CustomOriginConfig = CustomOriginConfig'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout Origin Keep-alive Timeout>
     -- in the /Amazon CloudFront Developer Guide/.
-    originKeepaliveTimeout :: Prelude.Maybe Prelude.Int,
+    originKeepaliveTimeout :: Core.Maybe Core.Int,
     -- | Specifies the minimum SSL\/TLS protocol that CloudFront uses when
     -- connecting to your origin over HTTPS. Valid values include @SSLv3@,
     -- @TLSv1@, @TLSv1.1@, and @TLSv1.2@.
@@ -47,7 +46,7 @@ data CustomOriginConfig = CustomOriginConfig'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols Minimum Origin SSL Protocol>
     -- in the /Amazon CloudFront Developer Guide/.
-    originSslProtocols :: Prelude.Maybe OriginSslProtocols,
+    originSslProtocols :: Core.Maybe OriginSslProtocols,
     -- | Specifies how long, in seconds, CloudFront waits for a response from the
     -- origin. This is also known as the /origin response timeout/. The minimum
     -- timeout is 1 second, the maximum is 60 seconds, and the default (if you
@@ -56,13 +55,13 @@ data CustomOriginConfig = CustomOriginConfig'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout>
     -- in the /Amazon CloudFront Developer Guide/.
-    originReadTimeout :: Prelude.Maybe Prelude.Int,
+    originReadTimeout :: Core.Maybe Core.Int,
     -- | The HTTP port that CloudFront uses to connect to the origin. Specify the
     -- HTTP port that the origin listens on.
-    hTTPPort :: Prelude.Int,
+    hTTPPort :: Core.Int,
     -- | The HTTPS port that CloudFront uses to connect to the origin. Specify
     -- the HTTPS port that the origin listens on.
-    hTTPSPort :: Prelude.Int,
+    hTTPSPort :: Core.Int,
     -- | Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect
     -- to the origin. Valid values are:
     --
@@ -75,7 +74,7 @@ data CustomOriginConfig = CustomOriginConfig'
     --     origin.
     originProtocolPolicy :: OriginProtocolPolicy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CustomOriginConfig' with all optional fields omitted.
@@ -128,9 +127,9 @@ data CustomOriginConfig = CustomOriginConfig'
 --     origin.
 newCustomOriginConfig ::
   -- | 'hTTPPort'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'hTTPSPort'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'originProtocolPolicy'
   OriginProtocolPolicy ->
   CustomOriginConfig
@@ -140,9 +139,9 @@ newCustomOriginConfig
   pOriginProtocolPolicy_ =
     CustomOriginConfig'
       { originKeepaliveTimeout =
-          Prelude.Nothing,
-        originSslProtocols = Prelude.Nothing,
-        originReadTimeout = Prelude.Nothing,
+          Core.Nothing,
+        originSslProtocols = Core.Nothing,
+        originReadTimeout = Core.Nothing,
         hTTPPort = pHTTPPort_,
         hTTPSPort = pHTTPSPort_,
         originProtocolPolicy = pOriginProtocolPolicy_
@@ -155,7 +154,7 @@ newCustomOriginConfig
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout Origin Keep-alive Timeout>
 -- in the /Amazon CloudFront Developer Guide/.
-customOriginConfig_originKeepaliveTimeout :: Lens.Lens' CustomOriginConfig (Prelude.Maybe Prelude.Int)
+customOriginConfig_originKeepaliveTimeout :: Lens.Lens' CustomOriginConfig (Core.Maybe Core.Int)
 customOriginConfig_originKeepaliveTimeout = Lens.lens (\CustomOriginConfig' {originKeepaliveTimeout} -> originKeepaliveTimeout) (\s@CustomOriginConfig' {} a -> s {originKeepaliveTimeout = a} :: CustomOriginConfig)
 
 -- | Specifies the minimum SSL\/TLS protocol that CloudFront uses when
@@ -165,7 +164,7 @@ customOriginConfig_originKeepaliveTimeout = Lens.lens (\CustomOriginConfig' {ori
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols Minimum Origin SSL Protocol>
 -- in the /Amazon CloudFront Developer Guide/.
-customOriginConfig_originSslProtocols :: Lens.Lens' CustomOriginConfig (Prelude.Maybe OriginSslProtocols)
+customOriginConfig_originSslProtocols :: Lens.Lens' CustomOriginConfig (Core.Maybe OriginSslProtocols)
 customOriginConfig_originSslProtocols = Lens.lens (\CustomOriginConfig' {originSslProtocols} -> originSslProtocols) (\s@CustomOriginConfig' {} a -> s {originSslProtocols = a} :: CustomOriginConfig)
 
 -- | Specifies how long, in seconds, CloudFront waits for a response from the
@@ -176,17 +175,17 @@ customOriginConfig_originSslProtocols = Lens.lens (\CustomOriginConfig' {originS
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout>
 -- in the /Amazon CloudFront Developer Guide/.
-customOriginConfig_originReadTimeout :: Lens.Lens' CustomOriginConfig (Prelude.Maybe Prelude.Int)
+customOriginConfig_originReadTimeout :: Lens.Lens' CustomOriginConfig (Core.Maybe Core.Int)
 customOriginConfig_originReadTimeout = Lens.lens (\CustomOriginConfig' {originReadTimeout} -> originReadTimeout) (\s@CustomOriginConfig' {} a -> s {originReadTimeout = a} :: CustomOriginConfig)
 
 -- | The HTTP port that CloudFront uses to connect to the origin. Specify the
 -- HTTP port that the origin listens on.
-customOriginConfig_hTTPPort :: Lens.Lens' CustomOriginConfig Prelude.Int
+customOriginConfig_hTTPPort :: Lens.Lens' CustomOriginConfig Core.Int
 customOriginConfig_hTTPPort = Lens.lens (\CustomOriginConfig' {hTTPPort} -> hTTPPort) (\s@CustomOriginConfig' {} a -> s {hTTPPort = a} :: CustomOriginConfig)
 
 -- | The HTTPS port that CloudFront uses to connect to the origin. Specify
 -- the HTTPS port that the origin listens on.
-customOriginConfig_hTTPSPort :: Lens.Lens' CustomOriginConfig Prelude.Int
+customOriginConfig_hTTPSPort :: Lens.Lens' CustomOriginConfig Core.Int
 customOriginConfig_hTTPSPort = Lens.lens (\CustomOriginConfig' {hTTPSPort} -> hTTPSPort) (\s@CustomOriginConfig' {} a -> s {hTTPSPort = a} :: CustomOriginConfig)
 
 -- | Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect
@@ -202,29 +201,28 @@ customOriginConfig_hTTPSPort = Lens.lens (\CustomOriginConfig' {hTTPSPort} -> hT
 customOriginConfig_originProtocolPolicy :: Lens.Lens' CustomOriginConfig OriginProtocolPolicy
 customOriginConfig_originProtocolPolicy = Lens.lens (\CustomOriginConfig' {originProtocolPolicy} -> originProtocolPolicy) (\s@CustomOriginConfig' {} a -> s {originProtocolPolicy = a} :: CustomOriginConfig)
 
-instance Prelude.FromXML CustomOriginConfig where
+instance Core.FromXML CustomOriginConfig where
   parseXML x =
     CustomOriginConfig'
-      Prelude.<$> (x Prelude..@? "OriginKeepaliveTimeout")
-      Prelude.<*> (x Prelude..@? "OriginSslProtocols")
-      Prelude.<*> (x Prelude..@? "OriginReadTimeout")
-      Prelude.<*> (x Prelude..@ "HTTPPort")
-      Prelude.<*> (x Prelude..@ "HTTPSPort")
-      Prelude.<*> (x Prelude..@ "OriginProtocolPolicy")
+      Core.<$> (x Core..@? "OriginKeepaliveTimeout")
+      Core.<*> (x Core..@? "OriginSslProtocols")
+      Core.<*> (x Core..@? "OriginReadTimeout")
+      Core.<*> (x Core..@ "HTTPPort")
+      Core.<*> (x Core..@ "HTTPSPort")
+      Core.<*> (x Core..@ "OriginProtocolPolicy")
 
-instance Prelude.Hashable CustomOriginConfig
+instance Core.Hashable CustomOriginConfig
 
-instance Prelude.NFData CustomOriginConfig
+instance Core.NFData CustomOriginConfig
 
-instance Prelude.ToXML CustomOriginConfig where
+instance Core.ToXML CustomOriginConfig where
   toXML CustomOriginConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "OriginKeepaliveTimeout"
-          Prelude.@= originKeepaliveTimeout,
-        "OriginSslProtocols" Prelude.@= originSslProtocols,
-        "OriginReadTimeout" Prelude.@= originReadTimeout,
-        "HTTPPort" Prelude.@= hTTPPort,
-        "HTTPSPort" Prelude.@= hTTPSPort,
-        "OriginProtocolPolicy"
-          Prelude.@= originProtocolPolicy
+          Core.@= originKeepaliveTimeout,
+        "OriginSslProtocols" Core.@= originSslProtocols,
+        "OriginReadTimeout" Core.@= originReadTimeout,
+        "HTTPPort" Core.@= hTTPPort,
+        "HTTPSPort" Core.@= hTTPSPort,
+        "OriginProtocolPolicy" Core.@= originProtocolPolicy
       ]

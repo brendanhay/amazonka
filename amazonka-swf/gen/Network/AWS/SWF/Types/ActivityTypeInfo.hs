@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.ActivityTypeInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ActivityType
 import Network.AWS.SWF.Types.RegistrationStatus
 
@@ -30,18 +29,18 @@ import Network.AWS.SWF.Types.RegistrationStatus
 -- /See:/ 'newActivityTypeInfo' smart constructor.
 data ActivityTypeInfo = ActivityTypeInfo'
   { -- | If DEPRECATED, the date and time DeprecateActivityType was called.
-    deprecationDate :: Prelude.Maybe Prelude.POSIX,
+    deprecationDate :: Core.Maybe Core.POSIX,
     -- | The description of the activity type provided in RegisterActivityType.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The ActivityType type structure representing the activity type.
     activityType :: ActivityType,
     -- | The current status of the activity type.
     status :: RegistrationStatus,
     -- | The date and time this activity type was created through
     -- RegisterActivityType.
-    creationDate :: Prelude.POSIX
+    creationDate :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActivityTypeInfo' with all optional fields omitted.
@@ -67,27 +66,26 @@ newActivityTypeInfo ::
   -- | 'status'
   RegistrationStatus ->
   -- | 'creationDate'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   ActivityTypeInfo
 newActivityTypeInfo
   pActivityType_
   pStatus_
   pCreationDate_ =
     ActivityTypeInfo'
-      { deprecationDate =
-          Prelude.Nothing,
-        description = Prelude.Nothing,
+      { deprecationDate = Core.Nothing,
+        description = Core.Nothing,
         activityType = pActivityType_,
         status = pStatus_,
-        creationDate = Prelude._Time Lens.# pCreationDate_
+        creationDate = Core._Time Lens.# pCreationDate_
       }
 
 -- | If DEPRECATED, the date and time DeprecateActivityType was called.
-activityTypeInfo_deprecationDate :: Lens.Lens' ActivityTypeInfo (Prelude.Maybe Prelude.UTCTime)
-activityTypeInfo_deprecationDate = Lens.lens (\ActivityTypeInfo' {deprecationDate} -> deprecationDate) (\s@ActivityTypeInfo' {} a -> s {deprecationDate = a} :: ActivityTypeInfo) Prelude.. Lens.mapping Prelude._Time
+activityTypeInfo_deprecationDate :: Lens.Lens' ActivityTypeInfo (Core.Maybe Core.UTCTime)
+activityTypeInfo_deprecationDate = Lens.lens (\ActivityTypeInfo' {deprecationDate} -> deprecationDate) (\s@ActivityTypeInfo' {} a -> s {deprecationDate = a} :: ActivityTypeInfo) Core.. Lens.mapping Core._Time
 
 -- | The description of the activity type provided in RegisterActivityType.
-activityTypeInfo_description :: Lens.Lens' ActivityTypeInfo (Prelude.Maybe Prelude.Text)
+activityTypeInfo_description :: Lens.Lens' ActivityTypeInfo (Core.Maybe Core.Text)
 activityTypeInfo_description = Lens.lens (\ActivityTypeInfo' {description} -> description) (\s@ActivityTypeInfo' {} a -> s {description = a} :: ActivityTypeInfo)
 
 -- | The ActivityType type structure representing the activity type.
@@ -100,22 +98,22 @@ activityTypeInfo_status = Lens.lens (\ActivityTypeInfo' {status} -> status) (\s@
 
 -- | The date and time this activity type was created through
 -- RegisterActivityType.
-activityTypeInfo_creationDate :: Lens.Lens' ActivityTypeInfo Prelude.UTCTime
-activityTypeInfo_creationDate = Lens.lens (\ActivityTypeInfo' {creationDate} -> creationDate) (\s@ActivityTypeInfo' {} a -> s {creationDate = a} :: ActivityTypeInfo) Prelude.. Prelude._Time
+activityTypeInfo_creationDate :: Lens.Lens' ActivityTypeInfo Core.UTCTime
+activityTypeInfo_creationDate = Lens.lens (\ActivityTypeInfo' {creationDate} -> creationDate) (\s@ActivityTypeInfo' {} a -> s {creationDate = a} :: ActivityTypeInfo) Core.. Core._Time
 
-instance Prelude.FromJSON ActivityTypeInfo where
+instance Core.FromJSON ActivityTypeInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActivityTypeInfo"
       ( \x ->
           ActivityTypeInfo'
-            Prelude.<$> (x Prelude..:? "deprecationDate")
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..: "activityType")
-            Prelude.<*> (x Prelude..: "status")
-            Prelude.<*> (x Prelude..: "creationDate")
+            Core.<$> (x Core..:? "deprecationDate")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..: "activityType")
+            Core.<*> (x Core..: "status")
+            Core.<*> (x Core..: "creationDate")
       )
 
-instance Prelude.Hashable ActivityTypeInfo
+instance Core.Hashable ActivityTypeInfo
 
-instance Prelude.NFData ActivityTypeInfo
+instance Core.NFData ActivityTypeInfo

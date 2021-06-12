@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.Evidence where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the reason that the finding was generated.
 --
 -- /See:/ 'newEvidence' smart constructor.
 data Evidence = Evidence'
   { -- | A list of threat intelligence details related to the evidence.
-    threatIntelligenceDetails :: Prelude.Maybe [ThreatIntelligenceDetail]
+    threatIntelligenceDetails :: Core.Maybe [ThreatIntelligenceDetail]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Evidence' with all optional fields omitted.
@@ -45,26 +44,23 @@ data Evidence = Evidence'
 newEvidence ::
   Evidence
 newEvidence =
-  Evidence'
-    { threatIntelligenceDetails =
-        Prelude.Nothing
-    }
+  Evidence' {threatIntelligenceDetails = Core.Nothing}
 
 -- | A list of threat intelligence details related to the evidence.
-evidence_threatIntelligenceDetails :: Lens.Lens' Evidence (Prelude.Maybe [ThreatIntelligenceDetail])
-evidence_threatIntelligenceDetails = Lens.lens (\Evidence' {threatIntelligenceDetails} -> threatIntelligenceDetails) (\s@Evidence' {} a -> s {threatIntelligenceDetails = a} :: Evidence) Prelude.. Lens.mapping Prelude._Coerce
+evidence_threatIntelligenceDetails :: Lens.Lens' Evidence (Core.Maybe [ThreatIntelligenceDetail])
+evidence_threatIntelligenceDetails = Lens.lens (\Evidence' {threatIntelligenceDetails} -> threatIntelligenceDetails) (\s@Evidence' {} a -> s {threatIntelligenceDetails = a} :: Evidence) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Evidence where
+instance Core.FromJSON Evidence where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Evidence"
       ( \x ->
           Evidence'
-            Prelude.<$> ( x Prelude..:? "threatIntelligenceDetails"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> ( x Core..:? "threatIntelligenceDetails"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable Evidence
+instance Core.Hashable Evidence
 
-instance Prelude.NFData Evidence
+instance Core.NFData Evidence

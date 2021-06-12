@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.LocalDeviceResourceData where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.GroupOwnerSetting
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Attributes that define a local device resource.
 --
@@ -31,11 +30,11 @@ data LocalDeviceResourceData = LocalDeviceResourceData'
   { -- | The local absolute path of the device resource. The source path for a
     -- device resource can refer only to a character device or block device
     -- under \'\'\/dev\'\'.
-    sourcePath :: Prelude.Maybe Prelude.Text,
+    sourcePath :: Core.Maybe Core.Text,
     -- | Group\/owner related settings for local resources.
-    groupOwnerSetting :: Prelude.Maybe GroupOwnerSetting
+    groupOwnerSetting :: Core.Maybe GroupOwnerSetting
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LocalDeviceResourceData' with all optional fields omitted.
@@ -54,41 +53,40 @@ newLocalDeviceResourceData ::
   LocalDeviceResourceData
 newLocalDeviceResourceData =
   LocalDeviceResourceData'
-    { sourcePath =
-        Prelude.Nothing,
-      groupOwnerSetting = Prelude.Nothing
+    { sourcePath = Core.Nothing,
+      groupOwnerSetting = Core.Nothing
     }
 
 -- | The local absolute path of the device resource. The source path for a
 -- device resource can refer only to a character device or block device
 -- under \'\'\/dev\'\'.
-localDeviceResourceData_sourcePath :: Lens.Lens' LocalDeviceResourceData (Prelude.Maybe Prelude.Text)
+localDeviceResourceData_sourcePath :: Lens.Lens' LocalDeviceResourceData (Core.Maybe Core.Text)
 localDeviceResourceData_sourcePath = Lens.lens (\LocalDeviceResourceData' {sourcePath} -> sourcePath) (\s@LocalDeviceResourceData' {} a -> s {sourcePath = a} :: LocalDeviceResourceData)
 
 -- | Group\/owner related settings for local resources.
-localDeviceResourceData_groupOwnerSetting :: Lens.Lens' LocalDeviceResourceData (Prelude.Maybe GroupOwnerSetting)
+localDeviceResourceData_groupOwnerSetting :: Lens.Lens' LocalDeviceResourceData (Core.Maybe GroupOwnerSetting)
 localDeviceResourceData_groupOwnerSetting = Lens.lens (\LocalDeviceResourceData' {groupOwnerSetting} -> groupOwnerSetting) (\s@LocalDeviceResourceData' {} a -> s {groupOwnerSetting = a} :: LocalDeviceResourceData)
 
-instance Prelude.FromJSON LocalDeviceResourceData where
+instance Core.FromJSON LocalDeviceResourceData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LocalDeviceResourceData"
       ( \x ->
           LocalDeviceResourceData'
-            Prelude.<$> (x Prelude..:? "SourcePath")
-            Prelude.<*> (x Prelude..:? "GroupOwnerSetting")
+            Core.<$> (x Core..:? "SourcePath")
+            Core.<*> (x Core..:? "GroupOwnerSetting")
       )
 
-instance Prelude.Hashable LocalDeviceResourceData
+instance Core.Hashable LocalDeviceResourceData
 
-instance Prelude.NFData LocalDeviceResourceData
+instance Core.NFData LocalDeviceResourceData
 
-instance Prelude.ToJSON LocalDeviceResourceData where
+instance Core.ToJSON LocalDeviceResourceData where
   toJSON LocalDeviceResourceData' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SourcePath" Prelude..=) Prelude.<$> sourcePath,
-            ("GroupOwnerSetting" Prelude..=)
-              Prelude.<$> groupOwnerSetting
+    Core.object
+      ( Core.catMaybes
+          [ ("SourcePath" Core..=) Core.<$> sourcePath,
+            ("GroupOwnerSetting" Core..=)
+              Core.<$> groupOwnerSetting
           ]
       )

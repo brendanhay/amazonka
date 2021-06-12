@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.DecimalNumber where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a numeric value in decimal format.
 --
 -- /See:/ 'newDecimalNumber' smart constructor.
 data DecimalNumber = DecimalNumber'
   { -- | The unscaled numeric value.
-    unscaledValue :: Prelude.Base64,
+    unscaledValue :: Core.Base64,
     -- | The scale that determines where the decimal point falls in the unscaled
     -- value.
-    scale :: Prelude.Int
+    scale :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DecimalNumber' with all optional fields omitted.
@@ -53,14 +52,14 @@ data DecimalNumber = DecimalNumber'
 -- value.
 newDecimalNumber ::
   -- | 'unscaledValue'
-  Prelude.ByteString ->
+  Core.ByteString ->
   -- | 'scale'
-  Prelude.Int ->
+  Core.Int ->
   DecimalNumber
 newDecimalNumber pUnscaledValue_ pScale_ =
   DecimalNumber'
     { unscaledValue =
-        Prelude._Base64 Lens.# pUnscaledValue_,
+        Core._Base64 Lens.# pUnscaledValue_,
       scale = pScale_
     }
 
@@ -69,34 +68,33 @@ newDecimalNumber pUnscaledValue_ pScale_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-decimalNumber_unscaledValue :: Lens.Lens' DecimalNumber Prelude.ByteString
-decimalNumber_unscaledValue = Lens.lens (\DecimalNumber' {unscaledValue} -> unscaledValue) (\s@DecimalNumber' {} a -> s {unscaledValue = a} :: DecimalNumber) Prelude.. Prelude._Base64
+decimalNumber_unscaledValue :: Lens.Lens' DecimalNumber Core.ByteString
+decimalNumber_unscaledValue = Lens.lens (\DecimalNumber' {unscaledValue} -> unscaledValue) (\s@DecimalNumber' {} a -> s {unscaledValue = a} :: DecimalNumber) Core.. Core._Base64
 
 -- | The scale that determines where the decimal point falls in the unscaled
 -- value.
-decimalNumber_scale :: Lens.Lens' DecimalNumber Prelude.Int
+decimalNumber_scale :: Lens.Lens' DecimalNumber Core.Int
 decimalNumber_scale = Lens.lens (\DecimalNumber' {scale} -> scale) (\s@DecimalNumber' {} a -> s {scale = a} :: DecimalNumber)
 
-instance Prelude.FromJSON DecimalNumber where
+instance Core.FromJSON DecimalNumber where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DecimalNumber"
       ( \x ->
           DecimalNumber'
-            Prelude.<$> (x Prelude..: "UnscaledValue")
-            Prelude.<*> (x Prelude..: "Scale")
+            Core.<$> (x Core..: "UnscaledValue")
+            Core.<*> (x Core..: "Scale")
       )
 
-instance Prelude.Hashable DecimalNumber
+instance Core.Hashable DecimalNumber
 
-instance Prelude.NFData DecimalNumber
+instance Core.NFData DecimalNumber
 
-instance Prelude.ToJSON DecimalNumber where
+instance Core.ToJSON DecimalNumber where
   toJSON DecimalNumber' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("UnscaledValue" Prelude..= unscaledValue),
-            Prelude.Just ("Scale" Prelude..= scale)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UnscaledValue" Core..= unscaledValue),
+            Core.Just ("Scale" Core..= scale)
           ]
       )

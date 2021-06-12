@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ObjectLockLegalHold where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ObjectLockLegalHoldStatus
 
@@ -30,9 +29,9 @@ import Network.AWS.S3.Types.ObjectLockLegalHoldStatus
 -- /See:/ 'newObjectLockLegalHold' smart constructor.
 data ObjectLockLegalHold = ObjectLockLegalHold'
   { -- | Indicates whether the specified object has a Legal Hold in place.
-    status :: Prelude.Maybe ObjectLockLegalHoldStatus
+    status :: Core.Maybe ObjectLockLegalHoldStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ObjectLockLegalHold' with all optional fields omitted.
@@ -46,21 +45,20 @@ data ObjectLockLegalHold = ObjectLockLegalHold'
 newObjectLockLegalHold ::
   ObjectLockLegalHold
 newObjectLockLegalHold =
-  ObjectLockLegalHold' {status = Prelude.Nothing}
+  ObjectLockLegalHold' {status = Core.Nothing}
 
 -- | Indicates whether the specified object has a Legal Hold in place.
-objectLockLegalHold_status :: Lens.Lens' ObjectLockLegalHold (Prelude.Maybe ObjectLockLegalHoldStatus)
+objectLockLegalHold_status :: Lens.Lens' ObjectLockLegalHold (Core.Maybe ObjectLockLegalHoldStatus)
 objectLockLegalHold_status = Lens.lens (\ObjectLockLegalHold' {status} -> status) (\s@ObjectLockLegalHold' {} a -> s {status = a} :: ObjectLockLegalHold)
 
-instance Prelude.FromXML ObjectLockLegalHold where
+instance Core.FromXML ObjectLockLegalHold where
   parseXML x =
-    ObjectLockLegalHold'
-      Prelude.<$> (x Prelude..@? "Status")
+    ObjectLockLegalHold' Core.<$> (x Core..@? "Status")
 
-instance Prelude.Hashable ObjectLockLegalHold
+instance Core.Hashable ObjectLockLegalHold
 
-instance Prelude.NFData ObjectLockLegalHold
+instance Core.NFData ObjectLockLegalHold
 
-instance Prelude.ToXML ObjectLockLegalHold where
+instance Core.ToXML ObjectLockLegalHold where
   toXML ObjectLockLegalHold' {..} =
-    Prelude.mconcat ["Status" Prelude.@= status]
+    Core.mconcat ["Status" Core.@= status]

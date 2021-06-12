@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -81,9 +80,9 @@ module Network.AWS.Organizations.LeaveOrganization
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -91,7 +90,7 @@ import qualified Network.AWS.Response as Response
 data LeaveOrganization = LeaveOrganization'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LeaveOrganization' with all optional fields omitted.
@@ -101,46 +100,45 @@ newLeaveOrganization ::
   LeaveOrganization
 newLeaveOrganization = LeaveOrganization'
 
-instance Prelude.AWSRequest LeaveOrganization where
-  type Rs LeaveOrganization = LeaveOrganizationResponse
+instance Core.AWSRequest LeaveOrganization where
+  type
+    AWSResponse LeaveOrganization =
+      LeaveOrganizationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull LeaveOrganizationResponse'
 
-instance Prelude.Hashable LeaveOrganization
+instance Core.Hashable LeaveOrganization
 
-instance Prelude.NFData LeaveOrganization
+instance Core.NFData LeaveOrganization
 
-instance Prelude.ToHeaders LeaveOrganization where
+instance Core.ToHeaders LeaveOrganization where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.LeaveOrganization" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.LeaveOrganization" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON LeaveOrganization where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON LeaveOrganization where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath LeaveOrganization where
-  toPath = Prelude.const "/"
+instance Core.ToPath LeaveOrganization where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery LeaveOrganization where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery LeaveOrganization where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newLeaveOrganizationResponse' smart constructor.
 data LeaveOrganizationResponse = LeaveOrganizationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LeaveOrganizationResponse' with all optional fields omitted.
@@ -151,4 +149,4 @@ newLeaveOrganizationResponse ::
 newLeaveOrganizationResponse =
   LeaveOrganizationResponse'
 
-instance Prelude.NFData LeaveOrganizationResponse
+instance Core.NFData LeaveOrganizationResponse

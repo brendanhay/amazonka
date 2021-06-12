@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DhcpConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a DHCP configuration option.
 --
 -- /See:/ 'newDhcpConfiguration' smart constructor.
 data DhcpConfiguration = DhcpConfiguration'
   { -- | The name of a DHCP option.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | One or more values for the DHCP option.
-    values :: Prelude.Maybe [AttributeValue]
+    values :: Core.Maybe [AttributeValue]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DhcpConfiguration' with all optional fields omitted.
@@ -51,26 +50,26 @@ newDhcpConfiguration ::
   DhcpConfiguration
 newDhcpConfiguration =
   DhcpConfiguration'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing
     }
 
 -- | The name of a DHCP option.
-dhcpConfiguration_key :: Lens.Lens' DhcpConfiguration (Prelude.Maybe Prelude.Text)
+dhcpConfiguration_key :: Lens.Lens' DhcpConfiguration (Core.Maybe Core.Text)
 dhcpConfiguration_key = Lens.lens (\DhcpConfiguration' {key} -> key) (\s@DhcpConfiguration' {} a -> s {key = a} :: DhcpConfiguration)
 
 -- | One or more values for the DHCP option.
-dhcpConfiguration_values :: Lens.Lens' DhcpConfiguration (Prelude.Maybe [AttributeValue])
-dhcpConfiguration_values = Lens.lens (\DhcpConfiguration' {values} -> values) (\s@DhcpConfiguration' {} a -> s {values = a} :: DhcpConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+dhcpConfiguration_values :: Lens.Lens' DhcpConfiguration (Core.Maybe [AttributeValue])
+dhcpConfiguration_values = Lens.lens (\DhcpConfiguration' {values} -> values) (\s@DhcpConfiguration' {} a -> s {values = a} :: DhcpConfiguration) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML DhcpConfiguration where
+instance Core.FromXML DhcpConfiguration where
   parseXML x =
     DhcpConfiguration'
-      Prelude.<$> (x Prelude..@? "key")
-      Prelude.<*> ( x Prelude..@? "valueSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> (x Core..@? "key")
+      Core.<*> ( x Core..@? "valueSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable DhcpConfiguration
+instance Core.Hashable DhcpConfiguration
 
-instance Prelude.NFData DhcpConfiguration
+instance Core.NFData DhcpConfiguration

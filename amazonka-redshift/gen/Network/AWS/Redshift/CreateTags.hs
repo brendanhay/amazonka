@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Redshift.CreateTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -56,7 +55,7 @@ import qualified Network.AWS.Response as Response
 data CreateTags = CreateTags'
   { -- | The Amazon Resource Name (ARN) to which you want to add the tag or tags.
     -- For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-    resourceName :: Prelude.Text,
+    resourceName :: Core.Text,
     -- | One or more name\/value pairs to add as tags to the specified resource.
     -- Each tag name is passed in with the parameter @Key@ and the
     -- corresponding value is passed in with the parameter @Value@. The @Key@
@@ -65,7 +64,7 @@ data CreateTags = CreateTags'
     -- @--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"@.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTags' with all optional fields omitted.
@@ -86,17 +85,17 @@ data CreateTags = CreateTags'
 -- @--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"@.
 newCreateTags ::
   -- | 'resourceName'
-  Prelude.Text ->
+  Core.Text ->
   CreateTags
 newCreateTags pResourceName_ =
   CreateTags'
     { resourceName = pResourceName_,
-      tags = Prelude.mempty
+      tags = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) to which you want to add the tag or tags.
 -- For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-createTags_resourceName :: Lens.Lens' CreateTags Prelude.Text
+createTags_resourceName :: Lens.Lens' CreateTags Core.Text
 createTags_resourceName = Lens.lens (\CreateTags' {resourceName} -> resourceName) (\s@CreateTags' {} a -> s {resourceName = a} :: CreateTags)
 
 -- | One or more name\/value pairs to add as tags to the specified resource.
@@ -106,39 +105,37 @@ createTags_resourceName = Lens.lens (\CreateTags' {resourceName} -> resourceName
 -- tags with a space. For example,
 -- @--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"@.
 createTags_tags :: Lens.Lens' CreateTags [Tag]
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Prelude._Coerce
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateTags where
-  type Rs CreateTags = CreateTagsResponse
+instance Core.AWSRequest CreateTags where
+  type AWSResponse CreateTags = CreateTagsResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull CreateTagsResponse'
 
-instance Prelude.Hashable CreateTags
+instance Core.Hashable CreateTags
 
-instance Prelude.NFData CreateTags
+instance Core.NFData CreateTags
 
-instance Prelude.ToHeaders CreateTags where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateTags where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateTags where
+instance Core.ToQuery CreateTags where
   toQuery CreateTags' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("CreateTags" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ResourceName" Prelude.=: resourceName,
-        "Tags" Prelude.=: Prelude.toQueryList "Tag" tags
+    Core.mconcat
+      [ "Action" Core.=: ("CreateTags" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ResourceName" Core.=: resourceName,
+        "Tags" Core.=: Core.toQueryList "Tag" tags
       ]
 
 -- | /See:/ 'newCreateTagsResponse' smart constructor.
 data CreateTagsResponse = CreateTagsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTagsResponse' with all optional fields omitted.
@@ -148,4 +145,4 @@ newCreateTagsResponse ::
   CreateTagsResponse
 newCreateTagsResponse = CreateTagsResponse'
 
-instance Prelude.NFData CreateTagsResponse
+instance Core.NFData CreateTagsResponse

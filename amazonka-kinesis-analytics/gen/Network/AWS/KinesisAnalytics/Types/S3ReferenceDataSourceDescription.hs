@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the bucket name and object key name that stores the reference
 -- data.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newS3ReferenceDataSourceDescription' smart constructor.
 data S3ReferenceDataSourceDescription = S3ReferenceDataSourceDescription'
   { -- | Amazon Resource Name (ARN) of the S3 bucket.
-    bucketARN :: Prelude.Text,
+    bucketARN :: Core.Text,
     -- | Amazon S3 object key name.
-    fileKey :: Prelude.Text,
+    fileKey :: Core.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
     -- Amazon S3 object on your behalf to populate the in-application reference
     -- table.
-    referenceRoleARN :: Prelude.Text
+    referenceRoleARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3ReferenceDataSourceDescription' with all optional fields omitted.
@@ -56,11 +55,11 @@ data S3ReferenceDataSourceDescription = S3ReferenceDataSourceDescription'
 -- table.
 newS3ReferenceDataSourceDescription ::
   -- | 'bucketARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'fileKey'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'referenceRoleARN'
-  Prelude.Text ->
+  Core.Text ->
   S3ReferenceDataSourceDescription
 newS3ReferenceDataSourceDescription
   pBucketARN_
@@ -74,37 +73,35 @@ newS3ReferenceDataSourceDescription
       }
 
 -- | Amazon Resource Name (ARN) of the S3 bucket.
-s3ReferenceDataSourceDescription_bucketARN :: Lens.Lens' S3ReferenceDataSourceDescription Prelude.Text
+s3ReferenceDataSourceDescription_bucketARN :: Lens.Lens' S3ReferenceDataSourceDescription Core.Text
 s3ReferenceDataSourceDescription_bucketARN = Lens.lens (\S3ReferenceDataSourceDescription' {bucketARN} -> bucketARN) (\s@S3ReferenceDataSourceDescription' {} a -> s {bucketARN = a} :: S3ReferenceDataSourceDescription)
 
 -- | Amazon S3 object key name.
-s3ReferenceDataSourceDescription_fileKey :: Lens.Lens' S3ReferenceDataSourceDescription Prelude.Text
+s3ReferenceDataSourceDescription_fileKey :: Lens.Lens' S3ReferenceDataSourceDescription Core.Text
 s3ReferenceDataSourceDescription_fileKey = Lens.lens (\S3ReferenceDataSourceDescription' {fileKey} -> fileKey) (\s@S3ReferenceDataSourceDescription' {} a -> s {fileKey = a} :: S3ReferenceDataSourceDescription)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
 -- Amazon S3 object on your behalf to populate the in-application reference
 -- table.
-s3ReferenceDataSourceDescription_referenceRoleARN :: Lens.Lens' S3ReferenceDataSourceDescription Prelude.Text
+s3ReferenceDataSourceDescription_referenceRoleARN :: Lens.Lens' S3ReferenceDataSourceDescription Core.Text
 s3ReferenceDataSourceDescription_referenceRoleARN = Lens.lens (\S3ReferenceDataSourceDescription' {referenceRoleARN} -> referenceRoleARN) (\s@S3ReferenceDataSourceDescription' {} a -> s {referenceRoleARN = a} :: S3ReferenceDataSourceDescription)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     S3ReferenceDataSourceDescription
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "S3ReferenceDataSourceDescription"
       ( \x ->
           S3ReferenceDataSourceDescription'
-            Prelude.<$> (x Prelude..: "BucketARN")
-            Prelude.<*> (x Prelude..: "FileKey")
-            Prelude.<*> (x Prelude..: "ReferenceRoleARN")
+            Core.<$> (x Core..: "BucketARN")
+            Core.<*> (x Core..: "FileKey")
+            Core.<*> (x Core..: "ReferenceRoleARN")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     S3ReferenceDataSourceDescription
 
-instance
-  Prelude.NFData
-    S3ReferenceDataSourceDescription
+instance Core.NFData S3ReferenceDataSourceDescription

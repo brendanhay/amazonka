@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeBuild.Types.WebhookFilter where
 
 import Network.AWS.CodeBuild.Types.WebhookFilterType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A filter used to determine which webhooks trigger a build.
 --
@@ -32,7 +31,7 @@ data WebhookFilter = WebhookFilter'
     -- not trigger a build. If true, then a webhook event that does not match
     -- the @pattern@ triggers a build. If false, then a webhook event that
     -- matches the @pattern@ triggers a build.
-    excludeMatchedPattern :: Prelude.Maybe Prelude.Bool,
+    excludeMatchedPattern :: Core.Maybe Core.Bool,
     -- | The type of webhook filter. There are six webhook filter types: @EVENT@,
     -- @ACTOR_ACCOUNT_ID@, @HEAD_REF@, @BASE_REF@, @FILE_PATH@, and
     -- @COMMIT_MESSAGE@.
@@ -95,9 +94,9 @@ data WebhookFilter = WebhookFilter'
     -- for its @type@ and the pattern @^refs\/heads\/@ triggers a build when
     -- the head reference is a branch with a reference name
     -- @refs\/heads\/branch-name@.
-    pattern' :: Prelude.Text
+    pattern' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WebhookFilter' with all optional fields omitted.
@@ -178,12 +177,12 @@ newWebhookFilter ::
   -- | 'type''
   WebhookFilterType ->
   -- | 'pattern''
-  Prelude.Text ->
+  Core.Text ->
   WebhookFilter
 newWebhookFilter pType_ pPattern_ =
   WebhookFilter'
     { excludeMatchedPattern =
-        Prelude.Nothing,
+        Core.Nothing,
       type' = pType_,
       pattern' = pPattern_
     }
@@ -192,7 +191,7 @@ newWebhookFilter pType_ pPattern_ =
 -- not trigger a build. If true, then a webhook event that does not match
 -- the @pattern@ triggers a build. If false, then a webhook event that
 -- matches the @pattern@ triggers a build.
-webhookFilter_excludeMatchedPattern :: Lens.Lens' WebhookFilter (Prelude.Maybe Prelude.Bool)
+webhookFilter_excludeMatchedPattern :: Lens.Lens' WebhookFilter (Core.Maybe Core.Bool)
 webhookFilter_excludeMatchedPattern = Lens.lens (\WebhookFilter' {excludeMatchedPattern} -> excludeMatchedPattern) (\s@WebhookFilter' {} a -> s {excludeMatchedPattern = a} :: WebhookFilter)
 
 -- | The type of webhook filter. There are six webhook filter types: @EVENT@,
@@ -259,31 +258,31 @@ webhookFilter_type = Lens.lens (\WebhookFilter' {type'} -> type') (\s@WebhookFil
 -- for its @type@ and the pattern @^refs\/heads\/@ triggers a build when
 -- the head reference is a branch with a reference name
 -- @refs\/heads\/branch-name@.
-webhookFilter_pattern :: Lens.Lens' WebhookFilter Prelude.Text
+webhookFilter_pattern :: Lens.Lens' WebhookFilter Core.Text
 webhookFilter_pattern = Lens.lens (\WebhookFilter' {pattern'} -> pattern') (\s@WebhookFilter' {} a -> s {pattern' = a} :: WebhookFilter)
 
-instance Prelude.FromJSON WebhookFilter where
+instance Core.FromJSON WebhookFilter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WebhookFilter"
       ( \x ->
           WebhookFilter'
-            Prelude.<$> (x Prelude..:? "excludeMatchedPattern")
-            Prelude.<*> (x Prelude..: "type")
-            Prelude.<*> (x Prelude..: "pattern")
+            Core.<$> (x Core..:? "excludeMatchedPattern")
+            Core.<*> (x Core..: "type")
+            Core.<*> (x Core..: "pattern")
       )
 
-instance Prelude.Hashable WebhookFilter
+instance Core.Hashable WebhookFilter
 
-instance Prelude.NFData WebhookFilter
+instance Core.NFData WebhookFilter
 
-instance Prelude.ToJSON WebhookFilter where
+instance Core.ToJSON WebhookFilter where
   toJSON WebhookFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("excludeMatchedPattern" Prelude..=)
-              Prelude.<$> excludeMatchedPattern,
-            Prelude.Just ("type" Prelude..= type'),
-            Prelude.Just ("pattern" Prelude..= pattern')
+    Core.object
+      ( Core.catMaybes
+          [ ("excludeMatchedPattern" Core..=)
+              Core.<$> excludeMatchedPattern,
+            Core.Just ("type" Core..= type'),
+            Core.Just ("pattern" Core..= pattern')
           ]
       )

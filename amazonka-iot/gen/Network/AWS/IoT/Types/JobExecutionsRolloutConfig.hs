@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.JobExecutionsRolloutConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ExponentialRolloutRate
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Allows you to create a staged rollout of a job.
 --
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data JobExecutionsRolloutConfig = JobExecutionsRolloutConfig'
   { -- | The rate of increase for a job rollout. This parameter allows you to
     -- define an exponential rate for a job rollout.
-    exponentialRate :: Prelude.Maybe ExponentialRolloutRate,
+    exponentialRate :: Core.Maybe ExponentialRolloutRate,
     -- | The maximum number of things that will be notified of a pending job, per
     -- minute. This parameter allows you to create a staged rollout.
-    maximumPerMinute :: Prelude.Maybe Prelude.Natural
+    maximumPerMinute :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobExecutionsRolloutConfig' with all optional fields omitted.
@@ -55,41 +54,41 @@ newJobExecutionsRolloutConfig ::
 newJobExecutionsRolloutConfig =
   JobExecutionsRolloutConfig'
     { exponentialRate =
-        Prelude.Nothing,
-      maximumPerMinute = Prelude.Nothing
+        Core.Nothing,
+      maximumPerMinute = Core.Nothing
     }
 
 -- | The rate of increase for a job rollout. This parameter allows you to
 -- define an exponential rate for a job rollout.
-jobExecutionsRolloutConfig_exponentialRate :: Lens.Lens' JobExecutionsRolloutConfig (Prelude.Maybe ExponentialRolloutRate)
+jobExecutionsRolloutConfig_exponentialRate :: Lens.Lens' JobExecutionsRolloutConfig (Core.Maybe ExponentialRolloutRate)
 jobExecutionsRolloutConfig_exponentialRate = Lens.lens (\JobExecutionsRolloutConfig' {exponentialRate} -> exponentialRate) (\s@JobExecutionsRolloutConfig' {} a -> s {exponentialRate = a} :: JobExecutionsRolloutConfig)
 
 -- | The maximum number of things that will be notified of a pending job, per
 -- minute. This parameter allows you to create a staged rollout.
-jobExecutionsRolloutConfig_maximumPerMinute :: Lens.Lens' JobExecutionsRolloutConfig (Prelude.Maybe Prelude.Natural)
+jobExecutionsRolloutConfig_maximumPerMinute :: Lens.Lens' JobExecutionsRolloutConfig (Core.Maybe Core.Natural)
 jobExecutionsRolloutConfig_maximumPerMinute = Lens.lens (\JobExecutionsRolloutConfig' {maximumPerMinute} -> maximumPerMinute) (\s@JobExecutionsRolloutConfig' {} a -> s {maximumPerMinute = a} :: JobExecutionsRolloutConfig)
 
-instance Prelude.FromJSON JobExecutionsRolloutConfig where
+instance Core.FromJSON JobExecutionsRolloutConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobExecutionsRolloutConfig"
       ( \x ->
           JobExecutionsRolloutConfig'
-            Prelude.<$> (x Prelude..:? "exponentialRate")
-            Prelude.<*> (x Prelude..:? "maximumPerMinute")
+            Core.<$> (x Core..:? "exponentialRate")
+            Core.<*> (x Core..:? "maximumPerMinute")
       )
 
-instance Prelude.Hashable JobExecutionsRolloutConfig
+instance Core.Hashable JobExecutionsRolloutConfig
 
-instance Prelude.NFData JobExecutionsRolloutConfig
+instance Core.NFData JobExecutionsRolloutConfig
 
-instance Prelude.ToJSON JobExecutionsRolloutConfig where
+instance Core.ToJSON JobExecutionsRolloutConfig where
   toJSON JobExecutionsRolloutConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("exponentialRate" Prelude..=)
-              Prelude.<$> exponentialRate,
-            ("maximumPerMinute" Prelude..=)
-              Prelude.<$> maximumPerMinute
+    Core.object
+      ( Core.catMaybes
+          [ ("exponentialRate" Core..=)
+              Core.<$> exponentialRate,
+            ("maximumPerMinute" Core..=)
+              Core.<$> maximumPerMinute
           ]
       )

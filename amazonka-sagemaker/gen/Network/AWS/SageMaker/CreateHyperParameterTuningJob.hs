@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.SageMaker.CreateHyperParameterTuningJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -74,7 +73,7 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
     -- All training jobs launched by parent hyperparameter tuning jobs and the
     -- new hyperparameter tuning jobs count against the limit of training jobs
     -- for the tuning job.
-    warmStartConfig :: Prelude.Maybe HyperParameterTuningJobWarmStartConfig,
+    warmStartConfig :: Core.Maybe HyperParameterTuningJobWarmStartConfig,
     -- | An array of key-value pairs. You can use tags to categorize your AWS
     -- resources in different ways, for example, by purpose, owner, or
     -- environment. For more information, see
@@ -82,21 +81,21 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
     --
     -- Tags that you specify for the tuning job are also added to all training
     -- jobs that the tuning job launches.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A list of the HyperParameterTrainingJobDefinition objects launched for
     -- this tuning job.
-    trainingJobDefinitions :: Prelude.Maybe (Prelude.NonEmpty HyperParameterTrainingJobDefinition),
+    trainingJobDefinitions :: Core.Maybe (Core.NonEmpty HyperParameterTrainingJobDefinition),
     -- | The HyperParameterTrainingJobDefinition object that describes the
     -- training jobs that this tuning job launches, including static
     -- hyperparameters, input data configuration, output data configuration,
     -- resource configuration, and stopping condition.
-    trainingJobDefinition :: Prelude.Maybe HyperParameterTrainingJobDefinition,
+    trainingJobDefinition :: Core.Maybe HyperParameterTrainingJobDefinition,
     -- | The name of the tuning job. This name is the prefix for the names of all
     -- training jobs that this tuning job launches. The name must be unique
     -- within the same AWS account and AWS Region. The name must have 1 to 32
     -- characters. Valid characters are a-z, A-Z, 0-9, and : + = \@ _ % -
     -- (hyphen). The name is not case sensitive.
-    hyperParameterTuningJobName :: Prelude.Text,
+    hyperParameterTuningJobName :: Core.Text,
     -- | The HyperParameterTuningJobConfig object that describes the tuning job,
     -- including the search strategy, the objective metric used to evaluate
     -- training jobs, ranges of parameters to search, and resource limits for
@@ -104,7 +103,7 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
     hyperParameterTuningJobConfig :: HyperParameterTuningJobConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateHyperParameterTuningJob' with all optional fields omitted.
@@ -160,7 +159,7 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
 newCreateHyperParameterTuningJob ::
   -- | 'hyperParameterTuningJobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'hyperParameterTuningJobConfig'
   HyperParameterTuningJobConfig ->
   CreateHyperParameterTuningJob
@@ -169,10 +168,10 @@ newCreateHyperParameterTuningJob
   pHyperParameterTuningJobConfig_ =
     CreateHyperParameterTuningJob'
       { warmStartConfig =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
-        trainingJobDefinitions = Prelude.Nothing,
-        trainingJobDefinition = Prelude.Nothing,
+          Core.Nothing,
+        tags = Core.Nothing,
+        trainingJobDefinitions = Core.Nothing,
+        trainingJobDefinition = Core.Nothing,
         hyperParameterTuningJobName =
           pHyperParameterTuningJobName_,
         hyperParameterTuningJobConfig =
@@ -195,7 +194,7 @@ newCreateHyperParameterTuningJob
 -- All training jobs launched by parent hyperparameter tuning jobs and the
 -- new hyperparameter tuning jobs count against the limit of training jobs
 -- for the tuning job.
-createHyperParameterTuningJob_warmStartConfig :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe HyperParameterTuningJobWarmStartConfig)
+createHyperParameterTuningJob_warmStartConfig :: Lens.Lens' CreateHyperParameterTuningJob (Core.Maybe HyperParameterTuningJobWarmStartConfig)
 createHyperParameterTuningJob_warmStartConfig = Lens.lens (\CreateHyperParameterTuningJob' {warmStartConfig} -> warmStartConfig) (\s@CreateHyperParameterTuningJob' {} a -> s {warmStartConfig = a} :: CreateHyperParameterTuningJob)
 
 -- | An array of key-value pairs. You can use tags to categorize your AWS
@@ -205,19 +204,19 @@ createHyperParameterTuningJob_warmStartConfig = Lens.lens (\CreateHyperParameter
 --
 -- Tags that you specify for the tuning job are also added to all training
 -- jobs that the tuning job launches.
-createHyperParameterTuningJob_tags :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe [Tag])
-createHyperParameterTuningJob_tags = Lens.lens (\CreateHyperParameterTuningJob' {tags} -> tags) (\s@CreateHyperParameterTuningJob' {} a -> s {tags = a} :: CreateHyperParameterTuningJob) Prelude.. Lens.mapping Prelude._Coerce
+createHyperParameterTuningJob_tags :: Lens.Lens' CreateHyperParameterTuningJob (Core.Maybe [Tag])
+createHyperParameterTuningJob_tags = Lens.lens (\CreateHyperParameterTuningJob' {tags} -> tags) (\s@CreateHyperParameterTuningJob' {} a -> s {tags = a} :: CreateHyperParameterTuningJob) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of the HyperParameterTrainingJobDefinition objects launched for
 -- this tuning job.
-createHyperParameterTuningJob_trainingJobDefinitions :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe (Prelude.NonEmpty HyperParameterTrainingJobDefinition))
-createHyperParameterTuningJob_trainingJobDefinitions = Lens.lens (\CreateHyperParameterTuningJob' {trainingJobDefinitions} -> trainingJobDefinitions) (\s@CreateHyperParameterTuningJob' {} a -> s {trainingJobDefinitions = a} :: CreateHyperParameterTuningJob) Prelude.. Lens.mapping Prelude._Coerce
+createHyperParameterTuningJob_trainingJobDefinitions :: Lens.Lens' CreateHyperParameterTuningJob (Core.Maybe (Core.NonEmpty HyperParameterTrainingJobDefinition))
+createHyperParameterTuningJob_trainingJobDefinitions = Lens.lens (\CreateHyperParameterTuningJob' {trainingJobDefinitions} -> trainingJobDefinitions) (\s@CreateHyperParameterTuningJob' {} a -> s {trainingJobDefinitions = a} :: CreateHyperParameterTuningJob) Core.. Lens.mapping Lens._Coerce
 
 -- | The HyperParameterTrainingJobDefinition object that describes the
 -- training jobs that this tuning job launches, including static
 -- hyperparameters, input data configuration, output data configuration,
 -- resource configuration, and stopping condition.
-createHyperParameterTuningJob_trainingJobDefinition :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe HyperParameterTrainingJobDefinition)
+createHyperParameterTuningJob_trainingJobDefinition :: Lens.Lens' CreateHyperParameterTuningJob (Core.Maybe HyperParameterTrainingJobDefinition)
 createHyperParameterTuningJob_trainingJobDefinition = Lens.lens (\CreateHyperParameterTuningJob' {trainingJobDefinition} -> trainingJobDefinition) (\s@CreateHyperParameterTuningJob' {} a -> s {trainingJobDefinition = a} :: CreateHyperParameterTuningJob)
 
 -- | The name of the tuning job. This name is the prefix for the names of all
@@ -225,7 +224,7 @@ createHyperParameterTuningJob_trainingJobDefinition = Lens.lens (\CreateHyperPar
 -- within the same AWS account and AWS Region. The name must have 1 to 32
 -- characters. Valid characters are a-z, A-Z, 0-9, and : + = \@ _ % -
 -- (hyphen). The name is not case sensitive.
-createHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' CreateHyperParameterTuningJob Prelude.Text
+createHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' CreateHyperParameterTuningJob Core.Text
 createHyperParameterTuningJob_hyperParameterTuningJobName = Lens.lens (\CreateHyperParameterTuningJob' {hyperParameterTuningJobName} -> hyperParameterTuningJobName) (\s@CreateHyperParameterTuningJob' {} a -> s {hyperParameterTuningJobName = a} :: CreateHyperParameterTuningJob)
 
 -- | The HyperParameterTuningJobConfig object that describes the tuning job,
@@ -237,85 +236,75 @@ createHyperParameterTuningJob_hyperParameterTuningJobConfig :: Lens.Lens' Create
 createHyperParameterTuningJob_hyperParameterTuningJobConfig = Lens.lens (\CreateHyperParameterTuningJob' {hyperParameterTuningJobConfig} -> hyperParameterTuningJobConfig) (\s@CreateHyperParameterTuningJob' {} a -> s {hyperParameterTuningJobConfig = a} :: CreateHyperParameterTuningJob)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateHyperParameterTuningJob
   where
   type
-    Rs CreateHyperParameterTuningJob =
+    AWSResponse CreateHyperParameterTuningJob =
       CreateHyperParameterTuningJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateHyperParameterTuningJobResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "HyperParameterTuningJobArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "HyperParameterTuningJobArn")
       )
 
-instance
-  Prelude.Hashable
-    CreateHyperParameterTuningJob
+instance Core.Hashable CreateHyperParameterTuningJob
 
-instance Prelude.NFData CreateHyperParameterTuningJob
+instance Core.NFData CreateHyperParameterTuningJob
 
-instance
-  Prelude.ToHeaders
-    CreateHyperParameterTuningJob
-  where
+instance Core.ToHeaders CreateHyperParameterTuningJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.CreateHyperParameterTuningJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.CreateHyperParameterTuningJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateHyperParameterTuningJob where
+instance Core.ToJSON CreateHyperParameterTuningJob where
   toJSON CreateHyperParameterTuningJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("WarmStartConfig" Prelude..=)
-              Prelude.<$> warmStartConfig,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("TrainingJobDefinitions" Prelude..=)
-              Prelude.<$> trainingJobDefinitions,
-            ("TrainingJobDefinition" Prelude..=)
-              Prelude.<$> trainingJobDefinition,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("WarmStartConfig" Core..=)
+              Core.<$> warmStartConfig,
+            ("Tags" Core..=) Core.<$> tags,
+            ("TrainingJobDefinitions" Core..=)
+              Core.<$> trainingJobDefinitions,
+            ("TrainingJobDefinition" Core..=)
+              Core.<$> trainingJobDefinition,
+            Core.Just
               ( "HyperParameterTuningJobName"
-                  Prelude..= hyperParameterTuningJobName
+                  Core..= hyperParameterTuningJobName
               ),
-            Prelude.Just
+            Core.Just
               ( "HyperParameterTuningJobConfig"
-                  Prelude..= hyperParameterTuningJobConfig
+                  Core..= hyperParameterTuningJobConfig
               )
           ]
       )
 
-instance Prelude.ToPath CreateHyperParameterTuningJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateHyperParameterTuningJob where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    CreateHyperParameterTuningJob
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateHyperParameterTuningJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateHyperParameterTuningJobResponse' smart constructor.
 data CreateHyperParameterTuningJobResponse = CreateHyperParameterTuningJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the tuning job. Amazon SageMaker
     -- assigns an ARN to a hyperparameter tuning job when you create it.
-    hyperParameterTuningJobArn :: Prelude.Text
+    hyperParameterTuningJobArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateHyperParameterTuningJobResponse' with all optional fields omitted.
@@ -331,9 +320,9 @@ data CreateHyperParameterTuningJobResponse = CreateHyperParameterTuningJobRespon
 -- assigns an ARN to a hyperparameter tuning job when you create it.
 newCreateHyperParameterTuningJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'hyperParameterTuningJobArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateHyperParameterTuningJobResponse
 newCreateHyperParameterTuningJobResponse
   pHttpStatus_
@@ -346,14 +335,14 @@ newCreateHyperParameterTuningJobResponse
       }
 
 -- | The response's http status code.
-createHyperParameterTuningJobResponse_httpStatus :: Lens.Lens' CreateHyperParameterTuningJobResponse Prelude.Int
+createHyperParameterTuningJobResponse_httpStatus :: Lens.Lens' CreateHyperParameterTuningJobResponse Core.Int
 createHyperParameterTuningJobResponse_httpStatus = Lens.lens (\CreateHyperParameterTuningJobResponse' {httpStatus} -> httpStatus) (\s@CreateHyperParameterTuningJobResponse' {} a -> s {httpStatus = a} :: CreateHyperParameterTuningJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the tuning job. Amazon SageMaker
 -- assigns an ARN to a hyperparameter tuning job when you create it.
-createHyperParameterTuningJobResponse_hyperParameterTuningJobArn :: Lens.Lens' CreateHyperParameterTuningJobResponse Prelude.Text
+createHyperParameterTuningJobResponse_hyperParameterTuningJobArn :: Lens.Lens' CreateHyperParameterTuningJobResponse Core.Text
 createHyperParameterTuningJobResponse_hyperParameterTuningJobArn = Lens.lens (\CreateHyperParameterTuningJobResponse' {hyperParameterTuningJobArn} -> hyperParameterTuningJobArn) (\s@CreateHyperParameterTuningJobResponse' {} a -> s {hyperParameterTuningJobArn = a} :: CreateHyperParameterTuningJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateHyperParameterTuningJobResponse

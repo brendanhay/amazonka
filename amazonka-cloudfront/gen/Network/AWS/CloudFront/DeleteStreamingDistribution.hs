@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -77,8 +76,8 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -88,11 +87,11 @@ import qualified Network.AWS.Response as Response
 data DeleteStreamingDistribution = DeleteStreamingDistribution'
   { -- | The value of the @ETag@ header that you received when you disabled the
     -- streaming distribution. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Prelude.Maybe Prelude.Text,
+    ifMatch :: Core.Maybe Core.Text,
     -- | The distribution ID.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStreamingDistribution' with all optional fields omitted.
@@ -108,62 +107,54 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution'
 -- 'id', 'deleteStreamingDistribution_id' - The distribution ID.
 newDeleteStreamingDistribution ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteStreamingDistribution
 newDeleteStreamingDistribution pId_ =
   DeleteStreamingDistribution'
     { ifMatch =
-        Prelude.Nothing,
+        Core.Nothing,
       id = pId_
     }
 
 -- | The value of the @ETag@ header that you received when you disabled the
 -- streaming distribution. For example: @E2QWRUHAPOMQZL@.
-deleteStreamingDistribution_ifMatch :: Lens.Lens' DeleteStreamingDistribution (Prelude.Maybe Prelude.Text)
+deleteStreamingDistribution_ifMatch :: Lens.Lens' DeleteStreamingDistribution (Core.Maybe Core.Text)
 deleteStreamingDistribution_ifMatch = Lens.lens (\DeleteStreamingDistribution' {ifMatch} -> ifMatch) (\s@DeleteStreamingDistribution' {} a -> s {ifMatch = a} :: DeleteStreamingDistribution)
 
 -- | The distribution ID.
-deleteStreamingDistribution_id :: Lens.Lens' DeleteStreamingDistribution Prelude.Text
+deleteStreamingDistribution_id :: Lens.Lens' DeleteStreamingDistribution Core.Text
 deleteStreamingDistribution_id = Lens.lens (\DeleteStreamingDistribution' {id} -> id) (\s@DeleteStreamingDistribution' {} a -> s {id = a} :: DeleteStreamingDistribution)
 
-instance
-  Prelude.AWSRequest
-    DeleteStreamingDistribution
-  where
+instance Core.AWSRequest DeleteStreamingDistribution where
   type
-    Rs DeleteStreamingDistribution =
+    AWSResponse DeleteStreamingDistribution =
       DeleteStreamingDistributionResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteStreamingDistributionResponse'
 
-instance Prelude.Hashable DeleteStreamingDistribution
+instance Core.Hashable DeleteStreamingDistribution
 
-instance Prelude.NFData DeleteStreamingDistribution
+instance Core.NFData DeleteStreamingDistribution
 
-instance
-  Prelude.ToHeaders
-    DeleteStreamingDistribution
-  where
+instance Core.ToHeaders DeleteStreamingDistribution where
   toHeaders DeleteStreamingDistribution' {..} =
-    Prelude.mconcat ["If-Match" Prelude.=# ifMatch]
+    Core.mconcat ["If-Match" Core.=# ifMatch]
 
-instance Prelude.ToPath DeleteStreamingDistribution where
+instance Core.ToPath DeleteStreamingDistribution where
   toPath DeleteStreamingDistribution' {..} =
-    Prelude.mconcat
-      [ "/2020-05-31/streaming-distribution/",
-        Prelude.toBS id
-      ]
+    Core.mconcat
+      ["/2020-05-31/streaming-distribution/", Core.toBS id]
 
-instance Prelude.ToQuery DeleteStreamingDistribution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteStreamingDistribution where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteStreamingDistributionResponse' smart constructor.
 data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStreamingDistributionResponse' with all optional fields omitted.
@@ -175,5 +166,5 @@ newDeleteStreamingDistributionResponse =
   DeleteStreamingDistributionResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteStreamingDistributionResponse

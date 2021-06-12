@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.CertificateManagerPCA.GetCertificate
 where
 
 import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,14 +63,14 @@ data GetCertificate = GetCertificate'
     -- This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-    certificateAuthorityArn :: Prelude.Text,
+    certificateAuthorityArn :: Core.Text,
     -- | The ARN of the issued certificate. The ARN contains the certificate
     -- serial number and must be in the following form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012\/certificate\/286535153982981100925020015808220737245 @
-    certificateArn :: Prelude.Text
+    certificateArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCertificate' with all optional fields omitted.
@@ -93,9 +92,9 @@ data GetCertificate = GetCertificate'
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012\/certificate\/286535153982981100925020015808220737245 @
 newGetCertificate ::
   -- | 'certificateAuthorityArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'certificateArn'
-  Prelude.Text ->
+  Core.Text ->
   GetCertificate
 newGetCertificate
   pCertificateAuthorityArn_
@@ -111,78 +110,75 @@ newGetCertificate
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-getCertificate_certificateAuthorityArn :: Lens.Lens' GetCertificate Prelude.Text
+getCertificate_certificateAuthorityArn :: Lens.Lens' GetCertificate Core.Text
 getCertificate_certificateAuthorityArn = Lens.lens (\GetCertificate' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@GetCertificate' {} a -> s {certificateAuthorityArn = a} :: GetCertificate)
 
 -- | The ARN of the issued certificate. The ARN contains the certificate
 -- serial number and must be in the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012\/certificate\/286535153982981100925020015808220737245 @
-getCertificate_certificateArn :: Lens.Lens' GetCertificate Prelude.Text
+getCertificate_certificateArn :: Lens.Lens' GetCertificate Core.Text
 getCertificate_certificateArn = Lens.lens (\GetCertificate' {certificateArn} -> certificateArn) (\s@GetCertificate' {} a -> s {certificateArn = a} :: GetCertificate)
 
-instance Prelude.AWSRequest GetCertificate where
-  type Rs GetCertificate = GetCertificateResponse
+instance Core.AWSRequest GetCertificate where
+  type
+    AWSResponse GetCertificate =
+      GetCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCertificateResponse'
-            Prelude.<$> (x Prelude..?> "CertificateChain")
-            Prelude.<*> (x Prelude..?> "Certificate")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CertificateChain")
+            Core.<*> (x Core..?> "Certificate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetCertificate
+instance Core.Hashable GetCertificate
 
-instance Prelude.NFData GetCertificate
+instance Core.NFData GetCertificate
 
-instance Prelude.ToHeaders GetCertificate where
+instance Core.ToHeaders GetCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ACMPrivateCA.GetCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("ACMPrivateCA.GetCertificate" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetCertificate where
+instance Core.ToJSON GetCertificate where
   toJSON GetCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "CertificateAuthorityArn"
-                  Prelude..= certificateAuthorityArn
+                  Core..= certificateAuthorityArn
               ),
-            Prelude.Just
-              ("CertificateArn" Prelude..= certificateArn)
+            Core.Just ("CertificateArn" Core..= certificateArn)
           ]
       )
 
-instance Prelude.ToPath GetCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
   { -- | The base64 PEM-encoded certificate chain that chains up to the root CA
     -- certificate that you used to sign your private CA certificate.
-    certificateChain :: Prelude.Maybe Prelude.Text,
+    certificateChain :: Core.Maybe Core.Text,
     -- | The base64 PEM-encoded certificate specified by the @CertificateArn@
     -- parameter.
-    certificate :: Prelude.Maybe Prelude.Text,
+    certificate :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCertificateResponse' with all optional fields omitted.
@@ -201,28 +197,28 @@ data GetCertificateResponse = GetCertificateResponse'
 -- 'httpStatus', 'getCertificateResponse_httpStatus' - The response's http status code.
 newGetCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCertificateResponse
 newGetCertificateResponse pHttpStatus_ =
   GetCertificateResponse'
     { certificateChain =
-        Prelude.Nothing,
-      certificate = Prelude.Nothing,
+        Core.Nothing,
+      certificate = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The base64 PEM-encoded certificate chain that chains up to the root CA
 -- certificate that you used to sign your private CA certificate.
-getCertificateResponse_certificateChain :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
+getCertificateResponse_certificateChain :: Lens.Lens' GetCertificateResponse (Core.Maybe Core.Text)
 getCertificateResponse_certificateChain = Lens.lens (\GetCertificateResponse' {certificateChain} -> certificateChain) (\s@GetCertificateResponse' {} a -> s {certificateChain = a} :: GetCertificateResponse)
 
 -- | The base64 PEM-encoded certificate specified by the @CertificateArn@
 -- parameter.
-getCertificateResponse_certificate :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
+getCertificateResponse_certificate :: Lens.Lens' GetCertificateResponse (Core.Maybe Core.Text)
 getCertificateResponse_certificate = Lens.lens (\GetCertificateResponse' {certificate} -> certificate) (\s@GetCertificateResponse' {} a -> s {certificate = a} :: GetCertificateResponse)
 
 -- | The response's http status code.
-getCertificateResponse_httpStatus :: Lens.Lens' GetCertificateResponse Prelude.Int
+getCertificateResponse_httpStatus :: Lens.Lens' GetCertificateResponse Core.Int
 getCertificateResponse_httpStatus = Lens.lens (\GetCertificateResponse' {httpStatus} -> httpStatus) (\s@GetCertificateResponse' {} a -> s {httpStatus = a} :: GetCertificateResponse)
 
-instance Prelude.NFData GetCertificateResponse
+instance Core.NFData GetCertificateResponse

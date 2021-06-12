@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,9 +59,9 @@ module Network.AWS.KMS.DisableKeyRotation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -86,9 +85,9 @@ data DisableKeyRotation = DisableKeyRotation'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Prelude.Text
+    keyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableKeyRotation' with all optional fields omitted.
@@ -118,7 +117,7 @@ data DisableKeyRotation = DisableKeyRotation'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newDisableKeyRotation ::
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   DisableKeyRotation
 newDisableKeyRotation pKeyId_ =
   DisableKeyRotation' {keyId = pKeyId_}
@@ -141,54 +140,50 @@ newDisableKeyRotation pKeyId_ =
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-disableKeyRotation_keyId :: Lens.Lens' DisableKeyRotation Prelude.Text
+disableKeyRotation_keyId :: Lens.Lens' DisableKeyRotation Core.Text
 disableKeyRotation_keyId = Lens.lens (\DisableKeyRotation' {keyId} -> keyId) (\s@DisableKeyRotation' {} a -> s {keyId = a} :: DisableKeyRotation)
 
-instance Prelude.AWSRequest DisableKeyRotation where
+instance Core.AWSRequest DisableKeyRotation where
   type
-    Rs DisableKeyRotation =
+    AWSResponse DisableKeyRotation =
       DisableKeyRotationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DisableKeyRotationResponse'
 
-instance Prelude.Hashable DisableKeyRotation
+instance Core.Hashable DisableKeyRotation
 
-instance Prelude.NFData DisableKeyRotation
+instance Core.NFData DisableKeyRotation
 
-instance Prelude.ToHeaders DisableKeyRotation where
+instance Core.ToHeaders DisableKeyRotation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "TrentService.DisableKeyRotation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "TrentService.DisableKeyRotation" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableKeyRotation where
+instance Core.ToJSON DisableKeyRotation where
   toJSON DisableKeyRotation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("KeyId" Prelude..= keyId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("KeyId" Core..= keyId)])
 
-instance Prelude.ToPath DisableKeyRotation where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableKeyRotation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableKeyRotation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableKeyRotation where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableKeyRotationResponse' smart constructor.
 data DisableKeyRotationResponse = DisableKeyRotationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableKeyRotationResponse' with all optional fields omitted.
@@ -199,4 +194,4 @@ newDisableKeyRotationResponse ::
 newDisableKeyRotationResponse =
   DisableKeyRotationResponse'
 
-instance Prelude.NFData DisableKeyRotationResponse
+instance Core.NFData DisableKeyRotationResponse

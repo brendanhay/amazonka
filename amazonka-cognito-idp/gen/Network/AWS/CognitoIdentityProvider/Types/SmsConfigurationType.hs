@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentityProvider.Types.SmsConfigurationType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The SMS configuration type that includes the settings the Cognito User
 -- Pool needs to call for the Amazon SNS service to send an SMS message
@@ -39,14 +38,14 @@ data SmsConfigurationType = SmsConfigurationType'
     -- Cognito Management Console to create a role for SMS MFA, Cognito will
     -- create a role with the required permissions and a trust policy that
     -- demonstrates use of the @ExternalId@.
-    externalId :: Prelude.Maybe Prelude.Text,
+    externalId :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
     -- (SNS) caller. This is the ARN of the IAM role in your AWS account which
     -- Cognito will use to send SMS messages. SMS messages are subject to a
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html spending limit>.
-    snsCallerArn :: Prelude.Text
+    snsCallerArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SmsConfigurationType' with all optional fields omitted.
@@ -71,11 +70,11 @@ data SmsConfigurationType = SmsConfigurationType'
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html spending limit>.
 newSmsConfigurationType ::
   -- | 'snsCallerArn'
-  Prelude.Text ->
+  Core.Text ->
   SmsConfigurationType
 newSmsConfigurationType pSnsCallerArn_ =
   SmsConfigurationType'
-    { externalId = Prelude.Nothing,
+    { externalId = Core.Nothing,
       snsCallerArn = pSnsCallerArn_
     }
 
@@ -87,36 +86,35 @@ newSmsConfigurationType pSnsCallerArn_ =
 -- Cognito Management Console to create a role for SMS MFA, Cognito will
 -- create a role with the required permissions and a trust policy that
 -- demonstrates use of the @ExternalId@.
-smsConfigurationType_externalId :: Lens.Lens' SmsConfigurationType (Prelude.Maybe Prelude.Text)
+smsConfigurationType_externalId :: Lens.Lens' SmsConfigurationType (Core.Maybe Core.Text)
 smsConfigurationType_externalId = Lens.lens (\SmsConfigurationType' {externalId} -> externalId) (\s@SmsConfigurationType' {} a -> s {externalId = a} :: SmsConfigurationType)
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) caller. This is the ARN of the IAM role in your AWS account which
 -- Cognito will use to send SMS messages. SMS messages are subject to a
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html spending limit>.
-smsConfigurationType_snsCallerArn :: Lens.Lens' SmsConfigurationType Prelude.Text
+smsConfigurationType_snsCallerArn :: Lens.Lens' SmsConfigurationType Core.Text
 smsConfigurationType_snsCallerArn = Lens.lens (\SmsConfigurationType' {snsCallerArn} -> snsCallerArn) (\s@SmsConfigurationType' {} a -> s {snsCallerArn = a} :: SmsConfigurationType)
 
-instance Prelude.FromJSON SmsConfigurationType where
+instance Core.FromJSON SmsConfigurationType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SmsConfigurationType"
       ( \x ->
           SmsConfigurationType'
-            Prelude.<$> (x Prelude..:? "ExternalId")
-            Prelude.<*> (x Prelude..: "SnsCallerArn")
+            Core.<$> (x Core..:? "ExternalId")
+            Core.<*> (x Core..: "SnsCallerArn")
       )
 
-instance Prelude.Hashable SmsConfigurationType
+instance Core.Hashable SmsConfigurationType
 
-instance Prelude.NFData SmsConfigurationType
+instance Core.NFData SmsConfigurationType
 
-instance Prelude.ToJSON SmsConfigurationType where
+instance Core.ToJSON SmsConfigurationType where
   toJSON SmsConfigurationType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExternalId" Prelude..=) Prelude.<$> externalId,
-            Prelude.Just
-              ("SnsCallerArn" Prelude..= snsCallerArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("ExternalId" Core..=) Core.<$> externalId,
+            Core.Just ("SnsCallerArn" Core..= snsCallerArn)
           ]
       )

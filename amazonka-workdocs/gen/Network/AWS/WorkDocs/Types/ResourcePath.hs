@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types.ResourcePath where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.ResourcePathComponent
 
 -- | Describes the path information of a resource.
@@ -29,9 +28,9 @@ import Network.AWS.WorkDocs.Types.ResourcePathComponent
 -- /See:/ 'newResourcePath' smart constructor.
 data ResourcePath = ResourcePath'
   { -- | The components of the resource path.
-    components :: Prelude.Maybe [ResourcePathComponent]
+    components :: Core.Maybe [ResourcePathComponent]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourcePath' with all optional fields omitted.
@@ -45,23 +44,21 @@ data ResourcePath = ResourcePath'
 newResourcePath ::
   ResourcePath
 newResourcePath =
-  ResourcePath' {components = Prelude.Nothing}
+  ResourcePath' {components = Core.Nothing}
 
 -- | The components of the resource path.
-resourcePath_components :: Lens.Lens' ResourcePath (Prelude.Maybe [ResourcePathComponent])
-resourcePath_components = Lens.lens (\ResourcePath' {components} -> components) (\s@ResourcePath' {} a -> s {components = a} :: ResourcePath) Prelude.. Lens.mapping Prelude._Coerce
+resourcePath_components :: Lens.Lens' ResourcePath (Core.Maybe [ResourcePathComponent])
+resourcePath_components = Lens.lens (\ResourcePath' {components} -> components) (\s@ResourcePath' {} a -> s {components = a} :: ResourcePath) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ResourcePath where
+instance Core.FromJSON ResourcePath where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourcePath"
       ( \x ->
           ResourcePath'
-            Prelude.<$> ( x Prelude..:? "Components"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Components" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ResourcePath
+instance Core.Hashable ResourcePath
 
-instance Prelude.NFData ResourcePath
+instance Core.NFData ResourcePath

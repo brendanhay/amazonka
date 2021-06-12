@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,20 +50,20 @@ module Network.AWS.OpsWorks.RegisterElasticIp
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRegisterElasticIp' smart constructor.
 data RegisterElasticIp = RegisterElasticIp'
   { -- | The Elastic IP address.
-    elasticIp :: Prelude.Text,
+    elasticIp :: Core.Text,
     -- | The stack ID.
-    stackId :: Prelude.Text
+    stackId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterElasticIp' with all optional fields omitted.
@@ -79,9 +78,9 @@ data RegisterElasticIp = RegisterElasticIp'
 -- 'stackId', 'registerElasticIp_stackId' - The stack ID.
 newRegisterElasticIp ::
   -- | 'elasticIp'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stackId'
-  Prelude.Text ->
+  Core.Text ->
   RegisterElasticIp
 newRegisterElasticIp pElasticIp_ pStackId_ =
   RegisterElasticIp'
@@ -90,68 +89,68 @@ newRegisterElasticIp pElasticIp_ pStackId_ =
     }
 
 -- | The Elastic IP address.
-registerElasticIp_elasticIp :: Lens.Lens' RegisterElasticIp Prelude.Text
+registerElasticIp_elasticIp :: Lens.Lens' RegisterElasticIp Core.Text
 registerElasticIp_elasticIp = Lens.lens (\RegisterElasticIp' {elasticIp} -> elasticIp) (\s@RegisterElasticIp' {} a -> s {elasticIp = a} :: RegisterElasticIp)
 
 -- | The stack ID.
-registerElasticIp_stackId :: Lens.Lens' RegisterElasticIp Prelude.Text
+registerElasticIp_stackId :: Lens.Lens' RegisterElasticIp Core.Text
 registerElasticIp_stackId = Lens.lens (\RegisterElasticIp' {stackId} -> stackId) (\s@RegisterElasticIp' {} a -> s {stackId = a} :: RegisterElasticIp)
 
-instance Prelude.AWSRequest RegisterElasticIp where
-  type Rs RegisterElasticIp = RegisterElasticIpResponse
+instance Core.AWSRequest RegisterElasticIp where
+  type
+    AWSResponse RegisterElasticIp =
+      RegisterElasticIpResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RegisterElasticIpResponse'
-            Prelude.<$> (x Prelude..?> "ElasticIp")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ElasticIp")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterElasticIp
+instance Core.Hashable RegisterElasticIp
 
-instance Prelude.NFData RegisterElasticIp
+instance Core.NFData RegisterElasticIp
 
-instance Prelude.ToHeaders RegisterElasticIp where
+instance Core.ToHeaders RegisterElasticIp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.RegisterElasticIp" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.RegisterElasticIp" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterElasticIp where
+instance Core.ToJSON RegisterElasticIp where
   toJSON RegisterElasticIp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ElasticIp" Prelude..= elasticIp),
-            Prelude.Just ("StackId" Prelude..= stackId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ElasticIp" Core..= elasticIp),
+            Core.Just ("StackId" Core..= stackId)
           ]
       )
 
-instance Prelude.ToPath RegisterElasticIp where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterElasticIp where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterElasticIp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterElasticIp where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @RegisterElasticIp@ request.
 --
 -- /See:/ 'newRegisterElasticIpResponse' smart constructor.
 data RegisterElasticIpResponse = RegisterElasticIpResponse'
   { -- | The Elastic IP address.
-    elasticIp :: Prelude.Maybe Prelude.Text,
+    elasticIp :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterElasticIpResponse' with all optional fields omitted.
@@ -166,21 +165,21 @@ data RegisterElasticIpResponse = RegisterElasticIpResponse'
 -- 'httpStatus', 'registerElasticIpResponse_httpStatus' - The response's http status code.
 newRegisterElasticIpResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterElasticIpResponse
 newRegisterElasticIpResponse pHttpStatus_ =
   RegisterElasticIpResponse'
     { elasticIp =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Elastic IP address.
-registerElasticIpResponse_elasticIp :: Lens.Lens' RegisterElasticIpResponse (Prelude.Maybe Prelude.Text)
+registerElasticIpResponse_elasticIp :: Lens.Lens' RegisterElasticIpResponse (Core.Maybe Core.Text)
 registerElasticIpResponse_elasticIp = Lens.lens (\RegisterElasticIpResponse' {elasticIp} -> elasticIp) (\s@RegisterElasticIpResponse' {} a -> s {elasticIp = a} :: RegisterElasticIpResponse)
 
 -- | The response's http status code.
-registerElasticIpResponse_httpStatus :: Lens.Lens' RegisterElasticIpResponse Prelude.Int
+registerElasticIpResponse_httpStatus :: Lens.Lens' RegisterElasticIpResponse Core.Int
 registerElasticIpResponse_httpStatus = Lens.lens (\RegisterElasticIpResponse' {httpStatus} -> httpStatus) (\s@RegisterElasticIpResponse' {} a -> s {httpStatus = a} :: RegisterElasticIpResponse)
 
-instance Prelude.NFData RegisterElasticIpResponse
+instance Core.NFData RegisterElasticIpResponse

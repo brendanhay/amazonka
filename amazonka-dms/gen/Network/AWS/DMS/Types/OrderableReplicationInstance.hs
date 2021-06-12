@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DMS.Types.OrderableReplicationInstance where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types.ReleaseStatusValues
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | In response to the @DescribeOrderableReplicationInstances@ operation,
 -- this object describes an available replication instance. This
@@ -32,27 +31,27 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newOrderableReplicationInstance' smart constructor.
 data OrderableReplicationInstance = OrderableReplicationInstance'
   { -- | List of Availability Zones for this replication instance.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    availabilityZones :: Core.Maybe [Core.Text],
     -- | The minimum amount of storage (in gigabytes) that can be allocated for
     -- the replication instance.
-    maxAllocatedStorage :: Prelude.Maybe Prelude.Int,
+    maxAllocatedStorage :: Core.Maybe Core.Int,
     -- | The type of storage used by the replication instance.
-    storageType :: Prelude.Maybe Prelude.Text,
+    storageType :: Core.Maybe Core.Text,
     -- | The default amount of storage (in gigabytes) that is allocated for the
     -- replication instance.
-    defaultAllocatedStorage :: Prelude.Maybe Prelude.Int,
+    defaultAllocatedStorage :: Core.Maybe Core.Int,
     -- | The amount of storage (in gigabytes) that is allocated for the
     -- replication instance.
-    includedAllocatedStorage :: Prelude.Maybe Prelude.Int,
+    includedAllocatedStorage :: Core.Maybe Core.Int,
     -- | The value returned when the specified @EngineVersion@ of the replication
     -- instance is in Beta or test mode. This indicates some features might not
     -- work as expected.
     --
     -- AWS DMS supports the @ReleaseStatus@ parameter in versions 3.1.4 and
     -- later.
-    releaseStatus :: Prelude.Maybe ReleaseStatusValues,
+    releaseStatus :: Core.Maybe ReleaseStatusValues,
     -- | The version of the replication engine.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+    engineVersion :: Core.Maybe Core.Text,
     -- | The compute and memory capacity of the replication instance as defined
     -- for the specified replication instance class. For example to specify the
     -- instance class dms.c4.large, set this parameter to @\"dms.c4.large\"@.
@@ -60,12 +59,12 @@ data OrderableReplicationInstance = OrderableReplicationInstance'
     -- For more information on the settings and capacities for the available
     -- replication instance classes, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
-    replicationInstanceClass :: Prelude.Maybe Prelude.Text,
+    replicationInstanceClass :: Core.Maybe Core.Text,
     -- | The minimum amount of storage (in gigabytes) that can be allocated for
     -- the replication instance.
-    minAllocatedStorage :: Prelude.Maybe Prelude.Int
+    minAllocatedStorage :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OrderableReplicationInstance' with all optional fields omitted.
@@ -112,38 +111,38 @@ newOrderableReplicationInstance ::
 newOrderableReplicationInstance =
   OrderableReplicationInstance'
     { availabilityZones =
-        Prelude.Nothing,
-      maxAllocatedStorage = Prelude.Nothing,
-      storageType = Prelude.Nothing,
-      defaultAllocatedStorage = Prelude.Nothing,
-      includedAllocatedStorage = Prelude.Nothing,
-      releaseStatus = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      replicationInstanceClass = Prelude.Nothing,
-      minAllocatedStorage = Prelude.Nothing
+        Core.Nothing,
+      maxAllocatedStorage = Core.Nothing,
+      storageType = Core.Nothing,
+      defaultAllocatedStorage = Core.Nothing,
+      includedAllocatedStorage = Core.Nothing,
+      releaseStatus = Core.Nothing,
+      engineVersion = Core.Nothing,
+      replicationInstanceClass = Core.Nothing,
+      minAllocatedStorage = Core.Nothing
     }
 
 -- | List of Availability Zones for this replication instance.
-orderableReplicationInstance_availabilityZones :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe [Prelude.Text])
-orderableReplicationInstance_availabilityZones = Lens.lens (\OrderableReplicationInstance' {availabilityZones} -> availabilityZones) (\s@OrderableReplicationInstance' {} a -> s {availabilityZones = a} :: OrderableReplicationInstance) Prelude.. Lens.mapping Prelude._Coerce
+orderableReplicationInstance_availabilityZones :: Lens.Lens' OrderableReplicationInstance (Core.Maybe [Core.Text])
+orderableReplicationInstance_availabilityZones = Lens.lens (\OrderableReplicationInstance' {availabilityZones} -> availabilityZones) (\s@OrderableReplicationInstance' {} a -> s {availabilityZones = a} :: OrderableReplicationInstance) Core.. Lens.mapping Lens._Coerce
 
 -- | The minimum amount of storage (in gigabytes) that can be allocated for
 -- the replication instance.
-orderableReplicationInstance_maxAllocatedStorage :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe Prelude.Int)
+orderableReplicationInstance_maxAllocatedStorage :: Lens.Lens' OrderableReplicationInstance (Core.Maybe Core.Int)
 orderableReplicationInstance_maxAllocatedStorage = Lens.lens (\OrderableReplicationInstance' {maxAllocatedStorage} -> maxAllocatedStorage) (\s@OrderableReplicationInstance' {} a -> s {maxAllocatedStorage = a} :: OrderableReplicationInstance)
 
 -- | The type of storage used by the replication instance.
-orderableReplicationInstance_storageType :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe Prelude.Text)
+orderableReplicationInstance_storageType :: Lens.Lens' OrderableReplicationInstance (Core.Maybe Core.Text)
 orderableReplicationInstance_storageType = Lens.lens (\OrderableReplicationInstance' {storageType} -> storageType) (\s@OrderableReplicationInstance' {} a -> s {storageType = a} :: OrderableReplicationInstance)
 
 -- | The default amount of storage (in gigabytes) that is allocated for the
 -- replication instance.
-orderableReplicationInstance_defaultAllocatedStorage :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe Prelude.Int)
+orderableReplicationInstance_defaultAllocatedStorage :: Lens.Lens' OrderableReplicationInstance (Core.Maybe Core.Int)
 orderableReplicationInstance_defaultAllocatedStorage = Lens.lens (\OrderableReplicationInstance' {defaultAllocatedStorage} -> defaultAllocatedStorage) (\s@OrderableReplicationInstance' {} a -> s {defaultAllocatedStorage = a} :: OrderableReplicationInstance)
 
 -- | The amount of storage (in gigabytes) that is allocated for the
 -- replication instance.
-orderableReplicationInstance_includedAllocatedStorage :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe Prelude.Int)
+orderableReplicationInstance_includedAllocatedStorage :: Lens.Lens' OrderableReplicationInstance (Core.Maybe Core.Int)
 orderableReplicationInstance_includedAllocatedStorage = Lens.lens (\OrderableReplicationInstance' {includedAllocatedStorage} -> includedAllocatedStorage) (\s@OrderableReplicationInstance' {} a -> s {includedAllocatedStorage = a} :: OrderableReplicationInstance)
 
 -- | The value returned when the specified @EngineVersion@ of the replication
@@ -152,11 +151,11 @@ orderableReplicationInstance_includedAllocatedStorage = Lens.lens (\OrderableRep
 --
 -- AWS DMS supports the @ReleaseStatus@ parameter in versions 3.1.4 and
 -- later.
-orderableReplicationInstance_releaseStatus :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe ReleaseStatusValues)
+orderableReplicationInstance_releaseStatus :: Lens.Lens' OrderableReplicationInstance (Core.Maybe ReleaseStatusValues)
 orderableReplicationInstance_releaseStatus = Lens.lens (\OrderableReplicationInstance' {releaseStatus} -> releaseStatus) (\s@OrderableReplicationInstance' {} a -> s {releaseStatus = a} :: OrderableReplicationInstance)
 
 -- | The version of the replication engine.
-orderableReplicationInstance_engineVersion :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe Prelude.Text)
+orderableReplicationInstance_engineVersion :: Lens.Lens' OrderableReplicationInstance (Core.Maybe Core.Text)
 orderableReplicationInstance_engineVersion = Lens.lens (\OrderableReplicationInstance' {engineVersion} -> engineVersion) (\s@OrderableReplicationInstance' {} a -> s {engineVersion = a} :: OrderableReplicationInstance)
 
 -- | The compute and memory capacity of the replication instance as defined
@@ -166,38 +165,31 @@ orderableReplicationInstance_engineVersion = Lens.lens (\OrderableReplicationIns
 -- For more information on the settings and capacities for the available
 -- replication instance classes, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
-orderableReplicationInstance_replicationInstanceClass :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe Prelude.Text)
+orderableReplicationInstance_replicationInstanceClass :: Lens.Lens' OrderableReplicationInstance (Core.Maybe Core.Text)
 orderableReplicationInstance_replicationInstanceClass = Lens.lens (\OrderableReplicationInstance' {replicationInstanceClass} -> replicationInstanceClass) (\s@OrderableReplicationInstance' {} a -> s {replicationInstanceClass = a} :: OrderableReplicationInstance)
 
 -- | The minimum amount of storage (in gigabytes) that can be allocated for
 -- the replication instance.
-orderableReplicationInstance_minAllocatedStorage :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe Prelude.Int)
+orderableReplicationInstance_minAllocatedStorage :: Lens.Lens' OrderableReplicationInstance (Core.Maybe Core.Int)
 orderableReplicationInstance_minAllocatedStorage = Lens.lens (\OrderableReplicationInstance' {minAllocatedStorage} -> minAllocatedStorage) (\s@OrderableReplicationInstance' {} a -> s {minAllocatedStorage = a} :: OrderableReplicationInstance)
 
-instance
-  Prelude.FromJSON
-    OrderableReplicationInstance
-  where
+instance Core.FromJSON OrderableReplicationInstance where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OrderableReplicationInstance"
       ( \x ->
           OrderableReplicationInstance'
-            Prelude.<$> ( x Prelude..:? "AvailabilityZones"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "MaxAllocatedStorage")
-            Prelude.<*> (x Prelude..:? "StorageType")
-            Prelude.<*> (x Prelude..:? "DefaultAllocatedStorage")
-            Prelude.<*> (x Prelude..:? "IncludedAllocatedStorage")
-            Prelude.<*> (x Prelude..:? "ReleaseStatus")
-            Prelude.<*> (x Prelude..:? "EngineVersion")
-            Prelude.<*> (x Prelude..:? "ReplicationInstanceClass")
-            Prelude.<*> (x Prelude..:? "MinAllocatedStorage")
+            Core.<$> (x Core..:? "AvailabilityZones" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "MaxAllocatedStorage")
+            Core.<*> (x Core..:? "StorageType")
+            Core.<*> (x Core..:? "DefaultAllocatedStorage")
+            Core.<*> (x Core..:? "IncludedAllocatedStorage")
+            Core.<*> (x Core..:? "ReleaseStatus")
+            Core.<*> (x Core..:? "EngineVersion")
+            Core.<*> (x Core..:? "ReplicationInstanceClass")
+            Core.<*> (x Core..:? "MinAllocatedStorage")
       )
 
-instance
-  Prelude.Hashable
-    OrderableReplicationInstance
+instance Core.Hashable OrderableReplicationInstance
 
-instance Prelude.NFData OrderableReplicationInstance
+instance Core.NFData OrderableReplicationInstance

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectoryService.Types.DirectoryVpcSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains VPC information for the CreateDirectory or CreateMicrosoftAD
 -- operation.
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDirectoryVpcSettings' smart constructor.
 data DirectoryVpcSettings = DirectoryVpcSettings'
   { -- | The identifier of the VPC in which to create the directory.
-    vpcId :: Prelude.Text,
+    vpcId :: Core.Text,
     -- | The identifiers of the subnets for the directory servers. The two
     -- subnets must be in different Availability Zones. AWS Directory Service
     -- creates a directory server and a DNS server in each of these subnets.
-    subnetIds :: [Prelude.Text]
+    subnetIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DirectoryVpcSettings' with all optional fields omitted.
@@ -52,45 +51,43 @@ data DirectoryVpcSettings = DirectoryVpcSettings'
 -- creates a directory server and a DNS server in each of these subnets.
 newDirectoryVpcSettings ::
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   DirectoryVpcSettings
 newDirectoryVpcSettings pVpcId_ =
   DirectoryVpcSettings'
     { vpcId = pVpcId_,
-      subnetIds = Prelude.mempty
+      subnetIds = Core.mempty
     }
 
 -- | The identifier of the VPC in which to create the directory.
-directoryVpcSettings_vpcId :: Lens.Lens' DirectoryVpcSettings Prelude.Text
+directoryVpcSettings_vpcId :: Lens.Lens' DirectoryVpcSettings Core.Text
 directoryVpcSettings_vpcId = Lens.lens (\DirectoryVpcSettings' {vpcId} -> vpcId) (\s@DirectoryVpcSettings' {} a -> s {vpcId = a} :: DirectoryVpcSettings)
 
 -- | The identifiers of the subnets for the directory servers. The two
 -- subnets must be in different Availability Zones. AWS Directory Service
 -- creates a directory server and a DNS server in each of these subnets.
-directoryVpcSettings_subnetIds :: Lens.Lens' DirectoryVpcSettings [Prelude.Text]
-directoryVpcSettings_subnetIds = Lens.lens (\DirectoryVpcSettings' {subnetIds} -> subnetIds) (\s@DirectoryVpcSettings' {} a -> s {subnetIds = a} :: DirectoryVpcSettings) Prelude.. Prelude._Coerce
+directoryVpcSettings_subnetIds :: Lens.Lens' DirectoryVpcSettings [Core.Text]
+directoryVpcSettings_subnetIds = Lens.lens (\DirectoryVpcSettings' {subnetIds} -> subnetIds) (\s@DirectoryVpcSettings' {} a -> s {subnetIds = a} :: DirectoryVpcSettings) Core.. Lens._Coerce
 
-instance Prelude.FromJSON DirectoryVpcSettings where
+instance Core.FromJSON DirectoryVpcSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DirectoryVpcSettings"
       ( \x ->
           DirectoryVpcSettings'
-            Prelude.<$> (x Prelude..: "VpcId")
-            Prelude.<*> ( x Prelude..:? "SubnetIds"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..: "VpcId")
+            Core.<*> (x Core..:? "SubnetIds" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable DirectoryVpcSettings
+instance Core.Hashable DirectoryVpcSettings
 
-instance Prelude.NFData DirectoryVpcSettings
+instance Core.NFData DirectoryVpcSettings
 
-instance Prelude.ToJSON DirectoryVpcSettings where
+instance Core.ToJSON DirectoryVpcSettings where
   toJSON DirectoryVpcSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("VpcId" Prelude..= vpcId),
-            Prelude.Just ("SubnetIds" Prelude..= subnetIds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("VpcId" Core..= vpcId),
+            Core.Just ("SubnetIds" Core..= subnetIds)
           ]
       )

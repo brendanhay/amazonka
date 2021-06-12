@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.CertificateManager.AddTagsToCertificate
 where
 
 import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,11 +69,11 @@ data AddTagsToCertificate = AddTagsToCertificate'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-    certificateArn :: Prelude.Text,
+    certificateArn :: Core.Text,
     -- | The key-value pair that defines the tag. The tag value is optional.
-    tags :: Prelude.NonEmpty Tag
+    tags :: Core.NonEmpty Tag
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddTagsToCertificate' with all optional fields omitted.
@@ -95,15 +94,15 @@ data AddTagsToCertificate = AddTagsToCertificate'
 -- 'tags', 'addTagsToCertificate_tags' - The key-value pair that defines the tag. The tag value is optional.
 newAddTagsToCertificate ::
   -- | 'certificateArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tags'
-  Prelude.NonEmpty Tag ->
+  Core.NonEmpty Tag ->
   AddTagsToCertificate
 newAddTagsToCertificate pCertificateArn_ pTags_ =
   AddTagsToCertificate'
     { certificateArn =
         pCertificateArn_,
-      tags = Prelude._Coerce Lens.# pTags_
+      tags = Lens._Coerce Lens.# pTags_
     }
 
 -- | String that contains the ARN of the ACM certificate to which the tag is
@@ -113,61 +112,58 @@ newAddTagsToCertificate pCertificateArn_ pTags_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-addTagsToCertificate_certificateArn :: Lens.Lens' AddTagsToCertificate Prelude.Text
+addTagsToCertificate_certificateArn :: Lens.Lens' AddTagsToCertificate Core.Text
 addTagsToCertificate_certificateArn = Lens.lens (\AddTagsToCertificate' {certificateArn} -> certificateArn) (\s@AddTagsToCertificate' {} a -> s {certificateArn = a} :: AddTagsToCertificate)
 
 -- | The key-value pair that defines the tag. The tag value is optional.
-addTagsToCertificate_tags :: Lens.Lens' AddTagsToCertificate (Prelude.NonEmpty Tag)
-addTagsToCertificate_tags = Lens.lens (\AddTagsToCertificate' {tags} -> tags) (\s@AddTagsToCertificate' {} a -> s {tags = a} :: AddTagsToCertificate) Prelude.. Prelude._Coerce
+addTagsToCertificate_tags :: Lens.Lens' AddTagsToCertificate (Core.NonEmpty Tag)
+addTagsToCertificate_tags = Lens.lens (\AddTagsToCertificate' {tags} -> tags) (\s@AddTagsToCertificate' {} a -> s {tags = a} :: AddTagsToCertificate) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddTagsToCertificate where
+instance Core.AWSRequest AddTagsToCertificate where
   type
-    Rs AddTagsToCertificate =
+    AWSResponse AddTagsToCertificate =
       AddTagsToCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull AddTagsToCertificateResponse'
 
-instance Prelude.Hashable AddTagsToCertificate
+instance Core.Hashable AddTagsToCertificate
 
-instance Prelude.NFData AddTagsToCertificate
+instance Core.NFData AddTagsToCertificate
 
-instance Prelude.ToHeaders AddTagsToCertificate where
+instance Core.ToHeaders AddTagsToCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CertificateManager.AddTagsToCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CertificateManager.AddTagsToCertificate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AddTagsToCertificate where
+instance Core.ToJSON AddTagsToCertificate where
   toJSON AddTagsToCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CertificateArn" Prelude..= certificateArn),
-            Prelude.Just ("Tags" Prelude..= tags)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CertificateArn" Core..= certificateArn),
+            Core.Just ("Tags" Core..= tags)
           ]
       )
 
-instance Prelude.ToPath AddTagsToCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddTagsToCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddTagsToCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AddTagsToCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAddTagsToCertificateResponse' smart constructor.
 data AddTagsToCertificateResponse = AddTagsToCertificateResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddTagsToCertificateResponse' with all optional fields omitted.
@@ -178,4 +174,4 @@ newAddTagsToCertificateResponse ::
 newAddTagsToCertificateResponse =
   AddTagsToCertificateResponse'
 
-instance Prelude.NFData AddTagsToCertificateResponse
+instance Core.NFData AddTagsToCertificateResponse

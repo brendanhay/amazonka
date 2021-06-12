@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,21 +42,21 @@ module Network.AWS.AppSync.GetResolver
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetResolver' smart constructor.
 data GetResolver = GetResolver'
   { -- | The API ID.
-    apiId :: Prelude.Text,
+    apiId :: Core.Text,
     -- | The resolver type name.
-    typeName :: Prelude.Text,
+    typeName :: Core.Text,
     -- | The resolver field name.
-    fieldName :: Prelude.Text
+    fieldName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetResolver' with all optional fields omitted.
@@ -74,11 +73,11 @@ data GetResolver = GetResolver'
 -- 'fieldName', 'getResolver_fieldName' - The resolver field name.
 newGetResolver ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'typeName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'fieldName'
-  Prelude.Text ->
+  Core.Text ->
   GetResolver
 newGetResolver pApiId_ pTypeName_ pFieldName_ =
   GetResolver'
@@ -88,65 +87,63 @@ newGetResolver pApiId_ pTypeName_ pFieldName_ =
     }
 
 -- | The API ID.
-getResolver_apiId :: Lens.Lens' GetResolver Prelude.Text
+getResolver_apiId :: Lens.Lens' GetResolver Core.Text
 getResolver_apiId = Lens.lens (\GetResolver' {apiId} -> apiId) (\s@GetResolver' {} a -> s {apiId = a} :: GetResolver)
 
 -- | The resolver type name.
-getResolver_typeName :: Lens.Lens' GetResolver Prelude.Text
+getResolver_typeName :: Lens.Lens' GetResolver Core.Text
 getResolver_typeName = Lens.lens (\GetResolver' {typeName} -> typeName) (\s@GetResolver' {} a -> s {typeName = a} :: GetResolver)
 
 -- | The resolver field name.
-getResolver_fieldName :: Lens.Lens' GetResolver Prelude.Text
+getResolver_fieldName :: Lens.Lens' GetResolver Core.Text
 getResolver_fieldName = Lens.lens (\GetResolver' {fieldName} -> fieldName) (\s@GetResolver' {} a -> s {fieldName = a} :: GetResolver)
 
-instance Prelude.AWSRequest GetResolver where
-  type Rs GetResolver = GetResolverResponse
+instance Core.AWSRequest GetResolver where
+  type AWSResponse GetResolver = GetResolverResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetResolverResponse'
-            Prelude.<$> (x Prelude..?> "resolver")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "resolver")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetResolver
+instance Core.Hashable GetResolver
 
-instance Prelude.NFData GetResolver
+instance Core.NFData GetResolver
 
-instance Prelude.ToHeaders GetResolver where
+instance Core.ToHeaders GetResolver where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetResolver where
+instance Core.ToPath GetResolver where
   toPath GetResolver' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apis/",
-        Prelude.toBS apiId,
+        Core.toBS apiId,
         "/types/",
-        Prelude.toBS typeName,
+        Core.toBS typeName,
         "/resolvers/",
-        Prelude.toBS fieldName
+        Core.toBS fieldName
       ]
 
-instance Prelude.ToQuery GetResolver where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetResolver where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetResolverResponse' smart constructor.
 data GetResolverResponse = GetResolverResponse'
   { -- | The @Resolver@ object.
-    resolver :: Prelude.Maybe Resolver,
+    resolver :: Core.Maybe Resolver,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetResolverResponse' with all optional fields omitted.
@@ -161,20 +158,20 @@ data GetResolverResponse = GetResolverResponse'
 -- 'httpStatus', 'getResolverResponse_httpStatus' - The response's http status code.
 newGetResolverResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetResolverResponse
 newGetResolverResponse pHttpStatus_ =
   GetResolverResponse'
-    { resolver = Prelude.Nothing,
+    { resolver = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @Resolver@ object.
-getResolverResponse_resolver :: Lens.Lens' GetResolverResponse (Prelude.Maybe Resolver)
+getResolverResponse_resolver :: Lens.Lens' GetResolverResponse (Core.Maybe Resolver)
 getResolverResponse_resolver = Lens.lens (\GetResolverResponse' {resolver} -> resolver) (\s@GetResolverResponse' {} a -> s {resolver = a} :: GetResolverResponse)
 
 -- | The response's http status code.
-getResolverResponse_httpStatus :: Lens.Lens' GetResolverResponse Prelude.Int
+getResolverResponse_httpStatus :: Lens.Lens' GetResolverResponse Core.Int
 getResolverResponse_httpStatus = Lens.lens (\GetResolverResponse' {httpStatus} -> httpStatus) (\s@GetResolverResponse' {} a -> s {httpStatus = a} :: GetResolverResponse)
 
-instance Prelude.NFData GetResolverResponse
+instance Core.NFData GetResolverResponse

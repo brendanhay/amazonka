@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,19 +37,19 @@ module Network.AWS.APIGatewayManagementAPI.PostToConnection
 where
 
 import Network.AWS.APIGatewayManagementAPI.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPostToConnection' smart constructor.
 data PostToConnection = PostToConnection'
   { -- | The identifier of the connection that a specific client is using.
-    connectionId :: Prelude.Text,
+    connectionId :: Core.Text,
     -- | The data to be sent to the client specified by its connection id.
-    data' :: Prelude.ByteString
+    data' :: Core.ByteString
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PostToConnection' with all optional fields omitted.
@@ -65,9 +64,9 @@ data PostToConnection = PostToConnection'
 -- 'data'', 'postToConnection_data' - The data to be sent to the client specified by its connection id.
 newPostToConnection ::
   -- | 'connectionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'data''
-  Prelude.ByteString ->
+  Core.ByteString ->
   PostToConnection
 newPostToConnection pConnectionId_ pData_ =
   PostToConnection'
@@ -76,50 +75,50 @@ newPostToConnection pConnectionId_ pData_ =
     }
 
 -- | The identifier of the connection that a specific client is using.
-postToConnection_connectionId :: Lens.Lens' PostToConnection Prelude.Text
+postToConnection_connectionId :: Lens.Lens' PostToConnection Core.Text
 postToConnection_connectionId = Lens.lens (\PostToConnection' {connectionId} -> connectionId) (\s@PostToConnection' {} a -> s {connectionId = a} :: PostToConnection)
 
 -- | The data to be sent to the client specified by its connection id.
-postToConnection_data :: Lens.Lens' PostToConnection Prelude.ByteString
+postToConnection_data :: Lens.Lens' PostToConnection Core.ByteString
 postToConnection_data = Lens.lens (\PostToConnection' {data'} -> data') (\s@PostToConnection' {} a -> s {data' = a} :: PostToConnection)
 
-instance Prelude.AWSRequest PostToConnection where
-  type Rs PostToConnection = PostToConnectionResponse
+instance Core.AWSRequest PostToConnection where
+  type
+    AWSResponse PostToConnection =
+      PostToConnectionResponse
   request = Request.postBody defaultService
   response =
     Response.receiveNull PostToConnectionResponse'
 
-instance Prelude.Hashable PostToConnection
+instance Core.Hashable PostToConnection
 
-instance Prelude.NFData PostToConnection
+instance Core.NFData PostToConnection
 
-instance Prelude.ToBody PostToConnection where
-  toBody PostToConnection' {..} = Prelude.toBody data'
+instance Core.ToBody PostToConnection where
+  toBody PostToConnection' {..} = Core.toBody data'
 
-instance Prelude.ToHeaders PostToConnection where
+instance Core.ToHeaders PostToConnection where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath PostToConnection where
+instance Core.ToPath PostToConnection where
   toPath PostToConnection' {..} =
-    Prelude.mconcat
-      ["/@connections/", Prelude.toBS connectionId]
+    Core.mconcat
+      ["/@connections/", Core.toBS connectionId]
 
-instance Prelude.ToQuery PostToConnection where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PostToConnection where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPostToConnectionResponse' smart constructor.
 data PostToConnectionResponse = PostToConnectionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PostToConnectionResponse' with all optional fields omitted.
@@ -130,4 +129,4 @@ newPostToConnectionResponse ::
 newPostToConnectionResponse =
   PostToConnectionResponse'
 
-instance Prelude.NFData PostToConnectionResponse
+instance Core.NFData PostToConnectionResponse

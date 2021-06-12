@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.CognitoIdentityProvider.DeleteUserPool
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,9 +46,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteUserPool' smart constructor.
 data DeleteUserPool = DeleteUserPool'
   { -- | The user pool ID for the user pool you want to delete.
-    userPoolId :: Prelude.Text
+    userPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPool' with all optional fields omitted.
@@ -62,58 +61,58 @@ data DeleteUserPool = DeleteUserPool'
 -- 'userPoolId', 'deleteUserPool_userPoolId' - The user pool ID for the user pool you want to delete.
 newDeleteUserPool ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUserPool
 newDeleteUserPool pUserPoolId_ =
   DeleteUserPool' {userPoolId = pUserPoolId_}
 
 -- | The user pool ID for the user pool you want to delete.
-deleteUserPool_userPoolId :: Lens.Lens' DeleteUserPool Prelude.Text
+deleteUserPool_userPoolId :: Lens.Lens' DeleteUserPool Core.Text
 deleteUserPool_userPoolId = Lens.lens (\DeleteUserPool' {userPoolId} -> userPoolId) (\s@DeleteUserPool' {} a -> s {userPoolId = a} :: DeleteUserPool)
 
-instance Prelude.AWSRequest DeleteUserPool where
-  type Rs DeleteUserPool = DeleteUserPoolResponse
+instance Core.AWSRequest DeleteUserPool where
+  type
+    AWSResponse DeleteUserPool =
+      DeleteUserPoolResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteUserPoolResponse'
 
-instance Prelude.Hashable DeleteUserPool
+instance Core.Hashable DeleteUserPool
 
-instance Prelude.NFData DeleteUserPool
+instance Core.NFData DeleteUserPool
 
-instance Prelude.ToHeaders DeleteUserPool where
+instance Core.ToHeaders DeleteUserPool where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.DeleteUserPool" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.DeleteUserPool" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteUserPool where
+instance Core.ToJSON DeleteUserPool where
   toJSON DeleteUserPool' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("UserPoolId" Prelude..= userPoolId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("UserPoolId" Core..= userPoolId)]
       )
 
-instance Prelude.ToPath DeleteUserPool where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteUserPool where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteUserPool where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteUserPool where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteUserPoolResponse' smart constructor.
 data DeleteUserPoolResponse = DeleteUserPoolResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPoolResponse' with all optional fields omitted.
@@ -123,4 +122,4 @@ newDeleteUserPoolResponse ::
   DeleteUserPoolResponse
 newDeleteUserPoolResponse = DeleteUserPoolResponse'
 
-instance Prelude.NFData DeleteUserPoolResponse
+instance Core.NFData DeleteUserPoolResponse

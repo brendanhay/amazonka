@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.ServiceCatalog.DeleteServiceAction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -55,11 +54,11 @@ data DeleteServiceAction = DeleteServiceAction'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteServiceAction' with all optional fields omitted.
@@ -80,12 +79,11 @@ data DeleteServiceAction = DeleteServiceAction'
 -- 'id', 'deleteServiceAction_id' - The self-service action identifier. For example, @act-fs7abcd89wxyz@.
 newDeleteServiceAction ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteServiceAction
 newDeleteServiceAction pId_ =
   DeleteServiceAction'
-    { acceptLanguage =
-        Prelude.Nothing,
+    { acceptLanguage = Core.Nothing,
       id = pId_
     }
 
@@ -96,66 +94,63 @@ newDeleteServiceAction pId_ =
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-deleteServiceAction_acceptLanguage :: Lens.Lens' DeleteServiceAction (Prelude.Maybe Prelude.Text)
+deleteServiceAction_acceptLanguage :: Lens.Lens' DeleteServiceAction (Core.Maybe Core.Text)
 deleteServiceAction_acceptLanguage = Lens.lens (\DeleteServiceAction' {acceptLanguage} -> acceptLanguage) (\s@DeleteServiceAction' {} a -> s {acceptLanguage = a} :: DeleteServiceAction)
 
 -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
-deleteServiceAction_id :: Lens.Lens' DeleteServiceAction Prelude.Text
+deleteServiceAction_id :: Lens.Lens' DeleteServiceAction Core.Text
 deleteServiceAction_id = Lens.lens (\DeleteServiceAction' {id} -> id) (\s@DeleteServiceAction' {} a -> s {id = a} :: DeleteServiceAction)
 
-instance Prelude.AWSRequest DeleteServiceAction where
+instance Core.AWSRequest DeleteServiceAction where
   type
-    Rs DeleteServiceAction =
+    AWSResponse DeleteServiceAction =
       DeleteServiceActionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteServiceActionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteServiceAction
+instance Core.Hashable DeleteServiceAction
 
-instance Prelude.NFData DeleteServiceAction
+instance Core.NFData DeleteServiceAction
 
-instance Prelude.ToHeaders DeleteServiceAction where
+instance Core.ToHeaders DeleteServiceAction where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DeleteServiceAction" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DeleteServiceAction" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteServiceAction where
+instance Core.ToJSON DeleteServiceAction where
   toJSON DeleteServiceAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("Id" Core..= id)
           ]
       )
 
-instance Prelude.ToPath DeleteServiceAction where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteServiceAction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteServiceAction where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteServiceAction where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteServiceActionResponse' smart constructor.
 data DeleteServiceActionResponse = DeleteServiceActionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteServiceActionResponse' with all optional fields omitted.
@@ -168,7 +163,7 @@ data DeleteServiceActionResponse = DeleteServiceActionResponse'
 -- 'httpStatus', 'deleteServiceActionResponse_httpStatus' - The response's http status code.
 newDeleteServiceActionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteServiceActionResponse
 newDeleteServiceActionResponse pHttpStatus_ =
   DeleteServiceActionResponse'
@@ -177,7 +172,7 @@ newDeleteServiceActionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteServiceActionResponse_httpStatus :: Lens.Lens' DeleteServiceActionResponse Prelude.Int
+deleteServiceActionResponse_httpStatus :: Lens.Lens' DeleteServiceActionResponse Core.Int
 deleteServiceActionResponse_httpStatus = Lens.lens (\DeleteServiceActionResponse' {httpStatus} -> httpStatus) (\s@DeleteServiceActionResponse' {} a -> s {httpStatus = a} :: DeleteServiceActionResponse)
 
-instance Prelude.NFData DeleteServiceActionResponse
+instance Core.NFData DeleteServiceActionResponse

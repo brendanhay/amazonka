@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.Tag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The metadata that you apply to a resource to help you categorize and
 -- organize it. Each tag consists of a key and an optional value, both of
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data Tag = Tag'
   { -- | One part of a key-value pair that makes up a tag. A @key@ is a general
     -- label that acts like a category for more specific tag values.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | The optional part of a key-value pair that makes up a tag. A @value@
     -- acts as a descriptor in a tag category (key).
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -54,42 +53,41 @@ data Tag = Tag'
 -- acts as a descriptor in a tag category (key).
 newTag ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   Tag
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
 
 -- | One part of a key-value pair that makes up a tag. A @key@ is a general
 -- label that acts like a category for more specific tag values.
-tag_key :: Lens.Lens' Tag Prelude.Text
+tag_key :: Lens.Lens' Tag Core.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The optional part of a key-value pair that makes up a tag. A @value@
 -- acts as a descriptor in a tag category (key).
-tag_value :: Lens.Lens' Tag Prelude.Text
+tag_value :: Lens.Lens' Tag Core.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
-instance Prelude.FromJSON Tag where
+instance Core.FromJSON Tag where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Prelude..: "Key")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable Tag
+instance Core.Hashable Tag
 
-instance Prelude.NFData Tag
+instance Core.NFData Tag
 
-instance Prelude.ToJSON Tag where
+instance Core.ToJSON Tag where
   toJSON Tag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Value" Core..= value)
           ]
       )

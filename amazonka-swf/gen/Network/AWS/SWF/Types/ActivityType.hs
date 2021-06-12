@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.ActivityType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an activity type.
 --
@@ -31,14 +30,14 @@ data ActivityType = ActivityType'
     --
     -- The combination of activity type name and version must be unique within
     -- a domain.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The version of this activity.
     --
     -- The combination of activity type name and version must be unique with in
     -- a domain.
-    version :: Prelude.Text
+    version :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActivityType' with all optional fields omitted.
@@ -59,9 +58,9 @@ data ActivityType = ActivityType'
 -- a domain.
 newActivityType ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   ActivityType
 newActivityType pName_ pVersion_ =
   ActivityType' {name = pName_, version = pVersion_}
@@ -70,35 +69,34 @@ newActivityType pName_ pVersion_ =
 --
 -- The combination of activity type name and version must be unique within
 -- a domain.
-activityType_name :: Lens.Lens' ActivityType Prelude.Text
+activityType_name :: Lens.Lens' ActivityType Core.Text
 activityType_name = Lens.lens (\ActivityType' {name} -> name) (\s@ActivityType' {} a -> s {name = a} :: ActivityType)
 
 -- | The version of this activity.
 --
 -- The combination of activity type name and version must be unique with in
 -- a domain.
-activityType_version :: Lens.Lens' ActivityType Prelude.Text
+activityType_version :: Lens.Lens' ActivityType Core.Text
 activityType_version = Lens.lens (\ActivityType' {version} -> version) (\s@ActivityType' {} a -> s {version = a} :: ActivityType)
 
-instance Prelude.FromJSON ActivityType where
+instance Core.FromJSON ActivityType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActivityType"
       ( \x ->
           ActivityType'
-            Prelude.<$> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "version")
+            Core.<$> (x Core..: "name") Core.<*> (x Core..: "version")
       )
 
-instance Prelude.Hashable ActivityType
+instance Core.Hashable ActivityType
 
-instance Prelude.NFData ActivityType
+instance Core.NFData ActivityType
 
-instance Prelude.ToJSON ActivityType where
+instance Core.ToJSON ActivityType where
   toJSON ActivityType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("version" Prelude..= version)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("version" Core..= version)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.SNS.GetEndpointAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -54,9 +53,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newGetEndpointAttributes' smart constructor.
 data GetEndpointAttributes = GetEndpointAttributes'
   { -- | EndpointArn for GetEndpointAttributes input.
-    endpointArn :: Prelude.Text
+    endpointArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEndpointAttributes' with all optional fields omitted.
@@ -69,18 +68,18 @@ data GetEndpointAttributes = GetEndpointAttributes'
 -- 'endpointArn', 'getEndpointAttributes_endpointArn' - EndpointArn for GetEndpointAttributes input.
 newGetEndpointAttributes ::
   -- | 'endpointArn'
-  Prelude.Text ->
+  Core.Text ->
   GetEndpointAttributes
 newGetEndpointAttributes pEndpointArn_ =
   GetEndpointAttributes' {endpointArn = pEndpointArn_}
 
 -- | EndpointArn for GetEndpointAttributes input.
-getEndpointAttributes_endpointArn :: Lens.Lens' GetEndpointAttributes Prelude.Text
+getEndpointAttributes_endpointArn :: Lens.Lens' GetEndpointAttributes Core.Text
 getEndpointAttributes_endpointArn = Lens.lens (\GetEndpointAttributes' {endpointArn} -> endpointArn) (\s@GetEndpointAttributes' {} a -> s {endpointArn = a} :: GetEndpointAttributes)
 
-instance Prelude.AWSRequest GetEndpointAttributes where
+instance Core.AWSRequest GetEndpointAttributes where
   type
-    Rs GetEndpointAttributes =
+    AWSResponse GetEndpointAttributes =
       GetEndpointAttributesResponse
   request = Request.postQuery defaultService
   response =
@@ -88,32 +87,29 @@ instance Prelude.AWSRequest GetEndpointAttributes where
       "GetEndpointAttributesResult"
       ( \s h x ->
           GetEndpointAttributesResponse'
-            Prelude.<$> ( x Prelude..@? "Attributes"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLMap "entry" "key" "value")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Attributes" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetEndpointAttributes
+instance Core.Hashable GetEndpointAttributes
 
-instance Prelude.NFData GetEndpointAttributes
+instance Core.NFData GetEndpointAttributes
 
-instance Prelude.ToHeaders GetEndpointAttributes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetEndpointAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetEndpointAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetEndpointAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetEndpointAttributes where
+instance Core.ToQuery GetEndpointAttributes where
   toQuery GetEndpointAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetEndpointAttributes" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "EndpointArn" Prelude.=: endpointArn
+          Core.=: ("GetEndpointAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "EndpointArn" Core.=: endpointArn
       ]
 
 -- | Response from GetEndpointAttributes of the EndpointArn.
@@ -137,11 +133,11 @@ data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
     --     notification service.
     --
     --     The device token for the iOS platform is returned in lowercase.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEndpointAttributesResponse' with all optional fields omitted.
@@ -172,12 +168,12 @@ data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
 -- 'httpStatus', 'getEndpointAttributesResponse_httpStatus' - The response's http status code.
 newGetEndpointAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetEndpointAttributesResponse
 newGetEndpointAttributesResponse pHttpStatus_ =
   GetEndpointAttributesResponse'
     { attributes =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -198,11 +194,11 @@ newGetEndpointAttributesResponse pHttpStatus_ =
 --     notification service.
 --
 --     The device token for the iOS platform is returned in lowercase.
-getEndpointAttributesResponse_attributes :: Lens.Lens' GetEndpointAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getEndpointAttributesResponse_attributes = Lens.lens (\GetEndpointAttributesResponse' {attributes} -> attributes) (\s@GetEndpointAttributesResponse' {} a -> s {attributes = a} :: GetEndpointAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getEndpointAttributesResponse_attributes :: Lens.Lens' GetEndpointAttributesResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getEndpointAttributesResponse_attributes = Lens.lens (\GetEndpointAttributesResponse' {attributes} -> attributes) (\s@GetEndpointAttributesResponse' {} a -> s {attributes = a} :: GetEndpointAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getEndpointAttributesResponse_httpStatus :: Lens.Lens' GetEndpointAttributesResponse Prelude.Int
+getEndpointAttributesResponse_httpStatus :: Lens.Lens' GetEndpointAttributesResponse Core.Int
 getEndpointAttributesResponse_httpStatus = Lens.lens (\GetEndpointAttributesResponse' {httpStatus} -> httpStatus) (\s@GetEndpointAttributesResponse' {} a -> s {httpStatus = a} :: GetEndpointAttributesResponse)
 
-instance Prelude.NFData GetEndpointAttributesResponse
+instance Core.NFData GetEndpointAttributesResponse

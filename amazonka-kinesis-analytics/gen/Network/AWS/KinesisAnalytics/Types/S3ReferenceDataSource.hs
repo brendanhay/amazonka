@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the S3 bucket and object that contains the reference data.
 -- Also identifies the IAM role Amazon Kinesis Analytics can assume to read
@@ -35,16 +34,16 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newS3ReferenceDataSource' smart constructor.
 data S3ReferenceDataSource = S3ReferenceDataSource'
   { -- | Amazon Resource Name (ARN) of the S3 bucket.
-    bucketARN :: Prelude.Text,
+    bucketARN :: Core.Text,
     -- | Object key name containing reference data.
-    fileKey :: Prelude.Text,
+    fileKey :: Core.Text,
     -- | ARN of the IAM role that the service can assume to read data on your
     -- behalf. This role must have permission for the @s3:GetObject@ action on
     -- the object and trust policy that allows Amazon Kinesis Analytics service
     -- principal to assume this role.
-    referenceRoleARN :: Prelude.Text
+    referenceRoleARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3ReferenceDataSource' with all optional fields omitted.
@@ -64,11 +63,11 @@ data S3ReferenceDataSource = S3ReferenceDataSource'
 -- principal to assume this role.
 newS3ReferenceDataSource ::
   -- | 'bucketARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'fileKey'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'referenceRoleARN'
-  Prelude.Text ->
+  Core.Text ->
   S3ReferenceDataSource
 newS3ReferenceDataSource
   pBucketARN_
@@ -81,31 +80,31 @@ newS3ReferenceDataSource
       }
 
 -- | Amazon Resource Name (ARN) of the S3 bucket.
-s3ReferenceDataSource_bucketARN :: Lens.Lens' S3ReferenceDataSource Prelude.Text
+s3ReferenceDataSource_bucketARN :: Lens.Lens' S3ReferenceDataSource Core.Text
 s3ReferenceDataSource_bucketARN = Lens.lens (\S3ReferenceDataSource' {bucketARN} -> bucketARN) (\s@S3ReferenceDataSource' {} a -> s {bucketARN = a} :: S3ReferenceDataSource)
 
 -- | Object key name containing reference data.
-s3ReferenceDataSource_fileKey :: Lens.Lens' S3ReferenceDataSource Prelude.Text
+s3ReferenceDataSource_fileKey :: Lens.Lens' S3ReferenceDataSource Core.Text
 s3ReferenceDataSource_fileKey = Lens.lens (\S3ReferenceDataSource' {fileKey} -> fileKey) (\s@S3ReferenceDataSource' {} a -> s {fileKey = a} :: S3ReferenceDataSource)
 
 -- | ARN of the IAM role that the service can assume to read data on your
 -- behalf. This role must have permission for the @s3:GetObject@ action on
 -- the object and trust policy that allows Amazon Kinesis Analytics service
 -- principal to assume this role.
-s3ReferenceDataSource_referenceRoleARN :: Lens.Lens' S3ReferenceDataSource Prelude.Text
+s3ReferenceDataSource_referenceRoleARN :: Lens.Lens' S3ReferenceDataSource Core.Text
 s3ReferenceDataSource_referenceRoleARN = Lens.lens (\S3ReferenceDataSource' {referenceRoleARN} -> referenceRoleARN) (\s@S3ReferenceDataSource' {} a -> s {referenceRoleARN = a} :: S3ReferenceDataSource)
 
-instance Prelude.Hashable S3ReferenceDataSource
+instance Core.Hashable S3ReferenceDataSource
 
-instance Prelude.NFData S3ReferenceDataSource
+instance Core.NFData S3ReferenceDataSource
 
-instance Prelude.ToJSON S3ReferenceDataSource where
+instance Core.ToJSON S3ReferenceDataSource where
   toJSON S3ReferenceDataSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("BucketARN" Prelude..= bucketARN),
-            Prelude.Just ("FileKey" Prelude..= fileKey),
-            Prelude.Just
-              ("ReferenceRoleARN" Prelude..= referenceRoleARN)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("BucketARN" Core..= bucketARN),
+            Core.Just ("FileKey" Core..= fileKey),
+            Core.Just
+              ("ReferenceRoleARN" Core..= referenceRoleARN)
           ]
       )

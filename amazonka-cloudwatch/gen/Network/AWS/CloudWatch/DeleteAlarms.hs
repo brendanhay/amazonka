@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,17 +57,17 @@ module Network.AWS.CloudWatch.DeleteAlarms
 where
 
 import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAlarms' smart constructor.
 data DeleteAlarms = DeleteAlarms'
   { -- | The alarms to be deleted.
-    alarmNames :: [Prelude.Text]
+    alarmNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAlarms' with all optional fields omitted.
@@ -82,43 +81,42 @@ data DeleteAlarms = DeleteAlarms'
 newDeleteAlarms ::
   DeleteAlarms
 newDeleteAlarms =
-  DeleteAlarms' {alarmNames = Prelude.mempty}
+  DeleteAlarms' {alarmNames = Core.mempty}
 
 -- | The alarms to be deleted.
-deleteAlarms_alarmNames :: Lens.Lens' DeleteAlarms [Prelude.Text]
-deleteAlarms_alarmNames = Lens.lens (\DeleteAlarms' {alarmNames} -> alarmNames) (\s@DeleteAlarms' {} a -> s {alarmNames = a} :: DeleteAlarms) Prelude.. Prelude._Coerce
+deleteAlarms_alarmNames :: Lens.Lens' DeleteAlarms [Core.Text]
+deleteAlarms_alarmNames = Lens.lens (\DeleteAlarms' {alarmNames} -> alarmNames) (\s@DeleteAlarms' {} a -> s {alarmNames = a} :: DeleteAlarms) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DeleteAlarms where
-  type Rs DeleteAlarms = DeleteAlarmsResponse
+instance Core.AWSRequest DeleteAlarms where
+  type AWSResponse DeleteAlarms = DeleteAlarmsResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteAlarmsResponse'
 
-instance Prelude.Hashable DeleteAlarms
+instance Core.Hashable DeleteAlarms
 
-instance Prelude.NFData DeleteAlarms
+instance Core.NFData DeleteAlarms
 
-instance Prelude.ToHeaders DeleteAlarms where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteAlarms where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteAlarms where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAlarms where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAlarms where
+instance Core.ToQuery DeleteAlarms where
   toQuery DeleteAlarms' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteAlarms" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-08-01" :: Prelude.ByteString),
+          Core.=: ("DeleteAlarms" :: Core.ByteString),
+        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
         "AlarmNames"
-          Prelude.=: Prelude.toQueryList "member" alarmNames
+          Core.=: Core.toQueryList "member" alarmNames
       ]
 
 -- | /See:/ 'newDeleteAlarmsResponse' smart constructor.
 data DeleteAlarmsResponse = DeleteAlarmsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAlarmsResponse' with all optional fields omitted.
@@ -128,4 +126,4 @@ newDeleteAlarmsResponse ::
   DeleteAlarmsResponse
 newDeleteAlarmsResponse = DeleteAlarmsResponse'
 
-instance Prelude.NFData DeleteAlarmsResponse
+instance Core.NFData DeleteAlarmsResponse

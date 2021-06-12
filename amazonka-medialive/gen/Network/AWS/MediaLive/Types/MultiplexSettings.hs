@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.MultiplexSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains configuration for a Multiplex event
 --
 -- /See:/ 'newMultiplexSettings' smart constructor.
 data MultiplexSettings = MultiplexSettings'
   { -- | Transport stream reserved bit rate.
-    transportStreamReservedBitrate :: Prelude.Maybe Prelude.Natural,
+    transportStreamReservedBitrate :: Core.Maybe Core.Natural,
     -- | Maximum video buffer delay in milliseconds.
-    maximumVideoBufferDelayMilliseconds :: Prelude.Maybe Prelude.Natural,
+    maximumVideoBufferDelayMilliseconds :: Core.Maybe Core.Natural,
     -- | Transport stream bit rate.
-    transportStreamBitrate :: Prelude.Natural,
+    transportStreamBitrate :: Core.Natural,
     -- | Transport stream ID.
-    transportStreamId :: Prelude.Natural
+    transportStreamId :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MultiplexSettings' with all optional fields omitted.
@@ -55,67 +54,66 @@ data MultiplexSettings = MultiplexSettings'
 -- 'transportStreamId', 'multiplexSettings_transportStreamId' - Transport stream ID.
 newMultiplexSettings ::
   -- | 'transportStreamBitrate'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'transportStreamId'
-  Prelude.Natural ->
+  Core.Natural ->
   MultiplexSettings
 newMultiplexSettings
   pTransportStreamBitrate_
   pTransportStreamId_ =
     MultiplexSettings'
       { transportStreamReservedBitrate =
-          Prelude.Nothing,
-        maximumVideoBufferDelayMilliseconds =
-          Prelude.Nothing,
+          Core.Nothing,
+        maximumVideoBufferDelayMilliseconds = Core.Nothing,
         transportStreamBitrate = pTransportStreamBitrate_,
         transportStreamId = pTransportStreamId_
       }
 
 -- | Transport stream reserved bit rate.
-multiplexSettings_transportStreamReservedBitrate :: Lens.Lens' MultiplexSettings (Prelude.Maybe Prelude.Natural)
+multiplexSettings_transportStreamReservedBitrate :: Lens.Lens' MultiplexSettings (Core.Maybe Core.Natural)
 multiplexSettings_transportStreamReservedBitrate = Lens.lens (\MultiplexSettings' {transportStreamReservedBitrate} -> transportStreamReservedBitrate) (\s@MultiplexSettings' {} a -> s {transportStreamReservedBitrate = a} :: MultiplexSettings)
 
 -- | Maximum video buffer delay in milliseconds.
-multiplexSettings_maximumVideoBufferDelayMilliseconds :: Lens.Lens' MultiplexSettings (Prelude.Maybe Prelude.Natural)
+multiplexSettings_maximumVideoBufferDelayMilliseconds :: Lens.Lens' MultiplexSettings (Core.Maybe Core.Natural)
 multiplexSettings_maximumVideoBufferDelayMilliseconds = Lens.lens (\MultiplexSettings' {maximumVideoBufferDelayMilliseconds} -> maximumVideoBufferDelayMilliseconds) (\s@MultiplexSettings' {} a -> s {maximumVideoBufferDelayMilliseconds = a} :: MultiplexSettings)
 
 -- | Transport stream bit rate.
-multiplexSettings_transportStreamBitrate :: Lens.Lens' MultiplexSettings Prelude.Natural
+multiplexSettings_transportStreamBitrate :: Lens.Lens' MultiplexSettings Core.Natural
 multiplexSettings_transportStreamBitrate = Lens.lens (\MultiplexSettings' {transportStreamBitrate} -> transportStreamBitrate) (\s@MultiplexSettings' {} a -> s {transportStreamBitrate = a} :: MultiplexSettings)
 
 -- | Transport stream ID.
-multiplexSettings_transportStreamId :: Lens.Lens' MultiplexSettings Prelude.Natural
+multiplexSettings_transportStreamId :: Lens.Lens' MultiplexSettings Core.Natural
 multiplexSettings_transportStreamId = Lens.lens (\MultiplexSettings' {transportStreamId} -> transportStreamId) (\s@MultiplexSettings' {} a -> s {transportStreamId = a} :: MultiplexSettings)
 
-instance Prelude.FromJSON MultiplexSettings where
+instance Core.FromJSON MultiplexSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MultiplexSettings"
       ( \x ->
           MultiplexSettings'
-            Prelude.<$> (x Prelude..:? "transportStreamReservedBitrate")
-            Prelude.<*> (x Prelude..:? "maximumVideoBufferDelayMilliseconds")
-            Prelude.<*> (x Prelude..: "transportStreamBitrate")
-            Prelude.<*> (x Prelude..: "transportStreamId")
+            Core.<$> (x Core..:? "transportStreamReservedBitrate")
+            Core.<*> (x Core..:? "maximumVideoBufferDelayMilliseconds")
+            Core.<*> (x Core..: "transportStreamBitrate")
+            Core.<*> (x Core..: "transportStreamId")
       )
 
-instance Prelude.Hashable MultiplexSettings
+instance Core.Hashable MultiplexSettings
 
-instance Prelude.NFData MultiplexSettings
+instance Core.NFData MultiplexSettings
 
-instance Prelude.ToJSON MultiplexSettings where
+instance Core.ToJSON MultiplexSettings where
   toJSON MultiplexSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("transportStreamReservedBitrate" Prelude..=)
-              Prelude.<$> transportStreamReservedBitrate,
-            ("maximumVideoBufferDelayMilliseconds" Prelude..=)
-              Prelude.<$> maximumVideoBufferDelayMilliseconds,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("transportStreamReservedBitrate" Core..=)
+              Core.<$> transportStreamReservedBitrate,
+            ("maximumVideoBufferDelayMilliseconds" Core..=)
+              Core.<$> maximumVideoBufferDelayMilliseconds,
+            Core.Just
               ( "transportStreamBitrate"
-                  Prelude..= transportStreamBitrate
+                  Core..= transportStreamBitrate
               ),
-            Prelude.Just
-              ("transportStreamId" Prelude..= transportStreamId)
+            Core.Just
+              ("transportStreamId" Core..= transportStreamId)
           ]
       )

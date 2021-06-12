@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -75,9 +74,9 @@ module Network.AWS.Lambda.GetFunctionConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,7 +84,7 @@ import qualified Network.AWS.Response as Response
 data GetFunctionConfiguration = GetFunctionConfiguration'
   { -- | Specify a version or alias to get details about a published version of
     -- the function.
-    qualifier :: Prelude.Maybe Prelude.Text,
+    qualifier :: Core.Maybe Core.Text,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -101,9 +100,9 @@ data GetFunctionConfiguration = GetFunctionConfiguration'
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
     -- function name, it is limited to 64 characters in length.
-    functionName :: Prelude.Text
+    functionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetFunctionConfiguration' with all optional fields omitted.
@@ -133,18 +132,17 @@ data GetFunctionConfiguration = GetFunctionConfiguration'
 -- function name, it is limited to 64 characters in length.
 newGetFunctionConfiguration ::
   -- | 'functionName'
-  Prelude.Text ->
+  Core.Text ->
   GetFunctionConfiguration
 newGetFunctionConfiguration pFunctionName_ =
   GetFunctionConfiguration'
-    { qualifier =
-        Prelude.Nothing,
+    { qualifier = Core.Nothing,
       functionName = pFunctionName_
     }
 
 -- | Specify a version or alias to get details about a published version of
 -- the function.
-getFunctionConfiguration_qualifier :: Lens.Lens' GetFunctionConfiguration (Prelude.Maybe Prelude.Text)
+getFunctionConfiguration_qualifier :: Lens.Lens' GetFunctionConfiguration (Core.Maybe Core.Text)
 getFunctionConfiguration_qualifier = Lens.lens (\GetFunctionConfiguration' {qualifier} -> qualifier) (\s@GetFunctionConfiguration' {} a -> s {qualifier = a} :: GetFunctionConfiguration)
 
 -- | The name of the Lambda function, version, or alias.
@@ -162,33 +160,33 @@ getFunctionConfiguration_qualifier = Lens.lens (\GetFunctionConfiguration' {qual
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
 -- function name, it is limited to 64 characters in length.
-getFunctionConfiguration_functionName :: Lens.Lens' GetFunctionConfiguration Prelude.Text
+getFunctionConfiguration_functionName :: Lens.Lens' GetFunctionConfiguration Core.Text
 getFunctionConfiguration_functionName = Lens.lens (\GetFunctionConfiguration' {functionName} -> functionName) (\s@GetFunctionConfiguration' {} a -> s {functionName = a} :: GetFunctionConfiguration)
 
-instance Prelude.AWSRequest GetFunctionConfiguration where
+instance Core.AWSRequest GetFunctionConfiguration where
   type
-    Rs GetFunctionConfiguration =
+    AWSResponse GetFunctionConfiguration =
       FunctionConfiguration
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetFunctionConfiguration
+instance Core.Hashable GetFunctionConfiguration
 
-instance Prelude.NFData GetFunctionConfiguration
+instance Core.NFData GetFunctionConfiguration
 
-instance Prelude.ToHeaders GetFunctionConfiguration where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetFunctionConfiguration where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetFunctionConfiguration where
+instance Core.ToPath GetFunctionConfiguration where
   toPath GetFunctionConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-03-31/functions/",
-        Prelude.toBS functionName,
+        Core.toBS functionName,
         "/configuration"
       ]
 
-instance Prelude.ToQuery GetFunctionConfiguration where
+instance Core.ToQuery GetFunctionConfiguration where
   toQuery GetFunctionConfiguration' {..} =
-    Prelude.mconcat ["Qualifier" Prelude.=: qualifier]
+    Core.mconcat ["Qualifier" Core.=: qualifier]

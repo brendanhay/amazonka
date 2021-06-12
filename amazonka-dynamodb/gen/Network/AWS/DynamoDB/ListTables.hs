@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,10 +45,9 @@ module Network.AWS.DynamoDB.ListTables
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,12 +58,12 @@ data ListTables = ListTables'
   { -- | The first table name that this operation will evaluate. Use the value
     -- that was returned for @LastEvaluatedTableName@ in a previous operation,
     -- so that you can obtain the next page of results.
-    exclusiveStartTableName :: Prelude.Maybe Prelude.Text,
+    exclusiveStartTableName :: Core.Maybe Core.Text,
     -- | A maximum number of table names to return. If this parameter is not
     -- specified, the limit is 100.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTables' with all optional fields omitted.
@@ -85,91 +83,84 @@ newListTables ::
   ListTables
 newListTables =
   ListTables'
-    { exclusiveStartTableName =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+    { exclusiveStartTableName = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | The first table name that this operation will evaluate. Use the value
 -- that was returned for @LastEvaluatedTableName@ in a previous operation,
 -- so that you can obtain the next page of results.
-listTables_exclusiveStartTableName :: Lens.Lens' ListTables (Prelude.Maybe Prelude.Text)
+listTables_exclusiveStartTableName :: Lens.Lens' ListTables (Core.Maybe Core.Text)
 listTables_exclusiveStartTableName = Lens.lens (\ListTables' {exclusiveStartTableName} -> exclusiveStartTableName) (\s@ListTables' {} a -> s {exclusiveStartTableName = a} :: ListTables)
 
 -- | A maximum number of table names to return. If this parameter is not
 -- specified, the limit is 100.
-listTables_limit :: Lens.Lens' ListTables (Prelude.Maybe Prelude.Natural)
+listTables_limit :: Lens.Lens' ListTables (Core.Maybe Core.Natural)
 listTables_limit = Lens.lens (\ListTables' {limit} -> limit) (\s@ListTables' {} a -> s {limit = a} :: ListTables)
 
-instance Pager.AWSPager ListTables where
+instance Core.AWSPager ListTables where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listTablesResponse_lastEvaluatedTableName
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listTablesResponse_tableNames Prelude.. Lens._Just
+            Lens.^? listTablesResponse_tableNames Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTables_exclusiveStartTableName
           Lens..~ rs
           Lens.^? listTablesResponse_lastEvaluatedTableName
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTables where
-  type Rs ListTables = ListTablesResponse
+instance Core.AWSRequest ListTables where
+  type AWSResponse ListTables = ListTablesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTablesResponse'
-            Prelude.<$> (x Prelude..?> "LastEvaluatedTableName")
-            Prelude.<*> ( x Prelude..?> "TableNames"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "LastEvaluatedTableName")
+            Core.<*> (x Core..?> "TableNames" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTables
+instance Core.Hashable ListTables
 
-instance Prelude.NFData ListTables
+instance Core.NFData ListTables
 
-instance Prelude.ToHeaders ListTables where
+instance Core.ToHeaders ListTables where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.ListTables" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("DynamoDB_20120810.ListTables" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTables where
+instance Core.ToJSON ListTables where
   toJSON ListTables' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExclusiveStartTableName" Prelude..=)
-              Prelude.<$> exclusiveStartTableName,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("ExclusiveStartTableName" Core..=)
+              Core.<$> exclusiveStartTableName,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListTables where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTables where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTables where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTables where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @ListTables@ operation.
 --
@@ -181,18 +172,18 @@ data ListTablesResponse = ListTablesResponse'
     --
     -- If you do not receive a @LastEvaluatedTableName@ value in the response,
     -- this means that there are no more table names to be retrieved.
-    lastEvaluatedTableName :: Prelude.Maybe Prelude.Text,
+    lastEvaluatedTableName :: Core.Maybe Core.Text,
     -- | The names of the tables associated with the current account at the
     -- current endpoint. The maximum size of this array is 100.
     --
     -- If @LastEvaluatedTableName@ also appears in the output, you can use this
     -- value as the @ExclusiveStartTableName@ parameter in a subsequent
     -- @ListTables@ request and obtain the next page of results.
-    tableNames :: Prelude.Maybe [Prelude.Text],
+    tableNames :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTablesResponse' with all optional fields omitted.
@@ -219,13 +210,13 @@ data ListTablesResponse = ListTablesResponse'
 -- 'httpStatus', 'listTablesResponse_httpStatus' - The response's http status code.
 newListTablesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTablesResponse
 newListTablesResponse pHttpStatus_ =
   ListTablesResponse'
     { lastEvaluatedTableName =
-        Prelude.Nothing,
-      tableNames = Prelude.Nothing,
+        Core.Nothing,
+      tableNames = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -235,7 +226,7 @@ newListTablesResponse pHttpStatus_ =
 --
 -- If you do not receive a @LastEvaluatedTableName@ value in the response,
 -- this means that there are no more table names to be retrieved.
-listTablesResponse_lastEvaluatedTableName :: Lens.Lens' ListTablesResponse (Prelude.Maybe Prelude.Text)
+listTablesResponse_lastEvaluatedTableName :: Lens.Lens' ListTablesResponse (Core.Maybe Core.Text)
 listTablesResponse_lastEvaluatedTableName = Lens.lens (\ListTablesResponse' {lastEvaluatedTableName} -> lastEvaluatedTableName) (\s@ListTablesResponse' {} a -> s {lastEvaluatedTableName = a} :: ListTablesResponse)
 
 -- | The names of the tables associated with the current account at the
@@ -244,11 +235,11 @@ listTablesResponse_lastEvaluatedTableName = Lens.lens (\ListTablesResponse' {las
 -- If @LastEvaluatedTableName@ also appears in the output, you can use this
 -- value as the @ExclusiveStartTableName@ parameter in a subsequent
 -- @ListTables@ request and obtain the next page of results.
-listTablesResponse_tableNames :: Lens.Lens' ListTablesResponse (Prelude.Maybe [Prelude.Text])
-listTablesResponse_tableNames = Lens.lens (\ListTablesResponse' {tableNames} -> tableNames) (\s@ListTablesResponse' {} a -> s {tableNames = a} :: ListTablesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTablesResponse_tableNames :: Lens.Lens' ListTablesResponse (Core.Maybe [Core.Text])
+listTablesResponse_tableNames = Lens.lens (\ListTablesResponse' {tableNames} -> tableNames) (\s@ListTablesResponse' {} a -> s {tableNames = a} :: ListTablesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTablesResponse_httpStatus :: Lens.Lens' ListTablesResponse Prelude.Int
+listTablesResponse_httpStatus :: Lens.Lens' ListTablesResponse Core.Int
 listTablesResponse_httpStatus = Lens.lens (\ListTablesResponse' {httpStatus} -> httpStatus) (\s@ListTablesResponse' {} a -> s {httpStatus = a} :: ListTablesResponse)
 
-instance Prelude.NFData ListTablesResponse
+instance Core.NFData ListTablesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,18 +41,18 @@ module Network.AWS.Lightsail.GetOperation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetOperation' smart constructor.
 data GetOperation = GetOperation'
   { -- | A GUID used to identify the operation.
-    operationId :: Prelude.Text
+    operationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOperation' with all optional fields omitted.
@@ -66,70 +65,66 @@ data GetOperation = GetOperation'
 -- 'operationId', 'getOperation_operationId' - A GUID used to identify the operation.
 newGetOperation ::
   -- | 'operationId'
-  Prelude.Text ->
+  Core.Text ->
   GetOperation
 newGetOperation pOperationId_ =
   GetOperation' {operationId = pOperationId_}
 
 -- | A GUID used to identify the operation.
-getOperation_operationId :: Lens.Lens' GetOperation Prelude.Text
+getOperation_operationId :: Lens.Lens' GetOperation Core.Text
 getOperation_operationId = Lens.lens (\GetOperation' {operationId} -> operationId) (\s@GetOperation' {} a -> s {operationId = a} :: GetOperation)
 
-instance Prelude.AWSRequest GetOperation where
-  type Rs GetOperation = GetOperationResponse
+instance Core.AWSRequest GetOperation where
+  type AWSResponse GetOperation = GetOperationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetOperationResponse'
-            Prelude.<$> (x Prelude..?> "operation")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operation")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetOperation
+instance Core.Hashable GetOperation
 
-instance Prelude.NFData GetOperation
+instance Core.NFData GetOperation
 
-instance Prelude.ToHeaders GetOperation where
+instance Core.ToHeaders GetOperation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetOperation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetOperation" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetOperation where
+instance Core.ToJSON GetOperation where
   toJSON GetOperation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("operationId" Prelude..= operationId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("operationId" Core..= operationId)]
       )
 
-instance Prelude.ToPath GetOperation where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetOperation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetOperation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetOperation where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetOperationResponse' smart constructor.
 data GetOperationResponse = GetOperationResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Prelude.Maybe Operation,
+    operation :: Core.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOperationResponse' with all optional fields omitted.
@@ -146,22 +141,22 @@ data GetOperationResponse = GetOperationResponse'
 -- 'httpStatus', 'getOperationResponse_httpStatus' - The response's http status code.
 newGetOperationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetOperationResponse
 newGetOperationResponse pHttpStatus_ =
   GetOperationResponse'
-    { operation = Prelude.Nothing,
+    { operation = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-getOperationResponse_operation :: Lens.Lens' GetOperationResponse (Prelude.Maybe Operation)
+getOperationResponse_operation :: Lens.Lens' GetOperationResponse (Core.Maybe Operation)
 getOperationResponse_operation = Lens.lens (\GetOperationResponse' {operation} -> operation) (\s@GetOperationResponse' {} a -> s {operation = a} :: GetOperationResponse)
 
 -- | The response's http status code.
-getOperationResponse_httpStatus :: Lens.Lens' GetOperationResponse Prelude.Int
+getOperationResponse_httpStatus :: Lens.Lens' GetOperationResponse Core.Int
 getOperationResponse_httpStatus = Lens.lens (\GetOperationResponse' {httpStatus} -> httpStatus) (\s@GetOperationResponse' {} a -> s {httpStatus = a} :: GetOperationResponse)
 
-instance Prelude.NFData GetOperationResponse
+instance Core.NFData GetOperationResponse

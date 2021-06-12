@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.OutputGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AutomatedEncodingSettings
 import Network.AWS.MediaConvert.Types.Output
 import Network.AWS.MediaConvert.Types.OutputGroupSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Group of outputs
 --
@@ -32,22 +31,22 @@ import qualified Network.AWS.Prelude as Prelude
 data OutputGroup = OutputGroup'
   { -- | This object holds groups of encoding settings, one group of settings per
     -- output.
-    outputs :: Prelude.Maybe [Output],
+    outputs :: Core.Maybe [Output],
     -- | Use automated encoding to have MediaConvert choose your encoding
     -- settings for you, based on characteristics of your input video.
-    automatedEncodingSettings :: Prelude.Maybe AutomatedEncodingSettings,
+    automatedEncodingSettings :: Core.Maybe AutomatedEncodingSettings,
     -- | Output Group settings, including type
-    outputGroupSettings :: Prelude.Maybe OutputGroupSettings,
+    outputGroupSettings :: Core.Maybe OutputGroupSettings,
     -- | Name of the output group
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Use Custom Group Name (CustomName) to specify a name for the output
     -- group. This value is displayed on the console and can make your job
     -- settings JSON more human-readable. It does not affect your outputs. Use
     -- up to twelve characters that are either letters, numbers, spaces, or
     -- underscores.
-    customName :: Prelude.Maybe Prelude.Text
+    customName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputGroup' with all optional fields omitted.
@@ -76,29 +75,29 @@ newOutputGroup ::
   OutputGroup
 newOutputGroup =
   OutputGroup'
-    { outputs = Prelude.Nothing,
-      automatedEncodingSettings = Prelude.Nothing,
-      outputGroupSettings = Prelude.Nothing,
-      name = Prelude.Nothing,
-      customName = Prelude.Nothing
+    { outputs = Core.Nothing,
+      automatedEncodingSettings = Core.Nothing,
+      outputGroupSettings = Core.Nothing,
+      name = Core.Nothing,
+      customName = Core.Nothing
     }
 
 -- | This object holds groups of encoding settings, one group of settings per
 -- output.
-outputGroup_outputs :: Lens.Lens' OutputGroup (Prelude.Maybe [Output])
-outputGroup_outputs = Lens.lens (\OutputGroup' {outputs} -> outputs) (\s@OutputGroup' {} a -> s {outputs = a} :: OutputGroup) Prelude.. Lens.mapping Prelude._Coerce
+outputGroup_outputs :: Lens.Lens' OutputGroup (Core.Maybe [Output])
+outputGroup_outputs = Lens.lens (\OutputGroup' {outputs} -> outputs) (\s@OutputGroup' {} a -> s {outputs = a} :: OutputGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | Use automated encoding to have MediaConvert choose your encoding
 -- settings for you, based on characteristics of your input video.
-outputGroup_automatedEncodingSettings :: Lens.Lens' OutputGroup (Prelude.Maybe AutomatedEncodingSettings)
+outputGroup_automatedEncodingSettings :: Lens.Lens' OutputGroup (Core.Maybe AutomatedEncodingSettings)
 outputGroup_automatedEncodingSettings = Lens.lens (\OutputGroup' {automatedEncodingSettings} -> automatedEncodingSettings) (\s@OutputGroup' {} a -> s {automatedEncodingSettings = a} :: OutputGroup)
 
 -- | Output Group settings, including type
-outputGroup_outputGroupSettings :: Lens.Lens' OutputGroup (Prelude.Maybe OutputGroupSettings)
+outputGroup_outputGroupSettings :: Lens.Lens' OutputGroup (Core.Maybe OutputGroupSettings)
 outputGroup_outputGroupSettings = Lens.lens (\OutputGroup' {outputGroupSettings} -> outputGroupSettings) (\s@OutputGroup' {} a -> s {outputGroupSettings = a} :: OutputGroup)
 
 -- | Name of the output group
-outputGroup_name :: Lens.Lens' OutputGroup (Prelude.Maybe Prelude.Text)
+outputGroup_name :: Lens.Lens' OutputGroup (Core.Maybe Core.Text)
 outputGroup_name = Lens.lens (\OutputGroup' {name} -> name) (\s@OutputGroup' {} a -> s {name = a} :: OutputGroup)
 
 -- | Use Custom Group Name (CustomName) to specify a name for the output
@@ -106,36 +105,36 @@ outputGroup_name = Lens.lens (\OutputGroup' {name} -> name) (\s@OutputGroup' {} 
 -- settings JSON more human-readable. It does not affect your outputs. Use
 -- up to twelve characters that are either letters, numbers, spaces, or
 -- underscores.
-outputGroup_customName :: Lens.Lens' OutputGroup (Prelude.Maybe Prelude.Text)
+outputGroup_customName :: Lens.Lens' OutputGroup (Core.Maybe Core.Text)
 outputGroup_customName = Lens.lens (\OutputGroup' {customName} -> customName) (\s@OutputGroup' {} a -> s {customName = a} :: OutputGroup)
 
-instance Prelude.FromJSON OutputGroup where
+instance Core.FromJSON OutputGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputGroup"
       ( \x ->
           OutputGroup'
-            Prelude.<$> (x Prelude..:? "outputs" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "automatedEncodingSettings")
-            Prelude.<*> (x Prelude..:? "outputGroupSettings")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "customName")
+            Core.<$> (x Core..:? "outputs" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "automatedEncodingSettings")
+            Core.<*> (x Core..:? "outputGroupSettings")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "customName")
       )
 
-instance Prelude.Hashable OutputGroup
+instance Core.Hashable OutputGroup
 
-instance Prelude.NFData OutputGroup
+instance Core.NFData OutputGroup
 
-instance Prelude.ToJSON OutputGroup where
+instance Core.ToJSON OutputGroup where
   toJSON OutputGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("outputs" Prelude..=) Prelude.<$> outputs,
-            ("automatedEncodingSettings" Prelude..=)
-              Prelude.<$> automatedEncodingSettings,
-            ("outputGroupSettings" Prelude..=)
-              Prelude.<$> outputGroupSettings,
-            ("name" Prelude..=) Prelude.<$> name,
-            ("customName" Prelude..=) Prelude.<$> customName
+    Core.object
+      ( Core.catMaybes
+          [ ("outputs" Core..=) Core.<$> outputs,
+            ("automatedEncodingSettings" Core..=)
+              Core.<$> automatedEncodingSettings,
+            ("outputGroupSettings" Core..=)
+              Core.<$> outputGroupSettings,
+            ("name" Core..=) Core.<$> name,
+            ("customName" Core..=) Core.<$> customName
           ]
       )

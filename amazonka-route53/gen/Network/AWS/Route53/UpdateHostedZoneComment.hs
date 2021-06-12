@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.Route53.UpdateHostedZoneComment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -54,11 +53,11 @@ data UpdateHostedZoneComment = UpdateHostedZoneComment'
   { -- | The new comment for the hosted zone. If you don\'t specify a value for
     -- @Comment@, Amazon Route 53 deletes the existing value of the @Comment@
     -- element, if any.
-    comment :: Prelude.Maybe Prelude.Text,
+    comment :: Core.Maybe Core.Text,
     -- | The ID for the hosted zone that you want to update the comment for.
     id :: ResourceId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateHostedZoneComment' with all optional fields omitted.
@@ -79,56 +78,56 @@ newUpdateHostedZoneComment ::
   UpdateHostedZoneComment
 newUpdateHostedZoneComment pId_ =
   UpdateHostedZoneComment'
-    { comment = Prelude.Nothing,
+    { comment = Core.Nothing,
       id = pId_
     }
 
 -- | The new comment for the hosted zone. If you don\'t specify a value for
 -- @Comment@, Amazon Route 53 deletes the existing value of the @Comment@
 -- element, if any.
-updateHostedZoneComment_comment :: Lens.Lens' UpdateHostedZoneComment (Prelude.Maybe Prelude.Text)
+updateHostedZoneComment_comment :: Lens.Lens' UpdateHostedZoneComment (Core.Maybe Core.Text)
 updateHostedZoneComment_comment = Lens.lens (\UpdateHostedZoneComment' {comment} -> comment) (\s@UpdateHostedZoneComment' {} a -> s {comment = a} :: UpdateHostedZoneComment)
 
 -- | The ID for the hosted zone that you want to update the comment for.
 updateHostedZoneComment_id :: Lens.Lens' UpdateHostedZoneComment ResourceId
 updateHostedZoneComment_id = Lens.lens (\UpdateHostedZoneComment' {id} -> id) (\s@UpdateHostedZoneComment' {} a -> s {id = a} :: UpdateHostedZoneComment)
 
-instance Prelude.AWSRequest UpdateHostedZoneComment where
+instance Core.AWSRequest UpdateHostedZoneComment where
   type
-    Rs UpdateHostedZoneComment =
+    AWSResponse UpdateHostedZoneComment =
       UpdateHostedZoneCommentResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           UpdateHostedZoneCommentResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "HostedZone")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "HostedZone")
       )
 
-instance Prelude.Hashable UpdateHostedZoneComment
+instance Core.Hashable UpdateHostedZoneComment
 
-instance Prelude.NFData UpdateHostedZoneComment
+instance Core.NFData UpdateHostedZoneComment
 
-instance Prelude.ToElement UpdateHostedZoneComment where
+instance Core.ToElement UpdateHostedZoneComment where
   toElement =
-    Prelude.mkElement
+    Core.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}UpdateHostedZoneCommentRequest"
 
-instance Prelude.ToHeaders UpdateHostedZoneComment where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateHostedZoneComment where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateHostedZoneComment where
+instance Core.ToPath UpdateHostedZoneComment where
   toPath UpdateHostedZoneComment' {..} =
-    Prelude.mconcat
-      ["/2013-04-01/hostedzone/", Prelude.toBS id]
+    Core.mconcat
+      ["/2013-04-01/hostedzone/", Core.toBS id]
 
-instance Prelude.ToQuery UpdateHostedZoneComment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateHostedZoneComment where
+  toQuery = Core.const Core.mempty
 
-instance Prelude.ToXML UpdateHostedZoneComment where
+instance Core.ToXML UpdateHostedZoneComment where
   toXML UpdateHostedZoneComment' {..} =
-    Prelude.mconcat ["Comment" Prelude.@= comment]
+    Core.mconcat ["Comment" Core.@= comment]
 
 -- | A complex type that contains the response to the
 -- @UpdateHostedZoneComment@ request.
@@ -136,12 +135,12 @@ instance Prelude.ToXML UpdateHostedZoneComment where
 -- /See:/ 'newUpdateHostedZoneCommentResponse' smart constructor.
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains the response to the
     -- @UpdateHostedZoneComment@ request.
     hostedZone :: HostedZone
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateHostedZoneCommentResponse' with all optional fields omitted.
@@ -157,7 +156,7 @@ data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
 -- @UpdateHostedZoneComment@ request.
 newUpdateHostedZoneCommentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'hostedZone'
   HostedZone ->
   UpdateHostedZoneCommentResponse
@@ -171,7 +170,7 @@ newUpdateHostedZoneCommentResponse
       }
 
 -- | The response's http status code.
-updateHostedZoneCommentResponse_httpStatus :: Lens.Lens' UpdateHostedZoneCommentResponse Prelude.Int
+updateHostedZoneCommentResponse_httpStatus :: Lens.Lens' UpdateHostedZoneCommentResponse Core.Int
 updateHostedZoneCommentResponse_httpStatus = Lens.lens (\UpdateHostedZoneCommentResponse' {httpStatus} -> httpStatus) (\s@UpdateHostedZoneCommentResponse' {} a -> s {httpStatus = a} :: UpdateHostedZoneCommentResponse)
 
 -- | A complex type that contains the response to the
@@ -179,6 +178,4 @@ updateHostedZoneCommentResponse_httpStatus = Lens.lens (\UpdateHostedZoneComment
 updateHostedZoneCommentResponse_hostedZone :: Lens.Lens' UpdateHostedZoneCommentResponse HostedZone
 updateHostedZoneCommentResponse_hostedZone = Lens.lens (\UpdateHostedZoneCommentResponse' {hostedZone} -> hostedZone) (\s@UpdateHostedZoneCommentResponse' {} a -> s {hostedZone = a} :: UpdateHostedZoneCommentResponse)
 
-instance
-  Prelude.NFData
-    UpdateHostedZoneCommentResponse
+instance Core.NFData UpdateHostedZoneCommentResponse

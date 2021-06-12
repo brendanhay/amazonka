@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.ActionTypeArtifactDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about parameters for artifacts associated with the action
 -- type, such as the minimum and maximum artifacts allowed.
@@ -31,13 +30,13 @@ data ActionTypeArtifactDetails = ActionTypeArtifactDetails'
   { -- | The minimum number of artifacts that can be used with the action type.
     -- For example, you should specify a minimum and maximum of zero input
     -- artifacts for an action type with a category of @source@.
-    minimumCount :: Prelude.Natural,
+    minimumCount :: Core.Natural,
     -- | The maximum number of artifacts that can be used with the actiontype.
     -- For example, you should specify a minimum and maximum of zero input
     -- artifacts for an action type with a category of @source@.
-    maximumCount :: Prelude.Natural
+    maximumCount :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionTypeArtifactDetails' with all optional fields omitted.
@@ -56,9 +55,9 @@ data ActionTypeArtifactDetails = ActionTypeArtifactDetails'
 -- artifacts for an action type with a category of @source@.
 newActionTypeArtifactDetails ::
   -- | 'minimumCount'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'maximumCount'
-  Prelude.Natural ->
+  Core.Natural ->
   ActionTypeArtifactDetails
 newActionTypeArtifactDetails
   pMinimumCount_
@@ -72,36 +71,34 @@ newActionTypeArtifactDetails
 -- | The minimum number of artifacts that can be used with the action type.
 -- For example, you should specify a minimum and maximum of zero input
 -- artifacts for an action type with a category of @source@.
-actionTypeArtifactDetails_minimumCount :: Lens.Lens' ActionTypeArtifactDetails Prelude.Natural
+actionTypeArtifactDetails_minimumCount :: Lens.Lens' ActionTypeArtifactDetails Core.Natural
 actionTypeArtifactDetails_minimumCount = Lens.lens (\ActionTypeArtifactDetails' {minimumCount} -> minimumCount) (\s@ActionTypeArtifactDetails' {} a -> s {minimumCount = a} :: ActionTypeArtifactDetails)
 
 -- | The maximum number of artifacts that can be used with the actiontype.
 -- For example, you should specify a minimum and maximum of zero input
 -- artifacts for an action type with a category of @source@.
-actionTypeArtifactDetails_maximumCount :: Lens.Lens' ActionTypeArtifactDetails Prelude.Natural
+actionTypeArtifactDetails_maximumCount :: Lens.Lens' ActionTypeArtifactDetails Core.Natural
 actionTypeArtifactDetails_maximumCount = Lens.lens (\ActionTypeArtifactDetails' {maximumCount} -> maximumCount) (\s@ActionTypeArtifactDetails' {} a -> s {maximumCount = a} :: ActionTypeArtifactDetails)
 
-instance Prelude.FromJSON ActionTypeArtifactDetails where
+instance Core.FromJSON ActionTypeArtifactDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionTypeArtifactDetails"
       ( \x ->
           ActionTypeArtifactDetails'
-            Prelude.<$> (x Prelude..: "minimumCount")
-            Prelude.<*> (x Prelude..: "maximumCount")
+            Core.<$> (x Core..: "minimumCount")
+            Core.<*> (x Core..: "maximumCount")
       )
 
-instance Prelude.Hashable ActionTypeArtifactDetails
+instance Core.Hashable ActionTypeArtifactDetails
 
-instance Prelude.NFData ActionTypeArtifactDetails
+instance Core.NFData ActionTypeArtifactDetails
 
-instance Prelude.ToJSON ActionTypeArtifactDetails where
+instance Core.ToJSON ActionTypeArtifactDetails where
   toJSON ActionTypeArtifactDetails' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("minimumCount" Prelude..= minimumCount),
-            Prelude.Just
-              ("maximumCount" Prelude..= maximumCount)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("minimumCount" Core..= minimumCount),
+            Core.Just ("maximumCount" Core..= maximumCount)
           ]
       )

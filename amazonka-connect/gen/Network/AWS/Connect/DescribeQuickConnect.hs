@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,19 +44,19 @@ module Network.AWS.Connect.DescribeQuickConnect
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeQuickConnect' smart constructor.
 data DescribeQuickConnect = DescribeQuickConnect'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier for the quick connect.
-    quickConnectId :: Prelude.Text
+    quickConnectId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeQuickConnect' with all optional fields omitted.
@@ -72,9 +71,9 @@ data DescribeQuickConnect = DescribeQuickConnect'
 -- 'quickConnectId', 'describeQuickConnect_quickConnectId' - The identifier for the quick connect.
 newDescribeQuickConnect ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'quickConnectId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeQuickConnect
 newDescribeQuickConnect pInstanceId_ pQuickConnectId_ =
   DescribeQuickConnect'
@@ -83,61 +82,59 @@ newDescribeQuickConnect pInstanceId_ pQuickConnectId_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-describeQuickConnect_instanceId :: Lens.Lens' DescribeQuickConnect Prelude.Text
+describeQuickConnect_instanceId :: Lens.Lens' DescribeQuickConnect Core.Text
 describeQuickConnect_instanceId = Lens.lens (\DescribeQuickConnect' {instanceId} -> instanceId) (\s@DescribeQuickConnect' {} a -> s {instanceId = a} :: DescribeQuickConnect)
 
 -- | The identifier for the quick connect.
-describeQuickConnect_quickConnectId :: Lens.Lens' DescribeQuickConnect Prelude.Text
+describeQuickConnect_quickConnectId :: Lens.Lens' DescribeQuickConnect Core.Text
 describeQuickConnect_quickConnectId = Lens.lens (\DescribeQuickConnect' {quickConnectId} -> quickConnectId) (\s@DescribeQuickConnect' {} a -> s {quickConnectId = a} :: DescribeQuickConnect)
 
-instance Prelude.AWSRequest DescribeQuickConnect where
+instance Core.AWSRequest DescribeQuickConnect where
   type
-    Rs DescribeQuickConnect =
+    AWSResponse DescribeQuickConnect =
       DescribeQuickConnectResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeQuickConnectResponse'
-            Prelude.<$> (x Prelude..?> "QuickConnect")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "QuickConnect")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeQuickConnect
+instance Core.Hashable DescribeQuickConnect
 
-instance Prelude.NFData DescribeQuickConnect
+instance Core.NFData DescribeQuickConnect
 
-instance Prelude.ToHeaders DescribeQuickConnect where
+instance Core.ToHeaders DescribeQuickConnect where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeQuickConnect where
+instance Core.ToPath DescribeQuickConnect where
   toPath DescribeQuickConnect' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/quick-connects/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS quickConnectId
+        Core.toBS quickConnectId
       ]
 
-instance Prelude.ToQuery DescribeQuickConnect where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeQuickConnect where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeQuickConnectResponse' smart constructor.
 data DescribeQuickConnectResponse = DescribeQuickConnectResponse'
   { -- | Information about the quick connect.
-    quickConnect :: Prelude.Maybe QuickConnect,
+    quickConnect :: Core.Maybe QuickConnect,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeQuickConnectResponse' with all optional fields omitted.
@@ -152,21 +149,21 @@ data DescribeQuickConnectResponse = DescribeQuickConnectResponse'
 -- 'httpStatus', 'describeQuickConnectResponse_httpStatus' - The response's http status code.
 newDescribeQuickConnectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeQuickConnectResponse
 newDescribeQuickConnectResponse pHttpStatus_ =
   DescribeQuickConnectResponse'
     { quickConnect =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the quick connect.
-describeQuickConnectResponse_quickConnect :: Lens.Lens' DescribeQuickConnectResponse (Prelude.Maybe QuickConnect)
+describeQuickConnectResponse_quickConnect :: Lens.Lens' DescribeQuickConnectResponse (Core.Maybe QuickConnect)
 describeQuickConnectResponse_quickConnect = Lens.lens (\DescribeQuickConnectResponse' {quickConnect} -> quickConnect) (\s@DescribeQuickConnectResponse' {} a -> s {quickConnect = a} :: DescribeQuickConnectResponse)
 
 -- | The response's http status code.
-describeQuickConnectResponse_httpStatus :: Lens.Lens' DescribeQuickConnectResponse Prelude.Int
+describeQuickConnectResponse_httpStatus :: Lens.Lens' DescribeQuickConnectResponse Core.Int
 describeQuickConnectResponse_httpStatus = Lens.lens (\DescribeQuickConnectResponse' {httpStatus} -> httpStatus) (\s@DescribeQuickConnectResponse' {} a -> s {httpStatus = a} :: DescribeQuickConnectResponse)
 
-instance Prelude.NFData DescribeQuickConnectResponse
+instance Core.NFData DescribeQuickConnectResponse

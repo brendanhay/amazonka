@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.CloudFormation.DeleteChangeSet
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,12 +60,12 @@ import qualified Network.AWS.Response as Response
 data DeleteChangeSet = DeleteChangeSet'
   { -- | If you specified the name of a change set to delete, specify the stack
     -- name or ID (ARN) that is associated with it.
-    stackName :: Prelude.Maybe Prelude.Text,
+    stackName :: Core.Maybe Core.Text,
     -- | The name or Amazon Resource Name (ARN) of the change set that you want
     -- to delete.
-    changeSetName :: Prelude.Text
+    changeSetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteChangeSet' with all optional fields omitted.
@@ -83,54 +82,55 @@ data DeleteChangeSet = DeleteChangeSet'
 -- to delete.
 newDeleteChangeSet ::
   -- | 'changeSetName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteChangeSet
 newDeleteChangeSet pChangeSetName_ =
   DeleteChangeSet'
-    { stackName = Prelude.Nothing,
+    { stackName = Core.Nothing,
       changeSetName = pChangeSetName_
     }
 
 -- | If you specified the name of a change set to delete, specify the stack
 -- name or ID (ARN) that is associated with it.
-deleteChangeSet_stackName :: Lens.Lens' DeleteChangeSet (Prelude.Maybe Prelude.Text)
+deleteChangeSet_stackName :: Lens.Lens' DeleteChangeSet (Core.Maybe Core.Text)
 deleteChangeSet_stackName = Lens.lens (\DeleteChangeSet' {stackName} -> stackName) (\s@DeleteChangeSet' {} a -> s {stackName = a} :: DeleteChangeSet)
 
 -- | The name or Amazon Resource Name (ARN) of the change set that you want
 -- to delete.
-deleteChangeSet_changeSetName :: Lens.Lens' DeleteChangeSet Prelude.Text
+deleteChangeSet_changeSetName :: Lens.Lens' DeleteChangeSet Core.Text
 deleteChangeSet_changeSetName = Lens.lens (\DeleteChangeSet' {changeSetName} -> changeSetName) (\s@DeleteChangeSet' {} a -> s {changeSetName = a} :: DeleteChangeSet)
 
-instance Prelude.AWSRequest DeleteChangeSet where
-  type Rs DeleteChangeSet = DeleteChangeSetResponse
+instance Core.AWSRequest DeleteChangeSet where
+  type
+    AWSResponse DeleteChangeSet =
+      DeleteChangeSetResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteChangeSetResult"
       ( \s h x ->
           DeleteChangeSetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteChangeSet
+instance Core.Hashable DeleteChangeSet
 
-instance Prelude.NFData DeleteChangeSet
+instance Core.NFData DeleteChangeSet
 
-instance Prelude.ToHeaders DeleteChangeSet where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteChangeSet where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteChangeSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteChangeSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteChangeSet where
+instance Core.ToQuery DeleteChangeSet where
   toQuery DeleteChangeSet' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteChangeSet" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackName" Prelude.=: stackName,
-        "ChangeSetName" Prelude.=: changeSetName
+          Core.=: ("DeleteChangeSet" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "StackName" Core.=: stackName,
+        "ChangeSetName" Core.=: changeSetName
       ]
 
 -- | The output for the DeleteChangeSet action.
@@ -138,9 +138,9 @@ instance Prelude.ToQuery DeleteChangeSet where
 -- /See:/ 'newDeleteChangeSetResponse' smart constructor.
 data DeleteChangeSetResponse = DeleteChangeSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteChangeSetResponse' with all optional fields omitted.
@@ -153,13 +153,13 @@ data DeleteChangeSetResponse = DeleteChangeSetResponse'
 -- 'httpStatus', 'deleteChangeSetResponse_httpStatus' - The response's http status code.
 newDeleteChangeSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteChangeSetResponse
 newDeleteChangeSetResponse pHttpStatus_ =
   DeleteChangeSetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteChangeSetResponse_httpStatus :: Lens.Lens' DeleteChangeSetResponse Prelude.Int
+deleteChangeSetResponse_httpStatus :: Lens.Lens' DeleteChangeSetResponse Core.Int
 deleteChangeSetResponse_httpStatus = Lens.lens (\DeleteChangeSetResponse' {httpStatus} -> httpStatus) (\s@DeleteChangeSetResponse' {} a -> s {httpStatus = a} :: DeleteChangeSetResponse)
 
-instance Prelude.NFData DeleteChangeSetResponse
+instance Core.NFData DeleteChangeSetResponse

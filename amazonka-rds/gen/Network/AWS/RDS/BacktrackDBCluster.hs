@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.RDS.BacktrackDBCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -67,13 +66,13 @@ data BacktrackDBCluster = BacktrackDBCluster'
   { -- | A value that indicates whether to force the DB cluster to backtrack when
     -- binary logging is enabled. Otherwise, an error occurs when binary
     -- logging is enabled.
-    force :: Prelude.Maybe Prelude.Bool,
+    force :: Core.Maybe Core.Bool,
     -- | A value that indicates whether to backtrack the DB cluster to the
     -- earliest possible backtrack time when /BacktrackTo/ is set to a
     -- timestamp earlier than the earliest backtrack time. When this parameter
     -- is disabled and /BacktrackTo/ is set to a timestamp earlier than the
     -- earliest backtrack time, an error occurs.
-    useEarliestTimeOnPointInTimeUnavailable :: Prelude.Maybe Prelude.Bool,
+    useEarliestTimeOnPointInTimeUnavailable :: Core.Maybe Core.Bool,
     -- | The DB cluster identifier of the DB cluster to be backtracked. This
     -- parameter is stored as a lowercase string.
     --
@@ -86,7 +85,7 @@ data BacktrackDBCluster = BacktrackDBCluster'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
     --
     -- Example: @my-cluster1@
-    dbClusterIdentifier :: Prelude.Text,
+    dbClusterIdentifier :: Core.Text,
     -- | The timestamp of the time to backtrack the DB cluster to, specified in
     -- ISO 8601 format. For more information about ISO 8601, see the
     -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
@@ -102,9 +101,9 @@ data BacktrackDBCluster = BacktrackDBCluster'
     -- -   Can\'t contain a timestamp set in the future.
     --
     -- Example: @2017-07-08T18:00Z@
-    backtrackTo :: Prelude.ISO8601
+    backtrackTo :: Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BacktrackDBCluster' with all optional fields omitted.
@@ -154,25 +153,25 @@ data BacktrackDBCluster = BacktrackDBCluster'
 -- Example: @2017-07-08T18:00Z@
 newBacktrackDBCluster ::
   -- | 'dbClusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'backtrackTo'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   BacktrackDBCluster
 newBacktrackDBCluster
   pDBClusterIdentifier_
   pBacktrackTo_ =
     BacktrackDBCluster'
-      { force = Prelude.Nothing,
+      { force = Core.Nothing,
         useEarliestTimeOnPointInTimeUnavailable =
-          Prelude.Nothing,
+          Core.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_,
-        backtrackTo = Prelude._Time Lens.# pBacktrackTo_
+        backtrackTo = Core._Time Lens.# pBacktrackTo_
       }
 
 -- | A value that indicates whether to force the DB cluster to backtrack when
 -- binary logging is enabled. Otherwise, an error occurs when binary
 -- logging is enabled.
-backtrackDBCluster_force :: Lens.Lens' BacktrackDBCluster (Prelude.Maybe Prelude.Bool)
+backtrackDBCluster_force :: Lens.Lens' BacktrackDBCluster (Core.Maybe Core.Bool)
 backtrackDBCluster_force = Lens.lens (\BacktrackDBCluster' {force} -> force) (\s@BacktrackDBCluster' {} a -> s {force = a} :: BacktrackDBCluster)
 
 -- | A value that indicates whether to backtrack the DB cluster to the
@@ -180,7 +179,7 @@ backtrackDBCluster_force = Lens.lens (\BacktrackDBCluster' {force} -> force) (\s
 -- timestamp earlier than the earliest backtrack time. When this parameter
 -- is disabled and /BacktrackTo/ is set to a timestamp earlier than the
 -- earliest backtrack time, an error occurs.
-backtrackDBCluster_useEarliestTimeOnPointInTimeUnavailable :: Lens.Lens' BacktrackDBCluster (Prelude.Maybe Prelude.Bool)
+backtrackDBCluster_useEarliestTimeOnPointInTimeUnavailable :: Lens.Lens' BacktrackDBCluster (Core.Maybe Core.Bool)
 backtrackDBCluster_useEarliestTimeOnPointInTimeUnavailable = Lens.lens (\BacktrackDBCluster' {useEarliestTimeOnPointInTimeUnavailable} -> useEarliestTimeOnPointInTimeUnavailable) (\s@BacktrackDBCluster' {} a -> s {useEarliestTimeOnPointInTimeUnavailable = a} :: BacktrackDBCluster)
 
 -- | The DB cluster identifier of the DB cluster to be backtracked. This
@@ -195,7 +194,7 @@ backtrackDBCluster_useEarliestTimeOnPointInTimeUnavailable = Lens.lens (\Backtra
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: @my-cluster1@
-backtrackDBCluster_dbClusterIdentifier :: Lens.Lens' BacktrackDBCluster Prelude.Text
+backtrackDBCluster_dbClusterIdentifier :: Lens.Lens' BacktrackDBCluster Core.Text
 backtrackDBCluster_dbClusterIdentifier = Lens.lens (\BacktrackDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@BacktrackDBCluster' {} a -> s {dbClusterIdentifier = a} :: BacktrackDBCluster)
 
 -- | The timestamp of the time to backtrack the DB cluster to, specified in
@@ -213,37 +212,38 @@ backtrackDBCluster_dbClusterIdentifier = Lens.lens (\BacktrackDBCluster' {dbClus
 -- -   Can\'t contain a timestamp set in the future.
 --
 -- Example: @2017-07-08T18:00Z@
-backtrackDBCluster_backtrackTo :: Lens.Lens' BacktrackDBCluster Prelude.UTCTime
-backtrackDBCluster_backtrackTo = Lens.lens (\BacktrackDBCluster' {backtrackTo} -> backtrackTo) (\s@BacktrackDBCluster' {} a -> s {backtrackTo = a} :: BacktrackDBCluster) Prelude.. Prelude._Time
+backtrackDBCluster_backtrackTo :: Lens.Lens' BacktrackDBCluster Core.UTCTime
+backtrackDBCluster_backtrackTo = Lens.lens (\BacktrackDBCluster' {backtrackTo} -> backtrackTo) (\s@BacktrackDBCluster' {} a -> s {backtrackTo = a} :: BacktrackDBCluster) Core.. Core._Time
 
-instance Prelude.AWSRequest BacktrackDBCluster where
-  type Rs BacktrackDBCluster = DBClusterBacktrack
+instance Core.AWSRequest BacktrackDBCluster where
+  type
+    AWSResponse BacktrackDBCluster =
+      DBClusterBacktrack
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "BacktrackDBClusterResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable BacktrackDBCluster
+instance Core.Hashable BacktrackDBCluster
 
-instance Prelude.NFData BacktrackDBCluster
+instance Core.NFData BacktrackDBCluster
 
-instance Prelude.ToHeaders BacktrackDBCluster where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders BacktrackDBCluster where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath BacktrackDBCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath BacktrackDBCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BacktrackDBCluster where
+instance Core.ToQuery BacktrackDBCluster where
   toQuery BacktrackDBCluster' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("BacktrackDBCluster" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "Force" Prelude.=: force,
+          Core.=: ("BacktrackDBCluster" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "Force" Core.=: force,
         "UseEarliestTimeOnPointInTimeUnavailable"
-          Prelude.=: useEarliestTimeOnPointInTimeUnavailable,
-        "DBClusterIdentifier" Prelude.=: dbClusterIdentifier,
-        "BacktrackTo" Prelude.=: backtrackTo
+          Core.=: useEarliestTimeOnPointInTimeUnavailable,
+        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
+        "BacktrackTo" Core.=: backtrackTo
       ]

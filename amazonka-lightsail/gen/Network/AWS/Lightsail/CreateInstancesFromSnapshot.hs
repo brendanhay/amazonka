@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.Lightsail.CreateInstancesFromSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,7 +71,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     -- and IPv6.
     --
     -- The default value is @dualstack@.
-    ipAddressType :: Prelude.Maybe IpAddressType,
+    ipAddressType :: Core.Maybe IpAddressType,
     -- | The date of the automatic snapshot to use for the new instance. Use the
     -- @get auto snapshots@ operation to identify the dates of the available
     -- automatic snapshots.
@@ -89,7 +88,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     -- -   Define this parameter only when creating a new instance from an
     --     automatic snapshot. For more information, see the
     --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-    restoreDate :: Prelude.Maybe Prelude.Text,
+    restoreDate :: Core.Maybe Core.Text,
     -- | You can create a launch script that configures a server with additional
     -- user data. For example, @apt-get -y update@.
     --
@@ -98,12 +97,12 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@. For a complete list, see
     -- the
     -- <https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image Dev Guide>.
-    userData :: Prelude.Maybe Prelude.Text,
+    userData :: Core.Maybe Core.Text,
     -- | An array of objects representing the add-ons to enable for the new
     -- instance.
-    addOns :: Prelude.Maybe [AddOnRequest],
+    addOns :: Core.Maybe [AddOnRequest],
     -- | An object containing information about one or more disk mappings.
-    attachedDiskMapping :: Prelude.Maybe (Prelude.HashMap Prelude.Text [DiskMap]),
+    attachedDiskMapping :: Core.Maybe (Core.HashMap Core.Text [DiskMap]),
     -- | The name of the instance snapshot on which you are basing your new
     -- instances. Use the get instance snapshots operation to return
     -- information about your existing snapshots.
@@ -113,9 +112,9 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     -- -   This parameter cannot be defined together with the
     --     @source instance name@ parameter. The @instance snapshot name@ and
     --     @source instance name@ parameters are mutually exclusive.
-    instanceSnapshotName :: Prelude.Maybe Prelude.Text,
+    instanceSnapshotName :: Core.Maybe Core.Text,
     -- | The name for your key pair.
-    keyPairName :: Prelude.Maybe Prelude.Text,
+    keyPairName :: Core.Maybe Core.Text,
     -- | A Boolean value to indicate whether to use the latest available
     -- automatic snapshot.
     --
@@ -128,11 +127,11 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     -- -   Define this parameter only when creating a new instance from an
     --     automatic snapshot. For more information, see the
     --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-    useLatestRestorableAutoSnapshot :: Prelude.Maybe Prelude.Bool,
+    useLatestRestorableAutoSnapshot :: Core.Maybe Core.Bool,
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The name of the source instance from which the source automatic snapshot
     -- was created.
     --
@@ -145,21 +144,21 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     -- -   Define this parameter only when creating a new instance from an
     --     automatic snapshot. For more information, see the
     --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-    sourceInstanceName :: Prelude.Maybe Prelude.Text,
+    sourceInstanceName :: Core.Maybe Core.Text,
     -- | The names for your new instances.
-    instanceNames :: [Prelude.Text],
+    instanceNames :: [Core.Text],
     -- | The Availability Zone where you want to create your instances. Use the
     -- following formatting: @us-east-2a@ (case sensitive). You can get a list
     -- of Availability Zones by using the
     -- <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions>
     -- operation. Be sure to add the @include Availability Zones@ parameter to
     -- your request.
-    availabilityZone :: Prelude.Text,
+    availabilityZone :: Core.Text,
     -- | The bundle of specification information for your virtual private server
     -- (or /instance/), including the pricing plan (e.g., @micro_1_0@).
-    bundleId :: Prelude.Text
+    bundleId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateInstancesFromSnapshot' with all optional fields omitted.
@@ -262,27 +261,26 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
 -- (or /instance/), including the pricing plan (e.g., @micro_1_0@).
 newCreateInstancesFromSnapshot ::
   -- | 'availabilityZone'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'bundleId'
-  Prelude.Text ->
+  Core.Text ->
   CreateInstancesFromSnapshot
 newCreateInstancesFromSnapshot
   pAvailabilityZone_
   pBundleId_ =
     CreateInstancesFromSnapshot'
       { ipAddressType =
-          Prelude.Nothing,
-        restoreDate = Prelude.Nothing,
-        userData = Prelude.Nothing,
-        addOns = Prelude.Nothing,
-        attachedDiskMapping = Prelude.Nothing,
-        instanceSnapshotName = Prelude.Nothing,
-        keyPairName = Prelude.Nothing,
-        useLatestRestorableAutoSnapshot =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
-        sourceInstanceName = Prelude.Nothing,
-        instanceNames = Prelude.mempty,
+          Core.Nothing,
+        restoreDate = Core.Nothing,
+        userData = Core.Nothing,
+        addOns = Core.Nothing,
+        attachedDiskMapping = Core.Nothing,
+        instanceSnapshotName = Core.Nothing,
+        keyPairName = Core.Nothing,
+        useLatestRestorableAutoSnapshot = Core.Nothing,
+        tags = Core.Nothing,
+        sourceInstanceName = Core.Nothing,
+        instanceNames = Core.mempty,
         availabilityZone = pAvailabilityZone_,
         bundleId = pBundleId_
       }
@@ -293,7 +291,7 @@ newCreateInstancesFromSnapshot
 -- and IPv6.
 --
 -- The default value is @dualstack@.
-createInstancesFromSnapshot_ipAddressType :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe IpAddressType)
+createInstancesFromSnapshot_ipAddressType :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe IpAddressType)
 createInstancesFromSnapshot_ipAddressType = Lens.lens (\CreateInstancesFromSnapshot' {ipAddressType} -> ipAddressType) (\s@CreateInstancesFromSnapshot' {} a -> s {ipAddressType = a} :: CreateInstancesFromSnapshot)
 
 -- | The date of the automatic snapshot to use for the new instance. Use the
@@ -312,7 +310,7 @@ createInstancesFromSnapshot_ipAddressType = Lens.lens (\CreateInstancesFromSnaps
 -- -   Define this parameter only when creating a new instance from an
 --     automatic snapshot. For more information, see the
 --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-createInstancesFromSnapshot_restoreDate :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe Prelude.Text)
+createInstancesFromSnapshot_restoreDate :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Core.Text)
 createInstancesFromSnapshot_restoreDate = Lens.lens (\CreateInstancesFromSnapshot' {restoreDate} -> restoreDate) (\s@CreateInstancesFromSnapshot' {} a -> s {restoreDate = a} :: CreateInstancesFromSnapshot)
 
 -- | You can create a launch script that configures a server with additional
@@ -323,17 +321,17 @@ createInstancesFromSnapshot_restoreDate = Lens.lens (\CreateInstancesFromSnapsho
 -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@. For a complete list, see
 -- the
 -- <https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image Dev Guide>.
-createInstancesFromSnapshot_userData :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe Prelude.Text)
+createInstancesFromSnapshot_userData :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Core.Text)
 createInstancesFromSnapshot_userData = Lens.lens (\CreateInstancesFromSnapshot' {userData} -> userData) (\s@CreateInstancesFromSnapshot' {} a -> s {userData = a} :: CreateInstancesFromSnapshot)
 
 -- | An array of objects representing the add-ons to enable for the new
 -- instance.
-createInstancesFromSnapshot_addOns :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe [AddOnRequest])
-createInstancesFromSnapshot_addOns = Lens.lens (\CreateInstancesFromSnapshot' {addOns} -> addOns) (\s@CreateInstancesFromSnapshot' {} a -> s {addOns = a} :: CreateInstancesFromSnapshot) Prelude.. Lens.mapping Prelude._Coerce
+createInstancesFromSnapshot_addOns :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe [AddOnRequest])
+createInstancesFromSnapshot_addOns = Lens.lens (\CreateInstancesFromSnapshot' {addOns} -> addOns) (\s@CreateInstancesFromSnapshot' {} a -> s {addOns = a} :: CreateInstancesFromSnapshot) Core.. Lens.mapping Lens._Coerce
 
 -- | An object containing information about one or more disk mappings.
-createInstancesFromSnapshot_attachedDiskMapping :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe (Prelude.HashMap Prelude.Text [DiskMap]))
-createInstancesFromSnapshot_attachedDiskMapping = Lens.lens (\CreateInstancesFromSnapshot' {attachedDiskMapping} -> attachedDiskMapping) (\s@CreateInstancesFromSnapshot' {} a -> s {attachedDiskMapping = a} :: CreateInstancesFromSnapshot) Prelude.. Lens.mapping Prelude._Coerce
+createInstancesFromSnapshot_attachedDiskMapping :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe (Core.HashMap Core.Text [DiskMap]))
+createInstancesFromSnapshot_attachedDiskMapping = Lens.lens (\CreateInstancesFromSnapshot' {attachedDiskMapping} -> attachedDiskMapping) (\s@CreateInstancesFromSnapshot' {} a -> s {attachedDiskMapping = a} :: CreateInstancesFromSnapshot) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the instance snapshot on which you are basing your new
 -- instances. Use the get instance snapshots operation to return
@@ -344,11 +342,11 @@ createInstancesFromSnapshot_attachedDiskMapping = Lens.lens (\CreateInstancesFro
 -- -   This parameter cannot be defined together with the
 --     @source instance name@ parameter. The @instance snapshot name@ and
 --     @source instance name@ parameters are mutually exclusive.
-createInstancesFromSnapshot_instanceSnapshotName :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe Prelude.Text)
+createInstancesFromSnapshot_instanceSnapshotName :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Core.Text)
 createInstancesFromSnapshot_instanceSnapshotName = Lens.lens (\CreateInstancesFromSnapshot' {instanceSnapshotName} -> instanceSnapshotName) (\s@CreateInstancesFromSnapshot' {} a -> s {instanceSnapshotName = a} :: CreateInstancesFromSnapshot)
 
 -- | The name for your key pair.
-createInstancesFromSnapshot_keyPairName :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe Prelude.Text)
+createInstancesFromSnapshot_keyPairName :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Core.Text)
 createInstancesFromSnapshot_keyPairName = Lens.lens (\CreateInstancesFromSnapshot' {keyPairName} -> keyPairName) (\s@CreateInstancesFromSnapshot' {} a -> s {keyPairName = a} :: CreateInstancesFromSnapshot)
 
 -- | A Boolean value to indicate whether to use the latest available
@@ -363,14 +361,14 @@ createInstancesFromSnapshot_keyPairName = Lens.lens (\CreateInstancesFromSnapsho
 -- -   Define this parameter only when creating a new instance from an
 --     automatic snapshot. For more information, see the
 --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-createInstancesFromSnapshot_useLatestRestorableAutoSnapshot :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe Prelude.Bool)
+createInstancesFromSnapshot_useLatestRestorableAutoSnapshot :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Core.Bool)
 createInstancesFromSnapshot_useLatestRestorableAutoSnapshot = Lens.lens (\CreateInstancesFromSnapshot' {useLatestRestorableAutoSnapshot} -> useLatestRestorableAutoSnapshot) (\s@CreateInstancesFromSnapshot' {} a -> s {useLatestRestorableAutoSnapshot = a} :: CreateInstancesFromSnapshot)
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createInstancesFromSnapshot_tags :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe [Tag])
-createInstancesFromSnapshot_tags = Lens.lens (\CreateInstancesFromSnapshot' {tags} -> tags) (\s@CreateInstancesFromSnapshot' {} a -> s {tags = a} :: CreateInstancesFromSnapshot) Prelude.. Lens.mapping Prelude._Coerce
+createInstancesFromSnapshot_tags :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe [Tag])
+createInstancesFromSnapshot_tags = Lens.lens (\CreateInstancesFromSnapshot' {tags} -> tags) (\s@CreateInstancesFromSnapshot' {} a -> s {tags = a} :: CreateInstancesFromSnapshot) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the source instance from which the source automatic snapshot
 -- was created.
@@ -384,12 +382,12 @@ createInstancesFromSnapshot_tags = Lens.lens (\CreateInstancesFromSnapshot' {tag
 -- -   Define this parameter only when creating a new instance from an
 --     automatic snapshot. For more information, see the
 --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-createInstancesFromSnapshot_sourceInstanceName :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe Prelude.Text)
+createInstancesFromSnapshot_sourceInstanceName :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Core.Text)
 createInstancesFromSnapshot_sourceInstanceName = Lens.lens (\CreateInstancesFromSnapshot' {sourceInstanceName} -> sourceInstanceName) (\s@CreateInstancesFromSnapshot' {} a -> s {sourceInstanceName = a} :: CreateInstancesFromSnapshot)
 
 -- | The names for your new instances.
-createInstancesFromSnapshot_instanceNames :: Lens.Lens' CreateInstancesFromSnapshot [Prelude.Text]
-createInstancesFromSnapshot_instanceNames = Lens.lens (\CreateInstancesFromSnapshot' {instanceNames} -> instanceNames) (\s@CreateInstancesFromSnapshot' {} a -> s {instanceNames = a} :: CreateInstancesFromSnapshot) Prelude.. Prelude._Coerce
+createInstancesFromSnapshot_instanceNames :: Lens.Lens' CreateInstancesFromSnapshot [Core.Text]
+createInstancesFromSnapshot_instanceNames = Lens.lens (\CreateInstancesFromSnapshot' {instanceNames} -> instanceNames) (\s@CreateInstancesFromSnapshot' {} a -> s {instanceNames = a} :: CreateInstancesFromSnapshot) Core.. Lens._Coerce
 
 -- | The Availability Zone where you want to create your instances. Use the
 -- following formatting: @us-east-2a@ (case sensitive). You can get a list
@@ -397,97 +395,85 @@ createInstancesFromSnapshot_instanceNames = Lens.lens (\CreateInstancesFromSnaps
 -- <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions>
 -- operation. Be sure to add the @include Availability Zones@ parameter to
 -- your request.
-createInstancesFromSnapshot_availabilityZone :: Lens.Lens' CreateInstancesFromSnapshot Prelude.Text
+createInstancesFromSnapshot_availabilityZone :: Lens.Lens' CreateInstancesFromSnapshot Core.Text
 createInstancesFromSnapshot_availabilityZone = Lens.lens (\CreateInstancesFromSnapshot' {availabilityZone} -> availabilityZone) (\s@CreateInstancesFromSnapshot' {} a -> s {availabilityZone = a} :: CreateInstancesFromSnapshot)
 
 -- | The bundle of specification information for your virtual private server
 -- (or /instance/), including the pricing plan (e.g., @micro_1_0@).
-createInstancesFromSnapshot_bundleId :: Lens.Lens' CreateInstancesFromSnapshot Prelude.Text
+createInstancesFromSnapshot_bundleId :: Lens.Lens' CreateInstancesFromSnapshot Core.Text
 createInstancesFromSnapshot_bundleId = Lens.lens (\CreateInstancesFromSnapshot' {bundleId} -> bundleId) (\s@CreateInstancesFromSnapshot' {} a -> s {bundleId = a} :: CreateInstancesFromSnapshot)
 
-instance
-  Prelude.AWSRequest
-    CreateInstancesFromSnapshot
-  where
+instance Core.AWSRequest CreateInstancesFromSnapshot where
   type
-    Rs CreateInstancesFromSnapshot =
+    AWSResponse CreateInstancesFromSnapshot =
       CreateInstancesFromSnapshotResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateInstancesFromSnapshotResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstancesFromSnapshot
+instance Core.Hashable CreateInstancesFromSnapshot
 
-instance Prelude.NFData CreateInstancesFromSnapshot
+instance Core.NFData CreateInstancesFromSnapshot
 
-instance
-  Prelude.ToHeaders
-    CreateInstancesFromSnapshot
-  where
+instance Core.ToHeaders CreateInstancesFromSnapshot where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.CreateInstancesFromSnapshot" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.CreateInstancesFromSnapshot" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateInstancesFromSnapshot where
+instance Core.ToJSON CreateInstancesFromSnapshot where
   toJSON CreateInstancesFromSnapshot' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ipAddressType" Prelude..=)
-              Prelude.<$> ipAddressType,
-            ("restoreDate" Prelude..=) Prelude.<$> restoreDate,
-            ("userData" Prelude..=) Prelude.<$> userData,
-            ("addOns" Prelude..=) Prelude.<$> addOns,
-            ("attachedDiskMapping" Prelude..=)
-              Prelude.<$> attachedDiskMapping,
-            ("instanceSnapshotName" Prelude..=)
-              Prelude.<$> instanceSnapshotName,
-            ("keyPairName" Prelude..=) Prelude.<$> keyPairName,
-            ("useLatestRestorableAutoSnapshot" Prelude..=)
-              Prelude.<$> useLatestRestorableAutoSnapshot,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("sourceInstanceName" Prelude..=)
-              Prelude.<$> sourceInstanceName,
-            Prelude.Just
-              ("instanceNames" Prelude..= instanceNames),
-            Prelude.Just
-              ("availabilityZone" Prelude..= availabilityZone),
-            Prelude.Just ("bundleId" Prelude..= bundleId)
+    Core.object
+      ( Core.catMaybes
+          [ ("ipAddressType" Core..=) Core.<$> ipAddressType,
+            ("restoreDate" Core..=) Core.<$> restoreDate,
+            ("userData" Core..=) Core.<$> userData,
+            ("addOns" Core..=) Core.<$> addOns,
+            ("attachedDiskMapping" Core..=)
+              Core.<$> attachedDiskMapping,
+            ("instanceSnapshotName" Core..=)
+              Core.<$> instanceSnapshotName,
+            ("keyPairName" Core..=) Core.<$> keyPairName,
+            ("useLatestRestorableAutoSnapshot" Core..=)
+              Core.<$> useLatestRestorableAutoSnapshot,
+            ("tags" Core..=) Core.<$> tags,
+            ("sourceInstanceName" Core..=)
+              Core.<$> sourceInstanceName,
+            Core.Just ("instanceNames" Core..= instanceNames),
+            Core.Just
+              ("availabilityZone" Core..= availabilityZone),
+            Core.Just ("bundleId" Core..= bundleId)
           ]
       )
 
-instance Prelude.ToPath CreateInstancesFromSnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateInstancesFromSnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateInstancesFromSnapshot where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateInstancesFromSnapshot where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateInstancesFromSnapshotResponse' smart constructor.
 data CreateInstancesFromSnapshotResponse = CreateInstancesFromSnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateInstancesFromSnapshotResponse' with all optional fields omitted.
@@ -504,25 +490,25 @@ data CreateInstancesFromSnapshotResponse = CreateInstancesFromSnapshotResponse'
 -- 'httpStatus', 'createInstancesFromSnapshotResponse_httpStatus' - The response's http status code.
 newCreateInstancesFromSnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateInstancesFromSnapshotResponse
 newCreateInstancesFromSnapshotResponse pHttpStatus_ =
   CreateInstancesFromSnapshotResponse'
     { operations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createInstancesFromSnapshotResponse_operations :: Lens.Lens' CreateInstancesFromSnapshotResponse (Prelude.Maybe [Operation])
-createInstancesFromSnapshotResponse_operations = Lens.lens (\CreateInstancesFromSnapshotResponse' {operations} -> operations) (\s@CreateInstancesFromSnapshotResponse' {} a -> s {operations = a} :: CreateInstancesFromSnapshotResponse) Prelude.. Lens.mapping Prelude._Coerce
+createInstancesFromSnapshotResponse_operations :: Lens.Lens' CreateInstancesFromSnapshotResponse (Core.Maybe [Operation])
+createInstancesFromSnapshotResponse_operations = Lens.lens (\CreateInstancesFromSnapshotResponse' {operations} -> operations) (\s@CreateInstancesFromSnapshotResponse' {} a -> s {operations = a} :: CreateInstancesFromSnapshotResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createInstancesFromSnapshotResponse_httpStatus :: Lens.Lens' CreateInstancesFromSnapshotResponse Prelude.Int
+createInstancesFromSnapshotResponse_httpStatus :: Lens.Lens' CreateInstancesFromSnapshotResponse Core.Int
 createInstancesFromSnapshotResponse_httpStatus = Lens.lens (\CreateInstancesFromSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateInstancesFromSnapshotResponse' {} a -> s {httpStatus = a} :: CreateInstancesFromSnapshotResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateInstancesFromSnapshotResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.ImscDestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.ImscStylePassthrough
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings specific to IMSC caption outputs.
 --
@@ -32,9 +31,9 @@ data ImscDestinationSettings = ImscDestinationSettings'
     -- position information from the captions source in the output. This option
     -- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
     -- Disable this setting for simplified output captions.
-    stylePassthrough :: Prelude.Maybe ImscStylePassthrough
+    stylePassthrough :: Core.Maybe ImscStylePassthrough
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImscDestinationSettings' with all optional fields omitted.
@@ -53,34 +52,34 @@ newImscDestinationSettings ::
 newImscDestinationSettings =
   ImscDestinationSettings'
     { stylePassthrough =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Keep this setting enabled to have MediaConvert use the font style and
 -- position information from the captions source in the output. This option
 -- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
 -- Disable this setting for simplified output captions.
-imscDestinationSettings_stylePassthrough :: Lens.Lens' ImscDestinationSettings (Prelude.Maybe ImscStylePassthrough)
+imscDestinationSettings_stylePassthrough :: Lens.Lens' ImscDestinationSettings (Core.Maybe ImscStylePassthrough)
 imscDestinationSettings_stylePassthrough = Lens.lens (\ImscDestinationSettings' {stylePassthrough} -> stylePassthrough) (\s@ImscDestinationSettings' {} a -> s {stylePassthrough = a} :: ImscDestinationSettings)
 
-instance Prelude.FromJSON ImscDestinationSettings where
+instance Core.FromJSON ImscDestinationSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImscDestinationSettings"
       ( \x ->
           ImscDestinationSettings'
-            Prelude.<$> (x Prelude..:? "stylePassthrough")
+            Core.<$> (x Core..:? "stylePassthrough")
       )
 
-instance Prelude.Hashable ImscDestinationSettings
+instance Core.Hashable ImscDestinationSettings
 
-instance Prelude.NFData ImscDestinationSettings
+instance Core.NFData ImscDestinationSettings
 
-instance Prelude.ToJSON ImscDestinationSettings where
+instance Core.ToJSON ImscDestinationSettings where
   toJSON ImscDestinationSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("stylePassthrough" Prelude..=)
-              Prelude.<$> stylePassthrough
+    Core.object
+      ( Core.catMaybes
+          [ ("stylePassthrough" Core..=)
+              Core.<$> stylePassthrough
           ]
       )

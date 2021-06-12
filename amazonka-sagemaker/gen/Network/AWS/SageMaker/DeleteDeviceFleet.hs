@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.SageMaker.DeleteDeviceFleet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,9 +44,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteDeviceFleet' smart constructor.
 data DeleteDeviceFleet = DeleteDeviceFleet'
   { -- | The name of the fleet to delete.
-    deviceFleetName :: Prelude.Text
+    deviceFleetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDeviceFleet' with all optional fields omitted.
@@ -60,7 +59,7 @@ data DeleteDeviceFleet = DeleteDeviceFleet'
 -- 'deviceFleetName', 'deleteDeviceFleet_deviceFleetName' - The name of the fleet to delete.
 newDeleteDeviceFleet ::
   -- | 'deviceFleetName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDeviceFleet
 newDeleteDeviceFleet pDeviceFleetName_ =
   DeleteDeviceFleet'
@@ -69,54 +68,52 @@ newDeleteDeviceFleet pDeviceFleetName_ =
     }
 
 -- | The name of the fleet to delete.
-deleteDeviceFleet_deviceFleetName :: Lens.Lens' DeleteDeviceFleet Prelude.Text
+deleteDeviceFleet_deviceFleetName :: Lens.Lens' DeleteDeviceFleet Core.Text
 deleteDeviceFleet_deviceFleetName = Lens.lens (\DeleteDeviceFleet' {deviceFleetName} -> deviceFleetName) (\s@DeleteDeviceFleet' {} a -> s {deviceFleetName = a} :: DeleteDeviceFleet)
 
-instance Prelude.AWSRequest DeleteDeviceFleet where
-  type Rs DeleteDeviceFleet = DeleteDeviceFleetResponse
+instance Core.AWSRequest DeleteDeviceFleet where
+  type
+    AWSResponse DeleteDeviceFleet =
+      DeleteDeviceFleetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteDeviceFleetResponse'
 
-instance Prelude.Hashable DeleteDeviceFleet
+instance Core.Hashable DeleteDeviceFleet
 
-instance Prelude.NFData DeleteDeviceFleet
+instance Core.NFData DeleteDeviceFleet
 
-instance Prelude.ToHeaders DeleteDeviceFleet where
+instance Core.ToHeaders DeleteDeviceFleet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteDeviceFleet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.DeleteDeviceFleet" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteDeviceFleet where
+instance Core.ToJSON DeleteDeviceFleet where
   toJSON DeleteDeviceFleet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DeviceFleetName" Prelude..= deviceFleetName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("DeviceFleetName" Core..= deviceFleetName)
           ]
       )
 
-instance Prelude.ToPath DeleteDeviceFleet where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDeviceFleet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDeviceFleet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDeviceFleet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDeviceFleetResponse' smart constructor.
 data DeleteDeviceFleetResponse = DeleteDeviceFleetResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDeviceFleetResponse' with all optional fields omitted.
@@ -127,4 +124,4 @@ newDeleteDeviceFleetResponse ::
 newDeleteDeviceFleetResponse =
   DeleteDeviceFleetResponse'
 
-instance Prelude.NFData DeleteDeviceFleetResponse
+instance Core.NFData DeleteDeviceFleetResponse

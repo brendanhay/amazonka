@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.NodeGroup where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.Endpoint
 import Network.AWS.ElastiCache.Types.NodeGroupMember
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a collection of cache nodes in a replication group. One node
 -- in the node group is the read\/write primary node. All the other nodes
@@ -33,24 +32,24 @@ import qualified Network.AWS.Prelude as Prelude
 data NodeGroup = NodeGroup'
   { -- | The current state of this replication group - @creating@, @available@,
     -- @modifying@, @deleting@.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The endpoint of the replica nodes in this node group (shard).
-    readerEndpoint :: Prelude.Maybe Endpoint,
+    readerEndpoint :: Core.Maybe Endpoint,
     -- | The identifier for the node group (shard). A Redis (cluster mode
     -- disabled) replication group contains only 1 node group; therefore, the
     -- node group ID is 0001. A Redis (cluster mode enabled) replication group
     -- contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user
     -- can provide the id for a node group.
-    nodeGroupId :: Prelude.Maybe Prelude.Text,
+    nodeGroupId :: Core.Maybe Core.Text,
     -- | The endpoint of the primary node in this node group (shard).
-    primaryEndpoint :: Prelude.Maybe Endpoint,
+    primaryEndpoint :: Core.Maybe Endpoint,
     -- | The keyspace for this node group (shard).
-    slots :: Prelude.Maybe Prelude.Text,
+    slots :: Core.Maybe Core.Text,
     -- | A list containing information about individual nodes within the node
     -- group (shard).
-    nodeGroupMembers :: Prelude.Maybe [NodeGroupMember]
+    nodeGroupMembers :: Core.Maybe [NodeGroupMember]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NodeGroup' with all optional fields omitted.
@@ -81,21 +80,21 @@ newNodeGroup ::
   NodeGroup
 newNodeGroup =
   NodeGroup'
-    { status = Prelude.Nothing,
-      readerEndpoint = Prelude.Nothing,
-      nodeGroupId = Prelude.Nothing,
-      primaryEndpoint = Prelude.Nothing,
-      slots = Prelude.Nothing,
-      nodeGroupMembers = Prelude.Nothing
+    { status = Core.Nothing,
+      readerEndpoint = Core.Nothing,
+      nodeGroupId = Core.Nothing,
+      primaryEndpoint = Core.Nothing,
+      slots = Core.Nothing,
+      nodeGroupMembers = Core.Nothing
     }
 
 -- | The current state of this replication group - @creating@, @available@,
 -- @modifying@, @deleting@.
-nodeGroup_status :: Lens.Lens' NodeGroup (Prelude.Maybe Prelude.Text)
+nodeGroup_status :: Lens.Lens' NodeGroup (Core.Maybe Core.Text)
 nodeGroup_status = Lens.lens (\NodeGroup' {status} -> status) (\s@NodeGroup' {} a -> s {status = a} :: NodeGroup)
 
 -- | The endpoint of the replica nodes in this node group (shard).
-nodeGroup_readerEndpoint :: Lens.Lens' NodeGroup (Prelude.Maybe Endpoint)
+nodeGroup_readerEndpoint :: Lens.Lens' NodeGroup (Core.Maybe Endpoint)
 nodeGroup_readerEndpoint = Lens.lens (\NodeGroup' {readerEndpoint} -> readerEndpoint) (\s@NodeGroup' {} a -> s {readerEndpoint = a} :: NodeGroup)
 
 -- | The identifier for the node group (shard). A Redis (cluster mode
@@ -103,35 +102,34 @@ nodeGroup_readerEndpoint = Lens.lens (\NodeGroup' {readerEndpoint} -> readerEndp
 -- node group ID is 0001. A Redis (cluster mode enabled) replication group
 -- contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user
 -- can provide the id for a node group.
-nodeGroup_nodeGroupId :: Lens.Lens' NodeGroup (Prelude.Maybe Prelude.Text)
+nodeGroup_nodeGroupId :: Lens.Lens' NodeGroup (Core.Maybe Core.Text)
 nodeGroup_nodeGroupId = Lens.lens (\NodeGroup' {nodeGroupId} -> nodeGroupId) (\s@NodeGroup' {} a -> s {nodeGroupId = a} :: NodeGroup)
 
 -- | The endpoint of the primary node in this node group (shard).
-nodeGroup_primaryEndpoint :: Lens.Lens' NodeGroup (Prelude.Maybe Endpoint)
+nodeGroup_primaryEndpoint :: Lens.Lens' NodeGroup (Core.Maybe Endpoint)
 nodeGroup_primaryEndpoint = Lens.lens (\NodeGroup' {primaryEndpoint} -> primaryEndpoint) (\s@NodeGroup' {} a -> s {primaryEndpoint = a} :: NodeGroup)
 
 -- | The keyspace for this node group (shard).
-nodeGroup_slots :: Lens.Lens' NodeGroup (Prelude.Maybe Prelude.Text)
+nodeGroup_slots :: Lens.Lens' NodeGroup (Core.Maybe Core.Text)
 nodeGroup_slots = Lens.lens (\NodeGroup' {slots} -> slots) (\s@NodeGroup' {} a -> s {slots = a} :: NodeGroup)
 
 -- | A list containing information about individual nodes within the node
 -- group (shard).
-nodeGroup_nodeGroupMembers :: Lens.Lens' NodeGroup (Prelude.Maybe [NodeGroupMember])
-nodeGroup_nodeGroupMembers = Lens.lens (\NodeGroup' {nodeGroupMembers} -> nodeGroupMembers) (\s@NodeGroup' {} a -> s {nodeGroupMembers = a} :: NodeGroup) Prelude.. Lens.mapping Prelude._Coerce
+nodeGroup_nodeGroupMembers :: Lens.Lens' NodeGroup (Core.Maybe [NodeGroupMember])
+nodeGroup_nodeGroupMembers = Lens.lens (\NodeGroup' {nodeGroupMembers} -> nodeGroupMembers) (\s@NodeGroup' {} a -> s {nodeGroupMembers = a} :: NodeGroup) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML NodeGroup where
+instance Core.FromXML NodeGroup where
   parseXML x =
     NodeGroup'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "ReaderEndpoint")
-      Prelude.<*> (x Prelude..@? "NodeGroupId")
-      Prelude.<*> (x Prelude..@? "PrimaryEndpoint")
-      Prelude.<*> (x Prelude..@? "Slots")
-      Prelude.<*> ( x Prelude..@? "NodeGroupMembers"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "NodeGroupMember")
-                  )
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "ReaderEndpoint")
+      Core.<*> (x Core..@? "NodeGroupId")
+      Core.<*> (x Core..@? "PrimaryEndpoint")
+      Core.<*> (x Core..@? "Slots")
+      Core.<*> ( x Core..@? "NodeGroupMembers" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "NodeGroupMember")
+               )
 
-instance Prelude.Hashable NodeGroup
+instance Core.Hashable NodeGroup
 
-instance Prelude.NFData NodeGroup
+instance Core.NFData NodeGroup

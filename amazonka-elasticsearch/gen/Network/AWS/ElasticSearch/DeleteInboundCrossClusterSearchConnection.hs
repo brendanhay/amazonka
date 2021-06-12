@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.ElasticSearch.DeleteInboundCrossClusterSearchConnection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteInboundCrossClusterSearchConnection' smart constructor.
 data DeleteInboundCrossClusterSearchConnection = DeleteInboundCrossClusterSearchConnection'
   { -- | The id of the inbound connection that you want to permanently delete.
-    crossClusterSearchConnectionId :: Prelude.Text
+    crossClusterSearchConnectionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteInboundCrossClusterSearchConnection' with all optional fields omitted.
@@ -68,7 +67,7 @@ data DeleteInboundCrossClusterSearchConnection = DeleteInboundCrossClusterSearch
 -- 'crossClusterSearchConnectionId', 'deleteInboundCrossClusterSearchConnection_crossClusterSearchConnectionId' - The id of the inbound connection that you want to permanently delete.
 newDeleteInboundCrossClusterSearchConnection ::
   -- | 'crossClusterSearchConnectionId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteInboundCrossClusterSearchConnection
 newDeleteInboundCrossClusterSearchConnection
   pCrossClusterSearchConnectionId_ =
@@ -78,54 +77,55 @@ newDeleteInboundCrossClusterSearchConnection
       }
 
 -- | The id of the inbound connection that you want to permanently delete.
-deleteInboundCrossClusterSearchConnection_crossClusterSearchConnectionId :: Lens.Lens' DeleteInboundCrossClusterSearchConnection Prelude.Text
+deleteInboundCrossClusterSearchConnection_crossClusterSearchConnectionId :: Lens.Lens' DeleteInboundCrossClusterSearchConnection Core.Text
 deleteInboundCrossClusterSearchConnection_crossClusterSearchConnectionId = Lens.lens (\DeleteInboundCrossClusterSearchConnection' {crossClusterSearchConnectionId} -> crossClusterSearchConnectionId) (\s@DeleteInboundCrossClusterSearchConnection' {} a -> s {crossClusterSearchConnectionId = a} :: DeleteInboundCrossClusterSearchConnection)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteInboundCrossClusterSearchConnection
   where
   type
-    Rs DeleteInboundCrossClusterSearchConnection =
+    AWSResponse
+      DeleteInboundCrossClusterSearchConnection =
       DeleteInboundCrossClusterSearchConnectionResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteInboundCrossClusterSearchConnectionResponse'
-            Prelude.<$> (x Prelude..?> "CrossClusterSearchConnection")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CrossClusterSearchConnection")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteInboundCrossClusterSearchConnection
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteInboundCrossClusterSearchConnection
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteInboundCrossClusterSearchConnection
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteInboundCrossClusterSearchConnection
   where
   toPath DeleteInboundCrossClusterSearchConnection' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-01-01/es/ccs/inboundConnection/",
-        Prelude.toBS crossClusterSearchConnectionId
+        Core.toBS crossClusterSearchConnectionId
       ]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteInboundCrossClusterSearchConnection
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | The result of a @DeleteInboundCrossClusterSearchConnection@ operation.
 -- Contains details of deleted inbound connection.
@@ -134,11 +134,11 @@ instance
 data DeleteInboundCrossClusterSearchConnectionResponse = DeleteInboundCrossClusterSearchConnectionResponse'
   { -- | Specifies the @InboundCrossClusterSearchConnection@ of deleted inbound
     -- connection.
-    crossClusterSearchConnection :: Prelude.Maybe InboundCrossClusterSearchConnection,
+    crossClusterSearchConnection :: Core.Maybe InboundCrossClusterSearchConnection,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteInboundCrossClusterSearchConnectionResponse' with all optional fields omitted.
@@ -154,26 +154,26 @@ data DeleteInboundCrossClusterSearchConnectionResponse = DeleteInboundCrossClust
 -- 'httpStatus', 'deleteInboundCrossClusterSearchConnectionResponse_httpStatus' - The response's http status code.
 newDeleteInboundCrossClusterSearchConnectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteInboundCrossClusterSearchConnectionResponse
 newDeleteInboundCrossClusterSearchConnectionResponse
   pHttpStatus_ =
     DeleteInboundCrossClusterSearchConnectionResponse'
       { crossClusterSearchConnection =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Specifies the @InboundCrossClusterSearchConnection@ of deleted inbound
 -- connection.
-deleteInboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection :: Lens.Lens' DeleteInboundCrossClusterSearchConnectionResponse (Prelude.Maybe InboundCrossClusterSearchConnection)
+deleteInboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection :: Lens.Lens' DeleteInboundCrossClusterSearchConnectionResponse (Core.Maybe InboundCrossClusterSearchConnection)
 deleteInboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection = Lens.lens (\DeleteInboundCrossClusterSearchConnectionResponse' {crossClusterSearchConnection} -> crossClusterSearchConnection) (\s@DeleteInboundCrossClusterSearchConnectionResponse' {} a -> s {crossClusterSearchConnection = a} :: DeleteInboundCrossClusterSearchConnectionResponse)
 
 -- | The response's http status code.
-deleteInboundCrossClusterSearchConnectionResponse_httpStatus :: Lens.Lens' DeleteInboundCrossClusterSearchConnectionResponse Prelude.Int
+deleteInboundCrossClusterSearchConnectionResponse_httpStatus :: Lens.Lens' DeleteInboundCrossClusterSearchConnectionResponse Core.Int
 deleteInboundCrossClusterSearchConnectionResponse_httpStatus = Lens.lens (\DeleteInboundCrossClusterSearchConnectionResponse' {httpStatus} -> httpStatus) (\s@DeleteInboundCrossClusterSearchConnectionResponse' {} a -> s {httpStatus = a} :: DeleteInboundCrossClusterSearchConnectionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteInboundCrossClusterSearchConnectionResponse

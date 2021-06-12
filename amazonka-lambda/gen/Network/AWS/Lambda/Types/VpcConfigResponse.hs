@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.VpcConfigResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The VPC security groups and subnets that are attached to a Lambda
 -- function.
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newVpcConfigResponse' smart constructor.
 data VpcConfigResponse = VpcConfigResponse'
   { -- | A list of VPC security groups IDs.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    securityGroupIds :: Core.Maybe [Core.Text],
     -- | A list of VPC subnet IDs.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
+    subnetIds :: Core.Maybe [Core.Text],
     -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VpcConfigResponse' with all optional fields omitted.
@@ -54,39 +53,34 @@ newVpcConfigResponse ::
   VpcConfigResponse
 newVpcConfigResponse =
   VpcConfigResponse'
-    { securityGroupIds =
-        Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+    { securityGroupIds = Core.Nothing,
+      subnetIds = Core.Nothing,
+      vpcId = Core.Nothing
     }
 
 -- | A list of VPC security groups IDs.
-vpcConfigResponse_securityGroupIds :: Lens.Lens' VpcConfigResponse (Prelude.Maybe [Prelude.Text])
-vpcConfigResponse_securityGroupIds = Lens.lens (\VpcConfigResponse' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigResponse' {} a -> s {securityGroupIds = a} :: VpcConfigResponse) Prelude.. Lens.mapping Prelude._Coerce
+vpcConfigResponse_securityGroupIds :: Lens.Lens' VpcConfigResponse (Core.Maybe [Core.Text])
+vpcConfigResponse_securityGroupIds = Lens.lens (\VpcConfigResponse' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigResponse' {} a -> s {securityGroupIds = a} :: VpcConfigResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of VPC subnet IDs.
-vpcConfigResponse_subnetIds :: Lens.Lens' VpcConfigResponse (Prelude.Maybe [Prelude.Text])
-vpcConfigResponse_subnetIds = Lens.lens (\VpcConfigResponse' {subnetIds} -> subnetIds) (\s@VpcConfigResponse' {} a -> s {subnetIds = a} :: VpcConfigResponse) Prelude.. Lens.mapping Prelude._Coerce
+vpcConfigResponse_subnetIds :: Lens.Lens' VpcConfigResponse (Core.Maybe [Core.Text])
+vpcConfigResponse_subnetIds = Lens.lens (\VpcConfigResponse' {subnetIds} -> subnetIds) (\s@VpcConfigResponse' {} a -> s {subnetIds = a} :: VpcConfigResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the VPC.
-vpcConfigResponse_vpcId :: Lens.Lens' VpcConfigResponse (Prelude.Maybe Prelude.Text)
+vpcConfigResponse_vpcId :: Lens.Lens' VpcConfigResponse (Core.Maybe Core.Text)
 vpcConfigResponse_vpcId = Lens.lens (\VpcConfigResponse' {vpcId} -> vpcId) (\s@VpcConfigResponse' {} a -> s {vpcId = a} :: VpcConfigResponse)
 
-instance Prelude.FromJSON VpcConfigResponse where
+instance Core.FromJSON VpcConfigResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VpcConfigResponse"
       ( \x ->
           VpcConfigResponse'
-            Prelude.<$> ( x Prelude..:? "SecurityGroupIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "SubnetIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "VpcId")
+            Core.<$> (x Core..:? "SecurityGroupIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "SubnetIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "VpcId")
       )
 
-instance Prelude.Hashable VpcConfigResponse
+instance Core.Hashable VpcConfigResponse
 
-instance Prelude.NFData VpcConfigResponse
+instance Core.NFData VpcConfigResponse

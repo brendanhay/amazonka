@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.AttackVectorDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the attack.
 --
@@ -64,9 +63,9 @@ data AttackVectorDescription = AttackVectorDescription'
     -- -   UDS_REFLECTION
     --
     -- -   MEMCACHED_REFLECTION
-    vectorType :: Prelude.Text
+    vectorType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttackVectorDescription' with all optional fields omitted.
@@ -115,7 +114,7 @@ data AttackVectorDescription = AttackVectorDescription'
 -- -   MEMCACHED_REFLECTION
 newAttackVectorDescription ::
   -- | 'vectorType'
-  Prelude.Text ->
+  Core.Text ->
   AttackVectorDescription
 newAttackVectorDescription pVectorType_ =
   AttackVectorDescription' {vectorType = pVectorType_}
@@ -157,18 +156,18 @@ newAttackVectorDescription pVectorType_ =
 -- -   UDS_REFLECTION
 --
 -- -   MEMCACHED_REFLECTION
-attackVectorDescription_vectorType :: Lens.Lens' AttackVectorDescription Prelude.Text
+attackVectorDescription_vectorType :: Lens.Lens' AttackVectorDescription Core.Text
 attackVectorDescription_vectorType = Lens.lens (\AttackVectorDescription' {vectorType} -> vectorType) (\s@AttackVectorDescription' {} a -> s {vectorType = a} :: AttackVectorDescription)
 
-instance Prelude.FromJSON AttackVectorDescription where
+instance Core.FromJSON AttackVectorDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttackVectorDescription"
       ( \x ->
           AttackVectorDescription'
-            Prelude.<$> (x Prelude..: "VectorType")
+            Core.<$> (x Core..: "VectorType")
       )
 
-instance Prelude.Hashable AttackVectorDescription
+instance Core.Hashable AttackVectorDescription
 
-instance Prelude.NFData AttackVectorDescription
+instance Core.NFData AttackVectorDescription

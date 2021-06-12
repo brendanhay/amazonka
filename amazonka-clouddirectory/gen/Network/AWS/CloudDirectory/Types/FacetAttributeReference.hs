@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.FacetAttributeReference where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The facet attribute reference that specifies the attribute definition
 -- that contains the attribute facet name and attribute name.
@@ -31,14 +30,14 @@ data FacetAttributeReference = FacetAttributeReference'
   { -- | The target facet name that is associated with the facet reference. See
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
     -- for more information.
-    targetFacetName :: Prelude.Text,
+    targetFacetName :: Core.Text,
     -- | The target attribute name that is associated with the facet reference.
     -- See
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
     -- for more information.
-    targetAttributeName :: Prelude.Text
+    targetAttributeName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FacetAttributeReference' with all optional fields omitted.
@@ -58,9 +57,9 @@ data FacetAttributeReference = FacetAttributeReference'
 -- for more information.
 newFacetAttributeReference ::
   -- | 'targetFacetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetAttributeName'
-  Prelude.Text ->
+  Core.Text ->
   FacetAttributeReference
 newFacetAttributeReference
   pTargetFacetName_
@@ -74,39 +73,37 @@ newFacetAttributeReference
 -- | The target facet name that is associated with the facet reference. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
 -- for more information.
-facetAttributeReference_targetFacetName :: Lens.Lens' FacetAttributeReference Prelude.Text
+facetAttributeReference_targetFacetName :: Lens.Lens' FacetAttributeReference Core.Text
 facetAttributeReference_targetFacetName = Lens.lens (\FacetAttributeReference' {targetFacetName} -> targetFacetName) (\s@FacetAttributeReference' {} a -> s {targetFacetName = a} :: FacetAttributeReference)
 
 -- | The target attribute name that is associated with the facet reference.
 -- See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
 -- for more information.
-facetAttributeReference_targetAttributeName :: Lens.Lens' FacetAttributeReference Prelude.Text
+facetAttributeReference_targetAttributeName :: Lens.Lens' FacetAttributeReference Core.Text
 facetAttributeReference_targetAttributeName = Lens.lens (\FacetAttributeReference' {targetAttributeName} -> targetAttributeName) (\s@FacetAttributeReference' {} a -> s {targetAttributeName = a} :: FacetAttributeReference)
 
-instance Prelude.FromJSON FacetAttributeReference where
+instance Core.FromJSON FacetAttributeReference where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FacetAttributeReference"
       ( \x ->
           FacetAttributeReference'
-            Prelude.<$> (x Prelude..: "TargetFacetName")
-            Prelude.<*> (x Prelude..: "TargetAttributeName")
+            Core.<$> (x Core..: "TargetFacetName")
+            Core.<*> (x Core..: "TargetAttributeName")
       )
 
-instance Prelude.Hashable FacetAttributeReference
+instance Core.Hashable FacetAttributeReference
 
-instance Prelude.NFData FacetAttributeReference
+instance Core.NFData FacetAttributeReference
 
-instance Prelude.ToJSON FacetAttributeReference where
+instance Core.ToJSON FacetAttributeReference where
   toJSON FacetAttributeReference' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("TargetFacetName" Prelude..= targetFacetName),
-            Prelude.Just
-              ( "TargetAttributeName"
-                  Prelude..= targetAttributeName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("TargetFacetName" Core..= targetFacetName),
+            Core.Just
+              ("TargetAttributeName" Core..= targetAttributeName)
           ]
       )

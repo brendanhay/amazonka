@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Athena.Types.ResultConfiguration where
 
 import Network.AWS.Athena.Types.EncryptionConfiguration
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The location in Amazon S3 where query results are stored and the
 -- encryption option, if any, used for query results. These are known as
@@ -39,7 +38,7 @@ data ResultConfiguration = ResultConfiguration'
     -- storing query results specified in the workgroup. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
     -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
+    encryptionConfiguration :: Core.Maybe EncryptionConfiguration,
     -- | The location in Amazon S3 where your query results are stored, such as
     -- @s3:\/\/path\/to\/query\/bucket\/@. To run the query, you must specify
     -- the query results location using one of the ways: either for individual
@@ -50,9 +49,9 @@ data ResultConfiguration = ResultConfiguration'
     -- If workgroup settings override client-side settings, then the query uses
     -- the settings specified for the workgroup. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
-    outputLocation :: Prelude.Maybe Prelude.Text
+    outputLocation :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResultConfiguration' with all optional fields omitted.
@@ -86,8 +85,8 @@ newResultConfiguration ::
 newResultConfiguration =
   ResultConfiguration'
     { encryptionConfiguration =
-        Prelude.Nothing,
-      outputLocation = Prelude.Nothing
+        Core.Nothing,
+      outputLocation = Core.Nothing
     }
 
 -- | If query results are encrypted in Amazon S3, indicates the encryption
@@ -98,7 +97,7 @@ newResultConfiguration =
 -- storing query results specified in the workgroup. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
 -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-resultConfiguration_encryptionConfiguration :: Lens.Lens' ResultConfiguration (Prelude.Maybe EncryptionConfiguration)
+resultConfiguration_encryptionConfiguration :: Lens.Lens' ResultConfiguration (Core.Maybe EncryptionConfiguration)
 resultConfiguration_encryptionConfiguration = Lens.lens (\ResultConfiguration' {encryptionConfiguration} -> encryptionConfiguration) (\s@ResultConfiguration' {} a -> s {encryptionConfiguration = a} :: ResultConfiguration)
 
 -- | The location in Amazon S3 where your query results are stored, such as
@@ -111,30 +110,29 @@ resultConfiguration_encryptionConfiguration = Lens.lens (\ResultConfiguration' {
 -- If workgroup settings override client-side settings, then the query uses
 -- the settings specified for the workgroup. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
-resultConfiguration_outputLocation :: Lens.Lens' ResultConfiguration (Prelude.Maybe Prelude.Text)
+resultConfiguration_outputLocation :: Lens.Lens' ResultConfiguration (Core.Maybe Core.Text)
 resultConfiguration_outputLocation = Lens.lens (\ResultConfiguration' {outputLocation} -> outputLocation) (\s@ResultConfiguration' {} a -> s {outputLocation = a} :: ResultConfiguration)
 
-instance Prelude.FromJSON ResultConfiguration where
+instance Core.FromJSON ResultConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResultConfiguration"
       ( \x ->
           ResultConfiguration'
-            Prelude.<$> (x Prelude..:? "EncryptionConfiguration")
-            Prelude.<*> (x Prelude..:? "OutputLocation")
+            Core.<$> (x Core..:? "EncryptionConfiguration")
+            Core.<*> (x Core..:? "OutputLocation")
       )
 
-instance Prelude.Hashable ResultConfiguration
+instance Core.Hashable ResultConfiguration
 
-instance Prelude.NFData ResultConfiguration
+instance Core.NFData ResultConfiguration
 
-instance Prelude.ToJSON ResultConfiguration where
+instance Core.ToJSON ResultConfiguration where
   toJSON ResultConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EncryptionConfiguration" Prelude..=)
-              Prelude.<$> encryptionConfiguration,
-            ("OutputLocation" Prelude..=)
-              Prelude.<$> outputLocation
+    Core.object
+      ( Core.catMaybes
+          [ ("EncryptionConfiguration" Core..=)
+              Core.<$> encryptionConfiguration,
+            ("OutputLocation" Core..=) Core.<$> outputLocation
           ]
       )

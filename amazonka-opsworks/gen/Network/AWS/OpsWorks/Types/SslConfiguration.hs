@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.SslConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an app\'s SSL configuration.
 --
 -- /See:/ 'newSslConfiguration' smart constructor.
 data SslConfiguration = SslConfiguration'
   { -- | The private key; the contents of the certificate\'s domain.kex file.
-    privateKey :: Prelude.Maybe Prelude.Text,
+    privateKey :: Core.Maybe Core.Text,
     -- | The contents of the certificate\'s domain.crt file.
-    certificate :: Prelude.Maybe Prelude.Text,
+    certificate :: Core.Maybe Core.Text,
     -- | Optional. Can be used to specify an intermediate certificate authority
     -- key or client authentication.
-    chain :: Prelude.Maybe Prelude.Text
+    chain :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SslConfiguration' with all optional fields omitted.
@@ -55,45 +54,45 @@ newSslConfiguration ::
   SslConfiguration
 newSslConfiguration =
   SslConfiguration'
-    { privateKey = Prelude.Nothing,
-      certificate = Prelude.Nothing,
-      chain = Prelude.Nothing
+    { privateKey = Core.Nothing,
+      certificate = Core.Nothing,
+      chain = Core.Nothing
     }
 
 -- | The private key; the contents of the certificate\'s domain.kex file.
-sslConfiguration_privateKey :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
+sslConfiguration_privateKey :: Lens.Lens' SslConfiguration (Core.Maybe Core.Text)
 sslConfiguration_privateKey = Lens.lens (\SslConfiguration' {privateKey} -> privateKey) (\s@SslConfiguration' {} a -> s {privateKey = a} :: SslConfiguration)
 
 -- | The contents of the certificate\'s domain.crt file.
-sslConfiguration_certificate :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
+sslConfiguration_certificate :: Lens.Lens' SslConfiguration (Core.Maybe Core.Text)
 sslConfiguration_certificate = Lens.lens (\SslConfiguration' {certificate} -> certificate) (\s@SslConfiguration' {} a -> s {certificate = a} :: SslConfiguration)
 
 -- | Optional. Can be used to specify an intermediate certificate authority
 -- key or client authentication.
-sslConfiguration_chain :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
+sslConfiguration_chain :: Lens.Lens' SslConfiguration (Core.Maybe Core.Text)
 sslConfiguration_chain = Lens.lens (\SslConfiguration' {chain} -> chain) (\s@SslConfiguration' {} a -> s {chain = a} :: SslConfiguration)
 
-instance Prelude.FromJSON SslConfiguration where
+instance Core.FromJSON SslConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SslConfiguration"
       ( \x ->
           SslConfiguration'
-            Prelude.<$> (x Prelude..:? "PrivateKey")
-            Prelude.<*> (x Prelude..:? "Certificate")
-            Prelude.<*> (x Prelude..:? "Chain")
+            Core.<$> (x Core..:? "PrivateKey")
+            Core.<*> (x Core..:? "Certificate")
+            Core.<*> (x Core..:? "Chain")
       )
 
-instance Prelude.Hashable SslConfiguration
+instance Core.Hashable SslConfiguration
 
-instance Prelude.NFData SslConfiguration
+instance Core.NFData SslConfiguration
 
-instance Prelude.ToJSON SslConfiguration where
+instance Core.ToJSON SslConfiguration where
   toJSON SslConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PrivateKey" Prelude..=) Prelude.<$> privateKey,
-            ("Certificate" Prelude..=) Prelude.<$> certificate,
-            ("Chain" Prelude..=) Prelude.<$> chain
+    Core.object
+      ( Core.catMaybes
+          [ ("PrivateKey" Core..=) Core.<$> privateKey,
+            ("Certificate" Core..=) Core.<$> certificate,
+            ("Chain" Core..=) Core.<$> chain
           ]
       )

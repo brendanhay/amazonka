@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,10 +47,9 @@ module Network.AWS.DeviceFarm.ListOfferings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,9 +60,9 @@ data ListOfferings = ListOfferings'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOfferings' with all optional fields omitted.
@@ -80,78 +78,76 @@ data ListOfferings = ListOfferings'
 newListOfferings ::
   ListOfferings
 newListOfferings =
-  ListOfferings' {nextToken = Prelude.Nothing}
+  ListOfferings' {nextToken = Core.Nothing}
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listOfferings_nextToken :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
+listOfferings_nextToken :: Lens.Lens' ListOfferings (Core.Maybe Core.Text)
 listOfferings_nextToken = Lens.lens (\ListOfferings' {nextToken} -> nextToken) (\s@ListOfferings' {} a -> s {nextToken = a} :: ListOfferings)
 
-instance Pager.AWSPager ListOfferings where
+instance Core.AWSPager ListOfferings where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listOfferingsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listOfferingsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listOfferingsResponse_offerings Prelude.. Lens._Just
+            Lens.^? listOfferingsResponse_offerings Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listOfferings_nextToken
           Lens..~ rs
-          Lens.^? listOfferingsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listOfferingsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListOfferings where
-  type Rs ListOfferings = ListOfferingsResponse
+instance Core.AWSRequest ListOfferings where
+  type
+    AWSResponse ListOfferings =
+      ListOfferingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListOfferingsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "offerings"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "offerings" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListOfferings
+instance Core.Hashable ListOfferings
 
-instance Prelude.NFData ListOfferings
+instance Core.NFData ListOfferings
 
-instance Prelude.ToHeaders ListOfferings where
+instance Core.ToHeaders ListOfferings where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.ListOfferings" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.ListOfferings" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListOfferings where
+instance Core.ToJSON ListOfferings where
   toJSON ListOfferings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("nextToken" Prelude..=) Prelude.<$> nextToken]
+    Core.object
+      ( Core.catMaybes
+          [("nextToken" Core..=) Core.<$> nextToken]
       )
 
-instance Prelude.ToPath ListOfferings where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListOfferings where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListOfferings where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListOfferings where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the return values of the list of offerings.
 --
@@ -160,13 +156,13 @@ data ListOfferingsResponse = ListOfferingsResponse'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A value that represents the list offering results.
-    offerings :: Prelude.Maybe [Offering],
+    offerings :: Core.Maybe [Offering],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOfferingsResponse' with all optional fields omitted.
@@ -185,27 +181,27 @@ data ListOfferingsResponse = ListOfferingsResponse'
 -- 'httpStatus', 'listOfferingsResponse_httpStatus' - The response's http status code.
 newListOfferingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListOfferingsResponse
 newListOfferingsResponse pHttpStatus_ =
   ListOfferingsResponse'
-    { nextToken = Prelude.Nothing,
-      offerings = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      offerings = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listOfferingsResponse_nextToken :: Lens.Lens' ListOfferingsResponse (Prelude.Maybe Prelude.Text)
+listOfferingsResponse_nextToken :: Lens.Lens' ListOfferingsResponse (Core.Maybe Core.Text)
 listOfferingsResponse_nextToken = Lens.lens (\ListOfferingsResponse' {nextToken} -> nextToken) (\s@ListOfferingsResponse' {} a -> s {nextToken = a} :: ListOfferingsResponse)
 
 -- | A value that represents the list offering results.
-listOfferingsResponse_offerings :: Lens.Lens' ListOfferingsResponse (Prelude.Maybe [Offering])
-listOfferingsResponse_offerings = Lens.lens (\ListOfferingsResponse' {offerings} -> offerings) (\s@ListOfferingsResponse' {} a -> s {offerings = a} :: ListOfferingsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listOfferingsResponse_offerings :: Lens.Lens' ListOfferingsResponse (Core.Maybe [Offering])
+listOfferingsResponse_offerings = Lens.lens (\ListOfferingsResponse' {offerings} -> offerings) (\s@ListOfferingsResponse' {} a -> s {offerings = a} :: ListOfferingsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listOfferingsResponse_httpStatus :: Lens.Lens' ListOfferingsResponse Prelude.Int
+listOfferingsResponse_httpStatus :: Lens.Lens' ListOfferingsResponse Core.Int
 listOfferingsResponse_httpStatus = Lens.lens (\ListOfferingsResponse' {httpStatus} -> httpStatus) (\s@ListOfferingsResponse' {} a -> s {httpStatus = a} :: ListOfferingsResponse)
 
-instance Prelude.NFData ListOfferingsResponse
+instance Core.NFData ListOfferingsResponse

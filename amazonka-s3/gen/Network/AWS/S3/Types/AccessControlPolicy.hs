@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.AccessControlPolicy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Grant
 import Network.AWS.S3.Types.Owner
@@ -32,11 +31,11 @@ import Network.AWS.S3.Types.Owner
 -- /See:/ 'newAccessControlPolicy' smart constructor.
 data AccessControlPolicy = AccessControlPolicy'
   { -- | Container for the bucket owner\'s display name and ID.
-    owner :: Prelude.Maybe Owner,
+    owner :: Core.Maybe Owner,
     -- | A list of grants.
-    grants :: Prelude.Maybe [Grant]
+    grants :: Core.Maybe [Grant]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccessControlPolicy' with all optional fields omitted.
@@ -53,27 +52,26 @@ newAccessControlPolicy ::
   AccessControlPolicy
 newAccessControlPolicy =
   AccessControlPolicy'
-    { owner = Prelude.Nothing,
-      grants = Prelude.Nothing
+    { owner = Core.Nothing,
+      grants = Core.Nothing
     }
 
 -- | Container for the bucket owner\'s display name and ID.
-accessControlPolicy_owner :: Lens.Lens' AccessControlPolicy (Prelude.Maybe Owner)
+accessControlPolicy_owner :: Lens.Lens' AccessControlPolicy (Core.Maybe Owner)
 accessControlPolicy_owner = Lens.lens (\AccessControlPolicy' {owner} -> owner) (\s@AccessControlPolicy' {} a -> s {owner = a} :: AccessControlPolicy)
 
 -- | A list of grants.
-accessControlPolicy_grants :: Lens.Lens' AccessControlPolicy (Prelude.Maybe [Grant])
-accessControlPolicy_grants = Lens.lens (\AccessControlPolicy' {grants} -> grants) (\s@AccessControlPolicy' {} a -> s {grants = a} :: AccessControlPolicy) Prelude.. Lens.mapping Prelude._Coerce
+accessControlPolicy_grants :: Lens.Lens' AccessControlPolicy (Core.Maybe [Grant])
+accessControlPolicy_grants = Lens.lens (\AccessControlPolicy' {grants} -> grants) (\s@AccessControlPolicy' {} a -> s {grants = a} :: AccessControlPolicy) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable AccessControlPolicy
+instance Core.Hashable AccessControlPolicy
 
-instance Prelude.NFData AccessControlPolicy
+instance Core.NFData AccessControlPolicy
 
-instance Prelude.ToXML AccessControlPolicy where
+instance Core.ToXML AccessControlPolicy where
   toXML AccessControlPolicy' {..} =
-    Prelude.mconcat
-      [ "Owner" Prelude.@= owner,
+    Core.mconcat
+      [ "Owner" Core.@= owner,
         "AccessControlList"
-          Prelude.@= Prelude.toXML
-            (Prelude.toXMLList "Grant" Prelude.<$> grants)
+          Core.@= Core.toXML (Core.toXMLList "Grant" Core.<$> grants)
       ]

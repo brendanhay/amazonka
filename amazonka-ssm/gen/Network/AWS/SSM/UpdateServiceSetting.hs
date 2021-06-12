@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.SSM.UpdateServiceSetting
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -80,7 +79,7 @@ data UpdateServiceSetting = UpdateServiceSetting'
     -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
     --
     -- -   @\/ssm\/managed-instance\/activation-tier@
-    settingId :: Prelude.Text,
+    settingId :: Core.Text,
     -- | The new value to specify for the service setting. For the
     -- @\/ssm\/parameter-store\/default-parameter-tier@ setting ID, the setting
     -- value can be one of the following.
@@ -100,9 +99,9 @@ data UpdateServiceSetting = UpdateServiceSetting'
     --
     -- For the @\/ssm\/automation\/customer-script-log-group-name@ setting ID,
     -- the setting value can be the name of a CloudWatch Logs log group.
-    settingValue :: Prelude.Text
+    settingValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServiceSetting' with all optional fields omitted.
@@ -148,9 +147,9 @@ data UpdateServiceSetting = UpdateServiceSetting'
 -- the setting value can be the name of a CloudWatch Logs log group.
 newUpdateServiceSetting ::
   -- | 'settingId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'settingValue'
-  Prelude.Text ->
+  Core.Text ->
   UpdateServiceSetting
 newUpdateServiceSetting pSettingId_ pSettingValue_ =
   UpdateServiceSetting'
@@ -172,7 +171,7 @@ newUpdateServiceSetting pSettingId_ pSettingValue_ =
 -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
 --
 -- -   @\/ssm\/managed-instance\/activation-tier@
-updateServiceSetting_settingId :: Lens.Lens' UpdateServiceSetting Prelude.Text
+updateServiceSetting_settingId :: Lens.Lens' UpdateServiceSetting Core.Text
 updateServiceSetting_settingId = Lens.lens (\UpdateServiceSetting' {settingId} -> settingId) (\s@UpdateServiceSetting' {} a -> s {settingId = a} :: UpdateServiceSetting)
 
 -- | The new value to specify for the service setting. For the
@@ -194,64 +193,61 @@ updateServiceSetting_settingId = Lens.lens (\UpdateServiceSetting' {settingId} -
 --
 -- For the @\/ssm\/automation\/customer-script-log-group-name@ setting ID,
 -- the setting value can be the name of a CloudWatch Logs log group.
-updateServiceSetting_settingValue :: Lens.Lens' UpdateServiceSetting Prelude.Text
+updateServiceSetting_settingValue :: Lens.Lens' UpdateServiceSetting Core.Text
 updateServiceSetting_settingValue = Lens.lens (\UpdateServiceSetting' {settingValue} -> settingValue) (\s@UpdateServiceSetting' {} a -> s {settingValue = a} :: UpdateServiceSetting)
 
-instance Prelude.AWSRequest UpdateServiceSetting where
+instance Core.AWSRequest UpdateServiceSetting where
   type
-    Rs UpdateServiceSetting =
+    AWSResponse UpdateServiceSetting =
       UpdateServiceSettingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateServiceSettingResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateServiceSetting
+instance Core.Hashable UpdateServiceSetting
 
-instance Prelude.NFData UpdateServiceSetting
+instance Core.NFData UpdateServiceSetting
 
-instance Prelude.ToHeaders UpdateServiceSetting where
+instance Core.ToHeaders UpdateServiceSetting where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.UpdateServiceSetting" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.UpdateServiceSetting" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateServiceSetting where
+instance Core.ToJSON UpdateServiceSetting where
   toJSON UpdateServiceSetting' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("SettingId" Prelude..= settingId),
-            Prelude.Just
-              ("SettingValue" Prelude..= settingValue)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SettingId" Core..= settingId),
+            Core.Just ("SettingValue" Core..= settingValue)
           ]
       )
 
-instance Prelude.ToPath UpdateServiceSetting where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateServiceSetting where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateServiceSetting where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateServiceSetting where
+  toQuery = Core.const Core.mempty
 
 -- | The result body of the UpdateServiceSetting API action.
 --
 -- /See:/ 'newUpdateServiceSettingResponse' smart constructor.
 data UpdateServiceSettingResponse = UpdateServiceSettingResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServiceSettingResponse' with all optional fields omitted.
@@ -264,7 +260,7 @@ data UpdateServiceSettingResponse = UpdateServiceSettingResponse'
 -- 'httpStatus', 'updateServiceSettingResponse_httpStatus' - The response's http status code.
 newUpdateServiceSettingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateServiceSettingResponse
 newUpdateServiceSettingResponse pHttpStatus_ =
   UpdateServiceSettingResponse'
@@ -273,7 +269,7 @@ newUpdateServiceSettingResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateServiceSettingResponse_httpStatus :: Lens.Lens' UpdateServiceSettingResponse Prelude.Int
+updateServiceSettingResponse_httpStatus :: Lens.Lens' UpdateServiceSettingResponse Core.Int
 updateServiceSettingResponse_httpStatus = Lens.lens (\UpdateServiceSettingResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceSettingResponse' {} a -> s {httpStatus = a} :: UpdateServiceSettingResponse)
 
-instance Prelude.NFData UpdateServiceSettingResponse
+instance Core.NFData UpdateServiceSettingResponse

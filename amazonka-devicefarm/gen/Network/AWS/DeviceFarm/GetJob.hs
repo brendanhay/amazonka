@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.DeviceFarm.GetJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetJob' smart constructor.
 data GetJob = GetJob'
   { -- | The job\'s ARN.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJob' with all optional fields omitted.
@@ -66,65 +65,61 @@ data GetJob = GetJob'
 -- 'arn', 'getJob_arn' - The job\'s ARN.
 newGetJob ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   GetJob
 newGetJob pArn_ = GetJob' {arn = pArn_}
 
 -- | The job\'s ARN.
-getJob_arn :: Lens.Lens' GetJob Prelude.Text
+getJob_arn :: Lens.Lens' GetJob Core.Text
 getJob_arn = Lens.lens (\GetJob' {arn} -> arn) (\s@GetJob' {} a -> s {arn = a} :: GetJob)
 
-instance Prelude.AWSRequest GetJob where
-  type Rs GetJob = GetJobResponse
+instance Core.AWSRequest GetJob where
+  type AWSResponse GetJob = GetJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetJobResponse'
-            Prelude.<$> (x Prelude..?> "job")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "job")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetJob
+instance Core.Hashable GetJob
 
-instance Prelude.NFData GetJob
+instance Core.NFData GetJob
 
-instance Prelude.ToHeaders GetJob where
+instance Core.ToHeaders GetJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("DeviceFarm_20150623.GetJob" :: Prelude.ByteString),
+              Core.=# ("DeviceFarm_20150623.GetJob" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetJob where
+instance Core.ToJSON GetJob where
   toJSON GetJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("arn" Prelude..= arn)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
 
-instance Prelude.ToPath GetJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetJob where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the result of a get job request.
 --
 -- /See:/ 'newGetJobResponse' smart constructor.
 data GetJobResponse = GetJobResponse'
   { -- | An object that contains information about the requested job.
-    job :: Prelude.Maybe Job,
+    job :: Core.Maybe Job,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobResponse' with all optional fields omitted.
@@ -139,20 +134,20 @@ data GetJobResponse = GetJobResponse'
 -- 'httpStatus', 'getJobResponse_httpStatus' - The response's http status code.
 newGetJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetJobResponse
 newGetJobResponse pHttpStatus_ =
   GetJobResponse'
-    { job = Prelude.Nothing,
+    { job = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains information about the requested job.
-getJobResponse_job :: Lens.Lens' GetJobResponse (Prelude.Maybe Job)
+getJobResponse_job :: Lens.Lens' GetJobResponse (Core.Maybe Job)
 getJobResponse_job = Lens.lens (\GetJobResponse' {job} -> job) (\s@GetJobResponse' {} a -> s {job = a} :: GetJobResponse)
 
 -- | The response's http status code.
-getJobResponse_httpStatus :: Lens.Lens' GetJobResponse Prelude.Int
+getJobResponse_httpStatus :: Lens.Lens' GetJobResponse Core.Int
 getJobResponse_httpStatus = Lens.lens (\GetJobResponse' {httpStatus} -> httpStatus) (\s@GetJobResponse' {} a -> s {httpStatus = a} :: GetJobResponse)
 
-instance Prelude.NFData GetJobResponse
+instance Core.NFData GetJobResponse

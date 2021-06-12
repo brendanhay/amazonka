@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,21 +41,21 @@ module Network.AWS.CloudDirectory.RemoveFacetFromObject
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRemoveFacetFromObject' smart constructor.
 data RemoveFacetFromObject = RemoveFacetFromObject'
   { -- | The ARN of the directory in which the object resides.
-    directoryArn :: Prelude.Text,
+    directoryArn :: Core.Text,
     -- | The facet to remove. See SchemaFacet for details.
     schemaFacet :: SchemaFacet,
     -- | A reference to the object to remove the facet from.
     objectReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveFacetFromObject' with all optional fields omitted.
@@ -73,7 +72,7 @@ data RemoveFacetFromObject = RemoveFacetFromObject'
 -- 'objectReference', 'removeFacetFromObject_objectReference' - A reference to the object to remove the facet from.
 newRemoveFacetFromObject ::
   -- | 'directoryArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'schemaFacet'
   SchemaFacet ->
   -- | 'objectReference'
@@ -91,7 +90,7 @@ newRemoveFacetFromObject
       }
 
 -- | The ARN of the directory in which the object resides.
-removeFacetFromObject_directoryArn :: Lens.Lens' RemoveFacetFromObject Prelude.Text
+removeFacetFromObject_directoryArn :: Lens.Lens' RemoveFacetFromObject Core.Text
 removeFacetFromObject_directoryArn = Lens.lens (\RemoveFacetFromObject' {directoryArn} -> directoryArn) (\s@RemoveFacetFromObject' {} a -> s {directoryArn = a} :: RemoveFacetFromObject)
 
 -- | The facet to remove. See SchemaFacet for details.
@@ -102,51 +101,51 @@ removeFacetFromObject_schemaFacet = Lens.lens (\RemoveFacetFromObject' {schemaFa
 removeFacetFromObject_objectReference :: Lens.Lens' RemoveFacetFromObject ObjectReference
 removeFacetFromObject_objectReference = Lens.lens (\RemoveFacetFromObject' {objectReference} -> objectReference) (\s@RemoveFacetFromObject' {} a -> s {objectReference = a} :: RemoveFacetFromObject)
 
-instance Prelude.AWSRequest RemoveFacetFromObject where
+instance Core.AWSRequest RemoveFacetFromObject where
   type
-    Rs RemoveFacetFromObject =
+    AWSResponse RemoveFacetFromObject =
       RemoveFacetFromObjectResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveFacetFromObjectResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveFacetFromObject
+instance Core.Hashable RemoveFacetFromObject
 
-instance Prelude.NFData RemoveFacetFromObject
+instance Core.NFData RemoveFacetFromObject
 
-instance Prelude.ToHeaders RemoveFacetFromObject where
+instance Core.ToHeaders RemoveFacetFromObject where
   toHeaders RemoveFacetFromObject' {..} =
-    Prelude.mconcat
-      ["x-amz-data-partition" Prelude.=# directoryArn]
+    Core.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance Prelude.ToJSON RemoveFacetFromObject where
+instance Core.ToJSON RemoveFacetFromObject where
   toJSON RemoveFacetFromObject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaFacet" Prelude..= schemaFacet),
-            Prelude.Just
-              ("ObjectReference" Prelude..= objectReference)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaFacet" Core..= schemaFacet),
+            Core.Just
+              ("ObjectReference" Core..= objectReference)
           ]
       )
 
-instance Prelude.ToPath RemoveFacetFromObject where
+instance Core.ToPath RemoveFacetFromObject where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/object/facets/delete"
 
-instance Prelude.ToQuery RemoveFacetFromObject where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RemoveFacetFromObject where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRemoveFacetFromObjectResponse' smart constructor.
 data RemoveFacetFromObjectResponse = RemoveFacetFromObjectResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveFacetFromObjectResponse' with all optional fields omitted.
@@ -159,7 +158,7 @@ data RemoveFacetFromObjectResponse = RemoveFacetFromObjectResponse'
 -- 'httpStatus', 'removeFacetFromObjectResponse_httpStatus' - The response's http status code.
 newRemoveFacetFromObjectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RemoveFacetFromObjectResponse
 newRemoveFacetFromObjectResponse pHttpStatus_ =
   RemoveFacetFromObjectResponse'
@@ -168,7 +167,7 @@ newRemoveFacetFromObjectResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-removeFacetFromObjectResponse_httpStatus :: Lens.Lens' RemoveFacetFromObjectResponse Prelude.Int
+removeFacetFromObjectResponse_httpStatus :: Lens.Lens' RemoveFacetFromObjectResponse Core.Int
 removeFacetFromObjectResponse_httpStatus = Lens.lens (\RemoveFacetFromObjectResponse' {httpStatus} -> httpStatus) (\s@RemoveFacetFromObjectResponse' {} a -> s {httpStatus = a} :: RemoveFacetFromObjectResponse)
 
-instance Prelude.NFData RemoveFacetFromObjectResponse
+instance Core.NFData RemoveFacetFromObjectResponse

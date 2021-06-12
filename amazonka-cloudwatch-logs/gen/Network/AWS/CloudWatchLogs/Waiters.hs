@@ -17,6 +17,5 @@ module Network.AWS.CloudWatchLogs.Waiters where
 
 import Network.AWS.CloudWatchLogs.Lens
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter

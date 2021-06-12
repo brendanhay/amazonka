@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.APIGateway.GetDomainNames
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,12 +54,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetDomainNames' smart constructor.
 data GetDomainNames = GetDomainNames'
   { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
+    position :: Core.Maybe Core.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int
+    limit :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDomainNames' with all optional fields omitted.
@@ -79,72 +77,72 @@ newGetDomainNames ::
   GetDomainNames
 newGetDomainNames =
   GetDomainNames'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { position = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | The current pagination position in the paged result set.
-getDomainNames_position :: Lens.Lens' GetDomainNames (Prelude.Maybe Prelude.Text)
+getDomainNames_position :: Lens.Lens' GetDomainNames (Core.Maybe Core.Text)
 getDomainNames_position = Lens.lens (\GetDomainNames' {position} -> position) (\s@GetDomainNames' {} a -> s {position = a} :: GetDomainNames)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getDomainNames_limit :: Lens.Lens' GetDomainNames (Prelude.Maybe Prelude.Int)
+getDomainNames_limit :: Lens.Lens' GetDomainNames (Core.Maybe Core.Int)
 getDomainNames_limit = Lens.lens (\GetDomainNames' {limit} -> limit) (\s@GetDomainNames' {} a -> s {limit = a} :: GetDomainNames)
 
-instance Pager.AWSPager GetDomainNames where
+instance Core.AWSPager GetDomainNames where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? getDomainNamesResponse_position Prelude.. Lens._Just
+            Lens.^? getDomainNamesResponse_position Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? getDomainNamesResponse_items Prelude.. Lens._Just
+            Lens.^? getDomainNamesResponse_items Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getDomainNames_position
           Lens..~ rs
-          Lens.^? getDomainNamesResponse_position Prelude.. Lens._Just
+          Lens.^? getDomainNamesResponse_position Core.. Lens._Just
 
-instance Prelude.AWSRequest GetDomainNames where
-  type Rs GetDomainNames = GetDomainNamesResponse
+instance Core.AWSRequest GetDomainNames where
+  type
+    AWSResponse GetDomainNames =
+      GetDomainNamesResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDomainNamesResponse'
-            Prelude.<$> (x Prelude..?> "item" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "position")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "position")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDomainNames
+instance Core.Hashable GetDomainNames
 
-instance Prelude.NFData GetDomainNames
+instance Core.NFData GetDomainNames
 
-instance Prelude.ToHeaders GetDomainNames where
+instance Core.ToHeaders GetDomainNames where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetDomainNames where
-  toPath = Prelude.const "/domainnames"
+instance Core.ToPath GetDomainNames where
+  toPath = Core.const "/domainnames"
 
-instance Prelude.ToQuery GetDomainNames where
+instance Core.ToQuery GetDomainNames where
   toQuery GetDomainNames' {..} =
-    Prelude.mconcat
-      [ "position" Prelude.=: position,
-        "limit" Prelude.=: limit
-      ]
+    Core.mconcat
+      ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | Represents a collection of DomainName resources.
 --
@@ -153,12 +151,12 @@ instance Prelude.ToQuery GetDomainNames where
 -- /See:/ 'newGetDomainNamesResponse' smart constructor.
 data GetDomainNamesResponse = GetDomainNamesResponse'
   { -- | The current page of elements from this collection.
-    items :: Prelude.Maybe [DomainName],
-    position :: Prelude.Maybe Prelude.Text,
+    items :: Core.Maybe [DomainName],
+    position :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDomainNamesResponse' with all optional fields omitted.
@@ -175,25 +173,25 @@ data GetDomainNamesResponse = GetDomainNamesResponse'
 -- 'httpStatus', 'getDomainNamesResponse_httpStatus' - The response's http status code.
 newGetDomainNamesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDomainNamesResponse
 newGetDomainNamesResponse pHttpStatus_ =
   GetDomainNamesResponse'
-    { items = Prelude.Nothing,
-      position = Prelude.Nothing,
+    { items = Core.Nothing,
+      position = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getDomainNamesResponse_items :: Lens.Lens' GetDomainNamesResponse (Prelude.Maybe [DomainName])
-getDomainNamesResponse_items = Lens.lens (\GetDomainNamesResponse' {items} -> items) (\s@GetDomainNamesResponse' {} a -> s {items = a} :: GetDomainNamesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getDomainNamesResponse_items :: Lens.Lens' GetDomainNamesResponse (Core.Maybe [DomainName])
+getDomainNamesResponse_items = Lens.lens (\GetDomainNamesResponse' {items} -> items) (\s@GetDomainNamesResponse' {} a -> s {items = a} :: GetDomainNamesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getDomainNamesResponse_position :: Lens.Lens' GetDomainNamesResponse (Prelude.Maybe Prelude.Text)
+getDomainNamesResponse_position :: Lens.Lens' GetDomainNamesResponse (Core.Maybe Core.Text)
 getDomainNamesResponse_position = Lens.lens (\GetDomainNamesResponse' {position} -> position) (\s@GetDomainNamesResponse' {} a -> s {position = a} :: GetDomainNamesResponse)
 
 -- | The response's http status code.
-getDomainNamesResponse_httpStatus :: Lens.Lens' GetDomainNamesResponse Prelude.Int
+getDomainNamesResponse_httpStatus :: Lens.Lens' GetDomainNamesResponse Core.Int
 getDomainNamesResponse_httpStatus = Lens.lens (\GetDomainNamesResponse' {httpStatus} -> httpStatus) (\s@GetDomainNamesResponse' {} a -> s {httpStatus = a} :: GetDomainNamesResponse)
 
-instance Prelude.NFData GetDomainNamesResponse
+instance Core.NFData GetDomainNamesResponse

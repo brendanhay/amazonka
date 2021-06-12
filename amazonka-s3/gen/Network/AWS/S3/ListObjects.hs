@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -79,9 +78,8 @@ module Network.AWS.S3.ListObjects
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -91,22 +89,22 @@ data ListObjects = ListObjects'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    encodingType :: Prelude.Maybe EncodingType,
+    expectedBucketOwner :: Core.Maybe Core.Text,
+    encodingType :: Core.Maybe EncodingType,
     -- | A delimiter is a character you use to group keys.
-    delimiter :: Prelude.Maybe Delimiter,
+    delimiter :: Core.Maybe Delimiter,
     -- | Limits the response to keys that begin with the specified prefix.
-    prefix :: Prelude.Maybe Prelude.Text,
+    prefix :: Core.Maybe Core.Text,
     -- | Sets the maximum number of keys returned in the response. By default the
     -- API returns up to 1,000 key names. The response might contain fewer keys
     -- but will never contain more.
-    maxKeys :: Prelude.Maybe Prelude.Int,
+    maxKeys :: Core.Maybe Core.Int,
     -- | Confirms that the requester knows that she or he will be charged for the
     -- list objects request. Bucket owners need not specify this parameter in
     -- their requests.
-    requestPayer :: Prelude.Maybe RequestPayer,
+    requestPayer :: Core.Maybe RequestPayer,
     -- | Specifies the key to start with when listing objects in a bucket.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The name of the bucket containing the objects.
     --
     -- When using this API with an access point, you must direct requests to
@@ -129,7 +127,7 @@ data ListObjects = ListObjects'
     -- in the /Amazon Simple Storage Service Developer Guide/.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListObjects' with all optional fields omitted.
@@ -185,48 +183,48 @@ newListObjects ::
   ListObjects
 newListObjects pBucket_ =
   ListObjects'
-    { expectedBucketOwner = Prelude.Nothing,
-      encodingType = Prelude.Nothing,
-      delimiter = Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      maxKeys = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { expectedBucketOwner = Core.Nothing,
+      encodingType = Core.Nothing,
+      delimiter = Core.Nothing,
+      prefix = Core.Nothing,
+      maxKeys = Core.Nothing,
+      requestPayer = Core.Nothing,
+      marker = Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-listObjects_expectedBucketOwner :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Text)
+listObjects_expectedBucketOwner :: Lens.Lens' ListObjects (Core.Maybe Core.Text)
 listObjects_expectedBucketOwner = Lens.lens (\ListObjects' {expectedBucketOwner} -> expectedBucketOwner) (\s@ListObjects' {} a -> s {expectedBucketOwner = a} :: ListObjects)
 
 -- | Undocumented member.
-listObjects_encodingType :: Lens.Lens' ListObjects (Prelude.Maybe EncodingType)
+listObjects_encodingType :: Lens.Lens' ListObjects (Core.Maybe EncodingType)
 listObjects_encodingType = Lens.lens (\ListObjects' {encodingType} -> encodingType) (\s@ListObjects' {} a -> s {encodingType = a} :: ListObjects)
 
 -- | A delimiter is a character you use to group keys.
-listObjects_delimiter :: Lens.Lens' ListObjects (Prelude.Maybe Delimiter)
+listObjects_delimiter :: Lens.Lens' ListObjects (Core.Maybe Delimiter)
 listObjects_delimiter = Lens.lens (\ListObjects' {delimiter} -> delimiter) (\s@ListObjects' {} a -> s {delimiter = a} :: ListObjects)
 
 -- | Limits the response to keys that begin with the specified prefix.
-listObjects_prefix :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Text)
+listObjects_prefix :: Lens.Lens' ListObjects (Core.Maybe Core.Text)
 listObjects_prefix = Lens.lens (\ListObjects' {prefix} -> prefix) (\s@ListObjects' {} a -> s {prefix = a} :: ListObjects)
 
 -- | Sets the maximum number of keys returned in the response. By default the
 -- API returns up to 1,000 key names. The response might contain fewer keys
 -- but will never contain more.
-listObjects_maxKeys :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Int)
+listObjects_maxKeys :: Lens.Lens' ListObjects (Core.Maybe Core.Int)
 listObjects_maxKeys = Lens.lens (\ListObjects' {maxKeys} -> maxKeys) (\s@ListObjects' {} a -> s {maxKeys = a} :: ListObjects)
 
 -- | Confirms that the requester knows that she or he will be charged for the
 -- list objects request. Bucket owners need not specify this parameter in
 -- their requests.
-listObjects_requestPayer :: Lens.Lens' ListObjects (Prelude.Maybe RequestPayer)
+listObjects_requestPayer :: Lens.Lens' ListObjects (Core.Maybe RequestPayer)
 listObjects_requestPayer = Lens.lens (\ListObjects' {requestPayer} -> requestPayer) (\s@ListObjects' {} a -> s {requestPayer = a} :: ListObjects)
 
 -- | Specifies the key to start with when listing objects in a bucket.
-listObjects_marker :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Text)
+listObjects_marker :: Lens.Lens' ListObjects (Core.Maybe Core.Text)
 listObjects_marker = Lens.lens (\ListObjects' {marker} -> marker) (\s@ListObjects' {} a -> s {marker = a} :: ListObjects)
 
 -- | The name of the bucket containing the objects.
@@ -252,94 +250,87 @@ listObjects_marker = Lens.lens (\ListObjects' {marker} -> marker) (\s@ListObject
 listObjects_bucket :: Lens.Lens' ListObjects BucketName
 listObjects_bucket = Lens.lens (\ListObjects' {bucket} -> bucket) (\s@ListObjects' {} a -> s {bucket = a} :: ListObjects)
 
-instance Pager.AWSPager ListObjects where
+instance Core.AWSPager ListObjects where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listObjectsResponse_isTruncated Prelude.. Lens._Just
+            Lens.^? listObjectsResponse_isTruncated Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^. Pager.choice
+            Lens.^. Core.choice
               ( Lens.^?
-                  ( listObjectsResponse_nextMarker
-                      Prelude.. Lens._Just
-                  )
+                  (listObjectsResponse_nextMarker Core.. Lens._Just)
               )
               ( Lens.^?
-                  ( listObjectsResponse_contents Prelude.. Lens._Just
-                      Prelude.. Lens._last
-                      Prelude.. object_key
+                  ( listObjectsResponse_contents Core.. Lens._Just
+                      Core.. Lens._last
+                      Core.. object_key
                   )
               )
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listObjects_marker
           Lens..~ rs
-          Lens.^. Pager.choice
+          Lens.^. Core.choice
             ( Lens.^?
-                ( listObjectsResponse_nextMarker
-                    Prelude.. Lens._Just
-                )
+                (listObjectsResponse_nextMarker Core.. Lens._Just)
             )
             ( Lens.^?
-                ( listObjectsResponse_contents Prelude.. Lens._Just
-                    Prelude.. Lens._last
-                    Prelude.. object_key
+                ( listObjectsResponse_contents Core.. Lens._Just
+                    Core.. Lens._last
+                    Core.. object_key
                 )
             )
 
-instance Prelude.AWSRequest ListObjects where
-  type Rs ListObjects = ListObjectsResponse
+instance Core.AWSRequest ListObjects where
+  type AWSResponse ListObjects = ListObjectsResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListObjectsResponse'
-            Prelude.<$> ( Prelude.may
-                            (Prelude.parseXMLList "CommonPrefixes")
-                            x
-                        )
-            Prelude.<*> (x Prelude..@? "EncodingType")
-            Prelude.<*> (x Prelude..@? "Delimiter")
-            Prelude.<*> (x Prelude..@? "Prefix")
-            Prelude.<*> (x Prelude..@? "IsTruncated")
-            Prelude.<*> (x Prelude..@? "MaxKeys")
-            Prelude.<*> (x Prelude..@? "NextMarker")
-            Prelude.<*> (Prelude.may (Prelude.parseXMLList "Contents") x)
-            Prelude.<*> (x Prelude..@? "Name")
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.may (Core.parseXMLList "CommonPrefixes") x)
+            Core.<*> (x Core..@? "EncodingType")
+            Core.<*> (x Core..@? "Delimiter")
+            Core.<*> (x Core..@? "Prefix")
+            Core.<*> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "MaxKeys")
+            Core.<*> (x Core..@? "NextMarker")
+            Core.<*> (Core.may (Core.parseXMLList "Contents") x)
+            Core.<*> (x Core..@? "Name")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListObjects
+instance Core.Hashable ListObjects
 
-instance Prelude.NFData ListObjects
+instance Core.NFData ListObjects
 
-instance Prelude.ToHeaders ListObjects where
+instance Core.ToHeaders ListObjects where
   toHeaders ListObjects' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "x-amz-request-payer" Prelude.=# requestPayer
+          Core.=# expectedBucketOwner,
+        "x-amz-request-payer" Core.=# requestPayer
       ]
 
-instance Prelude.ToPath ListObjects where
+instance Core.ToPath ListObjects where
   toPath ListObjects' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery ListObjects where
+instance Core.ToQuery ListObjects where
   toQuery ListObjects' {..} =
-    Prelude.mconcat
-      [ "encoding-type" Prelude.=: encodingType,
-        "delimiter" Prelude.=: delimiter,
-        "prefix" Prelude.=: prefix,
-        "max-keys" Prelude.=: maxKeys,
-        "marker" Prelude.=: marker
+    Core.mconcat
+      [ "encoding-type" Core.=: encodingType,
+        "delimiter" Core.=: delimiter,
+        "prefix" Core.=: prefix,
+        "max-keys" Core.=: maxKeys,
+        "marker" Core.=: marker
       ]
 
 -- | /See:/ 'newListObjectsResponse' smart constructor.
@@ -359,22 +350,22 @@ data ListObjectsResponse = ListObjectsResponse'
     -- as in notes\/summer\/july, the common prefix is notes\/summer\/. All of
     -- the keys that roll up into a common prefix count as a single return when
     -- calculating the number of returns.
-    commonPrefixes :: Prelude.Maybe [CommonPrefix],
+    commonPrefixes :: Core.Maybe [CommonPrefix],
     -- | Encoding type used by Amazon S3 to encode object keys in the response.
-    encodingType :: Prelude.Maybe EncodingType,
+    encodingType :: Core.Maybe EncodingType,
     -- | Causes keys that contain the same string between the prefix and the
     -- first occurrence of the delimiter to be rolled up into a single result
     -- element in the @CommonPrefixes@ collection. These rolled-up keys are not
     -- returned elsewhere in the response. Each rolled-up result counts as only
     -- one return against the @MaxKeys@ value.
-    delimiter :: Prelude.Maybe Delimiter,
+    delimiter :: Core.Maybe Delimiter,
     -- | Keys that begin with the indicated prefix.
-    prefix :: Prelude.Maybe Prelude.Text,
+    prefix :: Core.Maybe Core.Text,
     -- | A flag that indicates whether Amazon S3 returned all of the results that
     -- satisfied the search criteria.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | The maximum number of keys returned in the response body.
-    maxKeys :: Prelude.Maybe Prelude.Int,
+    maxKeys :: Core.Maybe Core.Int,
     -- | When response is truncated (the IsTruncated element value in the
     -- response is true), you can use the key name in this field as marker in
     -- the subsequent request to get next set of objects. Amazon S3 lists
@@ -383,18 +374,18 @@ data ListObjectsResponse = ListObjectsResponse'
     -- the NextMarker and it is truncated, you can use the value of the last
     -- Key in the response as the marker in the subsequent request to get the
     -- next set of object keys.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Metadata about each object returned.
-    contents :: Prelude.Maybe [Object],
+    contents :: Core.Maybe [Object],
     -- | The bucket name.
-    name :: Prelude.Maybe BucketName,
+    name :: Core.Maybe BucketName,
     -- | Indicates where in the bucket listing begins. Marker is included in the
     -- response if it was sent with the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListObjectsResponse' with all optional fields omitted.
@@ -454,21 +445,20 @@ data ListObjectsResponse = ListObjectsResponse'
 -- 'httpStatus', 'listObjectsResponse_httpStatus' - The response's http status code.
 newListObjectsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListObjectsResponse
 newListObjectsResponse pHttpStatus_ =
   ListObjectsResponse'
-    { commonPrefixes =
-        Prelude.Nothing,
-      encodingType = Prelude.Nothing,
-      delimiter = Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      isTruncated = Prelude.Nothing,
-      maxKeys = Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
-      contents = Prelude.Nothing,
-      name = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { commonPrefixes = Core.Nothing,
+      encodingType = Core.Nothing,
+      delimiter = Core.Nothing,
+      prefix = Core.Nothing,
+      isTruncated = Core.Nothing,
+      maxKeys = Core.Nothing,
+      nextMarker = Core.Nothing,
+      contents = Core.Nothing,
+      name = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -487,11 +477,11 @@ newListObjectsResponse pHttpStatus_ =
 -- as in notes\/summer\/july, the common prefix is notes\/summer\/. All of
 -- the keys that roll up into a common prefix count as a single return when
 -- calculating the number of returns.
-listObjectsResponse_commonPrefixes :: Lens.Lens' ListObjectsResponse (Prelude.Maybe [CommonPrefix])
-listObjectsResponse_commonPrefixes = Lens.lens (\ListObjectsResponse' {commonPrefixes} -> commonPrefixes) (\s@ListObjectsResponse' {} a -> s {commonPrefixes = a} :: ListObjectsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listObjectsResponse_commonPrefixes :: Lens.Lens' ListObjectsResponse (Core.Maybe [CommonPrefix])
+listObjectsResponse_commonPrefixes = Lens.lens (\ListObjectsResponse' {commonPrefixes} -> commonPrefixes) (\s@ListObjectsResponse' {} a -> s {commonPrefixes = a} :: ListObjectsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-listObjectsResponse_encodingType :: Lens.Lens' ListObjectsResponse (Prelude.Maybe EncodingType)
+listObjectsResponse_encodingType :: Lens.Lens' ListObjectsResponse (Core.Maybe EncodingType)
 listObjectsResponse_encodingType = Lens.lens (\ListObjectsResponse' {encodingType} -> encodingType) (\s@ListObjectsResponse' {} a -> s {encodingType = a} :: ListObjectsResponse)
 
 -- | Causes keys that contain the same string between the prefix and the
@@ -499,20 +489,20 @@ listObjectsResponse_encodingType = Lens.lens (\ListObjectsResponse' {encodingTyp
 -- element in the @CommonPrefixes@ collection. These rolled-up keys are not
 -- returned elsewhere in the response. Each rolled-up result counts as only
 -- one return against the @MaxKeys@ value.
-listObjectsResponse_delimiter :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Delimiter)
+listObjectsResponse_delimiter :: Lens.Lens' ListObjectsResponse (Core.Maybe Delimiter)
 listObjectsResponse_delimiter = Lens.lens (\ListObjectsResponse' {delimiter} -> delimiter) (\s@ListObjectsResponse' {} a -> s {delimiter = a} :: ListObjectsResponse)
 
 -- | Keys that begin with the indicated prefix.
-listObjectsResponse_prefix :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Text)
+listObjectsResponse_prefix :: Lens.Lens' ListObjectsResponse (Core.Maybe Core.Text)
 listObjectsResponse_prefix = Lens.lens (\ListObjectsResponse' {prefix} -> prefix) (\s@ListObjectsResponse' {} a -> s {prefix = a} :: ListObjectsResponse)
 
 -- | A flag that indicates whether Amazon S3 returned all of the results that
 -- satisfied the search criteria.
-listObjectsResponse_isTruncated :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Bool)
+listObjectsResponse_isTruncated :: Lens.Lens' ListObjectsResponse (Core.Maybe Core.Bool)
 listObjectsResponse_isTruncated = Lens.lens (\ListObjectsResponse' {isTruncated} -> isTruncated) (\s@ListObjectsResponse' {} a -> s {isTruncated = a} :: ListObjectsResponse)
 
 -- | The maximum number of keys returned in the response body.
-listObjectsResponse_maxKeys :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Int)
+listObjectsResponse_maxKeys :: Lens.Lens' ListObjectsResponse (Core.Maybe Core.Int)
 listObjectsResponse_maxKeys = Lens.lens (\ListObjectsResponse' {maxKeys} -> maxKeys) (\s@ListObjectsResponse' {} a -> s {maxKeys = a} :: ListObjectsResponse)
 
 -- | When response is truncated (the IsTruncated element value in the
@@ -523,24 +513,24 @@ listObjectsResponse_maxKeys = Lens.lens (\ListObjectsResponse' {maxKeys} -> maxK
 -- the NextMarker and it is truncated, you can use the value of the last
 -- Key in the response as the marker in the subsequent request to get the
 -- next set of object keys.
-listObjectsResponse_nextMarker :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Text)
+listObjectsResponse_nextMarker :: Lens.Lens' ListObjectsResponse (Core.Maybe Core.Text)
 listObjectsResponse_nextMarker = Lens.lens (\ListObjectsResponse' {nextMarker} -> nextMarker) (\s@ListObjectsResponse' {} a -> s {nextMarker = a} :: ListObjectsResponse)
 
 -- | Metadata about each object returned.
-listObjectsResponse_contents :: Lens.Lens' ListObjectsResponse (Prelude.Maybe [Object])
-listObjectsResponse_contents = Lens.lens (\ListObjectsResponse' {contents} -> contents) (\s@ListObjectsResponse' {} a -> s {contents = a} :: ListObjectsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listObjectsResponse_contents :: Lens.Lens' ListObjectsResponse (Core.Maybe [Object])
+listObjectsResponse_contents = Lens.lens (\ListObjectsResponse' {contents} -> contents) (\s@ListObjectsResponse' {} a -> s {contents = a} :: ListObjectsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The bucket name.
-listObjectsResponse_name :: Lens.Lens' ListObjectsResponse (Prelude.Maybe BucketName)
+listObjectsResponse_name :: Lens.Lens' ListObjectsResponse (Core.Maybe BucketName)
 listObjectsResponse_name = Lens.lens (\ListObjectsResponse' {name} -> name) (\s@ListObjectsResponse' {} a -> s {name = a} :: ListObjectsResponse)
 
 -- | Indicates where in the bucket listing begins. Marker is included in the
 -- response if it was sent with the request.
-listObjectsResponse_marker :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Text)
+listObjectsResponse_marker :: Lens.Lens' ListObjectsResponse (Core.Maybe Core.Text)
 listObjectsResponse_marker = Lens.lens (\ListObjectsResponse' {marker} -> marker) (\s@ListObjectsResponse' {} a -> s {marker = a} :: ListObjectsResponse)
 
 -- | The response's http status code.
-listObjectsResponse_httpStatus :: Lens.Lens' ListObjectsResponse Prelude.Int
+listObjectsResponse_httpStatus :: Lens.Lens' ListObjectsResponse Core.Int
 listObjectsResponse_httpStatus = Lens.lens (\ListObjectsResponse' {httpStatus} -> httpStatus) (\s@ListObjectsResponse' {} a -> s {httpStatus = a} :: ListObjectsResponse)
 
-instance Prelude.NFData ListObjectsResponse
+instance Core.NFData ListObjectsResponse

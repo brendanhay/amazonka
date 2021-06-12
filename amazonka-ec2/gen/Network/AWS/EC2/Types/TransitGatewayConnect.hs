@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,33 +19,33 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TransitGatewayConnect where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.TransitGatewayAttachmentState
 import Network.AWS.EC2.Types.TransitGatewayConnectOptions
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a transit gateway Connect attachment.
 --
 -- /See:/ 'newTransitGatewayConnect' smart constructor.
 data TransitGatewayConnect = TransitGatewayConnect'
   { -- | The creation time.
-    creationTime :: Prelude.Maybe Prelude.ISO8601,
+    creationTime :: Core.Maybe Core.ISO8601,
     -- | The Connect attachment options.
-    options :: Prelude.Maybe TransitGatewayConnectOptions,
+    options :: Core.Maybe TransitGatewayConnectOptions,
     -- | The state of the attachment.
-    state :: Prelude.Maybe TransitGatewayAttachmentState,
+    state :: Core.Maybe TransitGatewayAttachmentState,
     -- | The tags for the attachment.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The ID of the Connect attachment.
-    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
+    transitGatewayAttachmentId :: Core.Maybe Core.Text,
     -- | The ID of the attachment from which the Connect attachment was created.
-    transportTransitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
+    transportTransitGatewayAttachmentId :: Core.Maybe Core.Text,
     -- | The ID of the transit gateway.
-    transitGatewayId :: Prelude.Maybe Prelude.Text
+    transitGatewayId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayConnect' with all optional fields omitted.
@@ -73,58 +72,56 @@ newTransitGatewayConnect ::
   TransitGatewayConnect
 newTransitGatewayConnect =
   TransitGatewayConnect'
-    { creationTime =
-        Prelude.Nothing,
-      options = Prelude.Nothing,
-      state = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      transitGatewayAttachmentId = Prelude.Nothing,
-      transportTransitGatewayAttachmentId =
-        Prelude.Nothing,
-      transitGatewayId = Prelude.Nothing
+    { creationTime = Core.Nothing,
+      options = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing,
+      transitGatewayAttachmentId = Core.Nothing,
+      transportTransitGatewayAttachmentId = Core.Nothing,
+      transitGatewayId = Core.Nothing
     }
 
 -- | The creation time.
-transitGatewayConnect_creationTime :: Lens.Lens' TransitGatewayConnect (Prelude.Maybe Prelude.UTCTime)
-transitGatewayConnect_creationTime = Lens.lens (\TransitGatewayConnect' {creationTime} -> creationTime) (\s@TransitGatewayConnect' {} a -> s {creationTime = a} :: TransitGatewayConnect) Prelude.. Lens.mapping Prelude._Time
+transitGatewayConnect_creationTime :: Lens.Lens' TransitGatewayConnect (Core.Maybe Core.UTCTime)
+transitGatewayConnect_creationTime = Lens.lens (\TransitGatewayConnect' {creationTime} -> creationTime) (\s@TransitGatewayConnect' {} a -> s {creationTime = a} :: TransitGatewayConnect) Core.. Lens.mapping Core._Time
 
 -- | The Connect attachment options.
-transitGatewayConnect_options :: Lens.Lens' TransitGatewayConnect (Prelude.Maybe TransitGatewayConnectOptions)
+transitGatewayConnect_options :: Lens.Lens' TransitGatewayConnect (Core.Maybe TransitGatewayConnectOptions)
 transitGatewayConnect_options = Lens.lens (\TransitGatewayConnect' {options} -> options) (\s@TransitGatewayConnect' {} a -> s {options = a} :: TransitGatewayConnect)
 
 -- | The state of the attachment.
-transitGatewayConnect_state :: Lens.Lens' TransitGatewayConnect (Prelude.Maybe TransitGatewayAttachmentState)
+transitGatewayConnect_state :: Lens.Lens' TransitGatewayConnect (Core.Maybe TransitGatewayAttachmentState)
 transitGatewayConnect_state = Lens.lens (\TransitGatewayConnect' {state} -> state) (\s@TransitGatewayConnect' {} a -> s {state = a} :: TransitGatewayConnect)
 
 -- | The tags for the attachment.
-transitGatewayConnect_tags :: Lens.Lens' TransitGatewayConnect (Prelude.Maybe [Tag])
-transitGatewayConnect_tags = Lens.lens (\TransitGatewayConnect' {tags} -> tags) (\s@TransitGatewayConnect' {} a -> s {tags = a} :: TransitGatewayConnect) Prelude.. Lens.mapping Prelude._Coerce
+transitGatewayConnect_tags :: Lens.Lens' TransitGatewayConnect (Core.Maybe [Tag])
+transitGatewayConnect_tags = Lens.lens (\TransitGatewayConnect' {tags} -> tags) (\s@TransitGatewayConnect' {} a -> s {tags = a} :: TransitGatewayConnect) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Connect attachment.
-transitGatewayConnect_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayConnect (Prelude.Maybe Prelude.Text)
+transitGatewayConnect_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayConnect (Core.Maybe Core.Text)
 transitGatewayConnect_transitGatewayAttachmentId = Lens.lens (\TransitGatewayConnect' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@TransitGatewayConnect' {} a -> s {transitGatewayAttachmentId = a} :: TransitGatewayConnect)
 
 -- | The ID of the attachment from which the Connect attachment was created.
-transitGatewayConnect_transportTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayConnect (Prelude.Maybe Prelude.Text)
+transitGatewayConnect_transportTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayConnect (Core.Maybe Core.Text)
 transitGatewayConnect_transportTransitGatewayAttachmentId = Lens.lens (\TransitGatewayConnect' {transportTransitGatewayAttachmentId} -> transportTransitGatewayAttachmentId) (\s@TransitGatewayConnect' {} a -> s {transportTransitGatewayAttachmentId = a} :: TransitGatewayConnect)
 
 -- | The ID of the transit gateway.
-transitGatewayConnect_transitGatewayId :: Lens.Lens' TransitGatewayConnect (Prelude.Maybe Prelude.Text)
+transitGatewayConnect_transitGatewayId :: Lens.Lens' TransitGatewayConnect (Core.Maybe Core.Text)
 transitGatewayConnect_transitGatewayId = Lens.lens (\TransitGatewayConnect' {transitGatewayId} -> transitGatewayId) (\s@TransitGatewayConnect' {} a -> s {transitGatewayId = a} :: TransitGatewayConnect)
 
-instance Prelude.FromXML TransitGatewayConnect where
+instance Core.FromXML TransitGatewayConnect where
   parseXML x =
     TransitGatewayConnect'
-      Prelude.<$> (x Prelude..@? "creationTime")
-      Prelude.<*> (x Prelude..@? "options")
-      Prelude.<*> (x Prelude..@? "state")
-      Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "transitGatewayAttachmentId")
-      Prelude.<*> (x Prelude..@? "transportTransitGatewayAttachmentId")
-      Prelude.<*> (x Prelude..@? "transitGatewayId")
+      Core.<$> (x Core..@? "creationTime")
+      Core.<*> (x Core..@? "options")
+      Core.<*> (x Core..@? "state")
+      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "transitGatewayAttachmentId")
+      Core.<*> (x Core..@? "transportTransitGatewayAttachmentId")
+      Core.<*> (x Core..@? "transitGatewayId")
 
-instance Prelude.Hashable TransitGatewayConnect
+instance Core.Hashable TransitGatewayConnect
 
-instance Prelude.NFData TransitGatewayConnect
+instance Core.NFData TransitGatewayConnect

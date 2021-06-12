@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,19 +40,19 @@ module Network.AWS.CodeStar.UntagProject
 where
 
 import Network.AWS.CodeStar.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagProject' smart constructor.
 data UntagProject = UntagProject'
   { -- | The ID of the project to remove tags from.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The tags to remove from the project.
-    tags :: [Prelude.Text]
+    tags :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagProject' with all optional fields omitted.
@@ -68,69 +67,67 @@ data UntagProject = UntagProject'
 -- 'tags', 'untagProject_tags' - The tags to remove from the project.
 newUntagProject ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   UntagProject
 newUntagProject pId_ =
-  UntagProject' {id = pId_, tags = Prelude.mempty}
+  UntagProject' {id = pId_, tags = Core.mempty}
 
 -- | The ID of the project to remove tags from.
-untagProject_id :: Lens.Lens' UntagProject Prelude.Text
+untagProject_id :: Lens.Lens' UntagProject Core.Text
 untagProject_id = Lens.lens (\UntagProject' {id} -> id) (\s@UntagProject' {} a -> s {id = a} :: UntagProject)
 
 -- | The tags to remove from the project.
-untagProject_tags :: Lens.Lens' UntagProject [Prelude.Text]
-untagProject_tags = Lens.lens (\UntagProject' {tags} -> tags) (\s@UntagProject' {} a -> s {tags = a} :: UntagProject) Prelude.. Prelude._Coerce
+untagProject_tags :: Lens.Lens' UntagProject [Core.Text]
+untagProject_tags = Lens.lens (\UntagProject' {tags} -> tags) (\s@UntagProject' {} a -> s {tags = a} :: UntagProject) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagProject where
-  type Rs UntagProject = UntagProjectResponse
+instance Core.AWSRequest UntagProject where
+  type AWSResponse UntagProject = UntagProjectResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UntagProjectResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UntagProject
+instance Core.Hashable UntagProject
 
-instance Prelude.NFData UntagProject
+instance Core.NFData UntagProject
 
-instance Prelude.ToHeaders UntagProject where
+instance Core.ToHeaders UntagProject where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeStar_20170419.UntagProject" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeStar_20170419.UntagProject" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UntagProject where
+instance Core.ToJSON UntagProject where
   toJSON UntagProject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("id" Prelude..= id),
-            Prelude.Just ("tags" Prelude..= tags)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("id" Core..= id),
+            Core.Just ("tags" Core..= tags)
           ]
       )
 
-instance Prelude.ToPath UntagProject where
-  toPath = Prelude.const "/"
+instance Core.ToPath UntagProject where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UntagProject where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UntagProject where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUntagProjectResponse' smart constructor.
 data UntagProjectResponse = UntagProjectResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagProjectResponse' with all optional fields omitted.
@@ -143,13 +140,13 @@ data UntagProjectResponse = UntagProjectResponse'
 -- 'httpStatus', 'untagProjectResponse_httpStatus' - The response's http status code.
 newUntagProjectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UntagProjectResponse
 newUntagProjectResponse pHttpStatus_ =
   UntagProjectResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-untagProjectResponse_httpStatus :: Lens.Lens' UntagProjectResponse Prelude.Int
+untagProjectResponse_httpStatus :: Lens.Lens' UntagProjectResponse Core.Int
 untagProjectResponse_httpStatus = Lens.lens (\UntagProjectResponse' {httpStatus} -> httpStatus) (\s@UntagProjectResponse' {} a -> s {httpStatus = a} :: UntagProjectResponse)
 
-instance Prelude.NFData UntagProjectResponse
+instance Core.NFData UntagProjectResponse

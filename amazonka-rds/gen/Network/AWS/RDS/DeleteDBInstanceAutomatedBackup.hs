@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.RDS.DeleteDBInstanceAutomatedBackup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,12 +54,12 @@ data DeleteDBInstanceAutomatedBackup = DeleteDBInstanceAutomatedBackup'
   { -- | The Amazon Resource Name (ARN) of the automated backups to delete, for
     -- example,
     -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
-    dbInstanceAutomatedBackupsArn :: Prelude.Maybe Prelude.Text,
+    dbInstanceAutomatedBackupsArn :: Core.Maybe Core.Text,
     -- | The identifier for the source DB instance, which can\'t be changed and
     -- which is unique to an AWS Region.
-    dbiResourceId :: Prelude.Maybe Prelude.Text
+    dbiResourceId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDBInstanceAutomatedBackup' with all optional fields omitted.
@@ -81,27 +80,27 @@ newDeleteDBInstanceAutomatedBackup ::
 newDeleteDBInstanceAutomatedBackup =
   DeleteDBInstanceAutomatedBackup'
     { dbInstanceAutomatedBackupsArn =
-        Prelude.Nothing,
-      dbiResourceId = Prelude.Nothing
+        Core.Nothing,
+      dbiResourceId = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the automated backups to delete, for
 -- example,
 -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
-deleteDBInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn :: Lens.Lens' DeleteDBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
+deleteDBInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn :: Lens.Lens' DeleteDBInstanceAutomatedBackup (Core.Maybe Core.Text)
 deleteDBInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn = Lens.lens (\DeleteDBInstanceAutomatedBackup' {dbInstanceAutomatedBackupsArn} -> dbInstanceAutomatedBackupsArn) (\s@DeleteDBInstanceAutomatedBackup' {} a -> s {dbInstanceAutomatedBackupsArn = a} :: DeleteDBInstanceAutomatedBackup)
 
 -- | The identifier for the source DB instance, which can\'t be changed and
 -- which is unique to an AWS Region.
-deleteDBInstanceAutomatedBackup_dbiResourceId :: Lens.Lens' DeleteDBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
+deleteDBInstanceAutomatedBackup_dbiResourceId :: Lens.Lens' DeleteDBInstanceAutomatedBackup (Core.Maybe Core.Text)
 deleteDBInstanceAutomatedBackup_dbiResourceId = Lens.lens (\DeleteDBInstanceAutomatedBackup' {dbiResourceId} -> dbiResourceId) (\s@DeleteDBInstanceAutomatedBackup' {} a -> s {dbiResourceId = a} :: DeleteDBInstanceAutomatedBackup)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteDBInstanceAutomatedBackup
   where
   type
-    Rs DeleteDBInstanceAutomatedBackup =
+    AWSResponse DeleteDBInstanceAutomatedBackup =
       DeleteDBInstanceAutomatedBackupResponse
   request = Request.postQuery defaultService
   response =
@@ -109,54 +108,45 @@ instance
       "DeleteDBInstanceAutomatedBackupResult"
       ( \s h x ->
           DeleteDBInstanceAutomatedBackupResponse'
-            Prelude.<$> (x Prelude..@? "DBInstanceAutomatedBackup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DBInstanceAutomatedBackup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteDBInstanceAutomatedBackup
 
-instance
-  Prelude.NFData
-    DeleteDBInstanceAutomatedBackup
+instance Core.NFData DeleteDBInstanceAutomatedBackup
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteDBInstanceAutomatedBackup
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DeleteDBInstanceAutomatedBackup
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDBInstanceAutomatedBackup where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteDBInstanceAutomatedBackup
-  where
+instance Core.ToQuery DeleteDBInstanceAutomatedBackup where
   toQuery DeleteDBInstanceAutomatedBackup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteDBInstanceAutomatedBackup" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ( "DeleteDBInstanceAutomatedBackup" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "DBInstanceAutomatedBackupsArn"
-          Prelude.=: dbInstanceAutomatedBackupsArn,
-        "DbiResourceId" Prelude.=: dbiResourceId
+          Core.=: dbInstanceAutomatedBackupsArn,
+        "DbiResourceId" Core.=: dbiResourceId
       ]
 
 -- | /See:/ 'newDeleteDBInstanceAutomatedBackupResponse' smart constructor.
 data DeleteDBInstanceAutomatedBackupResponse = DeleteDBInstanceAutomatedBackupResponse'
-  { dbInstanceAutomatedBackup :: Prelude.Maybe DBInstanceAutomatedBackup,
+  { dbInstanceAutomatedBackup :: Core.Maybe DBInstanceAutomatedBackup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDBInstanceAutomatedBackupResponse' with all optional fields omitted.
@@ -171,24 +161,24 @@ data DeleteDBInstanceAutomatedBackupResponse = DeleteDBInstanceAutomatedBackupRe
 -- 'httpStatus', 'deleteDBInstanceAutomatedBackupResponse_httpStatus' - The response's http status code.
 newDeleteDBInstanceAutomatedBackupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteDBInstanceAutomatedBackupResponse
 newDeleteDBInstanceAutomatedBackupResponse
   pHttpStatus_ =
     DeleteDBInstanceAutomatedBackupResponse'
       { dbInstanceAutomatedBackup =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-deleteDBInstanceAutomatedBackupResponse_dbInstanceAutomatedBackup :: Lens.Lens' DeleteDBInstanceAutomatedBackupResponse (Prelude.Maybe DBInstanceAutomatedBackup)
+deleteDBInstanceAutomatedBackupResponse_dbInstanceAutomatedBackup :: Lens.Lens' DeleteDBInstanceAutomatedBackupResponse (Core.Maybe DBInstanceAutomatedBackup)
 deleteDBInstanceAutomatedBackupResponse_dbInstanceAutomatedBackup = Lens.lens (\DeleteDBInstanceAutomatedBackupResponse' {dbInstanceAutomatedBackup} -> dbInstanceAutomatedBackup) (\s@DeleteDBInstanceAutomatedBackupResponse' {} a -> s {dbInstanceAutomatedBackup = a} :: DeleteDBInstanceAutomatedBackupResponse)
 
 -- | The response's http status code.
-deleteDBInstanceAutomatedBackupResponse_httpStatus :: Lens.Lens' DeleteDBInstanceAutomatedBackupResponse Prelude.Int
+deleteDBInstanceAutomatedBackupResponse_httpStatus :: Lens.Lens' DeleteDBInstanceAutomatedBackupResponse Core.Int
 deleteDBInstanceAutomatedBackupResponse_httpStatus = Lens.lens (\DeleteDBInstanceAutomatedBackupResponse' {httpStatus} -> httpStatus) (\s@DeleteDBInstanceAutomatedBackupResponse' {} a -> s {httpStatus = a} :: DeleteDBInstanceAutomatedBackupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteDBInstanceAutomatedBackupResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,21 +41,21 @@ module Network.AWS.Connect.DisassociateQueueQuickConnects
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateQueueQuickConnects' smart constructor.
 data DisassociateQueueQuickConnects = DisassociateQueueQuickConnects'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier for the queue.
-    queueId :: Prelude.Text,
+    queueId :: Core.Text,
     -- | The quick connects to disassociate from the queue.
-    quickConnectIds :: Prelude.NonEmpty Prelude.Text
+    quickConnectIds :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateQueueQuickConnects' with all optional fields omitted.
@@ -73,11 +72,11 @@ data DisassociateQueueQuickConnects = DisassociateQueueQuickConnects'
 -- 'quickConnectIds', 'disassociateQueueQuickConnects_quickConnectIds' - The quick connects to disassociate from the queue.
 newDisassociateQueueQuickConnects ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'queueId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'quickConnectIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   DisassociateQueueQuickConnects
 newDisassociateQueueQuickConnects
   pInstanceId_
@@ -88,91 +87,76 @@ newDisassociateQueueQuickConnects
           pInstanceId_,
         queueId = pQueueId_,
         quickConnectIds =
-          Prelude._Coerce Lens.# pQuickConnectIds_
+          Lens._Coerce Lens.# pQuickConnectIds_
       }
 
 -- | The identifier of the Amazon Connect instance.
-disassociateQueueQuickConnects_instanceId :: Lens.Lens' DisassociateQueueQuickConnects Prelude.Text
+disassociateQueueQuickConnects_instanceId :: Lens.Lens' DisassociateQueueQuickConnects Core.Text
 disassociateQueueQuickConnects_instanceId = Lens.lens (\DisassociateQueueQuickConnects' {instanceId} -> instanceId) (\s@DisassociateQueueQuickConnects' {} a -> s {instanceId = a} :: DisassociateQueueQuickConnects)
 
 -- | The identifier for the queue.
-disassociateQueueQuickConnects_queueId :: Lens.Lens' DisassociateQueueQuickConnects Prelude.Text
+disassociateQueueQuickConnects_queueId :: Lens.Lens' DisassociateQueueQuickConnects Core.Text
 disassociateQueueQuickConnects_queueId = Lens.lens (\DisassociateQueueQuickConnects' {queueId} -> queueId) (\s@DisassociateQueueQuickConnects' {} a -> s {queueId = a} :: DisassociateQueueQuickConnects)
 
 -- | The quick connects to disassociate from the queue.
-disassociateQueueQuickConnects_quickConnectIds :: Lens.Lens' DisassociateQueueQuickConnects (Prelude.NonEmpty Prelude.Text)
-disassociateQueueQuickConnects_quickConnectIds = Lens.lens (\DisassociateQueueQuickConnects' {quickConnectIds} -> quickConnectIds) (\s@DisassociateQueueQuickConnects' {} a -> s {quickConnectIds = a} :: DisassociateQueueQuickConnects) Prelude.. Prelude._Coerce
+disassociateQueueQuickConnects_quickConnectIds :: Lens.Lens' DisassociateQueueQuickConnects (Core.NonEmpty Core.Text)
+disassociateQueueQuickConnects_quickConnectIds = Lens.lens (\DisassociateQueueQuickConnects' {quickConnectIds} -> quickConnectIds) (\s@DisassociateQueueQuickConnects' {} a -> s {quickConnectIds = a} :: DisassociateQueueQuickConnects) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateQueueQuickConnects
   where
   type
-    Rs DisassociateQueueQuickConnects =
+    AWSResponse DisassociateQueueQuickConnects =
       DisassociateQueueQuickConnectsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DisassociateQueueQuickConnectsResponse'
 
-instance
-  Prelude.Hashable
-    DisassociateQueueQuickConnects
+instance Core.Hashable DisassociateQueueQuickConnects
+
+instance Core.NFData DisassociateQueueQuickConnects
 
 instance
-  Prelude.NFData
-    DisassociateQueueQuickConnects
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisassociateQueueQuickConnects
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DisassociateQueueQuickConnects
-  where
+instance Core.ToJSON DisassociateQueueQuickConnects where
   toJSON DisassociateQueueQuickConnects' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("QuickConnectIds" Prelude..= quickConnectIds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("QuickConnectIds" Core..= quickConnectIds)
           ]
       )
 
-instance
-  Prelude.ToPath
-    DisassociateQueueQuickConnects
-  where
+instance Core.ToPath DisassociateQueueQuickConnects where
   toPath DisassociateQueueQuickConnects' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/queues/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS queueId,
+        Core.toBS queueId,
         "/disassociate-quick-connects"
       ]
 
-instance
-  Prelude.ToQuery
-    DisassociateQueueQuickConnects
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateQueueQuickConnects where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateQueueQuickConnectsResponse' smart constructor.
 data DisassociateQueueQuickConnectsResponse = DisassociateQueueQuickConnectsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateQueueQuickConnectsResponse' with all optional fields omitted.
@@ -184,5 +168,5 @@ newDisassociateQueueQuickConnectsResponse =
   DisassociateQueueQuickConnectsResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateQueueQuickConnectsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ParameterRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CategoricalParameterRangeSpecification
 import Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification
 import Network.AWS.SageMaker.Types.IntegerParameterRangeSpecification
@@ -33,15 +32,15 @@ import Network.AWS.SageMaker.Types.IntegerParameterRangeSpecification
 data ParameterRange = ParameterRange'
   { -- | A @ContinuousParameterRangeSpecification@ object that defines the
     -- possible values for a continuous hyperparameter.
-    continuousParameterRangeSpecification :: Prelude.Maybe ContinuousParameterRangeSpecification,
+    continuousParameterRangeSpecification :: Core.Maybe ContinuousParameterRangeSpecification,
     -- | A @IntegerParameterRangeSpecification@ object that defines the possible
     -- values for an integer hyperparameter.
-    integerParameterRangeSpecification :: Prelude.Maybe IntegerParameterRangeSpecification,
+    integerParameterRangeSpecification :: Core.Maybe IntegerParameterRangeSpecification,
     -- | A @CategoricalParameterRangeSpecification@ object that defines the
     -- possible values for a categorical hyperparameter.
-    categoricalParameterRangeSpecification :: Prelude.Maybe CategoricalParameterRangeSpecification
+    categoricalParameterRangeSpecification :: Core.Maybe CategoricalParameterRangeSpecification
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterRange' with all optional fields omitted.
@@ -64,55 +63,53 @@ newParameterRange ::
 newParameterRange =
   ParameterRange'
     { continuousParameterRangeSpecification =
-        Prelude.Nothing,
-      integerParameterRangeSpecification = Prelude.Nothing,
+        Core.Nothing,
+      integerParameterRangeSpecification = Core.Nothing,
       categoricalParameterRangeSpecification =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | A @ContinuousParameterRangeSpecification@ object that defines the
 -- possible values for a continuous hyperparameter.
-parameterRange_continuousParameterRangeSpecification :: Lens.Lens' ParameterRange (Prelude.Maybe ContinuousParameterRangeSpecification)
+parameterRange_continuousParameterRangeSpecification :: Lens.Lens' ParameterRange (Core.Maybe ContinuousParameterRangeSpecification)
 parameterRange_continuousParameterRangeSpecification = Lens.lens (\ParameterRange' {continuousParameterRangeSpecification} -> continuousParameterRangeSpecification) (\s@ParameterRange' {} a -> s {continuousParameterRangeSpecification = a} :: ParameterRange)
 
 -- | A @IntegerParameterRangeSpecification@ object that defines the possible
 -- values for an integer hyperparameter.
-parameterRange_integerParameterRangeSpecification :: Lens.Lens' ParameterRange (Prelude.Maybe IntegerParameterRangeSpecification)
+parameterRange_integerParameterRangeSpecification :: Lens.Lens' ParameterRange (Core.Maybe IntegerParameterRangeSpecification)
 parameterRange_integerParameterRangeSpecification = Lens.lens (\ParameterRange' {integerParameterRangeSpecification} -> integerParameterRangeSpecification) (\s@ParameterRange' {} a -> s {integerParameterRangeSpecification = a} :: ParameterRange)
 
 -- | A @CategoricalParameterRangeSpecification@ object that defines the
 -- possible values for a categorical hyperparameter.
-parameterRange_categoricalParameterRangeSpecification :: Lens.Lens' ParameterRange (Prelude.Maybe CategoricalParameterRangeSpecification)
+parameterRange_categoricalParameterRangeSpecification :: Lens.Lens' ParameterRange (Core.Maybe CategoricalParameterRangeSpecification)
 parameterRange_categoricalParameterRangeSpecification = Lens.lens (\ParameterRange' {categoricalParameterRangeSpecification} -> categoricalParameterRangeSpecification) (\s@ParameterRange' {} a -> s {categoricalParameterRangeSpecification = a} :: ParameterRange)
 
-instance Prelude.FromJSON ParameterRange where
+instance Core.FromJSON ParameterRange where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParameterRange"
       ( \x ->
           ParameterRange'
-            Prelude.<$> ( x
-                            Prelude..:? "ContinuousParameterRangeSpecification"
-                        )
-            Prelude.<*> (x Prelude..:? "IntegerParameterRangeSpecification")
-            Prelude.<*> ( x
-                            Prelude..:? "CategoricalParameterRangeSpecification"
-                        )
+            Core.<$> (x Core..:? "ContinuousParameterRangeSpecification")
+            Core.<*> (x Core..:? "IntegerParameterRangeSpecification")
+            Core.<*> ( x
+                         Core..:? "CategoricalParameterRangeSpecification"
+                     )
       )
 
-instance Prelude.Hashable ParameterRange
+instance Core.Hashable ParameterRange
 
-instance Prelude.NFData ParameterRange
+instance Core.NFData ParameterRange
 
-instance Prelude.ToJSON ParameterRange where
+instance Core.ToJSON ParameterRange where
   toJSON ParameterRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ContinuousParameterRangeSpecification" Prelude..=)
-              Prelude.<$> continuousParameterRangeSpecification,
-            ("IntegerParameterRangeSpecification" Prelude..=)
-              Prelude.<$> integerParameterRangeSpecification,
-            ("CategoricalParameterRangeSpecification" Prelude..=)
-              Prelude.<$> categoricalParameterRangeSpecification
+    Core.object
+      ( Core.catMaybes
+          [ ("ContinuousParameterRangeSpecification" Core..=)
+              Core.<$> continuousParameterRangeSpecification,
+            ("IntegerParameterRangeSpecification" Core..=)
+              Core.<$> integerParameterRangeSpecification,
+            ("CategoricalParameterRangeSpecification" Core..=)
+              Core.<$> categoricalParameterRangeSpecification
           ]
       )

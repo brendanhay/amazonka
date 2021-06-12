@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.VideoSelectorPid where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Video Selector Pid
 --
 -- /See:/ 'newVideoSelectorPid' smart constructor.
 data VideoSelectorPid = VideoSelectorPid'
   { -- | Selects a specific PID from within a video source.
-    pid :: Prelude.Maybe Prelude.Natural
+    pid :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VideoSelectorPid' with all optional fields omitted.
@@ -44,27 +43,25 @@ data VideoSelectorPid = VideoSelectorPid'
 newVideoSelectorPid ::
   VideoSelectorPid
 newVideoSelectorPid =
-  VideoSelectorPid' {pid = Prelude.Nothing}
+  VideoSelectorPid' {pid = Core.Nothing}
 
 -- | Selects a specific PID from within a video source.
-videoSelectorPid_pid :: Lens.Lens' VideoSelectorPid (Prelude.Maybe Prelude.Natural)
+videoSelectorPid_pid :: Lens.Lens' VideoSelectorPid (Core.Maybe Core.Natural)
 videoSelectorPid_pid = Lens.lens (\VideoSelectorPid' {pid} -> pid) (\s@VideoSelectorPid' {} a -> s {pid = a} :: VideoSelectorPid)
 
-instance Prelude.FromJSON VideoSelectorPid where
+instance Core.FromJSON VideoSelectorPid where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VideoSelectorPid"
       ( \x ->
-          VideoSelectorPid' Prelude.<$> (x Prelude..:? "pid")
+          VideoSelectorPid' Core.<$> (x Core..:? "pid")
       )
 
-instance Prelude.Hashable VideoSelectorPid
+instance Core.Hashable VideoSelectorPid
 
-instance Prelude.NFData VideoSelectorPid
+instance Core.NFData VideoSelectorPid
 
-instance Prelude.ToJSON VideoSelectorPid where
+instance Core.ToJSON VideoSelectorPid where
   toJSON VideoSelectorPid' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("pid" Prelude..=) Prelude.<$> pid]
-      )
+    Core.object
+      (Core.catMaybes [("pid" Core..=) Core.<$> pid])

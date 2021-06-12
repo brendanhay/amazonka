@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.AppSpecification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration to run a processing job in a specified container image.
 --
 -- /See:/ 'newAppSpecification' smart constructor.
 data AppSpecification = AppSpecification'
   { -- | The arguments for a container used to run a processing job.
-    containerArguments :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    containerArguments :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The entrypoint for a container used to run a processing job.
-    containerEntrypoint :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    containerEntrypoint :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The container image to be run by the processing job.
-    imageUri :: Prelude.Text
+    imageUri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AppSpecification' with all optional fields omitted.
@@ -51,51 +50,51 @@ data AppSpecification = AppSpecification'
 -- 'imageUri', 'appSpecification_imageUri' - The container image to be run by the processing job.
 newAppSpecification ::
   -- | 'imageUri'
-  Prelude.Text ->
+  Core.Text ->
   AppSpecification
 newAppSpecification pImageUri_ =
   AppSpecification'
     { containerArguments =
-        Prelude.Nothing,
-      containerEntrypoint = Prelude.Nothing,
+        Core.Nothing,
+      containerEntrypoint = Core.Nothing,
       imageUri = pImageUri_
     }
 
 -- | The arguments for a container used to run a processing job.
-appSpecification_containerArguments :: Lens.Lens' AppSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-appSpecification_containerArguments = Lens.lens (\AppSpecification' {containerArguments} -> containerArguments) (\s@AppSpecification' {} a -> s {containerArguments = a} :: AppSpecification) Prelude.. Lens.mapping Prelude._Coerce
+appSpecification_containerArguments :: Lens.Lens' AppSpecification (Core.Maybe (Core.NonEmpty Core.Text))
+appSpecification_containerArguments = Lens.lens (\AppSpecification' {containerArguments} -> containerArguments) (\s@AppSpecification' {} a -> s {containerArguments = a} :: AppSpecification) Core.. Lens.mapping Lens._Coerce
 
 -- | The entrypoint for a container used to run a processing job.
-appSpecification_containerEntrypoint :: Lens.Lens' AppSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-appSpecification_containerEntrypoint = Lens.lens (\AppSpecification' {containerEntrypoint} -> containerEntrypoint) (\s@AppSpecification' {} a -> s {containerEntrypoint = a} :: AppSpecification) Prelude.. Lens.mapping Prelude._Coerce
+appSpecification_containerEntrypoint :: Lens.Lens' AppSpecification (Core.Maybe (Core.NonEmpty Core.Text))
+appSpecification_containerEntrypoint = Lens.lens (\AppSpecification' {containerEntrypoint} -> containerEntrypoint) (\s@AppSpecification' {} a -> s {containerEntrypoint = a} :: AppSpecification) Core.. Lens.mapping Lens._Coerce
 
 -- | The container image to be run by the processing job.
-appSpecification_imageUri :: Lens.Lens' AppSpecification Prelude.Text
+appSpecification_imageUri :: Lens.Lens' AppSpecification Core.Text
 appSpecification_imageUri = Lens.lens (\AppSpecification' {imageUri} -> imageUri) (\s@AppSpecification' {} a -> s {imageUri = a} :: AppSpecification)
 
-instance Prelude.FromJSON AppSpecification where
+instance Core.FromJSON AppSpecification where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AppSpecification"
       ( \x ->
           AppSpecification'
-            Prelude.<$> (x Prelude..:? "ContainerArguments")
-            Prelude.<*> (x Prelude..:? "ContainerEntrypoint")
-            Prelude.<*> (x Prelude..: "ImageUri")
+            Core.<$> (x Core..:? "ContainerArguments")
+            Core.<*> (x Core..:? "ContainerEntrypoint")
+            Core.<*> (x Core..: "ImageUri")
       )
 
-instance Prelude.Hashable AppSpecification
+instance Core.Hashable AppSpecification
 
-instance Prelude.NFData AppSpecification
+instance Core.NFData AppSpecification
 
-instance Prelude.ToJSON AppSpecification where
+instance Core.ToJSON AppSpecification where
   toJSON AppSpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ContainerArguments" Prelude..=)
-              Prelude.<$> containerArguments,
-            ("ContainerEntrypoint" Prelude..=)
-              Prelude.<$> containerEntrypoint,
-            Prelude.Just ("ImageUri" Prelude..= imageUri)
+    Core.object
+      ( Core.catMaybes
+          [ ("ContainerArguments" Core..=)
+              Core.<$> containerArguments,
+            ("ContainerEntrypoint" Core..=)
+              Core.<$> containerEntrypoint,
+            Core.Just ("ImageUri" Core..= imageUri)
           ]
       )

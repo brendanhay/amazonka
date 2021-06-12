@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.SystemStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.CPUUtilization
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | CPU utilization and load average metrics for an Amazon EC2 instance.
 --
 -- /See:/ 'newSystemStatus' smart constructor.
 data SystemStatus = SystemStatus'
   { -- | CPU utilization metrics for the instance.
-    cPUUtilization :: Prelude.Maybe CPUUtilization,
+    cPUUtilization :: Core.Maybe CPUUtilization,
     -- | Load average in the last 1-minute, 5-minute, and 15-minute periods. For
     -- more information, see
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics>.
-    loadAverage :: Prelude.Maybe [Prelude.Double]
+    loadAverage :: Core.Maybe [Core.Double]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SystemStatus' with all optional fields omitted.
@@ -54,29 +53,28 @@ newSystemStatus ::
   SystemStatus
 newSystemStatus =
   SystemStatus'
-    { cPUUtilization = Prelude.Nothing,
-      loadAverage = Prelude.Nothing
+    { cPUUtilization = Core.Nothing,
+      loadAverage = Core.Nothing
     }
 
 -- | CPU utilization metrics for the instance.
-systemStatus_cPUUtilization :: Lens.Lens' SystemStatus (Prelude.Maybe CPUUtilization)
+systemStatus_cPUUtilization :: Lens.Lens' SystemStatus (Core.Maybe CPUUtilization)
 systemStatus_cPUUtilization = Lens.lens (\SystemStatus' {cPUUtilization} -> cPUUtilization) (\s@SystemStatus' {} a -> s {cPUUtilization = a} :: SystemStatus)
 
 -- | Load average in the last 1-minute, 5-minute, and 15-minute periods. For
 -- more information, see
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics>.
-systemStatus_loadAverage :: Lens.Lens' SystemStatus (Prelude.Maybe [Prelude.Double])
-systemStatus_loadAverage = Lens.lens (\SystemStatus' {loadAverage} -> loadAverage) (\s@SystemStatus' {} a -> s {loadAverage = a} :: SystemStatus) Prelude.. Lens.mapping Prelude._Coerce
+systemStatus_loadAverage :: Lens.Lens' SystemStatus (Core.Maybe [Core.Double])
+systemStatus_loadAverage = Lens.lens (\SystemStatus' {loadAverage} -> loadAverage) (\s@SystemStatus' {} a -> s {loadAverage = a} :: SystemStatus) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML SystemStatus where
+instance Core.FromXML SystemStatus where
   parseXML x =
     SystemStatus'
-      Prelude.<$> (x Prelude..@? "CPUUtilization")
-      Prelude.<*> ( x Prelude..@? "LoadAverage"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> (x Core..@? "CPUUtilization")
+      Core.<*> ( x Core..@? "LoadAverage" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable SystemStatus
+instance Core.Hashable SystemStatus
 
-instance Prelude.NFData SystemStatus
+instance Core.NFData SystemStatus

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,8 @@ module Network.AWS.Connect.ListUserHierarchyGroups
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,13 +60,13 @@ data ListUserHierarchyGroups = ListUserHierarchyGroups'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUserHierarchyGroups' with all optional fields omitted.
@@ -87,108 +85,105 @@ data ListUserHierarchyGroups = ListUserHierarchyGroups'
 -- 'instanceId', 'listUserHierarchyGroups_instanceId' - The identifier of the Amazon Connect instance.
 newListUserHierarchyGroups ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   ListUserHierarchyGroups
 newListUserHierarchyGroups pInstanceId_ =
   ListUserHierarchyGroups'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listUserHierarchyGroups_nextToken :: Lens.Lens' ListUserHierarchyGroups (Prelude.Maybe Prelude.Text)
+listUserHierarchyGroups_nextToken :: Lens.Lens' ListUserHierarchyGroups (Core.Maybe Core.Text)
 listUserHierarchyGroups_nextToken = Lens.lens (\ListUserHierarchyGroups' {nextToken} -> nextToken) (\s@ListUserHierarchyGroups' {} a -> s {nextToken = a} :: ListUserHierarchyGroups)
 
 -- | The maximum number of results to return per page.
-listUserHierarchyGroups_maxResults :: Lens.Lens' ListUserHierarchyGroups (Prelude.Maybe Prelude.Natural)
+listUserHierarchyGroups_maxResults :: Lens.Lens' ListUserHierarchyGroups (Core.Maybe Core.Natural)
 listUserHierarchyGroups_maxResults = Lens.lens (\ListUserHierarchyGroups' {maxResults} -> maxResults) (\s@ListUserHierarchyGroups' {} a -> s {maxResults = a} :: ListUserHierarchyGroups)
 
 -- | The identifier of the Amazon Connect instance.
-listUserHierarchyGroups_instanceId :: Lens.Lens' ListUserHierarchyGroups Prelude.Text
+listUserHierarchyGroups_instanceId :: Lens.Lens' ListUserHierarchyGroups Core.Text
 listUserHierarchyGroups_instanceId = Lens.lens (\ListUserHierarchyGroups' {instanceId} -> instanceId) (\s@ListUserHierarchyGroups' {} a -> s {instanceId = a} :: ListUserHierarchyGroups)
 
-instance Pager.AWSPager ListUserHierarchyGroups where
+instance Core.AWSPager ListUserHierarchyGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listUserHierarchyGroupsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listUserHierarchyGroups_nextToken
           Lens..~ rs
           Lens.^? listUserHierarchyGroupsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListUserHierarchyGroups where
+instance Core.AWSRequest ListUserHierarchyGroups where
   type
-    Rs ListUserHierarchyGroups =
+    AWSResponse ListUserHierarchyGroups =
       ListUserHierarchyGroupsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListUserHierarchyGroupsResponse'
-            Prelude.<$> ( x Prelude..?> "UserHierarchyGroupSummaryList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "UserHierarchyGroupSummaryList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListUserHierarchyGroups
+instance Core.Hashable ListUserHierarchyGroups
 
-instance Prelude.NFData ListUserHierarchyGroups
+instance Core.NFData ListUserHierarchyGroups
 
-instance Prelude.ToHeaders ListUserHierarchyGroups where
+instance Core.ToHeaders ListUserHierarchyGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListUserHierarchyGroups where
+instance Core.ToPath ListUserHierarchyGroups where
   toPath ListUserHierarchyGroups' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/user-hierarchy-groups-summary/",
-        Prelude.toBS instanceId
+        Core.toBS instanceId
       ]
 
-instance Prelude.ToQuery ListUserHierarchyGroups where
+instance Core.ToQuery ListUserHierarchyGroups where
   toQuery ListUserHierarchyGroups' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListUserHierarchyGroupsResponse' smart constructor.
 data ListUserHierarchyGroupsResponse = ListUserHierarchyGroupsResponse'
   { -- | Information about the hierarchy groups.
-    userHierarchyGroupSummaryList :: Prelude.Maybe [HierarchyGroupSummary],
+    userHierarchyGroupSummaryList :: Core.Maybe [HierarchyGroupSummary],
     -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUserHierarchyGroupsResponse' with all optional fields omitted.
@@ -206,29 +201,27 @@ data ListUserHierarchyGroupsResponse = ListUserHierarchyGroupsResponse'
 -- 'httpStatus', 'listUserHierarchyGroupsResponse_httpStatus' - The response's http status code.
 newListUserHierarchyGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListUserHierarchyGroupsResponse
 newListUserHierarchyGroupsResponse pHttpStatus_ =
   ListUserHierarchyGroupsResponse'
     { userHierarchyGroupSummaryList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the hierarchy groups.
-listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList :: Lens.Lens' ListUserHierarchyGroupsResponse (Prelude.Maybe [HierarchyGroupSummary])
-listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList = Lens.lens (\ListUserHierarchyGroupsResponse' {userHierarchyGroupSummaryList} -> userHierarchyGroupSummaryList) (\s@ListUserHierarchyGroupsResponse' {} a -> s {userHierarchyGroupSummaryList = a} :: ListUserHierarchyGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList :: Lens.Lens' ListUserHierarchyGroupsResponse (Core.Maybe [HierarchyGroupSummary])
+listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList = Lens.lens (\ListUserHierarchyGroupsResponse' {userHierarchyGroupSummaryList} -> userHierarchyGroupSummaryList) (\s@ListUserHierarchyGroupsResponse' {} a -> s {userHierarchyGroupSummaryList = a} :: ListUserHierarchyGroupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listUserHierarchyGroupsResponse_nextToken :: Lens.Lens' ListUserHierarchyGroupsResponse (Prelude.Maybe Prelude.Text)
+listUserHierarchyGroupsResponse_nextToken :: Lens.Lens' ListUserHierarchyGroupsResponse (Core.Maybe Core.Text)
 listUserHierarchyGroupsResponse_nextToken = Lens.lens (\ListUserHierarchyGroupsResponse' {nextToken} -> nextToken) (\s@ListUserHierarchyGroupsResponse' {} a -> s {nextToken = a} :: ListUserHierarchyGroupsResponse)
 
 -- | The response's http status code.
-listUserHierarchyGroupsResponse_httpStatus :: Lens.Lens' ListUserHierarchyGroupsResponse Prelude.Int
+listUserHierarchyGroupsResponse_httpStatus :: Lens.Lens' ListUserHierarchyGroupsResponse Core.Int
 listUserHierarchyGroupsResponse_httpStatus = Lens.lens (\ListUserHierarchyGroupsResponse' {httpStatus} -> httpStatus) (\s@ListUserHierarchyGroupsResponse' {} a -> s {httpStatus = a} :: ListUserHierarchyGroupsResponse)
 
-instance
-  Prelude.NFData
-    ListUserHierarchyGroupsResponse
+instance Core.NFData ListUserHierarchyGroupsResponse

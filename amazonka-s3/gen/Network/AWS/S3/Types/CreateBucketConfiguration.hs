@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.CreateBucketConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | The configuration information for the bucket.
@@ -31,9 +30,9 @@ data CreateBucketConfiguration = CreateBucketConfiguration'
   { -- | Specifies the Region where the bucket will be created. If you don\'t
     -- specify a Region, the bucket is created in the US East (N. Virginia)
     -- Region (us-east-1).
-    locationConstraint :: Prelude.Maybe LocationConstraint
+    locationConstraint :: Core.Maybe LocationConstraint
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateBucketConfiguration' with all optional fields omitted.
@@ -51,20 +50,20 @@ newCreateBucketConfiguration ::
 newCreateBucketConfiguration =
   CreateBucketConfiguration'
     { locationConstraint =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies the Region where the bucket will be created. If you don\'t
 -- specify a Region, the bucket is created in the US East (N. Virginia)
 -- Region (us-east-1).
-createBucketConfiguration_locationConstraint :: Lens.Lens' CreateBucketConfiguration (Prelude.Maybe LocationConstraint)
+createBucketConfiguration_locationConstraint :: Lens.Lens' CreateBucketConfiguration (Core.Maybe LocationConstraint)
 createBucketConfiguration_locationConstraint = Lens.lens (\CreateBucketConfiguration' {locationConstraint} -> locationConstraint) (\s@CreateBucketConfiguration' {} a -> s {locationConstraint = a} :: CreateBucketConfiguration)
 
-instance Prelude.Hashable CreateBucketConfiguration
+instance Core.Hashable CreateBucketConfiguration
 
-instance Prelude.NFData CreateBucketConfiguration
+instance Core.NFData CreateBucketConfiguration
 
-instance Prelude.ToXML CreateBucketConfiguration where
+instance Core.ToXML CreateBucketConfiguration where
   toXML CreateBucketConfiguration' {..} =
-    Prelude.mconcat
-      ["LocationConstraint" Prelude.@= locationConstraint]
+    Core.mconcat
+      ["LocationConstraint" Core.@= locationConstraint]

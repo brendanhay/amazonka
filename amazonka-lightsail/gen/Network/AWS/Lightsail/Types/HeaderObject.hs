@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.HeaderObject where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.ForwardValues
 import Network.AWS.Lightsail.Types.HeaderEnum
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the request headers that a Lightsail distribution bases
 -- caching on.
@@ -40,7 +39,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newHeaderObject' smart constructor.
 data HeaderObject = HeaderObject'
   { -- | The specific headers to forward to your distribution\'s origin.
-    headersAllowList :: Prelude.Maybe [HeaderEnum],
+    headersAllowList :: Core.Maybe [HeaderEnum],
     -- | The headers that you want your distribution to forward to your origin
     -- and base caching on.
     --
@@ -52,9 +51,9 @@ data HeaderObject = HeaderObject'
     --
     -- -   __@allow-list@__ - Forward only the headers you specify using the
     --     @headersAllowList@ parameter.
-    option :: Prelude.Maybe ForwardValues
+    option :: Core.Maybe ForwardValues
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HeaderObject' with all optional fields omitted.
@@ -81,13 +80,13 @@ newHeaderObject ::
   HeaderObject
 newHeaderObject =
   HeaderObject'
-    { headersAllowList = Prelude.Nothing,
-      option = Prelude.Nothing
+    { headersAllowList = Core.Nothing,
+      option = Core.Nothing
     }
 
 -- | The specific headers to forward to your distribution\'s origin.
-headerObject_headersAllowList :: Lens.Lens' HeaderObject (Prelude.Maybe [HeaderEnum])
-headerObject_headersAllowList = Lens.lens (\HeaderObject' {headersAllowList} -> headersAllowList) (\s@HeaderObject' {} a -> s {headersAllowList = a} :: HeaderObject) Prelude.. Lens.mapping Prelude._Coerce
+headerObject_headersAllowList :: Lens.Lens' HeaderObject (Core.Maybe [HeaderEnum])
+headerObject_headersAllowList = Lens.lens (\HeaderObject' {headersAllowList} -> headersAllowList) (\s@HeaderObject' {} a -> s {headersAllowList = a} :: HeaderObject) Core.. Lens.mapping Lens._Coerce
 
 -- | The headers that you want your distribution to forward to your origin
 -- and base caching on.
@@ -100,31 +99,29 @@ headerObject_headersAllowList = Lens.lens (\HeaderObject' {headersAllowList} -> 
 --
 -- -   __@allow-list@__ - Forward only the headers you specify using the
 --     @headersAllowList@ parameter.
-headerObject_option :: Lens.Lens' HeaderObject (Prelude.Maybe ForwardValues)
+headerObject_option :: Lens.Lens' HeaderObject (Core.Maybe ForwardValues)
 headerObject_option = Lens.lens (\HeaderObject' {option} -> option) (\s@HeaderObject' {} a -> s {option = a} :: HeaderObject)
 
-instance Prelude.FromJSON HeaderObject where
+instance Core.FromJSON HeaderObject where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HeaderObject"
       ( \x ->
           HeaderObject'
-            Prelude.<$> ( x Prelude..:? "headersAllowList"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "option")
+            Core.<$> (x Core..:? "headersAllowList" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "option")
       )
 
-instance Prelude.Hashable HeaderObject
+instance Core.Hashable HeaderObject
 
-instance Prelude.NFData HeaderObject
+instance Core.NFData HeaderObject
 
-instance Prelude.ToJSON HeaderObject where
+instance Core.ToJSON HeaderObject where
   toJSON HeaderObject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("headersAllowList" Prelude..=)
-              Prelude.<$> headersAllowList,
-            ("option" Prelude..=) Prelude.<$> option
+    Core.object
+      ( Core.catMaybes
+          [ ("headersAllowList" Core..=)
+              Core.<$> headersAllowList,
+            ("option" Core..=) Core.<$> option
           ]
       )

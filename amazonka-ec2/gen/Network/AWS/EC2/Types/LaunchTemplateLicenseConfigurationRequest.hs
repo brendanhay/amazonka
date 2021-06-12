@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateLicenseConfigurationRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a license configuration.
 --
 -- /See:/ 'newLaunchTemplateLicenseConfigurationRequest' smart constructor.
 data LaunchTemplateLicenseConfigurationRequest = LaunchTemplateLicenseConfigurationRequest'
   { -- | The Amazon Resource Name (ARN) of the license configuration.
-    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
+    licenseConfigurationArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateLicenseConfigurationRequest' with all optional fields omitted.
@@ -47,28 +46,28 @@ newLaunchTemplateLicenseConfigurationRequest ::
 newLaunchTemplateLicenseConfigurationRequest =
   LaunchTemplateLicenseConfigurationRequest'
     { licenseConfigurationArn =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
-launchTemplateLicenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' LaunchTemplateLicenseConfigurationRequest (Prelude.Maybe Prelude.Text)
+launchTemplateLicenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' LaunchTemplateLicenseConfigurationRequest (Core.Maybe Core.Text)
 launchTemplateLicenseConfigurationRequest_licenseConfigurationArn = Lens.lens (\LaunchTemplateLicenseConfigurationRequest' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LaunchTemplateLicenseConfigurationRequest' {} a -> s {licenseConfigurationArn = a} :: LaunchTemplateLicenseConfigurationRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LaunchTemplateLicenseConfigurationRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     LaunchTemplateLicenseConfigurationRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     LaunchTemplateLicenseConfigurationRequest
   where
   toQuery
     LaunchTemplateLicenseConfigurationRequest' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "LicenseConfigurationArn"
-            Prelude.=: licenseConfigurationArn
+            Core.=: licenseConfigurationArn
         ]

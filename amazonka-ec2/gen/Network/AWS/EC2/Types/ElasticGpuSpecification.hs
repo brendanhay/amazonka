@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ElasticGpuSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A specification for an Elastic Graphics accelerator.
 --
@@ -33,9 +32,9 @@ data ElasticGpuSpecification = ElasticGpuSpecification'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics Elastic Graphics Basics>,
     -- specifically the Elastic Graphics accelerator column, in the /Amazon
     -- Elastic Compute Cloud User Guide for Windows Instances/.
-    type' :: Prelude.Text
+    type' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ElasticGpuSpecification' with all optional fields omitted.
@@ -52,7 +51,7 @@ data ElasticGpuSpecification = ElasticGpuSpecification'
 -- Elastic Compute Cloud User Guide for Windows Instances/.
 newElasticGpuSpecification ::
   -- | 'type''
-  Prelude.Text ->
+  Core.Text ->
   ElasticGpuSpecification
 newElasticGpuSpecification pType_ =
   ElasticGpuSpecification' {type' = pType_}
@@ -62,13 +61,13 @@ newElasticGpuSpecification pType_ =
 -- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics Elastic Graphics Basics>,
 -- specifically the Elastic Graphics accelerator column, in the /Amazon
 -- Elastic Compute Cloud User Guide for Windows Instances/.
-elasticGpuSpecification_type :: Lens.Lens' ElasticGpuSpecification Prelude.Text
+elasticGpuSpecification_type :: Lens.Lens' ElasticGpuSpecification Core.Text
 elasticGpuSpecification_type = Lens.lens (\ElasticGpuSpecification' {type'} -> type') (\s@ElasticGpuSpecification' {} a -> s {type' = a} :: ElasticGpuSpecification)
 
-instance Prelude.Hashable ElasticGpuSpecification
+instance Core.Hashable ElasticGpuSpecification
 
-instance Prelude.NFData ElasticGpuSpecification
+instance Core.NFData ElasticGpuSpecification
 
-instance Prelude.ToQuery ElasticGpuSpecification where
+instance Core.ToQuery ElasticGpuSpecification where
   toQuery ElasticGpuSpecification' {..} =
-    Prelude.mconcat ["Type" Prelude.=: type']
+    Core.mconcat ["Type" Core.=: type']

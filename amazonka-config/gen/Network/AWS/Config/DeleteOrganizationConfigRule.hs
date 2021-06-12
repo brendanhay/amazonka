@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,17 +46,17 @@ module Network.AWS.Config.DeleteOrganizationConfigRule
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteOrganizationConfigRule' smart constructor.
 data DeleteOrganizationConfigRule = DeleteOrganizationConfigRule'
   { -- | The name of organization config rule that you want to delete.
-    organizationConfigRuleName :: Prelude.Text
+    organizationConfigRuleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganizationConfigRule' with all optional fields omitted.
@@ -70,7 +69,7 @@ data DeleteOrganizationConfigRule = DeleteOrganizationConfigRule'
 -- 'organizationConfigRuleName', 'deleteOrganizationConfigRule_organizationConfigRuleName' - The name of organization config rule that you want to delete.
 newDeleteOrganizationConfigRule ::
   -- | 'organizationConfigRuleName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteOrganizationConfigRule
 newDeleteOrganizationConfigRule
   pOrganizationConfigRuleName_ =
@@ -80,67 +79,57 @@ newDeleteOrganizationConfigRule
       }
 
 -- | The name of organization config rule that you want to delete.
-deleteOrganizationConfigRule_organizationConfigRuleName :: Lens.Lens' DeleteOrganizationConfigRule Prelude.Text
+deleteOrganizationConfigRule_organizationConfigRuleName :: Lens.Lens' DeleteOrganizationConfigRule Core.Text
 deleteOrganizationConfigRule_organizationConfigRuleName = Lens.lens (\DeleteOrganizationConfigRule' {organizationConfigRuleName} -> organizationConfigRuleName) (\s@DeleteOrganizationConfigRule' {} a -> s {organizationConfigRuleName = a} :: DeleteOrganizationConfigRule)
 
-instance
-  Prelude.AWSRequest
-    DeleteOrganizationConfigRule
-  where
+instance Core.AWSRequest DeleteOrganizationConfigRule where
   type
-    Rs DeleteOrganizationConfigRule =
+    AWSResponse DeleteOrganizationConfigRule =
       DeleteOrganizationConfigRuleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteOrganizationConfigRuleResponse'
 
-instance
-  Prelude.Hashable
-    DeleteOrganizationConfigRule
+instance Core.Hashable DeleteOrganizationConfigRule
 
-instance Prelude.NFData DeleteOrganizationConfigRule
+instance Core.NFData DeleteOrganizationConfigRule
 
-instance
-  Prelude.ToHeaders
-    DeleteOrganizationConfigRule
-  where
+instance Core.ToHeaders DeleteOrganizationConfigRule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DeleteOrganizationConfigRule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DeleteOrganizationConfigRule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteOrganizationConfigRule where
+instance Core.ToJSON DeleteOrganizationConfigRule where
   toJSON DeleteOrganizationConfigRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "OrganizationConfigRuleName"
-                  Prelude..= organizationConfigRuleName
+                  Core..= organizationConfigRuleName
               )
           ]
       )
 
-instance Prelude.ToPath DeleteOrganizationConfigRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteOrganizationConfigRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteOrganizationConfigRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteOrganizationConfigRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteOrganizationConfigRuleResponse' smart constructor.
 data DeleteOrganizationConfigRuleResponse = DeleteOrganizationConfigRuleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganizationConfigRuleResponse' with all optional fields omitted.
@@ -152,5 +141,5 @@ newDeleteOrganizationConfigRuleResponse =
   DeleteOrganizationConfigRuleResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteOrganizationConfigRuleResponse

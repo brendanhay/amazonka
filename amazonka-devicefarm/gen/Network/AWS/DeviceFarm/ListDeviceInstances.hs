@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.DeviceFarm.ListDeviceInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,12 +55,12 @@ data ListDeviceInstances = ListDeviceInstances'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An integer that specifies the maximum number of items you want to return
     -- in the API response.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDeviceInstances' with all optional fields omitted.
@@ -82,104 +80,100 @@ newListDeviceInstances ::
   ListDeviceInstances
 newListDeviceInstances =
   ListDeviceInstances'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listDeviceInstances_nextToken :: Lens.Lens' ListDeviceInstances (Prelude.Maybe Prelude.Text)
+listDeviceInstances_nextToken :: Lens.Lens' ListDeviceInstances (Core.Maybe Core.Text)
 listDeviceInstances_nextToken = Lens.lens (\ListDeviceInstances' {nextToken} -> nextToken) (\s@ListDeviceInstances' {} a -> s {nextToken = a} :: ListDeviceInstances)
 
 -- | An integer that specifies the maximum number of items you want to return
 -- in the API response.
-listDeviceInstances_maxResults :: Lens.Lens' ListDeviceInstances (Prelude.Maybe Prelude.Int)
+listDeviceInstances_maxResults :: Lens.Lens' ListDeviceInstances (Core.Maybe Core.Int)
 listDeviceInstances_maxResults = Lens.lens (\ListDeviceInstances' {maxResults} -> maxResults) (\s@ListDeviceInstances' {} a -> s {maxResults = a} :: ListDeviceInstances)
 
-instance Pager.AWSPager ListDeviceInstances where
+instance Core.AWSPager ListDeviceInstances where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listDeviceInstancesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listDeviceInstancesResponse_deviceInstances
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listDeviceInstances_nextToken
           Lens..~ rs
           Lens.^? listDeviceInstancesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListDeviceInstances where
+instance Core.AWSRequest ListDeviceInstances where
   type
-    Rs ListDeviceInstances =
+    AWSResponse ListDeviceInstances =
       ListDeviceInstancesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListDeviceInstancesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "deviceInstances"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "deviceInstances" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListDeviceInstances
+instance Core.Hashable ListDeviceInstances
 
-instance Prelude.NFData ListDeviceInstances
+instance Core.NFData ListDeviceInstances
 
-instance Prelude.ToHeaders ListDeviceInstances where
+instance Core.ToHeaders ListDeviceInstances where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.ListDeviceInstances" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.ListDeviceInstances" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListDeviceInstances where
+instance Core.ToJSON ListDeviceInstances where
   toJSON ListDeviceInstances' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListDeviceInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListDeviceInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListDeviceInstances where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListDeviceInstances where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListDeviceInstancesResponse' smart constructor.
 data ListDeviceInstancesResponse = ListDeviceInstancesResponse'
   { -- | An identifier that can be used in the next call to this operation to
     -- return the next set of items in the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An object that contains information about your device instances.
-    deviceInstances :: Prelude.Maybe [DeviceInstance],
+    deviceInstances :: Core.Maybe [DeviceInstance],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDeviceInstancesResponse' with all optional fields omitted.
@@ -197,27 +191,27 @@ data ListDeviceInstancesResponse = ListDeviceInstancesResponse'
 -- 'httpStatus', 'listDeviceInstancesResponse_httpStatus' - The response's http status code.
 newListDeviceInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDeviceInstancesResponse
 newListDeviceInstancesResponse pHttpStatus_ =
   ListDeviceInstancesResponse'
     { nextToken =
-        Prelude.Nothing,
-      deviceInstances = Prelude.Nothing,
+        Core.Nothing,
+      deviceInstances = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An identifier that can be used in the next call to this operation to
 -- return the next set of items in the list.
-listDeviceInstancesResponse_nextToken :: Lens.Lens' ListDeviceInstancesResponse (Prelude.Maybe Prelude.Text)
+listDeviceInstancesResponse_nextToken :: Lens.Lens' ListDeviceInstancesResponse (Core.Maybe Core.Text)
 listDeviceInstancesResponse_nextToken = Lens.lens (\ListDeviceInstancesResponse' {nextToken} -> nextToken) (\s@ListDeviceInstancesResponse' {} a -> s {nextToken = a} :: ListDeviceInstancesResponse)
 
 -- | An object that contains information about your device instances.
-listDeviceInstancesResponse_deviceInstances :: Lens.Lens' ListDeviceInstancesResponse (Prelude.Maybe [DeviceInstance])
-listDeviceInstancesResponse_deviceInstances = Lens.lens (\ListDeviceInstancesResponse' {deviceInstances} -> deviceInstances) (\s@ListDeviceInstancesResponse' {} a -> s {deviceInstances = a} :: ListDeviceInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listDeviceInstancesResponse_deviceInstances :: Lens.Lens' ListDeviceInstancesResponse (Core.Maybe [DeviceInstance])
+listDeviceInstancesResponse_deviceInstances = Lens.lens (\ListDeviceInstancesResponse' {deviceInstances} -> deviceInstances) (\s@ListDeviceInstancesResponse' {} a -> s {deviceInstances = a} :: ListDeviceInstancesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDeviceInstancesResponse_httpStatus :: Lens.Lens' ListDeviceInstancesResponse Prelude.Int
+listDeviceInstancesResponse_httpStatus :: Lens.Lens' ListDeviceInstancesResponse Core.Int
 listDeviceInstancesResponse_httpStatus = Lens.lens (\ListDeviceInstancesResponse' {httpStatus} -> httpStatus) (\s@ListDeviceInstancesResponse' {} a -> s {httpStatus = a} :: ListDeviceInstancesResponse)
 
-instance Prelude.NFData ListDeviceInstancesResponse
+instance Core.NFData ListDeviceInstancesResponse

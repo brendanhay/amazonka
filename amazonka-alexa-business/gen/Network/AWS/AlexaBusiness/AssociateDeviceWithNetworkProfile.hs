@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,19 +40,19 @@ module Network.AWS.AlexaBusiness.AssociateDeviceWithNetworkProfile
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateDeviceWithNetworkProfile' smart constructor.
 data AssociateDeviceWithNetworkProfile = AssociateDeviceWithNetworkProfile'
   { -- | The device ARN.
-    deviceArn :: Prelude.Text,
+    deviceArn :: Core.Text,
     -- | The ARN of the network profile to associate with a device.
-    networkProfileArn :: Prelude.Text
+    networkProfileArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDeviceWithNetworkProfile' with all optional fields omitted.
@@ -68,9 +67,9 @@ data AssociateDeviceWithNetworkProfile = AssociateDeviceWithNetworkProfile'
 -- 'networkProfileArn', 'associateDeviceWithNetworkProfile_networkProfileArn' - The ARN of the network profile to associate with a device.
 newAssociateDeviceWithNetworkProfile ::
   -- | 'deviceArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'networkProfileArn'
-  Prelude.Text ->
+  Core.Text ->
   AssociateDeviceWithNetworkProfile
 newAssociateDeviceWithNetworkProfile
   pDeviceArn_
@@ -82,85 +81,83 @@ newAssociateDeviceWithNetworkProfile
       }
 
 -- | The device ARN.
-associateDeviceWithNetworkProfile_deviceArn :: Lens.Lens' AssociateDeviceWithNetworkProfile Prelude.Text
+associateDeviceWithNetworkProfile_deviceArn :: Lens.Lens' AssociateDeviceWithNetworkProfile Core.Text
 associateDeviceWithNetworkProfile_deviceArn = Lens.lens (\AssociateDeviceWithNetworkProfile' {deviceArn} -> deviceArn) (\s@AssociateDeviceWithNetworkProfile' {} a -> s {deviceArn = a} :: AssociateDeviceWithNetworkProfile)
 
 -- | The ARN of the network profile to associate with a device.
-associateDeviceWithNetworkProfile_networkProfileArn :: Lens.Lens' AssociateDeviceWithNetworkProfile Prelude.Text
+associateDeviceWithNetworkProfile_networkProfileArn :: Lens.Lens' AssociateDeviceWithNetworkProfile Core.Text
 associateDeviceWithNetworkProfile_networkProfileArn = Lens.lens (\AssociateDeviceWithNetworkProfile' {networkProfileArn} -> networkProfileArn) (\s@AssociateDeviceWithNetworkProfile' {} a -> s {networkProfileArn = a} :: AssociateDeviceWithNetworkProfile)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AssociateDeviceWithNetworkProfile
   where
   type
-    Rs AssociateDeviceWithNetworkProfile =
+    AWSResponse AssociateDeviceWithNetworkProfile =
       AssociateDeviceWithNetworkProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateDeviceWithNetworkProfileResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AssociateDeviceWithNetworkProfile
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateDeviceWithNetworkProfile
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     AssociateDeviceWithNetworkProfile
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.AssociateDeviceWithNetworkProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.AssociateDeviceWithNetworkProfile" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     AssociateDeviceWithNetworkProfile
   where
   toJSON AssociateDeviceWithNetworkProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DeviceArn" Prelude..= deviceArn),
-            Prelude.Just
-              ("NetworkProfileArn" Prelude..= networkProfileArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DeviceArn" Core..= deviceArn),
+            Core.Just
+              ("NetworkProfileArn" Core..= networkProfileArn)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     AssociateDeviceWithNetworkProfile
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     AssociateDeviceWithNetworkProfile
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateDeviceWithNetworkProfileResponse' smart constructor.
 data AssociateDeviceWithNetworkProfileResponse = AssociateDeviceWithNetworkProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDeviceWithNetworkProfileResponse' with all optional fields omitted.
@@ -173,7 +170,7 @@ data AssociateDeviceWithNetworkProfileResponse = AssociateDeviceWithNetworkProfi
 -- 'httpStatus', 'associateDeviceWithNetworkProfileResponse_httpStatus' - The response's http status code.
 newAssociateDeviceWithNetworkProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateDeviceWithNetworkProfileResponse
 newAssociateDeviceWithNetworkProfileResponse
   pHttpStatus_ =
@@ -183,9 +180,9 @@ newAssociateDeviceWithNetworkProfileResponse
       }
 
 -- | The response's http status code.
-associateDeviceWithNetworkProfileResponse_httpStatus :: Lens.Lens' AssociateDeviceWithNetworkProfileResponse Prelude.Int
+associateDeviceWithNetworkProfileResponse_httpStatus :: Lens.Lens' AssociateDeviceWithNetworkProfileResponse Core.Int
 associateDeviceWithNetworkProfileResponse_httpStatus = Lens.lens (\AssociateDeviceWithNetworkProfileResponse' {httpStatus} -> httpStatus) (\s@AssociateDeviceWithNetworkProfileResponse' {} a -> s {httpStatus = a} :: AssociateDeviceWithNetworkProfileResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateDeviceWithNetworkProfileResponse

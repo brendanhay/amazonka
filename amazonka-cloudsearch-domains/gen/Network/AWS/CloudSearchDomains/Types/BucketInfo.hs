@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.CloudSearchDomains.Types.BucketInfo where
 
 import Network.AWS.CloudSearchDomains.Types.Bucket
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A container for the calculated facet values and counts.
 --
 -- /See:/ 'newBucketInfo' smart constructor.
 data BucketInfo = BucketInfo'
   { -- | A list of the calculated facet values and counts.
-    buckets :: Prelude.Maybe [Bucket]
+    buckets :: Core.Maybe [Bucket]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BucketInfo' with all optional fields omitted.
@@ -44,22 +43,21 @@ data BucketInfo = BucketInfo'
 -- 'buckets', 'bucketInfo_buckets' - A list of the calculated facet values and counts.
 newBucketInfo ::
   BucketInfo
-newBucketInfo =
-  BucketInfo' {buckets = Prelude.Nothing}
+newBucketInfo = BucketInfo' {buckets = Core.Nothing}
 
 -- | A list of the calculated facet values and counts.
-bucketInfo_buckets :: Lens.Lens' BucketInfo (Prelude.Maybe [Bucket])
-bucketInfo_buckets = Lens.lens (\BucketInfo' {buckets} -> buckets) (\s@BucketInfo' {} a -> s {buckets = a} :: BucketInfo) Prelude.. Lens.mapping Prelude._Coerce
+bucketInfo_buckets :: Lens.Lens' BucketInfo (Core.Maybe [Bucket])
+bucketInfo_buckets = Lens.lens (\BucketInfo' {buckets} -> buckets) (\s@BucketInfo' {} a -> s {buckets = a} :: BucketInfo) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON BucketInfo where
+instance Core.FromJSON BucketInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BucketInfo"
       ( \x ->
           BucketInfo'
-            Prelude.<$> (x Prelude..:? "buckets" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "buckets" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable BucketInfo
+instance Core.Hashable BucketInfo
 
-instance Prelude.NFData BucketInfo
+instance Core.NFData BucketInfo

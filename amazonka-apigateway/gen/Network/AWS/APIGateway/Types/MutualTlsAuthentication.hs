@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.APIGateway.Types.MutualTlsAuthentication where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | If specified, API Gateway performs two-way authentication between the
 -- client and the server. Clients must present a trusted certificate to
@@ -31,22 +30,22 @@ import qualified Network.AWS.Prelude as Prelude
 data MutualTlsAuthentication = MutualTlsAuthentication'
   { -- | The version of the S3 object that contains your truststore. To specify a
     -- version, you must have versioning enabled for the S3 bucket.
-    truststoreVersion :: Prelude.Maybe Prelude.Text,
+    truststoreVersion :: Core.Maybe Core.Text,
     -- | An Amazon S3 URL that specifies the truststore for mutual TLS
     -- authentication, for example @s3:\/\/bucket-name\/key-name@. The
     -- truststore can contain certificates from public or private certificate
     -- authorities. To update the truststore, upload a new version to S3, and
     -- then update your custom domain name to use the new version. To update
     -- the truststore, you must have permissions to access the S3 object.
-    truststoreUri :: Prelude.Maybe Prelude.Text,
+    truststoreUri :: Core.Maybe Core.Text,
     -- | A list of warnings that API Gateway returns while processing your
     -- truststore. Invalid certificates produce warnings. Mutual TLS is still
     -- enabled, but some clients might not be able to access your API. To
     -- resolve warnings, upload a new truststore to S3, and then update you
     -- domain name to use the new version.
-    truststoreWarnings :: Prelude.Maybe [Prelude.Text]
+    truststoreWarnings :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MutualTlsAuthentication' with all optional fields omitted.
@@ -76,14 +75,14 @@ newMutualTlsAuthentication ::
 newMutualTlsAuthentication =
   MutualTlsAuthentication'
     { truststoreVersion =
-        Prelude.Nothing,
-      truststoreUri = Prelude.Nothing,
-      truststoreWarnings = Prelude.Nothing
+        Core.Nothing,
+      truststoreUri = Core.Nothing,
+      truststoreWarnings = Core.Nothing
     }
 
 -- | The version of the S3 object that contains your truststore. To specify a
 -- version, you must have versioning enabled for the S3 bucket.
-mutualTlsAuthentication_truststoreVersion :: Lens.Lens' MutualTlsAuthentication (Prelude.Maybe Prelude.Text)
+mutualTlsAuthentication_truststoreVersion :: Lens.Lens' MutualTlsAuthentication (Core.Maybe Core.Text)
 mutualTlsAuthentication_truststoreVersion = Lens.lens (\MutualTlsAuthentication' {truststoreVersion} -> truststoreVersion) (\s@MutualTlsAuthentication' {} a -> s {truststoreVersion = a} :: MutualTlsAuthentication)
 
 -- | An Amazon S3 URL that specifies the truststore for mutual TLS
@@ -92,7 +91,7 @@ mutualTlsAuthentication_truststoreVersion = Lens.lens (\MutualTlsAuthentication'
 -- authorities. To update the truststore, upload a new version to S3, and
 -- then update your custom domain name to use the new version. To update
 -- the truststore, you must have permissions to access the S3 object.
-mutualTlsAuthentication_truststoreUri :: Lens.Lens' MutualTlsAuthentication (Prelude.Maybe Prelude.Text)
+mutualTlsAuthentication_truststoreUri :: Lens.Lens' MutualTlsAuthentication (Core.Maybe Core.Text)
 mutualTlsAuthentication_truststoreUri = Lens.lens (\MutualTlsAuthentication' {truststoreUri} -> truststoreUri) (\s@MutualTlsAuthentication' {} a -> s {truststoreUri = a} :: MutualTlsAuthentication)
 
 -- | A list of warnings that API Gateway returns while processing your
@@ -100,22 +99,22 @@ mutualTlsAuthentication_truststoreUri = Lens.lens (\MutualTlsAuthentication' {tr
 -- enabled, but some clients might not be able to access your API. To
 -- resolve warnings, upload a new truststore to S3, and then update you
 -- domain name to use the new version.
-mutualTlsAuthentication_truststoreWarnings :: Lens.Lens' MutualTlsAuthentication (Prelude.Maybe [Prelude.Text])
-mutualTlsAuthentication_truststoreWarnings = Lens.lens (\MutualTlsAuthentication' {truststoreWarnings} -> truststoreWarnings) (\s@MutualTlsAuthentication' {} a -> s {truststoreWarnings = a} :: MutualTlsAuthentication) Prelude.. Lens.mapping Prelude._Coerce
+mutualTlsAuthentication_truststoreWarnings :: Lens.Lens' MutualTlsAuthentication (Core.Maybe [Core.Text])
+mutualTlsAuthentication_truststoreWarnings = Lens.lens (\MutualTlsAuthentication' {truststoreWarnings} -> truststoreWarnings) (\s@MutualTlsAuthentication' {} a -> s {truststoreWarnings = a} :: MutualTlsAuthentication) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON MutualTlsAuthentication where
+instance Core.FromJSON MutualTlsAuthentication where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MutualTlsAuthentication"
       ( \x ->
           MutualTlsAuthentication'
-            Prelude.<$> (x Prelude..:? "truststoreVersion")
-            Prelude.<*> (x Prelude..:? "truststoreUri")
-            Prelude.<*> ( x Prelude..:? "truststoreWarnings"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "truststoreVersion")
+            Core.<*> (x Core..:? "truststoreUri")
+            Core.<*> ( x Core..:? "truststoreWarnings"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable MutualTlsAuthentication
+instance Core.Hashable MutualTlsAuthentication
 
-instance Prelude.NFData MutualTlsAuthentication
+instance Core.NFData MutualTlsAuthentication

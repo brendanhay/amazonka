@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ServiceActionDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionKey
 import Network.AWS.ServiceCatalog.Types.ServiceActionSummary
 
@@ -30,11 +29,11 @@ import Network.AWS.ServiceCatalog.Types.ServiceActionSummary
 -- /See:/ 'newServiceActionDetail' smart constructor.
 data ServiceActionDetail = ServiceActionDetail'
   { -- | Summary information about the self-service action.
-    serviceActionSummary :: Prelude.Maybe ServiceActionSummary,
+    serviceActionSummary :: Core.Maybe ServiceActionSummary,
     -- | A map that defines the self-service action.
-    definition :: Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text)
+    definition :: Core.Maybe (Core.HashMap ServiceActionDefinitionKey Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceActionDetail' with all optional fields omitted.
@@ -52,30 +51,28 @@ newServiceActionDetail ::
 newServiceActionDetail =
   ServiceActionDetail'
     { serviceActionSummary =
-        Prelude.Nothing,
-      definition = Prelude.Nothing
+        Core.Nothing,
+      definition = Core.Nothing
     }
 
 -- | Summary information about the self-service action.
-serviceActionDetail_serviceActionSummary :: Lens.Lens' ServiceActionDetail (Prelude.Maybe ServiceActionSummary)
+serviceActionDetail_serviceActionSummary :: Lens.Lens' ServiceActionDetail (Core.Maybe ServiceActionSummary)
 serviceActionDetail_serviceActionSummary = Lens.lens (\ServiceActionDetail' {serviceActionSummary} -> serviceActionSummary) (\s@ServiceActionDetail' {} a -> s {serviceActionSummary = a} :: ServiceActionDetail)
 
 -- | A map that defines the self-service action.
-serviceActionDetail_definition :: Lens.Lens' ServiceActionDetail (Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text))
-serviceActionDetail_definition = Lens.lens (\ServiceActionDetail' {definition} -> definition) (\s@ServiceActionDetail' {} a -> s {definition = a} :: ServiceActionDetail) Prelude.. Lens.mapping Prelude._Coerce
+serviceActionDetail_definition :: Lens.Lens' ServiceActionDetail (Core.Maybe (Core.HashMap ServiceActionDefinitionKey Core.Text))
+serviceActionDetail_definition = Lens.lens (\ServiceActionDetail' {definition} -> definition) (\s@ServiceActionDetail' {} a -> s {definition = a} :: ServiceActionDetail) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ServiceActionDetail where
+instance Core.FromJSON ServiceActionDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServiceActionDetail"
       ( \x ->
           ServiceActionDetail'
-            Prelude.<$> (x Prelude..:? "ServiceActionSummary")
-            Prelude.<*> ( x Prelude..:? "Definition"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ServiceActionSummary")
+            Core.<*> (x Core..:? "Definition" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ServiceActionDetail
+instance Core.Hashable ServiceActionDetail
 
-instance Prelude.NFData ServiceActionDetail
+instance Core.NFData ServiceActionDetail

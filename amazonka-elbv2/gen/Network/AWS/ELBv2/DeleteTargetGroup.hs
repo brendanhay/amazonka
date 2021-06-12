@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,18 +44,18 @@ module Network.AWS.ELBv2.DeleteTargetGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteTargetGroup' smart constructor.
 data DeleteTargetGroup = DeleteTargetGroup'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupArn :: Prelude.Text
+    targetGroupArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTargetGroup' with all optional fields omitted.
@@ -69,7 +68,7 @@ data DeleteTargetGroup = DeleteTargetGroup'
 -- 'targetGroupArn', 'deleteTargetGroup_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
 newDeleteTargetGroup ::
   -- | 'targetGroupArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTargetGroup
 newDeleteTargetGroup pTargetGroupArn_ =
   DeleteTargetGroup'
@@ -78,46 +77,47 @@ newDeleteTargetGroup pTargetGroupArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the target group.
-deleteTargetGroup_targetGroupArn :: Lens.Lens' DeleteTargetGroup Prelude.Text
+deleteTargetGroup_targetGroupArn :: Lens.Lens' DeleteTargetGroup Core.Text
 deleteTargetGroup_targetGroupArn = Lens.lens (\DeleteTargetGroup' {targetGroupArn} -> targetGroupArn) (\s@DeleteTargetGroup' {} a -> s {targetGroupArn = a} :: DeleteTargetGroup)
 
-instance Prelude.AWSRequest DeleteTargetGroup where
-  type Rs DeleteTargetGroup = DeleteTargetGroupResponse
+instance Core.AWSRequest DeleteTargetGroup where
+  type
+    AWSResponse DeleteTargetGroup =
+      DeleteTargetGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteTargetGroupResult"
       ( \s h x ->
           DeleteTargetGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTargetGroup
+instance Core.Hashable DeleteTargetGroup
 
-instance Prelude.NFData DeleteTargetGroup
+instance Core.NFData DeleteTargetGroup
 
-instance Prelude.ToHeaders DeleteTargetGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteTargetGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteTargetGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTargetGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTargetGroup where
+instance Core.ToQuery DeleteTargetGroup where
   toQuery DeleteTargetGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteTargetGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
-        "TargetGroupArn" Prelude.=: targetGroupArn
+          Core.=: ("DeleteTargetGroup" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+        "TargetGroupArn" Core.=: targetGroupArn
       ]
 
 -- | /See:/ 'newDeleteTargetGroupResponse' smart constructor.
 data DeleteTargetGroupResponse = DeleteTargetGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTargetGroupResponse' with all optional fields omitted.
@@ -130,7 +130,7 @@ data DeleteTargetGroupResponse = DeleteTargetGroupResponse'
 -- 'httpStatus', 'deleteTargetGroupResponse_httpStatus' - The response's http status code.
 newDeleteTargetGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTargetGroupResponse
 newDeleteTargetGroupResponse pHttpStatus_ =
   DeleteTargetGroupResponse'
@@ -139,7 +139,7 @@ newDeleteTargetGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteTargetGroupResponse_httpStatus :: Lens.Lens' DeleteTargetGroupResponse Prelude.Int
+deleteTargetGroupResponse_httpStatus :: Lens.Lens' DeleteTargetGroupResponse Core.Int
 deleteTargetGroupResponse_httpStatus = Lens.lens (\DeleteTargetGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteTargetGroupResponse' {} a -> s {httpStatus = a} :: DeleteTargetGroupResponse)
 
-instance Prelude.NFData DeleteTargetGroupResponse
+instance Core.NFData DeleteTargetGroupResponse

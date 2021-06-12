@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.TemplateConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Template
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the message template to use for the message, for each type of
 -- channel.
@@ -30,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTemplateConfiguration' smart constructor.
 data TemplateConfiguration = TemplateConfiguration'
   { -- | The email template to use for the message.
-    emailTemplate :: Prelude.Maybe Template,
+    emailTemplate :: Core.Maybe Template,
     -- | The voice template to use for the message. This object isn\'t supported
     -- for campaigns.
-    voiceTemplate :: Prelude.Maybe Template,
+    voiceTemplate :: Core.Maybe Template,
     -- | The SMS template to use for the message.
-    sMSTemplate :: Prelude.Maybe Template,
+    sMSTemplate :: Core.Maybe Template,
     -- | The push notification template to use for the message.
-    pushTemplate :: Prelude.Maybe Template
+    pushTemplate :: Core.Maybe Template
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TemplateConfiguration' with all optional fields omitted.
@@ -62,55 +61,52 @@ newTemplateConfiguration ::
 newTemplateConfiguration =
   TemplateConfiguration'
     { emailTemplate =
-        Prelude.Nothing,
-      voiceTemplate = Prelude.Nothing,
-      sMSTemplate = Prelude.Nothing,
-      pushTemplate = Prelude.Nothing
+        Core.Nothing,
+      voiceTemplate = Core.Nothing,
+      sMSTemplate = Core.Nothing,
+      pushTemplate = Core.Nothing
     }
 
 -- | The email template to use for the message.
-templateConfiguration_emailTemplate :: Lens.Lens' TemplateConfiguration (Prelude.Maybe Template)
+templateConfiguration_emailTemplate :: Lens.Lens' TemplateConfiguration (Core.Maybe Template)
 templateConfiguration_emailTemplate = Lens.lens (\TemplateConfiguration' {emailTemplate} -> emailTemplate) (\s@TemplateConfiguration' {} a -> s {emailTemplate = a} :: TemplateConfiguration)
 
 -- | The voice template to use for the message. This object isn\'t supported
 -- for campaigns.
-templateConfiguration_voiceTemplate :: Lens.Lens' TemplateConfiguration (Prelude.Maybe Template)
+templateConfiguration_voiceTemplate :: Lens.Lens' TemplateConfiguration (Core.Maybe Template)
 templateConfiguration_voiceTemplate = Lens.lens (\TemplateConfiguration' {voiceTemplate} -> voiceTemplate) (\s@TemplateConfiguration' {} a -> s {voiceTemplate = a} :: TemplateConfiguration)
 
 -- | The SMS template to use for the message.
-templateConfiguration_sMSTemplate :: Lens.Lens' TemplateConfiguration (Prelude.Maybe Template)
+templateConfiguration_sMSTemplate :: Lens.Lens' TemplateConfiguration (Core.Maybe Template)
 templateConfiguration_sMSTemplate = Lens.lens (\TemplateConfiguration' {sMSTemplate} -> sMSTemplate) (\s@TemplateConfiguration' {} a -> s {sMSTemplate = a} :: TemplateConfiguration)
 
 -- | The push notification template to use for the message.
-templateConfiguration_pushTemplate :: Lens.Lens' TemplateConfiguration (Prelude.Maybe Template)
+templateConfiguration_pushTemplate :: Lens.Lens' TemplateConfiguration (Core.Maybe Template)
 templateConfiguration_pushTemplate = Lens.lens (\TemplateConfiguration' {pushTemplate} -> pushTemplate) (\s@TemplateConfiguration' {} a -> s {pushTemplate = a} :: TemplateConfiguration)
 
-instance Prelude.FromJSON TemplateConfiguration where
+instance Core.FromJSON TemplateConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TemplateConfiguration"
       ( \x ->
           TemplateConfiguration'
-            Prelude.<$> (x Prelude..:? "EmailTemplate")
-            Prelude.<*> (x Prelude..:? "VoiceTemplate")
-            Prelude.<*> (x Prelude..:? "SMSTemplate")
-            Prelude.<*> (x Prelude..:? "PushTemplate")
+            Core.<$> (x Core..:? "EmailTemplate")
+            Core.<*> (x Core..:? "VoiceTemplate")
+            Core.<*> (x Core..:? "SMSTemplate")
+            Core.<*> (x Core..:? "PushTemplate")
       )
 
-instance Prelude.Hashable TemplateConfiguration
+instance Core.Hashable TemplateConfiguration
 
-instance Prelude.NFData TemplateConfiguration
+instance Core.NFData TemplateConfiguration
 
-instance Prelude.ToJSON TemplateConfiguration where
+instance Core.ToJSON TemplateConfiguration where
   toJSON TemplateConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EmailTemplate" Prelude..=)
-              Prelude.<$> emailTemplate,
-            ("VoiceTemplate" Prelude..=)
-              Prelude.<$> voiceTemplate,
-            ("SMSTemplate" Prelude..=) Prelude.<$> sMSTemplate,
-            ("PushTemplate" Prelude..=)
-              Prelude.<$> pushTemplate
+    Core.object
+      ( Core.catMaybes
+          [ ("EmailTemplate" Core..=) Core.<$> emailTemplate,
+            ("VoiceTemplate" Core..=) Core.<$> voiceTemplate,
+            ("SMSTemplate" Core..=) Core.<$> sMSTemplate,
+            ("PushTemplate" Core..=) Core.<$> pushTemplate
           ]
       )

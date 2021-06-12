@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -74,8 +73,8 @@ module Network.AWS.StorageGateway.RefreshCache
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -93,16 +92,16 @@ data RefreshCache = RefreshCache'
     -- and used for the update. The default is @true@.
     --
     -- Valid Values: @true@ | @false@
-    recursive :: Prelude.Maybe Prelude.Bool,
+    recursive :: Core.Maybe Core.Bool,
     -- | A comma-separated list of the paths of folders to refresh in the cache.
     -- The default is [@\"\/\"@]. The default refreshes objects and folders at
     -- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
     -- entire S3 bucket that the file share has access to is refreshed.
-    folderList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    folderList :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The Amazon Resource Name (ARN) of the file share you want to refresh.
-    fileShareARN :: Prelude.Text
+    fileShareARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RefreshCache' with all optional fields omitted.
@@ -130,12 +129,12 @@ data RefreshCache = RefreshCache'
 -- 'fileShareARN', 'refreshCache_fileShareARN' - The Amazon Resource Name (ARN) of the file share you want to refresh.
 newRefreshCache ::
   -- | 'fileShareARN'
-  Prelude.Text ->
+  Core.Text ->
   RefreshCache
 newRefreshCache pFileShareARN_ =
   RefreshCache'
-    { recursive = Prelude.Nothing,
-      folderList = Prelude.Nothing,
+    { recursive = Core.Nothing,
+      folderList = Core.Nothing,
       fileShareARN = pFileShareARN_
     }
 
@@ -148,78 +147,75 @@ newRefreshCache pFileShareARN_ =
 -- and used for the update. The default is @true@.
 --
 -- Valid Values: @true@ | @false@
-refreshCache_recursive :: Lens.Lens' RefreshCache (Prelude.Maybe Prelude.Bool)
+refreshCache_recursive :: Lens.Lens' RefreshCache (Core.Maybe Core.Bool)
 refreshCache_recursive = Lens.lens (\RefreshCache' {recursive} -> recursive) (\s@RefreshCache' {} a -> s {recursive = a} :: RefreshCache)
 
 -- | A comma-separated list of the paths of folders to refresh in the cache.
 -- The default is [@\"\/\"@]. The default refreshes objects and folders at
 -- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
 -- entire S3 bucket that the file share has access to is refreshed.
-refreshCache_folderList :: Lens.Lens' RefreshCache (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-refreshCache_folderList = Lens.lens (\RefreshCache' {folderList} -> folderList) (\s@RefreshCache' {} a -> s {folderList = a} :: RefreshCache) Prelude.. Lens.mapping Prelude._Coerce
+refreshCache_folderList :: Lens.Lens' RefreshCache (Core.Maybe (Core.NonEmpty Core.Text))
+refreshCache_folderList = Lens.lens (\RefreshCache' {folderList} -> folderList) (\s@RefreshCache' {} a -> s {folderList = a} :: RefreshCache) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the file share you want to refresh.
-refreshCache_fileShareARN :: Lens.Lens' RefreshCache Prelude.Text
+refreshCache_fileShareARN :: Lens.Lens' RefreshCache Core.Text
 refreshCache_fileShareARN = Lens.lens (\RefreshCache' {fileShareARN} -> fileShareARN) (\s@RefreshCache' {} a -> s {fileShareARN = a} :: RefreshCache)
 
-instance Prelude.AWSRequest RefreshCache where
-  type Rs RefreshCache = RefreshCacheResponse
+instance Core.AWSRequest RefreshCache where
+  type AWSResponse RefreshCache = RefreshCacheResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RefreshCacheResponse'
-            Prelude.<$> (x Prelude..?> "FileShareARN")
-            Prelude.<*> (x Prelude..?> "NotificationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FileShareARN")
+            Core.<*> (x Core..?> "NotificationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RefreshCache
+instance Core.Hashable RefreshCache
 
-instance Prelude.NFData RefreshCache
+instance Core.NFData RefreshCache
 
-instance Prelude.ToHeaders RefreshCache where
+instance Core.ToHeaders RefreshCache where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.RefreshCache" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.RefreshCache" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RefreshCache where
+instance Core.ToJSON RefreshCache where
   toJSON RefreshCache' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Recursive" Prelude..=) Prelude.<$> recursive,
-            ("FolderList" Prelude..=) Prelude.<$> folderList,
-            Prelude.Just
-              ("FileShareARN" Prelude..= fileShareARN)
+    Core.object
+      ( Core.catMaybes
+          [ ("Recursive" Core..=) Core.<$> recursive,
+            ("FolderList" Core..=) Core.<$> folderList,
+            Core.Just ("FileShareARN" Core..= fileShareARN)
           ]
       )
 
-instance Prelude.ToPath RefreshCache where
-  toPath = Prelude.const "/"
+instance Core.ToPath RefreshCache where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RefreshCache where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RefreshCache where
+  toQuery = Core.const Core.mempty
 
 -- | RefreshCacheOutput
 --
 -- /See:/ 'newRefreshCacheResponse' smart constructor.
 data RefreshCacheResponse = RefreshCacheResponse'
-  { fileShareARN :: Prelude.Maybe Prelude.Text,
-    notificationId :: Prelude.Maybe Prelude.Text,
+  { fileShareARN :: Core.Maybe Core.Text,
+    notificationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RefreshCacheResponse' with all optional fields omitted.
@@ -236,26 +232,25 @@ data RefreshCacheResponse = RefreshCacheResponse'
 -- 'httpStatus', 'refreshCacheResponse_httpStatus' - The response's http status code.
 newRefreshCacheResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RefreshCacheResponse
 newRefreshCacheResponse pHttpStatus_ =
   RefreshCacheResponse'
-    { fileShareARN =
-        Prelude.Nothing,
-      notificationId = Prelude.Nothing,
+    { fileShareARN = Core.Nothing,
+      notificationId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-refreshCacheResponse_fileShareARN :: Lens.Lens' RefreshCacheResponse (Prelude.Maybe Prelude.Text)
+refreshCacheResponse_fileShareARN :: Lens.Lens' RefreshCacheResponse (Core.Maybe Core.Text)
 refreshCacheResponse_fileShareARN = Lens.lens (\RefreshCacheResponse' {fileShareARN} -> fileShareARN) (\s@RefreshCacheResponse' {} a -> s {fileShareARN = a} :: RefreshCacheResponse)
 
 -- | Undocumented member.
-refreshCacheResponse_notificationId :: Lens.Lens' RefreshCacheResponse (Prelude.Maybe Prelude.Text)
+refreshCacheResponse_notificationId :: Lens.Lens' RefreshCacheResponse (Core.Maybe Core.Text)
 refreshCacheResponse_notificationId = Lens.lens (\RefreshCacheResponse' {notificationId} -> notificationId) (\s@RefreshCacheResponse' {} a -> s {notificationId = a} :: RefreshCacheResponse)
 
 -- | The response's http status code.
-refreshCacheResponse_httpStatus :: Lens.Lens' RefreshCacheResponse Prelude.Int
+refreshCacheResponse_httpStatus :: Lens.Lens' RefreshCacheResponse Core.Int
 refreshCacheResponse_httpStatus = Lens.lens (\RefreshCacheResponse' {httpStatus} -> httpStatus) (\s@RefreshCacheResponse' {} a -> s {httpStatus = a} :: RefreshCacheResponse)
 
-instance Prelude.NFData RefreshCacheResponse
+instance Core.NFData RefreshCacheResponse

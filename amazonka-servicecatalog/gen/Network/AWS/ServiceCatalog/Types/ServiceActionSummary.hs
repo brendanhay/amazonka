@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ServiceActionSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType
 
 -- | Detailed information about the self-service action.
@@ -29,15 +28,15 @@ import Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType
 -- /See:/ 'newServiceActionSummary' smart constructor.
 data ServiceActionSummary = ServiceActionSummary'
   { -- | The self-service action identifier.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The self-service action definition type. For example, @SSM_AUTOMATION@.
-    definitionType :: Prelude.Maybe ServiceActionDefinitionType,
+    definitionType :: Core.Maybe ServiceActionDefinitionType,
     -- | The self-service action name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The self-service action description.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceActionSummary' with all optional fields omitted.
@@ -58,40 +57,40 @@ newServiceActionSummary ::
   ServiceActionSummary
 newServiceActionSummary =
   ServiceActionSummary'
-    { id = Prelude.Nothing,
-      definitionType = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing
+    { id = Core.Nothing,
+      definitionType = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The self-service action identifier.
-serviceActionSummary_id :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
+serviceActionSummary_id :: Lens.Lens' ServiceActionSummary (Core.Maybe Core.Text)
 serviceActionSummary_id = Lens.lens (\ServiceActionSummary' {id} -> id) (\s@ServiceActionSummary' {} a -> s {id = a} :: ServiceActionSummary)
 
 -- | The self-service action definition type. For example, @SSM_AUTOMATION@.
-serviceActionSummary_definitionType :: Lens.Lens' ServiceActionSummary (Prelude.Maybe ServiceActionDefinitionType)
+serviceActionSummary_definitionType :: Lens.Lens' ServiceActionSummary (Core.Maybe ServiceActionDefinitionType)
 serviceActionSummary_definitionType = Lens.lens (\ServiceActionSummary' {definitionType} -> definitionType) (\s@ServiceActionSummary' {} a -> s {definitionType = a} :: ServiceActionSummary)
 
 -- | The self-service action name.
-serviceActionSummary_name :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
+serviceActionSummary_name :: Lens.Lens' ServiceActionSummary (Core.Maybe Core.Text)
 serviceActionSummary_name = Lens.lens (\ServiceActionSummary' {name} -> name) (\s@ServiceActionSummary' {} a -> s {name = a} :: ServiceActionSummary)
 
 -- | The self-service action description.
-serviceActionSummary_description :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
+serviceActionSummary_description :: Lens.Lens' ServiceActionSummary (Core.Maybe Core.Text)
 serviceActionSummary_description = Lens.lens (\ServiceActionSummary' {description} -> description) (\s@ServiceActionSummary' {} a -> s {description = a} :: ServiceActionSummary)
 
-instance Prelude.FromJSON ServiceActionSummary where
+instance Core.FromJSON ServiceActionSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServiceActionSummary"
       ( \x ->
           ServiceActionSummary'
-            Prelude.<$> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "DefinitionType")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Description")
+            Core.<$> (x Core..:? "Id")
+            Core.<*> (x Core..:? "DefinitionType")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ServiceActionSummary
+instance Core.Hashable ServiceActionSummary
 
-instance Prelude.NFData ServiceActionSummary
+instance Core.NFData ServiceActionSummary

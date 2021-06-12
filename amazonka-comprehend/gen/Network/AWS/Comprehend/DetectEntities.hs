@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Comprehend.DetectEntities
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,7 +57,7 @@ data DetectEntities = DetectEntities'
     -- If your request includes the endpoint for a custom entity recognition
     -- model, Amazon Comprehend uses the language of your custom model, and it
     -- ignores any language code that you specify here.
-    languageCode :: Prelude.Maybe LanguageCode,
+    languageCode :: Core.Maybe LanguageCode,
     -- | The Amazon Resource Name of an endpoint that is associated with a custom
     -- entity recognition model. Provide an endpoint if you want to detect
     -- entities by using your own custom model instead of the default model
@@ -67,12 +66,12 @@ data DetectEntities = DetectEntities'
     -- If you specify an endpoint, Amazon Comprehend uses the language of your
     -- custom model, and it ignores any language code that you provide in your
     -- request.
-    endpointArn :: Prelude.Maybe Prelude.Text,
+    endpointArn :: Core.Maybe Core.Text,
     -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
     -- UTF-8 encoded characters.
-    text :: Prelude.Sensitive Prelude.Text
+    text :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetectEntities' with all optional fields omitted.
@@ -103,13 +102,13 @@ data DetectEntities = DetectEntities'
 -- UTF-8 encoded characters.
 newDetectEntities ::
   -- | 'text'
-  Prelude.Text ->
+  Core.Text ->
   DetectEntities
 newDetectEntities pText_ =
   DetectEntities'
-    { languageCode = Prelude.Nothing,
-      endpointArn = Prelude.Nothing,
-      text = Prelude._Sensitive Lens.# pText_
+    { languageCode = Core.Nothing,
+      endpointArn = Core.Nothing,
+      text = Core._Sensitive Lens.# pText_
     }
 
 -- | The language of the input documents. You can specify any of the primary
@@ -119,7 +118,7 @@ newDetectEntities pText_ =
 -- If your request includes the endpoint for a custom entity recognition
 -- model, Amazon Comprehend uses the language of your custom model, and it
 -- ignores any language code that you specify here.
-detectEntities_languageCode :: Lens.Lens' DetectEntities (Prelude.Maybe LanguageCode)
+detectEntities_languageCode :: Lens.Lens' DetectEntities (Core.Maybe LanguageCode)
 detectEntities_languageCode = Lens.lens (\DetectEntities' {languageCode} -> languageCode) (\s@DetectEntities' {} a -> s {languageCode = a} :: DetectEntities)
 
 -- | The Amazon Resource Name of an endpoint that is associated with a custom
@@ -130,60 +129,59 @@ detectEntities_languageCode = Lens.lens (\DetectEntities' {languageCode} -> lang
 -- If you specify an endpoint, Amazon Comprehend uses the language of your
 -- custom model, and it ignores any language code that you provide in your
 -- request.
-detectEntities_endpointArn :: Lens.Lens' DetectEntities (Prelude.Maybe Prelude.Text)
+detectEntities_endpointArn :: Lens.Lens' DetectEntities (Core.Maybe Core.Text)
 detectEntities_endpointArn = Lens.lens (\DetectEntities' {endpointArn} -> endpointArn) (\s@DetectEntities' {} a -> s {endpointArn = a} :: DetectEntities)
 
 -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
 -- UTF-8 encoded characters.
-detectEntities_text :: Lens.Lens' DetectEntities Prelude.Text
-detectEntities_text = Lens.lens (\DetectEntities' {text} -> text) (\s@DetectEntities' {} a -> s {text = a} :: DetectEntities) Prelude.. Prelude._Sensitive
+detectEntities_text :: Lens.Lens' DetectEntities Core.Text
+detectEntities_text = Lens.lens (\DetectEntities' {text} -> text) (\s@DetectEntities' {} a -> s {text = a} :: DetectEntities) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest DetectEntities where
-  type Rs DetectEntities = DetectEntitiesResponse
+instance Core.AWSRequest DetectEntities where
+  type
+    AWSResponse DetectEntities =
+      DetectEntitiesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DetectEntitiesResponse'
-            Prelude.<$> (x Prelude..?> "Entities" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Entities" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DetectEntities
+instance Core.Hashable DetectEntities
 
-instance Prelude.NFData DetectEntities
+instance Core.NFData DetectEntities
 
-instance Prelude.ToHeaders DetectEntities where
+instance Core.ToHeaders DetectEntities where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.DetectEntities" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.DetectEntities" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DetectEntities where
+instance Core.ToJSON DetectEntities where
   toJSON DetectEntities' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("LanguageCode" Prelude..=)
-              Prelude.<$> languageCode,
-            ("EndpointArn" Prelude..=) Prelude.<$> endpointArn,
-            Prelude.Just ("Text" Prelude..= text)
+    Core.object
+      ( Core.catMaybes
+          [ ("LanguageCode" Core..=) Core.<$> languageCode,
+            ("EndpointArn" Core..=) Core.<$> endpointArn,
+            Core.Just ("Text" Core..= text)
           ]
       )
 
-instance Prelude.ToPath DetectEntities where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetectEntities where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetectEntities where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DetectEntities where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDetectEntitiesResponse' smart constructor.
 data DetectEntitiesResponse = DetectEntitiesResponse'
@@ -196,11 +194,11 @@ data DetectEntitiesResponse = DetectEntitiesResponse'
     -- Comprehend detects the entities that the model is trained to recognize.
     -- Otherwise, it detects the default entity types. For a list of default
     -- entity types, see how-entities.
-    entities :: Prelude.Maybe [Entity],
+    entities :: Core.Maybe [Entity],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetectEntitiesResponse' with all optional fields omitted.
@@ -223,11 +221,11 @@ data DetectEntitiesResponse = DetectEntitiesResponse'
 -- 'httpStatus', 'detectEntitiesResponse_httpStatus' - The response's http status code.
 newDetectEntitiesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DetectEntitiesResponse
 newDetectEntitiesResponse pHttpStatus_ =
   DetectEntitiesResponse'
-    { entities = Prelude.Nothing,
+    { entities = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -240,11 +238,11 @@ newDetectEntitiesResponse pHttpStatus_ =
 -- Comprehend detects the entities that the model is trained to recognize.
 -- Otherwise, it detects the default entity types. For a list of default
 -- entity types, see how-entities.
-detectEntitiesResponse_entities :: Lens.Lens' DetectEntitiesResponse (Prelude.Maybe [Entity])
-detectEntitiesResponse_entities = Lens.lens (\DetectEntitiesResponse' {entities} -> entities) (\s@DetectEntitiesResponse' {} a -> s {entities = a} :: DetectEntitiesResponse) Prelude.. Lens.mapping Prelude._Coerce
+detectEntitiesResponse_entities :: Lens.Lens' DetectEntitiesResponse (Core.Maybe [Entity])
+detectEntitiesResponse_entities = Lens.lens (\DetectEntitiesResponse' {entities} -> entities) (\s@DetectEntitiesResponse' {} a -> s {entities = a} :: DetectEntitiesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-detectEntitiesResponse_httpStatus :: Lens.Lens' DetectEntitiesResponse Prelude.Int
+detectEntitiesResponse_httpStatus :: Lens.Lens' DetectEntitiesResponse Core.Int
 detectEntitiesResponse_httpStatus = Lens.lens (\DetectEntitiesResponse' {httpStatus} -> httpStatus) (\s@DetectEntitiesResponse' {} a -> s {httpStatus = a} :: DetectEntitiesResponse)
 
-instance Prelude.NFData DetectEntitiesResponse
+instance Core.NFData DetectEntitiesResponse

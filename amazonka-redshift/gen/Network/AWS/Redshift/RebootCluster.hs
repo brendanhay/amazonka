@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.Redshift.RebootCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -58,9 +57,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRebootCluster' smart constructor.
 data RebootCluster = RebootCluster'
   { -- | The cluster identifier.
-    clusterIdentifier :: Prelude.Text
+    clusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootCluster' with all optional fields omitted.
@@ -73,7 +72,7 @@ data RebootCluster = RebootCluster'
 -- 'clusterIdentifier', 'rebootCluster_clusterIdentifier' - The cluster identifier.
 newRebootCluster ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   RebootCluster
 newRebootCluster pClusterIdentifier_ =
   RebootCluster'
@@ -82,48 +81,49 @@ newRebootCluster pClusterIdentifier_ =
     }
 
 -- | The cluster identifier.
-rebootCluster_clusterIdentifier :: Lens.Lens' RebootCluster Prelude.Text
+rebootCluster_clusterIdentifier :: Lens.Lens' RebootCluster Core.Text
 rebootCluster_clusterIdentifier = Lens.lens (\RebootCluster' {clusterIdentifier} -> clusterIdentifier) (\s@RebootCluster' {} a -> s {clusterIdentifier = a} :: RebootCluster)
 
-instance Prelude.AWSRequest RebootCluster where
-  type Rs RebootCluster = RebootClusterResponse
+instance Core.AWSRequest RebootCluster where
+  type
+    AWSResponse RebootCluster =
+      RebootClusterResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "RebootClusterResult"
       ( \s h x ->
           RebootClusterResponse'
-            Prelude.<$> (x Prelude..@? "Cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RebootCluster
+instance Core.Hashable RebootCluster
 
-instance Prelude.NFData RebootCluster
+instance Core.NFData RebootCluster
 
-instance Prelude.ToHeaders RebootCluster where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RebootCluster where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RebootCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath RebootCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RebootCluster where
+instance Core.ToQuery RebootCluster where
   toQuery RebootCluster' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RebootCluster" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Prelude.=: clusterIdentifier
+          Core.=: ("RebootCluster" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newRebootClusterResponse' smart constructor.
 data RebootClusterResponse = RebootClusterResponse'
-  { cluster :: Prelude.Maybe Cluster,
+  { cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootClusterResponse' with all optional fields omitted.
@@ -138,20 +138,20 @@ data RebootClusterResponse = RebootClusterResponse'
 -- 'httpStatus', 'rebootClusterResponse_httpStatus' - The response's http status code.
 newRebootClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RebootClusterResponse
 newRebootClusterResponse pHttpStatus_ =
   RebootClusterResponse'
-    { cluster = Prelude.Nothing,
+    { cluster = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-rebootClusterResponse_cluster :: Lens.Lens' RebootClusterResponse (Prelude.Maybe Cluster)
+rebootClusterResponse_cluster :: Lens.Lens' RebootClusterResponse (Core.Maybe Cluster)
 rebootClusterResponse_cluster = Lens.lens (\RebootClusterResponse' {cluster} -> cluster) (\s@RebootClusterResponse' {} a -> s {cluster = a} :: RebootClusterResponse)
 
 -- | The response's http status code.
-rebootClusterResponse_httpStatus :: Lens.Lens' RebootClusterResponse Prelude.Int
+rebootClusterResponse_httpStatus :: Lens.Lens' RebootClusterResponse Core.Int
 rebootClusterResponse_httpStatus = Lens.lens (\RebootClusterResponse' {httpStatus} -> httpStatus) (\s@RebootClusterResponse' {} a -> s {httpStatus = a} :: RebootClusterResponse)
 
-instance Prelude.NFData RebootClusterResponse
+instance Core.NFData RebootClusterResponse

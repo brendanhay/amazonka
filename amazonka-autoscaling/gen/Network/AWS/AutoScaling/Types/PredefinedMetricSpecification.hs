@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AutoScaling.Types.PredefinedMetricSpecification where
 
 import Network.AWS.AutoScaling.Types.MetricType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a predefined metric for a target tracking scaling policy to
 -- use with Amazon EC2 Auto Scaling.
@@ -54,7 +53,7 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
     -- API operation. To find the ARN for the target group, use the
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
     -- API operation.
-    resourceLabel :: Prelude.Maybe Prelude.Text,
+    resourceLabel :: Core.Maybe Core.Text,
     -- | The metric type. The following predefined metrics are available:
     --
     -- -   @ASGAverageCPUUtilization@ - Average CPU utilization of the Auto
@@ -70,7 +69,7 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
     --     in an Application Load Balancer target group.
     predefinedMetricType :: MetricType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PredefinedMetricSpecification' with all optional fields omitted.
@@ -127,7 +126,7 @@ newPredefinedMetricSpecification
   pPredefinedMetricType_ =
     PredefinedMetricSpecification'
       { resourceLabel =
-          Prelude.Nothing,
+          Core.Nothing,
         predefinedMetricType =
           pPredefinedMetricType_
       }
@@ -157,7 +156,7 @@ newPredefinedMetricSpecification
 -- API operation. To find the ARN for the target group, use the
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
 -- API operation.
-predefinedMetricSpecification_resourceLabel :: Lens.Lens' PredefinedMetricSpecification (Prelude.Maybe Prelude.Text)
+predefinedMetricSpecification_resourceLabel :: Lens.Lens' PredefinedMetricSpecification (Core.Maybe Core.Text)
 predefinedMetricSpecification_resourceLabel = Lens.lens (\PredefinedMetricSpecification' {resourceLabel} -> resourceLabel) (\s@PredefinedMetricSpecification' {} a -> s {resourceLabel = a} :: PredefinedMetricSpecification)
 
 -- | The metric type. The following predefined metrics are available:
@@ -176,28 +175,19 @@ predefinedMetricSpecification_resourceLabel = Lens.lens (\PredefinedMetricSpecif
 predefinedMetricSpecification_predefinedMetricType :: Lens.Lens' PredefinedMetricSpecification MetricType
 predefinedMetricSpecification_predefinedMetricType = Lens.lens (\PredefinedMetricSpecification' {predefinedMetricType} -> predefinedMetricType) (\s@PredefinedMetricSpecification' {} a -> s {predefinedMetricType = a} :: PredefinedMetricSpecification)
 
-instance
-  Prelude.FromXML
-    PredefinedMetricSpecification
-  where
+instance Core.FromXML PredefinedMetricSpecification where
   parseXML x =
     PredefinedMetricSpecification'
-      Prelude.<$> (x Prelude..@? "ResourceLabel")
-      Prelude.<*> (x Prelude..@ "PredefinedMetricType")
+      Core.<$> (x Core..@? "ResourceLabel")
+      Core.<*> (x Core..@ "PredefinedMetricType")
 
-instance
-  Prelude.Hashable
-    PredefinedMetricSpecification
+instance Core.Hashable PredefinedMetricSpecification
 
-instance Prelude.NFData PredefinedMetricSpecification
+instance Core.NFData PredefinedMetricSpecification
 
-instance
-  Prelude.ToQuery
-    PredefinedMetricSpecification
-  where
+instance Core.ToQuery PredefinedMetricSpecification where
   toQuery PredefinedMetricSpecification' {..} =
-    Prelude.mconcat
-      [ "ResourceLabel" Prelude.=: resourceLabel,
-        "PredefinedMetricType"
-          Prelude.=: predefinedMetricType
+    Core.mconcat
+      [ "ResourceLabel" Core.=: resourceLabel,
+        "PredefinedMetricType" Core.=: predefinedMetricType
       ]

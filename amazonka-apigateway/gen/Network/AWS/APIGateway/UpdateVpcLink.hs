@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.APIGateway.UpdateVpcLink
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +57,12 @@ import qualified Network.AWS.Response as Response
 data UpdateVpcLink = UpdateVpcLink'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Prelude.Maybe [PatchOperation],
+    patchOperations :: Core.Maybe [PatchOperation],
     -- | [Required] The identifier of the VpcLink. It is used in an Integration
     -- to reference this VpcLink.
-    vpcLinkId :: Prelude.Text
+    vpcLinkId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateVpcLink' with all optional fields omitted.
@@ -80,57 +79,56 @@ data UpdateVpcLink = UpdateVpcLink'
 -- to reference this VpcLink.
 newUpdateVpcLink ::
   -- | 'vpcLinkId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateVpcLink
 newUpdateVpcLink pVpcLinkId_ =
   UpdateVpcLink'
-    { patchOperations = Prelude.Nothing,
+    { patchOperations = Core.Nothing,
       vpcLinkId = pVpcLinkId_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateVpcLink_patchOperations :: Lens.Lens' UpdateVpcLink (Prelude.Maybe [PatchOperation])
-updateVpcLink_patchOperations = Lens.lens (\UpdateVpcLink' {patchOperations} -> patchOperations) (\s@UpdateVpcLink' {} a -> s {patchOperations = a} :: UpdateVpcLink) Prelude.. Lens.mapping Prelude._Coerce
+updateVpcLink_patchOperations :: Lens.Lens' UpdateVpcLink (Core.Maybe [PatchOperation])
+updateVpcLink_patchOperations = Lens.lens (\UpdateVpcLink' {patchOperations} -> patchOperations) (\s@UpdateVpcLink' {} a -> s {patchOperations = a} :: UpdateVpcLink) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The identifier of the VpcLink. It is used in an Integration
 -- to reference this VpcLink.
-updateVpcLink_vpcLinkId :: Lens.Lens' UpdateVpcLink Prelude.Text
+updateVpcLink_vpcLinkId :: Lens.Lens' UpdateVpcLink Core.Text
 updateVpcLink_vpcLinkId = Lens.lens (\UpdateVpcLink' {vpcLinkId} -> vpcLinkId) (\s@UpdateVpcLink' {} a -> s {vpcLinkId = a} :: UpdateVpcLink)
 
-instance Prelude.AWSRequest UpdateVpcLink where
-  type Rs UpdateVpcLink = VpcLink
+instance Core.AWSRequest UpdateVpcLink where
+  type AWSResponse UpdateVpcLink = VpcLink
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateVpcLink
+instance Core.Hashable UpdateVpcLink
 
-instance Prelude.NFData UpdateVpcLink
+instance Core.NFData UpdateVpcLink
 
-instance Prelude.ToHeaders UpdateVpcLink where
+instance Core.ToHeaders UpdateVpcLink where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateVpcLink where
+instance Core.ToJSON UpdateVpcLink where
   toJSON UpdateVpcLink' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("patchOperations" Prelude..=)
-              Prelude.<$> patchOperations
+    Core.object
+      ( Core.catMaybes
+          [ ("patchOperations" Core..=)
+              Core.<$> patchOperations
           ]
       )
 
-instance Prelude.ToPath UpdateVpcLink where
+instance Core.ToPath UpdateVpcLink where
   toPath UpdateVpcLink' {..} =
-    Prelude.mconcat
-      ["/vpclinks/", Prelude.toBS vpcLinkId]
+    Core.mconcat ["/vpclinks/", Core.toBS vpcLinkId]
 
-instance Prelude.ToQuery UpdateVpcLink where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateVpcLink where
+  toQuery = Core.const Core.mempty

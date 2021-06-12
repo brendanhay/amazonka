@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.BlockPublicAccessConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.PortRange
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A configuration for Amazon EMR block public access. When
 -- @BlockPublicSecurityGroupRules@ is set to @true@, Amazon EMR prevents
@@ -43,14 +42,14 @@ data BlockPublicAccessConfiguration = BlockPublicAccessConfiguration'
     --
     -- By default, Port 22, which is used for SSH access to the cluster EC2
     -- instances, is in the list of @PermittedPublicSecurityGroupRuleRanges@.
-    permittedPublicSecurityGroupRuleRanges :: Prelude.Maybe [PortRange],
+    permittedPublicSecurityGroupRuleRanges :: Core.Maybe [PortRange],
     -- | Indicates whether Amazon EMR block public access is enabled (@true@) or
     -- disabled (@false@). By default, the value is @false@ for accounts that
     -- have created EMR clusters before July 2019. For accounts created after
     -- this, the default is @true@.
-    blockPublicSecurityGroupRules :: Prelude.Bool
+    blockPublicSecurityGroupRules :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BlockPublicAccessConfiguration' with all optional fields omitted.
@@ -77,13 +76,13 @@ data BlockPublicAccessConfiguration = BlockPublicAccessConfiguration'
 -- this, the default is @true@.
 newBlockPublicAccessConfiguration ::
   -- | 'blockPublicSecurityGroupRules'
-  Prelude.Bool ->
+  Core.Bool ->
   BlockPublicAccessConfiguration
 newBlockPublicAccessConfiguration
   pBlockPublicSecurityGroupRules_ =
     BlockPublicAccessConfiguration'
       { permittedPublicSecurityGroupRuleRanges =
-          Prelude.Nothing,
+          Core.Nothing,
         blockPublicSecurityGroupRules =
           pBlockPublicSecurityGroupRules_
       }
@@ -98,54 +97,41 @@ newBlockPublicAccessConfiguration
 --
 -- By default, Port 22, which is used for SSH access to the cluster EC2
 -- instances, is in the list of @PermittedPublicSecurityGroupRuleRanges@.
-blockPublicAccessConfiguration_permittedPublicSecurityGroupRuleRanges :: Lens.Lens' BlockPublicAccessConfiguration (Prelude.Maybe [PortRange])
-blockPublicAccessConfiguration_permittedPublicSecurityGroupRuleRanges = Lens.lens (\BlockPublicAccessConfiguration' {permittedPublicSecurityGroupRuleRanges} -> permittedPublicSecurityGroupRuleRanges) (\s@BlockPublicAccessConfiguration' {} a -> s {permittedPublicSecurityGroupRuleRanges = a} :: BlockPublicAccessConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+blockPublicAccessConfiguration_permittedPublicSecurityGroupRuleRanges :: Lens.Lens' BlockPublicAccessConfiguration (Core.Maybe [PortRange])
+blockPublicAccessConfiguration_permittedPublicSecurityGroupRuleRanges = Lens.lens (\BlockPublicAccessConfiguration' {permittedPublicSecurityGroupRuleRanges} -> permittedPublicSecurityGroupRuleRanges) (\s@BlockPublicAccessConfiguration' {} a -> s {permittedPublicSecurityGroupRuleRanges = a} :: BlockPublicAccessConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether Amazon EMR block public access is enabled (@true@) or
 -- disabled (@false@). By default, the value is @false@ for accounts that
 -- have created EMR clusters before July 2019. For accounts created after
 -- this, the default is @true@.
-blockPublicAccessConfiguration_blockPublicSecurityGroupRules :: Lens.Lens' BlockPublicAccessConfiguration Prelude.Bool
+blockPublicAccessConfiguration_blockPublicSecurityGroupRules :: Lens.Lens' BlockPublicAccessConfiguration Core.Bool
 blockPublicAccessConfiguration_blockPublicSecurityGroupRules = Lens.lens (\BlockPublicAccessConfiguration' {blockPublicSecurityGroupRules} -> blockPublicSecurityGroupRules) (\s@BlockPublicAccessConfiguration' {} a -> s {blockPublicSecurityGroupRules = a} :: BlockPublicAccessConfiguration)
 
-instance
-  Prelude.FromJSON
-    BlockPublicAccessConfiguration
-  where
+instance Core.FromJSON BlockPublicAccessConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BlockPublicAccessConfiguration"
       ( \x ->
           BlockPublicAccessConfiguration'
-            Prelude.<$> ( x
-                            Prelude..:? "PermittedPublicSecurityGroupRuleRanges"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "BlockPublicSecurityGroupRules")
+            Core.<$> ( x Core..:? "PermittedPublicSecurityGroupRuleRanges"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..: "BlockPublicSecurityGroupRules")
       )
 
-instance
-  Prelude.Hashable
-    BlockPublicAccessConfiguration
+instance Core.Hashable BlockPublicAccessConfiguration
 
-instance
-  Prelude.NFData
-    BlockPublicAccessConfiguration
+instance Core.NFData BlockPublicAccessConfiguration
 
-instance
-  Prelude.ToJSON
-    BlockPublicAccessConfiguration
-  where
+instance Core.ToJSON BlockPublicAccessConfiguration where
   toJSON BlockPublicAccessConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ( "PermittedPublicSecurityGroupRuleRanges"
-                Prelude..=
-            )
-              Prelude.<$> permittedPublicSecurityGroupRuleRanges,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("PermittedPublicSecurityGroupRuleRanges" Core..=)
+              Core.<$> permittedPublicSecurityGroupRuleRanges,
+            Core.Just
               ( "BlockPublicSecurityGroupRules"
-                  Prelude..= blockPublicSecurityGroupRules
+                  Core..= blockPublicSecurityGroupRules
               )
           ]
       )

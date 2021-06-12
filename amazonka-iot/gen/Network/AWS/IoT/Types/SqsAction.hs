@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.SqsAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action to publish data to an Amazon SQS queue.
 --
 -- /See:/ 'newSqsAction' smart constructor.
 data SqsAction = SqsAction'
   { -- | Specifies whether to use Base64 encoding.
-    useBase64 :: Prelude.Maybe Prelude.Bool,
+    useBase64 :: Core.Maybe Core.Bool,
     -- | The ARN of the IAM role that grants access.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The URL of the Amazon SQS queue.
-    queueUrl :: Prelude.Text
+    queueUrl :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SqsAction' with all optional fields omitted.
@@ -51,50 +50,50 @@ data SqsAction = SqsAction'
 -- 'queueUrl', 'sqsAction_queueUrl' - The URL of the Amazon SQS queue.
 newSqsAction ::
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'queueUrl'
-  Prelude.Text ->
+  Core.Text ->
   SqsAction
 newSqsAction pRoleArn_ pQueueUrl_ =
   SqsAction'
-    { useBase64 = Prelude.Nothing,
+    { useBase64 = Core.Nothing,
       roleArn = pRoleArn_,
       queueUrl = pQueueUrl_
     }
 
 -- | Specifies whether to use Base64 encoding.
-sqsAction_useBase64 :: Lens.Lens' SqsAction (Prelude.Maybe Prelude.Bool)
+sqsAction_useBase64 :: Lens.Lens' SqsAction (Core.Maybe Core.Bool)
 sqsAction_useBase64 = Lens.lens (\SqsAction' {useBase64} -> useBase64) (\s@SqsAction' {} a -> s {useBase64 = a} :: SqsAction)
 
 -- | The ARN of the IAM role that grants access.
-sqsAction_roleArn :: Lens.Lens' SqsAction Prelude.Text
+sqsAction_roleArn :: Lens.Lens' SqsAction Core.Text
 sqsAction_roleArn = Lens.lens (\SqsAction' {roleArn} -> roleArn) (\s@SqsAction' {} a -> s {roleArn = a} :: SqsAction)
 
 -- | The URL of the Amazon SQS queue.
-sqsAction_queueUrl :: Lens.Lens' SqsAction Prelude.Text
+sqsAction_queueUrl :: Lens.Lens' SqsAction Core.Text
 sqsAction_queueUrl = Lens.lens (\SqsAction' {queueUrl} -> queueUrl) (\s@SqsAction' {} a -> s {queueUrl = a} :: SqsAction)
 
-instance Prelude.FromJSON SqsAction where
+instance Core.FromJSON SqsAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SqsAction"
       ( \x ->
           SqsAction'
-            Prelude.<$> (x Prelude..:? "useBase64")
-            Prelude.<*> (x Prelude..: "roleArn")
-            Prelude.<*> (x Prelude..: "queueUrl")
+            Core.<$> (x Core..:? "useBase64")
+            Core.<*> (x Core..: "roleArn")
+            Core.<*> (x Core..: "queueUrl")
       )
 
-instance Prelude.Hashable SqsAction
+instance Core.Hashable SqsAction
 
-instance Prelude.NFData SqsAction
+instance Core.NFData SqsAction
 
-instance Prelude.ToJSON SqsAction where
+instance Core.ToJSON SqsAction where
   toJSON SqsAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("useBase64" Prelude..=) Prelude.<$> useBase64,
-            Prelude.Just ("roleArn" Prelude..= roleArn),
-            Prelude.Just ("queueUrl" Prelude..= queueUrl)
+    Core.object
+      ( Core.catMaybes
+          [ ("useBase64" Core..=) Core.<$> useBase64,
+            Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("queueUrl" Core..= queueUrl)
           ]
       )

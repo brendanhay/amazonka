@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.WAF.GetLoggingConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -59,9 +58,9 @@ import Network.AWS.WAF.Types
 data GetLoggingConfiguration = GetLoggingConfiguration'
   { -- | The Amazon Resource Name (ARN) of the web ACL for which you want to get
     -- the LoggingConfiguration.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLoggingConfiguration' with all optional fields omitted.
@@ -75,7 +74,7 @@ data GetLoggingConfiguration = GetLoggingConfiguration'
 -- the LoggingConfiguration.
 newGetLoggingConfiguration ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   GetLoggingConfiguration
 newGetLoggingConfiguration pResourceArn_ =
   GetLoggingConfiguration'
@@ -85,64 +84,60 @@ newGetLoggingConfiguration pResourceArn_ =
 
 -- | The Amazon Resource Name (ARN) of the web ACL for which you want to get
 -- the LoggingConfiguration.
-getLoggingConfiguration_resourceArn :: Lens.Lens' GetLoggingConfiguration Prelude.Text
+getLoggingConfiguration_resourceArn :: Lens.Lens' GetLoggingConfiguration Core.Text
 getLoggingConfiguration_resourceArn = Lens.lens (\GetLoggingConfiguration' {resourceArn} -> resourceArn) (\s@GetLoggingConfiguration' {} a -> s {resourceArn = a} :: GetLoggingConfiguration)
 
-instance Prelude.AWSRequest GetLoggingConfiguration where
+instance Core.AWSRequest GetLoggingConfiguration where
   type
-    Rs GetLoggingConfiguration =
+    AWSResponse GetLoggingConfiguration =
       GetLoggingConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetLoggingConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "LoggingConfiguration")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "LoggingConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetLoggingConfiguration
+instance Core.Hashable GetLoggingConfiguration
 
-instance Prelude.NFData GetLoggingConfiguration
+instance Core.NFData GetLoggingConfiguration
 
-instance Prelude.ToHeaders GetLoggingConfiguration where
+instance Core.ToHeaders GetLoggingConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.GetLoggingConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.GetLoggingConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetLoggingConfiguration where
+instance Core.ToJSON GetLoggingConfiguration where
   toJSON GetLoggingConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ResourceArn" Prelude..= resourceArn)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ResourceArn" Core..= resourceArn)]
       )
 
-instance Prelude.ToPath GetLoggingConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetLoggingConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetLoggingConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetLoggingConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetLoggingConfigurationResponse' smart constructor.
 data GetLoggingConfigurationResponse = GetLoggingConfigurationResponse'
   { -- | The LoggingConfiguration for the specified web ACL.
-    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
+    loggingConfiguration :: Core.Maybe LoggingConfiguration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLoggingConfigurationResponse' with all optional fields omitted.
@@ -157,23 +152,21 @@ data GetLoggingConfigurationResponse = GetLoggingConfigurationResponse'
 -- 'httpStatus', 'getLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newGetLoggingConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetLoggingConfigurationResponse
 newGetLoggingConfigurationResponse pHttpStatus_ =
   GetLoggingConfigurationResponse'
     { loggingConfiguration =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The LoggingConfiguration for the specified web ACL.
-getLoggingConfigurationResponse_loggingConfiguration :: Lens.Lens' GetLoggingConfigurationResponse (Prelude.Maybe LoggingConfiguration)
+getLoggingConfigurationResponse_loggingConfiguration :: Lens.Lens' GetLoggingConfigurationResponse (Core.Maybe LoggingConfiguration)
 getLoggingConfigurationResponse_loggingConfiguration = Lens.lens (\GetLoggingConfigurationResponse' {loggingConfiguration} -> loggingConfiguration) (\s@GetLoggingConfigurationResponse' {} a -> s {loggingConfiguration = a} :: GetLoggingConfigurationResponse)
 
 -- | The response's http status code.
-getLoggingConfigurationResponse_httpStatus :: Lens.Lens' GetLoggingConfigurationResponse Prelude.Int
+getLoggingConfigurationResponse_httpStatus :: Lens.Lens' GetLoggingConfigurationResponse Core.Int
 getLoggingConfigurationResponse_httpStatus = Lens.lens (\GetLoggingConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetLoggingConfigurationResponse' {} a -> s {httpStatus = a} :: GetLoggingConfigurationResponse)
 
-instance
-  Prelude.NFData
-    GetLoggingConfigurationResponse
+instance Core.NFData GetLoggingConfigurationResponse

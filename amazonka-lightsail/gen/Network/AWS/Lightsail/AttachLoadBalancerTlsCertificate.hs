@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,9 @@ module Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,11 +63,11 @@ import qualified Network.AWS.Response as Response
 data AttachLoadBalancerTlsCertificate = AttachLoadBalancerTlsCertificate'
   { -- | The name of the load balancer to which you want to associate the
     -- SSL\/TLS certificate.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The name of your SSL\/TLS certificate.
-    certificateName :: Prelude.Text
+    certificateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachLoadBalancerTlsCertificate' with all optional fields omitted.
@@ -84,9 +83,9 @@ data AttachLoadBalancerTlsCertificate = AttachLoadBalancerTlsCertificate'
 -- 'certificateName', 'attachLoadBalancerTlsCertificate_certificateName' - The name of your SSL\/TLS certificate.
 newAttachLoadBalancerTlsCertificate ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'certificateName'
-  Prelude.Text ->
+  Core.Text ->
   AttachLoadBalancerTlsCertificate
 newAttachLoadBalancerTlsCertificate
   pLoadBalancerName_
@@ -99,82 +98,70 @@ newAttachLoadBalancerTlsCertificate
 
 -- | The name of the load balancer to which you want to associate the
 -- SSL\/TLS certificate.
-attachLoadBalancerTlsCertificate_loadBalancerName :: Lens.Lens' AttachLoadBalancerTlsCertificate Prelude.Text
+attachLoadBalancerTlsCertificate_loadBalancerName :: Lens.Lens' AttachLoadBalancerTlsCertificate Core.Text
 attachLoadBalancerTlsCertificate_loadBalancerName = Lens.lens (\AttachLoadBalancerTlsCertificate' {loadBalancerName} -> loadBalancerName) (\s@AttachLoadBalancerTlsCertificate' {} a -> s {loadBalancerName = a} :: AttachLoadBalancerTlsCertificate)
 
 -- | The name of your SSL\/TLS certificate.
-attachLoadBalancerTlsCertificate_certificateName :: Lens.Lens' AttachLoadBalancerTlsCertificate Prelude.Text
+attachLoadBalancerTlsCertificate_certificateName :: Lens.Lens' AttachLoadBalancerTlsCertificate Core.Text
 attachLoadBalancerTlsCertificate_certificateName = Lens.lens (\AttachLoadBalancerTlsCertificate' {certificateName} -> certificateName) (\s@AttachLoadBalancerTlsCertificate' {} a -> s {certificateName = a} :: AttachLoadBalancerTlsCertificate)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AttachLoadBalancerTlsCertificate
   where
   type
-    Rs AttachLoadBalancerTlsCertificate =
+    AWSResponse AttachLoadBalancerTlsCertificate =
       AttachLoadBalancerTlsCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AttachLoadBalancerTlsCertificateResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AttachLoadBalancerTlsCertificate
 
-instance
-  Prelude.NFData
-    AttachLoadBalancerTlsCertificate
+instance Core.NFData AttachLoadBalancerTlsCertificate
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     AttachLoadBalancerTlsCertificate
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.AttachLoadBalancerTlsCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.AttachLoadBalancerTlsCertificate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    AttachLoadBalancerTlsCertificate
-  where
+instance Core.ToJSON AttachLoadBalancerTlsCertificate where
   toJSON AttachLoadBalancerTlsCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("loadBalancerName" Prelude..= loadBalancerName),
-            Prelude.Just
-              ("certificateName" Prelude..= certificateName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("loadBalancerName" Core..= loadBalancerName),
+            Core.Just
+              ("certificateName" Core..= certificateName)
           ]
       )
 
-instance
-  Prelude.ToPath
-    AttachLoadBalancerTlsCertificate
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachLoadBalancerTlsCertificate where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     AttachLoadBalancerTlsCertificate
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAttachLoadBalancerTlsCertificateResponse' smart constructor.
 data AttachLoadBalancerTlsCertificateResponse = AttachLoadBalancerTlsCertificateResponse'
@@ -184,11 +171,11 @@ data AttachLoadBalancerTlsCertificateResponse = AttachLoadBalancerTlsCertificate
     --
     -- These SSL\/TLS certificates are only usable by Lightsail load balancers.
     -- You can\'t get the certificate and use it for another purpose.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachLoadBalancerTlsCertificateResponse' with all optional fields omitted.
@@ -208,13 +195,13 @@ data AttachLoadBalancerTlsCertificateResponse = AttachLoadBalancerTlsCertificate
 -- 'httpStatus', 'attachLoadBalancerTlsCertificateResponse_httpStatus' - The response's http status code.
 newAttachLoadBalancerTlsCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AttachLoadBalancerTlsCertificateResponse
 newAttachLoadBalancerTlsCertificateResponse
   pHttpStatus_ =
     AttachLoadBalancerTlsCertificateResponse'
       { operations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -224,13 +211,13 @@ newAttachLoadBalancerTlsCertificateResponse
 --
 -- These SSL\/TLS certificates are only usable by Lightsail load balancers.
 -- You can\'t get the certificate and use it for another purpose.
-attachLoadBalancerTlsCertificateResponse_operations :: Lens.Lens' AttachLoadBalancerTlsCertificateResponse (Prelude.Maybe [Operation])
-attachLoadBalancerTlsCertificateResponse_operations = Lens.lens (\AttachLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@AttachLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: AttachLoadBalancerTlsCertificateResponse) Prelude.. Lens.mapping Prelude._Coerce
+attachLoadBalancerTlsCertificateResponse_operations :: Lens.Lens' AttachLoadBalancerTlsCertificateResponse (Core.Maybe [Operation])
+attachLoadBalancerTlsCertificateResponse_operations = Lens.lens (\AttachLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@AttachLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: AttachLoadBalancerTlsCertificateResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-attachLoadBalancerTlsCertificateResponse_httpStatus :: Lens.Lens' AttachLoadBalancerTlsCertificateResponse Prelude.Int
+attachLoadBalancerTlsCertificateResponse_httpStatus :: Lens.Lens' AttachLoadBalancerTlsCertificateResponse Core.Int
 attachLoadBalancerTlsCertificateResponse_httpStatus = Lens.lens (\AttachLoadBalancerTlsCertificateResponse' {httpStatus} -> httpStatus) (\s@AttachLoadBalancerTlsCertificateResponse' {} a -> s {httpStatus = a} :: AttachLoadBalancerTlsCertificateResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AttachLoadBalancerTlsCertificateResponse

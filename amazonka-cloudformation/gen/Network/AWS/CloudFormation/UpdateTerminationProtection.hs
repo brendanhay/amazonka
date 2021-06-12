@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,20 +51,20 @@ module Network.AWS.CloudFormation.UpdateTerminationProtection
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateTerminationProtection' smart constructor.
 data UpdateTerminationProtection = UpdateTerminationProtection'
   { -- | Whether to enable termination protection on the specified stack.
-    enableTerminationProtection :: Prelude.Bool,
+    enableTerminationProtection :: Core.Bool,
     -- | The name or unique ID of the stack for which you want to set termination
     -- protection.
-    stackName :: Prelude.Text
+    stackName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTerminationProtection' with all optional fields omitted.
@@ -81,9 +80,9 @@ data UpdateTerminationProtection = UpdateTerminationProtection'
 -- protection.
 newUpdateTerminationProtection ::
   -- | 'enableTerminationProtection'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'stackName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateTerminationProtection
 newUpdateTerminationProtection
   pEnableTerminationProtection_
@@ -95,20 +94,17 @@ newUpdateTerminationProtection
       }
 
 -- | Whether to enable termination protection on the specified stack.
-updateTerminationProtection_enableTerminationProtection :: Lens.Lens' UpdateTerminationProtection Prelude.Bool
+updateTerminationProtection_enableTerminationProtection :: Lens.Lens' UpdateTerminationProtection Core.Bool
 updateTerminationProtection_enableTerminationProtection = Lens.lens (\UpdateTerminationProtection' {enableTerminationProtection} -> enableTerminationProtection) (\s@UpdateTerminationProtection' {} a -> s {enableTerminationProtection = a} :: UpdateTerminationProtection)
 
 -- | The name or unique ID of the stack for which you want to set termination
 -- protection.
-updateTerminationProtection_stackName :: Lens.Lens' UpdateTerminationProtection Prelude.Text
+updateTerminationProtection_stackName :: Lens.Lens' UpdateTerminationProtection Core.Text
 updateTerminationProtection_stackName = Lens.lens (\UpdateTerminationProtection' {stackName} -> stackName) (\s@UpdateTerminationProtection' {} a -> s {stackName = a} :: UpdateTerminationProtection)
 
-instance
-  Prelude.AWSRequest
-    UpdateTerminationProtection
-  where
+instance Core.AWSRequest UpdateTerminationProtection where
   type
-    Rs UpdateTerminationProtection =
+    AWSResponse UpdateTerminationProtection =
       UpdateTerminationProtectionResponse
   request = Request.postQuery defaultService
   response =
@@ -116,45 +112,39 @@ instance
       "UpdateTerminationProtectionResult"
       ( \s h x ->
           UpdateTerminationProtectionResponse'
-            Prelude.<$> (x Prelude..@? "StackId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "StackId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTerminationProtection
+instance Core.Hashable UpdateTerminationProtection
 
-instance Prelude.NFData UpdateTerminationProtection
+instance Core.NFData UpdateTerminationProtection
 
-instance
-  Prelude.ToHeaders
-    UpdateTerminationProtection
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateTerminationProtection where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateTerminationProtection where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateTerminationProtection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateTerminationProtection where
+instance Core.ToQuery UpdateTerminationProtection where
   toQuery UpdateTerminationProtection' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "UpdateTerminationProtection" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
+          Core.=: ("UpdateTerminationProtection" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
         "EnableTerminationProtection"
-          Prelude.=: enableTerminationProtection,
-        "StackName" Prelude.=: stackName
+          Core.=: enableTerminationProtection,
+        "StackName" Core.=: stackName
       ]
 
 -- | /See:/ 'newUpdateTerminationProtectionResponse' smart constructor.
 data UpdateTerminationProtectionResponse = UpdateTerminationProtectionResponse'
   { -- | The unique ID of the stack.
-    stackId :: Prelude.Maybe Prelude.Text,
+    stackId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTerminationProtectionResponse' with all optional fields omitted.
@@ -169,23 +159,23 @@ data UpdateTerminationProtectionResponse = UpdateTerminationProtectionResponse'
 -- 'httpStatus', 'updateTerminationProtectionResponse_httpStatus' - The response's http status code.
 newUpdateTerminationProtectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateTerminationProtectionResponse
 newUpdateTerminationProtectionResponse pHttpStatus_ =
   UpdateTerminationProtectionResponse'
     { stackId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique ID of the stack.
-updateTerminationProtectionResponse_stackId :: Lens.Lens' UpdateTerminationProtectionResponse (Prelude.Maybe Prelude.Text)
+updateTerminationProtectionResponse_stackId :: Lens.Lens' UpdateTerminationProtectionResponse (Core.Maybe Core.Text)
 updateTerminationProtectionResponse_stackId = Lens.lens (\UpdateTerminationProtectionResponse' {stackId} -> stackId) (\s@UpdateTerminationProtectionResponse' {} a -> s {stackId = a} :: UpdateTerminationProtectionResponse)
 
 -- | The response's http status code.
-updateTerminationProtectionResponse_httpStatus :: Lens.Lens' UpdateTerminationProtectionResponse Prelude.Int
+updateTerminationProtectionResponse_httpStatus :: Lens.Lens' UpdateTerminationProtectionResponse Core.Int
 updateTerminationProtectionResponse_httpStatus = Lens.lens (\UpdateTerminationProtectionResponse' {httpStatus} -> httpStatus) (\s@UpdateTerminationProtectionResponse' {} a -> s {httpStatus = a} :: UpdateTerminationProtectionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateTerminationProtectionResponse

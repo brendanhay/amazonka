@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Mobile.Types.ProjectSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information about an AWS Mobile Hub project.
 --
 -- /See:/ 'newProjectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
   { -- | Unique project identifier.
-    projectId :: Prelude.Maybe Prelude.Text,
+    projectId :: Core.Maybe Core.Text,
     -- | Name of the project.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProjectSummary' with all optional fields omitted.
@@ -49,28 +48,28 @@ newProjectSummary ::
   ProjectSummary
 newProjectSummary =
   ProjectSummary'
-    { projectId = Prelude.Nothing,
-      name = Prelude.Nothing
+    { projectId = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | Unique project identifier.
-projectSummary_projectId :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
+projectSummary_projectId :: Lens.Lens' ProjectSummary (Core.Maybe Core.Text)
 projectSummary_projectId = Lens.lens (\ProjectSummary' {projectId} -> projectId) (\s@ProjectSummary' {} a -> s {projectId = a} :: ProjectSummary)
 
 -- | Name of the project.
-projectSummary_name :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
+projectSummary_name :: Lens.Lens' ProjectSummary (Core.Maybe Core.Text)
 projectSummary_name = Lens.lens (\ProjectSummary' {name} -> name) (\s@ProjectSummary' {} a -> s {name = a} :: ProjectSummary)
 
-instance Prelude.FromJSON ProjectSummary where
+instance Core.FromJSON ProjectSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Prelude..:? "projectId")
-            Prelude.<*> (x Prelude..:? "name")
+            Core.<$> (x Core..:? "projectId")
+            Core.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable ProjectSummary
+instance Core.Hashable ProjectSummary
 
-instance Prelude.NFData ProjectSummary
+instance Core.NFData ProjectSummary

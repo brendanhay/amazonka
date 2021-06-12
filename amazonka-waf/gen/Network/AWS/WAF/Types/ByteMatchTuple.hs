@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.ByteMatchTuple where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.FieldToMatch
 import Network.AWS.WAF.Types.PositionalConstraint
 import Network.AWS.WAF.Types.TextTransformation
@@ -103,7 +102,7 @@ data ByteMatchTuple = ByteMatchTuple'
     --
     -- The value that you want AWS WAF to search for. The SDK automatically
     -- base64 encodes the value.
-    targetString :: Prelude.Base64,
+    targetString :: Core.Base64,
     -- | Text transformations eliminate some of the unusual formatting that
     -- attackers use in web requests in an effort to bypass AWS WAF. If you
     -- specify a transformation, AWS WAF performs the transformation on
@@ -225,7 +224,7 @@ data ByteMatchTuple = ByteMatchTuple'
     -- of the web request.
     positionalConstraint :: PositionalConstraint
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ByteMatchTuple' with all optional fields omitted.
@@ -425,7 +424,7 @@ newByteMatchTuple ::
   -- | 'fieldToMatch'
   FieldToMatch ->
   -- | 'targetString'
-  Prelude.ByteString ->
+  Core.ByteString ->
   -- | 'textTransformation'
   TextTransformation ->
   -- | 'positionalConstraint'
@@ -438,7 +437,7 @@ newByteMatchTuple
   pPositionalConstraint_ =
     ByteMatchTuple'
       { fieldToMatch = pFieldToMatch_,
-        targetString = Prelude._Base64 Lens.# pTargetString_,
+        targetString = Core._Base64 Lens.# pTargetString_,
         textTransformation = pTextTransformation_,
         positionalConstraint = pPositionalConstraint_
       }
@@ -511,8 +510,8 @@ byteMatchTuple_fieldToMatch = Lens.lens (\ByteMatchTuple' {fieldToMatch} -> fiel
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-byteMatchTuple_targetString :: Lens.Lens' ByteMatchTuple Prelude.ByteString
-byteMatchTuple_targetString = Lens.lens (\ByteMatchTuple' {targetString} -> targetString) (\s@ByteMatchTuple' {} a -> s {targetString = a} :: ByteMatchTuple) Prelude.. Prelude._Base64
+byteMatchTuple_targetString :: Lens.Lens' ByteMatchTuple Core.ByteString
+byteMatchTuple_targetString = Lens.lens (\ByteMatchTuple' {targetString} -> targetString) (\s@ByteMatchTuple' {} a -> s {targetString = a} :: ByteMatchTuple) Core.. Core._Base64
 
 -- | Text transformations eliminate some of the unusual formatting that
 -- attackers use in web requests in an effort to bypass AWS WAF. If you
@@ -638,35 +637,33 @@ byteMatchTuple_textTransformation = Lens.lens (\ByteMatchTuple' {textTransformat
 byteMatchTuple_positionalConstraint :: Lens.Lens' ByteMatchTuple PositionalConstraint
 byteMatchTuple_positionalConstraint = Lens.lens (\ByteMatchTuple' {positionalConstraint} -> positionalConstraint) (\s@ByteMatchTuple' {} a -> s {positionalConstraint = a} :: ByteMatchTuple)
 
-instance Prelude.FromJSON ByteMatchTuple where
+instance Core.FromJSON ByteMatchTuple where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ByteMatchTuple"
       ( \x ->
           ByteMatchTuple'
-            Prelude.<$> (x Prelude..: "FieldToMatch")
-            Prelude.<*> (x Prelude..: "TargetString")
-            Prelude.<*> (x Prelude..: "TextTransformation")
-            Prelude.<*> (x Prelude..: "PositionalConstraint")
+            Core.<$> (x Core..: "FieldToMatch")
+            Core.<*> (x Core..: "TargetString")
+            Core.<*> (x Core..: "TextTransformation")
+            Core.<*> (x Core..: "PositionalConstraint")
       )
 
-instance Prelude.Hashable ByteMatchTuple
+instance Core.Hashable ByteMatchTuple
 
-instance Prelude.NFData ByteMatchTuple
+instance Core.NFData ByteMatchTuple
 
-instance Prelude.ToJSON ByteMatchTuple where
+instance Core.ToJSON ByteMatchTuple where
   toJSON ByteMatchTuple' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("FieldToMatch" Prelude..= fieldToMatch),
-            Prelude.Just
-              ("TargetString" Prelude..= targetString),
-            Prelude.Just
-              ("TextTransformation" Prelude..= textTransformation),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FieldToMatch" Core..= fieldToMatch),
+            Core.Just ("TargetString" Core..= targetString),
+            Core.Just
+              ("TextTransformation" Core..= textTransformation),
+            Core.Just
               ( "PositionalConstraint"
-                  Prelude..= positionalConstraint
+                  Core..= positionalConstraint
               )
           ]
       )

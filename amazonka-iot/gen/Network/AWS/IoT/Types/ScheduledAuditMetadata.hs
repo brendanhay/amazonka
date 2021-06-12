@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ScheduledAuditMetadata where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AuditFrequency
 import Network.AWS.IoT.Types.DayOfWeek
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the scheduled audit.
 --
@@ -31,20 +30,20 @@ import qualified Network.AWS.Prelude as Prelude
 data ScheduledAuditMetadata = ScheduledAuditMetadata'
   { -- | The day of the week on which the scheduled audit is run (if the
     -- @frequency@ is \"WEEKLY\" or \"BIWEEKLY\").
-    dayOfWeek :: Prelude.Maybe DayOfWeek,
+    dayOfWeek :: Core.Maybe DayOfWeek,
     -- | The ARN of the scheduled audit.
-    scheduledAuditArn :: Prelude.Maybe Prelude.Text,
+    scheduledAuditArn :: Core.Maybe Core.Text,
     -- | The name of the scheduled audit.
-    scheduledAuditName :: Prelude.Maybe Prelude.Text,
+    scheduledAuditName :: Core.Maybe Core.Text,
     -- | The day of the month on which the scheduled audit is run (if the
     -- @frequency@ is \"MONTHLY\"). If days 29-31 are specified, and the month
     -- does not have that many days, the audit takes place on the \"LAST\" day
     -- of the month.
-    dayOfMonth :: Prelude.Maybe Prelude.Text,
+    dayOfMonth :: Core.Maybe Core.Text,
     -- | How often the scheduled audit occurs.
-    frequency :: Prelude.Maybe AuditFrequency
+    frequency :: Core.Maybe AuditFrequency
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduledAuditMetadata' with all optional fields omitted.
@@ -71,51 +70,50 @@ newScheduledAuditMetadata ::
   ScheduledAuditMetadata
 newScheduledAuditMetadata =
   ScheduledAuditMetadata'
-    { dayOfWeek =
-        Prelude.Nothing,
-      scheduledAuditArn = Prelude.Nothing,
-      scheduledAuditName = Prelude.Nothing,
-      dayOfMonth = Prelude.Nothing,
-      frequency = Prelude.Nothing
+    { dayOfWeek = Core.Nothing,
+      scheduledAuditArn = Core.Nothing,
+      scheduledAuditName = Core.Nothing,
+      dayOfMonth = Core.Nothing,
+      frequency = Core.Nothing
     }
 
 -- | The day of the week on which the scheduled audit is run (if the
 -- @frequency@ is \"WEEKLY\" or \"BIWEEKLY\").
-scheduledAuditMetadata_dayOfWeek :: Lens.Lens' ScheduledAuditMetadata (Prelude.Maybe DayOfWeek)
+scheduledAuditMetadata_dayOfWeek :: Lens.Lens' ScheduledAuditMetadata (Core.Maybe DayOfWeek)
 scheduledAuditMetadata_dayOfWeek = Lens.lens (\ScheduledAuditMetadata' {dayOfWeek} -> dayOfWeek) (\s@ScheduledAuditMetadata' {} a -> s {dayOfWeek = a} :: ScheduledAuditMetadata)
 
 -- | The ARN of the scheduled audit.
-scheduledAuditMetadata_scheduledAuditArn :: Lens.Lens' ScheduledAuditMetadata (Prelude.Maybe Prelude.Text)
+scheduledAuditMetadata_scheduledAuditArn :: Lens.Lens' ScheduledAuditMetadata (Core.Maybe Core.Text)
 scheduledAuditMetadata_scheduledAuditArn = Lens.lens (\ScheduledAuditMetadata' {scheduledAuditArn} -> scheduledAuditArn) (\s@ScheduledAuditMetadata' {} a -> s {scheduledAuditArn = a} :: ScheduledAuditMetadata)
 
 -- | The name of the scheduled audit.
-scheduledAuditMetadata_scheduledAuditName :: Lens.Lens' ScheduledAuditMetadata (Prelude.Maybe Prelude.Text)
+scheduledAuditMetadata_scheduledAuditName :: Lens.Lens' ScheduledAuditMetadata (Core.Maybe Core.Text)
 scheduledAuditMetadata_scheduledAuditName = Lens.lens (\ScheduledAuditMetadata' {scheduledAuditName} -> scheduledAuditName) (\s@ScheduledAuditMetadata' {} a -> s {scheduledAuditName = a} :: ScheduledAuditMetadata)
 
 -- | The day of the month on which the scheduled audit is run (if the
 -- @frequency@ is \"MONTHLY\"). If days 29-31 are specified, and the month
 -- does not have that many days, the audit takes place on the \"LAST\" day
 -- of the month.
-scheduledAuditMetadata_dayOfMonth :: Lens.Lens' ScheduledAuditMetadata (Prelude.Maybe Prelude.Text)
+scheduledAuditMetadata_dayOfMonth :: Lens.Lens' ScheduledAuditMetadata (Core.Maybe Core.Text)
 scheduledAuditMetadata_dayOfMonth = Lens.lens (\ScheduledAuditMetadata' {dayOfMonth} -> dayOfMonth) (\s@ScheduledAuditMetadata' {} a -> s {dayOfMonth = a} :: ScheduledAuditMetadata)
 
 -- | How often the scheduled audit occurs.
-scheduledAuditMetadata_frequency :: Lens.Lens' ScheduledAuditMetadata (Prelude.Maybe AuditFrequency)
+scheduledAuditMetadata_frequency :: Lens.Lens' ScheduledAuditMetadata (Core.Maybe AuditFrequency)
 scheduledAuditMetadata_frequency = Lens.lens (\ScheduledAuditMetadata' {frequency} -> frequency) (\s@ScheduledAuditMetadata' {} a -> s {frequency = a} :: ScheduledAuditMetadata)
 
-instance Prelude.FromJSON ScheduledAuditMetadata where
+instance Core.FromJSON ScheduledAuditMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScheduledAuditMetadata"
       ( \x ->
           ScheduledAuditMetadata'
-            Prelude.<$> (x Prelude..:? "dayOfWeek")
-            Prelude.<*> (x Prelude..:? "scheduledAuditArn")
-            Prelude.<*> (x Prelude..:? "scheduledAuditName")
-            Prelude.<*> (x Prelude..:? "dayOfMonth")
-            Prelude.<*> (x Prelude..:? "frequency")
+            Core.<$> (x Core..:? "dayOfWeek")
+            Core.<*> (x Core..:? "scheduledAuditArn")
+            Core.<*> (x Core..:? "scheduledAuditName")
+            Core.<*> (x Core..:? "dayOfMonth")
+            Core.<*> (x Core..:? "frequency")
       )
 
-instance Prelude.Hashable ScheduledAuditMetadata
+instance Core.Hashable ScheduledAuditMetadata
 
-instance Prelude.NFData ScheduledAuditMetadata
+instance Core.NFData ScheduledAuditMetadata

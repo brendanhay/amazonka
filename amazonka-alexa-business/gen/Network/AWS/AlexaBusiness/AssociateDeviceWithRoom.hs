@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,19 +43,19 @@ module Network.AWS.AlexaBusiness.AssociateDeviceWithRoom
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateDeviceWithRoom' smart constructor.
 data AssociateDeviceWithRoom = AssociateDeviceWithRoom'
   { -- | The ARN of the device to associate to a room. Required.
-    deviceArn :: Prelude.Maybe Prelude.Text,
+    deviceArn :: Core.Maybe Core.Text,
     -- | The ARN of the room with which to associate the device. Required.
-    roomArn :: Prelude.Maybe Prelude.Text
+    roomArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDeviceWithRoom' with all optional fields omitted.
@@ -73,71 +72,68 @@ newAssociateDeviceWithRoom ::
   AssociateDeviceWithRoom
 newAssociateDeviceWithRoom =
   AssociateDeviceWithRoom'
-    { deviceArn =
-        Prelude.Nothing,
-      roomArn = Prelude.Nothing
+    { deviceArn = Core.Nothing,
+      roomArn = Core.Nothing
     }
 
 -- | The ARN of the device to associate to a room. Required.
-associateDeviceWithRoom_deviceArn :: Lens.Lens' AssociateDeviceWithRoom (Prelude.Maybe Prelude.Text)
+associateDeviceWithRoom_deviceArn :: Lens.Lens' AssociateDeviceWithRoom (Core.Maybe Core.Text)
 associateDeviceWithRoom_deviceArn = Lens.lens (\AssociateDeviceWithRoom' {deviceArn} -> deviceArn) (\s@AssociateDeviceWithRoom' {} a -> s {deviceArn = a} :: AssociateDeviceWithRoom)
 
 -- | The ARN of the room with which to associate the device. Required.
-associateDeviceWithRoom_roomArn :: Lens.Lens' AssociateDeviceWithRoom (Prelude.Maybe Prelude.Text)
+associateDeviceWithRoom_roomArn :: Lens.Lens' AssociateDeviceWithRoom (Core.Maybe Core.Text)
 associateDeviceWithRoom_roomArn = Lens.lens (\AssociateDeviceWithRoom' {roomArn} -> roomArn) (\s@AssociateDeviceWithRoom' {} a -> s {roomArn = a} :: AssociateDeviceWithRoom)
 
-instance Prelude.AWSRequest AssociateDeviceWithRoom where
+instance Core.AWSRequest AssociateDeviceWithRoom where
   type
-    Rs AssociateDeviceWithRoom =
+    AWSResponse AssociateDeviceWithRoom =
       AssociateDeviceWithRoomResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateDeviceWithRoomResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateDeviceWithRoom
+instance Core.Hashable AssociateDeviceWithRoom
 
-instance Prelude.NFData AssociateDeviceWithRoom
+instance Core.NFData AssociateDeviceWithRoom
 
-instance Prelude.ToHeaders AssociateDeviceWithRoom where
+instance Core.ToHeaders AssociateDeviceWithRoom where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.AssociateDeviceWithRoom" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.AssociateDeviceWithRoom" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateDeviceWithRoom where
+instance Core.ToJSON AssociateDeviceWithRoom where
   toJSON AssociateDeviceWithRoom' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DeviceArn" Prelude..=) Prelude.<$> deviceArn,
-            ("RoomArn" Prelude..=) Prelude.<$> roomArn
+    Core.object
+      ( Core.catMaybes
+          [ ("DeviceArn" Core..=) Core.<$> deviceArn,
+            ("RoomArn" Core..=) Core.<$> roomArn
           ]
       )
 
-instance Prelude.ToPath AssociateDeviceWithRoom where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateDeviceWithRoom where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateDeviceWithRoom where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateDeviceWithRoom where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateDeviceWithRoomResponse' smart constructor.
 data AssociateDeviceWithRoomResponse = AssociateDeviceWithRoomResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDeviceWithRoomResponse' with all optional fields omitted.
@@ -150,7 +146,7 @@ data AssociateDeviceWithRoomResponse = AssociateDeviceWithRoomResponse'
 -- 'httpStatus', 'associateDeviceWithRoomResponse_httpStatus' - The response's http status code.
 newAssociateDeviceWithRoomResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateDeviceWithRoomResponse
 newAssociateDeviceWithRoomResponse pHttpStatus_ =
   AssociateDeviceWithRoomResponse'
@@ -159,9 +155,7 @@ newAssociateDeviceWithRoomResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateDeviceWithRoomResponse_httpStatus :: Lens.Lens' AssociateDeviceWithRoomResponse Prelude.Int
+associateDeviceWithRoomResponse_httpStatus :: Lens.Lens' AssociateDeviceWithRoomResponse Core.Int
 associateDeviceWithRoomResponse_httpStatus = Lens.lens (\AssociateDeviceWithRoomResponse' {httpStatus} -> httpStatus) (\s@AssociateDeviceWithRoomResponse' {} a -> s {httpStatus = a} :: AssociateDeviceWithRoomResponse)
 
-instance
-  Prelude.NFData
-    AssociateDeviceWithRoomResponse
+instance Core.NFData AssociateDeviceWithRoomResponse

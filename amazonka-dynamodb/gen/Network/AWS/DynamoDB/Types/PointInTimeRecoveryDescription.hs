@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The description of the point in time settings applied to the table.
 --
@@ -30,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data PointInTimeRecoveryDescription = PointInTimeRecoveryDescription'
   { -- | @LatestRestorableDateTime@ is typically 5 minutes before the current
     -- time.
-    latestRestorableDateTime :: Prelude.Maybe Prelude.POSIX,
+    latestRestorableDateTime :: Core.Maybe Core.POSIX,
     -- | Specifies the earliest point in time you can restore your table to. You
     -- can restore your table to any point in time during the last 35 days.
-    earliestRestorableDateTime :: Prelude.Maybe Prelude.POSIX,
+    earliestRestorableDateTime :: Core.Maybe Core.POSIX,
     -- | The current state of point in time recovery:
     --
     -- -   @ENABLING@ - Point in time recovery is being enabled.
@@ -41,9 +40,9 @@ data PointInTimeRecoveryDescription = PointInTimeRecoveryDescription'
     -- -   @ENABLED@ - Point in time recovery is enabled.
     --
     -- -   @DISABLED@ - Point in time recovery is disabled.
-    pointInTimeRecoveryStatus :: Prelude.Maybe PointInTimeRecoveryStatus
+    pointInTimeRecoveryStatus :: Core.Maybe PointInTimeRecoveryStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PointInTimeRecoveryDescription' with all optional fields omitted.
@@ -71,21 +70,20 @@ newPointInTimeRecoveryDescription ::
 newPointInTimeRecoveryDescription =
   PointInTimeRecoveryDescription'
     { latestRestorableDateTime =
-        Prelude.Nothing,
-      earliestRestorableDateTime =
-        Prelude.Nothing,
-      pointInTimeRecoveryStatus = Prelude.Nothing
+        Core.Nothing,
+      earliestRestorableDateTime = Core.Nothing,
+      pointInTimeRecoveryStatus = Core.Nothing
     }
 
 -- | @LatestRestorableDateTime@ is typically 5 minutes before the current
 -- time.
-pointInTimeRecoveryDescription_latestRestorableDateTime :: Lens.Lens' PointInTimeRecoveryDescription (Prelude.Maybe Prelude.UTCTime)
-pointInTimeRecoveryDescription_latestRestorableDateTime = Lens.lens (\PointInTimeRecoveryDescription' {latestRestorableDateTime} -> latestRestorableDateTime) (\s@PointInTimeRecoveryDescription' {} a -> s {latestRestorableDateTime = a} :: PointInTimeRecoveryDescription) Prelude.. Lens.mapping Prelude._Time
+pointInTimeRecoveryDescription_latestRestorableDateTime :: Lens.Lens' PointInTimeRecoveryDescription (Core.Maybe Core.UTCTime)
+pointInTimeRecoveryDescription_latestRestorableDateTime = Lens.lens (\PointInTimeRecoveryDescription' {latestRestorableDateTime} -> latestRestorableDateTime) (\s@PointInTimeRecoveryDescription' {} a -> s {latestRestorableDateTime = a} :: PointInTimeRecoveryDescription) Core.. Lens.mapping Core._Time
 
 -- | Specifies the earliest point in time you can restore your table to. You
 -- can restore your table to any point in time during the last 35 days.
-pointInTimeRecoveryDescription_earliestRestorableDateTime :: Lens.Lens' PointInTimeRecoveryDescription (Prelude.Maybe Prelude.UTCTime)
-pointInTimeRecoveryDescription_earliestRestorableDateTime = Lens.lens (\PointInTimeRecoveryDescription' {earliestRestorableDateTime} -> earliestRestorableDateTime) (\s@PointInTimeRecoveryDescription' {} a -> s {earliestRestorableDateTime = a} :: PointInTimeRecoveryDescription) Prelude.. Lens.mapping Prelude._Time
+pointInTimeRecoveryDescription_earliestRestorableDateTime :: Lens.Lens' PointInTimeRecoveryDescription (Core.Maybe Core.UTCTime)
+pointInTimeRecoveryDescription_earliestRestorableDateTime = Lens.lens (\PointInTimeRecoveryDescription' {earliestRestorableDateTime} -> earliestRestorableDateTime) (\s@PointInTimeRecoveryDescription' {} a -> s {earliestRestorableDateTime = a} :: PointInTimeRecoveryDescription) Core.. Lens.mapping Core._Time
 
 -- | The current state of point in time recovery:
 --
@@ -94,27 +92,20 @@ pointInTimeRecoveryDescription_earliestRestorableDateTime = Lens.lens (\PointInT
 -- -   @ENABLED@ - Point in time recovery is enabled.
 --
 -- -   @DISABLED@ - Point in time recovery is disabled.
-pointInTimeRecoveryDescription_pointInTimeRecoveryStatus :: Lens.Lens' PointInTimeRecoveryDescription (Prelude.Maybe PointInTimeRecoveryStatus)
+pointInTimeRecoveryDescription_pointInTimeRecoveryStatus :: Lens.Lens' PointInTimeRecoveryDescription (Core.Maybe PointInTimeRecoveryStatus)
 pointInTimeRecoveryDescription_pointInTimeRecoveryStatus = Lens.lens (\PointInTimeRecoveryDescription' {pointInTimeRecoveryStatus} -> pointInTimeRecoveryStatus) (\s@PointInTimeRecoveryDescription' {} a -> s {pointInTimeRecoveryStatus = a} :: PointInTimeRecoveryDescription)
 
-instance
-  Prelude.FromJSON
-    PointInTimeRecoveryDescription
-  where
+instance Core.FromJSON PointInTimeRecoveryDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PointInTimeRecoveryDescription"
       ( \x ->
           PointInTimeRecoveryDescription'
-            Prelude.<$> (x Prelude..:? "LatestRestorableDateTime")
-            Prelude.<*> (x Prelude..:? "EarliestRestorableDateTime")
-            Prelude.<*> (x Prelude..:? "PointInTimeRecoveryStatus")
+            Core.<$> (x Core..:? "LatestRestorableDateTime")
+            Core.<*> (x Core..:? "EarliestRestorableDateTime")
+            Core.<*> (x Core..:? "PointInTimeRecoveryStatus")
       )
 
-instance
-  Prelude.Hashable
-    PointInTimeRecoveryDescription
+instance Core.Hashable PointInTimeRecoveryDescription
 
-instance
-  Prelude.NFData
-    PointInTimeRecoveryDescription
+instance Core.NFData PointInTimeRecoveryDescription

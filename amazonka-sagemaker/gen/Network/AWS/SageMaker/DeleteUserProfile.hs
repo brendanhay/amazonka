@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.SageMaker.DeleteUserProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -48,11 +47,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteUserProfile' smart constructor.
 data DeleteUserProfile = DeleteUserProfile'
   { -- | The domain ID.
-    domainId :: Prelude.Text,
+    domainId :: Core.Text,
     -- | The user profile name.
-    userProfileName :: Prelude.Text
+    userProfileName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserProfile' with all optional fields omitted.
@@ -67,9 +66,9 @@ data DeleteUserProfile = DeleteUserProfile'
 -- 'userProfileName', 'deleteUserProfile_userProfileName' - The user profile name.
 newDeleteUserProfile ::
   -- | 'domainId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userProfileName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUserProfile
 newDeleteUserProfile pDomainId_ pUserProfileName_ =
   DeleteUserProfile'
@@ -78,59 +77,57 @@ newDeleteUserProfile pDomainId_ pUserProfileName_ =
     }
 
 -- | The domain ID.
-deleteUserProfile_domainId :: Lens.Lens' DeleteUserProfile Prelude.Text
+deleteUserProfile_domainId :: Lens.Lens' DeleteUserProfile Core.Text
 deleteUserProfile_domainId = Lens.lens (\DeleteUserProfile' {domainId} -> domainId) (\s@DeleteUserProfile' {} a -> s {domainId = a} :: DeleteUserProfile)
 
 -- | The user profile name.
-deleteUserProfile_userProfileName :: Lens.Lens' DeleteUserProfile Prelude.Text
+deleteUserProfile_userProfileName :: Lens.Lens' DeleteUserProfile Core.Text
 deleteUserProfile_userProfileName = Lens.lens (\DeleteUserProfile' {userProfileName} -> userProfileName) (\s@DeleteUserProfile' {} a -> s {userProfileName = a} :: DeleteUserProfile)
 
-instance Prelude.AWSRequest DeleteUserProfile where
-  type Rs DeleteUserProfile = DeleteUserProfileResponse
+instance Core.AWSRequest DeleteUserProfile where
+  type
+    AWSResponse DeleteUserProfile =
+      DeleteUserProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteUserProfileResponse'
 
-instance Prelude.Hashable DeleteUserProfile
+instance Core.Hashable DeleteUserProfile
 
-instance Prelude.NFData DeleteUserProfile
+instance Core.NFData DeleteUserProfile
 
-instance Prelude.ToHeaders DeleteUserProfile where
+instance Core.ToHeaders DeleteUserProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteUserProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.DeleteUserProfile" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteUserProfile where
+instance Core.ToJSON DeleteUserProfile where
   toJSON DeleteUserProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DomainId" Prelude..= domainId),
-            Prelude.Just
-              ("UserProfileName" Prelude..= userProfileName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DomainId" Core..= domainId),
+            Core.Just
+              ("UserProfileName" Core..= userProfileName)
           ]
       )
 
-instance Prelude.ToPath DeleteUserProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteUserProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteUserProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteUserProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserProfileResponse' with all optional fields omitted.
@@ -141,4 +138,4 @@ newDeleteUserProfileResponse ::
 newDeleteUserProfileResponse =
   DeleteUserProfileResponse'
 
-instance Prelude.NFData DeleteUserProfileResponse
+instance Core.NFData DeleteUserProfileResponse

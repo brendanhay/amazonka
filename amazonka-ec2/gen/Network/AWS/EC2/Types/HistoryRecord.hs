@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.HistoryRecord where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.EventInformation
 import Network.AWS.EC2.Types.EventType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an event in the history of the Spot Fleet request.
 --
@@ -40,14 +39,14 @@ data HistoryRecord = HistoryRecord'
     -- -   @instanceChange@ - An instance was launched or terminated.
     --
     -- -   @Information@ - An informational event.
-    eventType :: Prelude.Maybe EventType,
+    eventType :: Core.Maybe EventType,
     -- | The date and time of the event, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    timestamp :: Prelude.Maybe Prelude.ISO8601,
+    timestamp :: Core.Maybe Core.ISO8601,
     -- | Information about the event.
-    eventInformation :: Prelude.Maybe EventInformation
+    eventInformation :: Core.Maybe EventInformation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HistoryRecord' with all optional fields omitted.
@@ -76,9 +75,9 @@ newHistoryRecord ::
   HistoryRecord
 newHistoryRecord =
   HistoryRecord'
-    { eventType = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      eventInformation = Prelude.Nothing
+    { eventType = Core.Nothing,
+      timestamp = Core.Nothing,
+      eventInformation = Core.Nothing
     }
 
 -- | The event type.
@@ -91,25 +90,25 @@ newHistoryRecord =
 -- -   @instanceChange@ - An instance was launched or terminated.
 --
 -- -   @Information@ - An informational event.
-historyRecord_eventType :: Lens.Lens' HistoryRecord (Prelude.Maybe EventType)
+historyRecord_eventType :: Lens.Lens' HistoryRecord (Core.Maybe EventType)
 historyRecord_eventType = Lens.lens (\HistoryRecord' {eventType} -> eventType) (\s@HistoryRecord' {} a -> s {eventType = a} :: HistoryRecord)
 
 -- | The date and time of the event, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-historyRecord_timestamp :: Lens.Lens' HistoryRecord (Prelude.Maybe Prelude.UTCTime)
-historyRecord_timestamp = Lens.lens (\HistoryRecord' {timestamp} -> timestamp) (\s@HistoryRecord' {} a -> s {timestamp = a} :: HistoryRecord) Prelude.. Lens.mapping Prelude._Time
+historyRecord_timestamp :: Lens.Lens' HistoryRecord (Core.Maybe Core.UTCTime)
+historyRecord_timestamp = Lens.lens (\HistoryRecord' {timestamp} -> timestamp) (\s@HistoryRecord' {} a -> s {timestamp = a} :: HistoryRecord) Core.. Lens.mapping Core._Time
 
 -- | Information about the event.
-historyRecord_eventInformation :: Lens.Lens' HistoryRecord (Prelude.Maybe EventInformation)
+historyRecord_eventInformation :: Lens.Lens' HistoryRecord (Core.Maybe EventInformation)
 historyRecord_eventInformation = Lens.lens (\HistoryRecord' {eventInformation} -> eventInformation) (\s@HistoryRecord' {} a -> s {eventInformation = a} :: HistoryRecord)
 
-instance Prelude.FromXML HistoryRecord where
+instance Core.FromXML HistoryRecord where
   parseXML x =
     HistoryRecord'
-      Prelude.<$> (x Prelude..@? "eventType")
-      Prelude.<*> (x Prelude..@? "timestamp")
-      Prelude.<*> (x Prelude..@? "eventInformation")
+      Core.<$> (x Core..@? "eventType")
+      Core.<*> (x Core..@? "timestamp")
+      Core.<*> (x Core..@? "eventInformation")
 
-instance Prelude.Hashable HistoryRecord
+instance Core.Hashable HistoryRecord
 
-instance Prelude.NFData HistoryRecord
+instance Core.NFData HistoryRecord

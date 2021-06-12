@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.EnableFastSnapshotRestoreErrorItem where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateErrorItem
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the errors that occurred when enabling fast
 -- snapshot restores.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEnableFastSnapshotRestoreErrorItem' smart constructor.
 data EnableFastSnapshotRestoreErrorItem = EnableFastSnapshotRestoreErrorItem'
   { -- | The errors.
-    fastSnapshotRestoreStateErrors :: Prelude.Maybe [EnableFastSnapshotRestoreStateErrorItem],
+    fastSnapshotRestoreStateErrors :: Core.Maybe [EnableFastSnapshotRestoreStateErrorItem],
     -- | The ID of the snapshot.
-    snapshotId :: Prelude.Maybe Prelude.Text
+    snapshotId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableFastSnapshotRestoreErrorItem' with all optional fields omitted.
@@ -53,34 +52,34 @@ newEnableFastSnapshotRestoreErrorItem ::
 newEnableFastSnapshotRestoreErrorItem =
   EnableFastSnapshotRestoreErrorItem'
     { fastSnapshotRestoreStateErrors =
-        Prelude.Nothing,
-      snapshotId = Prelude.Nothing
+        Core.Nothing,
+      snapshotId = Core.Nothing
     }
 
 -- | The errors.
-enableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors :: Lens.Lens' EnableFastSnapshotRestoreErrorItem (Prelude.Maybe [EnableFastSnapshotRestoreStateErrorItem])
-enableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors = Lens.lens (\EnableFastSnapshotRestoreErrorItem' {fastSnapshotRestoreStateErrors} -> fastSnapshotRestoreStateErrors) (\s@EnableFastSnapshotRestoreErrorItem' {} a -> s {fastSnapshotRestoreStateErrors = a} :: EnableFastSnapshotRestoreErrorItem) Prelude.. Lens.mapping Prelude._Coerce
+enableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors :: Lens.Lens' EnableFastSnapshotRestoreErrorItem (Core.Maybe [EnableFastSnapshotRestoreStateErrorItem])
+enableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors = Lens.lens (\EnableFastSnapshotRestoreErrorItem' {fastSnapshotRestoreStateErrors} -> fastSnapshotRestoreStateErrors) (\s@EnableFastSnapshotRestoreErrorItem' {} a -> s {fastSnapshotRestoreStateErrors = a} :: EnableFastSnapshotRestoreErrorItem) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the snapshot.
-enableFastSnapshotRestoreErrorItem_snapshotId :: Lens.Lens' EnableFastSnapshotRestoreErrorItem (Prelude.Maybe Prelude.Text)
+enableFastSnapshotRestoreErrorItem_snapshotId :: Lens.Lens' EnableFastSnapshotRestoreErrorItem (Core.Maybe Core.Text)
 enableFastSnapshotRestoreErrorItem_snapshotId = Lens.lens (\EnableFastSnapshotRestoreErrorItem' {snapshotId} -> snapshotId) (\s@EnableFastSnapshotRestoreErrorItem' {} a -> s {snapshotId = a} :: EnableFastSnapshotRestoreErrorItem)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     EnableFastSnapshotRestoreErrorItem
   where
   parseXML x =
     EnableFastSnapshotRestoreErrorItem'
-      Prelude.<$> ( x Prelude..@? "fastSnapshotRestoreStateErrorSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "snapshotId")
+      Core.<$> ( x Core..@? "fastSnapshotRestoreStateErrorSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "snapshotId")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     EnableFastSnapshotRestoreErrorItem
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableFastSnapshotRestoreErrorItem

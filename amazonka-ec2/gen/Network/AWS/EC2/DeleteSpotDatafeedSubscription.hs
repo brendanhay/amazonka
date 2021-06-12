@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,9 +35,9 @@ module Network.AWS.EC2.DeleteSpotDatafeedSubscription
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSpotDatafeedSubscription' with all optional fields omitted.
@@ -71,68 +70,57 @@ newDeleteSpotDatafeedSubscription ::
 newDeleteSpotDatafeedSubscription =
   DeleteSpotDatafeedSubscription'
     { dryRun =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteSpotDatafeedSubscription_dryRun :: Lens.Lens' DeleteSpotDatafeedSubscription (Prelude.Maybe Prelude.Bool)
+deleteSpotDatafeedSubscription_dryRun :: Lens.Lens' DeleteSpotDatafeedSubscription (Core.Maybe Core.Bool)
 deleteSpotDatafeedSubscription_dryRun = Lens.lens (\DeleteSpotDatafeedSubscription' {dryRun} -> dryRun) (\s@DeleteSpotDatafeedSubscription' {} a -> s {dryRun = a} :: DeleteSpotDatafeedSubscription)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteSpotDatafeedSubscription
   where
   type
-    Rs DeleteSpotDatafeedSubscription =
+    AWSResponse DeleteSpotDatafeedSubscription =
       DeleteSpotDatafeedSubscriptionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteSpotDatafeedSubscriptionResponse'
 
-instance
-  Prelude.Hashable
-    DeleteSpotDatafeedSubscription
+instance Core.Hashable DeleteSpotDatafeedSubscription
+
+instance Core.NFData DeleteSpotDatafeedSubscription
 
 instance
-  Prelude.NFData
-    DeleteSpotDatafeedSubscription
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteSpotDatafeedSubscription
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DeleteSpotDatafeedSubscription
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSpotDatafeedSubscription where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteSpotDatafeedSubscription
-  where
+instance Core.ToQuery DeleteSpotDatafeedSubscription where
   toQuery DeleteSpotDatafeedSubscription' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteSpotDatafeedSubscription" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun
+          Core.=: ( "DeleteSpotDatafeedSubscription" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDeleteSpotDatafeedSubscriptionResponse' smart constructor.
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSpotDatafeedSubscriptionResponse' with all optional fields omitted.
@@ -144,5 +132,5 @@ newDeleteSpotDatafeedSubscriptionResponse =
   DeleteSpotDatafeedSubscriptionResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteSpotDatafeedSubscriptionResponse

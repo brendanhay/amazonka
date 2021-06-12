@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.AutomatedAbrSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Use automated ABR to have MediaConvert set up the renditions in your ABR
 -- package for you automatically, based on characteristics of your input
@@ -34,22 +33,22 @@ data AutomatedAbrSettings = AutomatedAbrSettings'
     -- Use this value to set a lower limit on the bitrate of video delivered to
     -- viewers with slow internet connections. If you don\'t specify a value,
     -- MediaConvert uses 600,000 (600 kb\/s) by default.
-    minAbrBitrate :: Prelude.Maybe Prelude.Natural,
+    minAbrBitrate :: Core.Maybe Core.Natural,
     -- | Optional. The maximum number of renditions that MediaConvert will create
     -- in your automated ABR stack. The number of renditions is determined
     -- automatically, based on analysis of each job, but will never exceed this
     -- limit. When you set this to Auto in the console, which is equivalent to
     -- excluding it from your JSON job specification, MediaConvert defaults to
     -- a limit of 15.
-    maxRenditions :: Prelude.Maybe Prelude.Natural,
+    maxRenditions :: Core.Maybe Core.Natural,
     -- | Optional. The maximum target bit rate used in your automated ABR stack.
     -- Use this value to set an upper limit on the bandwidth consumed by the
     -- highest-quality rendition. This is the rendition that is delivered to
     -- viewers with the fastest internet connections. If you don\'t specify a
     -- value, MediaConvert uses 8,000,000 (8 mb\/s) by default.
-    maxAbrBitrate :: Prelude.Maybe Prelude.Natural
+    maxAbrBitrate :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutomatedAbrSettings' with all optional fields omitted.
@@ -80,17 +79,16 @@ newAutomatedAbrSettings ::
   AutomatedAbrSettings
 newAutomatedAbrSettings =
   AutomatedAbrSettings'
-    { minAbrBitrate =
-        Prelude.Nothing,
-      maxRenditions = Prelude.Nothing,
-      maxAbrBitrate = Prelude.Nothing
+    { minAbrBitrate = Core.Nothing,
+      maxRenditions = Core.Nothing,
+      maxAbrBitrate = Core.Nothing
     }
 
 -- | Optional. The minimum target bitrate used in your automated ABR stack.
 -- Use this value to set a lower limit on the bitrate of video delivered to
 -- viewers with slow internet connections. If you don\'t specify a value,
 -- MediaConvert uses 600,000 (600 kb\/s) by default.
-automatedAbrSettings_minAbrBitrate :: Lens.Lens' AutomatedAbrSettings (Prelude.Maybe Prelude.Natural)
+automatedAbrSettings_minAbrBitrate :: Lens.Lens' AutomatedAbrSettings (Core.Maybe Core.Natural)
 automatedAbrSettings_minAbrBitrate = Lens.lens (\AutomatedAbrSettings' {minAbrBitrate} -> minAbrBitrate) (\s@AutomatedAbrSettings' {} a -> s {minAbrBitrate = a} :: AutomatedAbrSettings)
 
 -- | Optional. The maximum number of renditions that MediaConvert will create
@@ -99,7 +97,7 @@ automatedAbrSettings_minAbrBitrate = Lens.lens (\AutomatedAbrSettings' {minAbrBi
 -- limit. When you set this to Auto in the console, which is equivalent to
 -- excluding it from your JSON job specification, MediaConvert defaults to
 -- a limit of 15.
-automatedAbrSettings_maxRenditions :: Lens.Lens' AutomatedAbrSettings (Prelude.Maybe Prelude.Natural)
+automatedAbrSettings_maxRenditions :: Lens.Lens' AutomatedAbrSettings (Core.Maybe Core.Natural)
 automatedAbrSettings_maxRenditions = Lens.lens (\AutomatedAbrSettings' {maxRenditions} -> maxRenditions) (\s@AutomatedAbrSettings' {} a -> s {maxRenditions = a} :: AutomatedAbrSettings)
 
 -- | Optional. The maximum target bit rate used in your automated ABR stack.
@@ -107,33 +105,30 @@ automatedAbrSettings_maxRenditions = Lens.lens (\AutomatedAbrSettings' {maxRendi
 -- highest-quality rendition. This is the rendition that is delivered to
 -- viewers with the fastest internet connections. If you don\'t specify a
 -- value, MediaConvert uses 8,000,000 (8 mb\/s) by default.
-automatedAbrSettings_maxAbrBitrate :: Lens.Lens' AutomatedAbrSettings (Prelude.Maybe Prelude.Natural)
+automatedAbrSettings_maxAbrBitrate :: Lens.Lens' AutomatedAbrSettings (Core.Maybe Core.Natural)
 automatedAbrSettings_maxAbrBitrate = Lens.lens (\AutomatedAbrSettings' {maxAbrBitrate} -> maxAbrBitrate) (\s@AutomatedAbrSettings' {} a -> s {maxAbrBitrate = a} :: AutomatedAbrSettings)
 
-instance Prelude.FromJSON AutomatedAbrSettings where
+instance Core.FromJSON AutomatedAbrSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutomatedAbrSettings"
       ( \x ->
           AutomatedAbrSettings'
-            Prelude.<$> (x Prelude..:? "minAbrBitrate")
-            Prelude.<*> (x Prelude..:? "maxRenditions")
-            Prelude.<*> (x Prelude..:? "maxAbrBitrate")
+            Core.<$> (x Core..:? "minAbrBitrate")
+            Core.<*> (x Core..:? "maxRenditions")
+            Core.<*> (x Core..:? "maxAbrBitrate")
       )
 
-instance Prelude.Hashable AutomatedAbrSettings
+instance Core.Hashable AutomatedAbrSettings
 
-instance Prelude.NFData AutomatedAbrSettings
+instance Core.NFData AutomatedAbrSettings
 
-instance Prelude.ToJSON AutomatedAbrSettings where
+instance Core.ToJSON AutomatedAbrSettings where
   toJSON AutomatedAbrSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("minAbrBitrate" Prelude..=)
-              Prelude.<$> minAbrBitrate,
-            ("maxRenditions" Prelude..=)
-              Prelude.<$> maxRenditions,
-            ("maxAbrBitrate" Prelude..=)
-              Prelude.<$> maxAbrBitrate
+    Core.object
+      ( Core.catMaybes
+          [ ("minAbrBitrate" Core..=) Core.<$> minAbrBitrate,
+            ("maxRenditions" Core..=) Core.<$> maxRenditions,
+            ("maxAbrBitrate" Core..=) Core.<$> maxAbrBitrate
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,8 +54,8 @@ module Network.AWS.SSM.StartSession
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -68,13 +67,13 @@ data StartSession = StartSession'
     -- can call the GetDocument API to verify the document exists before
     -- attempting to start a session. If no document name is provided, a shell
     -- to the instance is launched by default.
-    documentName :: Prelude.Maybe Prelude.Text,
+    documentName :: Core.Maybe Core.Text,
     -- | Reserved for future use.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    parameters :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The instance to connect to for the session.
-    target :: Prelude.Text
+    target :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartSession' with all optional fields omitted.
@@ -95,12 +94,12 @@ data StartSession = StartSession'
 -- 'target', 'startSession_target' - The instance to connect to for the session.
 newStartSession ::
   -- | 'target'
-  Prelude.Text ->
+  Core.Text ->
   StartSession
 newStartSession pTarget_ =
   StartSession'
-    { documentName = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+    { documentName = Core.Nothing,
+      parameters = Core.Nothing,
       target = pTarget_
     }
 
@@ -109,68 +108,65 @@ newStartSession pTarget_ =
 -- can call the GetDocument API to verify the document exists before
 -- attempting to start a session. If no document name is provided, a shell
 -- to the instance is launched by default.
-startSession_documentName :: Lens.Lens' StartSession (Prelude.Maybe Prelude.Text)
+startSession_documentName :: Lens.Lens' StartSession (Core.Maybe Core.Text)
 startSession_documentName = Lens.lens (\StartSession' {documentName} -> documentName) (\s@StartSession' {} a -> s {documentName = a} :: StartSession)
 
 -- | Reserved for future use.
-startSession_parameters :: Lens.Lens' StartSession (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-startSession_parameters = Lens.lens (\StartSession' {parameters} -> parameters) (\s@StartSession' {} a -> s {parameters = a} :: StartSession) Prelude.. Lens.mapping Prelude._Coerce
+startSession_parameters :: Lens.Lens' StartSession (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+startSession_parameters = Lens.lens (\StartSession' {parameters} -> parameters) (\s@StartSession' {} a -> s {parameters = a} :: StartSession) Core.. Lens.mapping Lens._Coerce
 
 -- | The instance to connect to for the session.
-startSession_target :: Lens.Lens' StartSession Prelude.Text
+startSession_target :: Lens.Lens' StartSession Core.Text
 startSession_target = Lens.lens (\StartSession' {target} -> target) (\s@StartSession' {} a -> s {target = a} :: StartSession)
 
-instance Prelude.AWSRequest StartSession where
-  type Rs StartSession = StartSessionResponse
+instance Core.AWSRequest StartSession where
+  type AWSResponse StartSession = StartSessionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartSessionResponse'
-            Prelude.<$> (x Prelude..?> "SessionId")
-            Prelude.<*> (x Prelude..?> "StreamUrl")
-            Prelude.<*> (x Prelude..?> "TokenValue")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SessionId")
+            Core.<*> (x Core..?> "StreamUrl")
+            Core.<*> (x Core..?> "TokenValue")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartSession
+instance Core.Hashable StartSession
 
-instance Prelude.NFData StartSession
+instance Core.NFData StartSession
 
-instance Prelude.ToHeaders StartSession where
+instance Core.ToHeaders StartSession where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonSSM.StartSession" :: Prelude.ByteString),
+              Core.=# ("AmazonSSM.StartSession" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartSession where
+instance Core.ToJSON StartSession where
   toJSON StartSession' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DocumentName" Prelude..=)
-              Prelude.<$> documentName,
-            ("Parameters" Prelude..=) Prelude.<$> parameters,
-            Prelude.Just ("Target" Prelude..= target)
+    Core.object
+      ( Core.catMaybes
+          [ ("DocumentName" Core..=) Core.<$> documentName,
+            ("Parameters" Core..=) Core.<$> parameters,
+            Core.Just ("Target" Core..= target)
           ]
       )
 
-instance Prelude.ToPath StartSession where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartSession where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartSession where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartSession where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartSessionResponse' smart constructor.
 data StartSessionResponse = StartSessionResponse'
   { -- | The ID of the session.
-    sessionId :: Prelude.Maybe Prelude.Text,
+    sessionId :: Core.Maybe Core.Text,
     -- | A URL back to SSM Agent on the instance that the Session Manager client
     -- uses to send commands and receive output from the instance. Format:
     -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@
@@ -184,14 +180,14 @@ data StartSessionResponse = StartSessionResponse'
     --
     -- __session-id__ represents the ID of a Session Manager session, such as
     -- @1a2b3c4dEXAMPLE@.
-    streamUrl :: Prelude.Maybe Prelude.Text,
+    streamUrl :: Core.Maybe Core.Text,
     -- | An encrypted token value containing session and caller information. Used
     -- to authenticate the connection to the instance.
-    tokenValue :: Prelude.Maybe Prelude.Text,
+    tokenValue :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartSessionResponse' with all optional fields omitted.
@@ -223,18 +219,18 @@ data StartSessionResponse = StartSessionResponse'
 -- 'httpStatus', 'startSessionResponse_httpStatus' - The response's http status code.
 newStartSessionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartSessionResponse
 newStartSessionResponse pHttpStatus_ =
   StartSessionResponse'
-    { sessionId = Prelude.Nothing,
-      streamUrl = Prelude.Nothing,
-      tokenValue = Prelude.Nothing,
+    { sessionId = Core.Nothing,
+      streamUrl = Core.Nothing,
+      tokenValue = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the session.
-startSessionResponse_sessionId :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
+startSessionResponse_sessionId :: Lens.Lens' StartSessionResponse (Core.Maybe Core.Text)
 startSessionResponse_sessionId = Lens.lens (\StartSessionResponse' {sessionId} -> sessionId) (\s@StartSessionResponse' {} a -> s {sessionId = a} :: StartSessionResponse)
 
 -- | A URL back to SSM Agent on the instance that the Session Manager client
@@ -250,16 +246,16 @@ startSessionResponse_sessionId = Lens.lens (\StartSessionResponse' {sessionId} -
 --
 -- __session-id__ represents the ID of a Session Manager session, such as
 -- @1a2b3c4dEXAMPLE@.
-startSessionResponse_streamUrl :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
+startSessionResponse_streamUrl :: Lens.Lens' StartSessionResponse (Core.Maybe Core.Text)
 startSessionResponse_streamUrl = Lens.lens (\StartSessionResponse' {streamUrl} -> streamUrl) (\s@StartSessionResponse' {} a -> s {streamUrl = a} :: StartSessionResponse)
 
 -- | An encrypted token value containing session and caller information. Used
 -- to authenticate the connection to the instance.
-startSessionResponse_tokenValue :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
+startSessionResponse_tokenValue :: Lens.Lens' StartSessionResponse (Core.Maybe Core.Text)
 startSessionResponse_tokenValue = Lens.lens (\StartSessionResponse' {tokenValue} -> tokenValue) (\s@StartSessionResponse' {} a -> s {tokenValue = a} :: StartSessionResponse)
 
 -- | The response's http status code.
-startSessionResponse_httpStatus :: Lens.Lens' StartSessionResponse Prelude.Int
+startSessionResponse_httpStatus :: Lens.Lens' StartSessionResponse Core.Int
 startSessionResponse_httpStatus = Lens.lens (\StartSessionResponse' {httpStatus} -> httpStatus) (\s@StartSessionResponse' {} a -> s {httpStatus = a} :: StartSessionResponse)
 
-instance Prelude.NFData StartSessionResponse
+instance Core.NFData StartSessionResponse

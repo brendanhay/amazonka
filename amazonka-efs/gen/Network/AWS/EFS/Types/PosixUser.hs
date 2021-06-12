@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EFS.Types.PosixUser where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The full POSIX identity, including the user ID, group ID, and any
 -- secondary group IDs, on the access point that is used for all file
@@ -31,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 data PosixUser = PosixUser'
   { -- | Secondary POSIX group IDs used for all file system operations using this
     -- access point.
-    secondaryGids :: Prelude.Maybe [Prelude.Natural],
+    secondaryGids :: Core.Maybe [Core.Natural],
     -- | The POSIX user ID used for all file system operations using this access
     -- point.
-    uid :: Prelude.Natural,
+    uid :: Core.Natural,
     -- | The POSIX group ID used for all file system operations using this access
     -- point.
-    gid :: Prelude.Natural
+    gid :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PosixUser' with all optional fields omitted.
@@ -59,56 +58,53 @@ data PosixUser = PosixUser'
 -- point.
 newPosixUser ::
   -- | 'uid'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'gid'
-  Prelude.Natural ->
+  Core.Natural ->
   PosixUser
 newPosixUser pUid_ pGid_ =
   PosixUser'
-    { secondaryGids = Prelude.Nothing,
+    { secondaryGids = Core.Nothing,
       uid = pUid_,
       gid = pGid_
     }
 
 -- | Secondary POSIX group IDs used for all file system operations using this
 -- access point.
-posixUser_secondaryGids :: Lens.Lens' PosixUser (Prelude.Maybe [Prelude.Natural])
-posixUser_secondaryGids = Lens.lens (\PosixUser' {secondaryGids} -> secondaryGids) (\s@PosixUser' {} a -> s {secondaryGids = a} :: PosixUser) Prelude.. Lens.mapping Prelude._Coerce
+posixUser_secondaryGids :: Lens.Lens' PosixUser (Core.Maybe [Core.Natural])
+posixUser_secondaryGids = Lens.lens (\PosixUser' {secondaryGids} -> secondaryGids) (\s@PosixUser' {} a -> s {secondaryGids = a} :: PosixUser) Core.. Lens.mapping Lens._Coerce
 
 -- | The POSIX user ID used for all file system operations using this access
 -- point.
-posixUser_uid :: Lens.Lens' PosixUser Prelude.Natural
+posixUser_uid :: Lens.Lens' PosixUser Core.Natural
 posixUser_uid = Lens.lens (\PosixUser' {uid} -> uid) (\s@PosixUser' {} a -> s {uid = a} :: PosixUser)
 
 -- | The POSIX group ID used for all file system operations using this access
 -- point.
-posixUser_gid :: Lens.Lens' PosixUser Prelude.Natural
+posixUser_gid :: Lens.Lens' PosixUser Core.Natural
 posixUser_gid = Lens.lens (\PosixUser' {gid} -> gid) (\s@PosixUser' {} a -> s {gid = a} :: PosixUser)
 
-instance Prelude.FromJSON PosixUser where
+instance Core.FromJSON PosixUser where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PosixUser"
       ( \x ->
           PosixUser'
-            Prelude.<$> ( x Prelude..:? "SecondaryGids"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "Uid")
-            Prelude.<*> (x Prelude..: "Gid")
+            Core.<$> (x Core..:? "SecondaryGids" Core..!= Core.mempty)
+            Core.<*> (x Core..: "Uid")
+            Core.<*> (x Core..: "Gid")
       )
 
-instance Prelude.Hashable PosixUser
+instance Core.Hashable PosixUser
 
-instance Prelude.NFData PosixUser
+instance Core.NFData PosixUser
 
-instance Prelude.ToJSON PosixUser where
+instance Core.ToJSON PosixUser where
   toJSON PosixUser' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SecondaryGids" Prelude..=)
-              Prelude.<$> secondaryGids,
-            Prelude.Just ("Uid" Prelude..= uid),
-            Prelude.Just ("Gid" Prelude..= gid)
+    Core.object
+      ( Core.catMaybes
+          [ ("SecondaryGids" Core..=) Core.<$> secondaryGids,
+            Core.Just ("Uid" Core..= uid),
+            Core.Just ("Gid" Core..= gid)
           ]
       )

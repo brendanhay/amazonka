@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.Redshift.CreateUsageLimit
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -65,14 +64,14 @@ data CreateUsageLimit = CreateUsageLimit'
   { -- | The action that Amazon Redshift takes when the limit is reached. The
     -- default is log. For more information about this parameter, see
     -- UsageLimit.
-    breachAction :: Prelude.Maybe UsageLimitBreachAction,
+    breachAction :: Core.Maybe UsageLimitBreachAction,
     -- | A list of tag instances.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The time period that the amount applies to. A @weekly@ period begins on
     -- Sunday. The default is @monthly@.
-    period :: Prelude.Maybe UsageLimitPeriod,
+    period :: Core.Maybe UsageLimitPeriod,
     -- | The identifier of the cluster that you want to limit usage.
-    clusterIdentifier :: Prelude.Text,
+    clusterIdentifier :: Core.Text,
     -- | The Amazon Redshift feature that you want to limit.
     featureType :: UsageLimitFeatureType,
     -- | The type of limit. Depending on the feature type, this can be based on a
@@ -83,9 +82,9 @@ data CreateUsageLimit = CreateUsageLimit'
     -- | The limit amount. If time-based, this amount is in minutes. If
     -- data-based, this amount is in terabytes (TB). The value must be a
     -- positive number.
-    amount :: Prelude.Integer
+    amount :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUsageLimit' with all optional fields omitted.
@@ -118,13 +117,13 @@ data CreateUsageLimit = CreateUsageLimit'
 -- positive number.
 newCreateUsageLimit ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'featureType'
   UsageLimitFeatureType ->
   -- | 'limitType'
   UsageLimitLimitType ->
   -- | 'amount'
-  Prelude.Integer ->
+  Core.Integer ->
   CreateUsageLimit
 newCreateUsageLimit
   pClusterIdentifier_
@@ -132,9 +131,9 @@ newCreateUsageLimit
   pLimitType_
   pAmount_ =
     CreateUsageLimit'
-      { breachAction = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        period = Prelude.Nothing,
+      { breachAction = Core.Nothing,
+        tags = Core.Nothing,
+        period = Core.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         featureType = pFeatureType_,
         limitType = pLimitType_,
@@ -144,20 +143,20 @@ newCreateUsageLimit
 -- | The action that Amazon Redshift takes when the limit is reached. The
 -- default is log. For more information about this parameter, see
 -- UsageLimit.
-createUsageLimit_breachAction :: Lens.Lens' CreateUsageLimit (Prelude.Maybe UsageLimitBreachAction)
+createUsageLimit_breachAction :: Lens.Lens' CreateUsageLimit (Core.Maybe UsageLimitBreachAction)
 createUsageLimit_breachAction = Lens.lens (\CreateUsageLimit' {breachAction} -> breachAction) (\s@CreateUsageLimit' {} a -> s {breachAction = a} :: CreateUsageLimit)
 
 -- | A list of tag instances.
-createUsageLimit_tags :: Lens.Lens' CreateUsageLimit (Prelude.Maybe [Tag])
-createUsageLimit_tags = Lens.lens (\CreateUsageLimit' {tags} -> tags) (\s@CreateUsageLimit' {} a -> s {tags = a} :: CreateUsageLimit) Prelude.. Lens.mapping Prelude._Coerce
+createUsageLimit_tags :: Lens.Lens' CreateUsageLimit (Core.Maybe [Tag])
+createUsageLimit_tags = Lens.lens (\CreateUsageLimit' {tags} -> tags) (\s@CreateUsageLimit' {} a -> s {tags = a} :: CreateUsageLimit) Core.. Lens.mapping Lens._Coerce
 
 -- | The time period that the amount applies to. A @weekly@ period begins on
 -- Sunday. The default is @monthly@.
-createUsageLimit_period :: Lens.Lens' CreateUsageLimit (Prelude.Maybe UsageLimitPeriod)
+createUsageLimit_period :: Lens.Lens' CreateUsageLimit (Core.Maybe UsageLimitPeriod)
 createUsageLimit_period = Lens.lens (\CreateUsageLimit' {period} -> period) (\s@CreateUsageLimit' {} a -> s {period = a} :: CreateUsageLimit)
 
 -- | The identifier of the cluster that you want to limit usage.
-createUsageLimit_clusterIdentifier :: Lens.Lens' CreateUsageLimit Prelude.Text
+createUsageLimit_clusterIdentifier :: Lens.Lens' CreateUsageLimit Core.Text
 createUsageLimit_clusterIdentifier = Lens.lens (\CreateUsageLimit' {clusterIdentifier} -> clusterIdentifier) (\s@CreateUsageLimit' {} a -> s {clusterIdentifier = a} :: CreateUsageLimit)
 
 -- | The Amazon Redshift feature that you want to limit.
@@ -174,41 +173,39 @@ createUsageLimit_limitType = Lens.lens (\CreateUsageLimit' {limitType} -> limitT
 -- | The limit amount. If time-based, this amount is in minutes. If
 -- data-based, this amount is in terabytes (TB). The value must be a
 -- positive number.
-createUsageLimit_amount :: Lens.Lens' CreateUsageLimit Prelude.Integer
+createUsageLimit_amount :: Lens.Lens' CreateUsageLimit Core.Integer
 createUsageLimit_amount = Lens.lens (\CreateUsageLimit' {amount} -> amount) (\s@CreateUsageLimit' {} a -> s {amount = a} :: CreateUsageLimit)
 
-instance Prelude.AWSRequest CreateUsageLimit where
-  type Rs CreateUsageLimit = UsageLimit
+instance Core.AWSRequest CreateUsageLimit where
+  type AWSResponse CreateUsageLimit = UsageLimit
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateUsageLimitResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateUsageLimit
+instance Core.Hashable CreateUsageLimit
 
-instance Prelude.NFData CreateUsageLimit
+instance Core.NFData CreateUsageLimit
 
-instance Prelude.ToHeaders CreateUsageLimit where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateUsageLimit where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateUsageLimit where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateUsageLimit where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateUsageLimit where
+instance Core.ToQuery CreateUsageLimit where
   toQuery CreateUsageLimit' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateUsageLimit" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "BreachAction" Prelude.=: breachAction,
+          Core.=: ("CreateUsageLimit" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "BreachAction" Core.=: breachAction,
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Tag" Prelude.<$> tags),
-        "Period" Prelude.=: period,
-        "ClusterIdentifier" Prelude.=: clusterIdentifier,
-        "FeatureType" Prelude.=: featureType,
-        "LimitType" Prelude.=: limitType,
-        "Amount" Prelude.=: amount
+          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+        "Period" Core.=: period,
+        "ClusterIdentifier" Core.=: clusterIdentifier,
+        "FeatureType" Core.=: featureType,
+        "LimitType" Core.=: limitType,
+        "Amount" Core.=: amount
       ]

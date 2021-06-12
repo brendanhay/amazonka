@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.Config.StopConfigurationRecorder
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +48,9 @@ import qualified Network.AWS.Response as Response
 data StopConfigurationRecorder = StopConfigurationRecorder'
   { -- | The name of the recorder object that records each configuration change
     -- made to the resources.
-    configurationRecorderName :: Prelude.Text
+    configurationRecorderName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopConfigurationRecorder' with all optional fields omitted.
@@ -65,7 +64,7 @@ data StopConfigurationRecorder = StopConfigurationRecorder'
 -- made to the resources.
 newStopConfigurationRecorder ::
   -- | 'configurationRecorderName'
-  Prelude.Text ->
+  Core.Text ->
   StopConfigurationRecorder
 newStopConfigurationRecorder
   pConfigurationRecorderName_ =
@@ -76,59 +75,57 @@ newStopConfigurationRecorder
 
 -- | The name of the recorder object that records each configuration change
 -- made to the resources.
-stopConfigurationRecorder_configurationRecorderName :: Lens.Lens' StopConfigurationRecorder Prelude.Text
+stopConfigurationRecorder_configurationRecorderName :: Lens.Lens' StopConfigurationRecorder Core.Text
 stopConfigurationRecorder_configurationRecorderName = Lens.lens (\StopConfigurationRecorder' {configurationRecorderName} -> configurationRecorderName) (\s@StopConfigurationRecorder' {} a -> s {configurationRecorderName = a} :: StopConfigurationRecorder)
 
-instance Prelude.AWSRequest StopConfigurationRecorder where
+instance Core.AWSRequest StopConfigurationRecorder where
   type
-    Rs StopConfigurationRecorder =
+    AWSResponse StopConfigurationRecorder =
       StopConfigurationRecorderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       StopConfigurationRecorderResponse'
 
-instance Prelude.Hashable StopConfigurationRecorder
+instance Core.Hashable StopConfigurationRecorder
 
-instance Prelude.NFData StopConfigurationRecorder
+instance Core.NFData StopConfigurationRecorder
 
-instance Prelude.ToHeaders StopConfigurationRecorder where
+instance Core.ToHeaders StopConfigurationRecorder where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.StopConfigurationRecorder" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.StopConfigurationRecorder" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopConfigurationRecorder where
+instance Core.ToJSON StopConfigurationRecorder where
   toJSON StopConfigurationRecorder' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ConfigurationRecorderName"
-                  Prelude..= configurationRecorderName
+                  Core..= configurationRecorderName
               )
           ]
       )
 
-instance Prelude.ToPath StopConfigurationRecorder where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopConfigurationRecorder where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopConfigurationRecorder where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopConfigurationRecorder where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopConfigurationRecorderResponse' smart constructor.
 data StopConfigurationRecorderResponse = StopConfigurationRecorderResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopConfigurationRecorderResponse' with all optional fields omitted.
@@ -140,5 +137,5 @@ newStopConfigurationRecorderResponse =
   StopConfigurationRecorderResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     StopConfigurationRecorderResponse

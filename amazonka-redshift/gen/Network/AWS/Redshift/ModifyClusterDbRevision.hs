@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Redshift.ModifyClusterDbRevision
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -54,12 +53,12 @@ data ModifyClusterDbRevision = ModifyClusterDbRevision'
     -- modify.
     --
     -- Example: @examplecluster@
-    clusterIdentifier :: Prelude.Text,
+    clusterIdentifier :: Core.Text,
     -- | The identifier of the database revision. You can retrieve this value
     -- from the response to the DescribeClusterDbRevisions request.
-    revisionTarget :: Prelude.Text
+    revisionTarget :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterDbRevision' with all optional fields omitted.
@@ -78,9 +77,9 @@ data ModifyClusterDbRevision = ModifyClusterDbRevision'
 -- from the response to the DescribeClusterDbRevisions request.
 newModifyClusterDbRevision ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'revisionTarget'
-  Prelude.Text ->
+  Core.Text ->
   ModifyClusterDbRevision
 newModifyClusterDbRevision
   pClusterIdentifier_
@@ -95,17 +94,17 @@ newModifyClusterDbRevision
 -- modify.
 --
 -- Example: @examplecluster@
-modifyClusterDbRevision_clusterIdentifier :: Lens.Lens' ModifyClusterDbRevision Prelude.Text
+modifyClusterDbRevision_clusterIdentifier :: Lens.Lens' ModifyClusterDbRevision Core.Text
 modifyClusterDbRevision_clusterIdentifier = Lens.lens (\ModifyClusterDbRevision' {clusterIdentifier} -> clusterIdentifier) (\s@ModifyClusterDbRevision' {} a -> s {clusterIdentifier = a} :: ModifyClusterDbRevision)
 
 -- | The identifier of the database revision. You can retrieve this value
 -- from the response to the DescribeClusterDbRevisions request.
-modifyClusterDbRevision_revisionTarget :: Lens.Lens' ModifyClusterDbRevision Prelude.Text
+modifyClusterDbRevision_revisionTarget :: Lens.Lens' ModifyClusterDbRevision Core.Text
 modifyClusterDbRevision_revisionTarget = Lens.lens (\ModifyClusterDbRevision' {revisionTarget} -> revisionTarget) (\s@ModifyClusterDbRevision' {} a -> s {revisionTarget = a} :: ModifyClusterDbRevision)
 
-instance Prelude.AWSRequest ModifyClusterDbRevision where
+instance Core.AWSRequest ModifyClusterDbRevision where
   type
-    Rs ModifyClusterDbRevision =
+    AWSResponse ModifyClusterDbRevision =
       ModifyClusterDbRevisionResponse
   request = Request.postQuery defaultService
   response =
@@ -113,38 +112,37 @@ instance Prelude.AWSRequest ModifyClusterDbRevision where
       "ModifyClusterDbRevisionResult"
       ( \s h x ->
           ModifyClusterDbRevisionResponse'
-            Prelude.<$> (x Prelude..@? "Cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyClusterDbRevision
+instance Core.Hashable ModifyClusterDbRevision
 
-instance Prelude.NFData ModifyClusterDbRevision
+instance Core.NFData ModifyClusterDbRevision
 
-instance Prelude.ToHeaders ModifyClusterDbRevision where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyClusterDbRevision where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyClusterDbRevision where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyClusterDbRevision where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyClusterDbRevision where
+instance Core.ToQuery ModifyClusterDbRevision where
   toQuery ModifyClusterDbRevision' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyClusterDbRevision" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Prelude.=: clusterIdentifier,
-        "RevisionTarget" Prelude.=: revisionTarget
+          Core.=: ("ModifyClusterDbRevision" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ClusterIdentifier" Core.=: clusterIdentifier,
+        "RevisionTarget" Core.=: revisionTarget
       ]
 
 -- | /See:/ 'newModifyClusterDbRevisionResponse' smart constructor.
 data ModifyClusterDbRevisionResponse = ModifyClusterDbRevisionResponse'
-  { cluster :: Prelude.Maybe Cluster,
+  { cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterDbRevisionResponse' with all optional fields omitted.
@@ -159,23 +157,21 @@ data ModifyClusterDbRevisionResponse = ModifyClusterDbRevisionResponse'
 -- 'httpStatus', 'modifyClusterDbRevisionResponse_httpStatus' - The response's http status code.
 newModifyClusterDbRevisionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyClusterDbRevisionResponse
 newModifyClusterDbRevisionResponse pHttpStatus_ =
   ModifyClusterDbRevisionResponse'
     { cluster =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyClusterDbRevisionResponse_cluster :: Lens.Lens' ModifyClusterDbRevisionResponse (Prelude.Maybe Cluster)
+modifyClusterDbRevisionResponse_cluster :: Lens.Lens' ModifyClusterDbRevisionResponse (Core.Maybe Cluster)
 modifyClusterDbRevisionResponse_cluster = Lens.lens (\ModifyClusterDbRevisionResponse' {cluster} -> cluster) (\s@ModifyClusterDbRevisionResponse' {} a -> s {cluster = a} :: ModifyClusterDbRevisionResponse)
 
 -- | The response's http status code.
-modifyClusterDbRevisionResponse_httpStatus :: Lens.Lens' ModifyClusterDbRevisionResponse Prelude.Int
+modifyClusterDbRevisionResponse_httpStatus :: Lens.Lens' ModifyClusterDbRevisionResponse Core.Int
 modifyClusterDbRevisionResponse_httpStatus = Lens.lens (\ModifyClusterDbRevisionResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterDbRevisionResponse' {} a -> s {httpStatus = a} :: ModifyClusterDbRevisionResponse)
 
-instance
-  Prelude.NFData
-    ModifyClusterDbRevisionResponse
+instance Core.NFData ModifyClusterDbRevisionResponse

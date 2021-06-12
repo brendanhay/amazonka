@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.DeviceFarm.GetDeviceInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data GetDeviceInstance = GetDeviceInstance'
   { -- | The Amazon Resource Name (ARN) of the instance you\'re requesting
     -- information about.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDeviceInstance' with all optional fields omitted.
@@ -67,67 +66,65 @@ data GetDeviceInstance = GetDeviceInstance'
 -- information about.
 newGetDeviceInstance ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   GetDeviceInstance
 newGetDeviceInstance pArn_ =
   GetDeviceInstance' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the instance you\'re requesting
 -- information about.
-getDeviceInstance_arn :: Lens.Lens' GetDeviceInstance Prelude.Text
+getDeviceInstance_arn :: Lens.Lens' GetDeviceInstance Core.Text
 getDeviceInstance_arn = Lens.lens (\GetDeviceInstance' {arn} -> arn) (\s@GetDeviceInstance' {} a -> s {arn = a} :: GetDeviceInstance)
 
-instance Prelude.AWSRequest GetDeviceInstance where
-  type Rs GetDeviceInstance = GetDeviceInstanceResponse
+instance Core.AWSRequest GetDeviceInstance where
+  type
+    AWSResponse GetDeviceInstance =
+      GetDeviceInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDeviceInstanceResponse'
-            Prelude.<$> (x Prelude..?> "deviceInstance")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "deviceInstance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeviceInstance
+instance Core.Hashable GetDeviceInstance
 
-instance Prelude.NFData GetDeviceInstance
+instance Core.NFData GetDeviceInstance
 
-instance Prelude.ToHeaders GetDeviceInstance where
+instance Core.ToHeaders GetDeviceInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.GetDeviceInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.GetDeviceInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetDeviceInstance where
+instance Core.ToJSON GetDeviceInstance where
   toJSON GetDeviceInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("arn" Prelude..= arn)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
 
-instance Prelude.ToPath GetDeviceInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetDeviceInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetDeviceInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDeviceInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDeviceInstanceResponse' smart constructor.
 data GetDeviceInstanceResponse = GetDeviceInstanceResponse'
   { -- | An object that contains information about your device instance.
-    deviceInstance :: Prelude.Maybe DeviceInstance,
+    deviceInstance :: Core.Maybe DeviceInstance,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDeviceInstanceResponse' with all optional fields omitted.
@@ -142,21 +139,21 @@ data GetDeviceInstanceResponse = GetDeviceInstanceResponse'
 -- 'httpStatus', 'getDeviceInstanceResponse_httpStatus' - The response's http status code.
 newGetDeviceInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDeviceInstanceResponse
 newGetDeviceInstanceResponse pHttpStatus_ =
   GetDeviceInstanceResponse'
     { deviceInstance =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains information about your device instance.
-getDeviceInstanceResponse_deviceInstance :: Lens.Lens' GetDeviceInstanceResponse (Prelude.Maybe DeviceInstance)
+getDeviceInstanceResponse_deviceInstance :: Lens.Lens' GetDeviceInstanceResponse (Core.Maybe DeviceInstance)
 getDeviceInstanceResponse_deviceInstance = Lens.lens (\GetDeviceInstanceResponse' {deviceInstance} -> deviceInstance) (\s@GetDeviceInstanceResponse' {} a -> s {deviceInstance = a} :: GetDeviceInstanceResponse)
 
 -- | The response's http status code.
-getDeviceInstanceResponse_httpStatus :: Lens.Lens' GetDeviceInstanceResponse Prelude.Int
+getDeviceInstanceResponse_httpStatus :: Lens.Lens' GetDeviceInstanceResponse Core.Int
 getDeviceInstanceResponse_httpStatus = Lens.lens (\GetDeviceInstanceResponse' {httpStatus} -> httpStatus) (\s@GetDeviceInstanceResponse' {} a -> s {httpStatus = a} :: GetDeviceInstanceResponse)
 
-instance Prelude.NFData GetDeviceInstanceResponse
+instance Core.NFData GetDeviceInstanceResponse

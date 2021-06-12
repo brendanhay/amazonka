@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.AppSync.Types.SyncConfig where
 import Network.AWS.AppSync.Types.ConflictDetectionType
 import Network.AWS.AppSync.Types.ConflictHandlerType
 import Network.AWS.AppSync.Types.LambdaConflictHandlerConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Sync configuration for a resolver.
 --
@@ -43,19 +42,19 @@ data SyncConfig = SyncConfig'
     --
     -- -   __LAMBDA__: Resolve conflicts with a Lambda function supplied in the
     --     LambdaConflictHandlerConfig.
-    conflictHandler :: Prelude.Maybe ConflictHandlerType,
+    conflictHandler :: Core.Maybe ConflictHandlerType,
     -- | The @LambdaConflictHandlerConfig@ when configuring LAMBDA as the
     -- Conflict Handler.
-    lambdaConflictHandlerConfig :: Prelude.Maybe LambdaConflictHandlerConfig,
+    lambdaConflictHandlerConfig :: Core.Maybe LambdaConflictHandlerConfig,
     -- | The Conflict Detection strategy to use.
     --
     -- -   __VERSION__: Detect conflicts based on object versions for this
     --     resolver.
     --
     -- -   __NONE__: Do not detect conflicts when executing this resolver.
-    conflictDetection :: Prelude.Maybe ConflictDetectionType
+    conflictDetection :: Core.Maybe ConflictDetectionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SyncConfig' with all optional fields omitted.
@@ -89,9 +88,9 @@ newSyncConfig ::
   SyncConfig
 newSyncConfig =
   SyncConfig'
-    { conflictHandler = Prelude.Nothing,
-      lambdaConflictHandlerConfig = Prelude.Nothing,
-      conflictDetection = Prelude.Nothing
+    { conflictHandler = Core.Nothing,
+      lambdaConflictHandlerConfig = Core.Nothing,
+      conflictDetection = Core.Nothing
     }
 
 -- | The Conflict Resolution strategy to perform in the event of a conflict.
@@ -104,12 +103,12 @@ newSyncConfig =
 --
 -- -   __LAMBDA__: Resolve conflicts with a Lambda function supplied in the
 --     LambdaConflictHandlerConfig.
-syncConfig_conflictHandler :: Lens.Lens' SyncConfig (Prelude.Maybe ConflictHandlerType)
+syncConfig_conflictHandler :: Lens.Lens' SyncConfig (Core.Maybe ConflictHandlerType)
 syncConfig_conflictHandler = Lens.lens (\SyncConfig' {conflictHandler} -> conflictHandler) (\s@SyncConfig' {} a -> s {conflictHandler = a} :: SyncConfig)
 
 -- | The @LambdaConflictHandlerConfig@ when configuring LAMBDA as the
 -- Conflict Handler.
-syncConfig_lambdaConflictHandlerConfig :: Lens.Lens' SyncConfig (Prelude.Maybe LambdaConflictHandlerConfig)
+syncConfig_lambdaConflictHandlerConfig :: Lens.Lens' SyncConfig (Core.Maybe LambdaConflictHandlerConfig)
 syncConfig_lambdaConflictHandlerConfig = Lens.lens (\SyncConfig' {lambdaConflictHandlerConfig} -> lambdaConflictHandlerConfig) (\s@SyncConfig' {} a -> s {lambdaConflictHandlerConfig = a} :: SyncConfig)
 
 -- | The Conflict Detection strategy to use.
@@ -118,33 +117,33 @@ syncConfig_lambdaConflictHandlerConfig = Lens.lens (\SyncConfig' {lambdaConflict
 --     resolver.
 --
 -- -   __NONE__: Do not detect conflicts when executing this resolver.
-syncConfig_conflictDetection :: Lens.Lens' SyncConfig (Prelude.Maybe ConflictDetectionType)
+syncConfig_conflictDetection :: Lens.Lens' SyncConfig (Core.Maybe ConflictDetectionType)
 syncConfig_conflictDetection = Lens.lens (\SyncConfig' {conflictDetection} -> conflictDetection) (\s@SyncConfig' {} a -> s {conflictDetection = a} :: SyncConfig)
 
-instance Prelude.FromJSON SyncConfig where
+instance Core.FromJSON SyncConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SyncConfig"
       ( \x ->
           SyncConfig'
-            Prelude.<$> (x Prelude..:? "conflictHandler")
-            Prelude.<*> (x Prelude..:? "lambdaConflictHandlerConfig")
-            Prelude.<*> (x Prelude..:? "conflictDetection")
+            Core.<$> (x Core..:? "conflictHandler")
+            Core.<*> (x Core..:? "lambdaConflictHandlerConfig")
+            Core.<*> (x Core..:? "conflictDetection")
       )
 
-instance Prelude.Hashable SyncConfig
+instance Core.Hashable SyncConfig
 
-instance Prelude.NFData SyncConfig
+instance Core.NFData SyncConfig
 
-instance Prelude.ToJSON SyncConfig where
+instance Core.ToJSON SyncConfig where
   toJSON SyncConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("conflictHandler" Prelude..=)
-              Prelude.<$> conflictHandler,
-            ("lambdaConflictHandlerConfig" Prelude..=)
-              Prelude.<$> lambdaConflictHandlerConfig,
-            ("conflictDetection" Prelude..=)
-              Prelude.<$> conflictDetection
+    Core.object
+      ( Core.catMaybes
+          [ ("conflictHandler" Core..=)
+              Core.<$> conflictHandler,
+            ("lambdaConflictHandlerConfig" Core..=)
+              Core.<$> lambdaConflictHandlerConfig,
+            ("conflictDetection" Core..=)
+              Core.<$> conflictDetection
           ]
       )

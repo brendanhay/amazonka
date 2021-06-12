@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.MQ.UpdateUser
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,21 +56,21 @@ data UpdateUser = UpdateUser'
     -- value can contain only alphanumeric characters, dashes, periods,
     -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
     -- long.
-    groups :: Prelude.Maybe [Prelude.Text],
+    groups :: Core.Maybe [Core.Text],
     -- | The password of the user. This value must be at least 12 characters
     -- long, must contain at least 4 unique characters, and must not contain
     -- commas.
-    password :: Prelude.Maybe Prelude.Text,
+    password :: Core.Maybe Core.Text,
     -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-    consoleAccess :: Prelude.Maybe Prelude.Bool,
+    consoleAccess :: Core.Maybe Core.Bool,
     -- | Required. The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
-    username :: Prelude.Text,
+    username :: Core.Text,
     -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Prelude.Text
+    brokerId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUser' with all optional fields omitted.
@@ -99,15 +98,15 @@ data UpdateUser = UpdateUser'
 -- 'brokerId', 'updateUser_brokerId' - The unique ID that Amazon MQ generates for the broker.
 newUpdateUser ::
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'brokerId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateUser
 newUpdateUser pUsername_ pBrokerId_ =
   UpdateUser'
-    { groups = Prelude.Nothing,
-      password = Prelude.Nothing,
-      consoleAccess = Prelude.Nothing,
+    { groups = Core.Nothing,
+      password = Core.Nothing,
+      consoleAccess = Core.Nothing,
       username = pUsername_,
       brokerId = pBrokerId_
     }
@@ -116,83 +115,80 @@ newUpdateUser pUsername_ pBrokerId_ =
 -- value can contain only alphanumeric characters, dashes, periods,
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
-updateUser_groups :: Lens.Lens' UpdateUser (Prelude.Maybe [Prelude.Text])
-updateUser_groups = Lens.lens (\UpdateUser' {groups} -> groups) (\s@UpdateUser' {} a -> s {groups = a} :: UpdateUser) Prelude.. Lens.mapping Prelude._Coerce
+updateUser_groups :: Lens.Lens' UpdateUser (Core.Maybe [Core.Text])
+updateUser_groups = Lens.lens (\UpdateUser' {groups} -> groups) (\s@UpdateUser' {} a -> s {groups = a} :: UpdateUser) Core.. Lens.mapping Lens._Coerce
 
 -- | The password of the user. This value must be at least 12 characters
 -- long, must contain at least 4 unique characters, and must not contain
 -- commas.
-updateUser_password :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_password :: Lens.Lens' UpdateUser (Core.Maybe Core.Text)
 updateUser_password = Lens.lens (\UpdateUser' {password} -> password) (\s@UpdateUser' {} a -> s {password = a} :: UpdateUser)
 
 -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-updateUser_consoleAccess :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Bool)
+updateUser_consoleAccess :: Lens.Lens' UpdateUser (Core.Maybe Core.Bool)
 updateUser_consoleAccess = Lens.lens (\UpdateUser' {consoleAccess} -> consoleAccess) (\s@UpdateUser' {} a -> s {consoleAccess = a} :: UpdateUser)
 
 -- | Required. The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
-updateUser_username :: Lens.Lens' UpdateUser Prelude.Text
+updateUser_username :: Lens.Lens' UpdateUser Core.Text
 updateUser_username = Lens.lens (\UpdateUser' {username} -> username) (\s@UpdateUser' {} a -> s {username = a} :: UpdateUser)
 
 -- | The unique ID that Amazon MQ generates for the broker.
-updateUser_brokerId :: Lens.Lens' UpdateUser Prelude.Text
+updateUser_brokerId :: Lens.Lens' UpdateUser Core.Text
 updateUser_brokerId = Lens.lens (\UpdateUser' {brokerId} -> brokerId) (\s@UpdateUser' {} a -> s {brokerId = a} :: UpdateUser)
 
-instance Prelude.AWSRequest UpdateUser where
-  type Rs UpdateUser = UpdateUserResponse
+instance Core.AWSRequest UpdateUser where
+  type AWSResponse UpdateUser = UpdateUserResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateUserResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateUser
+instance Core.Hashable UpdateUser
 
-instance Prelude.NFData UpdateUser
+instance Core.NFData UpdateUser
 
-instance Prelude.ToHeaders UpdateUser where
+instance Core.ToHeaders UpdateUser where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateUser where
+instance Core.ToJSON UpdateUser where
   toJSON UpdateUser' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("groups" Prelude..=) Prelude.<$> groups,
-            ("password" Prelude..=) Prelude.<$> password,
-            ("consoleAccess" Prelude..=)
-              Prelude.<$> consoleAccess
+    Core.object
+      ( Core.catMaybes
+          [ ("groups" Core..=) Core.<$> groups,
+            ("password" Core..=) Core.<$> password,
+            ("consoleAccess" Core..=) Core.<$> consoleAccess
           ]
       )
 
-instance Prelude.ToPath UpdateUser where
+instance Core.ToPath UpdateUser where
   toPath UpdateUser' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/brokers/",
-        Prelude.toBS brokerId,
+        Core.toBS brokerId,
         "/users/",
-        Prelude.toBS username
+        Core.toBS username
       ]
 
-instance Prelude.ToQuery UpdateUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateUser where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateUserResponse' smart constructor.
 data UpdateUserResponse = UpdateUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUserResponse' with all optional fields omitted.
@@ -205,13 +201,13 @@ data UpdateUserResponse = UpdateUserResponse'
 -- 'httpStatus', 'updateUserResponse_httpStatus' - The response's http status code.
 newUpdateUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateUserResponse
 newUpdateUserResponse pHttpStatus_ =
   UpdateUserResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateUserResponse_httpStatus :: Lens.Lens' UpdateUserResponse Prelude.Int
+updateUserResponse_httpStatus :: Lens.Lens' UpdateUserResponse Core.Int
 updateUserResponse_httpStatus = Lens.lens (\UpdateUserResponse' {httpStatus} -> httpStatus) (\s@UpdateUserResponse' {} a -> s {httpStatus = a} :: UpdateUserResponse)
 
-instance Prelude.NFData UpdateUserResponse
+instance Core.NFData UpdateUserResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.StorageGateway.UpdateVTLDeviceType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -54,13 +53,13 @@ import Network.AWS.StorageGateway.Types
 -- | /See:/ 'newUpdateVTLDeviceType' smart constructor.
 data UpdateVTLDeviceType = UpdateVTLDeviceType'
   { -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
-    vTLDeviceARN :: Prelude.Text,
+    vTLDeviceARN :: Core.Text,
     -- | The type of medium changer you want to select.
     --
     -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-    deviceType :: Prelude.Text
+    deviceType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateVTLDeviceType' with all optional fields omitted.
@@ -77,9 +76,9 @@ data UpdateVTLDeviceType = UpdateVTLDeviceType'
 -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
 newUpdateVTLDeviceType ::
   -- | 'vTLDeviceARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'deviceType'
-  Prelude.Text ->
+  Core.Text ->
   UpdateVTLDeviceType
 newUpdateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
   UpdateVTLDeviceType'
@@ -88,73 +87,70 @@ newUpdateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
-updateVTLDeviceType_vTLDeviceARN :: Lens.Lens' UpdateVTLDeviceType Prelude.Text
+updateVTLDeviceType_vTLDeviceARN :: Lens.Lens' UpdateVTLDeviceType Core.Text
 updateVTLDeviceType_vTLDeviceARN = Lens.lens (\UpdateVTLDeviceType' {vTLDeviceARN} -> vTLDeviceARN) (\s@UpdateVTLDeviceType' {} a -> s {vTLDeviceARN = a} :: UpdateVTLDeviceType)
 
 -- | The type of medium changer you want to select.
 --
 -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-updateVTLDeviceType_deviceType :: Lens.Lens' UpdateVTLDeviceType Prelude.Text
+updateVTLDeviceType_deviceType :: Lens.Lens' UpdateVTLDeviceType Core.Text
 updateVTLDeviceType_deviceType = Lens.lens (\UpdateVTLDeviceType' {deviceType} -> deviceType) (\s@UpdateVTLDeviceType' {} a -> s {deviceType = a} :: UpdateVTLDeviceType)
 
-instance Prelude.AWSRequest UpdateVTLDeviceType where
+instance Core.AWSRequest UpdateVTLDeviceType where
   type
-    Rs UpdateVTLDeviceType =
+    AWSResponse UpdateVTLDeviceType =
       UpdateVTLDeviceTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateVTLDeviceTypeResponse'
-            Prelude.<$> (x Prelude..?> "VTLDeviceARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "VTLDeviceARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateVTLDeviceType
+instance Core.Hashable UpdateVTLDeviceType
 
-instance Prelude.NFData UpdateVTLDeviceType
+instance Core.NFData UpdateVTLDeviceType
 
-instance Prelude.ToHeaders UpdateVTLDeviceType where
+instance Core.ToHeaders UpdateVTLDeviceType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.UpdateVTLDeviceType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.UpdateVTLDeviceType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateVTLDeviceType where
+instance Core.ToJSON UpdateVTLDeviceType where
   toJSON UpdateVTLDeviceType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("VTLDeviceARN" Prelude..= vTLDeviceARN),
-            Prelude.Just ("DeviceType" Prelude..= deviceType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("VTLDeviceARN" Core..= vTLDeviceARN),
+            Core.Just ("DeviceType" Core..= deviceType)
           ]
       )
 
-instance Prelude.ToPath UpdateVTLDeviceType where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateVTLDeviceType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateVTLDeviceType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateVTLDeviceType where
+  toQuery = Core.const Core.mempty
 
 -- | UpdateVTLDeviceTypeOutput
 --
 -- /See:/ 'newUpdateVTLDeviceTypeResponse' smart constructor.
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
   { -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
-    vTLDeviceARN :: Prelude.Maybe Prelude.Text,
+    vTLDeviceARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateVTLDeviceTypeResponse' with all optional fields omitted.
@@ -169,21 +165,21 @@ data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
 -- 'httpStatus', 'updateVTLDeviceTypeResponse_httpStatus' - The response's http status code.
 newUpdateVTLDeviceTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateVTLDeviceTypeResponse
 newUpdateVTLDeviceTypeResponse pHttpStatus_ =
   UpdateVTLDeviceTypeResponse'
     { vTLDeviceARN =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
-updateVTLDeviceTypeResponse_vTLDeviceARN :: Lens.Lens' UpdateVTLDeviceTypeResponse (Prelude.Maybe Prelude.Text)
+updateVTLDeviceTypeResponse_vTLDeviceARN :: Lens.Lens' UpdateVTLDeviceTypeResponse (Core.Maybe Core.Text)
 updateVTLDeviceTypeResponse_vTLDeviceARN = Lens.lens (\UpdateVTLDeviceTypeResponse' {vTLDeviceARN} -> vTLDeviceARN) (\s@UpdateVTLDeviceTypeResponse' {} a -> s {vTLDeviceARN = a} :: UpdateVTLDeviceTypeResponse)
 
 -- | The response's http status code.
-updateVTLDeviceTypeResponse_httpStatus :: Lens.Lens' UpdateVTLDeviceTypeResponse Prelude.Int
+updateVTLDeviceTypeResponse_httpStatus :: Lens.Lens' UpdateVTLDeviceTypeResponse Core.Int
 updateVTLDeviceTypeResponse_httpStatus = Lens.lens (\UpdateVTLDeviceTypeResponse' {httpStatus} -> httpStatus) (\s@UpdateVTLDeviceTypeResponse' {} a -> s {httpStatus = a} :: UpdateVTLDeviceTypeResponse)
 
-instance Prelude.NFData UpdateVTLDeviceTypeResponse
+instance Core.NFData UpdateVTLDeviceTypeResponse

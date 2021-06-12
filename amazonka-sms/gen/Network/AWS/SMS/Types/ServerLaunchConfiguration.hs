@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.ServerLaunchConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.S3Location
 import Network.AWS.SMS.Types.ScriptType
 import Network.AWS.SMS.Types.Server
@@ -31,34 +30,34 @@ import Network.AWS.SMS.Types.UserData
 --
 -- /See:/ 'newServerLaunchConfiguration' smart constructor.
 data ServerLaunchConfiguration = ServerLaunchConfiguration'
-  { configureScript :: Prelude.Maybe S3Location,
+  { configureScript :: Core.Maybe S3Location,
     -- | The name of the Amazon EC2 SSH key to be used for connecting to the
     -- launched server.
-    ec2KeyName :: Prelude.Maybe Prelude.Text,
+    ec2KeyName :: Core.Maybe Core.Text,
     -- | The instance type to use when launching the server.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    instanceType :: Core.Maybe Core.Text,
     -- | Location of the user-data script to be executed when launching the
     -- server.
-    userData :: Prelude.Maybe UserData,
+    userData :: Core.Maybe UserData,
     -- | The logical ID of the server in the AWS CloudFormation template.
-    logicalId :: Prelude.Maybe Prelude.Text,
+    logicalId :: Core.Maybe Core.Text,
     -- | The ID of the subnet the server should be launched into.
-    subnet :: Prelude.Maybe Prelude.Text,
+    subnet :: Core.Maybe Core.Text,
     -- | The name of the IAM instance profile.
-    iamInstanceProfileName :: Prelude.Maybe Prelude.Text,
+    iamInstanceProfileName :: Core.Maybe Core.Text,
     -- | The ID of the server with which the launch configuration is associated.
-    server :: Prelude.Maybe Server,
+    server :: Core.Maybe Server,
     -- | Indicates whether a publicly accessible IP address is created when
     -- launching the server.
-    associatePublicIpAddress :: Prelude.Maybe Prelude.Bool,
+    associatePublicIpAddress :: Core.Maybe Core.Bool,
     -- | The type of configuration script.
-    configureScriptType :: Prelude.Maybe ScriptType,
+    configureScriptType :: Core.Maybe ScriptType,
     -- | The ID of the security group that applies to the launched server.
-    securityGroup :: Prelude.Maybe Prelude.Text,
+    securityGroup :: Core.Maybe Core.Text,
     -- | The ID of the VPC into which the server should be launched.
-    vpc :: Prelude.Maybe Prelude.Text
+    vpc :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServerLaunchConfiguration' with all optional fields omitted.
@@ -99,115 +98,114 @@ newServerLaunchConfiguration ::
 newServerLaunchConfiguration =
   ServerLaunchConfiguration'
     { configureScript =
-        Prelude.Nothing,
-      ec2KeyName = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      userData = Prelude.Nothing,
-      logicalId = Prelude.Nothing,
-      subnet = Prelude.Nothing,
-      iamInstanceProfileName = Prelude.Nothing,
-      server = Prelude.Nothing,
-      associatePublicIpAddress = Prelude.Nothing,
-      configureScriptType = Prelude.Nothing,
-      securityGroup = Prelude.Nothing,
-      vpc = Prelude.Nothing
+        Core.Nothing,
+      ec2KeyName = Core.Nothing,
+      instanceType = Core.Nothing,
+      userData = Core.Nothing,
+      logicalId = Core.Nothing,
+      subnet = Core.Nothing,
+      iamInstanceProfileName = Core.Nothing,
+      server = Core.Nothing,
+      associatePublicIpAddress = Core.Nothing,
+      configureScriptType = Core.Nothing,
+      securityGroup = Core.Nothing,
+      vpc = Core.Nothing
     }
 
 -- | Undocumented member.
-serverLaunchConfiguration_configureScript :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe S3Location)
+serverLaunchConfiguration_configureScript :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe S3Location)
 serverLaunchConfiguration_configureScript = Lens.lens (\ServerLaunchConfiguration' {configureScript} -> configureScript) (\s@ServerLaunchConfiguration' {} a -> s {configureScript = a} :: ServerLaunchConfiguration)
 
 -- | The name of the Amazon EC2 SSH key to be used for connecting to the
 -- launched server.
-serverLaunchConfiguration_ec2KeyName :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
+serverLaunchConfiguration_ec2KeyName :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Core.Text)
 serverLaunchConfiguration_ec2KeyName = Lens.lens (\ServerLaunchConfiguration' {ec2KeyName} -> ec2KeyName) (\s@ServerLaunchConfiguration' {} a -> s {ec2KeyName = a} :: ServerLaunchConfiguration)
 
 -- | The instance type to use when launching the server.
-serverLaunchConfiguration_instanceType :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
+serverLaunchConfiguration_instanceType :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Core.Text)
 serverLaunchConfiguration_instanceType = Lens.lens (\ServerLaunchConfiguration' {instanceType} -> instanceType) (\s@ServerLaunchConfiguration' {} a -> s {instanceType = a} :: ServerLaunchConfiguration)
 
 -- | Location of the user-data script to be executed when launching the
 -- server.
-serverLaunchConfiguration_userData :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe UserData)
+serverLaunchConfiguration_userData :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe UserData)
 serverLaunchConfiguration_userData = Lens.lens (\ServerLaunchConfiguration' {userData} -> userData) (\s@ServerLaunchConfiguration' {} a -> s {userData = a} :: ServerLaunchConfiguration)
 
 -- | The logical ID of the server in the AWS CloudFormation template.
-serverLaunchConfiguration_logicalId :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
+serverLaunchConfiguration_logicalId :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Core.Text)
 serverLaunchConfiguration_logicalId = Lens.lens (\ServerLaunchConfiguration' {logicalId} -> logicalId) (\s@ServerLaunchConfiguration' {} a -> s {logicalId = a} :: ServerLaunchConfiguration)
 
 -- | The ID of the subnet the server should be launched into.
-serverLaunchConfiguration_subnet :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
+serverLaunchConfiguration_subnet :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Core.Text)
 serverLaunchConfiguration_subnet = Lens.lens (\ServerLaunchConfiguration' {subnet} -> subnet) (\s@ServerLaunchConfiguration' {} a -> s {subnet = a} :: ServerLaunchConfiguration)
 
 -- | The name of the IAM instance profile.
-serverLaunchConfiguration_iamInstanceProfileName :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
+serverLaunchConfiguration_iamInstanceProfileName :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Core.Text)
 serverLaunchConfiguration_iamInstanceProfileName = Lens.lens (\ServerLaunchConfiguration' {iamInstanceProfileName} -> iamInstanceProfileName) (\s@ServerLaunchConfiguration' {} a -> s {iamInstanceProfileName = a} :: ServerLaunchConfiguration)
 
 -- | The ID of the server with which the launch configuration is associated.
-serverLaunchConfiguration_server :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Server)
+serverLaunchConfiguration_server :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Server)
 serverLaunchConfiguration_server = Lens.lens (\ServerLaunchConfiguration' {server} -> server) (\s@ServerLaunchConfiguration' {} a -> s {server = a} :: ServerLaunchConfiguration)
 
 -- | Indicates whether a publicly accessible IP address is created when
 -- launching the server.
-serverLaunchConfiguration_associatePublicIpAddress :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Bool)
+serverLaunchConfiguration_associatePublicIpAddress :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Core.Bool)
 serverLaunchConfiguration_associatePublicIpAddress = Lens.lens (\ServerLaunchConfiguration' {associatePublicIpAddress} -> associatePublicIpAddress) (\s@ServerLaunchConfiguration' {} a -> s {associatePublicIpAddress = a} :: ServerLaunchConfiguration)
 
 -- | The type of configuration script.
-serverLaunchConfiguration_configureScriptType :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe ScriptType)
+serverLaunchConfiguration_configureScriptType :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe ScriptType)
 serverLaunchConfiguration_configureScriptType = Lens.lens (\ServerLaunchConfiguration' {configureScriptType} -> configureScriptType) (\s@ServerLaunchConfiguration' {} a -> s {configureScriptType = a} :: ServerLaunchConfiguration)
 
 -- | The ID of the security group that applies to the launched server.
-serverLaunchConfiguration_securityGroup :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
+serverLaunchConfiguration_securityGroup :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Core.Text)
 serverLaunchConfiguration_securityGroup = Lens.lens (\ServerLaunchConfiguration' {securityGroup} -> securityGroup) (\s@ServerLaunchConfiguration' {} a -> s {securityGroup = a} :: ServerLaunchConfiguration)
 
 -- | The ID of the VPC into which the server should be launched.
-serverLaunchConfiguration_vpc :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
+serverLaunchConfiguration_vpc :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Core.Text)
 serverLaunchConfiguration_vpc = Lens.lens (\ServerLaunchConfiguration' {vpc} -> vpc) (\s@ServerLaunchConfiguration' {} a -> s {vpc = a} :: ServerLaunchConfiguration)
 
-instance Prelude.FromJSON ServerLaunchConfiguration where
+instance Core.FromJSON ServerLaunchConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServerLaunchConfiguration"
       ( \x ->
           ServerLaunchConfiguration'
-            Prelude.<$> (x Prelude..:? "configureScript")
-            Prelude.<*> (x Prelude..:? "ec2KeyName")
-            Prelude.<*> (x Prelude..:? "instanceType")
-            Prelude.<*> (x Prelude..:? "userData")
-            Prelude.<*> (x Prelude..:? "logicalId")
-            Prelude.<*> (x Prelude..:? "subnet")
-            Prelude.<*> (x Prelude..:? "iamInstanceProfileName")
-            Prelude.<*> (x Prelude..:? "server")
-            Prelude.<*> (x Prelude..:? "associatePublicIpAddress")
-            Prelude.<*> (x Prelude..:? "configureScriptType")
-            Prelude.<*> (x Prelude..:? "securityGroup")
-            Prelude.<*> (x Prelude..:? "vpc")
+            Core.<$> (x Core..:? "configureScript")
+            Core.<*> (x Core..:? "ec2KeyName")
+            Core.<*> (x Core..:? "instanceType")
+            Core.<*> (x Core..:? "userData")
+            Core.<*> (x Core..:? "logicalId")
+            Core.<*> (x Core..:? "subnet")
+            Core.<*> (x Core..:? "iamInstanceProfileName")
+            Core.<*> (x Core..:? "server")
+            Core.<*> (x Core..:? "associatePublicIpAddress")
+            Core.<*> (x Core..:? "configureScriptType")
+            Core.<*> (x Core..:? "securityGroup")
+            Core.<*> (x Core..:? "vpc")
       )
 
-instance Prelude.Hashable ServerLaunchConfiguration
+instance Core.Hashable ServerLaunchConfiguration
 
-instance Prelude.NFData ServerLaunchConfiguration
+instance Core.NFData ServerLaunchConfiguration
 
-instance Prelude.ToJSON ServerLaunchConfiguration where
+instance Core.ToJSON ServerLaunchConfiguration where
   toJSON ServerLaunchConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("configureScript" Prelude..=)
-              Prelude.<$> configureScript,
-            ("ec2KeyName" Prelude..=) Prelude.<$> ec2KeyName,
-            ("instanceType" Prelude..=) Prelude.<$> instanceType,
-            ("userData" Prelude..=) Prelude.<$> userData,
-            ("logicalId" Prelude..=) Prelude.<$> logicalId,
-            ("subnet" Prelude..=) Prelude.<$> subnet,
-            ("iamInstanceProfileName" Prelude..=)
-              Prelude.<$> iamInstanceProfileName,
-            ("server" Prelude..=) Prelude.<$> server,
-            ("associatePublicIpAddress" Prelude..=)
-              Prelude.<$> associatePublicIpAddress,
-            ("configureScriptType" Prelude..=)
-              Prelude.<$> configureScriptType,
-            ("securityGroup" Prelude..=)
-              Prelude.<$> securityGroup,
-            ("vpc" Prelude..=) Prelude.<$> vpc
+    Core.object
+      ( Core.catMaybes
+          [ ("configureScript" Core..=)
+              Core.<$> configureScript,
+            ("ec2KeyName" Core..=) Core.<$> ec2KeyName,
+            ("instanceType" Core..=) Core.<$> instanceType,
+            ("userData" Core..=) Core.<$> userData,
+            ("logicalId" Core..=) Core.<$> logicalId,
+            ("subnet" Core..=) Core.<$> subnet,
+            ("iamInstanceProfileName" Core..=)
+              Core.<$> iamInstanceProfileName,
+            ("server" Core..=) Core.<$> server,
+            ("associatePublicIpAddress" Core..=)
+              Core.<$> associatePublicIpAddress,
+            ("configureScriptType" Core..=)
+              Core.<$> configureScriptType,
+            ("securityGroup" Core..=) Core.<$> securityGroup,
+            ("vpc" Core..=) Core.<$> vpc
           ]
       )

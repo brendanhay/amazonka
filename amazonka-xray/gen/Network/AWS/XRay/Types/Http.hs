@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.Http where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an HTTP request.
 --
 -- /See:/ 'newHttp' smart constructor.
 data Http = Http'
   { -- | The request method.
-    httpMethod :: Prelude.Maybe Prelude.Text,
+    httpMethod :: Core.Maybe Core.Text,
     -- | The request URL.
-    httpURL :: Prelude.Maybe Prelude.Text,
+    httpURL :: Core.Maybe Core.Text,
     -- | The request\'s user agent string.
-    userAgent :: Prelude.Maybe Prelude.Text,
+    userAgent :: Core.Maybe Core.Text,
     -- | The response status.
-    httpStatus :: Prelude.Maybe Prelude.Int,
+    httpStatus :: Core.Maybe Core.Int,
     -- | The IP address of the requestor.
-    clientIp :: Prelude.Maybe Prelude.Text
+    clientIp :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Http' with all optional fields omitted.
@@ -61,46 +60,46 @@ newHttp ::
   Http
 newHttp =
   Http'
-    { httpMethod = Prelude.Nothing,
-      httpURL = Prelude.Nothing,
-      userAgent = Prelude.Nothing,
-      httpStatus = Prelude.Nothing,
-      clientIp = Prelude.Nothing
+    { httpMethod = Core.Nothing,
+      httpURL = Core.Nothing,
+      userAgent = Core.Nothing,
+      httpStatus = Core.Nothing,
+      clientIp = Core.Nothing
     }
 
 -- | The request method.
-http_httpMethod :: Lens.Lens' Http (Prelude.Maybe Prelude.Text)
+http_httpMethod :: Lens.Lens' Http (Core.Maybe Core.Text)
 http_httpMethod = Lens.lens (\Http' {httpMethod} -> httpMethod) (\s@Http' {} a -> s {httpMethod = a} :: Http)
 
 -- | The request URL.
-http_httpURL :: Lens.Lens' Http (Prelude.Maybe Prelude.Text)
+http_httpURL :: Lens.Lens' Http (Core.Maybe Core.Text)
 http_httpURL = Lens.lens (\Http' {httpURL} -> httpURL) (\s@Http' {} a -> s {httpURL = a} :: Http)
 
 -- | The request\'s user agent string.
-http_userAgent :: Lens.Lens' Http (Prelude.Maybe Prelude.Text)
+http_userAgent :: Lens.Lens' Http (Core.Maybe Core.Text)
 http_userAgent = Lens.lens (\Http' {userAgent} -> userAgent) (\s@Http' {} a -> s {userAgent = a} :: Http)
 
 -- | The response status.
-http_httpStatus :: Lens.Lens' Http (Prelude.Maybe Prelude.Int)
+http_httpStatus :: Lens.Lens' Http (Core.Maybe Core.Int)
 http_httpStatus = Lens.lens (\Http' {httpStatus} -> httpStatus) (\s@Http' {} a -> s {httpStatus = a} :: Http)
 
 -- | The IP address of the requestor.
-http_clientIp :: Lens.Lens' Http (Prelude.Maybe Prelude.Text)
+http_clientIp :: Lens.Lens' Http (Core.Maybe Core.Text)
 http_clientIp = Lens.lens (\Http' {clientIp} -> clientIp) (\s@Http' {} a -> s {clientIp = a} :: Http)
 
-instance Prelude.FromJSON Http where
+instance Core.FromJSON Http where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Http"
       ( \x ->
           Http'
-            Prelude.<$> (x Prelude..:? "HttpMethod")
-            Prelude.<*> (x Prelude..:? "HttpURL")
-            Prelude.<*> (x Prelude..:? "UserAgent")
-            Prelude.<*> (x Prelude..:? "HttpStatus")
-            Prelude.<*> (x Prelude..:? "ClientIp")
+            Core.<$> (x Core..:? "HttpMethod")
+            Core.<*> (x Core..:? "HttpURL")
+            Core.<*> (x Core..:? "UserAgent")
+            Core.<*> (x Core..:? "HttpStatus")
+            Core.<*> (x Core..:? "ClientIp")
       )
 
-instance Prelude.Hashable Http
+instance Core.Hashable Http
 
-instance Prelude.NFData Http
+instance Core.NFData Http

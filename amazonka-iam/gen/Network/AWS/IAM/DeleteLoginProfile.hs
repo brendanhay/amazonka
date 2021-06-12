@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.IAM.DeleteLoginProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,9 +62,9 @@ data DeleteLoginProfile = DeleteLoginProfile'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Text
+    userName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLoginProfile' with all optional fields omitted.
@@ -83,7 +82,7 @@ data DeleteLoginProfile = DeleteLoginProfile'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newDeleteLoginProfile ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLoginProfile
 newDeleteLoginProfile pUserName_ =
   DeleteLoginProfile' {userName = pUserName_}
@@ -94,42 +93,41 @@ newDeleteLoginProfile pUserName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteLoginProfile_userName :: Lens.Lens' DeleteLoginProfile Prelude.Text
+deleteLoginProfile_userName :: Lens.Lens' DeleteLoginProfile Core.Text
 deleteLoginProfile_userName = Lens.lens (\DeleteLoginProfile' {userName} -> userName) (\s@DeleteLoginProfile' {} a -> s {userName = a} :: DeleteLoginProfile)
 
-instance Prelude.AWSRequest DeleteLoginProfile where
+instance Core.AWSRequest DeleteLoginProfile where
   type
-    Rs DeleteLoginProfile =
+    AWSResponse DeleteLoginProfile =
       DeleteLoginProfileResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteLoginProfileResponse'
 
-instance Prelude.Hashable DeleteLoginProfile
+instance Core.Hashable DeleteLoginProfile
 
-instance Prelude.NFData DeleteLoginProfile
+instance Core.NFData DeleteLoginProfile
 
-instance Prelude.ToHeaders DeleteLoginProfile where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteLoginProfile where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteLoginProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLoginProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLoginProfile where
+instance Core.ToQuery DeleteLoginProfile where
   toQuery DeleteLoginProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteLoginProfile" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName
+          Core.=: ("DeleteLoginProfile" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName
       ]
 
 -- | /See:/ 'newDeleteLoginProfileResponse' smart constructor.
 data DeleteLoginProfileResponse = DeleteLoginProfileResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLoginProfileResponse' with all optional fields omitted.
@@ -140,4 +138,4 @@ newDeleteLoginProfileResponse ::
 newDeleteLoginProfileResponse =
   DeleteLoginProfileResponse'
 
-instance Prelude.NFData DeleteLoginProfileResponse
+instance Core.NFData DeleteLoginProfileResponse

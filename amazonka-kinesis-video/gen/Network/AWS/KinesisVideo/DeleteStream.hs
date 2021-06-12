@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.KinesisVideo.DeleteStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,11 +66,11 @@ data DeleteStream = DeleteStream'
     --
     -- If not specified, only the @CreationTime@ is checked before deleting the
     -- stream.
-    currentVersion :: Prelude.Maybe Prelude.Text,
+    currentVersion :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the stream that you want to delete.
-    streamARN :: Prelude.Text
+    streamARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStream' with all optional fields omitted.
@@ -92,11 +91,11 @@ data DeleteStream = DeleteStream'
 -- 'streamARN', 'deleteStream_streamARN' - The Amazon Resource Name (ARN) of the stream that you want to delete.
 newDeleteStream ::
   -- | 'streamARN'
-  Prelude.Text ->
+  Core.Text ->
   DeleteStream
 newDeleteStream pStreamARN_ =
   DeleteStream'
-    { currentVersion = Prelude.Nothing,
+    { currentVersion = Core.Nothing,
       streamARN = pStreamARN_
     }
 
@@ -107,52 +106,51 @@ newDeleteStream pStreamARN_ =
 --
 -- If not specified, only the @CreationTime@ is checked before deleting the
 -- stream.
-deleteStream_currentVersion :: Lens.Lens' DeleteStream (Prelude.Maybe Prelude.Text)
+deleteStream_currentVersion :: Lens.Lens' DeleteStream (Core.Maybe Core.Text)
 deleteStream_currentVersion = Lens.lens (\DeleteStream' {currentVersion} -> currentVersion) (\s@DeleteStream' {} a -> s {currentVersion = a} :: DeleteStream)
 
 -- | The Amazon Resource Name (ARN) of the stream that you want to delete.
-deleteStream_streamARN :: Lens.Lens' DeleteStream Prelude.Text
+deleteStream_streamARN :: Lens.Lens' DeleteStream Core.Text
 deleteStream_streamARN = Lens.lens (\DeleteStream' {streamARN} -> streamARN) (\s@DeleteStream' {} a -> s {streamARN = a} :: DeleteStream)
 
-instance Prelude.AWSRequest DeleteStream where
-  type Rs DeleteStream = DeleteStreamResponse
+instance Core.AWSRequest DeleteStream where
+  type AWSResponse DeleteStream = DeleteStreamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteStreamResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteStream
+instance Core.Hashable DeleteStream
 
-instance Prelude.NFData DeleteStream
+instance Core.NFData DeleteStream
 
-instance Prelude.ToHeaders DeleteStream where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteStream where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON DeleteStream where
+instance Core.ToJSON DeleteStream where
   toJSON DeleteStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CurrentVersion" Prelude..=)
-              Prelude.<$> currentVersion,
-            Prelude.Just ("StreamARN" Prelude..= streamARN)
+    Core.object
+      ( Core.catMaybes
+          [ ("CurrentVersion" Core..=) Core.<$> currentVersion,
+            Core.Just ("StreamARN" Core..= streamARN)
           ]
       )
 
-instance Prelude.ToPath DeleteStream where
-  toPath = Prelude.const "/deleteStream"
+instance Core.ToPath DeleteStream where
+  toPath = Core.const "/deleteStream"
 
-instance Prelude.ToQuery DeleteStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteStreamResponse' smart constructor.
 data DeleteStreamResponse = DeleteStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStreamResponse' with all optional fields omitted.
@@ -165,13 +163,13 @@ data DeleteStreamResponse = DeleteStreamResponse'
 -- 'httpStatus', 'deleteStreamResponse_httpStatus' - The response's http status code.
 newDeleteStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteStreamResponse
 newDeleteStreamResponse pHttpStatus_ =
   DeleteStreamResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteStreamResponse_httpStatus :: Lens.Lens' DeleteStreamResponse Prelude.Int
+deleteStreamResponse_httpStatus :: Lens.Lens' DeleteStreamResponse Core.Int
 deleteStreamResponse_httpStatus = Lens.lens (\DeleteStreamResponse' {httpStatus} -> httpStatus) (\s@DeleteStreamResponse' {} a -> s {httpStatus = a} :: DeleteStreamResponse)
 
-instance Prelude.NFData DeleteStreamResponse
+instance Core.NFData DeleteStreamResponse

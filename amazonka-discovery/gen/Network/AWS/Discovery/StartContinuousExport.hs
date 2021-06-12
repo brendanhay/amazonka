@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Discovery.StartContinuousExport
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data StartContinuousExport = StartContinuousExport'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartContinuousExport' with all optional fields omitted.
@@ -62,75 +61,72 @@ newStartContinuousExport ::
   StartContinuousExport
 newStartContinuousExport = StartContinuousExport'
 
-instance Prelude.AWSRequest StartContinuousExport where
+instance Core.AWSRequest StartContinuousExport where
   type
-    Rs StartContinuousExport =
+    AWSResponse StartContinuousExport =
       StartContinuousExportResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartContinuousExportResponse'
-            Prelude.<$> (x Prelude..?> "s3Bucket")
-            Prelude.<*> (x Prelude..?> "dataSource")
-            Prelude.<*> (x Prelude..?> "startTime")
-            Prelude.<*> ( x Prelude..?> "schemaStorageConfig"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "exportId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "s3Bucket")
+            Core.<*> (x Core..?> "dataSource")
+            Core.<*> (x Core..?> "startTime")
+            Core.<*> ( x Core..?> "schemaStorageConfig"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "exportId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartContinuousExport
+instance Core.Hashable StartContinuousExport
 
-instance Prelude.NFData StartContinuousExport
+instance Core.NFData StartContinuousExport
 
-instance Prelude.ToHeaders StartContinuousExport where
+instance Core.ToHeaders StartContinuousExport where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSPoseidonService_V2015_11_01.StartContinuousExport" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSPoseidonService_V2015_11_01.StartContinuousExport" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartContinuousExport where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON StartContinuousExport where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath StartContinuousExport where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartContinuousExport where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartContinuousExport where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartContinuousExport where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartContinuousExportResponse' smart constructor.
 data StartContinuousExportResponse = StartContinuousExportResponse'
   { -- | The name of the s3 bucket where the export data parquet files are
     -- stored.
-    s3Bucket :: Prelude.Maybe Prelude.Text,
+    s3Bucket :: Core.Maybe Core.Text,
     -- | The type of data collector used to gather this data (currently only
     -- offered for AGENT).
-    dataSource :: Prelude.Maybe DataSource,
+    dataSource :: Core.Maybe DataSource,
     -- | The timestamp representing when the continuous export was started.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | A dictionary which describes how the data is stored.
     --
     -- -   @databaseName@ - the name of the Glue database used to store the
     --     schema.
-    schemaStorageConfig :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    schemaStorageConfig :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The unique ID assigned to this export.
-    exportId :: Prelude.Maybe Prelude.Text,
+    exportId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartContinuousExportResponse' with all optional fields omitted.
@@ -158,46 +154,46 @@ data StartContinuousExportResponse = StartContinuousExportResponse'
 -- 'httpStatus', 'startContinuousExportResponse_httpStatus' - The response's http status code.
 newStartContinuousExportResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartContinuousExportResponse
 newStartContinuousExportResponse pHttpStatus_ =
   StartContinuousExportResponse'
     { s3Bucket =
-        Prelude.Nothing,
-      dataSource = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      schemaStorageConfig = Prelude.Nothing,
-      exportId = Prelude.Nothing,
+        Core.Nothing,
+      dataSource = Core.Nothing,
+      startTime = Core.Nothing,
+      schemaStorageConfig = Core.Nothing,
+      exportId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the s3 bucket where the export data parquet files are
 -- stored.
-startContinuousExportResponse_s3Bucket :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe Prelude.Text)
+startContinuousExportResponse_s3Bucket :: Lens.Lens' StartContinuousExportResponse (Core.Maybe Core.Text)
 startContinuousExportResponse_s3Bucket = Lens.lens (\StartContinuousExportResponse' {s3Bucket} -> s3Bucket) (\s@StartContinuousExportResponse' {} a -> s {s3Bucket = a} :: StartContinuousExportResponse)
 
 -- | The type of data collector used to gather this data (currently only
 -- offered for AGENT).
-startContinuousExportResponse_dataSource :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe DataSource)
+startContinuousExportResponse_dataSource :: Lens.Lens' StartContinuousExportResponse (Core.Maybe DataSource)
 startContinuousExportResponse_dataSource = Lens.lens (\StartContinuousExportResponse' {dataSource} -> dataSource) (\s@StartContinuousExportResponse' {} a -> s {dataSource = a} :: StartContinuousExportResponse)
 
 -- | The timestamp representing when the continuous export was started.
-startContinuousExportResponse_startTime :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe Prelude.UTCTime)
-startContinuousExportResponse_startTime = Lens.lens (\StartContinuousExportResponse' {startTime} -> startTime) (\s@StartContinuousExportResponse' {} a -> s {startTime = a} :: StartContinuousExportResponse) Prelude.. Lens.mapping Prelude._Time
+startContinuousExportResponse_startTime :: Lens.Lens' StartContinuousExportResponse (Core.Maybe Core.UTCTime)
+startContinuousExportResponse_startTime = Lens.lens (\StartContinuousExportResponse' {startTime} -> startTime) (\s@StartContinuousExportResponse' {} a -> s {startTime = a} :: StartContinuousExportResponse) Core.. Lens.mapping Core._Time
 
 -- | A dictionary which describes how the data is stored.
 --
 -- -   @databaseName@ - the name of the Glue database used to store the
 --     schema.
-startContinuousExportResponse_schemaStorageConfig :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startContinuousExportResponse_schemaStorageConfig = Lens.lens (\StartContinuousExportResponse' {schemaStorageConfig} -> schemaStorageConfig) (\s@StartContinuousExportResponse' {} a -> s {schemaStorageConfig = a} :: StartContinuousExportResponse) Prelude.. Lens.mapping Prelude._Coerce
+startContinuousExportResponse_schemaStorageConfig :: Lens.Lens' StartContinuousExportResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+startContinuousExportResponse_schemaStorageConfig = Lens.lens (\StartContinuousExportResponse' {schemaStorageConfig} -> schemaStorageConfig) (\s@StartContinuousExportResponse' {} a -> s {schemaStorageConfig = a} :: StartContinuousExportResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The unique ID assigned to this export.
-startContinuousExportResponse_exportId :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe Prelude.Text)
+startContinuousExportResponse_exportId :: Lens.Lens' StartContinuousExportResponse (Core.Maybe Core.Text)
 startContinuousExportResponse_exportId = Lens.lens (\StartContinuousExportResponse' {exportId} -> exportId) (\s@StartContinuousExportResponse' {} a -> s {exportId = a} :: StartContinuousExportResponse)
 
 -- | The response's http status code.
-startContinuousExportResponse_httpStatus :: Lens.Lens' StartContinuousExportResponse Prelude.Int
+startContinuousExportResponse_httpStatus :: Lens.Lens' StartContinuousExportResponse Core.Int
 startContinuousExportResponse_httpStatus = Lens.lens (\StartContinuousExportResponse' {httpStatus} -> httpStatus) (\s@StartContinuousExportResponse' {} a -> s {httpStatus = a} :: StartContinuousExportResponse)
 
-instance Prelude.NFData StartContinuousExportResponse
+instance Core.NFData StartContinuousExportResponse

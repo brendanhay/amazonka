@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.IAM.DeletePolicyVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,7 +59,7 @@ data DeletePolicyVersion = DeletePolicyVersion'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Prelude.Text,
+    policyArn :: Core.Text,
     -- | The policy version to delete.
     --
     -- This parameter allows (through its
@@ -72,9 +71,9 @@ data DeletePolicyVersion = DeletePolicyVersion'
     -- For more information about managed policy versions, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
     -- in the /IAM User Guide/.
-    versionId :: Prelude.Text
+    versionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicyVersion' with all optional fields omitted.
@@ -104,9 +103,9 @@ data DeletePolicyVersion = DeletePolicyVersion'
 -- in the /IAM User Guide/.
 newDeletePolicyVersion ::
   -- | 'policyArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'versionId'
-  Prelude.Text ->
+  Core.Text ->
   DeletePolicyVersion
 newDeletePolicyVersion pPolicyArn_ pVersionId_ =
   DeletePolicyVersion'
@@ -120,7 +119,7 @@ newDeletePolicyVersion pPolicyArn_ pVersionId_ =
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-deletePolicyVersion_policyArn :: Lens.Lens' DeletePolicyVersion Prelude.Text
+deletePolicyVersion_policyArn :: Lens.Lens' DeletePolicyVersion Core.Text
 deletePolicyVersion_policyArn = Lens.lens (\DeletePolicyVersion' {policyArn} -> policyArn) (\s@DeletePolicyVersion' {} a -> s {policyArn = a} :: DeletePolicyVersion)
 
 -- | The policy version to delete.
@@ -134,43 +133,42 @@ deletePolicyVersion_policyArn = Lens.lens (\DeletePolicyVersion' {policyArn} -> 
 -- For more information about managed policy versions, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
 -- in the /IAM User Guide/.
-deletePolicyVersion_versionId :: Lens.Lens' DeletePolicyVersion Prelude.Text
+deletePolicyVersion_versionId :: Lens.Lens' DeletePolicyVersion Core.Text
 deletePolicyVersion_versionId = Lens.lens (\DeletePolicyVersion' {versionId} -> versionId) (\s@DeletePolicyVersion' {} a -> s {versionId = a} :: DeletePolicyVersion)
 
-instance Prelude.AWSRequest DeletePolicyVersion where
+instance Core.AWSRequest DeletePolicyVersion where
   type
-    Rs DeletePolicyVersion =
+    AWSResponse DeletePolicyVersion =
       DeletePolicyVersionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeletePolicyVersionResponse'
 
-instance Prelude.Hashable DeletePolicyVersion
+instance Core.Hashable DeletePolicyVersion
 
-instance Prelude.NFData DeletePolicyVersion
+instance Core.NFData DeletePolicyVersion
 
-instance Prelude.ToHeaders DeletePolicyVersion where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeletePolicyVersion where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeletePolicyVersion where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeletePolicyVersion where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeletePolicyVersion where
+instance Core.ToQuery DeletePolicyVersion where
   toQuery DeletePolicyVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeletePolicyVersion" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "PolicyArn" Prelude.=: policyArn,
-        "VersionId" Prelude.=: versionId
+          Core.=: ("DeletePolicyVersion" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "PolicyArn" Core.=: policyArn,
+        "VersionId" Core.=: versionId
       ]
 
 -- | /See:/ 'newDeletePolicyVersionResponse' smart constructor.
 data DeletePolicyVersionResponse = DeletePolicyVersionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicyVersionResponse' with all optional fields omitted.
@@ -181,4 +179,4 @@ newDeletePolicyVersionResponse ::
 newDeletePolicyVersionResponse =
   DeletePolicyVersionResponse'
 
-instance Prelude.NFData DeletePolicyVersionResponse
+instance Core.NFData DeletePolicyVersionResponse

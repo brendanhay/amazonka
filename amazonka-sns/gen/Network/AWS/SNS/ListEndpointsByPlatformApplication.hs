@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,8 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -69,12 +67,12 @@ data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication'
   { -- | NextToken string is used when calling ListEndpointsByPlatformApplication
     -- action to retrieve additional records that are available after the first
     -- page results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput
     -- action.
-    platformApplicationArn :: Prelude.Text
+    platformApplicationArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListEndpointsByPlatformApplication' with all optional fields omitted.
@@ -92,13 +90,13 @@ data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication'
 -- action.
 newListEndpointsByPlatformApplication ::
   -- | 'platformApplicationArn'
-  Prelude.Text ->
+  Core.Text ->
   ListEndpointsByPlatformApplication
 newListEndpointsByPlatformApplication
   pPlatformApplicationArn_ =
     ListEndpointsByPlatformApplication'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         platformApplicationArn =
           pPlatformApplicationArn_
       }
@@ -106,45 +104,45 @@ newListEndpointsByPlatformApplication
 -- | NextToken string is used when calling ListEndpointsByPlatformApplication
 -- action to retrieve additional records that are available after the first
 -- page results.
-listEndpointsByPlatformApplication_nextToken :: Lens.Lens' ListEndpointsByPlatformApplication (Prelude.Maybe Prelude.Text)
+listEndpointsByPlatformApplication_nextToken :: Lens.Lens' ListEndpointsByPlatformApplication (Core.Maybe Core.Text)
 listEndpointsByPlatformApplication_nextToken = Lens.lens (\ListEndpointsByPlatformApplication' {nextToken} -> nextToken) (\s@ListEndpointsByPlatformApplication' {} a -> s {nextToken = a} :: ListEndpointsByPlatformApplication)
 
 -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput
 -- action.
-listEndpointsByPlatformApplication_platformApplicationArn :: Lens.Lens' ListEndpointsByPlatformApplication Prelude.Text
+listEndpointsByPlatformApplication_platformApplicationArn :: Lens.Lens' ListEndpointsByPlatformApplication Core.Text
 listEndpointsByPlatformApplication_platformApplicationArn = Lens.lens (\ListEndpointsByPlatformApplication' {platformApplicationArn} -> platformApplicationArn) (\s@ListEndpointsByPlatformApplication' {} a -> s {platformApplicationArn = a} :: ListEndpointsByPlatformApplication)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     ListEndpointsByPlatformApplication
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listEndpointsByPlatformApplicationResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listEndpointsByPlatformApplicationResponse_endpoints
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listEndpointsByPlatformApplication_nextToken
           Lens..~ rs
           Lens.^? listEndpointsByPlatformApplicationResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListEndpointsByPlatformApplication
   where
   type
-    Rs ListEndpointsByPlatformApplication =
+    AWSResponse ListEndpointsByPlatformApplication =
       ListEndpointsByPlatformApplicationResponse
   request = Request.postQuery defaultService
   response =
@@ -152,48 +150,47 @@ instance
       "ListEndpointsByPlatformApplicationResult"
       ( \s h x ->
           ListEndpointsByPlatformApplicationResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-              Prelude.<*> ( x Prelude..@? "Endpoints" Prelude..!@ Prelude.mempty
-                              Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "Endpoints" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListEndpointsByPlatformApplication
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListEndpointsByPlatformApplication
 
 instance
-  Prelude.ToHeaders
-    ListEndpointsByPlatformApplication
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     ListEndpointsByPlatformApplication
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    ListEndpointsByPlatformApplication
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     ListEndpointsByPlatformApplication
   where
   toQuery ListEndpointsByPlatformApplication' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ListEndpointsByPlatformApplication" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
+          Core.=: ( "ListEndpointsByPlatformApplication" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
         "PlatformApplicationArn"
-          Prelude.=: platformApplicationArn
+          Core.=: platformApplicationArn
       ]
 
 -- | Response for ListEndpointsByPlatformApplication action.
@@ -203,13 +200,13 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
   { -- | NextToken string is returned when calling
     -- ListEndpointsByPlatformApplication action if additional records are
     -- available after the first page results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-    endpoints :: Prelude.Maybe [Endpoint],
+    endpoints :: Core.Maybe [Endpoint],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListEndpointsByPlatformApplicationResponse' with all optional fields omitted.
@@ -228,31 +225,31 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
 -- 'httpStatus', 'listEndpointsByPlatformApplicationResponse_httpStatus' - The response's http status code.
 newListEndpointsByPlatformApplicationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListEndpointsByPlatformApplicationResponse
 newListEndpointsByPlatformApplicationResponse
   pHttpStatus_ =
     ListEndpointsByPlatformApplicationResponse'
       { nextToken =
-          Prelude.Nothing,
-        endpoints = Prelude.Nothing,
+          Core.Nothing,
+        endpoints = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | NextToken string is returned when calling
 -- ListEndpointsByPlatformApplication action if additional records are
 -- available after the first page results.
-listEndpointsByPlatformApplicationResponse_nextToken :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Prelude.Maybe Prelude.Text)
+listEndpointsByPlatformApplicationResponse_nextToken :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Core.Maybe Core.Text)
 listEndpointsByPlatformApplicationResponse_nextToken = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {nextToken} -> nextToken) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {nextToken = a} :: ListEndpointsByPlatformApplicationResponse)
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-listEndpointsByPlatformApplicationResponse_endpoints :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Prelude.Maybe [Endpoint])
-listEndpointsByPlatformApplicationResponse_endpoints = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {endpoints} -> endpoints) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {endpoints = a} :: ListEndpointsByPlatformApplicationResponse) Prelude.. Lens.mapping Prelude._Coerce
+listEndpointsByPlatformApplicationResponse_endpoints :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Core.Maybe [Endpoint])
+listEndpointsByPlatformApplicationResponse_endpoints = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {endpoints} -> endpoints) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {endpoints = a} :: ListEndpointsByPlatformApplicationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listEndpointsByPlatformApplicationResponse_httpStatus :: Lens.Lens' ListEndpointsByPlatformApplicationResponse Prelude.Int
+listEndpointsByPlatformApplicationResponse_httpStatus :: Lens.Lens' ListEndpointsByPlatformApplicationResponse Core.Int
 listEndpointsByPlatformApplicationResponse_httpStatus = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {httpStatus} -> httpStatus) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {httpStatus = a} :: ListEndpointsByPlatformApplicationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListEndpointsByPlatformApplicationResponse

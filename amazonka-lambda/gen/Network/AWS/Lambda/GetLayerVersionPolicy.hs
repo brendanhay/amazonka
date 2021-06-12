@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,20 +43,20 @@ module Network.AWS.Lambda.GetLayerVersionPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetLayerVersionPolicy' smart constructor.
 data GetLayerVersionPolicy = GetLayerVersionPolicy'
   { -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Prelude.Text,
+    layerName :: Core.Text,
     -- | The version number.
-    versionNumber :: Prelude.Integer
+    versionNumber :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLayerVersionPolicy' with all optional fields omitted.
@@ -72,9 +71,9 @@ data GetLayerVersionPolicy = GetLayerVersionPolicy'
 -- 'versionNumber', 'getLayerVersionPolicy_versionNumber' - The version number.
 newGetLayerVersionPolicy ::
   -- | 'layerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'versionNumber'
-  Prelude.Integer ->
+  Core.Integer ->
   GetLayerVersionPolicy
 newGetLayerVersionPolicy pLayerName_ pVersionNumber_ =
   GetLayerVersionPolicy'
@@ -83,57 +82,57 @@ newGetLayerVersionPolicy pLayerName_ pVersionNumber_ =
     }
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
-getLayerVersionPolicy_layerName :: Lens.Lens' GetLayerVersionPolicy Prelude.Text
+getLayerVersionPolicy_layerName :: Lens.Lens' GetLayerVersionPolicy Core.Text
 getLayerVersionPolicy_layerName = Lens.lens (\GetLayerVersionPolicy' {layerName} -> layerName) (\s@GetLayerVersionPolicy' {} a -> s {layerName = a} :: GetLayerVersionPolicy)
 
 -- | The version number.
-getLayerVersionPolicy_versionNumber :: Lens.Lens' GetLayerVersionPolicy Prelude.Integer
+getLayerVersionPolicy_versionNumber :: Lens.Lens' GetLayerVersionPolicy Core.Integer
 getLayerVersionPolicy_versionNumber = Lens.lens (\GetLayerVersionPolicy' {versionNumber} -> versionNumber) (\s@GetLayerVersionPolicy' {} a -> s {versionNumber = a} :: GetLayerVersionPolicy)
 
-instance Prelude.AWSRequest GetLayerVersionPolicy where
+instance Core.AWSRequest GetLayerVersionPolicy where
   type
-    Rs GetLayerVersionPolicy =
+    AWSResponse GetLayerVersionPolicy =
       GetLayerVersionPolicyResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetLayerVersionPolicyResponse'
-            Prelude.<$> (x Prelude..?> "RevisionId")
-            Prelude.<*> (x Prelude..?> "Policy")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "RevisionId")
+            Core.<*> (x Core..?> "Policy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetLayerVersionPolicy
+instance Core.Hashable GetLayerVersionPolicy
 
-instance Prelude.NFData GetLayerVersionPolicy
+instance Core.NFData GetLayerVersionPolicy
 
-instance Prelude.ToHeaders GetLayerVersionPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetLayerVersionPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetLayerVersionPolicy where
+instance Core.ToPath GetLayerVersionPolicy where
   toPath GetLayerVersionPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2018-10-31/layers/",
-        Prelude.toBS layerName,
+        Core.toBS layerName,
         "/versions/",
-        Prelude.toBS versionNumber,
+        Core.toBS versionNumber,
         "/policy"
       ]
 
-instance Prelude.ToQuery GetLayerVersionPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetLayerVersionPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetLayerVersionPolicyResponse' smart constructor.
 data GetLayerVersionPolicyResponse = GetLayerVersionPolicyResponse'
   { -- | A unique identifier for the current revision of the policy.
-    revisionId :: Prelude.Maybe Prelude.Text,
+    revisionId :: Core.Maybe Core.Text,
     -- | The policy document.
-    policy :: Prelude.Maybe Prelude.Text,
+    policy :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLayerVersionPolicyResponse' with all optional fields omitted.
@@ -150,26 +149,26 @@ data GetLayerVersionPolicyResponse = GetLayerVersionPolicyResponse'
 -- 'httpStatus', 'getLayerVersionPolicyResponse_httpStatus' - The response's http status code.
 newGetLayerVersionPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetLayerVersionPolicyResponse
 newGetLayerVersionPolicyResponse pHttpStatus_ =
   GetLayerVersionPolicyResponse'
     { revisionId =
-        Prelude.Nothing,
-      policy = Prelude.Nothing,
+        Core.Nothing,
+      policy = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier for the current revision of the policy.
-getLayerVersionPolicyResponse_revisionId :: Lens.Lens' GetLayerVersionPolicyResponse (Prelude.Maybe Prelude.Text)
+getLayerVersionPolicyResponse_revisionId :: Lens.Lens' GetLayerVersionPolicyResponse (Core.Maybe Core.Text)
 getLayerVersionPolicyResponse_revisionId = Lens.lens (\GetLayerVersionPolicyResponse' {revisionId} -> revisionId) (\s@GetLayerVersionPolicyResponse' {} a -> s {revisionId = a} :: GetLayerVersionPolicyResponse)
 
 -- | The policy document.
-getLayerVersionPolicyResponse_policy :: Lens.Lens' GetLayerVersionPolicyResponse (Prelude.Maybe Prelude.Text)
+getLayerVersionPolicyResponse_policy :: Lens.Lens' GetLayerVersionPolicyResponse (Core.Maybe Core.Text)
 getLayerVersionPolicyResponse_policy = Lens.lens (\GetLayerVersionPolicyResponse' {policy} -> policy) (\s@GetLayerVersionPolicyResponse' {} a -> s {policy = a} :: GetLayerVersionPolicyResponse)
 
 -- | The response's http status code.
-getLayerVersionPolicyResponse_httpStatus :: Lens.Lens' GetLayerVersionPolicyResponse Prelude.Int
+getLayerVersionPolicyResponse_httpStatus :: Lens.Lens' GetLayerVersionPolicyResponse Core.Int
 getLayerVersionPolicyResponse_httpStatus = Lens.lens (\GetLayerVersionPolicyResponse' {httpStatus} -> httpStatus) (\s@GetLayerVersionPolicyResponse' {} a -> s {httpStatus = a} :: GetLayerVersionPolicyResponse)
 
-instance Prelude.NFData GetLayerVersionPolicyResponse
+instance Core.NFData GetLayerVersionPolicyResponse

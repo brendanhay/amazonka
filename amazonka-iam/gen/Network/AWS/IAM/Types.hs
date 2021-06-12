@@ -566,6 +566,7 @@ module Network.AWS.IAM.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.AccessAdvisorUsageGranularityType
 import Network.AWS.IAM.Types.AccessDetail
 import Network.AWS.IAM.Types.AccessKeyInfo
@@ -640,319 +641,316 @@ import Network.AWS.IAM.Types.User
 import Network.AWS.IAM.Types.UserDetail
 import Network.AWS.IAM.Types.VirtualMFADevice
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2010-05-08@ of the Amazon Identity and Access Management SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "IAM",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "iam",
-      Prelude._svcSigningName = "iam",
-      Prelude._svcVersion = "2010-05-08",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseXMLError "IAM",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "IAM",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "iam",
+      Core._serviceSigningName = "iam",
+      Core._serviceVersion = "2010-05-08",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseXMLError "IAM",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The request was rejected because the policy document was malformed. The
 -- error message describes the specific error.
-_MalformedPolicyDocumentException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MalformedPolicyDocumentException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MalformedPolicyDocument"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request failed because a provided policy could not be successfully
 -- evaluated. An additional detailed message indicates the source of the
 -- failure.
-_PolicyEvaluationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PolicyEvaluationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PolicyEvaluationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PolicyEvaluation"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | The request was rejected because the public key encoding format is
 -- unsupported or unrecognized.
-_UnrecognizedPublicKeyEncodingException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnrecognizedPublicKeyEncodingException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnrecognizedPublicKeyEncodingException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnrecognizedPublicKeyEncoding"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified service does not support service-specific credentials.
-_ServiceNotSupportedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceNotSupportedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceNotSupportedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NotSupportedService"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The request failed because the maximum number of concurrent requests for
 -- this account are already running.
-_ReportGenerationLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReportGenerationLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReportGenerationLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReportGenerationLimitExceeded"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The request was rejected because the SSH public key is already
 -- associated with the specified IAM user.
-_DuplicateSSHPublicKeyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateSSHPublicKeyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateSSHPublicKeyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateSSHPublicKey"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request was rejected because the public key certificate and the
 -- private key do not match.
-_KeyPairMismatchException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KeyPairMismatchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KeyPairMismatchException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KeyPairMismatch"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request failed because AWS service role policies can only be
 -- attached to the service-linked role for that service.
-_PolicyNotAttachableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PolicyNotAttachableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PolicyNotAttachableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PolicyNotAttachable"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request was rejected because an invalid or out-of-range value was
 -- supplied for an input parameter.
-_InvalidInputException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidInputException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidInputException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidInput"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request was rejected because the public key is malformed or
 -- otherwise invalid.
-_InvalidPublicKeyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidPublicKeyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidPublicKeyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidPublicKey"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request was rejected because only the service that depends on the
 -- service-linked role can modify or delete the role on your behalf. The
 -- error message includes the name of the service that depends on this
 -- service-linked role. You must request the change through that service.
-_UnmodifiableEntityException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnmodifiableEntityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnmodifiableEntityException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnmodifiableEntity"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request was rejected because the same certificate is associated with
 -- an IAM user in the account.
-_DuplicateCertificateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateCertificateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateCertificateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateCertificate"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The request was rejected because the certificate was malformed or
 -- expired. The error message describes the specific error.
-_MalformedCertificateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MalformedCertificateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MalformedCertificateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MalformedCertificate"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
-_EntityAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EntityAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EntityAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EntityAlreadyExists"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The request was rejected because multiple requests to change this object
 -- were submitted simultaneously. Wait a few minutes and submit your
 -- request again.
-_ConcurrentModificationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConcurrentModificationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConcurrentModification"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The request processing has failed because of an unknown error, exception
 -- or failure.
-_ServiceFailureException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceFailureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceFailureException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceFailure"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | The request was rejected because the type of user for the transaction
 -- was incorrect.
-_InvalidUserTypeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidUserTypeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidUserTypeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidUserType"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request was rejected because the credential report is still being
 -- generated.
-_CredentialReportNotReadyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CredentialReportNotReadyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CredentialReportNotReadyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReportInProgress"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The request was rejected because the credential report does not exist.
 -- To generate a credential report, use GenerateCredentialReport.
-_CredentialReportNotPresentException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CredentialReportNotPresentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CredentialReportNotPresentException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReportNotPresent"
-    Prelude.. Prelude.hasStatus 410
+    Core.. Core.hasStatus 410
 
 -- | The request was rejected because it attempted to create resources beyond
 -- the current AWS account limits. The error message describes the limit
 -- exceeded.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceeded"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The request was rejected because the provided password did not meet the
 -- requirements imposed by the account password policy.
-_PasswordPolicyViolationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PasswordPolicyViolationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PasswordPolicyViolationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PasswordPolicyViolation"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request was rejected because the authentication code was not
 -- recognized. The error message describes the specific error.
-_InvalidAuthenticationCodeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidAuthenticationCodeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidAuthenticationCodeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidAuthenticationCode"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | The request was rejected because it referenced an entity that is
 -- temporarily unmodifiable, such as a user name that was deleted and then
 -- recreated. The error indicates that the request is likely to succeed if
 -- you try again after waiting several minutes. The error message describes
 -- the entity.
-_EntityTemporarilyUnmodifiableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EntityTemporarilyUnmodifiableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EntityTemporarilyUnmodifiableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EntityTemporarilyUnmodifiable"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The request was rejected because the certificate is invalid.
-_InvalidCertificateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidCertificateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidCertificateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidCertificate"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request was rejected because it referenced a resource entity that
 -- does not exist. The error message describes the resource.
-_NoSuchEntityException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchEntityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchEntityException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchEntity"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The request was rejected because it attempted to delete a resource that
 -- has attached subordinate entities. The error message describes these
 -- entities.
-_DeleteConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DeleteConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DeleteConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DeleteConflict"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The request was rejected because the most recent credential report has
 -- expired. To generate a new credential report, use
@@ -960,9 +958,9 @@ _DeleteConflictException =
 -- expiration, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting credential reports>
 -- in the /IAM User Guide/.
-_CredentialReportExpiredException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CredentialReportExpiredException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CredentialReportExpiredException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReportExpired"
-    Prelude.. Prelude.hasStatus 410
+    Core.. Core.hasStatus 410

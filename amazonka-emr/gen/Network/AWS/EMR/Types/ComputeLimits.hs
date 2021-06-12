@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.ComputeLimits where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ComputeLimitsUnitType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The EC2 unit limits for a managed scaling policy. The managed scaling
 -- activity of a cluster can not be above or below these limits. The limit
@@ -36,13 +35,13 @@ data ComputeLimits = ComputeLimits'
     -- instance fleets. The On-Demand units are not allowed to scale beyond
     -- this boundary. The parameter is used to split capacity allocation
     -- between On-Demand and Spot Instances.
-    maximumOnDemandCapacityUnits :: Prelude.Maybe Prelude.Int,
+    maximumOnDemandCapacityUnits :: Core.Maybe Core.Int,
     -- | The upper boundary of EC2 units for core node type in a cluster. It is
     -- measured through vCPU cores or instances for instance groups and
     -- measured through units for instance fleets. The core units are not
     -- allowed to scale beyond this boundary. The parameter is used to split
     -- capacity allocation between core and task nodes.
-    maximumCoreCapacityUnits :: Prelude.Maybe Prelude.Int,
+    maximumCoreCapacityUnits :: Core.Maybe Core.Int,
     -- | The unit type used for specifying a managed scaling policy.
     unitType :: ComputeLimitsUnitType,
     -- | The lower boundary of EC2 units. It is measured through vCPU cores or
@@ -50,15 +49,15 @@ data ComputeLimits = ComputeLimits'
     -- fleets. Managed scaling activities are not allowed beyond this boundary.
     -- The limit only applies to the core and task nodes. The master node
     -- cannot be scaled after initial configuration.
-    minimumCapacityUnits :: Prelude.Int,
+    minimumCapacityUnits :: Core.Int,
     -- | The upper boundary of EC2 units. It is measured through vCPU cores or
     -- instances for instance groups and measured through units for instance
     -- fleets. Managed scaling activities are not allowed beyond this boundary.
     -- The limit only applies to the core and task nodes. The master node
     -- cannot be scaled after initial configuration.
-    maximumCapacityUnits :: Prelude.Int
+    maximumCapacityUnits :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComputeLimits' with all optional fields omitted.
@@ -97,9 +96,9 @@ newComputeLimits ::
   -- | 'unitType'
   ComputeLimitsUnitType ->
   -- | 'minimumCapacityUnits'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'maximumCapacityUnits'
-  Prelude.Int ->
+  Core.Int ->
   ComputeLimits
 newComputeLimits
   pUnitType_
@@ -107,8 +106,8 @@ newComputeLimits
   pMaximumCapacityUnits_ =
     ComputeLimits'
       { maximumOnDemandCapacityUnits =
-          Prelude.Nothing,
-        maximumCoreCapacityUnits = Prelude.Nothing,
+          Core.Nothing,
+        maximumCoreCapacityUnits = Core.Nothing,
         unitType = pUnitType_,
         minimumCapacityUnits = pMinimumCapacityUnits_,
         maximumCapacityUnits = pMaximumCapacityUnits_
@@ -119,7 +118,7 @@ newComputeLimits
 -- instance fleets. The On-Demand units are not allowed to scale beyond
 -- this boundary. The parameter is used to split capacity allocation
 -- between On-Demand and Spot Instances.
-computeLimits_maximumOnDemandCapacityUnits :: Lens.Lens' ComputeLimits (Prelude.Maybe Prelude.Int)
+computeLimits_maximumOnDemandCapacityUnits :: Lens.Lens' ComputeLimits (Core.Maybe Core.Int)
 computeLimits_maximumOnDemandCapacityUnits = Lens.lens (\ComputeLimits' {maximumOnDemandCapacityUnits} -> maximumOnDemandCapacityUnits) (\s@ComputeLimits' {} a -> s {maximumOnDemandCapacityUnits = a} :: ComputeLimits)
 
 -- | The upper boundary of EC2 units for core node type in a cluster. It is
@@ -127,7 +126,7 @@ computeLimits_maximumOnDemandCapacityUnits = Lens.lens (\ComputeLimits' {maximum
 -- measured through units for instance fleets. The core units are not
 -- allowed to scale beyond this boundary. The parameter is used to split
 -- capacity allocation between core and task nodes.
-computeLimits_maximumCoreCapacityUnits :: Lens.Lens' ComputeLimits (Prelude.Maybe Prelude.Int)
+computeLimits_maximumCoreCapacityUnits :: Lens.Lens' ComputeLimits (Core.Maybe Core.Int)
 computeLimits_maximumCoreCapacityUnits = Lens.lens (\ComputeLimits' {maximumCoreCapacityUnits} -> maximumCoreCapacityUnits) (\s@ComputeLimits' {} a -> s {maximumCoreCapacityUnits = a} :: ComputeLimits)
 
 -- | The unit type used for specifying a managed scaling policy.
@@ -139,7 +138,7 @@ computeLimits_unitType = Lens.lens (\ComputeLimits' {unitType} -> unitType) (\s@
 -- fleets. Managed scaling activities are not allowed beyond this boundary.
 -- The limit only applies to the core and task nodes. The master node
 -- cannot be scaled after initial configuration.
-computeLimits_minimumCapacityUnits :: Lens.Lens' ComputeLimits Prelude.Int
+computeLimits_minimumCapacityUnits :: Lens.Lens' ComputeLimits Core.Int
 computeLimits_minimumCapacityUnits = Lens.lens (\ComputeLimits' {minimumCapacityUnits} -> minimumCapacityUnits) (\s@ComputeLimits' {} a -> s {minimumCapacityUnits = a} :: ComputeLimits)
 
 -- | The upper boundary of EC2 units. It is measured through vCPU cores or
@@ -147,42 +146,42 @@ computeLimits_minimumCapacityUnits = Lens.lens (\ComputeLimits' {minimumCapacity
 -- fleets. Managed scaling activities are not allowed beyond this boundary.
 -- The limit only applies to the core and task nodes. The master node
 -- cannot be scaled after initial configuration.
-computeLimits_maximumCapacityUnits :: Lens.Lens' ComputeLimits Prelude.Int
+computeLimits_maximumCapacityUnits :: Lens.Lens' ComputeLimits Core.Int
 computeLimits_maximumCapacityUnits = Lens.lens (\ComputeLimits' {maximumCapacityUnits} -> maximumCapacityUnits) (\s@ComputeLimits' {} a -> s {maximumCapacityUnits = a} :: ComputeLimits)
 
-instance Prelude.FromJSON ComputeLimits where
+instance Core.FromJSON ComputeLimits where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ComputeLimits"
       ( \x ->
           ComputeLimits'
-            Prelude.<$> (x Prelude..:? "MaximumOnDemandCapacityUnits")
-            Prelude.<*> (x Prelude..:? "MaximumCoreCapacityUnits")
-            Prelude.<*> (x Prelude..: "UnitType")
-            Prelude.<*> (x Prelude..: "MinimumCapacityUnits")
-            Prelude.<*> (x Prelude..: "MaximumCapacityUnits")
+            Core.<$> (x Core..:? "MaximumOnDemandCapacityUnits")
+            Core.<*> (x Core..:? "MaximumCoreCapacityUnits")
+            Core.<*> (x Core..: "UnitType")
+            Core.<*> (x Core..: "MinimumCapacityUnits")
+            Core.<*> (x Core..: "MaximumCapacityUnits")
       )
 
-instance Prelude.Hashable ComputeLimits
+instance Core.Hashable ComputeLimits
 
-instance Prelude.NFData ComputeLimits
+instance Core.NFData ComputeLimits
 
-instance Prelude.ToJSON ComputeLimits where
+instance Core.ToJSON ComputeLimits where
   toJSON ComputeLimits' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaximumOnDemandCapacityUnits" Prelude..=)
-              Prelude.<$> maximumOnDemandCapacityUnits,
-            ("MaximumCoreCapacityUnits" Prelude..=)
-              Prelude.<$> maximumCoreCapacityUnits,
-            Prelude.Just ("UnitType" Prelude..= unitType),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("MaximumOnDemandCapacityUnits" Core..=)
+              Core.<$> maximumOnDemandCapacityUnits,
+            ("MaximumCoreCapacityUnits" Core..=)
+              Core.<$> maximumCoreCapacityUnits,
+            Core.Just ("UnitType" Core..= unitType),
+            Core.Just
               ( "MinimumCapacityUnits"
-                  Prelude..= minimumCapacityUnits
+                  Core..= minimumCapacityUnits
               ),
-            Prelude.Just
+            Core.Just
               ( "MaximumCapacityUnits"
-                  Prelude..= maximumCapacityUnits
+                  Core..= maximumCapacityUnits
               )
           ]
       )

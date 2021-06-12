@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.Predicate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Condition
 import Network.AWS.Glue.Types.Logical
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines the predicate of the trigger, which determines when it fires.
 --
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data Predicate = Predicate'
   { -- | An optional field if only one condition is listed. If multiple
     -- conditions are listed, then this field is required.
-    logical :: Prelude.Maybe Logical,
+    logical :: Core.Maybe Logical,
     -- | A list of the conditions that determine when the trigger will fire.
-    conditions :: Prelude.Maybe [Condition]
+    conditions :: Core.Maybe [Condition]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Predicate' with all optional fields omitted.
@@ -53,40 +52,38 @@ newPredicate ::
   Predicate
 newPredicate =
   Predicate'
-    { logical = Prelude.Nothing,
-      conditions = Prelude.Nothing
+    { logical = Core.Nothing,
+      conditions = Core.Nothing
     }
 
 -- | An optional field if only one condition is listed. If multiple
 -- conditions are listed, then this field is required.
-predicate_logical :: Lens.Lens' Predicate (Prelude.Maybe Logical)
+predicate_logical :: Lens.Lens' Predicate (Core.Maybe Logical)
 predicate_logical = Lens.lens (\Predicate' {logical} -> logical) (\s@Predicate' {} a -> s {logical = a} :: Predicate)
 
 -- | A list of the conditions that determine when the trigger will fire.
-predicate_conditions :: Lens.Lens' Predicate (Prelude.Maybe [Condition])
-predicate_conditions = Lens.lens (\Predicate' {conditions} -> conditions) (\s@Predicate' {} a -> s {conditions = a} :: Predicate) Prelude.. Lens.mapping Prelude._Coerce
+predicate_conditions :: Lens.Lens' Predicate (Core.Maybe [Condition])
+predicate_conditions = Lens.lens (\Predicate' {conditions} -> conditions) (\s@Predicate' {} a -> s {conditions = a} :: Predicate) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Predicate where
+instance Core.FromJSON Predicate where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Predicate"
       ( \x ->
           Predicate'
-            Prelude.<$> (x Prelude..:? "Logical")
-            Prelude.<*> ( x Prelude..:? "Conditions"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Logical")
+            Core.<*> (x Core..:? "Conditions" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Predicate
+instance Core.Hashable Predicate
 
-instance Prelude.NFData Predicate
+instance Core.NFData Predicate
 
-instance Prelude.ToJSON Predicate where
+instance Core.ToJSON Predicate where
   toJSON Predicate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Logical" Prelude..=) Prelude.<$> logical,
-            ("Conditions" Prelude..=) Prelude.<$> conditions
+    Core.object
+      ( Core.catMaybes
+          [ ("Logical" Core..=) Core.<$> logical,
+            ("Conditions" Core..=) Core.<$> conditions
           ]
       )

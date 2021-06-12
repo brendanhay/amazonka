@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AlexaBusiness.Types.Audio where
 
 import Network.AWS.AlexaBusiness.Types.Locale
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The audio message. There is a 1 MB limit on the audio file input and the
 -- only supported format is MP3. To convert your MP3 audio files to an
@@ -45,9 +44,9 @@ data Audio = Audio'
     -- S3 locations comprised of safe characters are valid. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters Safe Characters>.
-    location :: Prelude.Text
+    location :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Audio' with all optional fields omitted.
@@ -67,7 +66,7 @@ newAudio ::
   -- | 'locale'
   Locale ->
   -- | 'location'
-  Prelude.Text ->
+  Core.Text ->
   Audio
 newAudio pLocale_ pLocation_ =
   Audio' {locale = pLocale_, location = pLocation_}
@@ -80,18 +79,18 @@ audio_locale = Lens.lens (\Audio' {locale} -> locale) (\s@Audio' {} a -> s {loca
 -- S3 locations comprised of safe characters are valid. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters Safe Characters>.
-audio_location :: Lens.Lens' Audio Prelude.Text
+audio_location :: Lens.Lens' Audio Core.Text
 audio_location = Lens.lens (\Audio' {location} -> location) (\s@Audio' {} a -> s {location = a} :: Audio)
 
-instance Prelude.Hashable Audio
+instance Core.Hashable Audio
 
-instance Prelude.NFData Audio
+instance Core.NFData Audio
 
-instance Prelude.ToJSON Audio where
+instance Core.ToJSON Audio where
   toJSON Audio' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Locale" Prelude..= locale),
-            Prelude.Just ("Location" Prelude..= location)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Locale" Core..= locale),
+            Core.Just ("Location" Core..= location)
           ]
       )

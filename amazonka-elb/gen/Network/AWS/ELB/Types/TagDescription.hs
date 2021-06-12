@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.TagDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import Network.AWS.ELB.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The tags associated with a load balancer.
 --
 -- /See:/ 'newTagDescription' smart constructor.
 data TagDescription = TagDescription'
   { -- | The tags.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Maybe Prelude.Text
+    loadBalancerName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagDescription' with all optional fields omitted.
@@ -51,26 +50,26 @@ newTagDescription ::
   TagDescription
 newTagDescription =
   TagDescription'
-    { tags = Prelude.Nothing,
-      loadBalancerName = Prelude.Nothing
+    { tags = Core.Nothing,
+      loadBalancerName = Core.Nothing
     }
 
 -- | The tags.
-tagDescription_tags :: Lens.Lens' TagDescription (Prelude.Maybe (Prelude.NonEmpty Tag))
-tagDescription_tags = Lens.lens (\TagDescription' {tags} -> tags) (\s@TagDescription' {} a -> s {tags = a} :: TagDescription) Prelude.. Lens.mapping Prelude._Coerce
+tagDescription_tags :: Lens.Lens' TagDescription (Core.Maybe (Core.NonEmpty Tag))
+tagDescription_tags = Lens.lens (\TagDescription' {tags} -> tags) (\s@TagDescription' {} a -> s {tags = a} :: TagDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the load balancer.
-tagDescription_loadBalancerName :: Lens.Lens' TagDescription (Prelude.Maybe Prelude.Text)
+tagDescription_loadBalancerName :: Lens.Lens' TagDescription (Core.Maybe Core.Text)
 tagDescription_loadBalancerName = Lens.lens (\TagDescription' {loadBalancerName} -> loadBalancerName) (\s@TagDescription' {} a -> s {loadBalancerName = a} :: TagDescription)
 
-instance Prelude.FromXML TagDescription where
+instance Core.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      Prelude.<$> ( x Prelude..@? "Tags" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList1 "member")
-                  )
-      Prelude.<*> (x Prelude..@? "LoadBalancerName")
+      Core.<$> ( x Core..@? "Tags" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList1 "member")
+               )
+      Core.<*> (x Core..@? "LoadBalancerName")
 
-instance Prelude.Hashable TagDescription
+instance Core.Hashable TagDescription
 
-instance Prelude.NFData TagDescription
+instance Core.NFData TagDescription

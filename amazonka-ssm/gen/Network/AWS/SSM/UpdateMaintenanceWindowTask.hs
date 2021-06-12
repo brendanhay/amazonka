@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -103,8 +102,8 @@ module Network.AWS.SSM.UpdateMaintenanceWindowTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -119,7 +118,7 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     -- placeholder value of @1@, which may be reported in the response to this
     -- command. This value does not affect the running of your task and can be
     -- ignored.
-    maxErrors :: Prelude.Maybe Prelude.Text,
+    maxErrors :: Core.Maybe Core.Text,
     -- | The parameters to modify.
     --
     -- @TaskParameters@ has been deprecated. To specify parameters to pass to a
@@ -133,7 +132,7 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     -- Key: string, between 1 and 255 characters
     --
     -- Value: an array of strings, each string is between 1 and 255 characters
-    taskParameters :: Prelude.Maybe (Prelude.Sensitive (Prelude.HashMap Prelude.Text (Prelude.Sensitive MaintenanceWindowTaskParameterValueExpression))),
+    taskParameters :: Core.Maybe (Core.Sensitive (Core.HashMap Core.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))),
     -- | The ARN of the IAM service role for Systems Manager to assume when
     -- running a maintenance window task. If you do not specify a service role
     -- ARN, Systems Manager uses your account\'s service-linked role. If no
@@ -146,10 +145,10 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
     --
     -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
-    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    serviceRoleArn :: Core.Maybe Core.Text,
     -- | The new task priority to specify. The lower the number, the higher the
     -- priority. Tasks that have the same priority are scheduled in parallel.
-    priority :: Prelude.Maybe Prelude.Natural,
+    priority :: Core.Maybe Core.Natural,
     -- | The targets (either instances or tags) to modify. Instances are
     -- specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags
     -- are specified using Key=tag_name,Values=tag_value.
@@ -161,7 +160,7 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     -- specify targets, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
     -- in the /AWS Systems Manager User Guide/.
-    targets :: Prelude.Maybe [Target],
+    targets :: Core.Maybe [Target],
     -- | The parameters that the task should use during execution. Populate only
     -- the fields that match the task type. All other fields should be empty.
     --
@@ -174,13 +173,13 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     -- you update the maintenance window task and specify only a different
     -- @OutputS3BucketName@ value, the values for @Comment@ and
     -- @NotificationConfig@ are removed.
-    taskInvocationParameters :: Prelude.Maybe MaintenanceWindowTaskInvocationParameters,
+    taskInvocationParameters :: Core.Maybe MaintenanceWindowTaskInvocationParameters,
     -- | The new task name to specify.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | If True, then all fields that are required by the
     -- RegisterTaskWithMaintenanceWindow action are also required for this API
     -- request. Optional fields that are not specified are set to null.
-    replace :: Prelude.Maybe Prelude.Bool,
+    replace :: Core.Maybe Core.Bool,
     -- | The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is
     -- the number of targets that are allowed to run this task in parallel.
     --
@@ -189,11 +188,11 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     -- placeholder value of @1@, which may be reported in the response to this
     -- command. This value does not affect the running of your task and can be
     -- ignored.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
+    maxConcurrency :: Core.Maybe Core.Text,
     -- | The new task description to specify.
-    description :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    description :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The task ARN to modify.
-    taskArn :: Prelude.Maybe Prelude.Text,
+    taskArn :: Core.Maybe Core.Text,
     -- | The new logging location in Amazon S3 to specify.
     --
     -- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
@@ -202,13 +201,13 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     -- about how Systems Manager handles these options for the supported
     -- maintenance window task types, see
     -- MaintenanceWindowTaskInvocationParameters.
-    loggingInfo :: Prelude.Maybe LoggingInfo,
+    loggingInfo :: Core.Maybe LoggingInfo,
     -- | The maintenance window ID that contains the task to modify.
-    windowId :: Prelude.Text,
+    windowId :: Core.Text,
     -- | The task ID to modify.
-    windowTaskId :: Prelude.Text
+    windowTaskId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateMaintenanceWindowTask' with all optional fields omitted.
@@ -315,27 +314,27 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
 -- 'windowTaskId', 'updateMaintenanceWindowTask_windowTaskId' - The task ID to modify.
 newUpdateMaintenanceWindowTask ::
   -- | 'windowId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'windowTaskId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateMaintenanceWindowTask
 newUpdateMaintenanceWindowTask
   pWindowId_
   pWindowTaskId_ =
     UpdateMaintenanceWindowTask'
       { maxErrors =
-          Prelude.Nothing,
-        taskParameters = Prelude.Nothing,
-        serviceRoleArn = Prelude.Nothing,
-        priority = Prelude.Nothing,
-        targets = Prelude.Nothing,
-        taskInvocationParameters = Prelude.Nothing,
-        name = Prelude.Nothing,
-        replace = Prelude.Nothing,
-        maxConcurrency = Prelude.Nothing,
-        description = Prelude.Nothing,
-        taskArn = Prelude.Nothing,
-        loggingInfo = Prelude.Nothing,
+          Core.Nothing,
+        taskParameters = Core.Nothing,
+        serviceRoleArn = Core.Nothing,
+        priority = Core.Nothing,
+        targets = Core.Nothing,
+        taskInvocationParameters = Core.Nothing,
+        name = Core.Nothing,
+        replace = Core.Nothing,
+        maxConcurrency = Core.Nothing,
+        description = Core.Nothing,
+        taskArn = Core.Nothing,
+        loggingInfo = Core.Nothing,
         windowId = pWindowId_,
         windowTaskId = pWindowTaskId_
       }
@@ -348,7 +347,7 @@ newUpdateMaintenanceWindowTask
 -- placeholder value of @1@, which may be reported in the response to this
 -- command. This value does not affect the running of your task and can be
 -- ignored.
-updateMaintenanceWindowTask_maxErrors :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTask_maxErrors :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe Core.Text)
 updateMaintenanceWindowTask_maxErrors = Lens.lens (\UpdateMaintenanceWindowTask' {maxErrors} -> maxErrors) (\s@UpdateMaintenanceWindowTask' {} a -> s {maxErrors = a} :: UpdateMaintenanceWindowTask)
 
 -- | The parameters to modify.
@@ -364,8 +363,8 @@ updateMaintenanceWindowTask_maxErrors = Lens.lens (\UpdateMaintenanceWindowTask'
 -- Key: string, between 1 and 255 characters
 --
 -- Value: an array of strings, each string is between 1 and 255 characters
-updateMaintenanceWindowTask_taskParameters :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
-updateMaintenanceWindowTask_taskParameters = Lens.lens (\UpdateMaintenanceWindowTask' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTask' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Coerce)
+updateMaintenanceWindowTask_taskParameters :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe (Core.HashMap Core.Text MaintenanceWindowTaskParameterValueExpression))
+updateMaintenanceWindowTask_taskParameters = Lens.lens (\UpdateMaintenanceWindowTask' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTask' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTask) Core.. Lens.mapping (Core._Sensitive Core.. Lens._Coerce)
 
 -- | The ARN of the IAM service role for Systems Manager to assume when
 -- running a maintenance window task. If you do not specify a service role
@@ -379,12 +378,12 @@ updateMaintenanceWindowTask_taskParameters = Lens.lens (\UpdateMaintenanceWindow
 -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
 --
 -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
-updateMaintenanceWindowTask_serviceRoleArn :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTask_serviceRoleArn :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe Core.Text)
 updateMaintenanceWindowTask_serviceRoleArn = Lens.lens (\UpdateMaintenanceWindowTask' {serviceRoleArn} -> serviceRoleArn) (\s@UpdateMaintenanceWindowTask' {} a -> s {serviceRoleArn = a} :: UpdateMaintenanceWindowTask)
 
 -- | The new task priority to specify. The lower the number, the higher the
 -- priority. Tasks that have the same priority are scheduled in parallel.
-updateMaintenanceWindowTask_priority :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Natural)
+updateMaintenanceWindowTask_priority :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe Core.Natural)
 updateMaintenanceWindowTask_priority = Lens.lens (\UpdateMaintenanceWindowTask' {priority} -> priority) (\s@UpdateMaintenanceWindowTask' {} a -> s {priority = a} :: UpdateMaintenanceWindowTask)
 
 -- | The targets (either instances or tags) to modify. Instances are
@@ -398,8 +397,8 @@ updateMaintenanceWindowTask_priority = Lens.lens (\UpdateMaintenanceWindowTask' 
 -- specify targets, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
 -- in the /AWS Systems Manager User Guide/.
-updateMaintenanceWindowTask_targets :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe [Target])
-updateMaintenanceWindowTask_targets = Lens.lens (\UpdateMaintenanceWindowTask' {targets} -> targets) (\s@UpdateMaintenanceWindowTask' {} a -> s {targets = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping Prelude._Coerce
+updateMaintenanceWindowTask_targets :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe [Target])
+updateMaintenanceWindowTask_targets = Lens.lens (\UpdateMaintenanceWindowTask' {targets} -> targets) (\s@UpdateMaintenanceWindowTask' {} a -> s {targets = a} :: UpdateMaintenanceWindowTask) Core.. Lens.mapping Lens._Coerce
 
 -- | The parameters that the task should use during execution. Populate only
 -- the fields that match the task type. All other fields should be empty.
@@ -413,17 +412,17 @@ updateMaintenanceWindowTask_targets = Lens.lens (\UpdateMaintenanceWindowTask' {
 -- you update the maintenance window task and specify only a different
 -- @OutputS3BucketName@ value, the values for @Comment@ and
 -- @NotificationConfig@ are removed.
-updateMaintenanceWindowTask_taskInvocationParameters :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe MaintenanceWindowTaskInvocationParameters)
+updateMaintenanceWindowTask_taskInvocationParameters :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe MaintenanceWindowTaskInvocationParameters)
 updateMaintenanceWindowTask_taskInvocationParameters = Lens.lens (\UpdateMaintenanceWindowTask' {taskInvocationParameters} -> taskInvocationParameters) (\s@UpdateMaintenanceWindowTask' {} a -> s {taskInvocationParameters = a} :: UpdateMaintenanceWindowTask)
 
 -- | The new task name to specify.
-updateMaintenanceWindowTask_name :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTask_name :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe Core.Text)
 updateMaintenanceWindowTask_name = Lens.lens (\UpdateMaintenanceWindowTask' {name} -> name) (\s@UpdateMaintenanceWindowTask' {} a -> s {name = a} :: UpdateMaintenanceWindowTask)
 
 -- | If True, then all fields that are required by the
 -- RegisterTaskWithMaintenanceWindow action are also required for this API
 -- request. Optional fields that are not specified are set to null.
-updateMaintenanceWindowTask_replace :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Bool)
+updateMaintenanceWindowTask_replace :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe Core.Bool)
 updateMaintenanceWindowTask_replace = Lens.lens (\UpdateMaintenanceWindowTask' {replace} -> replace) (\s@UpdateMaintenanceWindowTask' {} a -> s {replace = a} :: UpdateMaintenanceWindowTask)
 
 -- | The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is
@@ -434,15 +433,15 @@ updateMaintenanceWindowTask_replace = Lens.lens (\UpdateMaintenanceWindowTask' {
 -- placeholder value of @1@, which may be reported in the response to this
 -- command. This value does not affect the running of your task and can be
 -- ignored.
-updateMaintenanceWindowTask_maxConcurrency :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTask_maxConcurrency :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe Core.Text)
 updateMaintenanceWindowTask_maxConcurrency = Lens.lens (\UpdateMaintenanceWindowTask' {maxConcurrency} -> maxConcurrency) (\s@UpdateMaintenanceWindowTask' {} a -> s {maxConcurrency = a} :: UpdateMaintenanceWindowTask)
 
 -- | The new task description to specify.
-updateMaintenanceWindowTask_description :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTask_description = Lens.lens (\UpdateMaintenanceWindowTask' {description} -> description) (\s@UpdateMaintenanceWindowTask' {} a -> s {description = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping Prelude._Sensitive
+updateMaintenanceWindowTask_description :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe Core.Text)
+updateMaintenanceWindowTask_description = Lens.lens (\UpdateMaintenanceWindowTask' {description} -> description) (\s@UpdateMaintenanceWindowTask' {} a -> s {description = a} :: UpdateMaintenanceWindowTask) Core.. Lens.mapping Core._Sensitive
 
 -- | The task ARN to modify.
-updateMaintenanceWindowTask_taskArn :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTask_taskArn :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe Core.Text)
 updateMaintenanceWindowTask_taskArn = Lens.lens (\UpdateMaintenanceWindowTask' {taskArn} -> taskArn) (\s@UpdateMaintenanceWindowTask' {} a -> s {taskArn = a} :: UpdateMaintenanceWindowTask)
 
 -- | The new logging location in Amazon S3 to specify.
@@ -453,105 +452,91 @@ updateMaintenanceWindowTask_taskArn = Lens.lens (\UpdateMaintenanceWindowTask' {
 -- about how Systems Manager handles these options for the supported
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
-updateMaintenanceWindowTask_loggingInfo :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe LoggingInfo)
+updateMaintenanceWindowTask_loggingInfo :: Lens.Lens' UpdateMaintenanceWindowTask (Core.Maybe LoggingInfo)
 updateMaintenanceWindowTask_loggingInfo = Lens.lens (\UpdateMaintenanceWindowTask' {loggingInfo} -> loggingInfo) (\s@UpdateMaintenanceWindowTask' {} a -> s {loggingInfo = a} :: UpdateMaintenanceWindowTask)
 
 -- | The maintenance window ID that contains the task to modify.
-updateMaintenanceWindowTask_windowId :: Lens.Lens' UpdateMaintenanceWindowTask Prelude.Text
+updateMaintenanceWindowTask_windowId :: Lens.Lens' UpdateMaintenanceWindowTask Core.Text
 updateMaintenanceWindowTask_windowId = Lens.lens (\UpdateMaintenanceWindowTask' {windowId} -> windowId) (\s@UpdateMaintenanceWindowTask' {} a -> s {windowId = a} :: UpdateMaintenanceWindowTask)
 
 -- | The task ID to modify.
-updateMaintenanceWindowTask_windowTaskId :: Lens.Lens' UpdateMaintenanceWindowTask Prelude.Text
+updateMaintenanceWindowTask_windowTaskId :: Lens.Lens' UpdateMaintenanceWindowTask Core.Text
 updateMaintenanceWindowTask_windowTaskId = Lens.lens (\UpdateMaintenanceWindowTask' {windowTaskId} -> windowTaskId) (\s@UpdateMaintenanceWindowTask' {} a -> s {windowTaskId = a} :: UpdateMaintenanceWindowTask)
 
-instance
-  Prelude.AWSRequest
-    UpdateMaintenanceWindowTask
-  where
+instance Core.AWSRequest UpdateMaintenanceWindowTask where
   type
-    Rs UpdateMaintenanceWindowTask =
+    AWSResponse UpdateMaintenanceWindowTask =
       UpdateMaintenanceWindowTaskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateMaintenanceWindowTaskResponse'
-            Prelude.<$> (x Prelude..?> "MaxErrors")
-            Prelude.<*> ( x Prelude..?> "TaskParameters"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "WindowTaskId")
-            Prelude.<*> (x Prelude..?> "ServiceRoleArn")
-            Prelude.<*> (x Prelude..?> "Priority")
-            Prelude.<*> (x Prelude..?> "Targets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "TaskInvocationParameters")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "MaxConcurrency")
-            Prelude.<*> (x Prelude..?> "WindowId")
-            Prelude.<*> (x Prelude..?> "Description")
-            Prelude.<*> (x Prelude..?> "TaskArn")
-            Prelude.<*> (x Prelude..?> "LoggingInfo")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "MaxErrors")
+            Core.<*> (x Core..?> "TaskParameters" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "WindowTaskId")
+            Core.<*> (x Core..?> "ServiceRoleArn")
+            Core.<*> (x Core..?> "Priority")
+            Core.<*> (x Core..?> "Targets" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "TaskInvocationParameters")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "MaxConcurrency")
+            Core.<*> (x Core..?> "WindowId")
+            Core.<*> (x Core..?> "Description")
+            Core.<*> (x Core..?> "TaskArn")
+            Core.<*> (x Core..?> "LoggingInfo")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMaintenanceWindowTask
+instance Core.Hashable UpdateMaintenanceWindowTask
 
-instance Prelude.NFData UpdateMaintenanceWindowTask
+instance Core.NFData UpdateMaintenanceWindowTask
 
-instance
-  Prelude.ToHeaders
-    UpdateMaintenanceWindowTask
-  where
+instance Core.ToHeaders UpdateMaintenanceWindowTask where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.UpdateMaintenanceWindowTask" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.UpdateMaintenanceWindowTask" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateMaintenanceWindowTask where
+instance Core.ToJSON UpdateMaintenanceWindowTask where
   toJSON UpdateMaintenanceWindowTask' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaxErrors" Prelude..=) Prelude.<$> maxErrors,
-            ("TaskParameters" Prelude..=)
-              Prelude.<$> taskParameters,
-            ("ServiceRoleArn" Prelude..=)
-              Prelude.<$> serviceRoleArn,
-            ("Priority" Prelude..=) Prelude.<$> priority,
-            ("Targets" Prelude..=) Prelude.<$> targets,
-            ("TaskInvocationParameters" Prelude..=)
-              Prelude.<$> taskInvocationParameters,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("Replace" Prelude..=) Prelude.<$> replace,
-            ("MaxConcurrency" Prelude..=)
-              Prelude.<$> maxConcurrency,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("TaskArn" Prelude..=) Prelude.<$> taskArn,
-            ("LoggingInfo" Prelude..=) Prelude.<$> loggingInfo,
-            Prelude.Just ("WindowId" Prelude..= windowId),
-            Prelude.Just
-              ("WindowTaskId" Prelude..= windowTaskId)
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxErrors" Core..=) Core.<$> maxErrors,
+            ("TaskParameters" Core..=) Core.<$> taskParameters,
+            ("ServiceRoleArn" Core..=) Core.<$> serviceRoleArn,
+            ("Priority" Core..=) Core.<$> priority,
+            ("Targets" Core..=) Core.<$> targets,
+            ("TaskInvocationParameters" Core..=)
+              Core.<$> taskInvocationParameters,
+            ("Name" Core..=) Core.<$> name,
+            ("Replace" Core..=) Core.<$> replace,
+            ("MaxConcurrency" Core..=) Core.<$> maxConcurrency,
+            ("Description" Core..=) Core.<$> description,
+            ("TaskArn" Core..=) Core.<$> taskArn,
+            ("LoggingInfo" Core..=) Core.<$> loggingInfo,
+            Core.Just ("WindowId" Core..= windowId),
+            Core.Just ("WindowTaskId" Core..= windowTaskId)
           ]
       )
 
-instance Prelude.ToPath UpdateMaintenanceWindowTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateMaintenanceWindowTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateMaintenanceWindowTask where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateMaintenanceWindowTask where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateMaintenanceWindowTaskResponse' smart constructor.
 data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
   { -- | The updated MaxErrors value.
-    maxErrors :: Prelude.Maybe Prelude.Text,
+    maxErrors :: Core.Maybe Core.Text,
     -- | The updated parameter values.
     --
     -- @TaskParameters@ has been deprecated. To specify parameters to pass to a
@@ -559,29 +544,29 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
     -- @TaskInvocationParameters@ structure. For information about how Systems
     -- Manager handles these options for the supported maintenance window task
     -- types, see MaintenanceWindowTaskInvocationParameters.
-    taskParameters :: Prelude.Maybe (Prelude.Sensitive (Prelude.HashMap Prelude.Text (Prelude.Sensitive MaintenanceWindowTaskParameterValueExpression))),
+    taskParameters :: Core.Maybe (Core.Sensitive (Core.HashMap Core.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))),
     -- | The task ID of the maintenance window that was updated.
-    windowTaskId :: Prelude.Maybe Prelude.Text,
+    windowTaskId :: Core.Maybe Core.Text,
     -- | The ARN of the IAM service role to use to publish Amazon Simple
     -- Notification Service (Amazon SNS) notifications for maintenance window
     -- Run Command tasks.
-    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    serviceRoleArn :: Core.Maybe Core.Text,
     -- | The updated priority value.
-    priority :: Prelude.Maybe Prelude.Natural,
+    priority :: Core.Maybe Core.Natural,
     -- | The updated target values.
-    targets :: Prelude.Maybe [Target],
+    targets :: Core.Maybe [Target],
     -- | The updated parameter values.
-    taskInvocationParameters :: Prelude.Maybe MaintenanceWindowTaskInvocationParameters,
+    taskInvocationParameters :: Core.Maybe MaintenanceWindowTaskInvocationParameters,
     -- | The updated task name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The updated MaxConcurrency value.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
+    maxConcurrency :: Core.Maybe Core.Text,
     -- | The ID of the maintenance window that was updated.
-    windowId :: Prelude.Maybe Prelude.Text,
+    windowId :: Core.Maybe Core.Text,
     -- | The updated task description.
-    description :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    description :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The updated task ARN value.
-    taskArn :: Prelude.Maybe Prelude.Text,
+    taskArn :: Core.Maybe Core.Text,
     -- | The updated logging information in Amazon S3.
     --
     -- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
@@ -590,11 +575,11 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
     -- about how Systems Manager handles these options for the supported
     -- maintenance window task types, see
     -- MaintenanceWindowTaskInvocationParameters.
-    loggingInfo :: Prelude.Maybe LoggingInfo,
+    loggingInfo :: Core.Maybe LoggingInfo,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateMaintenanceWindowTaskResponse' with all optional fields omitted.
@@ -648,30 +633,30 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
 -- 'httpStatus', 'updateMaintenanceWindowTaskResponse_httpStatus' - The response's http status code.
 newUpdateMaintenanceWindowTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateMaintenanceWindowTaskResponse
 newUpdateMaintenanceWindowTaskResponse pHttpStatus_ =
   UpdateMaintenanceWindowTaskResponse'
     { maxErrors =
-        Prelude.Nothing,
-      taskParameters = Prelude.Nothing,
-      windowTaskId = Prelude.Nothing,
-      serviceRoleArn = Prelude.Nothing,
-      priority = Prelude.Nothing,
-      targets = Prelude.Nothing,
+        Core.Nothing,
+      taskParameters = Core.Nothing,
+      windowTaskId = Core.Nothing,
+      serviceRoleArn = Core.Nothing,
+      priority = Core.Nothing,
+      targets = Core.Nothing,
       taskInvocationParameters =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      maxConcurrency = Prelude.Nothing,
-      windowId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      taskArn = Prelude.Nothing,
-      loggingInfo = Prelude.Nothing,
+        Core.Nothing,
+      name = Core.Nothing,
+      maxConcurrency = Core.Nothing,
+      windowId = Core.Nothing,
+      description = Core.Nothing,
+      taskArn = Core.Nothing,
+      loggingInfo = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The updated MaxErrors value.
-updateMaintenanceWindowTaskResponse_maxErrors :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_maxErrors :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe Core.Text)
 updateMaintenanceWindowTaskResponse_maxErrors = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {maxErrors} -> maxErrors) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {maxErrors = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The updated parameter values.
@@ -681,49 +666,49 @@ updateMaintenanceWindowTaskResponse_maxErrors = Lens.lens (\UpdateMaintenanceWin
 -- @TaskInvocationParameters@ structure. For information about how Systems
 -- Manager handles these options for the supported maintenance window task
 -- types, see MaintenanceWindowTaskInvocationParameters.
-updateMaintenanceWindowTaskResponse_taskParameters :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
-updateMaintenanceWindowTaskResponse_taskParameters = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Coerce)
+updateMaintenanceWindowTaskResponse_taskParameters :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe (Core.HashMap Core.Text MaintenanceWindowTaskParameterValueExpression))
+updateMaintenanceWindowTaskResponse_taskParameters = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTaskResponse) Core.. Lens.mapping (Core._Sensitive Core.. Lens._Coerce)
 
 -- | The task ID of the maintenance window that was updated.
-updateMaintenanceWindowTaskResponse_windowTaskId :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_windowTaskId :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe Core.Text)
 updateMaintenanceWindowTaskResponse_windowTaskId = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {windowTaskId} -> windowTaskId) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {windowTaskId = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The ARN of the IAM service role to use to publish Amazon Simple
 -- Notification Service (Amazon SNS) notifications for maintenance window
 -- Run Command tasks.
-updateMaintenanceWindowTaskResponse_serviceRoleArn :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_serviceRoleArn :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe Core.Text)
 updateMaintenanceWindowTaskResponse_serviceRoleArn = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {serviceRoleArn} -> serviceRoleArn) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {serviceRoleArn = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The updated priority value.
-updateMaintenanceWindowTaskResponse_priority :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Natural)
+updateMaintenanceWindowTaskResponse_priority :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe Core.Natural)
 updateMaintenanceWindowTaskResponse_priority = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {priority} -> priority) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {priority = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The updated target values.
-updateMaintenanceWindowTaskResponse_targets :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe [Target])
-updateMaintenanceWindowTaskResponse_targets = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {targets} -> targets) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {targets = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateMaintenanceWindowTaskResponse_targets :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe [Target])
+updateMaintenanceWindowTaskResponse_targets = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {targets} -> targets) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {targets = a} :: UpdateMaintenanceWindowTaskResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The updated parameter values.
-updateMaintenanceWindowTaskResponse_taskInvocationParameters :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe MaintenanceWindowTaskInvocationParameters)
+updateMaintenanceWindowTaskResponse_taskInvocationParameters :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe MaintenanceWindowTaskInvocationParameters)
 updateMaintenanceWindowTaskResponse_taskInvocationParameters = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {taskInvocationParameters} -> taskInvocationParameters) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {taskInvocationParameters = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The updated task name.
-updateMaintenanceWindowTaskResponse_name :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_name :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe Core.Text)
 updateMaintenanceWindowTaskResponse_name = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {name} -> name) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {name = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The updated MaxConcurrency value.
-updateMaintenanceWindowTaskResponse_maxConcurrency :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_maxConcurrency :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe Core.Text)
 updateMaintenanceWindowTaskResponse_maxConcurrency = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {maxConcurrency} -> maxConcurrency) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {maxConcurrency = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The ID of the maintenance window that was updated.
-updateMaintenanceWindowTaskResponse_windowId :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_windowId :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe Core.Text)
 updateMaintenanceWindowTaskResponse_windowId = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {windowId} -> windowId) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {windowId = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The updated task description.
-updateMaintenanceWindowTaskResponse_description :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTaskResponse_description = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {description} -> description) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {description = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping Prelude._Sensitive
+updateMaintenanceWindowTaskResponse_description :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe Core.Text)
+updateMaintenanceWindowTaskResponse_description = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {description} -> description) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {description = a} :: UpdateMaintenanceWindowTaskResponse) Core.. Lens.mapping Core._Sensitive
 
 -- | The updated task ARN value.
-updateMaintenanceWindowTaskResponse_taskArn :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_taskArn :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe Core.Text)
 updateMaintenanceWindowTaskResponse_taskArn = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {taskArn} -> taskArn) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {taskArn = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The updated logging information in Amazon S3.
@@ -734,13 +719,13 @@ updateMaintenanceWindowTaskResponse_taskArn = Lens.lens (\UpdateMaintenanceWindo
 -- about how Systems Manager handles these options for the supported
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
-updateMaintenanceWindowTaskResponse_loggingInfo :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe LoggingInfo)
+updateMaintenanceWindowTaskResponse_loggingInfo :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Core.Maybe LoggingInfo)
 updateMaintenanceWindowTaskResponse_loggingInfo = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {loggingInfo} -> loggingInfo) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {loggingInfo = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The response's http status code.
-updateMaintenanceWindowTaskResponse_httpStatus :: Lens.Lens' UpdateMaintenanceWindowTaskResponse Prelude.Int
+updateMaintenanceWindowTaskResponse_httpStatus :: Lens.Lens' UpdateMaintenanceWindowTaskResponse Core.Int
 updateMaintenanceWindowTaskResponse_httpStatus = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {httpStatus} -> httpStatus) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {httpStatus = a} :: UpdateMaintenanceWindowTaskResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateMaintenanceWindowTaskResponse

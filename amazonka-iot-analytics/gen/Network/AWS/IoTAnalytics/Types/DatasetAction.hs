@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DatasetAction where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.ContainerDatasetAction
 import Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A @DatasetAction@ object that specifies how data set contents are
 -- automatically created.
@@ -32,16 +31,16 @@ import qualified Network.AWS.Prelude as Prelude
 data DatasetAction = DatasetAction'
   { -- | The name of the data set action by which data set contents are
     -- automatically created.
-    actionName :: Prelude.Maybe Prelude.Text,
+    actionName :: Core.Maybe Core.Text,
     -- | An @SqlQueryDatasetAction@ object that uses an SQL query to
     -- automatically create data set contents.
-    queryAction :: Prelude.Maybe SqlQueryDatasetAction,
+    queryAction :: Core.Maybe SqlQueryDatasetAction,
     -- | Information that allows the system to run a containerized application to
     -- create the dataset contents. The application must be in a Docker
     -- container along with any required support libraries.
-    containerAction :: Prelude.Maybe ContainerDatasetAction
+    containerAction :: Core.Maybe ContainerDatasetAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DatasetAction' with all optional fields omitted.
@@ -64,49 +63,49 @@ newDatasetAction ::
   DatasetAction
 newDatasetAction =
   DatasetAction'
-    { actionName = Prelude.Nothing,
-      queryAction = Prelude.Nothing,
-      containerAction = Prelude.Nothing
+    { actionName = Core.Nothing,
+      queryAction = Core.Nothing,
+      containerAction = Core.Nothing
     }
 
 -- | The name of the data set action by which data set contents are
 -- automatically created.
-datasetAction_actionName :: Lens.Lens' DatasetAction (Prelude.Maybe Prelude.Text)
+datasetAction_actionName :: Lens.Lens' DatasetAction (Core.Maybe Core.Text)
 datasetAction_actionName = Lens.lens (\DatasetAction' {actionName} -> actionName) (\s@DatasetAction' {} a -> s {actionName = a} :: DatasetAction)
 
 -- | An @SqlQueryDatasetAction@ object that uses an SQL query to
 -- automatically create data set contents.
-datasetAction_queryAction :: Lens.Lens' DatasetAction (Prelude.Maybe SqlQueryDatasetAction)
+datasetAction_queryAction :: Lens.Lens' DatasetAction (Core.Maybe SqlQueryDatasetAction)
 datasetAction_queryAction = Lens.lens (\DatasetAction' {queryAction} -> queryAction) (\s@DatasetAction' {} a -> s {queryAction = a} :: DatasetAction)
 
 -- | Information that allows the system to run a containerized application to
 -- create the dataset contents. The application must be in a Docker
 -- container along with any required support libraries.
-datasetAction_containerAction :: Lens.Lens' DatasetAction (Prelude.Maybe ContainerDatasetAction)
+datasetAction_containerAction :: Lens.Lens' DatasetAction (Core.Maybe ContainerDatasetAction)
 datasetAction_containerAction = Lens.lens (\DatasetAction' {containerAction} -> containerAction) (\s@DatasetAction' {} a -> s {containerAction = a} :: DatasetAction)
 
-instance Prelude.FromJSON DatasetAction where
+instance Core.FromJSON DatasetAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DatasetAction"
       ( \x ->
           DatasetAction'
-            Prelude.<$> (x Prelude..:? "actionName")
-            Prelude.<*> (x Prelude..:? "queryAction")
-            Prelude.<*> (x Prelude..:? "containerAction")
+            Core.<$> (x Core..:? "actionName")
+            Core.<*> (x Core..:? "queryAction")
+            Core.<*> (x Core..:? "containerAction")
       )
 
-instance Prelude.Hashable DatasetAction
+instance Core.Hashable DatasetAction
 
-instance Prelude.NFData DatasetAction
+instance Core.NFData DatasetAction
 
-instance Prelude.ToJSON DatasetAction where
+instance Core.ToJSON DatasetAction where
   toJSON DatasetAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("actionName" Prelude..=) Prelude.<$> actionName,
-            ("queryAction" Prelude..=) Prelude.<$> queryAction,
-            ("containerAction" Prelude..=)
-              Prelude.<$> containerAction
+    Core.object
+      ( Core.catMaybes
+          [ ("actionName" Core..=) Core.<$> actionName,
+            ("queryAction" Core..=) Core.<$> queryAction,
+            ("containerAction" Core..=)
+              Core.<$> containerAction
           ]
       )

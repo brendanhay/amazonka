@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.ConnectorDefinitionVersion where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Connector
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the connector definition version, which is a container
 -- for connectors.
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ConnectorDefinitionVersion = ConnectorDefinitionVersion'
   { -- | A list of references to connectors in this version, with their
     -- corresponding configuration settings.
-    connectors :: Prelude.Maybe [Connector]
+    connectors :: Core.Maybe [Connector]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectorDefinitionVersion' with all optional fields omitted.
@@ -50,32 +49,30 @@ newConnectorDefinitionVersion ::
 newConnectorDefinitionVersion =
   ConnectorDefinitionVersion'
     { connectors =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | A list of references to connectors in this version, with their
 -- corresponding configuration settings.
-connectorDefinitionVersion_connectors :: Lens.Lens' ConnectorDefinitionVersion (Prelude.Maybe [Connector])
-connectorDefinitionVersion_connectors = Lens.lens (\ConnectorDefinitionVersion' {connectors} -> connectors) (\s@ConnectorDefinitionVersion' {} a -> s {connectors = a} :: ConnectorDefinitionVersion) Prelude.. Lens.mapping Prelude._Coerce
+connectorDefinitionVersion_connectors :: Lens.Lens' ConnectorDefinitionVersion (Core.Maybe [Connector])
+connectorDefinitionVersion_connectors = Lens.lens (\ConnectorDefinitionVersion' {connectors} -> connectors) (\s@ConnectorDefinitionVersion' {} a -> s {connectors = a} :: ConnectorDefinitionVersion) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ConnectorDefinitionVersion where
+instance Core.FromJSON ConnectorDefinitionVersion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConnectorDefinitionVersion"
       ( \x ->
           ConnectorDefinitionVersion'
-            Prelude.<$> ( x Prelude..:? "Connectors"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Connectors" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ConnectorDefinitionVersion
+instance Core.Hashable ConnectorDefinitionVersion
 
-instance Prelude.NFData ConnectorDefinitionVersion
+instance Core.NFData ConnectorDefinitionVersion
 
-instance Prelude.ToJSON ConnectorDefinitionVersion where
+instance Core.ToJSON ConnectorDefinitionVersion where
   toJSON ConnectorDefinitionVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Connectors" Prelude..=) Prelude.<$> connectors]
+    Core.object
+      ( Core.catMaybes
+          [("Connectors" Core..=) Core.<$> connectors]
       )

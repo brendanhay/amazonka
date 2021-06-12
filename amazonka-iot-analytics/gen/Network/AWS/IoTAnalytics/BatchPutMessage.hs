@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,16 +40,16 @@ module Network.AWS.IoTAnalytics.BatchPutMessage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchPutMessage' smart constructor.
 data BatchPutMessage = BatchPutMessage'
   { -- | The name of the channel where the messages are sent.
-    channelName :: Prelude.Text,
+    channelName :: Core.Text,
     -- | The list of messages to be sent. Each message has the format: {
     -- \"messageId\": \"string\", \"payload\": \"string\"}.
     --
@@ -77,7 +76,7 @@ data BatchPutMessage = BatchPutMessage'
     -- in message payloads.
     messages :: [Message]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchPutMessage' with all optional fields omitted.
@@ -115,16 +114,16 @@ data BatchPutMessage = BatchPutMessage'
 -- in message payloads.
 newBatchPutMessage ::
   -- | 'channelName'
-  Prelude.Text ->
+  Core.Text ->
   BatchPutMessage
 newBatchPutMessage pChannelName_ =
   BatchPutMessage'
     { channelName = pChannelName_,
-      messages = Prelude.mempty
+      messages = Core.mempty
     }
 
 -- | The name of the channel where the messages are sent.
-batchPutMessage_channelName :: Lens.Lens' BatchPutMessage Prelude.Text
+batchPutMessage_channelName :: Lens.Lens' BatchPutMessage Core.Text
 batchPutMessage_channelName = Lens.lens (\BatchPutMessage' {channelName} -> channelName) (\s@BatchPutMessage' {} a -> s {channelName = a} :: BatchPutMessage)
 
 -- | The list of messages to be sent. Each message has the format: {
@@ -152,52 +151,54 @@ batchPutMessage_channelName = Lens.lens (\BatchPutMessage' {channelName} -> chan
 -- {\"temp-01\": 29}, {\"01_temp\": 29} or {\"__temp_01\": 29} are invalid
 -- in message payloads.
 batchPutMessage_messages :: Lens.Lens' BatchPutMessage [Message]
-batchPutMessage_messages = Lens.lens (\BatchPutMessage' {messages} -> messages) (\s@BatchPutMessage' {} a -> s {messages = a} :: BatchPutMessage) Prelude.. Prelude._Coerce
+batchPutMessage_messages = Lens.lens (\BatchPutMessage' {messages} -> messages) (\s@BatchPutMessage' {} a -> s {messages = a} :: BatchPutMessage) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchPutMessage where
-  type Rs BatchPutMessage = BatchPutMessageResponse
+instance Core.AWSRequest BatchPutMessage where
+  type
+    AWSResponse BatchPutMessage =
+      BatchPutMessageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchPutMessageResponse'
-            Prelude.<$> ( x Prelude..?> "batchPutMessageErrorEntries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "batchPutMessageErrorEntries"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchPutMessage
+instance Core.Hashable BatchPutMessage
 
-instance Prelude.NFData BatchPutMessage
+instance Core.NFData BatchPutMessage
 
-instance Prelude.ToHeaders BatchPutMessage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders BatchPutMessage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON BatchPutMessage where
+instance Core.ToJSON BatchPutMessage where
   toJSON BatchPutMessage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("channelName" Prelude..= channelName),
-            Prelude.Just ("messages" Prelude..= messages)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("channelName" Core..= channelName),
+            Core.Just ("messages" Core..= messages)
           ]
       )
 
-instance Prelude.ToPath BatchPutMessage where
-  toPath = Prelude.const "/messages/batch"
+instance Core.ToPath BatchPutMessage where
+  toPath = Core.const "/messages/batch"
 
-instance Prelude.ToQuery BatchPutMessage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchPutMessage where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchPutMessageResponse' smart constructor.
 data BatchPutMessageResponse = BatchPutMessageResponse'
   { -- | A list of any errors encountered when sending the messages to the
     -- channel.
-    batchPutMessageErrorEntries :: Prelude.Maybe [BatchPutMessageErrorEntry],
+    batchPutMessageErrorEntries :: Core.Maybe [BatchPutMessageErrorEntry],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchPutMessageResponse' with all optional fields omitted.
@@ -213,22 +214,22 @@ data BatchPutMessageResponse = BatchPutMessageResponse'
 -- 'httpStatus', 'batchPutMessageResponse_httpStatus' - The response's http status code.
 newBatchPutMessageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchPutMessageResponse
 newBatchPutMessageResponse pHttpStatus_ =
   BatchPutMessageResponse'
     { batchPutMessageErrorEntries =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of any errors encountered when sending the messages to the
 -- channel.
-batchPutMessageResponse_batchPutMessageErrorEntries :: Lens.Lens' BatchPutMessageResponse (Prelude.Maybe [BatchPutMessageErrorEntry])
-batchPutMessageResponse_batchPutMessageErrorEntries = Lens.lens (\BatchPutMessageResponse' {batchPutMessageErrorEntries} -> batchPutMessageErrorEntries) (\s@BatchPutMessageResponse' {} a -> s {batchPutMessageErrorEntries = a} :: BatchPutMessageResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchPutMessageResponse_batchPutMessageErrorEntries :: Lens.Lens' BatchPutMessageResponse (Core.Maybe [BatchPutMessageErrorEntry])
+batchPutMessageResponse_batchPutMessageErrorEntries = Lens.lens (\BatchPutMessageResponse' {batchPutMessageErrorEntries} -> batchPutMessageErrorEntries) (\s@BatchPutMessageResponse' {} a -> s {batchPutMessageErrorEntries = a} :: BatchPutMessageResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchPutMessageResponse_httpStatus :: Lens.Lens' BatchPutMessageResponse Prelude.Int
+batchPutMessageResponse_httpStatus :: Lens.Lens' BatchPutMessageResponse Core.Int
 batchPutMessageResponse_httpStatus = Lens.lens (\BatchPutMessageResponse' {httpStatus} -> httpStatus) (\s@BatchPutMessageResponse' {} a -> s {httpStatus = a} :: BatchPutMessageResponse)
 
-instance Prelude.NFData BatchPutMessageResponse
+instance Core.NFData BatchPutMessageResponse

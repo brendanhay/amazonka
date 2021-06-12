@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,31 +44,31 @@ module Network.AWS.IoT.UpdateProvisioningTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateProvisioningTemplate' smart constructor.
 data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
   { -- | Removes pre-provisioning hook template.
-    removePreProvisioningHook :: Prelude.Maybe Prelude.Bool,
+    removePreProvisioningHook :: Core.Maybe Core.Bool,
     -- | True to enable the fleet provisioning template, otherwise false.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | Updates the pre-provisioning hook template.
-    preProvisioningHook :: Prelude.Maybe ProvisioningHook,
+    preProvisioningHook :: Core.Maybe ProvisioningHook,
     -- | The ID of the default provisioning template version.
-    defaultVersionId :: Prelude.Maybe Prelude.Int,
+    defaultVersionId :: Core.Maybe Core.Int,
     -- | The description of the fleet provisioning template.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The ARN of the role associated with the provisioning template. This IoT
     -- role grants permission to provision a device.
-    provisioningRoleArn :: Prelude.Maybe Prelude.Text,
+    provisioningRoleArn :: Core.Maybe Core.Text,
     -- | The name of the fleet provisioning template.
-    templateName :: Prelude.Text
+    templateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateProvisioningTemplate' with all optional fields omitted.
@@ -95,104 +94,99 @@ data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
 -- 'templateName', 'updateProvisioningTemplate_templateName' - The name of the fleet provisioning template.
 newUpdateProvisioningTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateProvisioningTemplate
 newUpdateProvisioningTemplate pTemplateName_ =
   UpdateProvisioningTemplate'
     { removePreProvisioningHook =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      preProvisioningHook = Prelude.Nothing,
-      defaultVersionId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      provisioningRoleArn = Prelude.Nothing,
+        Core.Nothing,
+      enabled = Core.Nothing,
+      preProvisioningHook = Core.Nothing,
+      defaultVersionId = Core.Nothing,
+      description = Core.Nothing,
+      provisioningRoleArn = Core.Nothing,
       templateName = pTemplateName_
     }
 
 -- | Removes pre-provisioning hook template.
-updateProvisioningTemplate_removePreProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
+updateProvisioningTemplate_removePreProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Core.Maybe Core.Bool)
 updateProvisioningTemplate_removePreProvisioningHook = Lens.lens (\UpdateProvisioningTemplate' {removePreProvisioningHook} -> removePreProvisioningHook) (\s@UpdateProvisioningTemplate' {} a -> s {removePreProvisioningHook = a} :: UpdateProvisioningTemplate)
 
 -- | True to enable the fleet provisioning template, otherwise false.
-updateProvisioningTemplate_enabled :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
+updateProvisioningTemplate_enabled :: Lens.Lens' UpdateProvisioningTemplate (Core.Maybe Core.Bool)
 updateProvisioningTemplate_enabled = Lens.lens (\UpdateProvisioningTemplate' {enabled} -> enabled) (\s@UpdateProvisioningTemplate' {} a -> s {enabled = a} :: UpdateProvisioningTemplate)
 
 -- | Updates the pre-provisioning hook template.
-updateProvisioningTemplate_preProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe ProvisioningHook)
+updateProvisioningTemplate_preProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Core.Maybe ProvisioningHook)
 updateProvisioningTemplate_preProvisioningHook = Lens.lens (\UpdateProvisioningTemplate' {preProvisioningHook} -> preProvisioningHook) (\s@UpdateProvisioningTemplate' {} a -> s {preProvisioningHook = a} :: UpdateProvisioningTemplate)
 
 -- | The ID of the default provisioning template version.
-updateProvisioningTemplate_defaultVersionId :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Int)
+updateProvisioningTemplate_defaultVersionId :: Lens.Lens' UpdateProvisioningTemplate (Core.Maybe Core.Int)
 updateProvisioningTemplate_defaultVersionId = Lens.lens (\UpdateProvisioningTemplate' {defaultVersionId} -> defaultVersionId) (\s@UpdateProvisioningTemplate' {} a -> s {defaultVersionId = a} :: UpdateProvisioningTemplate)
 
 -- | The description of the fleet provisioning template.
-updateProvisioningTemplate_description :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Text)
+updateProvisioningTemplate_description :: Lens.Lens' UpdateProvisioningTemplate (Core.Maybe Core.Text)
 updateProvisioningTemplate_description = Lens.lens (\UpdateProvisioningTemplate' {description} -> description) (\s@UpdateProvisioningTemplate' {} a -> s {description = a} :: UpdateProvisioningTemplate)
 
 -- | The ARN of the role associated with the provisioning template. This IoT
 -- role grants permission to provision a device.
-updateProvisioningTemplate_provisioningRoleArn :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Text)
+updateProvisioningTemplate_provisioningRoleArn :: Lens.Lens' UpdateProvisioningTemplate (Core.Maybe Core.Text)
 updateProvisioningTemplate_provisioningRoleArn = Lens.lens (\UpdateProvisioningTemplate' {provisioningRoleArn} -> provisioningRoleArn) (\s@UpdateProvisioningTemplate' {} a -> s {provisioningRoleArn = a} :: UpdateProvisioningTemplate)
 
 -- | The name of the fleet provisioning template.
-updateProvisioningTemplate_templateName :: Lens.Lens' UpdateProvisioningTemplate Prelude.Text
+updateProvisioningTemplate_templateName :: Lens.Lens' UpdateProvisioningTemplate Core.Text
 updateProvisioningTemplate_templateName = Lens.lens (\UpdateProvisioningTemplate' {templateName} -> templateName) (\s@UpdateProvisioningTemplate' {} a -> s {templateName = a} :: UpdateProvisioningTemplate)
 
-instance
-  Prelude.AWSRequest
-    UpdateProvisioningTemplate
-  where
+instance Core.AWSRequest UpdateProvisioningTemplate where
   type
-    Rs UpdateProvisioningTemplate =
+    AWSResponse UpdateProvisioningTemplate =
       UpdateProvisioningTemplateResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateProvisioningTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProvisioningTemplate
+instance Core.Hashable UpdateProvisioningTemplate
 
-instance Prelude.NFData UpdateProvisioningTemplate
+instance Core.NFData UpdateProvisioningTemplate
 
-instance Prelude.ToHeaders UpdateProvisioningTemplate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateProvisioningTemplate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateProvisioningTemplate where
+instance Core.ToJSON UpdateProvisioningTemplate where
   toJSON UpdateProvisioningTemplate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("removePreProvisioningHook" Prelude..=)
-              Prelude.<$> removePreProvisioningHook,
-            ("enabled" Prelude..=) Prelude.<$> enabled,
-            ("preProvisioningHook" Prelude..=)
-              Prelude.<$> preProvisioningHook,
-            ("defaultVersionId" Prelude..=)
-              Prelude.<$> defaultVersionId,
-            ("description" Prelude..=) Prelude.<$> description,
-            ("provisioningRoleArn" Prelude..=)
-              Prelude.<$> provisioningRoleArn
+    Core.object
+      ( Core.catMaybes
+          [ ("removePreProvisioningHook" Core..=)
+              Core.<$> removePreProvisioningHook,
+            ("enabled" Core..=) Core.<$> enabled,
+            ("preProvisioningHook" Core..=)
+              Core.<$> preProvisioningHook,
+            ("defaultVersionId" Core..=)
+              Core.<$> defaultVersionId,
+            ("description" Core..=) Core.<$> description,
+            ("provisioningRoleArn" Core..=)
+              Core.<$> provisioningRoleArn
           ]
       )
 
-instance Prelude.ToPath UpdateProvisioningTemplate where
+instance Core.ToPath UpdateProvisioningTemplate where
   toPath UpdateProvisioningTemplate' {..} =
-    Prelude.mconcat
-      [ "/provisioning-templates/",
-        Prelude.toBS templateName
-      ]
+    Core.mconcat
+      ["/provisioning-templates/", Core.toBS templateName]
 
-instance Prelude.ToQuery UpdateProvisioningTemplate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateProvisioningTemplate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateProvisioningTemplateResponse' smart constructor.
 data UpdateProvisioningTemplateResponse = UpdateProvisioningTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateProvisioningTemplateResponse' with all optional fields omitted.
@@ -205,7 +199,7 @@ data UpdateProvisioningTemplateResponse = UpdateProvisioningTemplateResponse'
 -- 'httpStatus', 'updateProvisioningTemplateResponse_httpStatus' - The response's http status code.
 newUpdateProvisioningTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateProvisioningTemplateResponse
 newUpdateProvisioningTemplateResponse pHttpStatus_ =
   UpdateProvisioningTemplateResponse'
@@ -214,9 +208,9 @@ newUpdateProvisioningTemplateResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateProvisioningTemplateResponse_httpStatus :: Lens.Lens' UpdateProvisioningTemplateResponse Prelude.Int
+updateProvisioningTemplateResponse_httpStatus :: Lens.Lens' UpdateProvisioningTemplateResponse Core.Int
 updateProvisioningTemplateResponse_httpStatus = Lens.lens (\UpdateProvisioningTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateProvisioningTemplateResponse' {} a -> s {httpStatus = a} :: UpdateProvisioningTemplateResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateProvisioningTemplateResponse

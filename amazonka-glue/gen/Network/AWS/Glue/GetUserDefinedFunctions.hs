@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,31 +46,30 @@ module Network.AWS.Glue.GetUserDefinedFunctions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetUserDefinedFunctions' smart constructor.
 data GetUserDefinedFunctions = GetUserDefinedFunctions'
   { -- | A continuation token, if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The ID of the Data Catalog where the functions to be retrieved are
     -- located. If none is provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The maximum number of functions to return in one response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The name of the catalog database where the functions are located. If
     -- none is provided, functions from all the databases across the catalog
     -- will be returned.
-    databaseName :: Prelude.Maybe Prelude.Text,
+    databaseName :: Core.Maybe Core.Text,
     -- | An optional function-name pattern string that filters the function
     -- definitions returned.
-    pattern' :: Prelude.Text
+    pattern' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUserDefinedFunctions' with all optional fields omitted.
@@ -96,128 +94,125 @@ data GetUserDefinedFunctions = GetUserDefinedFunctions'
 -- definitions returned.
 newGetUserDefinedFunctions ::
   -- | 'pattern''
-  Prelude.Text ->
+  Core.Text ->
   GetUserDefinedFunctions
 newGetUserDefinedFunctions pPattern_ =
   GetUserDefinedFunctions'
-    { nextToken =
-        Prelude.Nothing,
-      catalogId = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      databaseName = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      catalogId = Core.Nothing,
+      maxResults = Core.Nothing,
+      databaseName = Core.Nothing,
       pattern' = pPattern_
     }
 
 -- | A continuation token, if this is a continuation call.
-getUserDefinedFunctions_nextToken :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Text)
+getUserDefinedFunctions_nextToken :: Lens.Lens' GetUserDefinedFunctions (Core.Maybe Core.Text)
 getUserDefinedFunctions_nextToken = Lens.lens (\GetUserDefinedFunctions' {nextToken} -> nextToken) (\s@GetUserDefinedFunctions' {} a -> s {nextToken = a} :: GetUserDefinedFunctions)
 
 -- | The ID of the Data Catalog where the functions to be retrieved are
 -- located. If none is provided, the AWS account ID is used by default.
-getUserDefinedFunctions_catalogId :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Text)
+getUserDefinedFunctions_catalogId :: Lens.Lens' GetUserDefinedFunctions (Core.Maybe Core.Text)
 getUserDefinedFunctions_catalogId = Lens.lens (\GetUserDefinedFunctions' {catalogId} -> catalogId) (\s@GetUserDefinedFunctions' {} a -> s {catalogId = a} :: GetUserDefinedFunctions)
 
 -- | The maximum number of functions to return in one response.
-getUserDefinedFunctions_maxResults :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Natural)
+getUserDefinedFunctions_maxResults :: Lens.Lens' GetUserDefinedFunctions (Core.Maybe Core.Natural)
 getUserDefinedFunctions_maxResults = Lens.lens (\GetUserDefinedFunctions' {maxResults} -> maxResults) (\s@GetUserDefinedFunctions' {} a -> s {maxResults = a} :: GetUserDefinedFunctions)
 
 -- | The name of the catalog database where the functions are located. If
 -- none is provided, functions from all the databases across the catalog
 -- will be returned.
-getUserDefinedFunctions_databaseName :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Text)
+getUserDefinedFunctions_databaseName :: Lens.Lens' GetUserDefinedFunctions (Core.Maybe Core.Text)
 getUserDefinedFunctions_databaseName = Lens.lens (\GetUserDefinedFunctions' {databaseName} -> databaseName) (\s@GetUserDefinedFunctions' {} a -> s {databaseName = a} :: GetUserDefinedFunctions)
 
 -- | An optional function-name pattern string that filters the function
 -- definitions returned.
-getUserDefinedFunctions_pattern :: Lens.Lens' GetUserDefinedFunctions Prelude.Text
+getUserDefinedFunctions_pattern :: Lens.Lens' GetUserDefinedFunctions Core.Text
 getUserDefinedFunctions_pattern = Lens.lens (\GetUserDefinedFunctions' {pattern'} -> pattern') (\s@GetUserDefinedFunctions' {} a -> s {pattern' = a} :: GetUserDefinedFunctions)
 
-instance Pager.AWSPager GetUserDefinedFunctions where
+instance Core.AWSPager GetUserDefinedFunctions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getUserDefinedFunctionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getUserDefinedFunctionsResponse_userDefinedFunctions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getUserDefinedFunctions_nextToken
           Lens..~ rs
           Lens.^? getUserDefinedFunctionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest GetUserDefinedFunctions where
+instance Core.AWSRequest GetUserDefinedFunctions where
   type
-    Rs GetUserDefinedFunctions =
+    AWSResponse GetUserDefinedFunctions =
       GetUserDefinedFunctionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetUserDefinedFunctionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "UserDefinedFunctions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "UserDefinedFunctions"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetUserDefinedFunctions
+instance Core.Hashable GetUserDefinedFunctions
 
-instance Prelude.NFData GetUserDefinedFunctions
+instance Core.NFData GetUserDefinedFunctions
 
-instance Prelude.ToHeaders GetUserDefinedFunctions where
+instance Core.ToHeaders GetUserDefinedFunctions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.GetUserDefinedFunctions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSGlue.GetUserDefinedFunctions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetUserDefinedFunctions where
+instance Core.ToJSON GetUserDefinedFunctions where
   toJSON GetUserDefinedFunctions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("DatabaseName" Prelude..=) Prelude.<$> databaseName,
-            Prelude.Just ("Pattern" Prelude..= pattern')
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("CatalogId" Core..=) Core.<$> catalogId,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("DatabaseName" Core..=) Core.<$> databaseName,
+            Core.Just ("Pattern" Core..= pattern')
           ]
       )
 
-instance Prelude.ToPath GetUserDefinedFunctions where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetUserDefinedFunctions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetUserDefinedFunctions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetUserDefinedFunctions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetUserDefinedFunctionsResponse' smart constructor.
 data GetUserDefinedFunctionsResponse = GetUserDefinedFunctionsResponse'
   { -- | A continuation token, if the list of functions returned does not include
     -- the last requested function.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of requested function definitions.
-    userDefinedFunctions :: Prelude.Maybe [UserDefinedFunction],
+    userDefinedFunctions :: Core.Maybe [UserDefinedFunction],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUserDefinedFunctionsResponse' with all optional fields omitted.
@@ -235,29 +230,27 @@ data GetUserDefinedFunctionsResponse = GetUserDefinedFunctionsResponse'
 -- 'httpStatus', 'getUserDefinedFunctionsResponse_httpStatus' - The response's http status code.
 newGetUserDefinedFunctionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetUserDefinedFunctionsResponse
 newGetUserDefinedFunctionsResponse pHttpStatus_ =
   GetUserDefinedFunctionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      userDefinedFunctions = Prelude.Nothing,
+        Core.Nothing,
+      userDefinedFunctions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A continuation token, if the list of functions returned does not include
 -- the last requested function.
-getUserDefinedFunctionsResponse_nextToken :: Lens.Lens' GetUserDefinedFunctionsResponse (Prelude.Maybe Prelude.Text)
+getUserDefinedFunctionsResponse_nextToken :: Lens.Lens' GetUserDefinedFunctionsResponse (Core.Maybe Core.Text)
 getUserDefinedFunctionsResponse_nextToken = Lens.lens (\GetUserDefinedFunctionsResponse' {nextToken} -> nextToken) (\s@GetUserDefinedFunctionsResponse' {} a -> s {nextToken = a} :: GetUserDefinedFunctionsResponse)
 
 -- | A list of requested function definitions.
-getUserDefinedFunctionsResponse_userDefinedFunctions :: Lens.Lens' GetUserDefinedFunctionsResponse (Prelude.Maybe [UserDefinedFunction])
-getUserDefinedFunctionsResponse_userDefinedFunctions = Lens.lens (\GetUserDefinedFunctionsResponse' {userDefinedFunctions} -> userDefinedFunctions) (\s@GetUserDefinedFunctionsResponse' {} a -> s {userDefinedFunctions = a} :: GetUserDefinedFunctionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getUserDefinedFunctionsResponse_userDefinedFunctions :: Lens.Lens' GetUserDefinedFunctionsResponse (Core.Maybe [UserDefinedFunction])
+getUserDefinedFunctionsResponse_userDefinedFunctions = Lens.lens (\GetUserDefinedFunctionsResponse' {userDefinedFunctions} -> userDefinedFunctions) (\s@GetUserDefinedFunctionsResponse' {} a -> s {userDefinedFunctions = a} :: GetUserDefinedFunctionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getUserDefinedFunctionsResponse_httpStatus :: Lens.Lens' GetUserDefinedFunctionsResponse Prelude.Int
+getUserDefinedFunctionsResponse_httpStatus :: Lens.Lens' GetUserDefinedFunctionsResponse Core.Int
 getUserDefinedFunctionsResponse_httpStatus = Lens.lens (\GetUserDefinedFunctionsResponse' {httpStatus} -> httpStatus) (\s@GetUserDefinedFunctionsResponse' {} a -> s {httpStatus = a} :: GetUserDefinedFunctionsResponse)
 
-instance
-  Prelude.NFData
-    GetUserDefinedFunctionsResponse
+instance Core.NFData GetUserDefinedFunctionsResponse

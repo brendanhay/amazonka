@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.PolicyDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an IAM policy, including the policy document.
 --
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPolicyDetail' smart constructor.
 data PolicyDetail = PolicyDetail'
   { -- | The name of the policy.
-    policyName :: Prelude.Maybe Prelude.Text,
+    policyName :: Core.Maybe Core.Text,
     -- | The policy document.
-    policyDocument :: Prelude.Maybe Prelude.Text
+    policyDocument :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyDetail' with all optional fields omitted.
@@ -52,24 +51,24 @@ newPolicyDetail ::
   PolicyDetail
 newPolicyDetail =
   PolicyDetail'
-    { policyName = Prelude.Nothing,
-      policyDocument = Prelude.Nothing
+    { policyName = Core.Nothing,
+      policyDocument = Core.Nothing
     }
 
 -- | The name of the policy.
-policyDetail_policyName :: Lens.Lens' PolicyDetail (Prelude.Maybe Prelude.Text)
+policyDetail_policyName :: Lens.Lens' PolicyDetail (Core.Maybe Core.Text)
 policyDetail_policyName = Lens.lens (\PolicyDetail' {policyName} -> policyName) (\s@PolicyDetail' {} a -> s {policyName = a} :: PolicyDetail)
 
 -- | The policy document.
-policyDetail_policyDocument :: Lens.Lens' PolicyDetail (Prelude.Maybe Prelude.Text)
+policyDetail_policyDocument :: Lens.Lens' PolicyDetail (Core.Maybe Core.Text)
 policyDetail_policyDocument = Lens.lens (\PolicyDetail' {policyDocument} -> policyDocument) (\s@PolicyDetail' {} a -> s {policyDocument = a} :: PolicyDetail)
 
-instance Prelude.FromXML PolicyDetail where
+instance Core.FromXML PolicyDetail where
   parseXML x =
     PolicyDetail'
-      Prelude.<$> (x Prelude..@? "PolicyName")
-      Prelude.<*> (x Prelude..@? "PolicyDocument")
+      Core.<$> (x Core..@? "PolicyName")
+      Core.<*> (x Core..@? "PolicyDocument")
 
-instance Prelude.Hashable PolicyDetail
+instance Core.Hashable PolicyDetail
 
-instance Prelude.NFData PolicyDetail
+instance Core.NFData PolicyDetail

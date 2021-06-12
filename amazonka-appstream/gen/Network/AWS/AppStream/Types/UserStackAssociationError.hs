@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.AppStream.Types.UserStackAssociationError where
 
 import Network.AWS.AppStream.Types.UserStackAssociation
 import Network.AWS.AppStream.Types.UserStackAssociationErrorCode
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the error that is returned when a user can’t be associated
 -- with or disassociated from a stack.
@@ -31,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newUserStackAssociationError' smart constructor.
 data UserStackAssociationError = UserStackAssociationError'
   { -- | Information about the user and associated stack.
-    userStackAssociation :: Prelude.Maybe UserStackAssociation,
+    userStackAssociation :: Core.Maybe UserStackAssociation,
     -- | The error message for the error that is returned when a user can’t be
     -- associated with or disassociated from a stack.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code for the error that is returned when a user can’t be
     -- associated with or disassociated from a stack.
-    errorCode :: Prelude.Maybe UserStackAssociationErrorCode
+    errorCode :: Core.Maybe UserStackAssociationErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserStackAssociationError' with all optional fields omitted.
@@ -61,36 +60,36 @@ newUserStackAssociationError ::
 newUserStackAssociationError =
   UserStackAssociationError'
     { userStackAssociation =
-        Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+        Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | Information about the user and associated stack.
-userStackAssociationError_userStackAssociation :: Lens.Lens' UserStackAssociationError (Prelude.Maybe UserStackAssociation)
+userStackAssociationError_userStackAssociation :: Lens.Lens' UserStackAssociationError (Core.Maybe UserStackAssociation)
 userStackAssociationError_userStackAssociation = Lens.lens (\UserStackAssociationError' {userStackAssociation} -> userStackAssociation) (\s@UserStackAssociationError' {} a -> s {userStackAssociation = a} :: UserStackAssociationError)
 
 -- | The error message for the error that is returned when a user can’t be
 -- associated with or disassociated from a stack.
-userStackAssociationError_errorMessage :: Lens.Lens' UserStackAssociationError (Prelude.Maybe Prelude.Text)
+userStackAssociationError_errorMessage :: Lens.Lens' UserStackAssociationError (Core.Maybe Core.Text)
 userStackAssociationError_errorMessage = Lens.lens (\UserStackAssociationError' {errorMessage} -> errorMessage) (\s@UserStackAssociationError' {} a -> s {errorMessage = a} :: UserStackAssociationError)
 
 -- | The error code for the error that is returned when a user can’t be
 -- associated with or disassociated from a stack.
-userStackAssociationError_errorCode :: Lens.Lens' UserStackAssociationError (Prelude.Maybe UserStackAssociationErrorCode)
+userStackAssociationError_errorCode :: Lens.Lens' UserStackAssociationError (Core.Maybe UserStackAssociationErrorCode)
 userStackAssociationError_errorCode = Lens.lens (\UserStackAssociationError' {errorCode} -> errorCode) (\s@UserStackAssociationError' {} a -> s {errorCode = a} :: UserStackAssociationError)
 
-instance Prelude.FromJSON UserStackAssociationError where
+instance Core.FromJSON UserStackAssociationError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserStackAssociationError"
       ( \x ->
           UserStackAssociationError'
-            Prelude.<$> (x Prelude..:? "UserStackAssociation")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "UserStackAssociation")
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable UserStackAssociationError
+instance Core.Hashable UserStackAssociationError
 
-instance Prelude.NFData UserStackAssociationError
+instance Core.NFData UserStackAssociationError

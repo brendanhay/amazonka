@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -120,25 +119,25 @@ module Network.AWS.WAF.CreateRateBasedRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
 
 -- | /See:/ 'newCreateRateBasedRule' smart constructor.
 data CreateRateBasedRule = CreateRateBasedRule'
-  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+  { tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | A friendly name or description of the RateBasedRule. You can\'t change
     -- the name of a @RateBasedRule@ after you create it.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | A friendly name or description for the metrics for this @RateBasedRule@.
     -- The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
     -- maximum length 128 and minimum length one. It can\'t contain whitespace
     -- or metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change the name of the metric after you
     -- create the @RateBasedRule@.
-    metricName :: Prelude.Text,
+    metricName :: Core.Text,
     -- | The field that AWS WAF uses to determine if requests are likely arriving
     -- from a single source and thus subject to rate monitoring. The only valid
     -- value for @RateKey@ is @IP@. @IP@ indicates that requests that arrive
@@ -150,13 +149,13 @@ data CreateRateBasedRule = CreateRateBasedRule'
     -- If the number of requests exceeds the @RateLimit@ and the other
     -- predicates specified in the rule are also met, AWS WAF triggers the
     -- action that is specified for this rule.
-    rateLimit :: Prelude.Natural,
+    rateLimit :: Core.Natural,
     -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Prelude.Text
+    changeToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRateBasedRule' with all optional fields omitted.
@@ -195,15 +194,15 @@ data CreateRateBasedRule = CreateRateBasedRule'
 -- For more information, see GetChangeTokenStatus.
 newCreateRateBasedRule ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'metricName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'rateKey'
   RateKey ->
   -- | 'rateLimit'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   CreateRateBasedRule
 newCreateRateBasedRule
   pName_
@@ -212,7 +211,7 @@ newCreateRateBasedRule
   pRateLimit_
   pChangeToken_ =
     CreateRateBasedRule'
-      { tags = Prelude.Nothing,
+      { tags = Core.Nothing,
         name = pName_,
         metricName = pMetricName_,
         rateKey = pRateKey_,
@@ -221,12 +220,12 @@ newCreateRateBasedRule
       }
 
 -- |
-createRateBasedRule_tags :: Lens.Lens' CreateRateBasedRule (Prelude.Maybe (Prelude.NonEmpty Tag))
-createRateBasedRule_tags = Lens.lens (\CreateRateBasedRule' {tags} -> tags) (\s@CreateRateBasedRule' {} a -> s {tags = a} :: CreateRateBasedRule) Prelude.. Lens.mapping Prelude._Coerce
+createRateBasedRule_tags :: Lens.Lens' CreateRateBasedRule (Core.Maybe (Core.NonEmpty Tag))
+createRateBasedRule_tags = Lens.lens (\CreateRateBasedRule' {tags} -> tags) (\s@CreateRateBasedRule' {} a -> s {tags = a} :: CreateRateBasedRule) Core.. Lens.mapping Lens._Coerce
 
 -- | A friendly name or description of the RateBasedRule. You can\'t change
 -- the name of a @RateBasedRule@ after you create it.
-createRateBasedRule_name :: Lens.Lens' CreateRateBasedRule Prelude.Text
+createRateBasedRule_name :: Lens.Lens' CreateRateBasedRule Core.Text
 createRateBasedRule_name = Lens.lens (\CreateRateBasedRule' {name} -> name) (\s@CreateRateBasedRule' {} a -> s {name = a} :: CreateRateBasedRule)
 
 -- | A friendly name or description for the metrics for this @RateBasedRule@.
@@ -235,7 +234,7 @@ createRateBasedRule_name = Lens.lens (\CreateRateBasedRule' {name} -> name) (\s@
 -- or metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change the name of the metric after you
 -- create the @RateBasedRule@.
-createRateBasedRule_metricName :: Lens.Lens' CreateRateBasedRule Prelude.Text
+createRateBasedRule_metricName :: Lens.Lens' CreateRateBasedRule Core.Text
 createRateBasedRule_metricName = Lens.lens (\CreateRateBasedRule' {metricName} -> metricName) (\s@CreateRateBasedRule' {} a -> s {metricName = a} :: CreateRateBasedRule)
 
 -- | The field that AWS WAF uses to determine if requests are likely arriving
@@ -251,80 +250,78 @@ createRateBasedRule_rateKey = Lens.lens (\CreateRateBasedRule' {rateKey} -> rate
 -- If the number of requests exceeds the @RateLimit@ and the other
 -- predicates specified in the rule are also met, AWS WAF triggers the
 -- action that is specified for this rule.
-createRateBasedRule_rateLimit :: Lens.Lens' CreateRateBasedRule Prelude.Natural
+createRateBasedRule_rateLimit :: Lens.Lens' CreateRateBasedRule Core.Natural
 createRateBasedRule_rateLimit = Lens.lens (\CreateRateBasedRule' {rateLimit} -> rateLimit) (\s@CreateRateBasedRule' {} a -> s {rateLimit = a} :: CreateRateBasedRule)
 
 -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-createRateBasedRule_changeToken :: Lens.Lens' CreateRateBasedRule Prelude.Text
+createRateBasedRule_changeToken :: Lens.Lens' CreateRateBasedRule Core.Text
 createRateBasedRule_changeToken = Lens.lens (\CreateRateBasedRule' {changeToken} -> changeToken) (\s@CreateRateBasedRule' {} a -> s {changeToken = a} :: CreateRateBasedRule)
 
-instance Prelude.AWSRequest CreateRateBasedRule where
+instance Core.AWSRequest CreateRateBasedRule where
   type
-    Rs CreateRateBasedRule =
+    AWSResponse CreateRateBasedRule =
       CreateRateBasedRuleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateRateBasedRuleResponse'
-            Prelude.<$> (x Prelude..?> "Rule")
-            Prelude.<*> (x Prelude..?> "ChangeToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Rule")
+            Core.<*> (x Core..?> "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRateBasedRule
+instance Core.Hashable CreateRateBasedRule
 
-instance Prelude.NFData CreateRateBasedRule
+instance Core.NFData CreateRateBasedRule
 
-instance Prelude.ToHeaders CreateRateBasedRule where
+instance Core.ToHeaders CreateRateBasedRule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.CreateRateBasedRule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.CreateRateBasedRule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateRateBasedRule where
+instance Core.ToJSON CreateRateBasedRule where
   toJSON CreateRateBasedRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("MetricName" Prelude..= metricName),
-            Prelude.Just ("RateKey" Prelude..= rateKey),
-            Prelude.Just ("RateLimit" Prelude..= rateLimit),
-            Prelude.Just ("ChangeToken" Prelude..= changeToken)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("MetricName" Core..= metricName),
+            Core.Just ("RateKey" Core..= rateKey),
+            Core.Just ("RateLimit" Core..= rateLimit),
+            Core.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
-instance Prelude.ToPath CreateRateBasedRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateRateBasedRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateRateBasedRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateRateBasedRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateRateBasedRuleResponse' smart constructor.
 data CreateRateBasedRuleResponse = CreateRateBasedRuleResponse'
   { -- | The RateBasedRule that is returned in the @CreateRateBasedRule@
     -- response.
-    rule :: Prelude.Maybe RateBasedRule,
+    rule :: Core.Maybe RateBasedRule,
     -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Prelude.Maybe Prelude.Text,
+    changeToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRateBasedRuleResponse' with all optional fields omitted.
@@ -344,29 +341,28 @@ data CreateRateBasedRuleResponse = CreateRateBasedRuleResponse'
 -- 'httpStatus', 'createRateBasedRuleResponse_httpStatus' - The response's http status code.
 newCreateRateBasedRuleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateRateBasedRuleResponse
 newCreateRateBasedRuleResponse pHttpStatus_ =
   CreateRateBasedRuleResponse'
-    { rule =
-        Prelude.Nothing,
-      changeToken = Prelude.Nothing,
+    { rule = Core.Nothing,
+      changeToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The RateBasedRule that is returned in the @CreateRateBasedRule@
 -- response.
-createRateBasedRuleResponse_rule :: Lens.Lens' CreateRateBasedRuleResponse (Prelude.Maybe RateBasedRule)
+createRateBasedRuleResponse_rule :: Lens.Lens' CreateRateBasedRuleResponse (Core.Maybe RateBasedRule)
 createRateBasedRuleResponse_rule = Lens.lens (\CreateRateBasedRuleResponse' {rule} -> rule) (\s@CreateRateBasedRuleResponse' {} a -> s {rule = a} :: CreateRateBasedRuleResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-createRateBasedRuleResponse_changeToken :: Lens.Lens' CreateRateBasedRuleResponse (Prelude.Maybe Prelude.Text)
+createRateBasedRuleResponse_changeToken :: Lens.Lens' CreateRateBasedRuleResponse (Core.Maybe Core.Text)
 createRateBasedRuleResponse_changeToken = Lens.lens (\CreateRateBasedRuleResponse' {changeToken} -> changeToken) (\s@CreateRateBasedRuleResponse' {} a -> s {changeToken = a} :: CreateRateBasedRuleResponse)
 
 -- | The response's http status code.
-createRateBasedRuleResponse_httpStatus :: Lens.Lens' CreateRateBasedRuleResponse Prelude.Int
+createRateBasedRuleResponse_httpStatus :: Lens.Lens' CreateRateBasedRuleResponse Core.Int
 createRateBasedRuleResponse_httpStatus = Lens.lens (\CreateRateBasedRuleResponse' {httpStatus} -> httpStatus) (\s@CreateRateBasedRuleResponse' {} a -> s {httpStatus = a} :: CreateRateBasedRuleResponse)
 
-instance Prelude.NFData CreateRateBasedRuleResponse
+instance Core.NFData CreateRateBasedRuleResponse

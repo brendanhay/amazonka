@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.UsageAccountResult where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.Total
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the total of usage based on account IDs.
 --
 -- /See:/ 'newUsageAccountResult' smart constructor.
 data UsageAccountResult = UsageAccountResult'
   { -- | The Account ID that generated usage.
-    accountId :: Prelude.Maybe Prelude.Text,
+    accountId :: Core.Maybe Core.Text,
     -- | Represents the total of usage for the Account ID.
-    total :: Prelude.Maybe Total
+    total :: Core.Maybe Total
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UsageAccountResult' with all optional fields omitted.
@@ -50,28 +49,28 @@ newUsageAccountResult ::
   UsageAccountResult
 newUsageAccountResult =
   UsageAccountResult'
-    { accountId = Prelude.Nothing,
-      total = Prelude.Nothing
+    { accountId = Core.Nothing,
+      total = Core.Nothing
     }
 
 -- | The Account ID that generated usage.
-usageAccountResult_accountId :: Lens.Lens' UsageAccountResult (Prelude.Maybe Prelude.Text)
+usageAccountResult_accountId :: Lens.Lens' UsageAccountResult (Core.Maybe Core.Text)
 usageAccountResult_accountId = Lens.lens (\UsageAccountResult' {accountId} -> accountId) (\s@UsageAccountResult' {} a -> s {accountId = a} :: UsageAccountResult)
 
 -- | Represents the total of usage for the Account ID.
-usageAccountResult_total :: Lens.Lens' UsageAccountResult (Prelude.Maybe Total)
+usageAccountResult_total :: Lens.Lens' UsageAccountResult (Core.Maybe Total)
 usageAccountResult_total = Lens.lens (\UsageAccountResult' {total} -> total) (\s@UsageAccountResult' {} a -> s {total = a} :: UsageAccountResult)
 
-instance Prelude.FromJSON UsageAccountResult where
+instance Core.FromJSON UsageAccountResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UsageAccountResult"
       ( \x ->
           UsageAccountResult'
-            Prelude.<$> (x Prelude..:? "accountId")
-            Prelude.<*> (x Prelude..:? "total")
+            Core.<$> (x Core..:? "accountId")
+            Core.<*> (x Core..:? "total")
       )
 
-instance Prelude.Hashable UsageAccountResult
+instance Core.Hashable UsageAccountResult
 
-instance Prelude.NFData UsageAccountResult
+instance Core.NFData UsageAccountResult

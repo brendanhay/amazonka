@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.SNS.SetEndpointAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -51,7 +50,7 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newSetEndpointAttributes' smart constructor.
 data SetEndpointAttributes = SetEndpointAttributes'
   { -- | EndpointArn used for SetEndpointAttributes action.
-    endpointArn :: Prelude.Text,
+    endpointArn :: Core.Text,
     -- | A map of the endpoint attributes. Attributes in this map include the
     -- following:
     --
@@ -68,9 +67,9 @@ data SetEndpointAttributes = SetEndpointAttributes'
     --     an app and mobile device. This is returned from the notification
     --     service when an app and mobile device are registered with the
     --     notification service.
-    attributes :: Prelude.HashMap Prelude.Text Prelude.Text
+    attributes :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetEndpointAttributes' with all optional fields omitted.
@@ -100,16 +99,16 @@ data SetEndpointAttributes = SetEndpointAttributes'
 --     notification service.
 newSetEndpointAttributes ::
   -- | 'endpointArn'
-  Prelude.Text ->
+  Core.Text ->
   SetEndpointAttributes
 newSetEndpointAttributes pEndpointArn_ =
   SetEndpointAttributes'
     { endpointArn = pEndpointArn_,
-      attributes = Prelude.mempty
+      attributes = Core.mempty
     }
 
 -- | EndpointArn used for SetEndpointAttributes action.
-setEndpointAttributes_endpointArn :: Lens.Lens' SetEndpointAttributes Prelude.Text
+setEndpointAttributes_endpointArn :: Lens.Lens' SetEndpointAttributes Core.Text
 setEndpointAttributes_endpointArn = Lens.lens (\SetEndpointAttributes' {endpointArn} -> endpointArn) (\s@SetEndpointAttributes' {} a -> s {endpointArn = a} :: SetEndpointAttributes)
 
 -- | A map of the endpoint attributes. Attributes in this map include the
@@ -128,44 +127,43 @@ setEndpointAttributes_endpointArn = Lens.lens (\SetEndpointAttributes' {endpoint
 --     an app and mobile device. This is returned from the notification
 --     service when an app and mobile device are registered with the
 --     notification service.
-setEndpointAttributes_attributes :: Lens.Lens' SetEndpointAttributes (Prelude.HashMap Prelude.Text Prelude.Text)
-setEndpointAttributes_attributes = Lens.lens (\SetEndpointAttributes' {attributes} -> attributes) (\s@SetEndpointAttributes' {} a -> s {attributes = a} :: SetEndpointAttributes) Prelude.. Prelude._Coerce
+setEndpointAttributes_attributes :: Lens.Lens' SetEndpointAttributes (Core.HashMap Core.Text Core.Text)
+setEndpointAttributes_attributes = Lens.lens (\SetEndpointAttributes' {attributes} -> attributes) (\s@SetEndpointAttributes' {} a -> s {attributes = a} :: SetEndpointAttributes) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest SetEndpointAttributes where
+instance Core.AWSRequest SetEndpointAttributes where
   type
-    Rs SetEndpointAttributes =
+    AWSResponse SetEndpointAttributes =
       SetEndpointAttributesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull SetEndpointAttributesResponse'
 
-instance Prelude.Hashable SetEndpointAttributes
+instance Core.Hashable SetEndpointAttributes
 
-instance Prelude.NFData SetEndpointAttributes
+instance Core.NFData SetEndpointAttributes
 
-instance Prelude.ToHeaders SetEndpointAttributes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetEndpointAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SetEndpointAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetEndpointAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetEndpointAttributes where
+instance Core.ToQuery SetEndpointAttributes where
   toQuery SetEndpointAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SetEndpointAttributes" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "EndpointArn" Prelude.=: endpointArn,
+          Core.=: ("SetEndpointAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "EndpointArn" Core.=: endpointArn,
         "Attributes"
-          Prelude.=: Prelude.toQueryMap "entry" "key" "value" attributes
+          Core.=: Core.toQueryMap "entry" "key" "value" attributes
       ]
 
 -- | /See:/ 'newSetEndpointAttributesResponse' smart constructor.
 data SetEndpointAttributesResponse = SetEndpointAttributesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetEndpointAttributesResponse' with all optional fields omitted.
@@ -176,4 +174,4 @@ newSetEndpointAttributesResponse ::
 newSetEndpointAttributesResponse =
   SetEndpointAttributesResponse'
 
-instance Prelude.NFData SetEndpointAttributesResponse
+instance Core.NFData SetEndpointAttributesResponse

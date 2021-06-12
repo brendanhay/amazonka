@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,10 +46,9 @@ module Network.AWS.GuardDuty.ListThreatIntelSets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,16 +59,16 @@ data ListThreatIntelSets = ListThreatIntelSets'
     -- For subsequent calls to the action, fill nextToken in the request with
     -- the value of NextToken from the previous response to continue listing
     -- data.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | You can use this parameter to indicate the maximum number of items that
     -- you want in the response. The default value is 50. The maximum value is
     -- 50.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The unique ID of the detector that the threatIntelSet is associated
     -- with.
-    detectorId :: Prelude.Text
+    detectorId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListThreatIntelSets' with all optional fields omitted.
@@ -94,12 +92,12 @@ data ListThreatIntelSets = ListThreatIntelSets'
 -- with.
 newListThreatIntelSets ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   ListThreatIntelSets
 newListThreatIntelSets pDetectorId_ =
   ListThreatIntelSets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       detectorId = pDetectorId_
     }
 
@@ -108,98 +106,96 @@ newListThreatIntelSets pDetectorId_ =
 -- For subsequent calls to the action, fill nextToken in the request with
 -- the value of NextToken from the previous response to continue listing
 -- data.
-listThreatIntelSets_nextToken :: Lens.Lens' ListThreatIntelSets (Prelude.Maybe Prelude.Text)
+listThreatIntelSets_nextToken :: Lens.Lens' ListThreatIntelSets (Core.Maybe Core.Text)
 listThreatIntelSets_nextToken = Lens.lens (\ListThreatIntelSets' {nextToken} -> nextToken) (\s@ListThreatIntelSets' {} a -> s {nextToken = a} :: ListThreatIntelSets)
 
 -- | You can use this parameter to indicate the maximum number of items that
 -- you want in the response. The default value is 50. The maximum value is
 -- 50.
-listThreatIntelSets_maxResults :: Lens.Lens' ListThreatIntelSets (Prelude.Maybe Prelude.Natural)
+listThreatIntelSets_maxResults :: Lens.Lens' ListThreatIntelSets (Core.Maybe Core.Natural)
 listThreatIntelSets_maxResults = Lens.lens (\ListThreatIntelSets' {maxResults} -> maxResults) (\s@ListThreatIntelSets' {} a -> s {maxResults = a} :: ListThreatIntelSets)
 
 -- | The unique ID of the detector that the threatIntelSet is associated
 -- with.
-listThreatIntelSets_detectorId :: Lens.Lens' ListThreatIntelSets Prelude.Text
+listThreatIntelSets_detectorId :: Lens.Lens' ListThreatIntelSets Core.Text
 listThreatIntelSets_detectorId = Lens.lens (\ListThreatIntelSets' {detectorId} -> detectorId) (\s@ListThreatIntelSets' {} a -> s {detectorId = a} :: ListThreatIntelSets)
 
-instance Pager.AWSPager ListThreatIntelSets where
+instance Core.AWSPager ListThreatIntelSets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listThreatIntelSetsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. listThreatIntelSetsResponse_threatIntelSetIds
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listThreatIntelSets_nextToken
           Lens..~ rs
           Lens.^? listThreatIntelSetsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListThreatIntelSets where
+instance Core.AWSRequest ListThreatIntelSets where
   type
-    Rs ListThreatIntelSets =
+    AWSResponse ListThreatIntelSets =
       ListThreatIntelSetsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListThreatIntelSetsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "threatIntelSetIds"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..?> "threatIntelSetIds"
+                         Core..!@ Core.mempty
+                     )
       )
 
-instance Prelude.Hashable ListThreatIntelSets
+instance Core.Hashable ListThreatIntelSets
 
-instance Prelude.NFData ListThreatIntelSets
+instance Core.NFData ListThreatIntelSets
 
-instance Prelude.ToHeaders ListThreatIntelSets where
+instance Core.ToHeaders ListThreatIntelSets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListThreatIntelSets where
+instance Core.ToPath ListThreatIntelSets where
   toPath ListThreatIntelSets' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/detector/",
-        Prelude.toBS detectorId,
+        Core.toBS detectorId,
         "/threatintelset"
       ]
 
-instance Prelude.ToQuery ListThreatIntelSets where
+instance Core.ToQuery ListThreatIntelSets where
   toQuery ListThreatIntelSets' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListThreatIntelSetsResponse' smart constructor.
 data ListThreatIntelSetsResponse = ListThreatIntelSetsResponse'
   { -- | The pagination parameter to be used on the next list operation to
     -- retrieve more items.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The IDs of the ThreatIntelSet resources.
-    threatIntelSetIds :: [Prelude.Text]
+    threatIntelSetIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListThreatIntelSetsResponse' with all optional fields omitted.
@@ -217,27 +213,27 @@ data ListThreatIntelSetsResponse = ListThreatIntelSetsResponse'
 -- 'threatIntelSetIds', 'listThreatIntelSetsResponse_threatIntelSetIds' - The IDs of the ThreatIntelSet resources.
 newListThreatIntelSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListThreatIntelSetsResponse
 newListThreatIntelSetsResponse pHttpStatus_ =
   ListThreatIntelSetsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      threatIntelSetIds = Prelude.mempty
+      threatIntelSetIds = Core.mempty
     }
 
 -- | The pagination parameter to be used on the next list operation to
 -- retrieve more items.
-listThreatIntelSetsResponse_nextToken :: Lens.Lens' ListThreatIntelSetsResponse (Prelude.Maybe Prelude.Text)
+listThreatIntelSetsResponse_nextToken :: Lens.Lens' ListThreatIntelSetsResponse (Core.Maybe Core.Text)
 listThreatIntelSetsResponse_nextToken = Lens.lens (\ListThreatIntelSetsResponse' {nextToken} -> nextToken) (\s@ListThreatIntelSetsResponse' {} a -> s {nextToken = a} :: ListThreatIntelSetsResponse)
 
 -- | The response's http status code.
-listThreatIntelSetsResponse_httpStatus :: Lens.Lens' ListThreatIntelSetsResponse Prelude.Int
+listThreatIntelSetsResponse_httpStatus :: Lens.Lens' ListThreatIntelSetsResponse Core.Int
 listThreatIntelSetsResponse_httpStatus = Lens.lens (\ListThreatIntelSetsResponse' {httpStatus} -> httpStatus) (\s@ListThreatIntelSetsResponse' {} a -> s {httpStatus = a} :: ListThreatIntelSetsResponse)
 
 -- | The IDs of the ThreatIntelSet resources.
-listThreatIntelSetsResponse_threatIntelSetIds :: Lens.Lens' ListThreatIntelSetsResponse [Prelude.Text]
-listThreatIntelSetsResponse_threatIntelSetIds = Lens.lens (\ListThreatIntelSetsResponse' {threatIntelSetIds} -> threatIntelSetIds) (\s@ListThreatIntelSetsResponse' {} a -> s {threatIntelSetIds = a} :: ListThreatIntelSetsResponse) Prelude.. Prelude._Coerce
+listThreatIntelSetsResponse_threatIntelSetIds :: Lens.Lens' ListThreatIntelSetsResponse [Core.Text]
+listThreatIntelSetsResponse_threatIntelSetIds = Lens.lens (\ListThreatIntelSetsResponse' {threatIntelSetIds} -> threatIntelSetIds) (\s@ListThreatIntelSetsResponse' {} a -> s {threatIntelSetIds = a} :: ListThreatIntelSetsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListThreatIntelSetsResponse
+instance Core.NFData ListThreatIntelSetsResponse

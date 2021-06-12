@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,20 +41,20 @@ module Network.AWS.DeviceFarm.CreateTestGridProject
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTestGridProject' smart constructor.
 data CreateTestGridProject = CreateTestGridProject'
   { -- | Human-readable description of the project.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Human-readable name of the Selenium testing project.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTestGridProject' with all optional fields omitted.
@@ -70,78 +69,75 @@ data CreateTestGridProject = CreateTestGridProject'
 -- 'name', 'createTestGridProject_name' - Human-readable name of the Selenium testing project.
 newCreateTestGridProject ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CreateTestGridProject
 newCreateTestGridProject pName_ =
   CreateTestGridProject'
-    { description =
-        Prelude.Nothing,
+    { description = Core.Nothing,
       name = pName_
     }
 
 -- | Human-readable description of the project.
-createTestGridProject_description :: Lens.Lens' CreateTestGridProject (Prelude.Maybe Prelude.Text)
+createTestGridProject_description :: Lens.Lens' CreateTestGridProject (Core.Maybe Core.Text)
 createTestGridProject_description = Lens.lens (\CreateTestGridProject' {description} -> description) (\s@CreateTestGridProject' {} a -> s {description = a} :: CreateTestGridProject)
 
 -- | Human-readable name of the Selenium testing project.
-createTestGridProject_name :: Lens.Lens' CreateTestGridProject Prelude.Text
+createTestGridProject_name :: Lens.Lens' CreateTestGridProject Core.Text
 createTestGridProject_name = Lens.lens (\CreateTestGridProject' {name} -> name) (\s@CreateTestGridProject' {} a -> s {name = a} :: CreateTestGridProject)
 
-instance Prelude.AWSRequest CreateTestGridProject where
+instance Core.AWSRequest CreateTestGridProject where
   type
-    Rs CreateTestGridProject =
+    AWSResponse CreateTestGridProject =
       CreateTestGridProjectResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateTestGridProjectResponse'
-            Prelude.<$> (x Prelude..?> "testGridProject")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "testGridProject")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTestGridProject
+instance Core.Hashable CreateTestGridProject
 
-instance Prelude.NFData CreateTestGridProject
+instance Core.NFData CreateTestGridProject
 
-instance Prelude.ToHeaders CreateTestGridProject where
+instance Core.ToHeaders CreateTestGridProject where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.CreateTestGridProject" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.CreateTestGridProject" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateTestGridProject where
+instance Core.ToJSON CreateTestGridProject where
   toJSON CreateTestGridProject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("description" Core..=) Core.<$> description,
+            Core.Just ("name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath CreateTestGridProject where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateTestGridProject where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateTestGridProject where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateTestGridProject where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateTestGridProjectResponse' smart constructor.
 data CreateTestGridProjectResponse = CreateTestGridProjectResponse'
   { -- | ARN of the Selenium testing project that was created.
-    testGridProject :: Prelude.Maybe TestGridProject,
+    testGridProject :: Core.Maybe TestGridProject,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTestGridProjectResponse' with all optional fields omitted.
@@ -156,21 +152,21 @@ data CreateTestGridProjectResponse = CreateTestGridProjectResponse'
 -- 'httpStatus', 'createTestGridProjectResponse_httpStatus' - The response's http status code.
 newCreateTestGridProjectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateTestGridProjectResponse
 newCreateTestGridProjectResponse pHttpStatus_ =
   CreateTestGridProjectResponse'
     { testGridProject =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | ARN of the Selenium testing project that was created.
-createTestGridProjectResponse_testGridProject :: Lens.Lens' CreateTestGridProjectResponse (Prelude.Maybe TestGridProject)
+createTestGridProjectResponse_testGridProject :: Lens.Lens' CreateTestGridProjectResponse (Core.Maybe TestGridProject)
 createTestGridProjectResponse_testGridProject = Lens.lens (\CreateTestGridProjectResponse' {testGridProject} -> testGridProject) (\s@CreateTestGridProjectResponse' {} a -> s {testGridProject = a} :: CreateTestGridProjectResponse)
 
 -- | The response's http status code.
-createTestGridProjectResponse_httpStatus :: Lens.Lens' CreateTestGridProjectResponse Prelude.Int
+createTestGridProjectResponse_httpStatus :: Lens.Lens' CreateTestGridProjectResponse Core.Int
 createTestGridProjectResponse_httpStatus = Lens.lens (\CreateTestGridProjectResponse' {httpStatus} -> httpStatus) (\s@CreateTestGridProjectResponse' {} a -> s {httpStatus = a} :: CreateTestGridProjectResponse)
 
-instance Prelude.NFData CreateTestGridProjectResponse
+instance Core.NFData CreateTestGridProjectResponse

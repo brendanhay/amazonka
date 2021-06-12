@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.IntelligentTieringConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.IntelligentTieringFilter
 import Network.AWS.S3.Types.IntelligentTieringStatus
@@ -37,16 +36,16 @@ import Network.AWS.S3.Types.Tiering
 data IntelligentTieringConfiguration = IntelligentTieringConfiguration'
   { -- | Specifies a bucket filter. The configuration only includes objects that
     -- meet the filter\'s criteria.
-    filter' :: Prelude.Maybe IntelligentTieringFilter,
+    filter' :: Core.Maybe IntelligentTieringFilter,
     -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | Specifies the status of the configuration.
     status :: IntelligentTieringStatus,
     -- | Specifies the S3 Intelligent-Tiering storage class tier of the
     -- configuration.
     tierings :: [Tiering]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IntelligentTieringConfiguration' with all optional fields omitted.
@@ -67,26 +66,26 @@ data IntelligentTieringConfiguration = IntelligentTieringConfiguration'
 -- configuration.
 newIntelligentTieringConfiguration ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   IntelligentTieringStatus ->
   IntelligentTieringConfiguration
 newIntelligentTieringConfiguration pId_ pStatus_ =
   IntelligentTieringConfiguration'
     { filter' =
-        Prelude.Nothing,
+        Core.Nothing,
       id = pId_,
       status = pStatus_,
-      tierings = Prelude.mempty
+      tierings = Core.mempty
     }
 
 -- | Specifies a bucket filter. The configuration only includes objects that
 -- meet the filter\'s criteria.
-intelligentTieringConfiguration_filter :: Lens.Lens' IntelligentTieringConfiguration (Prelude.Maybe IntelligentTieringFilter)
+intelligentTieringConfiguration_filter :: Lens.Lens' IntelligentTieringConfiguration (Core.Maybe IntelligentTieringFilter)
 intelligentTieringConfiguration_filter = Lens.lens (\IntelligentTieringConfiguration' {filter'} -> filter') (\s@IntelligentTieringConfiguration' {} a -> s {filter' = a} :: IntelligentTieringConfiguration)
 
 -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-intelligentTieringConfiguration_id :: Lens.Lens' IntelligentTieringConfiguration Prelude.Text
+intelligentTieringConfiguration_id :: Lens.Lens' IntelligentTieringConfiguration Core.Text
 intelligentTieringConfiguration_id = Lens.lens (\IntelligentTieringConfiguration' {id} -> id) (\s@IntelligentTieringConfiguration' {} a -> s {id = a} :: IntelligentTieringConfiguration)
 
 -- | Specifies the status of the configuration.
@@ -96,35 +95,27 @@ intelligentTieringConfiguration_status = Lens.lens (\IntelligentTieringConfigura
 -- | Specifies the S3 Intelligent-Tiering storage class tier of the
 -- configuration.
 intelligentTieringConfiguration_tierings :: Lens.Lens' IntelligentTieringConfiguration [Tiering]
-intelligentTieringConfiguration_tierings = Lens.lens (\IntelligentTieringConfiguration' {tierings} -> tierings) (\s@IntelligentTieringConfiguration' {} a -> s {tierings = a} :: IntelligentTieringConfiguration) Prelude.. Prelude._Coerce
+intelligentTieringConfiguration_tierings = Lens.lens (\IntelligentTieringConfiguration' {tierings} -> tierings) (\s@IntelligentTieringConfiguration' {} a -> s {tierings = a} :: IntelligentTieringConfiguration) Core.. Lens._Coerce
 
-instance
-  Prelude.FromXML
-    IntelligentTieringConfiguration
-  where
+instance Core.FromXML IntelligentTieringConfiguration where
   parseXML x =
     IntelligentTieringConfiguration'
-      Prelude.<$> (x Prelude..@? "Filter")
-      Prelude.<*> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "Status")
-      Prelude.<*> (Prelude.parseXMLList "Tiering" x)
+      Core.<$> (x Core..@? "Filter")
+      Core.<*> (x Core..@ "Id")
+      Core.<*> (x Core..@ "Status")
+      Core.<*> (Core.parseXMLList "Tiering" x)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     IntelligentTieringConfiguration
 
-instance
-  Prelude.NFData
-    IntelligentTieringConfiguration
+instance Core.NFData IntelligentTieringConfiguration
 
-instance
-  Prelude.ToXML
-    IntelligentTieringConfiguration
-  where
+instance Core.ToXML IntelligentTieringConfiguration where
   toXML IntelligentTieringConfiguration' {..} =
-    Prelude.mconcat
-      [ "Filter" Prelude.@= filter',
-        "Id" Prelude.@= id,
-        "Status" Prelude.@= status,
-        Prelude.toXMLList "Tiering" tierings
+    Core.mconcat
+      [ "Filter" Core.@= filter',
+        "Id" Core.@= id,
+        "Status" Core.@= status,
+        Core.toXMLList "Tiering" tierings
       ]

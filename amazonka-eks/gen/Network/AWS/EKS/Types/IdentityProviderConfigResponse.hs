@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.IdentityProviderConfigResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.OidcIdentityProviderConfig
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that represents an identity configuration.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data IdentityProviderConfigResponse = IdentityProviderConfigResponse'
   { -- | An object that represents an OpenID Connect (OIDC) identity provider
     -- configuration.
-    oidc :: Prelude.Maybe OidcIdentityProviderConfig
+    oidc :: Core.Maybe OidcIdentityProviderConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IdentityProviderConfigResponse' with all optional fields omitted.
@@ -49,30 +48,23 @@ newIdentityProviderConfigResponse ::
 newIdentityProviderConfigResponse =
   IdentityProviderConfigResponse'
     { oidc =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | An object that represents an OpenID Connect (OIDC) identity provider
 -- configuration.
-identityProviderConfigResponse_oidc :: Lens.Lens' IdentityProviderConfigResponse (Prelude.Maybe OidcIdentityProviderConfig)
+identityProviderConfigResponse_oidc :: Lens.Lens' IdentityProviderConfigResponse (Core.Maybe OidcIdentityProviderConfig)
 identityProviderConfigResponse_oidc = Lens.lens (\IdentityProviderConfigResponse' {oidc} -> oidc) (\s@IdentityProviderConfigResponse' {} a -> s {oidc = a} :: IdentityProviderConfigResponse)
 
-instance
-  Prelude.FromJSON
-    IdentityProviderConfigResponse
-  where
+instance Core.FromJSON IdentityProviderConfigResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IdentityProviderConfigResponse"
       ( \x ->
           IdentityProviderConfigResponse'
-            Prelude.<$> (x Prelude..:? "oidc")
+            Core.<$> (x Core..:? "oidc")
       )
 
-instance
-  Prelude.Hashable
-    IdentityProviderConfigResponse
+instance Core.Hashable IdentityProviderConfigResponse
 
-instance
-  Prelude.NFData
-    IdentityProviderConfigResponse
+instance Core.NFData IdentityProviderConfigResponse

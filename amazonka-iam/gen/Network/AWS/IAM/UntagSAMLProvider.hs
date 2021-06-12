@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.IAM.UntagSAMLProvider
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +57,12 @@ data UntagSAMLProvider = UntagSAMLProvider'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    sAMLProviderArn :: Prelude.Text,
+    sAMLProviderArn :: Core.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified SAML identity provider.
-    tagKeys :: [Prelude.Text]
+    tagKeys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagSAMLProvider' with all optional fields omitted.
@@ -85,13 +84,13 @@ data UntagSAMLProvider = UntagSAMLProvider'
 -- keys are removed from the specified SAML identity provider.
 newUntagSAMLProvider ::
   -- | 'sAMLProviderArn'
-  Prelude.Text ->
+  Core.Text ->
   UntagSAMLProvider
 newUntagSAMLProvider pSAMLProviderArn_ =
   UntagSAMLProvider'
     { sAMLProviderArn =
         pSAMLProviderArn_,
-      tagKeys = Prelude.mempty
+      tagKeys = Core.mempty
     }
 
 -- | The ARN of the SAML identity provider in IAM from which you want to
@@ -101,47 +100,47 @@ newUntagSAMLProvider pSAMLProviderArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-untagSAMLProvider_sAMLProviderArn :: Lens.Lens' UntagSAMLProvider Prelude.Text
+untagSAMLProvider_sAMLProviderArn :: Lens.Lens' UntagSAMLProvider Core.Text
 untagSAMLProvider_sAMLProviderArn = Lens.lens (\UntagSAMLProvider' {sAMLProviderArn} -> sAMLProviderArn) (\s@UntagSAMLProvider' {} a -> s {sAMLProviderArn = a} :: UntagSAMLProvider)
 
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified SAML identity provider.
-untagSAMLProvider_tagKeys :: Lens.Lens' UntagSAMLProvider [Prelude.Text]
-untagSAMLProvider_tagKeys = Lens.lens (\UntagSAMLProvider' {tagKeys} -> tagKeys) (\s@UntagSAMLProvider' {} a -> s {tagKeys = a} :: UntagSAMLProvider) Prelude.. Prelude._Coerce
+untagSAMLProvider_tagKeys :: Lens.Lens' UntagSAMLProvider [Core.Text]
+untagSAMLProvider_tagKeys = Lens.lens (\UntagSAMLProvider' {tagKeys} -> tagKeys) (\s@UntagSAMLProvider' {} a -> s {tagKeys = a} :: UntagSAMLProvider) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagSAMLProvider where
-  type Rs UntagSAMLProvider = UntagSAMLProviderResponse
+instance Core.AWSRequest UntagSAMLProvider where
+  type
+    AWSResponse UntagSAMLProvider =
+      UntagSAMLProviderResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull UntagSAMLProviderResponse'
 
-instance Prelude.Hashable UntagSAMLProvider
+instance Core.Hashable UntagSAMLProvider
 
-instance Prelude.NFData UntagSAMLProvider
+instance Core.NFData UntagSAMLProvider
 
-instance Prelude.ToHeaders UntagSAMLProvider where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UntagSAMLProvider where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UntagSAMLProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath UntagSAMLProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UntagSAMLProvider where
+instance Core.ToQuery UntagSAMLProvider where
   toQuery UntagSAMLProvider' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UntagSAMLProvider" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "SAMLProviderArn" Prelude.=: sAMLProviderArn,
-        "TagKeys"
-          Prelude.=: Prelude.toQueryList "member" tagKeys
+          Core.=: ("UntagSAMLProvider" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "SAMLProviderArn" Core.=: sAMLProviderArn,
+        "TagKeys" Core.=: Core.toQueryList "member" tagKeys
       ]
 
 -- | /See:/ 'newUntagSAMLProviderResponse' smart constructor.
 data UntagSAMLProviderResponse = UntagSAMLProviderResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagSAMLProviderResponse' with all optional fields omitted.
@@ -152,4 +151,4 @@ newUntagSAMLProviderResponse ::
 newUntagSAMLProviderResponse =
   UntagSAMLProviderResponse'
 
-instance Prelude.NFData UntagSAMLProviderResponse
+instance Core.NFData UntagSAMLProviderResponse

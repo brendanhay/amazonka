@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -81,8 +80,8 @@ module Network.AWS.CloudSearchDomains.Search
 where
 
 import Network.AWS.CloudSearchDomains.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -104,7 +103,7 @@ data Search = Search'
     -- use in expressions, see
     -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html#writing-expressions Writing Expressions>
     -- in the /Amazon CloudSearch Developer Guide/.
-    expr :: Prelude.Maybe Prelude.Text,
+    expr :: Core.Maybe Core.Text,
     -- | Enables partial results to be returned if one or more index partitions
     -- are unavailable. When your search index is partitioned across multiple
     -- search instances, by default Amazon CloudSearch only returns results if
@@ -117,7 +116,7 @@ data Search = Search'
     -- displaying no results, you could display the partial results and a
     -- message indicating that the results might be incomplete due to a
     -- temporary system outage.
-    partial :: Prelude.Maybe Prelude.Bool,
+    partial :: Core.Maybe Core.Bool,
     -- | Specifies which query parser to use to process the request. If
     -- @queryParser@ is not specified, Amazon CloudSearch uses the @simple@
     -- query parser.
@@ -151,7 +150,7 @@ data Search = Search'
     --     query parser syntax defined by the DisMax query parser. For more
     --     information, see
     --     <http://wiki.apache.org/solr/DisMaxQParserPlugin#Query_Syntax DisMax Query Parser Syntax>.
-    queryParser :: Prelude.Maybe QueryParser,
+    queryParser :: Core.Maybe QueryParser,
     -- | Configures options for the query parser specified in the @queryParser@
     -- parameter. You specify the options in JSON using the following form
     -- @{\"OPTION1\":\"VALUE1\",\"OPTION2\":VALUE2\"...\"OPTIONN\":\"VALUEN\"}.@
@@ -247,7 +246,7 @@ data Search = Search'
     --     (pure max): @\"tieBreaker\":0@. Set to 1 to sum the scores from all
     --     fields (pure sum): @\"tieBreaker\":1@. Valid values: 0.0 to 1.0.
     --     Default: 0.0. Valid for: @dismax@.
-    queryOptions :: Prelude.Maybe Prelude.Text,
+    queryOptions :: Core.Maybe Core.Text,
     -- | Retrieves a cursor value you can use to page through large result sets.
     -- Use the @size@ parameter to control the number of hits to include in
     -- each response. You can specify either the @cursor@ or @start@ parameter
@@ -258,14 +257,14 @@ data Search = Search'
     -- For more information, see
     -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html Paginating Results>
     -- in the /Amazon CloudSearch Developer Guide/.
-    cursor :: Prelude.Maybe Prelude.Text,
+    cursor :: Core.Maybe Core.Text,
     -- | Specifies the field and expression values to include in the response.
     -- Multiple fields or expressions are specified as a comma-separated list.
     -- By default, a search response includes all return enabled fields
     -- (@_all_fields@). To return only the document IDs for the matching
     -- documents, specify @_no_fields@. To retrieve the relevance score
     -- calculated for each document, specify @_score@.
-    return' :: Prelude.Maybe Prelude.Text,
+    return' :: Core.Maybe Core.Text,
     -- | Specifies one or more fields for which to get statistics information.
     -- Each specified field must be facet-enabled in the domain configuration.
     -- The fields are specified in JSON using the form:
@@ -273,7 +272,7 @@ data Search = Search'
     -- @{\"FIELD-A\":{},\"FIELD-B\":{}}@
     --
     -- There are currently no options supported for statistics.
-    stats :: Prelude.Maybe Prelude.Text,
+    stats :: Core.Maybe Core.Text,
     -- | Retrieves highlights for matches in the specified @text@ or @text-array@
     -- fields. Each specified field must be highlight enabled in the domain
     -- configuration. The fields and options are specified in JSON using the
@@ -303,7 +302,7 @@ data Search = Search'
     -- and @title@ fields.
     --
     -- @{ \"actors\": {}, \"title\": {\"format\": \"text\",\"max_phrases\": 2,\"pre_tag\": \"\",\"post_tag\": \"\"} }@
-    highlight :: Prelude.Maybe Prelude.Text,
+    highlight :: Core.Maybe Core.Text,
     -- | Specifies the offset of the first search hit you want to return. Note
     -- that the result set is zero-based; the first result is at index 0. You
     -- can specify either the @start@ or @cursor@ parameter in a request, they
@@ -312,7 +311,7 @@ data Search = Search'
     -- For more information, see
     -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html Paginating Results>
     -- in the /Amazon CloudSearch Developer Guide/.
-    start :: Prelude.Maybe Prelude.Integer,
+    start :: Core.Maybe Core.Integer,
     -- | Specifies one or more fields for which to get facet information, and
     -- options that control how the facet information is returned. Each
     -- specified field must be facet-enabled in the domain configuration. The
@@ -368,9 +367,9 @@ data Search = Search'
     -- For more information, see
     -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/faceting.html Getting and Using Facet Information>
     -- in the /Amazon CloudSearch Developer Guide/.
-    facet :: Prelude.Maybe Prelude.Text,
+    facet :: Core.Maybe Core.Text,
     -- | Specifies the maximum number of search hits to include in the response.
-    size :: Prelude.Maybe Prelude.Integer,
+    size :: Core.Maybe Core.Integer,
     -- | Specifies the fields or custom expressions to use to sort the search
     -- results. Multiple fields or expressions are specified as a
     -- comma-separated list. You must specify the sort direction (@asc@ or
@@ -384,7 +383,7 @@ data Search = Search'
     -- For more information, see
     -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/sorting-results.html Sorting Results>
     -- in the /Amazon CloudSearch Developer Guide/.
-    sort :: Prelude.Maybe Prelude.Text,
+    sort :: Core.Maybe Core.Text,
     -- | Specifies a structured query that filters the results of a search
     -- without affecting how the results are scored and sorted. You use
     -- @filterQuery@ in conjunction with the @query@ parameter to filter the
@@ -396,7 +395,7 @@ data Search = Search'
     -- For more information about using filters, see
     -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/filtering-results.html Filtering Matching Documents>
     -- in the /Amazon CloudSearch Developer Guide/.
-    filterQuery :: Prelude.Maybe Prelude.Text,
+    filterQuery :: Core.Maybe Core.Text,
     -- | Specifies the search criteria for the request. How you specify the
     -- search criteria depends on the query parser used for the request and the
     -- parser options specified in the @queryOptions@ parameter. By default,
@@ -407,9 +406,9 @@ data Search = Search'
     -- For more information about specifying search criteria, see
     -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html Searching Your Data>
     -- in the /Amazon CloudSearch Developer Guide/.
-    query :: Prelude.Text
+    query :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Search' with all optional fields omitted.
@@ -738,23 +737,23 @@ data Search = Search'
 -- in the /Amazon CloudSearch Developer Guide/.
 newSearch ::
   -- | 'query'
-  Prelude.Text ->
+  Core.Text ->
   Search
 newSearch pQuery_ =
   Search'
-    { expr = Prelude.Nothing,
-      partial = Prelude.Nothing,
-      queryParser = Prelude.Nothing,
-      queryOptions = Prelude.Nothing,
-      cursor = Prelude.Nothing,
-      return' = Prelude.Nothing,
-      stats = Prelude.Nothing,
-      highlight = Prelude.Nothing,
-      start = Prelude.Nothing,
-      facet = Prelude.Nothing,
-      size = Prelude.Nothing,
-      sort = Prelude.Nothing,
-      filterQuery = Prelude.Nothing,
+    { expr = Core.Nothing,
+      partial = Core.Nothing,
+      queryParser = Core.Nothing,
+      queryOptions = Core.Nothing,
+      cursor = Core.Nothing,
+      return' = Core.Nothing,
+      stats = Core.Nothing,
+      highlight = Core.Nothing,
+      start = Core.Nothing,
+      facet = Core.Nothing,
+      size = Core.Nothing,
+      sort = Core.Nothing,
+      filterQuery = Core.Nothing,
       query = pQuery_
     }
 
@@ -772,7 +771,7 @@ newSearch pQuery_ =
 -- use in expressions, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html#writing-expressions Writing Expressions>
 -- in the /Amazon CloudSearch Developer Guide/.
-search_expr :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_expr :: Lens.Lens' Search (Core.Maybe Core.Text)
 search_expr = Lens.lens (\Search' {expr} -> expr) (\s@Search' {} a -> s {expr = a} :: Search)
 
 -- | Enables partial results to be returned if one or more index partitions
@@ -787,7 +786,7 @@ search_expr = Lens.lens (\Search' {expr} -> expr) (\s@Search' {} a -> s {expr = 
 -- displaying no results, you could display the partial results and a
 -- message indicating that the results might be incomplete due to a
 -- temporary system outage.
-search_partial :: Lens.Lens' Search (Prelude.Maybe Prelude.Bool)
+search_partial :: Lens.Lens' Search (Core.Maybe Core.Bool)
 search_partial = Lens.lens (\Search' {partial} -> partial) (\s@Search' {} a -> s {partial = a} :: Search)
 
 -- | Specifies which query parser to use to process the request. If
@@ -823,7 +822,7 @@ search_partial = Lens.lens (\Search' {partial} -> partial) (\s@Search' {} a -> s
 --     query parser syntax defined by the DisMax query parser. For more
 --     information, see
 --     <http://wiki.apache.org/solr/DisMaxQParserPlugin#Query_Syntax DisMax Query Parser Syntax>.
-search_queryParser :: Lens.Lens' Search (Prelude.Maybe QueryParser)
+search_queryParser :: Lens.Lens' Search (Core.Maybe QueryParser)
 search_queryParser = Lens.lens (\Search' {queryParser} -> queryParser) (\s@Search' {} a -> s {queryParser = a} :: Search)
 
 -- | Configures options for the query parser specified in the @queryParser@
@@ -921,7 +920,7 @@ search_queryParser = Lens.lens (\Search' {queryParser} -> queryParser) (\s@Searc
 --     (pure max): @\"tieBreaker\":0@. Set to 1 to sum the scores from all
 --     fields (pure sum): @\"tieBreaker\":1@. Valid values: 0.0 to 1.0.
 --     Default: 0.0. Valid for: @dismax@.
-search_queryOptions :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_queryOptions :: Lens.Lens' Search (Core.Maybe Core.Text)
 search_queryOptions = Lens.lens (\Search' {queryOptions} -> queryOptions) (\s@Search' {} a -> s {queryOptions = a} :: Search)
 
 -- | Retrieves a cursor value you can use to page through large result sets.
@@ -934,7 +933,7 @@ search_queryOptions = Lens.lens (\Search' {queryOptions} -> queryOptions) (\s@Se
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html Paginating Results>
 -- in the /Amazon CloudSearch Developer Guide/.
-search_cursor :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_cursor :: Lens.Lens' Search (Core.Maybe Core.Text)
 search_cursor = Lens.lens (\Search' {cursor} -> cursor) (\s@Search' {} a -> s {cursor = a} :: Search)
 
 -- | Specifies the field and expression values to include in the response.
@@ -943,7 +942,7 @@ search_cursor = Lens.lens (\Search' {cursor} -> cursor) (\s@Search' {} a -> s {c
 -- (@_all_fields@). To return only the document IDs for the matching
 -- documents, specify @_no_fields@. To retrieve the relevance score
 -- calculated for each document, specify @_score@.
-search_return :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_return :: Lens.Lens' Search (Core.Maybe Core.Text)
 search_return = Lens.lens (\Search' {return'} -> return') (\s@Search' {} a -> s {return' = a} :: Search)
 
 -- | Specifies one or more fields for which to get statistics information.
@@ -953,7 +952,7 @@ search_return = Lens.lens (\Search' {return'} -> return') (\s@Search' {} a -> s 
 -- @{\"FIELD-A\":{},\"FIELD-B\":{}}@
 --
 -- There are currently no options supported for statistics.
-search_stats :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_stats :: Lens.Lens' Search (Core.Maybe Core.Text)
 search_stats = Lens.lens (\Search' {stats} -> stats) (\s@Search' {} a -> s {stats = a} :: Search)
 
 -- | Retrieves highlights for matches in the specified @text@ or @text-array@
@@ -985,7 +984,7 @@ search_stats = Lens.lens (\Search' {stats} -> stats) (\s@Search' {} a -> s {stat
 -- and @title@ fields.
 --
 -- @{ \"actors\": {}, \"title\": {\"format\": \"text\",\"max_phrases\": 2,\"pre_tag\": \"\",\"post_tag\": \"\"} }@
-search_highlight :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_highlight :: Lens.Lens' Search (Core.Maybe Core.Text)
 search_highlight = Lens.lens (\Search' {highlight} -> highlight) (\s@Search' {} a -> s {highlight = a} :: Search)
 
 -- | Specifies the offset of the first search hit you want to return. Note
@@ -996,7 +995,7 @@ search_highlight = Lens.lens (\Search' {highlight} -> highlight) (\s@Search' {} 
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html Paginating Results>
 -- in the /Amazon CloudSearch Developer Guide/.
-search_start :: Lens.Lens' Search (Prelude.Maybe Prelude.Integer)
+search_start :: Lens.Lens' Search (Core.Maybe Core.Integer)
 search_start = Lens.lens (\Search' {start} -> start) (\s@Search' {} a -> s {start = a} :: Search)
 
 -- | Specifies one or more fields for which to get facet information, and
@@ -1054,11 +1053,11 @@ search_start = Lens.lens (\Search' {start} -> start) (\s@Search' {} a -> s {star
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/faceting.html Getting and Using Facet Information>
 -- in the /Amazon CloudSearch Developer Guide/.
-search_facet :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_facet :: Lens.Lens' Search (Core.Maybe Core.Text)
 search_facet = Lens.lens (\Search' {facet} -> facet) (\s@Search' {} a -> s {facet = a} :: Search)
 
 -- | Specifies the maximum number of search hits to include in the response.
-search_size :: Lens.Lens' Search (Prelude.Maybe Prelude.Integer)
+search_size :: Lens.Lens' Search (Core.Maybe Core.Integer)
 search_size = Lens.lens (\Search' {size} -> size) (\s@Search' {} a -> s {size = a} :: Search)
 
 -- | Specifies the fields or custom expressions to use to sort the search
@@ -1074,7 +1073,7 @@ search_size = Lens.lens (\Search' {size} -> size) (\s@Search' {} a -> s {size = 
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/sorting-results.html Sorting Results>
 -- in the /Amazon CloudSearch Developer Guide/.
-search_sort :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_sort :: Lens.Lens' Search (Core.Maybe Core.Text)
 search_sort = Lens.lens (\Search' {sort} -> sort) (\s@Search' {} a -> s {sort = a} :: Search)
 
 -- | Specifies a structured query that filters the results of a search
@@ -1088,7 +1087,7 @@ search_sort = Lens.lens (\Search' {sort} -> sort) (\s@Search' {} a -> s {sort = 
 -- For more information about using filters, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/filtering-results.html Filtering Matching Documents>
 -- in the /Amazon CloudSearch Developer Guide/.
-search_filterQuery :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_filterQuery :: Lens.Lens' Search (Core.Maybe Core.Text)
 search_filterQuery = Lens.lens (\Search' {filterQuery} -> filterQuery) (\s@Search' {} a -> s {filterQuery = a} :: Search)
 
 -- | Specifies the search criteria for the request. How you specify the
@@ -1101,58 +1100,56 @@ search_filterQuery = Lens.lens (\Search' {filterQuery} -> filterQuery) (\s@Searc
 -- For more information about specifying search criteria, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html Searching Your Data>
 -- in the /Amazon CloudSearch Developer Guide/.
-search_query :: Lens.Lens' Search Prelude.Text
+search_query :: Lens.Lens' Search Core.Text
 search_query = Lens.lens (\Search' {query} -> query) (\s@Search' {} a -> s {query = a} :: Search)
 
-instance Prelude.AWSRequest Search where
-  type Rs Search = SearchResponse
+instance Core.AWSRequest Search where
+  type AWSResponse Search = SearchResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SearchResponse'
-            Prelude.<$> (x Prelude..?> "status")
-            Prelude.<*> (x Prelude..?> "hits")
-            Prelude.<*> (x Prelude..?> "stats" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "facets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "status")
+            Core.<*> (x Core..?> "hits")
+            Core.<*> (x Core..?> "stats" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "facets" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable Search
+instance Core.Hashable Search
 
-instance Prelude.NFData Search
+instance Core.NFData Search
 
-instance Prelude.ToHeaders Search where
+instance Core.ToHeaders Search where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath Search where
-  toPath = Prelude.const "/2013-01-01/search"
+instance Core.ToPath Search where
+  toPath = Core.const "/2013-01-01/search"
 
-instance Prelude.ToQuery Search where
+instance Core.ToQuery Search where
   toQuery Search' {..} =
-    Prelude.mconcat
-      [ "expr" Prelude.=: expr,
-        "partial" Prelude.=: partial,
-        "q.parser" Prelude.=: queryParser,
-        "q.options" Prelude.=: queryOptions,
-        "cursor" Prelude.=: cursor,
-        "return" Prelude.=: return',
-        "stats" Prelude.=: stats,
-        "highlight" Prelude.=: highlight,
-        "start" Prelude.=: start,
-        "facet" Prelude.=: facet,
-        "size" Prelude.=: size,
-        "sort" Prelude.=: sort,
-        "fq" Prelude.=: filterQuery,
-        "q" Prelude.=: query,
+    Core.mconcat
+      [ "expr" Core.=: expr,
+        "partial" Core.=: partial,
+        "q.parser" Core.=: queryParser,
+        "q.options" Core.=: queryOptions,
+        "cursor" Core.=: cursor,
+        "return" Core.=: return',
+        "stats" Core.=: stats,
+        "highlight" Core.=: highlight,
+        "start" Core.=: start,
+        "facet" Core.=: facet,
+        "size" Core.=: size,
+        "sort" Core.=: sort,
+        "fq" Core.=: filterQuery,
+        "q" Core.=: query,
         "format=sdk&pretty=true"
       ]
 
@@ -1163,17 +1160,17 @@ instance Prelude.ToQuery Search where
 -- /See:/ 'newSearchResponse' smart constructor.
 data SearchResponse = SearchResponse'
   { -- | The status information returned for the search request.
-    status :: Prelude.Maybe SearchStatus,
+    status :: Core.Maybe SearchStatus,
     -- | The documents that match the search criteria.
-    hits :: Prelude.Maybe Hits,
+    hits :: Core.Maybe Hits,
     -- | The requested field statistics information.
-    stats :: Prelude.Maybe (Prelude.HashMap Prelude.Text FieldStats),
+    stats :: Core.Maybe (Core.HashMap Core.Text FieldStats),
     -- | The requested facet information.
-    facets :: Prelude.Maybe (Prelude.HashMap Prelude.Text BucketInfo),
+    facets :: Core.Maybe (Core.HashMap Core.Text BucketInfo),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SearchResponse' with all optional fields omitted.
@@ -1194,35 +1191,35 @@ data SearchResponse = SearchResponse'
 -- 'httpStatus', 'searchResponse_httpStatus' - The response's http status code.
 newSearchResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SearchResponse
 newSearchResponse pHttpStatus_ =
   SearchResponse'
-    { status = Prelude.Nothing,
-      hits = Prelude.Nothing,
-      stats = Prelude.Nothing,
-      facets = Prelude.Nothing,
+    { status = Core.Nothing,
+      hits = Core.Nothing,
+      stats = Core.Nothing,
+      facets = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status information returned for the search request.
-searchResponse_status :: Lens.Lens' SearchResponse (Prelude.Maybe SearchStatus)
+searchResponse_status :: Lens.Lens' SearchResponse (Core.Maybe SearchStatus)
 searchResponse_status = Lens.lens (\SearchResponse' {status} -> status) (\s@SearchResponse' {} a -> s {status = a} :: SearchResponse)
 
 -- | The documents that match the search criteria.
-searchResponse_hits :: Lens.Lens' SearchResponse (Prelude.Maybe Hits)
+searchResponse_hits :: Lens.Lens' SearchResponse (Core.Maybe Hits)
 searchResponse_hits = Lens.lens (\SearchResponse' {hits} -> hits) (\s@SearchResponse' {} a -> s {hits = a} :: SearchResponse)
 
 -- | The requested field statistics information.
-searchResponse_stats :: Lens.Lens' SearchResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text FieldStats))
-searchResponse_stats = Lens.lens (\SearchResponse' {stats} -> stats) (\s@SearchResponse' {} a -> s {stats = a} :: SearchResponse) Prelude.. Lens.mapping Prelude._Coerce
+searchResponse_stats :: Lens.Lens' SearchResponse (Core.Maybe (Core.HashMap Core.Text FieldStats))
+searchResponse_stats = Lens.lens (\SearchResponse' {stats} -> stats) (\s@SearchResponse' {} a -> s {stats = a} :: SearchResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The requested facet information.
-searchResponse_facets :: Lens.Lens' SearchResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text BucketInfo))
-searchResponse_facets = Lens.lens (\SearchResponse' {facets} -> facets) (\s@SearchResponse' {} a -> s {facets = a} :: SearchResponse) Prelude.. Lens.mapping Prelude._Coerce
+searchResponse_facets :: Lens.Lens' SearchResponse (Core.Maybe (Core.HashMap Core.Text BucketInfo))
+searchResponse_facets = Lens.lens (\SearchResponse' {facets} -> facets) (\s@SearchResponse' {} a -> s {facets = a} :: SearchResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-searchResponse_httpStatus :: Lens.Lens' SearchResponse Prelude.Int
+searchResponse_httpStatus :: Lens.Lens' SearchResponse Core.Int
 searchResponse_httpStatus = Lens.lens (\SearchResponse' {httpStatus} -> httpStatus) (\s@SearchResponse' {} a -> s {httpStatus = a} :: SearchResponse)
 
-instance Prelude.NFData SearchResponse
+instance Core.NFData SearchResponse

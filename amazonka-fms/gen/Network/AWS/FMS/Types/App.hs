@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.FMS.Types.App where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An individual AWS Firewall Manager application.
 --
 -- /See:/ 'newApp' smart constructor.
 data App = App'
   { -- | The application\'s name.
-    appName :: Prelude.Text,
+    appName :: Core.Text,
     -- | The IP protocol name or number. The name can be one of @tcp@, @udp@, or
     -- @icmp@. For information on possible numbers, see
     -- <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>.
-    protocol :: Prelude.Text,
+    protocol :: Core.Text,
     -- | The application\'s port number, for example @80@.
-    port :: Prelude.Natural
+    port :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'App' with all optional fields omitted.
@@ -55,11 +54,11 @@ data App = App'
 -- 'port', 'app_port' - The application\'s port number, for example @80@.
 newApp ::
   -- | 'appName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'protocol'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'port'
-  Prelude.Natural ->
+  Core.Natural ->
   App
 newApp pAppName_ pProtocol_ pPort_ =
   App'
@@ -69,40 +68,40 @@ newApp pAppName_ pProtocol_ pPort_ =
     }
 
 -- | The application\'s name.
-app_appName :: Lens.Lens' App Prelude.Text
+app_appName :: Lens.Lens' App Core.Text
 app_appName = Lens.lens (\App' {appName} -> appName) (\s@App' {} a -> s {appName = a} :: App)
 
 -- | The IP protocol name or number. The name can be one of @tcp@, @udp@, or
 -- @icmp@. For information on possible numbers, see
 -- <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>.
-app_protocol :: Lens.Lens' App Prelude.Text
+app_protocol :: Lens.Lens' App Core.Text
 app_protocol = Lens.lens (\App' {protocol} -> protocol) (\s@App' {} a -> s {protocol = a} :: App)
 
 -- | The application\'s port number, for example @80@.
-app_port :: Lens.Lens' App Prelude.Natural
+app_port :: Lens.Lens' App Core.Natural
 app_port = Lens.lens (\App' {port} -> port) (\s@App' {} a -> s {port = a} :: App)
 
-instance Prelude.FromJSON App where
+instance Core.FromJSON App where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "App"
       ( \x ->
           App'
-            Prelude.<$> (x Prelude..: "AppName")
-            Prelude.<*> (x Prelude..: "Protocol")
-            Prelude.<*> (x Prelude..: "Port")
+            Core.<$> (x Core..: "AppName")
+            Core.<*> (x Core..: "Protocol")
+            Core.<*> (x Core..: "Port")
       )
 
-instance Prelude.Hashable App
+instance Core.Hashable App
 
-instance Prelude.NFData App
+instance Core.NFData App
 
-instance Prelude.ToJSON App where
+instance Core.ToJSON App where
   toJSON App' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AppName" Prelude..= appName),
-            Prelude.Just ("Protocol" Prelude..= protocol),
-            Prelude.Just ("Port" Prelude..= port)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AppName" Core..= appName),
+            Core.Just ("Protocol" Core..= protocol),
+            Core.Just ("Port" Core..= port)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,18 +42,18 @@ module Network.AWS.OpsWorks.RebootInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRebootInstance' smart constructor.
 data RebootInstance = RebootInstance'
   { -- | The instance ID.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootInstance' with all optional fields omitted.
@@ -67,58 +66,58 @@ data RebootInstance = RebootInstance'
 -- 'instanceId', 'rebootInstance_instanceId' - The instance ID.
 newRebootInstance ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   RebootInstance
 newRebootInstance pInstanceId_ =
   RebootInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-rebootInstance_instanceId :: Lens.Lens' RebootInstance Prelude.Text
+rebootInstance_instanceId :: Lens.Lens' RebootInstance Core.Text
 rebootInstance_instanceId = Lens.lens (\RebootInstance' {instanceId} -> instanceId) (\s@RebootInstance' {} a -> s {instanceId = a} :: RebootInstance)
 
-instance Prelude.AWSRequest RebootInstance where
-  type Rs RebootInstance = RebootInstanceResponse
+instance Core.AWSRequest RebootInstance where
+  type
+    AWSResponse RebootInstance =
+      RebootInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull RebootInstanceResponse'
 
-instance Prelude.Hashable RebootInstance
+instance Core.Hashable RebootInstance
 
-instance Prelude.NFData RebootInstance
+instance Core.NFData RebootInstance
 
-instance Prelude.ToHeaders RebootInstance where
+instance Core.ToHeaders RebootInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.RebootInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.RebootInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RebootInstance where
+instance Core.ToJSON RebootInstance where
   toJSON RebootInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("InstanceId" Prelude..= instanceId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("InstanceId" Core..= instanceId)]
       )
 
-instance Prelude.ToPath RebootInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath RebootInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RebootInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RebootInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRebootInstanceResponse' smart constructor.
 data RebootInstanceResponse = RebootInstanceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootInstanceResponse' with all optional fields omitted.
@@ -128,4 +127,4 @@ newRebootInstanceResponse ::
   RebootInstanceResponse
 newRebootInstanceResponse = RebootInstanceResponse'
 
-instance Prelude.NFData RebootInstanceResponse
+instance Core.NFData RebootInstanceResponse

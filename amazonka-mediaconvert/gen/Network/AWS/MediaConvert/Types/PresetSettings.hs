@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.PresetSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AudioDescription
 import Network.AWS.MediaConvert.Types.CaptionDescriptionPreset
 import Network.AWS.MediaConvert.Types.ContainerSettings
 import Network.AWS.MediaConvert.Types.VideoDescription
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for preset
 --
@@ -34,19 +33,19 @@ data PresetSettings = PresetSettings'
   { -- | (AudioDescriptions) contains groups of audio encoding settings organized
     -- by audio codec. Include one instance of (AudioDescriptions) per output.
     -- (AudioDescriptions) can contain multiple groups of encoding settings.
-    audioDescriptions :: Prelude.Maybe [AudioDescription],
+    audioDescriptions :: Core.Maybe [AudioDescription],
     -- | Container specific settings.
-    containerSettings :: Prelude.Maybe ContainerSettings,
+    containerSettings :: Core.Maybe ContainerSettings,
     -- | (VideoDescription) contains a group of video encoding settings. The
     -- specific video settings depend on the video codec that you choose when
     -- you specify a value for Video codec (codec). Include one instance of
     -- (VideoDescription) per output.
-    videoDescription :: Prelude.Maybe VideoDescription,
+    videoDescription :: Core.Maybe VideoDescription,
     -- | Caption settings for this preset. There can be multiple caption settings
     -- in a single output.
-    captionDescriptions :: Prelude.Maybe [CaptionDescriptionPreset]
+    captionDescriptions :: Core.Maybe [CaptionDescriptionPreset]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PresetSettings' with all optional fields omitted.
@@ -73,66 +72,63 @@ newPresetSettings ::
   PresetSettings
 newPresetSettings =
   PresetSettings'
-    { audioDescriptions =
-        Prelude.Nothing,
-      containerSettings = Prelude.Nothing,
-      videoDescription = Prelude.Nothing,
-      captionDescriptions = Prelude.Nothing
+    { audioDescriptions = Core.Nothing,
+      containerSettings = Core.Nothing,
+      videoDescription = Core.Nothing,
+      captionDescriptions = Core.Nothing
     }
 
 -- | (AudioDescriptions) contains groups of audio encoding settings organized
 -- by audio codec. Include one instance of (AudioDescriptions) per output.
 -- (AudioDescriptions) can contain multiple groups of encoding settings.
-presetSettings_audioDescriptions :: Lens.Lens' PresetSettings (Prelude.Maybe [AudioDescription])
-presetSettings_audioDescriptions = Lens.lens (\PresetSettings' {audioDescriptions} -> audioDescriptions) (\s@PresetSettings' {} a -> s {audioDescriptions = a} :: PresetSettings) Prelude.. Lens.mapping Prelude._Coerce
+presetSettings_audioDescriptions :: Lens.Lens' PresetSettings (Core.Maybe [AudioDescription])
+presetSettings_audioDescriptions = Lens.lens (\PresetSettings' {audioDescriptions} -> audioDescriptions) (\s@PresetSettings' {} a -> s {audioDescriptions = a} :: PresetSettings) Core.. Lens.mapping Lens._Coerce
 
 -- | Container specific settings.
-presetSettings_containerSettings :: Lens.Lens' PresetSettings (Prelude.Maybe ContainerSettings)
+presetSettings_containerSettings :: Lens.Lens' PresetSettings (Core.Maybe ContainerSettings)
 presetSettings_containerSettings = Lens.lens (\PresetSettings' {containerSettings} -> containerSettings) (\s@PresetSettings' {} a -> s {containerSettings = a} :: PresetSettings)
 
 -- | (VideoDescription) contains a group of video encoding settings. The
 -- specific video settings depend on the video codec that you choose when
 -- you specify a value for Video codec (codec). Include one instance of
 -- (VideoDescription) per output.
-presetSettings_videoDescription :: Lens.Lens' PresetSettings (Prelude.Maybe VideoDescription)
+presetSettings_videoDescription :: Lens.Lens' PresetSettings (Core.Maybe VideoDescription)
 presetSettings_videoDescription = Lens.lens (\PresetSettings' {videoDescription} -> videoDescription) (\s@PresetSettings' {} a -> s {videoDescription = a} :: PresetSettings)
 
 -- | Caption settings for this preset. There can be multiple caption settings
 -- in a single output.
-presetSettings_captionDescriptions :: Lens.Lens' PresetSettings (Prelude.Maybe [CaptionDescriptionPreset])
-presetSettings_captionDescriptions = Lens.lens (\PresetSettings' {captionDescriptions} -> captionDescriptions) (\s@PresetSettings' {} a -> s {captionDescriptions = a} :: PresetSettings) Prelude.. Lens.mapping Prelude._Coerce
+presetSettings_captionDescriptions :: Lens.Lens' PresetSettings (Core.Maybe [CaptionDescriptionPreset])
+presetSettings_captionDescriptions = Lens.lens (\PresetSettings' {captionDescriptions} -> captionDescriptions) (\s@PresetSettings' {} a -> s {captionDescriptions = a} :: PresetSettings) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON PresetSettings where
+instance Core.FromJSON PresetSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PresetSettings"
       ( \x ->
           PresetSettings'
-            Prelude.<$> ( x Prelude..:? "audioDescriptions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "containerSettings")
-            Prelude.<*> (x Prelude..:? "videoDescription")
-            Prelude.<*> ( x Prelude..:? "captionDescriptions"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "audioDescriptions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "containerSettings")
+            Core.<*> (x Core..:? "videoDescription")
+            Core.<*> ( x Core..:? "captionDescriptions"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable PresetSettings
+instance Core.Hashable PresetSettings
 
-instance Prelude.NFData PresetSettings
+instance Core.NFData PresetSettings
 
-instance Prelude.ToJSON PresetSettings where
+instance Core.ToJSON PresetSettings where
   toJSON PresetSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("audioDescriptions" Prelude..=)
-              Prelude.<$> audioDescriptions,
-            ("containerSettings" Prelude..=)
-              Prelude.<$> containerSettings,
-            ("videoDescription" Prelude..=)
-              Prelude.<$> videoDescription,
-            ("captionDescriptions" Prelude..=)
-              Prelude.<$> captionDescriptions
+    Core.object
+      ( Core.catMaybes
+          [ ("audioDescriptions" Core..=)
+              Core.<$> audioDescriptions,
+            ("containerSettings" Core..=)
+              Core.<$> containerSettings,
+            ("videoDescription" Core..=)
+              Core.<$> videoDescription,
+            ("captionDescriptions" Core..=)
+              Core.<$> captionDescriptions
           ]
       )

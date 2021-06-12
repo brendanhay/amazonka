@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,34 +19,34 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.TableInput where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Column
 import Network.AWS.Glue.Types.StorageDescriptor
 import Network.AWS.Glue.Types.TableIdentifier
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure used to define a table.
 --
 -- /See:/ 'newTableInput' smart constructor.
 data TableInput = TableInput'
   { -- | If the table is a view, the original text of the view; otherwise @null@.
-    viewOriginalText :: Prelude.Maybe Prelude.Text,
+    viewOriginalText :: Core.Maybe Core.Text,
     -- | The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
-    tableType :: Prelude.Maybe Prelude.Text,
+    tableType :: Core.Maybe Core.Text,
     -- | A storage descriptor containing information about the physical storage
     -- of this table.
-    storageDescriptor :: Prelude.Maybe StorageDescriptor,
+    storageDescriptor :: Core.Maybe StorageDescriptor,
     -- | The last time that column statistics were computed for this table.
-    lastAnalyzedTime :: Prelude.Maybe Prelude.POSIX,
+    lastAnalyzedTime :: Core.Maybe Core.POSIX,
     -- | If the table is a view, the expanded text of the view; otherwise @null@.
-    viewExpandedText :: Prelude.Maybe Prelude.Text,
+    viewExpandedText :: Core.Maybe Core.Text,
     -- | A @TableIdentifier@ structure that describes a target table for resource
     -- linking.
-    targetTable :: Prelude.Maybe TableIdentifier,
+    targetTable :: Core.Maybe TableIdentifier,
     -- | The retention time for this table.
-    retention :: Prelude.Maybe Prelude.Natural,
+    retention :: Core.Maybe Core.Natural,
     -- | The table owner.
-    owner :: Prelude.Maybe Prelude.Text,
+    owner :: Core.Maybe Core.Text,
     -- | A list of columns by which the table is partitioned. Only primitive
     -- types are supported as partition keys.
     --
@@ -56,18 +55,18 @@ data TableInput = TableInput'
     -- to an empty list. For example:
     --
     -- @\"PartitionKeys\": []@
-    partitionKeys :: Prelude.Maybe [Column],
+    partitionKeys :: Core.Maybe [Column],
     -- | A description of the table.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The last time that the table was accessed.
-    lastAccessTime :: Prelude.Maybe Prelude.POSIX,
+    lastAccessTime :: Core.Maybe Core.POSIX,
     -- | These key-value pairs define properties associated with the table.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The table name. For Hive compatibility, this is folded to lowercase when
     -- it is stored.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TableInput' with all optional fields omitted.
@@ -114,57 +113,57 @@ data TableInput = TableInput'
 -- it is stored.
 newTableInput ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   TableInput
 newTableInput pName_ =
   TableInput'
-    { viewOriginalText = Prelude.Nothing,
-      tableType = Prelude.Nothing,
-      storageDescriptor = Prelude.Nothing,
-      lastAnalyzedTime = Prelude.Nothing,
-      viewExpandedText = Prelude.Nothing,
-      targetTable = Prelude.Nothing,
-      retention = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      partitionKeys = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lastAccessTime = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+    { viewOriginalText = Core.Nothing,
+      tableType = Core.Nothing,
+      storageDescriptor = Core.Nothing,
+      lastAnalyzedTime = Core.Nothing,
+      viewExpandedText = Core.Nothing,
+      targetTable = Core.Nothing,
+      retention = Core.Nothing,
+      owner = Core.Nothing,
+      partitionKeys = Core.Nothing,
+      description = Core.Nothing,
+      lastAccessTime = Core.Nothing,
+      parameters = Core.Nothing,
       name = pName_
     }
 
 -- | If the table is a view, the original text of the view; otherwise @null@.
-tableInput_viewOriginalText :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
+tableInput_viewOriginalText :: Lens.Lens' TableInput (Core.Maybe Core.Text)
 tableInput_viewOriginalText = Lens.lens (\TableInput' {viewOriginalText} -> viewOriginalText) (\s@TableInput' {} a -> s {viewOriginalText = a} :: TableInput)
 
 -- | The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
-tableInput_tableType :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
+tableInput_tableType :: Lens.Lens' TableInput (Core.Maybe Core.Text)
 tableInput_tableType = Lens.lens (\TableInput' {tableType} -> tableType) (\s@TableInput' {} a -> s {tableType = a} :: TableInput)
 
 -- | A storage descriptor containing information about the physical storage
 -- of this table.
-tableInput_storageDescriptor :: Lens.Lens' TableInput (Prelude.Maybe StorageDescriptor)
+tableInput_storageDescriptor :: Lens.Lens' TableInput (Core.Maybe StorageDescriptor)
 tableInput_storageDescriptor = Lens.lens (\TableInput' {storageDescriptor} -> storageDescriptor) (\s@TableInput' {} a -> s {storageDescriptor = a} :: TableInput)
 
 -- | The last time that column statistics were computed for this table.
-tableInput_lastAnalyzedTime :: Lens.Lens' TableInput (Prelude.Maybe Prelude.UTCTime)
-tableInput_lastAnalyzedTime = Lens.lens (\TableInput' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@TableInput' {} a -> s {lastAnalyzedTime = a} :: TableInput) Prelude.. Lens.mapping Prelude._Time
+tableInput_lastAnalyzedTime :: Lens.Lens' TableInput (Core.Maybe Core.UTCTime)
+tableInput_lastAnalyzedTime = Lens.lens (\TableInput' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@TableInput' {} a -> s {lastAnalyzedTime = a} :: TableInput) Core.. Lens.mapping Core._Time
 
 -- | If the table is a view, the expanded text of the view; otherwise @null@.
-tableInput_viewExpandedText :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
+tableInput_viewExpandedText :: Lens.Lens' TableInput (Core.Maybe Core.Text)
 tableInput_viewExpandedText = Lens.lens (\TableInput' {viewExpandedText} -> viewExpandedText) (\s@TableInput' {} a -> s {viewExpandedText = a} :: TableInput)
 
 -- | A @TableIdentifier@ structure that describes a target table for resource
 -- linking.
-tableInput_targetTable :: Lens.Lens' TableInput (Prelude.Maybe TableIdentifier)
+tableInput_targetTable :: Lens.Lens' TableInput (Core.Maybe TableIdentifier)
 tableInput_targetTable = Lens.lens (\TableInput' {targetTable} -> targetTable) (\s@TableInput' {} a -> s {targetTable = a} :: TableInput)
 
 -- | The retention time for this table.
-tableInput_retention :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Natural)
+tableInput_retention :: Lens.Lens' TableInput (Core.Maybe Core.Natural)
 tableInput_retention = Lens.lens (\TableInput' {retention} -> retention) (\s@TableInput' {} a -> s {retention = a} :: TableInput)
 
 -- | The table owner.
-tableInput_owner :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
+tableInput_owner :: Lens.Lens' TableInput (Core.Maybe Core.Text)
 tableInput_owner = Lens.lens (\TableInput' {owner} -> owner) (\s@TableInput' {} a -> s {owner = a} :: TableInput)
 
 -- | A list of columns by which the table is partitioned. Only primitive
@@ -175,52 +174,50 @@ tableInput_owner = Lens.lens (\TableInput' {owner} -> owner) (\s@TableInput' {} 
 -- to an empty list. For example:
 --
 -- @\"PartitionKeys\": []@
-tableInput_partitionKeys :: Lens.Lens' TableInput (Prelude.Maybe [Column])
-tableInput_partitionKeys = Lens.lens (\TableInput' {partitionKeys} -> partitionKeys) (\s@TableInput' {} a -> s {partitionKeys = a} :: TableInput) Prelude.. Lens.mapping Prelude._Coerce
+tableInput_partitionKeys :: Lens.Lens' TableInput (Core.Maybe [Column])
+tableInput_partitionKeys = Lens.lens (\TableInput' {partitionKeys} -> partitionKeys) (\s@TableInput' {} a -> s {partitionKeys = a} :: TableInput) Core.. Lens.mapping Lens._Coerce
 
 -- | A description of the table.
-tableInput_description :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
+tableInput_description :: Lens.Lens' TableInput (Core.Maybe Core.Text)
 tableInput_description = Lens.lens (\TableInput' {description} -> description) (\s@TableInput' {} a -> s {description = a} :: TableInput)
 
 -- | The last time that the table was accessed.
-tableInput_lastAccessTime :: Lens.Lens' TableInput (Prelude.Maybe Prelude.UTCTime)
-tableInput_lastAccessTime = Lens.lens (\TableInput' {lastAccessTime} -> lastAccessTime) (\s@TableInput' {} a -> s {lastAccessTime = a} :: TableInput) Prelude.. Lens.mapping Prelude._Time
+tableInput_lastAccessTime :: Lens.Lens' TableInput (Core.Maybe Core.UTCTime)
+tableInput_lastAccessTime = Lens.lens (\TableInput' {lastAccessTime} -> lastAccessTime) (\s@TableInput' {} a -> s {lastAccessTime = a} :: TableInput) Core.. Lens.mapping Core._Time
 
 -- | These key-value pairs define properties associated with the table.
-tableInput_parameters :: Lens.Lens' TableInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-tableInput_parameters = Lens.lens (\TableInput' {parameters} -> parameters) (\s@TableInput' {} a -> s {parameters = a} :: TableInput) Prelude.. Lens.mapping Prelude._Coerce
+tableInput_parameters :: Lens.Lens' TableInput (Core.Maybe (Core.HashMap Core.Text Core.Text))
+tableInput_parameters = Lens.lens (\TableInput' {parameters} -> parameters) (\s@TableInput' {} a -> s {parameters = a} :: TableInput) Core.. Lens.mapping Lens._Coerce
 
 -- | The table name. For Hive compatibility, this is folded to lowercase when
 -- it is stored.
-tableInput_name :: Lens.Lens' TableInput Prelude.Text
+tableInput_name :: Lens.Lens' TableInput Core.Text
 tableInput_name = Lens.lens (\TableInput' {name} -> name) (\s@TableInput' {} a -> s {name = a} :: TableInput)
 
-instance Prelude.Hashable TableInput
+instance Core.Hashable TableInput
 
-instance Prelude.NFData TableInput
+instance Core.NFData TableInput
 
-instance Prelude.ToJSON TableInput where
+instance Core.ToJSON TableInput where
   toJSON TableInput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ViewOriginalText" Prelude..=)
-              Prelude.<$> viewOriginalText,
-            ("TableType" Prelude..=) Prelude.<$> tableType,
-            ("StorageDescriptor" Prelude..=)
-              Prelude.<$> storageDescriptor,
-            ("LastAnalyzedTime" Prelude..=)
-              Prelude.<$> lastAnalyzedTime,
-            ("ViewExpandedText" Prelude..=)
-              Prelude.<$> viewExpandedText,
-            ("TargetTable" Prelude..=) Prelude.<$> targetTable,
-            ("Retention" Prelude..=) Prelude.<$> retention,
-            ("Owner" Prelude..=) Prelude.<$> owner,
-            ("PartitionKeys" Prelude..=)
-              Prelude.<$> partitionKeys,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("LastAccessTime" Prelude..=)
-              Prelude.<$> lastAccessTime,
-            ("Parameters" Prelude..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("ViewOriginalText" Core..=)
+              Core.<$> viewOriginalText,
+            ("TableType" Core..=) Core.<$> tableType,
+            ("StorageDescriptor" Core..=)
+              Core.<$> storageDescriptor,
+            ("LastAnalyzedTime" Core..=)
+              Core.<$> lastAnalyzedTime,
+            ("ViewExpandedText" Core..=)
+              Core.<$> viewExpandedText,
+            ("TargetTable" Core..=) Core.<$> targetTable,
+            ("Retention" Core..=) Core.<$> retention,
+            ("Owner" Core..=) Core.<$> owner,
+            ("PartitionKeys" Core..=) Core.<$> partitionKeys,
+            ("Description" Core..=) Core.<$> description,
+            ("LastAccessTime" Core..=) Core.<$> lastAccessTime,
+            ("Parameters" Core..=) Core.<$> parameters,
+            Core.Just ("Name" Core..= name)
           ]
       )

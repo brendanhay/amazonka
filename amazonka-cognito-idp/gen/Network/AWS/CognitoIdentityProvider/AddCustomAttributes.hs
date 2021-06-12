@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.CognitoIdentityProvider.AddCustomAttributes
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data AddCustomAttributes = AddCustomAttributes'
   { -- | The user pool ID for the user pool where you want to add custom
     -- attributes.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | An array of custom attributes, such as Mutable and Name.
-    customAttributes :: Prelude.NonEmpty SchemaAttributeType
+    customAttributes :: Core.NonEmpty SchemaAttributeType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddCustomAttributes' with all optional fields omitted.
@@ -72,9 +71,9 @@ data AddCustomAttributes = AddCustomAttributes'
 -- 'customAttributes', 'addCustomAttributes_customAttributes' - An array of custom attributes, such as Mutable and Name.
 newAddCustomAttributes ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'customAttributes'
-  Prelude.NonEmpty SchemaAttributeType ->
+  Core.NonEmpty SchemaAttributeType ->
   AddCustomAttributes
 newAddCustomAttributes
   pUserPoolId_
@@ -82,64 +81,62 @@ newAddCustomAttributes
     AddCustomAttributes'
       { userPoolId = pUserPoolId_,
         customAttributes =
-          Prelude._Coerce Lens.# pCustomAttributes_
+          Lens._Coerce Lens.# pCustomAttributes_
       }
 
 -- | The user pool ID for the user pool where you want to add custom
 -- attributes.
-addCustomAttributes_userPoolId :: Lens.Lens' AddCustomAttributes Prelude.Text
+addCustomAttributes_userPoolId :: Lens.Lens' AddCustomAttributes Core.Text
 addCustomAttributes_userPoolId = Lens.lens (\AddCustomAttributes' {userPoolId} -> userPoolId) (\s@AddCustomAttributes' {} a -> s {userPoolId = a} :: AddCustomAttributes)
 
 -- | An array of custom attributes, such as Mutable and Name.
-addCustomAttributes_customAttributes :: Lens.Lens' AddCustomAttributes (Prelude.NonEmpty SchemaAttributeType)
-addCustomAttributes_customAttributes = Lens.lens (\AddCustomAttributes' {customAttributes} -> customAttributes) (\s@AddCustomAttributes' {} a -> s {customAttributes = a} :: AddCustomAttributes) Prelude.. Prelude._Coerce
+addCustomAttributes_customAttributes :: Lens.Lens' AddCustomAttributes (Core.NonEmpty SchemaAttributeType)
+addCustomAttributes_customAttributes = Lens.lens (\AddCustomAttributes' {customAttributes} -> customAttributes) (\s@AddCustomAttributes' {} a -> s {customAttributes = a} :: AddCustomAttributes) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddCustomAttributes where
+instance Core.AWSRequest AddCustomAttributes where
   type
-    Rs AddCustomAttributes =
+    AWSResponse AddCustomAttributes =
       AddCustomAttributesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddCustomAttributesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AddCustomAttributes
+instance Core.Hashable AddCustomAttributes
 
-instance Prelude.NFData AddCustomAttributes
+instance Core.NFData AddCustomAttributes
 
-instance Prelude.ToHeaders AddCustomAttributes where
+instance Core.ToHeaders AddCustomAttributes where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AddCustomAttributes" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AddCustomAttributes" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AddCustomAttributes where
+instance Core.ToJSON AddCustomAttributes where
   toJSON AddCustomAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just
-              ("CustomAttributes" Prelude..= customAttributes)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just
+              ("CustomAttributes" Core..= customAttributes)
           ]
       )
 
-instance Prelude.ToPath AddCustomAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddCustomAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddCustomAttributes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AddCustomAttributes where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response from the server for the request to add custom
 -- attributes.
@@ -147,9 +144,9 @@ instance Prelude.ToQuery AddCustomAttributes where
 -- /See:/ 'newAddCustomAttributesResponse' smart constructor.
 data AddCustomAttributesResponse = AddCustomAttributesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddCustomAttributesResponse' with all optional fields omitted.
@@ -162,7 +159,7 @@ data AddCustomAttributesResponse = AddCustomAttributesResponse'
 -- 'httpStatus', 'addCustomAttributesResponse_httpStatus' - The response's http status code.
 newAddCustomAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AddCustomAttributesResponse
 newAddCustomAttributesResponse pHttpStatus_ =
   AddCustomAttributesResponse'
@@ -171,7 +168,7 @@ newAddCustomAttributesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-addCustomAttributesResponse_httpStatus :: Lens.Lens' AddCustomAttributesResponse Prelude.Int
+addCustomAttributesResponse_httpStatus :: Lens.Lens' AddCustomAttributesResponse Core.Int
 addCustomAttributesResponse_httpStatus = Lens.lens (\AddCustomAttributesResponse' {httpStatus} -> httpStatus) (\s@AddCustomAttributesResponse' {} a -> s {httpStatus = a} :: AddCustomAttributesResponse)
 
-instance Prelude.NFData AddCustomAttributesResponse
+instance Core.NFData AddCustomAttributesResponse

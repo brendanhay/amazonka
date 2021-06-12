@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ProvisioningTemplateVersionSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary of information about a fleet provision template version.
 --
 -- /See:/ 'newProvisioningTemplateVersionSummary' smart constructor.
 data ProvisioningTemplateVersionSummary = ProvisioningTemplateVersionSummary'
   { -- | The date when the fleet provisioning template version was created
-    creationDate :: Prelude.Maybe Prelude.POSIX,
+    creationDate :: Core.Maybe Core.POSIX,
     -- | The ID of the fleet privisioning template version.
-    versionId :: Prelude.Maybe Prelude.Int,
+    versionId :: Core.Maybe Core.Int,
     -- | True if the fleet provisioning template version is the default version,
     -- otherwise false.
-    isDefaultVersion :: Prelude.Maybe Prelude.Bool
+    isDefaultVersion :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProvisioningTemplateVersionSummary' with all optional fields omitted.
@@ -56,42 +55,42 @@ newProvisioningTemplateVersionSummary ::
 newProvisioningTemplateVersionSummary =
   ProvisioningTemplateVersionSummary'
     { creationDate =
-        Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      isDefaultVersion = Prelude.Nothing
+        Core.Nothing,
+      versionId = Core.Nothing,
+      isDefaultVersion = Core.Nothing
     }
 
 -- | The date when the fleet provisioning template version was created
-provisioningTemplateVersionSummary_creationDate :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.UTCTime)
-provisioningTemplateVersionSummary_creationDate = Lens.lens (\ProvisioningTemplateVersionSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateVersionSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateVersionSummary) Prelude.. Lens.mapping Prelude._Time
+provisioningTemplateVersionSummary_creationDate :: Lens.Lens' ProvisioningTemplateVersionSummary (Core.Maybe Core.UTCTime)
+provisioningTemplateVersionSummary_creationDate = Lens.lens (\ProvisioningTemplateVersionSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateVersionSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateVersionSummary) Core.. Lens.mapping Core._Time
 
 -- | The ID of the fleet privisioning template version.
-provisioningTemplateVersionSummary_versionId :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.Int)
+provisioningTemplateVersionSummary_versionId :: Lens.Lens' ProvisioningTemplateVersionSummary (Core.Maybe Core.Int)
 provisioningTemplateVersionSummary_versionId = Lens.lens (\ProvisioningTemplateVersionSummary' {versionId} -> versionId) (\s@ProvisioningTemplateVersionSummary' {} a -> s {versionId = a} :: ProvisioningTemplateVersionSummary)
 
 -- | True if the fleet provisioning template version is the default version,
 -- otherwise false.
-provisioningTemplateVersionSummary_isDefaultVersion :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.Bool)
+provisioningTemplateVersionSummary_isDefaultVersion :: Lens.Lens' ProvisioningTemplateVersionSummary (Core.Maybe Core.Bool)
 provisioningTemplateVersionSummary_isDefaultVersion = Lens.lens (\ProvisioningTemplateVersionSummary' {isDefaultVersion} -> isDefaultVersion) (\s@ProvisioningTemplateVersionSummary' {} a -> s {isDefaultVersion = a} :: ProvisioningTemplateVersionSummary)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ProvisioningTemplateVersionSummary
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProvisioningTemplateVersionSummary"
       ( \x ->
           ProvisioningTemplateVersionSummary'
-            Prelude.<$> (x Prelude..:? "creationDate")
-            Prelude.<*> (x Prelude..:? "versionId")
-            Prelude.<*> (x Prelude..:? "isDefaultVersion")
+            Core.<$> (x Core..:? "creationDate")
+            Core.<*> (x Core..:? "versionId")
+            Core.<*> (x Core..:? "isDefaultVersion")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ProvisioningTemplateVersionSummary
 
 instance
-  Prelude.NFData
+  Core.NFData
     ProvisioningTemplateVersionSummary

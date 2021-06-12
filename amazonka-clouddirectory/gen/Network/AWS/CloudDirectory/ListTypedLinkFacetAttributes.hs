@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,25 +48,24 @@ module Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTypedLinkFacetAttributes' smart constructor.
 data ListTypedLinkFacetAttributes = ListTypedLinkFacetAttributes'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) that is associated with the schema. For
     -- more information, see arns.
-    schemaArn :: Prelude.Text,
+    schemaArn :: Core.Text,
     -- | The unique name of the typed link facet.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTypedLinkFacetAttributes' with all optional fields omitted.
@@ -87,119 +85,109 @@ data ListTypedLinkFacetAttributes = ListTypedLinkFacetAttributes'
 -- 'name', 'listTypedLinkFacetAttributes_name' - The unique name of the typed link facet.
 newListTypedLinkFacetAttributes ::
   -- | 'schemaArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   ListTypedLinkFacetAttributes
 newListTypedLinkFacetAttributes pSchemaArn_ pName_ =
   ListTypedLinkFacetAttributes'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+        Core.Nothing,
+      maxResults = Core.Nothing,
       schemaArn = pSchemaArn_,
       name = pName_
     }
 
 -- | The pagination token.
-listTypedLinkFacetAttributes_nextToken :: Lens.Lens' ListTypedLinkFacetAttributes (Prelude.Maybe Prelude.Text)
+listTypedLinkFacetAttributes_nextToken :: Lens.Lens' ListTypedLinkFacetAttributes (Core.Maybe Core.Text)
 listTypedLinkFacetAttributes_nextToken = Lens.lens (\ListTypedLinkFacetAttributes' {nextToken} -> nextToken) (\s@ListTypedLinkFacetAttributes' {} a -> s {nextToken = a} :: ListTypedLinkFacetAttributes)
 
 -- | The maximum number of results to retrieve.
-listTypedLinkFacetAttributes_maxResults :: Lens.Lens' ListTypedLinkFacetAttributes (Prelude.Maybe Prelude.Natural)
+listTypedLinkFacetAttributes_maxResults :: Lens.Lens' ListTypedLinkFacetAttributes (Core.Maybe Core.Natural)
 listTypedLinkFacetAttributes_maxResults = Lens.lens (\ListTypedLinkFacetAttributes' {maxResults} -> maxResults) (\s@ListTypedLinkFacetAttributes' {} a -> s {maxResults = a} :: ListTypedLinkFacetAttributes)
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For
 -- more information, see arns.
-listTypedLinkFacetAttributes_schemaArn :: Lens.Lens' ListTypedLinkFacetAttributes Prelude.Text
+listTypedLinkFacetAttributes_schemaArn :: Lens.Lens' ListTypedLinkFacetAttributes Core.Text
 listTypedLinkFacetAttributes_schemaArn = Lens.lens (\ListTypedLinkFacetAttributes' {schemaArn} -> schemaArn) (\s@ListTypedLinkFacetAttributes' {} a -> s {schemaArn = a} :: ListTypedLinkFacetAttributes)
 
 -- | The unique name of the typed link facet.
-listTypedLinkFacetAttributes_name :: Lens.Lens' ListTypedLinkFacetAttributes Prelude.Text
+listTypedLinkFacetAttributes_name :: Lens.Lens' ListTypedLinkFacetAttributes Core.Text
 listTypedLinkFacetAttributes_name = Lens.lens (\ListTypedLinkFacetAttributes' {name} -> name) (\s@ListTypedLinkFacetAttributes' {} a -> s {name = a} :: ListTypedLinkFacetAttributes)
 
-instance Pager.AWSPager ListTypedLinkFacetAttributes where
+instance Core.AWSPager ListTypedLinkFacetAttributes where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listTypedLinkFacetAttributesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listTypedLinkFacetAttributesResponse_attributes
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTypedLinkFacetAttributes_nextToken
           Lens..~ rs
           Lens.^? listTypedLinkFacetAttributesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    ListTypedLinkFacetAttributes
-  where
+instance Core.AWSRequest ListTypedLinkFacetAttributes where
   type
-    Rs ListTypedLinkFacetAttributes =
+    AWSResponse ListTypedLinkFacetAttributes =
       ListTypedLinkFacetAttributesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTypedLinkFacetAttributesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Attributes"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Attributes" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ListTypedLinkFacetAttributes
+instance Core.Hashable ListTypedLinkFacetAttributes
 
-instance Prelude.NFData ListTypedLinkFacetAttributes
+instance Core.NFData ListTypedLinkFacetAttributes
 
-instance
-  Prelude.ToHeaders
-    ListTypedLinkFacetAttributes
-  where
+instance Core.ToHeaders ListTypedLinkFacetAttributes where
   toHeaders ListTypedLinkFacetAttributes' {..} =
-    Prelude.mconcat
-      ["x-amz-data-partition" Prelude.=# schemaArn]
+    Core.mconcat
+      ["x-amz-data-partition" Core.=# schemaArn]
 
-instance Prelude.ToJSON ListTypedLinkFacetAttributes where
+instance Core.ToJSON ListTypedLinkFacetAttributes where
   toJSON ListTypedLinkFacetAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("Name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath ListTypedLinkFacetAttributes where
+instance Core.ToPath ListTypedLinkFacetAttributes where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes"
 
-instance Prelude.ToQuery ListTypedLinkFacetAttributes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTypedLinkFacetAttributes where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTypedLinkFacetAttributesResponse' smart constructor.
 data ListTypedLinkFacetAttributesResponse = ListTypedLinkFacetAttributesResponse'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An ordered set of attributes associate with the typed link.
-    attributes :: Prelude.Maybe [TypedLinkAttributeDefinition],
+    attributes :: Core.Maybe [TypedLinkAttributeDefinition],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTypedLinkFacetAttributesResponse' with all optional fields omitted.
@@ -216,28 +204,28 @@ data ListTypedLinkFacetAttributesResponse = ListTypedLinkFacetAttributesResponse
 -- 'httpStatus', 'listTypedLinkFacetAttributesResponse_httpStatus' - The response's http status code.
 newListTypedLinkFacetAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTypedLinkFacetAttributesResponse
 newListTypedLinkFacetAttributesResponse pHttpStatus_ =
   ListTypedLinkFacetAttributesResponse'
     { nextToken =
-        Prelude.Nothing,
-      attributes = Prelude.Nothing,
+        Core.Nothing,
+      attributes = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token.
-listTypedLinkFacetAttributesResponse_nextToken :: Lens.Lens' ListTypedLinkFacetAttributesResponse (Prelude.Maybe Prelude.Text)
+listTypedLinkFacetAttributesResponse_nextToken :: Lens.Lens' ListTypedLinkFacetAttributesResponse (Core.Maybe Core.Text)
 listTypedLinkFacetAttributesResponse_nextToken = Lens.lens (\ListTypedLinkFacetAttributesResponse' {nextToken} -> nextToken) (\s@ListTypedLinkFacetAttributesResponse' {} a -> s {nextToken = a} :: ListTypedLinkFacetAttributesResponse)
 
 -- | An ordered set of attributes associate with the typed link.
-listTypedLinkFacetAttributesResponse_attributes :: Lens.Lens' ListTypedLinkFacetAttributesResponse (Prelude.Maybe [TypedLinkAttributeDefinition])
-listTypedLinkFacetAttributesResponse_attributes = Lens.lens (\ListTypedLinkFacetAttributesResponse' {attributes} -> attributes) (\s@ListTypedLinkFacetAttributesResponse' {} a -> s {attributes = a} :: ListTypedLinkFacetAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTypedLinkFacetAttributesResponse_attributes :: Lens.Lens' ListTypedLinkFacetAttributesResponse (Core.Maybe [TypedLinkAttributeDefinition])
+listTypedLinkFacetAttributesResponse_attributes = Lens.lens (\ListTypedLinkFacetAttributesResponse' {attributes} -> attributes) (\s@ListTypedLinkFacetAttributesResponse' {} a -> s {attributes = a} :: ListTypedLinkFacetAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTypedLinkFacetAttributesResponse_httpStatus :: Lens.Lens' ListTypedLinkFacetAttributesResponse Prelude.Int
+listTypedLinkFacetAttributesResponse_httpStatus :: Lens.Lens' ListTypedLinkFacetAttributesResponse Core.Int
 listTypedLinkFacetAttributesResponse_httpStatus = Lens.lens (\ListTypedLinkFacetAttributesResponse' {httpStatus} -> httpStatus) (\s@ListTypedLinkFacetAttributesResponse' {} a -> s {httpStatus = a} :: ListTypedLinkFacetAttributesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListTypedLinkFacetAttributesResponse

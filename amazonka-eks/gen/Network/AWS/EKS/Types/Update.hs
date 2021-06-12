@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,31 +19,31 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.Update where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.ErrorDetail
 import Network.AWS.EKS.Types.UpdateParam
 import Network.AWS.EKS.Types.UpdateStatus
 import Network.AWS.EKS.Types.UpdateType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an asynchronous update.
 --
 -- /See:/ 'newUpdate' smart constructor.
 data Update = Update'
   { -- | The current status of the update.
-    status :: Prelude.Maybe UpdateStatus,
+    status :: Core.Maybe UpdateStatus,
     -- | The Unix epoch timestamp in seconds for when the update was created.
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | A UUID that is used to track the update.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | A key-value map that contains the parameters associated with the update.
-    params :: Prelude.Maybe [UpdateParam],
+    params :: Core.Maybe [UpdateParam],
     -- | Any errors associated with a @Failed@ update.
-    errors :: Prelude.Maybe [ErrorDetail],
+    errors :: Core.Maybe [ErrorDetail],
     -- | The type of the update.
-    type' :: Prelude.Maybe UpdateType
+    type' :: Core.Maybe UpdateType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Update' with all optional fields omitted.
@@ -69,52 +68,52 @@ newUpdate ::
   Update
 newUpdate =
   Update'
-    { status = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      id = Prelude.Nothing,
-      params = Prelude.Nothing,
-      errors = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { status = Core.Nothing,
+      createdAt = Core.Nothing,
+      id = Core.Nothing,
+      params = Core.Nothing,
+      errors = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The current status of the update.
-update_status :: Lens.Lens' Update (Prelude.Maybe UpdateStatus)
+update_status :: Lens.Lens' Update (Core.Maybe UpdateStatus)
 update_status = Lens.lens (\Update' {status} -> status) (\s@Update' {} a -> s {status = a} :: Update)
 
 -- | The Unix epoch timestamp in seconds for when the update was created.
-update_createdAt :: Lens.Lens' Update (Prelude.Maybe Prelude.UTCTime)
-update_createdAt = Lens.lens (\Update' {createdAt} -> createdAt) (\s@Update' {} a -> s {createdAt = a} :: Update) Prelude.. Lens.mapping Prelude._Time
+update_createdAt :: Lens.Lens' Update (Core.Maybe Core.UTCTime)
+update_createdAt = Lens.lens (\Update' {createdAt} -> createdAt) (\s@Update' {} a -> s {createdAt = a} :: Update) Core.. Lens.mapping Core._Time
 
 -- | A UUID that is used to track the update.
-update_id :: Lens.Lens' Update (Prelude.Maybe Prelude.Text)
+update_id :: Lens.Lens' Update (Core.Maybe Core.Text)
 update_id = Lens.lens (\Update' {id} -> id) (\s@Update' {} a -> s {id = a} :: Update)
 
 -- | A key-value map that contains the parameters associated with the update.
-update_params :: Lens.Lens' Update (Prelude.Maybe [UpdateParam])
-update_params = Lens.lens (\Update' {params} -> params) (\s@Update' {} a -> s {params = a} :: Update) Prelude.. Lens.mapping Prelude._Coerce
+update_params :: Lens.Lens' Update (Core.Maybe [UpdateParam])
+update_params = Lens.lens (\Update' {params} -> params) (\s@Update' {} a -> s {params = a} :: Update) Core.. Lens.mapping Lens._Coerce
 
 -- | Any errors associated with a @Failed@ update.
-update_errors :: Lens.Lens' Update (Prelude.Maybe [ErrorDetail])
-update_errors = Lens.lens (\Update' {errors} -> errors) (\s@Update' {} a -> s {errors = a} :: Update) Prelude.. Lens.mapping Prelude._Coerce
+update_errors :: Lens.Lens' Update (Core.Maybe [ErrorDetail])
+update_errors = Lens.lens (\Update' {errors} -> errors) (\s@Update' {} a -> s {errors = a} :: Update) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of the update.
-update_type :: Lens.Lens' Update (Prelude.Maybe UpdateType)
+update_type :: Lens.Lens' Update (Core.Maybe UpdateType)
 update_type = Lens.lens (\Update' {type'} -> type') (\s@Update' {} a -> s {type' = a} :: Update)
 
-instance Prelude.FromJSON Update where
+instance Core.FromJSON Update where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Update"
       ( \x ->
           Update'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "createdAt")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "params" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "errors" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "params" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "errors" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable Update
+instance Core.Hashable Update
 
-instance Prelude.NFData Update
+instance Core.NFData Update

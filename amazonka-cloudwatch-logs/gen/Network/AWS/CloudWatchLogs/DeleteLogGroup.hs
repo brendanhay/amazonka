@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,17 +37,17 @@ module Network.AWS.CloudWatchLogs.DeleteLogGroup
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLogGroup' smart constructor.
 data DeleteLogGroup = DeleteLogGroup'
   { -- | The name of the log group.
-    logGroupName :: Prelude.Text
+    logGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLogGroup' with all optional fields omitted.
@@ -61,60 +60,56 @@ data DeleteLogGroup = DeleteLogGroup'
 -- 'logGroupName', 'deleteLogGroup_logGroupName' - The name of the log group.
 newDeleteLogGroup ::
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLogGroup
 newDeleteLogGroup pLogGroupName_ =
   DeleteLogGroup' {logGroupName = pLogGroupName_}
 
 -- | The name of the log group.
-deleteLogGroup_logGroupName :: Lens.Lens' DeleteLogGroup Prelude.Text
+deleteLogGroup_logGroupName :: Lens.Lens' DeleteLogGroup Core.Text
 deleteLogGroup_logGroupName = Lens.lens (\DeleteLogGroup' {logGroupName} -> logGroupName) (\s@DeleteLogGroup' {} a -> s {logGroupName = a} :: DeleteLogGroup)
 
-instance Prelude.AWSRequest DeleteLogGroup where
-  type Rs DeleteLogGroup = DeleteLogGroupResponse
+instance Core.AWSRequest DeleteLogGroup where
+  type
+    AWSResponse DeleteLogGroup =
+      DeleteLogGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteLogGroupResponse'
 
-instance Prelude.Hashable DeleteLogGroup
+instance Core.Hashable DeleteLogGroup
 
-instance Prelude.NFData DeleteLogGroup
+instance Core.NFData DeleteLogGroup
 
-instance Prelude.ToHeaders DeleteLogGroup where
+instance Core.ToHeaders DeleteLogGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.DeleteLogGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Logs_20140328.DeleteLogGroup" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteLogGroup where
+instance Core.ToJSON DeleteLogGroup where
   toJSON DeleteLogGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("logGroupName" Prelude..= logGroupName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("logGroupName" Core..= logGroupName)]
       )
 
-instance Prelude.ToPath DeleteLogGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLogGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLogGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteLogGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteLogGroupResponse' smart constructor.
 data DeleteLogGroupResponse = DeleteLogGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLogGroupResponse' with all optional fields omitted.
@@ -124,4 +119,4 @@ newDeleteLogGroupResponse ::
   DeleteLogGroupResponse
 newDeleteLogGroupResponse = DeleteLogGroupResponse'
 
-instance Prelude.NFData DeleteLogGroupResponse
+instance Core.NFData DeleteLogGroupResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AppStream.Types.UserStackAssociation where
 
 import Network.AWS.AppStream.Types.AuthenticationType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a user in the user pool and the associated stack.
 --
@@ -30,17 +29,17 @@ import qualified Network.AWS.Prelude as Prelude
 data UserStackAssociation = UserStackAssociation'
   { -- | Specifies whether a welcome email is sent to a user after the user is
     -- created in the user pool.
-    sendEmailNotification :: Prelude.Maybe Prelude.Bool,
+    sendEmailNotification :: Core.Maybe Core.Bool,
     -- | The name of the stack that is associated with the user.
-    stackName :: Prelude.Text,
+    stackName :: Core.Text,
     -- | The email address of the user who is associated with the stack.
     --
     -- Users\' email addresses are case-sensitive.
-    userName :: Prelude.Sensitive Prelude.Text,
+    userName :: Core.Sensitive Core.Text,
     -- | The authentication type for the user.
     authenticationType :: AuthenticationType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserStackAssociation' with all optional fields omitted.
@@ -62,9 +61,9 @@ data UserStackAssociation = UserStackAssociation'
 -- 'authenticationType', 'userStackAssociation_authenticationType' - The authentication type for the user.
 newUserStackAssociation ::
   -- | 'stackName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'authenticationType'
   AuthenticationType ->
   UserStackAssociation
@@ -74,58 +73,56 @@ newUserStackAssociation
   pAuthenticationType_ =
     UserStackAssociation'
       { sendEmailNotification =
-          Prelude.Nothing,
+          Core.Nothing,
         stackName = pStackName_,
-        userName = Prelude._Sensitive Lens.# pUserName_,
+        userName = Core._Sensitive Lens.# pUserName_,
         authenticationType = pAuthenticationType_
       }
 
 -- | Specifies whether a welcome email is sent to a user after the user is
 -- created in the user pool.
-userStackAssociation_sendEmailNotification :: Lens.Lens' UserStackAssociation (Prelude.Maybe Prelude.Bool)
+userStackAssociation_sendEmailNotification :: Lens.Lens' UserStackAssociation (Core.Maybe Core.Bool)
 userStackAssociation_sendEmailNotification = Lens.lens (\UserStackAssociation' {sendEmailNotification} -> sendEmailNotification) (\s@UserStackAssociation' {} a -> s {sendEmailNotification = a} :: UserStackAssociation)
 
 -- | The name of the stack that is associated with the user.
-userStackAssociation_stackName :: Lens.Lens' UserStackAssociation Prelude.Text
+userStackAssociation_stackName :: Lens.Lens' UserStackAssociation Core.Text
 userStackAssociation_stackName = Lens.lens (\UserStackAssociation' {stackName} -> stackName) (\s@UserStackAssociation' {} a -> s {stackName = a} :: UserStackAssociation)
 
 -- | The email address of the user who is associated with the stack.
 --
 -- Users\' email addresses are case-sensitive.
-userStackAssociation_userName :: Lens.Lens' UserStackAssociation Prelude.Text
-userStackAssociation_userName = Lens.lens (\UserStackAssociation' {userName} -> userName) (\s@UserStackAssociation' {} a -> s {userName = a} :: UserStackAssociation) Prelude.. Prelude._Sensitive
+userStackAssociation_userName :: Lens.Lens' UserStackAssociation Core.Text
+userStackAssociation_userName = Lens.lens (\UserStackAssociation' {userName} -> userName) (\s@UserStackAssociation' {} a -> s {userName = a} :: UserStackAssociation) Core.. Core._Sensitive
 
 -- | The authentication type for the user.
 userStackAssociation_authenticationType :: Lens.Lens' UserStackAssociation AuthenticationType
 userStackAssociation_authenticationType = Lens.lens (\UserStackAssociation' {authenticationType} -> authenticationType) (\s@UserStackAssociation' {} a -> s {authenticationType = a} :: UserStackAssociation)
 
-instance Prelude.FromJSON UserStackAssociation where
+instance Core.FromJSON UserStackAssociation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserStackAssociation"
       ( \x ->
           UserStackAssociation'
-            Prelude.<$> (x Prelude..:? "SendEmailNotification")
-            Prelude.<*> (x Prelude..: "StackName")
-            Prelude.<*> (x Prelude..: "UserName")
-            Prelude.<*> (x Prelude..: "AuthenticationType")
+            Core.<$> (x Core..:? "SendEmailNotification")
+            Core.<*> (x Core..: "StackName")
+            Core.<*> (x Core..: "UserName")
+            Core.<*> (x Core..: "AuthenticationType")
       )
 
-instance Prelude.Hashable UserStackAssociation
+instance Core.Hashable UserStackAssociation
 
-instance Prelude.NFData UserStackAssociation
+instance Core.NFData UserStackAssociation
 
-instance Prelude.ToJSON UserStackAssociation where
+instance Core.ToJSON UserStackAssociation where
   toJSON UserStackAssociation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SendEmailNotification" Prelude..=)
-              Prelude.<$> sendEmailNotification,
-            Prelude.Just ("StackName" Prelude..= stackName),
-            Prelude.Just ("UserName" Prelude..= userName),
-            Prelude.Just
-              ( "AuthenticationType"
-                  Prelude..= authenticationType
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("SendEmailNotification" Core..=)
+              Core.<$> sendEmailNotification,
+            Core.Just ("StackName" Core..= stackName),
+            Core.Just ("UserName" Core..= userName),
+            Core.Just
+              ("AuthenticationType" Core..= authenticationType)
           ]
       )

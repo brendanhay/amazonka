@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.ReservationCoverageGroup where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.Coverage
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A group of reservations that share a set of attributes.
 --
 -- /See:/ 'newReservationCoverageGroup' smart constructor.
 data ReservationCoverageGroup = ReservationCoverageGroup'
   { -- | The attributes for this group of reservations.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | How much instance usage this group of reservations covered.
-    coverage :: Prelude.Maybe Coverage
+    coverage :: Core.Maybe Coverage
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReservationCoverageGroup' with all optional fields omitted.
@@ -51,30 +50,28 @@ newReservationCoverageGroup ::
 newReservationCoverageGroup =
   ReservationCoverageGroup'
     { attributes =
-        Prelude.Nothing,
-      coverage = Prelude.Nothing
+        Core.Nothing,
+      coverage = Core.Nothing
     }
 
 -- | The attributes for this group of reservations.
-reservationCoverageGroup_attributes :: Lens.Lens' ReservationCoverageGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-reservationCoverageGroup_attributes = Lens.lens (\ReservationCoverageGroup' {attributes} -> attributes) (\s@ReservationCoverageGroup' {} a -> s {attributes = a} :: ReservationCoverageGroup) Prelude.. Lens.mapping Prelude._Coerce
+reservationCoverageGroup_attributes :: Lens.Lens' ReservationCoverageGroup (Core.Maybe (Core.HashMap Core.Text Core.Text))
+reservationCoverageGroup_attributes = Lens.lens (\ReservationCoverageGroup' {attributes} -> attributes) (\s@ReservationCoverageGroup' {} a -> s {attributes = a} :: ReservationCoverageGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | How much instance usage this group of reservations covered.
-reservationCoverageGroup_coverage :: Lens.Lens' ReservationCoverageGroup (Prelude.Maybe Coverage)
+reservationCoverageGroup_coverage :: Lens.Lens' ReservationCoverageGroup (Core.Maybe Coverage)
 reservationCoverageGroup_coverage = Lens.lens (\ReservationCoverageGroup' {coverage} -> coverage) (\s@ReservationCoverageGroup' {} a -> s {coverage = a} :: ReservationCoverageGroup)
 
-instance Prelude.FromJSON ReservationCoverageGroup where
+instance Core.FromJSON ReservationCoverageGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReservationCoverageGroup"
       ( \x ->
           ReservationCoverageGroup'
-            Prelude.<$> ( x Prelude..:? "Attributes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Coverage")
+            Core.<$> (x Core..:? "Attributes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Coverage")
       )
 
-instance Prelude.Hashable ReservationCoverageGroup
+instance Core.Hashable ReservationCoverageGroup
 
-instance Prelude.NFData ReservationCoverageGroup
+instance Core.NFData ReservationCoverageGroup

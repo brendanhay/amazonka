@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.IAM.GetSSHPublicKey
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,19 +63,19 @@ data GetSSHPublicKey = GetSSHPublicKey'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The unique identifier for the SSH public key.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that can consist of any upper or lowercased letter or digit.
-    sSHPublicKeyId :: Prelude.Text,
+    sSHPublicKeyId :: Core.Text,
     -- | Specifies the public key encoding format to use in the response. To
     -- retrieve the public key in ssh-rsa format, use @SSH@. To retrieve the
     -- public key in PEM format, use @PEM@.
     encoding :: EncodingType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSSHPublicKey' with all optional fields omitted.
@@ -104,9 +103,9 @@ data GetSSHPublicKey = GetSSHPublicKey'
 -- public key in PEM format, use @PEM@.
 newGetSSHPublicKey ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sSHPublicKeyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'encoding'
   EncodingType ->
   GetSSHPublicKey
@@ -126,7 +125,7 @@ newGetSSHPublicKey
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-getSSHPublicKey_userName :: Lens.Lens' GetSSHPublicKey Prelude.Text
+getSSHPublicKey_userName :: Lens.Lens' GetSSHPublicKey Core.Text
 getSSHPublicKey_userName = Lens.lens (\GetSSHPublicKey' {userName} -> userName) (\s@GetSSHPublicKey' {} a -> s {userName = a} :: GetSSHPublicKey)
 
 -- | The unique identifier for the SSH public key.
@@ -134,7 +133,7 @@ getSSHPublicKey_userName = Lens.lens (\GetSSHPublicKey' {userName} -> userName) 
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that can consist of any upper or lowercased letter or digit.
-getSSHPublicKey_sSHPublicKeyId :: Lens.Lens' GetSSHPublicKey Prelude.Text
+getSSHPublicKey_sSHPublicKeyId :: Lens.Lens' GetSSHPublicKey Core.Text
 getSSHPublicKey_sSHPublicKeyId = Lens.lens (\GetSSHPublicKey' {sSHPublicKeyId} -> sSHPublicKeyId) (\s@GetSSHPublicKey' {} a -> s {sSHPublicKeyId = a} :: GetSSHPublicKey)
 
 -- | Specifies the public key encoding format to use in the response. To
@@ -143,38 +142,39 @@ getSSHPublicKey_sSHPublicKeyId = Lens.lens (\GetSSHPublicKey' {sSHPublicKeyId} -
 getSSHPublicKey_encoding :: Lens.Lens' GetSSHPublicKey EncodingType
 getSSHPublicKey_encoding = Lens.lens (\GetSSHPublicKey' {encoding} -> encoding) (\s@GetSSHPublicKey' {} a -> s {encoding = a} :: GetSSHPublicKey)
 
-instance Prelude.AWSRequest GetSSHPublicKey where
-  type Rs GetSSHPublicKey = GetSSHPublicKeyResponse
+instance Core.AWSRequest GetSSHPublicKey where
+  type
+    AWSResponse GetSSHPublicKey =
+      GetSSHPublicKeyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "GetSSHPublicKeyResult"
       ( \s h x ->
           GetSSHPublicKeyResponse'
-            Prelude.<$> (x Prelude..@? "SSHPublicKey")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "SSHPublicKey")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSSHPublicKey
+instance Core.Hashable GetSSHPublicKey
 
-instance Prelude.NFData GetSSHPublicKey
+instance Core.NFData GetSSHPublicKey
 
-instance Prelude.ToHeaders GetSSHPublicKey where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetSSHPublicKey where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetSSHPublicKey where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetSSHPublicKey where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetSSHPublicKey where
+instance Core.ToQuery GetSSHPublicKey where
   toQuery GetSSHPublicKey' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetSSHPublicKey" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "SSHPublicKeyId" Prelude.=: sSHPublicKeyId,
-        "Encoding" Prelude.=: encoding
+          Core.=: ("GetSSHPublicKey" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "SSHPublicKeyId" Core.=: sSHPublicKeyId,
+        "Encoding" Core.=: encoding
       ]
 
 -- | Contains the response to a successful GetSSHPublicKey request.
@@ -182,11 +182,11 @@ instance Prelude.ToQuery GetSSHPublicKey where
 -- /See:/ 'newGetSSHPublicKeyResponse' smart constructor.
 data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
   { -- | A structure containing details about the SSH public key.
-    sSHPublicKey :: Prelude.Maybe SSHPublicKey,
+    sSHPublicKey :: Core.Maybe SSHPublicKey,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSSHPublicKeyResponse' with all optional fields omitted.
@@ -201,21 +201,21 @@ data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
 -- 'httpStatus', 'getSSHPublicKeyResponse_httpStatus' - The response's http status code.
 newGetSSHPublicKeyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSSHPublicKeyResponse
 newGetSSHPublicKeyResponse pHttpStatus_ =
   GetSSHPublicKeyResponse'
     { sSHPublicKey =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure containing details about the SSH public key.
-getSSHPublicKeyResponse_sSHPublicKey :: Lens.Lens' GetSSHPublicKeyResponse (Prelude.Maybe SSHPublicKey)
+getSSHPublicKeyResponse_sSHPublicKey :: Lens.Lens' GetSSHPublicKeyResponse (Core.Maybe SSHPublicKey)
 getSSHPublicKeyResponse_sSHPublicKey = Lens.lens (\GetSSHPublicKeyResponse' {sSHPublicKey} -> sSHPublicKey) (\s@GetSSHPublicKeyResponse' {} a -> s {sSHPublicKey = a} :: GetSSHPublicKeyResponse)
 
 -- | The response's http status code.
-getSSHPublicKeyResponse_httpStatus :: Lens.Lens' GetSSHPublicKeyResponse Prelude.Int
+getSSHPublicKeyResponse_httpStatus :: Lens.Lens' GetSSHPublicKeyResponse Core.Int
 getSSHPublicKeyResponse_httpStatus = Lens.lens (\GetSSHPublicKeyResponse' {httpStatus} -> httpStatus) (\s@GetSSHPublicKeyResponse' {} a -> s {httpStatus = a} :: GetSSHPublicKeyResponse)
 
-instance Prelude.NFData GetSSHPublicKeyResponse
+instance Core.NFData GetSSHPublicKeyResponse

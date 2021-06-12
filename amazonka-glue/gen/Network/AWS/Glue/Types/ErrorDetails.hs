@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.ErrorDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object containing error details.
 --
 -- /See:/ 'newErrorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
   { -- | The error message for an error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code for an error.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ErrorDetails' with all optional fields omitted.
@@ -49,28 +48,28 @@ newErrorDetails ::
   ErrorDetails
 newErrorDetails =
   ErrorDetails'
-    { errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The error message for an error.
-errorDetails_errorMessage :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
+errorDetails_errorMessage :: Lens.Lens' ErrorDetails (Core.Maybe Core.Text)
 errorDetails_errorMessage = Lens.lens (\ErrorDetails' {errorMessage} -> errorMessage) (\s@ErrorDetails' {} a -> s {errorMessage = a} :: ErrorDetails)
 
 -- | The error code for an error.
-errorDetails_errorCode :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
+errorDetails_errorCode :: Lens.Lens' ErrorDetails (Core.Maybe Core.Text)
 errorDetails_errorCode = Lens.lens (\ErrorDetails' {errorCode} -> errorCode) (\s@ErrorDetails' {} a -> s {errorCode = a} :: ErrorDetails)
 
-instance Prelude.FromJSON ErrorDetails where
+instance Core.FromJSON ErrorDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ErrorDetails"
       ( \x ->
           ErrorDetails'
-            Prelude.<$> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable ErrorDetails
+instance Core.Hashable ErrorDetails
 
-instance Prelude.NFData ErrorDetails
+instance Core.NFData ErrorDetails

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.CostAndUsageReport.PutReportDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostAndUsageReport.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +52,7 @@ data PutReportDefinition = PutReportDefinition'
     -- consists of the detailed metadata and data file information.
     reportDefinition :: ReportDefinition
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutReportDefinition' with all optional fields omitted.
@@ -80,51 +79,49 @@ newPutReportDefinition pReportDefinition_ =
 putReportDefinition_reportDefinition :: Lens.Lens' PutReportDefinition ReportDefinition
 putReportDefinition_reportDefinition = Lens.lens (\PutReportDefinition' {reportDefinition} -> reportDefinition) (\s@PutReportDefinition' {} a -> s {reportDefinition = a} :: PutReportDefinition)
 
-instance Prelude.AWSRequest PutReportDefinition where
+instance Core.AWSRequest PutReportDefinition where
   type
-    Rs PutReportDefinition =
+    AWSResponse PutReportDefinition =
       PutReportDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutReportDefinitionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutReportDefinition
+instance Core.Hashable PutReportDefinition
 
-instance Prelude.NFData PutReportDefinition
+instance Core.NFData PutReportDefinition
 
-instance Prelude.ToHeaders PutReportDefinition where
+instance Core.ToHeaders PutReportDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrigamiServiceGatewayService.PutReportDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrigamiServiceGatewayService.PutReportDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutReportDefinition where
+instance Core.ToJSON PutReportDefinition where
   toJSON PutReportDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ReportDefinition" Prelude..= reportDefinition)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ReportDefinition" Core..= reportDefinition)
           ]
       )
 
-instance Prelude.ToPath PutReportDefinition where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutReportDefinition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutReportDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutReportDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | If the action is successful, the service sends back an HTTP 200 response
 -- with an empty HTTP body.
@@ -132,9 +129,9 @@ instance Prelude.ToQuery PutReportDefinition where
 -- /See:/ 'newPutReportDefinitionResponse' smart constructor.
 data PutReportDefinitionResponse = PutReportDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutReportDefinitionResponse' with all optional fields omitted.
@@ -147,7 +144,7 @@ data PutReportDefinitionResponse = PutReportDefinitionResponse'
 -- 'httpStatus', 'putReportDefinitionResponse_httpStatus' - The response's http status code.
 newPutReportDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutReportDefinitionResponse
 newPutReportDefinitionResponse pHttpStatus_ =
   PutReportDefinitionResponse'
@@ -156,7 +153,7 @@ newPutReportDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putReportDefinitionResponse_httpStatus :: Lens.Lens' PutReportDefinitionResponse Prelude.Int
+putReportDefinitionResponse_httpStatus :: Lens.Lens' PutReportDefinitionResponse Core.Int
 putReportDefinitionResponse_httpStatus = Lens.lens (\PutReportDefinitionResponse' {httpStatus} -> httpStatus) (\s@PutReportDefinitionResponse' {} a -> s {httpStatus = a} :: PutReportDefinitionResponse)
 
-instance Prelude.NFData PutReportDefinitionResponse
+instance Core.NFData PutReportDefinitionResponse

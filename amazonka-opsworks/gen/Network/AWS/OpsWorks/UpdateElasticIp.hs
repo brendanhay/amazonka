@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,20 +44,20 @@ module Network.AWS.OpsWorks.UpdateElasticIp
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateElasticIp' smart constructor.
 data UpdateElasticIp = UpdateElasticIp'
   { -- | The new name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The IP address for which you want to update the name.
-    elasticIp :: Prelude.Text
+    elasticIp :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateElasticIp' with all optional fields omitted.
@@ -73,67 +72,67 @@ data UpdateElasticIp = UpdateElasticIp'
 -- 'elasticIp', 'updateElasticIp_elasticIp' - The IP address for which you want to update the name.
 newUpdateElasticIp ::
   -- | 'elasticIp'
-  Prelude.Text ->
+  Core.Text ->
   UpdateElasticIp
 newUpdateElasticIp pElasticIp_ =
   UpdateElasticIp'
-    { name = Prelude.Nothing,
+    { name = Core.Nothing,
       elasticIp = pElasticIp_
     }
 
 -- | The new name.
-updateElasticIp_name :: Lens.Lens' UpdateElasticIp (Prelude.Maybe Prelude.Text)
+updateElasticIp_name :: Lens.Lens' UpdateElasticIp (Core.Maybe Core.Text)
 updateElasticIp_name = Lens.lens (\UpdateElasticIp' {name} -> name) (\s@UpdateElasticIp' {} a -> s {name = a} :: UpdateElasticIp)
 
 -- | The IP address for which you want to update the name.
-updateElasticIp_elasticIp :: Lens.Lens' UpdateElasticIp Prelude.Text
+updateElasticIp_elasticIp :: Lens.Lens' UpdateElasticIp Core.Text
 updateElasticIp_elasticIp = Lens.lens (\UpdateElasticIp' {elasticIp} -> elasticIp) (\s@UpdateElasticIp' {} a -> s {elasticIp = a} :: UpdateElasticIp)
 
-instance Prelude.AWSRequest UpdateElasticIp where
-  type Rs UpdateElasticIp = UpdateElasticIpResponse
+instance Core.AWSRequest UpdateElasticIp where
+  type
+    AWSResponse UpdateElasticIp =
+      UpdateElasticIpResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UpdateElasticIpResponse'
 
-instance Prelude.Hashable UpdateElasticIp
+instance Core.Hashable UpdateElasticIp
 
-instance Prelude.NFData UpdateElasticIp
+instance Core.NFData UpdateElasticIp
 
-instance Prelude.ToHeaders UpdateElasticIp where
+instance Core.ToHeaders UpdateElasticIp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.UpdateElasticIp" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.UpdateElasticIp" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateElasticIp where
+instance Core.ToJSON UpdateElasticIp where
   toJSON UpdateElasticIp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Name" Prelude..=) Prelude.<$> name,
-            Prelude.Just ("ElasticIp" Prelude..= elasticIp)
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            Core.Just ("ElasticIp" Core..= elasticIp)
           ]
       )
 
-instance Prelude.ToPath UpdateElasticIp where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateElasticIp where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateElasticIp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateElasticIp where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateElasticIpResponse' smart constructor.
 data UpdateElasticIpResponse = UpdateElasticIpResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateElasticIpResponse' with all optional fields omitted.
@@ -143,4 +142,4 @@ newUpdateElasticIpResponse ::
   UpdateElasticIpResponse
 newUpdateElasticIpResponse = UpdateElasticIpResponse'
 
-instance Prelude.NFData UpdateElasticIpResponse
+instance Core.NFData UpdateElasticIpResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.EventsRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EventsBatch
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a batch of events to process.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data EventsRequest = EventsRequest'
   { -- | The batch of events to process. For each item in a batch, the endpoint
     -- ID acts as a key that has an EventsBatch object as its value.
-    batchItem :: Prelude.HashMap Prelude.Text EventsBatch
+    batchItem :: Core.HashMap Core.Text EventsBatch
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventsRequest' with all optional fields omitted.
@@ -47,20 +46,20 @@ data EventsRequest = EventsRequest'
 newEventsRequest ::
   EventsRequest
 newEventsRequest =
-  EventsRequest' {batchItem = Prelude.mempty}
+  EventsRequest' {batchItem = Core.mempty}
 
 -- | The batch of events to process. For each item in a batch, the endpoint
 -- ID acts as a key that has an EventsBatch object as its value.
-eventsRequest_batchItem :: Lens.Lens' EventsRequest (Prelude.HashMap Prelude.Text EventsBatch)
-eventsRequest_batchItem = Lens.lens (\EventsRequest' {batchItem} -> batchItem) (\s@EventsRequest' {} a -> s {batchItem = a} :: EventsRequest) Prelude.. Prelude._Coerce
+eventsRequest_batchItem :: Lens.Lens' EventsRequest (Core.HashMap Core.Text EventsBatch)
+eventsRequest_batchItem = Lens.lens (\EventsRequest' {batchItem} -> batchItem) (\s@EventsRequest' {} a -> s {batchItem = a} :: EventsRequest) Core.. Lens._Coerce
 
-instance Prelude.Hashable EventsRequest
+instance Core.Hashable EventsRequest
 
-instance Prelude.NFData EventsRequest
+instance Core.NFData EventsRequest
 
-instance Prelude.ToJSON EventsRequest where
+instance Core.ToJSON EventsRequest where
   toJSON EventsRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("BatchItem" Prelude..= batchItem)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("BatchItem" Core..= batchItem)]
       )

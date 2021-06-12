@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +57,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newApplyEnvironmentManagedAction' smart constructor.
 data ApplyEnvironmentManagedAction = ApplyEnvironmentManagedAction'
   { -- | The environment ID of the target environment.
-    environmentId :: Prelude.Maybe Prelude.Text,
+    environmentId :: Core.Maybe Core.Text,
     -- | The name of the target environment.
-    environmentName :: Prelude.Maybe Prelude.Text,
+    environmentName :: Core.Maybe Core.Text,
     -- | The action ID of the scheduled managed action to execute.
-    actionId :: Prelude.Text
+    actionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplyEnvironmentManagedAction' with all optional fields omitted.
@@ -81,34 +80,34 @@ data ApplyEnvironmentManagedAction = ApplyEnvironmentManagedAction'
 -- 'actionId', 'applyEnvironmentManagedAction_actionId' - The action ID of the scheduled managed action to execute.
 newApplyEnvironmentManagedAction ::
   -- | 'actionId'
-  Prelude.Text ->
+  Core.Text ->
   ApplyEnvironmentManagedAction
 newApplyEnvironmentManagedAction pActionId_ =
   ApplyEnvironmentManagedAction'
     { environmentId =
-        Prelude.Nothing,
-      environmentName = Prelude.Nothing,
+        Core.Nothing,
+      environmentName = Core.Nothing,
       actionId = pActionId_
     }
 
 -- | The environment ID of the target environment.
-applyEnvironmentManagedAction_environmentId :: Lens.Lens' ApplyEnvironmentManagedAction (Prelude.Maybe Prelude.Text)
+applyEnvironmentManagedAction_environmentId :: Lens.Lens' ApplyEnvironmentManagedAction (Core.Maybe Core.Text)
 applyEnvironmentManagedAction_environmentId = Lens.lens (\ApplyEnvironmentManagedAction' {environmentId} -> environmentId) (\s@ApplyEnvironmentManagedAction' {} a -> s {environmentId = a} :: ApplyEnvironmentManagedAction)
 
 -- | The name of the target environment.
-applyEnvironmentManagedAction_environmentName :: Lens.Lens' ApplyEnvironmentManagedAction (Prelude.Maybe Prelude.Text)
+applyEnvironmentManagedAction_environmentName :: Lens.Lens' ApplyEnvironmentManagedAction (Core.Maybe Core.Text)
 applyEnvironmentManagedAction_environmentName = Lens.lens (\ApplyEnvironmentManagedAction' {environmentName} -> environmentName) (\s@ApplyEnvironmentManagedAction' {} a -> s {environmentName = a} :: ApplyEnvironmentManagedAction)
 
 -- | The action ID of the scheduled managed action to execute.
-applyEnvironmentManagedAction_actionId :: Lens.Lens' ApplyEnvironmentManagedAction Prelude.Text
+applyEnvironmentManagedAction_actionId :: Lens.Lens' ApplyEnvironmentManagedAction Core.Text
 applyEnvironmentManagedAction_actionId = Lens.lens (\ApplyEnvironmentManagedAction' {actionId} -> actionId) (\s@ApplyEnvironmentManagedAction' {} a -> s {actionId = a} :: ApplyEnvironmentManagedAction)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ApplyEnvironmentManagedAction
   where
   type
-    Rs ApplyEnvironmentManagedAction =
+    AWSResponse ApplyEnvironmentManagedAction =
       ApplyEnvironmentManagedActionResponse
   request = Request.postQuery defaultService
   response =
@@ -116,43 +115,32 @@ instance
       "ApplyEnvironmentManagedActionResult"
       ( \s h x ->
           ApplyEnvironmentManagedActionResponse'
-            Prelude.<$> (x Prelude..@? "Status")
-            Prelude.<*> (x Prelude..@? "ActionType")
-            Prelude.<*> (x Prelude..@? "ActionId")
-            Prelude.<*> (x Prelude..@? "ActionDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Status")
+            Core.<*> (x Core..@? "ActionType")
+            Core.<*> (x Core..@? "ActionId")
+            Core.<*> (x Core..@? "ActionDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ApplyEnvironmentManagedAction
+instance Core.Hashable ApplyEnvironmentManagedAction
 
-instance Prelude.NFData ApplyEnvironmentManagedAction
+instance Core.NFData ApplyEnvironmentManagedAction
 
-instance
-  Prelude.ToHeaders
-    ApplyEnvironmentManagedAction
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ApplyEnvironmentManagedAction where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ApplyEnvironmentManagedAction where
-  toPath = Prelude.const "/"
+instance Core.ToPath ApplyEnvironmentManagedAction where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ApplyEnvironmentManagedAction
-  where
+instance Core.ToQuery ApplyEnvironmentManagedAction where
   toQuery ApplyEnvironmentManagedAction' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ApplyEnvironmentManagedAction" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentId" Prelude.=: environmentId,
-        "EnvironmentName" Prelude.=: environmentName,
-        "ActionId" Prelude.=: actionId
+          Core.=: ("ApplyEnvironmentManagedAction" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "EnvironmentId" Core.=: environmentId,
+        "EnvironmentName" Core.=: environmentName,
+        "ActionId" Core.=: actionId
       ]
 
 -- | The result message containing information about the managed action.
@@ -160,17 +148,17 @@ instance
 -- /See:/ 'newApplyEnvironmentManagedActionResponse' smart constructor.
 data ApplyEnvironmentManagedActionResponse = ApplyEnvironmentManagedActionResponse'
   { -- | The status of the managed action.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The type of managed action.
-    actionType :: Prelude.Maybe ActionType,
+    actionType :: Core.Maybe ActionType,
     -- | The action ID of the managed action.
-    actionId :: Prelude.Maybe Prelude.Text,
+    actionId :: Core.Maybe Core.Text,
     -- | A description of the managed action.
-    actionDescription :: Prelude.Maybe Prelude.Text,
+    actionDescription :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplyEnvironmentManagedActionResponse' with all optional fields omitted.
@@ -191,38 +179,38 @@ data ApplyEnvironmentManagedActionResponse = ApplyEnvironmentManagedActionRespon
 -- 'httpStatus', 'applyEnvironmentManagedActionResponse_httpStatus' - The response's http status code.
 newApplyEnvironmentManagedActionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ApplyEnvironmentManagedActionResponse
 newApplyEnvironmentManagedActionResponse pHttpStatus_ =
   ApplyEnvironmentManagedActionResponse'
     { status =
-        Prelude.Nothing,
-      actionType = Prelude.Nothing,
-      actionId = Prelude.Nothing,
-      actionDescription = Prelude.Nothing,
+        Core.Nothing,
+      actionType = Core.Nothing,
+      actionId = Core.Nothing,
+      actionDescription = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the managed action.
-applyEnvironmentManagedActionResponse_status :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Prelude.Maybe Prelude.Text)
+applyEnvironmentManagedActionResponse_status :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Core.Maybe Core.Text)
 applyEnvironmentManagedActionResponse_status = Lens.lens (\ApplyEnvironmentManagedActionResponse' {status} -> status) (\s@ApplyEnvironmentManagedActionResponse' {} a -> s {status = a} :: ApplyEnvironmentManagedActionResponse)
 
 -- | The type of managed action.
-applyEnvironmentManagedActionResponse_actionType :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Prelude.Maybe ActionType)
+applyEnvironmentManagedActionResponse_actionType :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Core.Maybe ActionType)
 applyEnvironmentManagedActionResponse_actionType = Lens.lens (\ApplyEnvironmentManagedActionResponse' {actionType} -> actionType) (\s@ApplyEnvironmentManagedActionResponse' {} a -> s {actionType = a} :: ApplyEnvironmentManagedActionResponse)
 
 -- | The action ID of the managed action.
-applyEnvironmentManagedActionResponse_actionId :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Prelude.Maybe Prelude.Text)
+applyEnvironmentManagedActionResponse_actionId :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Core.Maybe Core.Text)
 applyEnvironmentManagedActionResponse_actionId = Lens.lens (\ApplyEnvironmentManagedActionResponse' {actionId} -> actionId) (\s@ApplyEnvironmentManagedActionResponse' {} a -> s {actionId = a} :: ApplyEnvironmentManagedActionResponse)
 
 -- | A description of the managed action.
-applyEnvironmentManagedActionResponse_actionDescription :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Prelude.Maybe Prelude.Text)
+applyEnvironmentManagedActionResponse_actionDescription :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Core.Maybe Core.Text)
 applyEnvironmentManagedActionResponse_actionDescription = Lens.lens (\ApplyEnvironmentManagedActionResponse' {actionDescription} -> actionDescription) (\s@ApplyEnvironmentManagedActionResponse' {} a -> s {actionDescription = a} :: ApplyEnvironmentManagedActionResponse)
 
 -- | The response's http status code.
-applyEnvironmentManagedActionResponse_httpStatus :: Lens.Lens' ApplyEnvironmentManagedActionResponse Prelude.Int
+applyEnvironmentManagedActionResponse_httpStatus :: Lens.Lens' ApplyEnvironmentManagedActionResponse Core.Int
 applyEnvironmentManagedActionResponse_httpStatus = Lens.lens (\ApplyEnvironmentManagedActionResponse' {httpStatus} -> httpStatus) (\s@ApplyEnvironmentManagedActionResponse' {} a -> s {httpStatus = a} :: ApplyEnvironmentManagedActionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ApplyEnvironmentManagedActionResponse

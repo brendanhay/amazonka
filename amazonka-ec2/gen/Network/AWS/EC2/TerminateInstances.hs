@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -68,9 +67,9 @@ module Network.AWS.EC2.TerminateInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,14 +79,14 @@ data TerminateInstances = TerminateInstances'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The IDs of the instances.
     --
     -- Constraints: Up to 1000 instance IDs. We recommend breaking up this
     -- request into smaller batches.
-    instanceIds :: [Prelude.Text]
+    instanceIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateInstances' with all optional fields omitted.
@@ -110,69 +109,67 @@ newTerminateInstances ::
   TerminateInstances
 newTerminateInstances =
   TerminateInstances'
-    { dryRun = Prelude.Nothing,
-      instanceIds = Prelude.mempty
+    { dryRun = Core.Nothing,
+      instanceIds = Core.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-terminateInstances_dryRun :: Lens.Lens' TerminateInstances (Prelude.Maybe Prelude.Bool)
+terminateInstances_dryRun :: Lens.Lens' TerminateInstances (Core.Maybe Core.Bool)
 terminateInstances_dryRun = Lens.lens (\TerminateInstances' {dryRun} -> dryRun) (\s@TerminateInstances' {} a -> s {dryRun = a} :: TerminateInstances)
 
 -- | The IDs of the instances.
 --
 -- Constraints: Up to 1000 instance IDs. We recommend breaking up this
 -- request into smaller batches.
-terminateInstances_instanceIds :: Lens.Lens' TerminateInstances [Prelude.Text]
-terminateInstances_instanceIds = Lens.lens (\TerminateInstances' {instanceIds} -> instanceIds) (\s@TerminateInstances' {} a -> s {instanceIds = a} :: TerminateInstances) Prelude.. Prelude._Coerce
+terminateInstances_instanceIds :: Lens.Lens' TerminateInstances [Core.Text]
+terminateInstances_instanceIds = Lens.lens (\TerminateInstances' {instanceIds} -> instanceIds) (\s@TerminateInstances' {} a -> s {instanceIds = a} :: TerminateInstances) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TerminateInstances where
+instance Core.AWSRequest TerminateInstances where
   type
-    Rs TerminateInstances =
+    AWSResponse TerminateInstances =
       TerminateInstancesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           TerminateInstancesResponse'
-            Prelude.<$> ( x Prelude..@? "instancesSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "instancesSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TerminateInstances
+instance Core.Hashable TerminateInstances
 
-instance Prelude.NFData TerminateInstances
+instance Core.NFData TerminateInstances
 
-instance Prelude.ToHeaders TerminateInstances where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders TerminateInstances where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath TerminateInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath TerminateInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TerminateInstances where
+instance Core.ToQuery TerminateInstances where
   toQuery TerminateInstances' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("TerminateInstances" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQueryList "InstanceId" instanceIds
+          Core.=: ("TerminateInstances" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQueryList "InstanceId" instanceIds
       ]
 
 -- | /See:/ 'newTerminateInstancesResponse' smart constructor.
 data TerminateInstancesResponse = TerminateInstancesResponse'
   { -- | Information about the terminated instances.
-    terminatingInstances :: Prelude.Maybe [InstanceStateChange],
+    terminatingInstances :: Core.Maybe [InstanceStateChange],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateInstancesResponse' with all optional fields omitted.
@@ -187,21 +184,21 @@ data TerminateInstancesResponse = TerminateInstancesResponse'
 -- 'httpStatus', 'terminateInstancesResponse_httpStatus' - The response's http status code.
 newTerminateInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TerminateInstancesResponse
 newTerminateInstancesResponse pHttpStatus_ =
   TerminateInstancesResponse'
     { terminatingInstances =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the terminated instances.
-terminateInstancesResponse_terminatingInstances :: Lens.Lens' TerminateInstancesResponse (Prelude.Maybe [InstanceStateChange])
-terminateInstancesResponse_terminatingInstances = Lens.lens (\TerminateInstancesResponse' {terminatingInstances} -> terminatingInstances) (\s@TerminateInstancesResponse' {} a -> s {terminatingInstances = a} :: TerminateInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
+terminateInstancesResponse_terminatingInstances :: Lens.Lens' TerminateInstancesResponse (Core.Maybe [InstanceStateChange])
+terminateInstancesResponse_terminatingInstances = Lens.lens (\TerminateInstancesResponse' {terminatingInstances} -> terminatingInstances) (\s@TerminateInstancesResponse' {} a -> s {terminatingInstances = a} :: TerminateInstancesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-terminateInstancesResponse_httpStatus :: Lens.Lens' TerminateInstancesResponse Prelude.Int
+terminateInstancesResponse_httpStatus :: Lens.Lens' TerminateInstancesResponse Core.Int
 terminateInstancesResponse_httpStatus = Lens.lens (\TerminateInstancesResponse' {httpStatus} -> httpStatus) (\s@TerminateInstancesResponse' {} a -> s {httpStatus = a} :: TerminateInstancesResponse)
 
-instance Prelude.NFData TerminateInstancesResponse
+instance Core.NFData TerminateInstancesResponse

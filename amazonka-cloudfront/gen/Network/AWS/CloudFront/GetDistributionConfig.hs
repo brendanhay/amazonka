@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CloudFront.GetDistributionConfig
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data GetDistributionConfig = GetDistributionConfig'
   { -- | The distribution\'s ID. If the ID is empty, an empty distribution
     -- configuration is returned.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDistributionConfig' with all optional fields omitted.
@@ -69,60 +68,60 @@ data GetDistributionConfig = GetDistributionConfig'
 -- configuration is returned.
 newGetDistributionConfig ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   GetDistributionConfig
 newGetDistributionConfig pId_ =
   GetDistributionConfig' {id = pId_}
 
 -- | The distribution\'s ID. If the ID is empty, an empty distribution
 -- configuration is returned.
-getDistributionConfig_id :: Lens.Lens' GetDistributionConfig Prelude.Text
+getDistributionConfig_id :: Lens.Lens' GetDistributionConfig Core.Text
 getDistributionConfig_id = Lens.lens (\GetDistributionConfig' {id} -> id) (\s@GetDistributionConfig' {} a -> s {id = a} :: GetDistributionConfig)
 
-instance Prelude.AWSRequest GetDistributionConfig where
+instance Core.AWSRequest GetDistributionConfig where
   type
-    Rs GetDistributionConfig =
+    AWSResponse GetDistributionConfig =
       GetDistributionConfigResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetDistributionConfigResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-            Prelude.<*> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag")
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDistributionConfig
+instance Core.Hashable GetDistributionConfig
 
-instance Prelude.NFData GetDistributionConfig
+instance Core.NFData GetDistributionConfig
 
-instance Prelude.ToHeaders GetDistributionConfig where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetDistributionConfig where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetDistributionConfig where
+instance Core.ToPath GetDistributionConfig where
   toPath GetDistributionConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2020-05-31/distribution/",
-        Prelude.toBS id,
+        Core.toBS id,
         "/config"
       ]
 
-instance Prelude.ToQuery GetDistributionConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDistributionConfig where
+  toQuery = Core.const Core.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newGetDistributionConfigResponse' smart constructor.
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
   { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The distribution\'s configuration information.
-    distributionConfig :: Prelude.Maybe DistributionConfig,
+    distributionConfig :: Core.Maybe DistributionConfig,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDistributionConfigResponse' with all optional fields omitted.
@@ -139,26 +138,25 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse'
 -- 'httpStatus', 'getDistributionConfigResponse_httpStatus' - The response's http status code.
 newGetDistributionConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDistributionConfigResponse
 newGetDistributionConfigResponse pHttpStatus_ =
   GetDistributionConfigResponse'
-    { eTag =
-        Prelude.Nothing,
-      distributionConfig = Prelude.Nothing,
+    { eTag = Core.Nothing,
+      distributionConfig = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-getDistributionConfigResponse_eTag :: Lens.Lens' GetDistributionConfigResponse (Prelude.Maybe Prelude.Text)
+getDistributionConfigResponse_eTag :: Lens.Lens' GetDistributionConfigResponse (Core.Maybe Core.Text)
 getDistributionConfigResponse_eTag = Lens.lens (\GetDistributionConfigResponse' {eTag} -> eTag) (\s@GetDistributionConfigResponse' {} a -> s {eTag = a} :: GetDistributionConfigResponse)
 
 -- | The distribution\'s configuration information.
-getDistributionConfigResponse_distributionConfig :: Lens.Lens' GetDistributionConfigResponse (Prelude.Maybe DistributionConfig)
+getDistributionConfigResponse_distributionConfig :: Lens.Lens' GetDistributionConfigResponse (Core.Maybe DistributionConfig)
 getDistributionConfigResponse_distributionConfig = Lens.lens (\GetDistributionConfigResponse' {distributionConfig} -> distributionConfig) (\s@GetDistributionConfigResponse' {} a -> s {distributionConfig = a} :: GetDistributionConfigResponse)
 
 -- | The response's http status code.
-getDistributionConfigResponse_httpStatus :: Lens.Lens' GetDistributionConfigResponse Prelude.Int
+getDistributionConfigResponse_httpStatus :: Lens.Lens' GetDistributionConfigResponse Core.Int
 getDistributionConfigResponse_httpStatus = Lens.lens (\GetDistributionConfigResponse' {httpStatus} -> httpStatus) (\s@GetDistributionConfigResponse' {} a -> s {httpStatus = a} :: GetDistributionConfigResponse)
 
-instance Prelude.NFData GetDistributionConfigResponse
+instance Core.NFData GetDistributionConfigResponse

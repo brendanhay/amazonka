@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.CORSConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.CORSRule
 
@@ -36,7 +35,7 @@ data CORSConfiguration = CORSConfiguration'
     -- allow). You can add up to 100 rules to the configuration.
     cORSRules :: [CORSRule]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CORSConfiguration' with all optional fields omitted.
@@ -51,18 +50,17 @@ data CORSConfiguration = CORSConfiguration'
 newCORSConfiguration ::
   CORSConfiguration
 newCORSConfiguration =
-  CORSConfiguration' {cORSRules = Prelude.mempty}
+  CORSConfiguration' {cORSRules = Core.mempty}
 
 -- | A set of origins and methods (cross-origin access that you want to
 -- allow). You can add up to 100 rules to the configuration.
 cORSConfiguration_cORSRules :: Lens.Lens' CORSConfiguration [CORSRule]
-cORSConfiguration_cORSRules = Lens.lens (\CORSConfiguration' {cORSRules} -> cORSRules) (\s@CORSConfiguration' {} a -> s {cORSRules = a} :: CORSConfiguration) Prelude.. Prelude._Coerce
+cORSConfiguration_cORSRules = Lens.lens (\CORSConfiguration' {cORSRules} -> cORSRules) (\s@CORSConfiguration' {} a -> s {cORSRules = a} :: CORSConfiguration) Core.. Lens._Coerce
 
-instance Prelude.Hashable CORSConfiguration
+instance Core.Hashable CORSConfiguration
 
-instance Prelude.NFData CORSConfiguration
+instance Core.NFData CORSConfiguration
 
-instance Prelude.ToXML CORSConfiguration where
+instance Core.ToXML CORSConfiguration where
   toXML CORSConfiguration' {..} =
-    Prelude.mconcat
-      [Prelude.toXMLList "CORSRule" cORSRules]
+    Core.mconcat [Core.toXMLList "CORSRule" cORSRules]

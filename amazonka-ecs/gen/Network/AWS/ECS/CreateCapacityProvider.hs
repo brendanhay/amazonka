@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.ECS.CreateCapacityProvider
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,16 +84,16 @@ data CreateCapacityProvider = CreateCapacityProvider'
     --     use. You cannot edit or delete tag keys or values with this prefix.
     --     Tags with this prefix do not count against your tags per resource
     --     limit.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The name of the capacity provider. Up to 255 characters are allowed,
     -- including letters (upper and lowercase), numbers, underscores, and
     -- hyphens. The name cannot be prefixed with \"@aws@\", \"@ecs@\", or
     -- \"@fargate@\".
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The details of the Auto Scaling group for the capacity provider.
     autoScalingGroupProvider :: AutoScalingGroupProvider
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCapacityProvider' with all optional fields omitted.
@@ -141,7 +140,7 @@ data CreateCapacityProvider = CreateCapacityProvider'
 -- 'autoScalingGroupProvider', 'createCapacityProvider_autoScalingGroupProvider' - The details of the Auto Scaling group for the capacity provider.
 newCreateCapacityProvider ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'autoScalingGroupProvider'
   AutoScalingGroupProvider ->
   CreateCapacityProvider
@@ -149,7 +148,7 @@ newCreateCapacityProvider
   pName_
   pAutoScalingGroupProvider_ =
     CreateCapacityProvider'
-      { tags = Prelude.Nothing,
+      { tags = Core.Nothing,
         name = pName_,
         autoScalingGroupProvider =
           pAutoScalingGroupProvider_
@@ -183,79 +182,77 @@ newCreateCapacityProvider
 --     use. You cannot edit or delete tag keys or values with this prefix.
 --     Tags with this prefix do not count against your tags per resource
 --     limit.
-createCapacityProvider_tags :: Lens.Lens' CreateCapacityProvider (Prelude.Maybe [Tag])
-createCapacityProvider_tags = Lens.lens (\CreateCapacityProvider' {tags} -> tags) (\s@CreateCapacityProvider' {} a -> s {tags = a} :: CreateCapacityProvider) Prelude.. Lens.mapping Prelude._Coerce
+createCapacityProvider_tags :: Lens.Lens' CreateCapacityProvider (Core.Maybe [Tag])
+createCapacityProvider_tags = Lens.lens (\CreateCapacityProvider' {tags} -> tags) (\s@CreateCapacityProvider' {} a -> s {tags = a} :: CreateCapacityProvider) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the capacity provider. Up to 255 characters are allowed,
 -- including letters (upper and lowercase), numbers, underscores, and
 -- hyphens. The name cannot be prefixed with \"@aws@\", \"@ecs@\", or
 -- \"@fargate@\".
-createCapacityProvider_name :: Lens.Lens' CreateCapacityProvider Prelude.Text
+createCapacityProvider_name :: Lens.Lens' CreateCapacityProvider Core.Text
 createCapacityProvider_name = Lens.lens (\CreateCapacityProvider' {name} -> name) (\s@CreateCapacityProvider' {} a -> s {name = a} :: CreateCapacityProvider)
 
 -- | The details of the Auto Scaling group for the capacity provider.
 createCapacityProvider_autoScalingGroupProvider :: Lens.Lens' CreateCapacityProvider AutoScalingGroupProvider
 createCapacityProvider_autoScalingGroupProvider = Lens.lens (\CreateCapacityProvider' {autoScalingGroupProvider} -> autoScalingGroupProvider) (\s@CreateCapacityProvider' {} a -> s {autoScalingGroupProvider = a} :: CreateCapacityProvider)
 
-instance Prelude.AWSRequest CreateCapacityProvider where
+instance Core.AWSRequest CreateCapacityProvider where
   type
-    Rs CreateCapacityProvider =
+    AWSResponse CreateCapacityProvider =
       CreateCapacityProviderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateCapacityProviderResponse'
-            Prelude.<$> (x Prelude..?> "capacityProvider")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "capacityProvider")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCapacityProvider
+instance Core.Hashable CreateCapacityProvider
 
-instance Prelude.NFData CreateCapacityProvider
+instance Core.NFData CreateCapacityProvider
 
-instance Prelude.ToHeaders CreateCapacityProvider where
+instance Core.ToHeaders CreateCapacityProvider where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCapacityProvider where
+instance Core.ToJSON CreateCapacityProvider where
   toJSON CreateCapacityProvider' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            Core.Just ("name" Core..= name),
+            Core.Just
               ( "autoScalingGroupProvider"
-                  Prelude..= autoScalingGroupProvider
+                  Core..= autoScalingGroupProvider
               )
           ]
       )
 
-instance Prelude.ToPath CreateCapacityProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCapacityProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCapacityProvider where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCapacityProvider where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateCapacityProviderResponse' smart constructor.
 data CreateCapacityProviderResponse = CreateCapacityProviderResponse'
   { -- | The full description of the new capacity provider.
-    capacityProvider :: Prelude.Maybe CapacityProvider,
+    capacityProvider :: Core.Maybe CapacityProvider,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCapacityProviderResponse' with all optional fields omitted.
@@ -270,23 +267,21 @@ data CreateCapacityProviderResponse = CreateCapacityProviderResponse'
 -- 'httpStatus', 'createCapacityProviderResponse_httpStatus' - The response's http status code.
 newCreateCapacityProviderResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCapacityProviderResponse
 newCreateCapacityProviderResponse pHttpStatus_ =
   CreateCapacityProviderResponse'
     { capacityProvider =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of the new capacity provider.
-createCapacityProviderResponse_capacityProvider :: Lens.Lens' CreateCapacityProviderResponse (Prelude.Maybe CapacityProvider)
+createCapacityProviderResponse_capacityProvider :: Lens.Lens' CreateCapacityProviderResponse (Core.Maybe CapacityProvider)
 createCapacityProviderResponse_capacityProvider = Lens.lens (\CreateCapacityProviderResponse' {capacityProvider} -> capacityProvider) (\s@CreateCapacityProviderResponse' {} a -> s {capacityProvider = a} :: CreateCapacityProviderResponse)
 
 -- | The response's http status code.
-createCapacityProviderResponse_httpStatus :: Lens.Lens' CreateCapacityProviderResponse Prelude.Int
+createCapacityProviderResponse_httpStatus :: Lens.Lens' CreateCapacityProviderResponse Core.Int
 createCapacityProviderResponse_httpStatus = Lens.lens (\CreateCapacityProviderResponse' {httpStatus} -> httpStatus) (\s@CreateCapacityProviderResponse' {} a -> s {httpStatus = a} :: CreateCapacityProviderResponse)
 
-instance
-  Prelude.NFData
-    CreateCapacityProviderResponse
+instance Core.NFData CreateCapacityProviderResponse

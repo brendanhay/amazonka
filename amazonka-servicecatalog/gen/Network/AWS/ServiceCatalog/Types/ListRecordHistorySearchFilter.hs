@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ListRecordHistorySearchFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The search filter to use when listing history records.
 --
@@ -34,11 +33,11 @@ data ListRecordHistorySearchFilter = ListRecordHistorySearchFilter'
     --
     -- -   @provisionedproduct@ - Filter results based on the provisioned
     --     product identifier.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The filter value.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRecordHistorySearchFilter' with all optional fields omitted.
@@ -61,9 +60,8 @@ newListRecordHistorySearchFilter ::
   ListRecordHistorySearchFilter
 newListRecordHistorySearchFilter =
   ListRecordHistorySearchFilter'
-    { key =
-        Prelude.Nothing,
-      value = Prelude.Nothing
+    { key = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The filter key.
@@ -73,24 +71,22 @@ newListRecordHistorySearchFilter =
 --
 -- -   @provisionedproduct@ - Filter results based on the provisioned
 --     product identifier.
-listRecordHistorySearchFilter_key :: Lens.Lens' ListRecordHistorySearchFilter (Prelude.Maybe Prelude.Text)
+listRecordHistorySearchFilter_key :: Lens.Lens' ListRecordHistorySearchFilter (Core.Maybe Core.Text)
 listRecordHistorySearchFilter_key = Lens.lens (\ListRecordHistorySearchFilter' {key} -> key) (\s@ListRecordHistorySearchFilter' {} a -> s {key = a} :: ListRecordHistorySearchFilter)
 
 -- | The filter value.
-listRecordHistorySearchFilter_value :: Lens.Lens' ListRecordHistorySearchFilter (Prelude.Maybe Prelude.Text)
+listRecordHistorySearchFilter_value :: Lens.Lens' ListRecordHistorySearchFilter (Core.Maybe Core.Text)
 listRecordHistorySearchFilter_value = Lens.lens (\ListRecordHistorySearchFilter' {value} -> value) (\s@ListRecordHistorySearchFilter' {} a -> s {value = a} :: ListRecordHistorySearchFilter)
 
-instance
-  Prelude.Hashable
-    ListRecordHistorySearchFilter
+instance Core.Hashable ListRecordHistorySearchFilter
 
-instance Prelude.NFData ListRecordHistorySearchFilter
+instance Core.NFData ListRecordHistorySearchFilter
 
-instance Prelude.ToJSON ListRecordHistorySearchFilter where
+instance Core.ToJSON ListRecordHistorySearchFilter where
   toJSON ListRecordHistorySearchFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Value" Prelude..=) Prelude.<$> value
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Value" Core..=) Core.<$> value
           ]
       )

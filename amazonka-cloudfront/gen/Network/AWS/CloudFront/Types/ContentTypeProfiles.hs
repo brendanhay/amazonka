@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.CloudFront.Types.ContentTypeProfiles where
 
 import Network.AWS.CloudFront.Types.ContentTypeProfile
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Field-level encryption content type-profile.
 --
 -- /See:/ 'newContentTypeProfiles' smart constructor.
 data ContentTypeProfiles = ContentTypeProfiles'
   { -- | Items in a field-level encryption content type-profile mapping.
-    items :: Prelude.Maybe [ContentTypeProfile],
+    items :: Core.Maybe [ContentTypeProfile],
     -- | The number of field-level encryption content type-profile mappings.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContentTypeProfiles' with all optional fields omitted.
@@ -48,42 +47,39 @@ data ContentTypeProfiles = ContentTypeProfiles'
 -- 'quantity', 'contentTypeProfiles_quantity' - The number of field-level encryption content type-profile mappings.
 newContentTypeProfiles ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   ContentTypeProfiles
 newContentTypeProfiles pQuantity_ =
   ContentTypeProfiles'
-    { items = Prelude.Nothing,
+    { items = Core.Nothing,
       quantity = pQuantity_
     }
 
 -- | Items in a field-level encryption content type-profile mapping.
-contentTypeProfiles_items :: Lens.Lens' ContentTypeProfiles (Prelude.Maybe [ContentTypeProfile])
-contentTypeProfiles_items = Lens.lens (\ContentTypeProfiles' {items} -> items) (\s@ContentTypeProfiles' {} a -> s {items = a} :: ContentTypeProfiles) Prelude.. Lens.mapping Prelude._Coerce
+contentTypeProfiles_items :: Lens.Lens' ContentTypeProfiles (Core.Maybe [ContentTypeProfile])
+contentTypeProfiles_items = Lens.lens (\ContentTypeProfiles' {items} -> items) (\s@ContentTypeProfiles' {} a -> s {items = a} :: ContentTypeProfiles) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of field-level encryption content type-profile mappings.
-contentTypeProfiles_quantity :: Lens.Lens' ContentTypeProfiles Prelude.Int
+contentTypeProfiles_quantity :: Lens.Lens' ContentTypeProfiles Core.Int
 contentTypeProfiles_quantity = Lens.lens (\ContentTypeProfiles' {quantity} -> quantity) (\s@ContentTypeProfiles' {} a -> s {quantity = a} :: ContentTypeProfiles)
 
-instance Prelude.FromXML ContentTypeProfiles where
+instance Core.FromXML ContentTypeProfiles where
   parseXML x =
     ContentTypeProfiles'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLList "ContentTypeProfile")
-                  )
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "ContentTypeProfile")
+               )
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable ContentTypeProfiles
+instance Core.Hashable ContentTypeProfiles
 
-instance Prelude.NFData ContentTypeProfiles
+instance Core.NFData ContentTypeProfiles
 
-instance Prelude.ToXML ContentTypeProfiles where
+instance Core.ToXML ContentTypeProfiles where
   toXML ContentTypeProfiles' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            ( Prelude.toXMLList "ContentTypeProfile"
-                Prelude.<$> items
-            ),
-        "Quantity" Prelude.@= quantity
+          Core.@= Core.toXML
+            (Core.toXMLList "ContentTypeProfile" Core.<$> items),
+        "Quantity" Core.@= quantity
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.KinesisDataStream where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Kinesis data stream Amazon Rekognition to which the analysis results
 -- of a Amazon Rekognition stream processor are streamed. For more
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newKinesisDataStream' smart constructor.
 data KinesisDataStream = KinesisDataStream'
   { -- | ARN of the output Amazon Kinesis Data Streams stream.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KinesisDataStream' with all optional fields omitted.
@@ -47,27 +46,25 @@ data KinesisDataStream = KinesisDataStream'
 newKinesisDataStream ::
   KinesisDataStream
 newKinesisDataStream =
-  KinesisDataStream' {arn = Prelude.Nothing}
+  KinesisDataStream' {arn = Core.Nothing}
 
 -- | ARN of the output Amazon Kinesis Data Streams stream.
-kinesisDataStream_arn :: Lens.Lens' KinesisDataStream (Prelude.Maybe Prelude.Text)
+kinesisDataStream_arn :: Lens.Lens' KinesisDataStream (Core.Maybe Core.Text)
 kinesisDataStream_arn = Lens.lens (\KinesisDataStream' {arn} -> arn) (\s@KinesisDataStream' {} a -> s {arn = a} :: KinesisDataStream)
 
-instance Prelude.FromJSON KinesisDataStream where
+instance Core.FromJSON KinesisDataStream where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KinesisDataStream"
       ( \x ->
-          KinesisDataStream' Prelude.<$> (x Prelude..:? "Arn")
+          KinesisDataStream' Core.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable KinesisDataStream
+instance Core.Hashable KinesisDataStream
 
-instance Prelude.NFData KinesisDataStream
+instance Core.NFData KinesisDataStream
 
-instance Prelude.ToJSON KinesisDataStream where
+instance Core.ToJSON KinesisDataStream where
   toJSON KinesisDataStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Arn" Prelude..=) Prelude.<$> arn]
-      )
+    Core.object
+      (Core.catMaybes [("Arn" Core..=) Core.<$> arn])

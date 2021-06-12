@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.ConfigSnapshotDeliveryProperties where
 
 import Network.AWS.Config.Types.MaximumExecutionFrequency
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides options for how often AWS Config delivers configuration
 -- snapshots to the Amazon S3 bucket in your delivery channel.
@@ -67,9 +66,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newConfigSnapshotDeliveryProperties' smart constructor.
 data ConfigSnapshotDeliveryProperties = ConfigSnapshotDeliveryProperties'
   { -- | The frequency with which AWS Config delivers configuration snapshots.
-    deliveryFrequency :: Prelude.Maybe MaximumExecutionFrequency
+    deliveryFrequency :: Core.Maybe MaximumExecutionFrequency
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfigSnapshotDeliveryProperties' with all optional fields omitted.
@@ -85,41 +84,36 @@ newConfigSnapshotDeliveryProperties ::
 newConfigSnapshotDeliveryProperties =
   ConfigSnapshotDeliveryProperties'
     { deliveryFrequency =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The frequency with which AWS Config delivers configuration snapshots.
-configSnapshotDeliveryProperties_deliveryFrequency :: Lens.Lens' ConfigSnapshotDeliveryProperties (Prelude.Maybe MaximumExecutionFrequency)
+configSnapshotDeliveryProperties_deliveryFrequency :: Lens.Lens' ConfigSnapshotDeliveryProperties (Core.Maybe MaximumExecutionFrequency)
 configSnapshotDeliveryProperties_deliveryFrequency = Lens.lens (\ConfigSnapshotDeliveryProperties' {deliveryFrequency} -> deliveryFrequency) (\s@ConfigSnapshotDeliveryProperties' {} a -> s {deliveryFrequency = a} :: ConfigSnapshotDeliveryProperties)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ConfigSnapshotDeliveryProperties
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConfigSnapshotDeliveryProperties"
       ( \x ->
           ConfigSnapshotDeliveryProperties'
-            Prelude.<$> (x Prelude..:? "deliveryFrequency")
+            Core.<$> (x Core..:? "deliveryFrequency")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ConfigSnapshotDeliveryProperties
 
-instance
-  Prelude.NFData
-    ConfigSnapshotDeliveryProperties
+instance Core.NFData ConfigSnapshotDeliveryProperties
 
-instance
-  Prelude.ToJSON
-    ConfigSnapshotDeliveryProperties
-  where
+instance Core.ToJSON ConfigSnapshotDeliveryProperties where
   toJSON ConfigSnapshotDeliveryProperties' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deliveryFrequency" Prelude..=)
-              Prelude.<$> deliveryFrequency
+    Core.object
+      ( Core.catMaybes
+          [ ("deliveryFrequency" Core..=)
+              Core.<$> deliveryFrequency
           ]
       )

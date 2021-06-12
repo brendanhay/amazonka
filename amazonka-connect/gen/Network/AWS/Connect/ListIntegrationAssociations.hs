@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,8 @@ module Network.AWS.Connect.ListIntegrationAssociations
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +59,13 @@ data ListIntegrationAssociations = ListIntegrationAssociations'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListIntegrationAssociations' with all optional fields omitted.
@@ -86,115 +84,107 @@ data ListIntegrationAssociations = ListIntegrationAssociations'
 -- 'instanceId', 'listIntegrationAssociations_instanceId' - The identifier of the Amazon Connect instance.
 newListIntegrationAssociations ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   ListIntegrationAssociations
 newListIntegrationAssociations pInstanceId_ =
   ListIntegrationAssociations'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+        Core.Nothing,
+      maxResults = Core.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listIntegrationAssociations_nextToken :: Lens.Lens' ListIntegrationAssociations (Prelude.Maybe Prelude.Text)
+listIntegrationAssociations_nextToken :: Lens.Lens' ListIntegrationAssociations (Core.Maybe Core.Text)
 listIntegrationAssociations_nextToken = Lens.lens (\ListIntegrationAssociations' {nextToken} -> nextToken) (\s@ListIntegrationAssociations' {} a -> s {nextToken = a} :: ListIntegrationAssociations)
 
 -- | The maximum number of results to return per page.
-listIntegrationAssociations_maxResults :: Lens.Lens' ListIntegrationAssociations (Prelude.Maybe Prelude.Natural)
+listIntegrationAssociations_maxResults :: Lens.Lens' ListIntegrationAssociations (Core.Maybe Core.Natural)
 listIntegrationAssociations_maxResults = Lens.lens (\ListIntegrationAssociations' {maxResults} -> maxResults) (\s@ListIntegrationAssociations' {} a -> s {maxResults = a} :: ListIntegrationAssociations)
 
 -- | The identifier of the Amazon Connect instance.
-listIntegrationAssociations_instanceId :: Lens.Lens' ListIntegrationAssociations Prelude.Text
+listIntegrationAssociations_instanceId :: Lens.Lens' ListIntegrationAssociations Core.Text
 listIntegrationAssociations_instanceId = Lens.lens (\ListIntegrationAssociations' {instanceId} -> instanceId) (\s@ListIntegrationAssociations' {} a -> s {instanceId = a} :: ListIntegrationAssociations)
 
-instance Pager.AWSPager ListIntegrationAssociations where
+instance Core.AWSPager ListIntegrationAssociations where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listIntegrationAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listIntegrationAssociationsResponse_integrationAssociationSummaryList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listIntegrationAssociations_nextToken
           Lens..~ rs
           Lens.^? listIntegrationAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    ListIntegrationAssociations
-  where
+instance Core.AWSRequest ListIntegrationAssociations where
   type
-    Rs ListIntegrationAssociations =
+    AWSResponse ListIntegrationAssociations =
       ListIntegrationAssociationsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListIntegrationAssociationsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "IntegrationAssociationSummaryList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "IntegrationAssociationSummaryList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListIntegrationAssociations
+instance Core.Hashable ListIntegrationAssociations
 
-instance Prelude.NFData ListIntegrationAssociations
+instance Core.NFData ListIntegrationAssociations
 
-instance
-  Prelude.ToHeaders
-    ListIntegrationAssociations
-  where
+instance Core.ToHeaders ListIntegrationAssociations where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListIntegrationAssociations where
+instance Core.ToPath ListIntegrationAssociations where
   toPath ListIntegrationAssociations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/instance/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/integration-associations"
       ]
 
-instance Prelude.ToQuery ListIntegrationAssociations where
+instance Core.ToQuery ListIntegrationAssociations where
   toQuery ListIntegrationAssociations' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListIntegrationAssociationsResponse' smart constructor.
 data ListIntegrationAssociationsResponse = ListIntegrationAssociationsResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The AppIntegration associations.
-    integrationAssociationSummaryList :: Prelude.Maybe [IntegrationAssociationSummary],
+    integrationAssociationSummaryList :: Core.Maybe [IntegrationAssociationSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListIntegrationAssociationsResponse' with all optional fields omitted.
@@ -212,30 +202,30 @@ data ListIntegrationAssociationsResponse = ListIntegrationAssociationsResponse'
 -- 'httpStatus', 'listIntegrationAssociationsResponse_httpStatus' - The response's http status code.
 newListIntegrationAssociationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListIntegrationAssociationsResponse
 newListIntegrationAssociationsResponse pHttpStatus_ =
   ListIntegrationAssociationsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       integrationAssociationSummaryList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listIntegrationAssociationsResponse_nextToken :: Lens.Lens' ListIntegrationAssociationsResponse (Prelude.Maybe Prelude.Text)
+listIntegrationAssociationsResponse_nextToken :: Lens.Lens' ListIntegrationAssociationsResponse (Core.Maybe Core.Text)
 listIntegrationAssociationsResponse_nextToken = Lens.lens (\ListIntegrationAssociationsResponse' {nextToken} -> nextToken) (\s@ListIntegrationAssociationsResponse' {} a -> s {nextToken = a} :: ListIntegrationAssociationsResponse)
 
 -- | The AppIntegration associations.
-listIntegrationAssociationsResponse_integrationAssociationSummaryList :: Lens.Lens' ListIntegrationAssociationsResponse (Prelude.Maybe [IntegrationAssociationSummary])
-listIntegrationAssociationsResponse_integrationAssociationSummaryList = Lens.lens (\ListIntegrationAssociationsResponse' {integrationAssociationSummaryList} -> integrationAssociationSummaryList) (\s@ListIntegrationAssociationsResponse' {} a -> s {integrationAssociationSummaryList = a} :: ListIntegrationAssociationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listIntegrationAssociationsResponse_integrationAssociationSummaryList :: Lens.Lens' ListIntegrationAssociationsResponse (Core.Maybe [IntegrationAssociationSummary])
+listIntegrationAssociationsResponse_integrationAssociationSummaryList = Lens.lens (\ListIntegrationAssociationsResponse' {integrationAssociationSummaryList} -> integrationAssociationSummaryList) (\s@ListIntegrationAssociationsResponse' {} a -> s {integrationAssociationSummaryList = a} :: ListIntegrationAssociationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listIntegrationAssociationsResponse_httpStatus :: Lens.Lens' ListIntegrationAssociationsResponse Prelude.Int
+listIntegrationAssociationsResponse_httpStatus :: Lens.Lens' ListIntegrationAssociationsResponse Core.Int
 listIntegrationAssociationsResponse_httpStatus = Lens.lens (\ListIntegrationAssociationsResponse' {httpStatus} -> httpStatus) (\s@ListIntegrationAssociationsResponse' {} a -> s {httpStatus = a} :: ListIntegrationAssociationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListIntegrationAssociationsResponse

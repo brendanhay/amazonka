@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,13 +19,13 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ClientVpnAuthentication where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CertificateAuthentication
 import Network.AWS.EC2.Types.ClientVpnAuthenticationType
 import Network.AWS.EC2.Types.DirectoryServiceAuthentication
 import Network.AWS.EC2.Types.FederatedAuthentication
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the authentication methods used by a Client VPN endpoint. For
 -- more information, see
@@ -36,15 +35,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newClientVpnAuthentication' smart constructor.
 data ClientVpnAuthentication = ClientVpnAuthentication'
   { -- | Information about the IAM SAML identity provider, if applicable.
-    federatedAuthentication :: Prelude.Maybe FederatedAuthentication,
+    federatedAuthentication :: Core.Maybe FederatedAuthentication,
     -- | Information about the Active Directory, if applicable.
-    activeDirectory :: Prelude.Maybe DirectoryServiceAuthentication,
+    activeDirectory :: Core.Maybe DirectoryServiceAuthentication,
     -- | Information about the authentication certificates, if applicable.
-    mutualAuthentication :: Prelude.Maybe CertificateAuthentication,
+    mutualAuthentication :: Core.Maybe CertificateAuthentication,
     -- | The authentication type used.
-    type' :: Prelude.Maybe ClientVpnAuthenticationType
+    type' :: Core.Maybe ClientVpnAuthenticationType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClientVpnAuthentication' with all optional fields omitted.
@@ -66,36 +65,36 @@ newClientVpnAuthentication ::
 newClientVpnAuthentication =
   ClientVpnAuthentication'
     { federatedAuthentication =
-        Prelude.Nothing,
-      activeDirectory = Prelude.Nothing,
-      mutualAuthentication = Prelude.Nothing,
-      type' = Prelude.Nothing
+        Core.Nothing,
+      activeDirectory = Core.Nothing,
+      mutualAuthentication = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | Information about the IAM SAML identity provider, if applicable.
-clientVpnAuthentication_federatedAuthentication :: Lens.Lens' ClientVpnAuthentication (Prelude.Maybe FederatedAuthentication)
+clientVpnAuthentication_federatedAuthentication :: Lens.Lens' ClientVpnAuthentication (Core.Maybe FederatedAuthentication)
 clientVpnAuthentication_federatedAuthentication = Lens.lens (\ClientVpnAuthentication' {federatedAuthentication} -> federatedAuthentication) (\s@ClientVpnAuthentication' {} a -> s {federatedAuthentication = a} :: ClientVpnAuthentication)
 
 -- | Information about the Active Directory, if applicable.
-clientVpnAuthentication_activeDirectory :: Lens.Lens' ClientVpnAuthentication (Prelude.Maybe DirectoryServiceAuthentication)
+clientVpnAuthentication_activeDirectory :: Lens.Lens' ClientVpnAuthentication (Core.Maybe DirectoryServiceAuthentication)
 clientVpnAuthentication_activeDirectory = Lens.lens (\ClientVpnAuthentication' {activeDirectory} -> activeDirectory) (\s@ClientVpnAuthentication' {} a -> s {activeDirectory = a} :: ClientVpnAuthentication)
 
 -- | Information about the authentication certificates, if applicable.
-clientVpnAuthentication_mutualAuthentication :: Lens.Lens' ClientVpnAuthentication (Prelude.Maybe CertificateAuthentication)
+clientVpnAuthentication_mutualAuthentication :: Lens.Lens' ClientVpnAuthentication (Core.Maybe CertificateAuthentication)
 clientVpnAuthentication_mutualAuthentication = Lens.lens (\ClientVpnAuthentication' {mutualAuthentication} -> mutualAuthentication) (\s@ClientVpnAuthentication' {} a -> s {mutualAuthentication = a} :: ClientVpnAuthentication)
 
 -- | The authentication type used.
-clientVpnAuthentication_type :: Lens.Lens' ClientVpnAuthentication (Prelude.Maybe ClientVpnAuthenticationType)
+clientVpnAuthentication_type :: Lens.Lens' ClientVpnAuthentication (Core.Maybe ClientVpnAuthenticationType)
 clientVpnAuthentication_type = Lens.lens (\ClientVpnAuthentication' {type'} -> type') (\s@ClientVpnAuthentication' {} a -> s {type' = a} :: ClientVpnAuthentication)
 
-instance Prelude.FromXML ClientVpnAuthentication where
+instance Core.FromXML ClientVpnAuthentication where
   parseXML x =
     ClientVpnAuthentication'
-      Prelude.<$> (x Prelude..@? "federatedAuthentication")
-      Prelude.<*> (x Prelude..@? "activeDirectory")
-      Prelude.<*> (x Prelude..@? "mutualAuthentication")
-      Prelude.<*> (x Prelude..@? "type")
+      Core.<$> (x Core..@? "federatedAuthentication")
+      Core.<*> (x Core..@? "activeDirectory")
+      Core.<*> (x Core..@? "mutualAuthentication")
+      Core.<*> (x Core..@? "type")
 
-instance Prelude.Hashable ClientVpnAuthentication
+instance Core.Hashable ClientVpnAuthentication
 
-instance Prelude.NFData ClientVpnAuthentication
+instance Core.NFData ClientVpnAuthentication

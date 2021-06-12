@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.GeoMatchSetSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -38,12 +37,12 @@ import qualified Network.AWS.Prelude as Prelude
 data GeoMatchSetSummary = GeoMatchSetSummary'
   { -- | The @GeoMatchSetId@ for an GeoMatchSet. You can use @GeoMatchSetId@ in a
     -- GetGeoMatchSet request to get detailed information about an GeoMatchSet.
-    geoMatchSetId :: Prelude.Text,
+    geoMatchSetId :: Core.Text,
     -- | A friendly name or description of the GeoMatchSet. You can\'t change the
     -- name of an @GeoMatchSet@ after you create it.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GeoMatchSetSummary' with all optional fields omitted.
@@ -60,9 +59,9 @@ data GeoMatchSetSummary = GeoMatchSetSummary'
 -- name of an @GeoMatchSet@ after you create it.
 newGeoMatchSetSummary ::
   -- | 'geoMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   GeoMatchSetSummary
 newGeoMatchSetSummary pGeoMatchSetId_ pName_ =
   GeoMatchSetSummary'
@@ -73,24 +72,24 @@ newGeoMatchSetSummary pGeoMatchSetId_ pName_ =
 
 -- | The @GeoMatchSetId@ for an GeoMatchSet. You can use @GeoMatchSetId@ in a
 -- GetGeoMatchSet request to get detailed information about an GeoMatchSet.
-geoMatchSetSummary_geoMatchSetId :: Lens.Lens' GeoMatchSetSummary Prelude.Text
+geoMatchSetSummary_geoMatchSetId :: Lens.Lens' GeoMatchSetSummary Core.Text
 geoMatchSetSummary_geoMatchSetId = Lens.lens (\GeoMatchSetSummary' {geoMatchSetId} -> geoMatchSetId) (\s@GeoMatchSetSummary' {} a -> s {geoMatchSetId = a} :: GeoMatchSetSummary)
 
 -- | A friendly name or description of the GeoMatchSet. You can\'t change the
 -- name of an @GeoMatchSet@ after you create it.
-geoMatchSetSummary_name :: Lens.Lens' GeoMatchSetSummary Prelude.Text
+geoMatchSetSummary_name :: Lens.Lens' GeoMatchSetSummary Core.Text
 geoMatchSetSummary_name = Lens.lens (\GeoMatchSetSummary' {name} -> name) (\s@GeoMatchSetSummary' {} a -> s {name = a} :: GeoMatchSetSummary)
 
-instance Prelude.FromJSON GeoMatchSetSummary where
+instance Core.FromJSON GeoMatchSetSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GeoMatchSetSummary"
       ( \x ->
           GeoMatchSetSummary'
-            Prelude.<$> (x Prelude..: "GeoMatchSetId")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..: "GeoMatchSetId")
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable GeoMatchSetSummary
+instance Core.Hashable GeoMatchSetSummary
 
-instance Prelude.NFData GeoMatchSetSummary
+instance Core.NFData GeoMatchSetSummary

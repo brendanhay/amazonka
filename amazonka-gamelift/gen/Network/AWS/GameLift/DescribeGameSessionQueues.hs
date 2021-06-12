@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,10 +63,9 @@ module Network.AWS.GameLift.DescribeGameSessionQueues
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,17 +76,17 @@ data DescribeGameSessionQueues = DescribeGameSessionQueues'
   { -- | A list of queue names to retrieve information for. You can use either
     -- the queue ID or ARN value. To request settings for all queues, leave
     -- this parameter empty.
-    names :: Prelude.Maybe [Prelude.Text],
+    names :: Core.Maybe [Core.Text],
     -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages. You can request
     -- up to 50 results.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeGameSessionQueues' with all optional fields omitted.
@@ -113,101 +111,97 @@ newDescribeGameSessionQueues ::
   DescribeGameSessionQueues
 newDescribeGameSessionQueues =
   DescribeGameSessionQueues'
-    { names = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { names = Core.Nothing,
+      nextToken = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | A list of queue names to retrieve information for. You can use either
 -- the queue ID or ARN value. To request settings for all queues, leave
 -- this parameter empty.
-describeGameSessionQueues_names :: Lens.Lens' DescribeGameSessionQueues (Prelude.Maybe [Prelude.Text])
-describeGameSessionQueues_names = Lens.lens (\DescribeGameSessionQueues' {names} -> names) (\s@DescribeGameSessionQueues' {} a -> s {names = a} :: DescribeGameSessionQueues) Prelude.. Lens.mapping Prelude._Coerce
+describeGameSessionQueues_names :: Lens.Lens' DescribeGameSessionQueues (Core.Maybe [Core.Text])
+describeGameSessionQueues_names = Lens.lens (\DescribeGameSessionQueues' {names} -> names) (\s@DescribeGameSessionQueues' {} a -> s {names = a} :: DescribeGameSessionQueues) Core.. Lens.mapping Lens._Coerce
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
-describeGameSessionQueues_nextToken :: Lens.Lens' DescribeGameSessionQueues (Prelude.Maybe Prelude.Text)
+describeGameSessionQueues_nextToken :: Lens.Lens' DescribeGameSessionQueues (Core.Maybe Core.Text)
 describeGameSessionQueues_nextToken = Lens.lens (\DescribeGameSessionQueues' {nextToken} -> nextToken) (\s@DescribeGameSessionQueues' {} a -> s {nextToken = a} :: DescribeGameSessionQueues)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages. You can request
 -- up to 50 results.
-describeGameSessionQueues_limit :: Lens.Lens' DescribeGameSessionQueues (Prelude.Maybe Prelude.Natural)
+describeGameSessionQueues_limit :: Lens.Lens' DescribeGameSessionQueues (Core.Maybe Core.Natural)
 describeGameSessionQueues_limit = Lens.lens (\DescribeGameSessionQueues' {limit} -> limit) (\s@DescribeGameSessionQueues' {} a -> s {limit = a} :: DescribeGameSessionQueues)
 
-instance Pager.AWSPager DescribeGameSessionQueues where
+instance Core.AWSPager DescribeGameSessionQueues where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeGameSessionQueuesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeGameSessionQueuesResponse_gameSessionQueues
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeGameSessionQueues_nextToken
           Lens..~ rs
           Lens.^? describeGameSessionQueuesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeGameSessionQueues where
+instance Core.AWSRequest DescribeGameSessionQueues where
   type
-    Rs DescribeGameSessionQueues =
+    AWSResponse DescribeGameSessionQueues =
       DescribeGameSessionQueuesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeGameSessionQueuesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "GameSessionQueues"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "GameSessionQueues" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGameSessionQueues
+instance Core.Hashable DescribeGameSessionQueues
 
-instance Prelude.NFData DescribeGameSessionQueues
+instance Core.NFData DescribeGameSessionQueues
 
-instance Prelude.ToHeaders DescribeGameSessionQueues where
+instance Core.ToHeaders DescribeGameSessionQueues where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.DescribeGameSessionQueues" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.DescribeGameSessionQueues" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeGameSessionQueues where
+instance Core.ToJSON DescribeGameSessionQueues where
   toJSON DescribeGameSessionQueues' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Names" Prelude..=) Prelude.<$> names,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("Names" Core..=) Core.<$> names,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath DescribeGameSessionQueues where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeGameSessionQueues where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeGameSessionQueues where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeGameSessionQueues where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -216,13 +210,13 @@ data DescribeGameSessionQueuesResponse = DescribeGameSessionQueuesResponse'
   { -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A collection of objects that describe the requested game session queues.
-    gameSessionQueues :: Prelude.Maybe [GameSessionQueue],
+    gameSessionQueues :: Core.Maybe [GameSessionQueue],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeGameSessionQueuesResponse' with all optional fields omitted.
@@ -241,30 +235,30 @@ data DescribeGameSessionQueuesResponse = DescribeGameSessionQueuesResponse'
 -- 'httpStatus', 'describeGameSessionQueuesResponse_httpStatus' - The response's http status code.
 newDescribeGameSessionQueuesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeGameSessionQueuesResponse
 newDescribeGameSessionQueuesResponse pHttpStatus_ =
   DescribeGameSessionQueuesResponse'
     { nextToken =
-        Prelude.Nothing,
-      gameSessionQueues = Prelude.Nothing,
+        Core.Nothing,
+      gameSessionQueues = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
-describeGameSessionQueuesResponse_nextToken :: Lens.Lens' DescribeGameSessionQueuesResponse (Prelude.Maybe Prelude.Text)
+describeGameSessionQueuesResponse_nextToken :: Lens.Lens' DescribeGameSessionQueuesResponse (Core.Maybe Core.Text)
 describeGameSessionQueuesResponse_nextToken = Lens.lens (\DescribeGameSessionQueuesResponse' {nextToken} -> nextToken) (\s@DescribeGameSessionQueuesResponse' {} a -> s {nextToken = a} :: DescribeGameSessionQueuesResponse)
 
 -- | A collection of objects that describe the requested game session queues.
-describeGameSessionQueuesResponse_gameSessionQueues :: Lens.Lens' DescribeGameSessionQueuesResponse (Prelude.Maybe [GameSessionQueue])
-describeGameSessionQueuesResponse_gameSessionQueues = Lens.lens (\DescribeGameSessionQueuesResponse' {gameSessionQueues} -> gameSessionQueues) (\s@DescribeGameSessionQueuesResponse' {} a -> s {gameSessionQueues = a} :: DescribeGameSessionQueuesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeGameSessionQueuesResponse_gameSessionQueues :: Lens.Lens' DescribeGameSessionQueuesResponse (Core.Maybe [GameSessionQueue])
+describeGameSessionQueuesResponse_gameSessionQueues = Lens.lens (\DescribeGameSessionQueuesResponse' {gameSessionQueues} -> gameSessionQueues) (\s@DescribeGameSessionQueuesResponse' {} a -> s {gameSessionQueues = a} :: DescribeGameSessionQueuesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeGameSessionQueuesResponse_httpStatus :: Lens.Lens' DescribeGameSessionQueuesResponse Prelude.Int
+describeGameSessionQueuesResponse_httpStatus :: Lens.Lens' DescribeGameSessionQueuesResponse Core.Int
 describeGameSessionQueuesResponse_httpStatus = Lens.lens (\DescribeGameSessionQueuesResponse' {httpStatus} -> httpStatus) (\s@DescribeGameSessionQueuesResponse' {} a -> s {httpStatus = a} :: DescribeGameSessionQueuesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeGameSessionQueuesResponse

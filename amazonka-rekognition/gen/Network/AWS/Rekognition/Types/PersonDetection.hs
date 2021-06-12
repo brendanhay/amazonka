@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.PersonDetection where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.PersonDetail
 
 -- | Details and path tracking information for a single time a person\'s path
@@ -36,11 +35,11 @@ import Network.AWS.Rekognition.Types.PersonDetail
 data PersonDetection = PersonDetection'
   { -- | The time, in milliseconds from the start of the video, that the
     -- person\'s path was tracked.
-    timestamp :: Prelude.Maybe Prelude.Integer,
+    timestamp :: Core.Maybe Core.Integer,
     -- | Details about a person whose path was tracked in a video.
-    person :: Prelude.Maybe PersonDetail
+    person :: Core.Maybe PersonDetail
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PersonDetection' with all optional fields omitted.
@@ -58,29 +57,29 @@ newPersonDetection ::
   PersonDetection
 newPersonDetection =
   PersonDetection'
-    { timestamp = Prelude.Nothing,
-      person = Prelude.Nothing
+    { timestamp = Core.Nothing,
+      person = Core.Nothing
     }
 
 -- | The time, in milliseconds from the start of the video, that the
 -- person\'s path was tracked.
-personDetection_timestamp :: Lens.Lens' PersonDetection (Prelude.Maybe Prelude.Integer)
+personDetection_timestamp :: Lens.Lens' PersonDetection (Core.Maybe Core.Integer)
 personDetection_timestamp = Lens.lens (\PersonDetection' {timestamp} -> timestamp) (\s@PersonDetection' {} a -> s {timestamp = a} :: PersonDetection)
 
 -- | Details about a person whose path was tracked in a video.
-personDetection_person :: Lens.Lens' PersonDetection (Prelude.Maybe PersonDetail)
+personDetection_person :: Lens.Lens' PersonDetection (Core.Maybe PersonDetail)
 personDetection_person = Lens.lens (\PersonDetection' {person} -> person) (\s@PersonDetection' {} a -> s {person = a} :: PersonDetection)
 
-instance Prelude.FromJSON PersonDetection where
+instance Core.FromJSON PersonDetection where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PersonDetection"
       ( \x ->
           PersonDetection'
-            Prelude.<$> (x Prelude..:? "Timestamp")
-            Prelude.<*> (x Prelude..:? "Person")
+            Core.<$> (x Core..:? "Timestamp")
+            Core.<*> (x Core..:? "Person")
       )
 
-instance Prelude.Hashable PersonDetection
+instance Core.Hashable PersonDetection
 
-instance Prelude.NFData PersonDetection
+instance Core.NFData PersonDetection

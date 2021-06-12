@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.CertificateValidity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | When the certificate is valid.
 --
 -- /See:/ 'newCertificateValidity' smart constructor.
 data CertificateValidity = CertificateValidity'
   { -- | The certificate is not valid before this date.
-    notBefore :: Prelude.Maybe Prelude.POSIX,
+    notBefore :: Core.Maybe Core.POSIX,
     -- | The certificate is not valid after this date.
-    notAfter :: Prelude.Maybe Prelude.POSIX
+    notAfter :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CertificateValidity' with all optional fields omitted.
@@ -49,28 +48,28 @@ newCertificateValidity ::
   CertificateValidity
 newCertificateValidity =
   CertificateValidity'
-    { notBefore = Prelude.Nothing,
-      notAfter = Prelude.Nothing
+    { notBefore = Core.Nothing,
+      notAfter = Core.Nothing
     }
 
 -- | The certificate is not valid before this date.
-certificateValidity_notBefore :: Lens.Lens' CertificateValidity (Prelude.Maybe Prelude.UTCTime)
-certificateValidity_notBefore = Lens.lens (\CertificateValidity' {notBefore} -> notBefore) (\s@CertificateValidity' {} a -> s {notBefore = a} :: CertificateValidity) Prelude.. Lens.mapping Prelude._Time
+certificateValidity_notBefore :: Lens.Lens' CertificateValidity (Core.Maybe Core.UTCTime)
+certificateValidity_notBefore = Lens.lens (\CertificateValidity' {notBefore} -> notBefore) (\s@CertificateValidity' {} a -> s {notBefore = a} :: CertificateValidity) Core.. Lens.mapping Core._Time
 
 -- | The certificate is not valid after this date.
-certificateValidity_notAfter :: Lens.Lens' CertificateValidity (Prelude.Maybe Prelude.UTCTime)
-certificateValidity_notAfter = Lens.lens (\CertificateValidity' {notAfter} -> notAfter) (\s@CertificateValidity' {} a -> s {notAfter = a} :: CertificateValidity) Prelude.. Lens.mapping Prelude._Time
+certificateValidity_notAfter :: Lens.Lens' CertificateValidity (Core.Maybe Core.UTCTime)
+certificateValidity_notAfter = Lens.lens (\CertificateValidity' {notAfter} -> notAfter) (\s@CertificateValidity' {} a -> s {notAfter = a} :: CertificateValidity) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON CertificateValidity where
+instance Core.FromJSON CertificateValidity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CertificateValidity"
       ( \x ->
           CertificateValidity'
-            Prelude.<$> (x Prelude..:? "notBefore")
-            Prelude.<*> (x Prelude..:? "notAfter")
+            Core.<$> (x Core..:? "notBefore")
+            Core.<*> (x Core..:? "notAfter")
       )
 
-instance Prelude.Hashable CertificateValidity
+instance Core.Hashable CertificateValidity
 
-instance Prelude.NFData CertificateValidity
+instance Core.NFData CertificateValidity

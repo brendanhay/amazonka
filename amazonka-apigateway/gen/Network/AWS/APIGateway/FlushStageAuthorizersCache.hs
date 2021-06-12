@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.APIGateway.FlushStageAuthorizersCache
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,11 +47,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newFlushStageAuthorizersCache' smart constructor.
 data FlushStageAuthorizersCache = FlushStageAuthorizersCache'
   { -- | The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | The name of the stage to flush.
-    stageName :: Prelude.Text
+    stageName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FlushStageAuthorizersCache' with all optional fields omitted.
@@ -67,9 +66,9 @@ data FlushStageAuthorizersCache = FlushStageAuthorizersCache'
 -- 'stageName', 'flushStageAuthorizersCache_stageName' - The name of the stage to flush.
 newFlushStageAuthorizersCache ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stageName'
-  Prelude.Text ->
+  Core.Text ->
   FlushStageAuthorizersCache
 newFlushStageAuthorizersCache pRestApiId_ pStageName_ =
   FlushStageAuthorizersCache'
@@ -79,56 +78,53 @@ newFlushStageAuthorizersCache pRestApiId_ pStageName_ =
     }
 
 -- | The string identifier of the associated RestApi.
-flushStageAuthorizersCache_restApiId :: Lens.Lens' FlushStageAuthorizersCache Prelude.Text
+flushStageAuthorizersCache_restApiId :: Lens.Lens' FlushStageAuthorizersCache Core.Text
 flushStageAuthorizersCache_restApiId = Lens.lens (\FlushStageAuthorizersCache' {restApiId} -> restApiId) (\s@FlushStageAuthorizersCache' {} a -> s {restApiId = a} :: FlushStageAuthorizersCache)
 
 -- | The name of the stage to flush.
-flushStageAuthorizersCache_stageName :: Lens.Lens' FlushStageAuthorizersCache Prelude.Text
+flushStageAuthorizersCache_stageName :: Lens.Lens' FlushStageAuthorizersCache Core.Text
 flushStageAuthorizersCache_stageName = Lens.lens (\FlushStageAuthorizersCache' {stageName} -> stageName) (\s@FlushStageAuthorizersCache' {} a -> s {stageName = a} :: FlushStageAuthorizersCache)
 
-instance
-  Prelude.AWSRequest
-    FlushStageAuthorizersCache
-  where
+instance Core.AWSRequest FlushStageAuthorizersCache where
   type
-    Rs FlushStageAuthorizersCache =
+    AWSResponse FlushStageAuthorizersCache =
       FlushStageAuthorizersCacheResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       FlushStageAuthorizersCacheResponse'
 
-instance Prelude.Hashable FlushStageAuthorizersCache
+instance Core.Hashable FlushStageAuthorizersCache
 
-instance Prelude.NFData FlushStageAuthorizersCache
+instance Core.NFData FlushStageAuthorizersCache
 
-instance Prelude.ToHeaders FlushStageAuthorizersCache where
+instance Core.ToHeaders FlushStageAuthorizersCache where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath FlushStageAuthorizersCache where
+instance Core.ToPath FlushStageAuthorizersCache where
   toPath FlushStageAuthorizersCache' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/stages/",
-        Prelude.toBS stageName,
+        Core.toBS stageName,
         "/cache/authorizers"
       ]
 
-instance Prelude.ToQuery FlushStageAuthorizersCache where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery FlushStageAuthorizersCache where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newFlushStageAuthorizersCacheResponse' smart constructor.
 data FlushStageAuthorizersCacheResponse = FlushStageAuthorizersCacheResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FlushStageAuthorizersCacheResponse' with all optional fields omitted.
@@ -140,5 +136,5 @@ newFlushStageAuthorizersCacheResponse =
   FlushStageAuthorizersCacheResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     FlushStageAuthorizersCacheResponse

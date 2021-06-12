@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.ResultByTime where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.DateInterval
 import Network.AWS.CostExplorer.Types.Group
 import Network.AWS.CostExplorer.Types.MetricValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The result that is associated with a time period.
 --
 -- /See:/ 'newResultByTime' smart constructor.
 data ResultByTime = ResultByTime'
   { -- | The groups that this time period includes.
-    groups :: Prelude.Maybe [Group],
+    groups :: Core.Maybe [Group],
     -- | The time period that the result covers.
-    timePeriod :: Prelude.Maybe DateInterval,
+    timePeriod :: Core.Maybe DateInterval,
     -- | Whether the result is estimated.
-    estimated :: Prelude.Maybe Prelude.Bool,
+    estimated :: Core.Maybe Core.Bool,
     -- | The total amount of cost or usage accrued during the time period.
-    total :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue)
+    total :: Core.Maybe (Core.HashMap Core.Text MetricValue)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResultByTime' with all optional fields omitted.
@@ -60,40 +59,40 @@ newResultByTime ::
   ResultByTime
 newResultByTime =
   ResultByTime'
-    { groups = Prelude.Nothing,
-      timePeriod = Prelude.Nothing,
-      estimated = Prelude.Nothing,
-      total = Prelude.Nothing
+    { groups = Core.Nothing,
+      timePeriod = Core.Nothing,
+      estimated = Core.Nothing,
+      total = Core.Nothing
     }
 
 -- | The groups that this time period includes.
-resultByTime_groups :: Lens.Lens' ResultByTime (Prelude.Maybe [Group])
-resultByTime_groups = Lens.lens (\ResultByTime' {groups} -> groups) (\s@ResultByTime' {} a -> s {groups = a} :: ResultByTime) Prelude.. Lens.mapping Prelude._Coerce
+resultByTime_groups :: Lens.Lens' ResultByTime (Core.Maybe [Group])
+resultByTime_groups = Lens.lens (\ResultByTime' {groups} -> groups) (\s@ResultByTime' {} a -> s {groups = a} :: ResultByTime) Core.. Lens.mapping Lens._Coerce
 
 -- | The time period that the result covers.
-resultByTime_timePeriod :: Lens.Lens' ResultByTime (Prelude.Maybe DateInterval)
+resultByTime_timePeriod :: Lens.Lens' ResultByTime (Core.Maybe DateInterval)
 resultByTime_timePeriod = Lens.lens (\ResultByTime' {timePeriod} -> timePeriod) (\s@ResultByTime' {} a -> s {timePeriod = a} :: ResultByTime)
 
 -- | Whether the result is estimated.
-resultByTime_estimated :: Lens.Lens' ResultByTime (Prelude.Maybe Prelude.Bool)
+resultByTime_estimated :: Lens.Lens' ResultByTime (Core.Maybe Core.Bool)
 resultByTime_estimated = Lens.lens (\ResultByTime' {estimated} -> estimated) (\s@ResultByTime' {} a -> s {estimated = a} :: ResultByTime)
 
 -- | The total amount of cost or usage accrued during the time period.
-resultByTime_total :: Lens.Lens' ResultByTime (Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue))
-resultByTime_total = Lens.lens (\ResultByTime' {total} -> total) (\s@ResultByTime' {} a -> s {total = a} :: ResultByTime) Prelude.. Lens.mapping Prelude._Coerce
+resultByTime_total :: Lens.Lens' ResultByTime (Core.Maybe (Core.HashMap Core.Text MetricValue))
+resultByTime_total = Lens.lens (\ResultByTime' {total} -> total) (\s@ResultByTime' {} a -> s {total = a} :: ResultByTime) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ResultByTime where
+instance Core.FromJSON ResultByTime where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResultByTime"
       ( \x ->
           ResultByTime'
-            Prelude.<$> (x Prelude..:? "Groups" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "TimePeriod")
-            Prelude.<*> (x Prelude..:? "Estimated")
-            Prelude.<*> (x Prelude..:? "Total" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Groups" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "TimePeriod")
+            Core.<*> (x Core..:? "Estimated")
+            Core.<*> (x Core..:? "Total" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ResultByTime
+instance Core.Hashable ResultByTime
 
-instance Prelude.NFData ResultByTime
+instance Core.NFData ResultByTime

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.ApplicationDescriptionMessage where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.ApplicationDescription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Result message containing a single description of an application.
 --
 -- /See:/ 'newApplicationDescriptionMessage' smart constructor.
 data ApplicationDescriptionMessage = ApplicationDescriptionMessage'
   { -- | The ApplicationDescription of the application.
-    application :: Prelude.Maybe ApplicationDescription
+    application :: Core.Maybe ApplicationDescription
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplicationDescriptionMessage' with all optional fields omitted.
@@ -47,23 +46,18 @@ newApplicationDescriptionMessage ::
 newApplicationDescriptionMessage =
   ApplicationDescriptionMessage'
     { application =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ApplicationDescription of the application.
-applicationDescriptionMessage_application :: Lens.Lens' ApplicationDescriptionMessage (Prelude.Maybe ApplicationDescription)
+applicationDescriptionMessage_application :: Lens.Lens' ApplicationDescriptionMessage (Core.Maybe ApplicationDescription)
 applicationDescriptionMessage_application = Lens.lens (\ApplicationDescriptionMessage' {application} -> application) (\s@ApplicationDescriptionMessage' {} a -> s {application = a} :: ApplicationDescriptionMessage)
 
-instance
-  Prelude.FromXML
-    ApplicationDescriptionMessage
-  where
+instance Core.FromXML ApplicationDescriptionMessage where
   parseXML x =
     ApplicationDescriptionMessage'
-      Prelude.<$> (x Prelude..@? "Application")
+      Core.<$> (x Core..@? "Application")
 
-instance
-  Prelude.Hashable
-    ApplicationDescriptionMessage
+instance Core.Hashable ApplicationDescriptionMessage
 
-instance Prelude.NFData ApplicationDescriptionMessage
+instance Core.NFData ApplicationDescriptionMessage

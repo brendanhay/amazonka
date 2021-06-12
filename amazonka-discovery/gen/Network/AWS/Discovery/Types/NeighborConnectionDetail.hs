@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Discovery.Types.NeighborConnectionDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about neighboring servers.
 --
 -- /See:/ 'newNeighborConnectionDetail' smart constructor.
 data NeighborConnectionDetail = NeighborConnectionDetail'
   { -- | The network protocol used for the connection.
-    transportProtocol :: Prelude.Maybe Prelude.Text,
+    transportProtocol :: Core.Maybe Core.Text,
     -- | The destination network port for the connection.
-    destinationPort :: Prelude.Maybe Prelude.Int,
+    destinationPort :: Core.Maybe Core.Int,
     -- | The ID of the server that opened the network connection.
-    sourceServerId :: Prelude.Text,
+    sourceServerId :: Core.Text,
     -- | The ID of the server that accepted the network connection.
-    destinationServerId :: Prelude.Text,
+    destinationServerId :: Core.Text,
     -- | The number of open network connections with the neighboring server.
-    connectionsCount :: Prelude.Integer
+    connectionsCount :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NeighborConnectionDetail' with all optional fields omitted.
@@ -59,11 +58,11 @@ data NeighborConnectionDetail = NeighborConnectionDetail'
 -- 'connectionsCount', 'neighborConnectionDetail_connectionsCount' - The number of open network connections with the neighboring server.
 newNeighborConnectionDetail ::
   -- | 'sourceServerId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationServerId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'connectionsCount'
-  Prelude.Integer ->
+  Core.Integer ->
   NeighborConnectionDetail
 newNeighborConnectionDetail
   pSourceServerId_
@@ -71,46 +70,46 @@ newNeighborConnectionDetail
   pConnectionsCount_ =
     NeighborConnectionDetail'
       { transportProtocol =
-          Prelude.Nothing,
-        destinationPort = Prelude.Nothing,
+          Core.Nothing,
+        destinationPort = Core.Nothing,
         sourceServerId = pSourceServerId_,
         destinationServerId = pDestinationServerId_,
         connectionsCount = pConnectionsCount_
       }
 
 -- | The network protocol used for the connection.
-neighborConnectionDetail_transportProtocol :: Lens.Lens' NeighborConnectionDetail (Prelude.Maybe Prelude.Text)
+neighborConnectionDetail_transportProtocol :: Lens.Lens' NeighborConnectionDetail (Core.Maybe Core.Text)
 neighborConnectionDetail_transportProtocol = Lens.lens (\NeighborConnectionDetail' {transportProtocol} -> transportProtocol) (\s@NeighborConnectionDetail' {} a -> s {transportProtocol = a} :: NeighborConnectionDetail)
 
 -- | The destination network port for the connection.
-neighborConnectionDetail_destinationPort :: Lens.Lens' NeighborConnectionDetail (Prelude.Maybe Prelude.Int)
+neighborConnectionDetail_destinationPort :: Lens.Lens' NeighborConnectionDetail (Core.Maybe Core.Int)
 neighborConnectionDetail_destinationPort = Lens.lens (\NeighborConnectionDetail' {destinationPort} -> destinationPort) (\s@NeighborConnectionDetail' {} a -> s {destinationPort = a} :: NeighborConnectionDetail)
 
 -- | The ID of the server that opened the network connection.
-neighborConnectionDetail_sourceServerId :: Lens.Lens' NeighborConnectionDetail Prelude.Text
+neighborConnectionDetail_sourceServerId :: Lens.Lens' NeighborConnectionDetail Core.Text
 neighborConnectionDetail_sourceServerId = Lens.lens (\NeighborConnectionDetail' {sourceServerId} -> sourceServerId) (\s@NeighborConnectionDetail' {} a -> s {sourceServerId = a} :: NeighborConnectionDetail)
 
 -- | The ID of the server that accepted the network connection.
-neighborConnectionDetail_destinationServerId :: Lens.Lens' NeighborConnectionDetail Prelude.Text
+neighborConnectionDetail_destinationServerId :: Lens.Lens' NeighborConnectionDetail Core.Text
 neighborConnectionDetail_destinationServerId = Lens.lens (\NeighborConnectionDetail' {destinationServerId} -> destinationServerId) (\s@NeighborConnectionDetail' {} a -> s {destinationServerId = a} :: NeighborConnectionDetail)
 
 -- | The number of open network connections with the neighboring server.
-neighborConnectionDetail_connectionsCount :: Lens.Lens' NeighborConnectionDetail Prelude.Integer
+neighborConnectionDetail_connectionsCount :: Lens.Lens' NeighborConnectionDetail Core.Integer
 neighborConnectionDetail_connectionsCount = Lens.lens (\NeighborConnectionDetail' {connectionsCount} -> connectionsCount) (\s@NeighborConnectionDetail' {} a -> s {connectionsCount = a} :: NeighborConnectionDetail)
 
-instance Prelude.FromJSON NeighborConnectionDetail where
+instance Core.FromJSON NeighborConnectionDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NeighborConnectionDetail"
       ( \x ->
           NeighborConnectionDetail'
-            Prelude.<$> (x Prelude..:? "transportProtocol")
-            Prelude.<*> (x Prelude..:? "destinationPort")
-            Prelude.<*> (x Prelude..: "sourceServerId")
-            Prelude.<*> (x Prelude..: "destinationServerId")
-            Prelude.<*> (x Prelude..: "connectionsCount")
+            Core.<$> (x Core..:? "transportProtocol")
+            Core.<*> (x Core..:? "destinationPort")
+            Core.<*> (x Core..: "sourceServerId")
+            Core.<*> (x Core..: "destinationServerId")
+            Core.<*> (x Core..: "connectionsCount")
       )
 
-instance Prelude.Hashable NeighborConnectionDetail
+instance Core.Hashable NeighborConnectionDetail
 
-instance Prelude.NFData NeighborConnectionDetail
+instance Core.NFData NeighborConnectionDetail

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -35,9 +34,9 @@ module Network.AWS.Organizations.DeleteOrganization
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -45,7 +44,7 @@ import qualified Network.AWS.Response as Response
 data DeleteOrganization = DeleteOrganization'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganization' with all optional fields omitted.
@@ -55,48 +54,45 @@ newDeleteOrganization ::
   DeleteOrganization
 newDeleteOrganization = DeleteOrganization'
 
-instance Prelude.AWSRequest DeleteOrganization where
+instance Core.AWSRequest DeleteOrganization where
   type
-    Rs DeleteOrganization =
+    AWSResponse DeleteOrganization =
       DeleteOrganizationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteOrganizationResponse'
 
-instance Prelude.Hashable DeleteOrganization
+instance Core.Hashable DeleteOrganization
 
-instance Prelude.NFData DeleteOrganization
+instance Core.NFData DeleteOrganization
 
-instance Prelude.ToHeaders DeleteOrganization where
+instance Core.ToHeaders DeleteOrganization where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.DeleteOrganization" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.DeleteOrganization" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteOrganization where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DeleteOrganization where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DeleteOrganization where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteOrganization where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteOrganization where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteOrganization where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteOrganizationResponse' smart constructor.
 data DeleteOrganizationResponse = DeleteOrganizationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganizationResponse' with all optional fields omitted.
@@ -107,4 +103,4 @@ newDeleteOrganizationResponse ::
 newDeleteOrganizationResponse =
   DeleteOrganizationResponse'
 
-instance Prelude.NFData DeleteOrganizationResponse
+instance Core.NFData DeleteOrganizationResponse

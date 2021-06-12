@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodeCommit.Types.Difference where
 
 import Network.AWS.CodeCommit.Types.BlobMetadata
 import Network.AWS.CodeCommit.Types.ChangeTypeEnum
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about a set of differences for a commit specifier.
 --
@@ -31,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 data Difference = Difference'
   { -- | Whether the change type of the difference is an addition (A), deletion
     -- (D), or modification (M).
-    changeType :: Prelude.Maybe ChangeTypeEnum,
+    changeType :: Core.Maybe ChangeTypeEnum,
     -- | Information about an @afterBlob@ data type object, including the ID, the
     -- file mode permission code, and the path.
-    afterBlob :: Prelude.Maybe BlobMetadata,
+    afterBlob :: Core.Maybe BlobMetadata,
     -- | Information about a @beforeBlob@ data type object, including the ID, the
     -- file mode permission code, and the path.
-    beforeBlob :: Prelude.Maybe BlobMetadata
+    beforeBlob :: Core.Maybe BlobMetadata
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Difference' with all optional fields omitted.
@@ -61,37 +60,37 @@ newDifference ::
   Difference
 newDifference =
   Difference'
-    { changeType = Prelude.Nothing,
-      afterBlob = Prelude.Nothing,
-      beforeBlob = Prelude.Nothing
+    { changeType = Core.Nothing,
+      afterBlob = Core.Nothing,
+      beforeBlob = Core.Nothing
     }
 
 -- | Whether the change type of the difference is an addition (A), deletion
 -- (D), or modification (M).
-difference_changeType :: Lens.Lens' Difference (Prelude.Maybe ChangeTypeEnum)
+difference_changeType :: Lens.Lens' Difference (Core.Maybe ChangeTypeEnum)
 difference_changeType = Lens.lens (\Difference' {changeType} -> changeType) (\s@Difference' {} a -> s {changeType = a} :: Difference)
 
 -- | Information about an @afterBlob@ data type object, including the ID, the
 -- file mode permission code, and the path.
-difference_afterBlob :: Lens.Lens' Difference (Prelude.Maybe BlobMetadata)
+difference_afterBlob :: Lens.Lens' Difference (Core.Maybe BlobMetadata)
 difference_afterBlob = Lens.lens (\Difference' {afterBlob} -> afterBlob) (\s@Difference' {} a -> s {afterBlob = a} :: Difference)
 
 -- | Information about a @beforeBlob@ data type object, including the ID, the
 -- file mode permission code, and the path.
-difference_beforeBlob :: Lens.Lens' Difference (Prelude.Maybe BlobMetadata)
+difference_beforeBlob :: Lens.Lens' Difference (Core.Maybe BlobMetadata)
 difference_beforeBlob = Lens.lens (\Difference' {beforeBlob} -> beforeBlob) (\s@Difference' {} a -> s {beforeBlob = a} :: Difference)
 
-instance Prelude.FromJSON Difference where
+instance Core.FromJSON Difference where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Difference"
       ( \x ->
           Difference'
-            Prelude.<$> (x Prelude..:? "changeType")
-            Prelude.<*> (x Prelude..:? "afterBlob")
-            Prelude.<*> (x Prelude..:? "beforeBlob")
+            Core.<$> (x Core..:? "changeType")
+            Core.<*> (x Core..:? "afterBlob")
+            Core.<*> (x Core..:? "beforeBlob")
       )
 
-instance Prelude.Hashable Difference
+instance Core.Hashable Difference
 
-instance Prelude.NFData Difference
+instance Core.NFData Difference

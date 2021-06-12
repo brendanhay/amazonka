@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Comprehend.Types.DocumentClassifierFilter where
 
 import Network.AWS.Comprehend.Types.ModelStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information for filtering a list of document classifiers. You
 -- can only specify one filtering parameter in a request. For more
@@ -31,19 +30,19 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDocumentClassifierFilter' smart constructor.
 data DocumentClassifierFilter = DocumentClassifierFilter'
   { -- | Filters the list of classifiers based on status.
-    status :: Prelude.Maybe ModelStatus,
+    status :: Core.Maybe ModelStatus,
     -- | Filters the list of classifiers based on the time that the classifier
     -- was submitted for processing. Returns only classifiers submitted before
     -- the specified time. Classifiers are returned in ascending order, oldest
     -- to newest.
-    submitTimeBefore :: Prelude.Maybe Prelude.POSIX,
+    submitTimeBefore :: Core.Maybe Core.POSIX,
     -- | Filters the list of classifiers based on the time that the classifier
     -- was submitted for processing. Returns only classifiers submitted after
     -- the specified time. Classifiers are returned in descending order, newest
     -- to oldest.
-    submitTimeAfter :: Prelude.Maybe Prelude.POSIX
+    submitTimeAfter :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentClassifierFilter' with all optional fields omitted.
@@ -68,41 +67,41 @@ newDocumentClassifierFilter ::
   DocumentClassifierFilter
 newDocumentClassifierFilter =
   DocumentClassifierFilter'
-    { status = Prelude.Nothing,
-      submitTimeBefore = Prelude.Nothing,
-      submitTimeAfter = Prelude.Nothing
+    { status = Core.Nothing,
+      submitTimeBefore = Core.Nothing,
+      submitTimeAfter = Core.Nothing
     }
 
 -- | Filters the list of classifiers based on status.
-documentClassifierFilter_status :: Lens.Lens' DocumentClassifierFilter (Prelude.Maybe ModelStatus)
+documentClassifierFilter_status :: Lens.Lens' DocumentClassifierFilter (Core.Maybe ModelStatus)
 documentClassifierFilter_status = Lens.lens (\DocumentClassifierFilter' {status} -> status) (\s@DocumentClassifierFilter' {} a -> s {status = a} :: DocumentClassifierFilter)
 
 -- | Filters the list of classifiers based on the time that the classifier
 -- was submitted for processing. Returns only classifiers submitted before
 -- the specified time. Classifiers are returned in ascending order, oldest
 -- to newest.
-documentClassifierFilter_submitTimeBefore :: Lens.Lens' DocumentClassifierFilter (Prelude.Maybe Prelude.UTCTime)
-documentClassifierFilter_submitTimeBefore = Lens.lens (\DocumentClassifierFilter' {submitTimeBefore} -> submitTimeBefore) (\s@DocumentClassifierFilter' {} a -> s {submitTimeBefore = a} :: DocumentClassifierFilter) Prelude.. Lens.mapping Prelude._Time
+documentClassifierFilter_submitTimeBefore :: Lens.Lens' DocumentClassifierFilter (Core.Maybe Core.UTCTime)
+documentClassifierFilter_submitTimeBefore = Lens.lens (\DocumentClassifierFilter' {submitTimeBefore} -> submitTimeBefore) (\s@DocumentClassifierFilter' {} a -> s {submitTimeBefore = a} :: DocumentClassifierFilter) Core.. Lens.mapping Core._Time
 
 -- | Filters the list of classifiers based on the time that the classifier
 -- was submitted for processing. Returns only classifiers submitted after
 -- the specified time. Classifiers are returned in descending order, newest
 -- to oldest.
-documentClassifierFilter_submitTimeAfter :: Lens.Lens' DocumentClassifierFilter (Prelude.Maybe Prelude.UTCTime)
-documentClassifierFilter_submitTimeAfter = Lens.lens (\DocumentClassifierFilter' {submitTimeAfter} -> submitTimeAfter) (\s@DocumentClassifierFilter' {} a -> s {submitTimeAfter = a} :: DocumentClassifierFilter) Prelude.. Lens.mapping Prelude._Time
+documentClassifierFilter_submitTimeAfter :: Lens.Lens' DocumentClassifierFilter (Core.Maybe Core.UTCTime)
+documentClassifierFilter_submitTimeAfter = Lens.lens (\DocumentClassifierFilter' {submitTimeAfter} -> submitTimeAfter) (\s@DocumentClassifierFilter' {} a -> s {submitTimeAfter = a} :: DocumentClassifierFilter) Core.. Lens.mapping Core._Time
 
-instance Prelude.Hashable DocumentClassifierFilter
+instance Core.Hashable DocumentClassifierFilter
 
-instance Prelude.NFData DocumentClassifierFilter
+instance Core.NFData DocumentClassifierFilter
 
-instance Prelude.ToJSON DocumentClassifierFilter where
+instance Core.ToJSON DocumentClassifierFilter where
   toJSON DocumentClassifierFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Status" Prelude..=) Prelude.<$> status,
-            ("SubmitTimeBefore" Prelude..=)
-              Prelude.<$> submitTimeBefore,
-            ("SubmitTimeAfter" Prelude..=)
-              Prelude.<$> submitTimeAfter
+    Core.object
+      ( Core.catMaybes
+          [ ("Status" Core..=) Core.<$> status,
+            ("SubmitTimeBefore" Core..=)
+              Core.<$> submitTimeBefore,
+            ("SubmitTimeAfter" Core..=)
+              Core.<$> submitTimeAfter
           ]
       )

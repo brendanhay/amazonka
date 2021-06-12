@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.EquipmentDetection where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.BoundingBox
 import Network.AWS.Rekognition.Types.CoversBodyPart
 import Network.AWS.Rekognition.Types.ProtectiveEquipmentType
@@ -33,16 +32,16 @@ import Network.AWS.Rekognition.Types.ProtectiveEquipmentType
 -- /See:/ 'newEquipmentDetection' smart constructor.
 data EquipmentDetection = EquipmentDetection'
   { -- | Information about the body part covered by the detected PPE.
-    coversBodyPart :: Prelude.Maybe CoversBodyPart,
+    coversBodyPart :: Core.Maybe CoversBodyPart,
     -- | A bounding box surrounding the item of detected PPE.
-    boundingBox :: Prelude.Maybe BoundingBox,
+    boundingBox :: Core.Maybe BoundingBox,
     -- | The confidence that Amazon Rekognition has that the bounding box
     -- (@BoundingBox@) contains an item of PPE.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | The type of detected PPE.
-    type' :: Prelude.Maybe ProtectiveEquipmentType
+    type' :: Core.Maybe ProtectiveEquipmentType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EquipmentDetection' with all optional fields omitted.
@@ -64,42 +63,41 @@ newEquipmentDetection ::
   EquipmentDetection
 newEquipmentDetection =
   EquipmentDetection'
-    { coversBodyPart =
-        Prelude.Nothing,
-      boundingBox = Prelude.Nothing,
-      confidence = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { coversBodyPart = Core.Nothing,
+      boundingBox = Core.Nothing,
+      confidence = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | Information about the body part covered by the detected PPE.
-equipmentDetection_coversBodyPart :: Lens.Lens' EquipmentDetection (Prelude.Maybe CoversBodyPart)
+equipmentDetection_coversBodyPart :: Lens.Lens' EquipmentDetection (Core.Maybe CoversBodyPart)
 equipmentDetection_coversBodyPart = Lens.lens (\EquipmentDetection' {coversBodyPart} -> coversBodyPart) (\s@EquipmentDetection' {} a -> s {coversBodyPart = a} :: EquipmentDetection)
 
 -- | A bounding box surrounding the item of detected PPE.
-equipmentDetection_boundingBox :: Lens.Lens' EquipmentDetection (Prelude.Maybe BoundingBox)
+equipmentDetection_boundingBox :: Lens.Lens' EquipmentDetection (Core.Maybe BoundingBox)
 equipmentDetection_boundingBox = Lens.lens (\EquipmentDetection' {boundingBox} -> boundingBox) (\s@EquipmentDetection' {} a -> s {boundingBox = a} :: EquipmentDetection)
 
 -- | The confidence that Amazon Rekognition has that the bounding box
 -- (@BoundingBox@) contains an item of PPE.
-equipmentDetection_confidence :: Lens.Lens' EquipmentDetection (Prelude.Maybe Prelude.Double)
+equipmentDetection_confidence :: Lens.Lens' EquipmentDetection (Core.Maybe Core.Double)
 equipmentDetection_confidence = Lens.lens (\EquipmentDetection' {confidence} -> confidence) (\s@EquipmentDetection' {} a -> s {confidence = a} :: EquipmentDetection)
 
 -- | The type of detected PPE.
-equipmentDetection_type :: Lens.Lens' EquipmentDetection (Prelude.Maybe ProtectiveEquipmentType)
+equipmentDetection_type :: Lens.Lens' EquipmentDetection (Core.Maybe ProtectiveEquipmentType)
 equipmentDetection_type = Lens.lens (\EquipmentDetection' {type'} -> type') (\s@EquipmentDetection' {} a -> s {type' = a} :: EquipmentDetection)
 
-instance Prelude.FromJSON EquipmentDetection where
+instance Core.FromJSON EquipmentDetection where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EquipmentDetection"
       ( \x ->
           EquipmentDetection'
-            Prelude.<$> (x Prelude..:? "CoversBodyPart")
-            Prelude.<*> (x Prelude..:? "BoundingBox")
-            Prelude.<*> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "CoversBodyPart")
+            Core.<*> (x Core..:? "BoundingBox")
+            Core.<*> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable EquipmentDetection
+instance Core.Hashable EquipmentDetection
 
-instance Prelude.NFData EquipmentDetection
+instance Core.NFData EquipmentDetection

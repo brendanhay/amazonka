@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.Rule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.Predicate
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -56,10 +55,10 @@ data Rule = Rule'
     -- metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change @MetricName@ after you create the
     -- @Rule@.
-    metricName :: Prelude.Maybe Prelude.Text,
+    metricName :: Core.Maybe Core.Text,
     -- | The friendly name or description for the @Rule@. You can\'t change the
     -- name of a @Rule@ after you create it.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A unique identifier for a @Rule@. You use @RuleId@ to get more
     -- information about a @Rule@ (see GetRule), update a @Rule@ (see
     -- UpdateRule), insert a @Rule@ into a @WebACL@ or delete a one from a
@@ -67,13 +66,13 @@ data Rule = Rule'
     -- DeleteRule).
     --
     -- @RuleId@ is returned by CreateRule and by ListRules.
-    ruleId :: Prelude.Text,
+    ruleId :: Core.Text,
     -- | The @Predicates@ object contains one @Predicate@ element for each
     -- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to
     -- include in a @Rule@.
     predicates :: [Predicate]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Rule' with all optional fields omitted.
@@ -106,14 +105,14 @@ data Rule = Rule'
 -- include in a @Rule@.
 newRule ::
   -- | 'ruleId'
-  Prelude.Text ->
+  Core.Text ->
   Rule
 newRule pRuleId_ =
   Rule'
-    { metricName = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { metricName = Core.Nothing,
+      name = Core.Nothing,
       ruleId = pRuleId_,
-      predicates = Prelude.mempty
+      predicates = Core.mempty
     }
 
 -- | A friendly name or description for the metrics for this @Rule@. The name
@@ -122,12 +121,12 @@ newRule pRuleId_ =
 -- metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change @MetricName@ after you create the
 -- @Rule@.
-rule_metricName :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
+rule_metricName :: Lens.Lens' Rule (Core.Maybe Core.Text)
 rule_metricName = Lens.lens (\Rule' {metricName} -> metricName) (\s@Rule' {} a -> s {metricName = a} :: Rule)
 
 -- | The friendly name or description for the @Rule@. You can\'t change the
 -- name of a @Rule@ after you create it.
-rule_name :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
+rule_name :: Lens.Lens' Rule (Core.Maybe Core.Text)
 rule_name = Lens.lens (\Rule' {name} -> name) (\s@Rule' {} a -> s {name = a} :: Rule)
 
 -- | A unique identifier for a @Rule@. You use @RuleId@ to get more
@@ -137,29 +136,27 @@ rule_name = Lens.lens (\Rule' {name} -> name) (\s@Rule' {} a -> s {name = a} :: 
 -- DeleteRule).
 --
 -- @RuleId@ is returned by CreateRule and by ListRules.
-rule_ruleId :: Lens.Lens' Rule Prelude.Text
+rule_ruleId :: Lens.Lens' Rule Core.Text
 rule_ruleId = Lens.lens (\Rule' {ruleId} -> ruleId) (\s@Rule' {} a -> s {ruleId = a} :: Rule)
 
 -- | The @Predicates@ object contains one @Predicate@ element for each
 -- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to
 -- include in a @Rule@.
 rule_predicates :: Lens.Lens' Rule [Predicate]
-rule_predicates = Lens.lens (\Rule' {predicates} -> predicates) (\s@Rule' {} a -> s {predicates = a} :: Rule) Prelude.. Prelude._Coerce
+rule_predicates = Lens.lens (\Rule' {predicates} -> predicates) (\s@Rule' {} a -> s {predicates = a} :: Rule) Core.. Lens._Coerce
 
-instance Prelude.FromJSON Rule where
+instance Core.FromJSON Rule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Prelude..:? "MetricName")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..: "RuleId")
-            Prelude.<*> ( x Prelude..:? "Predicates"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "MetricName")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..: "RuleId")
+            Core.<*> (x Core..:? "Predicates" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Rule
+instance Core.Hashable Rule
 
-instance Prelude.NFData Rule
+instance Core.NFData Rule

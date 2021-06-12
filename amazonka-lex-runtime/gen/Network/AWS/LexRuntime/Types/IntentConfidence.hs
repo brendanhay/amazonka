@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexRuntime.Types.IntentConfidence where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a score that indicates the confidence that Amazon Lex has that
 -- an intent is the one that satisfies the user\'s intent.
@@ -31,9 +30,9 @@ data IntentConfidence = IntentConfidence'
   { -- | A score that indicates how confident Amazon Lex is that an intent
     -- satisfies the user\'s intent. Ranges between 0.00 and 1.00. Higher
     -- scores indicate higher confidence.
-    score :: Prelude.Maybe Prelude.Double
+    score :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IntentConfidence' with all optional fields omitted.
@@ -49,23 +48,22 @@ data IntentConfidence = IntentConfidence'
 newIntentConfidence ::
   IntentConfidence
 newIntentConfidence =
-  IntentConfidence' {score = Prelude.Nothing}
+  IntentConfidence' {score = Core.Nothing}
 
 -- | A score that indicates how confident Amazon Lex is that an intent
 -- satisfies the user\'s intent. Ranges between 0.00 and 1.00. Higher
 -- scores indicate higher confidence.
-intentConfidence_score :: Lens.Lens' IntentConfidence (Prelude.Maybe Prelude.Double)
+intentConfidence_score :: Lens.Lens' IntentConfidence (Core.Maybe Core.Double)
 intentConfidence_score = Lens.lens (\IntentConfidence' {score} -> score) (\s@IntentConfidence' {} a -> s {score = a} :: IntentConfidence)
 
-instance Prelude.FromJSON IntentConfidence where
+instance Core.FromJSON IntentConfidence where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IntentConfidence"
       ( \x ->
-          IntentConfidence'
-            Prelude.<$> (x Prelude..:? "score")
+          IntentConfidence' Core.<$> (x Core..:? "score")
       )
 
-instance Prelude.Hashable IntentConfidence
+instance Core.Hashable IntentConfidence
 
-instance Prelude.NFData IntentConfidence
+instance Core.NFData IntentConfidence

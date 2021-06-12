@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.Pipeline where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.PipelineStatus
 import Network.AWS.SageMaker.Types.Tag
 import Network.AWS.SageMaker.Types.UserContext
@@ -31,29 +30,29 @@ import Network.AWS.SageMaker.Types.UserContext
 -- /See:/ 'newPipeline' smart constructor.
 data Pipeline = Pipeline'
   { -- | The Amazon Resource Name (ARN) of the pipeline.
-    pipelineArn :: Prelude.Maybe Prelude.Text,
+    pipelineArn :: Core.Maybe Core.Text,
     -- | The description of the pipeline.
-    pipelineDescription :: Prelude.Maybe Prelude.Text,
+    pipelineDescription :: Core.Maybe Core.Text,
     -- | The creation time of the pipeline.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the role that created the pipeline.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | The time when the pipeline was last run.
-    lastRunTime :: Prelude.Maybe Prelude.POSIX,
+    lastRunTime :: Core.Maybe Core.POSIX,
     -- | The display name of the pipeline.
-    pipelineDisplayName :: Prelude.Maybe Prelude.Text,
+    pipelineDisplayName :: Core.Maybe Core.Text,
     -- | A list of tags that apply to the pipeline.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The time that the pipeline was last modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | The status of the pipeline.
-    pipelineStatus :: Prelude.Maybe PipelineStatus,
-    createdBy :: Prelude.Maybe UserContext,
-    lastModifiedBy :: Prelude.Maybe UserContext,
+    pipelineStatus :: Core.Maybe PipelineStatus,
+    createdBy :: Core.Maybe UserContext,
+    lastModifiedBy :: Core.Maybe UserContext,
     -- | The name of the pipeline.
-    pipelineName :: Prelude.Maybe Prelude.Text
+    pipelineName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Pipeline' with all optional fields omitted.
@@ -90,88 +89,88 @@ newPipeline ::
   Pipeline
 newPipeline =
   Pipeline'
-    { pipelineArn = Prelude.Nothing,
-      pipelineDescription = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      lastRunTime = Prelude.Nothing,
-      pipelineDisplayName = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      pipelineStatus = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
-      pipelineName = Prelude.Nothing
+    { pipelineArn = Core.Nothing,
+      pipelineDescription = Core.Nothing,
+      creationTime = Core.Nothing,
+      roleArn = Core.Nothing,
+      lastRunTime = Core.Nothing,
+      pipelineDisplayName = Core.Nothing,
+      tags = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      pipelineStatus = Core.Nothing,
+      createdBy = Core.Nothing,
+      lastModifiedBy = Core.Nothing,
+      pipelineName = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the pipeline.
-pipeline_pipelineArn :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
+pipeline_pipelineArn :: Lens.Lens' Pipeline (Core.Maybe Core.Text)
 pipeline_pipelineArn = Lens.lens (\Pipeline' {pipelineArn} -> pipelineArn) (\s@Pipeline' {} a -> s {pipelineArn = a} :: Pipeline)
 
 -- | The description of the pipeline.
-pipeline_pipelineDescription :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
+pipeline_pipelineDescription :: Lens.Lens' Pipeline (Core.Maybe Core.Text)
 pipeline_pipelineDescription = Lens.lens (\Pipeline' {pipelineDescription} -> pipelineDescription) (\s@Pipeline' {} a -> s {pipelineDescription = a} :: Pipeline)
 
 -- | The creation time of the pipeline.
-pipeline_creationTime :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.UTCTime)
-pipeline_creationTime = Lens.lens (\Pipeline' {creationTime} -> creationTime) (\s@Pipeline' {} a -> s {creationTime = a} :: Pipeline) Prelude.. Lens.mapping Prelude._Time
+pipeline_creationTime :: Lens.Lens' Pipeline (Core.Maybe Core.UTCTime)
+pipeline_creationTime = Lens.lens (\Pipeline' {creationTime} -> creationTime) (\s@Pipeline' {} a -> s {creationTime = a} :: Pipeline) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the role that created the pipeline.
-pipeline_roleArn :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
+pipeline_roleArn :: Lens.Lens' Pipeline (Core.Maybe Core.Text)
 pipeline_roleArn = Lens.lens (\Pipeline' {roleArn} -> roleArn) (\s@Pipeline' {} a -> s {roleArn = a} :: Pipeline)
 
 -- | The time when the pipeline was last run.
-pipeline_lastRunTime :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.UTCTime)
-pipeline_lastRunTime = Lens.lens (\Pipeline' {lastRunTime} -> lastRunTime) (\s@Pipeline' {} a -> s {lastRunTime = a} :: Pipeline) Prelude.. Lens.mapping Prelude._Time
+pipeline_lastRunTime :: Lens.Lens' Pipeline (Core.Maybe Core.UTCTime)
+pipeline_lastRunTime = Lens.lens (\Pipeline' {lastRunTime} -> lastRunTime) (\s@Pipeline' {} a -> s {lastRunTime = a} :: Pipeline) Core.. Lens.mapping Core._Time
 
 -- | The display name of the pipeline.
-pipeline_pipelineDisplayName :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
+pipeline_pipelineDisplayName :: Lens.Lens' Pipeline (Core.Maybe Core.Text)
 pipeline_pipelineDisplayName = Lens.lens (\Pipeline' {pipelineDisplayName} -> pipelineDisplayName) (\s@Pipeline' {} a -> s {pipelineDisplayName = a} :: Pipeline)
 
 -- | A list of tags that apply to the pipeline.
-pipeline_tags :: Lens.Lens' Pipeline (Prelude.Maybe [Tag])
-pipeline_tags = Lens.lens (\Pipeline' {tags} -> tags) (\s@Pipeline' {} a -> s {tags = a} :: Pipeline) Prelude.. Lens.mapping Prelude._Coerce
+pipeline_tags :: Lens.Lens' Pipeline (Core.Maybe [Tag])
+pipeline_tags = Lens.lens (\Pipeline' {tags} -> tags) (\s@Pipeline' {} a -> s {tags = a} :: Pipeline) Core.. Lens.mapping Lens._Coerce
 
 -- | The time that the pipeline was last modified.
-pipeline_lastModifiedTime :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.UTCTime)
-pipeline_lastModifiedTime = Lens.lens (\Pipeline' {lastModifiedTime} -> lastModifiedTime) (\s@Pipeline' {} a -> s {lastModifiedTime = a} :: Pipeline) Prelude.. Lens.mapping Prelude._Time
+pipeline_lastModifiedTime :: Lens.Lens' Pipeline (Core.Maybe Core.UTCTime)
+pipeline_lastModifiedTime = Lens.lens (\Pipeline' {lastModifiedTime} -> lastModifiedTime) (\s@Pipeline' {} a -> s {lastModifiedTime = a} :: Pipeline) Core.. Lens.mapping Core._Time
 
 -- | The status of the pipeline.
-pipeline_pipelineStatus :: Lens.Lens' Pipeline (Prelude.Maybe PipelineStatus)
+pipeline_pipelineStatus :: Lens.Lens' Pipeline (Core.Maybe PipelineStatus)
 pipeline_pipelineStatus = Lens.lens (\Pipeline' {pipelineStatus} -> pipelineStatus) (\s@Pipeline' {} a -> s {pipelineStatus = a} :: Pipeline)
 
 -- | Undocumented member.
-pipeline_createdBy :: Lens.Lens' Pipeline (Prelude.Maybe UserContext)
+pipeline_createdBy :: Lens.Lens' Pipeline (Core.Maybe UserContext)
 pipeline_createdBy = Lens.lens (\Pipeline' {createdBy} -> createdBy) (\s@Pipeline' {} a -> s {createdBy = a} :: Pipeline)
 
 -- | Undocumented member.
-pipeline_lastModifiedBy :: Lens.Lens' Pipeline (Prelude.Maybe UserContext)
+pipeline_lastModifiedBy :: Lens.Lens' Pipeline (Core.Maybe UserContext)
 pipeline_lastModifiedBy = Lens.lens (\Pipeline' {lastModifiedBy} -> lastModifiedBy) (\s@Pipeline' {} a -> s {lastModifiedBy = a} :: Pipeline)
 
 -- | The name of the pipeline.
-pipeline_pipelineName :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
+pipeline_pipelineName :: Lens.Lens' Pipeline (Core.Maybe Core.Text)
 pipeline_pipelineName = Lens.lens (\Pipeline' {pipelineName} -> pipelineName) (\s@Pipeline' {} a -> s {pipelineName = a} :: Pipeline)
 
-instance Prelude.FromJSON Pipeline where
+instance Core.FromJSON Pipeline where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Pipeline"
       ( \x ->
           Pipeline'
-            Prelude.<$> (x Prelude..:? "PipelineArn")
-            Prelude.<*> (x Prelude..:? "PipelineDescription")
-            Prelude.<*> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "RoleArn")
-            Prelude.<*> (x Prelude..:? "LastRunTime")
-            Prelude.<*> (x Prelude..:? "PipelineDisplayName")
-            Prelude.<*> (x Prelude..:? "Tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "LastModifiedTime")
-            Prelude.<*> (x Prelude..:? "PipelineStatus")
-            Prelude.<*> (x Prelude..:? "CreatedBy")
-            Prelude.<*> (x Prelude..:? "LastModifiedBy")
-            Prelude.<*> (x Prelude..:? "PipelineName")
+            Core.<$> (x Core..:? "PipelineArn")
+            Core.<*> (x Core..:? "PipelineDescription")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "RoleArn")
+            Core.<*> (x Core..:? "LastRunTime")
+            Core.<*> (x Core..:? "PipelineDisplayName")
+            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..:? "PipelineStatus")
+            Core.<*> (x Core..:? "CreatedBy")
+            Core.<*> (x Core..:? "LastModifiedBy")
+            Core.<*> (x Core..:? "PipelineName")
       )
 
-instance Prelude.Hashable Pipeline
+instance Core.Hashable Pipeline
 
-instance Prelude.NFData Pipeline
+instance Core.NFData Pipeline

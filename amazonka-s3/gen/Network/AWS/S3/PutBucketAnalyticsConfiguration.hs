@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -96,8 +95,8 @@ module Network.AWS.S3.PutBucketAnalyticsConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -107,15 +106,15 @@ data PutBucketAnalyticsConfiguration = PutBucketAnalyticsConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the bucket to which an analytics configuration is stored.
     bucket :: BucketName,
     -- | The ID that identifies the analytics configuration.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The configuration and any analyses for the analytics filter.
     analyticsConfiguration :: AnalyticsConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketAnalyticsConfiguration' with all optional fields omitted.
@@ -138,7 +137,7 @@ newPutBucketAnalyticsConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'analyticsConfiguration'
   AnalyticsConfiguration ->
   PutBucketAnalyticsConfiguration
@@ -148,7 +147,7 @@ newPutBucketAnalyticsConfiguration
   pAnalyticsConfiguration_ =
     PutBucketAnalyticsConfiguration'
       { expectedBucketOwner =
-          Prelude.Nothing,
+          Core.Nothing,
         bucket = pBucket_,
         id = pId_,
         analyticsConfiguration =
@@ -158,7 +157,7 @@ newPutBucketAnalyticsConfiguration
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketAnalyticsConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketAnalyticsConfiguration (Prelude.Maybe Prelude.Text)
+putBucketAnalyticsConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketAnalyticsConfiguration (Core.Maybe Core.Text)
 putBucketAnalyticsConfiguration_expectedBucketOwner = Lens.lens (\PutBucketAnalyticsConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketAnalyticsConfiguration' {} a -> s {expectedBucketOwner = a} :: PutBucketAnalyticsConfiguration)
 
 -- | The name of the bucket to which an analytics configuration is stored.
@@ -166,7 +165,7 @@ putBucketAnalyticsConfiguration_bucket :: Lens.Lens' PutBucketAnalyticsConfigura
 putBucketAnalyticsConfiguration_bucket = Lens.lens (\PutBucketAnalyticsConfiguration' {bucket} -> bucket) (\s@PutBucketAnalyticsConfiguration' {} a -> s {bucket = a} :: PutBucketAnalyticsConfiguration)
 
 -- | The ID that identifies the analytics configuration.
-putBucketAnalyticsConfiguration_id :: Lens.Lens' PutBucketAnalyticsConfiguration Prelude.Text
+putBucketAnalyticsConfiguration_id :: Lens.Lens' PutBucketAnalyticsConfiguration Core.Text
 putBucketAnalyticsConfiguration_id = Lens.lens (\PutBucketAnalyticsConfiguration' {id} -> id) (\s@PutBucketAnalyticsConfiguration' {} a -> s {id = a} :: PutBucketAnalyticsConfiguration)
 
 -- | The configuration and any analyses for the analytics filter.
@@ -174,11 +173,11 @@ putBucketAnalyticsConfiguration_analyticsConfiguration :: Lens.Lens' PutBucketAn
 putBucketAnalyticsConfiguration_analyticsConfiguration = Lens.lens (\PutBucketAnalyticsConfiguration' {analyticsConfiguration} -> analyticsConfiguration) (\s@PutBucketAnalyticsConfiguration' {} a -> s {analyticsConfiguration = a} :: PutBucketAnalyticsConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PutBucketAnalyticsConfiguration
   where
   type
-    Rs PutBucketAnalyticsConfiguration =
+    AWSResponse PutBucketAnalyticsConfiguration =
       PutBucketAnalyticsConfigurationResponse
   request = Request.putXML defaultService
   response =
@@ -186,51 +185,43 @@ instance
       PutBucketAnalyticsConfigurationResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PutBucketAnalyticsConfiguration
 
-instance
-  Prelude.NFData
-    PutBucketAnalyticsConfiguration
+instance Core.NFData PutBucketAnalyticsConfiguration
 
 instance
-  Prelude.ToElement
+  Core.ToElement
     PutBucketAnalyticsConfiguration
   where
   toElement PutBucketAnalyticsConfiguration' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}AnalyticsConfiguration"
       analyticsConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     PutBucketAnalyticsConfiguration
   where
   toHeaders PutBucketAnalyticsConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance
-  Prelude.ToPath
-    PutBucketAnalyticsConfiguration
-  where
+instance Core.ToPath PutBucketAnalyticsConfiguration where
   toPath PutBucketAnalyticsConfiguration' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance
-  Prelude.ToQuery
-    PutBucketAnalyticsConfiguration
-  where
+instance Core.ToQuery PutBucketAnalyticsConfiguration where
   toQuery PutBucketAnalyticsConfiguration' {..} =
-    Prelude.mconcat ["id" Prelude.=: id, "analytics"]
+    Core.mconcat ["id" Core.=: id, "analytics"]
 
 -- | /See:/ 'newPutBucketAnalyticsConfigurationResponse' smart constructor.
 data PutBucketAnalyticsConfigurationResponse = PutBucketAnalyticsConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketAnalyticsConfigurationResponse' with all optional fields omitted.
@@ -242,5 +233,5 @@ newPutBucketAnalyticsConfigurationResponse =
   PutBucketAnalyticsConfigurationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutBucketAnalyticsConfigurationResponse

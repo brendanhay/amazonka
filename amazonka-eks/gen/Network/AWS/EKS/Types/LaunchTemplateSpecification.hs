@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.LaunchTemplateSpecification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a node group launch template specification. The
 -- launch template cannot include
@@ -47,14 +46,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
   { -- | The ID of the launch template.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The version of the launch template to use. If no version is specified,
     -- then the template\'s default version is used.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the launch template.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateSpecification' with all optional fields omitted.
@@ -74,45 +73,45 @@ newLaunchTemplateSpecification ::
   LaunchTemplateSpecification
 newLaunchTemplateSpecification =
   LaunchTemplateSpecification'
-    { id = Prelude.Nothing,
-      version = Prelude.Nothing,
-      name = Prelude.Nothing
+    { id = Core.Nothing,
+      version = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The ID of the launch template.
-launchTemplateSpecification_id :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateSpecification_id :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
 launchTemplateSpecification_id = Lens.lens (\LaunchTemplateSpecification' {id} -> id) (\s@LaunchTemplateSpecification' {} a -> s {id = a} :: LaunchTemplateSpecification)
 
 -- | The version of the launch template to use. If no version is specified,
 -- then the template\'s default version is used.
-launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
 
 -- | The name of the launch template.
-launchTemplateSpecification_name :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateSpecification_name :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
 launchTemplateSpecification_name = Lens.lens (\LaunchTemplateSpecification' {name} -> name) (\s@LaunchTemplateSpecification' {} a -> s {name = a} :: LaunchTemplateSpecification)
 
-instance Prelude.FromJSON LaunchTemplateSpecification where
+instance Core.FromJSON LaunchTemplateSpecification where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LaunchTemplateSpecification"
       ( \x ->
           LaunchTemplateSpecification'
-            Prelude.<$> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "version")
-            Prelude.<*> (x Prelude..:? "name")
+            Core.<$> (x Core..:? "id")
+            Core.<*> (x Core..:? "version")
+            Core.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable LaunchTemplateSpecification
+instance Core.Hashable LaunchTemplateSpecification
 
-instance Prelude.NFData LaunchTemplateSpecification
+instance Core.NFData LaunchTemplateSpecification
 
-instance Prelude.ToJSON LaunchTemplateSpecification where
+instance Core.ToJSON LaunchTemplateSpecification where
   toJSON LaunchTemplateSpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("id" Prelude..=) Prelude.<$> id,
-            ("version" Prelude..=) Prelude.<$> version,
-            ("name" Prelude..=) Prelude.<$> name
+    Core.object
+      ( Core.catMaybes
+          [ ("id" Core..=) Core.<$> id,
+            ("version" Core..=) Core.<$> version,
+            ("name" Core..=) Core.<$> name
           ]
       )

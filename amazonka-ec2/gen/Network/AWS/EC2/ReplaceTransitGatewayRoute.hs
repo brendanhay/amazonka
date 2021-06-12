@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.EC2.ReplaceTransitGatewayRoute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,18 +56,18 @@ data ReplaceTransitGatewayRoute = ReplaceTransitGatewayRoute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Indicates whether traffic matching this route is to be dropped.
-    blackhole :: Prelude.Maybe Prelude.Bool,
+    blackhole :: Core.Maybe Core.Bool,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
+    transitGatewayAttachmentId :: Core.Maybe Core.Text,
     -- | The CIDR range used for the destination match. Routing decisions are
     -- based on the most specific match.
-    destinationCidrBlock :: Prelude.Text,
+    destinationCidrBlock :: Core.Text,
     -- | The ID of the route table.
-    transitGatewayRouteTableId :: Prelude.Text
+    transitGatewayRouteTableId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplaceTransitGatewayRoute' with all optional fields omitted.
@@ -93,18 +92,17 @@ data ReplaceTransitGatewayRoute = ReplaceTransitGatewayRoute'
 -- 'transitGatewayRouteTableId', 'replaceTransitGatewayRoute_transitGatewayRouteTableId' - The ID of the route table.
 newReplaceTransitGatewayRoute ::
   -- | 'destinationCidrBlock'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'transitGatewayRouteTableId'
-  Prelude.Text ->
+  Core.Text ->
   ReplaceTransitGatewayRoute
 newReplaceTransitGatewayRoute
   pDestinationCidrBlock_
   pTransitGatewayRouteTableId_ =
     ReplaceTransitGatewayRoute'
-      { dryRun =
-          Prelude.Nothing,
-        blackhole = Prelude.Nothing,
-        transitGatewayAttachmentId = Prelude.Nothing,
+      { dryRun = Core.Nothing,
+        blackhole = Core.Nothing,
+        transitGatewayAttachmentId = Core.Nothing,
         destinationCidrBlock = pDestinationCidrBlock_,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_
@@ -114,77 +112,72 @@ newReplaceTransitGatewayRoute
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-replaceTransitGatewayRoute_dryRun :: Lens.Lens' ReplaceTransitGatewayRoute (Prelude.Maybe Prelude.Bool)
+replaceTransitGatewayRoute_dryRun :: Lens.Lens' ReplaceTransitGatewayRoute (Core.Maybe Core.Bool)
 replaceTransitGatewayRoute_dryRun = Lens.lens (\ReplaceTransitGatewayRoute' {dryRun} -> dryRun) (\s@ReplaceTransitGatewayRoute' {} a -> s {dryRun = a} :: ReplaceTransitGatewayRoute)
 
 -- | Indicates whether traffic matching this route is to be dropped.
-replaceTransitGatewayRoute_blackhole :: Lens.Lens' ReplaceTransitGatewayRoute (Prelude.Maybe Prelude.Bool)
+replaceTransitGatewayRoute_blackhole :: Lens.Lens' ReplaceTransitGatewayRoute (Core.Maybe Core.Bool)
 replaceTransitGatewayRoute_blackhole = Lens.lens (\ReplaceTransitGatewayRoute' {blackhole} -> blackhole) (\s@ReplaceTransitGatewayRoute' {} a -> s {blackhole = a} :: ReplaceTransitGatewayRoute)
 
 -- | The ID of the attachment.
-replaceTransitGatewayRoute_transitGatewayAttachmentId :: Lens.Lens' ReplaceTransitGatewayRoute (Prelude.Maybe Prelude.Text)
+replaceTransitGatewayRoute_transitGatewayAttachmentId :: Lens.Lens' ReplaceTransitGatewayRoute (Core.Maybe Core.Text)
 replaceTransitGatewayRoute_transitGatewayAttachmentId = Lens.lens (\ReplaceTransitGatewayRoute' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@ReplaceTransitGatewayRoute' {} a -> s {transitGatewayAttachmentId = a} :: ReplaceTransitGatewayRoute)
 
 -- | The CIDR range used for the destination match. Routing decisions are
 -- based on the most specific match.
-replaceTransitGatewayRoute_destinationCidrBlock :: Lens.Lens' ReplaceTransitGatewayRoute Prelude.Text
+replaceTransitGatewayRoute_destinationCidrBlock :: Lens.Lens' ReplaceTransitGatewayRoute Core.Text
 replaceTransitGatewayRoute_destinationCidrBlock = Lens.lens (\ReplaceTransitGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@ReplaceTransitGatewayRoute' {} a -> s {destinationCidrBlock = a} :: ReplaceTransitGatewayRoute)
 
 -- | The ID of the route table.
-replaceTransitGatewayRoute_transitGatewayRouteTableId :: Lens.Lens' ReplaceTransitGatewayRoute Prelude.Text
+replaceTransitGatewayRoute_transitGatewayRouteTableId :: Lens.Lens' ReplaceTransitGatewayRoute Core.Text
 replaceTransitGatewayRoute_transitGatewayRouteTableId = Lens.lens (\ReplaceTransitGatewayRoute' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@ReplaceTransitGatewayRoute' {} a -> s {transitGatewayRouteTableId = a} :: ReplaceTransitGatewayRoute)
 
-instance
-  Prelude.AWSRequest
-    ReplaceTransitGatewayRoute
-  where
+instance Core.AWSRequest ReplaceTransitGatewayRoute where
   type
-    Rs ReplaceTransitGatewayRoute =
+    AWSResponse ReplaceTransitGatewayRoute =
       ReplaceTransitGatewayRouteResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ReplaceTransitGatewayRouteResponse'
-            Prelude.<$> (x Prelude..@? "route")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "route")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ReplaceTransitGatewayRoute
+instance Core.Hashable ReplaceTransitGatewayRoute
 
-instance Prelude.NFData ReplaceTransitGatewayRoute
+instance Core.NFData ReplaceTransitGatewayRoute
 
-instance Prelude.ToHeaders ReplaceTransitGatewayRoute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ReplaceTransitGatewayRoute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ReplaceTransitGatewayRoute where
-  toPath = Prelude.const "/"
+instance Core.ToPath ReplaceTransitGatewayRoute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ReplaceTransitGatewayRoute where
+instance Core.ToQuery ReplaceTransitGatewayRoute where
   toQuery ReplaceTransitGatewayRoute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ReplaceTransitGatewayRoute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "Blackhole" Prelude.=: blackhole,
+          Core.=: ("ReplaceTransitGatewayRoute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Blackhole" Core.=: blackhole,
         "TransitGatewayAttachmentId"
-          Prelude.=: transitGatewayAttachmentId,
-        "DestinationCidrBlock"
-          Prelude.=: destinationCidrBlock,
+          Core.=: transitGatewayAttachmentId,
+        "DestinationCidrBlock" Core.=: destinationCidrBlock,
         "TransitGatewayRouteTableId"
-          Prelude.=: transitGatewayRouteTableId
+          Core.=: transitGatewayRouteTableId
       ]
 
 -- | /See:/ 'newReplaceTransitGatewayRouteResponse' smart constructor.
 data ReplaceTransitGatewayRouteResponse = ReplaceTransitGatewayRouteResponse'
   { -- | Information about the modified route.
-    route :: Prelude.Maybe TransitGatewayRoute,
+    route :: Core.Maybe TransitGatewayRoute,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplaceTransitGatewayRouteResponse' with all optional fields omitted.
@@ -199,23 +192,23 @@ data ReplaceTransitGatewayRouteResponse = ReplaceTransitGatewayRouteResponse'
 -- 'httpStatus', 'replaceTransitGatewayRouteResponse_httpStatus' - The response's http status code.
 newReplaceTransitGatewayRouteResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ReplaceTransitGatewayRouteResponse
 newReplaceTransitGatewayRouteResponse pHttpStatus_ =
   ReplaceTransitGatewayRouteResponse'
     { route =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the modified route.
-replaceTransitGatewayRouteResponse_route :: Lens.Lens' ReplaceTransitGatewayRouteResponse (Prelude.Maybe TransitGatewayRoute)
+replaceTransitGatewayRouteResponse_route :: Lens.Lens' ReplaceTransitGatewayRouteResponse (Core.Maybe TransitGatewayRoute)
 replaceTransitGatewayRouteResponse_route = Lens.lens (\ReplaceTransitGatewayRouteResponse' {route} -> route) (\s@ReplaceTransitGatewayRouteResponse' {} a -> s {route = a} :: ReplaceTransitGatewayRouteResponse)
 
 -- | The response's http status code.
-replaceTransitGatewayRouteResponse_httpStatus :: Lens.Lens' ReplaceTransitGatewayRouteResponse Prelude.Int
+replaceTransitGatewayRouteResponse_httpStatus :: Lens.Lens' ReplaceTransitGatewayRouteResponse Core.Int
 replaceTransitGatewayRouteResponse_httpStatus = Lens.lens (\ReplaceTransitGatewayRouteResponse' {httpStatus} -> httpStatus) (\s@ReplaceTransitGatewayRouteResponse' {} a -> s {httpStatus = a} :: ReplaceTransitGatewayRouteResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ReplaceTransitGatewayRouteResponse

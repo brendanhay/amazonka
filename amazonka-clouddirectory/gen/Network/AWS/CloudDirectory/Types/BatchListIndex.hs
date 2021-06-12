@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudDirectory.Types.BatchListIndex where
 
 import Network.AWS.CloudDirectory.Types.ObjectAttributeRange
 import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Lists objects attached to the specified index inside a BatchRead
 -- operation. For more information, see ListIndex and
@@ -32,15 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBatchListIndex' smart constructor.
 data BatchListIndex = BatchListIndex'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Specifies the ranges of indexed values that you want to query.
-    rangesOnIndexedValues :: Prelude.Maybe [ObjectAttributeRange],
+    rangesOnIndexedValues :: Core.Maybe [ObjectAttributeRange],
     -- | The reference to the index to list.
     indexReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchListIndex' with all optional fields omitted.
@@ -63,41 +62,40 @@ newBatchListIndex ::
   BatchListIndex
 newBatchListIndex pIndexReference_ =
   BatchListIndex'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      rangesOnIndexedValues = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      rangesOnIndexedValues = Core.Nothing,
       indexReference = pIndexReference_
     }
 
 -- | The pagination token.
-batchListIndex_nextToken :: Lens.Lens' BatchListIndex (Prelude.Maybe Prelude.Text)
+batchListIndex_nextToken :: Lens.Lens' BatchListIndex (Core.Maybe Core.Text)
 batchListIndex_nextToken = Lens.lens (\BatchListIndex' {nextToken} -> nextToken) (\s@BatchListIndex' {} a -> s {nextToken = a} :: BatchListIndex)
 
 -- | The maximum number of results to retrieve.
-batchListIndex_maxResults :: Lens.Lens' BatchListIndex (Prelude.Maybe Prelude.Natural)
+batchListIndex_maxResults :: Lens.Lens' BatchListIndex (Core.Maybe Core.Natural)
 batchListIndex_maxResults = Lens.lens (\BatchListIndex' {maxResults} -> maxResults) (\s@BatchListIndex' {} a -> s {maxResults = a} :: BatchListIndex)
 
 -- | Specifies the ranges of indexed values that you want to query.
-batchListIndex_rangesOnIndexedValues :: Lens.Lens' BatchListIndex (Prelude.Maybe [ObjectAttributeRange])
-batchListIndex_rangesOnIndexedValues = Lens.lens (\BatchListIndex' {rangesOnIndexedValues} -> rangesOnIndexedValues) (\s@BatchListIndex' {} a -> s {rangesOnIndexedValues = a} :: BatchListIndex) Prelude.. Lens.mapping Prelude._Coerce
+batchListIndex_rangesOnIndexedValues :: Lens.Lens' BatchListIndex (Core.Maybe [ObjectAttributeRange])
+batchListIndex_rangesOnIndexedValues = Lens.lens (\BatchListIndex' {rangesOnIndexedValues} -> rangesOnIndexedValues) (\s@BatchListIndex' {} a -> s {rangesOnIndexedValues = a} :: BatchListIndex) Core.. Lens.mapping Lens._Coerce
 
 -- | The reference to the index to list.
 batchListIndex_indexReference :: Lens.Lens' BatchListIndex ObjectReference
 batchListIndex_indexReference = Lens.lens (\BatchListIndex' {indexReference} -> indexReference) (\s@BatchListIndex' {} a -> s {indexReference = a} :: BatchListIndex)
 
-instance Prelude.Hashable BatchListIndex
+instance Core.Hashable BatchListIndex
 
-instance Prelude.NFData BatchListIndex
+instance Core.NFData BatchListIndex
 
-instance Prelude.ToJSON BatchListIndex where
+instance Core.ToJSON BatchListIndex where
   toJSON BatchListIndex' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("RangesOnIndexedValues" Prelude..=)
-              Prelude.<$> rangesOnIndexedValues,
-            Prelude.Just
-              ("IndexReference" Prelude..= indexReference)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("RangesOnIndexedValues" Core..=)
+              Core.<$> rangesOnIndexedValues,
+            Core.Just ("IndexReference" Core..= indexReference)
           ]
       )

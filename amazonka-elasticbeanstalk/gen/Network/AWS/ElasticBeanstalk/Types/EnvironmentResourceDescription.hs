@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup
 import Network.AWS.ElasticBeanstalk.Types.Instance
 import Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration
@@ -28,7 +28,6 @@ import Network.AWS.ElasticBeanstalk.Types.LoadBalancer
 import Network.AWS.ElasticBeanstalk.Types.Queue
 import Network.AWS.ElasticBeanstalk.Types.Trigger
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the AWS resources in use by this environment. This data is
 -- live.
@@ -36,23 +35,23 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEnvironmentResourceDescription' smart constructor.
 data EnvironmentResourceDescription = EnvironmentResourceDescription'
   { -- | The Auto Scaling launch configurations in use by this environment.
-    launchConfigurations :: Prelude.Maybe [LaunchConfiguration],
+    launchConfigurations :: Core.Maybe [LaunchConfiguration],
     -- | The Amazon EC2 launch templates in use by this environment.
-    launchTemplates :: Prelude.Maybe [LaunchTemplate],
+    launchTemplates :: Core.Maybe [LaunchTemplate],
     -- | The @AutoScaling@ triggers in use by this environment.
-    triggers :: Prelude.Maybe [Trigger],
+    triggers :: Core.Maybe [Trigger],
     -- | The Amazon EC2 instances used by this environment.
-    instances :: Prelude.Maybe [Instance],
+    instances :: Core.Maybe [Instance],
     -- | The name of the environment.
-    environmentName :: Prelude.Maybe Prelude.Text,
+    environmentName :: Core.Maybe Core.Text,
     -- | The queues used by this environment.
-    queues :: Prelude.Maybe [Queue],
+    queues :: Core.Maybe [Queue],
     -- | The LoadBalancers in use by this environment.
-    loadBalancers :: Prelude.Maybe [LoadBalancer],
+    loadBalancers :: Core.Maybe [LoadBalancer],
     -- | The @AutoScalingGroups@ used by this environment.
-    autoScalingGroups :: Prelude.Maybe [AutoScalingGroup]
+    autoScalingGroups :: Core.Maybe [AutoScalingGroup]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnvironmentResourceDescription' with all optional fields omitted.
@@ -82,85 +81,75 @@ newEnvironmentResourceDescription ::
 newEnvironmentResourceDescription =
   EnvironmentResourceDescription'
     { launchConfigurations =
-        Prelude.Nothing,
-      launchTemplates = Prelude.Nothing,
-      triggers = Prelude.Nothing,
-      instances = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
-      queues = Prelude.Nothing,
-      loadBalancers = Prelude.Nothing,
-      autoScalingGroups = Prelude.Nothing
+        Core.Nothing,
+      launchTemplates = Core.Nothing,
+      triggers = Core.Nothing,
+      instances = Core.Nothing,
+      environmentName = Core.Nothing,
+      queues = Core.Nothing,
+      loadBalancers = Core.Nothing,
+      autoScalingGroups = Core.Nothing
     }
 
 -- | The Auto Scaling launch configurations in use by this environment.
-environmentResourceDescription_launchConfigurations :: Lens.Lens' EnvironmentResourceDescription (Prelude.Maybe [LaunchConfiguration])
-environmentResourceDescription_launchConfigurations = Lens.lens (\EnvironmentResourceDescription' {launchConfigurations} -> launchConfigurations) (\s@EnvironmentResourceDescription' {} a -> s {launchConfigurations = a} :: EnvironmentResourceDescription) Prelude.. Lens.mapping Prelude._Coerce
+environmentResourceDescription_launchConfigurations :: Lens.Lens' EnvironmentResourceDescription (Core.Maybe [LaunchConfiguration])
+environmentResourceDescription_launchConfigurations = Lens.lens (\EnvironmentResourceDescription' {launchConfigurations} -> launchConfigurations) (\s@EnvironmentResourceDescription' {} a -> s {launchConfigurations = a} :: EnvironmentResourceDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon EC2 launch templates in use by this environment.
-environmentResourceDescription_launchTemplates :: Lens.Lens' EnvironmentResourceDescription (Prelude.Maybe [LaunchTemplate])
-environmentResourceDescription_launchTemplates = Lens.lens (\EnvironmentResourceDescription' {launchTemplates} -> launchTemplates) (\s@EnvironmentResourceDescription' {} a -> s {launchTemplates = a} :: EnvironmentResourceDescription) Prelude.. Lens.mapping Prelude._Coerce
+environmentResourceDescription_launchTemplates :: Lens.Lens' EnvironmentResourceDescription (Core.Maybe [LaunchTemplate])
+environmentResourceDescription_launchTemplates = Lens.lens (\EnvironmentResourceDescription' {launchTemplates} -> launchTemplates) (\s@EnvironmentResourceDescription' {} a -> s {launchTemplates = a} :: EnvironmentResourceDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The @AutoScaling@ triggers in use by this environment.
-environmentResourceDescription_triggers :: Lens.Lens' EnvironmentResourceDescription (Prelude.Maybe [Trigger])
-environmentResourceDescription_triggers = Lens.lens (\EnvironmentResourceDescription' {triggers} -> triggers) (\s@EnvironmentResourceDescription' {} a -> s {triggers = a} :: EnvironmentResourceDescription) Prelude.. Lens.mapping Prelude._Coerce
+environmentResourceDescription_triggers :: Lens.Lens' EnvironmentResourceDescription (Core.Maybe [Trigger])
+environmentResourceDescription_triggers = Lens.lens (\EnvironmentResourceDescription' {triggers} -> triggers) (\s@EnvironmentResourceDescription' {} a -> s {triggers = a} :: EnvironmentResourceDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon EC2 instances used by this environment.
-environmentResourceDescription_instances :: Lens.Lens' EnvironmentResourceDescription (Prelude.Maybe [Instance])
-environmentResourceDescription_instances = Lens.lens (\EnvironmentResourceDescription' {instances} -> instances) (\s@EnvironmentResourceDescription' {} a -> s {instances = a} :: EnvironmentResourceDescription) Prelude.. Lens.mapping Prelude._Coerce
+environmentResourceDescription_instances :: Lens.Lens' EnvironmentResourceDescription (Core.Maybe [Instance])
+environmentResourceDescription_instances = Lens.lens (\EnvironmentResourceDescription' {instances} -> instances) (\s@EnvironmentResourceDescription' {} a -> s {instances = a} :: EnvironmentResourceDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the environment.
-environmentResourceDescription_environmentName :: Lens.Lens' EnvironmentResourceDescription (Prelude.Maybe Prelude.Text)
+environmentResourceDescription_environmentName :: Lens.Lens' EnvironmentResourceDescription (Core.Maybe Core.Text)
 environmentResourceDescription_environmentName = Lens.lens (\EnvironmentResourceDescription' {environmentName} -> environmentName) (\s@EnvironmentResourceDescription' {} a -> s {environmentName = a} :: EnvironmentResourceDescription)
 
 -- | The queues used by this environment.
-environmentResourceDescription_queues :: Lens.Lens' EnvironmentResourceDescription (Prelude.Maybe [Queue])
-environmentResourceDescription_queues = Lens.lens (\EnvironmentResourceDescription' {queues} -> queues) (\s@EnvironmentResourceDescription' {} a -> s {queues = a} :: EnvironmentResourceDescription) Prelude.. Lens.mapping Prelude._Coerce
+environmentResourceDescription_queues :: Lens.Lens' EnvironmentResourceDescription (Core.Maybe [Queue])
+environmentResourceDescription_queues = Lens.lens (\EnvironmentResourceDescription' {queues} -> queues) (\s@EnvironmentResourceDescription' {} a -> s {queues = a} :: EnvironmentResourceDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The LoadBalancers in use by this environment.
-environmentResourceDescription_loadBalancers :: Lens.Lens' EnvironmentResourceDescription (Prelude.Maybe [LoadBalancer])
-environmentResourceDescription_loadBalancers = Lens.lens (\EnvironmentResourceDescription' {loadBalancers} -> loadBalancers) (\s@EnvironmentResourceDescription' {} a -> s {loadBalancers = a} :: EnvironmentResourceDescription) Prelude.. Lens.mapping Prelude._Coerce
+environmentResourceDescription_loadBalancers :: Lens.Lens' EnvironmentResourceDescription (Core.Maybe [LoadBalancer])
+environmentResourceDescription_loadBalancers = Lens.lens (\EnvironmentResourceDescription' {loadBalancers} -> loadBalancers) (\s@EnvironmentResourceDescription' {} a -> s {loadBalancers = a} :: EnvironmentResourceDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The @AutoScalingGroups@ used by this environment.
-environmentResourceDescription_autoScalingGroups :: Lens.Lens' EnvironmentResourceDescription (Prelude.Maybe [AutoScalingGroup])
-environmentResourceDescription_autoScalingGroups = Lens.lens (\EnvironmentResourceDescription' {autoScalingGroups} -> autoScalingGroups) (\s@EnvironmentResourceDescription' {} a -> s {autoScalingGroups = a} :: EnvironmentResourceDescription) Prelude.. Lens.mapping Prelude._Coerce
+environmentResourceDescription_autoScalingGroups :: Lens.Lens' EnvironmentResourceDescription (Core.Maybe [AutoScalingGroup])
+environmentResourceDescription_autoScalingGroups = Lens.lens (\EnvironmentResourceDescription' {autoScalingGroups} -> autoScalingGroups) (\s@EnvironmentResourceDescription' {} a -> s {autoScalingGroups = a} :: EnvironmentResourceDescription) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.FromXML
-    EnvironmentResourceDescription
-  where
+instance Core.FromXML EnvironmentResourceDescription where
   parseXML x =
     EnvironmentResourceDescription'
-      Prelude.<$> ( x Prelude..@? "LaunchConfigurations"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Prelude..@? "LaunchTemplates"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Prelude..@? "Triggers" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Prelude..@? "Instances" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "EnvironmentName")
-      Prelude.<*> ( x Prelude..@? "Queues" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Prelude..@? "LoadBalancers"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Prelude..@? "AutoScalingGroups"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> ( x Core..@? "LaunchConfigurations"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> ( x Core..@? "LaunchTemplates" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> ( x Core..@? "Triggers" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> ( x Core..@? "Instances" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "EnvironmentName")
+      Core.<*> ( x Core..@? "Queues" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> ( x Core..@? "LoadBalancers" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> ( x Core..@? "AutoScalingGroups" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance
-  Prelude.Hashable
-    EnvironmentResourceDescription
+instance Core.Hashable EnvironmentResourceDescription
 
-instance
-  Prelude.NFData
-    EnvironmentResourceDescription
+instance Core.NFData EnvironmentResourceDescription

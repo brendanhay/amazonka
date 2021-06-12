@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,8 +57,8 @@ module Network.AWS.S3.DeleteBucketLifecycle
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -69,11 +68,11 @@ data DeleteBucketLifecycle = DeleteBucketLifecycle'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The bucket name of the lifecycle to delete.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketLifecycle' with all optional fields omitted.
@@ -95,52 +94,51 @@ newDeleteBucketLifecycle ::
 newDeleteBucketLifecycle pBucket_ =
   DeleteBucketLifecycle'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketLifecycle_expectedBucketOwner :: Lens.Lens' DeleteBucketLifecycle (Prelude.Maybe Prelude.Text)
+deleteBucketLifecycle_expectedBucketOwner :: Lens.Lens' DeleteBucketLifecycle (Core.Maybe Core.Text)
 deleteBucketLifecycle_expectedBucketOwner = Lens.lens (\DeleteBucketLifecycle' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketLifecycle' {} a -> s {expectedBucketOwner = a} :: DeleteBucketLifecycle)
 
 -- | The bucket name of the lifecycle to delete.
 deleteBucketLifecycle_bucket :: Lens.Lens' DeleteBucketLifecycle BucketName
 deleteBucketLifecycle_bucket = Lens.lens (\DeleteBucketLifecycle' {bucket} -> bucket) (\s@DeleteBucketLifecycle' {} a -> s {bucket = a} :: DeleteBucketLifecycle)
 
-instance Prelude.AWSRequest DeleteBucketLifecycle where
+instance Core.AWSRequest DeleteBucketLifecycle where
   type
-    Rs DeleteBucketLifecycle =
+    AWSResponse DeleteBucketLifecycle =
       DeleteBucketLifecycleResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteBucketLifecycleResponse'
 
-instance Prelude.Hashable DeleteBucketLifecycle
+instance Core.Hashable DeleteBucketLifecycle
 
-instance Prelude.NFData DeleteBucketLifecycle
+instance Core.NFData DeleteBucketLifecycle
 
-instance Prelude.ToHeaders DeleteBucketLifecycle where
+instance Core.ToHeaders DeleteBucketLifecycle where
   toHeaders DeleteBucketLifecycle' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath DeleteBucketLifecycle where
+instance Core.ToPath DeleteBucketLifecycle where
   toPath DeleteBucketLifecycle' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery DeleteBucketLifecycle where
-  toQuery =
-    Prelude.const (Prelude.mconcat ["lifecycle"])
+instance Core.ToQuery DeleteBucketLifecycle where
+  toQuery = Core.const (Core.mconcat ["lifecycle"])
 
 -- | /See:/ 'newDeleteBucketLifecycleResponse' smart constructor.
 data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketLifecycleResponse' with all optional fields omitted.
@@ -151,4 +149,4 @@ newDeleteBucketLifecycleResponse ::
 newDeleteBucketLifecycleResponse =
   DeleteBucketLifecycleResponse'
 
-instance Prelude.NFData DeleteBucketLifecycleResponse
+instance Core.NFData DeleteBucketLifecycleResponse

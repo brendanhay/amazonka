@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.InstanceResizePolicy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Custom policy for requesting termination protection or termination of
 -- specific instances when shrinking an instance group.
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 data InstanceResizePolicy = InstanceResizePolicy'
   { -- | Decommissioning timeout override for the specific list of instances to
     -- be terminated.
-    instanceTerminationTimeout :: Prelude.Maybe Prelude.Int,
+    instanceTerminationTimeout :: Core.Maybe Core.Int,
     -- | Specific list of instances to be terminated when shrinking an instance
     -- group.
-    instancesToTerminate :: Prelude.Maybe [Prelude.Text],
+    instancesToTerminate :: Core.Maybe [Core.Text],
     -- | Specific list of instances to be protected when shrinking an instance
     -- group.
-    instancesToProtect :: Prelude.Maybe [Prelude.Text]
+    instancesToProtect :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceResizePolicy' with all optional fields omitted.
@@ -61,54 +60,54 @@ newInstanceResizePolicy ::
 newInstanceResizePolicy =
   InstanceResizePolicy'
     { instanceTerminationTimeout =
-        Prelude.Nothing,
-      instancesToTerminate = Prelude.Nothing,
-      instancesToProtect = Prelude.Nothing
+        Core.Nothing,
+      instancesToTerminate = Core.Nothing,
+      instancesToProtect = Core.Nothing
     }
 
 -- | Decommissioning timeout override for the specific list of instances to
 -- be terminated.
-instanceResizePolicy_instanceTerminationTimeout :: Lens.Lens' InstanceResizePolicy (Prelude.Maybe Prelude.Int)
+instanceResizePolicy_instanceTerminationTimeout :: Lens.Lens' InstanceResizePolicy (Core.Maybe Core.Int)
 instanceResizePolicy_instanceTerminationTimeout = Lens.lens (\InstanceResizePolicy' {instanceTerminationTimeout} -> instanceTerminationTimeout) (\s@InstanceResizePolicy' {} a -> s {instanceTerminationTimeout = a} :: InstanceResizePolicy)
 
 -- | Specific list of instances to be terminated when shrinking an instance
 -- group.
-instanceResizePolicy_instancesToTerminate :: Lens.Lens' InstanceResizePolicy (Prelude.Maybe [Prelude.Text])
-instanceResizePolicy_instancesToTerminate = Lens.lens (\InstanceResizePolicy' {instancesToTerminate} -> instancesToTerminate) (\s@InstanceResizePolicy' {} a -> s {instancesToTerminate = a} :: InstanceResizePolicy) Prelude.. Lens.mapping Prelude._Coerce
+instanceResizePolicy_instancesToTerminate :: Lens.Lens' InstanceResizePolicy (Core.Maybe [Core.Text])
+instanceResizePolicy_instancesToTerminate = Lens.lens (\InstanceResizePolicy' {instancesToTerminate} -> instancesToTerminate) (\s@InstanceResizePolicy' {} a -> s {instancesToTerminate = a} :: InstanceResizePolicy) Core.. Lens.mapping Lens._Coerce
 
 -- | Specific list of instances to be protected when shrinking an instance
 -- group.
-instanceResizePolicy_instancesToProtect :: Lens.Lens' InstanceResizePolicy (Prelude.Maybe [Prelude.Text])
-instanceResizePolicy_instancesToProtect = Lens.lens (\InstanceResizePolicy' {instancesToProtect} -> instancesToProtect) (\s@InstanceResizePolicy' {} a -> s {instancesToProtect = a} :: InstanceResizePolicy) Prelude.. Lens.mapping Prelude._Coerce
+instanceResizePolicy_instancesToProtect :: Lens.Lens' InstanceResizePolicy (Core.Maybe [Core.Text])
+instanceResizePolicy_instancesToProtect = Lens.lens (\InstanceResizePolicy' {instancesToProtect} -> instancesToProtect) (\s@InstanceResizePolicy' {} a -> s {instancesToProtect = a} :: InstanceResizePolicy) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON InstanceResizePolicy where
+instance Core.FromJSON InstanceResizePolicy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceResizePolicy"
       ( \x ->
           InstanceResizePolicy'
-            Prelude.<$> (x Prelude..:? "InstanceTerminationTimeout")
-            Prelude.<*> ( x Prelude..:? "InstancesToTerminate"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "InstancesToProtect"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "InstanceTerminationTimeout")
+            Core.<*> ( x Core..:? "InstancesToTerminate"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> ( x Core..:? "InstancesToProtect"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable InstanceResizePolicy
+instance Core.Hashable InstanceResizePolicy
 
-instance Prelude.NFData InstanceResizePolicy
+instance Core.NFData InstanceResizePolicy
 
-instance Prelude.ToJSON InstanceResizePolicy where
+instance Core.ToJSON InstanceResizePolicy where
   toJSON InstanceResizePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InstanceTerminationTimeout" Prelude..=)
-              Prelude.<$> instanceTerminationTimeout,
-            ("InstancesToTerminate" Prelude..=)
-              Prelude.<$> instancesToTerminate,
-            ("InstancesToProtect" Prelude..=)
-              Prelude.<$> instancesToProtect
+    Core.object
+      ( Core.catMaybes
+          [ ("InstanceTerminationTimeout" Core..=)
+              Core.<$> instanceTerminationTimeout,
+            ("InstancesToTerminate" Core..=)
+              Core.<$> instancesToTerminate,
+            ("InstancesToProtect" Core..=)
+              Core.<$> instancesToProtect
           ]
       )

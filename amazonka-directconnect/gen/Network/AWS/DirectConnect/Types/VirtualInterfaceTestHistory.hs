@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the virtual interface failover test.
 --
@@ -29,23 +28,23 @@ import qualified Network.AWS.Prelude as Prelude
 data VirtualInterfaceTestHistory = VirtualInterfaceTestHistory'
   { -- | The BGP peers that were put in the DOWN state as part of the virtual
     -- interface failover test.
-    bgpPeers :: Prelude.Maybe [Prelude.Text],
+    bgpPeers :: Core.Maybe [Core.Text],
     -- | The status of the virtual interface failover test.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The ID of the virtual interface failover test.
-    testId :: Prelude.Maybe Prelude.Text,
+    testId :: Core.Maybe Core.Text,
     -- | The time that the virtual interface moves to the DOWN state.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The time that the virtual interface moves out of the DOWN state.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The ID of the tested virtual interface.
-    virtualInterfaceId :: Prelude.Maybe Prelude.Text,
+    virtualInterfaceId :: Core.Maybe Core.Text,
     -- | The owner ID of the tested virtual interface.
-    ownerAccount :: Prelude.Maybe Prelude.Text,
+    ownerAccount :: Core.Maybe Core.Text,
     -- | The time that the virtual interface failover test ran in minutes.
-    testDurationInMinutes :: Prelude.Maybe Prelude.Int
+    testDurationInMinutes :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VirtualInterfaceTestHistory' with all optional fields omitted.
@@ -76,65 +75,65 @@ newVirtualInterfaceTestHistory ::
 newVirtualInterfaceTestHistory =
   VirtualInterfaceTestHistory'
     { bgpPeers =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      testId = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      virtualInterfaceId = Prelude.Nothing,
-      ownerAccount = Prelude.Nothing,
-      testDurationInMinutes = Prelude.Nothing
+        Core.Nothing,
+      status = Core.Nothing,
+      testId = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      virtualInterfaceId = Core.Nothing,
+      ownerAccount = Core.Nothing,
+      testDurationInMinutes = Core.Nothing
     }
 
 -- | The BGP peers that were put in the DOWN state as part of the virtual
 -- interface failover test.
-virtualInterfaceTestHistory_bgpPeers :: Lens.Lens' VirtualInterfaceTestHistory (Prelude.Maybe [Prelude.Text])
-virtualInterfaceTestHistory_bgpPeers = Lens.lens (\VirtualInterfaceTestHistory' {bgpPeers} -> bgpPeers) (\s@VirtualInterfaceTestHistory' {} a -> s {bgpPeers = a} :: VirtualInterfaceTestHistory) Prelude.. Lens.mapping Prelude._Coerce
+virtualInterfaceTestHistory_bgpPeers :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe [Core.Text])
+virtualInterfaceTestHistory_bgpPeers = Lens.lens (\VirtualInterfaceTestHistory' {bgpPeers} -> bgpPeers) (\s@VirtualInterfaceTestHistory' {} a -> s {bgpPeers = a} :: VirtualInterfaceTestHistory) Core.. Lens.mapping Lens._Coerce
 
 -- | The status of the virtual interface failover test.
-virtualInterfaceTestHistory_status :: Lens.Lens' VirtualInterfaceTestHistory (Prelude.Maybe Prelude.Text)
+virtualInterfaceTestHistory_status :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Core.Text)
 virtualInterfaceTestHistory_status = Lens.lens (\VirtualInterfaceTestHistory' {status} -> status) (\s@VirtualInterfaceTestHistory' {} a -> s {status = a} :: VirtualInterfaceTestHistory)
 
 -- | The ID of the virtual interface failover test.
-virtualInterfaceTestHistory_testId :: Lens.Lens' VirtualInterfaceTestHistory (Prelude.Maybe Prelude.Text)
+virtualInterfaceTestHistory_testId :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Core.Text)
 virtualInterfaceTestHistory_testId = Lens.lens (\VirtualInterfaceTestHistory' {testId} -> testId) (\s@VirtualInterfaceTestHistory' {} a -> s {testId = a} :: VirtualInterfaceTestHistory)
 
 -- | The time that the virtual interface moves to the DOWN state.
-virtualInterfaceTestHistory_startTime :: Lens.Lens' VirtualInterfaceTestHistory (Prelude.Maybe Prelude.UTCTime)
-virtualInterfaceTestHistory_startTime = Lens.lens (\VirtualInterfaceTestHistory' {startTime} -> startTime) (\s@VirtualInterfaceTestHistory' {} a -> s {startTime = a} :: VirtualInterfaceTestHistory) Prelude.. Lens.mapping Prelude._Time
+virtualInterfaceTestHistory_startTime :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Core.UTCTime)
+virtualInterfaceTestHistory_startTime = Lens.lens (\VirtualInterfaceTestHistory' {startTime} -> startTime) (\s@VirtualInterfaceTestHistory' {} a -> s {startTime = a} :: VirtualInterfaceTestHistory) Core.. Lens.mapping Core._Time
 
 -- | The time that the virtual interface moves out of the DOWN state.
-virtualInterfaceTestHistory_endTime :: Lens.Lens' VirtualInterfaceTestHistory (Prelude.Maybe Prelude.UTCTime)
-virtualInterfaceTestHistory_endTime = Lens.lens (\VirtualInterfaceTestHistory' {endTime} -> endTime) (\s@VirtualInterfaceTestHistory' {} a -> s {endTime = a} :: VirtualInterfaceTestHistory) Prelude.. Lens.mapping Prelude._Time
+virtualInterfaceTestHistory_endTime :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Core.UTCTime)
+virtualInterfaceTestHistory_endTime = Lens.lens (\VirtualInterfaceTestHistory' {endTime} -> endTime) (\s@VirtualInterfaceTestHistory' {} a -> s {endTime = a} :: VirtualInterfaceTestHistory) Core.. Lens.mapping Core._Time
 
 -- | The ID of the tested virtual interface.
-virtualInterfaceTestHistory_virtualInterfaceId :: Lens.Lens' VirtualInterfaceTestHistory (Prelude.Maybe Prelude.Text)
+virtualInterfaceTestHistory_virtualInterfaceId :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Core.Text)
 virtualInterfaceTestHistory_virtualInterfaceId = Lens.lens (\VirtualInterfaceTestHistory' {virtualInterfaceId} -> virtualInterfaceId) (\s@VirtualInterfaceTestHistory' {} a -> s {virtualInterfaceId = a} :: VirtualInterfaceTestHistory)
 
 -- | The owner ID of the tested virtual interface.
-virtualInterfaceTestHistory_ownerAccount :: Lens.Lens' VirtualInterfaceTestHistory (Prelude.Maybe Prelude.Text)
+virtualInterfaceTestHistory_ownerAccount :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Core.Text)
 virtualInterfaceTestHistory_ownerAccount = Lens.lens (\VirtualInterfaceTestHistory' {ownerAccount} -> ownerAccount) (\s@VirtualInterfaceTestHistory' {} a -> s {ownerAccount = a} :: VirtualInterfaceTestHistory)
 
 -- | The time that the virtual interface failover test ran in minutes.
-virtualInterfaceTestHistory_testDurationInMinutes :: Lens.Lens' VirtualInterfaceTestHistory (Prelude.Maybe Prelude.Int)
+virtualInterfaceTestHistory_testDurationInMinutes :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Core.Int)
 virtualInterfaceTestHistory_testDurationInMinutes = Lens.lens (\VirtualInterfaceTestHistory' {testDurationInMinutes} -> testDurationInMinutes) (\s@VirtualInterfaceTestHistory' {} a -> s {testDurationInMinutes = a} :: VirtualInterfaceTestHistory)
 
-instance Prelude.FromJSON VirtualInterfaceTestHistory where
+instance Core.FromJSON VirtualInterfaceTestHistory where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VirtualInterfaceTestHistory"
       ( \x ->
           VirtualInterfaceTestHistory'
-            Prelude.<$> (x Prelude..:? "bgpPeers" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "testId")
-            Prelude.<*> (x Prelude..:? "startTime")
-            Prelude.<*> (x Prelude..:? "endTime")
-            Prelude.<*> (x Prelude..:? "virtualInterfaceId")
-            Prelude.<*> (x Prelude..:? "ownerAccount")
-            Prelude.<*> (x Prelude..:? "testDurationInMinutes")
+            Core.<$> (x Core..:? "bgpPeers" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "testId")
+            Core.<*> (x Core..:? "startTime")
+            Core.<*> (x Core..:? "endTime")
+            Core.<*> (x Core..:? "virtualInterfaceId")
+            Core.<*> (x Core..:? "ownerAccount")
+            Core.<*> (x Core..:? "testDurationInMinutes")
       )
 
-instance Prelude.Hashable VirtualInterfaceTestHistory
+instance Core.Hashable VirtualInterfaceTestHistory
 
-instance Prelude.NFData VirtualInterfaceTestHistory
+instance Core.NFData VirtualInterfaceTestHistory

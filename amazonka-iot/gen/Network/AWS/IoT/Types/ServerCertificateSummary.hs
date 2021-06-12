@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ServerCertificateSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ServerCertificateStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains information about a server certificate.
 --
 -- /See:/ 'newServerCertificateSummary' smart constructor.
 data ServerCertificateSummary = ServerCertificateSummary'
   { -- | The status of the server certificate.
-    serverCertificateStatus :: Prelude.Maybe ServerCertificateStatus,
+    serverCertificateStatus :: Core.Maybe ServerCertificateStatus,
     -- | The ARN of the server certificate.
-    serverCertificateArn :: Prelude.Maybe Prelude.Text,
+    serverCertificateArn :: Core.Maybe Core.Text,
     -- | Details that explain the status of the server certificate.
-    serverCertificateStatusDetail :: Prelude.Maybe Prelude.Text
+    serverCertificateStatusDetail :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServerCertificateSummary' with all optional fields omitted.
@@ -55,34 +54,34 @@ newServerCertificateSummary ::
 newServerCertificateSummary =
   ServerCertificateSummary'
     { serverCertificateStatus =
-        Prelude.Nothing,
-      serverCertificateArn = Prelude.Nothing,
-      serverCertificateStatusDetail = Prelude.Nothing
+        Core.Nothing,
+      serverCertificateArn = Core.Nothing,
+      serverCertificateStatusDetail = Core.Nothing
     }
 
 -- | The status of the server certificate.
-serverCertificateSummary_serverCertificateStatus :: Lens.Lens' ServerCertificateSummary (Prelude.Maybe ServerCertificateStatus)
+serverCertificateSummary_serverCertificateStatus :: Lens.Lens' ServerCertificateSummary (Core.Maybe ServerCertificateStatus)
 serverCertificateSummary_serverCertificateStatus = Lens.lens (\ServerCertificateSummary' {serverCertificateStatus} -> serverCertificateStatus) (\s@ServerCertificateSummary' {} a -> s {serverCertificateStatus = a} :: ServerCertificateSummary)
 
 -- | The ARN of the server certificate.
-serverCertificateSummary_serverCertificateArn :: Lens.Lens' ServerCertificateSummary (Prelude.Maybe Prelude.Text)
+serverCertificateSummary_serverCertificateArn :: Lens.Lens' ServerCertificateSummary (Core.Maybe Core.Text)
 serverCertificateSummary_serverCertificateArn = Lens.lens (\ServerCertificateSummary' {serverCertificateArn} -> serverCertificateArn) (\s@ServerCertificateSummary' {} a -> s {serverCertificateArn = a} :: ServerCertificateSummary)
 
 -- | Details that explain the status of the server certificate.
-serverCertificateSummary_serverCertificateStatusDetail :: Lens.Lens' ServerCertificateSummary (Prelude.Maybe Prelude.Text)
+serverCertificateSummary_serverCertificateStatusDetail :: Lens.Lens' ServerCertificateSummary (Core.Maybe Core.Text)
 serverCertificateSummary_serverCertificateStatusDetail = Lens.lens (\ServerCertificateSummary' {serverCertificateStatusDetail} -> serverCertificateStatusDetail) (\s@ServerCertificateSummary' {} a -> s {serverCertificateStatusDetail = a} :: ServerCertificateSummary)
 
-instance Prelude.FromJSON ServerCertificateSummary where
+instance Core.FromJSON ServerCertificateSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServerCertificateSummary"
       ( \x ->
           ServerCertificateSummary'
-            Prelude.<$> (x Prelude..:? "serverCertificateStatus")
-            Prelude.<*> (x Prelude..:? "serverCertificateArn")
-            Prelude.<*> (x Prelude..:? "serverCertificateStatusDetail")
+            Core.<$> (x Core..:? "serverCertificateStatus")
+            Core.<*> (x Core..:? "serverCertificateArn")
+            Core.<*> (x Core..:? "serverCertificateStatusDetail")
       )
 
-instance Prelude.Hashable ServerCertificateSummary
+instance Core.Hashable ServerCertificateSummary
 
-instance Prelude.NFData ServerCertificateSummary
+instance Core.NFData ServerCertificateSummary

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.ElasticSearch.RemoveTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +51,12 @@ import qualified Network.AWS.Response as Response
 data RemoveTags = RemoveTags'
   { -- | Specifies the @ARN@ for the Elasticsearch domain from which you want to
     -- delete the specified tags.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | Specifies the @TagKey@ list which you want to remove from the
     -- Elasticsearch domain.
-    tagKeys :: [Prelude.Text]
+    tagKeys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveTags' with all optional fields omitted.
@@ -74,53 +73,53 @@ data RemoveTags = RemoveTags'
 -- Elasticsearch domain.
 newRemoveTags ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   RemoveTags
 newRemoveTags pARN_ =
-  RemoveTags' {arn = pARN_, tagKeys = Prelude.mempty}
+  RemoveTags' {arn = pARN_, tagKeys = Core.mempty}
 
 -- | Specifies the @ARN@ for the Elasticsearch domain from which you want to
 -- delete the specified tags.
-removeTags_arn :: Lens.Lens' RemoveTags Prelude.Text
+removeTags_arn :: Lens.Lens' RemoveTags Core.Text
 removeTags_arn = Lens.lens (\RemoveTags' {arn} -> arn) (\s@RemoveTags' {} a -> s {arn = a} :: RemoveTags)
 
 -- | Specifies the @TagKey@ list which you want to remove from the
 -- Elasticsearch domain.
-removeTags_tagKeys :: Lens.Lens' RemoveTags [Prelude.Text]
-removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Prelude._Coerce
+removeTags_tagKeys :: Lens.Lens' RemoveTags [Core.Text]
+removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest RemoveTags where
-  type Rs RemoveTags = RemoveTagsResponse
+instance Core.AWSRequest RemoveTags where
+  type AWSResponse RemoveTags = RemoveTagsResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull RemoveTagsResponse'
 
-instance Prelude.Hashable RemoveTags
+instance Core.Hashable RemoveTags
 
-instance Prelude.NFData RemoveTags
+instance Core.NFData RemoveTags
 
-instance Prelude.ToHeaders RemoveTags where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RemoveTags where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON RemoveTags where
+instance Core.ToJSON RemoveTags where
   toJSON RemoveTags' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ARN" Prelude..= arn),
-            Prelude.Just ("TagKeys" Prelude..= tagKeys)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ARN" Core..= arn),
+            Core.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
-instance Prelude.ToPath RemoveTags where
-  toPath = Prelude.const "/2015-01-01/tags-removal"
+instance Core.ToPath RemoveTags where
+  toPath = Core.const "/2015-01-01/tags-removal"
 
-instance Prelude.ToQuery RemoveTags where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RemoveTags where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRemoveTagsResponse' smart constructor.
 data RemoveTagsResponse = RemoveTagsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsResponse' with all optional fields omitted.
@@ -130,4 +129,4 @@ newRemoveTagsResponse ::
   RemoveTagsResponse
 newRemoveTagsResponse = RemoveTagsResponse'
 
-instance Prelude.NFData RemoveTagsResponse
+instance Core.NFData RemoveTagsResponse

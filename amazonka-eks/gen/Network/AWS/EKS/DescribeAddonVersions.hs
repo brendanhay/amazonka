@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,10 +45,9 @@ module Network.AWS.EKS.DescribeAddonVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,17 +61,17 @@ data DescribeAddonVersions = DescribeAddonVersions'
     -- This token should be treated as an opaque identifier that is used only
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The Kubernetes versions that the add-on can be used with.
-    kubernetesVersion :: Prelude.Maybe Prelude.Text,
+    kubernetesVersion :: Core.Maybe Core.Text,
     -- | The name of the add-on. The name must match one of the names returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
     -- .
-    addonName :: Prelude.Maybe Prelude.Text
+    addonName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAddonVersions' with all optional fields omitted.
@@ -103,10 +101,10 @@ newDescribeAddonVersions ::
   DescribeAddonVersions
 newDescribeAddonVersions =
   DescribeAddonVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      kubernetesVersion = Prelude.Nothing,
-      addonName = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      kubernetesVersion = Core.Nothing,
+      addonName = Core.Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated
@@ -117,84 +115,82 @@ newDescribeAddonVersions =
 -- This token should be treated as an opaque identifier that is used only
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-describeAddonVersions_nextToken :: Lens.Lens' DescribeAddonVersions (Prelude.Maybe Prelude.Text)
+describeAddonVersions_nextToken :: Lens.Lens' DescribeAddonVersions (Core.Maybe Core.Text)
 describeAddonVersions_nextToken = Lens.lens (\DescribeAddonVersions' {nextToken} -> nextToken) (\s@DescribeAddonVersions' {} a -> s {nextToken = a} :: DescribeAddonVersions)
 
 -- | The maximum number of results to return.
-describeAddonVersions_maxResults :: Lens.Lens' DescribeAddonVersions (Prelude.Maybe Prelude.Natural)
+describeAddonVersions_maxResults :: Lens.Lens' DescribeAddonVersions (Core.Maybe Core.Natural)
 describeAddonVersions_maxResults = Lens.lens (\DescribeAddonVersions' {maxResults} -> maxResults) (\s@DescribeAddonVersions' {} a -> s {maxResults = a} :: DescribeAddonVersions)
 
 -- | The Kubernetes versions that the add-on can be used with.
-describeAddonVersions_kubernetesVersion :: Lens.Lens' DescribeAddonVersions (Prelude.Maybe Prelude.Text)
+describeAddonVersions_kubernetesVersion :: Lens.Lens' DescribeAddonVersions (Core.Maybe Core.Text)
 describeAddonVersions_kubernetesVersion = Lens.lens (\DescribeAddonVersions' {kubernetesVersion} -> kubernetesVersion) (\s@DescribeAddonVersions' {} a -> s {kubernetesVersion = a} :: DescribeAddonVersions)
 
 -- | The name of the add-on. The name must match one of the names returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
 -- .
-describeAddonVersions_addonName :: Lens.Lens' DescribeAddonVersions (Prelude.Maybe Prelude.Text)
+describeAddonVersions_addonName :: Lens.Lens' DescribeAddonVersions (Core.Maybe Core.Text)
 describeAddonVersions_addonName = Lens.lens (\DescribeAddonVersions' {addonName} -> addonName) (\s@DescribeAddonVersions' {} a -> s {addonName = a} :: DescribeAddonVersions)
 
-instance Pager.AWSPager DescribeAddonVersions where
+instance Core.AWSPager DescribeAddonVersions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeAddonVersionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeAddonVersionsResponse_addons
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeAddonVersions_nextToken
           Lens..~ rs
           Lens.^? describeAddonVersionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeAddonVersions where
+instance Core.AWSRequest DescribeAddonVersions where
   type
-    Rs DescribeAddonVersions =
+    AWSResponse DescribeAddonVersions =
       DescribeAddonVersionsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAddonVersionsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "addons" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "addons" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAddonVersions
+instance Core.Hashable DescribeAddonVersions
 
-instance Prelude.NFData DescribeAddonVersions
+instance Core.NFData DescribeAddonVersions
 
-instance Prelude.ToHeaders DescribeAddonVersions where
+instance Core.ToHeaders DescribeAddonVersions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeAddonVersions where
-  toPath = Prelude.const "/addons/supported-versions"
+instance Core.ToPath DescribeAddonVersions where
+  toPath = Core.const "/addons/supported-versions"
 
-instance Prelude.ToQuery DescribeAddonVersions where
+instance Core.ToQuery DescribeAddonVersions where
   toQuery DescribeAddonVersions' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults,
-        "kubernetesVersion" Prelude.=: kubernetesVersion,
-        "addonName" Prelude.=: addonName
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults,
+        "kubernetesVersion" Core.=: kubernetesVersion,
+        "addonName" Core.=: addonName
       ]
 
 -- | /See:/ 'newDescribeAddonVersionsResponse' smart constructor.
@@ -207,13 +203,13 @@ data DescribeAddonVersionsResponse = DescribeAddonVersionsResponse'
     -- This token should be treated as an opaque identifier that is used only
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of available versions with Kubernetes version compatibility.
-    addons :: Prelude.Maybe [AddonInfo],
+    addons :: Core.Maybe [AddonInfo],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAddonVersionsResponse' with all optional fields omitted.
@@ -237,13 +233,13 @@ data DescribeAddonVersionsResponse = DescribeAddonVersionsResponse'
 -- 'httpStatus', 'describeAddonVersionsResponse_httpStatus' - The response's http status code.
 newDescribeAddonVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAddonVersionsResponse
 newDescribeAddonVersionsResponse pHttpStatus_ =
   DescribeAddonVersionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      addons = Prelude.Nothing,
+        Core.Nothing,
+      addons = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -255,15 +251,15 @@ newDescribeAddonVersionsResponse pHttpStatus_ =
 -- This token should be treated as an opaque identifier that is used only
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-describeAddonVersionsResponse_nextToken :: Lens.Lens' DescribeAddonVersionsResponse (Prelude.Maybe Prelude.Text)
+describeAddonVersionsResponse_nextToken :: Lens.Lens' DescribeAddonVersionsResponse (Core.Maybe Core.Text)
 describeAddonVersionsResponse_nextToken = Lens.lens (\DescribeAddonVersionsResponse' {nextToken} -> nextToken) (\s@DescribeAddonVersionsResponse' {} a -> s {nextToken = a} :: DescribeAddonVersionsResponse)
 
 -- | The list of available versions with Kubernetes version compatibility.
-describeAddonVersionsResponse_addons :: Lens.Lens' DescribeAddonVersionsResponse (Prelude.Maybe [AddonInfo])
-describeAddonVersionsResponse_addons = Lens.lens (\DescribeAddonVersionsResponse' {addons} -> addons) (\s@DescribeAddonVersionsResponse' {} a -> s {addons = a} :: DescribeAddonVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAddonVersionsResponse_addons :: Lens.Lens' DescribeAddonVersionsResponse (Core.Maybe [AddonInfo])
+describeAddonVersionsResponse_addons = Lens.lens (\DescribeAddonVersionsResponse' {addons} -> addons) (\s@DescribeAddonVersionsResponse' {} a -> s {addons = a} :: DescribeAddonVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAddonVersionsResponse_httpStatus :: Lens.Lens' DescribeAddonVersionsResponse Prelude.Int
+describeAddonVersionsResponse_httpStatus :: Lens.Lens' DescribeAddonVersionsResponse Core.Int
 describeAddonVersionsResponse_httpStatus = Lens.lens (\DescribeAddonVersionsResponse' {httpStatus} -> httpStatus) (\s@DescribeAddonVersionsResponse' {} a -> s {httpStatus = a} :: DescribeAddonVersionsResponse)
 
-instance Prelude.NFData DescribeAddonVersionsResponse
+instance Core.NFData DescribeAddonVersionsResponse

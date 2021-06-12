@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.ActivityTaskCanceledEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @ActivityTaskCanceled@ event.
 --
@@ -31,20 +30,20 @@ data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes'
     -- recorded for this activity task. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    latestCancelRequestedEventId :: Prelude.Maybe Prelude.Integer,
+    latestCancelRequestedEventId :: Core.Maybe Core.Integer,
     -- | Details of the cancellation.
-    details :: Prelude.Maybe Prelude.Text,
+    details :: Core.Maybe Core.Text,
     -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
     -- activity task was scheduled. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    scheduledEventId :: Prelude.Integer,
+    scheduledEventId :: Core.Integer,
     -- | The ID of the @ActivityTaskStarted@ event recorded when this activity
     -- task was started. This information can be useful for diagnosing problems
     -- by tracing back the chain of events leading up to this event.
-    startedEventId :: Prelude.Integer
+    startedEventId :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActivityTaskCanceledEventAttributes' with all optional fields omitted.
@@ -71,17 +70,17 @@ data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes'
 -- by tracing back the chain of events leading up to this event.
 newActivityTaskCanceledEventAttributes ::
   -- | 'scheduledEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'startedEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   ActivityTaskCanceledEventAttributes
 newActivityTaskCanceledEventAttributes
   pScheduledEventId_
   pStartedEventId_ =
     ActivityTaskCanceledEventAttributes'
       { latestCancelRequestedEventId =
-          Prelude.Nothing,
-        details = Prelude.Nothing,
+          Core.Nothing,
+        details = Core.Nothing,
         scheduledEventId = pScheduledEventId_,
         startedEventId = pStartedEventId_
       }
@@ -90,45 +89,45 @@ newActivityTaskCanceledEventAttributes
 -- recorded for this activity task. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-activityTaskCanceledEventAttributes_latestCancelRequestedEventId :: Lens.Lens' ActivityTaskCanceledEventAttributes (Prelude.Maybe Prelude.Integer)
+activityTaskCanceledEventAttributes_latestCancelRequestedEventId :: Lens.Lens' ActivityTaskCanceledEventAttributes (Core.Maybe Core.Integer)
 activityTaskCanceledEventAttributes_latestCancelRequestedEventId = Lens.lens (\ActivityTaskCanceledEventAttributes' {latestCancelRequestedEventId} -> latestCancelRequestedEventId) (\s@ActivityTaskCanceledEventAttributes' {} a -> s {latestCancelRequestedEventId = a} :: ActivityTaskCanceledEventAttributes)
 
 -- | Details of the cancellation.
-activityTaskCanceledEventAttributes_details :: Lens.Lens' ActivityTaskCanceledEventAttributes (Prelude.Maybe Prelude.Text)
+activityTaskCanceledEventAttributes_details :: Lens.Lens' ActivityTaskCanceledEventAttributes (Core.Maybe Core.Text)
 activityTaskCanceledEventAttributes_details = Lens.lens (\ActivityTaskCanceledEventAttributes' {details} -> details) (\s@ActivityTaskCanceledEventAttributes' {} a -> s {details = a} :: ActivityTaskCanceledEventAttributes)
 
 -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-activityTaskCanceledEventAttributes_scheduledEventId :: Lens.Lens' ActivityTaskCanceledEventAttributes Prelude.Integer
+activityTaskCanceledEventAttributes_scheduledEventId :: Lens.Lens' ActivityTaskCanceledEventAttributes Core.Integer
 activityTaskCanceledEventAttributes_scheduledEventId = Lens.lens (\ActivityTaskCanceledEventAttributes' {scheduledEventId} -> scheduledEventId) (\s@ActivityTaskCanceledEventAttributes' {} a -> s {scheduledEventId = a} :: ActivityTaskCanceledEventAttributes)
 
 -- | The ID of the @ActivityTaskStarted@ event recorded when this activity
 -- task was started. This information can be useful for diagnosing problems
 -- by tracing back the chain of events leading up to this event.
-activityTaskCanceledEventAttributes_startedEventId :: Lens.Lens' ActivityTaskCanceledEventAttributes Prelude.Integer
+activityTaskCanceledEventAttributes_startedEventId :: Lens.Lens' ActivityTaskCanceledEventAttributes Core.Integer
 activityTaskCanceledEventAttributes_startedEventId = Lens.lens (\ActivityTaskCanceledEventAttributes' {startedEventId} -> startedEventId) (\s@ActivityTaskCanceledEventAttributes' {} a -> s {startedEventId = a} :: ActivityTaskCanceledEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ActivityTaskCanceledEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActivityTaskCanceledEventAttributes"
       ( \x ->
           ActivityTaskCanceledEventAttributes'
-            Prelude.<$> (x Prelude..:? "latestCancelRequestedEventId")
-            Prelude.<*> (x Prelude..:? "details")
-            Prelude.<*> (x Prelude..: "scheduledEventId")
-            Prelude.<*> (x Prelude..: "startedEventId")
+            Core.<$> (x Core..:? "latestCancelRequestedEventId")
+            Core.<*> (x Core..:? "details")
+            Core.<*> (x Core..: "scheduledEventId")
+            Core.<*> (x Core..: "startedEventId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ActivityTaskCanceledEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     ActivityTaskCanceledEventAttributes

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.OutputFormatConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.Serializer
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the serializer that you want Kinesis Data Firehose to use to
 -- convert the format of your data before it writes it to Amazon S3. This
@@ -33,9 +32,9 @@ data OutputFormatConfiguration = OutputFormatConfiguration'
   { -- | Specifies which serializer to use. You can choose either the ORC SerDe
     -- or the Parquet SerDe. If both are non-null, the server rejects the
     -- request.
-    serializer :: Prelude.Maybe Serializer
+    serializer :: Core.Maybe Serializer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputFormatConfiguration' with all optional fields omitted.
@@ -53,31 +52,31 @@ newOutputFormatConfiguration ::
 newOutputFormatConfiguration =
   OutputFormatConfiguration'
     { serializer =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies which serializer to use. You can choose either the ORC SerDe
 -- or the Parquet SerDe. If both are non-null, the server rejects the
 -- request.
-outputFormatConfiguration_serializer :: Lens.Lens' OutputFormatConfiguration (Prelude.Maybe Serializer)
+outputFormatConfiguration_serializer :: Lens.Lens' OutputFormatConfiguration (Core.Maybe Serializer)
 outputFormatConfiguration_serializer = Lens.lens (\OutputFormatConfiguration' {serializer} -> serializer) (\s@OutputFormatConfiguration' {} a -> s {serializer = a} :: OutputFormatConfiguration)
 
-instance Prelude.FromJSON OutputFormatConfiguration where
+instance Core.FromJSON OutputFormatConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputFormatConfiguration"
       ( \x ->
           OutputFormatConfiguration'
-            Prelude.<$> (x Prelude..:? "Serializer")
+            Core.<$> (x Core..:? "Serializer")
       )
 
-instance Prelude.Hashable OutputFormatConfiguration
+instance Core.Hashable OutputFormatConfiguration
 
-instance Prelude.NFData OutputFormatConfiguration
+instance Core.NFData OutputFormatConfiguration
 
-instance Prelude.ToJSON OutputFormatConfiguration where
+instance Core.ToJSON OutputFormatConfiguration where
   toJSON OutputFormatConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Serializer" Prelude..=) Prelude.<$> serializer]
+    Core.object
+      ( Core.catMaybes
+          [("Serializer" Core..=) Core.<$> serializer]
       )

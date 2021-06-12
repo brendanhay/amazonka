@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceMonitoring where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Monitoring
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the monitoring of an instance.
 --
 -- /See:/ 'newInstanceMonitoring' smart constructor.
 data InstanceMonitoring = InstanceMonitoring'
   { -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The monitoring for the instance.
-    monitoring :: Prelude.Maybe Monitoring
+    monitoring :: Core.Maybe Monitoring
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceMonitoring' with all optional fields omitted.
@@ -51,24 +50,24 @@ newInstanceMonitoring ::
   InstanceMonitoring
 newInstanceMonitoring =
   InstanceMonitoring'
-    { instanceId = Prelude.Nothing,
-      monitoring = Prelude.Nothing
+    { instanceId = Core.Nothing,
+      monitoring = Core.Nothing
     }
 
 -- | The ID of the instance.
-instanceMonitoring_instanceId :: Lens.Lens' InstanceMonitoring (Prelude.Maybe Prelude.Text)
+instanceMonitoring_instanceId :: Lens.Lens' InstanceMonitoring (Core.Maybe Core.Text)
 instanceMonitoring_instanceId = Lens.lens (\InstanceMonitoring' {instanceId} -> instanceId) (\s@InstanceMonitoring' {} a -> s {instanceId = a} :: InstanceMonitoring)
 
 -- | The monitoring for the instance.
-instanceMonitoring_monitoring :: Lens.Lens' InstanceMonitoring (Prelude.Maybe Monitoring)
+instanceMonitoring_monitoring :: Lens.Lens' InstanceMonitoring (Core.Maybe Monitoring)
 instanceMonitoring_monitoring = Lens.lens (\InstanceMonitoring' {monitoring} -> monitoring) (\s@InstanceMonitoring' {} a -> s {monitoring = a} :: InstanceMonitoring)
 
-instance Prelude.FromXML InstanceMonitoring where
+instance Core.FromXML InstanceMonitoring where
   parseXML x =
     InstanceMonitoring'
-      Prelude.<$> (x Prelude..@? "instanceId")
-      Prelude.<*> (x Prelude..@? "monitoring")
+      Core.<$> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "monitoring")
 
-instance Prelude.Hashable InstanceMonitoring
+instance Core.Hashable InstanceMonitoring
 
-instance Prelude.NFData InstanceMonitoring
+instance Core.NFData InstanceMonitoring

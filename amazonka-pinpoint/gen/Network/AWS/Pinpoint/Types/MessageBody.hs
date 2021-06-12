@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.MessageBody where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about an API request or response.
 --
 -- /See:/ 'newMessageBody' smart constructor.
 data MessageBody = MessageBody'
   { -- | The message that\'s returned from the API.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The unique identifier for the request or response.
-    requestID :: Prelude.Maybe Prelude.Text
+    requestID :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MessageBody' with all optional fields omitted.
@@ -49,28 +48,28 @@ newMessageBody ::
   MessageBody
 newMessageBody =
   MessageBody'
-    { message = Prelude.Nothing,
-      requestID = Prelude.Nothing
+    { message = Core.Nothing,
+      requestID = Core.Nothing
     }
 
 -- | The message that\'s returned from the API.
-messageBody_message :: Lens.Lens' MessageBody (Prelude.Maybe Prelude.Text)
+messageBody_message :: Lens.Lens' MessageBody (Core.Maybe Core.Text)
 messageBody_message = Lens.lens (\MessageBody' {message} -> message) (\s@MessageBody' {} a -> s {message = a} :: MessageBody)
 
 -- | The unique identifier for the request or response.
-messageBody_requestID :: Lens.Lens' MessageBody (Prelude.Maybe Prelude.Text)
+messageBody_requestID :: Lens.Lens' MessageBody (Core.Maybe Core.Text)
 messageBody_requestID = Lens.lens (\MessageBody' {requestID} -> requestID) (\s@MessageBody' {} a -> s {requestID = a} :: MessageBody)
 
-instance Prelude.FromJSON MessageBody where
+instance Core.FromJSON MessageBody where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MessageBody"
       ( \x ->
           MessageBody'
-            Prelude.<$> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "RequestID")
+            Core.<$> (x Core..:? "Message")
+            Core.<*> (x Core..:? "RequestID")
       )
 
-instance Prelude.Hashable MessageBody
+instance Core.Hashable MessageBody
 
-instance Prelude.NFData MessageBody
+instance Core.NFData MessageBody

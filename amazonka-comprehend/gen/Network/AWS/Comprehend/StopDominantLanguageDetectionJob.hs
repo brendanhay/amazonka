@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,17 +53,17 @@ module Network.AWS.Comprehend.StopDominantLanguageDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopDominantLanguageDetectionJob' smart constructor.
 data StopDominantLanguageDetectionJob = StopDominantLanguageDetectionJob'
   { -- | The identifier of the dominant language detection job to stop.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopDominantLanguageDetectionJob' with all optional fields omitted.
@@ -77,92 +76,80 @@ data StopDominantLanguageDetectionJob = StopDominantLanguageDetectionJob'
 -- 'jobId', 'stopDominantLanguageDetectionJob_jobId' - The identifier of the dominant language detection job to stop.
 newStopDominantLanguageDetectionJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   StopDominantLanguageDetectionJob
 newStopDominantLanguageDetectionJob pJobId_ =
   StopDominantLanguageDetectionJob' {jobId = pJobId_}
 
 -- | The identifier of the dominant language detection job to stop.
-stopDominantLanguageDetectionJob_jobId :: Lens.Lens' StopDominantLanguageDetectionJob Prelude.Text
+stopDominantLanguageDetectionJob_jobId :: Lens.Lens' StopDominantLanguageDetectionJob Core.Text
 stopDominantLanguageDetectionJob_jobId = Lens.lens (\StopDominantLanguageDetectionJob' {jobId} -> jobId) (\s@StopDominantLanguageDetectionJob' {} a -> s {jobId = a} :: StopDominantLanguageDetectionJob)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     StopDominantLanguageDetectionJob
   where
   type
-    Rs StopDominantLanguageDetectionJob =
+    AWSResponse StopDominantLanguageDetectionJob =
       StopDominantLanguageDetectionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopDominantLanguageDetectionJobResponse'
-            Prelude.<$> (x Prelude..?> "JobStatus")
-            Prelude.<*> (x Prelude..?> "JobId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobStatus")
+            Core.<*> (x Core..?> "JobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     StopDominantLanguageDetectionJob
 
-instance
-  Prelude.NFData
-    StopDominantLanguageDetectionJob
+instance Core.NFData StopDominantLanguageDetectionJob
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     StopDominantLanguageDetectionJob
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.StopDominantLanguageDetectionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.StopDominantLanguageDetectionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    StopDominantLanguageDetectionJob
-  where
+instance Core.ToJSON StopDominantLanguageDetectionJob where
   toJSON StopDominantLanguageDetectionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.ToPath StopDominantLanguageDetectionJob where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToPath
+  Core.ToQuery
     StopDominantLanguageDetectionJob
   where
-  toPath = Prelude.const "/"
-
-instance
-  Prelude.ToQuery
-    StopDominantLanguageDetectionJob
-  where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopDominantLanguageDetectionJobResponse' smart constructor.
 data StopDominantLanguageDetectionJobResponse = StopDominantLanguageDetectionJobResponse'
   { -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
     -- the job was previously stopped with the
     -- @StopDominantLanguageDetectionJob@ operation.
-    jobStatus :: Prelude.Maybe JobStatus,
+    jobStatus :: Core.Maybe JobStatus,
     -- | The identifier of the dominant language detection job to stop.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopDominantLanguageDetectionJobResponse' with all optional fields omitted.
@@ -181,31 +168,31 @@ data StopDominantLanguageDetectionJobResponse = StopDominantLanguageDetectionJob
 -- 'httpStatus', 'stopDominantLanguageDetectionJobResponse_httpStatus' - The response's http status code.
 newStopDominantLanguageDetectionJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopDominantLanguageDetectionJobResponse
 newStopDominantLanguageDetectionJobResponse
   pHttpStatus_ =
     StopDominantLanguageDetectionJobResponse'
       { jobStatus =
-          Prelude.Nothing,
-        jobId = Prelude.Nothing,
+          Core.Nothing,
+        jobId = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the
 -- @StopDominantLanguageDetectionJob@ operation.
-stopDominantLanguageDetectionJobResponse_jobStatus :: Lens.Lens' StopDominantLanguageDetectionJobResponse (Prelude.Maybe JobStatus)
+stopDominantLanguageDetectionJobResponse_jobStatus :: Lens.Lens' StopDominantLanguageDetectionJobResponse (Core.Maybe JobStatus)
 stopDominantLanguageDetectionJobResponse_jobStatus = Lens.lens (\StopDominantLanguageDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopDominantLanguageDetectionJobResponse' {} a -> s {jobStatus = a} :: StopDominantLanguageDetectionJobResponse)
 
 -- | The identifier of the dominant language detection job to stop.
-stopDominantLanguageDetectionJobResponse_jobId :: Lens.Lens' StopDominantLanguageDetectionJobResponse (Prelude.Maybe Prelude.Text)
+stopDominantLanguageDetectionJobResponse_jobId :: Lens.Lens' StopDominantLanguageDetectionJobResponse (Core.Maybe Core.Text)
 stopDominantLanguageDetectionJobResponse_jobId = Lens.lens (\StopDominantLanguageDetectionJobResponse' {jobId} -> jobId) (\s@StopDominantLanguageDetectionJobResponse' {} a -> s {jobId = a} :: StopDominantLanguageDetectionJobResponse)
 
 -- | The response's http status code.
-stopDominantLanguageDetectionJobResponse_httpStatus :: Lens.Lens' StopDominantLanguageDetectionJobResponse Prelude.Int
+stopDominantLanguageDetectionJobResponse_httpStatus :: Lens.Lens' StopDominantLanguageDetectionJobResponse Core.Int
 stopDominantLanguageDetectionJobResponse_httpStatus = Lens.lens (\StopDominantLanguageDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StopDominantLanguageDetectionJobResponse' {} a -> s {httpStatus = a} :: StopDominantLanguageDetectionJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StopDominantLanguageDetectionJobResponse

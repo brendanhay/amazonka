@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AvailabilityZoneMessage where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a message about an Availability Zone, Local Zone, or
 -- Wavelength Zone.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAvailabilityZoneMessage' smart constructor.
 data AvailabilityZoneMessage = AvailabilityZoneMessage'
   { -- | The message about the Availability Zone, Local Zone, or Wavelength Zone.
-    message :: Prelude.Maybe Prelude.Text
+    message :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AvailabilityZoneMessage' with all optional fields omitted.
@@ -46,17 +45,17 @@ data AvailabilityZoneMessage = AvailabilityZoneMessage'
 newAvailabilityZoneMessage ::
   AvailabilityZoneMessage
 newAvailabilityZoneMessage =
-  AvailabilityZoneMessage' {message = Prelude.Nothing}
+  AvailabilityZoneMessage' {message = Core.Nothing}
 
 -- | The message about the Availability Zone, Local Zone, or Wavelength Zone.
-availabilityZoneMessage_message :: Lens.Lens' AvailabilityZoneMessage (Prelude.Maybe Prelude.Text)
+availabilityZoneMessage_message :: Lens.Lens' AvailabilityZoneMessage (Core.Maybe Core.Text)
 availabilityZoneMessage_message = Lens.lens (\AvailabilityZoneMessage' {message} -> message) (\s@AvailabilityZoneMessage' {} a -> s {message = a} :: AvailabilityZoneMessage)
 
-instance Prelude.FromXML AvailabilityZoneMessage where
+instance Core.FromXML AvailabilityZoneMessage where
   parseXML x =
     AvailabilityZoneMessage'
-      Prelude.<$> (x Prelude..@? "message")
+      Core.<$> (x Core..@? "message")
 
-instance Prelude.Hashable AvailabilityZoneMessage
+instance Core.Hashable AvailabilityZoneMessage
 
-instance Prelude.NFData AvailabilityZoneMessage
+instance Core.NFData AvailabilityZoneMessage

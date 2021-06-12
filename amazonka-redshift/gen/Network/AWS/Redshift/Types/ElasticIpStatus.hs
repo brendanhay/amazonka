@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.ElasticIpStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes the status of the elastic IP (EIP) address.
@@ -29,11 +28,11 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newElasticIpStatus' smart constructor.
 data ElasticIpStatus = ElasticIpStatus'
   { -- | The elastic IP (EIP) address for the cluster.
-    elasticIp :: Prelude.Maybe Prelude.Text,
+    elasticIp :: Core.Maybe Core.Text,
     -- | The status of the elastic IP (EIP) address.
-    status :: Prelude.Maybe Prelude.Text
+    status :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ElasticIpStatus' with all optional fields omitted.
@@ -50,24 +49,24 @@ newElasticIpStatus ::
   ElasticIpStatus
 newElasticIpStatus =
   ElasticIpStatus'
-    { elasticIp = Prelude.Nothing,
-      status = Prelude.Nothing
+    { elasticIp = Core.Nothing,
+      status = Core.Nothing
     }
 
 -- | The elastic IP (EIP) address for the cluster.
-elasticIpStatus_elasticIp :: Lens.Lens' ElasticIpStatus (Prelude.Maybe Prelude.Text)
+elasticIpStatus_elasticIp :: Lens.Lens' ElasticIpStatus (Core.Maybe Core.Text)
 elasticIpStatus_elasticIp = Lens.lens (\ElasticIpStatus' {elasticIp} -> elasticIp) (\s@ElasticIpStatus' {} a -> s {elasticIp = a} :: ElasticIpStatus)
 
 -- | The status of the elastic IP (EIP) address.
-elasticIpStatus_status :: Lens.Lens' ElasticIpStatus (Prelude.Maybe Prelude.Text)
+elasticIpStatus_status :: Lens.Lens' ElasticIpStatus (Core.Maybe Core.Text)
 elasticIpStatus_status = Lens.lens (\ElasticIpStatus' {status} -> status) (\s@ElasticIpStatus' {} a -> s {status = a} :: ElasticIpStatus)
 
-instance Prelude.FromXML ElasticIpStatus where
+instance Core.FromXML ElasticIpStatus where
   parseXML x =
     ElasticIpStatus'
-      Prelude.<$> (x Prelude..@? "ElasticIp")
-      Prelude.<*> (x Prelude..@? "Status")
+      Core.<$> (x Core..@? "ElasticIp")
+      Core.<*> (x Core..@? "Status")
 
-instance Prelude.Hashable ElasticIpStatus
+instance Core.Hashable ElasticIpStatus
 
-instance Prelude.NFData ElasticIpStatus
+instance Core.NFData ElasticIpStatus

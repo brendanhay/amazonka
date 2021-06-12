@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.EFS.DescribeBackupPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeBackupPolicy' smart constructor.
 data DescribeBackupPolicy = DescribeBackupPolicy'
   { -- | Specifies which EFS file system to retrieve the @BackupPolicy@ for.
-    fileSystemId :: Prelude.Text
+    fileSystemId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeBackupPolicy' with all optional fields omitted.
@@ -63,7 +62,7 @@ data DescribeBackupPolicy = DescribeBackupPolicy'
 -- 'fileSystemId', 'describeBackupPolicy_fileSystemId' - Specifies which EFS file system to retrieve the @BackupPolicy@ for.
 newDescribeBackupPolicy ::
   -- | 'fileSystemId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeBackupPolicy
 newDescribeBackupPolicy pFileSystemId_ =
   DescribeBackupPolicy'
@@ -72,32 +71,32 @@ newDescribeBackupPolicy pFileSystemId_ =
     }
 
 -- | Specifies which EFS file system to retrieve the @BackupPolicy@ for.
-describeBackupPolicy_fileSystemId :: Lens.Lens' DescribeBackupPolicy Prelude.Text
+describeBackupPolicy_fileSystemId :: Lens.Lens' DescribeBackupPolicy Core.Text
 describeBackupPolicy_fileSystemId = Lens.lens (\DescribeBackupPolicy' {fileSystemId} -> fileSystemId) (\s@DescribeBackupPolicy' {} a -> s {fileSystemId = a} :: DescribeBackupPolicy)
 
-instance Prelude.AWSRequest DescribeBackupPolicy where
+instance Core.AWSRequest DescribeBackupPolicy where
   type
-    Rs DescribeBackupPolicy =
+    AWSResponse DescribeBackupPolicy =
       BackupPolicyDescription
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DescribeBackupPolicy
+instance Core.Hashable DescribeBackupPolicy
 
-instance Prelude.NFData DescribeBackupPolicy
+instance Core.NFData DescribeBackupPolicy
 
-instance Prelude.ToHeaders DescribeBackupPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeBackupPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeBackupPolicy where
+instance Core.ToPath DescribeBackupPolicy where
   toPath DescribeBackupPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-02-01/file-systems/",
-        Prelude.toBS fileSystemId,
+        Core.toBS fileSystemId,
         "/backup-policy"
       ]
 
-instance Prelude.ToQuery DescribeBackupPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeBackupPolicy where
+  toQuery = Core.const Core.mempty

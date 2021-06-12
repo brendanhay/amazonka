@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.AutoMLOutputDataConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The output data configuration.
 --
 -- /See:/ 'newAutoMLOutputDataConfig' smart constructor.
 data AutoMLOutputDataConfig = AutoMLOutputDataConfig'
   { -- | The AWS KMS encryption key ID.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The Amazon S3 output path. Must be 128 characters or less.
-    s3OutputPath :: Prelude.Text
+    s3OutputPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoMLOutputDataConfig' with all optional fields omitted.
@@ -47,42 +46,41 @@ data AutoMLOutputDataConfig = AutoMLOutputDataConfig'
 -- 's3OutputPath', 'autoMLOutputDataConfig_s3OutputPath' - The Amazon S3 output path. Must be 128 characters or less.
 newAutoMLOutputDataConfig ::
   -- | 's3OutputPath'
-  Prelude.Text ->
+  Core.Text ->
   AutoMLOutputDataConfig
 newAutoMLOutputDataConfig pS3OutputPath_ =
   AutoMLOutputDataConfig'
-    { kmsKeyId = Prelude.Nothing,
+    { kmsKeyId = Core.Nothing,
       s3OutputPath = pS3OutputPath_
     }
 
 -- | The AWS KMS encryption key ID.
-autoMLOutputDataConfig_kmsKeyId :: Lens.Lens' AutoMLOutputDataConfig (Prelude.Maybe Prelude.Text)
+autoMLOutputDataConfig_kmsKeyId :: Lens.Lens' AutoMLOutputDataConfig (Core.Maybe Core.Text)
 autoMLOutputDataConfig_kmsKeyId = Lens.lens (\AutoMLOutputDataConfig' {kmsKeyId} -> kmsKeyId) (\s@AutoMLOutputDataConfig' {} a -> s {kmsKeyId = a} :: AutoMLOutputDataConfig)
 
 -- | The Amazon S3 output path. Must be 128 characters or less.
-autoMLOutputDataConfig_s3OutputPath :: Lens.Lens' AutoMLOutputDataConfig Prelude.Text
+autoMLOutputDataConfig_s3OutputPath :: Lens.Lens' AutoMLOutputDataConfig Core.Text
 autoMLOutputDataConfig_s3OutputPath = Lens.lens (\AutoMLOutputDataConfig' {s3OutputPath} -> s3OutputPath) (\s@AutoMLOutputDataConfig' {} a -> s {s3OutputPath = a} :: AutoMLOutputDataConfig)
 
-instance Prelude.FromJSON AutoMLOutputDataConfig where
+instance Core.FromJSON AutoMLOutputDataConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoMLOutputDataConfig"
       ( \x ->
           AutoMLOutputDataConfig'
-            Prelude.<$> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..: "S3OutputPath")
+            Core.<$> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable AutoMLOutputDataConfig
+instance Core.Hashable AutoMLOutputDataConfig
 
-instance Prelude.NFData AutoMLOutputDataConfig
+instance Core.NFData AutoMLOutputDataConfig
 
-instance Prelude.ToJSON AutoMLOutputDataConfig where
+instance Core.ToJSON AutoMLOutputDataConfig where
   toJSON AutoMLOutputDataConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            Prelude.Just
-              ("S3OutputPath" Prelude..= s3OutputPath)
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            Core.Just ("S3OutputPath" Core..= s3OutputPath)
           ]
       )

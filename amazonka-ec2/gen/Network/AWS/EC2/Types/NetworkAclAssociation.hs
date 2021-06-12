@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.NetworkAclAssociation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an association between a network ACL and a subnet.
 --
 -- /See:/ 'newNetworkAclAssociation' smart constructor.
 data NetworkAclAssociation = NetworkAclAssociation'
   { -- | The ID of the association between a network ACL and a subnet.
-    networkAclAssociationId :: Prelude.Maybe Prelude.Text,
+    networkAclAssociationId :: Core.Maybe Core.Text,
     -- | The ID of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text,
+    subnetId :: Core.Maybe Core.Text,
     -- | The ID of the network ACL.
-    networkAclId :: Prelude.Maybe Prelude.Text
+    networkAclId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkAclAssociation' with all optional fields omitted.
@@ -55,30 +54,30 @@ newNetworkAclAssociation ::
 newNetworkAclAssociation =
   NetworkAclAssociation'
     { networkAclAssociationId =
-        Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      networkAclId = Prelude.Nothing
+        Core.Nothing,
+      subnetId = Core.Nothing,
+      networkAclId = Core.Nothing
     }
 
 -- | The ID of the association between a network ACL and a subnet.
-networkAclAssociation_networkAclAssociationId :: Lens.Lens' NetworkAclAssociation (Prelude.Maybe Prelude.Text)
+networkAclAssociation_networkAclAssociationId :: Lens.Lens' NetworkAclAssociation (Core.Maybe Core.Text)
 networkAclAssociation_networkAclAssociationId = Lens.lens (\NetworkAclAssociation' {networkAclAssociationId} -> networkAclAssociationId) (\s@NetworkAclAssociation' {} a -> s {networkAclAssociationId = a} :: NetworkAclAssociation)
 
 -- | The ID of the subnet.
-networkAclAssociation_subnetId :: Lens.Lens' NetworkAclAssociation (Prelude.Maybe Prelude.Text)
+networkAclAssociation_subnetId :: Lens.Lens' NetworkAclAssociation (Core.Maybe Core.Text)
 networkAclAssociation_subnetId = Lens.lens (\NetworkAclAssociation' {subnetId} -> subnetId) (\s@NetworkAclAssociation' {} a -> s {subnetId = a} :: NetworkAclAssociation)
 
 -- | The ID of the network ACL.
-networkAclAssociation_networkAclId :: Lens.Lens' NetworkAclAssociation (Prelude.Maybe Prelude.Text)
+networkAclAssociation_networkAclId :: Lens.Lens' NetworkAclAssociation (Core.Maybe Core.Text)
 networkAclAssociation_networkAclId = Lens.lens (\NetworkAclAssociation' {networkAclId} -> networkAclId) (\s@NetworkAclAssociation' {} a -> s {networkAclId = a} :: NetworkAclAssociation)
 
-instance Prelude.FromXML NetworkAclAssociation where
+instance Core.FromXML NetworkAclAssociation where
   parseXML x =
     NetworkAclAssociation'
-      Prelude.<$> (x Prelude..@? "networkAclAssociationId")
-      Prelude.<*> (x Prelude..@? "subnetId")
-      Prelude.<*> (x Prelude..@? "networkAclId")
+      Core.<$> (x Core..@? "networkAclAssociationId")
+      Core.<*> (x Core..@? "subnetId")
+      Core.<*> (x Core..@? "networkAclId")
 
-instance Prelude.Hashable NetworkAclAssociation
+instance Core.Hashable NetworkAclAssociation
 
-instance Prelude.NFData NetworkAclAssociation
+instance Core.NFData NetworkAclAssociation

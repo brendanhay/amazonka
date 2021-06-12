@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,9 +71,9 @@ module Network.AWS.Organizations.RemoveAccountFromOrganization
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,9 +84,9 @@ data RemoveAccountFromOrganization = RemoveAccountFromOrganization'
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
     -- string requires exactly 12 digits.
-    accountId :: Prelude.Text
+    accountId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveAccountFromOrganization' with all optional fields omitted.
@@ -104,7 +103,7 @@ data RemoveAccountFromOrganization = RemoveAccountFromOrganization'
 -- string requires exactly 12 digits.
 newRemoveAccountFromOrganization ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   RemoveAccountFromOrganization
 newRemoveAccountFromOrganization pAccountId_ =
   RemoveAccountFromOrganization'
@@ -117,66 +116,56 @@ newRemoveAccountFromOrganization pAccountId_ =
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.
-removeAccountFromOrganization_accountId :: Lens.Lens' RemoveAccountFromOrganization Prelude.Text
+removeAccountFromOrganization_accountId :: Lens.Lens' RemoveAccountFromOrganization Core.Text
 removeAccountFromOrganization_accountId = Lens.lens (\RemoveAccountFromOrganization' {accountId} -> accountId) (\s@RemoveAccountFromOrganization' {} a -> s {accountId = a} :: RemoveAccountFromOrganization)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     RemoveAccountFromOrganization
   where
   type
-    Rs RemoveAccountFromOrganization =
+    AWSResponse RemoveAccountFromOrganization =
       RemoveAccountFromOrganizationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       RemoveAccountFromOrganizationResponse'
 
-instance
-  Prelude.Hashable
-    RemoveAccountFromOrganization
+instance Core.Hashable RemoveAccountFromOrganization
 
-instance Prelude.NFData RemoveAccountFromOrganization
+instance Core.NFData RemoveAccountFromOrganization
 
-instance
-  Prelude.ToHeaders
-    RemoveAccountFromOrganization
-  where
+instance Core.ToHeaders RemoveAccountFromOrganization where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.RemoveAccountFromOrganization" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.RemoveAccountFromOrganization" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RemoveAccountFromOrganization where
+instance Core.ToJSON RemoveAccountFromOrganization where
   toJSON RemoveAccountFromOrganization' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("AccountId" Prelude..= accountId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AccountId" Core..= accountId)]
       )
 
-instance Prelude.ToPath RemoveAccountFromOrganization where
-  toPath = Prelude.const "/"
+instance Core.ToPath RemoveAccountFromOrganization where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    RemoveAccountFromOrganization
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RemoveAccountFromOrganization where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRemoveAccountFromOrganizationResponse' smart constructor.
 data RemoveAccountFromOrganizationResponse = RemoveAccountFromOrganizationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveAccountFromOrganizationResponse' with all optional fields omitted.
@@ -188,5 +177,5 @@ newRemoveAccountFromOrganizationResponse =
   RemoveAccountFromOrganizationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     RemoveAccountFromOrganizationResponse

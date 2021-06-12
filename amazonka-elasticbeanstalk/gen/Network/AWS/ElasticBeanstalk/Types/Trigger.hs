@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.Trigger where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a trigger.
 --
 -- /See:/ 'newTrigger' smart constructor.
 data Trigger = Trigger'
   { -- | The name of the trigger.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Trigger' with all optional fields omitted.
@@ -43,16 +42,15 @@ data Trigger = Trigger'
 -- 'name', 'trigger_name' - The name of the trigger.
 newTrigger ::
   Trigger
-newTrigger = Trigger' {name = Prelude.Nothing}
+newTrigger = Trigger' {name = Core.Nothing}
 
 -- | The name of the trigger.
-trigger_name :: Lens.Lens' Trigger (Prelude.Maybe Prelude.Text)
+trigger_name :: Lens.Lens' Trigger (Core.Maybe Core.Text)
 trigger_name = Lens.lens (\Trigger' {name} -> name) (\s@Trigger' {} a -> s {name = a} :: Trigger)
 
-instance Prelude.FromXML Trigger where
-  parseXML x =
-    Trigger' Prelude.<$> (x Prelude..@? "Name")
+instance Core.FromXML Trigger where
+  parseXML x = Trigger' Core.<$> (x Core..@? "Name")
 
-instance Prelude.Hashable Trigger
+instance Core.Hashable Trigger
 
-instance Prelude.NFData Trigger
+instance Core.NFData Trigger

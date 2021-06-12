@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TrafficMirrorFilter where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.TrafficMirrorFilterRule
 import Network.AWS.EC2.Types.TrafficMirrorNetworkService
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Traffic Mirror filter.
 --
@@ -33,21 +32,21 @@ import qualified Network.AWS.Prelude as Prelude
 data TrafficMirrorFilter = TrafficMirrorFilter'
   { -- | Information about the egress rules that are associated with the Traffic
     -- Mirror filter.
-    egressFilterRules :: Prelude.Maybe [TrafficMirrorFilterRule],
+    egressFilterRules :: Core.Maybe [TrafficMirrorFilterRule],
     -- | The network service traffic that is associated with the Traffic Mirror
     -- filter.
-    networkServices :: Prelude.Maybe [TrafficMirrorNetworkService],
+    networkServices :: Core.Maybe [TrafficMirrorNetworkService],
     -- | The tags assigned to the Traffic Mirror filter.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The ID of the Traffic Mirror filter.
-    trafficMirrorFilterId :: Prelude.Maybe Prelude.Text,
+    trafficMirrorFilterId :: Core.Maybe Core.Text,
     -- | The description of the Traffic Mirror filter.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Information about the ingress rules that are associated with the Traffic
     -- Mirror filter.
-    ingressFilterRules :: Prelude.Maybe [TrafficMirrorFilterRule]
+    ingressFilterRules :: Core.Maybe [TrafficMirrorFilterRule]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrafficMirrorFilter' with all optional fields omitted.
@@ -76,62 +75,61 @@ newTrafficMirrorFilter ::
 newTrafficMirrorFilter =
   TrafficMirrorFilter'
     { egressFilterRules =
-        Prelude.Nothing,
-      networkServices = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      trafficMirrorFilterId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      ingressFilterRules = Prelude.Nothing
+        Core.Nothing,
+      networkServices = Core.Nothing,
+      tags = Core.Nothing,
+      trafficMirrorFilterId = Core.Nothing,
+      description = Core.Nothing,
+      ingressFilterRules = Core.Nothing
     }
 
 -- | Information about the egress rules that are associated with the Traffic
 -- Mirror filter.
-trafficMirrorFilter_egressFilterRules :: Lens.Lens' TrafficMirrorFilter (Prelude.Maybe [TrafficMirrorFilterRule])
-trafficMirrorFilter_egressFilterRules = Lens.lens (\TrafficMirrorFilter' {egressFilterRules} -> egressFilterRules) (\s@TrafficMirrorFilter' {} a -> s {egressFilterRules = a} :: TrafficMirrorFilter) Prelude.. Lens.mapping Prelude._Coerce
+trafficMirrorFilter_egressFilterRules :: Lens.Lens' TrafficMirrorFilter (Core.Maybe [TrafficMirrorFilterRule])
+trafficMirrorFilter_egressFilterRules = Lens.lens (\TrafficMirrorFilter' {egressFilterRules} -> egressFilterRules) (\s@TrafficMirrorFilter' {} a -> s {egressFilterRules = a} :: TrafficMirrorFilter) Core.. Lens.mapping Lens._Coerce
 
 -- | The network service traffic that is associated with the Traffic Mirror
 -- filter.
-trafficMirrorFilter_networkServices :: Lens.Lens' TrafficMirrorFilter (Prelude.Maybe [TrafficMirrorNetworkService])
-trafficMirrorFilter_networkServices = Lens.lens (\TrafficMirrorFilter' {networkServices} -> networkServices) (\s@TrafficMirrorFilter' {} a -> s {networkServices = a} :: TrafficMirrorFilter) Prelude.. Lens.mapping Prelude._Coerce
+trafficMirrorFilter_networkServices :: Lens.Lens' TrafficMirrorFilter (Core.Maybe [TrafficMirrorNetworkService])
+trafficMirrorFilter_networkServices = Lens.lens (\TrafficMirrorFilter' {networkServices} -> networkServices) (\s@TrafficMirrorFilter' {} a -> s {networkServices = a} :: TrafficMirrorFilter) Core.. Lens.mapping Lens._Coerce
 
 -- | The tags assigned to the Traffic Mirror filter.
-trafficMirrorFilter_tags :: Lens.Lens' TrafficMirrorFilter (Prelude.Maybe [Tag])
-trafficMirrorFilter_tags = Lens.lens (\TrafficMirrorFilter' {tags} -> tags) (\s@TrafficMirrorFilter' {} a -> s {tags = a} :: TrafficMirrorFilter) Prelude.. Lens.mapping Prelude._Coerce
+trafficMirrorFilter_tags :: Lens.Lens' TrafficMirrorFilter (Core.Maybe [Tag])
+trafficMirrorFilter_tags = Lens.lens (\TrafficMirrorFilter' {tags} -> tags) (\s@TrafficMirrorFilter' {} a -> s {tags = a} :: TrafficMirrorFilter) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Traffic Mirror filter.
-trafficMirrorFilter_trafficMirrorFilterId :: Lens.Lens' TrafficMirrorFilter (Prelude.Maybe Prelude.Text)
+trafficMirrorFilter_trafficMirrorFilterId :: Lens.Lens' TrafficMirrorFilter (Core.Maybe Core.Text)
 trafficMirrorFilter_trafficMirrorFilterId = Lens.lens (\TrafficMirrorFilter' {trafficMirrorFilterId} -> trafficMirrorFilterId) (\s@TrafficMirrorFilter' {} a -> s {trafficMirrorFilterId = a} :: TrafficMirrorFilter)
 
 -- | The description of the Traffic Mirror filter.
-trafficMirrorFilter_description :: Lens.Lens' TrafficMirrorFilter (Prelude.Maybe Prelude.Text)
+trafficMirrorFilter_description :: Lens.Lens' TrafficMirrorFilter (Core.Maybe Core.Text)
 trafficMirrorFilter_description = Lens.lens (\TrafficMirrorFilter' {description} -> description) (\s@TrafficMirrorFilter' {} a -> s {description = a} :: TrafficMirrorFilter)
 
 -- | Information about the ingress rules that are associated with the Traffic
 -- Mirror filter.
-trafficMirrorFilter_ingressFilterRules :: Lens.Lens' TrafficMirrorFilter (Prelude.Maybe [TrafficMirrorFilterRule])
-trafficMirrorFilter_ingressFilterRules = Lens.lens (\TrafficMirrorFilter' {ingressFilterRules} -> ingressFilterRules) (\s@TrafficMirrorFilter' {} a -> s {ingressFilterRules = a} :: TrafficMirrorFilter) Prelude.. Lens.mapping Prelude._Coerce
+trafficMirrorFilter_ingressFilterRules :: Lens.Lens' TrafficMirrorFilter (Core.Maybe [TrafficMirrorFilterRule])
+trafficMirrorFilter_ingressFilterRules = Lens.lens (\TrafficMirrorFilter' {ingressFilterRules} -> ingressFilterRules) (\s@TrafficMirrorFilter' {} a -> s {ingressFilterRules = a} :: TrafficMirrorFilter) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML TrafficMirrorFilter where
+instance Core.FromXML TrafficMirrorFilter where
   parseXML x =
     TrafficMirrorFilter'
-      Prelude.<$> ( x Prelude..@? "egressFilterRuleSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Prelude..@? "networkServiceSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "trafficMirrorFilterId")
-      Prelude.<*> (x Prelude..@? "description")
-      Prelude.<*> ( x Prelude..@? "ingressFilterRuleSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> ( x Core..@? "egressFilterRuleSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> ( x Core..@? "networkServiceSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "trafficMirrorFilterId")
+      Core.<*> (x Core..@? "description")
+      Core.<*> ( x Core..@? "ingressFilterRuleSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable TrafficMirrorFilter
+instance Core.Hashable TrafficMirrorFilter
 
-instance Prelude.NFData TrafficMirrorFilter
+instance Core.NFData TrafficMirrorFilter

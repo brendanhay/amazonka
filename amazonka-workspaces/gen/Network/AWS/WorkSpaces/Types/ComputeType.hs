@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.ComputeType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.Compute
 
 -- | Describes the compute type.
@@ -29,9 +28,9 @@ import Network.AWS.WorkSpaces.Types.Compute
 -- /See:/ 'newComputeType' smart constructor.
 data ComputeType = ComputeType'
   { -- | The compute type.
-    name :: Prelude.Maybe Compute
+    name :: Core.Maybe Compute
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComputeType' with all optional fields omitted.
@@ -44,20 +43,18 @@ data ComputeType = ComputeType'
 -- 'name', 'computeType_name' - The compute type.
 newComputeType ::
   ComputeType
-newComputeType = ComputeType' {name = Prelude.Nothing}
+newComputeType = ComputeType' {name = Core.Nothing}
 
 -- | The compute type.
-computeType_name :: Lens.Lens' ComputeType (Prelude.Maybe Compute)
+computeType_name :: Lens.Lens' ComputeType (Core.Maybe Compute)
 computeType_name = Lens.lens (\ComputeType' {name} -> name) (\s@ComputeType' {} a -> s {name = a} :: ComputeType)
 
-instance Prelude.FromJSON ComputeType where
+instance Core.FromJSON ComputeType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ComputeType"
-      ( \x ->
-          ComputeType' Prelude.<$> (x Prelude..:? "Name")
-      )
+      (\x -> ComputeType' Core.<$> (x Core..:? "Name"))
 
-instance Prelude.Hashable ComputeType
+instance Core.Hashable ComputeType
 
-instance Prelude.NFData ComputeType
+instance Core.NFData ComputeType

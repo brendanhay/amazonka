@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DatasetContentStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.DatasetContentState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The state of the data set contents and the reason they are in this
 -- state.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data DatasetContentStatus = DatasetContentStatus'
   { -- | The state of the data set contents. Can be one of READY, CREATING,
     -- SUCCEEDED, or FAILED.
-    state :: Prelude.Maybe DatasetContentState,
+    state :: Core.Maybe DatasetContentState,
     -- | The reason the data set contents are in this state.
-    reason :: Prelude.Maybe Prelude.Text
+    reason :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DatasetContentStatus' with all optional fields omitted.
@@ -53,29 +52,28 @@ newDatasetContentStatus ::
   DatasetContentStatus
 newDatasetContentStatus =
   DatasetContentStatus'
-    { state = Prelude.Nothing,
-      reason = Prelude.Nothing
+    { state = Core.Nothing,
+      reason = Core.Nothing
     }
 
 -- | The state of the data set contents. Can be one of READY, CREATING,
 -- SUCCEEDED, or FAILED.
-datasetContentStatus_state :: Lens.Lens' DatasetContentStatus (Prelude.Maybe DatasetContentState)
+datasetContentStatus_state :: Lens.Lens' DatasetContentStatus (Core.Maybe DatasetContentState)
 datasetContentStatus_state = Lens.lens (\DatasetContentStatus' {state} -> state) (\s@DatasetContentStatus' {} a -> s {state = a} :: DatasetContentStatus)
 
 -- | The reason the data set contents are in this state.
-datasetContentStatus_reason :: Lens.Lens' DatasetContentStatus (Prelude.Maybe Prelude.Text)
+datasetContentStatus_reason :: Lens.Lens' DatasetContentStatus (Core.Maybe Core.Text)
 datasetContentStatus_reason = Lens.lens (\DatasetContentStatus' {reason} -> reason) (\s@DatasetContentStatus' {} a -> s {reason = a} :: DatasetContentStatus)
 
-instance Prelude.FromJSON DatasetContentStatus where
+instance Core.FromJSON DatasetContentStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DatasetContentStatus"
       ( \x ->
           DatasetContentStatus'
-            Prelude.<$> (x Prelude..:? "state")
-            Prelude.<*> (x Prelude..:? "reason")
+            Core.<$> (x Core..:? "state") Core.<*> (x Core..:? "reason")
       )
 
-instance Prelude.Hashable DatasetContentStatus
+instance Core.Hashable DatasetContentStatus
 
-instance Prelude.NFData DatasetContentStatus
+instance Core.NFData DatasetContentStatus

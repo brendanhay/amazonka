@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.CognitoIdentityProvider.ForgetDevice
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,11 +47,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newForgetDevice' smart constructor.
 data ForgetDevice = ForgetDevice'
   { -- | The access token for the forgotten device request.
-    accessToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    accessToken :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The device key.
-    deviceKey :: Prelude.Text
+    deviceKey :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ForgetDevice' with all optional fields omitted.
@@ -67,66 +66,64 @@ data ForgetDevice = ForgetDevice'
 -- 'deviceKey', 'forgetDevice_deviceKey' - The device key.
 newForgetDevice ::
   -- | 'deviceKey'
-  Prelude.Text ->
+  Core.Text ->
   ForgetDevice
 newForgetDevice pDeviceKey_ =
   ForgetDevice'
-    { accessToken = Prelude.Nothing,
+    { accessToken = Core.Nothing,
       deviceKey = pDeviceKey_
     }
 
 -- | The access token for the forgotten device request.
-forgetDevice_accessToken :: Lens.Lens' ForgetDevice (Prelude.Maybe Prelude.Text)
-forgetDevice_accessToken = Lens.lens (\ForgetDevice' {accessToken} -> accessToken) (\s@ForgetDevice' {} a -> s {accessToken = a} :: ForgetDevice) Prelude.. Lens.mapping Prelude._Sensitive
+forgetDevice_accessToken :: Lens.Lens' ForgetDevice (Core.Maybe Core.Text)
+forgetDevice_accessToken = Lens.lens (\ForgetDevice' {accessToken} -> accessToken) (\s@ForgetDevice' {} a -> s {accessToken = a} :: ForgetDevice) Core.. Lens.mapping Core._Sensitive
 
 -- | The device key.
-forgetDevice_deviceKey :: Lens.Lens' ForgetDevice Prelude.Text
+forgetDevice_deviceKey :: Lens.Lens' ForgetDevice Core.Text
 forgetDevice_deviceKey = Lens.lens (\ForgetDevice' {deviceKey} -> deviceKey) (\s@ForgetDevice' {} a -> s {deviceKey = a} :: ForgetDevice)
 
-instance Prelude.AWSRequest ForgetDevice where
-  type Rs ForgetDevice = ForgetDeviceResponse
+instance Core.AWSRequest ForgetDevice where
+  type AWSResponse ForgetDevice = ForgetDeviceResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull ForgetDeviceResponse'
 
-instance Prelude.Hashable ForgetDevice
+instance Core.Hashable ForgetDevice
 
-instance Prelude.NFData ForgetDevice
+instance Core.NFData ForgetDevice
 
-instance Prelude.ToHeaders ForgetDevice where
+instance Core.ToHeaders ForgetDevice where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.ForgetDevice" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.ForgetDevice" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ForgetDevice where
+instance Core.ToJSON ForgetDevice where
   toJSON ForgetDevice' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AccessToken" Prelude..=) Prelude.<$> accessToken,
-            Prelude.Just ("DeviceKey" Prelude..= deviceKey)
+    Core.object
+      ( Core.catMaybes
+          [ ("AccessToken" Core..=) Core.<$> accessToken,
+            Core.Just ("DeviceKey" Core..= deviceKey)
           ]
       )
 
-instance Prelude.ToPath ForgetDevice where
-  toPath = Prelude.const "/"
+instance Core.ToPath ForgetDevice where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ForgetDevice where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ForgetDevice where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newForgetDeviceResponse' smart constructor.
 data ForgetDeviceResponse = ForgetDeviceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ForgetDeviceResponse' with all optional fields omitted.
@@ -136,4 +133,4 @@ newForgetDeviceResponse ::
   ForgetDeviceResponse
 newForgetDeviceResponse = ForgetDeviceResponse'
 
-instance Prelude.NFData ForgetDeviceResponse
+instance Core.NFData ForgetDeviceResponse

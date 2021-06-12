@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.EC2.EnableVgwRoutePropagation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,16 +52,16 @@ data EnableVgwRoutePropagation = EnableVgwRoutePropagation'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the virtual private gateway that is attached to a VPC. The
     -- virtual private gateway must be attached to the same VPC that the
     -- routing tables are associated with.
-    gatewayId :: Prelude.Text,
+    gatewayId :: Core.Text,
     -- | The ID of the route table. The routing table must be associated with the
     -- same VPC that the virtual private gateway is attached to.
-    routeTableId :: Prelude.Text
+    routeTableId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableVgwRoutePropagation' with all optional fields omitted.
@@ -85,16 +84,15 @@ data EnableVgwRoutePropagation = EnableVgwRoutePropagation'
 -- same VPC that the virtual private gateway is attached to.
 newEnableVgwRoutePropagation ::
   -- | 'gatewayId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'routeTableId'
-  Prelude.Text ->
+  Core.Text ->
   EnableVgwRoutePropagation
 newEnableVgwRoutePropagation
   pGatewayId_
   pRouteTableId_ =
     EnableVgwRoutePropagation'
-      { dryRun =
-          Prelude.Nothing,
+      { dryRun = Core.Nothing,
         gatewayId = pGatewayId_,
         routeTableId = pRouteTableId_
       }
@@ -103,56 +101,55 @@ newEnableVgwRoutePropagation
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-enableVgwRoutePropagation_dryRun :: Lens.Lens' EnableVgwRoutePropagation (Prelude.Maybe Prelude.Bool)
+enableVgwRoutePropagation_dryRun :: Lens.Lens' EnableVgwRoutePropagation (Core.Maybe Core.Bool)
 enableVgwRoutePropagation_dryRun = Lens.lens (\EnableVgwRoutePropagation' {dryRun} -> dryRun) (\s@EnableVgwRoutePropagation' {} a -> s {dryRun = a} :: EnableVgwRoutePropagation)
 
 -- | The ID of the virtual private gateway that is attached to a VPC. The
 -- virtual private gateway must be attached to the same VPC that the
 -- routing tables are associated with.
-enableVgwRoutePropagation_gatewayId :: Lens.Lens' EnableVgwRoutePropagation Prelude.Text
+enableVgwRoutePropagation_gatewayId :: Lens.Lens' EnableVgwRoutePropagation Core.Text
 enableVgwRoutePropagation_gatewayId = Lens.lens (\EnableVgwRoutePropagation' {gatewayId} -> gatewayId) (\s@EnableVgwRoutePropagation' {} a -> s {gatewayId = a} :: EnableVgwRoutePropagation)
 
 -- | The ID of the route table. The routing table must be associated with the
 -- same VPC that the virtual private gateway is attached to.
-enableVgwRoutePropagation_routeTableId :: Lens.Lens' EnableVgwRoutePropagation Prelude.Text
+enableVgwRoutePropagation_routeTableId :: Lens.Lens' EnableVgwRoutePropagation Core.Text
 enableVgwRoutePropagation_routeTableId = Lens.lens (\EnableVgwRoutePropagation' {routeTableId} -> routeTableId) (\s@EnableVgwRoutePropagation' {} a -> s {routeTableId = a} :: EnableVgwRoutePropagation)
 
-instance Prelude.AWSRequest EnableVgwRoutePropagation where
+instance Core.AWSRequest EnableVgwRoutePropagation where
   type
-    Rs EnableVgwRoutePropagation =
+    AWSResponse EnableVgwRoutePropagation =
       EnableVgwRoutePropagationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       EnableVgwRoutePropagationResponse'
 
-instance Prelude.Hashable EnableVgwRoutePropagation
+instance Core.Hashable EnableVgwRoutePropagation
 
-instance Prelude.NFData EnableVgwRoutePropagation
+instance Core.NFData EnableVgwRoutePropagation
 
-instance Prelude.ToHeaders EnableVgwRoutePropagation where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders EnableVgwRoutePropagation where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath EnableVgwRoutePropagation where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableVgwRoutePropagation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableVgwRoutePropagation where
+instance Core.ToQuery EnableVgwRoutePropagation where
   toQuery EnableVgwRoutePropagation' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("EnableVgwRoutePropagation" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "GatewayId" Prelude.=: gatewayId,
-        "RouteTableId" Prelude.=: routeTableId
+          Core.=: ("EnableVgwRoutePropagation" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "GatewayId" Core.=: gatewayId,
+        "RouteTableId" Core.=: routeTableId
       ]
 
 -- | /See:/ 'newEnableVgwRoutePropagationResponse' smart constructor.
 data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableVgwRoutePropagationResponse' with all optional fields omitted.
@@ -164,5 +161,5 @@ newEnableVgwRoutePropagationResponse =
   EnableVgwRoutePropagationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableVgwRoutePropagationResponse

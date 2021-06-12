@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.ElasticSearch.ListPackagesForDomain
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +55,13 @@ data ListPackagesForDomain = ListPackagesForDomain'
   { -- | Used for pagination. Only necessary if a previous API call includes a
     -- non-null NextToken value. If provided, returns results for the next
     -- page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Limits results to a maximum number of packages.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The name of the domain for which you want to list associated packages.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPackagesForDomain' with all optional fields omitted.
@@ -81,65 +80,65 @@ data ListPackagesForDomain = ListPackagesForDomain'
 -- 'domainName', 'listPackagesForDomain_domainName' - The name of the domain for which you want to list associated packages.
 newListPackagesForDomain ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   ListPackagesForDomain
 newListPackagesForDomain pDomainName_ =
   ListPackagesForDomain'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       domainName = pDomainName_
     }
 
 -- | Used for pagination. Only necessary if a previous API call includes a
 -- non-null NextToken value. If provided, returns results for the next
 -- page.
-listPackagesForDomain_nextToken :: Lens.Lens' ListPackagesForDomain (Prelude.Maybe Prelude.Text)
+listPackagesForDomain_nextToken :: Lens.Lens' ListPackagesForDomain (Core.Maybe Core.Text)
 listPackagesForDomain_nextToken = Lens.lens (\ListPackagesForDomain' {nextToken} -> nextToken) (\s@ListPackagesForDomain' {} a -> s {nextToken = a} :: ListPackagesForDomain)
 
 -- | Limits results to a maximum number of packages.
-listPackagesForDomain_maxResults :: Lens.Lens' ListPackagesForDomain (Prelude.Maybe Prelude.Int)
+listPackagesForDomain_maxResults :: Lens.Lens' ListPackagesForDomain (Core.Maybe Core.Int)
 listPackagesForDomain_maxResults = Lens.lens (\ListPackagesForDomain' {maxResults} -> maxResults) (\s@ListPackagesForDomain' {} a -> s {maxResults = a} :: ListPackagesForDomain)
 
 -- | The name of the domain for which you want to list associated packages.
-listPackagesForDomain_domainName :: Lens.Lens' ListPackagesForDomain Prelude.Text
+listPackagesForDomain_domainName :: Lens.Lens' ListPackagesForDomain Core.Text
 listPackagesForDomain_domainName = Lens.lens (\ListPackagesForDomain' {domainName} -> domainName) (\s@ListPackagesForDomain' {} a -> s {domainName = a} :: ListPackagesForDomain)
 
-instance Prelude.AWSRequest ListPackagesForDomain where
+instance Core.AWSRequest ListPackagesForDomain where
   type
-    Rs ListPackagesForDomain =
+    AWSResponse ListPackagesForDomain =
       ListPackagesForDomainResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPackagesForDomainResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "DomainPackageDetailsList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "DomainPackageDetailsList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListPackagesForDomain
+instance Core.Hashable ListPackagesForDomain
 
-instance Prelude.NFData ListPackagesForDomain
+instance Core.NFData ListPackagesForDomain
 
-instance Prelude.ToHeaders ListPackagesForDomain where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListPackagesForDomain where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListPackagesForDomain where
+instance Core.ToPath ListPackagesForDomain where
   toPath ListPackagesForDomain' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-01-01/domain/",
-        Prelude.toBS domainName,
+        Core.toBS domainName,
         "/packages"
       ]
 
-instance Prelude.ToQuery ListPackagesForDomain where
+instance Core.ToQuery ListPackagesForDomain where
   toQuery ListPackagesForDomain' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | Container for response parameters to @ ListPackagesForDomain @
@@ -149,13 +148,13 @@ instance Prelude.ToQuery ListPackagesForDomain where
 data ListPackagesForDomainResponse = ListPackagesForDomainResponse'
   { -- | Pagination token that needs to be supplied to the next call to get the
     -- next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | List of @DomainPackageDetails@ objects.
-    domainPackageDetailsList :: Prelude.Maybe [DomainPackageDetails],
+    domainPackageDetailsList :: Core.Maybe [DomainPackageDetails],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPackagesForDomainResponse' with all optional fields omitted.
@@ -173,27 +172,27 @@ data ListPackagesForDomainResponse = ListPackagesForDomainResponse'
 -- 'httpStatus', 'listPackagesForDomainResponse_httpStatus' - The response's http status code.
 newListPackagesForDomainResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPackagesForDomainResponse
 newListPackagesForDomainResponse pHttpStatus_ =
   ListPackagesForDomainResponse'
     { nextToken =
-        Prelude.Nothing,
-      domainPackageDetailsList = Prelude.Nothing,
+        Core.Nothing,
+      domainPackageDetailsList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Pagination token that needs to be supplied to the next call to get the
 -- next page of results.
-listPackagesForDomainResponse_nextToken :: Lens.Lens' ListPackagesForDomainResponse (Prelude.Maybe Prelude.Text)
+listPackagesForDomainResponse_nextToken :: Lens.Lens' ListPackagesForDomainResponse (Core.Maybe Core.Text)
 listPackagesForDomainResponse_nextToken = Lens.lens (\ListPackagesForDomainResponse' {nextToken} -> nextToken) (\s@ListPackagesForDomainResponse' {} a -> s {nextToken = a} :: ListPackagesForDomainResponse)
 
 -- | List of @DomainPackageDetails@ objects.
-listPackagesForDomainResponse_domainPackageDetailsList :: Lens.Lens' ListPackagesForDomainResponse (Prelude.Maybe [DomainPackageDetails])
-listPackagesForDomainResponse_domainPackageDetailsList = Lens.lens (\ListPackagesForDomainResponse' {domainPackageDetailsList} -> domainPackageDetailsList) (\s@ListPackagesForDomainResponse' {} a -> s {domainPackageDetailsList = a} :: ListPackagesForDomainResponse) Prelude.. Lens.mapping Prelude._Coerce
+listPackagesForDomainResponse_domainPackageDetailsList :: Lens.Lens' ListPackagesForDomainResponse (Core.Maybe [DomainPackageDetails])
+listPackagesForDomainResponse_domainPackageDetailsList = Lens.lens (\ListPackagesForDomainResponse' {domainPackageDetailsList} -> domainPackageDetailsList) (\s@ListPackagesForDomainResponse' {} a -> s {domainPackageDetailsList = a} :: ListPackagesForDomainResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPackagesForDomainResponse_httpStatus :: Lens.Lens' ListPackagesForDomainResponse Prelude.Int
+listPackagesForDomainResponse_httpStatus :: Lens.Lens' ListPackagesForDomainResponse Core.Int
 listPackagesForDomainResponse_httpStatus = Lens.lens (\ListPackagesForDomainResponse' {httpStatus} -> httpStatus) (\s@ListPackagesForDomainResponse' {} a -> s {httpStatus = a} :: ListPackagesForDomainResponse)
 
-instance Prelude.NFData ListPackagesForDomainResponse
+instance Core.NFData ListPackagesForDomainResponse

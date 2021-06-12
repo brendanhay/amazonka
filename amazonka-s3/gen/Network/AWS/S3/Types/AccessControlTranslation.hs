@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.AccessControlTranslation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.OwnerOverride
 
@@ -34,7 +33,7 @@ data AccessControlTranslation = AccessControlTranslation'
     -- in the /Amazon Simple Storage Service API Reference/.
     owner :: OwnerOverride
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccessControlTranslation' with all optional fields omitted.
@@ -60,15 +59,15 @@ newAccessControlTranslation pOwner_ =
 accessControlTranslation_owner :: Lens.Lens' AccessControlTranslation OwnerOverride
 accessControlTranslation_owner = Lens.lens (\AccessControlTranslation' {owner} -> owner) (\s@AccessControlTranslation' {} a -> s {owner = a} :: AccessControlTranslation)
 
-instance Prelude.FromXML AccessControlTranslation where
+instance Core.FromXML AccessControlTranslation where
   parseXML x =
     AccessControlTranslation'
-      Prelude.<$> (x Prelude..@ "Owner")
+      Core.<$> (x Core..@ "Owner")
 
-instance Prelude.Hashable AccessControlTranslation
+instance Core.Hashable AccessControlTranslation
 
-instance Prelude.NFData AccessControlTranslation
+instance Core.NFData AccessControlTranslation
 
-instance Prelude.ToXML AccessControlTranslation where
+instance Core.ToXML AccessControlTranslation where
   toXML AccessControlTranslation' {..} =
-    Prelude.mconcat ["Owner" Prelude.@= owner]
+    Core.mconcat ["Owner" Core.@= owner]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.GuardDuty.DescribePublishingDestination
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ import qualified Network.AWS.Response as Response
 data DescribePublishingDestination = DescribePublishingDestination'
   { -- | The unique ID of the detector associated with the publishing destination
     -- to retrieve.
-    detectorId :: Prelude.Text,
+    detectorId :: Core.Text,
     -- | The ID of the publishing destination to retrieve.
-    destinationId :: Prelude.Text
+    destinationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePublishingDestination' with all optional fields omitted.
@@ -76,9 +75,9 @@ data DescribePublishingDestination = DescribePublishingDestination'
 -- 'destinationId', 'describePublishingDestination_destinationId' - The ID of the publishing destination to retrieve.
 newDescribePublishingDestination ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationId'
-  Prelude.Text ->
+  Core.Text ->
   DescribePublishingDestination
 newDescribePublishingDestination
   pDetectorId_
@@ -91,74 +90,64 @@ newDescribePublishingDestination
 
 -- | The unique ID of the detector associated with the publishing destination
 -- to retrieve.
-describePublishingDestination_detectorId :: Lens.Lens' DescribePublishingDestination Prelude.Text
+describePublishingDestination_detectorId :: Lens.Lens' DescribePublishingDestination Core.Text
 describePublishingDestination_detectorId = Lens.lens (\DescribePublishingDestination' {detectorId} -> detectorId) (\s@DescribePublishingDestination' {} a -> s {detectorId = a} :: DescribePublishingDestination)
 
 -- | The ID of the publishing destination to retrieve.
-describePublishingDestination_destinationId :: Lens.Lens' DescribePublishingDestination Prelude.Text
+describePublishingDestination_destinationId :: Lens.Lens' DescribePublishingDestination Core.Text
 describePublishingDestination_destinationId = Lens.lens (\DescribePublishingDestination' {destinationId} -> destinationId) (\s@DescribePublishingDestination' {} a -> s {destinationId = a} :: DescribePublishingDestination)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribePublishingDestination
   where
   type
-    Rs DescribePublishingDestination =
+    AWSResponse DescribePublishingDestination =
       DescribePublishingDestinationResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribePublishingDestinationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "destinationId")
-            Prelude.<*> (x Prelude..:> "destinationType")
-            Prelude.<*> (x Prelude..:> "status")
-            Prelude.<*> (x Prelude..:> "publishingFailureStartTimestamp")
-            Prelude.<*> (x Prelude..:> "destinationProperties")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "destinationId")
+            Core.<*> (x Core..:> "destinationType")
+            Core.<*> (x Core..:> "status")
+            Core.<*> (x Core..:> "publishingFailureStartTimestamp")
+            Core.<*> (x Core..:> "destinationProperties")
       )
 
-instance
-  Prelude.Hashable
-    DescribePublishingDestination
+instance Core.Hashable DescribePublishingDestination
 
-instance Prelude.NFData DescribePublishingDestination
+instance Core.NFData DescribePublishingDestination
 
-instance
-  Prelude.ToHeaders
-    DescribePublishingDestination
-  where
+instance Core.ToHeaders DescribePublishingDestination where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribePublishingDestination where
+instance Core.ToPath DescribePublishingDestination where
   toPath DescribePublishingDestination' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/detector/",
-        Prelude.toBS detectorId,
+        Core.toBS detectorId,
         "/publishingDestination/",
-        Prelude.toBS destinationId
+        Core.toBS destinationId
       ]
 
-instance
-  Prelude.ToQuery
-    DescribePublishingDestination
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribePublishingDestination where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribePublishingDestinationResponse' smart constructor.
 data DescribePublishingDestinationResponse = DescribePublishingDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The ID of the publishing destination.
-    destinationId :: Prelude.Text,
+    destinationId :: Core.Text,
     -- | The type of publishing destination. Currently, only Amazon S3 buckets
     -- are supported.
     destinationType :: DestinationType,
@@ -166,12 +155,12 @@ data DescribePublishingDestinationResponse = DescribePublishingDestinationRespon
     status :: PublishingStatus,
     -- | The time, in epoch millisecond format, at which GuardDuty was first
     -- unable to publish findings to the destination.
-    publishingFailureStartTimestamp :: Prelude.Integer,
+    publishingFailureStartTimestamp :: Core.Integer,
     -- | A @DestinationProperties@ object that includes the @DestinationArn@ and
     -- @KmsKeyArn@ of the publishing destination.
     destinationProperties :: DestinationProperties
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePublishingDestinationResponse' with all optional fields omitted.
@@ -197,15 +186,15 @@ data DescribePublishingDestinationResponse = DescribePublishingDestinationRespon
 -- @KmsKeyArn@ of the publishing destination.
 newDescribePublishingDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'destinationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationType'
   DestinationType ->
   -- | 'status'
   PublishingStatus ->
   -- | 'publishingFailureStartTimestamp'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'destinationProperties'
   DestinationProperties ->
   DescribePublishingDestinationResponse
@@ -229,11 +218,11 @@ newDescribePublishingDestinationResponse
       }
 
 -- | The response's http status code.
-describePublishingDestinationResponse_httpStatus :: Lens.Lens' DescribePublishingDestinationResponse Prelude.Int
+describePublishingDestinationResponse_httpStatus :: Lens.Lens' DescribePublishingDestinationResponse Core.Int
 describePublishingDestinationResponse_httpStatus = Lens.lens (\DescribePublishingDestinationResponse' {httpStatus} -> httpStatus) (\s@DescribePublishingDestinationResponse' {} a -> s {httpStatus = a} :: DescribePublishingDestinationResponse)
 
 -- | The ID of the publishing destination.
-describePublishingDestinationResponse_destinationId :: Lens.Lens' DescribePublishingDestinationResponse Prelude.Text
+describePublishingDestinationResponse_destinationId :: Lens.Lens' DescribePublishingDestinationResponse Core.Text
 describePublishingDestinationResponse_destinationId = Lens.lens (\DescribePublishingDestinationResponse' {destinationId} -> destinationId) (\s@DescribePublishingDestinationResponse' {} a -> s {destinationId = a} :: DescribePublishingDestinationResponse)
 
 -- | The type of publishing destination. Currently, only Amazon S3 buckets
@@ -247,7 +236,7 @@ describePublishingDestinationResponse_status = Lens.lens (\DescribePublishingDes
 
 -- | The time, in epoch millisecond format, at which GuardDuty was first
 -- unable to publish findings to the destination.
-describePublishingDestinationResponse_publishingFailureStartTimestamp :: Lens.Lens' DescribePublishingDestinationResponse Prelude.Integer
+describePublishingDestinationResponse_publishingFailureStartTimestamp :: Lens.Lens' DescribePublishingDestinationResponse Core.Integer
 describePublishingDestinationResponse_publishingFailureStartTimestamp = Lens.lens (\DescribePublishingDestinationResponse' {publishingFailureStartTimestamp} -> publishingFailureStartTimestamp) (\s@DescribePublishingDestinationResponse' {} a -> s {publishingFailureStartTimestamp = a} :: DescribePublishingDestinationResponse)
 
 -- | A @DestinationProperties@ object that includes the @DestinationArn@ and
@@ -256,5 +245,5 @@ describePublishingDestinationResponse_destinationProperties :: Lens.Lens' Descri
 describePublishingDestinationResponse_destinationProperties = Lens.lens (\DescribePublishingDestinationResponse' {destinationProperties} -> destinationProperties) (\s@DescribePublishingDestinationResponse' {} a -> s {destinationProperties = a} :: DescribePublishingDestinationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribePublishingDestinationResponse

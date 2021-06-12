@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,13 +19,13 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ServiceConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PrivateDnsNameConfiguration
 import Network.AWS.EC2.Types.ServiceState
 import Network.AWS.EC2.Types.ServiceTypeDetail
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a service configuration for a VPC endpoint service.
 --
@@ -34,36 +33,36 @@ import qualified Network.AWS.Prelude as Prelude
 data ServiceConfiguration = ServiceConfiguration'
   { -- | Indicates whether the service manages its VPC endpoints. Management of
     -- the service VPC endpoints using the VPC endpoint API is restricted.
-    managesVpcEndpoints :: Prelude.Maybe Prelude.Bool,
+    managesVpcEndpoints :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
     -- service.
-    gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
+    gatewayLoadBalancerArns :: Core.Maybe [Core.Text],
     -- | The Availability Zones in which the service is available.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    availabilityZones :: Core.Maybe [Core.Text],
     -- | Information about the endpoint service private DNS name configuration.
-    privateDnsNameConfiguration :: Prelude.Maybe PrivateDnsNameConfiguration,
+    privateDnsNameConfiguration :: Core.Maybe PrivateDnsNameConfiguration,
     -- | The DNS names for the service.
-    baseEndpointDnsNames :: Prelude.Maybe [Prelude.Text],
+    baseEndpointDnsNames :: Core.Maybe [Core.Text],
     -- | The ID of the service.
-    serviceId :: Prelude.Maybe Prelude.Text,
+    serviceId :: Core.Maybe Core.Text,
     -- | The name of the service.
-    serviceName :: Prelude.Maybe Prelude.Text,
+    serviceName :: Core.Maybe Core.Text,
     -- | Any tags assigned to the service.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The private DNS name for the service.
-    privateDnsName :: Prelude.Maybe Prelude.Text,
+    privateDnsName :: Core.Maybe Core.Text,
     -- | Indicates whether requests from other AWS accounts to create an endpoint
     -- to the service must first be accepted.
-    acceptanceRequired :: Prelude.Maybe Prelude.Bool,
+    acceptanceRequired :: Core.Maybe Core.Bool,
     -- | The type of service.
-    serviceType :: Prelude.Maybe [ServiceTypeDetail],
+    serviceType :: Core.Maybe [ServiceTypeDetail],
     -- | The Amazon Resource Names (ARNs) of the Network Load Balancers for the
     -- service.
-    networkLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
+    networkLoadBalancerArns :: Core.Maybe [Core.Text],
     -- | The service state.
-    serviceState :: Prelude.Maybe ServiceState
+    serviceState :: Core.Maybe ServiceState
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceConfiguration' with all optional fields omitted.
@@ -107,111 +106,110 @@ newServiceConfiguration ::
 newServiceConfiguration =
   ServiceConfiguration'
     { managesVpcEndpoints =
-        Prelude.Nothing,
-      gatewayLoadBalancerArns = Prelude.Nothing,
-      availabilityZones = Prelude.Nothing,
-      privateDnsNameConfiguration = Prelude.Nothing,
-      baseEndpointDnsNames = Prelude.Nothing,
-      serviceId = Prelude.Nothing,
-      serviceName = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      privateDnsName = Prelude.Nothing,
-      acceptanceRequired = Prelude.Nothing,
-      serviceType = Prelude.Nothing,
-      networkLoadBalancerArns = Prelude.Nothing,
-      serviceState = Prelude.Nothing
+        Core.Nothing,
+      gatewayLoadBalancerArns = Core.Nothing,
+      availabilityZones = Core.Nothing,
+      privateDnsNameConfiguration = Core.Nothing,
+      baseEndpointDnsNames = Core.Nothing,
+      serviceId = Core.Nothing,
+      serviceName = Core.Nothing,
+      tags = Core.Nothing,
+      privateDnsName = Core.Nothing,
+      acceptanceRequired = Core.Nothing,
+      serviceType = Core.Nothing,
+      networkLoadBalancerArns = Core.Nothing,
+      serviceState = Core.Nothing
     }
 
 -- | Indicates whether the service manages its VPC endpoints. Management of
 -- the service VPC endpoints using the VPC endpoint API is restricted.
-serviceConfiguration_managesVpcEndpoints :: Lens.Lens' ServiceConfiguration (Prelude.Maybe Prelude.Bool)
+serviceConfiguration_managesVpcEndpoints :: Lens.Lens' ServiceConfiguration (Core.Maybe Core.Bool)
 serviceConfiguration_managesVpcEndpoints = Lens.lens (\ServiceConfiguration' {managesVpcEndpoints} -> managesVpcEndpoints) (\s@ServiceConfiguration' {} a -> s {managesVpcEndpoints = a} :: ServiceConfiguration)
 
 -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
 -- service.
-serviceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [Prelude.Text])
-serviceConfiguration_gatewayLoadBalancerArns = Lens.lens (\ServiceConfiguration' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@ServiceConfiguration' {} a -> s {gatewayLoadBalancerArns = a} :: ServiceConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+serviceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' ServiceConfiguration (Core.Maybe [Core.Text])
+serviceConfiguration_gatewayLoadBalancerArns = Lens.lens (\ServiceConfiguration' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@ServiceConfiguration' {} a -> s {gatewayLoadBalancerArns = a} :: ServiceConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The Availability Zones in which the service is available.
-serviceConfiguration_availabilityZones :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [Prelude.Text])
-serviceConfiguration_availabilityZones = Lens.lens (\ServiceConfiguration' {availabilityZones} -> availabilityZones) (\s@ServiceConfiguration' {} a -> s {availabilityZones = a} :: ServiceConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+serviceConfiguration_availabilityZones :: Lens.Lens' ServiceConfiguration (Core.Maybe [Core.Text])
+serviceConfiguration_availabilityZones = Lens.lens (\ServiceConfiguration' {availabilityZones} -> availabilityZones) (\s@ServiceConfiguration' {} a -> s {availabilityZones = a} :: ServiceConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the endpoint service private DNS name configuration.
-serviceConfiguration_privateDnsNameConfiguration :: Lens.Lens' ServiceConfiguration (Prelude.Maybe PrivateDnsNameConfiguration)
+serviceConfiguration_privateDnsNameConfiguration :: Lens.Lens' ServiceConfiguration (Core.Maybe PrivateDnsNameConfiguration)
 serviceConfiguration_privateDnsNameConfiguration = Lens.lens (\ServiceConfiguration' {privateDnsNameConfiguration} -> privateDnsNameConfiguration) (\s@ServiceConfiguration' {} a -> s {privateDnsNameConfiguration = a} :: ServiceConfiguration)
 
 -- | The DNS names for the service.
-serviceConfiguration_baseEndpointDnsNames :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [Prelude.Text])
-serviceConfiguration_baseEndpointDnsNames = Lens.lens (\ServiceConfiguration' {baseEndpointDnsNames} -> baseEndpointDnsNames) (\s@ServiceConfiguration' {} a -> s {baseEndpointDnsNames = a} :: ServiceConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+serviceConfiguration_baseEndpointDnsNames :: Lens.Lens' ServiceConfiguration (Core.Maybe [Core.Text])
+serviceConfiguration_baseEndpointDnsNames = Lens.lens (\ServiceConfiguration' {baseEndpointDnsNames} -> baseEndpointDnsNames) (\s@ServiceConfiguration' {} a -> s {baseEndpointDnsNames = a} :: ServiceConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the service.
-serviceConfiguration_serviceId :: Lens.Lens' ServiceConfiguration (Prelude.Maybe Prelude.Text)
+serviceConfiguration_serviceId :: Lens.Lens' ServiceConfiguration (Core.Maybe Core.Text)
 serviceConfiguration_serviceId = Lens.lens (\ServiceConfiguration' {serviceId} -> serviceId) (\s@ServiceConfiguration' {} a -> s {serviceId = a} :: ServiceConfiguration)
 
 -- | The name of the service.
-serviceConfiguration_serviceName :: Lens.Lens' ServiceConfiguration (Prelude.Maybe Prelude.Text)
+serviceConfiguration_serviceName :: Lens.Lens' ServiceConfiguration (Core.Maybe Core.Text)
 serviceConfiguration_serviceName = Lens.lens (\ServiceConfiguration' {serviceName} -> serviceName) (\s@ServiceConfiguration' {} a -> s {serviceName = a} :: ServiceConfiguration)
 
 -- | Any tags assigned to the service.
-serviceConfiguration_tags :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [Tag])
-serviceConfiguration_tags = Lens.lens (\ServiceConfiguration' {tags} -> tags) (\s@ServiceConfiguration' {} a -> s {tags = a} :: ServiceConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+serviceConfiguration_tags :: Lens.Lens' ServiceConfiguration (Core.Maybe [Tag])
+serviceConfiguration_tags = Lens.lens (\ServiceConfiguration' {tags} -> tags) (\s@ServiceConfiguration' {} a -> s {tags = a} :: ServiceConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The private DNS name for the service.
-serviceConfiguration_privateDnsName :: Lens.Lens' ServiceConfiguration (Prelude.Maybe Prelude.Text)
+serviceConfiguration_privateDnsName :: Lens.Lens' ServiceConfiguration (Core.Maybe Core.Text)
 serviceConfiguration_privateDnsName = Lens.lens (\ServiceConfiguration' {privateDnsName} -> privateDnsName) (\s@ServiceConfiguration' {} a -> s {privateDnsName = a} :: ServiceConfiguration)
 
 -- | Indicates whether requests from other AWS accounts to create an endpoint
 -- to the service must first be accepted.
-serviceConfiguration_acceptanceRequired :: Lens.Lens' ServiceConfiguration (Prelude.Maybe Prelude.Bool)
+serviceConfiguration_acceptanceRequired :: Lens.Lens' ServiceConfiguration (Core.Maybe Core.Bool)
 serviceConfiguration_acceptanceRequired = Lens.lens (\ServiceConfiguration' {acceptanceRequired} -> acceptanceRequired) (\s@ServiceConfiguration' {} a -> s {acceptanceRequired = a} :: ServiceConfiguration)
 
 -- | The type of service.
-serviceConfiguration_serviceType :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [ServiceTypeDetail])
-serviceConfiguration_serviceType = Lens.lens (\ServiceConfiguration' {serviceType} -> serviceType) (\s@ServiceConfiguration' {} a -> s {serviceType = a} :: ServiceConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+serviceConfiguration_serviceType :: Lens.Lens' ServiceConfiguration (Core.Maybe [ServiceTypeDetail])
+serviceConfiguration_serviceType = Lens.lens (\ServiceConfiguration' {serviceType} -> serviceType) (\s@ServiceConfiguration' {} a -> s {serviceType = a} :: ServiceConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Names (ARNs) of the Network Load Balancers for the
 -- service.
-serviceConfiguration_networkLoadBalancerArns :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [Prelude.Text])
-serviceConfiguration_networkLoadBalancerArns = Lens.lens (\ServiceConfiguration' {networkLoadBalancerArns} -> networkLoadBalancerArns) (\s@ServiceConfiguration' {} a -> s {networkLoadBalancerArns = a} :: ServiceConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+serviceConfiguration_networkLoadBalancerArns :: Lens.Lens' ServiceConfiguration (Core.Maybe [Core.Text])
+serviceConfiguration_networkLoadBalancerArns = Lens.lens (\ServiceConfiguration' {networkLoadBalancerArns} -> networkLoadBalancerArns) (\s@ServiceConfiguration' {} a -> s {networkLoadBalancerArns = a} :: ServiceConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The service state.
-serviceConfiguration_serviceState :: Lens.Lens' ServiceConfiguration (Prelude.Maybe ServiceState)
+serviceConfiguration_serviceState :: Lens.Lens' ServiceConfiguration (Core.Maybe ServiceState)
 serviceConfiguration_serviceState = Lens.lens (\ServiceConfiguration' {serviceState} -> serviceState) (\s@ServiceConfiguration' {} a -> s {serviceState = a} :: ServiceConfiguration)
 
-instance Prelude.FromXML ServiceConfiguration where
+instance Core.FromXML ServiceConfiguration where
   parseXML x =
     ServiceConfiguration'
-      Prelude.<$> (x Prelude..@? "managesVpcEndpoints")
-      Prelude.<*> ( x Prelude..@? "gatewayLoadBalancerArnSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Prelude..@? "availabilityZoneSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "privateDnsNameConfiguration")
-      Prelude.<*> ( x Prelude..@? "baseEndpointDnsNameSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "serviceId")
-      Prelude.<*> (x Prelude..@? "serviceName")
-      Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "privateDnsName")
-      Prelude.<*> (x Prelude..@? "acceptanceRequired")
-      Prelude.<*> ( x Prelude..@? "serviceType"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Prelude..@? "networkLoadBalancerArnSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "serviceState")
+      Core.<$> (x Core..@? "managesVpcEndpoints")
+      Core.<*> ( x Core..@? "gatewayLoadBalancerArnSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> ( x Core..@? "availabilityZoneSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "privateDnsNameConfiguration")
+      Core.<*> ( x Core..@? "baseEndpointDnsNameSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "serviceId")
+      Core.<*> (x Core..@? "serviceName")
+      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "privateDnsName")
+      Core.<*> (x Core..@? "acceptanceRequired")
+      Core.<*> ( x Core..@? "serviceType" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> ( x Core..@? "networkLoadBalancerArnSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "serviceState")
 
-instance Prelude.Hashable ServiceConfiguration
+instance Core.Hashable ServiceConfiguration
 
-instance Prelude.NFData ServiceConfiguration
+instance Core.NFData ServiceConfiguration

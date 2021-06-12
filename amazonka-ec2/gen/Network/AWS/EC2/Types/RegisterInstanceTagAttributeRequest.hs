@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.RegisterInstanceTagAttributeRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the tag keys to register for the current Region. You
 -- can either specify individual tag keys or register all tag keys in the
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRegisterInstanceTagAttributeRequest' smart constructor.
 data RegisterInstanceTagAttributeRequest = RegisterInstanceTagAttributeRequest'
   { -- | The tag keys to register.
-    instanceTagKeys :: Prelude.Maybe [Prelude.Text],
+    instanceTagKeys :: Core.Maybe [Core.Text],
     -- | Indicates whether to register all tag keys in the current Region.
     -- Specify @true@ to register all tag keys.
-    includeAllTagsOfInstance :: Prelude.Maybe Prelude.Bool
+    includeAllTagsOfInstance :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterInstanceTagAttributeRequest' with all optional fields omitted.
@@ -56,38 +55,38 @@ newRegisterInstanceTagAttributeRequest ::
 newRegisterInstanceTagAttributeRequest =
   RegisterInstanceTagAttributeRequest'
     { instanceTagKeys =
-        Prelude.Nothing,
+        Core.Nothing,
       includeAllTagsOfInstance =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The tag keys to register.
-registerInstanceTagAttributeRequest_instanceTagKeys :: Lens.Lens' RegisterInstanceTagAttributeRequest (Prelude.Maybe [Prelude.Text])
-registerInstanceTagAttributeRequest_instanceTagKeys = Lens.lens (\RegisterInstanceTagAttributeRequest' {instanceTagKeys} -> instanceTagKeys) (\s@RegisterInstanceTagAttributeRequest' {} a -> s {instanceTagKeys = a} :: RegisterInstanceTagAttributeRequest) Prelude.. Lens.mapping Prelude._Coerce
+registerInstanceTagAttributeRequest_instanceTagKeys :: Lens.Lens' RegisterInstanceTagAttributeRequest (Core.Maybe [Core.Text])
+registerInstanceTagAttributeRequest_instanceTagKeys = Lens.lens (\RegisterInstanceTagAttributeRequest' {instanceTagKeys} -> instanceTagKeys) (\s@RegisterInstanceTagAttributeRequest' {} a -> s {instanceTagKeys = a} :: RegisterInstanceTagAttributeRequest) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether to register all tag keys in the current Region.
 -- Specify @true@ to register all tag keys.
-registerInstanceTagAttributeRequest_includeAllTagsOfInstance :: Lens.Lens' RegisterInstanceTagAttributeRequest (Prelude.Maybe Prelude.Bool)
+registerInstanceTagAttributeRequest_includeAllTagsOfInstance :: Lens.Lens' RegisterInstanceTagAttributeRequest (Core.Maybe Core.Bool)
 registerInstanceTagAttributeRequest_includeAllTagsOfInstance = Lens.lens (\RegisterInstanceTagAttributeRequest' {includeAllTagsOfInstance} -> includeAllTagsOfInstance) (\s@RegisterInstanceTagAttributeRequest' {} a -> s {includeAllTagsOfInstance = a} :: RegisterInstanceTagAttributeRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RegisterInstanceTagAttributeRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     RegisterInstanceTagAttributeRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     RegisterInstanceTagAttributeRequest
   where
   toQuery RegisterInstanceTagAttributeRequest' {..} =
-    Prelude.mconcat
-      [ Prelude.toQuery
-          ( Prelude.toQueryList "InstanceTagKey"
-              Prelude.<$> instanceTagKeys
+    Core.mconcat
+      [ Core.toQuery
+          ( Core.toQueryList "InstanceTagKey"
+              Core.<$> instanceTagKeys
           ),
         "IncludeAllTagsOfInstance"
-          Prelude.=: includeAllTagsOfInstance
+          Core.=: includeAllTagsOfInstance
       ]

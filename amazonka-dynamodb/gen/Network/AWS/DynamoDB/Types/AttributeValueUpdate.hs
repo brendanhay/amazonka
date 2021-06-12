@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.AttributeValueUpdate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeAction
 import Network.AWS.DynamoDB.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | For the @UpdateItem@ operation, represents the attributes to be
 -- modified, the action to perform on each, and the new value for each.
@@ -110,7 +109,7 @@ data AttributeValueUpdate = AttributeValueUpdate'
     --     number (or set of numbers) for the attribute value. The only data
     --     types allowed are number and number set; no other data types can be
     --     specified.
-    action :: Prelude.Maybe AttributeAction,
+    action :: Core.Maybe AttributeAction,
     -- | Represents the data for an attribute.
     --
     -- Each attribute value is described as a name-value pair. The name is the
@@ -119,9 +118,9 @@ data AttributeValueUpdate = AttributeValueUpdate'
     -- For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data Types>
     -- in the /Amazon DynamoDB Developer Guide/.
-    value :: Prelude.Maybe AttributeValue
+    value :: Core.Maybe AttributeValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributeValueUpdate' with all optional fields omitted.
@@ -215,8 +214,8 @@ newAttributeValueUpdate ::
   AttributeValueUpdate
 newAttributeValueUpdate =
   AttributeValueUpdate'
-    { action = Prelude.Nothing,
-      value = Prelude.Nothing
+    { action = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | Specifies how to perform the update. Valid values are @PUT@ (default),
@@ -290,7 +289,7 @@ newAttributeValueUpdate =
 --     number (or set of numbers) for the attribute value. The only data
 --     types allowed are number and number set; no other data types can be
 --     specified.
-attributeValueUpdate_action :: Lens.Lens' AttributeValueUpdate (Prelude.Maybe AttributeAction)
+attributeValueUpdate_action :: Lens.Lens' AttributeValueUpdate (Core.Maybe AttributeAction)
 attributeValueUpdate_action = Lens.lens (\AttributeValueUpdate' {action} -> action) (\s@AttributeValueUpdate' {} a -> s {action = a} :: AttributeValueUpdate)
 
 -- | Represents the data for an attribute.
@@ -301,18 +300,18 @@ attributeValueUpdate_action = Lens.lens (\AttributeValueUpdate' {action} -> acti
 -- For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data Types>
 -- in the /Amazon DynamoDB Developer Guide/.
-attributeValueUpdate_value :: Lens.Lens' AttributeValueUpdate (Prelude.Maybe AttributeValue)
+attributeValueUpdate_value :: Lens.Lens' AttributeValueUpdate (Core.Maybe AttributeValue)
 attributeValueUpdate_value = Lens.lens (\AttributeValueUpdate' {value} -> value) (\s@AttributeValueUpdate' {} a -> s {value = a} :: AttributeValueUpdate)
 
-instance Prelude.Hashable AttributeValueUpdate
+instance Core.Hashable AttributeValueUpdate
 
-instance Prelude.NFData AttributeValueUpdate
+instance Core.NFData AttributeValueUpdate
 
-instance Prelude.ToJSON AttributeValueUpdate where
+instance Core.ToJSON AttributeValueUpdate where
   toJSON AttributeValueUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Action" Prelude..=) Prelude.<$> action,
-            ("Value" Prelude..=) Prelude.<$> value
+    Core.object
+      ( Core.catMaybes
+          [ ("Action" Core..=) Core.<$> action,
+            ("Value" Core..=) Core.<$> value
           ]
       )

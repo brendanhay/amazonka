@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.DirectConnect.DescribeLocations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data DescribeLocations = DescribeLocations'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLocations' with all optional fields omitted.
@@ -59,56 +58,53 @@ newDescribeLocations ::
   DescribeLocations
 newDescribeLocations = DescribeLocations'
 
-instance Prelude.AWSRequest DescribeLocations where
-  type Rs DescribeLocations = DescribeLocationsResponse
+instance Core.AWSRequest DescribeLocations where
+  type
+    AWSResponse DescribeLocations =
+      DescribeLocationsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationsResponse'
-            Prelude.<$> ( x Prelude..?> "locations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "locations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLocations
+instance Core.Hashable DescribeLocations
 
-instance Prelude.NFData DescribeLocations
+instance Core.NFData DescribeLocations
 
-instance Prelude.ToHeaders DescribeLocations where
+instance Core.ToHeaders DescribeLocations where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.DescribeLocations" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.DescribeLocations" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeLocations where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DescribeLocations where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DescribeLocations where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeLocations where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeLocations where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeLocations where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
   { -- | The locations.
-    locations :: Prelude.Maybe [Location],
+    locations :: Core.Maybe [Location],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLocationsResponse' with all optional fields omitted.
@@ -123,21 +119,21 @@ data DescribeLocationsResponse = DescribeLocationsResponse'
 -- 'httpStatus', 'describeLocationsResponse_httpStatus' - The response's http status code.
 newDescribeLocationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLocationsResponse
 newDescribeLocationsResponse pHttpStatus_ =
   DescribeLocationsResponse'
     { locations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The locations.
-describeLocationsResponse_locations :: Lens.Lens' DescribeLocationsResponse (Prelude.Maybe [Location])
-describeLocationsResponse_locations = Lens.lens (\DescribeLocationsResponse' {locations} -> locations) (\s@DescribeLocationsResponse' {} a -> s {locations = a} :: DescribeLocationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeLocationsResponse_locations :: Lens.Lens' DescribeLocationsResponse (Core.Maybe [Location])
+describeLocationsResponse_locations = Lens.lens (\DescribeLocationsResponse' {locations} -> locations) (\s@DescribeLocationsResponse' {} a -> s {locations = a} :: DescribeLocationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLocationsResponse_httpStatus :: Lens.Lens' DescribeLocationsResponse Prelude.Int
+describeLocationsResponse_httpStatus :: Lens.Lens' DescribeLocationsResponse Core.Int
 describeLocationsResponse_httpStatus = Lens.lens (\DescribeLocationsResponse' {httpStatus} -> httpStatus) (\s@DescribeLocationsResponse' {} a -> s {httpStatus = a} :: DescribeLocationsResponse)
 
-instance Prelude.NFData DescribeLocationsResponse
+instance Core.NFData DescribeLocationsResponse

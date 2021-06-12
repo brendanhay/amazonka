@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.XRay.GetInsightEvents
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -56,14 +55,14 @@ import Network.AWS.XRay.Types
 data GetInsightEvents = GetInsightEvents'
   { -- | Specify the pagination token returned by a previous request to retrieve
     -- the next page of events.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Used to retrieve at most the specified value of events.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The insight\'s unique identifier. Use the GetInsightSummaries action to
     -- retrieve an InsightId.
-    insightId :: Prelude.Text
+    insightId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInsightEvents' with all optional fields omitted.
@@ -82,78 +81,78 @@ data GetInsightEvents = GetInsightEvents'
 -- retrieve an InsightId.
 newGetInsightEvents ::
   -- | 'insightId'
-  Prelude.Text ->
+  Core.Text ->
   GetInsightEvents
 newGetInsightEvents pInsightId_ =
   GetInsightEvents'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       insightId = pInsightId_
     }
 
 -- | Specify the pagination token returned by a previous request to retrieve
 -- the next page of events.
-getInsightEvents_nextToken :: Lens.Lens' GetInsightEvents (Prelude.Maybe Prelude.Text)
+getInsightEvents_nextToken :: Lens.Lens' GetInsightEvents (Core.Maybe Core.Text)
 getInsightEvents_nextToken = Lens.lens (\GetInsightEvents' {nextToken} -> nextToken) (\s@GetInsightEvents' {} a -> s {nextToken = a} :: GetInsightEvents)
 
 -- | Used to retrieve at most the specified value of events.
-getInsightEvents_maxResults :: Lens.Lens' GetInsightEvents (Prelude.Maybe Prelude.Natural)
+getInsightEvents_maxResults :: Lens.Lens' GetInsightEvents (Core.Maybe Core.Natural)
 getInsightEvents_maxResults = Lens.lens (\GetInsightEvents' {maxResults} -> maxResults) (\s@GetInsightEvents' {} a -> s {maxResults = a} :: GetInsightEvents)
 
 -- | The insight\'s unique identifier. Use the GetInsightSummaries action to
 -- retrieve an InsightId.
-getInsightEvents_insightId :: Lens.Lens' GetInsightEvents Prelude.Text
+getInsightEvents_insightId :: Lens.Lens' GetInsightEvents Core.Text
 getInsightEvents_insightId = Lens.lens (\GetInsightEvents' {insightId} -> insightId) (\s@GetInsightEvents' {} a -> s {insightId = a} :: GetInsightEvents)
 
-instance Prelude.AWSRequest GetInsightEvents where
-  type Rs GetInsightEvents = GetInsightEventsResponse
+instance Core.AWSRequest GetInsightEvents where
+  type
+    AWSResponse GetInsightEvents =
+      GetInsightEventsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetInsightEventsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "InsightEvents"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "InsightEvents" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetInsightEvents
+instance Core.Hashable GetInsightEvents
 
-instance Prelude.NFData GetInsightEvents
+instance Core.NFData GetInsightEvents
 
-instance Prelude.ToHeaders GetInsightEvents where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetInsightEvents where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON GetInsightEvents where
+instance Core.ToJSON GetInsightEvents where
   toJSON GetInsightEvents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("InsightId" Prelude..= insightId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("InsightId" Core..= insightId)
           ]
       )
 
-instance Prelude.ToPath GetInsightEvents where
-  toPath = Prelude.const "/InsightEvents"
+instance Core.ToPath GetInsightEvents where
+  toPath = Core.const "/InsightEvents"
 
-instance Prelude.ToQuery GetInsightEvents where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetInsightEvents where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetInsightEventsResponse' smart constructor.
 data GetInsightEventsResponse = GetInsightEventsResponse'
   { -- | Use this token to retrieve the next page of insight events.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A detailed description of the event. This includes the time of the
     -- event, client and root cause impact statistics, and the top anomalous
     -- service at the time of the event.
-    insightEvents :: Prelude.Maybe [InsightEvent],
+    insightEvents :: Core.Maybe [InsightEvent],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInsightEventsResponse' with all optional fields omitted.
@@ -172,28 +171,27 @@ data GetInsightEventsResponse = GetInsightEventsResponse'
 -- 'httpStatus', 'getInsightEventsResponse_httpStatus' - The response's http status code.
 newGetInsightEventsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetInsightEventsResponse
 newGetInsightEventsResponse pHttpStatus_ =
   GetInsightEventsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      insightEvents = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      insightEvents = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Use this token to retrieve the next page of insight events.
-getInsightEventsResponse_nextToken :: Lens.Lens' GetInsightEventsResponse (Prelude.Maybe Prelude.Text)
+getInsightEventsResponse_nextToken :: Lens.Lens' GetInsightEventsResponse (Core.Maybe Core.Text)
 getInsightEventsResponse_nextToken = Lens.lens (\GetInsightEventsResponse' {nextToken} -> nextToken) (\s@GetInsightEventsResponse' {} a -> s {nextToken = a} :: GetInsightEventsResponse)
 
 -- | A detailed description of the event. This includes the time of the
 -- event, client and root cause impact statistics, and the top anomalous
 -- service at the time of the event.
-getInsightEventsResponse_insightEvents :: Lens.Lens' GetInsightEventsResponse (Prelude.Maybe [InsightEvent])
-getInsightEventsResponse_insightEvents = Lens.lens (\GetInsightEventsResponse' {insightEvents} -> insightEvents) (\s@GetInsightEventsResponse' {} a -> s {insightEvents = a} :: GetInsightEventsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getInsightEventsResponse_insightEvents :: Lens.Lens' GetInsightEventsResponse (Core.Maybe [InsightEvent])
+getInsightEventsResponse_insightEvents = Lens.lens (\GetInsightEventsResponse' {insightEvents} -> insightEvents) (\s@GetInsightEventsResponse' {} a -> s {insightEvents = a} :: GetInsightEventsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getInsightEventsResponse_httpStatus :: Lens.Lens' GetInsightEventsResponse Prelude.Int
+getInsightEventsResponse_httpStatus :: Lens.Lens' GetInsightEventsResponse Core.Int
 getInsightEventsResponse_httpStatus = Lens.lens (\GetInsightEventsResponse' {httpStatus} -> httpStatus) (\s@GetInsightEventsResponse' {} a -> s {httpStatus = a} :: GetInsightEventsResponse)
 
-instance Prelude.NFData GetInsightEventsResponse
+instance Core.NFData GetInsightEventsResponse

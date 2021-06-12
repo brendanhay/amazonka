@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,9 @@ module Network.AWS.KinesisVideo.UpdateStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,7 +65,7 @@ data UpdateStream = UpdateStream'
     --
     -- In the current implementation, Kinesis Video Streams does not use this
     -- name.
-    deviceName :: Prelude.Maybe Prelude.Text,
+    deviceName :: Core.Maybe Core.Text,
     -- | The stream\'s media type. Use @MediaType@ to specify the type of content
     -- that the stream contains to the consumers of the stream. For more
     -- information about media types, see
@@ -77,18 +76,18 @@ data UpdateStream = UpdateStream'
     -- To play video on the console, you must specify the correct video type.
     -- For example, if the video in the stream is H.264, specify @video\/h264@
     -- as the @MediaType@.
-    mediaType :: Prelude.Maybe Prelude.Text,
+    mediaType :: Core.Maybe Core.Text,
     -- | The ARN of the stream whose metadata you want to update.
-    streamARN :: Prelude.Maybe Prelude.Text,
+    streamARN :: Core.Maybe Core.Text,
     -- | The name of the stream whose metadata you want to update.
     --
     -- The stream name is an identifier for the stream, and must be unique for
     -- each account and region.
-    streamName :: Prelude.Maybe Prelude.Text,
+    streamName :: Core.Maybe Core.Text,
     -- | The version of the stream whose metadata you want to update.
-    currentVersion :: Prelude.Text
+    currentVersion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateStream' with all optional fields omitted.
@@ -124,14 +123,14 @@ data UpdateStream = UpdateStream'
 -- 'currentVersion', 'updateStream_currentVersion' - The version of the stream whose metadata you want to update.
 newUpdateStream ::
   -- | 'currentVersion'
-  Prelude.Text ->
+  Core.Text ->
   UpdateStream
 newUpdateStream pCurrentVersion_ =
   UpdateStream'
-    { deviceName = Prelude.Nothing,
-      mediaType = Prelude.Nothing,
-      streamARN = Prelude.Nothing,
-      streamName = Prelude.Nothing,
+    { deviceName = Core.Nothing,
+      mediaType = Core.Nothing,
+      streamARN = Core.Nothing,
+      streamName = Core.Nothing,
       currentVersion = pCurrentVersion_
     }
 
@@ -139,7 +138,7 @@ newUpdateStream pCurrentVersion_ =
 --
 -- In the current implementation, Kinesis Video Streams does not use this
 -- name.
-updateStream_deviceName :: Lens.Lens' UpdateStream (Prelude.Maybe Prelude.Text)
+updateStream_deviceName :: Lens.Lens' UpdateStream (Core.Maybe Core.Text)
 updateStream_deviceName = Lens.lens (\UpdateStream' {deviceName} -> deviceName) (\s@UpdateStream' {} a -> s {deviceName = a} :: UpdateStream)
 
 -- | The stream\'s media type. Use @MediaType@ to specify the type of content
@@ -152,66 +151,65 @@ updateStream_deviceName = Lens.lens (\UpdateStream' {deviceName} -> deviceName) 
 -- To play video on the console, you must specify the correct video type.
 -- For example, if the video in the stream is H.264, specify @video\/h264@
 -- as the @MediaType@.
-updateStream_mediaType :: Lens.Lens' UpdateStream (Prelude.Maybe Prelude.Text)
+updateStream_mediaType :: Lens.Lens' UpdateStream (Core.Maybe Core.Text)
 updateStream_mediaType = Lens.lens (\UpdateStream' {mediaType} -> mediaType) (\s@UpdateStream' {} a -> s {mediaType = a} :: UpdateStream)
 
 -- | The ARN of the stream whose metadata you want to update.
-updateStream_streamARN :: Lens.Lens' UpdateStream (Prelude.Maybe Prelude.Text)
+updateStream_streamARN :: Lens.Lens' UpdateStream (Core.Maybe Core.Text)
 updateStream_streamARN = Lens.lens (\UpdateStream' {streamARN} -> streamARN) (\s@UpdateStream' {} a -> s {streamARN = a} :: UpdateStream)
 
 -- | The name of the stream whose metadata you want to update.
 --
 -- The stream name is an identifier for the stream, and must be unique for
 -- each account and region.
-updateStream_streamName :: Lens.Lens' UpdateStream (Prelude.Maybe Prelude.Text)
+updateStream_streamName :: Lens.Lens' UpdateStream (Core.Maybe Core.Text)
 updateStream_streamName = Lens.lens (\UpdateStream' {streamName} -> streamName) (\s@UpdateStream' {} a -> s {streamName = a} :: UpdateStream)
 
 -- | The version of the stream whose metadata you want to update.
-updateStream_currentVersion :: Lens.Lens' UpdateStream Prelude.Text
+updateStream_currentVersion :: Lens.Lens' UpdateStream Core.Text
 updateStream_currentVersion = Lens.lens (\UpdateStream' {currentVersion} -> currentVersion) (\s@UpdateStream' {} a -> s {currentVersion = a} :: UpdateStream)
 
-instance Prelude.AWSRequest UpdateStream where
-  type Rs UpdateStream = UpdateStreamResponse
+instance Core.AWSRequest UpdateStream where
+  type AWSResponse UpdateStream = UpdateStreamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateStreamResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateStream
+instance Core.Hashable UpdateStream
 
-instance Prelude.NFData UpdateStream
+instance Core.NFData UpdateStream
 
-instance Prelude.ToHeaders UpdateStream where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateStream where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateStream where
+instance Core.ToJSON UpdateStream where
   toJSON UpdateStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DeviceName" Prelude..=) Prelude.<$> deviceName,
-            ("MediaType" Prelude..=) Prelude.<$> mediaType,
-            ("StreamARN" Prelude..=) Prelude.<$> streamARN,
-            ("StreamName" Prelude..=) Prelude.<$> streamName,
-            Prelude.Just
-              ("CurrentVersion" Prelude..= currentVersion)
+    Core.object
+      ( Core.catMaybes
+          [ ("DeviceName" Core..=) Core.<$> deviceName,
+            ("MediaType" Core..=) Core.<$> mediaType,
+            ("StreamARN" Core..=) Core.<$> streamARN,
+            ("StreamName" Core..=) Core.<$> streamName,
+            Core.Just ("CurrentVersion" Core..= currentVersion)
           ]
       )
 
-instance Prelude.ToPath UpdateStream where
-  toPath = Prelude.const "/updateStream"
+instance Core.ToPath UpdateStream where
+  toPath = Core.const "/updateStream"
 
-instance Prelude.ToQuery UpdateStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateStreamResponse' smart constructor.
 data UpdateStreamResponse = UpdateStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateStreamResponse' with all optional fields omitted.
@@ -224,13 +222,13 @@ data UpdateStreamResponse = UpdateStreamResponse'
 -- 'httpStatus', 'updateStreamResponse_httpStatus' - The response's http status code.
 newUpdateStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateStreamResponse
 newUpdateStreamResponse pHttpStatus_ =
   UpdateStreamResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateStreamResponse_httpStatus :: Lens.Lens' UpdateStreamResponse Prelude.Int
+updateStreamResponse_httpStatus :: Lens.Lens' UpdateStreamResponse Core.Int
 updateStreamResponse_httpStatus = Lens.lens (\UpdateStreamResponse' {httpStatus} -> httpStatus) (\s@UpdateStreamResponse' {} a -> s {httpStatus = a} :: UpdateStreamResponse)
 
-instance Prelude.NFData UpdateStreamResponse
+instance Core.NFData UpdateStreamResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,10 +45,9 @@ module Network.AWS.Greengrass.ListBulkDeploymentDetailedReports
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +55,13 @@ import qualified Network.AWS.Response as Response
 data ListBulkDeploymentDetailedReports = ListBulkDeploymentDetailedReports'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text,
+    maxResults :: Core.Maybe Core.Text,
     -- | The ID of the bulk deployment.
-    bulkDeploymentId :: Prelude.Text
+    bulkDeploymentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListBulkDeploymentDetailedReports' with all optional fields omitted.
@@ -81,129 +79,125 @@ data ListBulkDeploymentDetailedReports = ListBulkDeploymentDetailedReports'
 -- 'bulkDeploymentId', 'listBulkDeploymentDetailedReports_bulkDeploymentId' - The ID of the bulk deployment.
 newListBulkDeploymentDetailedReports ::
   -- | 'bulkDeploymentId'
-  Prelude.Text ->
+  Core.Text ->
   ListBulkDeploymentDetailedReports
 newListBulkDeploymentDetailedReports
   pBulkDeploymentId_ =
     ListBulkDeploymentDetailedReports'
       { nextToken =
-          Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+          Core.Nothing,
+        maxResults = Core.Nothing,
         bulkDeploymentId = pBulkDeploymentId_
       }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listBulkDeploymentDetailedReports_nextToken :: Lens.Lens' ListBulkDeploymentDetailedReports (Prelude.Maybe Prelude.Text)
+listBulkDeploymentDetailedReports_nextToken :: Lens.Lens' ListBulkDeploymentDetailedReports (Core.Maybe Core.Text)
 listBulkDeploymentDetailedReports_nextToken = Lens.lens (\ListBulkDeploymentDetailedReports' {nextToken} -> nextToken) (\s@ListBulkDeploymentDetailedReports' {} a -> s {nextToken = a} :: ListBulkDeploymentDetailedReports)
 
 -- | The maximum number of results to be returned per request.
-listBulkDeploymentDetailedReports_maxResults :: Lens.Lens' ListBulkDeploymentDetailedReports (Prelude.Maybe Prelude.Text)
+listBulkDeploymentDetailedReports_maxResults :: Lens.Lens' ListBulkDeploymentDetailedReports (Core.Maybe Core.Text)
 listBulkDeploymentDetailedReports_maxResults = Lens.lens (\ListBulkDeploymentDetailedReports' {maxResults} -> maxResults) (\s@ListBulkDeploymentDetailedReports' {} a -> s {maxResults = a} :: ListBulkDeploymentDetailedReports)
 
 -- | The ID of the bulk deployment.
-listBulkDeploymentDetailedReports_bulkDeploymentId :: Lens.Lens' ListBulkDeploymentDetailedReports Prelude.Text
+listBulkDeploymentDetailedReports_bulkDeploymentId :: Lens.Lens' ListBulkDeploymentDetailedReports Core.Text
 listBulkDeploymentDetailedReports_bulkDeploymentId = Lens.lens (\ListBulkDeploymentDetailedReports' {bulkDeploymentId} -> bulkDeploymentId) (\s@ListBulkDeploymentDetailedReports' {} a -> s {bulkDeploymentId = a} :: ListBulkDeploymentDetailedReports)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     ListBulkDeploymentDetailedReports
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listBulkDeploymentDetailedReportsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listBulkDeploymentDetailedReportsResponse_deployments
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listBulkDeploymentDetailedReports_nextToken
           Lens..~ rs
           Lens.^? listBulkDeploymentDetailedReportsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListBulkDeploymentDetailedReports
   where
   type
-    Rs ListBulkDeploymentDetailedReports =
+    AWSResponse ListBulkDeploymentDetailedReports =
       ListBulkDeploymentDetailedReportsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListBulkDeploymentDetailedReportsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-              Prelude.<*> ( x Prelude..?> "Deployments"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Deployments" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListBulkDeploymentDetailedReports
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListBulkDeploymentDetailedReports
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListBulkDeploymentDetailedReports
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     ListBulkDeploymentDetailedReports
   where
   toPath ListBulkDeploymentDetailedReports' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/bulk/deployments/",
-        Prelude.toBS bulkDeploymentId,
+        Core.toBS bulkDeploymentId,
         "/detailed-reports"
       ]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ListBulkDeploymentDetailedReports
   where
   toQuery ListBulkDeploymentDetailedReports' {..} =
-    Prelude.mconcat
-      [ "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListBulkDeploymentDetailedReportsResponse' smart constructor.
 data ListBulkDeploymentDetailedReportsResponse = ListBulkDeploymentDetailedReportsResponse'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of the individual group deployments in the bulk deployment
     -- operation.
-    deployments :: Prelude.Maybe [BulkDeploymentResult],
+    deployments :: Core.Maybe [BulkDeploymentResult],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListBulkDeploymentDetailedReportsResponse' with all optional fields omitted.
@@ -222,31 +216,31 @@ data ListBulkDeploymentDetailedReportsResponse = ListBulkDeploymentDetailedRepor
 -- 'httpStatus', 'listBulkDeploymentDetailedReportsResponse_httpStatus' - The response's http status code.
 newListBulkDeploymentDetailedReportsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListBulkDeploymentDetailedReportsResponse
 newListBulkDeploymentDetailedReportsResponse
   pHttpStatus_ =
     ListBulkDeploymentDetailedReportsResponse'
       { nextToken =
-          Prelude.Nothing,
-        deployments = Prelude.Nothing,
+          Core.Nothing,
+        deployments = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listBulkDeploymentDetailedReportsResponse_nextToken :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse (Prelude.Maybe Prelude.Text)
+listBulkDeploymentDetailedReportsResponse_nextToken :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse (Core.Maybe Core.Text)
 listBulkDeploymentDetailedReportsResponse_nextToken = Lens.lens (\ListBulkDeploymentDetailedReportsResponse' {nextToken} -> nextToken) (\s@ListBulkDeploymentDetailedReportsResponse' {} a -> s {nextToken = a} :: ListBulkDeploymentDetailedReportsResponse)
 
 -- | A list of the individual group deployments in the bulk deployment
 -- operation.
-listBulkDeploymentDetailedReportsResponse_deployments :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse (Prelude.Maybe [BulkDeploymentResult])
-listBulkDeploymentDetailedReportsResponse_deployments = Lens.lens (\ListBulkDeploymentDetailedReportsResponse' {deployments} -> deployments) (\s@ListBulkDeploymentDetailedReportsResponse' {} a -> s {deployments = a} :: ListBulkDeploymentDetailedReportsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listBulkDeploymentDetailedReportsResponse_deployments :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse (Core.Maybe [BulkDeploymentResult])
+listBulkDeploymentDetailedReportsResponse_deployments = Lens.lens (\ListBulkDeploymentDetailedReportsResponse' {deployments} -> deployments) (\s@ListBulkDeploymentDetailedReportsResponse' {} a -> s {deployments = a} :: ListBulkDeploymentDetailedReportsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listBulkDeploymentDetailedReportsResponse_httpStatus :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse Prelude.Int
+listBulkDeploymentDetailedReportsResponse_httpStatus :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse Core.Int
 listBulkDeploymentDetailedReportsResponse_httpStatus = Lens.lens (\ListBulkDeploymentDetailedReportsResponse' {httpStatus} -> httpStatus) (\s@ListBulkDeploymentDetailedReportsResponse' {} a -> s {httpStatus = a} :: ListBulkDeploymentDetailedReportsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListBulkDeploymentDetailedReportsResponse

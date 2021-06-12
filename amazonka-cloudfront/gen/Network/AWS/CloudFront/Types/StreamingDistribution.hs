@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFront.Types.StreamingDistribution where
 
 import Network.AWS.CloudFront.Types.ActiveTrustedSigners
 import Network.AWS.CloudFront.Types.StreamingDistributionConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A streaming distribution tells CloudFront where you want RTMP content to
 -- be delivered from, and the details about how to track and manage content
@@ -32,21 +31,21 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newStreamingDistribution' smart constructor.
 data StreamingDistribution = StreamingDistribution'
   { -- | The date and time that the distribution was last modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.ISO8601,
+    lastModifiedTime :: Core.Maybe Core.ISO8601,
     -- | The identifier for the RTMP distribution. For example:
     -- @EGTXBD79EXAMPLE@.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The ARN (Amazon Resource Name) for the distribution. For example:
     -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
     -- @123456789012@ is your AWS account ID.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | The current status of the RTMP distribution. When the status is
     -- @Deployed@, the distribution\'s information is propagated to all
     -- CloudFront edge locations.
-    status :: Prelude.Text,
+    status :: Core.Text,
     -- | The domain name that corresponds to the streaming distribution, for
     -- example, @s5c39gqb8ow64r.cloudfront.net@.
-    domainName :: Prelude.Text,
+    domainName :: Core.Text,
     -- | A complex type that lists the AWS accounts, if any, that you included in
     -- the @TrustedSigners@ complex type for this distribution. These are the
     -- accounts that you want to allow to create signed URLs for private
@@ -66,7 +65,7 @@ data StreamingDistribution = StreamingDistribution'
     -- | The current configuration information for the RTMP distribution.
     streamingDistributionConfig :: StreamingDistributionConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StreamingDistribution' with all optional fields omitted.
@@ -111,13 +110,13 @@ data StreamingDistribution = StreamingDistribution'
 -- 'streamingDistributionConfig', 'streamingDistribution_streamingDistributionConfig' - The current configuration information for the RTMP distribution.
 newStreamingDistribution ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'activeTrustedSigners'
   ActiveTrustedSigners ->
   -- | 'streamingDistributionConfig'
@@ -132,7 +131,7 @@ newStreamingDistribution
   pStreamingDistributionConfig_ =
     StreamingDistribution'
       { lastModifiedTime =
-          Prelude.Nothing,
+          Core.Nothing,
         id = pId_,
         arn = pARN_,
         status = pStatus_,
@@ -143,29 +142,29 @@ newStreamingDistribution
       }
 
 -- | The date and time that the distribution was last modified.
-streamingDistribution_lastModifiedTime :: Lens.Lens' StreamingDistribution (Prelude.Maybe Prelude.UTCTime)
-streamingDistribution_lastModifiedTime = Lens.lens (\StreamingDistribution' {lastModifiedTime} -> lastModifiedTime) (\s@StreamingDistribution' {} a -> s {lastModifiedTime = a} :: StreamingDistribution) Prelude.. Lens.mapping Prelude._Time
+streamingDistribution_lastModifiedTime :: Lens.Lens' StreamingDistribution (Core.Maybe Core.UTCTime)
+streamingDistribution_lastModifiedTime = Lens.lens (\StreamingDistribution' {lastModifiedTime} -> lastModifiedTime) (\s@StreamingDistribution' {} a -> s {lastModifiedTime = a} :: StreamingDistribution) Core.. Lens.mapping Core._Time
 
 -- | The identifier for the RTMP distribution. For example:
 -- @EGTXBD79EXAMPLE@.
-streamingDistribution_id :: Lens.Lens' StreamingDistribution Prelude.Text
+streamingDistribution_id :: Lens.Lens' StreamingDistribution Core.Text
 streamingDistribution_id = Lens.lens (\StreamingDistribution' {id} -> id) (\s@StreamingDistribution' {} a -> s {id = a} :: StreamingDistribution)
 
 -- | The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
 -- @123456789012@ is your AWS account ID.
-streamingDistribution_arn :: Lens.Lens' StreamingDistribution Prelude.Text
+streamingDistribution_arn :: Lens.Lens' StreamingDistribution Core.Text
 streamingDistribution_arn = Lens.lens (\StreamingDistribution' {arn} -> arn) (\s@StreamingDistribution' {} a -> s {arn = a} :: StreamingDistribution)
 
 -- | The current status of the RTMP distribution. When the status is
 -- @Deployed@, the distribution\'s information is propagated to all
 -- CloudFront edge locations.
-streamingDistribution_status :: Lens.Lens' StreamingDistribution Prelude.Text
+streamingDistribution_status :: Lens.Lens' StreamingDistribution Core.Text
 streamingDistribution_status = Lens.lens (\StreamingDistribution' {status} -> status) (\s@StreamingDistribution' {} a -> s {status = a} :: StreamingDistribution)
 
 -- | The domain name that corresponds to the streaming distribution, for
 -- example, @s5c39gqb8ow64r.cloudfront.net@.
-streamingDistribution_domainName :: Lens.Lens' StreamingDistribution Prelude.Text
+streamingDistribution_domainName :: Lens.Lens' StreamingDistribution Core.Text
 streamingDistribution_domainName = Lens.lens (\StreamingDistribution' {domainName} -> domainName) (\s@StreamingDistribution' {} a -> s {domainName = a} :: StreamingDistribution)
 
 -- | A complex type that lists the AWS accounts, if any, that you included in
@@ -190,17 +189,17 @@ streamingDistribution_activeTrustedSigners = Lens.lens (\StreamingDistribution' 
 streamingDistribution_streamingDistributionConfig :: Lens.Lens' StreamingDistribution StreamingDistributionConfig
 streamingDistribution_streamingDistributionConfig = Lens.lens (\StreamingDistribution' {streamingDistributionConfig} -> streamingDistributionConfig) (\s@StreamingDistribution' {} a -> s {streamingDistributionConfig = a} :: StreamingDistribution)
 
-instance Prelude.FromXML StreamingDistribution where
+instance Core.FromXML StreamingDistribution where
   parseXML x =
     StreamingDistribution'
-      Prelude.<$> (x Prelude..@? "LastModifiedTime")
-      Prelude.<*> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "ARN")
-      Prelude.<*> (x Prelude..@ "Status")
-      Prelude.<*> (x Prelude..@ "DomainName")
-      Prelude.<*> (x Prelude..@ "ActiveTrustedSigners")
-      Prelude.<*> (x Prelude..@ "StreamingDistributionConfig")
+      Core.<$> (x Core..@? "LastModifiedTime")
+      Core.<*> (x Core..@ "Id")
+      Core.<*> (x Core..@ "ARN")
+      Core.<*> (x Core..@ "Status")
+      Core.<*> (x Core..@ "DomainName")
+      Core.<*> (x Core..@ "ActiveTrustedSigners")
+      Core.<*> (x Core..@ "StreamingDistributionConfig")
 
-instance Prelude.Hashable StreamingDistribution
+instance Core.Hashable StreamingDistribution
 
-instance Prelude.NFData StreamingDistribution
+instance Core.NFData StreamingDistribution

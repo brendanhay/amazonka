@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.PolicyRole where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a role that a managed policy is attached to.
 --
@@ -38,11 +37,11 @@ data PolicyRole = PolicyRole'
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    roleId :: Prelude.Maybe Prelude.Text,
+    roleId :: Core.Maybe Core.Text,
     -- | The name (friendly name, not ARN) identifying the role.
-    roleName :: Prelude.Maybe Prelude.Text
+    roleName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyRole' with all optional fields omitted.
@@ -62,27 +61,27 @@ newPolicyRole ::
   PolicyRole
 newPolicyRole =
   PolicyRole'
-    { roleId = Prelude.Nothing,
-      roleName = Prelude.Nothing
+    { roleId = Core.Nothing,
+      roleName = Core.Nothing
     }
 
 -- | The stable and unique string identifying the role. For more information
 -- about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-policyRole_roleId :: Lens.Lens' PolicyRole (Prelude.Maybe Prelude.Text)
+policyRole_roleId :: Lens.Lens' PolicyRole (Core.Maybe Core.Text)
 policyRole_roleId = Lens.lens (\PolicyRole' {roleId} -> roleId) (\s@PolicyRole' {} a -> s {roleId = a} :: PolicyRole)
 
 -- | The name (friendly name, not ARN) identifying the role.
-policyRole_roleName :: Lens.Lens' PolicyRole (Prelude.Maybe Prelude.Text)
+policyRole_roleName :: Lens.Lens' PolicyRole (Core.Maybe Core.Text)
 policyRole_roleName = Lens.lens (\PolicyRole' {roleName} -> roleName) (\s@PolicyRole' {} a -> s {roleName = a} :: PolicyRole)
 
-instance Prelude.FromXML PolicyRole where
+instance Core.FromXML PolicyRole where
   parseXML x =
     PolicyRole'
-      Prelude.<$> (x Prelude..@? "RoleId")
-      Prelude.<*> (x Prelude..@? "RoleName")
+      Core.<$> (x Core..@? "RoleId")
+      Core.<*> (x Core..@? "RoleName")
 
-instance Prelude.Hashable PolicyRole
+instance Core.Hashable PolicyRole
 
-instance Prelude.NFData PolicyRole
+instance Core.NFData PolicyRole

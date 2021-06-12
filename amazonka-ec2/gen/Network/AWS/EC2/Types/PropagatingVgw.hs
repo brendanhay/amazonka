@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PropagatingVgw where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a virtual private gateway propagating route.
 --
 -- /See:/ 'newPropagatingVgw' smart constructor.
 data PropagatingVgw = PropagatingVgw'
   { -- | The ID of the virtual private gateway.
-    gatewayId :: Prelude.Maybe Prelude.Text
+    gatewayId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PropagatingVgw' with all optional fields omitted.
@@ -45,17 +44,16 @@ data PropagatingVgw = PropagatingVgw'
 newPropagatingVgw ::
   PropagatingVgw
 newPropagatingVgw =
-  PropagatingVgw' {gatewayId = Prelude.Nothing}
+  PropagatingVgw' {gatewayId = Core.Nothing}
 
 -- | The ID of the virtual private gateway.
-propagatingVgw_gatewayId :: Lens.Lens' PropagatingVgw (Prelude.Maybe Prelude.Text)
+propagatingVgw_gatewayId :: Lens.Lens' PropagatingVgw (Core.Maybe Core.Text)
 propagatingVgw_gatewayId = Lens.lens (\PropagatingVgw' {gatewayId} -> gatewayId) (\s@PropagatingVgw' {} a -> s {gatewayId = a} :: PropagatingVgw)
 
-instance Prelude.FromXML PropagatingVgw where
+instance Core.FromXML PropagatingVgw where
   parseXML x =
-    PropagatingVgw'
-      Prelude.<$> (x Prelude..@? "gatewayId")
+    PropagatingVgw' Core.<$> (x Core..@? "gatewayId")
 
-instance Prelude.Hashable PropagatingVgw
+instance Core.Hashable PropagatingVgw
 
-instance Prelude.NFData PropagatingVgw
+instance Core.NFData PropagatingVgw

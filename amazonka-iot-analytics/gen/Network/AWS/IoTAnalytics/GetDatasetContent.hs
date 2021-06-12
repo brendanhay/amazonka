@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.IoTAnalytics.GetDatasetContent
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +54,11 @@ data GetDatasetContent = GetDatasetContent'
     -- use the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to retrieve the
     -- contents of the latest or latest successfully completed data set. If not
     -- specified, \"$LATEST_SUCCEEDED\" is the default.
-    versionId :: Prelude.Maybe Prelude.Text,
+    versionId :: Core.Maybe Core.Text,
     -- | The name of the data set whose contents are retrieved.
-    datasetName :: Prelude.Text
+    datasetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDatasetContent' with all optional fields omitted.
@@ -77,11 +76,11 @@ data GetDatasetContent = GetDatasetContent'
 -- 'datasetName', 'getDatasetContent_datasetName' - The name of the data set whose contents are retrieved.
 newGetDatasetContent ::
   -- | 'datasetName'
-  Prelude.Text ->
+  Core.Text ->
   GetDatasetContent
 newGetDatasetContent pDatasetName_ =
   GetDatasetContent'
-    { versionId = Prelude.Nothing,
+    { versionId = Core.Nothing,
       datasetName = pDatasetName_
     }
 
@@ -89,54 +88,56 @@ newGetDatasetContent pDatasetName_ =
 -- use the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to retrieve the
 -- contents of the latest or latest successfully completed data set. If not
 -- specified, \"$LATEST_SUCCEEDED\" is the default.
-getDatasetContent_versionId :: Lens.Lens' GetDatasetContent (Prelude.Maybe Prelude.Text)
+getDatasetContent_versionId :: Lens.Lens' GetDatasetContent (Core.Maybe Core.Text)
 getDatasetContent_versionId = Lens.lens (\GetDatasetContent' {versionId} -> versionId) (\s@GetDatasetContent' {} a -> s {versionId = a} :: GetDatasetContent)
 
 -- | The name of the data set whose contents are retrieved.
-getDatasetContent_datasetName :: Lens.Lens' GetDatasetContent Prelude.Text
+getDatasetContent_datasetName :: Lens.Lens' GetDatasetContent Core.Text
 getDatasetContent_datasetName = Lens.lens (\GetDatasetContent' {datasetName} -> datasetName) (\s@GetDatasetContent' {} a -> s {datasetName = a} :: GetDatasetContent)
 
-instance Prelude.AWSRequest GetDatasetContent where
-  type Rs GetDatasetContent = GetDatasetContentResponse
+instance Core.AWSRequest GetDatasetContent where
+  type
+    AWSResponse GetDatasetContent =
+      GetDatasetContentResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDatasetContentResponse'
-            Prelude.<$> (x Prelude..?> "status")
-            Prelude.<*> (x Prelude..?> "timestamp")
-            Prelude.<*> (x Prelude..?> "entries" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "status")
+            Core.<*> (x Core..?> "timestamp")
+            Core.<*> (x Core..?> "entries" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDatasetContent
+instance Core.Hashable GetDatasetContent
 
-instance Prelude.NFData GetDatasetContent
+instance Core.NFData GetDatasetContent
 
-instance Prelude.ToHeaders GetDatasetContent where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetDatasetContent where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetDatasetContent where
+instance Core.ToPath GetDatasetContent where
   toPath GetDatasetContent' {..} =
-    Prelude.mconcat
-      ["/datasets/", Prelude.toBS datasetName, "/content"]
+    Core.mconcat
+      ["/datasets/", Core.toBS datasetName, "/content"]
 
-instance Prelude.ToQuery GetDatasetContent where
+instance Core.ToQuery GetDatasetContent where
   toQuery GetDatasetContent' {..} =
-    Prelude.mconcat ["versionId" Prelude.=: versionId]
+    Core.mconcat ["versionId" Core.=: versionId]
 
 -- | /See:/ 'newGetDatasetContentResponse' smart constructor.
 data GetDatasetContentResponse = GetDatasetContentResponse'
   { -- | The status of the data set content.
-    status :: Prelude.Maybe DatasetContentStatus,
+    status :: Core.Maybe DatasetContentStatus,
     -- | The time when the request was made.
-    timestamp :: Prelude.Maybe Prelude.POSIX,
+    timestamp :: Core.Maybe Core.POSIX,
     -- | A list of @DatasetEntry@ objects.
-    entries :: Prelude.Maybe [DatasetEntry],
+    entries :: Core.Maybe [DatasetEntry],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDatasetContentResponse' with all optional fields omitted.
@@ -155,31 +156,30 @@ data GetDatasetContentResponse = GetDatasetContentResponse'
 -- 'httpStatus', 'getDatasetContentResponse_httpStatus' - The response's http status code.
 newGetDatasetContentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDatasetContentResponse
 newGetDatasetContentResponse pHttpStatus_ =
   GetDatasetContentResponse'
-    { status =
-        Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      entries = Prelude.Nothing,
+    { status = Core.Nothing,
+      timestamp = Core.Nothing,
+      entries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the data set content.
-getDatasetContentResponse_status :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe DatasetContentStatus)
+getDatasetContentResponse_status :: Lens.Lens' GetDatasetContentResponse (Core.Maybe DatasetContentStatus)
 getDatasetContentResponse_status = Lens.lens (\GetDatasetContentResponse' {status} -> status) (\s@GetDatasetContentResponse' {} a -> s {status = a} :: GetDatasetContentResponse)
 
 -- | The time when the request was made.
-getDatasetContentResponse_timestamp :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe Prelude.UTCTime)
-getDatasetContentResponse_timestamp = Lens.lens (\GetDatasetContentResponse' {timestamp} -> timestamp) (\s@GetDatasetContentResponse' {} a -> s {timestamp = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Prelude._Time
+getDatasetContentResponse_timestamp :: Lens.Lens' GetDatasetContentResponse (Core.Maybe Core.UTCTime)
+getDatasetContentResponse_timestamp = Lens.lens (\GetDatasetContentResponse' {timestamp} -> timestamp) (\s@GetDatasetContentResponse' {} a -> s {timestamp = a} :: GetDatasetContentResponse) Core.. Lens.mapping Core._Time
 
 -- | A list of @DatasetEntry@ objects.
-getDatasetContentResponse_entries :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe [DatasetEntry])
-getDatasetContentResponse_entries = Lens.lens (\GetDatasetContentResponse' {entries} -> entries) (\s@GetDatasetContentResponse' {} a -> s {entries = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Prelude._Coerce
+getDatasetContentResponse_entries :: Lens.Lens' GetDatasetContentResponse (Core.Maybe [DatasetEntry])
+getDatasetContentResponse_entries = Lens.lens (\GetDatasetContentResponse' {entries} -> entries) (\s@GetDatasetContentResponse' {} a -> s {entries = a} :: GetDatasetContentResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getDatasetContentResponse_httpStatus :: Lens.Lens' GetDatasetContentResponse Prelude.Int
+getDatasetContentResponse_httpStatus :: Lens.Lens' GetDatasetContentResponse Core.Int
 getDatasetContentResponse_httpStatus = Lens.lens (\GetDatasetContentResponse' {httpStatus} -> httpStatus) (\s@GetDatasetContentResponse' {} a -> s {httpStatus = a} :: GetDatasetContentResponse)
 
-instance Prelude.NFData GetDatasetContentResponse
+instance Core.NFData GetDatasetContentResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.S3Configuration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a description of an Amazon S3 data source, including the Amazon
 -- Resource Name (ARN) of the S3 bucket, the ARN of the IAM role that is
@@ -31,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newS3Configuration' smart constructor.
 data S3Configuration = S3Configuration'
   { -- | IAM ARN of the role used to access the data.
-    roleARN :: Prelude.Text,
+    roleARN :: Core.Text,
     -- | ARN of the S3 bucket that contains the data.
-    bucketARN :: Prelude.Text,
+    bucketARN :: Core.Text,
     -- | The name of the object that contains the data.
-    fileKey :: Prelude.Text
+    fileKey :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3Configuration' with all optional fields omitted.
@@ -54,11 +53,11 @@ data S3Configuration = S3Configuration'
 -- 'fileKey', 's3Configuration_fileKey' - The name of the object that contains the data.
 newS3Configuration ::
   -- | 'roleARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'bucketARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'fileKey'
-  Prelude.Text ->
+  Core.Text ->
   S3Configuration
 newS3Configuration pRoleARN_ pBucketARN_ pFileKey_ =
   S3Configuration'
@@ -68,27 +67,27 @@ newS3Configuration pRoleARN_ pBucketARN_ pFileKey_ =
     }
 
 -- | IAM ARN of the role used to access the data.
-s3Configuration_roleARN :: Lens.Lens' S3Configuration Prelude.Text
+s3Configuration_roleARN :: Lens.Lens' S3Configuration Core.Text
 s3Configuration_roleARN = Lens.lens (\S3Configuration' {roleARN} -> roleARN) (\s@S3Configuration' {} a -> s {roleARN = a} :: S3Configuration)
 
 -- | ARN of the S3 bucket that contains the data.
-s3Configuration_bucketARN :: Lens.Lens' S3Configuration Prelude.Text
+s3Configuration_bucketARN :: Lens.Lens' S3Configuration Core.Text
 s3Configuration_bucketARN = Lens.lens (\S3Configuration' {bucketARN} -> bucketARN) (\s@S3Configuration' {} a -> s {bucketARN = a} :: S3Configuration)
 
 -- | The name of the object that contains the data.
-s3Configuration_fileKey :: Lens.Lens' S3Configuration Prelude.Text
+s3Configuration_fileKey :: Lens.Lens' S3Configuration Core.Text
 s3Configuration_fileKey = Lens.lens (\S3Configuration' {fileKey} -> fileKey) (\s@S3Configuration' {} a -> s {fileKey = a} :: S3Configuration)
 
-instance Prelude.Hashable S3Configuration
+instance Core.Hashable S3Configuration
 
-instance Prelude.NFData S3Configuration
+instance Core.NFData S3Configuration
 
-instance Prelude.ToJSON S3Configuration where
+instance Core.ToJSON S3Configuration where
   toJSON S3Configuration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("RoleARN" Prelude..= roleARN),
-            Prelude.Just ("BucketARN" Prelude..= bucketARN),
-            Prelude.Just ("FileKey" Prelude..= fileKey)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RoleARN" Core..= roleARN),
+            Core.Just ("BucketARN" Core..= bucketARN),
+            Core.Just ("FileKey" Core..= fileKey)
           ]
       )

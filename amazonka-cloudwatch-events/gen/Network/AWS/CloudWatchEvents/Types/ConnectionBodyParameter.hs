@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.ConnectionBodyParameter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Additional parameter included in the body. You can include up to 100
 -- additional body parameters per request. An event payload cannot exceed
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newConnectionBodyParameter' smart constructor.
 data ConnectionBodyParameter = ConnectionBodyParameter'
   { -- | The key for the parameter.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | Specified whether the value is secret.
-    isValueSecret :: Prelude.Maybe Prelude.Bool,
+    isValueSecret :: Core.Maybe Core.Bool,
     -- | The value associated with the key.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectionBodyParameter' with all optional fields omitted.
@@ -55,45 +54,44 @@ newConnectionBodyParameter ::
   ConnectionBodyParameter
 newConnectionBodyParameter =
   ConnectionBodyParameter'
-    { key = Prelude.Nothing,
-      isValueSecret = Prelude.Nothing,
-      value = Prelude.Nothing
+    { key = Core.Nothing,
+      isValueSecret = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The key for the parameter.
-connectionBodyParameter_key :: Lens.Lens' ConnectionBodyParameter (Prelude.Maybe Prelude.Text)
+connectionBodyParameter_key :: Lens.Lens' ConnectionBodyParameter (Core.Maybe Core.Text)
 connectionBodyParameter_key = Lens.lens (\ConnectionBodyParameter' {key} -> key) (\s@ConnectionBodyParameter' {} a -> s {key = a} :: ConnectionBodyParameter)
 
 -- | Specified whether the value is secret.
-connectionBodyParameter_isValueSecret :: Lens.Lens' ConnectionBodyParameter (Prelude.Maybe Prelude.Bool)
+connectionBodyParameter_isValueSecret :: Lens.Lens' ConnectionBodyParameter (Core.Maybe Core.Bool)
 connectionBodyParameter_isValueSecret = Lens.lens (\ConnectionBodyParameter' {isValueSecret} -> isValueSecret) (\s@ConnectionBodyParameter' {} a -> s {isValueSecret = a} :: ConnectionBodyParameter)
 
 -- | The value associated with the key.
-connectionBodyParameter_value :: Lens.Lens' ConnectionBodyParameter (Prelude.Maybe Prelude.Text)
+connectionBodyParameter_value :: Lens.Lens' ConnectionBodyParameter (Core.Maybe Core.Text)
 connectionBodyParameter_value = Lens.lens (\ConnectionBodyParameter' {value} -> value) (\s@ConnectionBodyParameter' {} a -> s {value = a} :: ConnectionBodyParameter)
 
-instance Prelude.FromJSON ConnectionBodyParameter where
+instance Core.FromJSON ConnectionBodyParameter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConnectionBodyParameter"
       ( \x ->
           ConnectionBodyParameter'
-            Prelude.<$> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "IsValueSecret")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Key")
+            Core.<*> (x Core..:? "IsValueSecret")
+            Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable ConnectionBodyParameter
+instance Core.Hashable ConnectionBodyParameter
 
-instance Prelude.NFData ConnectionBodyParameter
+instance Core.NFData ConnectionBodyParameter
 
-instance Prelude.ToJSON ConnectionBodyParameter where
+instance Core.ToJSON ConnectionBodyParameter where
   toJSON ConnectionBodyParameter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("IsValueSecret" Prelude..=)
-              Prelude.<$> isValueSecret,
-            ("Value" Prelude..=) Prelude.<$> value
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("IsValueSecret" Core..=) Core.<$> isValueSecret,
+            ("Value" Core..=) Core.<$> value
           ]
       )

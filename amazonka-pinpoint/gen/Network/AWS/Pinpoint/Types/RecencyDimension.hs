@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.RecencyDimension where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Duration
 import Network.AWS.Pinpoint.Types.RecencyType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies criteria for including or excluding endpoints from a segment
 -- based on how recently an endpoint was active.
@@ -39,7 +38,7 @@ data RecencyDimension = RecencyDimension'
     -- within the specified duration are included in the segment.
     recencyType :: RecencyType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecencyDimension' with all optional fields omitted.
@@ -80,25 +79,25 @@ recencyDimension_duration = Lens.lens (\RecencyDimension' {duration} -> duration
 recencyDimension_recencyType :: Lens.Lens' RecencyDimension RecencyType
 recencyDimension_recencyType = Lens.lens (\RecencyDimension' {recencyType} -> recencyType) (\s@RecencyDimension' {} a -> s {recencyType = a} :: RecencyDimension)
 
-instance Prelude.FromJSON RecencyDimension where
+instance Core.FromJSON RecencyDimension where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RecencyDimension"
       ( \x ->
           RecencyDimension'
-            Prelude.<$> (x Prelude..: "Duration")
-            Prelude.<*> (x Prelude..: "RecencyType")
+            Core.<$> (x Core..: "Duration")
+            Core.<*> (x Core..: "RecencyType")
       )
 
-instance Prelude.Hashable RecencyDimension
+instance Core.Hashable RecencyDimension
 
-instance Prelude.NFData RecencyDimension
+instance Core.NFData RecencyDimension
 
-instance Prelude.ToJSON RecencyDimension where
+instance Core.ToJSON RecencyDimension where
   toJSON RecencyDimension' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Duration" Prelude..= duration),
-            Prelude.Just ("RecencyType" Prelude..= recencyType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Duration" Core..= duration),
+            Core.Just ("RecencyType" Core..= recencyType)
           ]
       )

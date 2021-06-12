@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.MLUserDataEncryption where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.MLUserDataEncryptionModeString
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The encryption-at-rest settings of the transform that apply to accessing
 -- user data.
@@ -30,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMLUserDataEncryption' smart constructor.
 data MLUserDataEncryption = MLUserDataEncryption'
   { -- | The ID for the customer-provided KMS key.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The encryption mode applied to user data. Valid values are:
     --
     -- -   DISABLED: encryption is disabled
@@ -39,7 +38,7 @@ data MLUserDataEncryption = MLUserDataEncryption'
     --     Service (SSE-KMS) for user data stored in Amazon S3.
     mlUserDataEncryptionMode :: MLUserDataEncryptionModeString
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MLUserDataEncryption' with all optional fields omitted.
@@ -63,13 +62,13 @@ newMLUserDataEncryption ::
   MLUserDataEncryption
 newMLUserDataEncryption pMlUserDataEncryptionMode_ =
   MLUserDataEncryption'
-    { kmsKeyId = Prelude.Nothing,
+    { kmsKeyId = Core.Nothing,
       mlUserDataEncryptionMode =
         pMlUserDataEncryptionMode_
     }
 
 -- | The ID for the customer-provided KMS key.
-mLUserDataEncryption_kmsKeyId :: Lens.Lens' MLUserDataEncryption (Prelude.Maybe Prelude.Text)
+mLUserDataEncryption_kmsKeyId :: Lens.Lens' MLUserDataEncryption (Core.Maybe Core.Text)
 mLUserDataEncryption_kmsKeyId = Lens.lens (\MLUserDataEncryption' {kmsKeyId} -> kmsKeyId) (\s@MLUserDataEncryption' {} a -> s {kmsKeyId = a} :: MLUserDataEncryption)
 
 -- | The encryption mode applied to user data. Valid values are:
@@ -81,28 +80,28 @@ mLUserDataEncryption_kmsKeyId = Lens.lens (\MLUserDataEncryption' {kmsKeyId} -> 
 mLUserDataEncryption_mlUserDataEncryptionMode :: Lens.Lens' MLUserDataEncryption MLUserDataEncryptionModeString
 mLUserDataEncryption_mlUserDataEncryptionMode = Lens.lens (\MLUserDataEncryption' {mlUserDataEncryptionMode} -> mlUserDataEncryptionMode) (\s@MLUserDataEncryption' {} a -> s {mlUserDataEncryptionMode = a} :: MLUserDataEncryption)
 
-instance Prelude.FromJSON MLUserDataEncryption where
+instance Core.FromJSON MLUserDataEncryption where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MLUserDataEncryption"
       ( \x ->
           MLUserDataEncryption'
-            Prelude.<$> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..: "MlUserDataEncryptionMode")
+            Core.<$> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..: "MlUserDataEncryptionMode")
       )
 
-instance Prelude.Hashable MLUserDataEncryption
+instance Core.Hashable MLUserDataEncryption
 
-instance Prelude.NFData MLUserDataEncryption
+instance Core.NFData MLUserDataEncryption
 
-instance Prelude.ToJSON MLUserDataEncryption where
+instance Core.ToJSON MLUserDataEncryption where
   toJSON MLUserDataEncryption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            Core.Just
               ( "MlUserDataEncryptionMode"
-                  Prelude..= mlUserDataEncryptionMode
+                  Core..= mlUserDataEncryptionMode
               )
           ]
       )

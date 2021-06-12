@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AppSync.Types.LambdaDataSourceConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an AWS Lambda data source configuration.
 --
 -- /See:/ 'newLambdaDataSourceConfig' smart constructor.
 data LambdaDataSourceConfig = LambdaDataSourceConfig'
   { -- | The ARN for the Lambda function.
-    lambdaFunctionArn :: Prelude.Text
+    lambdaFunctionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LambdaDataSourceConfig' with all optional fields omitted.
@@ -43,7 +42,7 @@ data LambdaDataSourceConfig = LambdaDataSourceConfig'
 -- 'lambdaFunctionArn', 'lambdaDataSourceConfig_lambdaFunctionArn' - The ARN for the Lambda function.
 newLambdaDataSourceConfig ::
   -- | 'lambdaFunctionArn'
-  Prelude.Text ->
+  Core.Text ->
   LambdaDataSourceConfig
 newLambdaDataSourceConfig pLambdaFunctionArn_ =
   LambdaDataSourceConfig'
@@ -52,27 +51,27 @@ newLambdaDataSourceConfig pLambdaFunctionArn_ =
     }
 
 -- | The ARN for the Lambda function.
-lambdaDataSourceConfig_lambdaFunctionArn :: Lens.Lens' LambdaDataSourceConfig Prelude.Text
+lambdaDataSourceConfig_lambdaFunctionArn :: Lens.Lens' LambdaDataSourceConfig Core.Text
 lambdaDataSourceConfig_lambdaFunctionArn = Lens.lens (\LambdaDataSourceConfig' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@LambdaDataSourceConfig' {} a -> s {lambdaFunctionArn = a} :: LambdaDataSourceConfig)
 
-instance Prelude.FromJSON LambdaDataSourceConfig where
+instance Core.FromJSON LambdaDataSourceConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LambdaDataSourceConfig"
       ( \x ->
           LambdaDataSourceConfig'
-            Prelude.<$> (x Prelude..: "lambdaFunctionArn")
+            Core.<$> (x Core..: "lambdaFunctionArn")
       )
 
-instance Prelude.Hashable LambdaDataSourceConfig
+instance Core.Hashable LambdaDataSourceConfig
 
-instance Prelude.NFData LambdaDataSourceConfig
+instance Core.NFData LambdaDataSourceConfig
 
-instance Prelude.ToJSON LambdaDataSourceConfig where
+instance Core.ToJSON LambdaDataSourceConfig where
   toJSON LambdaDataSourceConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("lambdaFunctionArn" Prelude..= lambdaFunctionArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("lambdaFunctionArn" Core..= lambdaFunctionArn)
           ]
       )

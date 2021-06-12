@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.SMS.DeleteAppReplicationConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -48,9 +47,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newDeleteAppReplicationConfiguration' smart constructor.
 data DeleteAppReplicationConfiguration = DeleteAppReplicationConfiguration'
   { -- | The ID of the application.
-    appId :: Prelude.Maybe Prelude.Text
+    appId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAppReplicationConfiguration' with all optional fields omitted.
@@ -66,82 +65,78 @@ newDeleteAppReplicationConfiguration ::
 newDeleteAppReplicationConfiguration =
   DeleteAppReplicationConfiguration'
     { appId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the application.
-deleteAppReplicationConfiguration_appId :: Lens.Lens' DeleteAppReplicationConfiguration (Prelude.Maybe Prelude.Text)
+deleteAppReplicationConfiguration_appId :: Lens.Lens' DeleteAppReplicationConfiguration (Core.Maybe Core.Text)
 deleteAppReplicationConfiguration_appId = Lens.lens (\DeleteAppReplicationConfiguration' {appId} -> appId) (\s@DeleteAppReplicationConfiguration' {} a -> s {appId = a} :: DeleteAppReplicationConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteAppReplicationConfiguration
   where
   type
-    Rs DeleteAppReplicationConfiguration =
+    AWSResponse DeleteAppReplicationConfiguration =
       DeleteAppReplicationConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAppReplicationConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteAppReplicationConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteAppReplicationConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteAppReplicationConfiguration
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DeleteAppReplicationConfiguration
   where
   toJSON DeleteAppReplicationConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("appId" Prelude..=) Prelude.<$> appId]
-      )
+    Core.object
+      (Core.catMaybes [("appId" Core..=) Core.<$> appId])
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteAppReplicationConfiguration
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteAppReplicationConfiguration
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAppReplicationConfigurationResponse' smart constructor.
 data DeleteAppReplicationConfigurationResponse = DeleteAppReplicationConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAppReplicationConfigurationResponse' with all optional fields omitted.
@@ -154,7 +149,7 @@ data DeleteAppReplicationConfigurationResponse = DeleteAppReplicationConfigurati
 -- 'httpStatus', 'deleteAppReplicationConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteAppReplicationConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteAppReplicationConfigurationResponse
 newDeleteAppReplicationConfigurationResponse
   pHttpStatus_ =
@@ -164,9 +159,9 @@ newDeleteAppReplicationConfigurationResponse
       }
 
 -- | The response's http status code.
-deleteAppReplicationConfigurationResponse_httpStatus :: Lens.Lens' DeleteAppReplicationConfigurationResponse Prelude.Int
+deleteAppReplicationConfigurationResponse_httpStatus :: Lens.Lens' DeleteAppReplicationConfigurationResponse Core.Int
 deleteAppReplicationConfigurationResponse_httpStatus = Lens.lens (\DeleteAppReplicationConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteAppReplicationConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteAppReplicationConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteAppReplicationConfigurationResponse

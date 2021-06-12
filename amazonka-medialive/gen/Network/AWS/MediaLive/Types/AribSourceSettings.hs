@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.AribSourceSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Arib Source Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data AribSourceSettings = AribSourceSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AribSourceSettings' with all optional fields omitted.
@@ -39,16 +38,15 @@ newAribSourceSettings ::
   AribSourceSettings
 newAribSourceSettings = AribSourceSettings'
 
-instance Prelude.FromJSON AribSourceSettings where
+instance Core.FromJSON AribSourceSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AribSourceSettings"
-      (\x -> Prelude.pure AribSourceSettings')
+      (\x -> Core.pure AribSourceSettings')
 
-instance Prelude.Hashable AribSourceSettings
+instance Core.Hashable AribSourceSettings
 
-instance Prelude.NFData AribSourceSettings
+instance Core.NFData AribSourceSettings
 
-instance Prelude.ToJSON AribSourceSettings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON AribSourceSettings where
+  toJSON = Core.const (Core.Object Core.mempty)

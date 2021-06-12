@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.InstanceFleetStateChangeReason where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.InstanceFleetStateChangeReasonCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides status change reason details for the instance fleet.
 --
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInstanceFleetStateChangeReason' smart constructor.
 data InstanceFleetStateChangeReason = InstanceFleetStateChangeReason'
   { -- | An explanatory message.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | A code corresponding to the reason the state change occurred.
-    code :: Prelude.Maybe InstanceFleetStateChangeReasonCode
+    code :: Core.Maybe InstanceFleetStateChangeReasonCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceFleetStateChangeReason' with all optional fields omitted.
@@ -54,35 +53,27 @@ newInstanceFleetStateChangeReason ::
 newInstanceFleetStateChangeReason =
   InstanceFleetStateChangeReason'
     { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+        Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | An explanatory message.
-instanceFleetStateChangeReason_message :: Lens.Lens' InstanceFleetStateChangeReason (Prelude.Maybe Prelude.Text)
+instanceFleetStateChangeReason_message :: Lens.Lens' InstanceFleetStateChangeReason (Core.Maybe Core.Text)
 instanceFleetStateChangeReason_message = Lens.lens (\InstanceFleetStateChangeReason' {message} -> message) (\s@InstanceFleetStateChangeReason' {} a -> s {message = a} :: InstanceFleetStateChangeReason)
 
 -- | A code corresponding to the reason the state change occurred.
-instanceFleetStateChangeReason_code :: Lens.Lens' InstanceFleetStateChangeReason (Prelude.Maybe InstanceFleetStateChangeReasonCode)
+instanceFleetStateChangeReason_code :: Lens.Lens' InstanceFleetStateChangeReason (Core.Maybe InstanceFleetStateChangeReasonCode)
 instanceFleetStateChangeReason_code = Lens.lens (\InstanceFleetStateChangeReason' {code} -> code) (\s@InstanceFleetStateChangeReason' {} a -> s {code = a} :: InstanceFleetStateChangeReason)
 
-instance
-  Prelude.FromJSON
-    InstanceFleetStateChangeReason
-  where
+instance Core.FromJSON InstanceFleetStateChangeReason where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceFleetStateChangeReason"
       ( \x ->
           InstanceFleetStateChangeReason'
-            Prelude.<$> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "Code")
+            Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "Code")
       )
 
-instance
-  Prelude.Hashable
-    InstanceFleetStateChangeReason
+instance Core.Hashable InstanceFleetStateChangeReason
 
-instance
-  Prelude.NFData
-    InstanceFleetStateChangeReason
+instance Core.NFData InstanceFleetStateChangeReason

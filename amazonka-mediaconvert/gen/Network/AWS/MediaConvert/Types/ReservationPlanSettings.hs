@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.ReservationPlanSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.Commitment
 import Network.AWS.MediaConvert.Types.RenewalType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the pricing plan for your reserved queue. Required for
 -- reserved queues and not applicable to on-demand queues.
@@ -40,14 +39,14 @@ data ReservationPlanSettings = ReservationPlanSettings'
     -- for the larger number. The new commitment begins when you purchase the
     -- additional capacity. You can\'t cancel your commitment or revert to your
     -- original commitment after you increase the capacity.
-    reservedSlots :: Prelude.Int,
+    reservedSlots :: Core.Int,
     -- | Specifies whether the term of your reserved queue pricing plan is
     -- automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of
     -- the term. When your term is auto renewed, you extend your commitment by
     -- 12 months from the auto renew date. You can cancel this commitment.
     renewalType :: RenewalType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReservationPlanSettings' with all optional fields omitted.
@@ -76,7 +75,7 @@ newReservationPlanSettings ::
   -- | 'commitment'
   Commitment ->
   -- | 'reservedSlots'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'renewalType'
   RenewalType ->
   ReservationPlanSettings
@@ -102,7 +101,7 @@ reservationPlanSettings_commitment = Lens.lens (\ReservationPlanSettings' {commi
 -- for the larger number. The new commitment begins when you purchase the
 -- additional capacity. You can\'t cancel your commitment or revert to your
 -- original commitment after you increase the capacity.
-reservationPlanSettings_reservedSlots :: Lens.Lens' ReservationPlanSettings Prelude.Int
+reservationPlanSettings_reservedSlots :: Lens.Lens' ReservationPlanSettings Core.Int
 reservationPlanSettings_reservedSlots = Lens.lens (\ReservationPlanSettings' {reservedSlots} -> reservedSlots) (\s@ReservationPlanSettings' {} a -> s {reservedSlots = a} :: ReservationPlanSettings)
 
 -- | Specifies whether the term of your reserved queue pricing plan is
@@ -112,17 +111,16 @@ reservationPlanSettings_reservedSlots = Lens.lens (\ReservationPlanSettings' {re
 reservationPlanSettings_renewalType :: Lens.Lens' ReservationPlanSettings RenewalType
 reservationPlanSettings_renewalType = Lens.lens (\ReservationPlanSettings' {renewalType} -> renewalType) (\s@ReservationPlanSettings' {} a -> s {renewalType = a} :: ReservationPlanSettings)
 
-instance Prelude.Hashable ReservationPlanSettings
+instance Core.Hashable ReservationPlanSettings
 
-instance Prelude.NFData ReservationPlanSettings
+instance Core.NFData ReservationPlanSettings
 
-instance Prelude.ToJSON ReservationPlanSettings where
+instance Core.ToJSON ReservationPlanSettings where
   toJSON ReservationPlanSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("commitment" Prelude..= commitment),
-            Prelude.Just
-              ("reservedSlots" Prelude..= reservedSlots),
-            Prelude.Just ("renewalType" Prelude..= renewalType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("commitment" Core..= commitment),
+            Core.Just ("reservedSlots" Core..= reservedSlots),
+            Core.Just ("renewalType" Core..= renewalType)
           ]
       )

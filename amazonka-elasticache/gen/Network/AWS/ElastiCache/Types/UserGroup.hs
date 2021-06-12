@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,29 +19,29 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.UserGroup where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.UserGroupPendingChanges
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newUserGroup' smart constructor.
 data UserGroup = UserGroup'
   { -- | Indicates user group status. Can be \"creating\", \"active\",
     -- \"modifying\", \"deleting\".
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | A list of replication groups that the user group can access.
-    replicationGroups :: Prelude.Maybe [Prelude.Text],
+    replicationGroups :: Core.Maybe [Core.Text],
     -- | The Amazon Resource Name (ARN) of the user group.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The list of user IDs that belong to the user group.
-    userIds :: Prelude.Maybe [Prelude.Text],
+    userIds :: Core.Maybe [Core.Text],
     -- | The current supported value is Redis.
-    engine :: Prelude.Maybe Prelude.Text,
+    engine :: Core.Maybe Core.Text,
     -- | The ID of the user group.
-    userGroupId :: Prelude.Maybe Prelude.Text,
+    userGroupId :: Core.Maybe Core.Text,
     -- | A list of updates being applied to the user groups.
-    pendingChanges :: Prelude.Maybe UserGroupPendingChanges
+    pendingChanges :: Core.Maybe UserGroupPendingChanges
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserGroup' with all optional fields omitted.
@@ -70,60 +69,59 @@ newUserGroup ::
   UserGroup
 newUserGroup =
   UserGroup'
-    { status = Prelude.Nothing,
-      replicationGroups = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      userIds = Prelude.Nothing,
-      engine = Prelude.Nothing,
-      userGroupId = Prelude.Nothing,
-      pendingChanges = Prelude.Nothing
+    { status = Core.Nothing,
+      replicationGroups = Core.Nothing,
+      arn = Core.Nothing,
+      userIds = Core.Nothing,
+      engine = Core.Nothing,
+      userGroupId = Core.Nothing,
+      pendingChanges = Core.Nothing
     }
 
 -- | Indicates user group status. Can be \"creating\", \"active\",
 -- \"modifying\", \"deleting\".
-userGroup_status :: Lens.Lens' UserGroup (Prelude.Maybe Prelude.Text)
+userGroup_status :: Lens.Lens' UserGroup (Core.Maybe Core.Text)
 userGroup_status = Lens.lens (\UserGroup' {status} -> status) (\s@UserGroup' {} a -> s {status = a} :: UserGroup)
 
 -- | A list of replication groups that the user group can access.
-userGroup_replicationGroups :: Lens.Lens' UserGroup (Prelude.Maybe [Prelude.Text])
-userGroup_replicationGroups = Lens.lens (\UserGroup' {replicationGroups} -> replicationGroups) (\s@UserGroup' {} a -> s {replicationGroups = a} :: UserGroup) Prelude.. Lens.mapping Prelude._Coerce
+userGroup_replicationGroups :: Lens.Lens' UserGroup (Core.Maybe [Core.Text])
+userGroup_replicationGroups = Lens.lens (\UserGroup' {replicationGroups} -> replicationGroups) (\s@UserGroup' {} a -> s {replicationGroups = a} :: UserGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the user group.
-userGroup_arn :: Lens.Lens' UserGroup (Prelude.Maybe Prelude.Text)
+userGroup_arn :: Lens.Lens' UserGroup (Core.Maybe Core.Text)
 userGroup_arn = Lens.lens (\UserGroup' {arn} -> arn) (\s@UserGroup' {} a -> s {arn = a} :: UserGroup)
 
 -- | The list of user IDs that belong to the user group.
-userGroup_userIds :: Lens.Lens' UserGroup (Prelude.Maybe [Prelude.Text])
-userGroup_userIds = Lens.lens (\UserGroup' {userIds} -> userIds) (\s@UserGroup' {} a -> s {userIds = a} :: UserGroup) Prelude.. Lens.mapping Prelude._Coerce
+userGroup_userIds :: Lens.Lens' UserGroup (Core.Maybe [Core.Text])
+userGroup_userIds = Lens.lens (\UserGroup' {userIds} -> userIds) (\s@UserGroup' {} a -> s {userIds = a} :: UserGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The current supported value is Redis.
-userGroup_engine :: Lens.Lens' UserGroup (Prelude.Maybe Prelude.Text)
+userGroup_engine :: Lens.Lens' UserGroup (Core.Maybe Core.Text)
 userGroup_engine = Lens.lens (\UserGroup' {engine} -> engine) (\s@UserGroup' {} a -> s {engine = a} :: UserGroup)
 
 -- | The ID of the user group.
-userGroup_userGroupId :: Lens.Lens' UserGroup (Prelude.Maybe Prelude.Text)
+userGroup_userGroupId :: Lens.Lens' UserGroup (Core.Maybe Core.Text)
 userGroup_userGroupId = Lens.lens (\UserGroup' {userGroupId} -> userGroupId) (\s@UserGroup' {} a -> s {userGroupId = a} :: UserGroup)
 
 -- | A list of updates being applied to the user groups.
-userGroup_pendingChanges :: Lens.Lens' UserGroup (Prelude.Maybe UserGroupPendingChanges)
+userGroup_pendingChanges :: Lens.Lens' UserGroup (Core.Maybe UserGroupPendingChanges)
 userGroup_pendingChanges = Lens.lens (\UserGroup' {pendingChanges} -> pendingChanges) (\s@UserGroup' {} a -> s {pendingChanges = a} :: UserGroup)
 
-instance Prelude.FromXML UserGroup where
+instance Core.FromXML UserGroup where
   parseXML x =
     UserGroup'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> ( x Prelude..@? "ReplicationGroups"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "ARN")
-      Prelude.<*> ( x Prelude..@? "UserIds" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "Engine")
-      Prelude.<*> (x Prelude..@? "UserGroupId")
-      Prelude.<*> (x Prelude..@? "PendingChanges")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> ( x Core..@? "ReplicationGroups" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "ARN")
+      Core.<*> ( x Core..@? "UserIds" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "Engine")
+      Core.<*> (x Core..@? "UserGroupId")
+      Core.<*> (x Core..@? "PendingChanges")
 
-instance Prelude.Hashable UserGroup
+instance Core.Hashable UserGroup
 
-instance Prelude.NFData UserGroup
+instance Core.NFData UserGroup

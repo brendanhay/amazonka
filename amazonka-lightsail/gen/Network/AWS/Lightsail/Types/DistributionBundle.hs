@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.DistributionBundle where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the specifications of a distribution bundle.
 --
 -- /See:/ 'newDistributionBundle' smart constructor.
 data DistributionBundle = DistributionBundle'
   { -- | The ID of the bundle.
-    bundleId :: Prelude.Maybe Prelude.Text,
+    bundleId :: Core.Maybe Core.Text,
     -- | Indicates whether the bundle is active, and can be specified for a new
     -- distribution.
-    isActive :: Prelude.Maybe Prelude.Bool,
+    isActive :: Core.Maybe Core.Bool,
     -- | The name of the distribution bundle.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The monthly network transfer quota of the bundle.
-    transferPerMonthInGb :: Prelude.Maybe Prelude.Int,
+    transferPerMonthInGb :: Core.Maybe Core.Int,
     -- | The monthly price, in US dollars, of the bundle.
-    price :: Prelude.Maybe Prelude.Double
+    price :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DistributionBundle' with all optional fields omitted.
@@ -63,47 +62,47 @@ newDistributionBundle ::
   DistributionBundle
 newDistributionBundle =
   DistributionBundle'
-    { bundleId = Prelude.Nothing,
-      isActive = Prelude.Nothing,
-      name = Prelude.Nothing,
-      transferPerMonthInGb = Prelude.Nothing,
-      price = Prelude.Nothing
+    { bundleId = Core.Nothing,
+      isActive = Core.Nothing,
+      name = Core.Nothing,
+      transferPerMonthInGb = Core.Nothing,
+      price = Core.Nothing
     }
 
 -- | The ID of the bundle.
-distributionBundle_bundleId :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Text)
+distributionBundle_bundleId :: Lens.Lens' DistributionBundle (Core.Maybe Core.Text)
 distributionBundle_bundleId = Lens.lens (\DistributionBundle' {bundleId} -> bundleId) (\s@DistributionBundle' {} a -> s {bundleId = a} :: DistributionBundle)
 
 -- | Indicates whether the bundle is active, and can be specified for a new
 -- distribution.
-distributionBundle_isActive :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Bool)
+distributionBundle_isActive :: Lens.Lens' DistributionBundle (Core.Maybe Core.Bool)
 distributionBundle_isActive = Lens.lens (\DistributionBundle' {isActive} -> isActive) (\s@DistributionBundle' {} a -> s {isActive = a} :: DistributionBundle)
 
 -- | The name of the distribution bundle.
-distributionBundle_name :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Text)
+distributionBundle_name :: Lens.Lens' DistributionBundle (Core.Maybe Core.Text)
 distributionBundle_name = Lens.lens (\DistributionBundle' {name} -> name) (\s@DistributionBundle' {} a -> s {name = a} :: DistributionBundle)
 
 -- | The monthly network transfer quota of the bundle.
-distributionBundle_transferPerMonthInGb :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Int)
+distributionBundle_transferPerMonthInGb :: Lens.Lens' DistributionBundle (Core.Maybe Core.Int)
 distributionBundle_transferPerMonthInGb = Lens.lens (\DistributionBundle' {transferPerMonthInGb} -> transferPerMonthInGb) (\s@DistributionBundle' {} a -> s {transferPerMonthInGb = a} :: DistributionBundle)
 
 -- | The monthly price, in US dollars, of the bundle.
-distributionBundle_price :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Double)
+distributionBundle_price :: Lens.Lens' DistributionBundle (Core.Maybe Core.Double)
 distributionBundle_price = Lens.lens (\DistributionBundle' {price} -> price) (\s@DistributionBundle' {} a -> s {price = a} :: DistributionBundle)
 
-instance Prelude.FromJSON DistributionBundle where
+instance Core.FromJSON DistributionBundle where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DistributionBundle"
       ( \x ->
           DistributionBundle'
-            Prelude.<$> (x Prelude..:? "bundleId")
-            Prelude.<*> (x Prelude..:? "isActive")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "transferPerMonthInGb")
-            Prelude.<*> (x Prelude..:? "price")
+            Core.<$> (x Core..:? "bundleId")
+            Core.<*> (x Core..:? "isActive")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "transferPerMonthInGb")
+            Core.<*> (x Core..:? "price")
       )
 
-instance Prelude.Hashable DistributionBundle
+instance Core.Hashable DistributionBundle
 
-instance Prelude.NFData DistributionBundle
+instance Core.NFData DistributionBundle

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,10 +46,9 @@ module Network.AWS.Inspector.ListEventSubscriptions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,18 +56,18 @@ import qualified Network.AWS.Response as Response
 data ListEventSubscriptions = ListEventSubscriptions'
   { -- | The ARN of the assessment template for which you want to list the
     -- existing event subscriptions.
-    resourceArn :: Prelude.Maybe Prelude.Text,
+    resourceArn :: Core.Maybe Core.Text,
     -- | You can use this parameter when paginating results. Set the value of
     -- this parameter to null on your first call to the
     -- __ListEventSubscriptions__ action. Subsequent calls to the action fill
     -- __nextToken__ in the request with the value of __NextToken__ from the
     -- previous response to continue listing data.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListEventSubscriptions' with all optional fields omitted.
@@ -94,15 +92,14 @@ newListEventSubscriptions ::
   ListEventSubscriptions
 newListEventSubscriptions =
   ListEventSubscriptions'
-    { resourceArn =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { resourceArn = Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The ARN of the assessment template for which you want to list the
 -- existing event subscriptions.
-listEventSubscriptions_resourceArn :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Text)
+listEventSubscriptions_resourceArn :: Lens.Lens' ListEventSubscriptions (Core.Maybe Core.Text)
 listEventSubscriptions_resourceArn = Lens.lens (\ListEventSubscriptions' {resourceArn} -> resourceArn) (\s@ListEventSubscriptions' {} a -> s {resourceArn = a} :: ListEventSubscriptions)
 
 -- | You can use this parameter when paginating results. Set the value of
@@ -110,85 +107,81 @@ listEventSubscriptions_resourceArn = Lens.lens (\ListEventSubscriptions' {resour
 -- __ListEventSubscriptions__ action. Subsequent calls to the action fill
 -- __nextToken__ in the request with the value of __NextToken__ from the
 -- previous response to continue listing data.
-listEventSubscriptions_nextToken :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Text)
+listEventSubscriptions_nextToken :: Lens.Lens' ListEventSubscriptions (Core.Maybe Core.Text)
 listEventSubscriptions_nextToken = Lens.lens (\ListEventSubscriptions' {nextToken} -> nextToken) (\s@ListEventSubscriptions' {} a -> s {nextToken = a} :: ListEventSubscriptions)
 
 -- | You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 10. The maximum value is 500.
-listEventSubscriptions_maxResults :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Int)
+listEventSubscriptions_maxResults :: Lens.Lens' ListEventSubscriptions (Core.Maybe Core.Int)
 listEventSubscriptions_maxResults = Lens.lens (\ListEventSubscriptions' {maxResults} -> maxResults) (\s@ListEventSubscriptions' {} a -> s {maxResults = a} :: ListEventSubscriptions)
 
-instance Pager.AWSPager ListEventSubscriptions where
+instance Core.AWSPager ListEventSubscriptions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listEventSubscriptionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. listEventSubscriptionsResponse_subscriptions
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listEventSubscriptions_nextToken
           Lens..~ rs
           Lens.^? listEventSubscriptionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListEventSubscriptions where
+instance Core.AWSRequest ListEventSubscriptions where
   type
-    Rs ListEventSubscriptions =
+    AWSResponse ListEventSubscriptions =
       ListEventSubscriptionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListEventSubscriptionsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "subscriptions"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "subscriptions" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListEventSubscriptions
+instance Core.Hashable ListEventSubscriptions
 
-instance Prelude.NFData ListEventSubscriptions
+instance Core.NFData ListEventSubscriptions
 
-instance Prelude.ToHeaders ListEventSubscriptions where
+instance Core.ToHeaders ListEventSubscriptions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.ListEventSubscriptions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.ListEventSubscriptions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListEventSubscriptions where
+instance Core.ToJSON ListEventSubscriptions where
   toJSON ListEventSubscriptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("resourceArn" Prelude..=) Prelude.<$> resourceArn,
-            ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("resourceArn" Core..=) Core.<$> resourceArn,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListEventSubscriptions where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListEventSubscriptions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListEventSubscriptions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListEventSubscriptions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListEventSubscriptionsResponse' smart constructor.
 data ListEventSubscriptionsResponse = ListEventSubscriptionsResponse'
@@ -196,13 +189,13 @@ data ListEventSubscriptionsResponse = ListEventSubscriptionsResponse'
     -- parameter is present in the response and contains the value to use for
     -- the __nextToken__ parameter in a subsequent pagination request. If there
     -- is no more data to be listed, this parameter is set to null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Details of the returned event subscriptions.
     subscriptions :: [Subscription]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListEventSubscriptionsResponse' with all optional fields omitted.
@@ -222,31 +215,29 @@ data ListEventSubscriptionsResponse = ListEventSubscriptionsResponse'
 -- 'subscriptions', 'listEventSubscriptionsResponse_subscriptions' - Details of the returned event subscriptions.
 newListEventSubscriptionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListEventSubscriptionsResponse
 newListEventSubscriptionsResponse pHttpStatus_ =
   ListEventSubscriptionsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      subscriptions = Prelude.mempty
+      subscriptions = Core.mempty
     }
 
 -- | When a response is generated, if there is more data to be listed, this
 -- parameter is present in the response and contains the value to use for
 -- the __nextToken__ parameter in a subsequent pagination request. If there
 -- is no more data to be listed, this parameter is set to null.
-listEventSubscriptionsResponse_nextToken :: Lens.Lens' ListEventSubscriptionsResponse (Prelude.Maybe Prelude.Text)
+listEventSubscriptionsResponse_nextToken :: Lens.Lens' ListEventSubscriptionsResponse (Core.Maybe Core.Text)
 listEventSubscriptionsResponse_nextToken = Lens.lens (\ListEventSubscriptionsResponse' {nextToken} -> nextToken) (\s@ListEventSubscriptionsResponse' {} a -> s {nextToken = a} :: ListEventSubscriptionsResponse)
 
 -- | The response's http status code.
-listEventSubscriptionsResponse_httpStatus :: Lens.Lens' ListEventSubscriptionsResponse Prelude.Int
+listEventSubscriptionsResponse_httpStatus :: Lens.Lens' ListEventSubscriptionsResponse Core.Int
 listEventSubscriptionsResponse_httpStatus = Lens.lens (\ListEventSubscriptionsResponse' {httpStatus} -> httpStatus) (\s@ListEventSubscriptionsResponse' {} a -> s {httpStatus = a} :: ListEventSubscriptionsResponse)
 
 -- | Details of the returned event subscriptions.
 listEventSubscriptionsResponse_subscriptions :: Lens.Lens' ListEventSubscriptionsResponse [Subscription]
-listEventSubscriptionsResponse_subscriptions = Lens.lens (\ListEventSubscriptionsResponse' {subscriptions} -> subscriptions) (\s@ListEventSubscriptionsResponse' {} a -> s {subscriptions = a} :: ListEventSubscriptionsResponse) Prelude.. Prelude._Coerce
+listEventSubscriptionsResponse_subscriptions = Lens.lens (\ListEventSubscriptionsResponse' {subscriptions} -> subscriptions) (\s@ListEventSubscriptionsResponse' {} a -> s {subscriptions = a} :: ListEventSubscriptionsResponse) Core.. Lens._Coerce
 
-instance
-  Prelude.NFData
-    ListEventSubscriptionsResponse
+instance Core.NFData ListEventSubscriptionsResponse

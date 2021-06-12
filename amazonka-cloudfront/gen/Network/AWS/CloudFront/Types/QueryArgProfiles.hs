@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.QueryArgProfiles where
 
 import Network.AWS.CloudFront.Types.QueryArgProfile
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Query argument-profile mapping for field-level encryption.
 --
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data QueryArgProfiles = QueryArgProfiles'
   { -- | Number of items for query argument-profile mapping for field-level
     -- encryption.
-    items :: Prelude.Maybe [QueryArgProfile],
+    items :: Core.Maybe [QueryArgProfile],
     -- | Number of profiles for query argument-profile mapping for field-level
     -- encryption.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryArgProfiles' with all optional fields omitted.
@@ -52,43 +51,41 @@ data QueryArgProfiles = QueryArgProfiles'
 -- encryption.
 newQueryArgProfiles ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   QueryArgProfiles
 newQueryArgProfiles pQuantity_ =
   QueryArgProfiles'
-    { items = Prelude.Nothing,
+    { items = Core.Nothing,
       quantity = pQuantity_
     }
 
 -- | Number of items for query argument-profile mapping for field-level
 -- encryption.
-queryArgProfiles_items :: Lens.Lens' QueryArgProfiles (Prelude.Maybe [QueryArgProfile])
-queryArgProfiles_items = Lens.lens (\QueryArgProfiles' {items} -> items) (\s@QueryArgProfiles' {} a -> s {items = a} :: QueryArgProfiles) Prelude.. Lens.mapping Prelude._Coerce
+queryArgProfiles_items :: Lens.Lens' QueryArgProfiles (Core.Maybe [QueryArgProfile])
+queryArgProfiles_items = Lens.lens (\QueryArgProfiles' {items} -> items) (\s@QueryArgProfiles' {} a -> s {items = a} :: QueryArgProfiles) Core.. Lens.mapping Lens._Coerce
 
 -- | Number of profiles for query argument-profile mapping for field-level
 -- encryption.
-queryArgProfiles_quantity :: Lens.Lens' QueryArgProfiles Prelude.Int
+queryArgProfiles_quantity :: Lens.Lens' QueryArgProfiles Core.Int
 queryArgProfiles_quantity = Lens.lens (\QueryArgProfiles' {quantity} -> quantity) (\s@QueryArgProfiles' {} a -> s {quantity = a} :: QueryArgProfiles)
 
-instance Prelude.FromXML QueryArgProfiles where
+instance Core.FromXML QueryArgProfiles where
   parseXML x =
     QueryArgProfiles'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "QueryArgProfile")
-                  )
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "QueryArgProfile")
+               )
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable QueryArgProfiles
+instance Core.Hashable QueryArgProfiles
 
-instance Prelude.NFData QueryArgProfiles
+instance Core.NFData QueryArgProfiles
 
-instance Prelude.ToXML QueryArgProfiles where
+instance Core.ToXML QueryArgProfiles where
   toXML QueryArgProfiles' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            ( Prelude.toXMLList "QueryArgProfile"
-                Prelude.<$> items
-            ),
-        "Quantity" Prelude.@= quantity
+          Core.@= Core.toXML
+            (Core.toXMLList "QueryArgProfile" Core.<$> items),
+        "Quantity" Core.@= quantity
       ]

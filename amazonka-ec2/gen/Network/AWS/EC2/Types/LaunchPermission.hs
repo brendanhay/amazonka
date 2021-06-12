@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchPermission where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PermissionGroup
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a launch permission.
 --
 -- /See:/ 'newLaunchPermission' smart constructor.
 data LaunchPermission = LaunchPermission'
   { -- | The name of the group.
-    group' :: Prelude.Maybe PermissionGroup,
+    group' :: Core.Maybe PermissionGroup,
     -- | The AWS account ID.
     --
     -- Constraints: Up to 10 000 account IDs can be specified in a single
     -- request.
-    userId :: Prelude.Maybe Prelude.Text
+    userId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchPermission' with all optional fields omitted.
@@ -57,34 +56,31 @@ newLaunchPermission ::
   LaunchPermission
 newLaunchPermission =
   LaunchPermission'
-    { group' = Prelude.Nothing,
-      userId = Prelude.Nothing
+    { group' = Core.Nothing,
+      userId = Core.Nothing
     }
 
 -- | The name of the group.
-launchPermission_group :: Lens.Lens' LaunchPermission (Prelude.Maybe PermissionGroup)
+launchPermission_group :: Lens.Lens' LaunchPermission (Core.Maybe PermissionGroup)
 launchPermission_group = Lens.lens (\LaunchPermission' {group'} -> group') (\s@LaunchPermission' {} a -> s {group' = a} :: LaunchPermission)
 
 -- | The AWS account ID.
 --
 -- Constraints: Up to 10 000 account IDs can be specified in a single
 -- request.
-launchPermission_userId :: Lens.Lens' LaunchPermission (Prelude.Maybe Prelude.Text)
+launchPermission_userId :: Lens.Lens' LaunchPermission (Core.Maybe Core.Text)
 launchPermission_userId = Lens.lens (\LaunchPermission' {userId} -> userId) (\s@LaunchPermission' {} a -> s {userId = a} :: LaunchPermission)
 
-instance Prelude.FromXML LaunchPermission where
+instance Core.FromXML LaunchPermission where
   parseXML x =
     LaunchPermission'
-      Prelude.<$> (x Prelude..@? "group")
-      Prelude.<*> (x Prelude..@? "userId")
+      Core.<$> (x Core..@? "group") Core.<*> (x Core..@? "userId")
 
-instance Prelude.Hashable LaunchPermission
+instance Core.Hashable LaunchPermission
 
-instance Prelude.NFData LaunchPermission
+instance Core.NFData LaunchPermission
 
-instance Prelude.ToQuery LaunchPermission where
+instance Core.ToQuery LaunchPermission where
   toQuery LaunchPermission' {..} =
-    Prelude.mconcat
-      [ "Group" Prelude.=: group',
-        "UserId" Prelude.=: userId
-      ]
+    Core.mconcat
+      ["Group" Core.=: group', "UserId" Core.=: userId]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceBlockDeviceMapping where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.EbsInstanceBlockDevice
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block device mapping.
 --
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping'
   { -- | Parameters used to automatically set up EBS volumes when the instance is
     -- launched.
-    ebs :: Prelude.Maybe EbsInstanceBlockDevice,
+    ebs :: Core.Maybe EbsInstanceBlockDevice,
     -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-    deviceName :: Prelude.Maybe Prelude.Text
+    deviceName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceBlockDeviceMapping' with all optional fields omitted.
@@ -53,25 +52,24 @@ newInstanceBlockDeviceMapping ::
   InstanceBlockDeviceMapping
 newInstanceBlockDeviceMapping =
   InstanceBlockDeviceMapping'
-    { ebs = Prelude.Nothing,
-      deviceName = Prelude.Nothing
+    { ebs = Core.Nothing,
+      deviceName = Core.Nothing
     }
 
 -- | Parameters used to automatically set up EBS volumes when the instance is
 -- launched.
-instanceBlockDeviceMapping_ebs :: Lens.Lens' InstanceBlockDeviceMapping (Prelude.Maybe EbsInstanceBlockDevice)
+instanceBlockDeviceMapping_ebs :: Lens.Lens' InstanceBlockDeviceMapping (Core.Maybe EbsInstanceBlockDevice)
 instanceBlockDeviceMapping_ebs = Lens.lens (\InstanceBlockDeviceMapping' {ebs} -> ebs) (\s@InstanceBlockDeviceMapping' {} a -> s {ebs = a} :: InstanceBlockDeviceMapping)
 
 -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-instanceBlockDeviceMapping_deviceName :: Lens.Lens' InstanceBlockDeviceMapping (Prelude.Maybe Prelude.Text)
+instanceBlockDeviceMapping_deviceName :: Lens.Lens' InstanceBlockDeviceMapping (Core.Maybe Core.Text)
 instanceBlockDeviceMapping_deviceName = Lens.lens (\InstanceBlockDeviceMapping' {deviceName} -> deviceName) (\s@InstanceBlockDeviceMapping' {} a -> s {deviceName = a} :: InstanceBlockDeviceMapping)
 
-instance Prelude.FromXML InstanceBlockDeviceMapping where
+instance Core.FromXML InstanceBlockDeviceMapping where
   parseXML x =
     InstanceBlockDeviceMapping'
-      Prelude.<$> (x Prelude..@? "ebs")
-      Prelude.<*> (x Prelude..@? "deviceName")
+      Core.<$> (x Core..@? "ebs") Core.<*> (x Core..@? "deviceName")
 
-instance Prelude.Hashable InstanceBlockDeviceMapping
+instance Core.Hashable InstanceBlockDeviceMapping
 
-instance Prelude.NFData InstanceBlockDeviceMapping
+instance Core.NFData InstanceBlockDeviceMapping

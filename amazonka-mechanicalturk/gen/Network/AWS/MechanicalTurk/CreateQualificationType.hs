@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.MechanicalTurk.CreateQualificationType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,16 +68,16 @@ data CreateQualificationType = CreateQualificationType'
     -- enabled. If you want to disable retries, you must delete existing
     -- retry-enabled Qualification type and then create a new Qualification
     -- type with retries disabled.
-    retryDelayInSeconds :: Prelude.Maybe Prelude.Integer,
+    retryDelayInSeconds :: Core.Maybe Core.Integer,
     -- | Specifies whether requests for the Qualification type are granted
     -- immediately, without prompting the Worker with a Qualification test.
     --
     -- Constraints: If the Test parameter is specified, this parameter cannot
     -- be true.
-    autoGranted :: Prelude.Maybe Prelude.Bool,
+    autoGranted :: Core.Maybe Core.Bool,
     -- | The number of seconds the Worker has to complete the Qualification test,
     -- starting from the time the Worker requests the Qualification.
-    testDurationInSeconds :: Prelude.Maybe Prelude.Integer,
+    testDurationInSeconds :: Core.Maybe Core.Integer,
     -- | The questions for the Qualification test a Worker must answer correctly
     -- to obtain a Qualification of this type. If this parameter is specified,
     -- @TestDurationInSeconds@ must also be specified.
@@ -89,7 +88,7 @@ data CreateQualificationType = CreateQualificationType'
     --
     -- Constraints: None. If not specified, the Worker may request the
     -- Qualification without answering any questions.
-    test :: Prelude.Maybe Prelude.Text,
+    test :: Core.Maybe Core.Text,
     -- | The answers to the Qualification test specified in the Test parameter,
     -- in the form of an AnswerKey data structure.
     --
@@ -97,29 +96,29 @@ data CreateQualificationType = CreateQualificationType'
     --
     -- Constraints: None. If not specified, you must process Qualification
     -- requests manually.
-    answerKey :: Prelude.Maybe Prelude.Text,
+    answerKey :: Core.Maybe Core.Text,
     -- | The Qualification value to use for automatically granted Qualifications.
     -- This parameter is used only if the AutoGranted parameter is true.
-    autoGrantedValue :: Prelude.Maybe Prelude.Int,
+    autoGrantedValue :: Core.Maybe Core.Int,
     -- | One or more words or phrases that describe the Qualification type,
     -- separated by commas. The keywords of a type make the type easier to find
     -- during a search.
-    keywords :: Prelude.Maybe Prelude.Text,
+    keywords :: Core.Maybe Core.Text,
     -- | The name you give to the Qualification type. The type name is used to
     -- represent the Qualification to Workers, and to find the type using a
     -- Qualification type search. It must be unique across all of your
     -- Qualification types.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | A long description for the Qualification type. On the Amazon Mechanical
     -- Turk website, the long description is displayed when a Worker examines a
     -- Qualification type.
-    description :: Prelude.Text,
+    description :: Core.Text,
     -- | The initial status of the Qualification type.
     --
     -- Constraints: Valid values are: Active | Inactive
     qualificationTypeStatus :: QualificationTypeStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateQualificationType' with all optional fields omitted.
@@ -190,9 +189,9 @@ data CreateQualificationType = CreateQualificationType'
 -- Constraints: Valid values are: Active | Inactive
 newCreateQualificationType ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'qualificationTypeStatus'
   QualificationTypeStatus ->
   CreateQualificationType
@@ -202,13 +201,13 @@ newCreateQualificationType
   pQualificationTypeStatus_ =
     CreateQualificationType'
       { retryDelayInSeconds =
-          Prelude.Nothing,
-        autoGranted = Prelude.Nothing,
-        testDurationInSeconds = Prelude.Nothing,
-        test = Prelude.Nothing,
-        answerKey = Prelude.Nothing,
-        autoGrantedValue = Prelude.Nothing,
-        keywords = Prelude.Nothing,
+          Core.Nothing,
+        autoGranted = Core.Nothing,
+        testDurationInSeconds = Core.Nothing,
+        test = Core.Nothing,
+        answerKey = Core.Nothing,
+        autoGrantedValue = Core.Nothing,
+        keywords = Core.Nothing,
         name = pName_,
         description = pDescription_,
         qualificationTypeStatus =
@@ -226,7 +225,7 @@ newCreateQualificationType
 -- enabled. If you want to disable retries, you must delete existing
 -- retry-enabled Qualification type and then create a new Qualification
 -- type with retries disabled.
-createQualificationType_retryDelayInSeconds :: Lens.Lens' CreateQualificationType (Prelude.Maybe Prelude.Integer)
+createQualificationType_retryDelayInSeconds :: Lens.Lens' CreateQualificationType (Core.Maybe Core.Integer)
 createQualificationType_retryDelayInSeconds = Lens.lens (\CreateQualificationType' {retryDelayInSeconds} -> retryDelayInSeconds) (\s@CreateQualificationType' {} a -> s {retryDelayInSeconds = a} :: CreateQualificationType)
 
 -- | Specifies whether requests for the Qualification type are granted
@@ -234,12 +233,12 @@ createQualificationType_retryDelayInSeconds = Lens.lens (\CreateQualificationTyp
 --
 -- Constraints: If the Test parameter is specified, this parameter cannot
 -- be true.
-createQualificationType_autoGranted :: Lens.Lens' CreateQualificationType (Prelude.Maybe Prelude.Bool)
+createQualificationType_autoGranted :: Lens.Lens' CreateQualificationType (Core.Maybe Core.Bool)
 createQualificationType_autoGranted = Lens.lens (\CreateQualificationType' {autoGranted} -> autoGranted) (\s@CreateQualificationType' {} a -> s {autoGranted = a} :: CreateQualificationType)
 
 -- | The number of seconds the Worker has to complete the Qualification test,
 -- starting from the time the Worker requests the Qualification.
-createQualificationType_testDurationInSeconds :: Lens.Lens' CreateQualificationType (Prelude.Maybe Prelude.Integer)
+createQualificationType_testDurationInSeconds :: Lens.Lens' CreateQualificationType (Core.Maybe Core.Integer)
 createQualificationType_testDurationInSeconds = Lens.lens (\CreateQualificationType' {testDurationInSeconds} -> testDurationInSeconds) (\s@CreateQualificationType' {} a -> s {testDurationInSeconds = a} :: CreateQualificationType)
 
 -- | The questions for the Qualification test a Worker must answer correctly
@@ -252,7 +251,7 @@ createQualificationType_testDurationInSeconds = Lens.lens (\CreateQualificationT
 --
 -- Constraints: None. If not specified, the Worker may request the
 -- Qualification without answering any questions.
-createQualificationType_test :: Lens.Lens' CreateQualificationType (Prelude.Maybe Prelude.Text)
+createQualificationType_test :: Lens.Lens' CreateQualificationType (Core.Maybe Core.Text)
 createQualificationType_test = Lens.lens (\CreateQualificationType' {test} -> test) (\s@CreateQualificationType' {} a -> s {test = a} :: CreateQualificationType)
 
 -- | The answers to the Qualification test specified in the Test parameter,
@@ -262,31 +261,31 @@ createQualificationType_test = Lens.lens (\CreateQualificationType' {test} -> te
 --
 -- Constraints: None. If not specified, you must process Qualification
 -- requests manually.
-createQualificationType_answerKey :: Lens.Lens' CreateQualificationType (Prelude.Maybe Prelude.Text)
+createQualificationType_answerKey :: Lens.Lens' CreateQualificationType (Core.Maybe Core.Text)
 createQualificationType_answerKey = Lens.lens (\CreateQualificationType' {answerKey} -> answerKey) (\s@CreateQualificationType' {} a -> s {answerKey = a} :: CreateQualificationType)
 
 -- | The Qualification value to use for automatically granted Qualifications.
 -- This parameter is used only if the AutoGranted parameter is true.
-createQualificationType_autoGrantedValue :: Lens.Lens' CreateQualificationType (Prelude.Maybe Prelude.Int)
+createQualificationType_autoGrantedValue :: Lens.Lens' CreateQualificationType (Core.Maybe Core.Int)
 createQualificationType_autoGrantedValue = Lens.lens (\CreateQualificationType' {autoGrantedValue} -> autoGrantedValue) (\s@CreateQualificationType' {} a -> s {autoGrantedValue = a} :: CreateQualificationType)
 
 -- | One or more words or phrases that describe the Qualification type,
 -- separated by commas. The keywords of a type make the type easier to find
 -- during a search.
-createQualificationType_keywords :: Lens.Lens' CreateQualificationType (Prelude.Maybe Prelude.Text)
+createQualificationType_keywords :: Lens.Lens' CreateQualificationType (Core.Maybe Core.Text)
 createQualificationType_keywords = Lens.lens (\CreateQualificationType' {keywords} -> keywords) (\s@CreateQualificationType' {} a -> s {keywords = a} :: CreateQualificationType)
 
 -- | The name you give to the Qualification type. The type name is used to
 -- represent the Qualification to Workers, and to find the type using a
 -- Qualification type search. It must be unique across all of your
 -- Qualification types.
-createQualificationType_name :: Lens.Lens' CreateQualificationType Prelude.Text
+createQualificationType_name :: Lens.Lens' CreateQualificationType Core.Text
 createQualificationType_name = Lens.lens (\CreateQualificationType' {name} -> name) (\s@CreateQualificationType' {} a -> s {name = a} :: CreateQualificationType)
 
 -- | A long description for the Qualification type. On the Amazon Mechanical
 -- Turk website, the long description is displayed when a Worker examines a
 -- Qualification type.
-createQualificationType_description :: Lens.Lens' CreateQualificationType Prelude.Text
+createQualificationType_description :: Lens.Lens' CreateQualificationType Core.Text
 createQualificationType_description = Lens.lens (\CreateQualificationType' {description} -> description) (\s@CreateQualificationType' {} a -> s {description = a} :: CreateQualificationType)
 
 -- | The initial status of the Qualification type.
@@ -295,76 +294,74 @@ createQualificationType_description = Lens.lens (\CreateQualificationType' {desc
 createQualificationType_qualificationTypeStatus :: Lens.Lens' CreateQualificationType QualificationTypeStatus
 createQualificationType_qualificationTypeStatus = Lens.lens (\CreateQualificationType' {qualificationTypeStatus} -> qualificationTypeStatus) (\s@CreateQualificationType' {} a -> s {qualificationTypeStatus = a} :: CreateQualificationType)
 
-instance Prelude.AWSRequest CreateQualificationType where
+instance Core.AWSRequest CreateQualificationType where
   type
-    Rs CreateQualificationType =
+    AWSResponse CreateQualificationType =
       CreateQualificationTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateQualificationTypeResponse'
-            Prelude.<$> (x Prelude..?> "QualificationType")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "QualificationType")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateQualificationType
+instance Core.Hashable CreateQualificationType
 
-instance Prelude.NFData CreateQualificationType
+instance Core.NFData CreateQualificationType
 
-instance Prelude.ToHeaders CreateQualificationType where
+instance Core.ToHeaders CreateQualificationType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.CreateQualificationType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.CreateQualificationType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateQualificationType where
+instance Core.ToJSON CreateQualificationType where
   toJSON CreateQualificationType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RetryDelayInSeconds" Prelude..=)
-              Prelude.<$> retryDelayInSeconds,
-            ("AutoGranted" Prelude..=) Prelude.<$> autoGranted,
-            ("TestDurationInSeconds" Prelude..=)
-              Prelude.<$> testDurationInSeconds,
-            ("Test" Prelude..=) Prelude.<$> test,
-            ("AnswerKey" Prelude..=) Prelude.<$> answerKey,
-            ("AutoGrantedValue" Prelude..=)
-              Prelude.<$> autoGrantedValue,
-            ("Keywords" Prelude..=) Prelude.<$> keywords,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Description" Prelude..= description),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("RetryDelayInSeconds" Core..=)
+              Core.<$> retryDelayInSeconds,
+            ("AutoGranted" Core..=) Core.<$> autoGranted,
+            ("TestDurationInSeconds" Core..=)
+              Core.<$> testDurationInSeconds,
+            ("Test" Core..=) Core.<$> test,
+            ("AnswerKey" Core..=) Core.<$> answerKey,
+            ("AutoGrantedValue" Core..=)
+              Core.<$> autoGrantedValue,
+            ("Keywords" Core..=) Core.<$> keywords,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Description" Core..= description),
+            Core.Just
               ( "QualificationTypeStatus"
-                  Prelude..= qualificationTypeStatus
+                  Core..= qualificationTypeStatus
               )
           ]
       )
 
-instance Prelude.ToPath CreateQualificationType where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateQualificationType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateQualificationType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateQualificationType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateQualificationTypeResponse' smart constructor.
 data CreateQualificationTypeResponse = CreateQualificationTypeResponse'
   { -- | The created Qualification type, returned as a QualificationType data
     -- structure.
-    qualificationType :: Prelude.Maybe QualificationType,
+    qualificationType :: Core.Maybe QualificationType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateQualificationTypeResponse' with all optional fields omitted.
@@ -380,24 +377,22 @@ data CreateQualificationTypeResponse = CreateQualificationTypeResponse'
 -- 'httpStatus', 'createQualificationTypeResponse_httpStatus' - The response's http status code.
 newCreateQualificationTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateQualificationTypeResponse
 newCreateQualificationTypeResponse pHttpStatus_ =
   CreateQualificationTypeResponse'
     { qualificationType =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The created Qualification type, returned as a QualificationType data
 -- structure.
-createQualificationTypeResponse_qualificationType :: Lens.Lens' CreateQualificationTypeResponse (Prelude.Maybe QualificationType)
+createQualificationTypeResponse_qualificationType :: Lens.Lens' CreateQualificationTypeResponse (Core.Maybe QualificationType)
 createQualificationTypeResponse_qualificationType = Lens.lens (\CreateQualificationTypeResponse' {qualificationType} -> qualificationType) (\s@CreateQualificationTypeResponse' {} a -> s {qualificationType = a} :: CreateQualificationTypeResponse)
 
 -- | The response's http status code.
-createQualificationTypeResponse_httpStatus :: Lens.Lens' CreateQualificationTypeResponse Prelude.Int
+createQualificationTypeResponse_httpStatus :: Lens.Lens' CreateQualificationTypeResponse Core.Int
 createQualificationTypeResponse_httpStatus = Lens.lens (\CreateQualificationTypeResponse' {httpStatus} -> httpStatus) (\s@CreateQualificationTypeResponse' {} a -> s {httpStatus = a} :: CreateQualificationTypeResponse)
 
-instance
-  Prelude.NFData
-    CreateQualificationTypeResponse
+instance Core.NFData CreateQualificationTypeResponse

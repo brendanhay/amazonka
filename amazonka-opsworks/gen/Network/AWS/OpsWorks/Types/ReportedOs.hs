@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.ReportedOs where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A registered instance\'s reported operating system.
 --
 -- /See:/ 'newReportedOs' smart constructor.
 data ReportedOs = ReportedOs'
   { -- | The operating system version.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The operating system name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The operating system family.
-    family :: Prelude.Maybe Prelude.Text
+    family :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReportedOs' with all optional fields omitted.
@@ -53,34 +52,34 @@ newReportedOs ::
   ReportedOs
 newReportedOs =
   ReportedOs'
-    { version = Prelude.Nothing,
-      name = Prelude.Nothing,
-      family = Prelude.Nothing
+    { version = Core.Nothing,
+      name = Core.Nothing,
+      family = Core.Nothing
     }
 
 -- | The operating system version.
-reportedOs_version :: Lens.Lens' ReportedOs (Prelude.Maybe Prelude.Text)
+reportedOs_version :: Lens.Lens' ReportedOs (Core.Maybe Core.Text)
 reportedOs_version = Lens.lens (\ReportedOs' {version} -> version) (\s@ReportedOs' {} a -> s {version = a} :: ReportedOs)
 
 -- | The operating system name.
-reportedOs_name :: Lens.Lens' ReportedOs (Prelude.Maybe Prelude.Text)
+reportedOs_name :: Lens.Lens' ReportedOs (Core.Maybe Core.Text)
 reportedOs_name = Lens.lens (\ReportedOs' {name} -> name) (\s@ReportedOs' {} a -> s {name = a} :: ReportedOs)
 
 -- | The operating system family.
-reportedOs_family :: Lens.Lens' ReportedOs (Prelude.Maybe Prelude.Text)
+reportedOs_family :: Lens.Lens' ReportedOs (Core.Maybe Core.Text)
 reportedOs_family = Lens.lens (\ReportedOs' {family} -> family) (\s@ReportedOs' {} a -> s {family = a} :: ReportedOs)
 
-instance Prelude.FromJSON ReportedOs where
+instance Core.FromJSON ReportedOs where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReportedOs"
       ( \x ->
           ReportedOs'
-            Prelude.<$> (x Prelude..:? "Version")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Family")
+            Core.<$> (x Core..:? "Version")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Family")
       )
 
-instance Prelude.Hashable ReportedOs
+instance Core.Hashable ReportedOs
 
-instance Prelude.NFData ReportedOs
+instance Core.NFData ReportedOs

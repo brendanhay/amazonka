@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.SortCriteria where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.OrderBy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the criteria used for sorting findings.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data SortCriteria = SortCriteria'
   { -- | Represents the finding attribute (for example, accountId) to sort
     -- findings by.
-    attributeName :: Prelude.Maybe Prelude.Text,
+    attributeName :: Core.Maybe Core.Text,
     -- | The order by which the sorted findings are to be displayed.
-    orderBy :: Prelude.Maybe OrderBy
+    orderBy :: Core.Maybe OrderBy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SortCriteria' with all optional fields omitted.
@@ -52,29 +51,28 @@ newSortCriteria ::
   SortCriteria
 newSortCriteria =
   SortCriteria'
-    { attributeName = Prelude.Nothing,
-      orderBy = Prelude.Nothing
+    { attributeName = Core.Nothing,
+      orderBy = Core.Nothing
     }
 
 -- | Represents the finding attribute (for example, accountId) to sort
 -- findings by.
-sortCriteria_attributeName :: Lens.Lens' SortCriteria (Prelude.Maybe Prelude.Text)
+sortCriteria_attributeName :: Lens.Lens' SortCriteria (Core.Maybe Core.Text)
 sortCriteria_attributeName = Lens.lens (\SortCriteria' {attributeName} -> attributeName) (\s@SortCriteria' {} a -> s {attributeName = a} :: SortCriteria)
 
 -- | The order by which the sorted findings are to be displayed.
-sortCriteria_orderBy :: Lens.Lens' SortCriteria (Prelude.Maybe OrderBy)
+sortCriteria_orderBy :: Lens.Lens' SortCriteria (Core.Maybe OrderBy)
 sortCriteria_orderBy = Lens.lens (\SortCriteria' {orderBy} -> orderBy) (\s@SortCriteria' {} a -> s {orderBy = a} :: SortCriteria)
 
-instance Prelude.Hashable SortCriteria
+instance Core.Hashable SortCriteria
 
-instance Prelude.NFData SortCriteria
+instance Core.NFData SortCriteria
 
-instance Prelude.ToJSON SortCriteria where
+instance Core.ToJSON SortCriteria where
   toJSON SortCriteria' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("attributeName" Prelude..=)
-              Prelude.<$> attributeName,
-            ("orderBy" Prelude..=) Prelude.<$> orderBy
+    Core.object
+      ( Core.catMaybes
+          [ ("attributeName" Core..=) Core.<$> attributeName,
+            ("orderBy" Core..=) Core.<$> orderBy
           ]
       )

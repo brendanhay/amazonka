@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.SmpteTtDestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Smpte Tt Destination Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data SmpteTtDestinationSettings = SmpteTtDestinationSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SmpteTtDestinationSettings' with all optional fields omitted.
@@ -40,16 +39,15 @@ newSmpteTtDestinationSettings ::
 newSmpteTtDestinationSettings =
   SmpteTtDestinationSettings'
 
-instance Prelude.FromJSON SmpteTtDestinationSettings where
+instance Core.FromJSON SmpteTtDestinationSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SmpteTtDestinationSettings"
-      (\x -> Prelude.pure SmpteTtDestinationSettings')
+      (\x -> Core.pure SmpteTtDestinationSettings')
 
-instance Prelude.Hashable SmpteTtDestinationSettings
+instance Core.Hashable SmpteTtDestinationSettings
 
-instance Prelude.NFData SmpteTtDestinationSettings
+instance Core.NFData SmpteTtDestinationSettings
 
-instance Prelude.ToJSON SmpteTtDestinationSettings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON SmpteTtDestinationSettings where
+  toJSON = Core.const (Core.Object Core.mempty)

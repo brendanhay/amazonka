@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,23 +20,23 @@
 module Network.AWS.Config.Types.Relationship where
 
 import Network.AWS.Config.Types.ResourceType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The relationship of the related resource to the main resource.
 --
 -- /See:/ 'newRelationship' smart constructor.
 data Relationship = Relationship'
   { -- | The ID of the related resource (for example, @sg-xxxxxx@).
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | The resource type of the related resource.
-    resourceType :: Prelude.Maybe ResourceType,
+    resourceType :: Core.Maybe ResourceType,
     -- | The type of relationship with the related resource.
-    relationshipName :: Prelude.Maybe Prelude.Text,
+    relationshipName :: Core.Maybe Core.Text,
     -- | The custom name of the related resource, if available.
-    resourceName :: Prelude.Maybe Prelude.Text
+    resourceName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Relationship' with all optional fields omitted.
@@ -58,40 +57,40 @@ newRelationship ::
   Relationship
 newRelationship =
   Relationship'
-    { resourceId = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      relationshipName = Prelude.Nothing,
-      resourceName = Prelude.Nothing
+    { resourceId = Core.Nothing,
+      resourceType = Core.Nothing,
+      relationshipName = Core.Nothing,
+      resourceName = Core.Nothing
     }
 
 -- | The ID of the related resource (for example, @sg-xxxxxx@).
-relationship_resourceId :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
+relationship_resourceId :: Lens.Lens' Relationship (Core.Maybe Core.Text)
 relationship_resourceId = Lens.lens (\Relationship' {resourceId} -> resourceId) (\s@Relationship' {} a -> s {resourceId = a} :: Relationship)
 
 -- | The resource type of the related resource.
-relationship_resourceType :: Lens.Lens' Relationship (Prelude.Maybe ResourceType)
+relationship_resourceType :: Lens.Lens' Relationship (Core.Maybe ResourceType)
 relationship_resourceType = Lens.lens (\Relationship' {resourceType} -> resourceType) (\s@Relationship' {} a -> s {resourceType = a} :: Relationship)
 
 -- | The type of relationship with the related resource.
-relationship_relationshipName :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
+relationship_relationshipName :: Lens.Lens' Relationship (Core.Maybe Core.Text)
 relationship_relationshipName = Lens.lens (\Relationship' {relationshipName} -> relationshipName) (\s@Relationship' {} a -> s {relationshipName = a} :: Relationship)
 
 -- | The custom name of the related resource, if available.
-relationship_resourceName :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
+relationship_resourceName :: Lens.Lens' Relationship (Core.Maybe Core.Text)
 relationship_resourceName = Lens.lens (\Relationship' {resourceName} -> resourceName) (\s@Relationship' {} a -> s {resourceName = a} :: Relationship)
 
-instance Prelude.FromJSON Relationship where
+instance Core.FromJSON Relationship where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Relationship"
       ( \x ->
           Relationship'
-            Prelude.<$> (x Prelude..:? "resourceId")
-            Prelude.<*> (x Prelude..:? "resourceType")
-            Prelude.<*> (x Prelude..:? "relationshipName")
-            Prelude.<*> (x Prelude..:? "resourceName")
+            Core.<$> (x Core..:? "resourceId")
+            Core.<*> (x Core..:? "resourceType")
+            Core.<*> (x Core..:? "relationshipName")
+            Core.<*> (x Core..:? "resourceName")
       )
 
-instance Prelude.Hashable Relationship
+instance Core.Hashable Relationship
 
-instance Prelude.NFData Relationship
+instance Core.NFData Relationship

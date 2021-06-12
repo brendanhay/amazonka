@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.ArchiveGroupSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.OutputLocationRef
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Archive Group Settings
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ArchiveGroupSettings = ArchiveGroupSettings'
   { -- | Number of seconds to write to archive file before closing and starting a
     -- new one.
-    rolloverInterval :: Prelude.Maybe Prelude.Natural,
+    rolloverInterval :: Core.Maybe Core.Natural,
     -- | A directory and base filename where archive files should be written.
     destination :: OutputLocationRef
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ArchiveGroupSettings' with all optional fields omitted.
@@ -55,39 +54,39 @@ newArchiveGroupSettings ::
 newArchiveGroupSettings pDestination_ =
   ArchiveGroupSettings'
     { rolloverInterval =
-        Prelude.Nothing,
+        Core.Nothing,
       destination = pDestination_
     }
 
 -- | Number of seconds to write to archive file before closing and starting a
 -- new one.
-archiveGroupSettings_rolloverInterval :: Lens.Lens' ArchiveGroupSettings (Prelude.Maybe Prelude.Natural)
+archiveGroupSettings_rolloverInterval :: Lens.Lens' ArchiveGroupSettings (Core.Maybe Core.Natural)
 archiveGroupSettings_rolloverInterval = Lens.lens (\ArchiveGroupSettings' {rolloverInterval} -> rolloverInterval) (\s@ArchiveGroupSettings' {} a -> s {rolloverInterval = a} :: ArchiveGroupSettings)
 
 -- | A directory and base filename where archive files should be written.
 archiveGroupSettings_destination :: Lens.Lens' ArchiveGroupSettings OutputLocationRef
 archiveGroupSettings_destination = Lens.lens (\ArchiveGroupSettings' {destination} -> destination) (\s@ArchiveGroupSettings' {} a -> s {destination = a} :: ArchiveGroupSettings)
 
-instance Prelude.FromJSON ArchiveGroupSettings where
+instance Core.FromJSON ArchiveGroupSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ArchiveGroupSettings"
       ( \x ->
           ArchiveGroupSettings'
-            Prelude.<$> (x Prelude..:? "rolloverInterval")
-            Prelude.<*> (x Prelude..: "destination")
+            Core.<$> (x Core..:? "rolloverInterval")
+            Core.<*> (x Core..: "destination")
       )
 
-instance Prelude.Hashable ArchiveGroupSettings
+instance Core.Hashable ArchiveGroupSettings
 
-instance Prelude.NFData ArchiveGroupSettings
+instance Core.NFData ArchiveGroupSettings
 
-instance Prelude.ToJSON ArchiveGroupSettings where
+instance Core.ToJSON ArchiveGroupSettings where
   toJSON ArchiveGroupSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("rolloverInterval" Prelude..=)
-              Prelude.<$> rolloverInterval,
-            Prelude.Just ("destination" Prelude..= destination)
+    Core.object
+      ( Core.catMaybes
+          [ ("rolloverInterval" Core..=)
+              Core.<$> rolloverInterval,
+            Core.Just ("destination" Core..= destination)
           ]
       )

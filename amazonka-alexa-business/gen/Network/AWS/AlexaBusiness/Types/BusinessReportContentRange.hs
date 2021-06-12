@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AlexaBusiness.Types.BusinessReportContentRange where
 
 import Network.AWS.AlexaBusiness.Types.BusinessReportInterval
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The content range of the report.
 --
@@ -31,7 +30,7 @@ data BusinessReportContentRange = BusinessReportContentRange'
   { -- | The interval of the content range.
     interval :: BusinessReportInterval
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BusinessReportContentRange' with all optional fields omitted.
@@ -53,22 +52,22 @@ newBusinessReportContentRange pInterval_ =
 businessReportContentRange_interval :: Lens.Lens' BusinessReportContentRange BusinessReportInterval
 businessReportContentRange_interval = Lens.lens (\BusinessReportContentRange' {interval} -> interval) (\s@BusinessReportContentRange' {} a -> s {interval = a} :: BusinessReportContentRange)
 
-instance Prelude.FromJSON BusinessReportContentRange where
+instance Core.FromJSON BusinessReportContentRange where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BusinessReportContentRange"
       ( \x ->
           BusinessReportContentRange'
-            Prelude.<$> (x Prelude..: "Interval")
+            Core.<$> (x Core..: "Interval")
       )
 
-instance Prelude.Hashable BusinessReportContentRange
+instance Core.Hashable BusinessReportContentRange
 
-instance Prelude.NFData BusinessReportContentRange
+instance Core.NFData BusinessReportContentRange
 
-instance Prelude.ToJSON BusinessReportContentRange where
+instance Core.ToJSON BusinessReportContentRange where
   toJSON BusinessReportContentRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Interval" Prelude..= interval)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Interval" Core..= interval)]
       )

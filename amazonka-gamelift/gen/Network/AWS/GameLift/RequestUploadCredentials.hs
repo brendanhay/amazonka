@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,9 +63,9 @@ module Network.AWS.GameLift.RequestUploadCredentials
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,9 +75,9 @@ import qualified Network.AWS.Response as Response
 data RequestUploadCredentials = RequestUploadCredentials'
   { -- | A unique identifier for a build to get credentials for. You can use
     -- either the build ID or ARN value.
-    buildId :: Prelude.Text
+    buildId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RequestUploadCredentials' with all optional fields omitted.
@@ -92,61 +91,59 @@ data RequestUploadCredentials = RequestUploadCredentials'
 -- either the build ID or ARN value.
 newRequestUploadCredentials ::
   -- | 'buildId'
-  Prelude.Text ->
+  Core.Text ->
   RequestUploadCredentials
 newRequestUploadCredentials pBuildId_ =
   RequestUploadCredentials' {buildId = pBuildId_}
 
 -- | A unique identifier for a build to get credentials for. You can use
 -- either the build ID or ARN value.
-requestUploadCredentials_buildId :: Lens.Lens' RequestUploadCredentials Prelude.Text
+requestUploadCredentials_buildId :: Lens.Lens' RequestUploadCredentials Core.Text
 requestUploadCredentials_buildId = Lens.lens (\RequestUploadCredentials' {buildId} -> buildId) (\s@RequestUploadCredentials' {} a -> s {buildId = a} :: RequestUploadCredentials)
 
-instance Prelude.AWSRequest RequestUploadCredentials where
+instance Core.AWSRequest RequestUploadCredentials where
   type
-    Rs RequestUploadCredentials =
+    AWSResponse RequestUploadCredentials =
       RequestUploadCredentialsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RequestUploadCredentialsResponse'
-            Prelude.<$> (x Prelude..?> "StorageLocation")
-            Prelude.<*> (x Prelude..?> "UploadCredentials")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StorageLocation")
+            Core.<*> (x Core..?> "UploadCredentials")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RequestUploadCredentials
+instance Core.Hashable RequestUploadCredentials
 
-instance Prelude.NFData RequestUploadCredentials
+instance Core.NFData RequestUploadCredentials
 
-instance Prelude.ToHeaders RequestUploadCredentials where
+instance Core.ToHeaders RequestUploadCredentials where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.RequestUploadCredentials" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.RequestUploadCredentials" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RequestUploadCredentials where
+instance Core.ToJSON RequestUploadCredentials where
   toJSON RequestUploadCredentials' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("BuildId" Prelude..= buildId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("BuildId" Core..= buildId)]
       )
 
-instance Prelude.ToPath RequestUploadCredentials where
-  toPath = Prelude.const "/"
+instance Core.ToPath RequestUploadCredentials where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RequestUploadCredentials where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RequestUploadCredentials where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -154,15 +151,15 @@ instance Prelude.ToQuery RequestUploadCredentials where
 data RequestUploadCredentialsResponse = RequestUploadCredentialsResponse'
   { -- | Amazon S3 path and key, identifying where the game build files are
     -- stored.
-    storageLocation :: Prelude.Maybe S3Location,
+    storageLocation :: Core.Maybe S3Location,
     -- | AWS credentials required when uploading a game build to the storage
     -- location. These credentials have a limited lifespan and are valid only
     -- for the build they were issued for.
-    uploadCredentials :: Prelude.Maybe (Prelude.Sensitive AwsCredentials),
+    uploadCredentials :: Core.Maybe (Core.Sensitive AwsCredentials),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RequestUploadCredentialsResponse' with all optional fields omitted.
@@ -182,31 +179,29 @@ data RequestUploadCredentialsResponse = RequestUploadCredentialsResponse'
 -- 'httpStatus', 'requestUploadCredentialsResponse_httpStatus' - The response's http status code.
 newRequestUploadCredentialsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RequestUploadCredentialsResponse
 newRequestUploadCredentialsResponse pHttpStatus_ =
   RequestUploadCredentialsResponse'
     { storageLocation =
-        Prelude.Nothing,
-      uploadCredentials = Prelude.Nothing,
+        Core.Nothing,
+      uploadCredentials = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Amazon S3 path and key, identifying where the game build files are
 -- stored.
-requestUploadCredentialsResponse_storageLocation :: Lens.Lens' RequestUploadCredentialsResponse (Prelude.Maybe S3Location)
+requestUploadCredentialsResponse_storageLocation :: Lens.Lens' RequestUploadCredentialsResponse (Core.Maybe S3Location)
 requestUploadCredentialsResponse_storageLocation = Lens.lens (\RequestUploadCredentialsResponse' {storageLocation} -> storageLocation) (\s@RequestUploadCredentialsResponse' {} a -> s {storageLocation = a} :: RequestUploadCredentialsResponse)
 
 -- | AWS credentials required when uploading a game build to the storage
 -- location. These credentials have a limited lifespan and are valid only
 -- for the build they were issued for.
-requestUploadCredentialsResponse_uploadCredentials :: Lens.Lens' RequestUploadCredentialsResponse (Prelude.Maybe AwsCredentials)
-requestUploadCredentialsResponse_uploadCredentials = Lens.lens (\RequestUploadCredentialsResponse' {uploadCredentials} -> uploadCredentials) (\s@RequestUploadCredentialsResponse' {} a -> s {uploadCredentials = a} :: RequestUploadCredentialsResponse) Prelude.. Lens.mapping Prelude._Sensitive
+requestUploadCredentialsResponse_uploadCredentials :: Lens.Lens' RequestUploadCredentialsResponse (Core.Maybe AwsCredentials)
+requestUploadCredentialsResponse_uploadCredentials = Lens.lens (\RequestUploadCredentialsResponse' {uploadCredentials} -> uploadCredentials) (\s@RequestUploadCredentialsResponse' {} a -> s {uploadCredentials = a} :: RequestUploadCredentialsResponse) Core.. Lens.mapping Core._Sensitive
 
 -- | The response's http status code.
-requestUploadCredentialsResponse_httpStatus :: Lens.Lens' RequestUploadCredentialsResponse Prelude.Int
+requestUploadCredentialsResponse_httpStatus :: Lens.Lens' RequestUploadCredentialsResponse Core.Int
 requestUploadCredentialsResponse_httpStatus = Lens.lens (\RequestUploadCredentialsResponse' {httpStatus} -> httpStatus) (\s@RequestUploadCredentialsResponse' {} a -> s {httpStatus = a} :: RequestUploadCredentialsResponse)
 
-instance
-  Prelude.NFData
-    RequestUploadCredentialsResponse
+instance Core.NFData RequestUploadCredentialsResponse

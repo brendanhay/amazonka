@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ParameterStringFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | One or more filters. Use a filter to return a more specific list of
 -- results.
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newParameterStringFilter' smart constructor.
 data ParameterStringFilter = ParameterStringFilter'
   { -- | The value you want to search for.
-    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    values :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | For all filters used with DescribeParameters, valid options include
     -- @Equals@ and @BeginsWith@. The @Name@ filter additionally supports the
     -- @Contains@ option. (Exception: For filters using the key @Path@, valid
@@ -38,7 +37,7 @@ data ParameterStringFilter = ParameterStringFilter'
     -- For filters used with GetParametersByPath, valid options include
     -- @Equals@ and @BeginsWith@. (Exception: For filters using @Label@ as the
     -- Key name, the only valid option is @Equals@.)
-    option :: Prelude.Maybe Prelude.Text,
+    option :: Core.Maybe Core.Text,
     -- | The name of the filter.
     --
     -- The @ParameterStringFilter@ object is used by the DescribeParameters and
@@ -55,9 +54,9 @@ data ParameterStringFilter = ParameterStringFilter'
     -- constructions, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html Searching for Systems Manager parameters>
     -- in the /AWS Systems Manager User Guide/.
-    key :: Prelude.Text
+    key :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterStringFilter' with all optional fields omitted.
@@ -96,18 +95,18 @@ data ParameterStringFilter = ParameterStringFilter'
 -- in the /AWS Systems Manager User Guide/.
 newParameterStringFilter ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   ParameterStringFilter
 newParameterStringFilter pKey_ =
   ParameterStringFilter'
-    { values = Prelude.Nothing,
-      option = Prelude.Nothing,
+    { values = Core.Nothing,
+      option = Core.Nothing,
       key = pKey_
     }
 
 -- | The value you want to search for.
-parameterStringFilter_values :: Lens.Lens' ParameterStringFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-parameterStringFilter_values = Lens.lens (\ParameterStringFilter' {values} -> values) (\s@ParameterStringFilter' {} a -> s {values = a} :: ParameterStringFilter) Prelude.. Lens.mapping Prelude._Coerce
+parameterStringFilter_values :: Lens.Lens' ParameterStringFilter (Core.Maybe (Core.NonEmpty Core.Text))
+parameterStringFilter_values = Lens.lens (\ParameterStringFilter' {values} -> values) (\s@ParameterStringFilter' {} a -> s {values = a} :: ParameterStringFilter) Core.. Lens.mapping Lens._Coerce
 
 -- | For all filters used with DescribeParameters, valid options include
 -- @Equals@ and @BeginsWith@. The @Name@ filter additionally supports the
@@ -117,7 +116,7 @@ parameterStringFilter_values = Lens.lens (\ParameterStringFilter' {values} -> va
 -- For filters used with GetParametersByPath, valid options include
 -- @Equals@ and @BeginsWith@. (Exception: For filters using @Label@ as the
 -- Key name, the only valid option is @Equals@.)
-parameterStringFilter_option :: Lens.Lens' ParameterStringFilter (Prelude.Maybe Prelude.Text)
+parameterStringFilter_option :: Lens.Lens' ParameterStringFilter (Core.Maybe Core.Text)
 parameterStringFilter_option = Lens.lens (\ParameterStringFilter' {option} -> option) (\s@ParameterStringFilter' {} a -> s {option = a} :: ParameterStringFilter)
 
 -- | The name of the filter.
@@ -136,19 +135,19 @@ parameterStringFilter_option = Lens.lens (\ParameterStringFilter' {option} -> op
 -- constructions, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html Searching for Systems Manager parameters>
 -- in the /AWS Systems Manager User Guide/.
-parameterStringFilter_key :: Lens.Lens' ParameterStringFilter Prelude.Text
+parameterStringFilter_key :: Lens.Lens' ParameterStringFilter Core.Text
 parameterStringFilter_key = Lens.lens (\ParameterStringFilter' {key} -> key) (\s@ParameterStringFilter' {} a -> s {key = a} :: ParameterStringFilter)
 
-instance Prelude.Hashable ParameterStringFilter
+instance Core.Hashable ParameterStringFilter
 
-instance Prelude.NFData ParameterStringFilter
+instance Core.NFData ParameterStringFilter
 
-instance Prelude.ToJSON ParameterStringFilter where
+instance Core.ToJSON ParameterStringFilter where
   toJSON ParameterStringFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Values" Prelude..=) Prelude.<$> values,
-            ("Option" Prelude..=) Prelude.<$> option,
-            Prelude.Just ("Key" Prelude..= key)
+    Core.object
+      ( Core.catMaybes
+          [ ("Values" Core..=) Core.<$> values,
+            ("Option" Core..=) Core.<$> option,
+            Core.Just ("Key" Core..= key)
           ]
       )

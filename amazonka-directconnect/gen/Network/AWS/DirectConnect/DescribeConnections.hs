@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.DirectConnect.DescribeConnections
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeConnections' smart constructor.
 data DescribeConnections = DescribeConnections'
   { -- | The ID of the connection.
-    connectionId :: Prelude.Maybe Prelude.Text
+    connectionId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeConnections' with all optional fields omitted.
@@ -64,52 +63,45 @@ data DescribeConnections = DescribeConnections'
 newDescribeConnections ::
   DescribeConnections
 newDescribeConnections =
-  DescribeConnections'
-    { connectionId =
-        Prelude.Nothing
-    }
+  DescribeConnections' {connectionId = Core.Nothing}
 
 -- | The ID of the connection.
-describeConnections_connectionId :: Lens.Lens' DescribeConnections (Prelude.Maybe Prelude.Text)
+describeConnections_connectionId :: Lens.Lens' DescribeConnections (Core.Maybe Core.Text)
 describeConnections_connectionId = Lens.lens (\DescribeConnections' {connectionId} -> connectionId) (\s@DescribeConnections' {} a -> s {connectionId = a} :: DescribeConnections)
 
-instance Prelude.AWSRequest DescribeConnections where
-  type Rs DescribeConnections = Connections
+instance Core.AWSRequest DescribeConnections where
+  type AWSResponse DescribeConnections = Connections
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DescribeConnections
+instance Core.Hashable DescribeConnections
 
-instance Prelude.NFData DescribeConnections
+instance Core.NFData DescribeConnections
 
-instance Prelude.ToHeaders DescribeConnections where
+instance Core.ToHeaders DescribeConnections where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.DescribeConnections" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.DescribeConnections" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeConnections where
+instance Core.ToJSON DescribeConnections where
   toJSON DescribeConnections' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("connectionId" Prelude..=)
-              Prelude.<$> connectionId
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("connectionId" Core..=) Core.<$> connectionId]
       )
 
-instance Prelude.ToPath DescribeConnections where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeConnections where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeConnections where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeConnections where
+  toQuery = Core.const Core.mempty

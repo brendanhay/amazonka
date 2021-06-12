@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.SageMaker.DescribeEdgePackagingJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -62,9 +61,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeEdgePackagingJob' smart constructor.
 data DescribeEdgePackagingJob = DescribeEdgePackagingJob'
   { -- | The name of the edge packaging job.
-    edgePackagingJobName :: Prelude.Text
+    edgePackagingJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEdgePackagingJob' with all optional fields omitted.
@@ -77,7 +76,7 @@ data DescribeEdgePackagingJob = DescribeEdgePackagingJob'
 -- 'edgePackagingJobName', 'describeEdgePackagingJob_edgePackagingJobName' - The name of the edge packaging job.
 newDescribeEdgePackagingJob ::
   -- | 'edgePackagingJobName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeEdgePackagingJob
 newDescribeEdgePackagingJob pEdgePackagingJobName_ =
   DescribeEdgePackagingJob'
@@ -86,107 +85,105 @@ newDescribeEdgePackagingJob pEdgePackagingJobName_ =
     }
 
 -- | The name of the edge packaging job.
-describeEdgePackagingJob_edgePackagingJobName :: Lens.Lens' DescribeEdgePackagingJob Prelude.Text
+describeEdgePackagingJob_edgePackagingJobName :: Lens.Lens' DescribeEdgePackagingJob Core.Text
 describeEdgePackagingJob_edgePackagingJobName = Lens.lens (\DescribeEdgePackagingJob' {edgePackagingJobName} -> edgePackagingJobName) (\s@DescribeEdgePackagingJob' {} a -> s {edgePackagingJobName = a} :: DescribeEdgePackagingJob)
 
-instance Prelude.AWSRequest DescribeEdgePackagingJob where
+instance Core.AWSRequest DescribeEdgePackagingJob where
   type
-    Rs DescribeEdgePackagingJob =
+    AWSResponse DescribeEdgePackagingJob =
       DescribeEdgePackagingJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEdgePackagingJobResponse'
-            Prelude.<$> (x Prelude..?> "EdgePackagingJobStatusMessage")
-            Prelude.<*> (x Prelude..?> "CreationTime")
-            Prelude.<*> (x Prelude..?> "RoleArn")
-            Prelude.<*> (x Prelude..?> "CompilationJobName")
-            Prelude.<*> (x Prelude..?> "ModelSignature")
-            Prelude.<*> (x Prelude..?> "ResourceKey")
-            Prelude.<*> (x Prelude..?> "ModelVersion")
-            Prelude.<*> (x Prelude..?> "OutputConfig")
-            Prelude.<*> (x Prelude..?> "ModelArtifact")
-            Prelude.<*> (x Prelude..?> "LastModifiedTime")
-            Prelude.<*> (x Prelude..?> "ModelName")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "EdgePackagingJobArn")
-            Prelude.<*> (x Prelude..:> "EdgePackagingJobName")
-            Prelude.<*> (x Prelude..:> "EdgePackagingJobStatus")
+            Core.<$> (x Core..?> "EdgePackagingJobStatusMessage")
+            Core.<*> (x Core..?> "CreationTime")
+            Core.<*> (x Core..?> "RoleArn")
+            Core.<*> (x Core..?> "CompilationJobName")
+            Core.<*> (x Core..?> "ModelSignature")
+            Core.<*> (x Core..?> "ResourceKey")
+            Core.<*> (x Core..?> "ModelVersion")
+            Core.<*> (x Core..?> "OutputConfig")
+            Core.<*> (x Core..?> "ModelArtifact")
+            Core.<*> (x Core..?> "LastModifiedTime")
+            Core.<*> (x Core..?> "ModelName")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "EdgePackagingJobArn")
+            Core.<*> (x Core..:> "EdgePackagingJobName")
+            Core.<*> (x Core..:> "EdgePackagingJobStatus")
       )
 
-instance Prelude.Hashable DescribeEdgePackagingJob
+instance Core.Hashable DescribeEdgePackagingJob
 
-instance Prelude.NFData DescribeEdgePackagingJob
+instance Core.NFData DescribeEdgePackagingJob
 
-instance Prelude.ToHeaders DescribeEdgePackagingJob where
+instance Core.ToHeaders DescribeEdgePackagingJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DescribeEdgePackagingJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DescribeEdgePackagingJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeEdgePackagingJob where
+instance Core.ToJSON DescribeEdgePackagingJob where
   toJSON DescribeEdgePackagingJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "EdgePackagingJobName"
-                  Prelude..= edgePackagingJobName
+                  Core..= edgePackagingJobName
               )
           ]
       )
 
-instance Prelude.ToPath DescribeEdgePackagingJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEdgePackagingJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEdgePackagingJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEdgePackagingJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEdgePackagingJobResponse' smart constructor.
 data DescribeEdgePackagingJobResponse = DescribeEdgePackagingJobResponse'
   { -- | Returns a message describing the job status and error messages.
-    edgePackagingJobStatusMessage :: Prelude.Maybe Prelude.Text,
+    edgePackagingJobStatusMessage :: Core.Maybe Core.Text,
     -- | The timestamp of when the packaging job was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
     -- SageMaker to download and upload the model, and to contact Neo.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | The name of the SageMaker Neo compilation job that is used to locate
     -- model artifacts that are being packaged.
-    compilationJobName :: Prelude.Maybe Prelude.Text,
+    compilationJobName :: Core.Maybe Core.Text,
     -- | The signature document of files in the model artifact.
-    modelSignature :: Prelude.Maybe Prelude.Text,
+    modelSignature :: Core.Maybe Core.Text,
     -- | The CMK to use when encrypting the EBS volume the job run on.
-    resourceKey :: Prelude.Maybe Prelude.Text,
+    resourceKey :: Core.Maybe Core.Text,
     -- | The version of the model.
-    modelVersion :: Prelude.Maybe Prelude.Text,
+    modelVersion :: Core.Maybe Core.Text,
     -- | The output configuration for the edge packaging job.
-    outputConfig :: Prelude.Maybe EdgeOutputConfig,
+    outputConfig :: Core.Maybe EdgeOutputConfig,
     -- | The Amazon Simple Storage (S3) URI where model artifacts ares stored.
-    modelArtifact :: Prelude.Maybe Prelude.Text,
+    modelArtifact :: Core.Maybe Core.Text,
     -- | The timestamp of when the job was last updated.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | The name of the model.
-    modelName :: Prelude.Maybe Prelude.Text,
+    modelName :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the edge packaging job.
-    edgePackagingJobArn :: Prelude.Text,
+    edgePackagingJobArn :: Core.Text,
     -- | The name of the edge packaging job.
-    edgePackagingJobName :: Prelude.Text,
+    edgePackagingJobName :: Core.Text,
     -- | The current status of the packaging job.
     edgePackagingJobStatus :: EdgePackagingJobStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEdgePackagingJobResponse' with all optional fields omitted.
@@ -229,11 +226,11 @@ data DescribeEdgePackagingJobResponse = DescribeEdgePackagingJobResponse'
 -- 'edgePackagingJobStatus', 'describeEdgePackagingJobResponse_edgePackagingJobStatus' - The current status of the packaging job.
 newDescribeEdgePackagingJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'edgePackagingJobArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'edgePackagingJobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'edgePackagingJobStatus'
   EdgePackagingJobStatus ->
   DescribeEdgePackagingJobResponse
@@ -244,17 +241,17 @@ newDescribeEdgePackagingJobResponse
   pEdgePackagingJobStatus_ =
     DescribeEdgePackagingJobResponse'
       { edgePackagingJobStatusMessage =
-          Prelude.Nothing,
-        creationTime = Prelude.Nothing,
-        roleArn = Prelude.Nothing,
-        compilationJobName = Prelude.Nothing,
-        modelSignature = Prelude.Nothing,
-        resourceKey = Prelude.Nothing,
-        modelVersion = Prelude.Nothing,
-        outputConfig = Prelude.Nothing,
-        modelArtifact = Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
-        modelName = Prelude.Nothing,
+          Core.Nothing,
+        creationTime = Core.Nothing,
+        roleArn = Core.Nothing,
+        compilationJobName = Core.Nothing,
+        modelSignature = Core.Nothing,
+        resourceKey = Core.Nothing,
+        modelVersion = Core.Nothing,
+        outputConfig = Core.Nothing,
+        modelArtifact = Core.Nothing,
+        lastModifiedTime = Core.Nothing,
+        modelName = Core.Nothing,
         httpStatus = pHttpStatus_,
         edgePackagingJobArn =
           pEdgePackagingJobArn_,
@@ -265,67 +262,65 @@ newDescribeEdgePackagingJobResponse
       }
 
 -- | Returns a message describing the job status and error messages.
-describeEdgePackagingJobResponse_edgePackagingJobStatusMessage :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
+describeEdgePackagingJobResponse_edgePackagingJobStatusMessage :: Lens.Lens' DescribeEdgePackagingJobResponse (Core.Maybe Core.Text)
 describeEdgePackagingJobResponse_edgePackagingJobStatusMessage = Lens.lens (\DescribeEdgePackagingJobResponse' {edgePackagingJobStatusMessage} -> edgePackagingJobStatusMessage) (\s@DescribeEdgePackagingJobResponse' {} a -> s {edgePackagingJobStatusMessage = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The timestamp of when the packaging job was created.
-describeEdgePackagingJobResponse_creationTime :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeEdgePackagingJobResponse_creationTime = Lens.lens (\DescribeEdgePackagingJobResponse' {creationTime} -> creationTime) (\s@DescribeEdgePackagingJobResponse' {} a -> s {creationTime = a} :: DescribeEdgePackagingJobResponse) Prelude.. Lens.mapping Prelude._Time
+describeEdgePackagingJobResponse_creationTime :: Lens.Lens' DescribeEdgePackagingJobResponse (Core.Maybe Core.UTCTime)
+describeEdgePackagingJobResponse_creationTime = Lens.lens (\DescribeEdgePackagingJobResponse' {creationTime} -> creationTime) (\s@DescribeEdgePackagingJobResponse' {} a -> s {creationTime = a} :: DescribeEdgePackagingJobResponse) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
 -- SageMaker to download and upload the model, and to contact Neo.
-describeEdgePackagingJobResponse_roleArn :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
+describeEdgePackagingJobResponse_roleArn :: Lens.Lens' DescribeEdgePackagingJobResponse (Core.Maybe Core.Text)
 describeEdgePackagingJobResponse_roleArn = Lens.lens (\DescribeEdgePackagingJobResponse' {roleArn} -> roleArn) (\s@DescribeEdgePackagingJobResponse' {} a -> s {roleArn = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The name of the SageMaker Neo compilation job that is used to locate
 -- model artifacts that are being packaged.
-describeEdgePackagingJobResponse_compilationJobName :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
+describeEdgePackagingJobResponse_compilationJobName :: Lens.Lens' DescribeEdgePackagingJobResponse (Core.Maybe Core.Text)
 describeEdgePackagingJobResponse_compilationJobName = Lens.lens (\DescribeEdgePackagingJobResponse' {compilationJobName} -> compilationJobName) (\s@DescribeEdgePackagingJobResponse' {} a -> s {compilationJobName = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The signature document of files in the model artifact.
-describeEdgePackagingJobResponse_modelSignature :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
+describeEdgePackagingJobResponse_modelSignature :: Lens.Lens' DescribeEdgePackagingJobResponse (Core.Maybe Core.Text)
 describeEdgePackagingJobResponse_modelSignature = Lens.lens (\DescribeEdgePackagingJobResponse' {modelSignature} -> modelSignature) (\s@DescribeEdgePackagingJobResponse' {} a -> s {modelSignature = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The CMK to use when encrypting the EBS volume the job run on.
-describeEdgePackagingJobResponse_resourceKey :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
+describeEdgePackagingJobResponse_resourceKey :: Lens.Lens' DescribeEdgePackagingJobResponse (Core.Maybe Core.Text)
 describeEdgePackagingJobResponse_resourceKey = Lens.lens (\DescribeEdgePackagingJobResponse' {resourceKey} -> resourceKey) (\s@DescribeEdgePackagingJobResponse' {} a -> s {resourceKey = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The version of the model.
-describeEdgePackagingJobResponse_modelVersion :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
+describeEdgePackagingJobResponse_modelVersion :: Lens.Lens' DescribeEdgePackagingJobResponse (Core.Maybe Core.Text)
 describeEdgePackagingJobResponse_modelVersion = Lens.lens (\DescribeEdgePackagingJobResponse' {modelVersion} -> modelVersion) (\s@DescribeEdgePackagingJobResponse' {} a -> s {modelVersion = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The output configuration for the edge packaging job.
-describeEdgePackagingJobResponse_outputConfig :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe EdgeOutputConfig)
+describeEdgePackagingJobResponse_outputConfig :: Lens.Lens' DescribeEdgePackagingJobResponse (Core.Maybe EdgeOutputConfig)
 describeEdgePackagingJobResponse_outputConfig = Lens.lens (\DescribeEdgePackagingJobResponse' {outputConfig} -> outputConfig) (\s@DescribeEdgePackagingJobResponse' {} a -> s {outputConfig = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The Amazon Simple Storage (S3) URI where model artifacts ares stored.
-describeEdgePackagingJobResponse_modelArtifact :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
+describeEdgePackagingJobResponse_modelArtifact :: Lens.Lens' DescribeEdgePackagingJobResponse (Core.Maybe Core.Text)
 describeEdgePackagingJobResponse_modelArtifact = Lens.lens (\DescribeEdgePackagingJobResponse' {modelArtifact} -> modelArtifact) (\s@DescribeEdgePackagingJobResponse' {} a -> s {modelArtifact = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The timestamp of when the job was last updated.
-describeEdgePackagingJobResponse_lastModifiedTime :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeEdgePackagingJobResponse_lastModifiedTime = Lens.lens (\DescribeEdgePackagingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEdgePackagingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeEdgePackagingJobResponse) Prelude.. Lens.mapping Prelude._Time
+describeEdgePackagingJobResponse_lastModifiedTime :: Lens.Lens' DescribeEdgePackagingJobResponse (Core.Maybe Core.UTCTime)
+describeEdgePackagingJobResponse_lastModifiedTime = Lens.lens (\DescribeEdgePackagingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEdgePackagingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeEdgePackagingJobResponse) Core.. Lens.mapping Core._Time
 
 -- | The name of the model.
-describeEdgePackagingJobResponse_modelName :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
+describeEdgePackagingJobResponse_modelName :: Lens.Lens' DescribeEdgePackagingJobResponse (Core.Maybe Core.Text)
 describeEdgePackagingJobResponse_modelName = Lens.lens (\DescribeEdgePackagingJobResponse' {modelName} -> modelName) (\s@DescribeEdgePackagingJobResponse' {} a -> s {modelName = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The response's http status code.
-describeEdgePackagingJobResponse_httpStatus :: Lens.Lens' DescribeEdgePackagingJobResponse Prelude.Int
+describeEdgePackagingJobResponse_httpStatus :: Lens.Lens' DescribeEdgePackagingJobResponse Core.Int
 describeEdgePackagingJobResponse_httpStatus = Lens.lens (\DescribeEdgePackagingJobResponse' {httpStatus} -> httpStatus) (\s@DescribeEdgePackagingJobResponse' {} a -> s {httpStatus = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the edge packaging job.
-describeEdgePackagingJobResponse_edgePackagingJobArn :: Lens.Lens' DescribeEdgePackagingJobResponse Prelude.Text
+describeEdgePackagingJobResponse_edgePackagingJobArn :: Lens.Lens' DescribeEdgePackagingJobResponse Core.Text
 describeEdgePackagingJobResponse_edgePackagingJobArn = Lens.lens (\DescribeEdgePackagingJobResponse' {edgePackagingJobArn} -> edgePackagingJobArn) (\s@DescribeEdgePackagingJobResponse' {} a -> s {edgePackagingJobArn = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The name of the edge packaging job.
-describeEdgePackagingJobResponse_edgePackagingJobName :: Lens.Lens' DescribeEdgePackagingJobResponse Prelude.Text
+describeEdgePackagingJobResponse_edgePackagingJobName :: Lens.Lens' DescribeEdgePackagingJobResponse Core.Text
 describeEdgePackagingJobResponse_edgePackagingJobName = Lens.lens (\DescribeEdgePackagingJobResponse' {edgePackagingJobName} -> edgePackagingJobName) (\s@DescribeEdgePackagingJobResponse' {} a -> s {edgePackagingJobName = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The current status of the packaging job.
 describeEdgePackagingJobResponse_edgePackagingJobStatus :: Lens.Lens' DescribeEdgePackagingJobResponse EdgePackagingJobStatus
 describeEdgePackagingJobResponse_edgePackagingJobStatus = Lens.lens (\DescribeEdgePackagingJobResponse' {edgePackagingJobStatus} -> edgePackagingJobStatus) (\s@DescribeEdgePackagingJobResponse' {} a -> s {edgePackagingJobStatus = a} :: DescribeEdgePackagingJobResponse)
 
-instance
-  Prelude.NFData
-    DescribeEdgePackagingJobResponse
+instance Core.NFData DescribeEdgePackagingJobResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceCount where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ListingState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Reserved Instance listing state.
 --
 -- /See:/ 'newInstanceCount' smart constructor.
 data InstanceCount = InstanceCount'
   { -- | The states of the listed Reserved Instances.
-    state :: Prelude.Maybe ListingState,
+    state :: Core.Maybe ListingState,
     -- | The number of listed Reserved Instances in the state specified by the
     -- @state@.
-    instanceCount :: Prelude.Maybe Prelude.Int
+    instanceCount :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceCount' with all optional fields omitted.
@@ -53,25 +52,25 @@ newInstanceCount ::
   InstanceCount
 newInstanceCount =
   InstanceCount'
-    { state = Prelude.Nothing,
-      instanceCount = Prelude.Nothing
+    { state = Core.Nothing,
+      instanceCount = Core.Nothing
     }
 
 -- | The states of the listed Reserved Instances.
-instanceCount_state :: Lens.Lens' InstanceCount (Prelude.Maybe ListingState)
+instanceCount_state :: Lens.Lens' InstanceCount (Core.Maybe ListingState)
 instanceCount_state = Lens.lens (\InstanceCount' {state} -> state) (\s@InstanceCount' {} a -> s {state = a} :: InstanceCount)
 
 -- | The number of listed Reserved Instances in the state specified by the
 -- @state@.
-instanceCount_instanceCount :: Lens.Lens' InstanceCount (Prelude.Maybe Prelude.Int)
+instanceCount_instanceCount :: Lens.Lens' InstanceCount (Core.Maybe Core.Int)
 instanceCount_instanceCount = Lens.lens (\InstanceCount' {instanceCount} -> instanceCount) (\s@InstanceCount' {} a -> s {instanceCount = a} :: InstanceCount)
 
-instance Prelude.FromXML InstanceCount where
+instance Core.FromXML InstanceCount where
   parseXML x =
     InstanceCount'
-      Prelude.<$> (x Prelude..@? "state")
-      Prelude.<*> (x Prelude..@? "instanceCount")
+      Core.<$> (x Core..@? "state")
+      Core.<*> (x Core..@? "instanceCount")
 
-instance Prelude.Hashable InstanceCount
+instance Core.Hashable InstanceCount
 
-instance Prelude.NFData InstanceCount
+instance Core.NFData InstanceCount

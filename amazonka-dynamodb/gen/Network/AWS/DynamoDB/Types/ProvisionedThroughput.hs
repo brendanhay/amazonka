@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ProvisionedThroughput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the @UpdateTable@ operation.
@@ -39,16 +38,16 @@ data ProvisionedThroughput = ProvisionedThroughput'
     -- in the /Amazon DynamoDB Developer Guide/.
     --
     -- If read\/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
-    readCapacityUnits :: Prelude.Natural,
+    readCapacityUnits :: Core.Natural,
     -- | The maximum number of writes consumed per second before DynamoDB returns
     -- a @ThrottlingException@. For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
     -- in the /Amazon DynamoDB Developer Guide/.
     --
     -- If read\/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
-    writeCapacityUnits :: Prelude.Natural
+    writeCapacityUnits :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProvisionedThroughput' with all optional fields omitted.
@@ -74,9 +73,9 @@ data ProvisionedThroughput = ProvisionedThroughput'
 -- If read\/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
 newProvisionedThroughput ::
   -- | 'readCapacityUnits'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'writeCapacityUnits'
-  Prelude.Natural ->
+  Core.Natural ->
   ProvisionedThroughput
 newProvisionedThroughput
   pReadCapacityUnits_
@@ -94,7 +93,7 @@ newProvisionedThroughput
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- If read\/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
-provisionedThroughput_readCapacityUnits :: Lens.Lens' ProvisionedThroughput Prelude.Natural
+provisionedThroughput_readCapacityUnits :: Lens.Lens' ProvisionedThroughput Core.Natural
 provisionedThroughput_readCapacityUnits = Lens.lens (\ProvisionedThroughput' {readCapacityUnits} -> readCapacityUnits) (\s@ProvisionedThroughput' {} a -> s {readCapacityUnits = a} :: ProvisionedThroughput)
 
 -- | The maximum number of writes consumed per second before DynamoDB returns
@@ -103,32 +102,30 @@ provisionedThroughput_readCapacityUnits = Lens.lens (\ProvisionedThroughput' {re
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- If read\/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
-provisionedThroughput_writeCapacityUnits :: Lens.Lens' ProvisionedThroughput Prelude.Natural
+provisionedThroughput_writeCapacityUnits :: Lens.Lens' ProvisionedThroughput Core.Natural
 provisionedThroughput_writeCapacityUnits = Lens.lens (\ProvisionedThroughput' {writeCapacityUnits} -> writeCapacityUnits) (\s@ProvisionedThroughput' {} a -> s {writeCapacityUnits = a} :: ProvisionedThroughput)
 
-instance Prelude.FromJSON ProvisionedThroughput where
+instance Core.FromJSON ProvisionedThroughput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProvisionedThroughput"
       ( \x ->
           ProvisionedThroughput'
-            Prelude.<$> (x Prelude..: "ReadCapacityUnits")
-            Prelude.<*> (x Prelude..: "WriteCapacityUnits")
+            Core.<$> (x Core..: "ReadCapacityUnits")
+            Core.<*> (x Core..: "WriteCapacityUnits")
       )
 
-instance Prelude.Hashable ProvisionedThroughput
+instance Core.Hashable ProvisionedThroughput
 
-instance Prelude.NFData ProvisionedThroughput
+instance Core.NFData ProvisionedThroughput
 
-instance Prelude.ToJSON ProvisionedThroughput where
+instance Core.ToJSON ProvisionedThroughput where
   toJSON ProvisionedThroughput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ReadCapacityUnits" Prelude..= readCapacityUnits),
-            Prelude.Just
-              ( "WriteCapacityUnits"
-                  Prelude..= writeCapacityUnits
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ReadCapacityUnits" Core..= readCapacityUnits),
+            Core.Just
+              ("WriteCapacityUnits" Core..= writeCapacityUnits)
           ]
       )

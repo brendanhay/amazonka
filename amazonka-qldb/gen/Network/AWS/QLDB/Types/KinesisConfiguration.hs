@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.QLDB.Types.KinesisConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration settings of the Amazon Kinesis Data Streams
 -- destination for your Amazon QLDB journal stream.
@@ -32,11 +31,11 @@ data KinesisConfiguration = KinesisConfiguration'
     -- Streams record. To learn more, see
     -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html KPL Key Concepts>
     -- in the /Amazon Kinesis Data Streams Developer Guide/.
-    aggregationEnabled :: Prelude.Maybe Prelude.Bool,
+    aggregationEnabled :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the Kinesis data stream resource.
-    streamArn :: Prelude.Text
+    streamArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KinesisConfiguration' with all optional fields omitted.
@@ -54,12 +53,12 @@ data KinesisConfiguration = KinesisConfiguration'
 -- 'streamArn', 'kinesisConfiguration_streamArn' - The Amazon Resource Name (ARN) of the Kinesis data stream resource.
 newKinesisConfiguration ::
   -- | 'streamArn'
-  Prelude.Text ->
+  Core.Text ->
   KinesisConfiguration
 newKinesisConfiguration pStreamArn_ =
   KinesisConfiguration'
     { aggregationEnabled =
-        Prelude.Nothing,
+        Core.Nothing,
       streamArn = pStreamArn_
     }
 
@@ -67,33 +66,33 @@ newKinesisConfiguration pStreamArn_ =
 -- Streams record. To learn more, see
 -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html KPL Key Concepts>
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
-kinesisConfiguration_aggregationEnabled :: Lens.Lens' KinesisConfiguration (Prelude.Maybe Prelude.Bool)
+kinesisConfiguration_aggregationEnabled :: Lens.Lens' KinesisConfiguration (Core.Maybe Core.Bool)
 kinesisConfiguration_aggregationEnabled = Lens.lens (\KinesisConfiguration' {aggregationEnabled} -> aggregationEnabled) (\s@KinesisConfiguration' {} a -> s {aggregationEnabled = a} :: KinesisConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the Kinesis data stream resource.
-kinesisConfiguration_streamArn :: Lens.Lens' KinesisConfiguration Prelude.Text
+kinesisConfiguration_streamArn :: Lens.Lens' KinesisConfiguration Core.Text
 kinesisConfiguration_streamArn = Lens.lens (\KinesisConfiguration' {streamArn} -> streamArn) (\s@KinesisConfiguration' {} a -> s {streamArn = a} :: KinesisConfiguration)
 
-instance Prelude.FromJSON KinesisConfiguration where
+instance Core.FromJSON KinesisConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KinesisConfiguration"
       ( \x ->
           KinesisConfiguration'
-            Prelude.<$> (x Prelude..:? "AggregationEnabled")
-            Prelude.<*> (x Prelude..: "StreamArn")
+            Core.<$> (x Core..:? "AggregationEnabled")
+            Core.<*> (x Core..: "StreamArn")
       )
 
-instance Prelude.Hashable KinesisConfiguration
+instance Core.Hashable KinesisConfiguration
 
-instance Prelude.NFData KinesisConfiguration
+instance Core.NFData KinesisConfiguration
 
-instance Prelude.ToJSON KinesisConfiguration where
+instance Core.ToJSON KinesisConfiguration where
   toJSON KinesisConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AggregationEnabled" Prelude..=)
-              Prelude.<$> aggregationEnabled,
-            Prelude.Just ("StreamArn" Prelude..= streamArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("AggregationEnabled" Core..=)
+              Core.<$> aggregationEnabled,
+            Core.Just ("StreamArn" Core..= streamArn)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.AttachedDisk where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block storage disk that is attached to an instance, and is
 -- included in an automatic snapshot.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAttachedDisk' smart constructor.
 data AttachedDisk = AttachedDisk'
   { -- | The size of the disk in GB.
-    sizeInGb :: Prelude.Maybe Prelude.Int,
+    sizeInGb :: Core.Maybe Core.Int,
     -- | The path of the disk (e.g., @\/dev\/xvdf@).
-    path :: Prelude.Maybe Prelude.Text
+    path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachedDisk' with all optional fields omitted.
@@ -50,28 +49,27 @@ newAttachedDisk ::
   AttachedDisk
 newAttachedDisk =
   AttachedDisk'
-    { sizeInGb = Prelude.Nothing,
-      path = Prelude.Nothing
+    { sizeInGb = Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | The size of the disk in GB.
-attachedDisk_sizeInGb :: Lens.Lens' AttachedDisk (Prelude.Maybe Prelude.Int)
+attachedDisk_sizeInGb :: Lens.Lens' AttachedDisk (Core.Maybe Core.Int)
 attachedDisk_sizeInGb = Lens.lens (\AttachedDisk' {sizeInGb} -> sizeInGb) (\s@AttachedDisk' {} a -> s {sizeInGb = a} :: AttachedDisk)
 
 -- | The path of the disk (e.g., @\/dev\/xvdf@).
-attachedDisk_path :: Lens.Lens' AttachedDisk (Prelude.Maybe Prelude.Text)
+attachedDisk_path :: Lens.Lens' AttachedDisk (Core.Maybe Core.Text)
 attachedDisk_path = Lens.lens (\AttachedDisk' {path} -> path) (\s@AttachedDisk' {} a -> s {path = a} :: AttachedDisk)
 
-instance Prelude.FromJSON AttachedDisk where
+instance Core.FromJSON AttachedDisk where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttachedDisk"
       ( \x ->
           AttachedDisk'
-            Prelude.<$> (x Prelude..:? "sizeInGb")
-            Prelude.<*> (x Prelude..:? "path")
+            Core.<$> (x Core..:? "sizeInGb") Core.<*> (x Core..:? "path")
       )
 
-instance Prelude.Hashable AttachedDisk
+instance Core.Hashable AttachedDisk
 
-instance Prelude.NFData AttachedDisk
+instance Core.NFData AttachedDisk

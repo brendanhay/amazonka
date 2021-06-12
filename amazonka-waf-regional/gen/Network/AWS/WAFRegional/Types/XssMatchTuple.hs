@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.XssMatchTuple where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.FieldToMatch
 import Network.AWS.WAFRegional.Types.TextTransformation
 
@@ -118,7 +117,7 @@ data XssMatchTuple = XssMatchTuple'
     -- Specify @NONE@ if you don\'t want to perform any text transformations.
     textTransformation :: TextTransformation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'XssMatchTuple' with all optional fields omitted.
@@ -297,29 +296,26 @@ xssMatchTuple_fieldToMatch = Lens.lens (\XssMatchTuple' {fieldToMatch} -> fieldT
 xssMatchTuple_textTransformation :: Lens.Lens' XssMatchTuple TextTransformation
 xssMatchTuple_textTransformation = Lens.lens (\XssMatchTuple' {textTransformation} -> textTransformation) (\s@XssMatchTuple' {} a -> s {textTransformation = a} :: XssMatchTuple)
 
-instance Prelude.FromJSON XssMatchTuple where
+instance Core.FromJSON XssMatchTuple where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "XssMatchTuple"
       ( \x ->
           XssMatchTuple'
-            Prelude.<$> (x Prelude..: "FieldToMatch")
-            Prelude.<*> (x Prelude..: "TextTransformation")
+            Core.<$> (x Core..: "FieldToMatch")
+            Core.<*> (x Core..: "TextTransformation")
       )
 
-instance Prelude.Hashable XssMatchTuple
+instance Core.Hashable XssMatchTuple
 
-instance Prelude.NFData XssMatchTuple
+instance Core.NFData XssMatchTuple
 
-instance Prelude.ToJSON XssMatchTuple where
+instance Core.ToJSON XssMatchTuple where
   toJSON XssMatchTuple' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("FieldToMatch" Prelude..= fieldToMatch),
-            Prelude.Just
-              ( "TextTransformation"
-                  Prelude..= textTransformation
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FieldToMatch" Core..= fieldToMatch),
+            Core.Just
+              ("TextTransformation" Core..= textTransformation)
           ]
       )

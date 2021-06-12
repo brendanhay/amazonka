@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.SSESpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.SSEType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the settings used to enable server-side encryption.
 --
@@ -33,21 +32,21 @@ data SSESpecification = SSESpecification'
     -- (ARN), alias name, or alias ARN. Note that you should only provide this
     -- parameter if the key is different from the default DynamoDB customer
     -- master key alias\/aws\/dynamodb.
-    kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
+    kmsMasterKeyId :: Core.Maybe Core.Text,
     -- | Indicates whether server-side encryption is done using an AWS managed
     -- CMK or an AWS owned CMK. If enabled (true), server-side encryption type
     -- is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply).
     -- If disabled (false) or not specified, server-side encryption is set to
     -- AWS owned CMK.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | Server-side encryption type. The only supported value is:
     --
     -- -   @KMS@ - Server-side encryption that uses AWS Key Management Service.
     --     The key is stored in your account and is managed by AWS KMS (AWS KMS
     --     charges apply).
-    sSEType :: Prelude.Maybe SSEType
+    sSEType :: Core.Maybe SSEType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SSESpecification' with all optional fields omitted.
@@ -78,9 +77,9 @@ newSSESpecification ::
   SSESpecification
 newSSESpecification =
   SSESpecification'
-    { kmsMasterKeyId = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      sSEType = Prelude.Nothing
+    { kmsMasterKeyId = Core.Nothing,
+      enabled = Core.Nothing,
+      sSEType = Core.Nothing
     }
 
 -- | The AWS KMS customer master key (CMK) that should be used for the AWS
@@ -88,7 +87,7 @@ newSSESpecification =
 -- (ARN), alias name, or alias ARN. Note that you should only provide this
 -- parameter if the key is different from the default DynamoDB customer
 -- master key alias\/aws\/dynamodb.
-sSESpecification_kmsMasterKeyId :: Lens.Lens' SSESpecification (Prelude.Maybe Prelude.Text)
+sSESpecification_kmsMasterKeyId :: Lens.Lens' SSESpecification (Core.Maybe Core.Text)
 sSESpecification_kmsMasterKeyId = Lens.lens (\SSESpecification' {kmsMasterKeyId} -> kmsMasterKeyId) (\s@SSESpecification' {} a -> s {kmsMasterKeyId = a} :: SSESpecification)
 
 -- | Indicates whether server-side encryption is done using an AWS managed
@@ -96,7 +95,7 @@ sSESpecification_kmsMasterKeyId = Lens.lens (\SSESpecification' {kmsMasterKeyId}
 -- is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply).
 -- If disabled (false) or not specified, server-side encryption is set to
 -- AWS owned CMK.
-sSESpecification_enabled :: Lens.Lens' SSESpecification (Prelude.Maybe Prelude.Bool)
+sSESpecification_enabled :: Lens.Lens' SSESpecification (Core.Maybe Core.Bool)
 sSESpecification_enabled = Lens.lens (\SSESpecification' {enabled} -> enabled) (\s@SSESpecification' {} a -> s {enabled = a} :: SSESpecification)
 
 -- | Server-side encryption type. The only supported value is:
@@ -104,20 +103,19 @@ sSESpecification_enabled = Lens.lens (\SSESpecification' {enabled} -> enabled) (
 -- -   @KMS@ - Server-side encryption that uses AWS Key Management Service.
 --     The key is stored in your account and is managed by AWS KMS (AWS KMS
 --     charges apply).
-sSESpecification_sSEType :: Lens.Lens' SSESpecification (Prelude.Maybe SSEType)
+sSESpecification_sSEType :: Lens.Lens' SSESpecification (Core.Maybe SSEType)
 sSESpecification_sSEType = Lens.lens (\SSESpecification' {sSEType} -> sSEType) (\s@SSESpecification' {} a -> s {sSEType = a} :: SSESpecification)
 
-instance Prelude.Hashable SSESpecification
+instance Core.Hashable SSESpecification
 
-instance Prelude.NFData SSESpecification
+instance Core.NFData SSESpecification
 
-instance Prelude.ToJSON SSESpecification where
+instance Core.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KMSMasterKeyId" Prelude..=)
-              Prelude.<$> kmsMasterKeyId,
-            ("Enabled" Prelude..=) Prelude.<$> enabled,
-            ("SSEType" Prelude..=) Prelude.<$> sSEType
+    Core.object
+      ( Core.catMaybes
+          [ ("KMSMasterKeyId" Core..=) Core.<$> kmsMasterKeyId,
+            ("Enabled" Core..=) Core.<$> enabled,
+            ("SSEType" Core..=) Core.<$> sSEType
           ]
       )

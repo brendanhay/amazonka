@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.DeviceDefinitionVersion where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Device
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a device definition version.
 --
 -- /See:/ 'newDeviceDefinitionVersion' smart constructor.
 data DeviceDefinitionVersion = DeviceDefinitionVersion'
   { -- | A list of devices in the definition version.
-    devices :: Prelude.Maybe [Device]
+    devices :: Core.Maybe [Device]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeviceDefinitionVersion' with all optional fields omitted.
@@ -45,28 +44,28 @@ data DeviceDefinitionVersion = DeviceDefinitionVersion'
 newDeviceDefinitionVersion ::
   DeviceDefinitionVersion
 newDeviceDefinitionVersion =
-  DeviceDefinitionVersion' {devices = Prelude.Nothing}
+  DeviceDefinitionVersion' {devices = Core.Nothing}
 
 -- | A list of devices in the definition version.
-deviceDefinitionVersion_devices :: Lens.Lens' DeviceDefinitionVersion (Prelude.Maybe [Device])
-deviceDefinitionVersion_devices = Lens.lens (\DeviceDefinitionVersion' {devices} -> devices) (\s@DeviceDefinitionVersion' {} a -> s {devices = a} :: DeviceDefinitionVersion) Prelude.. Lens.mapping Prelude._Coerce
+deviceDefinitionVersion_devices :: Lens.Lens' DeviceDefinitionVersion (Core.Maybe [Device])
+deviceDefinitionVersion_devices = Lens.lens (\DeviceDefinitionVersion' {devices} -> devices) (\s@DeviceDefinitionVersion' {} a -> s {devices = a} :: DeviceDefinitionVersion) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON DeviceDefinitionVersion where
+instance Core.FromJSON DeviceDefinitionVersion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeviceDefinitionVersion"
       ( \x ->
           DeviceDefinitionVersion'
-            Prelude.<$> (x Prelude..:? "Devices" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Devices" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable DeviceDefinitionVersion
+instance Core.Hashable DeviceDefinitionVersion
 
-instance Prelude.NFData DeviceDefinitionVersion
+instance Core.NFData DeviceDefinitionVersion
 
-instance Prelude.ToJSON DeviceDefinitionVersion where
+instance Core.ToJSON DeviceDefinitionVersion where
   toJSON DeviceDefinitionVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Devices" Prelude..=) Prelude.<$> devices]
+    Core.object
+      ( Core.catMaybes
+          [("Devices" Core..=) Core.<$> devices]
       )

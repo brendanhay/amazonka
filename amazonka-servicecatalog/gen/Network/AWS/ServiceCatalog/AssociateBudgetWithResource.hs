@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.ServiceCatalog.AssociateBudgetWithResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -49,11 +48,11 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newAssociateBudgetWithResource' smart constructor.
 data AssociateBudgetWithResource = AssociateBudgetWithResource'
   { -- | The name of the budget you want to associate.
-    budgetName :: Prelude.Text,
+    budgetName :: Core.Text,
     -- | The resource identifier. Either a portfolio-id or a product-id.
-    resourceId :: Prelude.Text
+    resourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateBudgetWithResource' with all optional fields omitted.
@@ -68,9 +67,9 @@ data AssociateBudgetWithResource = AssociateBudgetWithResource'
 -- 'resourceId', 'associateBudgetWithResource_resourceId' - The resource identifier. Either a portfolio-id or a product-id.
 newAssociateBudgetWithResource ::
   -- | 'budgetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   AssociateBudgetWithResource
 newAssociateBudgetWithResource
   pBudgetName_
@@ -82,71 +81,63 @@ newAssociateBudgetWithResource
       }
 
 -- | The name of the budget you want to associate.
-associateBudgetWithResource_budgetName :: Lens.Lens' AssociateBudgetWithResource Prelude.Text
+associateBudgetWithResource_budgetName :: Lens.Lens' AssociateBudgetWithResource Core.Text
 associateBudgetWithResource_budgetName = Lens.lens (\AssociateBudgetWithResource' {budgetName} -> budgetName) (\s@AssociateBudgetWithResource' {} a -> s {budgetName = a} :: AssociateBudgetWithResource)
 
 -- | The resource identifier. Either a portfolio-id or a product-id.
-associateBudgetWithResource_resourceId :: Lens.Lens' AssociateBudgetWithResource Prelude.Text
+associateBudgetWithResource_resourceId :: Lens.Lens' AssociateBudgetWithResource Core.Text
 associateBudgetWithResource_resourceId = Lens.lens (\AssociateBudgetWithResource' {resourceId} -> resourceId) (\s@AssociateBudgetWithResource' {} a -> s {resourceId = a} :: AssociateBudgetWithResource)
 
-instance
-  Prelude.AWSRequest
-    AssociateBudgetWithResource
-  where
+instance Core.AWSRequest AssociateBudgetWithResource where
   type
-    Rs AssociateBudgetWithResource =
+    AWSResponse AssociateBudgetWithResource =
       AssociateBudgetWithResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateBudgetWithResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateBudgetWithResource
+instance Core.Hashable AssociateBudgetWithResource
 
-instance Prelude.NFData AssociateBudgetWithResource
+instance Core.NFData AssociateBudgetWithResource
 
-instance
-  Prelude.ToHeaders
-    AssociateBudgetWithResource
-  where
+instance Core.ToHeaders AssociateBudgetWithResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.AssociateBudgetWithResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.AssociateBudgetWithResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateBudgetWithResource where
+instance Core.ToJSON AssociateBudgetWithResource where
   toJSON AssociateBudgetWithResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("BudgetName" Prelude..= budgetName),
-            Prelude.Just ("ResourceId" Prelude..= resourceId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("BudgetName" Core..= budgetName),
+            Core.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
-instance Prelude.ToPath AssociateBudgetWithResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateBudgetWithResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateBudgetWithResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateBudgetWithResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateBudgetWithResourceResponse' smart constructor.
 data AssociateBudgetWithResourceResponse = AssociateBudgetWithResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateBudgetWithResourceResponse' with all optional fields omitted.
@@ -159,7 +150,7 @@ data AssociateBudgetWithResourceResponse = AssociateBudgetWithResourceResponse'
 -- 'httpStatus', 'associateBudgetWithResourceResponse_httpStatus' - The response's http status code.
 newAssociateBudgetWithResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateBudgetWithResourceResponse
 newAssociateBudgetWithResourceResponse pHttpStatus_ =
   AssociateBudgetWithResourceResponse'
@@ -168,9 +159,9 @@ newAssociateBudgetWithResourceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateBudgetWithResourceResponse_httpStatus :: Lens.Lens' AssociateBudgetWithResourceResponse Prelude.Int
+associateBudgetWithResourceResponse_httpStatus :: Lens.Lens' AssociateBudgetWithResourceResponse Core.Int
 associateBudgetWithResourceResponse_httpStatus = Lens.lens (\AssociateBudgetWithResourceResponse' {httpStatus} -> httpStatus) (\s@AssociateBudgetWithResourceResponse' {} a -> s {httpStatus = a} :: AssociateBudgetWithResourceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateBudgetWithResourceResponse

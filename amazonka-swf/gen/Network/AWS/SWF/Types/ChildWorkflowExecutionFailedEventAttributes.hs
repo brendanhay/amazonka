@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.ChildWorkflowExecutionFailedEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.WorkflowExecution
 import Network.AWS.SWF.Types.WorkflowType
 
@@ -30,9 +29,9 @@ import Network.AWS.SWF.Types.WorkflowType
 -- /See:/ 'newChildWorkflowExecutionFailedEventAttributes' smart constructor.
 data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedEventAttributes'
   { -- | The details of the failure (if provided).
-    details :: Prelude.Maybe Prelude.Text,
+    details :: Core.Maybe Core.Text,
     -- | The reason for the failure (if provided).
-    reason :: Prelude.Maybe Prelude.Text,
+    reason :: Core.Maybe Core.Text,
     -- | The child workflow execution that failed.
     workflowExecution :: WorkflowExecution,
     -- | The type of the child workflow execution.
@@ -41,14 +40,14 @@ data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedE
     -- to the @StartChildWorkflowExecution@ Decision to start this child
     -- workflow execution. This information can be useful for diagnosing
     -- problems by tracing back the chain of events leading up to this event.
-    initiatedEventId :: Prelude.Integer,
+    initiatedEventId :: Core.Integer,
     -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this
     -- child workflow execution was started. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    startedEventId :: Prelude.Integer
+    startedEventId :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChildWorkflowExecutionFailedEventAttributes' with all optional fields omitted.
@@ -81,9 +80,9 @@ newChildWorkflowExecutionFailedEventAttributes ::
   -- | 'workflowType'
   WorkflowType ->
   -- | 'initiatedEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'startedEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   ChildWorkflowExecutionFailedEventAttributes
 newChildWorkflowExecutionFailedEventAttributes
   pWorkflowExecution_
@@ -92,8 +91,8 @@ newChildWorkflowExecutionFailedEventAttributes
   pStartedEventId_ =
     ChildWorkflowExecutionFailedEventAttributes'
       { details =
-          Prelude.Nothing,
-        reason = Prelude.Nothing,
+          Core.Nothing,
+        reason = Core.Nothing,
         workflowExecution =
           pWorkflowExecution_,
         workflowType = pWorkflowType_,
@@ -104,11 +103,11 @@ newChildWorkflowExecutionFailedEventAttributes
       }
 
 -- | The details of the failure (if provided).
-childWorkflowExecutionFailedEventAttributes_details :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes (Prelude.Maybe Prelude.Text)
+childWorkflowExecutionFailedEventAttributes_details :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes (Core.Maybe Core.Text)
 childWorkflowExecutionFailedEventAttributes_details = Lens.lens (\ChildWorkflowExecutionFailedEventAttributes' {details} -> details) (\s@ChildWorkflowExecutionFailedEventAttributes' {} a -> s {details = a} :: ChildWorkflowExecutionFailedEventAttributes)
 
 -- | The reason for the failure (if provided).
-childWorkflowExecutionFailedEventAttributes_reason :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes (Prelude.Maybe Prelude.Text)
+childWorkflowExecutionFailedEventAttributes_reason :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes (Core.Maybe Core.Text)
 childWorkflowExecutionFailedEventAttributes_reason = Lens.lens (\ChildWorkflowExecutionFailedEventAttributes' {reason} -> reason) (\s@ChildWorkflowExecutionFailedEventAttributes' {} a -> s {reason = a} :: ChildWorkflowExecutionFailedEventAttributes)
 
 -- | The child workflow execution that failed.
@@ -123,37 +122,37 @@ childWorkflowExecutionFailedEventAttributes_workflowType = Lens.lens (\ChildWork
 -- to the @StartChildWorkflowExecution@ Decision to start this child
 -- workflow execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-childWorkflowExecutionFailedEventAttributes_initiatedEventId :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes Prelude.Integer
+childWorkflowExecutionFailedEventAttributes_initiatedEventId :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes Core.Integer
 childWorkflowExecutionFailedEventAttributes_initiatedEventId = Lens.lens (\ChildWorkflowExecutionFailedEventAttributes' {initiatedEventId} -> initiatedEventId) (\s@ChildWorkflowExecutionFailedEventAttributes' {} a -> s {initiatedEventId = a} :: ChildWorkflowExecutionFailedEventAttributes)
 
 -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-childWorkflowExecutionFailedEventAttributes_startedEventId :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes Prelude.Integer
+childWorkflowExecutionFailedEventAttributes_startedEventId :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes Core.Integer
 childWorkflowExecutionFailedEventAttributes_startedEventId = Lens.lens (\ChildWorkflowExecutionFailedEventAttributes' {startedEventId} -> startedEventId) (\s@ChildWorkflowExecutionFailedEventAttributes' {} a -> s {startedEventId = a} :: ChildWorkflowExecutionFailedEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ChildWorkflowExecutionFailedEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ChildWorkflowExecutionFailedEventAttributes"
       ( \x ->
           ChildWorkflowExecutionFailedEventAttributes'
-            Prelude.<$> (x Prelude..:? "details")
-              Prelude.<*> (x Prelude..:? "reason")
-              Prelude.<*> (x Prelude..: "workflowExecution")
-              Prelude.<*> (x Prelude..: "workflowType")
-              Prelude.<*> (x Prelude..: "initiatedEventId")
-              Prelude.<*> (x Prelude..: "startedEventId")
+            Core.<$> (x Core..:? "details")
+            Core.<*> (x Core..:? "reason")
+            Core.<*> (x Core..: "workflowExecution")
+            Core.<*> (x Core..: "workflowType")
+            Core.<*> (x Core..: "initiatedEventId")
+            Core.<*> (x Core..: "startedEventId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ChildWorkflowExecutionFailedEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     ChildWorkflowExecutionFailedEventAttributes

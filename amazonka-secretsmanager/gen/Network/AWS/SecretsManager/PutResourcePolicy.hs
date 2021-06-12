@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,8 +68,8 @@ module Network.AWS.SecretsManager.PutResourcePolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -79,7 +78,7 @@ import Network.AWS.SecretsManager.Types
 data PutResourcePolicy = PutResourcePolicy'
   { -- | (Optional) If you set the parameter, @BlockPublicPolicy@ to true, then
     -- you block resource-based policies that allow broad access to the secret.
-    blockPublicPolicy :: Prelude.Maybe Prelude.Bool,
+    blockPublicPolicy :: Core.Maybe Core.Bool,
     -- | Specifies the secret that you want to attach the resource-based policy.
     -- You can specify either the ARN or the friendly name of the secret.
     --
@@ -101,7 +100,7 @@ data PutResourcePolicy = PutResourcePolicy'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Prelude.Text,
+    secretId :: Core.Text,
     -- | A JSON-formatted string constructed according to the grammar and syntax
     -- for an AWS resource-based policy. The policy in the string identifies
     -- who can access or manage this secret and its versions. For information
@@ -109,9 +108,9 @@ data PutResourcePolicy = PutResourcePolicy'
     -- environments, see
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
     -- in the /AWS CLI User Guide/.
-    resourcePolicy :: Prelude.Text
+    resourcePolicy :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutResourcePolicy' with all optional fields omitted.
@@ -155,21 +154,21 @@ data PutResourcePolicy = PutResourcePolicy'
 -- in the /AWS CLI User Guide/.
 newPutResourcePolicy ::
   -- | 'secretId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourcePolicy'
-  Prelude.Text ->
+  Core.Text ->
   PutResourcePolicy
 newPutResourcePolicy pSecretId_ pResourcePolicy_ =
   PutResourcePolicy'
     { blockPublicPolicy =
-        Prelude.Nothing,
+        Core.Nothing,
       secretId = pSecretId_,
       resourcePolicy = pResourcePolicy_
     }
 
 -- | (Optional) If you set the parameter, @BlockPublicPolicy@ to true, then
 -- you block resource-based policies that allow broad access to the secret.
-putResourcePolicy_blockPublicPolicy :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Bool)
+putResourcePolicy_blockPublicPolicy :: Lens.Lens' PutResourcePolicy (Core.Maybe Core.Bool)
 putResourcePolicy_blockPublicPolicy = Lens.lens (\PutResourcePolicy' {blockPublicPolicy} -> blockPublicPolicy) (\s@PutResourcePolicy' {} a -> s {blockPublicPolicy = a} :: PutResourcePolicy)
 
 -- | Specifies the secret that you want to attach the resource-based policy.
@@ -193,7 +192,7 @@ putResourcePolicy_blockPublicPolicy = Lens.lens (\PutResourcePolicy' {blockPubli
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-putResourcePolicy_secretId :: Lens.Lens' PutResourcePolicy Prelude.Text
+putResourcePolicy_secretId :: Lens.Lens' PutResourcePolicy Core.Text
 putResourcePolicy_secretId = Lens.lens (\PutResourcePolicy' {secretId} -> secretId) (\s@PutResourcePolicy' {} a -> s {secretId = a} :: PutResourcePolicy)
 
 -- | A JSON-formatted string constructed according to the grammar and syntax
@@ -203,68 +202,67 @@ putResourcePolicy_secretId = Lens.lens (\PutResourcePolicy' {secretId} -> secret
 -- environments, see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
 -- in the /AWS CLI User Guide/.
-putResourcePolicy_resourcePolicy :: Lens.Lens' PutResourcePolicy Prelude.Text
+putResourcePolicy_resourcePolicy :: Lens.Lens' PutResourcePolicy Core.Text
 putResourcePolicy_resourcePolicy = Lens.lens (\PutResourcePolicy' {resourcePolicy} -> resourcePolicy) (\s@PutResourcePolicy' {} a -> s {resourcePolicy = a} :: PutResourcePolicy)
 
-instance Prelude.AWSRequest PutResourcePolicy where
-  type Rs PutResourcePolicy = PutResourcePolicyResponse
+instance Core.AWSRequest PutResourcePolicy where
+  type
+    AWSResponse PutResourcePolicy =
+      PutResourcePolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutResourcePolicyResponse'
-            Prelude.<$> (x Prelude..?> "ARN")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ARN")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutResourcePolicy
+instance Core.Hashable PutResourcePolicy
 
-instance Prelude.NFData PutResourcePolicy
+instance Core.NFData PutResourcePolicy
 
-instance Prelude.ToHeaders PutResourcePolicy where
+instance Core.ToHeaders PutResourcePolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.PutResourcePolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "secretsmanager.PutResourcePolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutResourcePolicy where
+instance Core.ToJSON PutResourcePolicy where
   toJSON PutResourcePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("BlockPublicPolicy" Prelude..=)
-              Prelude.<$> blockPublicPolicy,
-            Prelude.Just ("SecretId" Prelude..= secretId),
-            Prelude.Just
-              ("ResourcePolicy" Prelude..= resourcePolicy)
+    Core.object
+      ( Core.catMaybes
+          [ ("BlockPublicPolicy" Core..=)
+              Core.<$> blockPublicPolicy,
+            Core.Just ("SecretId" Core..= secretId),
+            Core.Just ("ResourcePolicy" Core..= resourcePolicy)
           ]
       )
 
-instance Prelude.ToPath PutResourcePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutResourcePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutResourcePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutResourcePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
   { -- | The ARN of the secret retrieved by the resource-based policy.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The friendly name of the secret retrieved by the resource-based policy.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutResourcePolicyResponse' with all optional fields omitted.
@@ -281,25 +279,25 @@ data PutResourcePolicyResponse = PutResourcePolicyResponse'
 -- 'httpStatus', 'putResourcePolicyResponse_httpStatus' - The response's http status code.
 newPutResourcePolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutResourcePolicyResponse
 newPutResourcePolicyResponse pHttpStatus_ =
   PutResourcePolicyResponse'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { arn = Core.Nothing,
+      name = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the secret retrieved by the resource-based policy.
-putResourcePolicyResponse_arn :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+putResourcePolicyResponse_arn :: Lens.Lens' PutResourcePolicyResponse (Core.Maybe Core.Text)
 putResourcePolicyResponse_arn = Lens.lens (\PutResourcePolicyResponse' {arn} -> arn) (\s@PutResourcePolicyResponse' {} a -> s {arn = a} :: PutResourcePolicyResponse)
 
 -- | The friendly name of the secret retrieved by the resource-based policy.
-putResourcePolicyResponse_name :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+putResourcePolicyResponse_name :: Lens.Lens' PutResourcePolicyResponse (Core.Maybe Core.Text)
 putResourcePolicyResponse_name = Lens.lens (\PutResourcePolicyResponse' {name} -> name) (\s@PutResourcePolicyResponse' {} a -> s {name = a} :: PutResourcePolicyResponse)
 
 -- | The response's http status code.
-putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Prelude.Int
+putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Core.Int
 putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@PutResourcePolicyResponse' {} a -> s {httpStatus = a} :: PutResourcePolicyResponse)
 
-instance Prelude.NFData PutResourcePolicyResponse
+instance Core.NFData PutResourcePolicyResponse

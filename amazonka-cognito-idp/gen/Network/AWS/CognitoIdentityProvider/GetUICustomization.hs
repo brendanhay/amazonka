@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,19 +45,19 @@ module Network.AWS.CognitoIdentityProvider.GetUICustomization
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetUICustomization' smart constructor.
 data GetUICustomization = GetUICustomization'
   { -- | The client ID for the client app.
-    clientId :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    clientId :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The user pool ID for the user pool.
-    userPoolId :: Prelude.Text
+    userPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUICustomization' with all optional fields omitted.
@@ -73,77 +72,75 @@ data GetUICustomization = GetUICustomization'
 -- 'userPoolId', 'getUICustomization_userPoolId' - The user pool ID for the user pool.
 newGetUICustomization ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   GetUICustomization
 newGetUICustomization pUserPoolId_ =
   GetUICustomization'
-    { clientId = Prelude.Nothing,
+    { clientId = Core.Nothing,
       userPoolId = pUserPoolId_
     }
 
 -- | The client ID for the client app.
-getUICustomization_clientId :: Lens.Lens' GetUICustomization (Prelude.Maybe Prelude.Text)
-getUICustomization_clientId = Lens.lens (\GetUICustomization' {clientId} -> clientId) (\s@GetUICustomization' {} a -> s {clientId = a} :: GetUICustomization) Prelude.. Lens.mapping Prelude._Sensitive
+getUICustomization_clientId :: Lens.Lens' GetUICustomization (Core.Maybe Core.Text)
+getUICustomization_clientId = Lens.lens (\GetUICustomization' {clientId} -> clientId) (\s@GetUICustomization' {} a -> s {clientId = a} :: GetUICustomization) Core.. Lens.mapping Core._Sensitive
 
 -- | The user pool ID for the user pool.
-getUICustomization_userPoolId :: Lens.Lens' GetUICustomization Prelude.Text
+getUICustomization_userPoolId :: Lens.Lens' GetUICustomization Core.Text
 getUICustomization_userPoolId = Lens.lens (\GetUICustomization' {userPoolId} -> userPoolId) (\s@GetUICustomization' {} a -> s {userPoolId = a} :: GetUICustomization)
 
-instance Prelude.AWSRequest GetUICustomization where
+instance Core.AWSRequest GetUICustomization where
   type
-    Rs GetUICustomization =
+    AWSResponse GetUICustomization =
       GetUICustomizationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetUICustomizationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "UICustomization")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "UICustomization")
       )
 
-instance Prelude.Hashable GetUICustomization
+instance Core.Hashable GetUICustomization
 
-instance Prelude.NFData GetUICustomization
+instance Core.NFData GetUICustomization
 
-instance Prelude.ToHeaders GetUICustomization where
+instance Core.ToHeaders GetUICustomization where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.GetUICustomization" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.GetUICustomization" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetUICustomization where
+instance Core.ToJSON GetUICustomization where
   toJSON GetUICustomization' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ClientId" Prelude..=) Prelude.<$> clientId,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId)
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientId" Core..=) Core.<$> clientId,
+            Core.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
-instance Prelude.ToPath GetUICustomization where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetUICustomization where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetUICustomization where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetUICustomization where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetUICustomizationResponse' smart constructor.
 data GetUICustomizationResponse = GetUICustomizationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The UI customization information.
     uICustomization :: UICustomizationType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUICustomizationResponse' with all optional fields omitted.
@@ -158,7 +155,7 @@ data GetUICustomizationResponse = GetUICustomizationResponse'
 -- 'uICustomization', 'getUICustomizationResponse_uICustomization' - The UI customization information.
 newGetUICustomizationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'uICustomization'
   UICustomizationType ->
   GetUICustomizationResponse
@@ -172,11 +169,11 @@ newGetUICustomizationResponse
       }
 
 -- | The response's http status code.
-getUICustomizationResponse_httpStatus :: Lens.Lens' GetUICustomizationResponse Prelude.Int
+getUICustomizationResponse_httpStatus :: Lens.Lens' GetUICustomizationResponse Core.Int
 getUICustomizationResponse_httpStatus = Lens.lens (\GetUICustomizationResponse' {httpStatus} -> httpStatus) (\s@GetUICustomizationResponse' {} a -> s {httpStatus = a} :: GetUICustomizationResponse)
 
 -- | The UI customization information.
 getUICustomizationResponse_uICustomization :: Lens.Lens' GetUICustomizationResponse UICustomizationType
 getUICustomizationResponse_uICustomization = Lens.lens (\GetUICustomizationResponse' {uICustomization} -> uICustomization) (\s@GetUICustomizationResponse' {} a -> s {uICustomization = a} :: GetUICustomizationResponse)
 
-instance Prelude.NFData GetUICustomizationResponse
+instance Core.NFData GetUICustomizationResponse

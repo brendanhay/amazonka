@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.Pinpoint.CreateApp
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +49,7 @@ import qualified Network.AWS.Response as Response
 data CreateApp = CreateApp'
   { createApplicationRequest :: CreateApplicationRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApp' with all optional fields omitted.
@@ -75,56 +74,54 @@ newCreateApp pCreateApplicationRequest_ =
 createApp_createApplicationRequest :: Lens.Lens' CreateApp CreateApplicationRequest
 createApp_createApplicationRequest = Lens.lens (\CreateApp' {createApplicationRequest} -> createApplicationRequest) (\s@CreateApp' {} a -> s {createApplicationRequest = a} :: CreateApp)
 
-instance Prelude.AWSRequest CreateApp where
-  type Rs CreateApp = CreateAppResponse
+instance Core.AWSRequest CreateApp where
+  type AWSResponse CreateApp = CreateAppResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateAppResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateApp
+instance Core.Hashable CreateApp
 
-instance Prelude.NFData CreateApp
+instance Core.NFData CreateApp
 
-instance Prelude.ToHeaders CreateApp where
+instance Core.ToHeaders CreateApp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateApp where
+instance Core.ToJSON CreateApp where
   toJSON CreateApp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "CreateApplicationRequest"
-                  Prelude..= createApplicationRequest
+                  Core..= createApplicationRequest
               )
           ]
       )
 
-instance Prelude.ToPath CreateApp where
-  toPath = Prelude.const "/v1/apps"
+instance Core.ToPath CreateApp where
+  toPath = Core.const "/v1/apps"
 
-instance Prelude.ToQuery CreateApp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateApp where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     applicationResponse :: ApplicationResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAppResponse' with all optional fields omitted.
@@ -139,7 +136,7 @@ data CreateAppResponse = CreateAppResponse'
 -- 'applicationResponse', 'createAppResponse_applicationResponse' - Undocumented member.
 newCreateAppResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'applicationResponse'
   ApplicationResponse ->
   CreateAppResponse
@@ -152,11 +149,11 @@ newCreateAppResponse
       }
 
 -- | The response's http status code.
-createAppResponse_httpStatus :: Lens.Lens' CreateAppResponse Prelude.Int
+createAppResponse_httpStatus :: Lens.Lens' CreateAppResponse Core.Int
 createAppResponse_httpStatus = Lens.lens (\CreateAppResponse' {httpStatus} -> httpStatus) (\s@CreateAppResponse' {} a -> s {httpStatus = a} :: CreateAppResponse)
 
 -- | Undocumented member.
 createAppResponse_applicationResponse :: Lens.Lens' CreateAppResponse ApplicationResponse
 createAppResponse_applicationResponse = Lens.lens (\CreateAppResponse' {applicationResponse} -> applicationResponse) (\s@CreateAppResponse' {} a -> s {applicationResponse = a} :: CreateAppResponse)
 
-instance Prelude.NFData CreateAppResponse
+instance Core.NFData CreateAppResponse

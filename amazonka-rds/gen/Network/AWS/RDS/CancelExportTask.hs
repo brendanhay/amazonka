@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,8 +54,8 @@ module Network.AWS.RDS.CancelExportTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -64,9 +63,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCancelExportTask' smart constructor.
 data CancelExportTask = CancelExportTask'
   { -- | The identifier of the snapshot export task to cancel.
-    exportTaskIdentifier :: Prelude.Text
+    exportTaskIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelExportTask' with all optional fields omitted.
@@ -79,7 +78,7 @@ data CancelExportTask = CancelExportTask'
 -- 'exportTaskIdentifier', 'cancelExportTask_exportTaskIdentifier' - The identifier of the snapshot export task to cancel.
 newCancelExportTask ::
   -- | 'exportTaskIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   CancelExportTask
 newCancelExportTask pExportTaskIdentifier_ =
   CancelExportTask'
@@ -88,34 +87,32 @@ newCancelExportTask pExportTaskIdentifier_ =
     }
 
 -- | The identifier of the snapshot export task to cancel.
-cancelExportTask_exportTaskIdentifier :: Lens.Lens' CancelExportTask Prelude.Text
+cancelExportTask_exportTaskIdentifier :: Lens.Lens' CancelExportTask Core.Text
 cancelExportTask_exportTaskIdentifier = Lens.lens (\CancelExportTask' {exportTaskIdentifier} -> exportTaskIdentifier) (\s@CancelExportTask' {} a -> s {exportTaskIdentifier = a} :: CancelExportTask)
 
-instance Prelude.AWSRequest CancelExportTask where
-  type Rs CancelExportTask = ExportTask
+instance Core.AWSRequest CancelExportTask where
+  type AWSResponse CancelExportTask = ExportTask
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CancelExportTaskResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CancelExportTask
+instance Core.Hashable CancelExportTask
 
-instance Prelude.NFData CancelExportTask
+instance Core.NFData CancelExportTask
 
-instance Prelude.ToHeaders CancelExportTask where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CancelExportTask where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CancelExportTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelExportTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelExportTask where
+instance Core.ToQuery CancelExportTask where
   toQuery CancelExportTask' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CancelExportTask" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "ExportTaskIdentifier"
-          Prelude.=: exportTaskIdentifier
+          Core.=: ("CancelExportTask" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "ExportTaskIdentifier" Core.=: exportTaskIdentifier
       ]

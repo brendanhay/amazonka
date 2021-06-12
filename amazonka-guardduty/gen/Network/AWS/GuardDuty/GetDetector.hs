@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,18 +45,18 @@ module Network.AWS.GuardDuty.GetDetector
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDetector' smart constructor.
 data GetDetector = GetDetector'
   { -- | The unique ID of the detector that you want to get.
-    detectorId :: Prelude.Text
+    detectorId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDetector' with all optional fields omitted.
@@ -70,75 +69,72 @@ data GetDetector = GetDetector'
 -- 'detectorId', 'getDetector_detectorId' - The unique ID of the detector that you want to get.
 newGetDetector ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   GetDetector
 newGetDetector pDetectorId_ =
   GetDetector' {detectorId = pDetectorId_}
 
 -- | The unique ID of the detector that you want to get.
-getDetector_detectorId :: Lens.Lens' GetDetector Prelude.Text
+getDetector_detectorId :: Lens.Lens' GetDetector Core.Text
 getDetector_detectorId = Lens.lens (\GetDetector' {detectorId} -> detectorId) (\s@GetDetector' {} a -> s {detectorId = a} :: GetDetector)
 
-instance Prelude.AWSRequest GetDetector where
-  type Rs GetDetector = GetDetectorResponse
+instance Core.AWSRequest GetDetector where
+  type AWSResponse GetDetector = GetDetectorResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDetectorResponse'
-            Prelude.<$> (x Prelude..?> "dataSources")
-            Prelude.<*> (x Prelude..?> "findingPublishingFrequency")
-            Prelude.<*> (x Prelude..?> "updatedAt")
-            Prelude.<*> (x Prelude..?> "createdAt")
-            Prelude.<*> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "serviceRole")
-            Prelude.<*> (x Prelude..:> "status")
+            Core.<$> (x Core..?> "dataSources")
+            Core.<*> (x Core..?> "findingPublishingFrequency")
+            Core.<*> (x Core..?> "updatedAt")
+            Core.<*> (x Core..?> "createdAt")
+            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "serviceRole")
+            Core.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable GetDetector
+instance Core.Hashable GetDetector
 
-instance Prelude.NFData GetDetector
+instance Core.NFData GetDetector
 
-instance Prelude.ToHeaders GetDetector where
+instance Core.ToHeaders GetDetector where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetDetector where
+instance Core.ToPath GetDetector where
   toPath GetDetector' {..} =
-    Prelude.mconcat
-      ["/detector/", Prelude.toBS detectorId]
+    Core.mconcat ["/detector/", Core.toBS detectorId]
 
-instance Prelude.ToQuery GetDetector where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDetector where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDetectorResponse' smart constructor.
 data GetDetectorResponse = GetDetectorResponse'
   { -- | Describes which data sources are enabled for the detector.
-    dataSources :: Prelude.Maybe DataSourceConfigurationsResult,
+    dataSources :: Core.Maybe DataSourceConfigurationsResult,
     -- | The publishing frequency of the finding.
-    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
+    findingPublishingFrequency :: Core.Maybe FindingPublishingFrequency,
     -- | The last-updated timestamp for the detector.
-    updatedAt :: Prelude.Maybe Prelude.Text,
+    updatedAt :: Core.Maybe Core.Text,
     -- | The timestamp of when the detector was created.
-    createdAt :: Prelude.Maybe Prelude.Text,
+    createdAt :: Core.Maybe Core.Text,
     -- | The tags of the detector resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The GuardDuty service role.
-    serviceRole :: Prelude.Text,
+    serviceRole :: Core.Text,
     -- | The detector status.
     status :: DetectorStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDetectorResponse' with all optional fields omitted.
@@ -165,9 +161,9 @@ data GetDetectorResponse = GetDetectorResponse'
 -- 'status', 'getDetectorResponse_status' - The detector status.
 newGetDetectorResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'serviceRole'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   DetectorStatus ->
   GetDetectorResponse
@@ -176,46 +172,46 @@ newGetDetectorResponse
   pServiceRole_
   pStatus_ =
     GetDetectorResponse'
-      { dataSources = Prelude.Nothing,
-        findingPublishingFrequency = Prelude.Nothing,
-        updatedAt = Prelude.Nothing,
-        createdAt = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { dataSources = Core.Nothing,
+        findingPublishingFrequency = Core.Nothing,
+        updatedAt = Core.Nothing,
+        createdAt = Core.Nothing,
+        tags = Core.Nothing,
         httpStatus = pHttpStatus_,
         serviceRole = pServiceRole_,
         status = pStatus_
       }
 
 -- | Describes which data sources are enabled for the detector.
-getDetectorResponse_dataSources :: Lens.Lens' GetDetectorResponse (Prelude.Maybe DataSourceConfigurationsResult)
+getDetectorResponse_dataSources :: Lens.Lens' GetDetectorResponse (Core.Maybe DataSourceConfigurationsResult)
 getDetectorResponse_dataSources = Lens.lens (\GetDetectorResponse' {dataSources} -> dataSources) (\s@GetDetectorResponse' {} a -> s {dataSources = a} :: GetDetectorResponse)
 
 -- | The publishing frequency of the finding.
-getDetectorResponse_findingPublishingFrequency :: Lens.Lens' GetDetectorResponse (Prelude.Maybe FindingPublishingFrequency)
+getDetectorResponse_findingPublishingFrequency :: Lens.Lens' GetDetectorResponse (Core.Maybe FindingPublishingFrequency)
 getDetectorResponse_findingPublishingFrequency = Lens.lens (\GetDetectorResponse' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@GetDetectorResponse' {} a -> s {findingPublishingFrequency = a} :: GetDetectorResponse)
 
 -- | The last-updated timestamp for the detector.
-getDetectorResponse_updatedAt :: Lens.Lens' GetDetectorResponse (Prelude.Maybe Prelude.Text)
+getDetectorResponse_updatedAt :: Lens.Lens' GetDetectorResponse (Core.Maybe Core.Text)
 getDetectorResponse_updatedAt = Lens.lens (\GetDetectorResponse' {updatedAt} -> updatedAt) (\s@GetDetectorResponse' {} a -> s {updatedAt = a} :: GetDetectorResponse)
 
 -- | The timestamp of when the detector was created.
-getDetectorResponse_createdAt :: Lens.Lens' GetDetectorResponse (Prelude.Maybe Prelude.Text)
+getDetectorResponse_createdAt :: Lens.Lens' GetDetectorResponse (Core.Maybe Core.Text)
 getDetectorResponse_createdAt = Lens.lens (\GetDetectorResponse' {createdAt} -> createdAt) (\s@GetDetectorResponse' {} a -> s {createdAt = a} :: GetDetectorResponse)
 
 -- | The tags of the detector resource.
-getDetectorResponse_tags :: Lens.Lens' GetDetectorResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getDetectorResponse_tags = Lens.lens (\GetDetectorResponse' {tags} -> tags) (\s@GetDetectorResponse' {} a -> s {tags = a} :: GetDetectorResponse) Prelude.. Lens.mapping Prelude._Coerce
+getDetectorResponse_tags :: Lens.Lens' GetDetectorResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getDetectorResponse_tags = Lens.lens (\GetDetectorResponse' {tags} -> tags) (\s@GetDetectorResponse' {} a -> s {tags = a} :: GetDetectorResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getDetectorResponse_httpStatus :: Lens.Lens' GetDetectorResponse Prelude.Int
+getDetectorResponse_httpStatus :: Lens.Lens' GetDetectorResponse Core.Int
 getDetectorResponse_httpStatus = Lens.lens (\GetDetectorResponse' {httpStatus} -> httpStatus) (\s@GetDetectorResponse' {} a -> s {httpStatus = a} :: GetDetectorResponse)
 
 -- | The GuardDuty service role.
-getDetectorResponse_serviceRole :: Lens.Lens' GetDetectorResponse Prelude.Text
+getDetectorResponse_serviceRole :: Lens.Lens' GetDetectorResponse Core.Text
 getDetectorResponse_serviceRole = Lens.lens (\GetDetectorResponse' {serviceRole} -> serviceRole) (\s@GetDetectorResponse' {} a -> s {serviceRole = a} :: GetDetectorResponse)
 
 -- | The detector status.
 getDetectorResponse_status :: Lens.Lens' GetDetectorResponse DetectorStatus
 getDetectorResponse_status = Lens.lens (\GetDetectorResponse' {status} -> status) (\s@GetDetectorResponse' {} a -> s {status = a} :: GetDetectorResponse)
 
-instance Prelude.NFData GetDetectorResponse
+instance Core.NFData GetDetectorResponse

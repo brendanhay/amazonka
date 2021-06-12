@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.SmsMfaConfigType where
 
 import Network.AWS.CognitoIdentityProvider.Types.SmsConfigurationType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The SMS text message multi-factor authentication (MFA) configuration
 -- type.
@@ -30,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSmsMfaConfigType' smart constructor.
 data SmsMfaConfigType = SmsMfaConfigType'
   { -- | The SMS configuration.
-    smsConfiguration :: Prelude.Maybe SmsConfigurationType,
+    smsConfiguration :: Core.Maybe SmsConfigurationType,
     -- | The SMS authentication message that will be sent to users with the code
     -- they need to sign in. The message must contain the ‘{####}’ placeholder,
     -- which will be replaced with the code. If the message is not included,
     -- and default message will be used.
-    smsAuthenticationMessage :: Prelude.Maybe Prelude.Text
+    smsAuthenticationMessage :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SmsMfaConfigType' with all optional fields omitted.
@@ -57,43 +56,42 @@ newSmsMfaConfigType ::
   SmsMfaConfigType
 newSmsMfaConfigType =
   SmsMfaConfigType'
-    { smsConfiguration =
-        Prelude.Nothing,
-      smsAuthenticationMessage = Prelude.Nothing
+    { smsConfiguration = Core.Nothing,
+      smsAuthenticationMessage = Core.Nothing
     }
 
 -- | The SMS configuration.
-smsMfaConfigType_smsConfiguration :: Lens.Lens' SmsMfaConfigType (Prelude.Maybe SmsConfigurationType)
+smsMfaConfigType_smsConfiguration :: Lens.Lens' SmsMfaConfigType (Core.Maybe SmsConfigurationType)
 smsMfaConfigType_smsConfiguration = Lens.lens (\SmsMfaConfigType' {smsConfiguration} -> smsConfiguration) (\s@SmsMfaConfigType' {} a -> s {smsConfiguration = a} :: SmsMfaConfigType)
 
 -- | The SMS authentication message that will be sent to users with the code
 -- they need to sign in. The message must contain the ‘{####}’ placeholder,
 -- which will be replaced with the code. If the message is not included,
 -- and default message will be used.
-smsMfaConfigType_smsAuthenticationMessage :: Lens.Lens' SmsMfaConfigType (Prelude.Maybe Prelude.Text)
+smsMfaConfigType_smsAuthenticationMessage :: Lens.Lens' SmsMfaConfigType (Core.Maybe Core.Text)
 smsMfaConfigType_smsAuthenticationMessage = Lens.lens (\SmsMfaConfigType' {smsAuthenticationMessage} -> smsAuthenticationMessage) (\s@SmsMfaConfigType' {} a -> s {smsAuthenticationMessage = a} :: SmsMfaConfigType)
 
-instance Prelude.FromJSON SmsMfaConfigType where
+instance Core.FromJSON SmsMfaConfigType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SmsMfaConfigType"
       ( \x ->
           SmsMfaConfigType'
-            Prelude.<$> (x Prelude..:? "SmsConfiguration")
-            Prelude.<*> (x Prelude..:? "SmsAuthenticationMessage")
+            Core.<$> (x Core..:? "SmsConfiguration")
+            Core.<*> (x Core..:? "SmsAuthenticationMessage")
       )
 
-instance Prelude.Hashable SmsMfaConfigType
+instance Core.Hashable SmsMfaConfigType
 
-instance Prelude.NFData SmsMfaConfigType
+instance Core.NFData SmsMfaConfigType
 
-instance Prelude.ToJSON SmsMfaConfigType where
+instance Core.ToJSON SmsMfaConfigType where
   toJSON SmsMfaConfigType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SmsConfiguration" Prelude..=)
-              Prelude.<$> smsConfiguration,
-            ("SmsAuthenticationMessage" Prelude..=)
-              Prelude.<$> smsAuthenticationMessage
+    Core.object
+      ( Core.catMaybes
+          [ ("SmsConfiguration" Core..=)
+              Core.<$> smsConfiguration,
+            ("SmsAuthenticationMessage" Core..=)
+              Core.<$> smsAuthenticationMessage
           ]
       )

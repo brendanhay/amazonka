@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.DataPipeline.DescribePipelines
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,9 +61,9 @@ data DescribePipelines = DescribePipelines'
   { -- | The IDs of the pipelines to describe. You can pass as many as 25
     -- identifiers in a single call. To obtain pipeline IDs, call
     -- ListPipelines.
-    pipelineIds :: [Prelude.Text]
+    pipelineIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePipelines' with all optional fields omitted.
@@ -80,71 +79,69 @@ data DescribePipelines = DescribePipelines'
 newDescribePipelines ::
   DescribePipelines
 newDescribePipelines =
-  DescribePipelines' {pipelineIds = Prelude.mempty}
+  DescribePipelines' {pipelineIds = Core.mempty}
 
 -- | The IDs of the pipelines to describe. You can pass as many as 25
 -- identifiers in a single call. To obtain pipeline IDs, call
 -- ListPipelines.
-describePipelines_pipelineIds :: Lens.Lens' DescribePipelines [Prelude.Text]
-describePipelines_pipelineIds = Lens.lens (\DescribePipelines' {pipelineIds} -> pipelineIds) (\s@DescribePipelines' {} a -> s {pipelineIds = a} :: DescribePipelines) Prelude.. Prelude._Coerce
+describePipelines_pipelineIds :: Lens.Lens' DescribePipelines [Core.Text]
+describePipelines_pipelineIds = Lens.lens (\DescribePipelines' {pipelineIds} -> pipelineIds) (\s@DescribePipelines' {} a -> s {pipelineIds = a} :: DescribePipelines) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DescribePipelines where
-  type Rs DescribePipelines = DescribePipelinesResponse
+instance Core.AWSRequest DescribePipelines where
+  type
+    AWSResponse DescribePipelines =
+      DescribePipelinesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribePipelinesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "pipelineDescriptionList"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..?> "pipelineDescriptionList"
+                         Core..!@ Core.mempty
+                     )
       )
 
-instance Prelude.Hashable DescribePipelines
+instance Core.Hashable DescribePipelines
 
-instance Prelude.NFData DescribePipelines
+instance Core.NFData DescribePipelines
 
-instance Prelude.ToHeaders DescribePipelines where
+instance Core.ToHeaders DescribePipelines where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DataPipeline.DescribePipelines" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DataPipeline.DescribePipelines" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribePipelines where
+instance Core.ToJSON DescribePipelines where
   toJSON DescribePipelines' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("pipelineIds" Prelude..= pipelineIds)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("pipelineIds" Core..= pipelineIds)]
       )
 
-instance Prelude.ToPath DescribePipelines where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribePipelines where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribePipelines where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribePipelines where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the output of DescribePipelines.
 --
 -- /See:/ 'newDescribePipelinesResponse' smart constructor.
 data DescribePipelinesResponse = DescribePipelinesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | An array of descriptions for the specified pipelines.
     pipelineDescriptionList :: [PipelineDescription]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePipelinesResponse' with all optional fields omitted.
@@ -159,21 +156,21 @@ data DescribePipelinesResponse = DescribePipelinesResponse'
 -- 'pipelineDescriptionList', 'describePipelinesResponse_pipelineDescriptionList' - An array of descriptions for the specified pipelines.
 newDescribePipelinesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribePipelinesResponse
 newDescribePipelinesResponse pHttpStatus_ =
   DescribePipelinesResponse'
     { httpStatus =
         pHttpStatus_,
-      pipelineDescriptionList = Prelude.mempty
+      pipelineDescriptionList = Core.mempty
     }
 
 -- | The response's http status code.
-describePipelinesResponse_httpStatus :: Lens.Lens' DescribePipelinesResponse Prelude.Int
+describePipelinesResponse_httpStatus :: Lens.Lens' DescribePipelinesResponse Core.Int
 describePipelinesResponse_httpStatus = Lens.lens (\DescribePipelinesResponse' {httpStatus} -> httpStatus) (\s@DescribePipelinesResponse' {} a -> s {httpStatus = a} :: DescribePipelinesResponse)
 
 -- | An array of descriptions for the specified pipelines.
 describePipelinesResponse_pipelineDescriptionList :: Lens.Lens' DescribePipelinesResponse [PipelineDescription]
-describePipelinesResponse_pipelineDescriptionList = Lens.lens (\DescribePipelinesResponse' {pipelineDescriptionList} -> pipelineDescriptionList) (\s@DescribePipelinesResponse' {} a -> s {pipelineDescriptionList = a} :: DescribePipelinesResponse) Prelude.. Prelude._Coerce
+describePipelinesResponse_pipelineDescriptionList = Lens.lens (\DescribePipelinesResponse' {pipelineDescriptionList} -> pipelineDescriptionList) (\s@DescribePipelinesResponse' {} a -> s {pipelineDescriptionList = a} :: DescribePipelinesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData DescribePipelinesResponse
+instance Core.NFData DescribePipelinesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.IoT.SearchIndex
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,17 +55,17 @@ import qualified Network.AWS.Response as Response
 data SearchIndex = SearchIndex'
   { -- | The token used to get the next set of results, or @null@ if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The search index name.
-    indexName :: Prelude.Maybe Prelude.Text,
+    indexName :: Core.Maybe Core.Text,
     -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The query version.
-    queryVersion :: Prelude.Maybe Prelude.Text,
+    queryVersion :: Core.Maybe Core.Text,
     -- | The search query string.
-    queryString :: Prelude.Text
+    queryString :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SearchIndex' with all optional fields omitted.
@@ -88,91 +87,89 @@ data SearchIndex = SearchIndex'
 -- 'queryString', 'searchIndex_queryString' - The search query string.
 newSearchIndex ::
   -- | 'queryString'
-  Prelude.Text ->
+  Core.Text ->
   SearchIndex
 newSearchIndex pQueryString_ =
   SearchIndex'
-    { nextToken = Prelude.Nothing,
-      indexName = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      queryVersion = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      indexName = Core.Nothing,
+      maxResults = Core.Nothing,
+      queryVersion = Core.Nothing,
       queryString = pQueryString_
     }
 
 -- | The token used to get the next set of results, or @null@ if there are no
 -- additional results.
-searchIndex_nextToken :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
+searchIndex_nextToken :: Lens.Lens' SearchIndex (Core.Maybe Core.Text)
 searchIndex_nextToken = Lens.lens (\SearchIndex' {nextToken} -> nextToken) (\s@SearchIndex' {} a -> s {nextToken = a} :: SearchIndex)
 
 -- | The search index name.
-searchIndex_indexName :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
+searchIndex_indexName :: Lens.Lens' SearchIndex (Core.Maybe Core.Text)
 searchIndex_indexName = Lens.lens (\SearchIndex' {indexName} -> indexName) (\s@SearchIndex' {} a -> s {indexName = a} :: SearchIndex)
 
 -- | The maximum number of results to return at one time.
-searchIndex_maxResults :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Natural)
+searchIndex_maxResults :: Lens.Lens' SearchIndex (Core.Maybe Core.Natural)
 searchIndex_maxResults = Lens.lens (\SearchIndex' {maxResults} -> maxResults) (\s@SearchIndex' {} a -> s {maxResults = a} :: SearchIndex)
 
 -- | The query version.
-searchIndex_queryVersion :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
+searchIndex_queryVersion :: Lens.Lens' SearchIndex (Core.Maybe Core.Text)
 searchIndex_queryVersion = Lens.lens (\SearchIndex' {queryVersion} -> queryVersion) (\s@SearchIndex' {} a -> s {queryVersion = a} :: SearchIndex)
 
 -- | The search query string.
-searchIndex_queryString :: Lens.Lens' SearchIndex Prelude.Text
+searchIndex_queryString :: Lens.Lens' SearchIndex Core.Text
 searchIndex_queryString = Lens.lens (\SearchIndex' {queryString} -> queryString) (\s@SearchIndex' {} a -> s {queryString = a} :: SearchIndex)
 
-instance Prelude.AWSRequest SearchIndex where
-  type Rs SearchIndex = SearchIndexResponse
+instance Core.AWSRequest SearchIndex where
+  type AWSResponse SearchIndex = SearchIndexResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SearchIndexResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "things" Prelude..!@ Prelude.mempty)
-            Prelude.<*> ( x Prelude..?> "thingGroups"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "things" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "thingGroups" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SearchIndex
+instance Core.Hashable SearchIndex
 
-instance Prelude.NFData SearchIndex
+instance Core.NFData SearchIndex
 
-instance Prelude.ToHeaders SearchIndex where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SearchIndex where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON SearchIndex where
+instance Core.ToJSON SearchIndex where
   toJSON SearchIndex' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("indexName" Prelude..=) Prelude.<$> indexName,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("queryVersion" Prelude..=) Prelude.<$> queryVersion,
-            Prelude.Just ("queryString" Prelude..= queryString)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("indexName" Core..=) Core.<$> indexName,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("queryVersion" Core..=) Core.<$> queryVersion,
+            Core.Just ("queryString" Core..= queryString)
           ]
       )
 
-instance Prelude.ToPath SearchIndex where
-  toPath = Prelude.const "/indices/search"
+instance Core.ToPath SearchIndex where
+  toPath = Core.const "/indices/search"
 
-instance Prelude.ToQuery SearchIndex where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SearchIndex where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSearchIndexResponse' smart constructor.
 data SearchIndexResponse = SearchIndexResponse'
   { -- | The token used to get the next set of results, or @null@ if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The things that match the search query.
-    things :: Prelude.Maybe [ThingDocument],
+    things :: Core.Maybe [ThingDocument],
     -- | The thing groups that match the search query.
-    thingGroups :: Prelude.Maybe [ThingGroupDocument],
+    thingGroups :: Core.Maybe [ThingGroupDocument],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SearchIndexResponse' with all optional fields omitted.
@@ -192,31 +189,31 @@ data SearchIndexResponse = SearchIndexResponse'
 -- 'httpStatus', 'searchIndexResponse_httpStatus' - The response's http status code.
 newSearchIndexResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SearchIndexResponse
 newSearchIndexResponse pHttpStatus_ =
   SearchIndexResponse'
-    { nextToken = Prelude.Nothing,
-      things = Prelude.Nothing,
-      thingGroups = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      things = Core.Nothing,
+      thingGroups = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token used to get the next set of results, or @null@ if there are no
 -- additional results.
-searchIndexResponse_nextToken :: Lens.Lens' SearchIndexResponse (Prelude.Maybe Prelude.Text)
+searchIndexResponse_nextToken :: Lens.Lens' SearchIndexResponse (Core.Maybe Core.Text)
 searchIndexResponse_nextToken = Lens.lens (\SearchIndexResponse' {nextToken} -> nextToken) (\s@SearchIndexResponse' {} a -> s {nextToken = a} :: SearchIndexResponse)
 
 -- | The things that match the search query.
-searchIndexResponse_things :: Lens.Lens' SearchIndexResponse (Prelude.Maybe [ThingDocument])
-searchIndexResponse_things = Lens.lens (\SearchIndexResponse' {things} -> things) (\s@SearchIndexResponse' {} a -> s {things = a} :: SearchIndexResponse) Prelude.. Lens.mapping Prelude._Coerce
+searchIndexResponse_things :: Lens.Lens' SearchIndexResponse (Core.Maybe [ThingDocument])
+searchIndexResponse_things = Lens.lens (\SearchIndexResponse' {things} -> things) (\s@SearchIndexResponse' {} a -> s {things = a} :: SearchIndexResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The thing groups that match the search query.
-searchIndexResponse_thingGroups :: Lens.Lens' SearchIndexResponse (Prelude.Maybe [ThingGroupDocument])
-searchIndexResponse_thingGroups = Lens.lens (\SearchIndexResponse' {thingGroups} -> thingGroups) (\s@SearchIndexResponse' {} a -> s {thingGroups = a} :: SearchIndexResponse) Prelude.. Lens.mapping Prelude._Coerce
+searchIndexResponse_thingGroups :: Lens.Lens' SearchIndexResponse (Core.Maybe [ThingGroupDocument])
+searchIndexResponse_thingGroups = Lens.lens (\SearchIndexResponse' {thingGroups} -> thingGroups) (\s@SearchIndexResponse' {} a -> s {thingGroups = a} :: SearchIndexResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-searchIndexResponse_httpStatus :: Lens.Lens' SearchIndexResponse Prelude.Int
+searchIndexResponse_httpStatus :: Lens.Lens' SearchIndexResponse Core.Int
 searchIndexResponse_httpStatus = Lens.lens (\SearchIndexResponse' {httpStatus} -> httpStatus) (\s@SearchIndexResponse' {} a -> s {httpStatus = a} :: SearchIndexResponse)
 
-instance Prelude.NFData SearchIndexResponse
+instance Core.NFData SearchIndexResponse

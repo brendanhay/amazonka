@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.TerminateRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the information used to terminate a WorkSpace.
 --
 -- /See:/ 'newTerminateRequest' smart constructor.
 data TerminateRequest = TerminateRequest'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Prelude.Text
+    workspaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateRequest' with all optional fields omitted.
@@ -43,24 +42,22 @@ data TerminateRequest = TerminateRequest'
 -- 'workspaceId', 'terminateRequest_workspaceId' - The identifier of the WorkSpace.
 newTerminateRequest ::
   -- | 'workspaceId'
-  Prelude.Text ->
+  Core.Text ->
   TerminateRequest
 newTerminateRequest pWorkspaceId_ =
   TerminateRequest' {workspaceId = pWorkspaceId_}
 
 -- | The identifier of the WorkSpace.
-terminateRequest_workspaceId :: Lens.Lens' TerminateRequest Prelude.Text
+terminateRequest_workspaceId :: Lens.Lens' TerminateRequest Core.Text
 terminateRequest_workspaceId = Lens.lens (\TerminateRequest' {workspaceId} -> workspaceId) (\s@TerminateRequest' {} a -> s {workspaceId = a} :: TerminateRequest)
 
-instance Prelude.Hashable TerminateRequest
+instance Core.Hashable TerminateRequest
 
-instance Prelude.NFData TerminateRequest
+instance Core.NFData TerminateRequest
 
-instance Prelude.ToJSON TerminateRequest where
+instance Core.ToJSON TerminateRequest where
   toJSON TerminateRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("WorkspaceId" Prelude..= workspaceId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WorkspaceId" Core..= workspaceId)]
       )

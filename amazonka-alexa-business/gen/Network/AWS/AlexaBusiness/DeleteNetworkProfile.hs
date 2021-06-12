@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.AlexaBusiness.DeleteNetworkProfile
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteNetworkProfile' smart constructor.
 data DeleteNetworkProfile = DeleteNetworkProfile'
   { -- | The ARN of the network profile associated with a device.
-    networkProfileArn :: Prelude.Text
+    networkProfileArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNetworkProfile' with all optional fields omitted.
@@ -63,7 +62,7 @@ data DeleteNetworkProfile = DeleteNetworkProfile'
 -- 'networkProfileArn', 'deleteNetworkProfile_networkProfileArn' - The ARN of the network profile associated with a device.
 newDeleteNetworkProfile ::
   -- | 'networkProfileArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteNetworkProfile
 newDeleteNetworkProfile pNetworkProfileArn_ =
   DeleteNetworkProfile'
@@ -72,61 +71,59 @@ newDeleteNetworkProfile pNetworkProfileArn_ =
     }
 
 -- | The ARN of the network profile associated with a device.
-deleteNetworkProfile_networkProfileArn :: Lens.Lens' DeleteNetworkProfile Prelude.Text
+deleteNetworkProfile_networkProfileArn :: Lens.Lens' DeleteNetworkProfile Core.Text
 deleteNetworkProfile_networkProfileArn = Lens.lens (\DeleteNetworkProfile' {networkProfileArn} -> networkProfileArn) (\s@DeleteNetworkProfile' {} a -> s {networkProfileArn = a} :: DeleteNetworkProfile)
 
-instance Prelude.AWSRequest DeleteNetworkProfile where
+instance Core.AWSRequest DeleteNetworkProfile where
   type
-    Rs DeleteNetworkProfile =
+    AWSResponse DeleteNetworkProfile =
       DeleteNetworkProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteNetworkProfileResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteNetworkProfile
+instance Core.Hashable DeleteNetworkProfile
 
-instance Prelude.NFData DeleteNetworkProfile
+instance Core.NFData DeleteNetworkProfile
 
-instance Prelude.ToHeaders DeleteNetworkProfile where
+instance Core.ToHeaders DeleteNetworkProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.DeleteNetworkProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.DeleteNetworkProfile" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteNetworkProfile where
+instance Core.ToJSON DeleteNetworkProfile where
   toJSON DeleteNetworkProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("NetworkProfileArn" Prelude..= networkProfileArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("NetworkProfileArn" Core..= networkProfileArn)
           ]
       )
 
-instance Prelude.ToPath DeleteNetworkProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteNetworkProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteNetworkProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteNetworkProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteNetworkProfileResponse' smart constructor.
 data DeleteNetworkProfileResponse = DeleteNetworkProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNetworkProfileResponse' with all optional fields omitted.
@@ -139,7 +136,7 @@ data DeleteNetworkProfileResponse = DeleteNetworkProfileResponse'
 -- 'httpStatus', 'deleteNetworkProfileResponse_httpStatus' - The response's http status code.
 newDeleteNetworkProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteNetworkProfileResponse
 newDeleteNetworkProfileResponse pHttpStatus_ =
   DeleteNetworkProfileResponse'
@@ -148,7 +145,7 @@ newDeleteNetworkProfileResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteNetworkProfileResponse_httpStatus :: Lens.Lens' DeleteNetworkProfileResponse Prelude.Int
+deleteNetworkProfileResponse_httpStatus :: Lens.Lens' DeleteNetworkProfileResponse Core.Int
 deleteNetworkProfileResponse_httpStatus = Lens.lens (\DeleteNetworkProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteNetworkProfileResponse' {} a -> s {httpStatus = a} :: DeleteNetworkProfileResponse)
 
-instance Prelude.NFData DeleteNetworkProfileResponse
+instance Core.NFData DeleteNetworkProfileResponse

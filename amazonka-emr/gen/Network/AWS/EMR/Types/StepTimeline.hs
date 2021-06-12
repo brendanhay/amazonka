@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.StepTimeline where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The timeline of the cluster step lifecycle.
 --
 -- /See:/ 'newStepTimeline' smart constructor.
 data StepTimeline = StepTimeline'
   { -- | The date and time when the cluster step execution started.
-    startDateTime :: Prelude.Maybe Prelude.POSIX,
+    startDateTime :: Core.Maybe Core.POSIX,
     -- | The date and time when the cluster step execution completed or failed.
-    endDateTime :: Prelude.Maybe Prelude.POSIX,
+    endDateTime :: Core.Maybe Core.POSIX,
     -- | The date and time when the cluster step was created.
-    creationDateTime :: Prelude.Maybe Prelude.POSIX
+    creationDateTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StepTimeline' with all optional fields omitted.
@@ -53,34 +52,34 @@ newStepTimeline ::
   StepTimeline
 newStepTimeline =
   StepTimeline'
-    { startDateTime = Prelude.Nothing,
-      endDateTime = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing
+    { startDateTime = Core.Nothing,
+      endDateTime = Core.Nothing,
+      creationDateTime = Core.Nothing
     }
 
 -- | The date and time when the cluster step execution started.
-stepTimeline_startDateTime :: Lens.Lens' StepTimeline (Prelude.Maybe Prelude.UTCTime)
-stepTimeline_startDateTime = Lens.lens (\StepTimeline' {startDateTime} -> startDateTime) (\s@StepTimeline' {} a -> s {startDateTime = a} :: StepTimeline) Prelude.. Lens.mapping Prelude._Time
+stepTimeline_startDateTime :: Lens.Lens' StepTimeline (Core.Maybe Core.UTCTime)
+stepTimeline_startDateTime = Lens.lens (\StepTimeline' {startDateTime} -> startDateTime) (\s@StepTimeline' {} a -> s {startDateTime = a} :: StepTimeline) Core.. Lens.mapping Core._Time
 
 -- | The date and time when the cluster step execution completed or failed.
-stepTimeline_endDateTime :: Lens.Lens' StepTimeline (Prelude.Maybe Prelude.UTCTime)
-stepTimeline_endDateTime = Lens.lens (\StepTimeline' {endDateTime} -> endDateTime) (\s@StepTimeline' {} a -> s {endDateTime = a} :: StepTimeline) Prelude.. Lens.mapping Prelude._Time
+stepTimeline_endDateTime :: Lens.Lens' StepTimeline (Core.Maybe Core.UTCTime)
+stepTimeline_endDateTime = Lens.lens (\StepTimeline' {endDateTime} -> endDateTime) (\s@StepTimeline' {} a -> s {endDateTime = a} :: StepTimeline) Core.. Lens.mapping Core._Time
 
 -- | The date and time when the cluster step was created.
-stepTimeline_creationDateTime :: Lens.Lens' StepTimeline (Prelude.Maybe Prelude.UTCTime)
-stepTimeline_creationDateTime = Lens.lens (\StepTimeline' {creationDateTime} -> creationDateTime) (\s@StepTimeline' {} a -> s {creationDateTime = a} :: StepTimeline) Prelude.. Lens.mapping Prelude._Time
+stepTimeline_creationDateTime :: Lens.Lens' StepTimeline (Core.Maybe Core.UTCTime)
+stepTimeline_creationDateTime = Lens.lens (\StepTimeline' {creationDateTime} -> creationDateTime) (\s@StepTimeline' {} a -> s {creationDateTime = a} :: StepTimeline) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON StepTimeline where
+instance Core.FromJSON StepTimeline where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StepTimeline"
       ( \x ->
           StepTimeline'
-            Prelude.<$> (x Prelude..:? "StartDateTime")
-            Prelude.<*> (x Prelude..:? "EndDateTime")
-            Prelude.<*> (x Prelude..:? "CreationDateTime")
+            Core.<$> (x Core..:? "StartDateTime")
+            Core.<*> (x Core..:? "EndDateTime")
+            Core.<*> (x Core..:? "CreationDateTime")
       )
 
-instance Prelude.Hashable StepTimeline
+instance Core.Hashable StepTimeline
 
-instance Prelude.NFData StepTimeline
+instance Core.NFData StepTimeline

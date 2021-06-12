@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,10 +43,9 @@ module Network.AWS.Lightsail.GetDiskSnapshots
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +56,9 @@ data GetDiskSnapshots = GetDiskSnapshots'
     -- To get a page token, perform an initial @GetDiskSnapshots@ request. If
     -- your results are paginated, the response will return a next page token
     -- that you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text
+    pageToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDiskSnapshots' with all optional fields omitted.
@@ -78,83 +76,81 @@ data GetDiskSnapshots = GetDiskSnapshots'
 newGetDiskSnapshots ::
   GetDiskSnapshots
 newGetDiskSnapshots =
-  GetDiskSnapshots' {pageToken = Prelude.Nothing}
+  GetDiskSnapshots' {pageToken = Core.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetDiskSnapshots@ request. If
 -- your results are paginated, the response will return a next page token
 -- that you can specify as the page token in a subsequent request.
-getDiskSnapshots_pageToken :: Lens.Lens' GetDiskSnapshots (Prelude.Maybe Prelude.Text)
+getDiskSnapshots_pageToken :: Lens.Lens' GetDiskSnapshots (Core.Maybe Core.Text)
 getDiskSnapshots_pageToken = Lens.lens (\GetDiskSnapshots' {pageToken} -> pageToken) (\s@GetDiskSnapshots' {} a -> s {pageToken = a} :: GetDiskSnapshots)
 
-instance Pager.AWSPager GetDiskSnapshots where
+instance Core.AWSPager GetDiskSnapshots where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getDiskSnapshotsResponse_nextPageToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getDiskSnapshotsResponse_diskSnapshots
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getDiskSnapshots_pageToken
           Lens..~ rs
           Lens.^? getDiskSnapshotsResponse_nextPageToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest GetDiskSnapshots where
-  type Rs GetDiskSnapshots = GetDiskSnapshotsResponse
+instance Core.AWSRequest GetDiskSnapshots where
+  type
+    AWSResponse GetDiskSnapshots =
+      GetDiskSnapshotsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDiskSnapshotsResponse'
-            Prelude.<$> (x Prelude..?> "nextPageToken")
-            Prelude.<*> ( x Prelude..?> "diskSnapshots"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextPageToken")
+            Core.<*> (x Core..?> "diskSnapshots" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDiskSnapshots
+instance Core.Hashable GetDiskSnapshots
 
-instance Prelude.NFData GetDiskSnapshots
+instance Core.NFData GetDiskSnapshots
 
-instance Prelude.ToHeaders GetDiskSnapshots where
+instance Core.ToHeaders GetDiskSnapshots where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetDiskSnapshots" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetDiskSnapshots" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetDiskSnapshots where
+instance Core.ToJSON GetDiskSnapshots where
   toJSON GetDiskSnapshots' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("pageToken" Prelude..=) Prelude.<$> pageToken]
+    Core.object
+      ( Core.catMaybes
+          [("pageToken" Core..=) Core.<$> pageToken]
       )
 
-instance Prelude.ToPath GetDiskSnapshots where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetDiskSnapshots where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetDiskSnapshots where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDiskSnapshots where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDiskSnapshotsResponse' smart constructor.
 data GetDiskSnapshotsResponse = GetDiskSnapshotsResponse'
@@ -165,14 +161,14 @@ data GetDiskSnapshotsResponse = GetDiskSnapshotsResponse'
     --
     -- To get the next page of results, perform another @GetDiskSnapshots@
     -- request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | An array of objects containing information about all block storage disk
     -- snapshots.
-    diskSnapshots :: Prelude.Maybe [DiskSnapshot],
+    diskSnapshots :: Core.Maybe [DiskSnapshot],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDiskSnapshotsResponse' with all optional fields omitted.
@@ -196,13 +192,13 @@ data GetDiskSnapshotsResponse = GetDiskSnapshotsResponse'
 -- 'httpStatus', 'getDiskSnapshotsResponse_httpStatus' - The response's http status code.
 newGetDiskSnapshotsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDiskSnapshotsResponse
 newGetDiskSnapshotsResponse pHttpStatus_ =
   GetDiskSnapshotsResponse'
     { nextPageToken =
-        Prelude.Nothing,
-      diskSnapshots = Prelude.Nothing,
+        Core.Nothing,
+      diskSnapshots = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -213,16 +209,16 @@ newGetDiskSnapshotsResponse pHttpStatus_ =
 --
 -- To get the next page of results, perform another @GetDiskSnapshots@
 -- request and specify the next page token using the @pageToken@ parameter.
-getDiskSnapshotsResponse_nextPageToken :: Lens.Lens' GetDiskSnapshotsResponse (Prelude.Maybe Prelude.Text)
+getDiskSnapshotsResponse_nextPageToken :: Lens.Lens' GetDiskSnapshotsResponse (Core.Maybe Core.Text)
 getDiskSnapshotsResponse_nextPageToken = Lens.lens (\GetDiskSnapshotsResponse' {nextPageToken} -> nextPageToken) (\s@GetDiskSnapshotsResponse' {} a -> s {nextPageToken = a} :: GetDiskSnapshotsResponse)
 
 -- | An array of objects containing information about all block storage disk
 -- snapshots.
-getDiskSnapshotsResponse_diskSnapshots :: Lens.Lens' GetDiskSnapshotsResponse (Prelude.Maybe [DiskSnapshot])
-getDiskSnapshotsResponse_diskSnapshots = Lens.lens (\GetDiskSnapshotsResponse' {diskSnapshots} -> diskSnapshots) (\s@GetDiskSnapshotsResponse' {} a -> s {diskSnapshots = a} :: GetDiskSnapshotsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getDiskSnapshotsResponse_diskSnapshots :: Lens.Lens' GetDiskSnapshotsResponse (Core.Maybe [DiskSnapshot])
+getDiskSnapshotsResponse_diskSnapshots = Lens.lens (\GetDiskSnapshotsResponse' {diskSnapshots} -> diskSnapshots) (\s@GetDiskSnapshotsResponse' {} a -> s {diskSnapshots = a} :: GetDiskSnapshotsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getDiskSnapshotsResponse_httpStatus :: Lens.Lens' GetDiskSnapshotsResponse Prelude.Int
+getDiskSnapshotsResponse_httpStatus :: Lens.Lens' GetDiskSnapshotsResponse Core.Int
 getDiskSnapshotsResponse_httpStatus = Lens.lens (\GetDiskSnapshotsResponse' {httpStatus} -> httpStatus) (\s@GetDiskSnapshotsResponse' {} a -> s {httpStatus = a} :: GetDiskSnapshotsResponse)
 
-instance Prelude.NFData GetDiskSnapshotsResponse
+instance Core.NFData GetDiskSnapshotsResponse

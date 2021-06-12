@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.RebootRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the information used to reboot a WorkSpace.
 --
 -- /See:/ 'newRebootRequest' smart constructor.
 data RebootRequest = RebootRequest'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Prelude.Text
+    workspaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootRequest' with all optional fields omitted.
@@ -43,24 +42,22 @@ data RebootRequest = RebootRequest'
 -- 'workspaceId', 'rebootRequest_workspaceId' - The identifier of the WorkSpace.
 newRebootRequest ::
   -- | 'workspaceId'
-  Prelude.Text ->
+  Core.Text ->
   RebootRequest
 newRebootRequest pWorkspaceId_ =
   RebootRequest' {workspaceId = pWorkspaceId_}
 
 -- | The identifier of the WorkSpace.
-rebootRequest_workspaceId :: Lens.Lens' RebootRequest Prelude.Text
+rebootRequest_workspaceId :: Lens.Lens' RebootRequest Core.Text
 rebootRequest_workspaceId = Lens.lens (\RebootRequest' {workspaceId} -> workspaceId) (\s@RebootRequest' {} a -> s {workspaceId = a} :: RebootRequest)
 
-instance Prelude.Hashable RebootRequest
+instance Core.Hashable RebootRequest
 
-instance Prelude.NFData RebootRequest
+instance Core.NFData RebootRequest
 
-instance Prelude.ToJSON RebootRequest where
+instance Core.ToJSON RebootRequest where
   toJSON RebootRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("WorkspaceId" Prelude..= workspaceId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WorkspaceId" Core..= workspaceId)]
       )

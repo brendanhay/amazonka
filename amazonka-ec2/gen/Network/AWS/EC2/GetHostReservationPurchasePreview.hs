@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,20 +48,20 @@ module Network.AWS.EC2.GetHostReservationPurchasePreview
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetHostReservationPurchasePreview' smart constructor.
 data GetHostReservationPurchasePreview = GetHostReservationPurchasePreview'
   { -- | The IDs of the Dedicated Hosts with which the reservation is associated.
-    hostIdSet :: [Prelude.Text],
+    hostIdSet :: [Core.Text],
     -- | The offering ID of the reservation.
-    offeringId :: Prelude.Text
+    offeringId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetHostReservationPurchasePreview' with all optional fields omitted.
@@ -77,97 +76,96 @@ data GetHostReservationPurchasePreview = GetHostReservationPurchasePreview'
 -- 'offeringId', 'getHostReservationPurchasePreview_offeringId' - The offering ID of the reservation.
 newGetHostReservationPurchasePreview ::
   -- | 'offeringId'
-  Prelude.Text ->
+  Core.Text ->
   GetHostReservationPurchasePreview
 newGetHostReservationPurchasePreview pOfferingId_ =
   GetHostReservationPurchasePreview'
     { hostIdSet =
-        Prelude.mempty,
+        Core.mempty,
       offeringId = pOfferingId_
     }
 
 -- | The IDs of the Dedicated Hosts with which the reservation is associated.
-getHostReservationPurchasePreview_hostIdSet :: Lens.Lens' GetHostReservationPurchasePreview [Prelude.Text]
-getHostReservationPurchasePreview_hostIdSet = Lens.lens (\GetHostReservationPurchasePreview' {hostIdSet} -> hostIdSet) (\s@GetHostReservationPurchasePreview' {} a -> s {hostIdSet = a} :: GetHostReservationPurchasePreview) Prelude.. Prelude._Coerce
+getHostReservationPurchasePreview_hostIdSet :: Lens.Lens' GetHostReservationPurchasePreview [Core.Text]
+getHostReservationPurchasePreview_hostIdSet = Lens.lens (\GetHostReservationPurchasePreview' {hostIdSet} -> hostIdSet) (\s@GetHostReservationPurchasePreview' {} a -> s {hostIdSet = a} :: GetHostReservationPurchasePreview) Core.. Lens._Coerce
 
 -- | The offering ID of the reservation.
-getHostReservationPurchasePreview_offeringId :: Lens.Lens' GetHostReservationPurchasePreview Prelude.Text
+getHostReservationPurchasePreview_offeringId :: Lens.Lens' GetHostReservationPurchasePreview Core.Text
 getHostReservationPurchasePreview_offeringId = Lens.lens (\GetHostReservationPurchasePreview' {offeringId} -> offeringId) (\s@GetHostReservationPurchasePreview' {} a -> s {offeringId = a} :: GetHostReservationPurchasePreview)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetHostReservationPurchasePreview
   where
   type
-    Rs GetHostReservationPurchasePreview =
+    AWSResponse GetHostReservationPurchasePreview =
       GetHostReservationPurchasePreviewResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetHostReservationPurchasePreviewResponse'
-            Prelude.<$> (x Prelude..@? "totalUpfrontPrice")
-              Prelude.<*> (x Prelude..@? "currencyCode")
-              Prelude.<*> ( x Prelude..@? "purchase" Prelude..!@ Prelude.mempty
-                              Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                          )
-              Prelude.<*> (x Prelude..@? "totalHourlyPrice")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "totalUpfrontPrice")
+            Core.<*> (x Core..@? "currencyCode")
+            Core.<*> ( x Core..@? "purchase" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (x Core..@? "totalHourlyPrice")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetHostReservationPurchasePreview
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetHostReservationPurchasePreview
 
 instance
-  Prelude.ToHeaders
-    GetHostReservationPurchasePreview
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     GetHostReservationPurchasePreview
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    GetHostReservationPurchasePreview
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     GetHostReservationPurchasePreview
   where
   toQuery GetHostReservationPurchasePreview' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "GetHostReservationPurchasePreview" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQueryList "HostIdSet" hostIdSet,
-        "OfferingId" Prelude.=: offeringId
+          Core.=: ( "GetHostReservationPurchasePreview" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQueryList "HostIdSet" hostIdSet,
+        "OfferingId" Core.=: offeringId
       ]
 
 -- | /See:/ 'newGetHostReservationPurchasePreviewResponse' smart constructor.
 data GetHostReservationPurchasePreviewResponse = GetHostReservationPurchasePreviewResponse'
   { -- | The potential total upfront price. This is billed immediately.
-    totalUpfrontPrice :: Prelude.Maybe Prelude.Text,
+    totalUpfrontPrice :: Core.Maybe Core.Text,
     -- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@
     -- amounts are specified. At this time, the only supported currency is
     -- @USD@.
-    currencyCode :: Prelude.Maybe CurrencyCodeValues,
+    currencyCode :: Core.Maybe CurrencyCodeValues,
     -- | The purchase information of the Dedicated Host reservation and the
     -- Dedicated Hosts associated with it.
-    purchase :: Prelude.Maybe [Purchase],
+    purchase :: Core.Maybe [Purchase],
     -- | The potential total hourly price of the reservation per hour.
-    totalHourlyPrice :: Prelude.Maybe Prelude.Text,
+    totalHourlyPrice :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetHostReservationPurchasePreviewResponse' with all optional fields omitted.
@@ -191,43 +189,42 @@ data GetHostReservationPurchasePreviewResponse = GetHostReservationPurchasePrevi
 -- 'httpStatus', 'getHostReservationPurchasePreviewResponse_httpStatus' - The response's http status code.
 newGetHostReservationPurchasePreviewResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetHostReservationPurchasePreviewResponse
 newGetHostReservationPurchasePreviewResponse
   pHttpStatus_ =
     GetHostReservationPurchasePreviewResponse'
       { totalUpfrontPrice =
-          Prelude.Nothing,
-        currencyCode = Prelude.Nothing,
-        purchase = Prelude.Nothing,
-        totalHourlyPrice =
-          Prelude.Nothing,
+          Core.Nothing,
+        currencyCode = Core.Nothing,
+        purchase = Core.Nothing,
+        totalHourlyPrice = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The potential total upfront price. This is billed immediately.
-getHostReservationPurchasePreviewResponse_totalUpfrontPrice :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Prelude.Maybe Prelude.Text)
+getHostReservationPurchasePreviewResponse_totalUpfrontPrice :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Core.Maybe Core.Text)
 getHostReservationPurchasePreviewResponse_totalUpfrontPrice = Lens.lens (\GetHostReservationPurchasePreviewResponse' {totalUpfrontPrice} -> totalUpfrontPrice) (\s@GetHostReservationPurchasePreviewResponse' {} a -> s {totalUpfrontPrice = a} :: GetHostReservationPurchasePreviewResponse)
 
 -- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@
 -- amounts are specified. At this time, the only supported currency is
 -- @USD@.
-getHostReservationPurchasePreviewResponse_currencyCode :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Prelude.Maybe CurrencyCodeValues)
+getHostReservationPurchasePreviewResponse_currencyCode :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Core.Maybe CurrencyCodeValues)
 getHostReservationPurchasePreviewResponse_currencyCode = Lens.lens (\GetHostReservationPurchasePreviewResponse' {currencyCode} -> currencyCode) (\s@GetHostReservationPurchasePreviewResponse' {} a -> s {currencyCode = a} :: GetHostReservationPurchasePreviewResponse)
 
 -- | The purchase information of the Dedicated Host reservation and the
 -- Dedicated Hosts associated with it.
-getHostReservationPurchasePreviewResponse_purchase :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Prelude.Maybe [Purchase])
-getHostReservationPurchasePreviewResponse_purchase = Lens.lens (\GetHostReservationPurchasePreviewResponse' {purchase} -> purchase) (\s@GetHostReservationPurchasePreviewResponse' {} a -> s {purchase = a} :: GetHostReservationPurchasePreviewResponse) Prelude.. Lens.mapping Prelude._Coerce
+getHostReservationPurchasePreviewResponse_purchase :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Core.Maybe [Purchase])
+getHostReservationPurchasePreviewResponse_purchase = Lens.lens (\GetHostReservationPurchasePreviewResponse' {purchase} -> purchase) (\s@GetHostReservationPurchasePreviewResponse' {} a -> s {purchase = a} :: GetHostReservationPurchasePreviewResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The potential total hourly price of the reservation per hour.
-getHostReservationPurchasePreviewResponse_totalHourlyPrice :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Prelude.Maybe Prelude.Text)
+getHostReservationPurchasePreviewResponse_totalHourlyPrice :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Core.Maybe Core.Text)
 getHostReservationPurchasePreviewResponse_totalHourlyPrice = Lens.lens (\GetHostReservationPurchasePreviewResponse' {totalHourlyPrice} -> totalHourlyPrice) (\s@GetHostReservationPurchasePreviewResponse' {} a -> s {totalHourlyPrice = a} :: GetHostReservationPurchasePreviewResponse)
 
 -- | The response's http status code.
-getHostReservationPurchasePreviewResponse_httpStatus :: Lens.Lens' GetHostReservationPurchasePreviewResponse Prelude.Int
+getHostReservationPurchasePreviewResponse_httpStatus :: Lens.Lens' GetHostReservationPurchasePreviewResponse Core.Int
 getHostReservationPurchasePreviewResponse_httpStatus = Lens.lens (\GetHostReservationPurchasePreviewResponse' {httpStatus} -> httpStatus) (\s@GetHostReservationPurchasePreviewResponse' {} a -> s {httpStatus = a} :: GetHostReservationPurchasePreviewResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetHostReservationPurchasePreviewResponse

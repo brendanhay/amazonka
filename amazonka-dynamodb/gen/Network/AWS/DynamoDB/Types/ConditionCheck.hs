@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ConditionCheck where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a request to perform a check that an item exists or to check
 -- the condition of specific attributes of the item.
@@ -31,24 +30,24 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newConditionCheck' smart constructor.
 data ConditionCheck = ConditionCheck'
   { -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    expressionAttributeValues :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
     -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @ConditionCheck@ condition fails. For
     -- @ReturnValuesOnConditionCheckFailure@, the valid values are: NONE and
     -- ALL_OLD.
-    returnValuesOnConditionCheckFailure :: Prelude.Maybe ReturnValuesOnConditionCheckFailure,
+    returnValuesOnConditionCheckFailure :: Core.Maybe ReturnValuesOnConditionCheckFailure,
     -- | One or more substitution tokens for attribute names in an expression.
-    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    expressionAttributeNames :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The primary key of the item to be checked. Each element consists of an
     -- attribute name and a value for that attribute.
-    key :: Prelude.HashMap Prelude.Text AttributeValue,
+    key :: Core.HashMap Core.Text AttributeValue,
     -- | Name of the table for the check item request.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | A condition that must be satisfied in order for a conditional update to
     -- succeed.
-    conditionExpression :: Prelude.Text
+    conditionExpression :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConditionCheck' with all optional fields omitted.
@@ -76,70 +75,67 @@ data ConditionCheck = ConditionCheck'
 -- succeed.
 newConditionCheck ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'conditionExpression'
-  Prelude.Text ->
+  Core.Text ->
   ConditionCheck
 newConditionCheck pTableName_ pConditionExpression_ =
   ConditionCheck'
     { expressionAttributeValues =
-        Prelude.Nothing,
-      returnValuesOnConditionCheckFailure =
-        Prelude.Nothing,
-      expressionAttributeNames = Prelude.Nothing,
-      key = Prelude.mempty,
+        Core.Nothing,
+      returnValuesOnConditionCheckFailure = Core.Nothing,
+      expressionAttributeNames = Core.Nothing,
+      key = Core.mempty,
       tableName = pTableName_,
       conditionExpression = pConditionExpression_
     }
 
 -- | One or more values that can be substituted in an expression.
-conditionCheck_expressionAttributeValues :: Lens.Lens' ConditionCheck (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-conditionCheck_expressionAttributeValues = Lens.lens (\ConditionCheck' {expressionAttributeValues} -> expressionAttributeValues) (\s@ConditionCheck' {} a -> s {expressionAttributeValues = a} :: ConditionCheck) Prelude.. Lens.mapping Prelude._Coerce
+conditionCheck_expressionAttributeValues :: Lens.Lens' ConditionCheck (Core.Maybe (Core.HashMap Core.Text AttributeValue))
+conditionCheck_expressionAttributeValues = Lens.lens (\ConditionCheck' {expressionAttributeValues} -> expressionAttributeValues) (\s@ConditionCheck' {} a -> s {expressionAttributeValues = a} :: ConditionCheck) Core.. Lens.mapping Lens._Coerce
 
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @ConditionCheck@ condition fails. For
 -- @ReturnValuesOnConditionCheckFailure@, the valid values are: NONE and
 -- ALL_OLD.
-conditionCheck_returnValuesOnConditionCheckFailure :: Lens.Lens' ConditionCheck (Prelude.Maybe ReturnValuesOnConditionCheckFailure)
+conditionCheck_returnValuesOnConditionCheckFailure :: Lens.Lens' ConditionCheck (Core.Maybe ReturnValuesOnConditionCheckFailure)
 conditionCheck_returnValuesOnConditionCheckFailure = Lens.lens (\ConditionCheck' {returnValuesOnConditionCheckFailure} -> returnValuesOnConditionCheckFailure) (\s@ConditionCheck' {} a -> s {returnValuesOnConditionCheckFailure = a} :: ConditionCheck)
 
 -- | One or more substitution tokens for attribute names in an expression.
-conditionCheck_expressionAttributeNames :: Lens.Lens' ConditionCheck (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-conditionCheck_expressionAttributeNames = Lens.lens (\ConditionCheck' {expressionAttributeNames} -> expressionAttributeNames) (\s@ConditionCheck' {} a -> s {expressionAttributeNames = a} :: ConditionCheck) Prelude.. Lens.mapping Prelude._Coerce
+conditionCheck_expressionAttributeNames :: Lens.Lens' ConditionCheck (Core.Maybe (Core.HashMap Core.Text Core.Text))
+conditionCheck_expressionAttributeNames = Lens.lens (\ConditionCheck' {expressionAttributeNames} -> expressionAttributeNames) (\s@ConditionCheck' {} a -> s {expressionAttributeNames = a} :: ConditionCheck) Core.. Lens.mapping Lens._Coerce
 
 -- | The primary key of the item to be checked. Each element consists of an
 -- attribute name and a value for that attribute.
-conditionCheck_key :: Lens.Lens' ConditionCheck (Prelude.HashMap Prelude.Text AttributeValue)
-conditionCheck_key = Lens.lens (\ConditionCheck' {key} -> key) (\s@ConditionCheck' {} a -> s {key = a} :: ConditionCheck) Prelude.. Prelude._Coerce
+conditionCheck_key :: Lens.Lens' ConditionCheck (Core.HashMap Core.Text AttributeValue)
+conditionCheck_key = Lens.lens (\ConditionCheck' {key} -> key) (\s@ConditionCheck' {} a -> s {key = a} :: ConditionCheck) Core.. Lens._Coerce
 
 -- | Name of the table for the check item request.
-conditionCheck_tableName :: Lens.Lens' ConditionCheck Prelude.Text
+conditionCheck_tableName :: Lens.Lens' ConditionCheck Core.Text
 conditionCheck_tableName = Lens.lens (\ConditionCheck' {tableName} -> tableName) (\s@ConditionCheck' {} a -> s {tableName = a} :: ConditionCheck)
 
 -- | A condition that must be satisfied in order for a conditional update to
 -- succeed.
-conditionCheck_conditionExpression :: Lens.Lens' ConditionCheck Prelude.Text
+conditionCheck_conditionExpression :: Lens.Lens' ConditionCheck Core.Text
 conditionCheck_conditionExpression = Lens.lens (\ConditionCheck' {conditionExpression} -> conditionExpression) (\s@ConditionCheck' {} a -> s {conditionExpression = a} :: ConditionCheck)
 
-instance Prelude.Hashable ConditionCheck
+instance Core.Hashable ConditionCheck
 
-instance Prelude.NFData ConditionCheck
+instance Core.NFData ConditionCheck
 
-instance Prelude.ToJSON ConditionCheck where
+instance Core.ToJSON ConditionCheck where
   toJSON ConditionCheck' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExpressionAttributeValues" Prelude..=)
-              Prelude.<$> expressionAttributeValues,
-            ("ReturnValuesOnConditionCheckFailure" Prelude..=)
-              Prelude.<$> returnValuesOnConditionCheckFailure,
-            ("ExpressionAttributeNames" Prelude..=)
-              Prelude.<$> expressionAttributeNames,
-            Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just
-              ( "ConditionExpression"
-                  Prelude..= conditionExpression
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("ExpressionAttributeValues" Core..=)
+              Core.<$> expressionAttributeValues,
+            ("ReturnValuesOnConditionCheckFailure" Core..=)
+              Core.<$> returnValuesOnConditionCheckFailure,
+            ("ExpressionAttributeNames" Core..=)
+              Core.<$> expressionAttributeNames,
+            Core.Just ("Key" Core..= key),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just
+              ("ConditionExpression" Core..= conditionExpression)
           ]
       )

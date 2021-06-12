@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.IAM.AttachUserPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,15 +58,15 @@ data AttachUserPolicy = AttachUserPolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Prelude.Text
+    policyArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachUserPolicy' with all optional fields omitted.
@@ -92,9 +91,9 @@ data AttachUserPolicy = AttachUserPolicy'
 -- in the /AWS General Reference/.
 newAttachUserPolicy ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyArn'
-  Prelude.Text ->
+  Core.Text ->
   AttachUserPolicy
 newAttachUserPolicy pUserName_ pPolicyArn_ =
   AttachUserPolicy'
@@ -109,7 +108,7 @@ newAttachUserPolicy pUserName_ pPolicyArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-attachUserPolicy_userName :: Lens.Lens' AttachUserPolicy Prelude.Text
+attachUserPolicy_userName :: Lens.Lens' AttachUserPolicy Core.Text
 attachUserPolicy_userName = Lens.lens (\AttachUserPolicy' {userName} -> userName) (\s@AttachUserPolicy' {} a -> s {userName = a} :: AttachUserPolicy)
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
@@ -117,41 +116,42 @@ attachUserPolicy_userName = Lens.lens (\AttachUserPolicy' {userName} -> userName
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-attachUserPolicy_policyArn :: Lens.Lens' AttachUserPolicy Prelude.Text
+attachUserPolicy_policyArn :: Lens.Lens' AttachUserPolicy Core.Text
 attachUserPolicy_policyArn = Lens.lens (\AttachUserPolicy' {policyArn} -> policyArn) (\s@AttachUserPolicy' {} a -> s {policyArn = a} :: AttachUserPolicy)
 
-instance Prelude.AWSRequest AttachUserPolicy where
-  type Rs AttachUserPolicy = AttachUserPolicyResponse
+instance Core.AWSRequest AttachUserPolicy where
+  type
+    AWSResponse AttachUserPolicy =
+      AttachUserPolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull AttachUserPolicyResponse'
 
-instance Prelude.Hashable AttachUserPolicy
+instance Core.Hashable AttachUserPolicy
 
-instance Prelude.NFData AttachUserPolicy
+instance Core.NFData AttachUserPolicy
 
-instance Prelude.ToHeaders AttachUserPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AttachUserPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AttachUserPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachUserPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AttachUserPolicy where
+instance Core.ToQuery AttachUserPolicy where
   toQuery AttachUserPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AttachUserPolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "PolicyArn" Prelude.=: policyArn
+          Core.=: ("AttachUserPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "PolicyArn" Core.=: policyArn
       ]
 
 -- | /See:/ 'newAttachUserPolicyResponse' smart constructor.
 data AttachUserPolicyResponse = AttachUserPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachUserPolicyResponse' with all optional fields omitted.
@@ -162,4 +162,4 @@ newAttachUserPolicyResponse ::
 newAttachUserPolicyResponse =
   AttachUserPolicyResponse'
 
-instance Prelude.NFData AttachUserPolicyResponse
+instance Core.NFData AttachUserPolicyResponse

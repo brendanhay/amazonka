@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.Comprehend.StartKeyPhrasesDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,7 +60,7 @@ data StartKeyPhrasesDetectionJob = StartKeyPhrasesDetectionJob'
     -- (VPC) containing the resources you are using for your key phrases
     -- detection job. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-    vpcConfig :: Prelude.Maybe VpcConfig,
+    vpcConfig :: Core.Maybe VpcConfig,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -71,12 +70,12 @@ data StartKeyPhrasesDetectionJob = StartKeyPhrasesDetectionJob'
     --
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    volumeKmsKeyId :: Core.Maybe Core.Text,
     -- | A unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The identifier of the job.
-    jobName :: Prelude.Maybe Prelude.Text,
+    jobName :: Core.Maybe Core.Text,
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
@@ -85,13 +84,13 @@ data StartKeyPhrasesDetectionJob = StartKeyPhrasesDetectionJob'
     -- (IAM) role that grants Amazon Comprehend read access to your input data.
     -- For more information, see
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
-    dataAccessRoleArn :: Prelude.Text,
+    dataAccessRoleArn :: Core.Text,
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
     -- same language.
     languageCode :: LanguageCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartKeyPhrasesDetectionJob' with all optional fields omitted.
@@ -139,7 +138,7 @@ newStartKeyPhrasesDetectionJob ::
   -- | 'outputDataConfig'
   OutputDataConfig ->
   -- | 'dataAccessRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'languageCode'
   LanguageCode ->
   StartKeyPhrasesDetectionJob
@@ -150,10 +149,10 @@ newStartKeyPhrasesDetectionJob
   pLanguageCode_ =
     StartKeyPhrasesDetectionJob'
       { vpcConfig =
-          Prelude.Nothing,
-        volumeKmsKeyId = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        jobName = Prelude.Nothing,
+          Core.Nothing,
+        volumeKmsKeyId = Core.Nothing,
+        clientRequestToken = Core.Nothing,
+        jobName = Core.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleArn = pDataAccessRoleArn_,
@@ -164,7 +163,7 @@ newStartKeyPhrasesDetectionJob
 -- (VPC) containing the resources you are using for your key phrases
 -- detection job. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-startKeyPhrasesDetectionJob_vpcConfig :: Lens.Lens' StartKeyPhrasesDetectionJob (Prelude.Maybe VpcConfig)
+startKeyPhrasesDetectionJob_vpcConfig :: Lens.Lens' StartKeyPhrasesDetectionJob (Core.Maybe VpcConfig)
 startKeyPhrasesDetectionJob_vpcConfig = Lens.lens (\StartKeyPhrasesDetectionJob' {vpcConfig} -> vpcConfig) (\s@StartKeyPhrasesDetectionJob' {} a -> s {vpcConfig = a} :: StartKeyPhrasesDetectionJob)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -176,16 +175,16 @@ startKeyPhrasesDetectionJob_vpcConfig = Lens.lens (\StartKeyPhrasesDetectionJob'
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-startKeyPhrasesDetectionJob_volumeKmsKeyId :: Lens.Lens' StartKeyPhrasesDetectionJob (Prelude.Maybe Prelude.Text)
+startKeyPhrasesDetectionJob_volumeKmsKeyId :: Lens.Lens' StartKeyPhrasesDetectionJob (Core.Maybe Core.Text)
 startKeyPhrasesDetectionJob_volumeKmsKeyId = Lens.lens (\StartKeyPhrasesDetectionJob' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@StartKeyPhrasesDetectionJob' {} a -> s {volumeKmsKeyId = a} :: StartKeyPhrasesDetectionJob)
 
 -- | A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
-startKeyPhrasesDetectionJob_clientRequestToken :: Lens.Lens' StartKeyPhrasesDetectionJob (Prelude.Maybe Prelude.Text)
+startKeyPhrasesDetectionJob_clientRequestToken :: Lens.Lens' StartKeyPhrasesDetectionJob (Core.Maybe Core.Text)
 startKeyPhrasesDetectionJob_clientRequestToken = Lens.lens (\StartKeyPhrasesDetectionJob' {clientRequestToken} -> clientRequestToken) (\s@StartKeyPhrasesDetectionJob' {} a -> s {clientRequestToken = a} :: StartKeyPhrasesDetectionJob)
 
 -- | The identifier of the job.
-startKeyPhrasesDetectionJob_jobName :: Lens.Lens' StartKeyPhrasesDetectionJob (Prelude.Maybe Prelude.Text)
+startKeyPhrasesDetectionJob_jobName :: Lens.Lens' StartKeyPhrasesDetectionJob (Core.Maybe Core.Text)
 startKeyPhrasesDetectionJob_jobName = Lens.lens (\StartKeyPhrasesDetectionJob' {jobName} -> jobName) (\s@StartKeyPhrasesDetectionJob' {} a -> s {jobName = a} :: StartKeyPhrasesDetectionJob)
 
 -- | Specifies the format and location of the input data for the job.
@@ -200,7 +199,7 @@ startKeyPhrasesDetectionJob_outputDataConfig = Lens.lens (\StartKeyPhrasesDetect
 -- (IAM) role that grants Amazon Comprehend read access to your input data.
 -- For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
-startKeyPhrasesDetectionJob_dataAccessRoleArn :: Lens.Lens' StartKeyPhrasesDetectionJob Prelude.Text
+startKeyPhrasesDetectionJob_dataAccessRoleArn :: Lens.Lens' StartKeyPhrasesDetectionJob Core.Text
 startKeyPhrasesDetectionJob_dataAccessRoleArn = Lens.lens (\StartKeyPhrasesDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartKeyPhrasesDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartKeyPhrasesDetectionJob)
 
 -- | The language of the input documents. You can specify any of the primary
@@ -209,71 +208,61 @@ startKeyPhrasesDetectionJob_dataAccessRoleArn = Lens.lens (\StartKeyPhrasesDetec
 startKeyPhrasesDetectionJob_languageCode :: Lens.Lens' StartKeyPhrasesDetectionJob LanguageCode
 startKeyPhrasesDetectionJob_languageCode = Lens.lens (\StartKeyPhrasesDetectionJob' {languageCode} -> languageCode) (\s@StartKeyPhrasesDetectionJob' {} a -> s {languageCode = a} :: StartKeyPhrasesDetectionJob)
 
-instance
-  Prelude.AWSRequest
-    StartKeyPhrasesDetectionJob
-  where
+instance Core.AWSRequest StartKeyPhrasesDetectionJob where
   type
-    Rs StartKeyPhrasesDetectionJob =
+    AWSResponse StartKeyPhrasesDetectionJob =
       StartKeyPhrasesDetectionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartKeyPhrasesDetectionJobResponse'
-            Prelude.<$> (x Prelude..?> "JobStatus")
-            Prelude.<*> (x Prelude..?> "JobId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobStatus")
+            Core.<*> (x Core..?> "JobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartKeyPhrasesDetectionJob
+instance Core.Hashable StartKeyPhrasesDetectionJob
 
-instance Prelude.NFData StartKeyPhrasesDetectionJob
+instance Core.NFData StartKeyPhrasesDetectionJob
 
-instance
-  Prelude.ToHeaders
-    StartKeyPhrasesDetectionJob
-  where
+instance Core.ToHeaders StartKeyPhrasesDetectionJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.StartKeyPhrasesDetectionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.StartKeyPhrasesDetectionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartKeyPhrasesDetectionJob where
+instance Core.ToJSON StartKeyPhrasesDetectionJob where
   toJSON StartKeyPhrasesDetectionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VpcConfig" Prelude..=) Prelude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Prelude..=)
-              Prelude.<$> volumeKmsKeyId,
-            ("ClientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            ("JobName" Prelude..=) Prelude.<$> jobName,
-            Prelude.Just
-              ("InputDataConfig" Prelude..= inputDataConfig),
-            Prelude.Just
-              ("OutputDataConfig" Prelude..= outputDataConfig),
-            Prelude.Just
-              ("DataAccessRoleArn" Prelude..= dataAccessRoleArn),
-            Prelude.Just
-              ("LanguageCode" Prelude..= languageCode)
+    Core.object
+      ( Core.catMaybes
+          [ ("VpcConfig" Core..=) Core.<$> vpcConfig,
+            ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
+            ("ClientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            ("JobName" Core..=) Core.<$> jobName,
+            Core.Just
+              ("InputDataConfig" Core..= inputDataConfig),
+            Core.Just
+              ("OutputDataConfig" Core..= outputDataConfig),
+            Core.Just
+              ("DataAccessRoleArn" Core..= dataAccessRoleArn),
+            Core.Just ("LanguageCode" Core..= languageCode)
           ]
       )
 
-instance Prelude.ToPath StartKeyPhrasesDetectionJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartKeyPhrasesDetectionJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartKeyPhrasesDetectionJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartKeyPhrasesDetectionJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartKeyPhrasesDetectionJobResponse' smart constructor.
 data StartKeyPhrasesDetectionJobResponse = StartKeyPhrasesDetectionJobResponse'
@@ -288,14 +277,14 @@ data StartKeyPhrasesDetectionJobResponse = StartKeyPhrasesDetectionJobResponse'
     --
     -- -   FAILED - The job did not complete. To get details, use the
     --     operation.
-    jobStatus :: Prelude.Maybe JobStatus,
+    jobStatus :: Core.Maybe JobStatus,
     -- | The identifier generated for the job. To get the status of a job, use
     -- this identifier with the operation.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartKeyPhrasesDetectionJobResponse' with all optional fields omitted.
@@ -323,13 +312,13 @@ data StartKeyPhrasesDetectionJobResponse = StartKeyPhrasesDetectionJobResponse'
 -- 'httpStatus', 'startKeyPhrasesDetectionJobResponse_httpStatus' - The response's http status code.
 newStartKeyPhrasesDetectionJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartKeyPhrasesDetectionJobResponse
 newStartKeyPhrasesDetectionJobResponse pHttpStatus_ =
   StartKeyPhrasesDetectionJobResponse'
     { jobStatus =
-        Prelude.Nothing,
-      jobId = Prelude.Nothing,
+        Core.Nothing,
+      jobId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -344,18 +333,18 @@ newStartKeyPhrasesDetectionJobResponse pHttpStatus_ =
 --
 -- -   FAILED - The job did not complete. To get details, use the
 --     operation.
-startKeyPhrasesDetectionJobResponse_jobStatus :: Lens.Lens' StartKeyPhrasesDetectionJobResponse (Prelude.Maybe JobStatus)
+startKeyPhrasesDetectionJobResponse_jobStatus :: Lens.Lens' StartKeyPhrasesDetectionJobResponse (Core.Maybe JobStatus)
 startKeyPhrasesDetectionJobResponse_jobStatus = Lens.lens (\StartKeyPhrasesDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartKeyPhrasesDetectionJobResponse' {} a -> s {jobStatus = a} :: StartKeyPhrasesDetectionJobResponse)
 
 -- | The identifier generated for the job. To get the status of a job, use
 -- this identifier with the operation.
-startKeyPhrasesDetectionJobResponse_jobId :: Lens.Lens' StartKeyPhrasesDetectionJobResponse (Prelude.Maybe Prelude.Text)
+startKeyPhrasesDetectionJobResponse_jobId :: Lens.Lens' StartKeyPhrasesDetectionJobResponse (Core.Maybe Core.Text)
 startKeyPhrasesDetectionJobResponse_jobId = Lens.lens (\StartKeyPhrasesDetectionJobResponse' {jobId} -> jobId) (\s@StartKeyPhrasesDetectionJobResponse' {} a -> s {jobId = a} :: StartKeyPhrasesDetectionJobResponse)
 
 -- | The response's http status code.
-startKeyPhrasesDetectionJobResponse_httpStatus :: Lens.Lens' StartKeyPhrasesDetectionJobResponse Prelude.Int
+startKeyPhrasesDetectionJobResponse_httpStatus :: Lens.Lens' StartKeyPhrasesDetectionJobResponse Core.Int
 startKeyPhrasesDetectionJobResponse_httpStatus = Lens.lens (\StartKeyPhrasesDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StartKeyPhrasesDetectionJobResponse' {} a -> s {httpStatus = a} :: StartKeyPhrasesDetectionJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartKeyPhrasesDetectionJobResponse

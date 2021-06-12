@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DMS.Types.DmsTransferSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The settings in JSON format for the DMS Transfer type source endpoint.
 --
 -- /See:/ 'newDmsTransferSettings' smart constructor.
 data DmsTransferSettings = DmsTransferSettings'
   { -- | The name of the S3 bucket to use.
-    bucketName :: Prelude.Maybe Prelude.Text,
+    bucketName :: Core.Maybe Core.Text,
     -- | The IAM role that has permission to access the Amazon S3 bucket.
-    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text
+    serviceAccessRoleArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DmsTransferSettings' with all optional fields omitted.
@@ -49,38 +48,38 @@ newDmsTransferSettings ::
   DmsTransferSettings
 newDmsTransferSettings =
   DmsTransferSettings'
-    { bucketName = Prelude.Nothing,
-      serviceAccessRoleArn = Prelude.Nothing
+    { bucketName = Core.Nothing,
+      serviceAccessRoleArn = Core.Nothing
     }
 
 -- | The name of the S3 bucket to use.
-dmsTransferSettings_bucketName :: Lens.Lens' DmsTransferSettings (Prelude.Maybe Prelude.Text)
+dmsTransferSettings_bucketName :: Lens.Lens' DmsTransferSettings (Core.Maybe Core.Text)
 dmsTransferSettings_bucketName = Lens.lens (\DmsTransferSettings' {bucketName} -> bucketName) (\s@DmsTransferSettings' {} a -> s {bucketName = a} :: DmsTransferSettings)
 
 -- | The IAM role that has permission to access the Amazon S3 bucket.
-dmsTransferSettings_serviceAccessRoleArn :: Lens.Lens' DmsTransferSettings (Prelude.Maybe Prelude.Text)
+dmsTransferSettings_serviceAccessRoleArn :: Lens.Lens' DmsTransferSettings (Core.Maybe Core.Text)
 dmsTransferSettings_serviceAccessRoleArn = Lens.lens (\DmsTransferSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@DmsTransferSettings' {} a -> s {serviceAccessRoleArn = a} :: DmsTransferSettings)
 
-instance Prelude.FromJSON DmsTransferSettings where
+instance Core.FromJSON DmsTransferSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DmsTransferSettings"
       ( \x ->
           DmsTransferSettings'
-            Prelude.<$> (x Prelude..:? "BucketName")
-            Prelude.<*> (x Prelude..:? "ServiceAccessRoleArn")
+            Core.<$> (x Core..:? "BucketName")
+            Core.<*> (x Core..:? "ServiceAccessRoleArn")
       )
 
-instance Prelude.Hashable DmsTransferSettings
+instance Core.Hashable DmsTransferSettings
 
-instance Prelude.NFData DmsTransferSettings
+instance Core.NFData DmsTransferSettings
 
-instance Prelude.ToJSON DmsTransferSettings where
+instance Core.ToJSON DmsTransferSettings where
   toJSON DmsTransferSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("BucketName" Prelude..=) Prelude.<$> bucketName,
-            ("ServiceAccessRoleArn" Prelude..=)
-              Prelude.<$> serviceAccessRoleArn
+    Core.object
+      ( Core.catMaybes
+          [ ("BucketName" Core..=) Core.<$> bucketName,
+            ("ServiceAccessRoleArn" Core..=)
+              Core.<$> serviceAccessRoleArn
           ]
       )

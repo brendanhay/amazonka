@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.Snowball.CreateAddress
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -54,7 +53,7 @@ data CreateAddress = CreateAddress'
   { -- | The address that you want the Snow device shipped to.
     address :: Address
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAddress' with all optional fields omitted.
@@ -76,59 +75,59 @@ newCreateAddress pAddress_ =
 createAddress_address :: Lens.Lens' CreateAddress Address
 createAddress_address = Lens.lens (\CreateAddress' {address} -> address) (\s@CreateAddress' {} a -> s {address = a} :: CreateAddress)
 
-instance Prelude.AWSRequest CreateAddress where
-  type Rs CreateAddress = CreateAddressResponse
+instance Core.AWSRequest CreateAddress where
+  type
+    AWSResponse CreateAddress =
+      CreateAddressResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateAddressResponse'
-            Prelude.<$> (x Prelude..?> "AddressId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "AddressId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAddress
+instance Core.Hashable CreateAddress
 
-instance Prelude.NFData CreateAddress
+instance Core.NFData CreateAddress
 
-instance Prelude.ToHeaders CreateAddress where
+instance Core.ToHeaders CreateAddress where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSIESnowballJobManagementService.CreateAddress" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSIESnowballJobManagementService.CreateAddress" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateAddress where
+instance Core.ToJSON CreateAddress where
   toJSON CreateAddress' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Address" Prelude..= address)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Address" Core..= address)]
       )
 
-instance Prelude.ToPath CreateAddress where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateAddress where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateAddress where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateAddress where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateAddressResponse' smart constructor.
 data CreateAddressResponse = CreateAddressResponse'
   { -- | The automatically generated ID for a specific address. You\'ll use this
     -- ID when you create a job to specify which address you want the Snow
     -- device for that job shipped to.
-    addressId :: Prelude.Maybe Prelude.Text,
+    addressId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAddressResponse' with all optional fields omitted.
@@ -145,22 +144,22 @@ data CreateAddressResponse = CreateAddressResponse'
 -- 'httpStatus', 'createAddressResponse_httpStatus' - The response's http status code.
 newCreateAddressResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateAddressResponse
 newCreateAddressResponse pHttpStatus_ =
   CreateAddressResponse'
-    { addressId = Prelude.Nothing,
+    { addressId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The automatically generated ID for a specific address. You\'ll use this
 -- ID when you create a job to specify which address you want the Snow
 -- device for that job shipped to.
-createAddressResponse_addressId :: Lens.Lens' CreateAddressResponse (Prelude.Maybe Prelude.Text)
+createAddressResponse_addressId :: Lens.Lens' CreateAddressResponse (Core.Maybe Core.Text)
 createAddressResponse_addressId = Lens.lens (\CreateAddressResponse' {addressId} -> addressId) (\s@CreateAddressResponse' {} a -> s {addressId = a} :: CreateAddressResponse)
 
 -- | The response's http status code.
-createAddressResponse_httpStatus :: Lens.Lens' CreateAddressResponse Prelude.Int
+createAddressResponse_httpStatus :: Lens.Lens' CreateAddressResponse Core.Int
 createAddressResponse_httpStatus = Lens.lens (\CreateAddressResponse' {httpStatus} -> httpStatus) (\s@CreateAddressResponse' {} a -> s {httpStatus = a} :: CreateAddressResponse)
 
-instance Prelude.NFData CreateAddressResponse
+instance Core.NFData CreateAddressResponse

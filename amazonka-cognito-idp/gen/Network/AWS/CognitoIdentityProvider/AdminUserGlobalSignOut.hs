@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAdminUserGlobalSignOut' smart constructor.
 data AdminUserGlobalSignOut = AdminUserGlobalSignOut'
   { -- | The user pool ID.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The user name.
-    username :: Prelude.Sensitive Prelude.Text
+    username :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminUserGlobalSignOut' with all optional fields omitted.
@@ -75,78 +74,76 @@ data AdminUserGlobalSignOut = AdminUserGlobalSignOut'
 -- 'username', 'adminUserGlobalSignOut_username' - The user name.
 newAdminUserGlobalSignOut ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   AdminUserGlobalSignOut
 newAdminUserGlobalSignOut pUserPoolId_ pUsername_ =
   AdminUserGlobalSignOut'
     { userPoolId = pUserPoolId_,
-      username = Prelude._Sensitive Lens.# pUsername_
+      username = Core._Sensitive Lens.# pUsername_
     }
 
 -- | The user pool ID.
-adminUserGlobalSignOut_userPoolId :: Lens.Lens' AdminUserGlobalSignOut Prelude.Text
+adminUserGlobalSignOut_userPoolId :: Lens.Lens' AdminUserGlobalSignOut Core.Text
 adminUserGlobalSignOut_userPoolId = Lens.lens (\AdminUserGlobalSignOut' {userPoolId} -> userPoolId) (\s@AdminUserGlobalSignOut' {} a -> s {userPoolId = a} :: AdminUserGlobalSignOut)
 
 -- | The user name.
-adminUserGlobalSignOut_username :: Lens.Lens' AdminUserGlobalSignOut Prelude.Text
-adminUserGlobalSignOut_username = Lens.lens (\AdminUserGlobalSignOut' {username} -> username) (\s@AdminUserGlobalSignOut' {} a -> s {username = a} :: AdminUserGlobalSignOut) Prelude.. Prelude._Sensitive
+adminUserGlobalSignOut_username :: Lens.Lens' AdminUserGlobalSignOut Core.Text
+adminUserGlobalSignOut_username = Lens.lens (\AdminUserGlobalSignOut' {username} -> username) (\s@AdminUserGlobalSignOut' {} a -> s {username = a} :: AdminUserGlobalSignOut) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest AdminUserGlobalSignOut where
+instance Core.AWSRequest AdminUserGlobalSignOut where
   type
-    Rs AdminUserGlobalSignOut =
+    AWSResponse AdminUserGlobalSignOut =
       AdminUserGlobalSignOutResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminUserGlobalSignOutResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AdminUserGlobalSignOut
+instance Core.Hashable AdminUserGlobalSignOut
 
-instance Prelude.NFData AdminUserGlobalSignOut
+instance Core.NFData AdminUserGlobalSignOut
 
-instance Prelude.ToHeaders AdminUserGlobalSignOut where
+instance Core.ToHeaders AdminUserGlobalSignOut where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AdminUserGlobalSignOut where
+instance Core.ToJSON AdminUserGlobalSignOut where
   toJSON AdminUserGlobalSignOut' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Username" Prelude..= username)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username)
           ]
       )
 
-instance Prelude.ToPath AdminUserGlobalSignOut where
-  toPath = Prelude.const "/"
+instance Core.ToPath AdminUserGlobalSignOut where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AdminUserGlobalSignOut where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AdminUserGlobalSignOut where
+  toQuery = Core.const Core.mempty
 
 -- | The global sign-out response, as an administrator.
 --
 -- /See:/ 'newAdminUserGlobalSignOutResponse' smart constructor.
 data AdminUserGlobalSignOutResponse = AdminUserGlobalSignOutResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminUserGlobalSignOutResponse' with all optional fields omitted.
@@ -159,7 +156,7 @@ data AdminUserGlobalSignOutResponse = AdminUserGlobalSignOutResponse'
 -- 'httpStatus', 'adminUserGlobalSignOutResponse_httpStatus' - The response's http status code.
 newAdminUserGlobalSignOutResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AdminUserGlobalSignOutResponse
 newAdminUserGlobalSignOutResponse pHttpStatus_ =
   AdminUserGlobalSignOutResponse'
@@ -168,9 +165,7 @@ newAdminUserGlobalSignOutResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-adminUserGlobalSignOutResponse_httpStatus :: Lens.Lens' AdminUserGlobalSignOutResponse Prelude.Int
+adminUserGlobalSignOutResponse_httpStatus :: Lens.Lens' AdminUserGlobalSignOutResponse Core.Int
 adminUserGlobalSignOutResponse_httpStatus = Lens.lens (\AdminUserGlobalSignOutResponse' {httpStatus} -> httpStatus) (\s@AdminUserGlobalSignOutResponse' {} a -> s {httpStatus = a} :: AdminUserGlobalSignOutResponse)
 
-instance
-  Prelude.NFData
-    AdminUserGlobalSignOutResponse
+instance Core.NFData AdminUserGlobalSignOutResponse

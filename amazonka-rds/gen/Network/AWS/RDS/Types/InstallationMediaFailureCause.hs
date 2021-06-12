@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.InstallationMediaFailureCause where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the cause of an installation media failure. Installation media
 -- is used for a DB engine that requires an on-premises customer provided
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInstallationMediaFailureCause' smart constructor.
 data InstallationMediaFailureCause = InstallationMediaFailureCause'
   { -- | The reason that an installation media import failed.
-    message :: Prelude.Maybe Prelude.Text
+    message :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstallationMediaFailureCause' with all optional fields omitted.
@@ -48,23 +47,18 @@ newInstallationMediaFailureCause ::
 newInstallationMediaFailureCause =
   InstallationMediaFailureCause'
     { message =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The reason that an installation media import failed.
-installationMediaFailureCause_message :: Lens.Lens' InstallationMediaFailureCause (Prelude.Maybe Prelude.Text)
+installationMediaFailureCause_message :: Lens.Lens' InstallationMediaFailureCause (Core.Maybe Core.Text)
 installationMediaFailureCause_message = Lens.lens (\InstallationMediaFailureCause' {message} -> message) (\s@InstallationMediaFailureCause' {} a -> s {message = a} :: InstallationMediaFailureCause)
 
-instance
-  Prelude.FromXML
-    InstallationMediaFailureCause
-  where
+instance Core.FromXML InstallationMediaFailureCause where
   parseXML x =
     InstallationMediaFailureCause'
-      Prelude.<$> (x Prelude..@? "Message")
+      Core.<$> (x Core..@? "Message")
 
-instance
-  Prelude.Hashable
-    InstallationMediaFailureCause
+instance Core.Hashable InstallationMediaFailureCause
 
-instance Prelude.NFData InstallationMediaFailureCause
+instance Core.NFData InstallationMediaFailureCause

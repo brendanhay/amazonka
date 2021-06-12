@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.SSES3 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Specifies the use of SSE-S3 to encrypt delivered inventory reports.
@@ -30,7 +29,7 @@ import Network.AWS.S3.Internal
 data SSES3 = SSES3'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SSES3' with all optional fields omitted.
@@ -40,12 +39,12 @@ newSSES3 ::
   SSES3
 newSSES3 = SSES3'
 
-instance Prelude.FromXML SSES3 where
-  parseXML = Prelude.const (Prelude.pure SSES3')
+instance Core.FromXML SSES3 where
+  parseXML = Core.const (Core.pure SSES3')
 
-instance Prelude.Hashable SSES3
+instance Core.Hashable SSES3
 
-instance Prelude.NFData SSES3
+instance Core.NFData SSES3
 
-instance Prelude.ToXML SSES3 where
-  toXML = Prelude.const Prelude.mempty
+instance Core.ToXML SSES3 where
+  toXML = Core.const Core.mempty

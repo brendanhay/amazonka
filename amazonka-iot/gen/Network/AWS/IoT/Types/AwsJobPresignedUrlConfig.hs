@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AwsJobPresignedUrlConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information for pre-signed URLs. Valid when @protocols@
 -- contains HTTP.
@@ -31,9 +30,9 @@ data AwsJobPresignedUrlConfig = AwsJobPresignedUrlConfig'
   { -- | How long (in seconds) pre-signed URLs are valid. Valid values are 60 -
     -- 3600, the default value is 1800 seconds. Pre-signed URLs are generated
     -- when a request for the job document is received.
-    expiresInSec :: Prelude.Maybe Prelude.Integer
+    expiresInSec :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AwsJobPresignedUrlConfig' with all optional fields omitted.
@@ -51,33 +50,31 @@ newAwsJobPresignedUrlConfig ::
 newAwsJobPresignedUrlConfig =
   AwsJobPresignedUrlConfig'
     { expiresInSec =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | How long (in seconds) pre-signed URLs are valid. Valid values are 60 -
 -- 3600, the default value is 1800 seconds. Pre-signed URLs are generated
 -- when a request for the job document is received.
-awsJobPresignedUrlConfig_expiresInSec :: Lens.Lens' AwsJobPresignedUrlConfig (Prelude.Maybe Prelude.Integer)
+awsJobPresignedUrlConfig_expiresInSec :: Lens.Lens' AwsJobPresignedUrlConfig (Core.Maybe Core.Integer)
 awsJobPresignedUrlConfig_expiresInSec = Lens.lens (\AwsJobPresignedUrlConfig' {expiresInSec} -> expiresInSec) (\s@AwsJobPresignedUrlConfig' {} a -> s {expiresInSec = a} :: AwsJobPresignedUrlConfig)
 
-instance Prelude.FromJSON AwsJobPresignedUrlConfig where
+instance Core.FromJSON AwsJobPresignedUrlConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AwsJobPresignedUrlConfig"
       ( \x ->
           AwsJobPresignedUrlConfig'
-            Prelude.<$> (x Prelude..:? "expiresInSec")
+            Core.<$> (x Core..:? "expiresInSec")
       )
 
-instance Prelude.Hashable AwsJobPresignedUrlConfig
+instance Core.Hashable AwsJobPresignedUrlConfig
 
-instance Prelude.NFData AwsJobPresignedUrlConfig
+instance Core.NFData AwsJobPresignedUrlConfig
 
-instance Prelude.ToJSON AwsJobPresignedUrlConfig where
+instance Core.ToJSON AwsJobPresignedUrlConfig where
   toJSON AwsJobPresignedUrlConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("expiresInSec" Prelude..=)
-              Prelude.<$> expiresInSec
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("expiresInSec" Core..=) Core.<$> expiresInSec]
       )

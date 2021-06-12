@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.SES.CloneReceiptRuleSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -68,11 +67,11 @@ data CloneReceiptRuleSet = CloneReceiptRuleSet'
     -- -   Start and end with a letter or number.
     --
     -- -   Contain less than 64 characters.
-    ruleSetName :: Prelude.Text,
+    ruleSetName :: Core.Text,
     -- | The name of the rule set to clone.
-    originalRuleSetName :: Prelude.Text
+    originalRuleSetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloneReceiptRuleSet' with all optional fields omitted.
@@ -94,9 +93,9 @@ data CloneReceiptRuleSet = CloneReceiptRuleSet'
 -- 'originalRuleSetName', 'cloneReceiptRuleSet_originalRuleSetName' - The name of the rule set to clone.
 newCloneReceiptRuleSet ::
   -- | 'ruleSetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'originalRuleSetName'
-  Prelude.Text ->
+  Core.Text ->
   CloneReceiptRuleSet
 newCloneReceiptRuleSet
   pRuleSetName_
@@ -114,16 +113,16 @@ newCloneReceiptRuleSet
 -- -   Start and end with a letter or number.
 --
 -- -   Contain less than 64 characters.
-cloneReceiptRuleSet_ruleSetName :: Lens.Lens' CloneReceiptRuleSet Prelude.Text
+cloneReceiptRuleSet_ruleSetName :: Lens.Lens' CloneReceiptRuleSet Core.Text
 cloneReceiptRuleSet_ruleSetName = Lens.lens (\CloneReceiptRuleSet' {ruleSetName} -> ruleSetName) (\s@CloneReceiptRuleSet' {} a -> s {ruleSetName = a} :: CloneReceiptRuleSet)
 
 -- | The name of the rule set to clone.
-cloneReceiptRuleSet_originalRuleSetName :: Lens.Lens' CloneReceiptRuleSet Prelude.Text
+cloneReceiptRuleSet_originalRuleSetName :: Lens.Lens' CloneReceiptRuleSet Core.Text
 cloneReceiptRuleSet_originalRuleSetName = Lens.lens (\CloneReceiptRuleSet' {originalRuleSetName} -> originalRuleSetName) (\s@CloneReceiptRuleSet' {} a -> s {originalRuleSetName = a} :: CloneReceiptRuleSet)
 
-instance Prelude.AWSRequest CloneReceiptRuleSet where
+instance Core.AWSRequest CloneReceiptRuleSet where
   type
-    Rs CloneReceiptRuleSet =
+    AWSResponse CloneReceiptRuleSet =
       CloneReceiptRuleSetResponse
   request = Request.postQuery defaultService
   response =
@@ -131,28 +130,27 @@ instance Prelude.AWSRequest CloneReceiptRuleSet where
       "CloneReceiptRuleSetResult"
       ( \s h x ->
           CloneReceiptRuleSetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CloneReceiptRuleSet
+instance Core.Hashable CloneReceiptRuleSet
 
-instance Prelude.NFData CloneReceiptRuleSet
+instance Core.NFData CloneReceiptRuleSet
 
-instance Prelude.ToHeaders CloneReceiptRuleSet where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CloneReceiptRuleSet where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CloneReceiptRuleSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath CloneReceiptRuleSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CloneReceiptRuleSet where
+instance Core.ToQuery CloneReceiptRuleSet where
   toQuery CloneReceiptRuleSet' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CloneReceiptRuleSet" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "RuleSetName" Prelude.=: ruleSetName,
-        "OriginalRuleSetName" Prelude.=: originalRuleSetName
+          Core.=: ("CloneReceiptRuleSet" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "RuleSetName" Core.=: ruleSetName,
+        "OriginalRuleSetName" Core.=: originalRuleSetName
       ]
 
 -- | An empty element returned on a successful request.
@@ -160,9 +158,9 @@ instance Prelude.ToQuery CloneReceiptRuleSet where
 -- /See:/ 'newCloneReceiptRuleSetResponse' smart constructor.
 data CloneReceiptRuleSetResponse = CloneReceiptRuleSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloneReceiptRuleSetResponse' with all optional fields omitted.
@@ -175,7 +173,7 @@ data CloneReceiptRuleSetResponse = CloneReceiptRuleSetResponse'
 -- 'httpStatus', 'cloneReceiptRuleSetResponse_httpStatus' - The response's http status code.
 newCloneReceiptRuleSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CloneReceiptRuleSetResponse
 newCloneReceiptRuleSetResponse pHttpStatus_ =
   CloneReceiptRuleSetResponse'
@@ -184,7 +182,7 @@ newCloneReceiptRuleSetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-cloneReceiptRuleSetResponse_httpStatus :: Lens.Lens' CloneReceiptRuleSetResponse Prelude.Int
+cloneReceiptRuleSetResponse_httpStatus :: Lens.Lens' CloneReceiptRuleSetResponse Core.Int
 cloneReceiptRuleSetResponse_httpStatus = Lens.lens (\CloneReceiptRuleSetResponse' {httpStatus} -> httpStatus) (\s@CloneReceiptRuleSetResponse' {} a -> s {httpStatus = a} :: CloneReceiptRuleSetResponse)
 
-instance Prelude.NFData CloneReceiptRuleSetResponse
+instance Core.NFData CloneReceiptRuleSetResponse

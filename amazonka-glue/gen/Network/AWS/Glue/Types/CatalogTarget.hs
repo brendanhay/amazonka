@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.CatalogTarget where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies an AWS Glue Data Catalog target.
 --
 -- /See:/ 'newCatalogTarget' smart constructor.
 data CatalogTarget = CatalogTarget'
   { -- | The name of the database to be synchronized.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | A list of the tables to be synchronized.
-    tables :: Prelude.NonEmpty Prelude.Text
+    tables :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CatalogTarget' with all optional fields omitted.
@@ -47,44 +46,43 @@ data CatalogTarget = CatalogTarget'
 -- 'tables', 'catalogTarget_tables' - A list of the tables to be synchronized.
 newCatalogTarget ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tables'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   CatalogTarget
 newCatalogTarget pDatabaseName_ pTables_ =
   CatalogTarget'
     { databaseName = pDatabaseName_,
-      tables = Prelude._Coerce Lens.# pTables_
+      tables = Lens._Coerce Lens.# pTables_
     }
 
 -- | The name of the database to be synchronized.
-catalogTarget_databaseName :: Lens.Lens' CatalogTarget Prelude.Text
+catalogTarget_databaseName :: Lens.Lens' CatalogTarget Core.Text
 catalogTarget_databaseName = Lens.lens (\CatalogTarget' {databaseName} -> databaseName) (\s@CatalogTarget' {} a -> s {databaseName = a} :: CatalogTarget)
 
 -- | A list of the tables to be synchronized.
-catalogTarget_tables :: Lens.Lens' CatalogTarget (Prelude.NonEmpty Prelude.Text)
-catalogTarget_tables = Lens.lens (\CatalogTarget' {tables} -> tables) (\s@CatalogTarget' {} a -> s {tables = a} :: CatalogTarget) Prelude.. Prelude._Coerce
+catalogTarget_tables :: Lens.Lens' CatalogTarget (Core.NonEmpty Core.Text)
+catalogTarget_tables = Lens.lens (\CatalogTarget' {tables} -> tables) (\s@CatalogTarget' {} a -> s {tables = a} :: CatalogTarget) Core.. Lens._Coerce
 
-instance Prelude.FromJSON CatalogTarget where
+instance Core.FromJSON CatalogTarget where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CatalogTarget"
       ( \x ->
           CatalogTarget'
-            Prelude.<$> (x Prelude..: "DatabaseName")
-            Prelude.<*> (x Prelude..: "Tables")
+            Core.<$> (x Core..: "DatabaseName")
+            Core.<*> (x Core..: "Tables")
       )
 
-instance Prelude.Hashable CatalogTarget
+instance Core.Hashable CatalogTarget
 
-instance Prelude.NFData CatalogTarget
+instance Core.NFData CatalogTarget
 
-instance Prelude.ToJSON CatalogTarget where
+instance Core.ToJSON CatalogTarget where
   toJSON CatalogTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("Tables" Prelude..= tables)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("Tables" Core..= tables)
           ]
       )

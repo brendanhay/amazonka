@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.AutoTune where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.AutoTuneDetails
 import Network.AWS.ElasticSearch.Types.AutoTuneType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies Auto-Tune type and Auto-Tune action details.
 --
 -- /See:/ 'newAutoTune' smart constructor.
 data AutoTune = AutoTune'
   { -- | Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION.
-    autoTuneType :: Prelude.Maybe AutoTuneType,
+    autoTuneType :: Core.Maybe AutoTuneType,
     -- | Specifies details of the Auto-Tune action. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
-    autoTuneDetails :: Prelude.Maybe AutoTuneDetails
+    autoTuneDetails :: Core.Maybe AutoTuneDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoTune' with all optional fields omitted.
@@ -55,30 +54,30 @@ newAutoTune ::
   AutoTune
 newAutoTune =
   AutoTune'
-    { autoTuneType = Prelude.Nothing,
-      autoTuneDetails = Prelude.Nothing
+    { autoTuneType = Core.Nothing,
+      autoTuneDetails = Core.Nothing
     }
 
 -- | Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION.
-autoTune_autoTuneType :: Lens.Lens' AutoTune (Prelude.Maybe AutoTuneType)
+autoTune_autoTuneType :: Lens.Lens' AutoTune (Core.Maybe AutoTuneType)
 autoTune_autoTuneType = Lens.lens (\AutoTune' {autoTuneType} -> autoTuneType) (\s@AutoTune' {} a -> s {autoTuneType = a} :: AutoTune)
 
 -- | Specifies details of the Auto-Tune action. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
-autoTune_autoTuneDetails :: Lens.Lens' AutoTune (Prelude.Maybe AutoTuneDetails)
+autoTune_autoTuneDetails :: Lens.Lens' AutoTune (Core.Maybe AutoTuneDetails)
 autoTune_autoTuneDetails = Lens.lens (\AutoTune' {autoTuneDetails} -> autoTuneDetails) (\s@AutoTune' {} a -> s {autoTuneDetails = a} :: AutoTune)
 
-instance Prelude.FromJSON AutoTune where
+instance Core.FromJSON AutoTune where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoTune"
       ( \x ->
           AutoTune'
-            Prelude.<$> (x Prelude..:? "AutoTuneType")
-            Prelude.<*> (x Prelude..:? "AutoTuneDetails")
+            Core.<$> (x Core..:? "AutoTuneType")
+            Core.<*> (x Core..:? "AutoTuneDetails")
       )
 
-instance Prelude.Hashable AutoTune
+instance Core.Hashable AutoTune
 
-instance Prelude.NFData AutoTune
+instance Core.NFData AutoTune

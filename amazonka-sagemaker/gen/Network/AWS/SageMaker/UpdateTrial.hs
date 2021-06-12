@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SageMaker.UpdateTrial
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -51,11 +50,11 @@ import Network.AWS.SageMaker.Types
 data UpdateTrial = UpdateTrial'
   { -- | The name of the trial as displayed. The name doesn\'t need to be unique.
     -- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.
-    displayName :: Prelude.Maybe Prelude.Text,
+    displayName :: Core.Maybe Core.Text,
     -- | The name of the trial to update.
-    trialName :: Prelude.Text
+    trialName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTrial' with all optional fields omitted.
@@ -71,74 +70,72 @@ data UpdateTrial = UpdateTrial'
 -- 'trialName', 'updateTrial_trialName' - The name of the trial to update.
 newUpdateTrial ::
   -- | 'trialName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateTrial
 newUpdateTrial pTrialName_ =
   UpdateTrial'
-    { displayName = Prelude.Nothing,
+    { displayName = Core.Nothing,
       trialName = pTrialName_
     }
 
 -- | The name of the trial as displayed. The name doesn\'t need to be unique.
 -- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.
-updateTrial_displayName :: Lens.Lens' UpdateTrial (Prelude.Maybe Prelude.Text)
+updateTrial_displayName :: Lens.Lens' UpdateTrial (Core.Maybe Core.Text)
 updateTrial_displayName = Lens.lens (\UpdateTrial' {displayName} -> displayName) (\s@UpdateTrial' {} a -> s {displayName = a} :: UpdateTrial)
 
 -- | The name of the trial to update.
-updateTrial_trialName :: Lens.Lens' UpdateTrial Prelude.Text
+updateTrial_trialName :: Lens.Lens' UpdateTrial Core.Text
 updateTrial_trialName = Lens.lens (\UpdateTrial' {trialName} -> trialName) (\s@UpdateTrial' {} a -> s {trialName = a} :: UpdateTrial)
 
-instance Prelude.AWSRequest UpdateTrial where
-  type Rs UpdateTrial = UpdateTrialResponse
+instance Core.AWSRequest UpdateTrial where
+  type AWSResponse UpdateTrial = UpdateTrialResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateTrialResponse'
-            Prelude.<$> (x Prelude..?> "TrialArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TrialArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTrial
+instance Core.Hashable UpdateTrial
 
-instance Prelude.NFData UpdateTrial
+instance Core.NFData UpdateTrial
 
-instance Prelude.ToHeaders UpdateTrial where
+instance Core.ToHeaders UpdateTrial where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.UpdateTrial" :: Prelude.ByteString),
+              Core.=# ("SageMaker.UpdateTrial" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateTrial where
+instance Core.ToJSON UpdateTrial where
   toJSON UpdateTrial' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DisplayName" Prelude..=) Prelude.<$> displayName,
-            Prelude.Just ("TrialName" Prelude..= trialName)
+    Core.object
+      ( Core.catMaybes
+          [ ("DisplayName" Core..=) Core.<$> displayName,
+            Core.Just ("TrialName" Core..= trialName)
           ]
       )
 
-instance Prelude.ToPath UpdateTrial where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateTrial where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateTrial where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateTrial where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateTrialResponse' smart constructor.
 data UpdateTrialResponse = UpdateTrialResponse'
   { -- | The Amazon Resource Name (ARN) of the trial.
-    trialArn :: Prelude.Maybe Prelude.Text,
+    trialArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTrialResponse' with all optional fields omitted.
@@ -153,20 +150,20 @@ data UpdateTrialResponse = UpdateTrialResponse'
 -- 'httpStatus', 'updateTrialResponse_httpStatus' - The response's http status code.
 newUpdateTrialResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateTrialResponse
 newUpdateTrialResponse pHttpStatus_ =
   UpdateTrialResponse'
-    { trialArn = Prelude.Nothing,
+    { trialArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the trial.
-updateTrialResponse_trialArn :: Lens.Lens' UpdateTrialResponse (Prelude.Maybe Prelude.Text)
+updateTrialResponse_trialArn :: Lens.Lens' UpdateTrialResponse (Core.Maybe Core.Text)
 updateTrialResponse_trialArn = Lens.lens (\UpdateTrialResponse' {trialArn} -> trialArn) (\s@UpdateTrialResponse' {} a -> s {trialArn = a} :: UpdateTrialResponse)
 
 -- | The response's http status code.
-updateTrialResponse_httpStatus :: Lens.Lens' UpdateTrialResponse Prelude.Int
+updateTrialResponse_httpStatus :: Lens.Lens' UpdateTrialResponse Core.Int
 updateTrialResponse_httpStatus = Lens.lens (\UpdateTrialResponse' {httpStatus} -> httpStatus) (\s@UpdateTrialResponse' {} a -> s {httpStatus = a} :: UpdateTrialResponse)
 
-instance Prelude.NFData UpdateTrialResponse
+instance Core.NFData UpdateTrialResponse

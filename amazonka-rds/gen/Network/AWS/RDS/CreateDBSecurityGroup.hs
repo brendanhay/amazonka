@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.RDS.CreateDBSecurityGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -57,7 +56,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateDBSecurityGroup' smart constructor.
 data CreateDBSecurityGroup = CreateDBSecurityGroup'
   { -- | Tags to assign to the DB security group.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The name for the DB security group. This value is stored as a lowercase
     -- string.
     --
@@ -72,11 +71,11 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup'
     -- -   Must not be \"Default\"
     --
     -- Example: @mysecuritygroup@
-    dbSecurityGroupName :: Prelude.Text,
+    dbSecurityGroupName :: Core.Text,
     -- | The description for the DB security group.
-    dbSecurityGroupDescription :: Prelude.Text
+    dbSecurityGroupDescription :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDBSecurityGroup' with all optional fields omitted.
@@ -106,23 +105,23 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup'
 -- 'dbSecurityGroupDescription', 'createDBSecurityGroup_dbSecurityGroupDescription' - The description for the DB security group.
 newCreateDBSecurityGroup ::
   -- | 'dbSecurityGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dbSecurityGroupDescription'
-  Prelude.Text ->
+  Core.Text ->
   CreateDBSecurityGroup
 newCreateDBSecurityGroup
   pDBSecurityGroupName_
   pDBSecurityGroupDescription_ =
     CreateDBSecurityGroup'
-      { tags = Prelude.Nothing,
+      { tags = Core.Nothing,
         dbSecurityGroupName = pDBSecurityGroupName_,
         dbSecurityGroupDescription =
           pDBSecurityGroupDescription_
       }
 
 -- | Tags to assign to the DB security group.
-createDBSecurityGroup_tags :: Lens.Lens' CreateDBSecurityGroup (Prelude.Maybe [Tag])
-createDBSecurityGroup_tags = Lens.lens (\CreateDBSecurityGroup' {tags} -> tags) (\s@CreateDBSecurityGroup' {} a -> s {tags = a} :: CreateDBSecurityGroup) Prelude.. Lens.mapping Prelude._Coerce
+createDBSecurityGroup_tags :: Lens.Lens' CreateDBSecurityGroup (Core.Maybe [Tag])
+createDBSecurityGroup_tags = Lens.lens (\CreateDBSecurityGroup' {tags} -> tags) (\s@CreateDBSecurityGroup' {} a -> s {tags = a} :: CreateDBSecurityGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The name for the DB security group. This value is stored as a lowercase
 -- string.
@@ -138,16 +137,16 @@ createDBSecurityGroup_tags = Lens.lens (\CreateDBSecurityGroup' {tags} -> tags) 
 -- -   Must not be \"Default\"
 --
 -- Example: @mysecuritygroup@
-createDBSecurityGroup_dbSecurityGroupName :: Lens.Lens' CreateDBSecurityGroup Prelude.Text
+createDBSecurityGroup_dbSecurityGroupName :: Lens.Lens' CreateDBSecurityGroup Core.Text
 createDBSecurityGroup_dbSecurityGroupName = Lens.lens (\CreateDBSecurityGroup' {dbSecurityGroupName} -> dbSecurityGroupName) (\s@CreateDBSecurityGroup' {} a -> s {dbSecurityGroupName = a} :: CreateDBSecurityGroup)
 
 -- | The description for the DB security group.
-createDBSecurityGroup_dbSecurityGroupDescription :: Lens.Lens' CreateDBSecurityGroup Prelude.Text
+createDBSecurityGroup_dbSecurityGroupDescription :: Lens.Lens' CreateDBSecurityGroup Core.Text
 createDBSecurityGroup_dbSecurityGroupDescription = Lens.lens (\CreateDBSecurityGroup' {dbSecurityGroupDescription} -> dbSecurityGroupDescription) (\s@CreateDBSecurityGroup' {} a -> s {dbSecurityGroupDescription = a} :: CreateDBSecurityGroup)
 
-instance Prelude.AWSRequest CreateDBSecurityGroup where
+instance Core.AWSRequest CreateDBSecurityGroup where
   type
-    Rs CreateDBSecurityGroup =
+    AWSResponse CreateDBSecurityGroup =
       CreateDBSecurityGroupResponse
   request = Request.postQuery defaultService
   response =
@@ -155,42 +154,40 @@ instance Prelude.AWSRequest CreateDBSecurityGroup where
       "CreateDBSecurityGroupResult"
       ( \s h x ->
           CreateDBSecurityGroupResponse'
-            Prelude.<$> (x Prelude..@? "DBSecurityGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DBSecurityGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBSecurityGroup
+instance Core.Hashable CreateDBSecurityGroup
 
-instance Prelude.NFData CreateDBSecurityGroup
+instance Core.NFData CreateDBSecurityGroup
 
-instance Prelude.ToHeaders CreateDBSecurityGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateDBSecurityGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateDBSecurityGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDBSecurityGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDBSecurityGroup where
+instance Core.ToQuery CreateDBSecurityGroup where
   toQuery CreateDBSecurityGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateDBSecurityGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("CreateDBSecurityGroup" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Tag" Prelude.<$> tags),
-        "DBSecurityGroupName" Prelude.=: dbSecurityGroupName,
+          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+        "DBSecurityGroupName" Core.=: dbSecurityGroupName,
         "DBSecurityGroupDescription"
-          Prelude.=: dbSecurityGroupDescription
+          Core.=: dbSecurityGroupDescription
       ]
 
 -- | /See:/ 'newCreateDBSecurityGroupResponse' smart constructor.
 data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
-  { dbSecurityGroup :: Prelude.Maybe DBSecurityGroup,
+  { dbSecurityGroup :: Core.Maybe DBSecurityGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDBSecurityGroupResponse' with all optional fields omitted.
@@ -205,21 +202,21 @@ data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
 -- 'httpStatus', 'createDBSecurityGroupResponse_httpStatus' - The response's http status code.
 newCreateDBSecurityGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDBSecurityGroupResponse
 newCreateDBSecurityGroupResponse pHttpStatus_ =
   CreateDBSecurityGroupResponse'
     { dbSecurityGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createDBSecurityGroupResponse_dbSecurityGroup :: Lens.Lens' CreateDBSecurityGroupResponse (Prelude.Maybe DBSecurityGroup)
+createDBSecurityGroupResponse_dbSecurityGroup :: Lens.Lens' CreateDBSecurityGroupResponse (Core.Maybe DBSecurityGroup)
 createDBSecurityGroupResponse_dbSecurityGroup = Lens.lens (\CreateDBSecurityGroupResponse' {dbSecurityGroup} -> dbSecurityGroup) (\s@CreateDBSecurityGroupResponse' {} a -> s {dbSecurityGroup = a} :: CreateDBSecurityGroupResponse)
 
 -- | The response's http status code.
-createDBSecurityGroupResponse_httpStatus :: Lens.Lens' CreateDBSecurityGroupResponse Prelude.Int
+createDBSecurityGroupResponse_httpStatus :: Lens.Lens' CreateDBSecurityGroupResponse Core.Int
 createDBSecurityGroupResponse_httpStatus = Lens.lens (\CreateDBSecurityGroupResponse' {httpStatus} -> httpStatus) (\s@CreateDBSecurityGroupResponse' {} a -> s {httpStatus = a} :: CreateDBSecurityGroupResponse)
 
-instance Prelude.NFData CreateDBSecurityGroupResponse
+instance Core.NFData CreateDBSecurityGroupResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,15 +20,15 @@
 module Network.AWS.Athena.Types.DataCatalog where
 
 import Network.AWS.Athena.Types.DataCatalogType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a data catalog in an AWS account.
 --
 -- /See:/ 'newDataCatalog' smart constructor.
 data DataCatalog = DataCatalog'
   { -- | An optional description of the data catalog.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Specifies the Lambda function or functions to use for the data catalog.
     -- This is a mapping whose values depend on the catalog type.
     --
@@ -54,17 +53,17 @@ data DataCatalog = DataCatalog'
     --         Lambda function.
     --
     --         @function=lambda_arn @
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The name of the data catalog. The catalog name must be unique for the
     -- AWS account and can use a maximum of 128 alphanumeric, underscore, at
     -- sign, or hyphen characters.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The type of data catalog: @LAMBDA@ for a federated catalog or @HIVE@ for
     -- an external hive metastore. @GLUE@ refers to the @AwsDataCatalog@ that
     -- already exists in your account, of which you can have only one.
     type' :: DataCatalogType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DataCatalog' with all optional fields omitted.
@@ -110,20 +109,20 @@ data DataCatalog = DataCatalog'
 -- already exists in your account, of which you can have only one.
 newDataCatalog ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   DataCatalogType ->
   DataCatalog
 newDataCatalog pName_ pType_ =
   DataCatalog'
-    { description = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+    { description = Core.Nothing,
+      parameters = Core.Nothing,
       name = pName_,
       type' = pType_
     }
 
 -- | An optional description of the data catalog.
-dataCatalog_description :: Lens.Lens' DataCatalog (Prelude.Maybe Prelude.Text)
+dataCatalog_description :: Lens.Lens' DataCatalog (Core.Maybe Core.Text)
 dataCatalog_description = Lens.lens (\DataCatalog' {description} -> description) (\s@DataCatalog' {} a -> s {description = a} :: DataCatalog)
 
 -- | Specifies the Lambda function or functions to use for the data catalog.
@@ -150,13 +149,13 @@ dataCatalog_description = Lens.lens (\DataCatalog' {description} -> description)
 --         Lambda function.
 --
 --         @function=lambda_arn @
-dataCatalog_parameters :: Lens.Lens' DataCatalog (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-dataCatalog_parameters = Lens.lens (\DataCatalog' {parameters} -> parameters) (\s@DataCatalog' {} a -> s {parameters = a} :: DataCatalog) Prelude.. Lens.mapping Prelude._Coerce
+dataCatalog_parameters :: Lens.Lens' DataCatalog (Core.Maybe (Core.HashMap Core.Text Core.Text))
+dataCatalog_parameters = Lens.lens (\DataCatalog' {parameters} -> parameters) (\s@DataCatalog' {} a -> s {parameters = a} :: DataCatalog) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the data catalog. The catalog name must be unique for the
 -- AWS account and can use a maximum of 128 alphanumeric, underscore, at
 -- sign, or hyphen characters.
-dataCatalog_name :: Lens.Lens' DataCatalog Prelude.Text
+dataCatalog_name :: Lens.Lens' DataCatalog Core.Text
 dataCatalog_name = Lens.lens (\DataCatalog' {name} -> name) (\s@DataCatalog' {} a -> s {name = a} :: DataCatalog)
 
 -- | The type of data catalog: @LAMBDA@ for a federated catalog or @HIVE@ for
@@ -165,20 +164,18 @@ dataCatalog_name = Lens.lens (\DataCatalog' {name} -> name) (\s@DataCatalog' {} 
 dataCatalog_type :: Lens.Lens' DataCatalog DataCatalogType
 dataCatalog_type = Lens.lens (\DataCatalog' {type'} -> type') (\s@DataCatalog' {} a -> s {type' = a} :: DataCatalog)
 
-instance Prelude.FromJSON DataCatalog where
+instance Core.FromJSON DataCatalog where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DataCatalog"
       ( \x ->
           DataCatalog'
-            Prelude.<$> (x Prelude..:? "Description")
-            Prelude.<*> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "Type")
+            Core.<$> (x Core..:? "Description")
+            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
+            Core.<*> (x Core..: "Name")
+            Core.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable DataCatalog
+instance Core.Hashable DataCatalog
 
-instance Prelude.NFData DataCatalog
+instance Core.NFData DataCatalog

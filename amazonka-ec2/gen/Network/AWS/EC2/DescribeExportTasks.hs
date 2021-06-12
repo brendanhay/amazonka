@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,20 +41,20 @@ module Network.AWS.EC2.DescribeExportTasks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
   { -- | The export task IDs.
-    exportTaskIds :: Prelude.Maybe [Prelude.Text],
+    exportTaskIds :: Core.Maybe [Core.Text],
     -- | the filters for the export tasks.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeExportTasks' with all optional fields omitted.
@@ -72,68 +71,65 @@ newDescribeExportTasks ::
   DescribeExportTasks
 newDescribeExportTasks =
   DescribeExportTasks'
-    { exportTaskIds =
-        Prelude.Nothing,
-      filters = Prelude.Nothing
+    { exportTaskIds = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The export task IDs.
-describeExportTasks_exportTaskIds :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Prelude.Text])
-describeExportTasks_exportTaskIds = Lens.lens (\DescribeExportTasks' {exportTaskIds} -> exportTaskIds) (\s@DescribeExportTasks' {} a -> s {exportTaskIds = a} :: DescribeExportTasks) Prelude.. Lens.mapping Prelude._Coerce
+describeExportTasks_exportTaskIds :: Lens.Lens' DescribeExportTasks (Core.Maybe [Core.Text])
+describeExportTasks_exportTaskIds = Lens.lens (\DescribeExportTasks' {exportTaskIds} -> exportTaskIds) (\s@DescribeExportTasks' {} a -> s {exportTaskIds = a} :: DescribeExportTasks) Core.. Lens.mapping Lens._Coerce
 
 -- | the filters for the export tasks.
-describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Filter])
-describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Prelude._Coerce
+describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Core.Maybe [Filter])
+describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeExportTasks where
+instance Core.AWSRequest DescribeExportTasks where
   type
-    Rs DescribeExportTasks =
+    AWSResponse DescribeExportTasks =
       DescribeExportTasksResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeExportTasksResponse'
-            Prelude.<$> ( x Prelude..@? "exportTaskSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "exportTaskSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeExportTasks
+instance Core.Hashable DescribeExportTasks
 
-instance Prelude.NFData DescribeExportTasks
+instance Core.NFData DescribeExportTasks
 
-instance Prelude.ToHeaders DescribeExportTasks where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeExportTasks where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeExportTasks where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeExportTasks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeExportTasks where
+instance Core.ToQuery DescribeExportTasks where
   toQuery DescribeExportTasks' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeExportTasks" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "ExportTaskId"
-              Prelude.<$> exportTaskIds
+          Core.=: ("DescribeExportTasks" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "ExportTaskId"
+              Core.<$> exportTaskIds
           ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
   { -- | Information about the export tasks.
-    exportTasks :: Prelude.Maybe [ExportTask],
+    exportTasks :: Core.Maybe [ExportTask],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeExportTasksResponse' with all optional fields omitted.
@@ -148,21 +144,21 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse'
 -- 'httpStatus', 'describeExportTasksResponse_httpStatus' - The response's http status code.
 newDescribeExportTasksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeExportTasksResponse
 newDescribeExportTasksResponse pHttpStatus_ =
   DescribeExportTasksResponse'
     { exportTasks =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the export tasks.
-describeExportTasksResponse_exportTasks :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe [ExportTask])
-describeExportTasksResponse_exportTasks = Lens.lens (\DescribeExportTasksResponse' {exportTasks} -> exportTasks) (\s@DescribeExportTasksResponse' {} a -> s {exportTasks = a} :: DescribeExportTasksResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeExportTasksResponse_exportTasks :: Lens.Lens' DescribeExportTasksResponse (Core.Maybe [ExportTask])
+describeExportTasksResponse_exportTasks = Lens.lens (\DescribeExportTasksResponse' {exportTasks} -> exportTasks) (\s@DescribeExportTasksResponse' {} a -> s {exportTasks = a} :: DescribeExportTasksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeExportTasksResponse_httpStatus :: Lens.Lens' DescribeExportTasksResponse Prelude.Int
+describeExportTasksResponse_httpStatus :: Lens.Lens' DescribeExportTasksResponse Core.Int
 describeExportTasksResponse_httpStatus = Lens.lens (\DescribeExportTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeExportTasksResponse' {} a -> s {httpStatus = a} :: DescribeExportTasksResponse)
 
-instance Prelude.NFData DescribeExportTasksResponse
+instance Core.NFData DescribeExportTasksResponse

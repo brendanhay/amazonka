@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.SendUsersMessages
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +50,10 @@ import qualified Network.AWS.Response as Response
 data SendUsersMessages = SendUsersMessages'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     sendUsersMessageRequest :: SendUsersMessageRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendUsersMessages' with all optional fields omitted.
@@ -70,7 +69,7 @@ data SendUsersMessages = SendUsersMessages'
 -- 'sendUsersMessageRequest', 'sendUsersMessages_sendUsersMessageRequest' - Undocumented member.
 newSendUsersMessages ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sendUsersMessageRequest'
   SendUsersMessageRequest ->
   SendUsersMessages
@@ -84,68 +83,68 @@ newSendUsersMessages
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-sendUsersMessages_applicationId :: Lens.Lens' SendUsersMessages Prelude.Text
+sendUsersMessages_applicationId :: Lens.Lens' SendUsersMessages Core.Text
 sendUsersMessages_applicationId = Lens.lens (\SendUsersMessages' {applicationId} -> applicationId) (\s@SendUsersMessages' {} a -> s {applicationId = a} :: SendUsersMessages)
 
 -- | Undocumented member.
 sendUsersMessages_sendUsersMessageRequest :: Lens.Lens' SendUsersMessages SendUsersMessageRequest
 sendUsersMessages_sendUsersMessageRequest = Lens.lens (\SendUsersMessages' {sendUsersMessageRequest} -> sendUsersMessageRequest) (\s@SendUsersMessages' {} a -> s {sendUsersMessageRequest = a} :: SendUsersMessages)
 
-instance Prelude.AWSRequest SendUsersMessages where
-  type Rs SendUsersMessages = SendUsersMessagesResponse
+instance Core.AWSRequest SendUsersMessages where
+  type
+    AWSResponse SendUsersMessages =
+      SendUsersMessagesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SendUsersMessagesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable SendUsersMessages
+instance Core.Hashable SendUsersMessages
 
-instance Prelude.NFData SendUsersMessages
+instance Core.NFData SendUsersMessages
 
-instance Prelude.ToHeaders SendUsersMessages where
+instance Core.ToHeaders SendUsersMessages where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SendUsersMessages where
+instance Core.ToJSON SendUsersMessages where
   toJSON SendUsersMessages' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "SendUsersMessageRequest"
-                  Prelude..= sendUsersMessageRequest
+                  Core..= sendUsersMessageRequest
               )
           ]
       )
 
-instance Prelude.ToPath SendUsersMessages where
+instance Core.ToPath SendUsersMessages where
   toPath SendUsersMessages' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/users-messages"
       ]
 
-instance Prelude.ToQuery SendUsersMessages where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SendUsersMessages where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSendUsersMessagesResponse' smart constructor.
 data SendUsersMessagesResponse = SendUsersMessagesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     sendUsersMessageResponse :: SendUsersMessageResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendUsersMessagesResponse' with all optional fields omitted.
@@ -160,7 +159,7 @@ data SendUsersMessagesResponse = SendUsersMessagesResponse'
 -- 'sendUsersMessageResponse', 'sendUsersMessagesResponse_sendUsersMessageResponse' - Undocumented member.
 newSendUsersMessagesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'sendUsersMessageResponse'
   SendUsersMessageResponse ->
   SendUsersMessagesResponse
@@ -175,11 +174,11 @@ newSendUsersMessagesResponse
       }
 
 -- | The response's http status code.
-sendUsersMessagesResponse_httpStatus :: Lens.Lens' SendUsersMessagesResponse Prelude.Int
+sendUsersMessagesResponse_httpStatus :: Lens.Lens' SendUsersMessagesResponse Core.Int
 sendUsersMessagesResponse_httpStatus = Lens.lens (\SendUsersMessagesResponse' {httpStatus} -> httpStatus) (\s@SendUsersMessagesResponse' {} a -> s {httpStatus = a} :: SendUsersMessagesResponse)
 
 -- | Undocumented member.
 sendUsersMessagesResponse_sendUsersMessageResponse :: Lens.Lens' SendUsersMessagesResponse SendUsersMessageResponse
 sendUsersMessagesResponse_sendUsersMessageResponse = Lens.lens (\SendUsersMessagesResponse' {sendUsersMessageResponse} -> sendUsersMessageResponse) (\s@SendUsersMessagesResponse' {} a -> s {sendUsersMessageResponse = a} :: SendUsersMessagesResponse)
 
-instance Prelude.NFData SendUsersMessagesResponse
+instance Core.NFData SendUsersMessagesResponse

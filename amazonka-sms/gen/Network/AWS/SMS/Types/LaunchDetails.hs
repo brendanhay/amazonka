@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.LaunchDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the latest launch of an application.
 --
 -- /See:/ 'newLaunchDetails' smart constructor.
 data LaunchDetails = LaunchDetails'
   { -- | The name of the latest stack launched for this application.
-    stackName :: Prelude.Maybe Prelude.Text,
+    stackName :: Core.Maybe Core.Text,
     -- | The ID of the latest stack launched for this application.
-    stackId :: Prelude.Maybe Prelude.Text,
+    stackId :: Core.Maybe Core.Text,
     -- | The latest time that this application was launched successfully.
-    latestLaunchTime :: Prelude.Maybe Prelude.POSIX
+    latestLaunchTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchDetails' with all optional fields omitted.
@@ -53,34 +52,34 @@ newLaunchDetails ::
   LaunchDetails
 newLaunchDetails =
   LaunchDetails'
-    { stackName = Prelude.Nothing,
-      stackId = Prelude.Nothing,
-      latestLaunchTime = Prelude.Nothing
+    { stackName = Core.Nothing,
+      stackId = Core.Nothing,
+      latestLaunchTime = Core.Nothing
     }
 
 -- | The name of the latest stack launched for this application.
-launchDetails_stackName :: Lens.Lens' LaunchDetails (Prelude.Maybe Prelude.Text)
+launchDetails_stackName :: Lens.Lens' LaunchDetails (Core.Maybe Core.Text)
 launchDetails_stackName = Lens.lens (\LaunchDetails' {stackName} -> stackName) (\s@LaunchDetails' {} a -> s {stackName = a} :: LaunchDetails)
 
 -- | The ID of the latest stack launched for this application.
-launchDetails_stackId :: Lens.Lens' LaunchDetails (Prelude.Maybe Prelude.Text)
+launchDetails_stackId :: Lens.Lens' LaunchDetails (Core.Maybe Core.Text)
 launchDetails_stackId = Lens.lens (\LaunchDetails' {stackId} -> stackId) (\s@LaunchDetails' {} a -> s {stackId = a} :: LaunchDetails)
 
 -- | The latest time that this application was launched successfully.
-launchDetails_latestLaunchTime :: Lens.Lens' LaunchDetails (Prelude.Maybe Prelude.UTCTime)
-launchDetails_latestLaunchTime = Lens.lens (\LaunchDetails' {latestLaunchTime} -> latestLaunchTime) (\s@LaunchDetails' {} a -> s {latestLaunchTime = a} :: LaunchDetails) Prelude.. Lens.mapping Prelude._Time
+launchDetails_latestLaunchTime :: Lens.Lens' LaunchDetails (Core.Maybe Core.UTCTime)
+launchDetails_latestLaunchTime = Lens.lens (\LaunchDetails' {latestLaunchTime} -> latestLaunchTime) (\s@LaunchDetails' {} a -> s {latestLaunchTime = a} :: LaunchDetails) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON LaunchDetails where
+instance Core.FromJSON LaunchDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LaunchDetails"
       ( \x ->
           LaunchDetails'
-            Prelude.<$> (x Prelude..:? "stackName")
-            Prelude.<*> (x Prelude..:? "stackId")
-            Prelude.<*> (x Prelude..:? "latestLaunchTime")
+            Core.<$> (x Core..:? "stackName")
+            Core.<*> (x Core..:? "stackId")
+            Core.<*> (x Core..:? "latestLaunchTime")
       )
 
-instance Prelude.Hashable LaunchDetails
+instance Core.Hashable LaunchDetails
 
-instance Prelude.NFData LaunchDetails
+instance Core.NFData LaunchDetails

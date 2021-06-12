@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ItemResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details for the requested item.
 --
 -- /See:/ 'newItemResponse' smart constructor.
 data ItemResponse = ItemResponse'
   { -- | Map of attribute data consisting of the data type and attribute value.
-    item :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue)
+    item :: Core.Maybe (Core.HashMap Core.Text AttributeValue)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ItemResponse' with all optional fields omitted.
@@ -44,22 +43,21 @@ data ItemResponse = ItemResponse'
 -- 'item', 'itemResponse_item' - Map of attribute data consisting of the data type and attribute value.
 newItemResponse ::
   ItemResponse
-newItemResponse =
-  ItemResponse' {item = Prelude.Nothing}
+newItemResponse = ItemResponse' {item = Core.Nothing}
 
 -- | Map of attribute data consisting of the data type and attribute value.
-itemResponse_item :: Lens.Lens' ItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-itemResponse_item = Lens.lens (\ItemResponse' {item} -> item) (\s@ItemResponse' {} a -> s {item = a} :: ItemResponse) Prelude.. Lens.mapping Prelude._Coerce
+itemResponse_item :: Lens.Lens' ItemResponse (Core.Maybe (Core.HashMap Core.Text AttributeValue))
+itemResponse_item = Lens.lens (\ItemResponse' {item} -> item) (\s@ItemResponse' {} a -> s {item = a} :: ItemResponse) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ItemResponse where
+instance Core.FromJSON ItemResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ItemResponse"
       ( \x ->
           ItemResponse'
-            Prelude.<$> (x Prelude..:? "Item" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Item" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ItemResponse
+instance Core.Hashable ItemResponse
 
-instance Prelude.NFData ItemResponse
+instance Core.NFData ItemResponse

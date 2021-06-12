@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SubnetIpv6CidrBlockAssociation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.SubnetCidrBlockState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IPv6 CIDR block associated with a subnet.
 --
 -- /See:/ 'newSubnetIpv6CidrBlockAssociation' smart constructor.
 data SubnetIpv6CidrBlockAssociation = SubnetIpv6CidrBlockAssociation'
   { -- | Information about the state of the CIDR block.
-    ipv6CidrBlockState :: Prelude.Maybe SubnetCidrBlockState,
+    ipv6CidrBlockState :: Core.Maybe SubnetCidrBlockState,
     -- | The association ID for the CIDR block.
-    associationId :: Prelude.Maybe Prelude.Text,
+    associationId :: Core.Maybe Core.Text,
     -- | The IPv6 CIDR block.
-    ipv6CidrBlock :: Prelude.Maybe Prelude.Text
+    ipv6CidrBlock :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubnetIpv6CidrBlockAssociation' with all optional fields omitted.
@@ -56,37 +55,30 @@ newSubnetIpv6CidrBlockAssociation ::
 newSubnetIpv6CidrBlockAssociation =
   SubnetIpv6CidrBlockAssociation'
     { ipv6CidrBlockState =
-        Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      ipv6CidrBlock = Prelude.Nothing
+        Core.Nothing,
+      associationId = Core.Nothing,
+      ipv6CidrBlock = Core.Nothing
     }
 
 -- | Information about the state of the CIDR block.
-subnetIpv6CidrBlockAssociation_ipv6CidrBlockState :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Prelude.Maybe SubnetCidrBlockState)
+subnetIpv6CidrBlockAssociation_ipv6CidrBlockState :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Core.Maybe SubnetCidrBlockState)
 subnetIpv6CidrBlockAssociation_ipv6CidrBlockState = Lens.lens (\SubnetIpv6CidrBlockAssociation' {ipv6CidrBlockState} -> ipv6CidrBlockState) (\s@SubnetIpv6CidrBlockAssociation' {} a -> s {ipv6CidrBlockState = a} :: SubnetIpv6CidrBlockAssociation)
 
 -- | The association ID for the CIDR block.
-subnetIpv6CidrBlockAssociation_associationId :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
+subnetIpv6CidrBlockAssociation_associationId :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Core.Maybe Core.Text)
 subnetIpv6CidrBlockAssociation_associationId = Lens.lens (\SubnetIpv6CidrBlockAssociation' {associationId} -> associationId) (\s@SubnetIpv6CidrBlockAssociation' {} a -> s {associationId = a} :: SubnetIpv6CidrBlockAssociation)
 
 -- | The IPv6 CIDR block.
-subnetIpv6CidrBlockAssociation_ipv6CidrBlock :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
+subnetIpv6CidrBlockAssociation_ipv6CidrBlock :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Core.Maybe Core.Text)
 subnetIpv6CidrBlockAssociation_ipv6CidrBlock = Lens.lens (\SubnetIpv6CidrBlockAssociation' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@SubnetIpv6CidrBlockAssociation' {} a -> s {ipv6CidrBlock = a} :: SubnetIpv6CidrBlockAssociation)
 
-instance
-  Prelude.FromXML
-    SubnetIpv6CidrBlockAssociation
-  where
+instance Core.FromXML SubnetIpv6CidrBlockAssociation where
   parseXML x =
     SubnetIpv6CidrBlockAssociation'
-      Prelude.<$> (x Prelude..@? "ipv6CidrBlockState")
-      Prelude.<*> (x Prelude..@? "associationId")
-      Prelude.<*> (x Prelude..@? "ipv6CidrBlock")
+      Core.<$> (x Core..@? "ipv6CidrBlockState")
+      Core.<*> (x Core..@? "associationId")
+      Core.<*> (x Core..@? "ipv6CidrBlock")
 
-instance
-  Prelude.Hashable
-    SubnetIpv6CidrBlockAssociation
+instance Core.Hashable SubnetIpv6CidrBlockAssociation
 
-instance
-  Prelude.NFData
-    SubnetIpv6CidrBlockAssociation
+instance Core.NFData SubnetIpv6CidrBlockAssociation

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,19 +40,19 @@ module Network.AWS.AppSync.DeleteApiKey
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteApiKey' smart constructor.
 data DeleteApiKey = DeleteApiKey'
   { -- | The API ID.
-    apiId :: Prelude.Text,
+    apiId :: Core.Text,
     -- | The ID for the API key.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApiKey' with all optional fields omitted.
@@ -68,64 +67,62 @@ data DeleteApiKey = DeleteApiKey'
 -- 'id', 'deleteApiKey_id' - The ID for the API key.
 newDeleteApiKey ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteApiKey
 newDeleteApiKey pApiId_ pId_ =
   DeleteApiKey' {apiId = pApiId_, id = pId_}
 
 -- | The API ID.
-deleteApiKey_apiId :: Lens.Lens' DeleteApiKey Prelude.Text
+deleteApiKey_apiId :: Lens.Lens' DeleteApiKey Core.Text
 deleteApiKey_apiId = Lens.lens (\DeleteApiKey' {apiId} -> apiId) (\s@DeleteApiKey' {} a -> s {apiId = a} :: DeleteApiKey)
 
 -- | The ID for the API key.
-deleteApiKey_id :: Lens.Lens' DeleteApiKey Prelude.Text
+deleteApiKey_id :: Lens.Lens' DeleteApiKey Core.Text
 deleteApiKey_id = Lens.lens (\DeleteApiKey' {id} -> id) (\s@DeleteApiKey' {} a -> s {id = a} :: DeleteApiKey)
 
-instance Prelude.AWSRequest DeleteApiKey where
-  type Rs DeleteApiKey = DeleteApiKeyResponse
+instance Core.AWSRequest DeleteApiKey where
+  type AWSResponse DeleteApiKey = DeleteApiKeyResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteApiKeyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteApiKey
+instance Core.Hashable DeleteApiKey
 
-instance Prelude.NFData DeleteApiKey
+instance Core.NFData DeleteApiKey
 
-instance Prelude.ToHeaders DeleteApiKey where
+instance Core.ToHeaders DeleteApiKey where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteApiKey where
+instance Core.ToPath DeleteApiKey where
   toPath DeleteApiKey' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apis/",
-        Prelude.toBS apiId,
+        Core.toBS apiId,
         "/apikeys/",
-        Prelude.toBS id
+        Core.toBS id
       ]
 
-instance Prelude.ToQuery DeleteApiKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteApiKey where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteApiKeyResponse' smart constructor.
 data DeleteApiKeyResponse = DeleteApiKeyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApiKeyResponse' with all optional fields omitted.
@@ -138,13 +135,13 @@ data DeleteApiKeyResponse = DeleteApiKeyResponse'
 -- 'httpStatus', 'deleteApiKeyResponse_httpStatus' - The response's http status code.
 newDeleteApiKeyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteApiKeyResponse
 newDeleteApiKeyResponse pHttpStatus_ =
   DeleteApiKeyResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteApiKeyResponse_httpStatus :: Lens.Lens' DeleteApiKeyResponse Prelude.Int
+deleteApiKeyResponse_httpStatus :: Lens.Lens' DeleteApiKeyResponse Core.Int
 deleteApiKeyResponse_httpStatus = Lens.lens (\DeleteApiKeyResponse' {httpStatus} -> httpStatus) (\s@DeleteApiKeyResponse' {} a -> s {httpStatus = a} :: DeleteApiKeyResponse)
 
-instance Prelude.NFData DeleteApiKeyResponse
+instance Core.NFData DeleteApiKeyResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The recurrence of the reports.
 --
 -- /See:/ 'newBusinessReportRecurrence' smart constructor.
 data BusinessReportRecurrence = BusinessReportRecurrence'
   { -- | The start date.
-    startDate :: Prelude.Maybe Prelude.Text
+    startDate :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BusinessReportRecurrence' with all optional fields omitted.
@@ -44,31 +43,28 @@ data BusinessReportRecurrence = BusinessReportRecurrence'
 newBusinessReportRecurrence ::
   BusinessReportRecurrence
 newBusinessReportRecurrence =
-  BusinessReportRecurrence'
-    { startDate =
-        Prelude.Nothing
-    }
+  BusinessReportRecurrence' {startDate = Core.Nothing}
 
 -- | The start date.
-businessReportRecurrence_startDate :: Lens.Lens' BusinessReportRecurrence (Prelude.Maybe Prelude.Text)
+businessReportRecurrence_startDate :: Lens.Lens' BusinessReportRecurrence (Core.Maybe Core.Text)
 businessReportRecurrence_startDate = Lens.lens (\BusinessReportRecurrence' {startDate} -> startDate) (\s@BusinessReportRecurrence' {} a -> s {startDate = a} :: BusinessReportRecurrence)
 
-instance Prelude.FromJSON BusinessReportRecurrence where
+instance Core.FromJSON BusinessReportRecurrence where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BusinessReportRecurrence"
       ( \x ->
           BusinessReportRecurrence'
-            Prelude.<$> (x Prelude..:? "StartDate")
+            Core.<$> (x Core..:? "StartDate")
       )
 
-instance Prelude.Hashable BusinessReportRecurrence
+instance Core.Hashable BusinessReportRecurrence
 
-instance Prelude.NFData BusinessReportRecurrence
+instance Core.NFData BusinessReportRecurrence
 
-instance Prelude.ToJSON BusinessReportRecurrence where
+instance Core.ToJSON BusinessReportRecurrence where
   toJSON BusinessReportRecurrence' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("StartDate" Prelude..=) Prelude.<$> startDate]
+    Core.object
+      ( Core.catMaybes
+          [("StartDate" Core..=) Core.<$> startDate]
       )

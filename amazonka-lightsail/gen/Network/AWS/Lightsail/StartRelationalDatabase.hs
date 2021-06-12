@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,18 +45,18 @@ module Network.AWS.Lightsail.StartRelationalDatabase
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartRelationalDatabase' smart constructor.
 data StartRelationalDatabase = StartRelationalDatabase'
   { -- | The name of your database to start.
-    relationalDatabaseName :: Prelude.Text
+    relationalDatabaseName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartRelationalDatabase' with all optional fields omitted.
@@ -70,7 +69,7 @@ data StartRelationalDatabase = StartRelationalDatabase'
 -- 'relationalDatabaseName', 'startRelationalDatabase_relationalDatabaseName' - The name of your database to start.
 newStartRelationalDatabase ::
   -- | 'relationalDatabaseName'
-  Prelude.Text ->
+  Core.Text ->
   StartRelationalDatabase
 newStartRelationalDatabase pRelationalDatabaseName_ =
   StartRelationalDatabase'
@@ -79,70 +78,66 @@ newStartRelationalDatabase pRelationalDatabaseName_ =
     }
 
 -- | The name of your database to start.
-startRelationalDatabase_relationalDatabaseName :: Lens.Lens' StartRelationalDatabase Prelude.Text
+startRelationalDatabase_relationalDatabaseName :: Lens.Lens' StartRelationalDatabase Core.Text
 startRelationalDatabase_relationalDatabaseName = Lens.lens (\StartRelationalDatabase' {relationalDatabaseName} -> relationalDatabaseName) (\s@StartRelationalDatabase' {} a -> s {relationalDatabaseName = a} :: StartRelationalDatabase)
 
-instance Prelude.AWSRequest StartRelationalDatabase where
+instance Core.AWSRequest StartRelationalDatabase where
   type
-    Rs StartRelationalDatabase =
+    AWSResponse StartRelationalDatabase =
       StartRelationalDatabaseResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartRelationalDatabaseResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartRelationalDatabase
+instance Core.Hashable StartRelationalDatabase
 
-instance Prelude.NFData StartRelationalDatabase
+instance Core.NFData StartRelationalDatabase
 
-instance Prelude.ToHeaders StartRelationalDatabase where
+instance Core.ToHeaders StartRelationalDatabase where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.StartRelationalDatabase" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.StartRelationalDatabase" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartRelationalDatabase where
+instance Core.ToJSON StartRelationalDatabase where
   toJSON StartRelationalDatabase' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "relationalDatabaseName"
-                  Prelude..= relationalDatabaseName
+                  Core..= relationalDatabaseName
               )
           ]
       )
 
-instance Prelude.ToPath StartRelationalDatabase where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartRelationalDatabase where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartRelationalDatabase where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartRelationalDatabase where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartRelationalDatabaseResponse' smart constructor.
 data StartRelationalDatabaseResponse = StartRelationalDatabaseResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartRelationalDatabaseResponse' with all optional fields omitted.
@@ -159,25 +154,23 @@ data StartRelationalDatabaseResponse = StartRelationalDatabaseResponse'
 -- 'httpStatus', 'startRelationalDatabaseResponse_httpStatus' - The response's http status code.
 newStartRelationalDatabaseResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartRelationalDatabaseResponse
 newStartRelationalDatabaseResponse pHttpStatus_ =
   StartRelationalDatabaseResponse'
     { operations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-startRelationalDatabaseResponse_operations :: Lens.Lens' StartRelationalDatabaseResponse (Prelude.Maybe [Operation])
-startRelationalDatabaseResponse_operations = Lens.lens (\StartRelationalDatabaseResponse' {operations} -> operations) (\s@StartRelationalDatabaseResponse' {} a -> s {operations = a} :: StartRelationalDatabaseResponse) Prelude.. Lens.mapping Prelude._Coerce
+startRelationalDatabaseResponse_operations :: Lens.Lens' StartRelationalDatabaseResponse (Core.Maybe [Operation])
+startRelationalDatabaseResponse_operations = Lens.lens (\StartRelationalDatabaseResponse' {operations} -> operations) (\s@StartRelationalDatabaseResponse' {} a -> s {operations = a} :: StartRelationalDatabaseResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-startRelationalDatabaseResponse_httpStatus :: Lens.Lens' StartRelationalDatabaseResponse Prelude.Int
+startRelationalDatabaseResponse_httpStatus :: Lens.Lens' StartRelationalDatabaseResponse Core.Int
 startRelationalDatabaseResponse_httpStatus = Lens.lens (\StartRelationalDatabaseResponse' {httpStatus} -> httpStatus) (\s@StartRelationalDatabaseResponse' {} a -> s {httpStatus = a} :: StartRelationalDatabaseResponse)
 
-instance
-  Prelude.NFData
-    StartRelationalDatabaseResponse
+instance Core.NFData StartRelationalDatabaseResponse

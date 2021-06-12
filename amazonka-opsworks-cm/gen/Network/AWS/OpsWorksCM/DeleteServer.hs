@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,18 +49,18 @@ module Network.AWS.OpsWorksCM.DeleteServer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteServer' smart constructor.
 data DeleteServer = DeleteServer'
   { -- | The ID of the server to delete.
-    serverName :: Prelude.Text
+    serverName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteServer' with all optional fields omitted.
@@ -74,63 +73,61 @@ data DeleteServer = DeleteServer'
 -- 'serverName', 'deleteServer_serverName' - The ID of the server to delete.
 newDeleteServer ::
   -- | 'serverName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteServer
 newDeleteServer pServerName_ =
   DeleteServer' {serverName = pServerName_}
 
 -- | The ID of the server to delete.
-deleteServer_serverName :: Lens.Lens' DeleteServer Prelude.Text
+deleteServer_serverName :: Lens.Lens' DeleteServer Core.Text
 deleteServer_serverName = Lens.lens (\DeleteServer' {serverName} -> serverName) (\s@DeleteServer' {} a -> s {serverName = a} :: DeleteServer)
 
-instance Prelude.AWSRequest DeleteServer where
-  type Rs DeleteServer = DeleteServerResponse
+instance Core.AWSRequest DeleteServer where
+  type AWSResponse DeleteServer = DeleteServerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteServerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteServer
+instance Core.Hashable DeleteServer
 
-instance Prelude.NFData DeleteServer
+instance Core.NFData DeleteServer
 
-instance Prelude.ToHeaders DeleteServer where
+instance Core.ToHeaders DeleteServer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorksCM_V2016_11_01.DeleteServer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorksCM_V2016_11_01.DeleteServer" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteServer where
+instance Core.ToJSON DeleteServer where
   toJSON DeleteServer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("ServerName" Prelude..= serverName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ServerName" Core..= serverName)]
       )
 
-instance Prelude.ToPath DeleteServer where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteServer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteServer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteServer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteServerResponse' smart constructor.
 data DeleteServerResponse = DeleteServerResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteServerResponse' with all optional fields omitted.
@@ -143,13 +140,13 @@ data DeleteServerResponse = DeleteServerResponse'
 -- 'httpStatus', 'deleteServerResponse_httpStatus' - The response's http status code.
 newDeleteServerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteServerResponse
 newDeleteServerResponse pHttpStatus_ =
   DeleteServerResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteServerResponse_httpStatus :: Lens.Lens' DeleteServerResponse Prelude.Int
+deleteServerResponse_httpStatus :: Lens.Lens' DeleteServerResponse Core.Int
 deleteServerResponse_httpStatus = Lens.lens (\DeleteServerResponse' {httpStatus} -> httpStatus) (\s@DeleteServerResponse' {} a -> s {httpStatus = a} :: DeleteServerResponse)
 
-instance Prelude.NFData DeleteServerResponse
+instance Core.NFData DeleteServerResponse

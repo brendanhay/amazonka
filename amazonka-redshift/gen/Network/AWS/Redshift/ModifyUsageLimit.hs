@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.Redshift.ModifyUsageLimit
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -59,14 +58,14 @@ import qualified Network.AWS.Response as Response
 data ModifyUsageLimit = ModifyUsageLimit'
   { -- | The new limit amount. For more information about this parameter, see
     -- UsageLimit.
-    amount :: Prelude.Maybe Prelude.Integer,
+    amount :: Core.Maybe Core.Integer,
     -- | The new action that Amazon Redshift takes when the limit is reached. For
     -- more information about this parameter, see UsageLimit.
-    breachAction :: Prelude.Maybe UsageLimitBreachAction,
+    breachAction :: Core.Maybe UsageLimitBreachAction,
     -- | The identifier of the usage limit to modify.
-    usageLimitId :: Prelude.Text
+    usageLimitId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyUsageLimit' with all optional fields omitted.
@@ -85,55 +84,54 @@ data ModifyUsageLimit = ModifyUsageLimit'
 -- 'usageLimitId', 'modifyUsageLimit_usageLimitId' - The identifier of the usage limit to modify.
 newModifyUsageLimit ::
   -- | 'usageLimitId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyUsageLimit
 newModifyUsageLimit pUsageLimitId_ =
   ModifyUsageLimit'
-    { amount = Prelude.Nothing,
-      breachAction = Prelude.Nothing,
+    { amount = Core.Nothing,
+      breachAction = Core.Nothing,
       usageLimitId = pUsageLimitId_
     }
 
 -- | The new limit amount. For more information about this parameter, see
 -- UsageLimit.
-modifyUsageLimit_amount :: Lens.Lens' ModifyUsageLimit (Prelude.Maybe Prelude.Integer)
+modifyUsageLimit_amount :: Lens.Lens' ModifyUsageLimit (Core.Maybe Core.Integer)
 modifyUsageLimit_amount = Lens.lens (\ModifyUsageLimit' {amount} -> amount) (\s@ModifyUsageLimit' {} a -> s {amount = a} :: ModifyUsageLimit)
 
 -- | The new action that Amazon Redshift takes when the limit is reached. For
 -- more information about this parameter, see UsageLimit.
-modifyUsageLimit_breachAction :: Lens.Lens' ModifyUsageLimit (Prelude.Maybe UsageLimitBreachAction)
+modifyUsageLimit_breachAction :: Lens.Lens' ModifyUsageLimit (Core.Maybe UsageLimitBreachAction)
 modifyUsageLimit_breachAction = Lens.lens (\ModifyUsageLimit' {breachAction} -> breachAction) (\s@ModifyUsageLimit' {} a -> s {breachAction = a} :: ModifyUsageLimit)
 
 -- | The identifier of the usage limit to modify.
-modifyUsageLimit_usageLimitId :: Lens.Lens' ModifyUsageLimit Prelude.Text
+modifyUsageLimit_usageLimitId :: Lens.Lens' ModifyUsageLimit Core.Text
 modifyUsageLimit_usageLimitId = Lens.lens (\ModifyUsageLimit' {usageLimitId} -> usageLimitId) (\s@ModifyUsageLimit' {} a -> s {usageLimitId = a} :: ModifyUsageLimit)
 
-instance Prelude.AWSRequest ModifyUsageLimit where
-  type Rs ModifyUsageLimit = UsageLimit
+instance Core.AWSRequest ModifyUsageLimit where
+  type AWSResponse ModifyUsageLimit = UsageLimit
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ModifyUsageLimitResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyUsageLimit
+instance Core.Hashable ModifyUsageLimit
 
-instance Prelude.NFData ModifyUsageLimit
+instance Core.NFData ModifyUsageLimit
 
-instance Prelude.ToHeaders ModifyUsageLimit where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyUsageLimit where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyUsageLimit where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyUsageLimit where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyUsageLimit where
+instance Core.ToQuery ModifyUsageLimit where
   toQuery ModifyUsageLimit' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyUsageLimit" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "Amount" Prelude.=: amount,
-        "BreachAction" Prelude.=: breachAction,
-        "UsageLimitId" Prelude.=: usageLimitId
+          Core.=: ("ModifyUsageLimit" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "Amount" Core.=: amount,
+        "BreachAction" Core.=: breachAction,
+        "UsageLimitId" Core.=: usageLimitId
       ]

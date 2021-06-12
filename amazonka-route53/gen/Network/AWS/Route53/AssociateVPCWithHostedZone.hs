@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.Route53.AssociateVPCWithHostedZone
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -65,7 +64,7 @@ import Network.AWS.Route53.Types
 -- /See:/ 'newAssociateVPCWithHostedZone' smart constructor.
 data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
   { -- | /Optional:/ A comment about the association request.
-    comment :: Prelude.Maybe Prelude.Text,
+    comment :: Core.Maybe Core.Text,
     -- | The ID of the private hosted zone that you want to associate an Amazon
     -- VPC with.
     --
@@ -76,7 +75,7 @@ data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
     -- associate with a private hosted zone.
     vpc :: VPC
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateVPCWithHostedZone' with all optional fields omitted.
@@ -104,14 +103,13 @@ newAssociateVPCWithHostedZone ::
   AssociateVPCWithHostedZone
 newAssociateVPCWithHostedZone pHostedZoneId_ pVPC_ =
   AssociateVPCWithHostedZone'
-    { comment =
-        Prelude.Nothing,
+    { comment = Core.Nothing,
       hostedZoneId = pHostedZoneId_,
       vpc = pVPC_
     }
 
 -- | /Optional:/ A comment about the association request.
-associateVPCWithHostedZone_comment :: Lens.Lens' AssociateVPCWithHostedZone (Prelude.Maybe Prelude.Text)
+associateVPCWithHostedZone_comment :: Lens.Lens' AssociateVPCWithHostedZone (Core.Maybe Core.Text)
 associateVPCWithHostedZone_comment = Lens.lens (\AssociateVPCWithHostedZone' {comment} -> comment) (\s@AssociateVPCWithHostedZone' {} a -> s {comment = a} :: AssociateVPCWithHostedZone)
 
 -- | The ID of the private hosted zone that you want to associate an Amazon
@@ -127,49 +125,46 @@ associateVPCWithHostedZone_hostedZoneId = Lens.lens (\AssociateVPCWithHostedZone
 associateVPCWithHostedZone_vpc :: Lens.Lens' AssociateVPCWithHostedZone VPC
 associateVPCWithHostedZone_vpc = Lens.lens (\AssociateVPCWithHostedZone' {vpc} -> vpc) (\s@AssociateVPCWithHostedZone' {} a -> s {vpc = a} :: AssociateVPCWithHostedZone)
 
-instance
-  Prelude.AWSRequest
-    AssociateVPCWithHostedZone
-  where
+instance Core.AWSRequest AssociateVPCWithHostedZone where
   type
-    Rs AssociateVPCWithHostedZone =
+    AWSResponse AssociateVPCWithHostedZone =
       AssociateVPCWithHostedZoneResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           AssociateVPCWithHostedZoneResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "ChangeInfo")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable AssociateVPCWithHostedZone
+instance Core.Hashable AssociateVPCWithHostedZone
 
-instance Prelude.NFData AssociateVPCWithHostedZone
+instance Core.NFData AssociateVPCWithHostedZone
 
-instance Prelude.ToElement AssociateVPCWithHostedZone where
+instance Core.ToElement AssociateVPCWithHostedZone where
   toElement =
-    Prelude.mkElement
+    Core.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}AssociateVPCWithHostedZoneRequest"
 
-instance Prelude.ToHeaders AssociateVPCWithHostedZone where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AssociateVPCWithHostedZone where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AssociateVPCWithHostedZone where
+instance Core.ToPath AssociateVPCWithHostedZone where
   toPath AssociateVPCWithHostedZone' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2013-04-01/hostedzone/",
-        Prelude.toBS hostedZoneId,
+        Core.toBS hostedZoneId,
         "/associatevpc"
       ]
 
-instance Prelude.ToQuery AssociateVPCWithHostedZone where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateVPCWithHostedZone where
+  toQuery = Core.const Core.mempty
 
-instance Prelude.ToXML AssociateVPCWithHostedZone where
+instance Core.ToXML AssociateVPCWithHostedZone where
   toXML AssociateVPCWithHostedZone' {..} =
-    Prelude.mconcat
-      ["Comment" Prelude.@= comment, "VPC" Prelude.@= vpc]
+    Core.mconcat
+      ["Comment" Core.@= comment, "VPC" Core.@= vpc]
 
 -- | A complex type that contains the response information for the
 -- @AssociateVPCWithHostedZone@ request.
@@ -177,11 +172,11 @@ instance Prelude.ToXML AssociateVPCWithHostedZone where
 -- /See:/ 'newAssociateVPCWithHostedZoneResponse' smart constructor.
 data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that describes the changes made to your hosted zone.
     changeInfo :: ChangeInfo
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateVPCWithHostedZoneResponse' with all optional fields omitted.
@@ -196,7 +191,7 @@ data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
 -- 'changeInfo', 'associateVPCWithHostedZoneResponse_changeInfo' - A complex type that describes the changes made to your hosted zone.
 newAssociateVPCWithHostedZoneResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
   AssociateVPCWithHostedZoneResponse
@@ -210,7 +205,7 @@ newAssociateVPCWithHostedZoneResponse
       }
 
 -- | The response's http status code.
-associateVPCWithHostedZoneResponse_httpStatus :: Lens.Lens' AssociateVPCWithHostedZoneResponse Prelude.Int
+associateVPCWithHostedZoneResponse_httpStatus :: Lens.Lens' AssociateVPCWithHostedZoneResponse Core.Int
 associateVPCWithHostedZoneResponse_httpStatus = Lens.lens (\AssociateVPCWithHostedZoneResponse' {httpStatus} -> httpStatus) (\s@AssociateVPCWithHostedZoneResponse' {} a -> s {httpStatus = a} :: AssociateVPCWithHostedZoneResponse)
 
 -- | A complex type that describes the changes made to your hosted zone.
@@ -218,5 +213,5 @@ associateVPCWithHostedZoneResponse_changeInfo :: Lens.Lens' AssociateVPCWithHost
 associateVPCWithHostedZoneResponse_changeInfo = Lens.lens (\AssociateVPCWithHostedZoneResponse' {changeInfo} -> changeInfo) (\s@AssociateVPCWithHostedZoneResponse' {} a -> s {changeInfo = a} :: AssociateVPCWithHostedZoneResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateVPCWithHostedZoneResponse

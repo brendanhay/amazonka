@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.SupportedPlatform where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | A list of supported platforms for orderable clusters.
 --
 -- /See:/ 'newSupportedPlatform' smart constructor.
 data SupportedPlatform = SupportedPlatform'
-  { name :: Prelude.Maybe Prelude.Text
+  { name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SupportedPlatform' with all optional fields omitted.
@@ -44,17 +43,16 @@ data SupportedPlatform = SupportedPlatform'
 newSupportedPlatform ::
   SupportedPlatform
 newSupportedPlatform =
-  SupportedPlatform' {name = Prelude.Nothing}
+  SupportedPlatform' {name = Core.Nothing}
 
 -- |
-supportedPlatform_name :: Lens.Lens' SupportedPlatform (Prelude.Maybe Prelude.Text)
+supportedPlatform_name :: Lens.Lens' SupportedPlatform (Core.Maybe Core.Text)
 supportedPlatform_name = Lens.lens (\SupportedPlatform' {name} -> name) (\s@SupportedPlatform' {} a -> s {name = a} :: SupportedPlatform)
 
-instance Prelude.FromXML SupportedPlatform where
+instance Core.FromXML SupportedPlatform where
   parseXML x =
-    SupportedPlatform'
-      Prelude.<$> (x Prelude..@? "Name")
+    SupportedPlatform' Core.<$> (x Core..@? "Name")
 
-instance Prelude.Hashable SupportedPlatform
+instance Core.Hashable SupportedPlatform
 
-instance Prelude.NFData SupportedPlatform
+instance Core.NFData SupportedPlatform

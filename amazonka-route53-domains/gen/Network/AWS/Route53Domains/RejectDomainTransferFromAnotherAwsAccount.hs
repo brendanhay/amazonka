@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -66,9 +65,9 @@ data RejectDomainTransferFromAnotherAwsAccount = RejectDomainTransferFromAnother
     -- submitted a
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
     -- request.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RejectDomainTransferFromAnotherAwsAccount' with all optional fields omitted.
@@ -84,7 +83,7 @@ data RejectDomainTransferFromAnotherAwsAccount = RejectDomainTransferFromAnother
 -- request.
 newRejectDomainTransferFromAnotherAwsAccount ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   RejectDomainTransferFromAnotherAwsAccount
 newRejectDomainTransferFromAnotherAwsAccount
   pDomainName_ =
@@ -97,72 +96,71 @@ newRejectDomainTransferFromAnotherAwsAccount
 -- submitted a
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
 -- request.
-rejectDomainTransferFromAnotherAwsAccount_domainName :: Lens.Lens' RejectDomainTransferFromAnotherAwsAccount Prelude.Text
+rejectDomainTransferFromAnotherAwsAccount_domainName :: Lens.Lens' RejectDomainTransferFromAnotherAwsAccount Core.Text
 rejectDomainTransferFromAnotherAwsAccount_domainName = Lens.lens (\RejectDomainTransferFromAnotherAwsAccount' {domainName} -> domainName) (\s@RejectDomainTransferFromAnotherAwsAccount' {} a -> s {domainName = a} :: RejectDomainTransferFromAnotherAwsAccount)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     RejectDomainTransferFromAnotherAwsAccount
   where
   type
-    Rs RejectDomainTransferFromAnotherAwsAccount =
+    AWSResponse
+      RejectDomainTransferFromAnotherAwsAccount =
       RejectDomainTransferFromAnotherAwsAccountResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RejectDomainTransferFromAnotherAwsAccountResponse'
-            Prelude.<$> (x Prelude..?> "OperationId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "OperationId")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RejectDomainTransferFromAnotherAwsAccount
 
 instance
-  Prelude.NFData
+  Core.NFData
     RejectDomainTransferFromAnotherAwsAccount
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     RejectDomainTransferFromAnotherAwsAccount
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     RejectDomainTransferFromAnotherAwsAccount
   where
   toJSON RejectDomainTransferFromAnotherAwsAccount' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Prelude..= domainName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DomainName" Core..= domainName)]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     RejectDomainTransferFromAnotherAwsAccount
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     RejectDomainTransferFromAnotherAwsAccount
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | The RejectDomainTransferFromAnotherAwsAccount response includes the
 -- following element.
@@ -173,11 +171,11 @@ data RejectDomainTransferFromAnotherAwsAccountResponse = RejectDomainTransferFro
     -- track the progress of the request. Because the transfer request was
     -- rejected, the value is no longer valid, and you can\'t use
     -- @GetOperationDetail@ to query the operation status.
-    operationId :: Prelude.Maybe Prelude.Text,
+    operationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RejectDomainTransferFromAnotherAwsAccountResponse' with all optional fields omitted.
@@ -195,13 +193,13 @@ data RejectDomainTransferFromAnotherAwsAccountResponse = RejectDomainTransferFro
 -- 'httpStatus', 'rejectDomainTransferFromAnotherAwsAccountResponse_httpStatus' - The response's http status code.
 newRejectDomainTransferFromAnotherAwsAccountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RejectDomainTransferFromAnotherAwsAccountResponse
 newRejectDomainTransferFromAnotherAwsAccountResponse
   pHttpStatus_ =
     RejectDomainTransferFromAnotherAwsAccountResponse'
       { operationId =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
@@ -210,13 +208,13 @@ newRejectDomainTransferFromAnotherAwsAccountResponse
 -- track the progress of the request. Because the transfer request was
 -- rejected, the value is no longer valid, and you can\'t use
 -- @GetOperationDetail@ to query the operation status.
-rejectDomainTransferFromAnotherAwsAccountResponse_operationId :: Lens.Lens' RejectDomainTransferFromAnotherAwsAccountResponse (Prelude.Maybe Prelude.Text)
+rejectDomainTransferFromAnotherAwsAccountResponse_operationId :: Lens.Lens' RejectDomainTransferFromAnotherAwsAccountResponse (Core.Maybe Core.Text)
 rejectDomainTransferFromAnotherAwsAccountResponse_operationId = Lens.lens (\RejectDomainTransferFromAnotherAwsAccountResponse' {operationId} -> operationId) (\s@RejectDomainTransferFromAnotherAwsAccountResponse' {} a -> s {operationId = a} :: RejectDomainTransferFromAnotherAwsAccountResponse)
 
 -- | The response's http status code.
-rejectDomainTransferFromAnotherAwsAccountResponse_httpStatus :: Lens.Lens' RejectDomainTransferFromAnotherAwsAccountResponse Prelude.Int
+rejectDomainTransferFromAnotherAwsAccountResponse_httpStatus :: Lens.Lens' RejectDomainTransferFromAnotherAwsAccountResponse Core.Int
 rejectDomainTransferFromAnotherAwsAccountResponse_httpStatus = Lens.lens (\RejectDomainTransferFromAnotherAwsAccountResponse' {httpStatus} -> httpStatus) (\s@RejectDomainTransferFromAnotherAwsAccountResponse' {} a -> s {httpStatus = a} :: RejectDomainTransferFromAnotherAwsAccountResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RejectDomainTransferFromAnotherAwsAccountResponse

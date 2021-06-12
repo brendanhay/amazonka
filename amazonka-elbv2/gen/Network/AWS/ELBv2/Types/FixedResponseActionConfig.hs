@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.FixedResponseActionConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an action that returns a custom HTTP response.
 --
@@ -31,13 +30,13 @@ data FixedResponseActionConfig = FixedResponseActionConfig'
     --
     -- Valid Values: text\/plain | text\/css | text\/html |
     -- application\/javascript | application\/json
-    contentType :: Prelude.Maybe Prelude.Text,
+    contentType :: Core.Maybe Core.Text,
     -- | The message.
-    messageBody :: Prelude.Maybe Prelude.Text,
+    messageBody :: Core.Maybe Core.Text,
     -- | The HTTP response code (2XX, 4XX, or 5XX).
-    statusCode :: Prelude.Text
+    statusCode :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FixedResponseActionConfig' with all optional fields omitted.
@@ -57,13 +56,13 @@ data FixedResponseActionConfig = FixedResponseActionConfig'
 -- 'statusCode', 'fixedResponseActionConfig_statusCode' - The HTTP response code (2XX, 4XX, or 5XX).
 newFixedResponseActionConfig ::
   -- | 'statusCode'
-  Prelude.Text ->
+  Core.Text ->
   FixedResponseActionConfig
 newFixedResponseActionConfig pStatusCode_ =
   FixedResponseActionConfig'
     { contentType =
-        Prelude.Nothing,
-      messageBody = Prelude.Nothing,
+        Core.Nothing,
+      messageBody = Core.Nothing,
       statusCode = pStatusCode_
     }
 
@@ -71,32 +70,32 @@ newFixedResponseActionConfig pStatusCode_ =
 --
 -- Valid Values: text\/plain | text\/css | text\/html |
 -- application\/javascript | application\/json
-fixedResponseActionConfig_contentType :: Lens.Lens' FixedResponseActionConfig (Prelude.Maybe Prelude.Text)
+fixedResponseActionConfig_contentType :: Lens.Lens' FixedResponseActionConfig (Core.Maybe Core.Text)
 fixedResponseActionConfig_contentType = Lens.lens (\FixedResponseActionConfig' {contentType} -> contentType) (\s@FixedResponseActionConfig' {} a -> s {contentType = a} :: FixedResponseActionConfig)
 
 -- | The message.
-fixedResponseActionConfig_messageBody :: Lens.Lens' FixedResponseActionConfig (Prelude.Maybe Prelude.Text)
+fixedResponseActionConfig_messageBody :: Lens.Lens' FixedResponseActionConfig (Core.Maybe Core.Text)
 fixedResponseActionConfig_messageBody = Lens.lens (\FixedResponseActionConfig' {messageBody} -> messageBody) (\s@FixedResponseActionConfig' {} a -> s {messageBody = a} :: FixedResponseActionConfig)
 
 -- | The HTTP response code (2XX, 4XX, or 5XX).
-fixedResponseActionConfig_statusCode :: Lens.Lens' FixedResponseActionConfig Prelude.Text
+fixedResponseActionConfig_statusCode :: Lens.Lens' FixedResponseActionConfig Core.Text
 fixedResponseActionConfig_statusCode = Lens.lens (\FixedResponseActionConfig' {statusCode} -> statusCode) (\s@FixedResponseActionConfig' {} a -> s {statusCode = a} :: FixedResponseActionConfig)
 
-instance Prelude.FromXML FixedResponseActionConfig where
+instance Core.FromXML FixedResponseActionConfig where
   parseXML x =
     FixedResponseActionConfig'
-      Prelude.<$> (x Prelude..@? "ContentType")
-      Prelude.<*> (x Prelude..@? "MessageBody")
-      Prelude.<*> (x Prelude..@ "StatusCode")
+      Core.<$> (x Core..@? "ContentType")
+      Core.<*> (x Core..@? "MessageBody")
+      Core.<*> (x Core..@ "StatusCode")
 
-instance Prelude.Hashable FixedResponseActionConfig
+instance Core.Hashable FixedResponseActionConfig
 
-instance Prelude.NFData FixedResponseActionConfig
+instance Core.NFData FixedResponseActionConfig
 
-instance Prelude.ToQuery FixedResponseActionConfig where
+instance Core.ToQuery FixedResponseActionConfig where
   toQuery FixedResponseActionConfig' {..} =
-    Prelude.mconcat
-      [ "ContentType" Prelude.=: contentType,
-        "MessageBody" Prelude.=: messageBody,
-        "StatusCode" Prelude.=: statusCode
+    Core.mconcat
+      [ "ContentType" Core.=: contentType,
+        "MessageBody" Core.=: messageBody,
+        "StatusCode" Core.=: statusCode
       ]

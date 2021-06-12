@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,30 +19,30 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.GroupInformation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a group.
 --
 -- /See:/ 'newGroupInformation' smart constructor.
 data GroupInformation = GroupInformation'
   { -- | The time, in milliseconds since the epoch, when the group was created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    creationTimestamp :: Core.Maybe Core.Text,
     -- | The ARN of the latest version associated with the group.
-    latestVersionArn :: Prelude.Maybe Prelude.Text,
+    latestVersionArn :: Core.Maybe Core.Text,
     -- | The ID of the latest version associated with the group.
-    latestVersion :: Prelude.Maybe Prelude.Text,
+    latestVersion :: Core.Maybe Core.Text,
     -- | The ARN of the group.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The ID of the group.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the group.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the group was last
     -- updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text
+    lastUpdatedTimestamp :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GroupInformation' with all optional fields omitted.
@@ -71,60 +70,59 @@ newGroupInformation ::
   GroupInformation
 newGroupInformation =
   GroupInformation'
-    { creationTimestamp =
-        Prelude.Nothing,
-      latestVersionArn = Prelude.Nothing,
-      latestVersion = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing
+    { creationTimestamp = Core.Nothing,
+      latestVersionArn = Core.Nothing,
+      latestVersion = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      lastUpdatedTimestamp = Core.Nothing
     }
 
 -- | The time, in milliseconds since the epoch, when the group was created.
-groupInformation_creationTimestamp :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
+groupInformation_creationTimestamp :: Lens.Lens' GroupInformation (Core.Maybe Core.Text)
 groupInformation_creationTimestamp = Lens.lens (\GroupInformation' {creationTimestamp} -> creationTimestamp) (\s@GroupInformation' {} a -> s {creationTimestamp = a} :: GroupInformation)
 
 -- | The ARN of the latest version associated with the group.
-groupInformation_latestVersionArn :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
+groupInformation_latestVersionArn :: Lens.Lens' GroupInformation (Core.Maybe Core.Text)
 groupInformation_latestVersionArn = Lens.lens (\GroupInformation' {latestVersionArn} -> latestVersionArn) (\s@GroupInformation' {} a -> s {latestVersionArn = a} :: GroupInformation)
 
 -- | The ID of the latest version associated with the group.
-groupInformation_latestVersion :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
+groupInformation_latestVersion :: Lens.Lens' GroupInformation (Core.Maybe Core.Text)
 groupInformation_latestVersion = Lens.lens (\GroupInformation' {latestVersion} -> latestVersion) (\s@GroupInformation' {} a -> s {latestVersion = a} :: GroupInformation)
 
 -- | The ARN of the group.
-groupInformation_arn :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
+groupInformation_arn :: Lens.Lens' GroupInformation (Core.Maybe Core.Text)
 groupInformation_arn = Lens.lens (\GroupInformation' {arn} -> arn) (\s@GroupInformation' {} a -> s {arn = a} :: GroupInformation)
 
 -- | The ID of the group.
-groupInformation_id :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
+groupInformation_id :: Lens.Lens' GroupInformation (Core.Maybe Core.Text)
 groupInformation_id = Lens.lens (\GroupInformation' {id} -> id) (\s@GroupInformation' {} a -> s {id = a} :: GroupInformation)
 
 -- | The name of the group.
-groupInformation_name :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
+groupInformation_name :: Lens.Lens' GroupInformation (Core.Maybe Core.Text)
 groupInformation_name = Lens.lens (\GroupInformation' {name} -> name) (\s@GroupInformation' {} a -> s {name = a} :: GroupInformation)
 
 -- | The time, in milliseconds since the epoch, when the group was last
 -- updated.
-groupInformation_lastUpdatedTimestamp :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
+groupInformation_lastUpdatedTimestamp :: Lens.Lens' GroupInformation (Core.Maybe Core.Text)
 groupInformation_lastUpdatedTimestamp = Lens.lens (\GroupInformation' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GroupInformation' {} a -> s {lastUpdatedTimestamp = a} :: GroupInformation)
 
-instance Prelude.FromJSON GroupInformation where
+instance Core.FromJSON GroupInformation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GroupInformation"
       ( \x ->
           GroupInformation'
-            Prelude.<$> (x Prelude..:? "CreationTimestamp")
-            Prelude.<*> (x Prelude..:? "LatestVersionArn")
-            Prelude.<*> (x Prelude..:? "LatestVersion")
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "LastUpdatedTimestamp")
+            Core.<$> (x Core..:? "CreationTimestamp")
+            Core.<*> (x Core..:? "LatestVersionArn")
+            Core.<*> (x Core..:? "LatestVersion")
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 
-instance Prelude.Hashable GroupInformation
+instance Core.Hashable GroupInformation
 
-instance Prelude.NFData GroupInformation
+instance Core.NFData GroupInformation

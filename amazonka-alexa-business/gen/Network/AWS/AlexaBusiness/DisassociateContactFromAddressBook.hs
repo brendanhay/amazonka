@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,19 +40,19 @@ module Network.AWS.AlexaBusiness.DisassociateContactFromAddressBook
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateContactFromAddressBook' smart constructor.
 data DisassociateContactFromAddressBook = DisassociateContactFromAddressBook'
   { -- | The ARN of the contact to disassociate from an address book.
-    contactArn :: Prelude.Text,
+    contactArn :: Core.Text,
     -- | The ARN of the address from which to disassociate the contact.
-    addressBookArn :: Prelude.Text
+    addressBookArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateContactFromAddressBook' with all optional fields omitted.
@@ -68,9 +67,9 @@ data DisassociateContactFromAddressBook = DisassociateContactFromAddressBook'
 -- 'addressBookArn', 'disassociateContactFromAddressBook_addressBookArn' - The ARN of the address from which to disassociate the contact.
 newDisassociateContactFromAddressBook ::
   -- | 'contactArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'addressBookArn'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateContactFromAddressBook
 newDisassociateContactFromAddressBook
   pContactArn_
@@ -82,85 +81,82 @@ newDisassociateContactFromAddressBook
       }
 
 -- | The ARN of the contact to disassociate from an address book.
-disassociateContactFromAddressBook_contactArn :: Lens.Lens' DisassociateContactFromAddressBook Prelude.Text
+disassociateContactFromAddressBook_contactArn :: Lens.Lens' DisassociateContactFromAddressBook Core.Text
 disassociateContactFromAddressBook_contactArn = Lens.lens (\DisassociateContactFromAddressBook' {contactArn} -> contactArn) (\s@DisassociateContactFromAddressBook' {} a -> s {contactArn = a} :: DisassociateContactFromAddressBook)
 
 -- | The ARN of the address from which to disassociate the contact.
-disassociateContactFromAddressBook_addressBookArn :: Lens.Lens' DisassociateContactFromAddressBook Prelude.Text
+disassociateContactFromAddressBook_addressBookArn :: Lens.Lens' DisassociateContactFromAddressBook Core.Text
 disassociateContactFromAddressBook_addressBookArn = Lens.lens (\DisassociateContactFromAddressBook' {addressBookArn} -> addressBookArn) (\s@DisassociateContactFromAddressBook' {} a -> s {addressBookArn = a} :: DisassociateContactFromAddressBook)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateContactFromAddressBook
   where
   type
-    Rs DisassociateContactFromAddressBook =
+    AWSResponse DisassociateContactFromAddressBook =
       DisassociateContactFromAddressBookResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateContactFromAddressBookResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisassociateContactFromAddressBook
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateContactFromAddressBook
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisassociateContactFromAddressBook
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.DisassociateContactFromAddressBook" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.DisassociateContactFromAddressBook" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DisassociateContactFromAddressBook
   where
   toJSON DisassociateContactFromAddressBook' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ContactArn" Prelude..= contactArn),
-            Prelude.Just
-              ("AddressBookArn" Prelude..= addressBookArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ContactArn" Core..= contactArn),
+            Core.Just ("AddressBookArn" Core..= addressBookArn)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DisassociateContactFromAddressBook
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DisassociateContactFromAddressBook
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateContactFromAddressBookResponse' smart constructor.
 data DisassociateContactFromAddressBookResponse = DisassociateContactFromAddressBookResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateContactFromAddressBookResponse' with all optional fields omitted.
@@ -173,7 +169,7 @@ data DisassociateContactFromAddressBookResponse = DisassociateContactFromAddress
 -- 'httpStatus', 'disassociateContactFromAddressBookResponse_httpStatus' - The response's http status code.
 newDisassociateContactFromAddressBookResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateContactFromAddressBookResponse
 newDisassociateContactFromAddressBookResponse
   pHttpStatus_ =
@@ -183,9 +179,9 @@ newDisassociateContactFromAddressBookResponse
       }
 
 -- | The response's http status code.
-disassociateContactFromAddressBookResponse_httpStatus :: Lens.Lens' DisassociateContactFromAddressBookResponse Prelude.Int
+disassociateContactFromAddressBookResponse_httpStatus :: Lens.Lens' DisassociateContactFromAddressBookResponse Core.Int
 disassociateContactFromAddressBookResponse_httpStatus = Lens.lens (\DisassociateContactFromAddressBookResponse' {httpStatus} -> httpStatus) (\s@DisassociateContactFromAddressBookResponse' {} a -> s {httpStatus = a} :: DisassociateContactFromAddressBookResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateContactFromAddressBookResponse

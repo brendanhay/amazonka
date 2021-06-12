@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,8 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -68,7 +66,7 @@ import qualified Network.AWS.Response as Response
 data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
   { -- | The node type filter value. Specify this parameter to show only the
     -- available offerings matching the specified node type.
-    nodeType :: Prelude.Maybe Prelude.Text,
+    nodeType :: Core.Maybe Core.Text,
     -- | The version filter value. Specify this parameter to show only the
     -- available offerings matching the specified version.
     --
@@ -76,7 +74,7 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
     --
     -- Constraints: Must be one of the version returned from
     -- DescribeClusterVersions.
-    clusterVersion :: Prelude.Maybe Prelude.Text,
+    clusterVersion :: Core.Maybe Core.Text,
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a
     -- DescribeOrderableClusterOptions request exceed the value specified in
@@ -84,7 +82,7 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
     -- You can retrieve the next set of response records by providing the
     -- returned marker value in the @Marker@ parameter and retrying the
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -94,9 +92,9 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeOrderableClusterOptions' with all optional fields omitted.
@@ -139,15 +137,15 @@ newDescribeOrderableClusterOptions ::
 newDescribeOrderableClusterOptions =
   DescribeOrderableClusterOptions'
     { nodeType =
-        Prelude.Nothing,
-      clusterVersion = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      clusterVersion = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The node type filter value. Specify this parameter to show only the
 -- available offerings matching the specified node type.
-describeOrderableClusterOptions_nodeType :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Text)
+describeOrderableClusterOptions_nodeType :: Lens.Lens' DescribeOrderableClusterOptions (Core.Maybe Core.Text)
 describeOrderableClusterOptions_nodeType = Lens.lens (\DescribeOrderableClusterOptions' {nodeType} -> nodeType) (\s@DescribeOrderableClusterOptions' {} a -> s {nodeType = a} :: DescribeOrderableClusterOptions)
 
 -- | The version filter value. Specify this parameter to show only the
@@ -157,7 +155,7 @@ describeOrderableClusterOptions_nodeType = Lens.lens (\DescribeOrderableClusterO
 --
 -- Constraints: Must be one of the version returned from
 -- DescribeClusterVersions.
-describeOrderableClusterOptions_clusterVersion :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Text)
+describeOrderableClusterOptions_clusterVersion :: Lens.Lens' DescribeOrderableClusterOptions (Core.Maybe Core.Text)
 describeOrderableClusterOptions_clusterVersion = Lens.lens (\DescribeOrderableClusterOptions' {clusterVersion} -> clusterVersion) (\s@DescribeOrderableClusterOptions' {} a -> s {clusterVersion = a} :: DescribeOrderableClusterOptions)
 
 -- | An optional parameter that specifies the starting point to return a set
@@ -167,7 +165,7 @@ describeOrderableClusterOptions_clusterVersion = Lens.lens (\DescribeOrderableCl
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the @Marker@ parameter and retrying the
 -- request.
-describeOrderableClusterOptions_marker :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Text)
+describeOrderableClusterOptions_marker :: Lens.Lens' DescribeOrderableClusterOptions (Core.Maybe Core.Text)
 describeOrderableClusterOptions_marker = Lens.lens (\DescribeOrderableClusterOptions' {marker} -> marker) (\s@DescribeOrderableClusterOptions' {} a -> s {marker = a} :: DescribeOrderableClusterOptions)
 
 -- | The maximum number of response records to return in each call. If the
@@ -179,40 +177,40 @@ describeOrderableClusterOptions_marker = Lens.lens (\DescribeOrderableClusterOpt
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-describeOrderableClusterOptions_maxRecords :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Int)
+describeOrderableClusterOptions_maxRecords :: Lens.Lens' DescribeOrderableClusterOptions (Core.Maybe Core.Int)
 describeOrderableClusterOptions_maxRecords = Lens.lens (\DescribeOrderableClusterOptions' {maxRecords} -> maxRecords) (\s@DescribeOrderableClusterOptions' {} a -> s {maxRecords = a} :: DescribeOrderableClusterOptions)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeOrderableClusterOptions
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeOrderableClusterOptionsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeOrderableClusterOptionsResponse_orderableClusterOptions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeOrderableClusterOptions_marker
           Lens..~ rs
           Lens.^? describeOrderableClusterOptionsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeOrderableClusterOptions
   where
   type
-    Rs DescribeOrderableClusterOptions =
+    AWSResponse DescribeOrderableClusterOptions =
       DescribeOrderableClusterOptionsResponse
   request = Request.postQuery defaultService
   response =
@@ -220,51 +218,42 @@ instance
       "DescribeOrderableClusterOptionsResult"
       ( \s h x ->
           DescribeOrderableClusterOptionsResponse'
-            Prelude.<$> ( x Prelude..@? "OrderableClusterOptions"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "OrderableClusterOption")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "OrderableClusterOptions"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may
+                           (Core.parseXMLList "OrderableClusterOption")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeOrderableClusterOptions
 
-instance
-  Prelude.NFData
-    DescribeOrderableClusterOptions
+instance Core.NFData DescribeOrderableClusterOptions
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeOrderableClusterOptions
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DescribeOrderableClusterOptions
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeOrderableClusterOptions where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeOrderableClusterOptions
-  where
+instance Core.ToQuery DescribeOrderableClusterOptions where
   toQuery DescribeOrderableClusterOptions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeOrderableClusterOptions" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "NodeType" Prelude.=: nodeType,
-        "ClusterVersion" Prelude.=: clusterVersion,
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: ( "DescribeOrderableClusterOptions" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "NodeType" Core.=: nodeType,
+        "ClusterVersion" Core.=: clusterVersion,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Contains the output from the DescribeOrderableClusterOptions action.
@@ -273,18 +262,18 @@ instance
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'
   { -- | An @OrderableClusterOption@ structure containing information about
     -- orderable options for the cluster.
-    orderableClusterOptions :: Prelude.Maybe [OrderableClusterOption],
+    orderableClusterOptions :: Core.Maybe [OrderableClusterOption],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
     -- @Marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeOrderableClusterOptionsResponse' with all optional fields omitted.
@@ -307,21 +296,21 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
 -- 'httpStatus', 'describeOrderableClusterOptionsResponse_httpStatus' - The response's http status code.
 newDescribeOrderableClusterOptionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeOrderableClusterOptionsResponse
 newDescribeOrderableClusterOptionsResponse
   pHttpStatus_ =
     DescribeOrderableClusterOptionsResponse'
       { orderableClusterOptions =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+          Core.Nothing,
+        marker = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An @OrderableClusterOption@ structure containing information about
 -- orderable options for the cluster.
-describeOrderableClusterOptionsResponse_orderableClusterOptions :: Lens.Lens' DescribeOrderableClusterOptionsResponse (Prelude.Maybe [OrderableClusterOption])
-describeOrderableClusterOptionsResponse_orderableClusterOptions = Lens.lens (\DescribeOrderableClusterOptionsResponse' {orderableClusterOptions} -> orderableClusterOptions) (\s@DescribeOrderableClusterOptionsResponse' {} a -> s {orderableClusterOptions = a} :: DescribeOrderableClusterOptionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeOrderableClusterOptionsResponse_orderableClusterOptions :: Lens.Lens' DescribeOrderableClusterOptionsResponse (Core.Maybe [OrderableClusterOption])
+describeOrderableClusterOptionsResponse_orderableClusterOptions = Lens.lens (\DescribeOrderableClusterOptionsResponse' {orderableClusterOptions} -> orderableClusterOptions) (\s@DescribeOrderableClusterOptionsResponse' {} a -> s {orderableClusterOptions = a} :: DescribeOrderableClusterOptionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -329,13 +318,13 @@ describeOrderableClusterOptionsResponse_orderableClusterOptions = Lens.lens (\De
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-describeOrderableClusterOptionsResponse_marker :: Lens.Lens' DescribeOrderableClusterOptionsResponse (Prelude.Maybe Prelude.Text)
+describeOrderableClusterOptionsResponse_marker :: Lens.Lens' DescribeOrderableClusterOptionsResponse (Core.Maybe Core.Text)
 describeOrderableClusterOptionsResponse_marker = Lens.lens (\DescribeOrderableClusterOptionsResponse' {marker} -> marker) (\s@DescribeOrderableClusterOptionsResponse' {} a -> s {marker = a} :: DescribeOrderableClusterOptionsResponse)
 
 -- | The response's http status code.
-describeOrderableClusterOptionsResponse_httpStatus :: Lens.Lens' DescribeOrderableClusterOptionsResponse Prelude.Int
+describeOrderableClusterOptionsResponse_httpStatus :: Lens.Lens' DescribeOrderableClusterOptionsResponse Core.Int
 describeOrderableClusterOptionsResponse_httpStatus = Lens.lens (\DescribeOrderableClusterOptionsResponse' {httpStatus} -> httpStatus) (\s@DescribeOrderableClusterOptionsResponse' {} a -> s {httpStatus = a} :: DescribeOrderableClusterOptionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeOrderableClusterOptionsResponse

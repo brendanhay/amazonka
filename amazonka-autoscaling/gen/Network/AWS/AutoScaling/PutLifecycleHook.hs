@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -85,8 +84,8 @@ module Network.AWS.AutoScaling.PutLifecycleHook
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -98,7 +97,7 @@ data PutLifecycleHook = PutLifecycleHook'
     --
     -- Required for new lifecycle hooks, but optional when updating existing
     -- hooks.
-    roleARN :: Prelude.Maybe Prelude.Text,
+    roleARN :: Core.Maybe Core.Text,
     -- | The ARN of the notification target that Amazon EC2 Auto Scaling uses to
     -- notify you when an instance is in the transition state for the lifecycle
     -- hook. This target can be either an SQS queue or an SNS topic.
@@ -112,7 +111,7 @@ data PutLifecycleHook = PutLifecycleHook'
     -- When you specify a notification target, Amazon EC2 Auto Scaling sends it
     -- a test message. Test messages contain the following additional key-value
     -- pair: @\"Event\": \"autoscaling:TEST_NOTIFICATION\"@.
-    notificationTargetARN :: Prelude.Maybe Prelude.Text,
+    notificationTargetARN :: Core.Maybe Core.Text,
     -- | The instance state to which you want to attach the lifecycle hook. The
     -- valid values are:
     --
@@ -122,7 +121,7 @@ data PutLifecycleHook = PutLifecycleHook'
     --
     -- Required for new lifecycle hooks, but optional when updating existing
     -- hooks.
-    lifecycleTransition :: Prelude.Maybe Prelude.Text,
+    lifecycleTransition :: Core.Maybe Core.Text,
     -- | The maximum time, in seconds, that can elapse before the lifecycle hook
     -- times out. The range is from @30@ to @7200@ seconds. The default value
     -- is @3600@ seconds (1 hour).
@@ -131,20 +130,20 @@ data PutLifecycleHook = PutLifecycleHook'
     -- action that you specified in the @DefaultResult@ parameter. You can
     -- prevent the lifecycle hook from timing out by calling the
     -- RecordLifecycleActionHeartbeat API.
-    heartbeatTimeout :: Prelude.Maybe Prelude.Int,
+    heartbeatTimeout :: Core.Maybe Core.Int,
     -- | Additional information that you want to include any time Amazon EC2 Auto
     -- Scaling sends a message to the notification target.
-    notificationMetadata :: Prelude.Maybe Prelude.Text,
+    notificationMetadata :: Core.Maybe Core.Text,
     -- | Defines the action the Auto Scaling group should take when the lifecycle
     -- hook timeout elapses or if an unexpected failure occurs. This parameter
     -- can be either @CONTINUE@ or @ABANDON@. The default value is @ABANDON@.
-    defaultResult :: Prelude.Maybe Prelude.Text,
+    defaultResult :: Core.Maybe Core.Text,
     -- | The name of the lifecycle hook.
-    lifecycleHookName :: Prelude.Text,
+    lifecycleHookName :: Core.Text,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text
+    autoScalingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutLifecycleHook' with all optional fields omitted.
@@ -206,20 +205,20 @@ data PutLifecycleHook = PutLifecycleHook'
 -- 'autoScalingGroupName', 'putLifecycleHook_autoScalingGroupName' - The name of the Auto Scaling group.
 newPutLifecycleHook ::
   -- | 'lifecycleHookName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   PutLifecycleHook
 newPutLifecycleHook
   pLifecycleHookName_
   pAutoScalingGroupName_ =
     PutLifecycleHook'
-      { roleARN = Prelude.Nothing,
-        notificationTargetARN = Prelude.Nothing,
-        lifecycleTransition = Prelude.Nothing,
-        heartbeatTimeout = Prelude.Nothing,
-        notificationMetadata = Prelude.Nothing,
-        defaultResult = Prelude.Nothing,
+      { roleARN = Core.Nothing,
+        notificationTargetARN = Core.Nothing,
+        lifecycleTransition = Core.Nothing,
+        heartbeatTimeout = Core.Nothing,
+        notificationMetadata = Core.Nothing,
+        defaultResult = Core.Nothing,
         lifecycleHookName = pLifecycleHookName_,
         autoScalingGroupName = pAutoScalingGroupName_
       }
@@ -230,7 +229,7 @@ newPutLifecycleHook
 --
 -- Required for new lifecycle hooks, but optional when updating existing
 -- hooks.
-putLifecycleHook_roleARN :: Lens.Lens' PutLifecycleHook (Prelude.Maybe Prelude.Text)
+putLifecycleHook_roleARN :: Lens.Lens' PutLifecycleHook (Core.Maybe Core.Text)
 putLifecycleHook_roleARN = Lens.lens (\PutLifecycleHook' {roleARN} -> roleARN) (\s@PutLifecycleHook' {} a -> s {roleARN = a} :: PutLifecycleHook)
 
 -- | The ARN of the notification target that Amazon EC2 Auto Scaling uses to
@@ -246,7 +245,7 @@ putLifecycleHook_roleARN = Lens.lens (\PutLifecycleHook' {roleARN} -> roleARN) (
 -- When you specify a notification target, Amazon EC2 Auto Scaling sends it
 -- a test message. Test messages contain the following additional key-value
 -- pair: @\"Event\": \"autoscaling:TEST_NOTIFICATION\"@.
-putLifecycleHook_notificationTargetARN :: Lens.Lens' PutLifecycleHook (Prelude.Maybe Prelude.Text)
+putLifecycleHook_notificationTargetARN :: Lens.Lens' PutLifecycleHook (Core.Maybe Core.Text)
 putLifecycleHook_notificationTargetARN = Lens.lens (\PutLifecycleHook' {notificationTargetARN} -> notificationTargetARN) (\s@PutLifecycleHook' {} a -> s {notificationTargetARN = a} :: PutLifecycleHook)
 
 -- | The instance state to which you want to attach the lifecycle hook. The
@@ -258,7 +257,7 @@ putLifecycleHook_notificationTargetARN = Lens.lens (\PutLifecycleHook' {notifica
 --
 -- Required for new lifecycle hooks, but optional when updating existing
 -- hooks.
-putLifecycleHook_lifecycleTransition :: Lens.Lens' PutLifecycleHook (Prelude.Maybe Prelude.Text)
+putLifecycleHook_lifecycleTransition :: Lens.Lens' PutLifecycleHook (Core.Maybe Core.Text)
 putLifecycleHook_lifecycleTransition = Lens.lens (\PutLifecycleHook' {lifecycleTransition} -> lifecycleTransition) (\s@PutLifecycleHook' {} a -> s {lifecycleTransition = a} :: PutLifecycleHook)
 
 -- | The maximum time, in seconds, that can elapse before the lifecycle hook
@@ -269,75 +268,74 @@ putLifecycleHook_lifecycleTransition = Lens.lens (\PutLifecycleHook' {lifecycleT
 -- action that you specified in the @DefaultResult@ parameter. You can
 -- prevent the lifecycle hook from timing out by calling the
 -- RecordLifecycleActionHeartbeat API.
-putLifecycleHook_heartbeatTimeout :: Lens.Lens' PutLifecycleHook (Prelude.Maybe Prelude.Int)
+putLifecycleHook_heartbeatTimeout :: Lens.Lens' PutLifecycleHook (Core.Maybe Core.Int)
 putLifecycleHook_heartbeatTimeout = Lens.lens (\PutLifecycleHook' {heartbeatTimeout} -> heartbeatTimeout) (\s@PutLifecycleHook' {} a -> s {heartbeatTimeout = a} :: PutLifecycleHook)
 
 -- | Additional information that you want to include any time Amazon EC2 Auto
 -- Scaling sends a message to the notification target.
-putLifecycleHook_notificationMetadata :: Lens.Lens' PutLifecycleHook (Prelude.Maybe Prelude.Text)
+putLifecycleHook_notificationMetadata :: Lens.Lens' PutLifecycleHook (Core.Maybe Core.Text)
 putLifecycleHook_notificationMetadata = Lens.lens (\PutLifecycleHook' {notificationMetadata} -> notificationMetadata) (\s@PutLifecycleHook' {} a -> s {notificationMetadata = a} :: PutLifecycleHook)
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. This parameter
 -- can be either @CONTINUE@ or @ABANDON@. The default value is @ABANDON@.
-putLifecycleHook_defaultResult :: Lens.Lens' PutLifecycleHook (Prelude.Maybe Prelude.Text)
+putLifecycleHook_defaultResult :: Lens.Lens' PutLifecycleHook (Core.Maybe Core.Text)
 putLifecycleHook_defaultResult = Lens.lens (\PutLifecycleHook' {defaultResult} -> defaultResult) (\s@PutLifecycleHook' {} a -> s {defaultResult = a} :: PutLifecycleHook)
 
 -- | The name of the lifecycle hook.
-putLifecycleHook_lifecycleHookName :: Lens.Lens' PutLifecycleHook Prelude.Text
+putLifecycleHook_lifecycleHookName :: Lens.Lens' PutLifecycleHook Core.Text
 putLifecycleHook_lifecycleHookName = Lens.lens (\PutLifecycleHook' {lifecycleHookName} -> lifecycleHookName) (\s@PutLifecycleHook' {} a -> s {lifecycleHookName = a} :: PutLifecycleHook)
 
 -- | The name of the Auto Scaling group.
-putLifecycleHook_autoScalingGroupName :: Lens.Lens' PutLifecycleHook Prelude.Text
+putLifecycleHook_autoScalingGroupName :: Lens.Lens' PutLifecycleHook Core.Text
 putLifecycleHook_autoScalingGroupName = Lens.lens (\PutLifecycleHook' {autoScalingGroupName} -> autoScalingGroupName) (\s@PutLifecycleHook' {} a -> s {autoScalingGroupName = a} :: PutLifecycleHook)
 
-instance Prelude.AWSRequest PutLifecycleHook where
-  type Rs PutLifecycleHook = PutLifecycleHookResponse
+instance Core.AWSRequest PutLifecycleHook where
+  type
+    AWSResponse PutLifecycleHook =
+      PutLifecycleHookResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "PutLifecycleHookResult"
       ( \s h x ->
           PutLifecycleHookResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutLifecycleHook
+instance Core.Hashable PutLifecycleHook
 
-instance Prelude.NFData PutLifecycleHook
+instance Core.NFData PutLifecycleHook
 
-instance Prelude.ToHeaders PutLifecycleHook where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutLifecycleHook where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PutLifecycleHook where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutLifecycleHook where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutLifecycleHook where
+instance Core.ToQuery PutLifecycleHook where
   toQuery PutLifecycleHook' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("PutLifecycleHook" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "RoleARN" Prelude.=: roleARN,
+          Core.=: ("PutLifecycleHook" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "RoleARN" Core.=: roleARN,
         "NotificationTargetARN"
-          Prelude.=: notificationTargetARN,
-        "LifecycleTransition" Prelude.=: lifecycleTransition,
-        "HeartbeatTimeout" Prelude.=: heartbeatTimeout,
-        "NotificationMetadata"
-          Prelude.=: notificationMetadata,
-        "DefaultResult" Prelude.=: defaultResult,
-        "LifecycleHookName" Prelude.=: lifecycleHookName,
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName
+          Core.=: notificationTargetARN,
+        "LifecycleTransition" Core.=: lifecycleTransition,
+        "HeartbeatTimeout" Core.=: heartbeatTimeout,
+        "NotificationMetadata" Core.=: notificationMetadata,
+        "DefaultResult" Core.=: defaultResult,
+        "LifecycleHookName" Core.=: lifecycleHookName,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newPutLifecycleHookResponse' smart constructor.
 data PutLifecycleHookResponse = PutLifecycleHookResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutLifecycleHookResponse' with all optional fields omitted.
@@ -350,7 +348,7 @@ data PutLifecycleHookResponse = PutLifecycleHookResponse'
 -- 'httpStatus', 'putLifecycleHookResponse_httpStatus' - The response's http status code.
 newPutLifecycleHookResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutLifecycleHookResponse
 newPutLifecycleHookResponse pHttpStatus_ =
   PutLifecycleHookResponse'
@@ -359,7 +357,7 @@ newPutLifecycleHookResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putLifecycleHookResponse_httpStatus :: Lens.Lens' PutLifecycleHookResponse Prelude.Int
+putLifecycleHookResponse_httpStatus :: Lens.Lens' PutLifecycleHookResponse Core.Int
 putLifecycleHookResponse_httpStatus = Lens.lens (\PutLifecycleHookResponse' {httpStatus} -> httpStatus) (\s@PutLifecycleHookResponse' {} a -> s {httpStatus = a} :: PutLifecycleHookResponse)
 
-instance Prelude.NFData PutLifecycleHookResponse
+instance Core.NFData PutLifecycleHookResponse

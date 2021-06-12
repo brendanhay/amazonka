@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.EC2.DeleteTransitGatewayPeeringAttachment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ data DeleteTransitGatewayPeeringAttachment = DeleteTransitGatewayPeeringAttachme
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the transit gateway peering attachment.
-    transitGatewayAttachmentId :: Prelude.Text
+    transitGatewayAttachmentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTransitGatewayPeeringAttachment' with all optional fields omitted.
@@ -75,13 +74,13 @@ data DeleteTransitGatewayPeeringAttachment = DeleteTransitGatewayPeeringAttachme
 -- 'transitGatewayAttachmentId', 'deleteTransitGatewayPeeringAttachment_transitGatewayAttachmentId' - The ID of the transit gateway peering attachment.
 newDeleteTransitGatewayPeeringAttachment ::
   -- | 'transitGatewayAttachmentId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTransitGatewayPeeringAttachment
 newDeleteTransitGatewayPeeringAttachment
   pTransitGatewayAttachmentId_ =
     DeleteTransitGatewayPeeringAttachment'
       { dryRun =
-          Prelude.Nothing,
+          Core.Nothing,
         transitGatewayAttachmentId =
           pTransitGatewayAttachmentId_
       }
@@ -90,74 +89,74 @@ newDeleteTransitGatewayPeeringAttachment
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteTransitGatewayPeeringAttachment_dryRun :: Lens.Lens' DeleteTransitGatewayPeeringAttachment (Prelude.Maybe Prelude.Bool)
+deleteTransitGatewayPeeringAttachment_dryRun :: Lens.Lens' DeleteTransitGatewayPeeringAttachment (Core.Maybe Core.Bool)
 deleteTransitGatewayPeeringAttachment_dryRun = Lens.lens (\DeleteTransitGatewayPeeringAttachment' {dryRun} -> dryRun) (\s@DeleteTransitGatewayPeeringAttachment' {} a -> s {dryRun = a} :: DeleteTransitGatewayPeeringAttachment)
 
 -- | The ID of the transit gateway peering attachment.
-deleteTransitGatewayPeeringAttachment_transitGatewayAttachmentId :: Lens.Lens' DeleteTransitGatewayPeeringAttachment Prelude.Text
+deleteTransitGatewayPeeringAttachment_transitGatewayAttachmentId :: Lens.Lens' DeleteTransitGatewayPeeringAttachment Core.Text
 deleteTransitGatewayPeeringAttachment_transitGatewayAttachmentId = Lens.lens (\DeleteTransitGatewayPeeringAttachment' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@DeleteTransitGatewayPeeringAttachment' {} a -> s {transitGatewayAttachmentId = a} :: DeleteTransitGatewayPeeringAttachment)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteTransitGatewayPeeringAttachment
   where
   type
-    Rs DeleteTransitGatewayPeeringAttachment =
+    AWSResponse
+      DeleteTransitGatewayPeeringAttachment =
       DeleteTransitGatewayPeeringAttachmentResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteTransitGatewayPeeringAttachmentResponse'
-            Prelude.<$> (x Prelude..@? "transitGatewayPeeringAttachment")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "transitGatewayPeeringAttachment")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteTransitGatewayPeeringAttachment
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteTransitGatewayPeeringAttachment
 
 instance
-  Prelude.ToHeaders
-    DeleteTransitGatewayPeeringAttachment
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DeleteTransitGatewayPeeringAttachment
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DeleteTransitGatewayPeeringAttachment
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DeleteTransitGatewayPeeringAttachment
   where
   toQuery DeleteTransitGatewayPeeringAttachment' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteTransitGatewayPeeringAttachment" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
+          Core.=: ( "DeleteTransitGatewayPeeringAttachment" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
         "TransitGatewayAttachmentId"
-          Prelude.=: transitGatewayAttachmentId
+          Core.=: transitGatewayAttachmentId
       ]
 
 -- | /See:/ 'newDeleteTransitGatewayPeeringAttachmentResponse' smart constructor.
 data DeleteTransitGatewayPeeringAttachmentResponse = DeleteTransitGatewayPeeringAttachmentResponse'
   { -- | The transit gateway peering attachment.
-    transitGatewayPeeringAttachment :: Prelude.Maybe TransitGatewayPeeringAttachment,
+    transitGatewayPeeringAttachment :: Core.Maybe TransitGatewayPeeringAttachment,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTransitGatewayPeeringAttachmentResponse' with all optional fields omitted.
@@ -172,24 +171,24 @@ data DeleteTransitGatewayPeeringAttachmentResponse = DeleteTransitGatewayPeering
 -- 'httpStatus', 'deleteTransitGatewayPeeringAttachmentResponse_httpStatus' - The response's http status code.
 newDeleteTransitGatewayPeeringAttachmentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTransitGatewayPeeringAttachmentResponse
 newDeleteTransitGatewayPeeringAttachmentResponse
   pHttpStatus_ =
     DeleteTransitGatewayPeeringAttachmentResponse'
       { transitGatewayPeeringAttachment =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The transit gateway peering attachment.
-deleteTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment :: Lens.Lens' DeleteTransitGatewayPeeringAttachmentResponse (Prelude.Maybe TransitGatewayPeeringAttachment)
+deleteTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment :: Lens.Lens' DeleteTransitGatewayPeeringAttachmentResponse (Core.Maybe TransitGatewayPeeringAttachment)
 deleteTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment = Lens.lens (\DeleteTransitGatewayPeeringAttachmentResponse' {transitGatewayPeeringAttachment} -> transitGatewayPeeringAttachment) (\s@DeleteTransitGatewayPeeringAttachmentResponse' {} a -> s {transitGatewayPeeringAttachment = a} :: DeleteTransitGatewayPeeringAttachmentResponse)
 
 -- | The response's http status code.
-deleteTransitGatewayPeeringAttachmentResponse_httpStatus :: Lens.Lens' DeleteTransitGatewayPeeringAttachmentResponse Prelude.Int
+deleteTransitGatewayPeeringAttachmentResponse_httpStatus :: Lens.Lens' DeleteTransitGatewayPeeringAttachmentResponse Core.Int
 deleteTransitGatewayPeeringAttachmentResponse_httpStatus = Lens.lens (\DeleteTransitGatewayPeeringAttachmentResponse' {httpStatus} -> httpStatus) (\s@DeleteTransitGatewayPeeringAttachmentResponse' {} a -> s {httpStatus = a} :: DeleteTransitGatewayPeeringAttachmentResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteTransitGatewayPeeringAttachmentResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CodeCommit.BatchDisassociateApprovalRuleTemplateFromRepositor
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +52,15 @@ import qualified Network.AWS.Response as Response
 data BatchDisassociateApprovalRuleTemplateFromRepositories = BatchDisassociateApprovalRuleTemplateFromRepositories'
   { -- | The name of the template that you want to disassociate from one or more
     -- repositories.
-    approvalRuleTemplateName :: Prelude.Text,
+    approvalRuleTemplateName :: Core.Text,
     -- | The repository names that you want to disassociate from the approval
     -- rule template.
     --
     -- The length constraint limit is for each string in the array. The array
     -- itself can be empty.
-    repositoryNames :: [Prelude.Text]
+    repositoryNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDisassociateApprovalRuleTemplateFromRepositories' with all optional fields omitted.
@@ -81,7 +80,7 @@ data BatchDisassociateApprovalRuleTemplateFromRepositories = BatchDisassociateAp
 -- itself can be empty.
 newBatchDisassociateApprovalRuleTemplateFromRepositories ::
   -- | 'approvalRuleTemplateName'
-  Prelude.Text ->
+  Core.Text ->
   BatchDisassociateApprovalRuleTemplateFromRepositories
 newBatchDisassociateApprovalRuleTemplateFromRepositories
   pApprovalRuleTemplateName_ =
@@ -89,12 +88,12 @@ newBatchDisassociateApprovalRuleTemplateFromRepositories
       { approvalRuleTemplateName =
           pApprovalRuleTemplateName_,
         repositoryNames =
-          Prelude.mempty
+          Core.mempty
       }
 
 -- | The name of the template that you want to disassociate from one or more
 -- repositories.
-batchDisassociateApprovalRuleTemplateFromRepositories_approvalRuleTemplateName :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositories Prelude.Text
+batchDisassociateApprovalRuleTemplateFromRepositories_approvalRuleTemplateName :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositories Core.Text
 batchDisassociateApprovalRuleTemplateFromRepositories_approvalRuleTemplateName = Lens.lens (\BatchDisassociateApprovalRuleTemplateFromRepositories' {approvalRuleTemplateName} -> approvalRuleTemplateName) (\s@BatchDisassociateApprovalRuleTemplateFromRepositories' {} a -> s {approvalRuleTemplateName = a} :: BatchDisassociateApprovalRuleTemplateFromRepositories)
 
 -- | The repository names that you want to disassociate from the approval
@@ -102,15 +101,15 @@ batchDisassociateApprovalRuleTemplateFromRepositories_approvalRuleTemplateName =
 --
 -- The length constraint limit is for each string in the array. The array
 -- itself can be empty.
-batchDisassociateApprovalRuleTemplateFromRepositories_repositoryNames :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositories [Prelude.Text]
-batchDisassociateApprovalRuleTemplateFromRepositories_repositoryNames = Lens.lens (\BatchDisassociateApprovalRuleTemplateFromRepositories' {repositoryNames} -> repositoryNames) (\s@BatchDisassociateApprovalRuleTemplateFromRepositories' {} a -> s {repositoryNames = a} :: BatchDisassociateApprovalRuleTemplateFromRepositories) Prelude.. Prelude._Coerce
+batchDisassociateApprovalRuleTemplateFromRepositories_repositoryNames :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositories [Core.Text]
+batchDisassociateApprovalRuleTemplateFromRepositories_repositoryNames = Lens.lens (\BatchDisassociateApprovalRuleTemplateFromRepositories' {repositoryNames} -> repositoryNames) (\s@BatchDisassociateApprovalRuleTemplateFromRepositories' {} a -> s {repositoryNames = a} :: BatchDisassociateApprovalRuleTemplateFromRepositories) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     BatchDisassociateApprovalRuleTemplateFromRepositories
   where
   type
-    Rs
+    AWSResponse
       BatchDisassociateApprovalRuleTemplateFromRepositories =
       BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse
   request = Request.postJSON defaultService
@@ -118,80 +117,78 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Prelude..?> "disassociatedRepositoryNames"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Prelude..?> "errors" Prelude..!@ Prelude.mempty)
+            Core.<$> (Core.pure (Core.fromEnum s))
+              Core.<*> ( x Core..?> "disassociatedRepositoryNames"
+                           Core..!@ Core.mempty
+                       )
+              Core.<*> (x Core..?> "errors" Core..!@ Core.mempty)
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchDisassociateApprovalRuleTemplateFromRepositories
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchDisassociateApprovalRuleTemplateFromRepositories
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     BatchDisassociateApprovalRuleTemplateFromRepositories
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.BatchDisassociateApprovalRuleTemplateFromRepositories" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.BatchDisassociateApprovalRuleTemplateFromRepositories" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     BatchDisassociateApprovalRuleTemplateFromRepositories
   where
   toJSON
     BatchDisassociateApprovalRuleTemplateFromRepositories' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ Prelude.Just
+      Core.object
+        ( Core.catMaybes
+            [ Core.Just
                 ( "approvalRuleTemplateName"
-                    Prelude..= approvalRuleTemplateName
+                    Core..= approvalRuleTemplateName
                 ),
-              Prelude.Just
-                ("repositoryNames" Prelude..= repositoryNames)
+              Core.Just
+                ("repositoryNames" Core..= repositoryNames)
             ]
         )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     BatchDisassociateApprovalRuleTemplateFromRepositories
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     BatchDisassociateApprovalRuleTemplateFromRepositories
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' smart constructor.
 data BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse = BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of repository names that have had their association with the
     -- template removed.
-    disassociatedRepositoryNames :: [Prelude.Text],
+    disassociatedRepositoryNames :: [Core.Text],
     -- | A list of any errors that might have occurred while attempting to remove
     -- the association between the template and the repositories.
     errors :: [BatchDisassociateApprovalRuleTemplateFromRepositoriesError]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' with all optional fields omitted.
@@ -210,7 +207,7 @@ data BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse = BatchDisass
 -- the association between the template and the repositories.
 newBatchDisassociateApprovalRuleTemplateFromRepositoriesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse
 newBatchDisassociateApprovalRuleTemplateFromRepositoriesResponse
   pHttpStatus_ =
@@ -218,25 +215,25 @@ newBatchDisassociateApprovalRuleTemplateFromRepositoriesResponse
       { httpStatus =
           pHttpStatus_,
         disassociatedRepositoryNames =
-          Prelude.mempty,
+          Core.mempty,
         errors =
-          Prelude.mempty
+          Core.mempty
       }
 
 -- | The response's http status code.
-batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_httpStatus :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse Prelude.Int
+batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_httpStatus :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse Core.Int
 batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_httpStatus = Lens.lens (\BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {httpStatus} -> httpStatus) (\s@BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {} a -> s {httpStatus = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse)
 
 -- | A list of repository names that have had their association with the
 -- template removed.
-batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_disassociatedRepositoryNames :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse [Prelude.Text]
-batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_disassociatedRepositoryNames = Lens.lens (\BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {disassociatedRepositoryNames} -> disassociatedRepositoryNames) (\s@BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {} a -> s {disassociatedRepositoryNames = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse) Prelude.. Prelude._Coerce
+batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_disassociatedRepositoryNames :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse [Core.Text]
+batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_disassociatedRepositoryNames = Lens.lens (\BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {disassociatedRepositoryNames} -> disassociatedRepositoryNames) (\s@BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {} a -> s {disassociatedRepositoryNames = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse) Core.. Lens._Coerce
 
 -- | A list of any errors that might have occurred while attempting to remove
 -- the association between the template and the repositories.
 batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_errors :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse [BatchDisassociateApprovalRuleTemplateFromRepositoriesError]
-batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_errors = Lens.lens (\BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {errors} -> errors) (\s@BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {} a -> s {errors = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse) Prelude.. Prelude._Coerce
+batchDisassociateApprovalRuleTemplateFromRepositoriesResponse_errors = Lens.lens (\BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {errors} -> errors) (\s@BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {} a -> s {errors = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse

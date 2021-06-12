@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.StoppingCondition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a limit to how long a model training or compilation job can
 -- run. It also specifies how long you are willing to wait for a managed
@@ -52,14 +51,14 @@ data StoppingCondition = StoppingCondition'
     -- job can run. If job does not complete during this time, Amazon SageMaker
     -- ends the job. If value is not specified, default value is 1 day. The
     -- maximum value is 28 days.
-    maxRuntimeInSeconds :: Prelude.Maybe Prelude.Natural,
+    maxRuntimeInSeconds :: Core.Maybe Core.Natural,
     -- | The maximum length of time, in seconds, how long you are willing to wait
     -- for a managed spot training job to complete. It is the amount of time
     -- spent waiting for Spot capacity plus the amount of time the training job
     -- runs. It must be equal to or greater than @MaxRuntimeInSeconds@.
-    maxWaitTimeInSeconds :: Prelude.Maybe Prelude.Natural
+    maxWaitTimeInSeconds :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StoppingCondition' with all optional fields omitted.
@@ -83,45 +82,45 @@ newStoppingCondition ::
 newStoppingCondition =
   StoppingCondition'
     { maxRuntimeInSeconds =
-        Prelude.Nothing,
-      maxWaitTimeInSeconds = Prelude.Nothing
+        Core.Nothing,
+      maxWaitTimeInSeconds = Core.Nothing
     }
 
 -- | The maximum length of time, in seconds, that the training or compilation
 -- job can run. If job does not complete during this time, Amazon SageMaker
 -- ends the job. If value is not specified, default value is 1 day. The
 -- maximum value is 28 days.
-stoppingCondition_maxRuntimeInSeconds :: Lens.Lens' StoppingCondition (Prelude.Maybe Prelude.Natural)
+stoppingCondition_maxRuntimeInSeconds :: Lens.Lens' StoppingCondition (Core.Maybe Core.Natural)
 stoppingCondition_maxRuntimeInSeconds = Lens.lens (\StoppingCondition' {maxRuntimeInSeconds} -> maxRuntimeInSeconds) (\s@StoppingCondition' {} a -> s {maxRuntimeInSeconds = a} :: StoppingCondition)
 
 -- | The maximum length of time, in seconds, how long you are willing to wait
 -- for a managed spot training job to complete. It is the amount of time
 -- spent waiting for Spot capacity plus the amount of time the training job
 -- runs. It must be equal to or greater than @MaxRuntimeInSeconds@.
-stoppingCondition_maxWaitTimeInSeconds :: Lens.Lens' StoppingCondition (Prelude.Maybe Prelude.Natural)
+stoppingCondition_maxWaitTimeInSeconds :: Lens.Lens' StoppingCondition (Core.Maybe Core.Natural)
 stoppingCondition_maxWaitTimeInSeconds = Lens.lens (\StoppingCondition' {maxWaitTimeInSeconds} -> maxWaitTimeInSeconds) (\s@StoppingCondition' {} a -> s {maxWaitTimeInSeconds = a} :: StoppingCondition)
 
-instance Prelude.FromJSON StoppingCondition where
+instance Core.FromJSON StoppingCondition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StoppingCondition"
       ( \x ->
           StoppingCondition'
-            Prelude.<$> (x Prelude..:? "MaxRuntimeInSeconds")
-            Prelude.<*> (x Prelude..:? "MaxWaitTimeInSeconds")
+            Core.<$> (x Core..:? "MaxRuntimeInSeconds")
+            Core.<*> (x Core..:? "MaxWaitTimeInSeconds")
       )
 
-instance Prelude.Hashable StoppingCondition
+instance Core.Hashable StoppingCondition
 
-instance Prelude.NFData StoppingCondition
+instance Core.NFData StoppingCondition
 
-instance Prelude.ToJSON StoppingCondition where
+instance Core.ToJSON StoppingCondition where
   toJSON StoppingCondition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaxRuntimeInSeconds" Prelude..=)
-              Prelude.<$> maxRuntimeInSeconds,
-            ("MaxWaitTimeInSeconds" Prelude..=)
-              Prelude.<$> maxWaitTimeInSeconds
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxRuntimeInSeconds" Core..=)
+              Core.<$> maxRuntimeInSeconds,
+            ("MaxWaitTimeInSeconds" Core..=)
+              Core.<$> maxWaitTimeInSeconds
           ]
       )

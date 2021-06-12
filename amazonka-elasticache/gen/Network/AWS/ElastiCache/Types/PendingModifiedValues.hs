@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.PendingModifiedValues where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A group of settings that are applied to the cluster in the future, or
 -- that are currently being applied.
@@ -33,19 +32,19 @@ data PendingModifiedValues = PendingModifiedValues'
     --
     -- For clusters running Redis, this value must be 1. For clusters running
     -- Memcached, this value must be between 1 and 20.
-    numCacheNodes :: Prelude.Maybe Prelude.Int,
+    numCacheNodes :: Core.Maybe Core.Int,
     -- | A list of cache node IDs that are being removed (or will be removed)
     -- from the cluster. A node ID is a 4-digit numeric identifier (0001, 0002,
     -- etc.).
-    cacheNodeIdsToRemove :: Prelude.Maybe [Prelude.Text],
+    cacheNodeIdsToRemove :: Core.Maybe [Core.Text],
     -- | The auth token status
-    authTokenStatus :: Prelude.Maybe AuthTokenUpdateStatus,
+    authTokenStatus :: Core.Maybe AuthTokenUpdateStatus,
     -- | The new cache engine version that the cluster runs.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+    engineVersion :: Core.Maybe Core.Text,
     -- | The cache node type that this cluster or replication group is scaled to.
-    cacheNodeType :: Prelude.Maybe Prelude.Text
+    cacheNodeType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PendingModifiedValues' with all optional fields omitted.
@@ -74,50 +73,50 @@ newPendingModifiedValues ::
 newPendingModifiedValues =
   PendingModifiedValues'
     { numCacheNodes =
-        Prelude.Nothing,
-      cacheNodeIdsToRemove = Prelude.Nothing,
-      authTokenStatus = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      cacheNodeType = Prelude.Nothing
+        Core.Nothing,
+      cacheNodeIdsToRemove = Core.Nothing,
+      authTokenStatus = Core.Nothing,
+      engineVersion = Core.Nothing,
+      cacheNodeType = Core.Nothing
     }
 
 -- | The new number of cache nodes for the cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
 -- Memcached, this value must be between 1 and 20.
-pendingModifiedValues_numCacheNodes :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
+pendingModifiedValues_numCacheNodes :: Lens.Lens' PendingModifiedValues (Core.Maybe Core.Int)
 pendingModifiedValues_numCacheNodes = Lens.lens (\PendingModifiedValues' {numCacheNodes} -> numCacheNodes) (\s@PendingModifiedValues' {} a -> s {numCacheNodes = a} :: PendingModifiedValues)
 
 -- | A list of cache node IDs that are being removed (or will be removed)
 -- from the cluster. A node ID is a 4-digit numeric identifier (0001, 0002,
 -- etc.).
-pendingModifiedValues_cacheNodeIdsToRemove :: Lens.Lens' PendingModifiedValues (Prelude.Maybe [Prelude.Text])
-pendingModifiedValues_cacheNodeIdsToRemove = Lens.lens (\PendingModifiedValues' {cacheNodeIdsToRemove} -> cacheNodeIdsToRemove) (\s@PendingModifiedValues' {} a -> s {cacheNodeIdsToRemove = a} :: PendingModifiedValues) Prelude.. Lens.mapping Prelude._Coerce
+pendingModifiedValues_cacheNodeIdsToRemove :: Lens.Lens' PendingModifiedValues (Core.Maybe [Core.Text])
+pendingModifiedValues_cacheNodeIdsToRemove = Lens.lens (\PendingModifiedValues' {cacheNodeIdsToRemove} -> cacheNodeIdsToRemove) (\s@PendingModifiedValues' {} a -> s {cacheNodeIdsToRemove = a} :: PendingModifiedValues) Core.. Lens.mapping Lens._Coerce
 
 -- | The auth token status
-pendingModifiedValues_authTokenStatus :: Lens.Lens' PendingModifiedValues (Prelude.Maybe AuthTokenUpdateStatus)
+pendingModifiedValues_authTokenStatus :: Lens.Lens' PendingModifiedValues (Core.Maybe AuthTokenUpdateStatus)
 pendingModifiedValues_authTokenStatus = Lens.lens (\PendingModifiedValues' {authTokenStatus} -> authTokenStatus) (\s@PendingModifiedValues' {} a -> s {authTokenStatus = a} :: PendingModifiedValues)
 
 -- | The new cache engine version that the cluster runs.
-pendingModifiedValues_engineVersion :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
+pendingModifiedValues_engineVersion :: Lens.Lens' PendingModifiedValues (Core.Maybe Core.Text)
 pendingModifiedValues_engineVersion = Lens.lens (\PendingModifiedValues' {engineVersion} -> engineVersion) (\s@PendingModifiedValues' {} a -> s {engineVersion = a} :: PendingModifiedValues)
 
 -- | The cache node type that this cluster or replication group is scaled to.
-pendingModifiedValues_cacheNodeType :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
+pendingModifiedValues_cacheNodeType :: Lens.Lens' PendingModifiedValues (Core.Maybe Core.Text)
 pendingModifiedValues_cacheNodeType = Lens.lens (\PendingModifiedValues' {cacheNodeType} -> cacheNodeType) (\s@PendingModifiedValues' {} a -> s {cacheNodeType = a} :: PendingModifiedValues)
 
-instance Prelude.FromXML PendingModifiedValues where
+instance Core.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
-      Prelude.<$> (x Prelude..@? "NumCacheNodes")
-      Prelude.<*> ( x Prelude..@? "CacheNodeIdsToRemove"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "CacheNodeId")
-                  )
-      Prelude.<*> (x Prelude..@? "AuthTokenStatus")
-      Prelude.<*> (x Prelude..@? "EngineVersion")
-      Prelude.<*> (x Prelude..@? "CacheNodeType")
+      Core.<$> (x Core..@? "NumCacheNodes")
+      Core.<*> ( x Core..@? "CacheNodeIdsToRemove"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "CacheNodeId")
+               )
+      Core.<*> (x Core..@? "AuthTokenStatus")
+      Core.<*> (x Core..@? "EngineVersion")
+      Core.<*> (x Core..@? "CacheNodeType")
 
-instance Prelude.Hashable PendingModifiedValues
+instance Core.Hashable PendingModifiedValues
 
-instance Prelude.NFData PendingModifiedValues
+instance Core.NFData PendingModifiedValues

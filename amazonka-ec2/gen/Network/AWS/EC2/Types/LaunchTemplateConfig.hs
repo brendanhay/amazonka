@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
 import Network.AWS.EC2.Types.LaunchTemplateOverrides
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a launch template and overrides.
 --
 -- /See:/ 'newLaunchTemplateConfig' smart constructor.
 data LaunchTemplateConfig = LaunchTemplateConfig'
   { -- | The launch template.
-    launchTemplateSpecification :: Prelude.Maybe FleetLaunchTemplateSpecification,
+    launchTemplateSpecification :: Core.Maybe FleetLaunchTemplateSpecification,
     -- | Any parameters that you specify override the same parameters in the
     -- launch template.
-    overrides :: Prelude.Maybe [LaunchTemplateOverrides]
+    overrides :: Core.Maybe [LaunchTemplateOverrides]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateConfig' with all optional fields omitted.
@@ -55,38 +54,36 @@ newLaunchTemplateConfig ::
 newLaunchTemplateConfig =
   LaunchTemplateConfig'
     { launchTemplateSpecification =
-        Prelude.Nothing,
-      overrides = Prelude.Nothing
+        Core.Nothing,
+      overrides = Core.Nothing
     }
 
 -- | The launch template.
-launchTemplateConfig_launchTemplateSpecification :: Lens.Lens' LaunchTemplateConfig (Prelude.Maybe FleetLaunchTemplateSpecification)
+launchTemplateConfig_launchTemplateSpecification :: Lens.Lens' LaunchTemplateConfig (Core.Maybe FleetLaunchTemplateSpecification)
 launchTemplateConfig_launchTemplateSpecification = Lens.lens (\LaunchTemplateConfig' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplateConfig' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplateConfig)
 
 -- | Any parameters that you specify override the same parameters in the
 -- launch template.
-launchTemplateConfig_overrides :: Lens.Lens' LaunchTemplateConfig (Prelude.Maybe [LaunchTemplateOverrides])
-launchTemplateConfig_overrides = Lens.lens (\LaunchTemplateConfig' {overrides} -> overrides) (\s@LaunchTemplateConfig' {} a -> s {overrides = a} :: LaunchTemplateConfig) Prelude.. Lens.mapping Prelude._Coerce
+launchTemplateConfig_overrides :: Lens.Lens' LaunchTemplateConfig (Core.Maybe [LaunchTemplateOverrides])
+launchTemplateConfig_overrides = Lens.lens (\LaunchTemplateConfig' {overrides} -> overrides) (\s@LaunchTemplateConfig' {} a -> s {overrides = a} :: LaunchTemplateConfig) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML LaunchTemplateConfig where
+instance Core.FromXML LaunchTemplateConfig where
   parseXML x =
     LaunchTemplateConfig'
-      Prelude.<$> (x Prelude..@? "launchTemplateSpecification")
-      Prelude.<*> ( x Prelude..@? "overrides" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> (x Core..@? "launchTemplateSpecification")
+      Core.<*> ( x Core..@? "overrides" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable LaunchTemplateConfig
+instance Core.Hashable LaunchTemplateConfig
 
-instance Prelude.NFData LaunchTemplateConfig
+instance Core.NFData LaunchTemplateConfig
 
-instance Prelude.ToQuery LaunchTemplateConfig where
+instance Core.ToQuery LaunchTemplateConfig where
   toQuery LaunchTemplateConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "LaunchTemplateSpecification"
-          Prelude.=: launchTemplateSpecification,
-        Prelude.toQuery
-          ( Prelude.toQueryList "Overrides"
-              Prelude.<$> overrides
-          )
+          Core.=: launchTemplateSpecification,
+        Core.toQuery
+          (Core.toQueryList "Overrides" Core.<$> overrides)
       ]

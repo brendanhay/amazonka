@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.Lightsail.GetRelationalDatabaseLogEvents
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,7 +60,7 @@ data GetRelationalDatabaseLogEvents = GetRelationalDatabaseLogEvents'
     --
     -- For PostgreSQL, the default value of @false@ is the only option
     -- available.
-    startFromHead :: Prelude.Maybe Prelude.Bool,
+    startFromHead :: Core.Maybe Core.Bool,
     -- | The token to advance to the next or previous page of results from your
     -- request.
     --
@@ -69,7 +68,7 @@ data GetRelationalDatabaseLogEvents = GetRelationalDatabaseLogEvents'
     -- request. If your results are paginated, the response will return a next
     -- forward token and\/or next backward token that you can specify as the
     -- page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text,
+    pageToken :: Core.Maybe Core.Text,
     -- | The start of the time interval from which to get log events.
     --
     -- Constraints:
@@ -80,7 +79,7 @@ data GetRelationalDatabaseLogEvents = GetRelationalDatabaseLogEvents'
     --
     --     For example, if you wish to use a start time of October 1, 2018, at
     --     8 PM UTC, then you input @1538424000@ as the start time.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The end of the time interval from which to get log events.
     --
     -- Constraints:
@@ -91,16 +90,16 @@ data GetRelationalDatabaseLogEvents = GetRelationalDatabaseLogEvents'
     --
     --     For example, if you wish to use an end time of October 1, 2018, at 8
     --     PM UTC, then you input @1538424000@ as the end time.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The name of your database for which to get log events.
-    relationalDatabaseName :: Prelude.Text,
+    relationalDatabaseName :: Core.Text,
     -- | The name of the log stream.
     --
     -- Use the @get relational database log streams@ operation to get a list of
     -- available log streams.
-    logStreamName :: Prelude.Text
+    logStreamName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseLogEvents' with all optional fields omitted.
@@ -155,19 +154,19 @@ data GetRelationalDatabaseLogEvents = GetRelationalDatabaseLogEvents'
 -- available log streams.
 newGetRelationalDatabaseLogEvents ::
   -- | 'relationalDatabaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'logStreamName'
-  Prelude.Text ->
+  Core.Text ->
   GetRelationalDatabaseLogEvents
 newGetRelationalDatabaseLogEvents
   pRelationalDatabaseName_
   pLogStreamName_ =
     GetRelationalDatabaseLogEvents'
       { startFromHead =
-          Prelude.Nothing,
-        pageToken = Prelude.Nothing,
-        startTime = Prelude.Nothing,
-        endTime = Prelude.Nothing,
+          Core.Nothing,
+        pageToken = Core.Nothing,
+        startTime = Core.Nothing,
+        endTime = Core.Nothing,
         relationalDatabaseName =
           pRelationalDatabaseName_,
         logStreamName = pLogStreamName_
@@ -179,7 +178,7 @@ newGetRelationalDatabaseLogEvents
 --
 -- For PostgreSQL, the default value of @false@ is the only option
 -- available.
-getRelationalDatabaseLogEvents_startFromHead :: Lens.Lens' GetRelationalDatabaseLogEvents (Prelude.Maybe Prelude.Bool)
+getRelationalDatabaseLogEvents_startFromHead :: Lens.Lens' GetRelationalDatabaseLogEvents (Core.Maybe Core.Bool)
 getRelationalDatabaseLogEvents_startFromHead = Lens.lens (\GetRelationalDatabaseLogEvents' {startFromHead} -> startFromHead) (\s@GetRelationalDatabaseLogEvents' {} a -> s {startFromHead = a} :: GetRelationalDatabaseLogEvents)
 
 -- | The token to advance to the next or previous page of results from your
@@ -189,7 +188,7 @@ getRelationalDatabaseLogEvents_startFromHead = Lens.lens (\GetRelationalDatabase
 -- request. If your results are paginated, the response will return a next
 -- forward token and\/or next backward token that you can specify as the
 -- page token in a subsequent request.
-getRelationalDatabaseLogEvents_pageToken :: Lens.Lens' GetRelationalDatabaseLogEvents (Prelude.Maybe Prelude.Text)
+getRelationalDatabaseLogEvents_pageToken :: Lens.Lens' GetRelationalDatabaseLogEvents (Core.Maybe Core.Text)
 getRelationalDatabaseLogEvents_pageToken = Lens.lens (\GetRelationalDatabaseLogEvents' {pageToken} -> pageToken) (\s@GetRelationalDatabaseLogEvents' {} a -> s {pageToken = a} :: GetRelationalDatabaseLogEvents)
 
 -- | The start of the time interval from which to get log events.
@@ -202,8 +201,8 @@ getRelationalDatabaseLogEvents_pageToken = Lens.lens (\GetRelationalDatabaseLogE
 --
 --     For example, if you wish to use a start time of October 1, 2018, at
 --     8 PM UTC, then you input @1538424000@ as the start time.
-getRelationalDatabaseLogEvents_startTime :: Lens.Lens' GetRelationalDatabaseLogEvents (Prelude.Maybe Prelude.UTCTime)
-getRelationalDatabaseLogEvents_startTime = Lens.lens (\GetRelationalDatabaseLogEvents' {startTime} -> startTime) (\s@GetRelationalDatabaseLogEvents' {} a -> s {startTime = a} :: GetRelationalDatabaseLogEvents) Prelude.. Lens.mapping Prelude._Time
+getRelationalDatabaseLogEvents_startTime :: Lens.Lens' GetRelationalDatabaseLogEvents (Core.Maybe Core.UTCTime)
+getRelationalDatabaseLogEvents_startTime = Lens.lens (\GetRelationalDatabaseLogEvents' {startTime} -> startTime) (\s@GetRelationalDatabaseLogEvents' {} a -> s {startTime = a} :: GetRelationalDatabaseLogEvents) Core.. Lens.mapping Core._Time
 
 -- | The end of the time interval from which to get log events.
 --
@@ -215,114 +214,95 @@ getRelationalDatabaseLogEvents_startTime = Lens.lens (\GetRelationalDatabaseLogE
 --
 --     For example, if you wish to use an end time of October 1, 2018, at 8
 --     PM UTC, then you input @1538424000@ as the end time.
-getRelationalDatabaseLogEvents_endTime :: Lens.Lens' GetRelationalDatabaseLogEvents (Prelude.Maybe Prelude.UTCTime)
-getRelationalDatabaseLogEvents_endTime = Lens.lens (\GetRelationalDatabaseLogEvents' {endTime} -> endTime) (\s@GetRelationalDatabaseLogEvents' {} a -> s {endTime = a} :: GetRelationalDatabaseLogEvents) Prelude.. Lens.mapping Prelude._Time
+getRelationalDatabaseLogEvents_endTime :: Lens.Lens' GetRelationalDatabaseLogEvents (Core.Maybe Core.UTCTime)
+getRelationalDatabaseLogEvents_endTime = Lens.lens (\GetRelationalDatabaseLogEvents' {endTime} -> endTime) (\s@GetRelationalDatabaseLogEvents' {} a -> s {endTime = a} :: GetRelationalDatabaseLogEvents) Core.. Lens.mapping Core._Time
 
 -- | The name of your database for which to get log events.
-getRelationalDatabaseLogEvents_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseLogEvents Prelude.Text
+getRelationalDatabaseLogEvents_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseLogEvents Core.Text
 getRelationalDatabaseLogEvents_relationalDatabaseName = Lens.lens (\GetRelationalDatabaseLogEvents' {relationalDatabaseName} -> relationalDatabaseName) (\s@GetRelationalDatabaseLogEvents' {} a -> s {relationalDatabaseName = a} :: GetRelationalDatabaseLogEvents)
 
 -- | The name of the log stream.
 --
 -- Use the @get relational database log streams@ operation to get a list of
 -- available log streams.
-getRelationalDatabaseLogEvents_logStreamName :: Lens.Lens' GetRelationalDatabaseLogEvents Prelude.Text
+getRelationalDatabaseLogEvents_logStreamName :: Lens.Lens' GetRelationalDatabaseLogEvents Core.Text
 getRelationalDatabaseLogEvents_logStreamName = Lens.lens (\GetRelationalDatabaseLogEvents' {logStreamName} -> logStreamName) (\s@GetRelationalDatabaseLogEvents' {} a -> s {logStreamName = a} :: GetRelationalDatabaseLogEvents)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetRelationalDatabaseLogEvents
   where
   type
-    Rs GetRelationalDatabaseLogEvents =
+    AWSResponse GetRelationalDatabaseLogEvents =
       GetRelationalDatabaseLogEventsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseLogEventsResponse'
-            Prelude.<$> (x Prelude..?> "nextBackwardToken")
-            Prelude.<*> (x Prelude..?> "nextForwardToken")
-            Prelude.<*> ( x Prelude..?> "resourceLogEvents"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextBackwardToken")
+            Core.<*> (x Core..?> "nextForwardToken")
+            Core.<*> (x Core..?> "resourceLogEvents" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    GetRelationalDatabaseLogEvents
+instance Core.Hashable GetRelationalDatabaseLogEvents
+
+instance Core.NFData GetRelationalDatabaseLogEvents
 
 instance
-  Prelude.NFData
-    GetRelationalDatabaseLogEvents
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetRelationalDatabaseLogEvents
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetRelationalDatabaseLogEvents" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetRelationalDatabaseLogEvents" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    GetRelationalDatabaseLogEvents
-  where
+instance Core.ToJSON GetRelationalDatabaseLogEvents where
   toJSON GetRelationalDatabaseLogEvents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("startFromHead" Prelude..=)
-              Prelude.<$> startFromHead,
-            ("pageToken" Prelude..=) Prelude.<$> pageToken,
-            ("startTime" Prelude..=) Prelude.<$> startTime,
-            ("endTime" Prelude..=) Prelude.<$> endTime,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("startFromHead" Core..=) Core.<$> startFromHead,
+            ("pageToken" Core..=) Core.<$> pageToken,
+            ("startTime" Core..=) Core.<$> startTime,
+            ("endTime" Core..=) Core.<$> endTime,
+            Core.Just
               ( "relationalDatabaseName"
-                  Prelude..= relationalDatabaseName
+                  Core..= relationalDatabaseName
               ),
-            Prelude.Just
-              ("logStreamName" Prelude..= logStreamName)
+            Core.Just ("logStreamName" Core..= logStreamName)
           ]
       )
 
-instance
-  Prelude.ToPath
-    GetRelationalDatabaseLogEvents
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRelationalDatabaseLogEvents where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    GetRelationalDatabaseLogEvents
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRelationalDatabaseLogEvents where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseLogEventsResponse' smart constructor.
 data GetRelationalDatabaseLogEventsResponse = GetRelationalDatabaseLogEventsResponse'
   { -- | A token used for advancing to the previous page of results from your get
     -- relational database log events request.
-    nextBackwardToken :: Prelude.Maybe Prelude.Text,
+    nextBackwardToken :: Core.Maybe Core.Text,
     -- | A token used for advancing to the next page of results from your get
     -- relational database log events request.
-    nextForwardToken :: Prelude.Maybe Prelude.Text,
+    nextForwardToken :: Core.Maybe Core.Text,
     -- | An object describing the result of your get relational database log
     -- events request.
-    resourceLogEvents :: Prelude.Maybe [LogEvent],
+    resourceLogEvents :: Core.Maybe [LogEvent],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseLogEventsResponse' with all optional fields omitted.
@@ -344,37 +324,37 @@ data GetRelationalDatabaseLogEventsResponse = GetRelationalDatabaseLogEventsResp
 -- 'httpStatus', 'getRelationalDatabaseLogEventsResponse_httpStatus' - The response's http status code.
 newGetRelationalDatabaseLogEventsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRelationalDatabaseLogEventsResponse
 newGetRelationalDatabaseLogEventsResponse
   pHttpStatus_ =
     GetRelationalDatabaseLogEventsResponse'
       { nextBackwardToken =
-          Prelude.Nothing,
-        nextForwardToken = Prelude.Nothing,
-        resourceLogEvents = Prelude.Nothing,
+          Core.Nothing,
+        nextForwardToken = Core.Nothing,
+        resourceLogEvents = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A token used for advancing to the previous page of results from your get
 -- relational database log events request.
-getRelationalDatabaseLogEventsResponse_nextBackwardToken :: Lens.Lens' GetRelationalDatabaseLogEventsResponse (Prelude.Maybe Prelude.Text)
+getRelationalDatabaseLogEventsResponse_nextBackwardToken :: Lens.Lens' GetRelationalDatabaseLogEventsResponse (Core.Maybe Core.Text)
 getRelationalDatabaseLogEventsResponse_nextBackwardToken = Lens.lens (\GetRelationalDatabaseLogEventsResponse' {nextBackwardToken} -> nextBackwardToken) (\s@GetRelationalDatabaseLogEventsResponse' {} a -> s {nextBackwardToken = a} :: GetRelationalDatabaseLogEventsResponse)
 
 -- | A token used for advancing to the next page of results from your get
 -- relational database log events request.
-getRelationalDatabaseLogEventsResponse_nextForwardToken :: Lens.Lens' GetRelationalDatabaseLogEventsResponse (Prelude.Maybe Prelude.Text)
+getRelationalDatabaseLogEventsResponse_nextForwardToken :: Lens.Lens' GetRelationalDatabaseLogEventsResponse (Core.Maybe Core.Text)
 getRelationalDatabaseLogEventsResponse_nextForwardToken = Lens.lens (\GetRelationalDatabaseLogEventsResponse' {nextForwardToken} -> nextForwardToken) (\s@GetRelationalDatabaseLogEventsResponse' {} a -> s {nextForwardToken = a} :: GetRelationalDatabaseLogEventsResponse)
 
 -- | An object describing the result of your get relational database log
 -- events request.
-getRelationalDatabaseLogEventsResponse_resourceLogEvents :: Lens.Lens' GetRelationalDatabaseLogEventsResponse (Prelude.Maybe [LogEvent])
-getRelationalDatabaseLogEventsResponse_resourceLogEvents = Lens.lens (\GetRelationalDatabaseLogEventsResponse' {resourceLogEvents} -> resourceLogEvents) (\s@GetRelationalDatabaseLogEventsResponse' {} a -> s {resourceLogEvents = a} :: GetRelationalDatabaseLogEventsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getRelationalDatabaseLogEventsResponse_resourceLogEvents :: Lens.Lens' GetRelationalDatabaseLogEventsResponse (Core.Maybe [LogEvent])
+getRelationalDatabaseLogEventsResponse_resourceLogEvents = Lens.lens (\GetRelationalDatabaseLogEventsResponse' {resourceLogEvents} -> resourceLogEvents) (\s@GetRelationalDatabaseLogEventsResponse' {} a -> s {resourceLogEvents = a} :: GetRelationalDatabaseLogEventsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getRelationalDatabaseLogEventsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseLogEventsResponse Prelude.Int
+getRelationalDatabaseLogEventsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseLogEventsResponse Core.Int
 getRelationalDatabaseLogEventsResponse_httpStatus = Lens.lens (\GetRelationalDatabaseLogEventsResponse' {httpStatus} -> httpStatus) (\s@GetRelationalDatabaseLogEventsResponse' {} a -> s {httpStatus = a} :: GetRelationalDatabaseLogEventsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetRelationalDatabaseLogEventsResponse

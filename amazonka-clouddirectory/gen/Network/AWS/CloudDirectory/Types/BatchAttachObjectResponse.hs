@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchAttachObjectResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output batch AttachObject response operation.
 --
 -- /See:/ 'newBatchAttachObjectResponse' smart constructor.
 data BatchAttachObjectResponse = BatchAttachObjectResponse'
   { -- | The @ObjectIdentifier@ of the object that has been attached.
-    attachedObjectIdentifier :: Prelude.Maybe Prelude.Text
+    attachedObjectIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchAttachObjectResponse' with all optional fields omitted.
@@ -46,22 +45,22 @@ newBatchAttachObjectResponse ::
 newBatchAttachObjectResponse =
   BatchAttachObjectResponse'
     { attachedObjectIdentifier =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the object that has been attached.
-batchAttachObjectResponse_attachedObjectIdentifier :: Lens.Lens' BatchAttachObjectResponse (Prelude.Maybe Prelude.Text)
+batchAttachObjectResponse_attachedObjectIdentifier :: Lens.Lens' BatchAttachObjectResponse (Core.Maybe Core.Text)
 batchAttachObjectResponse_attachedObjectIdentifier = Lens.lens (\BatchAttachObjectResponse' {attachedObjectIdentifier} -> attachedObjectIdentifier) (\s@BatchAttachObjectResponse' {} a -> s {attachedObjectIdentifier = a} :: BatchAttachObjectResponse)
 
-instance Prelude.FromJSON BatchAttachObjectResponse where
+instance Core.FromJSON BatchAttachObjectResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchAttachObjectResponse"
       ( \x ->
           BatchAttachObjectResponse'
-            Prelude.<$> (x Prelude..:? "attachedObjectIdentifier")
+            Core.<$> (x Core..:? "attachedObjectIdentifier")
       )
 
-instance Prelude.Hashable BatchAttachObjectResponse
+instance Core.Hashable BatchAttachObjectResponse
 
-instance Prelude.NFData BatchAttachObjectResponse
+instance Core.NFData BatchAttachObjectResponse

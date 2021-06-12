@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.ShotSegment where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a shot detection segment detected in a video. For more
 -- information, see SegmentDetection.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ShotSegment = ShotSegment'
   { -- | The confidence that Amazon Rekognition Video has in the accuracy of the
     -- detected segment.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | An Identifier for a shot detection segment detected in a video.
-    index :: Prelude.Maybe Prelude.Natural
+    index :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ShotSegment' with all optional fields omitted.
@@ -52,29 +51,29 @@ newShotSegment ::
   ShotSegment
 newShotSegment =
   ShotSegment'
-    { confidence = Prelude.Nothing,
-      index = Prelude.Nothing
+    { confidence = Core.Nothing,
+      index = Core.Nothing
     }
 
 -- | The confidence that Amazon Rekognition Video has in the accuracy of the
 -- detected segment.
-shotSegment_confidence :: Lens.Lens' ShotSegment (Prelude.Maybe Prelude.Double)
+shotSegment_confidence :: Lens.Lens' ShotSegment (Core.Maybe Core.Double)
 shotSegment_confidence = Lens.lens (\ShotSegment' {confidence} -> confidence) (\s@ShotSegment' {} a -> s {confidence = a} :: ShotSegment)
 
 -- | An Identifier for a shot detection segment detected in a video.
-shotSegment_index :: Lens.Lens' ShotSegment (Prelude.Maybe Prelude.Natural)
+shotSegment_index :: Lens.Lens' ShotSegment (Core.Maybe Core.Natural)
 shotSegment_index = Lens.lens (\ShotSegment' {index} -> index) (\s@ShotSegment' {} a -> s {index = a} :: ShotSegment)
 
-instance Prelude.FromJSON ShotSegment where
+instance Core.FromJSON ShotSegment where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ShotSegment"
       ( \x ->
           ShotSegment'
-            Prelude.<$> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "Index")
+            Core.<$> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "Index")
       )
 
-instance Prelude.Hashable ShotSegment
+instance Core.Hashable ShotSegment
 
-instance Prelude.NFData ShotSegment
+instance Core.NFData ShotSegment

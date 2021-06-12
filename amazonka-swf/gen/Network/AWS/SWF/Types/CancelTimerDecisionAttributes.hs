@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.CancelTimerDecisionAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @CancelTimer@ decision.
 --
@@ -48,9 +47,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCancelTimerDecisionAttributes' smart constructor.
 data CancelTimerDecisionAttributes = CancelTimerDecisionAttributes'
   { -- | The unique ID of the timer to cancel.
-    timerId :: Prelude.Text
+    timerId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelTimerDecisionAttributes' with all optional fields omitted.
@@ -63,24 +62,22 @@ data CancelTimerDecisionAttributes = CancelTimerDecisionAttributes'
 -- 'timerId', 'cancelTimerDecisionAttributes_timerId' - The unique ID of the timer to cancel.
 newCancelTimerDecisionAttributes ::
   -- | 'timerId'
-  Prelude.Text ->
+  Core.Text ->
   CancelTimerDecisionAttributes
 newCancelTimerDecisionAttributes pTimerId_ =
   CancelTimerDecisionAttributes' {timerId = pTimerId_}
 
 -- | The unique ID of the timer to cancel.
-cancelTimerDecisionAttributes_timerId :: Lens.Lens' CancelTimerDecisionAttributes Prelude.Text
+cancelTimerDecisionAttributes_timerId :: Lens.Lens' CancelTimerDecisionAttributes Core.Text
 cancelTimerDecisionAttributes_timerId = Lens.lens (\CancelTimerDecisionAttributes' {timerId} -> timerId) (\s@CancelTimerDecisionAttributes' {} a -> s {timerId = a} :: CancelTimerDecisionAttributes)
 
-instance
-  Prelude.Hashable
-    CancelTimerDecisionAttributes
+instance Core.Hashable CancelTimerDecisionAttributes
 
-instance Prelude.NFData CancelTimerDecisionAttributes
+instance Core.NFData CancelTimerDecisionAttributes
 
-instance Prelude.ToJSON CancelTimerDecisionAttributes where
+instance Core.ToJSON CancelTimerDecisionAttributes where
   toJSON CancelTimerDecisionAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("timerId" Prelude..= timerId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("timerId" Core..= timerId)]
       )

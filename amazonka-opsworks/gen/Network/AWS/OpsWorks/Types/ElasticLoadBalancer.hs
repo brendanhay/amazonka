@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,34 +19,34 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.ElasticLoadBalancer where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Elastic Load Balancing instance.
 --
 -- /See:/ 'newElasticLoadBalancer' smart constructor.
 data ElasticLoadBalancer = ElasticLoadBalancer'
   { -- | A list of Availability Zones.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    availabilityZones :: Core.Maybe [Core.Text],
     -- | The ID of the stack that the instance is associated with.
-    stackId :: Prelude.Maybe Prelude.Text,
+    stackId :: Core.Maybe Core.Text,
     -- | The Elastic Load Balancing instance\'s name.
-    elasticLoadBalancerName :: Prelude.Maybe Prelude.Text,
+    elasticLoadBalancerName :: Core.Maybe Core.Text,
     -- | A list of subnet IDs, if the stack is running in a VPC.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
+    subnetIds :: Core.Maybe [Core.Text],
     -- | The instance\'s public DNS name.
-    dnsName :: Prelude.Maybe Prelude.Text,
+    dnsName :: Core.Maybe Core.Text,
     -- | The ID of the layer that the instance is attached to.
-    layerId :: Prelude.Maybe Prelude.Text,
+    layerId :: Core.Maybe Core.Text,
     -- | A list of the EC2 instances that the Elastic Load Balancing instance is
     -- managing traffic for.
-    ec2InstanceIds :: Prelude.Maybe [Prelude.Text],
+    ec2InstanceIds :: Core.Maybe [Core.Text],
     -- | The instance\'s AWS region.
-    region :: Prelude.Maybe Prelude.Text,
+    region :: Core.Maybe Core.Text,
     -- | The VPC ID.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ElasticLoadBalancer' with all optional fields omitted.
@@ -80,77 +79,71 @@ newElasticLoadBalancer ::
 newElasticLoadBalancer =
   ElasticLoadBalancer'
     { availabilityZones =
-        Prelude.Nothing,
-      stackId = Prelude.Nothing,
-      elasticLoadBalancerName = Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
-      dnsName = Prelude.Nothing,
-      layerId = Prelude.Nothing,
-      ec2InstanceIds = Prelude.Nothing,
-      region = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+        Core.Nothing,
+      stackId = Core.Nothing,
+      elasticLoadBalancerName = Core.Nothing,
+      subnetIds = Core.Nothing,
+      dnsName = Core.Nothing,
+      layerId = Core.Nothing,
+      ec2InstanceIds = Core.Nothing,
+      region = Core.Nothing,
+      vpcId = Core.Nothing
     }
 
 -- | A list of Availability Zones.
-elasticLoadBalancer_availabilityZones :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe [Prelude.Text])
-elasticLoadBalancer_availabilityZones = Lens.lens (\ElasticLoadBalancer' {availabilityZones} -> availabilityZones) (\s@ElasticLoadBalancer' {} a -> s {availabilityZones = a} :: ElasticLoadBalancer) Prelude.. Lens.mapping Prelude._Coerce
+elasticLoadBalancer_availabilityZones :: Lens.Lens' ElasticLoadBalancer (Core.Maybe [Core.Text])
+elasticLoadBalancer_availabilityZones = Lens.lens (\ElasticLoadBalancer' {availabilityZones} -> availabilityZones) (\s@ElasticLoadBalancer' {} a -> s {availabilityZones = a} :: ElasticLoadBalancer) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the stack that the instance is associated with.
-elasticLoadBalancer_stackId :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe Prelude.Text)
+elasticLoadBalancer_stackId :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Core.Text)
 elasticLoadBalancer_stackId = Lens.lens (\ElasticLoadBalancer' {stackId} -> stackId) (\s@ElasticLoadBalancer' {} a -> s {stackId = a} :: ElasticLoadBalancer)
 
 -- | The Elastic Load Balancing instance\'s name.
-elasticLoadBalancer_elasticLoadBalancerName :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe Prelude.Text)
+elasticLoadBalancer_elasticLoadBalancerName :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Core.Text)
 elasticLoadBalancer_elasticLoadBalancerName = Lens.lens (\ElasticLoadBalancer' {elasticLoadBalancerName} -> elasticLoadBalancerName) (\s@ElasticLoadBalancer' {} a -> s {elasticLoadBalancerName = a} :: ElasticLoadBalancer)
 
 -- | A list of subnet IDs, if the stack is running in a VPC.
-elasticLoadBalancer_subnetIds :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe [Prelude.Text])
-elasticLoadBalancer_subnetIds = Lens.lens (\ElasticLoadBalancer' {subnetIds} -> subnetIds) (\s@ElasticLoadBalancer' {} a -> s {subnetIds = a} :: ElasticLoadBalancer) Prelude.. Lens.mapping Prelude._Coerce
+elasticLoadBalancer_subnetIds :: Lens.Lens' ElasticLoadBalancer (Core.Maybe [Core.Text])
+elasticLoadBalancer_subnetIds = Lens.lens (\ElasticLoadBalancer' {subnetIds} -> subnetIds) (\s@ElasticLoadBalancer' {} a -> s {subnetIds = a} :: ElasticLoadBalancer) Core.. Lens.mapping Lens._Coerce
 
 -- | The instance\'s public DNS name.
-elasticLoadBalancer_dnsName :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe Prelude.Text)
+elasticLoadBalancer_dnsName :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Core.Text)
 elasticLoadBalancer_dnsName = Lens.lens (\ElasticLoadBalancer' {dnsName} -> dnsName) (\s@ElasticLoadBalancer' {} a -> s {dnsName = a} :: ElasticLoadBalancer)
 
 -- | The ID of the layer that the instance is attached to.
-elasticLoadBalancer_layerId :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe Prelude.Text)
+elasticLoadBalancer_layerId :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Core.Text)
 elasticLoadBalancer_layerId = Lens.lens (\ElasticLoadBalancer' {layerId} -> layerId) (\s@ElasticLoadBalancer' {} a -> s {layerId = a} :: ElasticLoadBalancer)
 
 -- | A list of the EC2 instances that the Elastic Load Balancing instance is
 -- managing traffic for.
-elasticLoadBalancer_ec2InstanceIds :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe [Prelude.Text])
-elasticLoadBalancer_ec2InstanceIds = Lens.lens (\ElasticLoadBalancer' {ec2InstanceIds} -> ec2InstanceIds) (\s@ElasticLoadBalancer' {} a -> s {ec2InstanceIds = a} :: ElasticLoadBalancer) Prelude.. Lens.mapping Prelude._Coerce
+elasticLoadBalancer_ec2InstanceIds :: Lens.Lens' ElasticLoadBalancer (Core.Maybe [Core.Text])
+elasticLoadBalancer_ec2InstanceIds = Lens.lens (\ElasticLoadBalancer' {ec2InstanceIds} -> ec2InstanceIds) (\s@ElasticLoadBalancer' {} a -> s {ec2InstanceIds = a} :: ElasticLoadBalancer) Core.. Lens.mapping Lens._Coerce
 
 -- | The instance\'s AWS region.
-elasticLoadBalancer_region :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe Prelude.Text)
+elasticLoadBalancer_region :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Core.Text)
 elasticLoadBalancer_region = Lens.lens (\ElasticLoadBalancer' {region} -> region) (\s@ElasticLoadBalancer' {} a -> s {region = a} :: ElasticLoadBalancer)
 
 -- | The VPC ID.
-elasticLoadBalancer_vpcId :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe Prelude.Text)
+elasticLoadBalancer_vpcId :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Core.Text)
 elasticLoadBalancer_vpcId = Lens.lens (\ElasticLoadBalancer' {vpcId} -> vpcId) (\s@ElasticLoadBalancer' {} a -> s {vpcId = a} :: ElasticLoadBalancer)
 
-instance Prelude.FromJSON ElasticLoadBalancer where
+instance Core.FromJSON ElasticLoadBalancer where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ElasticLoadBalancer"
       ( \x ->
           ElasticLoadBalancer'
-            Prelude.<$> ( x Prelude..:? "AvailabilityZones"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "StackId")
-            Prelude.<*> (x Prelude..:? "ElasticLoadBalancerName")
-            Prelude.<*> ( x Prelude..:? "SubnetIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "DnsName")
-            Prelude.<*> (x Prelude..:? "LayerId")
-            Prelude.<*> ( x Prelude..:? "Ec2InstanceIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Region")
-            Prelude.<*> (x Prelude..:? "VpcId")
+            Core.<$> (x Core..:? "AvailabilityZones" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "StackId")
+            Core.<*> (x Core..:? "ElasticLoadBalancerName")
+            Core.<*> (x Core..:? "SubnetIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "DnsName")
+            Core.<*> (x Core..:? "LayerId")
+            Core.<*> (x Core..:? "Ec2InstanceIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Region")
+            Core.<*> (x Core..:? "VpcId")
       )
 
-instance Prelude.Hashable ElasticLoadBalancer
+instance Core.Hashable ElasticLoadBalancer
 
-instance Prelude.NFData ElasticLoadBalancer
+instance Core.NFData ElasticLoadBalancer

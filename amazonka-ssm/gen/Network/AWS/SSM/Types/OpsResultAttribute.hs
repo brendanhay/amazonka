@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.OpsResultAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The OpsItem data type to return.
 --
@@ -30,9 +29,9 @@ data OpsResultAttribute = OpsResultAttribute'
   { -- | Name of the data type. Valid value: AWS:OpsItem,
     -- AWS:EC2InstanceInformation, AWS:OpsItemTrendline, or
     -- AWS:ComplianceSummary.
-    typeName :: Prelude.Text
+    typeName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OpsResultAttribute' with all optional fields omitted.
@@ -47,7 +46,7 @@ data OpsResultAttribute = OpsResultAttribute'
 -- AWS:ComplianceSummary.
 newOpsResultAttribute ::
   -- | 'typeName'
-  Prelude.Text ->
+  Core.Text ->
   OpsResultAttribute
 newOpsResultAttribute pTypeName_ =
   OpsResultAttribute' {typeName = pTypeName_}
@@ -55,16 +54,16 @@ newOpsResultAttribute pTypeName_ =
 -- | Name of the data type. Valid value: AWS:OpsItem,
 -- AWS:EC2InstanceInformation, AWS:OpsItemTrendline, or
 -- AWS:ComplianceSummary.
-opsResultAttribute_typeName :: Lens.Lens' OpsResultAttribute Prelude.Text
+opsResultAttribute_typeName :: Lens.Lens' OpsResultAttribute Core.Text
 opsResultAttribute_typeName = Lens.lens (\OpsResultAttribute' {typeName} -> typeName) (\s@OpsResultAttribute' {} a -> s {typeName = a} :: OpsResultAttribute)
 
-instance Prelude.Hashable OpsResultAttribute
+instance Core.Hashable OpsResultAttribute
 
-instance Prelude.NFData OpsResultAttribute
+instance Core.NFData OpsResultAttribute
 
-instance Prelude.ToJSON OpsResultAttribute where
+instance Core.ToJSON OpsResultAttribute where
   toJSON OpsResultAttribute' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TypeName" Prelude..= typeName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TypeName" Core..= typeName)]
       )

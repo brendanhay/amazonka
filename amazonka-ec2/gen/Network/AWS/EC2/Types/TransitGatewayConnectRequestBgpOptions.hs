@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TransitGatewayConnectRequestBgpOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The BGP options for the Connect attachment.
 --
 -- /See:/ 'newTransitGatewayConnectRequestBgpOptions' smart constructor.
 data TransitGatewayConnectRequestBgpOptions = TransitGatewayConnectRequestBgpOptions'
   { -- | The peer Autonomous System Number (ASN).
-    peerAsn :: Prelude.Maybe Prelude.Integer
+    peerAsn :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayConnectRequestBgpOptions' with all optional fields omitted.
@@ -47,24 +46,24 @@ newTransitGatewayConnectRequestBgpOptions ::
 newTransitGatewayConnectRequestBgpOptions =
   TransitGatewayConnectRequestBgpOptions'
     { peerAsn =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The peer Autonomous System Number (ASN).
-transitGatewayConnectRequestBgpOptions_peerAsn :: Lens.Lens' TransitGatewayConnectRequestBgpOptions (Prelude.Maybe Prelude.Integer)
+transitGatewayConnectRequestBgpOptions_peerAsn :: Lens.Lens' TransitGatewayConnectRequestBgpOptions (Core.Maybe Core.Integer)
 transitGatewayConnectRequestBgpOptions_peerAsn = Lens.lens (\TransitGatewayConnectRequestBgpOptions' {peerAsn} -> peerAsn) (\s@TransitGatewayConnectRequestBgpOptions' {} a -> s {peerAsn = a} :: TransitGatewayConnectRequestBgpOptions)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     TransitGatewayConnectRequestBgpOptions
 
 instance
-  Prelude.NFData
+  Core.NFData
     TransitGatewayConnectRequestBgpOptions
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     TransitGatewayConnectRequestBgpOptions
   where
   toQuery TransitGatewayConnectRequestBgpOptions' {..} =
-    Prelude.mconcat ["PeerAsn" Prelude.=: peerAsn]
+    Core.mconcat ["PeerAsn" Core.=: peerAsn]

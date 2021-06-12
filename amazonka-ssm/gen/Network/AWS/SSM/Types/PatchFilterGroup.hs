@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.PatchFilterGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.PatchFilter
 
 -- | A set of patch filters, typically used for approval rules.
@@ -31,7 +30,7 @@ data PatchFilterGroup = PatchFilterGroup'
   { -- | The set of patch filters that make up the group.
     patchFilters :: [PatchFilter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PatchFilterGroup' with all optional fields omitted.
@@ -45,32 +44,28 @@ data PatchFilterGroup = PatchFilterGroup'
 newPatchFilterGroup ::
   PatchFilterGroup
 newPatchFilterGroup =
-  PatchFilterGroup' {patchFilters = Prelude.mempty}
+  PatchFilterGroup' {patchFilters = Core.mempty}
 
 -- | The set of patch filters that make up the group.
 patchFilterGroup_patchFilters :: Lens.Lens' PatchFilterGroup [PatchFilter]
-patchFilterGroup_patchFilters = Lens.lens (\PatchFilterGroup' {patchFilters} -> patchFilters) (\s@PatchFilterGroup' {} a -> s {patchFilters = a} :: PatchFilterGroup) Prelude.. Prelude._Coerce
+patchFilterGroup_patchFilters = Lens.lens (\PatchFilterGroup' {patchFilters} -> patchFilters) (\s@PatchFilterGroup' {} a -> s {patchFilters = a} :: PatchFilterGroup) Core.. Lens._Coerce
 
-instance Prelude.FromJSON PatchFilterGroup where
+instance Core.FromJSON PatchFilterGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PatchFilterGroup"
       ( \x ->
           PatchFilterGroup'
-            Prelude.<$> ( x Prelude..:? "PatchFilters"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "PatchFilters" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable PatchFilterGroup
+instance Core.Hashable PatchFilterGroup
 
-instance Prelude.NFData PatchFilterGroup
+instance Core.NFData PatchFilterGroup
 
-instance Prelude.ToJSON PatchFilterGroup where
+instance Core.ToJSON PatchFilterGroup where
   toJSON PatchFilterGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("PatchFilters" Prelude..= patchFilters)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("PatchFilters" Core..= patchFilters)]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.Condition where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import Network.AWS.DynamoDB.Types.ComparisonOperator
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the selection criteria for a @Query@ or @Scan@ operation:
 --
@@ -55,7 +54,7 @@ data Condition = Condition'
     --
     -- For Binary, DynamoDB treats each byte of the binary data as unsigned
     -- when it compares binary values.
-    attributeValueList :: Prelude.Maybe [AttributeValue],
+    attributeValueList :: Core.Maybe [AttributeValue],
     -- | A comparator for evaluating attributes. For example, equals, greater
     -- than, less than, etc.
     --
@@ -209,7 +208,7 @@ data Condition = Condition'
     -- in the /Amazon DynamoDB Developer Guide/.
     comparisonOperator :: ComparisonOperator
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Condition' with all optional fields omitted.
@@ -390,7 +389,7 @@ newCondition ::
   Condition
 newCondition pComparisonOperator_ =
   Condition'
-    { attributeValueList = Prelude.Nothing,
+    { attributeValueList = Core.Nothing,
       comparisonOperator = pComparisonOperator_
     }
 
@@ -407,8 +406,8 @@ newCondition pComparisonOperator_ =
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned
 -- when it compares binary values.
-condition_attributeValueList :: Lens.Lens' Condition (Prelude.Maybe [AttributeValue])
-condition_attributeValueList = Lens.lens (\Condition' {attributeValueList} -> attributeValueList) (\s@Condition' {} a -> s {attributeValueList = a} :: Condition) Prelude.. Lens.mapping Prelude._Coerce
+condition_attributeValueList :: Lens.Lens' Condition (Core.Maybe [AttributeValue])
+condition_attributeValueList = Lens.lens (\Condition' {attributeValueList} -> attributeValueList) (\s@Condition' {} a -> s {attributeValueList = a} :: Condition) Core.. Lens.mapping Lens._Coerce
 
 -- | A comparator for evaluating attributes. For example, equals, greater
 -- than, less than, etc.
@@ -564,19 +563,17 @@ condition_attributeValueList = Lens.lens (\Condition' {attributeValueList} -> at
 condition_comparisonOperator :: Lens.Lens' Condition ComparisonOperator
 condition_comparisonOperator = Lens.lens (\Condition' {comparisonOperator} -> comparisonOperator) (\s@Condition' {} a -> s {comparisonOperator = a} :: Condition)
 
-instance Prelude.Hashable Condition
+instance Core.Hashable Condition
 
-instance Prelude.NFData Condition
+instance Core.NFData Condition
 
-instance Prelude.ToJSON Condition where
+instance Core.ToJSON Condition where
   toJSON Condition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AttributeValueList" Prelude..=)
-              Prelude.<$> attributeValueList,
-            Prelude.Just
-              ( "ComparisonOperator"
-                  Prelude..= comparisonOperator
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("AttributeValueList" Core..=)
+              Core.<$> attributeValueList,
+            Core.Just
+              ("ComparisonOperator" Core..= comparisonOperator)
           ]
       )

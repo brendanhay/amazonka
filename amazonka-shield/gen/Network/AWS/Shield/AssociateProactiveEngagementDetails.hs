@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.Shield.AssociateProactiveEngagementDetails
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -75,7 +74,7 @@ data AssociateProactiveEngagementDetails = AssociateProactiveEngagementDetails'
     -- then provide it here.
     emergencyContactList :: [EmergencyContact]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateProactiveEngagementDetails' with all optional fields omitted.
@@ -101,7 +100,7 @@ newAssociateProactiveEngagementDetails ::
 newAssociateProactiveEngagementDetails =
   AssociateProactiveEngagementDetails'
     { emergencyContactList =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | A list of email addresses and phone numbers that the DDoS Response Team
@@ -116,81 +115,79 @@ newAssociateProactiveEngagementDetails =
 -- them, retrieve the list using @DescribeEmergencyContactSettings@ and
 -- then provide it here.
 associateProactiveEngagementDetails_emergencyContactList :: Lens.Lens' AssociateProactiveEngagementDetails [EmergencyContact]
-associateProactiveEngagementDetails_emergencyContactList = Lens.lens (\AssociateProactiveEngagementDetails' {emergencyContactList} -> emergencyContactList) (\s@AssociateProactiveEngagementDetails' {} a -> s {emergencyContactList = a} :: AssociateProactiveEngagementDetails) Prelude.. Prelude._Coerce
+associateProactiveEngagementDetails_emergencyContactList = Lens.lens (\AssociateProactiveEngagementDetails' {emergencyContactList} -> emergencyContactList) (\s@AssociateProactiveEngagementDetails' {} a -> s {emergencyContactList = a} :: AssociateProactiveEngagementDetails) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AssociateProactiveEngagementDetails
   where
   type
-    Rs AssociateProactiveEngagementDetails =
+    AWSResponse AssociateProactiveEngagementDetails =
       AssociateProactiveEngagementDetailsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateProactiveEngagementDetailsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AssociateProactiveEngagementDetails
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateProactiveEngagementDetails
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     AssociateProactiveEngagementDetails
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.AssociateProactiveEngagementDetails" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.AssociateProactiveEngagementDetails" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     AssociateProactiveEngagementDetails
   where
   toJSON AssociateProactiveEngagementDetails' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "EmergencyContactList"
-                  Prelude..= emergencyContactList
+                  Core..= emergencyContactList
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     AssociateProactiveEngagementDetails
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     AssociateProactiveEngagementDetails
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateProactiveEngagementDetailsResponse' smart constructor.
 data AssociateProactiveEngagementDetailsResponse = AssociateProactiveEngagementDetailsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateProactiveEngagementDetailsResponse' with all optional fields omitted.
@@ -203,7 +200,7 @@ data AssociateProactiveEngagementDetailsResponse = AssociateProactiveEngagementD
 -- 'httpStatus', 'associateProactiveEngagementDetailsResponse_httpStatus' - The response's http status code.
 newAssociateProactiveEngagementDetailsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateProactiveEngagementDetailsResponse
 newAssociateProactiveEngagementDetailsResponse
   pHttpStatus_ =
@@ -213,9 +210,9 @@ newAssociateProactiveEngagementDetailsResponse
       }
 
 -- | The response's http status code.
-associateProactiveEngagementDetailsResponse_httpStatus :: Lens.Lens' AssociateProactiveEngagementDetailsResponse Prelude.Int
+associateProactiveEngagementDetailsResponse_httpStatus :: Lens.Lens' AssociateProactiveEngagementDetailsResponse Core.Int
 associateProactiveEngagementDetailsResponse_httpStatus = Lens.lens (\AssociateProactiveEngagementDetailsResponse' {httpStatus} -> httpStatus) (\s@AssociateProactiveEngagementDetailsResponse' {} a -> s {httpStatus = a} :: AssociateProactiveEngagementDetailsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateProactiveEngagementDetailsResponse

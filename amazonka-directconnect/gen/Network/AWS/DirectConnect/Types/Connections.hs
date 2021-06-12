@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,16 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types.Connections where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types.Connection
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newConnections' smart constructor.
 data Connections = Connections'
   { -- | The connections.
-    connections :: Prelude.Maybe [Connection]
+    connections :: Core.Maybe [Connection]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Connections' with all optional fields omitted.
@@ -43,23 +42,21 @@ data Connections = Connections'
 newConnections ::
   Connections
 newConnections =
-  Connections' {connections = Prelude.Nothing}
+  Connections' {connections = Core.Nothing}
 
 -- | The connections.
-connections_connections :: Lens.Lens' Connections (Prelude.Maybe [Connection])
-connections_connections = Lens.lens (\Connections' {connections} -> connections) (\s@Connections' {} a -> s {connections = a} :: Connections) Prelude.. Lens.mapping Prelude._Coerce
+connections_connections :: Lens.Lens' Connections (Core.Maybe [Connection])
+connections_connections = Lens.lens (\Connections' {connections} -> connections) (\s@Connections' {} a -> s {connections = a} :: Connections) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Connections where
+instance Core.FromJSON Connections where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Connections"
       ( \x ->
           Connections'
-            Prelude.<$> ( x Prelude..:? "connections"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "connections" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Connections
+instance Core.Hashable Connections
 
-instance Prelude.NFData Connections
+instance Core.NFData Connections

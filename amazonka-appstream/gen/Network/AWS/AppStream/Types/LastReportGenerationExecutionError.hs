@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AppStream.Types.LastReportGenerationExecutionError where
 
 import Network.AWS.AppStream.Types.UsageReportExecutionErrorCode
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the error that is returned when a usage report can\'t be
 -- generated.
@@ -31,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 data LastReportGenerationExecutionError = LastReportGenerationExecutionError'
   { -- | The error message for the error that is returned when a usage report
     -- can\'t be generated.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code for the error that is returned when a usage report can\'t
     -- be generated.
-    errorCode :: Prelude.Maybe UsageReportExecutionErrorCode
+    errorCode :: Core.Maybe UsageReportExecutionErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LastReportGenerationExecutionError' with all optional fields omitted.
@@ -56,37 +55,37 @@ newLastReportGenerationExecutionError ::
 newLastReportGenerationExecutionError =
   LastReportGenerationExecutionError'
     { errorMessage =
-        Prelude.Nothing,
-      errorCode = Prelude.Nothing
+        Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The error message for the error that is returned when a usage report
 -- can\'t be generated.
-lastReportGenerationExecutionError_errorMessage :: Lens.Lens' LastReportGenerationExecutionError (Prelude.Maybe Prelude.Text)
+lastReportGenerationExecutionError_errorMessage :: Lens.Lens' LastReportGenerationExecutionError (Core.Maybe Core.Text)
 lastReportGenerationExecutionError_errorMessage = Lens.lens (\LastReportGenerationExecutionError' {errorMessage} -> errorMessage) (\s@LastReportGenerationExecutionError' {} a -> s {errorMessage = a} :: LastReportGenerationExecutionError)
 
 -- | The error code for the error that is returned when a usage report can\'t
 -- be generated.
-lastReportGenerationExecutionError_errorCode :: Lens.Lens' LastReportGenerationExecutionError (Prelude.Maybe UsageReportExecutionErrorCode)
+lastReportGenerationExecutionError_errorCode :: Lens.Lens' LastReportGenerationExecutionError (Core.Maybe UsageReportExecutionErrorCode)
 lastReportGenerationExecutionError_errorCode = Lens.lens (\LastReportGenerationExecutionError' {errorCode} -> errorCode) (\s@LastReportGenerationExecutionError' {} a -> s {errorCode = a} :: LastReportGenerationExecutionError)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     LastReportGenerationExecutionError
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LastReportGenerationExecutionError"
       ( \x ->
           LastReportGenerationExecutionError'
-            Prelude.<$> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LastReportGenerationExecutionError
 
 instance
-  Prelude.NFData
+  Core.NFData
     LastReportGenerationExecutionError

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,22 +41,22 @@ module Network.AWS.Pinpoint.UpdateCampaign
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateCampaign' smart constructor.
 data UpdateCampaign = UpdateCampaign'
   { -- | The unique identifier for the campaign.
-    campaignId :: Prelude.Text,
+    campaignId :: Core.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     writeCampaignRequest :: WriteCampaignRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCampaign' with all optional fields omitted.
@@ -75,9 +74,9 @@ data UpdateCampaign = UpdateCampaign'
 -- 'writeCampaignRequest', 'updateCampaign_writeCampaignRequest' - Undocumented member.
 newUpdateCampaign ::
   -- | 'campaignId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'writeCampaignRequest'
   WriteCampaignRequest ->
   UpdateCampaign
@@ -92,74 +91,74 @@ newUpdateCampaign
       }
 
 -- | The unique identifier for the campaign.
-updateCampaign_campaignId :: Lens.Lens' UpdateCampaign Prelude.Text
+updateCampaign_campaignId :: Lens.Lens' UpdateCampaign Core.Text
 updateCampaign_campaignId = Lens.lens (\UpdateCampaign' {campaignId} -> campaignId) (\s@UpdateCampaign' {} a -> s {campaignId = a} :: UpdateCampaign)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateCampaign_applicationId :: Lens.Lens' UpdateCampaign Prelude.Text
+updateCampaign_applicationId :: Lens.Lens' UpdateCampaign Core.Text
 updateCampaign_applicationId = Lens.lens (\UpdateCampaign' {applicationId} -> applicationId) (\s@UpdateCampaign' {} a -> s {applicationId = a} :: UpdateCampaign)
 
 -- | Undocumented member.
 updateCampaign_writeCampaignRequest :: Lens.Lens' UpdateCampaign WriteCampaignRequest
 updateCampaign_writeCampaignRequest = Lens.lens (\UpdateCampaign' {writeCampaignRequest} -> writeCampaignRequest) (\s@UpdateCampaign' {} a -> s {writeCampaignRequest = a} :: UpdateCampaign)
 
-instance Prelude.AWSRequest UpdateCampaign where
-  type Rs UpdateCampaign = UpdateCampaignResponse
+instance Core.AWSRequest UpdateCampaign where
+  type
+    AWSResponse UpdateCampaign =
+      UpdateCampaignResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateCampaignResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateCampaign
+instance Core.Hashable UpdateCampaign
 
-instance Prelude.NFData UpdateCampaign
+instance Core.NFData UpdateCampaign
 
-instance Prelude.ToHeaders UpdateCampaign where
+instance Core.ToHeaders UpdateCampaign where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateCampaign where
+instance Core.ToJSON UpdateCampaign where
   toJSON UpdateCampaign' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "WriteCampaignRequest"
-                  Prelude..= writeCampaignRequest
+                  Core..= writeCampaignRequest
               )
           ]
       )
 
-instance Prelude.ToPath UpdateCampaign where
+instance Core.ToPath UpdateCampaign where
   toPath UpdateCampaign' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/campaigns/",
-        Prelude.toBS campaignId
+        Core.toBS campaignId
       ]
 
-instance Prelude.ToQuery UpdateCampaign where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateCampaign where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateCampaignResponse' smart constructor.
 data UpdateCampaignResponse = UpdateCampaignResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     campaignResponse :: CampaignResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCampaignResponse' with all optional fields omitted.
@@ -174,7 +173,7 @@ data UpdateCampaignResponse = UpdateCampaignResponse'
 -- 'campaignResponse', 'updateCampaignResponse_campaignResponse' - Undocumented member.
 newUpdateCampaignResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'campaignResponse'
   CampaignResponse ->
   UpdateCampaignResponse
@@ -187,11 +186,11 @@ newUpdateCampaignResponse
       }
 
 -- | The response's http status code.
-updateCampaignResponse_httpStatus :: Lens.Lens' UpdateCampaignResponse Prelude.Int
+updateCampaignResponse_httpStatus :: Lens.Lens' UpdateCampaignResponse Core.Int
 updateCampaignResponse_httpStatus = Lens.lens (\UpdateCampaignResponse' {httpStatus} -> httpStatus) (\s@UpdateCampaignResponse' {} a -> s {httpStatus = a} :: UpdateCampaignResponse)
 
 -- | Undocumented member.
 updateCampaignResponse_campaignResponse :: Lens.Lens' UpdateCampaignResponse CampaignResponse
 updateCampaignResponse_campaignResponse = Lens.lens (\UpdateCampaignResponse' {campaignResponse} -> campaignResponse) (\s@UpdateCampaignResponse' {} a -> s {campaignResponse = a} :: UpdateCampaignResponse)
 
-instance Prelude.NFData UpdateCampaignResponse
+instance Core.NFData UpdateCampaignResponse

@@ -17,6 +17,5 @@ module Network.AWS.CodeBuild.Waiters where
 
 import Network.AWS.CodeBuild.Lens
 import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter

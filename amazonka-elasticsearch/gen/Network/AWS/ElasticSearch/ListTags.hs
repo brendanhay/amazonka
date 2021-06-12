@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.ElasticSearch.ListTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +53,9 @@ import qualified Network.AWS.Response as Response
 data ListTags = ListTags'
   { -- | Specify the @ARN@ for the Elasticsearch domain to which the tags are
     -- attached that you want to view.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTags' with all optional fields omitted.
@@ -70,39 +69,39 @@ data ListTags = ListTags'
 -- attached that you want to view.
 newListTags ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   ListTags
 newListTags pARN_ = ListTags' {arn = pARN_}
 
 -- | Specify the @ARN@ for the Elasticsearch domain to which the tags are
 -- attached that you want to view.
-listTags_arn :: Lens.Lens' ListTags Prelude.Text
+listTags_arn :: Lens.Lens' ListTags Core.Text
 listTags_arn = Lens.lens (\ListTags' {arn} -> arn) (\s@ListTags' {} a -> s {arn = a} :: ListTags)
 
-instance Prelude.AWSRequest ListTags where
-  type Rs ListTags = ListTagsResponse
+instance Core.AWSRequest ListTags where
+  type AWSResponse ListTags = ListTagsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Prelude..?> "TagList" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TagList" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTags
+instance Core.Hashable ListTags
 
-instance Prelude.NFData ListTags
+instance Core.NFData ListTags
 
-instance Prelude.ToHeaders ListTags where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListTags where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListTags where
-  toPath = Prelude.const "/2015-01-01/tags/"
+instance Core.ToPath ListTags where
+  toPath = Core.const "/2015-01-01/tags/"
 
-instance Prelude.ToQuery ListTags where
+instance Core.ToQuery ListTags where
   toQuery ListTags' {..} =
-    Prelude.mconcat ["arn" Prelude.=: arn]
+    Core.mconcat ["arn" Core.=: arn]
 
 -- | The result of a @ListTags@ operation. Contains tags for all requested
 -- Elasticsearch domains.
@@ -110,11 +109,11 @@ instance Prelude.ToQuery ListTags where
 -- /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
   { -- | List of @Tag@ for the requested Elasticsearch domain.
-    tagList :: Prelude.Maybe [Tag],
+    tagList :: Core.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsResponse' with all optional fields omitted.
@@ -129,20 +128,20 @@ data ListTagsResponse = ListTagsResponse'
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { tagList = Prelude.Nothing,
+    { tagList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | List of @Tag@ for the requested Elasticsearch domain.
-listTagsResponse_tagList :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
-listTagsResponse_tagList = Lens.lens (\ListTagsResponse' {tagList} -> tagList) (\s@ListTagsResponse' {} a -> s {tagList = a} :: ListTagsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTagsResponse_tagList :: Lens.Lens' ListTagsResponse (Core.Maybe [Tag])
+listTagsResponse_tagList = Lens.lens (\ListTagsResponse' {tagList} -> tagList) (\s@ListTagsResponse' {} a -> s {tagList = a} :: ListTagsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
+listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Core.Int
 listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
-instance Prelude.NFData ListTagsResponse
+instance Core.NFData ListTagsResponse

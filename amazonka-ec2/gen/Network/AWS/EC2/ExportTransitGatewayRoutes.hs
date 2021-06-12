@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.EC2.ExportTransitGatewayRoutes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +61,7 @@ data ExportTransitGatewayRoutes = ExportTransitGatewayRoutes'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more filters. The possible values are:
     --
     -- -   @attachment.transit-gateway-attachment-id@ - The id of the transit
@@ -91,13 +90,13 @@ data ExportTransitGatewayRoutes = ExportTransitGatewayRoutes'
     -- -   @transit-gateway-route-destination-cidr-block@ - The CIDR range.
     --
     -- -   @type@ - The type of route (@propagated@ | @static@).
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | The ID of the route table.
-    transitGatewayRouteTableId :: Prelude.Text,
+    transitGatewayRouteTableId :: Core.Text,
     -- | The name of the S3 bucket.
-    s3Bucket :: Prelude.Text
+    s3Bucket :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportTransitGatewayRoutes' with all optional fields omitted.
@@ -146,17 +145,16 @@ data ExportTransitGatewayRoutes = ExportTransitGatewayRoutes'
 -- 's3Bucket', 'exportTransitGatewayRoutes_s3Bucket' - The name of the S3 bucket.
 newExportTransitGatewayRoutes ::
   -- | 'transitGatewayRouteTableId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 's3Bucket'
-  Prelude.Text ->
+  Core.Text ->
   ExportTransitGatewayRoutes
 newExportTransitGatewayRoutes
   pTransitGatewayRouteTableId_
   pS3Bucket_ =
     ExportTransitGatewayRoutes'
-      { dryRun =
-          Prelude.Nothing,
-        filters = Prelude.Nothing,
+      { dryRun = Core.Nothing,
+        filters = Core.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_,
         s3Bucket = pS3Bucket_
@@ -166,7 +164,7 @@ newExportTransitGatewayRoutes
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-exportTransitGatewayRoutes_dryRun :: Lens.Lens' ExportTransitGatewayRoutes (Prelude.Maybe Prelude.Bool)
+exportTransitGatewayRoutes_dryRun :: Lens.Lens' ExportTransitGatewayRoutes (Core.Maybe Core.Bool)
 exportTransitGatewayRoutes_dryRun = Lens.lens (\ExportTransitGatewayRoutes' {dryRun} -> dryRun) (\s@ExportTransitGatewayRoutes' {} a -> s {dryRun = a} :: ExportTransitGatewayRoutes)
 
 -- | One or more filters. The possible values are:
@@ -197,67 +195,63 @@ exportTransitGatewayRoutes_dryRun = Lens.lens (\ExportTransitGatewayRoutes' {dry
 -- -   @transit-gateway-route-destination-cidr-block@ - The CIDR range.
 --
 -- -   @type@ - The type of route (@propagated@ | @static@).
-exportTransitGatewayRoutes_filters :: Lens.Lens' ExportTransitGatewayRoutes (Prelude.Maybe [Filter])
-exportTransitGatewayRoutes_filters = Lens.lens (\ExportTransitGatewayRoutes' {filters} -> filters) (\s@ExportTransitGatewayRoutes' {} a -> s {filters = a} :: ExportTransitGatewayRoutes) Prelude.. Lens.mapping Prelude._Coerce
+exportTransitGatewayRoutes_filters :: Lens.Lens' ExportTransitGatewayRoutes (Core.Maybe [Filter])
+exportTransitGatewayRoutes_filters = Lens.lens (\ExportTransitGatewayRoutes' {filters} -> filters) (\s@ExportTransitGatewayRoutes' {} a -> s {filters = a} :: ExportTransitGatewayRoutes) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the route table.
-exportTransitGatewayRoutes_transitGatewayRouteTableId :: Lens.Lens' ExportTransitGatewayRoutes Prelude.Text
+exportTransitGatewayRoutes_transitGatewayRouteTableId :: Lens.Lens' ExportTransitGatewayRoutes Core.Text
 exportTransitGatewayRoutes_transitGatewayRouteTableId = Lens.lens (\ExportTransitGatewayRoutes' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@ExportTransitGatewayRoutes' {} a -> s {transitGatewayRouteTableId = a} :: ExportTransitGatewayRoutes)
 
 -- | The name of the S3 bucket.
-exportTransitGatewayRoutes_s3Bucket :: Lens.Lens' ExportTransitGatewayRoutes Prelude.Text
+exportTransitGatewayRoutes_s3Bucket :: Lens.Lens' ExportTransitGatewayRoutes Core.Text
 exportTransitGatewayRoutes_s3Bucket = Lens.lens (\ExportTransitGatewayRoutes' {s3Bucket} -> s3Bucket) (\s@ExportTransitGatewayRoutes' {} a -> s {s3Bucket = a} :: ExportTransitGatewayRoutes)
 
-instance
-  Prelude.AWSRequest
-    ExportTransitGatewayRoutes
-  where
+instance Core.AWSRequest ExportTransitGatewayRoutes where
   type
-    Rs ExportTransitGatewayRoutes =
+    AWSResponse ExportTransitGatewayRoutes =
       ExportTransitGatewayRoutesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ExportTransitGatewayRoutesResponse'
-            Prelude.<$> (x Prelude..@? "s3Location")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "s3Location")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ExportTransitGatewayRoutes
+instance Core.Hashable ExportTransitGatewayRoutes
 
-instance Prelude.NFData ExportTransitGatewayRoutes
+instance Core.NFData ExportTransitGatewayRoutes
 
-instance Prelude.ToHeaders ExportTransitGatewayRoutes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ExportTransitGatewayRoutes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ExportTransitGatewayRoutes where
-  toPath = Prelude.const "/"
+instance Core.ToPath ExportTransitGatewayRoutes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ExportTransitGatewayRoutes where
+instance Core.ToQuery ExportTransitGatewayRoutes where
   toQuery ExportTransitGatewayRoutes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ExportTransitGatewayRoutes" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters),
+          Core.=: ("ExportTransitGatewayRoutes" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters),
         "TransitGatewayRouteTableId"
-          Prelude.=: transitGatewayRouteTableId,
-        "S3Bucket" Prelude.=: s3Bucket
+          Core.=: transitGatewayRouteTableId,
+        "S3Bucket" Core.=: s3Bucket
       ]
 
 -- | /See:/ 'newExportTransitGatewayRoutesResponse' smart constructor.
 data ExportTransitGatewayRoutesResponse = ExportTransitGatewayRoutesResponse'
   { -- | The URL of the exported file in Amazon S3. For example,
     -- s3:\/\//bucket_name/\/VPCTransitGateway\/TransitGatewayRouteTables\//file_name/.
-    s3Location :: Prelude.Maybe Prelude.Text,
+    s3Location :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportTransitGatewayRoutesResponse' with all optional fields omitted.
@@ -273,24 +267,24 @@ data ExportTransitGatewayRoutesResponse = ExportTransitGatewayRoutesResponse'
 -- 'httpStatus', 'exportTransitGatewayRoutesResponse_httpStatus' - The response's http status code.
 newExportTransitGatewayRoutesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ExportTransitGatewayRoutesResponse
 newExportTransitGatewayRoutesResponse pHttpStatus_ =
   ExportTransitGatewayRoutesResponse'
     { s3Location =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The URL of the exported file in Amazon S3. For example,
 -- s3:\/\//bucket_name/\/VPCTransitGateway\/TransitGatewayRouteTables\//file_name/.
-exportTransitGatewayRoutesResponse_s3Location :: Lens.Lens' ExportTransitGatewayRoutesResponse (Prelude.Maybe Prelude.Text)
+exportTransitGatewayRoutesResponse_s3Location :: Lens.Lens' ExportTransitGatewayRoutesResponse (Core.Maybe Core.Text)
 exportTransitGatewayRoutesResponse_s3Location = Lens.lens (\ExportTransitGatewayRoutesResponse' {s3Location} -> s3Location) (\s@ExportTransitGatewayRoutesResponse' {} a -> s {s3Location = a} :: ExportTransitGatewayRoutesResponse)
 
 -- | The response's http status code.
-exportTransitGatewayRoutesResponse_httpStatus :: Lens.Lens' ExportTransitGatewayRoutesResponse Prelude.Int
+exportTransitGatewayRoutesResponse_httpStatus :: Lens.Lens' ExportTransitGatewayRoutesResponse Core.Int
 exportTransitGatewayRoutesResponse_httpStatus = Lens.lens (\ExportTransitGatewayRoutesResponse' {httpStatus} -> httpStatus) (\s@ExportTransitGatewayRoutesResponse' {} a -> s {httpStatus = a} :: ExportTransitGatewayRoutesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ExportTransitGatewayRoutesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.WorkSpaces.ImportWorkspaceImage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -58,7 +57,7 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newImportWorkspaceImage' smart constructor.
 data ImportWorkspaceImage = ImportWorkspaceImage'
   { -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | If specified, the version of Microsoft Office to subscribe to. Valid
     -- only for Windows 10 BYOL images. For more information about subscribing
     -- to Office for BYOL images, see
@@ -66,9 +65,9 @@ data ImportWorkspaceImage = ImportWorkspaceImage'
     --
     -- Although this parameter is an array, only one item is allowed at this
     -- time.
-    applications :: Prelude.Maybe (Prelude.NonEmpty Application),
+    applications :: Core.Maybe (Core.NonEmpty Application),
     -- | The identifier of the EC2 image.
-    ec2ImageId :: Prelude.Text,
+    ec2ImageId :: Core.Text,
     -- | The ingestion process to be used when importing the image, depending on
     -- which protocol you want to use for your BYOL Workspace image, either
     -- PCoIP or WorkSpaces Streaming Protocol (WSP). To use WSP, specify a
@@ -80,11 +79,11 @@ data ImportWorkspaceImage = ImportWorkspaceImage'
     -- the protocol.
     ingestionProcess :: WorkspaceImageIngestionProcess,
     -- | The name of the WorkSpace image.
-    imageName :: Prelude.Text,
+    imageName :: Core.Text,
     -- | The description of the WorkSpace image.
-    imageDescription :: Prelude.Text
+    imageDescription :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportWorkspaceImage' with all optional fields omitted.
@@ -121,13 +120,13 @@ data ImportWorkspaceImage = ImportWorkspaceImage'
 -- 'imageDescription', 'importWorkspaceImage_imageDescription' - The description of the WorkSpace image.
 newImportWorkspaceImage ::
   -- | 'ec2ImageId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ingestionProcess'
   WorkspaceImageIngestionProcess ->
   -- | 'imageName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'imageDescription'
-  Prelude.Text ->
+  Core.Text ->
   ImportWorkspaceImage
 newImportWorkspaceImage
   pEc2ImageId_
@@ -135,8 +134,8 @@ newImportWorkspaceImage
   pImageName_
   pImageDescription_ =
     ImportWorkspaceImage'
-      { tags = Prelude.Nothing,
-        applications = Prelude.Nothing,
+      { tags = Core.Nothing,
+        applications = Core.Nothing,
         ec2ImageId = pEc2ImageId_,
         ingestionProcess = pIngestionProcess_,
         imageName = pImageName_,
@@ -144,8 +143,8 @@ newImportWorkspaceImage
       }
 
 -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
-importWorkspaceImage_tags :: Lens.Lens' ImportWorkspaceImage (Prelude.Maybe [Tag])
-importWorkspaceImage_tags = Lens.lens (\ImportWorkspaceImage' {tags} -> tags) (\s@ImportWorkspaceImage' {} a -> s {tags = a} :: ImportWorkspaceImage) Prelude.. Lens.mapping Prelude._Coerce
+importWorkspaceImage_tags :: Lens.Lens' ImportWorkspaceImage (Core.Maybe [Tag])
+importWorkspaceImage_tags = Lens.lens (\ImportWorkspaceImage' {tags} -> tags) (\s@ImportWorkspaceImage' {} a -> s {tags = a} :: ImportWorkspaceImage) Core.. Lens.mapping Lens._Coerce
 
 -- | If specified, the version of Microsoft Office to subscribe to. Valid
 -- only for Windows 10 BYOL images. For more information about subscribing
@@ -154,11 +153,11 @@ importWorkspaceImage_tags = Lens.lens (\ImportWorkspaceImage' {tags} -> tags) (\
 --
 -- Although this parameter is an array, only one item is allowed at this
 -- time.
-importWorkspaceImage_applications :: Lens.Lens' ImportWorkspaceImage (Prelude.Maybe (Prelude.NonEmpty Application))
-importWorkspaceImage_applications = Lens.lens (\ImportWorkspaceImage' {applications} -> applications) (\s@ImportWorkspaceImage' {} a -> s {applications = a} :: ImportWorkspaceImage) Prelude.. Lens.mapping Prelude._Coerce
+importWorkspaceImage_applications :: Lens.Lens' ImportWorkspaceImage (Core.Maybe (Core.NonEmpty Application))
+importWorkspaceImage_applications = Lens.lens (\ImportWorkspaceImage' {applications} -> applications) (\s@ImportWorkspaceImage' {} a -> s {applications = a} :: ImportWorkspaceImage) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the EC2 image.
-importWorkspaceImage_ec2ImageId :: Lens.Lens' ImportWorkspaceImage Prelude.Text
+importWorkspaceImage_ec2ImageId :: Lens.Lens' ImportWorkspaceImage Core.Text
 importWorkspaceImage_ec2ImageId = Lens.lens (\ImportWorkspaceImage' {ec2ImageId} -> ec2ImageId) (\s@ImportWorkspaceImage' {} a -> s {ec2ImageId = a} :: ImportWorkspaceImage)
 
 -- | The ingestion process to be used when importing the image, depending on
@@ -174,74 +173,72 @@ importWorkspaceImage_ingestionProcess :: Lens.Lens' ImportWorkspaceImage Workspa
 importWorkspaceImage_ingestionProcess = Lens.lens (\ImportWorkspaceImage' {ingestionProcess} -> ingestionProcess) (\s@ImportWorkspaceImage' {} a -> s {ingestionProcess = a} :: ImportWorkspaceImage)
 
 -- | The name of the WorkSpace image.
-importWorkspaceImage_imageName :: Lens.Lens' ImportWorkspaceImage Prelude.Text
+importWorkspaceImage_imageName :: Lens.Lens' ImportWorkspaceImage Core.Text
 importWorkspaceImage_imageName = Lens.lens (\ImportWorkspaceImage' {imageName} -> imageName) (\s@ImportWorkspaceImage' {} a -> s {imageName = a} :: ImportWorkspaceImage)
 
 -- | The description of the WorkSpace image.
-importWorkspaceImage_imageDescription :: Lens.Lens' ImportWorkspaceImage Prelude.Text
+importWorkspaceImage_imageDescription :: Lens.Lens' ImportWorkspaceImage Core.Text
 importWorkspaceImage_imageDescription = Lens.lens (\ImportWorkspaceImage' {imageDescription} -> imageDescription) (\s@ImportWorkspaceImage' {} a -> s {imageDescription = a} :: ImportWorkspaceImage)
 
-instance Prelude.AWSRequest ImportWorkspaceImage where
+instance Core.AWSRequest ImportWorkspaceImage where
   type
-    Rs ImportWorkspaceImage =
+    AWSResponse ImportWorkspaceImage =
       ImportWorkspaceImageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ImportWorkspaceImageResponse'
-            Prelude.<$> (x Prelude..?> "ImageId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ImageId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ImportWorkspaceImage
+instance Core.Hashable ImportWorkspaceImage
 
-instance Prelude.NFData ImportWorkspaceImage
+instance Core.NFData ImportWorkspaceImage
 
-instance Prelude.ToHeaders ImportWorkspaceImage where
+instance Core.ToHeaders ImportWorkspaceImage where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.ImportWorkspaceImage" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.ImportWorkspaceImage" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ImportWorkspaceImage where
+instance Core.ToJSON ImportWorkspaceImage where
   toJSON ImportWorkspaceImage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Applications" Prelude..=) Prelude.<$> applications,
-            Prelude.Just ("Ec2ImageId" Prelude..= ec2ImageId),
-            Prelude.Just
-              ("IngestionProcess" Prelude..= ingestionProcess),
-            Prelude.Just ("ImageName" Prelude..= imageName),
-            Prelude.Just
-              ("ImageDescription" Prelude..= imageDescription)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            ("Applications" Core..=) Core.<$> applications,
+            Core.Just ("Ec2ImageId" Core..= ec2ImageId),
+            Core.Just
+              ("IngestionProcess" Core..= ingestionProcess),
+            Core.Just ("ImageName" Core..= imageName),
+            Core.Just
+              ("ImageDescription" Core..= imageDescription)
           ]
       )
 
-instance Prelude.ToPath ImportWorkspaceImage where
-  toPath = Prelude.const "/"
+instance Core.ToPath ImportWorkspaceImage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ImportWorkspaceImage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ImportWorkspaceImage where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newImportWorkspaceImageResponse' smart constructor.
 data ImportWorkspaceImageResponse = ImportWorkspaceImageResponse'
   { -- | The identifier of the WorkSpace image.
-    imageId :: Prelude.Maybe Prelude.Text,
+    imageId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportWorkspaceImageResponse' with all optional fields omitted.
@@ -256,21 +253,21 @@ data ImportWorkspaceImageResponse = ImportWorkspaceImageResponse'
 -- 'httpStatus', 'importWorkspaceImageResponse_httpStatus' - The response's http status code.
 newImportWorkspaceImageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ImportWorkspaceImageResponse
 newImportWorkspaceImageResponse pHttpStatus_ =
   ImportWorkspaceImageResponse'
     { imageId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the WorkSpace image.
-importWorkspaceImageResponse_imageId :: Lens.Lens' ImportWorkspaceImageResponse (Prelude.Maybe Prelude.Text)
+importWorkspaceImageResponse_imageId :: Lens.Lens' ImportWorkspaceImageResponse (Core.Maybe Core.Text)
 importWorkspaceImageResponse_imageId = Lens.lens (\ImportWorkspaceImageResponse' {imageId} -> imageId) (\s@ImportWorkspaceImageResponse' {} a -> s {imageId = a} :: ImportWorkspaceImageResponse)
 
 -- | The response's http status code.
-importWorkspaceImageResponse_httpStatus :: Lens.Lens' ImportWorkspaceImageResponse Prelude.Int
+importWorkspaceImageResponse_httpStatus :: Lens.Lens' ImportWorkspaceImageResponse Core.Int
 importWorkspaceImageResponse_httpStatus = Lens.lens (\ImportWorkspaceImageResponse' {httpStatus} -> httpStatus) (\s@ImportWorkspaceImageResponse' {} a -> s {httpStatus = a} :: ImportWorkspaceImageResponse)
 
-instance Prelude.NFData ImportWorkspaceImageResponse
+instance Core.NFData ImportWorkspaceImageResponse

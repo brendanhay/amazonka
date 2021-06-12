@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.ResponseTimeRootCauseEntity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A collection of segments and corresponding subsegments associated to a
 -- response time warning.
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResponseTimeRootCauseEntity' smart constructor.
 data ResponseTimeRootCauseEntity = ResponseTimeRootCauseEntity'
   { -- | A flag that denotes a remote subsegment.
-    remote :: Prelude.Maybe Prelude.Bool,
+    remote :: Core.Maybe Core.Bool,
     -- | The name of the entity.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The type and messages of the exceptions.
-    coverage :: Prelude.Maybe Prelude.Double
+    coverage :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResponseTimeRootCauseEntity' with all optional fields omitted.
@@ -54,35 +53,34 @@ newResponseTimeRootCauseEntity ::
   ResponseTimeRootCauseEntity
 newResponseTimeRootCauseEntity =
   ResponseTimeRootCauseEntity'
-    { remote =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      coverage = Prelude.Nothing
+    { remote = Core.Nothing,
+      name = Core.Nothing,
+      coverage = Core.Nothing
     }
 
 -- | A flag that denotes a remote subsegment.
-responseTimeRootCauseEntity_remote :: Lens.Lens' ResponseTimeRootCauseEntity (Prelude.Maybe Prelude.Bool)
+responseTimeRootCauseEntity_remote :: Lens.Lens' ResponseTimeRootCauseEntity (Core.Maybe Core.Bool)
 responseTimeRootCauseEntity_remote = Lens.lens (\ResponseTimeRootCauseEntity' {remote} -> remote) (\s@ResponseTimeRootCauseEntity' {} a -> s {remote = a} :: ResponseTimeRootCauseEntity)
 
 -- | The name of the entity.
-responseTimeRootCauseEntity_name :: Lens.Lens' ResponseTimeRootCauseEntity (Prelude.Maybe Prelude.Text)
+responseTimeRootCauseEntity_name :: Lens.Lens' ResponseTimeRootCauseEntity (Core.Maybe Core.Text)
 responseTimeRootCauseEntity_name = Lens.lens (\ResponseTimeRootCauseEntity' {name} -> name) (\s@ResponseTimeRootCauseEntity' {} a -> s {name = a} :: ResponseTimeRootCauseEntity)
 
 -- | The type and messages of the exceptions.
-responseTimeRootCauseEntity_coverage :: Lens.Lens' ResponseTimeRootCauseEntity (Prelude.Maybe Prelude.Double)
+responseTimeRootCauseEntity_coverage :: Lens.Lens' ResponseTimeRootCauseEntity (Core.Maybe Core.Double)
 responseTimeRootCauseEntity_coverage = Lens.lens (\ResponseTimeRootCauseEntity' {coverage} -> coverage) (\s@ResponseTimeRootCauseEntity' {} a -> s {coverage = a} :: ResponseTimeRootCauseEntity)
 
-instance Prelude.FromJSON ResponseTimeRootCauseEntity where
+instance Core.FromJSON ResponseTimeRootCauseEntity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResponseTimeRootCauseEntity"
       ( \x ->
           ResponseTimeRootCauseEntity'
-            Prelude.<$> (x Prelude..:? "Remote")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Coverage")
+            Core.<$> (x Core..:? "Remote")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Coverage")
       )
 
-instance Prelude.Hashable ResponseTimeRootCauseEntity
+instance Core.Hashable ResponseTimeRootCauseEntity
 
-instance Prelude.NFData ResponseTimeRootCauseEntity
+instance Core.NFData ResponseTimeRootCauseEntity

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.AgentFilter where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.AgentHealth
 import Network.AWS.Inspector.Types.AgentHealthCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector agent. This data type is
 -- used as a request parameter in the ListAssessmentRunAgents action.
@@ -38,7 +37,7 @@ data AgentFilter = AgentFilter'
     -- __UNKNOWN__.
     agentHealthCodes :: [AgentHealthCode]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AgentFilter' with all optional fields omitted.
@@ -58,32 +57,31 @@ newAgentFilter ::
   AgentFilter
 newAgentFilter =
   AgentFilter'
-    { agentHealths = Prelude.mempty,
-      agentHealthCodes = Prelude.mempty
+    { agentHealths = Core.mempty,
+      agentHealthCodes = Core.mempty
     }
 
 -- | The current health state of the agent. Values can be set to __HEALTHY__
 -- or __UNHEALTHY__.
 agentFilter_agentHealths :: Lens.Lens' AgentFilter [AgentHealth]
-agentFilter_agentHealths = Lens.lens (\AgentFilter' {agentHealths} -> agentHealths) (\s@AgentFilter' {} a -> s {agentHealths = a} :: AgentFilter) Prelude.. Prelude._Coerce
+agentFilter_agentHealths = Lens.lens (\AgentFilter' {agentHealths} -> agentHealths) (\s@AgentFilter' {} a -> s {agentHealths = a} :: AgentFilter) Core.. Lens._Coerce
 
 -- | The detailed health state of the agent. Values can be set to __IDLE__,
 -- __RUNNING__, __SHUTDOWN__, __UNHEALTHY__, __THROTTLED__, and
 -- __UNKNOWN__.
 agentFilter_agentHealthCodes :: Lens.Lens' AgentFilter [AgentHealthCode]
-agentFilter_agentHealthCodes = Lens.lens (\AgentFilter' {agentHealthCodes} -> agentHealthCodes) (\s@AgentFilter' {} a -> s {agentHealthCodes = a} :: AgentFilter) Prelude.. Prelude._Coerce
+agentFilter_agentHealthCodes = Lens.lens (\AgentFilter' {agentHealthCodes} -> agentHealthCodes) (\s@AgentFilter' {} a -> s {agentHealthCodes = a} :: AgentFilter) Core.. Lens._Coerce
 
-instance Prelude.Hashable AgentFilter
+instance Core.Hashable AgentFilter
 
-instance Prelude.NFData AgentFilter
+instance Core.NFData AgentFilter
 
-instance Prelude.ToJSON AgentFilter where
+instance Core.ToJSON AgentFilter where
   toJSON AgentFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("agentHealths" Prelude..= agentHealths),
-            Prelude.Just
-              ("agentHealthCodes" Prelude..= agentHealthCodes)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("agentHealths" Core..= agentHealths),
+            Core.Just
+              ("agentHealthCodes" Core..= agentHealthCodes)
           ]
       )

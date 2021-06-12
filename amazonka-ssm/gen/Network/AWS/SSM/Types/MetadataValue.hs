@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.MetadataValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata to assign to an Application Manager application.
 --
 -- /See:/ 'newMetadataValue' smart constructor.
 data MetadataValue = MetadataValue'
   { -- | Metadata value to assign to an Application Manager application.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetadataValue' with all optional fields omitted.
@@ -44,27 +43,23 @@ data MetadataValue = MetadataValue'
 newMetadataValue ::
   MetadataValue
 newMetadataValue =
-  MetadataValue' {value = Prelude.Nothing}
+  MetadataValue' {value = Core.Nothing}
 
 -- | Metadata value to assign to an Application Manager application.
-metadataValue_value :: Lens.Lens' MetadataValue (Prelude.Maybe Prelude.Text)
+metadataValue_value :: Lens.Lens' MetadataValue (Core.Maybe Core.Text)
 metadataValue_value = Lens.lens (\MetadataValue' {value} -> value) (\s@MetadataValue' {} a -> s {value = a} :: MetadataValue)
 
-instance Prelude.FromJSON MetadataValue where
+instance Core.FromJSON MetadataValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MetadataValue"
-      ( \x ->
-          MetadataValue' Prelude.<$> (x Prelude..:? "Value")
-      )
+      (\x -> MetadataValue' Core.<$> (x Core..:? "Value"))
 
-instance Prelude.Hashable MetadataValue
+instance Core.Hashable MetadataValue
 
-instance Prelude.NFData MetadataValue
+instance Core.NFData MetadataValue
 
-instance Prelude.ToJSON MetadataValue where
+instance Core.ToJSON MetadataValue where
   toJSON MetadataValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Value" Prelude..=) Prelude.<$> value]
-      )
+    Core.object
+      (Core.catMaybes [("Value" Core..=) Core.<$> value])

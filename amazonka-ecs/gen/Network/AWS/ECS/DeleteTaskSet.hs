@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.ECS.DeleteTaskSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,18 +56,18 @@ import qualified Network.AWS.Response as Response
 data DeleteTaskSet = DeleteTaskSet'
   { -- | If @true@, this allows you to delete a task set even if it hasn\'t been
     -- scaled down to zero.
-    force :: Prelude.Maybe Prelude.Bool,
+    force :: Core.Maybe Core.Bool,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the service that the task set exists in to delete.
-    cluster :: Prelude.Text,
+    cluster :: Core.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the service that
     -- hosts the task set to delete.
-    service :: Prelude.Text,
+    service :: Core.Text,
     -- | The task set ID or full Amazon Resource Name (ARN) of the task set to
     -- delete.
-    taskSet :: Prelude.Text
+    taskSet :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTaskSet' with all optional fields omitted.
@@ -91,15 +90,15 @@ data DeleteTaskSet = DeleteTaskSet'
 -- delete.
 newDeleteTaskSet ::
   -- | 'cluster'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'service'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'taskSet'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTaskSet
 newDeleteTaskSet pCluster_ pService_ pTaskSet_ =
   DeleteTaskSet'
-    { force = Prelude.Nothing,
+    { force = Core.Nothing,
       cluster = pCluster_,
       service = pService_,
       taskSet = pTaskSet_
@@ -107,78 +106,78 @@ newDeleteTaskSet pCluster_ pService_ pTaskSet_ =
 
 -- | If @true@, this allows you to delete a task set even if it hasn\'t been
 -- scaled down to zero.
-deleteTaskSet_force :: Lens.Lens' DeleteTaskSet (Prelude.Maybe Prelude.Bool)
+deleteTaskSet_force :: Lens.Lens' DeleteTaskSet (Core.Maybe Core.Bool)
 deleteTaskSet_force = Lens.lens (\DeleteTaskSet' {force} -> force) (\s@DeleteTaskSet' {} a -> s {force = a} :: DeleteTaskSet)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service that the task set exists in to delete.
-deleteTaskSet_cluster :: Lens.Lens' DeleteTaskSet Prelude.Text
+deleteTaskSet_cluster :: Lens.Lens' DeleteTaskSet Core.Text
 deleteTaskSet_cluster = Lens.lens (\DeleteTaskSet' {cluster} -> cluster) (\s@DeleteTaskSet' {} a -> s {cluster = a} :: DeleteTaskSet)
 
 -- | The short name or full Amazon Resource Name (ARN) of the service that
 -- hosts the task set to delete.
-deleteTaskSet_service :: Lens.Lens' DeleteTaskSet Prelude.Text
+deleteTaskSet_service :: Lens.Lens' DeleteTaskSet Core.Text
 deleteTaskSet_service = Lens.lens (\DeleteTaskSet' {service} -> service) (\s@DeleteTaskSet' {} a -> s {service = a} :: DeleteTaskSet)
 
 -- | The task set ID or full Amazon Resource Name (ARN) of the task set to
 -- delete.
-deleteTaskSet_taskSet :: Lens.Lens' DeleteTaskSet Prelude.Text
+deleteTaskSet_taskSet :: Lens.Lens' DeleteTaskSet Core.Text
 deleteTaskSet_taskSet = Lens.lens (\DeleteTaskSet' {taskSet} -> taskSet) (\s@DeleteTaskSet' {} a -> s {taskSet = a} :: DeleteTaskSet)
 
-instance Prelude.AWSRequest DeleteTaskSet where
-  type Rs DeleteTaskSet = DeleteTaskSetResponse
+instance Core.AWSRequest DeleteTaskSet where
+  type
+    AWSResponse DeleteTaskSet =
+      DeleteTaskSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteTaskSetResponse'
-            Prelude.<$> (x Prelude..?> "taskSet")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "taskSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTaskSet
+instance Core.Hashable DeleteTaskSet
 
-instance Prelude.NFData DeleteTaskSet
+instance Core.NFData DeleteTaskSet
 
-instance Prelude.ToHeaders DeleteTaskSet where
+instance Core.ToHeaders DeleteTaskSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.DeleteTaskSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.DeleteTaskSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteTaskSet where
+instance Core.ToJSON DeleteTaskSet where
   toJSON DeleteTaskSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("force" Prelude..=) Prelude.<$> force,
-            Prelude.Just ("cluster" Prelude..= cluster),
-            Prelude.Just ("service" Prelude..= service),
-            Prelude.Just ("taskSet" Prelude..= taskSet)
+    Core.object
+      ( Core.catMaybes
+          [ ("force" Core..=) Core.<$> force,
+            Core.Just ("cluster" Core..= cluster),
+            Core.Just ("service" Core..= service),
+            Core.Just ("taskSet" Core..= taskSet)
           ]
       )
 
-instance Prelude.ToPath DeleteTaskSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTaskSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTaskSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteTaskSet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteTaskSetResponse' smart constructor.
 data DeleteTaskSetResponse = DeleteTaskSetResponse'
-  { taskSet :: Prelude.Maybe TaskSet,
+  { taskSet :: Core.Maybe TaskSet,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTaskSetResponse' with all optional fields omitted.
@@ -193,20 +192,20 @@ data DeleteTaskSetResponse = DeleteTaskSetResponse'
 -- 'httpStatus', 'deleteTaskSetResponse_httpStatus' - The response's http status code.
 newDeleteTaskSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTaskSetResponse
 newDeleteTaskSetResponse pHttpStatus_ =
   DeleteTaskSetResponse'
-    { taskSet = Prelude.Nothing,
+    { taskSet = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteTaskSetResponse_taskSet :: Lens.Lens' DeleteTaskSetResponse (Prelude.Maybe TaskSet)
+deleteTaskSetResponse_taskSet :: Lens.Lens' DeleteTaskSetResponse (Core.Maybe TaskSet)
 deleteTaskSetResponse_taskSet = Lens.lens (\DeleteTaskSetResponse' {taskSet} -> taskSet) (\s@DeleteTaskSetResponse' {} a -> s {taskSet = a} :: DeleteTaskSetResponse)
 
 -- | The response's http status code.
-deleteTaskSetResponse_httpStatus :: Lens.Lens' DeleteTaskSetResponse Prelude.Int
+deleteTaskSetResponse_httpStatus :: Lens.Lens' DeleteTaskSetResponse Core.Int
 deleteTaskSetResponse_httpStatus = Lens.lens (\DeleteTaskSetResponse' {httpStatus} -> httpStatus) (\s@DeleteTaskSetResponse' {} a -> s {httpStatus = a} :: DeleteTaskSetResponse)
 
-instance Prelude.NFData DeleteTaskSetResponse
+instance Core.NFData DeleteTaskSetResponse

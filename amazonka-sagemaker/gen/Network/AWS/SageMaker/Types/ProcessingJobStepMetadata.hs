@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ProcessingJobStepMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata for a processing job step.
 --
 -- /See:/ 'newProcessingJobStepMetadata' smart constructor.
 data ProcessingJobStepMetadata = ProcessingJobStepMetadata'
   { -- | The Amazon Resource Name (ARN) of the processing job.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProcessingJobStepMetadata' with all optional fields omitted.
@@ -44,21 +43,21 @@ data ProcessingJobStepMetadata = ProcessingJobStepMetadata'
 newProcessingJobStepMetadata ::
   ProcessingJobStepMetadata
 newProcessingJobStepMetadata =
-  ProcessingJobStepMetadata' {arn = Prelude.Nothing}
+  ProcessingJobStepMetadata' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the processing job.
-processingJobStepMetadata_arn :: Lens.Lens' ProcessingJobStepMetadata (Prelude.Maybe Prelude.Text)
+processingJobStepMetadata_arn :: Lens.Lens' ProcessingJobStepMetadata (Core.Maybe Core.Text)
 processingJobStepMetadata_arn = Lens.lens (\ProcessingJobStepMetadata' {arn} -> arn) (\s@ProcessingJobStepMetadata' {} a -> s {arn = a} :: ProcessingJobStepMetadata)
 
-instance Prelude.FromJSON ProcessingJobStepMetadata where
+instance Core.FromJSON ProcessingJobStepMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProcessingJobStepMetadata"
       ( \x ->
           ProcessingJobStepMetadata'
-            Prelude.<$> (x Prelude..:? "Arn")
+            Core.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable ProcessingJobStepMetadata
+instance Core.Hashable ProcessingJobStepMetadata
 
-instance Prelude.NFData ProcessingJobStepMetadata
+instance Core.NFData ProcessingJobStepMetadata

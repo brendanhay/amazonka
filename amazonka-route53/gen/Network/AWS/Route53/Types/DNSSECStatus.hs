@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.DNSSECStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | A string repesenting the status of DNSSEC signing.
@@ -31,7 +30,7 @@ data DNSSECStatus = DNSSECStatus'
   { -- | The status message provided for the following DNSSEC signing status:
     -- @INTERNAL_FAILURE@. The status message includes information about what
     -- the problem might be and steps that you can take to correct the issue.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+    statusMessage :: Core.Maybe Core.Text,
     -- | A string that represents the current hosted zone signing status.
     --
     -- Status can have one of the following values:
@@ -57,9 +56,9 @@ data DNSSECStatus = DNSSECStatus'
     --     with DNSSEC signing, including with key-signing keys (KSKs), you
     --     must correct the problem by enabling or disabling DNSSEC signing for
     --     the hosted zone.
-    serveSignature :: Prelude.Maybe Prelude.Text
+    serveSignature :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DNSSECStatus' with all optional fields omitted.
@@ -102,14 +101,14 @@ newDNSSECStatus ::
   DNSSECStatus
 newDNSSECStatus =
   DNSSECStatus'
-    { statusMessage = Prelude.Nothing,
-      serveSignature = Prelude.Nothing
+    { statusMessage = Core.Nothing,
+      serveSignature = Core.Nothing
     }
 
 -- | The status message provided for the following DNSSEC signing status:
 -- @INTERNAL_FAILURE@. The status message includes information about what
 -- the problem might be and steps that you can take to correct the issue.
-dNSSECStatus_statusMessage :: Lens.Lens' DNSSECStatus (Prelude.Maybe Prelude.Text)
+dNSSECStatus_statusMessage :: Lens.Lens' DNSSECStatus (Core.Maybe Core.Text)
 dNSSECStatus_statusMessage = Lens.lens (\DNSSECStatus' {statusMessage} -> statusMessage) (\s@DNSSECStatus' {} a -> s {statusMessage = a} :: DNSSECStatus)
 
 -- | A string that represents the current hosted zone signing status.
@@ -137,15 +136,15 @@ dNSSECStatus_statusMessage = Lens.lens (\DNSSECStatus' {statusMessage} -> status
 --     with DNSSEC signing, including with key-signing keys (KSKs), you
 --     must correct the problem by enabling or disabling DNSSEC signing for
 --     the hosted zone.
-dNSSECStatus_serveSignature :: Lens.Lens' DNSSECStatus (Prelude.Maybe Prelude.Text)
+dNSSECStatus_serveSignature :: Lens.Lens' DNSSECStatus (Core.Maybe Core.Text)
 dNSSECStatus_serveSignature = Lens.lens (\DNSSECStatus' {serveSignature} -> serveSignature) (\s@DNSSECStatus' {} a -> s {serveSignature = a} :: DNSSECStatus)
 
-instance Prelude.FromXML DNSSECStatus where
+instance Core.FromXML DNSSECStatus where
   parseXML x =
     DNSSECStatus'
-      Prelude.<$> (x Prelude..@? "StatusMessage")
-      Prelude.<*> (x Prelude..@? "ServeSignature")
+      Core.<$> (x Core..@? "StatusMessage")
+      Core.<*> (x Core..@? "ServeSignature")
 
-instance Prelude.Hashable DNSSECStatus
+instance Core.Hashable DNSSECStatus
 
-instance Prelude.NFData DNSSECStatus
+instance Core.NFData DNSSECStatus

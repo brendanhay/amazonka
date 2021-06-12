@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.RegexMatchSet where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.RegexMatchTuple
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -55,7 +54,7 @@ data RegexMatchSet = RegexMatchSet'
     --
     -- @RegexMatchSetId@ is returned by CreateRegexMatchSet and by
     -- ListRegexMatchSets.
-    regexMatchSetId :: Prelude.Maybe Prelude.Text,
+    regexMatchSetId :: Core.Maybe Core.Text,
     -- | Contains an array of RegexMatchTuple objects. Each @RegexMatchTuple@
     -- object contains:
     --
@@ -68,12 +67,12 @@ data RegexMatchSet = RegexMatchSet'
     -- -   Whether to perform any conversions on the request, such as
     --     converting it to lowercase, before inspecting it for the specified
     --     string.
-    regexMatchTuples :: Prelude.Maybe [RegexMatchTuple],
+    regexMatchTuples :: Core.Maybe [RegexMatchTuple],
     -- | A friendly name or description of the RegexMatchSet. You can\'t change
     -- @Name@ after you create a @RegexMatchSet@.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegexMatchSet' with all optional fields omitted.
@@ -112,9 +111,9 @@ newRegexMatchSet ::
   RegexMatchSet
 newRegexMatchSet =
   RegexMatchSet'
-    { regexMatchSetId = Prelude.Nothing,
-      regexMatchTuples = Prelude.Nothing,
-      name = Prelude.Nothing
+    { regexMatchSetId = Core.Nothing,
+      regexMatchTuples = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The @RegexMatchSetId@ for a @RegexMatchSet@. You use @RegexMatchSetId@
@@ -126,7 +125,7 @@ newRegexMatchSet =
 --
 -- @RegexMatchSetId@ is returned by CreateRegexMatchSet and by
 -- ListRegexMatchSets.
-regexMatchSet_regexMatchSetId :: Lens.Lens' RegexMatchSet (Prelude.Maybe Prelude.Text)
+regexMatchSet_regexMatchSetId :: Lens.Lens' RegexMatchSet (Core.Maybe Core.Text)
 regexMatchSet_regexMatchSetId = Lens.lens (\RegexMatchSet' {regexMatchSetId} -> regexMatchSetId) (\s@RegexMatchSet' {} a -> s {regexMatchSetId = a} :: RegexMatchSet)
 
 -- | Contains an array of RegexMatchTuple objects. Each @RegexMatchTuple@
@@ -141,27 +140,25 @@ regexMatchSet_regexMatchSetId = Lens.lens (\RegexMatchSet' {regexMatchSetId} -> 
 -- -   Whether to perform any conversions on the request, such as
 --     converting it to lowercase, before inspecting it for the specified
 --     string.
-regexMatchSet_regexMatchTuples :: Lens.Lens' RegexMatchSet (Prelude.Maybe [RegexMatchTuple])
-regexMatchSet_regexMatchTuples = Lens.lens (\RegexMatchSet' {regexMatchTuples} -> regexMatchTuples) (\s@RegexMatchSet' {} a -> s {regexMatchTuples = a} :: RegexMatchSet) Prelude.. Lens.mapping Prelude._Coerce
+regexMatchSet_regexMatchTuples :: Lens.Lens' RegexMatchSet (Core.Maybe [RegexMatchTuple])
+regexMatchSet_regexMatchTuples = Lens.lens (\RegexMatchSet' {regexMatchTuples} -> regexMatchTuples) (\s@RegexMatchSet' {} a -> s {regexMatchTuples = a} :: RegexMatchSet) Core.. Lens.mapping Lens._Coerce
 
 -- | A friendly name or description of the RegexMatchSet. You can\'t change
 -- @Name@ after you create a @RegexMatchSet@.
-regexMatchSet_name :: Lens.Lens' RegexMatchSet (Prelude.Maybe Prelude.Text)
+regexMatchSet_name :: Lens.Lens' RegexMatchSet (Core.Maybe Core.Text)
 regexMatchSet_name = Lens.lens (\RegexMatchSet' {name} -> name) (\s@RegexMatchSet' {} a -> s {name = a} :: RegexMatchSet)
 
-instance Prelude.FromJSON RegexMatchSet where
+instance Core.FromJSON RegexMatchSet where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RegexMatchSet"
       ( \x ->
           RegexMatchSet'
-            Prelude.<$> (x Prelude..:? "RegexMatchSetId")
-            Prelude.<*> ( x Prelude..:? "RegexMatchTuples"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "RegexMatchSetId")
+            Core.<*> (x Core..:? "RegexMatchTuples" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable RegexMatchSet
+instance Core.Hashable RegexMatchSet
 
-instance Prelude.NFData RegexMatchSet
+instance Core.NFData RegexMatchSet

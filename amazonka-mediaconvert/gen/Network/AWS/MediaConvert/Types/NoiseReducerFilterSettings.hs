@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.NoiseReducerFilterSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for a noise reducer filter
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data NoiseReducerFilterSettings = NoiseReducerFilterSettings'
   { -- | Relative strength of noise reducing filter. Higher values produce
     -- stronger filtering.
-    strength :: Prelude.Maybe Prelude.Natural
+    strength :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NoiseReducerFilterSettings' with all optional fields omitted.
@@ -48,30 +47,30 @@ newNoiseReducerFilterSettings ::
 newNoiseReducerFilterSettings =
   NoiseReducerFilterSettings'
     { strength =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Relative strength of noise reducing filter. Higher values produce
 -- stronger filtering.
-noiseReducerFilterSettings_strength :: Lens.Lens' NoiseReducerFilterSettings (Prelude.Maybe Prelude.Natural)
+noiseReducerFilterSettings_strength :: Lens.Lens' NoiseReducerFilterSettings (Core.Maybe Core.Natural)
 noiseReducerFilterSettings_strength = Lens.lens (\NoiseReducerFilterSettings' {strength} -> strength) (\s@NoiseReducerFilterSettings' {} a -> s {strength = a} :: NoiseReducerFilterSettings)
 
-instance Prelude.FromJSON NoiseReducerFilterSettings where
+instance Core.FromJSON NoiseReducerFilterSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NoiseReducerFilterSettings"
       ( \x ->
           NoiseReducerFilterSettings'
-            Prelude.<$> (x Prelude..:? "strength")
+            Core.<$> (x Core..:? "strength")
       )
 
-instance Prelude.Hashable NoiseReducerFilterSettings
+instance Core.Hashable NoiseReducerFilterSettings
 
-instance Prelude.NFData NoiseReducerFilterSettings
+instance Core.NFData NoiseReducerFilterSettings
 
-instance Prelude.ToJSON NoiseReducerFilterSettings where
+instance Core.ToJSON NoiseReducerFilterSettings where
   toJSON NoiseReducerFilterSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("strength" Prelude..=) Prelude.<$> strength]
+    Core.object
+      ( Core.catMaybes
+          [("strength" Core..=) Core.<$> strength]
       )

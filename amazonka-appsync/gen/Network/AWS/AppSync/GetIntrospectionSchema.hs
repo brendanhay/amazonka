@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.AppSync.GetIntrospectionSchema
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +51,13 @@ import qualified Network.AWS.Response as Response
 data GetIntrospectionSchema = GetIntrospectionSchema'
   { -- | A flag that specifies whether the schema introspection should contain
     -- directives.
-    includeDirectives :: Prelude.Maybe Prelude.Bool,
+    includeDirectives :: Core.Maybe Core.Bool,
     -- | The API ID.
-    apiId :: Prelude.Text,
+    apiId :: Core.Text,
     -- | The schema format: SDL or JSON.
     format :: OutputType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIntrospectionSchema' with all optional fields omitted.
@@ -76,69 +75,67 @@ data GetIntrospectionSchema = GetIntrospectionSchema'
 -- 'format', 'getIntrospectionSchema_format' - The schema format: SDL or JSON.
 newGetIntrospectionSchema ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'format'
   OutputType ->
   GetIntrospectionSchema
 newGetIntrospectionSchema pApiId_ pFormat_ =
   GetIntrospectionSchema'
     { includeDirectives =
-        Prelude.Nothing,
+        Core.Nothing,
       apiId = pApiId_,
       format = pFormat_
     }
 
 -- | A flag that specifies whether the schema introspection should contain
 -- directives.
-getIntrospectionSchema_includeDirectives :: Lens.Lens' GetIntrospectionSchema (Prelude.Maybe Prelude.Bool)
+getIntrospectionSchema_includeDirectives :: Lens.Lens' GetIntrospectionSchema (Core.Maybe Core.Bool)
 getIntrospectionSchema_includeDirectives = Lens.lens (\GetIntrospectionSchema' {includeDirectives} -> includeDirectives) (\s@GetIntrospectionSchema' {} a -> s {includeDirectives = a} :: GetIntrospectionSchema)
 
 -- | The API ID.
-getIntrospectionSchema_apiId :: Lens.Lens' GetIntrospectionSchema Prelude.Text
+getIntrospectionSchema_apiId :: Lens.Lens' GetIntrospectionSchema Core.Text
 getIntrospectionSchema_apiId = Lens.lens (\GetIntrospectionSchema' {apiId} -> apiId) (\s@GetIntrospectionSchema' {} a -> s {apiId = a} :: GetIntrospectionSchema)
 
 -- | The schema format: SDL or JSON.
 getIntrospectionSchema_format :: Lens.Lens' GetIntrospectionSchema OutputType
 getIntrospectionSchema_format = Lens.lens (\GetIntrospectionSchema' {format} -> format) (\s@GetIntrospectionSchema' {} a -> s {format = a} :: GetIntrospectionSchema)
 
-instance Prelude.AWSRequest GetIntrospectionSchema where
+instance Core.AWSRequest GetIntrospectionSchema where
   type
-    Rs GetIntrospectionSchema =
+    AWSResponse GetIntrospectionSchema =
       GetIntrospectionSchemaResponse
   request = Request.get defaultService
   response =
     Response.receiveBytes
       ( \s h x ->
           GetIntrospectionSchemaResponse'
-            Prelude.<$> (Prelude.pure (Prelude.Just x))
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.Just x))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetIntrospectionSchema
+instance Core.Hashable GetIntrospectionSchema
 
-instance Prelude.NFData GetIntrospectionSchema
+instance Core.NFData GetIntrospectionSchema
 
-instance Prelude.ToHeaders GetIntrospectionSchema where
+instance Core.ToHeaders GetIntrospectionSchema where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetIntrospectionSchema where
+instance Core.ToPath GetIntrospectionSchema where
   toPath GetIntrospectionSchema' {..} =
-    Prelude.mconcat
-      ["/v1/apis/", Prelude.toBS apiId, "/schema"]
+    Core.mconcat
+      ["/v1/apis/", Core.toBS apiId, "/schema"]
 
-instance Prelude.ToQuery GetIntrospectionSchema where
+instance Core.ToQuery GetIntrospectionSchema where
   toQuery GetIntrospectionSchema' {..} =
-    Prelude.mconcat
-      [ "includeDirectives" Prelude.=: includeDirectives,
-        "format" Prelude.=: format
+    Core.mconcat
+      [ "includeDirectives" Core.=: includeDirectives,
+        "format" Core.=: format
       ]
 
 -- | /See:/ 'newGetIntrospectionSchemaResponse' smart constructor.
@@ -147,11 +144,11 @@ data GetIntrospectionSchemaResponse = GetIntrospectionSchemaResponse'
     --
     -- For more information, see the
     -- <http://graphql.org/learn/schema/ GraphQL SDL documentation>.
-    schema :: Prelude.Maybe Prelude.ByteString,
+    schema :: Core.Maybe Core.ByteString,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIntrospectionSchemaResponse' with all optional fields omitted.
@@ -169,12 +166,12 @@ data GetIntrospectionSchemaResponse = GetIntrospectionSchemaResponse'
 -- 'httpStatus', 'getIntrospectionSchemaResponse_httpStatus' - The response's http status code.
 newGetIntrospectionSchemaResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetIntrospectionSchemaResponse
 newGetIntrospectionSchemaResponse pHttpStatus_ =
   GetIntrospectionSchemaResponse'
     { schema =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -182,13 +179,11 @@ newGetIntrospectionSchemaResponse pHttpStatus_ =
 --
 -- For more information, see the
 -- <http://graphql.org/learn/schema/ GraphQL SDL documentation>.
-getIntrospectionSchemaResponse_schema :: Lens.Lens' GetIntrospectionSchemaResponse (Prelude.Maybe Prelude.ByteString)
+getIntrospectionSchemaResponse_schema :: Lens.Lens' GetIntrospectionSchemaResponse (Core.Maybe Core.ByteString)
 getIntrospectionSchemaResponse_schema = Lens.lens (\GetIntrospectionSchemaResponse' {schema} -> schema) (\s@GetIntrospectionSchemaResponse' {} a -> s {schema = a} :: GetIntrospectionSchemaResponse)
 
 -- | The response's http status code.
-getIntrospectionSchemaResponse_httpStatus :: Lens.Lens' GetIntrospectionSchemaResponse Prelude.Int
+getIntrospectionSchemaResponse_httpStatus :: Lens.Lens' GetIntrospectionSchemaResponse Core.Int
 getIntrospectionSchemaResponse_httpStatus = Lens.lens (\GetIntrospectionSchemaResponse' {httpStatus} -> httpStatus) (\s@GetIntrospectionSchemaResponse' {} a -> s {httpStatus = a} :: GetIntrospectionSchemaResponse)
 
-instance
-  Prelude.NFData
-    GetIntrospectionSchemaResponse
+instance Core.NFData GetIntrospectionSchemaResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53AutoNaming.Types.HttpProperties where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains the name of an HTTP namespace.
 --
 -- /See:/ 'newHttpProperties' smart constructor.
 data HttpProperties = HttpProperties'
   { -- | The name of an HTTP namespace.
-    httpName :: Prelude.Maybe Prelude.Text
+    httpName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HttpProperties' with all optional fields omitted.
@@ -44,21 +43,20 @@ data HttpProperties = HttpProperties'
 newHttpProperties ::
   HttpProperties
 newHttpProperties =
-  HttpProperties' {httpName = Prelude.Nothing}
+  HttpProperties' {httpName = Core.Nothing}
 
 -- | The name of an HTTP namespace.
-httpProperties_httpName :: Lens.Lens' HttpProperties (Prelude.Maybe Prelude.Text)
+httpProperties_httpName :: Lens.Lens' HttpProperties (Core.Maybe Core.Text)
 httpProperties_httpName = Lens.lens (\HttpProperties' {httpName} -> httpName) (\s@HttpProperties' {} a -> s {httpName = a} :: HttpProperties)
 
-instance Prelude.FromJSON HttpProperties where
+instance Core.FromJSON HttpProperties where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HttpProperties"
       ( \x ->
-          HttpProperties'
-            Prelude.<$> (x Prelude..:? "HttpName")
+          HttpProperties' Core.<$> (x Core..:? "HttpName")
       )
 
-instance Prelude.Hashable HttpProperties
+instance Core.Hashable HttpProperties
 
-instance Prelude.NFData HttpProperties
+instance Core.NFData HttpProperties

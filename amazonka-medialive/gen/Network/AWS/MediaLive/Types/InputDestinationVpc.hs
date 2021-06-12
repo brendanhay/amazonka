@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputDestinationVpc where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The properties for a VPC type input destination.
 --
 -- /See:/ 'newInputDestinationVpc' smart constructor.
 data InputDestinationVpc = InputDestinationVpc'
   { -- | The availability zone of the Input destination.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | The network interface ID of the Input destination in the VPC.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text
+    networkInterfaceId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputDestinationVpc' with all optional fields omitted.
@@ -50,28 +49,28 @@ newInputDestinationVpc ::
 newInputDestinationVpc =
   InputDestinationVpc'
     { availabilityZone =
-        Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing
+        Core.Nothing,
+      networkInterfaceId = Core.Nothing
     }
 
 -- | The availability zone of the Input destination.
-inputDestinationVpc_availabilityZone :: Lens.Lens' InputDestinationVpc (Prelude.Maybe Prelude.Text)
+inputDestinationVpc_availabilityZone :: Lens.Lens' InputDestinationVpc (Core.Maybe Core.Text)
 inputDestinationVpc_availabilityZone = Lens.lens (\InputDestinationVpc' {availabilityZone} -> availabilityZone) (\s@InputDestinationVpc' {} a -> s {availabilityZone = a} :: InputDestinationVpc)
 
 -- | The network interface ID of the Input destination in the VPC.
-inputDestinationVpc_networkInterfaceId :: Lens.Lens' InputDestinationVpc (Prelude.Maybe Prelude.Text)
+inputDestinationVpc_networkInterfaceId :: Lens.Lens' InputDestinationVpc (Core.Maybe Core.Text)
 inputDestinationVpc_networkInterfaceId = Lens.lens (\InputDestinationVpc' {networkInterfaceId} -> networkInterfaceId) (\s@InputDestinationVpc' {} a -> s {networkInterfaceId = a} :: InputDestinationVpc)
 
-instance Prelude.FromJSON InputDestinationVpc where
+instance Core.FromJSON InputDestinationVpc where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputDestinationVpc"
       ( \x ->
           InputDestinationVpc'
-            Prelude.<$> (x Prelude..:? "availabilityZone")
-            Prelude.<*> (x Prelude..:? "networkInterfaceId")
+            Core.<$> (x Core..:? "availabilityZone")
+            Core.<*> (x Core..:? "networkInterfaceId")
       )
 
-instance Prelude.Hashable InputDestinationVpc
+instance Core.Hashable InputDestinationVpc
 
-instance Prelude.NFData InputDestinationVpc
+instance Core.NFData InputDestinationVpc

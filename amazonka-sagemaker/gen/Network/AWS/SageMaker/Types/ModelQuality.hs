@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelQuality where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MetricsSource
 
 -- | Model quality statistics and constraints.
@@ -29,11 +28,11 @@ import Network.AWS.SageMaker.Types.MetricsSource
 -- /See:/ 'newModelQuality' smart constructor.
 data ModelQuality = ModelQuality'
   { -- | Model quality constraints.
-    constraints :: Prelude.Maybe MetricsSource,
+    constraints :: Core.Maybe MetricsSource,
     -- | Model quality statistics.
-    statistics :: Prelude.Maybe MetricsSource
+    statistics :: Core.Maybe MetricsSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelQuality' with all optional fields omitted.
@@ -50,37 +49,37 @@ newModelQuality ::
   ModelQuality
 newModelQuality =
   ModelQuality'
-    { constraints = Prelude.Nothing,
-      statistics = Prelude.Nothing
+    { constraints = Core.Nothing,
+      statistics = Core.Nothing
     }
 
 -- | Model quality constraints.
-modelQuality_constraints :: Lens.Lens' ModelQuality (Prelude.Maybe MetricsSource)
+modelQuality_constraints :: Lens.Lens' ModelQuality (Core.Maybe MetricsSource)
 modelQuality_constraints = Lens.lens (\ModelQuality' {constraints} -> constraints) (\s@ModelQuality' {} a -> s {constraints = a} :: ModelQuality)
 
 -- | Model quality statistics.
-modelQuality_statistics :: Lens.Lens' ModelQuality (Prelude.Maybe MetricsSource)
+modelQuality_statistics :: Lens.Lens' ModelQuality (Core.Maybe MetricsSource)
 modelQuality_statistics = Lens.lens (\ModelQuality' {statistics} -> statistics) (\s@ModelQuality' {} a -> s {statistics = a} :: ModelQuality)
 
-instance Prelude.FromJSON ModelQuality where
+instance Core.FromJSON ModelQuality where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelQuality"
       ( \x ->
           ModelQuality'
-            Prelude.<$> (x Prelude..:? "Constraints")
-            Prelude.<*> (x Prelude..:? "Statistics")
+            Core.<$> (x Core..:? "Constraints")
+            Core.<*> (x Core..:? "Statistics")
       )
 
-instance Prelude.Hashable ModelQuality
+instance Core.Hashable ModelQuality
 
-instance Prelude.NFData ModelQuality
+instance Core.NFData ModelQuality
 
-instance Prelude.ToJSON ModelQuality where
+instance Core.ToJSON ModelQuality where
   toJSON ModelQuality' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Constraints" Prelude..=) Prelude.<$> constraints,
-            ("Statistics" Prelude..=) Prelude.<$> statistics
+    Core.object
+      ( Core.catMaybes
+          [ ("Constraints" Core..=) Core.<$> constraints,
+            ("Statistics" Core..=) Core.<$> statistics
           ]
       )

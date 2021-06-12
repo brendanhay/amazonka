@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.APIGateway.DeleteDocumentationVersion
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,12 +47,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteDocumentationVersion' smart constructor.
 data DeleteDocumentationVersion = DeleteDocumentationVersion'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The version identifier of a to-be-deleted documentation
     -- snapshot.
-    documentationVersion :: Prelude.Text
+    documentationVersion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDocumentationVersion' with all optional fields omitted.
@@ -69,9 +68,9 @@ data DeleteDocumentationVersion = DeleteDocumentationVersion'
 -- snapshot.
 newDeleteDocumentationVersion ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'documentationVersion'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDocumentationVersion
 newDeleteDocumentationVersion
   pRestApiId_
@@ -83,56 +82,53 @@ newDeleteDocumentationVersion
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteDocumentationVersion_restApiId :: Lens.Lens' DeleteDocumentationVersion Prelude.Text
+deleteDocumentationVersion_restApiId :: Lens.Lens' DeleteDocumentationVersion Core.Text
 deleteDocumentationVersion_restApiId = Lens.lens (\DeleteDocumentationVersion' {restApiId} -> restApiId) (\s@DeleteDocumentationVersion' {} a -> s {restApiId = a} :: DeleteDocumentationVersion)
 
 -- | [Required] The version identifier of a to-be-deleted documentation
 -- snapshot.
-deleteDocumentationVersion_documentationVersion :: Lens.Lens' DeleteDocumentationVersion Prelude.Text
+deleteDocumentationVersion_documentationVersion :: Lens.Lens' DeleteDocumentationVersion Core.Text
 deleteDocumentationVersion_documentationVersion = Lens.lens (\DeleteDocumentationVersion' {documentationVersion} -> documentationVersion) (\s@DeleteDocumentationVersion' {} a -> s {documentationVersion = a} :: DeleteDocumentationVersion)
 
-instance
-  Prelude.AWSRequest
-    DeleteDocumentationVersion
-  where
+instance Core.AWSRequest DeleteDocumentationVersion where
   type
-    Rs DeleteDocumentationVersion =
+    AWSResponse DeleteDocumentationVersion =
       DeleteDocumentationVersionResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteDocumentationVersionResponse'
 
-instance Prelude.Hashable DeleteDocumentationVersion
+instance Core.Hashable DeleteDocumentationVersion
 
-instance Prelude.NFData DeleteDocumentationVersion
+instance Core.NFData DeleteDocumentationVersion
 
-instance Prelude.ToHeaders DeleteDocumentationVersion where
+instance Core.ToHeaders DeleteDocumentationVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteDocumentationVersion where
+instance Core.ToPath DeleteDocumentationVersion where
   toPath DeleteDocumentationVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/documentation/versions/",
-        Prelude.toBS documentationVersion
+        Core.toBS documentationVersion
       ]
 
-instance Prelude.ToQuery DeleteDocumentationVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDocumentationVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDocumentationVersionResponse' smart constructor.
 data DeleteDocumentationVersionResponse = DeleteDocumentationVersionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDocumentationVersionResponse' with all optional fields omitted.
@@ -144,5 +140,5 @@ newDeleteDocumentationVersionResponse =
   DeleteDocumentationVersionResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteDocumentationVersionResponse

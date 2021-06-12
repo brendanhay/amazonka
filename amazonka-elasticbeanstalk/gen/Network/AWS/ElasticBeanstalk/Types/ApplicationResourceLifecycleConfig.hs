@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The resource lifecycle configuration for an application. Defines
 -- lifecycle settings for resources that belong to the application, and the
@@ -43,11 +42,11 @@ data ApplicationResourceLifecycleConfig = ApplicationResourceLifecycleConfig'
     -- specify it again in subsequent @UpdateApplicationResourceLifecycle@
     -- calls. You can, however, specify it in subsequent calls to change the
     -- Service Role to another value.
-    serviceRole :: Prelude.Maybe Prelude.Text,
+    serviceRole :: Core.Maybe Core.Text,
     -- | Defines lifecycle settings for application versions.
-    versionLifecycleConfig :: Prelude.Maybe ApplicationVersionLifecycleConfig
+    versionLifecycleConfig :: Core.Maybe ApplicationVersionLifecycleConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplicationResourceLifecycleConfig' with all optional fields omitted.
@@ -75,9 +74,8 @@ newApplicationResourceLifecycleConfig ::
 newApplicationResourceLifecycleConfig =
   ApplicationResourceLifecycleConfig'
     { serviceRole =
-        Prelude.Nothing,
-      versionLifecycleConfig =
-        Prelude.Nothing
+        Core.Nothing,
+      versionLifecycleConfig = Core.Nothing
     }
 
 -- | The ARN of an IAM service role that Elastic Beanstalk has permission to
@@ -91,37 +89,37 @@ newApplicationResourceLifecycleConfig =
 -- specify it again in subsequent @UpdateApplicationResourceLifecycle@
 -- calls. You can, however, specify it in subsequent calls to change the
 -- Service Role to another value.
-applicationResourceLifecycleConfig_serviceRole :: Lens.Lens' ApplicationResourceLifecycleConfig (Prelude.Maybe Prelude.Text)
+applicationResourceLifecycleConfig_serviceRole :: Lens.Lens' ApplicationResourceLifecycleConfig (Core.Maybe Core.Text)
 applicationResourceLifecycleConfig_serviceRole = Lens.lens (\ApplicationResourceLifecycleConfig' {serviceRole} -> serviceRole) (\s@ApplicationResourceLifecycleConfig' {} a -> s {serviceRole = a} :: ApplicationResourceLifecycleConfig)
 
 -- | Defines lifecycle settings for application versions.
-applicationResourceLifecycleConfig_versionLifecycleConfig :: Lens.Lens' ApplicationResourceLifecycleConfig (Prelude.Maybe ApplicationVersionLifecycleConfig)
+applicationResourceLifecycleConfig_versionLifecycleConfig :: Lens.Lens' ApplicationResourceLifecycleConfig (Core.Maybe ApplicationVersionLifecycleConfig)
 applicationResourceLifecycleConfig_versionLifecycleConfig = Lens.lens (\ApplicationResourceLifecycleConfig' {versionLifecycleConfig} -> versionLifecycleConfig) (\s@ApplicationResourceLifecycleConfig' {} a -> s {versionLifecycleConfig = a} :: ApplicationResourceLifecycleConfig)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     ApplicationResourceLifecycleConfig
   where
   parseXML x =
     ApplicationResourceLifecycleConfig'
-      Prelude.<$> (x Prelude..@? "ServiceRole")
-      Prelude.<*> (x Prelude..@? "VersionLifecycleConfig")
+      Core.<$> (x Core..@? "ServiceRole")
+      Core.<*> (x Core..@? "VersionLifecycleConfig")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ApplicationResourceLifecycleConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     ApplicationResourceLifecycleConfig
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ApplicationResourceLifecycleConfig
   where
   toQuery ApplicationResourceLifecycleConfig' {..} =
-    Prelude.mconcat
-      [ "ServiceRole" Prelude.=: serviceRole,
+    Core.mconcat
+      [ "ServiceRole" Core.=: serviceRole,
         "VersionLifecycleConfig"
-          Prelude.=: versionLifecycleConfig
+          Core.=: versionLifecycleConfig
       ]

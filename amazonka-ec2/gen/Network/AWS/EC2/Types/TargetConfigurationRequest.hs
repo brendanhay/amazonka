@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TargetConfigurationRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the target configuration.
 --
@@ -31,11 +30,11 @@ data TargetConfigurationRequest = TargetConfigurationRequest'
   { -- | The number of instances the Covertible Reserved Instance offering can be
     -- applied to. This parameter is reserved and cannot be specified in a
     -- request
-    instanceCount :: Prelude.Maybe Prelude.Int,
+    instanceCount :: Core.Maybe Core.Int,
     -- | The Convertible Reserved Instance offering ID.
-    offeringId :: Prelude.Text
+    offeringId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetConfigurationRequest' with all optional fields omitted.
@@ -52,32 +51,32 @@ data TargetConfigurationRequest = TargetConfigurationRequest'
 -- 'offeringId', 'targetConfigurationRequest_offeringId' - The Convertible Reserved Instance offering ID.
 newTargetConfigurationRequest ::
   -- | 'offeringId'
-  Prelude.Text ->
+  Core.Text ->
   TargetConfigurationRequest
 newTargetConfigurationRequest pOfferingId_ =
   TargetConfigurationRequest'
     { instanceCount =
-        Prelude.Nothing,
+        Core.Nothing,
       offeringId = pOfferingId_
     }
 
 -- | The number of instances the Covertible Reserved Instance offering can be
 -- applied to. This parameter is reserved and cannot be specified in a
 -- request
-targetConfigurationRequest_instanceCount :: Lens.Lens' TargetConfigurationRequest (Prelude.Maybe Prelude.Int)
+targetConfigurationRequest_instanceCount :: Lens.Lens' TargetConfigurationRequest (Core.Maybe Core.Int)
 targetConfigurationRequest_instanceCount = Lens.lens (\TargetConfigurationRequest' {instanceCount} -> instanceCount) (\s@TargetConfigurationRequest' {} a -> s {instanceCount = a} :: TargetConfigurationRequest)
 
 -- | The Convertible Reserved Instance offering ID.
-targetConfigurationRequest_offeringId :: Lens.Lens' TargetConfigurationRequest Prelude.Text
+targetConfigurationRequest_offeringId :: Lens.Lens' TargetConfigurationRequest Core.Text
 targetConfigurationRequest_offeringId = Lens.lens (\TargetConfigurationRequest' {offeringId} -> offeringId) (\s@TargetConfigurationRequest' {} a -> s {offeringId = a} :: TargetConfigurationRequest)
 
-instance Prelude.Hashable TargetConfigurationRequest
+instance Core.Hashable TargetConfigurationRequest
 
-instance Prelude.NFData TargetConfigurationRequest
+instance Core.NFData TargetConfigurationRequest
 
-instance Prelude.ToQuery TargetConfigurationRequest where
+instance Core.ToQuery TargetConfigurationRequest where
   toQuery TargetConfigurationRequest' {..} =
-    Prelude.mconcat
-      [ "InstanceCount" Prelude.=: instanceCount,
-        "OfferingId" Prelude.=: offeringId
+    Core.mconcat
+      [ "InstanceCount" Core.=: instanceCount,
+        "OfferingId" Core.=: offeringId
       ]

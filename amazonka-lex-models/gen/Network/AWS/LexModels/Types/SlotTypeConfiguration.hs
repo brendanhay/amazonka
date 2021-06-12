@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.SlotTypeConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.SlotTypeRegexConfiguration
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides configuration information for a slot type.
 --
 -- /See:/ 'newSlotTypeConfiguration' smart constructor.
 data SlotTypeConfiguration = SlotTypeConfiguration'
   { -- | A regular expression used to validate the value of a slot.
-    regexConfiguration :: Prelude.Maybe SlotTypeRegexConfiguration
+    regexConfiguration :: Core.Maybe SlotTypeRegexConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SlotTypeConfiguration' with all optional fields omitted.
@@ -47,31 +46,31 @@ newSlotTypeConfiguration ::
 newSlotTypeConfiguration =
   SlotTypeConfiguration'
     { regexConfiguration =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | A regular expression used to validate the value of a slot.
-slotTypeConfiguration_regexConfiguration :: Lens.Lens' SlotTypeConfiguration (Prelude.Maybe SlotTypeRegexConfiguration)
+slotTypeConfiguration_regexConfiguration :: Lens.Lens' SlotTypeConfiguration (Core.Maybe SlotTypeRegexConfiguration)
 slotTypeConfiguration_regexConfiguration = Lens.lens (\SlotTypeConfiguration' {regexConfiguration} -> regexConfiguration) (\s@SlotTypeConfiguration' {} a -> s {regexConfiguration = a} :: SlotTypeConfiguration)
 
-instance Prelude.FromJSON SlotTypeConfiguration where
+instance Core.FromJSON SlotTypeConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SlotTypeConfiguration"
       ( \x ->
           SlotTypeConfiguration'
-            Prelude.<$> (x Prelude..:? "regexConfiguration")
+            Core.<$> (x Core..:? "regexConfiguration")
       )
 
-instance Prelude.Hashable SlotTypeConfiguration
+instance Core.Hashable SlotTypeConfiguration
 
-instance Prelude.NFData SlotTypeConfiguration
+instance Core.NFData SlotTypeConfiguration
 
-instance Prelude.ToJSON SlotTypeConfiguration where
+instance Core.ToJSON SlotTypeConfiguration where
   toJSON SlotTypeConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("regexConfiguration" Prelude..=)
-              Prelude.<$> regexConfiguration
+    Core.object
+      ( Core.catMaybes
+          [ ("regexConfiguration" Core..=)
+              Core.<$> regexConfiguration
           ]
       )

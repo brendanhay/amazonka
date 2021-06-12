@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,27 +20,27 @@
 module Network.AWS.CloudWatchLogs.Types.SubscriptionFilter where
 
 import Network.AWS.CloudWatchLogs.Types.Distribution
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a subscription filter.
 --
 -- /See:/ 'newSubscriptionFilter' smart constructor.
 data SubscriptionFilter = SubscriptionFilter'
   { -- | The name of the subscription filter.
-    filterName :: Prelude.Maybe Prelude.Text,
+    filterName :: Core.Maybe Core.Text,
     -- | The creation time of the subscription filter, expressed as the number of
     -- milliseconds after Jan 1, 1970 00:00:00 UTC.
-    creationTime :: Prelude.Maybe Prelude.Natural,
+    creationTime :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) of the destination.
-    destinationArn :: Prelude.Maybe Prelude.Text,
-    roleArn :: Prelude.Maybe Prelude.Text,
-    filterPattern :: Prelude.Maybe Prelude.Text,
-    distribution :: Prelude.Maybe Distribution,
+    destinationArn :: Core.Maybe Core.Text,
+    roleArn :: Core.Maybe Core.Text,
+    filterPattern :: Core.Maybe Core.Text,
+    distribution :: Core.Maybe Distribution,
     -- | The name of the log group.
-    logGroupName :: Prelude.Maybe Prelude.Text
+    logGroupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubscriptionFilter' with all optional fields omitted.
@@ -69,59 +68,59 @@ newSubscriptionFilter ::
   SubscriptionFilter
 newSubscriptionFilter =
   SubscriptionFilter'
-    { filterName = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      destinationArn = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      filterPattern = Prelude.Nothing,
-      distribution = Prelude.Nothing,
-      logGroupName = Prelude.Nothing
+    { filterName = Core.Nothing,
+      creationTime = Core.Nothing,
+      destinationArn = Core.Nothing,
+      roleArn = Core.Nothing,
+      filterPattern = Core.Nothing,
+      distribution = Core.Nothing,
+      logGroupName = Core.Nothing
     }
 
 -- | The name of the subscription filter.
-subscriptionFilter_filterName :: Lens.Lens' SubscriptionFilter (Prelude.Maybe Prelude.Text)
+subscriptionFilter_filterName :: Lens.Lens' SubscriptionFilter (Core.Maybe Core.Text)
 subscriptionFilter_filterName = Lens.lens (\SubscriptionFilter' {filterName} -> filterName) (\s@SubscriptionFilter' {} a -> s {filterName = a} :: SubscriptionFilter)
 
 -- | The creation time of the subscription filter, expressed as the number of
 -- milliseconds after Jan 1, 1970 00:00:00 UTC.
-subscriptionFilter_creationTime :: Lens.Lens' SubscriptionFilter (Prelude.Maybe Prelude.Natural)
+subscriptionFilter_creationTime :: Lens.Lens' SubscriptionFilter (Core.Maybe Core.Natural)
 subscriptionFilter_creationTime = Lens.lens (\SubscriptionFilter' {creationTime} -> creationTime) (\s@SubscriptionFilter' {} a -> s {creationTime = a} :: SubscriptionFilter)
 
 -- | The Amazon Resource Name (ARN) of the destination.
-subscriptionFilter_destinationArn :: Lens.Lens' SubscriptionFilter (Prelude.Maybe Prelude.Text)
+subscriptionFilter_destinationArn :: Lens.Lens' SubscriptionFilter (Core.Maybe Core.Text)
 subscriptionFilter_destinationArn = Lens.lens (\SubscriptionFilter' {destinationArn} -> destinationArn) (\s@SubscriptionFilter' {} a -> s {destinationArn = a} :: SubscriptionFilter)
 
 -- |
-subscriptionFilter_roleArn :: Lens.Lens' SubscriptionFilter (Prelude.Maybe Prelude.Text)
+subscriptionFilter_roleArn :: Lens.Lens' SubscriptionFilter (Core.Maybe Core.Text)
 subscriptionFilter_roleArn = Lens.lens (\SubscriptionFilter' {roleArn} -> roleArn) (\s@SubscriptionFilter' {} a -> s {roleArn = a} :: SubscriptionFilter)
 
 -- | Undocumented member.
-subscriptionFilter_filterPattern :: Lens.Lens' SubscriptionFilter (Prelude.Maybe Prelude.Text)
+subscriptionFilter_filterPattern :: Lens.Lens' SubscriptionFilter (Core.Maybe Core.Text)
 subscriptionFilter_filterPattern = Lens.lens (\SubscriptionFilter' {filterPattern} -> filterPattern) (\s@SubscriptionFilter' {} a -> s {filterPattern = a} :: SubscriptionFilter)
 
 -- | Undocumented member.
-subscriptionFilter_distribution :: Lens.Lens' SubscriptionFilter (Prelude.Maybe Distribution)
+subscriptionFilter_distribution :: Lens.Lens' SubscriptionFilter (Core.Maybe Distribution)
 subscriptionFilter_distribution = Lens.lens (\SubscriptionFilter' {distribution} -> distribution) (\s@SubscriptionFilter' {} a -> s {distribution = a} :: SubscriptionFilter)
 
 -- | The name of the log group.
-subscriptionFilter_logGroupName :: Lens.Lens' SubscriptionFilter (Prelude.Maybe Prelude.Text)
+subscriptionFilter_logGroupName :: Lens.Lens' SubscriptionFilter (Core.Maybe Core.Text)
 subscriptionFilter_logGroupName = Lens.lens (\SubscriptionFilter' {logGroupName} -> logGroupName) (\s@SubscriptionFilter' {} a -> s {logGroupName = a} :: SubscriptionFilter)
 
-instance Prelude.FromJSON SubscriptionFilter where
+instance Core.FromJSON SubscriptionFilter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SubscriptionFilter"
       ( \x ->
           SubscriptionFilter'
-            Prelude.<$> (x Prelude..:? "filterName")
-            Prelude.<*> (x Prelude..:? "creationTime")
-            Prelude.<*> (x Prelude..:? "destinationArn")
-            Prelude.<*> (x Prelude..:? "roleArn")
-            Prelude.<*> (x Prelude..:? "filterPattern")
-            Prelude.<*> (x Prelude..:? "distribution")
-            Prelude.<*> (x Prelude..:? "logGroupName")
+            Core.<$> (x Core..:? "filterName")
+            Core.<*> (x Core..:? "creationTime")
+            Core.<*> (x Core..:? "destinationArn")
+            Core.<*> (x Core..:? "roleArn")
+            Core.<*> (x Core..:? "filterPattern")
+            Core.<*> (x Core..:? "distribution")
+            Core.<*> (x Core..:? "logGroupName")
       )
 
-instance Prelude.Hashable SubscriptionFilter
+instance Core.Hashable SubscriptionFilter
 
-instance Prelude.NFData SubscriptionFilter
+instance Core.NFData SubscriptionFilter

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,29 +56,29 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
     -- groups you specify replaces the current set. You must specify at least
     -- one group, even if it\'s just the default security group in the VPC. You
     -- must specify the ID of the security group, not the name.
-    groups :: Prelude.Maybe [Prelude.Text],
+    groups :: Core.Maybe [Core.Text],
     -- | Information about the interface attachment. If modifying the \'delete on
     -- termination\' attribute, you must specify the ID of the interface
     -- attachment.
-    attachment :: Prelude.Maybe NetworkInterfaceAttachmentChanges,
+    attachment :: Core.Maybe NetworkInterfaceAttachmentChanges,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Indicates whether source\/destination checking is enabled. A value of
     -- @true@ means checking is enabled, and @false@ means checking is
     -- disabled. This value must be @false@ for a NAT instance to perform NAT.
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
     -- in the /Amazon Virtual Private Cloud User Guide/.
-    sourceDestCheck :: Prelude.Maybe AttributeBooleanValue,
+    sourceDestCheck :: Core.Maybe AttributeBooleanValue,
     -- | A description for the network interface.
-    description :: Prelude.Maybe AttributeValue,
+    description :: Core.Maybe AttributeValue,
     -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Text
+    networkInterfaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyNetworkInterfaceAttribute' with all optional fields omitted.
@@ -115,17 +114,17 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
 -- 'networkInterfaceId', 'modifyNetworkInterfaceAttribute_networkInterfaceId' - The ID of the network interface.
 newModifyNetworkInterfaceAttribute ::
   -- | 'networkInterfaceId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyNetworkInterfaceAttribute
 newModifyNetworkInterfaceAttribute
   pNetworkInterfaceId_ =
     ModifyNetworkInterfaceAttribute'
       { groups =
-          Prelude.Nothing,
-        attachment = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        sourceDestCheck = Prelude.Nothing,
-        description = Prelude.Nothing,
+          Core.Nothing,
+        attachment = Core.Nothing,
+        dryRun = Core.Nothing,
+        sourceDestCheck = Core.Nothing,
+        description = Core.Nothing,
         networkInterfaceId = pNetworkInterfaceId_
       }
 
@@ -133,20 +132,20 @@ newModifyNetworkInterfaceAttribute
 -- groups you specify replaces the current set. You must specify at least
 -- one group, even if it\'s just the default security group in the VPC. You
 -- must specify the ID of the security group, not the name.
-modifyNetworkInterfaceAttribute_groups :: Lens.Lens' ModifyNetworkInterfaceAttribute (Prelude.Maybe [Prelude.Text])
-modifyNetworkInterfaceAttribute_groups = Lens.lens (\ModifyNetworkInterfaceAttribute' {groups} -> groups) (\s@ModifyNetworkInterfaceAttribute' {} a -> s {groups = a} :: ModifyNetworkInterfaceAttribute) Prelude.. Lens.mapping Prelude._Coerce
+modifyNetworkInterfaceAttribute_groups :: Lens.Lens' ModifyNetworkInterfaceAttribute (Core.Maybe [Core.Text])
+modifyNetworkInterfaceAttribute_groups = Lens.lens (\ModifyNetworkInterfaceAttribute' {groups} -> groups) (\s@ModifyNetworkInterfaceAttribute' {} a -> s {groups = a} :: ModifyNetworkInterfaceAttribute) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the interface attachment. If modifying the \'delete on
 -- termination\' attribute, you must specify the ID of the interface
 -- attachment.
-modifyNetworkInterfaceAttribute_attachment :: Lens.Lens' ModifyNetworkInterfaceAttribute (Prelude.Maybe NetworkInterfaceAttachmentChanges)
+modifyNetworkInterfaceAttribute_attachment :: Lens.Lens' ModifyNetworkInterfaceAttribute (Core.Maybe NetworkInterfaceAttachmentChanges)
 modifyNetworkInterfaceAttribute_attachment = Lens.lens (\ModifyNetworkInterfaceAttribute' {attachment} -> attachment) (\s@ModifyNetworkInterfaceAttribute' {} a -> s {attachment = a} :: ModifyNetworkInterfaceAttribute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyNetworkInterfaceAttribute_dryRun :: Lens.Lens' ModifyNetworkInterfaceAttribute (Prelude.Maybe Prelude.Bool)
+modifyNetworkInterfaceAttribute_dryRun :: Lens.Lens' ModifyNetworkInterfaceAttribute (Core.Maybe Core.Bool)
 modifyNetworkInterfaceAttribute_dryRun = Lens.lens (\ModifyNetworkInterfaceAttribute' {dryRun} -> dryRun) (\s@ModifyNetworkInterfaceAttribute' {} a -> s {dryRun = a} :: ModifyNetworkInterfaceAttribute)
 
 -- | Indicates whether source\/destination checking is enabled. A value of
@@ -155,23 +154,23 @@ modifyNetworkInterfaceAttribute_dryRun = Lens.lens (\ModifyNetworkInterfaceAttri
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
 -- in the /Amazon Virtual Private Cloud User Guide/.
-modifyNetworkInterfaceAttribute_sourceDestCheck :: Lens.Lens' ModifyNetworkInterfaceAttribute (Prelude.Maybe AttributeBooleanValue)
+modifyNetworkInterfaceAttribute_sourceDestCheck :: Lens.Lens' ModifyNetworkInterfaceAttribute (Core.Maybe AttributeBooleanValue)
 modifyNetworkInterfaceAttribute_sourceDestCheck = Lens.lens (\ModifyNetworkInterfaceAttribute' {sourceDestCheck} -> sourceDestCheck) (\s@ModifyNetworkInterfaceAttribute' {} a -> s {sourceDestCheck = a} :: ModifyNetworkInterfaceAttribute)
 
 -- | A description for the network interface.
-modifyNetworkInterfaceAttribute_description :: Lens.Lens' ModifyNetworkInterfaceAttribute (Prelude.Maybe AttributeValue)
+modifyNetworkInterfaceAttribute_description :: Lens.Lens' ModifyNetworkInterfaceAttribute (Core.Maybe AttributeValue)
 modifyNetworkInterfaceAttribute_description = Lens.lens (\ModifyNetworkInterfaceAttribute' {description} -> description) (\s@ModifyNetworkInterfaceAttribute' {} a -> s {description = a} :: ModifyNetworkInterfaceAttribute)
 
 -- | The ID of the network interface.
-modifyNetworkInterfaceAttribute_networkInterfaceId :: Lens.Lens' ModifyNetworkInterfaceAttribute Prelude.Text
+modifyNetworkInterfaceAttribute_networkInterfaceId :: Lens.Lens' ModifyNetworkInterfaceAttribute Core.Text
 modifyNetworkInterfaceAttribute_networkInterfaceId = Lens.lens (\ModifyNetworkInterfaceAttribute' {networkInterfaceId} -> networkInterfaceId) (\s@ModifyNetworkInterfaceAttribute' {} a -> s {networkInterfaceId = a} :: ModifyNetworkInterfaceAttribute)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ModifyNetworkInterfaceAttribute
   where
   type
-    Rs ModifyNetworkInterfaceAttribute =
+    AWSResponse ModifyNetworkInterfaceAttribute =
       ModifyNetworkInterfaceAttributeResponse
   request = Request.postQuery defaultService
   response =
@@ -179,53 +178,42 @@ instance
       ModifyNetworkInterfaceAttributeResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ModifyNetworkInterfaceAttribute
 
-instance
-  Prelude.NFData
-    ModifyNetworkInterfaceAttribute
+instance Core.NFData ModifyNetworkInterfaceAttribute
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ModifyNetworkInterfaceAttribute
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    ModifyNetworkInterfaceAttribute
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyNetworkInterfaceAttribute where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ModifyNetworkInterfaceAttribute
-  where
+instance Core.ToQuery ModifyNetworkInterfaceAttribute where
   toQuery ModifyNetworkInterfaceAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ModifyNetworkInterfaceAttribute" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "SecurityGroupId"
-              Prelude.<$> groups
-          ),
-        "Attachment" Prelude.=: attachment,
-        "DryRun" Prelude.=: dryRun,
-        "SourceDestCheck" Prelude.=: sourceDestCheck,
-        "Description" Prelude.=: description,
-        "NetworkInterfaceId" Prelude.=: networkInterfaceId
+          Core.=: ( "ModifyNetworkInterfaceAttribute" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          (Core.toQueryList "SecurityGroupId" Core.<$> groups),
+        "Attachment" Core.=: attachment,
+        "DryRun" Core.=: dryRun,
+        "SourceDestCheck" Core.=: sourceDestCheck,
+        "Description" Core.=: description,
+        "NetworkInterfaceId" Core.=: networkInterfaceId
       ]
 
 -- | /See:/ 'newModifyNetworkInterfaceAttributeResponse' smart constructor.
 data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyNetworkInterfaceAttributeResponse' with all optional fields omitted.
@@ -237,5 +225,5 @@ newModifyNetworkInterfaceAttributeResponse =
   ModifyNetworkInterfaceAttributeResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyNetworkInterfaceAttributeResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,17 +44,17 @@ module Network.AWS.Athena.StopQueryExecution
 where
 
 import Network.AWS.Athena.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopQueryExecution' smart constructor.
 data StopQueryExecution = StopQueryExecution'
   { -- | The unique ID of the query execution to stop.
-    queryExecutionId :: Prelude.Text
+    queryExecutionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopQueryExecution' with all optional fields omitted.
@@ -68,7 +67,7 @@ data StopQueryExecution = StopQueryExecution'
 -- 'queryExecutionId', 'stopQueryExecution_queryExecutionId' - The unique ID of the query execution to stop.
 newStopQueryExecution ::
   -- | 'queryExecutionId'
-  Prelude.Text ->
+  Core.Text ->
   StopQueryExecution
 newStopQueryExecution pQueryExecutionId_ =
   StopQueryExecution'
@@ -77,61 +76,59 @@ newStopQueryExecution pQueryExecutionId_ =
     }
 
 -- | The unique ID of the query execution to stop.
-stopQueryExecution_queryExecutionId :: Lens.Lens' StopQueryExecution Prelude.Text
+stopQueryExecution_queryExecutionId :: Lens.Lens' StopQueryExecution Core.Text
 stopQueryExecution_queryExecutionId = Lens.lens (\StopQueryExecution' {queryExecutionId} -> queryExecutionId) (\s@StopQueryExecution' {} a -> s {queryExecutionId = a} :: StopQueryExecution)
 
-instance Prelude.AWSRequest StopQueryExecution where
+instance Core.AWSRequest StopQueryExecution where
   type
-    Rs StopQueryExecution =
+    AWSResponse StopQueryExecution =
       StopQueryExecutionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopQueryExecutionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopQueryExecution
+instance Core.Hashable StopQueryExecution
 
-instance Prelude.NFData StopQueryExecution
+instance Core.NFData StopQueryExecution
 
-instance Prelude.ToHeaders StopQueryExecution where
+instance Core.ToHeaders StopQueryExecution where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonAthena.StopQueryExecution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonAthena.StopQueryExecution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopQueryExecution where
+instance Core.ToJSON StopQueryExecution where
   toJSON StopQueryExecution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("QueryExecutionId" Prelude..= queryExecutionId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("QueryExecutionId" Core..= queryExecutionId)
           ]
       )
 
-instance Prelude.ToPath StopQueryExecution where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopQueryExecution where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopQueryExecution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopQueryExecution where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopQueryExecutionResponse' smart constructor.
 data StopQueryExecutionResponse = StopQueryExecutionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopQueryExecutionResponse' with all optional fields omitted.
@@ -144,7 +141,7 @@ data StopQueryExecutionResponse = StopQueryExecutionResponse'
 -- 'httpStatus', 'stopQueryExecutionResponse_httpStatus' - The response's http status code.
 newStopQueryExecutionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopQueryExecutionResponse
 newStopQueryExecutionResponse pHttpStatus_ =
   StopQueryExecutionResponse'
@@ -153,7 +150,7 @@ newStopQueryExecutionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopQueryExecutionResponse_httpStatus :: Lens.Lens' StopQueryExecutionResponse Prelude.Int
+stopQueryExecutionResponse_httpStatus :: Lens.Lens' StopQueryExecutionResponse Core.Int
 stopQueryExecutionResponse_httpStatus = Lens.lens (\StopQueryExecutionResponse' {httpStatus} -> httpStatus) (\s@StopQueryExecutionResponse' {} a -> s {httpStatus = a} :: StopQueryExecutionResponse)
 
-instance Prelude.NFData StopQueryExecutionResponse
+instance Core.NFData StopQueryExecutionResponse

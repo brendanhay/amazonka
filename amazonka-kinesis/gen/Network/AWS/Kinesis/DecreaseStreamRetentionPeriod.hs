@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +53,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDecreaseStreamRetentionPeriod' smart constructor.
 data DecreaseStreamRetentionPeriod = DecreaseStreamRetentionPeriod'
   { -- | The name of the stream to modify.
-    streamName :: Prelude.Text,
+    streamName :: Core.Text,
     -- | The new retention period of the stream, in hours. Must be less than the
     -- current retention period.
-    retentionPeriodHours :: Prelude.Int
+    retentionPeriodHours :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DecreaseStreamRetentionPeriod' with all optional fields omitted.
@@ -75,9 +74,9 @@ data DecreaseStreamRetentionPeriod = DecreaseStreamRetentionPeriod'
 -- current retention period.
 newDecreaseStreamRetentionPeriod ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'retentionPeriodHours'
-  Prelude.Int ->
+  Core.Int ->
   DecreaseStreamRetentionPeriod
 newDecreaseStreamRetentionPeriod
   pStreamName_
@@ -90,76 +89,66 @@ newDecreaseStreamRetentionPeriod
       }
 
 -- | The name of the stream to modify.
-decreaseStreamRetentionPeriod_streamName :: Lens.Lens' DecreaseStreamRetentionPeriod Prelude.Text
+decreaseStreamRetentionPeriod_streamName :: Lens.Lens' DecreaseStreamRetentionPeriod Core.Text
 decreaseStreamRetentionPeriod_streamName = Lens.lens (\DecreaseStreamRetentionPeriod' {streamName} -> streamName) (\s@DecreaseStreamRetentionPeriod' {} a -> s {streamName = a} :: DecreaseStreamRetentionPeriod)
 
 -- | The new retention period of the stream, in hours. Must be less than the
 -- current retention period.
-decreaseStreamRetentionPeriod_retentionPeriodHours :: Lens.Lens' DecreaseStreamRetentionPeriod Prelude.Int
+decreaseStreamRetentionPeriod_retentionPeriodHours :: Lens.Lens' DecreaseStreamRetentionPeriod Core.Int
 decreaseStreamRetentionPeriod_retentionPeriodHours = Lens.lens (\DecreaseStreamRetentionPeriod' {retentionPeriodHours} -> retentionPeriodHours) (\s@DecreaseStreamRetentionPeriod' {} a -> s {retentionPeriodHours = a} :: DecreaseStreamRetentionPeriod)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DecreaseStreamRetentionPeriod
   where
   type
-    Rs DecreaseStreamRetentionPeriod =
+    AWSResponse DecreaseStreamRetentionPeriod =
       DecreaseStreamRetentionPeriodResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DecreaseStreamRetentionPeriodResponse'
 
-instance
-  Prelude.Hashable
-    DecreaseStreamRetentionPeriod
+instance Core.Hashable DecreaseStreamRetentionPeriod
 
-instance Prelude.NFData DecreaseStreamRetentionPeriod
+instance Core.NFData DecreaseStreamRetentionPeriod
 
-instance
-  Prelude.ToHeaders
-    DecreaseStreamRetentionPeriod
-  where
+instance Core.ToHeaders DecreaseStreamRetentionPeriod where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.DecreaseStreamRetentionPeriod" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Kinesis_20131202.DecreaseStreamRetentionPeriod" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DecreaseStreamRetentionPeriod where
+instance Core.ToJSON DecreaseStreamRetentionPeriod where
   toJSON DecreaseStreamRetentionPeriod' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Prelude..= streamName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just
               ( "RetentionPeriodHours"
-                  Prelude..= retentionPeriodHours
+                  Core..= retentionPeriodHours
               )
           ]
       )
 
-instance Prelude.ToPath DecreaseStreamRetentionPeriod where
-  toPath = Prelude.const "/"
+instance Core.ToPath DecreaseStreamRetentionPeriod where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DecreaseStreamRetentionPeriod
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DecreaseStreamRetentionPeriod where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDecreaseStreamRetentionPeriodResponse' smart constructor.
 data DecreaseStreamRetentionPeriodResponse = DecreaseStreamRetentionPeriodResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DecreaseStreamRetentionPeriodResponse' with all optional fields omitted.
@@ -171,5 +160,5 @@ newDecreaseStreamRetentionPeriodResponse =
   DecreaseStreamRetentionPeriodResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DecreaseStreamRetentionPeriodResponse

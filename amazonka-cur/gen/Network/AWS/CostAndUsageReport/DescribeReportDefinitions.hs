@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,10 +43,9 @@ module Network.AWS.CostAndUsageReport.DescribeReportDefinitions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostAndUsageReport.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,10 +53,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeReportDefinitions' smart constructor.
 data DescribeReportDefinitions = DescribeReportDefinitions'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { nextToken :: Core.Maybe Core.Text,
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReportDefinitions' with all optional fields omitted.
@@ -76,102 +74,98 @@ newDescribeReportDefinitions ::
 newDescribeReportDefinitions =
   DescribeReportDefinitions'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | Undocumented member.
-describeReportDefinitions_nextToken :: Lens.Lens' DescribeReportDefinitions (Prelude.Maybe Prelude.Text)
+describeReportDefinitions_nextToken :: Lens.Lens' DescribeReportDefinitions (Core.Maybe Core.Text)
 describeReportDefinitions_nextToken = Lens.lens (\DescribeReportDefinitions' {nextToken} -> nextToken) (\s@DescribeReportDefinitions' {} a -> s {nextToken = a} :: DescribeReportDefinitions)
 
 -- | Undocumented member.
-describeReportDefinitions_maxResults :: Lens.Lens' DescribeReportDefinitions (Prelude.Maybe Prelude.Natural)
+describeReportDefinitions_maxResults :: Lens.Lens' DescribeReportDefinitions (Core.Maybe Core.Natural)
 describeReportDefinitions_maxResults = Lens.lens (\DescribeReportDefinitions' {maxResults} -> maxResults) (\s@DescribeReportDefinitions' {} a -> s {maxResults = a} :: DescribeReportDefinitions)
 
-instance Pager.AWSPager DescribeReportDefinitions where
+instance Core.AWSPager DescribeReportDefinitions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeReportDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeReportDefinitionsResponse_reportDefinitions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeReportDefinitions_nextToken
           Lens..~ rs
           Lens.^? describeReportDefinitionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeReportDefinitions where
+instance Core.AWSRequest DescribeReportDefinitions where
   type
-    Rs DescribeReportDefinitions =
+    AWSResponse DescribeReportDefinitions =
       DescribeReportDefinitionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeReportDefinitionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ReportDefinitions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "ReportDefinitions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReportDefinitions
+instance Core.Hashable DescribeReportDefinitions
 
-instance Prelude.NFData DescribeReportDefinitions
+instance Core.NFData DescribeReportDefinitions
 
-instance Prelude.ToHeaders DescribeReportDefinitions where
+instance Core.ToHeaders DescribeReportDefinitions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrigamiServiceGatewayService.DescribeReportDefinitions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrigamiServiceGatewayService.DescribeReportDefinitions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeReportDefinitions where
+instance Core.ToJSON DescribeReportDefinitions where
   toJSON DescribeReportDefinitions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath DescribeReportDefinitions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeReportDefinitions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeReportDefinitions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeReportDefinitions where
+  toQuery = Core.const Core.mempty
 
 -- | If the action is successful, the service sends back an HTTP 200
 -- response.
 --
 -- /See:/ 'newDescribeReportDefinitionsResponse' smart constructor.
 data DescribeReportDefinitionsResponse = DescribeReportDefinitionsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
     -- | A list of AWS Cost and Usage reports owned by the account.
-    reportDefinitions :: Prelude.Maybe [ReportDefinition],
+    reportDefinitions :: Core.Maybe [ReportDefinition],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReportDefinitionsResponse' with all optional fields omitted.
@@ -188,28 +182,28 @@ data DescribeReportDefinitionsResponse = DescribeReportDefinitionsResponse'
 -- 'httpStatus', 'describeReportDefinitionsResponse_httpStatus' - The response's http status code.
 newDescribeReportDefinitionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeReportDefinitionsResponse
 newDescribeReportDefinitionsResponse pHttpStatus_ =
   DescribeReportDefinitionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      reportDefinitions = Prelude.Nothing,
+        Core.Nothing,
+      reportDefinitions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeReportDefinitionsResponse_nextToken :: Lens.Lens' DescribeReportDefinitionsResponse (Prelude.Maybe Prelude.Text)
+describeReportDefinitionsResponse_nextToken :: Lens.Lens' DescribeReportDefinitionsResponse (Core.Maybe Core.Text)
 describeReportDefinitionsResponse_nextToken = Lens.lens (\DescribeReportDefinitionsResponse' {nextToken} -> nextToken) (\s@DescribeReportDefinitionsResponse' {} a -> s {nextToken = a} :: DescribeReportDefinitionsResponse)
 
 -- | A list of AWS Cost and Usage reports owned by the account.
-describeReportDefinitionsResponse_reportDefinitions :: Lens.Lens' DescribeReportDefinitionsResponse (Prelude.Maybe [ReportDefinition])
-describeReportDefinitionsResponse_reportDefinitions = Lens.lens (\DescribeReportDefinitionsResponse' {reportDefinitions} -> reportDefinitions) (\s@DescribeReportDefinitionsResponse' {} a -> s {reportDefinitions = a} :: DescribeReportDefinitionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeReportDefinitionsResponse_reportDefinitions :: Lens.Lens' DescribeReportDefinitionsResponse (Core.Maybe [ReportDefinition])
+describeReportDefinitionsResponse_reportDefinitions = Lens.lens (\DescribeReportDefinitionsResponse' {reportDefinitions} -> reportDefinitions) (\s@DescribeReportDefinitionsResponse' {} a -> s {reportDefinitions = a} :: DescribeReportDefinitionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeReportDefinitionsResponse_httpStatus :: Lens.Lens' DescribeReportDefinitionsResponse Prelude.Int
+describeReportDefinitionsResponse_httpStatus :: Lens.Lens' DescribeReportDefinitionsResponse Core.Int
 describeReportDefinitionsResponse_httpStatus = Lens.lens (\DescribeReportDefinitionsResponse' {httpStatus} -> httpStatus) (\s@DescribeReportDefinitionsResponse' {} a -> s {httpStatus = a} :: DescribeReportDefinitionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeReportDefinitionsResponse

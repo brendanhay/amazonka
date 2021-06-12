@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.WAF.ListSubscribedRuleGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -69,14 +67,14 @@ data ListSubscribedRuleGroups = ListSubscribedRuleGroups'
     -- @ListSubscribedRuleGroupsRequest@ requests, specify the value of
     -- @NextMarker@ from the previous response to get information about another
     -- batch of subscribed rule groups.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Specifies the number of subscribed rule groups that you want AWS WAF to
     -- return for this request. If you have more objects than the number you
     -- specify for @Limit@, the response includes a @NextMarker@ value that you
     -- can use to get another batch of objects.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSubscribedRuleGroups' with all optional fields omitted.
@@ -103,8 +101,8 @@ newListSubscribedRuleGroups ::
 newListSubscribedRuleGroups =
   ListSubscribedRuleGroups'
     { nextMarker =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+        Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more
@@ -114,87 +112,83 @@ newListSubscribedRuleGroups =
 -- @ListSubscribedRuleGroupsRequest@ requests, specify the value of
 -- @NextMarker@ from the previous response to get information about another
 -- batch of subscribed rule groups.
-listSubscribedRuleGroups_nextMarker :: Lens.Lens' ListSubscribedRuleGroups (Prelude.Maybe Prelude.Text)
+listSubscribedRuleGroups_nextMarker :: Lens.Lens' ListSubscribedRuleGroups (Core.Maybe Core.Text)
 listSubscribedRuleGroups_nextMarker = Lens.lens (\ListSubscribedRuleGroups' {nextMarker} -> nextMarker) (\s@ListSubscribedRuleGroups' {} a -> s {nextMarker = a} :: ListSubscribedRuleGroups)
 
 -- | Specifies the number of subscribed rule groups that you want AWS WAF to
 -- return for this request. If you have more objects than the number you
 -- specify for @Limit@, the response includes a @NextMarker@ value that you
 -- can use to get another batch of objects.
-listSubscribedRuleGroups_limit :: Lens.Lens' ListSubscribedRuleGroups (Prelude.Maybe Prelude.Natural)
+listSubscribedRuleGroups_limit :: Lens.Lens' ListSubscribedRuleGroups (Core.Maybe Core.Natural)
 listSubscribedRuleGroups_limit = Lens.lens (\ListSubscribedRuleGroups' {limit} -> limit) (\s@ListSubscribedRuleGroups' {} a -> s {limit = a} :: ListSubscribedRuleGroups)
 
-instance Pager.AWSPager ListSubscribedRuleGroups where
+instance Core.AWSPager ListSubscribedRuleGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listSubscribedRuleGroupsResponse_nextMarker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listSubscribedRuleGroupsResponse_ruleGroups
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listSubscribedRuleGroups_nextMarker
           Lens..~ rs
           Lens.^? listSubscribedRuleGroupsResponse_nextMarker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListSubscribedRuleGroups where
+instance Core.AWSRequest ListSubscribedRuleGroups where
   type
-    Rs ListSubscribedRuleGroups =
+    AWSResponse ListSubscribedRuleGroups =
       ListSubscribedRuleGroupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListSubscribedRuleGroupsResponse'
-            Prelude.<$> (x Prelude..?> "NextMarker")
-            Prelude.<*> ( x Prelude..?> "RuleGroups"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextMarker")
+            Core.<*> (x Core..?> "RuleGroups" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListSubscribedRuleGroups
+instance Core.Hashable ListSubscribedRuleGroups
 
-instance Prelude.NFData ListSubscribedRuleGroups
+instance Core.NFData ListSubscribedRuleGroups
 
-instance Prelude.ToHeaders ListSubscribedRuleGroups where
+instance Core.ToHeaders ListSubscribedRuleGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.ListSubscribedRuleGroups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.ListSubscribedRuleGroups" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListSubscribedRuleGroups where
+instance Core.ToJSON ListSubscribedRuleGroups where
   toJSON ListSubscribedRuleGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextMarker" Prelude..=) Prelude.<$> nextMarker,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextMarker" Core..=) Core.<$> nextMarker,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListSubscribedRuleGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListSubscribedRuleGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListSubscribedRuleGroups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListSubscribedRuleGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListSubscribedRuleGroupsResponse' smart constructor.
 data ListSubscribedRuleGroupsResponse = ListSubscribedRuleGroupsResponse'
@@ -203,13 +197,13 @@ data ListSubscribedRuleGroupsResponse = ListSubscribedRuleGroupsResponse'
     -- objects, submit another @ListSubscribedRuleGroups@ request, and specify
     -- the @NextMarker@ value from the response in the @NextMarker@ value in
     -- the next request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | An array of RuleGroup objects.
-    ruleGroups :: Prelude.Maybe [SubscribedRuleGroupSummary],
+    ruleGroups :: Core.Maybe [SubscribedRuleGroupSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSubscribedRuleGroupsResponse' with all optional fields omitted.
@@ -230,13 +224,13 @@ data ListSubscribedRuleGroupsResponse = ListSubscribedRuleGroupsResponse'
 -- 'httpStatus', 'listSubscribedRuleGroupsResponse_httpStatus' - The response's http status code.
 newListSubscribedRuleGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSubscribedRuleGroupsResponse
 newListSubscribedRuleGroupsResponse pHttpStatus_ =
   ListSubscribedRuleGroupsResponse'
     { nextMarker =
-        Prelude.Nothing,
-      ruleGroups = Prelude.Nothing,
+        Core.Nothing,
+      ruleGroups = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -245,17 +239,15 @@ newListSubscribedRuleGroupsResponse pHttpStatus_ =
 -- objects, submit another @ListSubscribedRuleGroups@ request, and specify
 -- the @NextMarker@ value from the response in the @NextMarker@ value in
 -- the next request.
-listSubscribedRuleGroupsResponse_nextMarker :: Lens.Lens' ListSubscribedRuleGroupsResponse (Prelude.Maybe Prelude.Text)
+listSubscribedRuleGroupsResponse_nextMarker :: Lens.Lens' ListSubscribedRuleGroupsResponse (Core.Maybe Core.Text)
 listSubscribedRuleGroupsResponse_nextMarker = Lens.lens (\ListSubscribedRuleGroupsResponse' {nextMarker} -> nextMarker) (\s@ListSubscribedRuleGroupsResponse' {} a -> s {nextMarker = a} :: ListSubscribedRuleGroupsResponse)
 
 -- | An array of RuleGroup objects.
-listSubscribedRuleGroupsResponse_ruleGroups :: Lens.Lens' ListSubscribedRuleGroupsResponse (Prelude.Maybe [SubscribedRuleGroupSummary])
-listSubscribedRuleGroupsResponse_ruleGroups = Lens.lens (\ListSubscribedRuleGroupsResponse' {ruleGroups} -> ruleGroups) (\s@ListSubscribedRuleGroupsResponse' {} a -> s {ruleGroups = a} :: ListSubscribedRuleGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listSubscribedRuleGroupsResponse_ruleGroups :: Lens.Lens' ListSubscribedRuleGroupsResponse (Core.Maybe [SubscribedRuleGroupSummary])
+listSubscribedRuleGroupsResponse_ruleGroups = Lens.lens (\ListSubscribedRuleGroupsResponse' {ruleGroups} -> ruleGroups) (\s@ListSubscribedRuleGroupsResponse' {} a -> s {ruleGroups = a} :: ListSubscribedRuleGroupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listSubscribedRuleGroupsResponse_httpStatus :: Lens.Lens' ListSubscribedRuleGroupsResponse Prelude.Int
+listSubscribedRuleGroupsResponse_httpStatus :: Lens.Lens' ListSubscribedRuleGroupsResponse Core.Int
 listSubscribedRuleGroupsResponse_httpStatus = Lens.lens (\ListSubscribedRuleGroupsResponse' {httpStatus} -> httpStatus) (\s@ListSubscribedRuleGroupsResponse' {} a -> s {httpStatus = a} :: ListSubscribedRuleGroupsResponse)
 
-instance
-  Prelude.NFData
-    ListSubscribedRuleGroupsResponse
+instance Core.NFData ListSubscribedRuleGroupsResponse

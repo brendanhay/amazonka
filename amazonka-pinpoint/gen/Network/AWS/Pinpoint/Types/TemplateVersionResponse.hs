@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,38 +19,38 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.TemplateVersionResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a specific version of a message template.
 --
 -- /See:/ 'newTemplateVersionResponse' smart constructor.
 data TemplateVersionResponse = TemplateVersionResponse'
   { -- | The custom description of the version of the message template.
-    templateDescription :: Prelude.Maybe Prelude.Text,
+    templateDescription :: Core.Maybe Core.Text,
     -- | The unique identifier for the version of the message template. This
     -- value is an integer that Amazon Pinpoint automatically increments and
     -- assigns to each new version of a template.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | A JSON object that specifies the default values that are used for
     -- message variables in the version of the message template. This object is
     -- a set of key-value pairs. Each key defines a message variable in the
     -- template. The corresponding value defines the default value for that
     -- variable.
-    defaultSubstitutions :: Prelude.Maybe Prelude.Text,
+    defaultSubstitutions :: Core.Maybe Core.Text,
     -- | The date, in ISO 8601 format, when the version of the message template
     -- was last modified.
-    lastModifiedDate :: Prelude.Text,
+    lastModifiedDate :: Core.Text,
     -- | The date, in ISO 8601 format, when the version of the message template
     -- was created.
-    creationDate :: Prelude.Text,
+    creationDate :: Core.Text,
     -- | The name of the message template.
-    templateName :: Prelude.Text,
+    templateName :: Core.Text,
     -- | The type of channel that the message template is designed for. Possible
     -- values are: EMAIL, PUSH, SMS, and VOICE.
-    templateType :: Prelude.Text
+    templateType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TemplateVersionResponse' with all optional fields omitted.
@@ -85,13 +84,13 @@ data TemplateVersionResponse = TemplateVersionResponse'
 -- values are: EMAIL, PUSH, SMS, and VOICE.
 newTemplateVersionResponse ::
   -- | 'lastModifiedDate'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'creationDate'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'templateType'
-  Prelude.Text ->
+  Core.Text ->
   TemplateVersionResponse
 newTemplateVersionResponse
   pLastModifiedDate_
@@ -100,9 +99,9 @@ newTemplateVersionResponse
   pTemplateType_ =
     TemplateVersionResponse'
       { templateDescription =
-          Prelude.Nothing,
-        version = Prelude.Nothing,
-        defaultSubstitutions = Prelude.Nothing,
+          Core.Nothing,
+        version = Core.Nothing,
+        defaultSubstitutions = Core.Nothing,
         lastModifiedDate = pLastModifiedDate_,
         creationDate = pCreationDate_,
         templateName = pTemplateName_,
@@ -110,13 +109,13 @@ newTemplateVersionResponse
       }
 
 -- | The custom description of the version of the message template.
-templateVersionResponse_templateDescription :: Lens.Lens' TemplateVersionResponse (Prelude.Maybe Prelude.Text)
+templateVersionResponse_templateDescription :: Lens.Lens' TemplateVersionResponse (Core.Maybe Core.Text)
 templateVersionResponse_templateDescription = Lens.lens (\TemplateVersionResponse' {templateDescription} -> templateDescription) (\s@TemplateVersionResponse' {} a -> s {templateDescription = a} :: TemplateVersionResponse)
 
 -- | The unique identifier for the version of the message template. This
 -- value is an integer that Amazon Pinpoint automatically increments and
 -- assigns to each new version of a template.
-templateVersionResponse_version :: Lens.Lens' TemplateVersionResponse (Prelude.Maybe Prelude.Text)
+templateVersionResponse_version :: Lens.Lens' TemplateVersionResponse (Core.Maybe Core.Text)
 templateVersionResponse_version = Lens.lens (\TemplateVersionResponse' {version} -> version) (\s@TemplateVersionResponse' {} a -> s {version = a} :: TemplateVersionResponse)
 
 -- | A JSON object that specifies the default values that are used for
@@ -124,43 +123,43 @@ templateVersionResponse_version = Lens.lens (\TemplateVersionResponse' {version}
 -- a set of key-value pairs. Each key defines a message variable in the
 -- template. The corresponding value defines the default value for that
 -- variable.
-templateVersionResponse_defaultSubstitutions :: Lens.Lens' TemplateVersionResponse (Prelude.Maybe Prelude.Text)
+templateVersionResponse_defaultSubstitutions :: Lens.Lens' TemplateVersionResponse (Core.Maybe Core.Text)
 templateVersionResponse_defaultSubstitutions = Lens.lens (\TemplateVersionResponse' {defaultSubstitutions} -> defaultSubstitutions) (\s@TemplateVersionResponse' {} a -> s {defaultSubstitutions = a} :: TemplateVersionResponse)
 
 -- | The date, in ISO 8601 format, when the version of the message template
 -- was last modified.
-templateVersionResponse_lastModifiedDate :: Lens.Lens' TemplateVersionResponse Prelude.Text
+templateVersionResponse_lastModifiedDate :: Lens.Lens' TemplateVersionResponse Core.Text
 templateVersionResponse_lastModifiedDate = Lens.lens (\TemplateVersionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@TemplateVersionResponse' {} a -> s {lastModifiedDate = a} :: TemplateVersionResponse)
 
 -- | The date, in ISO 8601 format, when the version of the message template
 -- was created.
-templateVersionResponse_creationDate :: Lens.Lens' TemplateVersionResponse Prelude.Text
+templateVersionResponse_creationDate :: Lens.Lens' TemplateVersionResponse Core.Text
 templateVersionResponse_creationDate = Lens.lens (\TemplateVersionResponse' {creationDate} -> creationDate) (\s@TemplateVersionResponse' {} a -> s {creationDate = a} :: TemplateVersionResponse)
 
 -- | The name of the message template.
-templateVersionResponse_templateName :: Lens.Lens' TemplateVersionResponse Prelude.Text
+templateVersionResponse_templateName :: Lens.Lens' TemplateVersionResponse Core.Text
 templateVersionResponse_templateName = Lens.lens (\TemplateVersionResponse' {templateName} -> templateName) (\s@TemplateVersionResponse' {} a -> s {templateName = a} :: TemplateVersionResponse)
 
 -- | The type of channel that the message template is designed for. Possible
 -- values are: EMAIL, PUSH, SMS, and VOICE.
-templateVersionResponse_templateType :: Lens.Lens' TemplateVersionResponse Prelude.Text
+templateVersionResponse_templateType :: Lens.Lens' TemplateVersionResponse Core.Text
 templateVersionResponse_templateType = Lens.lens (\TemplateVersionResponse' {templateType} -> templateType) (\s@TemplateVersionResponse' {} a -> s {templateType = a} :: TemplateVersionResponse)
 
-instance Prelude.FromJSON TemplateVersionResponse where
+instance Core.FromJSON TemplateVersionResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TemplateVersionResponse"
       ( \x ->
           TemplateVersionResponse'
-            Prelude.<$> (x Prelude..:? "TemplateDescription")
-            Prelude.<*> (x Prelude..:? "Version")
-            Prelude.<*> (x Prelude..:? "DefaultSubstitutions")
-            Prelude.<*> (x Prelude..: "LastModifiedDate")
-            Prelude.<*> (x Prelude..: "CreationDate")
-            Prelude.<*> (x Prelude..: "TemplateName")
-            Prelude.<*> (x Prelude..: "TemplateType")
+            Core.<$> (x Core..:? "TemplateDescription")
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (x Core..:? "DefaultSubstitutions")
+            Core.<*> (x Core..: "LastModifiedDate")
+            Core.<*> (x Core..: "CreationDate")
+            Core.<*> (x Core..: "TemplateName")
+            Core.<*> (x Core..: "TemplateType")
       )
 
-instance Prelude.Hashable TemplateVersionResponse
+instance Core.Hashable TemplateVersionResponse
 
-instance Prelude.NFData TemplateVersionResponse
+instance Core.NFData TemplateVersionResponse

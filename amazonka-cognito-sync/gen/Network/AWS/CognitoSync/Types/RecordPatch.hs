@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,25 +20,25 @@
 module Network.AWS.CognitoSync.Types.RecordPatch where
 
 import Network.AWS.CognitoSync.Types.Operation
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An update operation for a record.
 --
 -- /See:/ 'newRecordPatch' smart constructor.
 data RecordPatch = RecordPatch'
   { -- | The last modified date of the client device.
-    deviceLastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    deviceLastModifiedDate :: Core.Maybe Core.POSIX,
     -- | The value associated with the record patch.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | An operation, either replace or remove.
     op :: Operation,
     -- | The key associated with the record patch.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | Last known server sync count for this record. Set to 0 if unknown.
-    syncCount :: Prelude.Integer
+    syncCount :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecordPatch' with all optional fields omitted.
@@ -62,26 +61,25 @@ newRecordPatch ::
   -- | 'op'
   Operation ->
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'syncCount'
-  Prelude.Integer ->
+  Core.Integer ->
   RecordPatch
 newRecordPatch pOp_ pKey_ pSyncCount_ =
   RecordPatch'
-    { deviceLastModifiedDate =
-        Prelude.Nothing,
-      value = Prelude.Nothing,
+    { deviceLastModifiedDate = Core.Nothing,
+      value = Core.Nothing,
       op = pOp_,
       key = pKey_,
       syncCount = pSyncCount_
     }
 
 -- | The last modified date of the client device.
-recordPatch_deviceLastModifiedDate :: Lens.Lens' RecordPatch (Prelude.Maybe Prelude.UTCTime)
-recordPatch_deviceLastModifiedDate = Lens.lens (\RecordPatch' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@RecordPatch' {} a -> s {deviceLastModifiedDate = a} :: RecordPatch) Prelude.. Lens.mapping Prelude._Time
+recordPatch_deviceLastModifiedDate :: Lens.Lens' RecordPatch (Core.Maybe Core.UTCTime)
+recordPatch_deviceLastModifiedDate = Lens.lens (\RecordPatch' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@RecordPatch' {} a -> s {deviceLastModifiedDate = a} :: RecordPatch) Core.. Lens.mapping Core._Time
 
 -- | The value associated with the record patch.
-recordPatch_value :: Lens.Lens' RecordPatch (Prelude.Maybe Prelude.Text)
+recordPatch_value :: Lens.Lens' RecordPatch (Core.Maybe Core.Text)
 recordPatch_value = Lens.lens (\RecordPatch' {value} -> value) (\s@RecordPatch' {} a -> s {value = a} :: RecordPatch)
 
 -- | An operation, either replace or remove.
@@ -89,26 +87,26 @@ recordPatch_op :: Lens.Lens' RecordPatch Operation
 recordPatch_op = Lens.lens (\RecordPatch' {op} -> op) (\s@RecordPatch' {} a -> s {op = a} :: RecordPatch)
 
 -- | The key associated with the record patch.
-recordPatch_key :: Lens.Lens' RecordPatch Prelude.Text
+recordPatch_key :: Lens.Lens' RecordPatch Core.Text
 recordPatch_key = Lens.lens (\RecordPatch' {key} -> key) (\s@RecordPatch' {} a -> s {key = a} :: RecordPatch)
 
 -- | Last known server sync count for this record. Set to 0 if unknown.
-recordPatch_syncCount :: Lens.Lens' RecordPatch Prelude.Integer
+recordPatch_syncCount :: Lens.Lens' RecordPatch Core.Integer
 recordPatch_syncCount = Lens.lens (\RecordPatch' {syncCount} -> syncCount) (\s@RecordPatch' {} a -> s {syncCount = a} :: RecordPatch)
 
-instance Prelude.Hashable RecordPatch
+instance Core.Hashable RecordPatch
 
-instance Prelude.NFData RecordPatch
+instance Core.NFData RecordPatch
 
-instance Prelude.ToJSON RecordPatch where
+instance Core.ToJSON RecordPatch where
   toJSON RecordPatch' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DeviceLastModifiedDate" Prelude..=)
-              Prelude.<$> deviceLastModifiedDate,
-            ("Value" Prelude..=) Prelude.<$> value,
-            Prelude.Just ("Op" Prelude..= op),
-            Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("SyncCount" Prelude..= syncCount)
+    Core.object
+      ( Core.catMaybes
+          [ ("DeviceLastModifiedDate" Core..=)
+              Core.<$> deviceLastModifiedDate,
+            ("Value" Core..=) Core.<$> value,
+            Core.Just ("Op" Core..= op),
+            Core.Just ("Key" Core..= key),
+            Core.Just ("SyncCount" Core..= syncCount)
           ]
       )

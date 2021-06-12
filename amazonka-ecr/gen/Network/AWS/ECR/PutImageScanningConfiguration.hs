@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.ECR.PutImageScanningConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,16 +54,16 @@ data PutImageScanningConfiguration = PutImageScanningConfiguration'
   { -- | The AWS account ID associated with the registry that contains the
     -- repository in which to update the image scanning configuration setting.
     -- If you do not specify a registry, the default registry is assumed.
-    registryId :: Prelude.Maybe Prelude.Text,
+    registryId :: Core.Maybe Core.Text,
     -- | The name of the repository in which to update the image scanning
     -- configuration setting.
-    repositoryName :: Prelude.Text,
+    repositoryName :: Core.Text,
     -- | The image scanning configuration for the repository. This setting
     -- determines whether images are scanned for known vulnerabilities after
     -- being pushed to the repository.
     imageScanningConfiguration :: ImageScanningConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutImageScanningConfiguration' with all optional fields omitted.
@@ -86,7 +85,7 @@ data PutImageScanningConfiguration = PutImageScanningConfiguration'
 -- being pushed to the repository.
 newPutImageScanningConfiguration ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'imageScanningConfiguration'
   ImageScanningConfiguration ->
   PutImageScanningConfiguration
@@ -95,7 +94,7 @@ newPutImageScanningConfiguration
   pImageScanningConfiguration_ =
     PutImageScanningConfiguration'
       { registryId =
-          Prelude.Nothing,
+          Core.Nothing,
         repositoryName = pRepositoryName_,
         imageScanningConfiguration =
           pImageScanningConfiguration_
@@ -104,12 +103,12 @@ newPutImageScanningConfiguration
 -- | The AWS account ID associated with the registry that contains the
 -- repository in which to update the image scanning configuration setting.
 -- If you do not specify a registry, the default registry is assumed.
-putImageScanningConfiguration_registryId :: Lens.Lens' PutImageScanningConfiguration (Prelude.Maybe Prelude.Text)
+putImageScanningConfiguration_registryId :: Lens.Lens' PutImageScanningConfiguration (Core.Maybe Core.Text)
 putImageScanningConfiguration_registryId = Lens.lens (\PutImageScanningConfiguration' {registryId} -> registryId) (\s@PutImageScanningConfiguration' {} a -> s {registryId = a} :: PutImageScanningConfiguration)
 
 -- | The name of the repository in which to update the image scanning
 -- configuration setting.
-putImageScanningConfiguration_repositoryName :: Lens.Lens' PutImageScanningConfiguration Prelude.Text
+putImageScanningConfiguration_repositoryName :: Lens.Lens' PutImageScanningConfiguration Core.Text
 putImageScanningConfiguration_repositoryName = Lens.lens (\PutImageScanningConfiguration' {repositoryName} -> repositoryName) (\s@PutImageScanningConfiguration' {} a -> s {repositoryName = a} :: PutImageScanningConfiguration)
 
 -- | The image scanning configuration for the repository. This setting
@@ -119,82 +118,71 @@ putImageScanningConfiguration_imageScanningConfiguration :: Lens.Lens' PutImageS
 putImageScanningConfiguration_imageScanningConfiguration = Lens.lens (\PutImageScanningConfiguration' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@PutImageScanningConfiguration' {} a -> s {imageScanningConfiguration = a} :: PutImageScanningConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PutImageScanningConfiguration
   where
   type
-    Rs PutImageScanningConfiguration =
+    AWSResponse PutImageScanningConfiguration =
       PutImageScanningConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutImageScanningConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "registryId")
-            Prelude.<*> (x Prelude..?> "repositoryName")
-            Prelude.<*> (x Prelude..?> "imageScanningConfiguration")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "registryId")
+            Core.<*> (x Core..?> "repositoryName")
+            Core.<*> (x Core..?> "imageScanningConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    PutImageScanningConfiguration
+instance Core.Hashable PutImageScanningConfiguration
 
-instance Prelude.NFData PutImageScanningConfiguration
+instance Core.NFData PutImageScanningConfiguration
 
-instance
-  Prelude.ToHeaders
-    PutImageScanningConfiguration
-  where
+instance Core.ToHeaders PutImageScanningConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutImageScanningConfiguration where
+instance Core.ToJSON PutImageScanningConfiguration where
   toJSON PutImageScanningConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("registryId" Prelude..=) Prelude.<$> registryId,
-            Prelude.Just
-              ("repositoryName" Prelude..= repositoryName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("registryId" Core..=) Core.<$> registryId,
+            Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just
               ( "imageScanningConfiguration"
-                  Prelude..= imageScanningConfiguration
+                  Core..= imageScanningConfiguration
               )
           ]
       )
 
-instance Prelude.ToPath PutImageScanningConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutImageScanningConfiguration where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    PutImageScanningConfiguration
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutImageScanningConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutImageScanningConfigurationResponse' smart constructor.
 data PutImageScanningConfigurationResponse = PutImageScanningConfigurationResponse'
   { -- | The registry ID associated with the request.
-    registryId :: Prelude.Maybe Prelude.Text,
+    registryId :: Core.Maybe Core.Text,
     -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
+    repositoryName :: Core.Maybe Core.Text,
     -- | The image scanning configuration setting for the repository.
-    imageScanningConfiguration :: Prelude.Maybe ImageScanningConfiguration,
+    imageScanningConfiguration :: Core.Maybe ImageScanningConfiguration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutImageScanningConfigurationResponse' with all optional fields omitted.
@@ -213,34 +201,34 @@ data PutImageScanningConfigurationResponse = PutImageScanningConfigurationRespon
 -- 'httpStatus', 'putImageScanningConfigurationResponse_httpStatus' - The response's http status code.
 newPutImageScanningConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutImageScanningConfigurationResponse
 newPutImageScanningConfigurationResponse pHttpStatus_ =
   PutImageScanningConfigurationResponse'
     { registryId =
-        Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
+        Core.Nothing,
+      repositoryName = Core.Nothing,
       imageScanningConfiguration =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The registry ID associated with the request.
-putImageScanningConfigurationResponse_registryId :: Lens.Lens' PutImageScanningConfigurationResponse (Prelude.Maybe Prelude.Text)
+putImageScanningConfigurationResponse_registryId :: Lens.Lens' PutImageScanningConfigurationResponse (Core.Maybe Core.Text)
 putImageScanningConfigurationResponse_registryId = Lens.lens (\PutImageScanningConfigurationResponse' {registryId} -> registryId) (\s@PutImageScanningConfigurationResponse' {} a -> s {registryId = a} :: PutImageScanningConfigurationResponse)
 
 -- | The repository name associated with the request.
-putImageScanningConfigurationResponse_repositoryName :: Lens.Lens' PutImageScanningConfigurationResponse (Prelude.Maybe Prelude.Text)
+putImageScanningConfigurationResponse_repositoryName :: Lens.Lens' PutImageScanningConfigurationResponse (Core.Maybe Core.Text)
 putImageScanningConfigurationResponse_repositoryName = Lens.lens (\PutImageScanningConfigurationResponse' {repositoryName} -> repositoryName) (\s@PutImageScanningConfigurationResponse' {} a -> s {repositoryName = a} :: PutImageScanningConfigurationResponse)
 
 -- | The image scanning configuration setting for the repository.
-putImageScanningConfigurationResponse_imageScanningConfiguration :: Lens.Lens' PutImageScanningConfigurationResponse (Prelude.Maybe ImageScanningConfiguration)
+putImageScanningConfigurationResponse_imageScanningConfiguration :: Lens.Lens' PutImageScanningConfigurationResponse (Core.Maybe ImageScanningConfiguration)
 putImageScanningConfigurationResponse_imageScanningConfiguration = Lens.lens (\PutImageScanningConfigurationResponse' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@PutImageScanningConfigurationResponse' {} a -> s {imageScanningConfiguration = a} :: PutImageScanningConfigurationResponse)
 
 -- | The response's http status code.
-putImageScanningConfigurationResponse_httpStatus :: Lens.Lens' PutImageScanningConfigurationResponse Prelude.Int
+putImageScanningConfigurationResponse_httpStatus :: Lens.Lens' PutImageScanningConfigurationResponse Core.Int
 putImageScanningConfigurationResponse_httpStatus = Lens.lens (\PutImageScanningConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutImageScanningConfigurationResponse' {} a -> s {httpStatus = a} :: PutImageScanningConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutImageScanningConfigurationResponse

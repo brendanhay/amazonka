@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AppSync.Types.HttpDataSourceConfig where
 
 import Network.AWS.AppSync.Types.AuthorizationConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an HTTP data source configuration.
 --
@@ -30,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 data HttpDataSourceConfig = HttpDataSourceConfig'
   { -- | The authorization config in case the HTTP endpoint requires
     -- authorization.
-    authorizationConfig :: Prelude.Maybe AuthorizationConfig,
+    authorizationConfig :: Core.Maybe AuthorizationConfig,
     -- | The HTTP URL endpoint. You can either specify the domain name or IP, and
     -- port combination, and the URL scheme must be HTTP or HTTPS. If the port
     -- is not specified, AWS AppSync uses the default port 80 for the HTTP
     -- endpoint and port 443 for HTTPS endpoints.
-    endpoint :: Prelude.Maybe Prelude.Text
+    endpoint :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HttpDataSourceConfig' with all optional fields omitted.
@@ -59,42 +58,42 @@ newHttpDataSourceConfig ::
 newHttpDataSourceConfig =
   HttpDataSourceConfig'
     { authorizationConfig =
-        Prelude.Nothing,
-      endpoint = Prelude.Nothing
+        Core.Nothing,
+      endpoint = Core.Nothing
     }
 
 -- | The authorization config in case the HTTP endpoint requires
 -- authorization.
-httpDataSourceConfig_authorizationConfig :: Lens.Lens' HttpDataSourceConfig (Prelude.Maybe AuthorizationConfig)
+httpDataSourceConfig_authorizationConfig :: Lens.Lens' HttpDataSourceConfig (Core.Maybe AuthorizationConfig)
 httpDataSourceConfig_authorizationConfig = Lens.lens (\HttpDataSourceConfig' {authorizationConfig} -> authorizationConfig) (\s@HttpDataSourceConfig' {} a -> s {authorizationConfig = a} :: HttpDataSourceConfig)
 
 -- | The HTTP URL endpoint. You can either specify the domain name or IP, and
 -- port combination, and the URL scheme must be HTTP or HTTPS. If the port
 -- is not specified, AWS AppSync uses the default port 80 for the HTTP
 -- endpoint and port 443 for HTTPS endpoints.
-httpDataSourceConfig_endpoint :: Lens.Lens' HttpDataSourceConfig (Prelude.Maybe Prelude.Text)
+httpDataSourceConfig_endpoint :: Lens.Lens' HttpDataSourceConfig (Core.Maybe Core.Text)
 httpDataSourceConfig_endpoint = Lens.lens (\HttpDataSourceConfig' {endpoint} -> endpoint) (\s@HttpDataSourceConfig' {} a -> s {endpoint = a} :: HttpDataSourceConfig)
 
-instance Prelude.FromJSON HttpDataSourceConfig where
+instance Core.FromJSON HttpDataSourceConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HttpDataSourceConfig"
       ( \x ->
           HttpDataSourceConfig'
-            Prelude.<$> (x Prelude..:? "authorizationConfig")
-            Prelude.<*> (x Prelude..:? "endpoint")
+            Core.<$> (x Core..:? "authorizationConfig")
+            Core.<*> (x Core..:? "endpoint")
       )
 
-instance Prelude.Hashable HttpDataSourceConfig
+instance Core.Hashable HttpDataSourceConfig
 
-instance Prelude.NFData HttpDataSourceConfig
+instance Core.NFData HttpDataSourceConfig
 
-instance Prelude.ToJSON HttpDataSourceConfig where
+instance Core.ToJSON HttpDataSourceConfig where
   toJSON HttpDataSourceConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("authorizationConfig" Prelude..=)
-              Prelude.<$> authorizationConfig,
-            ("endpoint" Prelude..=) Prelude.<$> endpoint
+    Core.object
+      ( Core.catMaybes
+          [ ("authorizationConfig" Core..=)
+              Core.<$> authorizationConfig,
+            ("endpoint" Core..=) Core.<$> endpoint
           ]
       )

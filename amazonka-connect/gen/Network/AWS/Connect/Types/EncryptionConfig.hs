@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Connect.Types.EncryptionConfig where
 
 import Network.AWS.Connect.Types.EncryptionType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The encryption configuration.
 --
@@ -31,9 +30,9 @@ data EncryptionConfig = EncryptionConfig'
   { -- | The type of encryption.
     encryptionType :: EncryptionType,
     -- | The identifier of the encryption key.
-    keyId :: Prelude.Text
+    keyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionConfig' with all optional fields omitted.
@@ -50,7 +49,7 @@ newEncryptionConfig ::
   -- | 'encryptionType'
   EncryptionType ->
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   EncryptionConfig
 newEncryptionConfig pEncryptionType_ pKeyId_ =
   EncryptionConfig'
@@ -64,29 +63,28 @@ encryptionConfig_encryptionType :: Lens.Lens' EncryptionConfig EncryptionType
 encryptionConfig_encryptionType = Lens.lens (\EncryptionConfig' {encryptionType} -> encryptionType) (\s@EncryptionConfig' {} a -> s {encryptionType = a} :: EncryptionConfig)
 
 -- | The identifier of the encryption key.
-encryptionConfig_keyId :: Lens.Lens' EncryptionConfig Prelude.Text
+encryptionConfig_keyId :: Lens.Lens' EncryptionConfig Core.Text
 encryptionConfig_keyId = Lens.lens (\EncryptionConfig' {keyId} -> keyId) (\s@EncryptionConfig' {} a -> s {keyId = a} :: EncryptionConfig)
 
-instance Prelude.FromJSON EncryptionConfig where
+instance Core.FromJSON EncryptionConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EncryptionConfig"
       ( \x ->
           EncryptionConfig'
-            Prelude.<$> (x Prelude..: "EncryptionType")
-            Prelude.<*> (x Prelude..: "KeyId")
+            Core.<$> (x Core..: "EncryptionType")
+            Core.<*> (x Core..: "KeyId")
       )
 
-instance Prelude.Hashable EncryptionConfig
+instance Core.Hashable EncryptionConfig
 
-instance Prelude.NFData EncryptionConfig
+instance Core.NFData EncryptionConfig
 
-instance Prelude.ToJSON EncryptionConfig where
+instance Core.ToJSON EncryptionConfig where
   toJSON EncryptionConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EncryptionType" Prelude..= encryptionType),
-            Prelude.Just ("KeyId" Prelude..= keyId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EncryptionType" Core..= encryptionType),
+            Core.Just ("KeyId" Core..= keyId)
           ]
       )

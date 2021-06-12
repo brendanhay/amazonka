@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +54,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRemoveTagsFromStream' smart constructor.
 data RemoveTagsFromStream = RemoveTagsFromStream'
   { -- | The name of the stream.
-    streamName :: Prelude.Text,
+    streamName :: Core.Text,
     -- | A list of tag keys. Each corresponding tag is removed from the stream.
-    tagKeys :: Prelude.NonEmpty Prelude.Text
+    tagKeys :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromStream' with all optional fields omitted.
@@ -74,71 +73,69 @@ data RemoveTagsFromStream = RemoveTagsFromStream'
 -- 'tagKeys', 'removeTagsFromStream_tagKeys' - A list of tag keys. Each corresponding tag is removed from the stream.
 newRemoveTagsFromStream ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tagKeys'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   RemoveTagsFromStream
 newRemoveTagsFromStream pStreamName_ pTagKeys_ =
   RemoveTagsFromStream'
     { streamName = pStreamName_,
-      tagKeys = Prelude._Coerce Lens.# pTagKeys_
+      tagKeys = Lens._Coerce Lens.# pTagKeys_
     }
 
 -- | The name of the stream.
-removeTagsFromStream_streamName :: Lens.Lens' RemoveTagsFromStream Prelude.Text
+removeTagsFromStream_streamName :: Lens.Lens' RemoveTagsFromStream Core.Text
 removeTagsFromStream_streamName = Lens.lens (\RemoveTagsFromStream' {streamName} -> streamName) (\s@RemoveTagsFromStream' {} a -> s {streamName = a} :: RemoveTagsFromStream)
 
 -- | A list of tag keys. Each corresponding tag is removed from the stream.
-removeTagsFromStream_tagKeys :: Lens.Lens' RemoveTagsFromStream (Prelude.NonEmpty Prelude.Text)
-removeTagsFromStream_tagKeys = Lens.lens (\RemoveTagsFromStream' {tagKeys} -> tagKeys) (\s@RemoveTagsFromStream' {} a -> s {tagKeys = a} :: RemoveTagsFromStream) Prelude.. Prelude._Coerce
+removeTagsFromStream_tagKeys :: Lens.Lens' RemoveTagsFromStream (Core.NonEmpty Core.Text)
+removeTagsFromStream_tagKeys = Lens.lens (\RemoveTagsFromStream' {tagKeys} -> tagKeys) (\s@RemoveTagsFromStream' {} a -> s {tagKeys = a} :: RemoveTagsFromStream) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest RemoveTagsFromStream where
+instance Core.AWSRequest RemoveTagsFromStream where
   type
-    Rs RemoveTagsFromStream =
+    AWSResponse RemoveTagsFromStream =
       RemoveTagsFromStreamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull RemoveTagsFromStreamResponse'
 
-instance Prelude.Hashable RemoveTagsFromStream
+instance Core.Hashable RemoveTagsFromStream
 
-instance Prelude.NFData RemoveTagsFromStream
+instance Core.NFData RemoveTagsFromStream
 
-instance Prelude.ToHeaders RemoveTagsFromStream where
+instance Core.ToHeaders RemoveTagsFromStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.RemoveTagsFromStream" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Kinesis_20131202.RemoveTagsFromStream" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RemoveTagsFromStream where
+instance Core.ToJSON RemoveTagsFromStream where
   toJSON RemoveTagsFromStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Prelude..= streamName),
-            Prelude.Just ("TagKeys" Prelude..= tagKeys)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
-instance Prelude.ToPath RemoveTagsFromStream where
-  toPath = Prelude.const "/"
+instance Core.ToPath RemoveTagsFromStream where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RemoveTagsFromStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RemoveTagsFromStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRemoveTagsFromStreamResponse' smart constructor.
 data RemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromStreamResponse' with all optional fields omitted.
@@ -149,4 +146,4 @@ newRemoveTagsFromStreamResponse ::
 newRemoveTagsFromStreamResponse =
   RemoveTagsFromStreamResponse'
 
-instance Prelude.NFData RemoveTagsFromStreamResponse
+instance Core.NFData RemoveTagsFromStreamResponse

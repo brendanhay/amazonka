@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -70,8 +69,8 @@ module Network.AWS.SWF.RequestCancelWorkflowExecution
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -79,13 +78,13 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newRequestCancelWorkflowExecution' smart constructor.
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
   { -- | The runId of the workflow execution to cancel.
-    runId :: Prelude.Maybe Prelude.Text,
+    runId :: Core.Maybe Core.Text,
     -- | The name of the domain containing the workflow execution to cancel.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | The workflowId of the workflow execution to cancel.
-    workflowId :: Prelude.Text
+    workflowId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RequestCancelWorkflowExecution' with all optional fields omitted.
@@ -102,100 +101,85 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
 -- 'workflowId', 'requestCancelWorkflowExecution_workflowId' - The workflowId of the workflow execution to cancel.
 newRequestCancelWorkflowExecution ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'workflowId'
-  Prelude.Text ->
+  Core.Text ->
   RequestCancelWorkflowExecution
 newRequestCancelWorkflowExecution
   pDomain_
   pWorkflowId_ =
     RequestCancelWorkflowExecution'
       { runId =
-          Prelude.Nothing,
+          Core.Nothing,
         domain = pDomain_,
         workflowId = pWorkflowId_
       }
 
 -- | The runId of the workflow execution to cancel.
-requestCancelWorkflowExecution_runId :: Lens.Lens' RequestCancelWorkflowExecution (Prelude.Maybe Prelude.Text)
+requestCancelWorkflowExecution_runId :: Lens.Lens' RequestCancelWorkflowExecution (Core.Maybe Core.Text)
 requestCancelWorkflowExecution_runId = Lens.lens (\RequestCancelWorkflowExecution' {runId} -> runId) (\s@RequestCancelWorkflowExecution' {} a -> s {runId = a} :: RequestCancelWorkflowExecution)
 
 -- | The name of the domain containing the workflow execution to cancel.
-requestCancelWorkflowExecution_domain :: Lens.Lens' RequestCancelWorkflowExecution Prelude.Text
+requestCancelWorkflowExecution_domain :: Lens.Lens' RequestCancelWorkflowExecution Core.Text
 requestCancelWorkflowExecution_domain = Lens.lens (\RequestCancelWorkflowExecution' {domain} -> domain) (\s@RequestCancelWorkflowExecution' {} a -> s {domain = a} :: RequestCancelWorkflowExecution)
 
 -- | The workflowId of the workflow execution to cancel.
-requestCancelWorkflowExecution_workflowId :: Lens.Lens' RequestCancelWorkflowExecution Prelude.Text
+requestCancelWorkflowExecution_workflowId :: Lens.Lens' RequestCancelWorkflowExecution Core.Text
 requestCancelWorkflowExecution_workflowId = Lens.lens (\RequestCancelWorkflowExecution' {workflowId} -> workflowId) (\s@RequestCancelWorkflowExecution' {} a -> s {workflowId = a} :: RequestCancelWorkflowExecution)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     RequestCancelWorkflowExecution
   where
   type
-    Rs RequestCancelWorkflowExecution =
+    AWSResponse RequestCancelWorkflowExecution =
       RequestCancelWorkflowExecutionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       RequestCancelWorkflowExecutionResponse'
 
-instance
-  Prelude.Hashable
-    RequestCancelWorkflowExecution
+instance Core.Hashable RequestCancelWorkflowExecution
+
+instance Core.NFData RequestCancelWorkflowExecution
 
 instance
-  Prelude.NFData
-    RequestCancelWorkflowExecution
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     RequestCancelWorkflowExecution
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.RequestCancelWorkflowExecution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.RequestCancelWorkflowExecution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    RequestCancelWorkflowExecution
-  where
+instance Core.ToJSON RequestCancelWorkflowExecution where
   toJSON RequestCancelWorkflowExecution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("runId" Prelude..=) Prelude.<$> runId,
-            Prelude.Just ("domain" Prelude..= domain),
-            Prelude.Just ("workflowId" Prelude..= workflowId)
+    Core.object
+      ( Core.catMaybes
+          [ ("runId" Core..=) Core.<$> runId,
+            Core.Just ("domain" Core..= domain),
+            Core.Just ("workflowId" Core..= workflowId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    RequestCancelWorkflowExecution
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath RequestCancelWorkflowExecution where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    RequestCancelWorkflowExecution
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RequestCancelWorkflowExecution where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRequestCancelWorkflowExecutionResponse' smart constructor.
 data RequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RequestCancelWorkflowExecutionResponse' with all optional fields omitted.
@@ -207,5 +191,5 @@ newRequestCancelWorkflowExecutionResponse =
   RequestCancelWorkflowExecutionResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     RequestCancelWorkflowExecutionResponse

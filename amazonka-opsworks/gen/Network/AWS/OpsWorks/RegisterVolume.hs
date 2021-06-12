@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,20 +50,20 @@ module Network.AWS.OpsWorks.RegisterVolume
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRegisterVolume' smart constructor.
 data RegisterVolume = RegisterVolume'
   { -- | The Amazon EBS volume ID.
-    ec2VolumeId :: Prelude.Maybe Prelude.Text,
+    ec2VolumeId :: Core.Maybe Core.Text,
     -- | The stack ID.
-    stackId :: Prelude.Text
+    stackId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterVolume' with all optional fields omitted.
@@ -79,77 +78,77 @@ data RegisterVolume = RegisterVolume'
 -- 'stackId', 'registerVolume_stackId' - The stack ID.
 newRegisterVolume ::
   -- | 'stackId'
-  Prelude.Text ->
+  Core.Text ->
   RegisterVolume
 newRegisterVolume pStackId_ =
   RegisterVolume'
-    { ec2VolumeId = Prelude.Nothing,
+    { ec2VolumeId = Core.Nothing,
       stackId = pStackId_
     }
 
 -- | The Amazon EBS volume ID.
-registerVolume_ec2VolumeId :: Lens.Lens' RegisterVolume (Prelude.Maybe Prelude.Text)
+registerVolume_ec2VolumeId :: Lens.Lens' RegisterVolume (Core.Maybe Core.Text)
 registerVolume_ec2VolumeId = Lens.lens (\RegisterVolume' {ec2VolumeId} -> ec2VolumeId) (\s@RegisterVolume' {} a -> s {ec2VolumeId = a} :: RegisterVolume)
 
 -- | The stack ID.
-registerVolume_stackId :: Lens.Lens' RegisterVolume Prelude.Text
+registerVolume_stackId :: Lens.Lens' RegisterVolume Core.Text
 registerVolume_stackId = Lens.lens (\RegisterVolume' {stackId} -> stackId) (\s@RegisterVolume' {} a -> s {stackId = a} :: RegisterVolume)
 
-instance Prelude.AWSRequest RegisterVolume where
-  type Rs RegisterVolume = RegisterVolumeResponse
+instance Core.AWSRequest RegisterVolume where
+  type
+    AWSResponse RegisterVolume =
+      RegisterVolumeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RegisterVolumeResponse'
-            Prelude.<$> (x Prelude..?> "VolumeId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "VolumeId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterVolume
+instance Core.Hashable RegisterVolume
 
-instance Prelude.NFData RegisterVolume
+instance Core.NFData RegisterVolume
 
-instance Prelude.ToHeaders RegisterVolume where
+instance Core.ToHeaders RegisterVolume where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.RegisterVolume" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.RegisterVolume" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterVolume where
+instance Core.ToJSON RegisterVolume where
   toJSON RegisterVolume' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Ec2VolumeId" Prelude..=) Prelude.<$> ec2VolumeId,
-            Prelude.Just ("StackId" Prelude..= stackId)
+    Core.object
+      ( Core.catMaybes
+          [ ("Ec2VolumeId" Core..=) Core.<$> ec2VolumeId,
+            Core.Just ("StackId" Core..= stackId)
           ]
       )
 
-instance Prelude.ToPath RegisterVolume where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterVolume where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterVolume where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterVolume where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @RegisterVolume@ request.
 --
 -- /See:/ 'newRegisterVolumeResponse' smart constructor.
 data RegisterVolumeResponse = RegisterVolumeResponse'
   { -- | The volume ID.
-    volumeId :: Prelude.Maybe Prelude.Text,
+    volumeId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterVolumeResponse' with all optional fields omitted.
@@ -164,20 +163,20 @@ data RegisterVolumeResponse = RegisterVolumeResponse'
 -- 'httpStatus', 'registerVolumeResponse_httpStatus' - The response's http status code.
 newRegisterVolumeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterVolumeResponse
 newRegisterVolumeResponse pHttpStatus_ =
   RegisterVolumeResponse'
-    { volumeId = Prelude.Nothing,
+    { volumeId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The volume ID.
-registerVolumeResponse_volumeId :: Lens.Lens' RegisterVolumeResponse (Prelude.Maybe Prelude.Text)
+registerVolumeResponse_volumeId :: Lens.Lens' RegisterVolumeResponse (Core.Maybe Core.Text)
 registerVolumeResponse_volumeId = Lens.lens (\RegisterVolumeResponse' {volumeId} -> volumeId) (\s@RegisterVolumeResponse' {} a -> s {volumeId = a} :: RegisterVolumeResponse)
 
 -- | The response's http status code.
-registerVolumeResponse_httpStatus :: Lens.Lens' RegisterVolumeResponse Prelude.Int
+registerVolumeResponse_httpStatus :: Lens.Lens' RegisterVolumeResponse Core.Int
 registerVolumeResponse_httpStatus = Lens.lens (\RegisterVolumeResponse' {httpStatus} -> httpStatus) (\s@RegisterVolumeResponse' {} a -> s {httpStatus = a} :: RegisterVolumeResponse)
 
-instance Prelude.NFData RegisterVolumeResponse
+instance Core.NFData RegisterVolumeResponse

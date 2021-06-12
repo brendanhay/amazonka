@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.AccountLimit where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Limits that are related to concurrency and storage. All file and storage
 -- sizes are in bytes.
@@ -30,21 +29,21 @@ import qualified Network.AWS.Prelude as Prelude
 data AccountLimit = AccountLimit'
   { -- | The maximum size of a function\'s deployment package and layers when
     -- they\'re extracted.
-    codeSizeUnzipped :: Prelude.Maybe Prelude.Integer,
+    codeSizeUnzipped :: Core.Maybe Core.Integer,
     -- | The maximum number of simultaneous function executions.
-    concurrentExecutions :: Prelude.Maybe Prelude.Int,
+    concurrentExecutions :: Core.Maybe Core.Int,
     -- | The maximum number of simultaneous function executions, minus the
     -- capacity that\'s reserved for individual functions with
     -- PutFunctionConcurrency.
-    unreservedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
+    unreservedConcurrentExecutions :: Core.Maybe Core.Natural,
     -- | The maximum size of a deployment package when it\'s uploaded directly to
     -- AWS Lambda. Use Amazon S3 for larger files.
-    codeSizeZipped :: Prelude.Maybe Prelude.Integer,
+    codeSizeZipped :: Core.Maybe Core.Integer,
     -- | The amount of storage space that you can use for all deployment packages
     -- and layer archives.
-    totalCodeSize :: Prelude.Maybe Prelude.Integer
+    totalCodeSize :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccountLimit' with all optional fields omitted.
@@ -72,51 +71,51 @@ newAccountLimit ::
   AccountLimit
 newAccountLimit =
   AccountLimit'
-    { codeSizeUnzipped = Prelude.Nothing,
-      concurrentExecutions = Prelude.Nothing,
-      unreservedConcurrentExecutions = Prelude.Nothing,
-      codeSizeZipped = Prelude.Nothing,
-      totalCodeSize = Prelude.Nothing
+    { codeSizeUnzipped = Core.Nothing,
+      concurrentExecutions = Core.Nothing,
+      unreservedConcurrentExecutions = Core.Nothing,
+      codeSizeZipped = Core.Nothing,
+      totalCodeSize = Core.Nothing
     }
 
 -- | The maximum size of a function\'s deployment package and layers when
 -- they\'re extracted.
-accountLimit_codeSizeUnzipped :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Integer)
+accountLimit_codeSizeUnzipped :: Lens.Lens' AccountLimit (Core.Maybe Core.Integer)
 accountLimit_codeSizeUnzipped = Lens.lens (\AccountLimit' {codeSizeUnzipped} -> codeSizeUnzipped) (\s@AccountLimit' {} a -> s {codeSizeUnzipped = a} :: AccountLimit)
 
 -- | The maximum number of simultaneous function executions.
-accountLimit_concurrentExecutions :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Int)
+accountLimit_concurrentExecutions :: Lens.Lens' AccountLimit (Core.Maybe Core.Int)
 accountLimit_concurrentExecutions = Lens.lens (\AccountLimit' {concurrentExecutions} -> concurrentExecutions) (\s@AccountLimit' {} a -> s {concurrentExecutions = a} :: AccountLimit)
 
 -- | The maximum number of simultaneous function executions, minus the
 -- capacity that\'s reserved for individual functions with
 -- PutFunctionConcurrency.
-accountLimit_unreservedConcurrentExecutions :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Natural)
+accountLimit_unreservedConcurrentExecutions :: Lens.Lens' AccountLimit (Core.Maybe Core.Natural)
 accountLimit_unreservedConcurrentExecutions = Lens.lens (\AccountLimit' {unreservedConcurrentExecutions} -> unreservedConcurrentExecutions) (\s@AccountLimit' {} a -> s {unreservedConcurrentExecutions = a} :: AccountLimit)
 
 -- | The maximum size of a deployment package when it\'s uploaded directly to
 -- AWS Lambda. Use Amazon S3 for larger files.
-accountLimit_codeSizeZipped :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Integer)
+accountLimit_codeSizeZipped :: Lens.Lens' AccountLimit (Core.Maybe Core.Integer)
 accountLimit_codeSizeZipped = Lens.lens (\AccountLimit' {codeSizeZipped} -> codeSizeZipped) (\s@AccountLimit' {} a -> s {codeSizeZipped = a} :: AccountLimit)
 
 -- | The amount of storage space that you can use for all deployment packages
 -- and layer archives.
-accountLimit_totalCodeSize :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Integer)
+accountLimit_totalCodeSize :: Lens.Lens' AccountLimit (Core.Maybe Core.Integer)
 accountLimit_totalCodeSize = Lens.lens (\AccountLimit' {totalCodeSize} -> totalCodeSize) (\s@AccountLimit' {} a -> s {totalCodeSize = a} :: AccountLimit)
 
-instance Prelude.FromJSON AccountLimit where
+instance Core.FromJSON AccountLimit where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AccountLimit"
       ( \x ->
           AccountLimit'
-            Prelude.<$> (x Prelude..:? "CodeSizeUnzipped")
-            Prelude.<*> (x Prelude..:? "ConcurrentExecutions")
-            Prelude.<*> (x Prelude..:? "UnreservedConcurrentExecutions")
-            Prelude.<*> (x Prelude..:? "CodeSizeZipped")
-            Prelude.<*> (x Prelude..:? "TotalCodeSize")
+            Core.<$> (x Core..:? "CodeSizeUnzipped")
+            Core.<*> (x Core..:? "ConcurrentExecutions")
+            Core.<*> (x Core..:? "UnreservedConcurrentExecutions")
+            Core.<*> (x Core..:? "CodeSizeZipped")
+            Core.<*> (x Core..:? "TotalCodeSize")
       )
 
-instance Prelude.Hashable AccountLimit
+instance Core.Hashable AccountLimit
 
-instance Prelude.NFData AccountLimit
+instance Core.NFData AccountLimit

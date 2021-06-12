@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.NetworkInterface where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.PrivateIpAddressDetails
 import Network.AWS.GuardDuty.Types.SecurityGroup
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the elastic network interface of the EC2
 -- instance.
@@ -31,27 +30,27 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
   { -- | Other private IP address information of the EC2 instance.
-    privateIpAddresses :: Prelude.Maybe [PrivateIpAddressDetails],
+    privateIpAddresses :: Core.Maybe [PrivateIpAddressDetails],
     -- | A list of IPv6 addresses for the EC2 instance.
-    ipv6Addresses :: Prelude.Maybe [Prelude.Text],
+    ipv6Addresses :: Core.Maybe [Core.Text],
     -- | The security groups associated with the EC2 instance.
-    securityGroups :: Prelude.Maybe [SecurityGroup],
+    securityGroups :: Core.Maybe [SecurityGroup],
     -- | The public DNS name of the EC2 instance.
-    publicDnsName :: Prelude.Maybe Prelude.Text,
+    publicDnsName :: Core.Maybe Core.Text,
     -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    networkInterfaceId :: Core.Maybe Core.Text,
     -- | The subnet ID of the EC2 instance.
-    subnetId :: Prelude.Maybe Prelude.Text,
+    subnetId :: Core.Maybe Core.Text,
     -- | The private DNS name of the EC2 instance.
-    privateDnsName :: Prelude.Maybe Prelude.Text,
+    privateDnsName :: Core.Maybe Core.Text,
     -- | The public IP address of the EC2 instance.
-    publicIp :: Prelude.Maybe Prelude.Text,
+    publicIp :: Core.Maybe Core.Text,
     -- | The VPC ID of the EC2 instance.
-    vpcId :: Prelude.Maybe Prelude.Text,
+    vpcId :: Core.Maybe Core.Text,
     -- | The private IP address of the EC2 instance.
-    privateIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkInterface' with all optional fields omitted.
@@ -85,82 +84,78 @@ newNetworkInterface ::
 newNetworkInterface =
   NetworkInterface'
     { privateIpAddresses =
-        Prelude.Nothing,
-      ipv6Addresses = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      publicDnsName = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      privateDnsName = Prelude.Nothing,
-      publicIp = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing
+        Core.Nothing,
+      ipv6Addresses = Core.Nothing,
+      securityGroups = Core.Nothing,
+      publicDnsName = Core.Nothing,
+      networkInterfaceId = Core.Nothing,
+      subnetId = Core.Nothing,
+      privateDnsName = Core.Nothing,
+      publicIp = Core.Nothing,
+      vpcId = Core.Nothing,
+      privateIpAddress = Core.Nothing
     }
 
 -- | Other private IP address information of the EC2 instance.
-networkInterface_privateIpAddresses :: Lens.Lens' NetworkInterface (Prelude.Maybe [PrivateIpAddressDetails])
-networkInterface_privateIpAddresses = Lens.lens (\NetworkInterface' {privateIpAddresses} -> privateIpAddresses) (\s@NetworkInterface' {} a -> s {privateIpAddresses = a} :: NetworkInterface) Prelude.. Lens.mapping Prelude._Coerce
+networkInterface_privateIpAddresses :: Lens.Lens' NetworkInterface (Core.Maybe [PrivateIpAddressDetails])
+networkInterface_privateIpAddresses = Lens.lens (\NetworkInterface' {privateIpAddresses} -> privateIpAddresses) (\s@NetworkInterface' {} a -> s {privateIpAddresses = a} :: NetworkInterface) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of IPv6 addresses for the EC2 instance.
-networkInterface_ipv6Addresses :: Lens.Lens' NetworkInterface (Prelude.Maybe [Prelude.Text])
-networkInterface_ipv6Addresses = Lens.lens (\NetworkInterface' {ipv6Addresses} -> ipv6Addresses) (\s@NetworkInterface' {} a -> s {ipv6Addresses = a} :: NetworkInterface) Prelude.. Lens.mapping Prelude._Coerce
+networkInterface_ipv6Addresses :: Lens.Lens' NetworkInterface (Core.Maybe [Core.Text])
+networkInterface_ipv6Addresses = Lens.lens (\NetworkInterface' {ipv6Addresses} -> ipv6Addresses) (\s@NetworkInterface' {} a -> s {ipv6Addresses = a} :: NetworkInterface) Core.. Lens.mapping Lens._Coerce
 
 -- | The security groups associated with the EC2 instance.
-networkInterface_securityGroups :: Lens.Lens' NetworkInterface (Prelude.Maybe [SecurityGroup])
-networkInterface_securityGroups = Lens.lens (\NetworkInterface' {securityGroups} -> securityGroups) (\s@NetworkInterface' {} a -> s {securityGroups = a} :: NetworkInterface) Prelude.. Lens.mapping Prelude._Coerce
+networkInterface_securityGroups :: Lens.Lens' NetworkInterface (Core.Maybe [SecurityGroup])
+networkInterface_securityGroups = Lens.lens (\NetworkInterface' {securityGroups} -> securityGroups) (\s@NetworkInterface' {} a -> s {securityGroups = a} :: NetworkInterface) Core.. Lens.mapping Lens._Coerce
 
 -- | The public DNS name of the EC2 instance.
-networkInterface_publicDnsName :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_publicDnsName :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_publicDnsName = Lens.lens (\NetworkInterface' {publicDnsName} -> publicDnsName) (\s@NetworkInterface' {} a -> s {publicDnsName = a} :: NetworkInterface)
 
 -- | The ID of the network interface.
-networkInterface_networkInterfaceId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_networkInterfaceId :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_networkInterfaceId = Lens.lens (\NetworkInterface' {networkInterfaceId} -> networkInterfaceId) (\s@NetworkInterface' {} a -> s {networkInterfaceId = a} :: NetworkInterface)
 
 -- | The subnet ID of the EC2 instance.
-networkInterface_subnetId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_subnetId :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_subnetId = Lens.lens (\NetworkInterface' {subnetId} -> subnetId) (\s@NetworkInterface' {} a -> s {subnetId = a} :: NetworkInterface)
 
 -- | The private DNS name of the EC2 instance.
-networkInterface_privateDnsName :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_privateDnsName :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_privateDnsName = Lens.lens (\NetworkInterface' {privateDnsName} -> privateDnsName) (\s@NetworkInterface' {} a -> s {privateDnsName = a} :: NetworkInterface)
 
 -- | The public IP address of the EC2 instance.
-networkInterface_publicIp :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_publicIp :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_publicIp = Lens.lens (\NetworkInterface' {publicIp} -> publicIp) (\s@NetworkInterface' {} a -> s {publicIp = a} :: NetworkInterface)
 
 -- | The VPC ID of the EC2 instance.
-networkInterface_vpcId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_vpcId :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_vpcId = Lens.lens (\NetworkInterface' {vpcId} -> vpcId) (\s@NetworkInterface' {} a -> s {vpcId = a} :: NetworkInterface)
 
 -- | The private IP address of the EC2 instance.
-networkInterface_privateIpAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_privateIpAddress :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_privateIpAddress = Lens.lens (\NetworkInterface' {privateIpAddress} -> privateIpAddress) (\s@NetworkInterface' {} a -> s {privateIpAddress = a} :: NetworkInterface)
 
-instance Prelude.FromJSON NetworkInterface where
+instance Core.FromJSON NetworkInterface where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> ( x Prelude..:? "privateIpAddresses"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "ipv6Addresses"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "securityGroups"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "publicDnsName")
-            Prelude.<*> (x Prelude..:? "networkInterfaceId")
-            Prelude.<*> (x Prelude..:? "subnetId")
-            Prelude.<*> (x Prelude..:? "privateDnsName")
-            Prelude.<*> (x Prelude..:? "publicIp")
-            Prelude.<*> (x Prelude..:? "vpcId")
-            Prelude.<*> (x Prelude..:? "privateIpAddress")
+            Core.<$> ( x Core..:? "privateIpAddresses"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "ipv6Addresses" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "securityGroups" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "publicDnsName")
+            Core.<*> (x Core..:? "networkInterfaceId")
+            Core.<*> (x Core..:? "subnetId")
+            Core.<*> (x Core..:? "privateDnsName")
+            Core.<*> (x Core..:? "publicIp")
+            Core.<*> (x Core..:? "vpcId")
+            Core.<*> (x Core..:? "privateIpAddress")
       )
 
-instance Prelude.Hashable NetworkInterface
+instance Core.Hashable NetworkInterface
 
-instance Prelude.NFData NetworkInterface
+instance Core.NFData NetworkInterface

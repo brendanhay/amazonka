@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.TraceSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.AvailabilityZoneDetail
 import Network.AWS.XRay.Types.ErrorRootCause
 import Network.AWS.XRay.Types.FaultRootCause
@@ -39,58 +38,58 @@ import Network.AWS.XRay.Types.ValueWithServiceIds
 data TraceSummary = TraceSummary'
   { -- | A list of EC2 instance IDs for any instance corresponding to the trace
     -- segments.
-    instanceIds :: Prelude.Maybe [InstanceIdDetail],
+    instanceIds :: Core.Maybe [InstanceIdDetail],
     -- | A collection of ErrorRootCause structures corresponding to the trace
     -- segments.
-    errorRootCauses :: Prelude.Maybe [ErrorRootCause],
+    errorRootCauses :: Core.Maybe [ErrorRootCause],
     -- | A list of Availability Zones for any zone corresponding to the trace
     -- segments.
-    availabilityZones :: Prelude.Maybe [AvailabilityZoneDetail],
+    availabilityZones :: Core.Maybe [AvailabilityZoneDetail],
     -- | The length of time in seconds between the start and end times of the
     -- root segment. If the service performs work asynchronously, the response
     -- time measures the time before the response is sent to the user, while
     -- the duration measures the amount of time before the last traced activity
     -- completes.
-    responseTime :: Prelude.Maybe Prelude.Double,
+    responseTime :: Core.Maybe Core.Double,
     -- | The length of time in seconds between the start time of the root segment
     -- and the end time of the last segment that completed.
-    duration :: Prelude.Maybe Prelude.Double,
+    duration :: Core.Maybe Core.Double,
     -- | The matched time stamp of a defined event.
-    matchedEventTime :: Prelude.Maybe Prelude.POSIX,
+    matchedEventTime :: Core.Maybe Core.POSIX,
     -- | Service IDs from the trace\'s segment documents.
-    serviceIds :: Prelude.Maybe [ServiceId],
+    serviceIds :: Core.Maybe [ServiceId],
     -- | The root segment document has a 500 series error.
-    hasFault :: Prelude.Maybe Prelude.Bool,
+    hasFault :: Core.Maybe Core.Bool,
     -- | The root of a trace.
-    entryPoint :: Prelude.Maybe ServiceId,
+    entryPoint :: Core.Maybe ServiceId,
     -- | The unique identifier for the request that generated the trace\'s
     -- segments and subsegments.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Annotations from the trace\'s segment documents.
-    annotations :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ValueWithServiceIds]),
+    annotations :: Core.Maybe (Core.HashMap Core.Text [ValueWithServiceIds]),
     -- | A list of resource ARNs for any resource corresponding to the trace
     -- segments.
-    resourceARNs :: Prelude.Maybe [ResourceARNDetail],
+    resourceARNs :: Core.Maybe [ResourceARNDetail],
     -- | One or more of the segment documents is in progress.
-    isPartial :: Prelude.Maybe Prelude.Bool,
+    isPartial :: Core.Maybe Core.Bool,
     -- | A collection of FaultRootCause structures corresponding to the trace
     -- segments.
-    faultRootCauses :: Prelude.Maybe [FaultRootCause],
+    faultRootCauses :: Core.Maybe [FaultRootCause],
     -- | The revision number of a trace.
-    revision :: Prelude.Maybe Prelude.Int,
+    revision :: Core.Maybe Core.Int,
     -- | Information about the HTTP request served by the trace.
-    http :: Prelude.Maybe Http,
+    http :: Core.Maybe Http,
     -- | The root segment document has a 400 series error.
-    hasError :: Prelude.Maybe Prelude.Bool,
+    hasError :: Core.Maybe Core.Bool,
     -- | Users from the trace\'s segment documents.
-    users :: Prelude.Maybe [TraceUser],
+    users :: Core.Maybe [TraceUser],
     -- | One or more of the segment documents has a 429 throttling error.
-    hasThrottle :: Prelude.Maybe Prelude.Bool,
+    hasThrottle :: Core.Maybe Core.Bool,
     -- | A collection of ResponseTimeRootCause structures corresponding to the
     -- trace segments.
-    responseTimeRootCauses :: Prelude.Maybe [ResponseTimeRootCause]
+    responseTimeRootCauses :: Core.Maybe [ResponseTimeRootCause]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TraceSummary' with all optional fields omitted.
@@ -155,164 +154,150 @@ newTraceSummary ::
   TraceSummary
 newTraceSummary =
   TraceSummary'
-    { instanceIds = Prelude.Nothing,
-      errorRootCauses = Prelude.Nothing,
-      availabilityZones = Prelude.Nothing,
-      responseTime = Prelude.Nothing,
-      duration = Prelude.Nothing,
-      matchedEventTime = Prelude.Nothing,
-      serviceIds = Prelude.Nothing,
-      hasFault = Prelude.Nothing,
-      entryPoint = Prelude.Nothing,
-      id = Prelude.Nothing,
-      annotations = Prelude.Nothing,
-      resourceARNs = Prelude.Nothing,
-      isPartial = Prelude.Nothing,
-      faultRootCauses = Prelude.Nothing,
-      revision = Prelude.Nothing,
-      http = Prelude.Nothing,
-      hasError = Prelude.Nothing,
-      users = Prelude.Nothing,
-      hasThrottle = Prelude.Nothing,
-      responseTimeRootCauses = Prelude.Nothing
+    { instanceIds = Core.Nothing,
+      errorRootCauses = Core.Nothing,
+      availabilityZones = Core.Nothing,
+      responseTime = Core.Nothing,
+      duration = Core.Nothing,
+      matchedEventTime = Core.Nothing,
+      serviceIds = Core.Nothing,
+      hasFault = Core.Nothing,
+      entryPoint = Core.Nothing,
+      id = Core.Nothing,
+      annotations = Core.Nothing,
+      resourceARNs = Core.Nothing,
+      isPartial = Core.Nothing,
+      faultRootCauses = Core.Nothing,
+      revision = Core.Nothing,
+      http = Core.Nothing,
+      hasError = Core.Nothing,
+      users = Core.Nothing,
+      hasThrottle = Core.Nothing,
+      responseTimeRootCauses = Core.Nothing
     }
 
 -- | A list of EC2 instance IDs for any instance corresponding to the trace
 -- segments.
-traceSummary_instanceIds :: Lens.Lens' TraceSummary (Prelude.Maybe [InstanceIdDetail])
-traceSummary_instanceIds = Lens.lens (\TraceSummary' {instanceIds} -> instanceIds) (\s@TraceSummary' {} a -> s {instanceIds = a} :: TraceSummary) Prelude.. Lens.mapping Prelude._Coerce
+traceSummary_instanceIds :: Lens.Lens' TraceSummary (Core.Maybe [InstanceIdDetail])
+traceSummary_instanceIds = Lens.lens (\TraceSummary' {instanceIds} -> instanceIds) (\s@TraceSummary' {} a -> s {instanceIds = a} :: TraceSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | A collection of ErrorRootCause structures corresponding to the trace
 -- segments.
-traceSummary_errorRootCauses :: Lens.Lens' TraceSummary (Prelude.Maybe [ErrorRootCause])
-traceSummary_errorRootCauses = Lens.lens (\TraceSummary' {errorRootCauses} -> errorRootCauses) (\s@TraceSummary' {} a -> s {errorRootCauses = a} :: TraceSummary) Prelude.. Lens.mapping Prelude._Coerce
+traceSummary_errorRootCauses :: Lens.Lens' TraceSummary (Core.Maybe [ErrorRootCause])
+traceSummary_errorRootCauses = Lens.lens (\TraceSummary' {errorRootCauses} -> errorRootCauses) (\s@TraceSummary' {} a -> s {errorRootCauses = a} :: TraceSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of Availability Zones for any zone corresponding to the trace
 -- segments.
-traceSummary_availabilityZones :: Lens.Lens' TraceSummary (Prelude.Maybe [AvailabilityZoneDetail])
-traceSummary_availabilityZones = Lens.lens (\TraceSummary' {availabilityZones} -> availabilityZones) (\s@TraceSummary' {} a -> s {availabilityZones = a} :: TraceSummary) Prelude.. Lens.mapping Prelude._Coerce
+traceSummary_availabilityZones :: Lens.Lens' TraceSummary (Core.Maybe [AvailabilityZoneDetail])
+traceSummary_availabilityZones = Lens.lens (\TraceSummary' {availabilityZones} -> availabilityZones) (\s@TraceSummary' {} a -> s {availabilityZones = a} :: TraceSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | The length of time in seconds between the start and end times of the
 -- root segment. If the service performs work asynchronously, the response
 -- time measures the time before the response is sent to the user, while
 -- the duration measures the amount of time before the last traced activity
 -- completes.
-traceSummary_responseTime :: Lens.Lens' TraceSummary (Prelude.Maybe Prelude.Double)
+traceSummary_responseTime :: Lens.Lens' TraceSummary (Core.Maybe Core.Double)
 traceSummary_responseTime = Lens.lens (\TraceSummary' {responseTime} -> responseTime) (\s@TraceSummary' {} a -> s {responseTime = a} :: TraceSummary)
 
 -- | The length of time in seconds between the start time of the root segment
 -- and the end time of the last segment that completed.
-traceSummary_duration :: Lens.Lens' TraceSummary (Prelude.Maybe Prelude.Double)
+traceSummary_duration :: Lens.Lens' TraceSummary (Core.Maybe Core.Double)
 traceSummary_duration = Lens.lens (\TraceSummary' {duration} -> duration) (\s@TraceSummary' {} a -> s {duration = a} :: TraceSummary)
 
 -- | The matched time stamp of a defined event.
-traceSummary_matchedEventTime :: Lens.Lens' TraceSummary (Prelude.Maybe Prelude.UTCTime)
-traceSummary_matchedEventTime = Lens.lens (\TraceSummary' {matchedEventTime} -> matchedEventTime) (\s@TraceSummary' {} a -> s {matchedEventTime = a} :: TraceSummary) Prelude.. Lens.mapping Prelude._Time
+traceSummary_matchedEventTime :: Lens.Lens' TraceSummary (Core.Maybe Core.UTCTime)
+traceSummary_matchedEventTime = Lens.lens (\TraceSummary' {matchedEventTime} -> matchedEventTime) (\s@TraceSummary' {} a -> s {matchedEventTime = a} :: TraceSummary) Core.. Lens.mapping Core._Time
 
 -- | Service IDs from the trace\'s segment documents.
-traceSummary_serviceIds :: Lens.Lens' TraceSummary (Prelude.Maybe [ServiceId])
-traceSummary_serviceIds = Lens.lens (\TraceSummary' {serviceIds} -> serviceIds) (\s@TraceSummary' {} a -> s {serviceIds = a} :: TraceSummary) Prelude.. Lens.mapping Prelude._Coerce
+traceSummary_serviceIds :: Lens.Lens' TraceSummary (Core.Maybe [ServiceId])
+traceSummary_serviceIds = Lens.lens (\TraceSummary' {serviceIds} -> serviceIds) (\s@TraceSummary' {} a -> s {serviceIds = a} :: TraceSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | The root segment document has a 500 series error.
-traceSummary_hasFault :: Lens.Lens' TraceSummary (Prelude.Maybe Prelude.Bool)
+traceSummary_hasFault :: Lens.Lens' TraceSummary (Core.Maybe Core.Bool)
 traceSummary_hasFault = Lens.lens (\TraceSummary' {hasFault} -> hasFault) (\s@TraceSummary' {} a -> s {hasFault = a} :: TraceSummary)
 
 -- | The root of a trace.
-traceSummary_entryPoint :: Lens.Lens' TraceSummary (Prelude.Maybe ServiceId)
+traceSummary_entryPoint :: Lens.Lens' TraceSummary (Core.Maybe ServiceId)
 traceSummary_entryPoint = Lens.lens (\TraceSummary' {entryPoint} -> entryPoint) (\s@TraceSummary' {} a -> s {entryPoint = a} :: TraceSummary)
 
 -- | The unique identifier for the request that generated the trace\'s
 -- segments and subsegments.
-traceSummary_id :: Lens.Lens' TraceSummary (Prelude.Maybe Prelude.Text)
+traceSummary_id :: Lens.Lens' TraceSummary (Core.Maybe Core.Text)
 traceSummary_id = Lens.lens (\TraceSummary' {id} -> id) (\s@TraceSummary' {} a -> s {id = a} :: TraceSummary)
 
 -- | Annotations from the trace\'s segment documents.
-traceSummary_annotations :: Lens.Lens' TraceSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text [ValueWithServiceIds]))
-traceSummary_annotations = Lens.lens (\TraceSummary' {annotations} -> annotations) (\s@TraceSummary' {} a -> s {annotations = a} :: TraceSummary) Prelude.. Lens.mapping Prelude._Coerce
+traceSummary_annotations :: Lens.Lens' TraceSummary (Core.Maybe (Core.HashMap Core.Text [ValueWithServiceIds]))
+traceSummary_annotations = Lens.lens (\TraceSummary' {annotations} -> annotations) (\s@TraceSummary' {} a -> s {annotations = a} :: TraceSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of resource ARNs for any resource corresponding to the trace
 -- segments.
-traceSummary_resourceARNs :: Lens.Lens' TraceSummary (Prelude.Maybe [ResourceARNDetail])
-traceSummary_resourceARNs = Lens.lens (\TraceSummary' {resourceARNs} -> resourceARNs) (\s@TraceSummary' {} a -> s {resourceARNs = a} :: TraceSummary) Prelude.. Lens.mapping Prelude._Coerce
+traceSummary_resourceARNs :: Lens.Lens' TraceSummary (Core.Maybe [ResourceARNDetail])
+traceSummary_resourceARNs = Lens.lens (\TraceSummary' {resourceARNs} -> resourceARNs) (\s@TraceSummary' {} a -> s {resourceARNs = a} :: TraceSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more of the segment documents is in progress.
-traceSummary_isPartial :: Lens.Lens' TraceSummary (Prelude.Maybe Prelude.Bool)
+traceSummary_isPartial :: Lens.Lens' TraceSummary (Core.Maybe Core.Bool)
 traceSummary_isPartial = Lens.lens (\TraceSummary' {isPartial} -> isPartial) (\s@TraceSummary' {} a -> s {isPartial = a} :: TraceSummary)
 
 -- | A collection of FaultRootCause structures corresponding to the trace
 -- segments.
-traceSummary_faultRootCauses :: Lens.Lens' TraceSummary (Prelude.Maybe [FaultRootCause])
-traceSummary_faultRootCauses = Lens.lens (\TraceSummary' {faultRootCauses} -> faultRootCauses) (\s@TraceSummary' {} a -> s {faultRootCauses = a} :: TraceSummary) Prelude.. Lens.mapping Prelude._Coerce
+traceSummary_faultRootCauses :: Lens.Lens' TraceSummary (Core.Maybe [FaultRootCause])
+traceSummary_faultRootCauses = Lens.lens (\TraceSummary' {faultRootCauses} -> faultRootCauses) (\s@TraceSummary' {} a -> s {faultRootCauses = a} :: TraceSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | The revision number of a trace.
-traceSummary_revision :: Lens.Lens' TraceSummary (Prelude.Maybe Prelude.Int)
+traceSummary_revision :: Lens.Lens' TraceSummary (Core.Maybe Core.Int)
 traceSummary_revision = Lens.lens (\TraceSummary' {revision} -> revision) (\s@TraceSummary' {} a -> s {revision = a} :: TraceSummary)
 
 -- | Information about the HTTP request served by the trace.
-traceSummary_http :: Lens.Lens' TraceSummary (Prelude.Maybe Http)
+traceSummary_http :: Lens.Lens' TraceSummary (Core.Maybe Http)
 traceSummary_http = Lens.lens (\TraceSummary' {http} -> http) (\s@TraceSummary' {} a -> s {http = a} :: TraceSummary)
 
 -- | The root segment document has a 400 series error.
-traceSummary_hasError :: Lens.Lens' TraceSummary (Prelude.Maybe Prelude.Bool)
+traceSummary_hasError :: Lens.Lens' TraceSummary (Core.Maybe Core.Bool)
 traceSummary_hasError = Lens.lens (\TraceSummary' {hasError} -> hasError) (\s@TraceSummary' {} a -> s {hasError = a} :: TraceSummary)
 
 -- | Users from the trace\'s segment documents.
-traceSummary_users :: Lens.Lens' TraceSummary (Prelude.Maybe [TraceUser])
-traceSummary_users = Lens.lens (\TraceSummary' {users} -> users) (\s@TraceSummary' {} a -> s {users = a} :: TraceSummary) Prelude.. Lens.mapping Prelude._Coerce
+traceSummary_users :: Lens.Lens' TraceSummary (Core.Maybe [TraceUser])
+traceSummary_users = Lens.lens (\TraceSummary' {users} -> users) (\s@TraceSummary' {} a -> s {users = a} :: TraceSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more of the segment documents has a 429 throttling error.
-traceSummary_hasThrottle :: Lens.Lens' TraceSummary (Prelude.Maybe Prelude.Bool)
+traceSummary_hasThrottle :: Lens.Lens' TraceSummary (Core.Maybe Core.Bool)
 traceSummary_hasThrottle = Lens.lens (\TraceSummary' {hasThrottle} -> hasThrottle) (\s@TraceSummary' {} a -> s {hasThrottle = a} :: TraceSummary)
 
 -- | A collection of ResponseTimeRootCause structures corresponding to the
 -- trace segments.
-traceSummary_responseTimeRootCauses :: Lens.Lens' TraceSummary (Prelude.Maybe [ResponseTimeRootCause])
-traceSummary_responseTimeRootCauses = Lens.lens (\TraceSummary' {responseTimeRootCauses} -> responseTimeRootCauses) (\s@TraceSummary' {} a -> s {responseTimeRootCauses = a} :: TraceSummary) Prelude.. Lens.mapping Prelude._Coerce
+traceSummary_responseTimeRootCauses :: Lens.Lens' TraceSummary (Core.Maybe [ResponseTimeRootCause])
+traceSummary_responseTimeRootCauses = Lens.lens (\TraceSummary' {responseTimeRootCauses} -> responseTimeRootCauses) (\s@TraceSummary' {} a -> s {responseTimeRootCauses = a} :: TraceSummary) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON TraceSummary where
+instance Core.FromJSON TraceSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TraceSummary"
       ( \x ->
           TraceSummary'
-            Prelude.<$> ( x Prelude..:? "InstanceIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "ErrorRootCauses"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "AvailabilityZones"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ResponseTime")
-            Prelude.<*> (x Prelude..:? "Duration")
-            Prelude.<*> (x Prelude..:? "MatchedEventTime")
-            Prelude.<*> ( x Prelude..:? "ServiceIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "HasFault")
-            Prelude.<*> (x Prelude..:? "EntryPoint")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> ( x Prelude..:? "Annotations"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "ResourceARNs"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "IsPartial")
-            Prelude.<*> ( x Prelude..:? "FaultRootCauses"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Revision")
-            Prelude.<*> (x Prelude..:? "Http")
-            Prelude.<*> (x Prelude..:? "HasError")
-            Prelude.<*> (x Prelude..:? "Users" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "HasThrottle")
-            Prelude.<*> ( x Prelude..:? "ResponseTimeRootCauses"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "InstanceIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ErrorRootCauses" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "AvailabilityZones" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ResponseTime")
+            Core.<*> (x Core..:? "Duration")
+            Core.<*> (x Core..:? "MatchedEventTime")
+            Core.<*> (x Core..:? "ServiceIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "HasFault")
+            Core.<*> (x Core..:? "EntryPoint")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Annotations" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ResourceARNs" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "IsPartial")
+            Core.<*> (x Core..:? "FaultRootCauses" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Revision")
+            Core.<*> (x Core..:? "Http")
+            Core.<*> (x Core..:? "HasError")
+            Core.<*> (x Core..:? "Users" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "HasThrottle")
+            Core.<*> ( x Core..:? "ResponseTimeRootCauses"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable TraceSummary
+instance Core.Hashable TraceSummary
 
-instance Prelude.NFData TraceSummary
+instance Core.NFData TraceSummary

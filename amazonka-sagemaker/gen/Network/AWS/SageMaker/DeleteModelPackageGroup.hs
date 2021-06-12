@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.SageMaker.DeleteModelPackageGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,9 +44,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteModelPackageGroup' smart constructor.
 data DeleteModelPackageGroup = DeleteModelPackageGroup'
   { -- | The name of the model group to delete.
-    modelPackageGroupName :: Prelude.Text
+    modelPackageGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteModelPackageGroup' with all optional fields omitted.
@@ -60,7 +59,7 @@ data DeleteModelPackageGroup = DeleteModelPackageGroup'
 -- 'modelPackageGroupName', 'deleteModelPackageGroup_modelPackageGroupName' - The name of the model group to delete.
 newDeleteModelPackageGroup ::
   -- | 'modelPackageGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteModelPackageGroup
 newDeleteModelPackageGroup pModelPackageGroupName_ =
   DeleteModelPackageGroup'
@@ -69,59 +68,57 @@ newDeleteModelPackageGroup pModelPackageGroupName_ =
     }
 
 -- | The name of the model group to delete.
-deleteModelPackageGroup_modelPackageGroupName :: Lens.Lens' DeleteModelPackageGroup Prelude.Text
+deleteModelPackageGroup_modelPackageGroupName :: Lens.Lens' DeleteModelPackageGroup Core.Text
 deleteModelPackageGroup_modelPackageGroupName = Lens.lens (\DeleteModelPackageGroup' {modelPackageGroupName} -> modelPackageGroupName) (\s@DeleteModelPackageGroup' {} a -> s {modelPackageGroupName = a} :: DeleteModelPackageGroup)
 
-instance Prelude.AWSRequest DeleteModelPackageGroup where
+instance Core.AWSRequest DeleteModelPackageGroup where
   type
-    Rs DeleteModelPackageGroup =
+    AWSResponse DeleteModelPackageGroup =
       DeleteModelPackageGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteModelPackageGroupResponse'
 
-instance Prelude.Hashable DeleteModelPackageGroup
+instance Core.Hashable DeleteModelPackageGroup
 
-instance Prelude.NFData DeleteModelPackageGroup
+instance Core.NFData DeleteModelPackageGroup
 
-instance Prelude.ToHeaders DeleteModelPackageGroup where
+instance Core.ToHeaders DeleteModelPackageGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteModelPackageGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DeleteModelPackageGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteModelPackageGroup where
+instance Core.ToJSON DeleteModelPackageGroup where
   toJSON DeleteModelPackageGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ModelPackageGroupName"
-                  Prelude..= modelPackageGroupName
+                  Core..= modelPackageGroupName
               )
           ]
       )
 
-instance Prelude.ToPath DeleteModelPackageGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteModelPackageGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteModelPackageGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteModelPackageGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteModelPackageGroupResponse' smart constructor.
 data DeleteModelPackageGroupResponse = DeleteModelPackageGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteModelPackageGroupResponse' with all optional fields omitted.
@@ -132,6 +129,4 @@ newDeleteModelPackageGroupResponse ::
 newDeleteModelPackageGroupResponse =
   DeleteModelPackageGroupResponse'
 
-instance
-  Prelude.NFData
-    DeleteModelPackageGroupResponse
+instance Core.NFData DeleteModelPackageGroupResponse

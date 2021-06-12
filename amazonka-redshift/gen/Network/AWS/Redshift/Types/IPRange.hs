@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.IPRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Tag
 
@@ -30,13 +29,13 @@ import Network.AWS.Redshift.Types.Tag
 -- /See:/ 'newIPRange' smart constructor.
 data IPRange = IPRange'
   { -- | The status of the IP range, for example, \"authorized\".
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The IP range in Classless Inter-Domain Routing (CIDR) notation.
-    cidrip :: Prelude.Maybe Prelude.Text,
+    cidrip :: Core.Maybe Core.Text,
     -- | The list of tags for the IP range.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IPRange' with all optional fields omitted.
@@ -55,32 +54,32 @@ newIPRange ::
   IPRange
 newIPRange =
   IPRange'
-    { status = Prelude.Nothing,
-      cidrip = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { status = Core.Nothing,
+      cidrip = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The status of the IP range, for example, \"authorized\".
-iPRange_status :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
+iPRange_status :: Lens.Lens' IPRange (Core.Maybe Core.Text)
 iPRange_status = Lens.lens (\IPRange' {status} -> status) (\s@IPRange' {} a -> s {status = a} :: IPRange)
 
 -- | The IP range in Classless Inter-Domain Routing (CIDR) notation.
-iPRange_cidrip :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
+iPRange_cidrip :: Lens.Lens' IPRange (Core.Maybe Core.Text)
 iPRange_cidrip = Lens.lens (\IPRange' {cidrip} -> cidrip) (\s@IPRange' {} a -> s {cidrip = a} :: IPRange)
 
 -- | The list of tags for the IP range.
-iPRange_tags :: Lens.Lens' IPRange (Prelude.Maybe [Tag])
-iPRange_tags = Lens.lens (\IPRange' {tags} -> tags) (\s@IPRange' {} a -> s {tags = a} :: IPRange) Prelude.. Lens.mapping Prelude._Coerce
+iPRange_tags :: Lens.Lens' IPRange (Core.Maybe [Tag])
+iPRange_tags = Lens.lens (\IPRange' {tags} -> tags) (\s@IPRange' {} a -> s {tags = a} :: IPRange) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML IPRange where
+instance Core.FromXML IPRange where
   parseXML x =
     IPRange'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "CIDRIP")
-      Prelude.<*> ( x Prelude..@? "Tags" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "Tag")
-                  )
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "CIDRIP")
+      Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "Tag")
+               )
 
-instance Prelude.Hashable IPRange
+instance Core.Hashable IPRange
 
-instance Prelude.NFData IPRange
+instance Core.NFData IPRange

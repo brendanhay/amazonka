@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.ResourceUri where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.ResourceType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The URIs for function resources.
 --
 -- /See:/ 'newResourceUri' smart constructor.
 data ResourceUri = ResourceUri'
   { -- | The URI for accessing the resource.
-    uri :: Prelude.Maybe Prelude.Text,
+    uri :: Core.Maybe Core.Text,
     -- | The type of the resource.
-    resourceType :: Prelude.Maybe ResourceType
+    resourceType :: Core.Maybe ResourceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceUri' with all optional fields omitted.
@@ -50,38 +49,37 @@ newResourceUri ::
   ResourceUri
 newResourceUri =
   ResourceUri'
-    { uri = Prelude.Nothing,
-      resourceType = Prelude.Nothing
+    { uri = Core.Nothing,
+      resourceType = Core.Nothing
     }
 
 -- | The URI for accessing the resource.
-resourceUri_uri :: Lens.Lens' ResourceUri (Prelude.Maybe Prelude.Text)
+resourceUri_uri :: Lens.Lens' ResourceUri (Core.Maybe Core.Text)
 resourceUri_uri = Lens.lens (\ResourceUri' {uri} -> uri) (\s@ResourceUri' {} a -> s {uri = a} :: ResourceUri)
 
 -- | The type of the resource.
-resourceUri_resourceType :: Lens.Lens' ResourceUri (Prelude.Maybe ResourceType)
+resourceUri_resourceType :: Lens.Lens' ResourceUri (Core.Maybe ResourceType)
 resourceUri_resourceType = Lens.lens (\ResourceUri' {resourceType} -> resourceType) (\s@ResourceUri' {} a -> s {resourceType = a} :: ResourceUri)
 
-instance Prelude.FromJSON ResourceUri where
+instance Core.FromJSON ResourceUri where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceUri"
       ( \x ->
           ResourceUri'
-            Prelude.<$> (x Prelude..:? "Uri")
-            Prelude.<*> (x Prelude..:? "ResourceType")
+            Core.<$> (x Core..:? "Uri")
+            Core.<*> (x Core..:? "ResourceType")
       )
 
-instance Prelude.Hashable ResourceUri
+instance Core.Hashable ResourceUri
 
-instance Prelude.NFData ResourceUri
+instance Core.NFData ResourceUri
 
-instance Prelude.ToJSON ResourceUri where
+instance Core.ToJSON ResourceUri where
   toJSON ResourceUri' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Uri" Prelude..=) Prelude.<$> uri,
-            ("ResourceType" Prelude..=)
-              Prelude.<$> resourceType
+    Core.object
+      ( Core.catMaybes
+          [ ("Uri" Core..=) Core.<$> uri,
+            ("ResourceType" Core..=) Core.<$> resourceType
           ]
       )

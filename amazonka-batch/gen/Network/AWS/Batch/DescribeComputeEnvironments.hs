@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,8 @@ module Network.AWS.Batch.DescribeComputeEnvironments
 where
 
 import Network.AWS.Batch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,7 +67,7 @@ data DescribeComputeEnvironments = DescribeComputeEnvironments'
     -- This token should be treated as an opaque identifier that\'s only used
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of cluster results returned by
     -- @DescribeComputeEnvironments@ in paginated output. When this parameter
     -- is used, @DescribeComputeEnvironments@ only returns @maxResults@ results
@@ -79,12 +77,12 @@ data DescribeComputeEnvironments = DescribeComputeEnvironments'
     -- value. This value can be between 1 and 100. If this parameter isn\'t
     -- used, then @DescribeComputeEnvironments@ returns up to 100 results and a
     -- @nextToken@ value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | A list of up to 100 compute environment names or full Amazon Resource
     -- Name (ARN) entries.
-    computeEnvironments :: Prelude.Maybe [Prelude.Text]
+    computeEnvironments :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeComputeEnvironments' with all optional fields omitted.
@@ -121,9 +119,9 @@ newDescribeComputeEnvironments ::
 newDescribeComputeEnvironments =
   DescribeComputeEnvironments'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      computeEnvironments = Prelude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing,
+      computeEnvironments = Core.Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated
@@ -135,7 +133,7 @@ newDescribeComputeEnvironments =
 -- This token should be treated as an opaque identifier that\'s only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-describeComputeEnvironments_nextToken :: Lens.Lens' DescribeComputeEnvironments (Prelude.Maybe Prelude.Text)
+describeComputeEnvironments_nextToken :: Lens.Lens' DescribeComputeEnvironments (Core.Maybe Core.Text)
 describeComputeEnvironments_nextToken = Lens.lens (\DescribeComputeEnvironments' {nextToken} -> nextToken) (\s@DescribeComputeEnvironments' {} a -> s {nextToken = a} :: DescribeComputeEnvironments)
 
 -- | The maximum number of cluster results returned by
@@ -147,90 +145,81 @@ describeComputeEnvironments_nextToken = Lens.lens (\DescribeComputeEnvironments'
 -- value. This value can be between 1 and 100. If this parameter isn\'t
 -- used, then @DescribeComputeEnvironments@ returns up to 100 results and a
 -- @nextToken@ value if applicable.
-describeComputeEnvironments_maxResults :: Lens.Lens' DescribeComputeEnvironments (Prelude.Maybe Prelude.Int)
+describeComputeEnvironments_maxResults :: Lens.Lens' DescribeComputeEnvironments (Core.Maybe Core.Int)
 describeComputeEnvironments_maxResults = Lens.lens (\DescribeComputeEnvironments' {maxResults} -> maxResults) (\s@DescribeComputeEnvironments' {} a -> s {maxResults = a} :: DescribeComputeEnvironments)
 
 -- | A list of up to 100 compute environment names or full Amazon Resource
 -- Name (ARN) entries.
-describeComputeEnvironments_computeEnvironments :: Lens.Lens' DescribeComputeEnvironments (Prelude.Maybe [Prelude.Text])
-describeComputeEnvironments_computeEnvironments = Lens.lens (\DescribeComputeEnvironments' {computeEnvironments} -> computeEnvironments) (\s@DescribeComputeEnvironments' {} a -> s {computeEnvironments = a} :: DescribeComputeEnvironments) Prelude.. Lens.mapping Prelude._Coerce
+describeComputeEnvironments_computeEnvironments :: Lens.Lens' DescribeComputeEnvironments (Core.Maybe [Core.Text])
+describeComputeEnvironments_computeEnvironments = Lens.lens (\DescribeComputeEnvironments' {computeEnvironments} -> computeEnvironments) (\s@DescribeComputeEnvironments' {} a -> s {computeEnvironments = a} :: DescribeComputeEnvironments) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeComputeEnvironments where
+instance Core.AWSPager DescribeComputeEnvironments where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeComputeEnvironmentsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeComputeEnvironmentsResponse_computeEnvironments
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeComputeEnvironments_nextToken
           Lens..~ rs
           Lens.^? describeComputeEnvironmentsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeComputeEnvironments
-  where
+instance Core.AWSRequest DescribeComputeEnvironments where
   type
-    Rs DescribeComputeEnvironments =
+    AWSResponse DescribeComputeEnvironments =
       DescribeComputeEnvironmentsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeComputeEnvironmentsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "computeEnvironments"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> ( x Core..?> "computeEnvironments"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeComputeEnvironments
+instance Core.Hashable DescribeComputeEnvironments
 
-instance Prelude.NFData DescribeComputeEnvironments
+instance Core.NFData DescribeComputeEnvironments
 
-instance
-  Prelude.ToHeaders
-    DescribeComputeEnvironments
-  where
+instance Core.ToHeaders DescribeComputeEnvironments where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeComputeEnvironments where
+instance Core.ToJSON DescribeComputeEnvironments where
   toJSON DescribeComputeEnvironments' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("computeEnvironments" Prelude..=)
-              Prelude.<$> computeEnvironments
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("computeEnvironments" Core..=)
+              Core.<$> computeEnvironments
           ]
       )
 
-instance Prelude.ToPath DescribeComputeEnvironments where
-  toPath =
-    Prelude.const "/v1/describecomputeenvironments"
+instance Core.ToPath DescribeComputeEnvironments where
+  toPath = Core.const "/v1/describecomputeenvironments"
 
-instance Prelude.ToQuery DescribeComputeEnvironments where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeComputeEnvironments where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeComputeEnvironmentsResponse' smart constructor.
 data DescribeComputeEnvironmentsResponse = DescribeComputeEnvironmentsResponse'
@@ -239,13 +228,13 @@ data DescribeComputeEnvironmentsResponse = DescribeComputeEnvironmentsResponse'
     -- @DescribeJobDefinitions@ request exceed @maxResults@, this value can be
     -- used to retrieve the next page of results. This value is @null@ when
     -- there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of compute environments.
-    computeEnvironments :: Prelude.Maybe [ComputeEnvironmentDetail],
+    computeEnvironments :: Core.Maybe [ComputeEnvironmentDetail],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeComputeEnvironmentsResponse' with all optional fields omitted.
@@ -266,13 +255,13 @@ data DescribeComputeEnvironmentsResponse = DescribeComputeEnvironmentsResponse'
 -- 'httpStatus', 'describeComputeEnvironmentsResponse_httpStatus' - The response's http status code.
 newDescribeComputeEnvironmentsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeComputeEnvironmentsResponse
 newDescribeComputeEnvironmentsResponse pHttpStatus_ =
   DescribeComputeEnvironmentsResponse'
     { nextToken =
-        Prelude.Nothing,
-      computeEnvironments = Prelude.Nothing,
+        Core.Nothing,
+      computeEnvironments = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -281,17 +270,17 @@ newDescribeComputeEnvironmentsResponse pHttpStatus_ =
 -- @DescribeJobDefinitions@ request exceed @maxResults@, this value can be
 -- used to retrieve the next page of results. This value is @null@ when
 -- there are no more results to return.
-describeComputeEnvironmentsResponse_nextToken :: Lens.Lens' DescribeComputeEnvironmentsResponse (Prelude.Maybe Prelude.Text)
+describeComputeEnvironmentsResponse_nextToken :: Lens.Lens' DescribeComputeEnvironmentsResponse (Core.Maybe Core.Text)
 describeComputeEnvironmentsResponse_nextToken = Lens.lens (\DescribeComputeEnvironmentsResponse' {nextToken} -> nextToken) (\s@DescribeComputeEnvironmentsResponse' {} a -> s {nextToken = a} :: DescribeComputeEnvironmentsResponse)
 
 -- | The list of compute environments.
-describeComputeEnvironmentsResponse_computeEnvironments :: Lens.Lens' DescribeComputeEnvironmentsResponse (Prelude.Maybe [ComputeEnvironmentDetail])
-describeComputeEnvironmentsResponse_computeEnvironments = Lens.lens (\DescribeComputeEnvironmentsResponse' {computeEnvironments} -> computeEnvironments) (\s@DescribeComputeEnvironmentsResponse' {} a -> s {computeEnvironments = a} :: DescribeComputeEnvironmentsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeComputeEnvironmentsResponse_computeEnvironments :: Lens.Lens' DescribeComputeEnvironmentsResponse (Core.Maybe [ComputeEnvironmentDetail])
+describeComputeEnvironmentsResponse_computeEnvironments = Lens.lens (\DescribeComputeEnvironmentsResponse' {computeEnvironments} -> computeEnvironments) (\s@DescribeComputeEnvironmentsResponse' {} a -> s {computeEnvironments = a} :: DescribeComputeEnvironmentsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeComputeEnvironmentsResponse_httpStatus :: Lens.Lens' DescribeComputeEnvironmentsResponse Prelude.Int
+describeComputeEnvironmentsResponse_httpStatus :: Lens.Lens' DescribeComputeEnvironmentsResponse Core.Int
 describeComputeEnvironmentsResponse_httpStatus = Lens.lens (\DescribeComputeEnvironmentsResponse' {httpStatus} -> httpStatus) (\s@DescribeComputeEnvironmentsResponse' {} a -> s {httpStatus = a} :: DescribeComputeEnvironmentsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeComputeEnvironmentsResponse

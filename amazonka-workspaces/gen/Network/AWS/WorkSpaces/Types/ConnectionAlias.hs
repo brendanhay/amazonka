@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.ConnectionAlias where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.ConnectionAliasAssociation
 import Network.AWS.WorkSpaces.Types.ConnectionAliasState
 
@@ -32,19 +31,19 @@ import Network.AWS.WorkSpaces.Types.ConnectionAliasState
 -- /See:/ 'newConnectionAlias' smart constructor.
 data ConnectionAlias = ConnectionAlias'
   { -- | The current state of the connection alias.
-    state :: Prelude.Maybe ConnectionAliasState,
+    state :: Core.Maybe ConnectionAliasState,
     -- | The identifier of the connection alias.
-    aliasId :: Prelude.Maybe Prelude.Text,
+    aliasId :: Core.Maybe Core.Text,
     -- | The connection string specified for the connection alias. The connection
     -- string must be in the form of a fully qualified domain name (FQDN), such
     -- as @www.example.com@.
-    connectionString :: Prelude.Maybe Prelude.Text,
+    connectionString :: Core.Maybe Core.Text,
     -- | The identifier of the AWS account that owns the connection alias.
-    ownerAccountId :: Prelude.Maybe Prelude.Text,
+    ownerAccountId :: Core.Maybe Core.Text,
     -- | The association status of the connection alias.
-    associations :: Prelude.Maybe (Prelude.NonEmpty ConnectionAliasAssociation)
+    associations :: Core.Maybe (Core.NonEmpty ConnectionAliasAssociation)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectionAlias' with all optional fields omitted.
@@ -69,48 +68,48 @@ newConnectionAlias ::
   ConnectionAlias
 newConnectionAlias =
   ConnectionAlias'
-    { state = Prelude.Nothing,
-      aliasId = Prelude.Nothing,
-      connectionString = Prelude.Nothing,
-      ownerAccountId = Prelude.Nothing,
-      associations = Prelude.Nothing
+    { state = Core.Nothing,
+      aliasId = Core.Nothing,
+      connectionString = Core.Nothing,
+      ownerAccountId = Core.Nothing,
+      associations = Core.Nothing
     }
 
 -- | The current state of the connection alias.
-connectionAlias_state :: Lens.Lens' ConnectionAlias (Prelude.Maybe ConnectionAliasState)
+connectionAlias_state :: Lens.Lens' ConnectionAlias (Core.Maybe ConnectionAliasState)
 connectionAlias_state = Lens.lens (\ConnectionAlias' {state} -> state) (\s@ConnectionAlias' {} a -> s {state = a} :: ConnectionAlias)
 
 -- | The identifier of the connection alias.
-connectionAlias_aliasId :: Lens.Lens' ConnectionAlias (Prelude.Maybe Prelude.Text)
+connectionAlias_aliasId :: Lens.Lens' ConnectionAlias (Core.Maybe Core.Text)
 connectionAlias_aliasId = Lens.lens (\ConnectionAlias' {aliasId} -> aliasId) (\s@ConnectionAlias' {} a -> s {aliasId = a} :: ConnectionAlias)
 
 -- | The connection string specified for the connection alias. The connection
 -- string must be in the form of a fully qualified domain name (FQDN), such
 -- as @www.example.com@.
-connectionAlias_connectionString :: Lens.Lens' ConnectionAlias (Prelude.Maybe Prelude.Text)
+connectionAlias_connectionString :: Lens.Lens' ConnectionAlias (Core.Maybe Core.Text)
 connectionAlias_connectionString = Lens.lens (\ConnectionAlias' {connectionString} -> connectionString) (\s@ConnectionAlias' {} a -> s {connectionString = a} :: ConnectionAlias)
 
 -- | The identifier of the AWS account that owns the connection alias.
-connectionAlias_ownerAccountId :: Lens.Lens' ConnectionAlias (Prelude.Maybe Prelude.Text)
+connectionAlias_ownerAccountId :: Lens.Lens' ConnectionAlias (Core.Maybe Core.Text)
 connectionAlias_ownerAccountId = Lens.lens (\ConnectionAlias' {ownerAccountId} -> ownerAccountId) (\s@ConnectionAlias' {} a -> s {ownerAccountId = a} :: ConnectionAlias)
 
 -- | The association status of the connection alias.
-connectionAlias_associations :: Lens.Lens' ConnectionAlias (Prelude.Maybe (Prelude.NonEmpty ConnectionAliasAssociation))
-connectionAlias_associations = Lens.lens (\ConnectionAlias' {associations} -> associations) (\s@ConnectionAlias' {} a -> s {associations = a} :: ConnectionAlias) Prelude.. Lens.mapping Prelude._Coerce
+connectionAlias_associations :: Lens.Lens' ConnectionAlias (Core.Maybe (Core.NonEmpty ConnectionAliasAssociation))
+connectionAlias_associations = Lens.lens (\ConnectionAlias' {associations} -> associations) (\s@ConnectionAlias' {} a -> s {associations = a} :: ConnectionAlias) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ConnectionAlias where
+instance Core.FromJSON ConnectionAlias where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConnectionAlias"
       ( \x ->
           ConnectionAlias'
-            Prelude.<$> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "AliasId")
-            Prelude.<*> (x Prelude..:? "ConnectionString")
-            Prelude.<*> (x Prelude..:? "OwnerAccountId")
-            Prelude.<*> (x Prelude..:? "Associations")
+            Core.<$> (x Core..:? "State")
+            Core.<*> (x Core..:? "AliasId")
+            Core.<*> (x Core..:? "ConnectionString")
+            Core.<*> (x Core..:? "OwnerAccountId")
+            Core.<*> (x Core..:? "Associations")
       )
 
-instance Prelude.Hashable ConnectionAlias
+instance Core.Hashable ConnectionAlias
 
-instance Prelude.NFData ConnectionAlias
+instance Core.NFData ConnectionAlias

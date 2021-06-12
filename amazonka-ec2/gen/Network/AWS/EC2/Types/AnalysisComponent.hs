@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AnalysisComponent where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a path component.
 --
 -- /See:/ 'newAnalysisComponent' smart constructor.
 data AnalysisComponent = AnalysisComponent'
   { -- | The Amazon Resource Name (ARN) of the component.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The ID of the component.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnalysisComponent' with all optional fields omitted.
@@ -50,24 +49,23 @@ newAnalysisComponent ::
   AnalysisComponent
 newAnalysisComponent =
   AnalysisComponent'
-    { arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the component.
-analysisComponent_arn :: Lens.Lens' AnalysisComponent (Prelude.Maybe Prelude.Text)
+analysisComponent_arn :: Lens.Lens' AnalysisComponent (Core.Maybe Core.Text)
 analysisComponent_arn = Lens.lens (\AnalysisComponent' {arn} -> arn) (\s@AnalysisComponent' {} a -> s {arn = a} :: AnalysisComponent)
 
 -- | The ID of the component.
-analysisComponent_id :: Lens.Lens' AnalysisComponent (Prelude.Maybe Prelude.Text)
+analysisComponent_id :: Lens.Lens' AnalysisComponent (Core.Maybe Core.Text)
 analysisComponent_id = Lens.lens (\AnalysisComponent' {id} -> id) (\s@AnalysisComponent' {} a -> s {id = a} :: AnalysisComponent)
 
-instance Prelude.FromXML AnalysisComponent where
+instance Core.FromXML AnalysisComponent where
   parseXML x =
     AnalysisComponent'
-      Prelude.<$> (x Prelude..@? "arn")
-      Prelude.<*> (x Prelude..@? "id")
+      Core.<$> (x Core..@? "arn") Core.<*> (x Core..@? "id")
 
-instance Prelude.Hashable AnalysisComponent
+instance Core.Hashable AnalysisComponent
 
-instance Prelude.NFData AnalysisComponent
+instance Core.NFData AnalysisComponent

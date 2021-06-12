@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -56,7 +55,7 @@ import Network.AWS.ServiceCatalog.Types
 data EnableAWSOrganizationsAccess = EnableAWSOrganizationsAccess'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableAWSOrganizationsAccess' with all optional fields omitted.
@@ -67,61 +66,50 @@ newEnableAWSOrganizationsAccess ::
 newEnableAWSOrganizationsAccess =
   EnableAWSOrganizationsAccess'
 
-instance
-  Prelude.AWSRequest
-    EnableAWSOrganizationsAccess
-  where
+instance Core.AWSRequest EnableAWSOrganizationsAccess where
   type
-    Rs EnableAWSOrganizationsAccess =
+    AWSResponse EnableAWSOrganizationsAccess =
       EnableAWSOrganizationsAccessResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableAWSOrganizationsAccessResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    EnableAWSOrganizationsAccess
+instance Core.Hashable EnableAWSOrganizationsAccess
 
-instance Prelude.NFData EnableAWSOrganizationsAccess
+instance Core.NFData EnableAWSOrganizationsAccess
 
-instance
-  Prelude.ToHeaders
-    EnableAWSOrganizationsAccess
-  where
+instance Core.ToHeaders EnableAWSOrganizationsAccess where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON EnableAWSOrganizationsAccess where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON EnableAWSOrganizationsAccess where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath EnableAWSOrganizationsAccess where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableAWSOrganizationsAccess where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableAWSOrganizationsAccess where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnableAWSOrganizationsAccess where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEnableAWSOrganizationsAccessResponse' smart constructor.
 data EnableAWSOrganizationsAccessResponse = EnableAWSOrganizationsAccessResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableAWSOrganizationsAccessResponse' with all optional fields omitted.
@@ -134,7 +122,7 @@ data EnableAWSOrganizationsAccessResponse = EnableAWSOrganizationsAccessResponse
 -- 'httpStatus', 'enableAWSOrganizationsAccessResponse_httpStatus' - The response's http status code.
 newEnableAWSOrganizationsAccessResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   EnableAWSOrganizationsAccessResponse
 newEnableAWSOrganizationsAccessResponse pHttpStatus_ =
   EnableAWSOrganizationsAccessResponse'
@@ -143,9 +131,9 @@ newEnableAWSOrganizationsAccessResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-enableAWSOrganizationsAccessResponse_httpStatus :: Lens.Lens' EnableAWSOrganizationsAccessResponse Prelude.Int
+enableAWSOrganizationsAccessResponse_httpStatus :: Lens.Lens' EnableAWSOrganizationsAccessResponse Core.Int
 enableAWSOrganizationsAccessResponse_httpStatus = Lens.lens (\EnableAWSOrganizationsAccessResponse' {httpStatus} -> httpStatus) (\s@EnableAWSOrganizationsAccessResponse' {} a -> s {httpStatus = a} :: EnableAWSOrganizationsAccessResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableAWSOrganizationsAccessResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,16 +41,16 @@ module Network.AWS.Discovery.CreateTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTags' smart constructor.
 data CreateTags = CreateTags'
   { -- | A list of configuration items that you want to tag.
-    configurationIds :: [Prelude.Text],
+    configurationIds :: [Core.Text],
     -- | Tags that you want to associate with one or more configuration items.
     -- Specify the tags that you want to create in a /key/-/value/ format. For
     -- example:
@@ -59,7 +58,7 @@ data CreateTags = CreateTags'
     -- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTags' with all optional fields omitted.
@@ -80,13 +79,13 @@ newCreateTags ::
   CreateTags
 newCreateTags =
   CreateTags'
-    { configurationIds = Prelude.mempty,
-      tags = Prelude.mempty
+    { configurationIds = Core.mempty,
+      tags = Core.mempty
     }
 
 -- | A list of configuration items that you want to tag.
-createTags_configurationIds :: Lens.Lens' CreateTags [Prelude.Text]
-createTags_configurationIds = Lens.lens (\CreateTags' {configurationIds} -> configurationIds) (\s@CreateTags' {} a -> s {configurationIds = a} :: CreateTags) Prelude.. Prelude._Coerce
+createTags_configurationIds :: Lens.Lens' CreateTags [Core.Text]
+createTags_configurationIds = Lens.lens (\CreateTags' {configurationIds} -> configurationIds) (\s@CreateTags' {} a -> s {configurationIds = a} :: CreateTags) Core.. Lens._Coerce
 
 -- | Tags that you want to associate with one or more configuration items.
 -- Specify the tags that you want to create in a /key/-/value/ format. For
@@ -94,59 +93,57 @@ createTags_configurationIds = Lens.lens (\CreateTags' {configurationIds} -> conf
 --
 -- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
 createTags_tags :: Lens.Lens' CreateTags [Tag]
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Prelude._Coerce
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateTags where
-  type Rs CreateTags = CreateTagsResponse
+instance Core.AWSRequest CreateTags where
+  type AWSResponse CreateTags = CreateTagsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateTagsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTags
+instance Core.Hashable CreateTags
 
-instance Prelude.NFData CreateTags
+instance Core.NFData CreateTags
 
-instance Prelude.ToHeaders CreateTags where
+instance Core.ToHeaders CreateTags where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSPoseidonService_V2015_11_01.CreateTags" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSPoseidonService_V2015_11_01.CreateTags" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateTags where
+instance Core.ToJSON CreateTags where
   toJSON CreateTags' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("configurationIds" Prelude..= configurationIds),
-            Prelude.Just ("tags" Prelude..= tags)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("configurationIds" Core..= configurationIds),
+            Core.Just ("tags" Core..= tags)
           ]
       )
 
-instance Prelude.ToPath CreateTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateTags where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateTags where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateTagsResponse' smart constructor.
 data CreateTagsResponse = CreateTagsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTagsResponse' with all optional fields omitted.
@@ -159,13 +156,13 @@ data CreateTagsResponse = CreateTagsResponse'
 -- 'httpStatus', 'createTagsResponse_httpStatus' - The response's http status code.
 newCreateTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateTagsResponse
 newCreateTagsResponse pHttpStatus_ =
   CreateTagsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-createTagsResponse_httpStatus :: Lens.Lens' CreateTagsResponse Prelude.Int
+createTagsResponse_httpStatus :: Lens.Lens' CreateTagsResponse Core.Int
 createTagsResponse_httpStatus = Lens.lens (\CreateTagsResponse' {httpStatus} -> httpStatus) (\s@CreateTagsResponse' {} a -> s {httpStatus = a} :: CreateTagsResponse)
 
-instance Prelude.NFData CreateTagsResponse
+instance Core.NFData CreateTagsResponse

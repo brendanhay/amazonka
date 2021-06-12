@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeDeploy.Types.Alarm where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an alarm.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data Alarm = Alarm'
   { -- | The name of the alarm. Maximum length is 255 characters. Each alarm name
     -- can be used only once in a list of alarms.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Alarm' with all optional fields omitted.
@@ -45,26 +44,24 @@ data Alarm = Alarm'
 -- can be used only once in a list of alarms.
 newAlarm ::
   Alarm
-newAlarm = Alarm' {name = Prelude.Nothing}
+newAlarm = Alarm' {name = Core.Nothing}
 
 -- | The name of the alarm. Maximum length is 255 characters. Each alarm name
 -- can be used only once in a list of alarms.
-alarm_name :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
+alarm_name :: Lens.Lens' Alarm (Core.Maybe Core.Text)
 alarm_name = Lens.lens (\Alarm' {name} -> name) (\s@Alarm' {} a -> s {name = a} :: Alarm)
 
-instance Prelude.FromJSON Alarm where
+instance Core.FromJSON Alarm where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Alarm"
-      (\x -> Alarm' Prelude.<$> (x Prelude..:? "name"))
+      (\x -> Alarm' Core.<$> (x Core..:? "name"))
 
-instance Prelude.Hashable Alarm
+instance Core.Hashable Alarm
 
-instance Prelude.NFData Alarm
+instance Core.NFData Alarm
 
-instance Prelude.ToJSON Alarm where
+instance Core.ToJSON Alarm where
   toJSON Alarm' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("name" Prelude..=) Prelude.<$> name]
-      )
+    Core.object
+      (Core.catMaybes [("name" Core..=) Core.<$> name])

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.HyperParameterTuningJobSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.HyperParameterTuningJobStatus
 import Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType
 import Network.AWS.SageMaker.Types.ObjectiveStatusCounters
@@ -34,15 +33,15 @@ import Network.AWS.SageMaker.Types.TrainingJobStatusCounters
 data HyperParameterTuningJobSummary = HyperParameterTuningJobSummary'
   { -- | The ResourceLimits object that specifies the maximum number of training
     -- jobs and parallel training jobs allowed for this tuning job.
-    resourceLimits :: Prelude.Maybe ResourceLimits,
+    resourceLimits :: Core.Maybe ResourceLimits,
     -- | The date and time that the tuning job ended.
-    hyperParameterTuningEndTime :: Prelude.Maybe Prelude.POSIX,
+    hyperParameterTuningEndTime :: Core.Maybe Core.POSIX,
     -- | The date and time that the tuning job was modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | The name of the tuning job.
-    hyperParameterTuningJobName :: Prelude.Text,
+    hyperParameterTuningJobName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the tuning job.
-    hyperParameterTuningJobArn :: Prelude.Text,
+    hyperParameterTuningJobArn :: Core.Text,
     -- | The status of the tuning job.
     hyperParameterTuningJobStatus :: HyperParameterTuningJobStatus,
     -- | Specifies the search strategy hyperparameter tuning uses to choose which
@@ -50,7 +49,7 @@ data HyperParameterTuningJobSummary = HyperParameterTuningJobSummary'
     -- value is Bayesian.
     strategy :: HyperParameterTuningJobStrategyType,
     -- | The date and time that the tuning job was created.
-    creationTime :: Prelude.POSIX,
+    creationTime :: Core.POSIX,
     -- | The TrainingJobStatusCounters object that specifies the numbers of
     -- training jobs, categorized by status, that this tuning job launched.
     trainingJobStatusCounters :: TrainingJobStatusCounters,
@@ -59,7 +58,7 @@ data HyperParameterTuningJobSummary = HyperParameterTuningJobSummary'
     -- job launched.
     objectiveStatusCounters :: ObjectiveStatusCounters
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HyperParameterTuningJobSummary' with all optional fields omitted.
@@ -96,15 +95,15 @@ data HyperParameterTuningJobSummary = HyperParameterTuningJobSummary'
 -- job launched.
 newHyperParameterTuningJobSummary ::
   -- | 'hyperParameterTuningJobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'hyperParameterTuningJobArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'hyperParameterTuningJobStatus'
   HyperParameterTuningJobStatus ->
   -- | 'strategy'
   HyperParameterTuningJobStrategyType ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'trainingJobStatusCounters'
   TrainingJobStatusCounters ->
   -- | 'objectiveStatusCounters'
@@ -120,10 +119,9 @@ newHyperParameterTuningJobSummary
   pObjectiveStatusCounters_ =
     HyperParameterTuningJobSummary'
       { resourceLimits =
-          Prelude.Nothing,
-        hyperParameterTuningEndTime =
-          Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
+          Core.Nothing,
+        hyperParameterTuningEndTime = Core.Nothing,
+        lastModifiedTime = Core.Nothing,
         hyperParameterTuningJobName =
           pHyperParameterTuningJobName_,
         hyperParameterTuningJobArn =
@@ -132,7 +130,7 @@ newHyperParameterTuningJobSummary
           pHyperParameterTuningJobStatus_,
         strategy = pStrategy_,
         creationTime =
-          Prelude._Time Lens.# pCreationTime_,
+          Core._Time Lens.# pCreationTime_,
         trainingJobStatusCounters =
           pTrainingJobStatusCounters_,
         objectiveStatusCounters =
@@ -141,23 +139,23 @@ newHyperParameterTuningJobSummary
 
 -- | The ResourceLimits object that specifies the maximum number of training
 -- jobs and parallel training jobs allowed for this tuning job.
-hyperParameterTuningJobSummary_resourceLimits :: Lens.Lens' HyperParameterTuningJobSummary (Prelude.Maybe ResourceLimits)
+hyperParameterTuningJobSummary_resourceLimits :: Lens.Lens' HyperParameterTuningJobSummary (Core.Maybe ResourceLimits)
 hyperParameterTuningJobSummary_resourceLimits = Lens.lens (\HyperParameterTuningJobSummary' {resourceLimits} -> resourceLimits) (\s@HyperParameterTuningJobSummary' {} a -> s {resourceLimits = a} :: HyperParameterTuningJobSummary)
 
 -- | The date and time that the tuning job ended.
-hyperParameterTuningJobSummary_hyperParameterTuningEndTime :: Lens.Lens' HyperParameterTuningJobSummary (Prelude.Maybe Prelude.UTCTime)
-hyperParameterTuningJobSummary_hyperParameterTuningEndTime = Lens.lens (\HyperParameterTuningJobSummary' {hyperParameterTuningEndTime} -> hyperParameterTuningEndTime) (\s@HyperParameterTuningJobSummary' {} a -> s {hyperParameterTuningEndTime = a} :: HyperParameterTuningJobSummary) Prelude.. Lens.mapping Prelude._Time
+hyperParameterTuningJobSummary_hyperParameterTuningEndTime :: Lens.Lens' HyperParameterTuningJobSummary (Core.Maybe Core.UTCTime)
+hyperParameterTuningJobSummary_hyperParameterTuningEndTime = Lens.lens (\HyperParameterTuningJobSummary' {hyperParameterTuningEndTime} -> hyperParameterTuningEndTime) (\s@HyperParameterTuningJobSummary' {} a -> s {hyperParameterTuningEndTime = a} :: HyperParameterTuningJobSummary) Core.. Lens.mapping Core._Time
 
 -- | The date and time that the tuning job was modified.
-hyperParameterTuningJobSummary_lastModifiedTime :: Lens.Lens' HyperParameterTuningJobSummary (Prelude.Maybe Prelude.UTCTime)
-hyperParameterTuningJobSummary_lastModifiedTime = Lens.lens (\HyperParameterTuningJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@HyperParameterTuningJobSummary' {} a -> s {lastModifiedTime = a} :: HyperParameterTuningJobSummary) Prelude.. Lens.mapping Prelude._Time
+hyperParameterTuningJobSummary_lastModifiedTime :: Lens.Lens' HyperParameterTuningJobSummary (Core.Maybe Core.UTCTime)
+hyperParameterTuningJobSummary_lastModifiedTime = Lens.lens (\HyperParameterTuningJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@HyperParameterTuningJobSummary' {} a -> s {lastModifiedTime = a} :: HyperParameterTuningJobSummary) Core.. Lens.mapping Core._Time
 
 -- | The name of the tuning job.
-hyperParameterTuningJobSummary_hyperParameterTuningJobName :: Lens.Lens' HyperParameterTuningJobSummary Prelude.Text
+hyperParameterTuningJobSummary_hyperParameterTuningJobName :: Lens.Lens' HyperParameterTuningJobSummary Core.Text
 hyperParameterTuningJobSummary_hyperParameterTuningJobName = Lens.lens (\HyperParameterTuningJobSummary' {hyperParameterTuningJobName} -> hyperParameterTuningJobName) (\s@HyperParameterTuningJobSummary' {} a -> s {hyperParameterTuningJobName = a} :: HyperParameterTuningJobSummary)
 
 -- | The Amazon Resource Name (ARN) of the tuning job.
-hyperParameterTuningJobSummary_hyperParameterTuningJobArn :: Lens.Lens' HyperParameterTuningJobSummary Prelude.Text
+hyperParameterTuningJobSummary_hyperParameterTuningJobArn :: Lens.Lens' HyperParameterTuningJobSummary Core.Text
 hyperParameterTuningJobSummary_hyperParameterTuningJobArn = Lens.lens (\HyperParameterTuningJobSummary' {hyperParameterTuningJobArn} -> hyperParameterTuningJobArn) (\s@HyperParameterTuningJobSummary' {} a -> s {hyperParameterTuningJobArn = a} :: HyperParameterTuningJobSummary)
 
 -- | The status of the tuning job.
@@ -171,8 +169,8 @@ hyperParameterTuningJobSummary_strategy :: Lens.Lens' HyperParameterTuningJobSum
 hyperParameterTuningJobSummary_strategy = Lens.lens (\HyperParameterTuningJobSummary' {strategy} -> strategy) (\s@HyperParameterTuningJobSummary' {} a -> s {strategy = a} :: HyperParameterTuningJobSummary)
 
 -- | The date and time that the tuning job was created.
-hyperParameterTuningJobSummary_creationTime :: Lens.Lens' HyperParameterTuningJobSummary Prelude.UTCTime
-hyperParameterTuningJobSummary_creationTime = Lens.lens (\HyperParameterTuningJobSummary' {creationTime} -> creationTime) (\s@HyperParameterTuningJobSummary' {} a -> s {creationTime = a} :: HyperParameterTuningJobSummary) Prelude.. Prelude._Time
+hyperParameterTuningJobSummary_creationTime :: Lens.Lens' HyperParameterTuningJobSummary Core.UTCTime
+hyperParameterTuningJobSummary_creationTime = Lens.lens (\HyperParameterTuningJobSummary' {creationTime} -> creationTime) (\s@HyperParameterTuningJobSummary' {} a -> s {creationTime = a} :: HyperParameterTuningJobSummary) Core.. Core._Time
 
 -- | The TrainingJobStatusCounters object that specifies the numbers of
 -- training jobs, categorized by status, that this tuning job launched.
@@ -185,31 +183,24 @@ hyperParameterTuningJobSummary_trainingJobStatusCounters = Lens.lens (\HyperPara
 hyperParameterTuningJobSummary_objectiveStatusCounters :: Lens.Lens' HyperParameterTuningJobSummary ObjectiveStatusCounters
 hyperParameterTuningJobSummary_objectiveStatusCounters = Lens.lens (\HyperParameterTuningJobSummary' {objectiveStatusCounters} -> objectiveStatusCounters) (\s@HyperParameterTuningJobSummary' {} a -> s {objectiveStatusCounters = a} :: HyperParameterTuningJobSummary)
 
-instance
-  Prelude.FromJSON
-    HyperParameterTuningJobSummary
-  where
+instance Core.FromJSON HyperParameterTuningJobSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HyperParameterTuningJobSummary"
       ( \x ->
           HyperParameterTuningJobSummary'
-            Prelude.<$> (x Prelude..:? "ResourceLimits")
-            Prelude.<*> (x Prelude..:? "HyperParameterTuningEndTime")
-            Prelude.<*> (x Prelude..:? "LastModifiedTime")
-            Prelude.<*> (x Prelude..: "HyperParameterTuningJobName")
-            Prelude.<*> (x Prelude..: "HyperParameterTuningJobArn")
-            Prelude.<*> (x Prelude..: "HyperParameterTuningJobStatus")
-            Prelude.<*> (x Prelude..: "Strategy")
-            Prelude.<*> (x Prelude..: "CreationTime")
-            Prelude.<*> (x Prelude..: "TrainingJobStatusCounters")
-            Prelude.<*> (x Prelude..: "ObjectiveStatusCounters")
+            Core.<$> (x Core..:? "ResourceLimits")
+            Core.<*> (x Core..:? "HyperParameterTuningEndTime")
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..: "HyperParameterTuningJobName")
+            Core.<*> (x Core..: "HyperParameterTuningJobArn")
+            Core.<*> (x Core..: "HyperParameterTuningJobStatus")
+            Core.<*> (x Core..: "Strategy")
+            Core.<*> (x Core..: "CreationTime")
+            Core.<*> (x Core..: "TrainingJobStatusCounters")
+            Core.<*> (x Core..: "ObjectiveStatusCounters")
       )
 
-instance
-  Prelude.Hashable
-    HyperParameterTuningJobSummary
+instance Core.Hashable HyperParameterTuningJobSummary
 
-instance
-  Prelude.NFData
-    HyperParameterTuningJobSummary
+instance Core.NFData HyperParameterTuningJobSummary

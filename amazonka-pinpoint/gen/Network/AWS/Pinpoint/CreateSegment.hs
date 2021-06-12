@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Pinpoint.CreateSegment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,10 +52,10 @@ import qualified Network.AWS.Response as Response
 data CreateSegment = CreateSegment'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     writeSegmentRequest :: WriteSegmentRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSegment' with all optional fields omitted.
@@ -72,7 +71,7 @@ data CreateSegment = CreateSegment'
 -- 'writeSegmentRequest', 'createSegment_writeSegmentRequest' - Undocumented member.
 newCreateSegment ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'writeSegmentRequest'
   WriteSegmentRequest ->
   CreateSegment
@@ -86,68 +85,63 @@ newCreateSegment
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-createSegment_applicationId :: Lens.Lens' CreateSegment Prelude.Text
+createSegment_applicationId :: Lens.Lens' CreateSegment Core.Text
 createSegment_applicationId = Lens.lens (\CreateSegment' {applicationId} -> applicationId) (\s@CreateSegment' {} a -> s {applicationId = a} :: CreateSegment)
 
 -- | Undocumented member.
 createSegment_writeSegmentRequest :: Lens.Lens' CreateSegment WriteSegmentRequest
 createSegment_writeSegmentRequest = Lens.lens (\CreateSegment' {writeSegmentRequest} -> writeSegmentRequest) (\s@CreateSegment' {} a -> s {writeSegmentRequest = a} :: CreateSegment)
 
-instance Prelude.AWSRequest CreateSegment where
-  type Rs CreateSegment = CreateSegmentResponse
+instance Core.AWSRequest CreateSegment where
+  type
+    AWSResponse CreateSegment =
+      CreateSegmentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateSegmentResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateSegment
+instance Core.Hashable CreateSegment
 
-instance Prelude.NFData CreateSegment
+instance Core.NFData CreateSegment
 
-instance Prelude.ToHeaders CreateSegment where
+instance Core.ToHeaders CreateSegment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateSegment where
+instance Core.ToJSON CreateSegment where
   toJSON CreateSegment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "WriteSegmentRequest"
-                  Prelude..= writeSegmentRequest
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("WriteSegmentRequest" Core..= writeSegmentRequest)
           ]
       )
 
-instance Prelude.ToPath CreateSegment where
+instance Core.ToPath CreateSegment where
   toPath CreateSegment' {..} =
-    Prelude.mconcat
-      [ "/v1/apps/",
-        Prelude.toBS applicationId,
-        "/segments"
-      ]
+    Core.mconcat
+      ["/v1/apps/", Core.toBS applicationId, "/segments"]
 
-instance Prelude.ToQuery CreateSegment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateSegment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateSegmentResponse' smart constructor.
 data CreateSegmentResponse = CreateSegmentResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     segmentResponse :: SegmentResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSegmentResponse' with all optional fields omitted.
@@ -162,7 +156,7 @@ data CreateSegmentResponse = CreateSegmentResponse'
 -- 'segmentResponse', 'createSegmentResponse_segmentResponse' - Undocumented member.
 newCreateSegmentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'segmentResponse'
   SegmentResponse ->
   CreateSegmentResponse
@@ -175,11 +169,11 @@ newCreateSegmentResponse
       }
 
 -- | The response's http status code.
-createSegmentResponse_httpStatus :: Lens.Lens' CreateSegmentResponse Prelude.Int
+createSegmentResponse_httpStatus :: Lens.Lens' CreateSegmentResponse Core.Int
 createSegmentResponse_httpStatus = Lens.lens (\CreateSegmentResponse' {httpStatus} -> httpStatus) (\s@CreateSegmentResponse' {} a -> s {httpStatus = a} :: CreateSegmentResponse)
 
 -- | Undocumented member.
 createSegmentResponse_segmentResponse :: Lens.Lens' CreateSegmentResponse SegmentResponse
 createSegmentResponse_segmentResponse = Lens.lens (\CreateSegmentResponse' {segmentResponse} -> segmentResponse) (\s@CreateSegmentResponse' {} a -> s {segmentResponse = a} :: CreateSegmentResponse)
 
-instance Prelude.NFData CreateSegmentResponse
+instance Core.NFData CreateSegmentResponse

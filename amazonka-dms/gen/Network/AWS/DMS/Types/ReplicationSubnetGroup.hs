@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DMS.Types.ReplicationSubnetGroup where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types.Subnet
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a subnet group in response to a request by the
 -- @DescribeReplicationSubnetGroups@ operation.
@@ -30,17 +29,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newReplicationSubnetGroup' smart constructor.
 data ReplicationSubnetGroup = ReplicationSubnetGroup'
   { -- | The identifier of the replication instance subnet group.
-    replicationSubnetGroupIdentifier :: Prelude.Maybe Prelude.Text,
+    replicationSubnetGroupIdentifier :: Core.Maybe Core.Text,
     -- | The status of the subnet group.
-    subnetGroupStatus :: Prelude.Maybe Prelude.Text,
+    subnetGroupStatus :: Core.Maybe Core.Text,
     -- | A description for the replication subnet group.
-    replicationSubnetGroupDescription :: Prelude.Maybe Prelude.Text,
+    replicationSubnetGroupDescription :: Core.Maybe Core.Text,
     -- | The subnets that are in the subnet group.
-    subnets :: Prelude.Maybe [Subnet],
+    subnets :: Core.Maybe [Subnet],
     -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicationSubnetGroup' with all optional fields omitted.
@@ -64,46 +63,46 @@ newReplicationSubnetGroup ::
 newReplicationSubnetGroup =
   ReplicationSubnetGroup'
     { replicationSubnetGroupIdentifier =
-        Prelude.Nothing,
-      subnetGroupStatus = Prelude.Nothing,
-      replicationSubnetGroupDescription = Prelude.Nothing,
-      subnets = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+        Core.Nothing,
+      subnetGroupStatus = Core.Nothing,
+      replicationSubnetGroupDescription = Core.Nothing,
+      subnets = Core.Nothing,
+      vpcId = Core.Nothing
     }
 
 -- | The identifier of the replication instance subnet group.
-replicationSubnetGroup_replicationSubnetGroupIdentifier :: Lens.Lens' ReplicationSubnetGroup (Prelude.Maybe Prelude.Text)
+replicationSubnetGroup_replicationSubnetGroupIdentifier :: Lens.Lens' ReplicationSubnetGroup (Core.Maybe Core.Text)
 replicationSubnetGroup_replicationSubnetGroupIdentifier = Lens.lens (\ReplicationSubnetGroup' {replicationSubnetGroupIdentifier} -> replicationSubnetGroupIdentifier) (\s@ReplicationSubnetGroup' {} a -> s {replicationSubnetGroupIdentifier = a} :: ReplicationSubnetGroup)
 
 -- | The status of the subnet group.
-replicationSubnetGroup_subnetGroupStatus :: Lens.Lens' ReplicationSubnetGroup (Prelude.Maybe Prelude.Text)
+replicationSubnetGroup_subnetGroupStatus :: Lens.Lens' ReplicationSubnetGroup (Core.Maybe Core.Text)
 replicationSubnetGroup_subnetGroupStatus = Lens.lens (\ReplicationSubnetGroup' {subnetGroupStatus} -> subnetGroupStatus) (\s@ReplicationSubnetGroup' {} a -> s {subnetGroupStatus = a} :: ReplicationSubnetGroup)
 
 -- | A description for the replication subnet group.
-replicationSubnetGroup_replicationSubnetGroupDescription :: Lens.Lens' ReplicationSubnetGroup (Prelude.Maybe Prelude.Text)
+replicationSubnetGroup_replicationSubnetGroupDescription :: Lens.Lens' ReplicationSubnetGroup (Core.Maybe Core.Text)
 replicationSubnetGroup_replicationSubnetGroupDescription = Lens.lens (\ReplicationSubnetGroup' {replicationSubnetGroupDescription} -> replicationSubnetGroupDescription) (\s@ReplicationSubnetGroup' {} a -> s {replicationSubnetGroupDescription = a} :: ReplicationSubnetGroup)
 
 -- | The subnets that are in the subnet group.
-replicationSubnetGroup_subnets :: Lens.Lens' ReplicationSubnetGroup (Prelude.Maybe [Subnet])
-replicationSubnetGroup_subnets = Lens.lens (\ReplicationSubnetGroup' {subnets} -> subnets) (\s@ReplicationSubnetGroup' {} a -> s {subnets = a} :: ReplicationSubnetGroup) Prelude.. Lens.mapping Prelude._Coerce
+replicationSubnetGroup_subnets :: Lens.Lens' ReplicationSubnetGroup (Core.Maybe [Subnet])
+replicationSubnetGroup_subnets = Lens.lens (\ReplicationSubnetGroup' {subnets} -> subnets) (\s@ReplicationSubnetGroup' {} a -> s {subnets = a} :: ReplicationSubnetGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the VPC.
-replicationSubnetGroup_vpcId :: Lens.Lens' ReplicationSubnetGroup (Prelude.Maybe Prelude.Text)
+replicationSubnetGroup_vpcId :: Lens.Lens' ReplicationSubnetGroup (Core.Maybe Core.Text)
 replicationSubnetGroup_vpcId = Lens.lens (\ReplicationSubnetGroup' {vpcId} -> vpcId) (\s@ReplicationSubnetGroup' {} a -> s {vpcId = a} :: ReplicationSubnetGroup)
 
-instance Prelude.FromJSON ReplicationSubnetGroup where
+instance Core.FromJSON ReplicationSubnetGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReplicationSubnetGroup"
       ( \x ->
           ReplicationSubnetGroup'
-            Prelude.<$> (x Prelude..:? "ReplicationSubnetGroupIdentifier")
-            Prelude.<*> (x Prelude..:? "SubnetGroupStatus")
-            Prelude.<*> (x Prelude..:? "ReplicationSubnetGroupDescription")
-            Prelude.<*> (x Prelude..:? "Subnets" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "VpcId")
+            Core.<$> (x Core..:? "ReplicationSubnetGroupIdentifier")
+            Core.<*> (x Core..:? "SubnetGroupStatus")
+            Core.<*> (x Core..:? "ReplicationSubnetGroupDescription")
+            Core.<*> (x Core..:? "Subnets" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "VpcId")
       )
 
-instance Prelude.Hashable ReplicationSubnetGroup
+instance Core.Hashable ReplicationSubnetGroup
 
-instance Prelude.NFData ReplicationSubnetGroup
+instance Core.NFData ReplicationSubnetGroup

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -54,7 +53,7 @@ import Network.AWS.Route53Domains.Types
 -- /See:/ 'newCheckDomainAvailability' smart constructor.
 data CheckDomainAvailability = CheckDomainAvailability'
   { -- | Reserved for future use.
-    idnLangCode :: Prelude.Maybe Prelude.Text,
+    idnLangCode :: Core.Maybe Core.Text,
     -- | The name of the domain that you want to get availability for. The
     -- top-level domain (TLD), such as .com, must be a TLD that Route 53
     -- supports. For a list of supported TLDs, see
@@ -79,9 +78,9 @@ data CheckDomainAvailability = CheckDomainAvailability'
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>.
     -- For more information, see
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns Formatting Internationalized Domain Names>.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CheckDomainAvailability' with all optional fields omitted.
@@ -119,17 +118,17 @@ data CheckDomainAvailability = CheckDomainAvailability'
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns Formatting Internationalized Domain Names>.
 newCheckDomainAvailability ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   CheckDomainAvailability
 newCheckDomainAvailability pDomainName_ =
   CheckDomainAvailability'
     { idnLangCode =
-        Prelude.Nothing,
+        Core.Nothing,
       domainName = pDomainName_
     }
 
 -- | Reserved for future use.
-checkDomainAvailability_idnLangCode :: Lens.Lens' CheckDomainAvailability (Prelude.Maybe Prelude.Text)
+checkDomainAvailability_idnLangCode :: Lens.Lens' CheckDomainAvailability (Core.Maybe Core.Text)
 checkDomainAvailability_idnLangCode = Lens.lens (\CheckDomainAvailability' {idnLangCode} -> idnLangCode) (\s@CheckDomainAvailability' {} a -> s {idnLangCode = a} :: CheckDomainAvailability)
 
 -- | The name of the domain that you want to get availability for. The
@@ -156,62 +155,60 @@ checkDomainAvailability_idnLangCode = Lens.lens (\CheckDomainAvailability' {idnL
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns Formatting Internationalized Domain Names>.
-checkDomainAvailability_domainName :: Lens.Lens' CheckDomainAvailability Prelude.Text
+checkDomainAvailability_domainName :: Lens.Lens' CheckDomainAvailability Core.Text
 checkDomainAvailability_domainName = Lens.lens (\CheckDomainAvailability' {domainName} -> domainName) (\s@CheckDomainAvailability' {} a -> s {domainName = a} :: CheckDomainAvailability)
 
-instance Prelude.AWSRequest CheckDomainAvailability where
+instance Core.AWSRequest CheckDomainAvailability where
   type
-    Rs CheckDomainAvailability =
+    AWSResponse CheckDomainAvailability =
       CheckDomainAvailabilityResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CheckDomainAvailabilityResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "Availability")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "Availability")
       )
 
-instance Prelude.Hashable CheckDomainAvailability
+instance Core.Hashable CheckDomainAvailability
 
-instance Prelude.NFData CheckDomainAvailability
+instance Core.NFData CheckDomainAvailability
 
-instance Prelude.ToHeaders CheckDomainAvailability where
+instance Core.ToHeaders CheckDomainAvailability where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53Domains_v20140515.CheckDomainAvailability" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53Domains_v20140515.CheckDomainAvailability" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CheckDomainAvailability where
+instance Core.ToJSON CheckDomainAvailability where
   toJSON CheckDomainAvailability' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IdnLangCode" Prelude..=) Prelude.<$> idnLangCode,
-            Prelude.Just ("DomainName" Prelude..= domainName)
+    Core.object
+      ( Core.catMaybes
+          [ ("IdnLangCode" Core..=) Core.<$> idnLangCode,
+            Core.Just ("DomainName" Core..= domainName)
           ]
       )
 
-instance Prelude.ToPath CheckDomainAvailability where
-  toPath = Prelude.const "/"
+instance Core.ToPath CheckDomainAvailability where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CheckDomainAvailability where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CheckDomainAvailability where
+  toQuery = Core.const Core.mempty
 
 -- | The CheckDomainAvailability response includes the following elements.
 --
 -- /See:/ 'newCheckDomainAvailabilityResponse' smart constructor.
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Whether the domain name is available for registering.
     --
     -- You can register only domains designated as @AVAILABLE@.
@@ -252,7 +249,7 @@ data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
     --     The domain name is forbidden.
     availability :: DomainAvailability
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CheckDomainAvailabilityResponse' with all optional fields omitted.
@@ -304,7 +301,7 @@ data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
 --     The domain name is forbidden.
 newCheckDomainAvailabilityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'availability'
   DomainAvailability ->
   CheckDomainAvailabilityResponse
@@ -318,7 +315,7 @@ newCheckDomainAvailabilityResponse
       }
 
 -- | The response's http status code.
-checkDomainAvailabilityResponse_httpStatus :: Lens.Lens' CheckDomainAvailabilityResponse Prelude.Int
+checkDomainAvailabilityResponse_httpStatus :: Lens.Lens' CheckDomainAvailabilityResponse Core.Int
 checkDomainAvailabilityResponse_httpStatus = Lens.lens (\CheckDomainAvailabilityResponse' {httpStatus} -> httpStatus) (\s@CheckDomainAvailabilityResponse' {} a -> s {httpStatus = a} :: CheckDomainAvailabilityResponse)
 
 -- | Whether the domain name is available for registering.
@@ -362,6 +359,4 @@ checkDomainAvailabilityResponse_httpStatus = Lens.lens (\CheckDomainAvailability
 checkDomainAvailabilityResponse_availability :: Lens.Lens' CheckDomainAvailabilityResponse DomainAvailability
 checkDomainAvailabilityResponse_availability = Lens.lens (\CheckDomainAvailabilityResponse' {availability} -> availability) (\s@CheckDomainAvailabilityResponse' {} a -> s {availability = a} :: CheckDomainAvailabilityResponse)
 
-instance
-  Prelude.NFData
-    CheckDomainAvailabilityResponse
+instance Core.NFData CheckDomainAvailabilityResponse

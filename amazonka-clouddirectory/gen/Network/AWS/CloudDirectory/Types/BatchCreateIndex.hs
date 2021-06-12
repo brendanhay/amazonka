@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudDirectory.Types.BatchCreateIndex where
 
 import Network.AWS.CloudDirectory.Types.AttributeKey
 import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Creates an index object inside of a BatchRead operation. For more
 -- information, see CreateIndex and BatchReadRequest$Operations.
@@ -31,21 +30,21 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBatchCreateIndex' smart constructor.
 data BatchCreateIndex = BatchCreateIndex'
   { -- | A reference to the parent object that contains the index object.
-    parentReference :: Prelude.Maybe ObjectReference,
+    parentReference :: Core.Maybe ObjectReference,
     -- | The name of the link between the parent object and the index object.
-    linkName :: Prelude.Maybe Prelude.Text,
+    linkName :: Core.Maybe Core.Text,
     -- | The batch reference name. See
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
     -- for more information.
-    batchReferenceName :: Prelude.Maybe Prelude.Text,
+    batchReferenceName :: Core.Maybe Core.Text,
     -- | Specifies the attributes that should be indexed on. Currently only a
     -- single attribute is supported.
     orderedIndexedAttributeList :: [AttributeKey],
     -- | Indicates whether the attribute that is being indexed has unique values
     -- or not.
-    isUnique :: Prelude.Bool
+    isUnique :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchCreateIndex' with all optional fields omitted.
@@ -70,59 +69,58 @@ data BatchCreateIndex = BatchCreateIndex'
 -- or not.
 newBatchCreateIndex ::
   -- | 'isUnique'
-  Prelude.Bool ->
+  Core.Bool ->
   BatchCreateIndex
 newBatchCreateIndex pIsUnique_ =
   BatchCreateIndex'
-    { parentReference =
-        Prelude.Nothing,
-      linkName = Prelude.Nothing,
-      batchReferenceName = Prelude.Nothing,
-      orderedIndexedAttributeList = Prelude.mempty,
+    { parentReference = Core.Nothing,
+      linkName = Core.Nothing,
+      batchReferenceName = Core.Nothing,
+      orderedIndexedAttributeList = Core.mempty,
       isUnique = pIsUnique_
     }
 
 -- | A reference to the parent object that contains the index object.
-batchCreateIndex_parentReference :: Lens.Lens' BatchCreateIndex (Prelude.Maybe ObjectReference)
+batchCreateIndex_parentReference :: Lens.Lens' BatchCreateIndex (Core.Maybe ObjectReference)
 batchCreateIndex_parentReference = Lens.lens (\BatchCreateIndex' {parentReference} -> parentReference) (\s@BatchCreateIndex' {} a -> s {parentReference = a} :: BatchCreateIndex)
 
 -- | The name of the link between the parent object and the index object.
-batchCreateIndex_linkName :: Lens.Lens' BatchCreateIndex (Prelude.Maybe Prelude.Text)
+batchCreateIndex_linkName :: Lens.Lens' BatchCreateIndex (Core.Maybe Core.Text)
 batchCreateIndex_linkName = Lens.lens (\BatchCreateIndex' {linkName} -> linkName) (\s@BatchCreateIndex' {} a -> s {linkName = a} :: BatchCreateIndex)
 
 -- | The batch reference name. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
 -- for more information.
-batchCreateIndex_batchReferenceName :: Lens.Lens' BatchCreateIndex (Prelude.Maybe Prelude.Text)
+batchCreateIndex_batchReferenceName :: Lens.Lens' BatchCreateIndex (Core.Maybe Core.Text)
 batchCreateIndex_batchReferenceName = Lens.lens (\BatchCreateIndex' {batchReferenceName} -> batchReferenceName) (\s@BatchCreateIndex' {} a -> s {batchReferenceName = a} :: BatchCreateIndex)
 
 -- | Specifies the attributes that should be indexed on. Currently only a
 -- single attribute is supported.
 batchCreateIndex_orderedIndexedAttributeList :: Lens.Lens' BatchCreateIndex [AttributeKey]
-batchCreateIndex_orderedIndexedAttributeList = Lens.lens (\BatchCreateIndex' {orderedIndexedAttributeList} -> orderedIndexedAttributeList) (\s@BatchCreateIndex' {} a -> s {orderedIndexedAttributeList = a} :: BatchCreateIndex) Prelude.. Prelude._Coerce
+batchCreateIndex_orderedIndexedAttributeList = Lens.lens (\BatchCreateIndex' {orderedIndexedAttributeList} -> orderedIndexedAttributeList) (\s@BatchCreateIndex' {} a -> s {orderedIndexedAttributeList = a} :: BatchCreateIndex) Core.. Lens._Coerce
 
 -- | Indicates whether the attribute that is being indexed has unique values
 -- or not.
-batchCreateIndex_isUnique :: Lens.Lens' BatchCreateIndex Prelude.Bool
+batchCreateIndex_isUnique :: Lens.Lens' BatchCreateIndex Core.Bool
 batchCreateIndex_isUnique = Lens.lens (\BatchCreateIndex' {isUnique} -> isUnique) (\s@BatchCreateIndex' {} a -> s {isUnique = a} :: BatchCreateIndex)
 
-instance Prelude.Hashable BatchCreateIndex
+instance Core.Hashable BatchCreateIndex
 
-instance Prelude.NFData BatchCreateIndex
+instance Core.NFData BatchCreateIndex
 
-instance Prelude.ToJSON BatchCreateIndex where
+instance Core.ToJSON BatchCreateIndex where
   toJSON BatchCreateIndex' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ParentReference" Prelude..=)
-              Prelude.<$> parentReference,
-            ("LinkName" Prelude..=) Prelude.<$> linkName,
-            ("BatchReferenceName" Prelude..=)
-              Prelude.<$> batchReferenceName,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("ParentReference" Core..=)
+              Core.<$> parentReference,
+            ("LinkName" Core..=) Core.<$> linkName,
+            ("BatchReferenceName" Core..=)
+              Core.<$> batchReferenceName,
+            Core.Just
               ( "OrderedIndexedAttributeList"
-                  Prelude..= orderedIndexedAttributeList
+                  Core..= orderedIndexedAttributeList
               ),
-            Prelude.Just ("IsUnique" Prelude..= isUnique)
+            Core.Just ("IsUnique" Core..= isUnique)
           ]
       )

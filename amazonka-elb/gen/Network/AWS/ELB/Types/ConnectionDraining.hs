@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.ConnectionDraining where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the @ConnectionDraining@ attribute.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ConnectionDraining = ConnectionDraining'
   { -- | The maximum time, in seconds, to keep the existing connections open
     -- before deregistering the instances.
-    timeout :: Prelude.Maybe Prelude.Int,
+    timeout :: Core.Maybe Core.Int,
     -- | Specifies whether connection draining is enabled for the load balancer.
-    enabled :: Prelude.Bool
+    enabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectionDraining' with all optional fields omitted.
@@ -50,36 +49,35 @@ data ConnectionDraining = ConnectionDraining'
 -- 'enabled', 'connectionDraining_enabled' - Specifies whether connection draining is enabled for the load balancer.
 newConnectionDraining ::
   -- | 'enabled'
-  Prelude.Bool ->
+  Core.Bool ->
   ConnectionDraining
 newConnectionDraining pEnabled_ =
   ConnectionDraining'
-    { timeout = Prelude.Nothing,
+    { timeout = Core.Nothing,
       enabled = pEnabled_
     }
 
 -- | The maximum time, in seconds, to keep the existing connections open
 -- before deregistering the instances.
-connectionDraining_timeout :: Lens.Lens' ConnectionDraining (Prelude.Maybe Prelude.Int)
+connectionDraining_timeout :: Lens.Lens' ConnectionDraining (Core.Maybe Core.Int)
 connectionDraining_timeout = Lens.lens (\ConnectionDraining' {timeout} -> timeout) (\s@ConnectionDraining' {} a -> s {timeout = a} :: ConnectionDraining)
 
 -- | Specifies whether connection draining is enabled for the load balancer.
-connectionDraining_enabled :: Lens.Lens' ConnectionDraining Prelude.Bool
+connectionDraining_enabled :: Lens.Lens' ConnectionDraining Core.Bool
 connectionDraining_enabled = Lens.lens (\ConnectionDraining' {enabled} -> enabled) (\s@ConnectionDraining' {} a -> s {enabled = a} :: ConnectionDraining)
 
-instance Prelude.FromXML ConnectionDraining where
+instance Core.FromXML ConnectionDraining where
   parseXML x =
     ConnectionDraining'
-      Prelude.<$> (x Prelude..@? "Timeout")
-      Prelude.<*> (x Prelude..@ "Enabled")
+      Core.<$> (x Core..@? "Timeout") Core.<*> (x Core..@ "Enabled")
 
-instance Prelude.Hashable ConnectionDraining
+instance Core.Hashable ConnectionDraining
 
-instance Prelude.NFData ConnectionDraining
+instance Core.NFData ConnectionDraining
 
-instance Prelude.ToQuery ConnectionDraining where
+instance Core.ToQuery ConnectionDraining where
   toQuery ConnectionDraining' {..} =
-    Prelude.mconcat
-      [ "Timeout" Prelude.=: timeout,
-        "Enabled" Prelude.=: enabled
+    Core.mconcat
+      [ "Timeout" Core.=: timeout,
+        "Enabled" Core.=: enabled
       ]

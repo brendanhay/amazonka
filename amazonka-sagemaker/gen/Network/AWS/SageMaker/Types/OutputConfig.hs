@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.OutputConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TargetDevice
 import Network.AWS.SageMaker.Types.TargetPlatform
 
@@ -94,7 +93,7 @@ data OutputConfig = OutputConfig'
     --         inside input tar.gz file. For example,
     --         @{\"class_labels\": \"imagenet_labels_1000.txt\"}@. Labels
     --         inside the txt file should be separated by newlines.
-    compilerOptions :: Prelude.Maybe Prelude.Text,
+    compilerOptions :: Core.Maybe Core.Text,
     -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
     -- to encrypt data on the storage volume after compilation job. If you
     -- don\'t provide a KMS key ID, Amazon SageMaker uses the default KMS key
@@ -111,12 +110,12 @@ data OutputConfig = OutputConfig'
     --
     -- -   Alias name ARN:
     --     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | Identifies the target device or the machine learning instance that you
     -- want to run your model on after the compilation has completed.
     -- Alternatively, you can specify OS, architecture, and accelerator using
     -- TargetPlatform fields. It can be used instead of @TargetPlatform@.
-    targetDevice :: Prelude.Maybe TargetDevice,
+    targetDevice :: Core.Maybe TargetDevice,
     -- | Contains information about a target platform that you want your model to
     -- run on, such as OS, architecture, and accelerators. It is an alternative
     -- of @TargetDevice@.
@@ -157,12 +156,12 @@ data OutputConfig = OutputConfig'
     --     @\"TargetPlatform\": {\"Os\": \"ANDROID\", \"Arch\": \"ARM64\"},@
     --
     --     @ \"CompilerOptions\": {\'ANDROID_PLATFORM\': 29}@
-    targetPlatform :: Prelude.Maybe TargetPlatform,
+    targetPlatform :: Core.Maybe TargetPlatform,
     -- | Identifies the S3 bucket where you want Amazon SageMaker to store the
     -- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.
-    s3OutputLocation :: Prelude.Text
+    s3OutputLocation :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputConfig' with all optional fields omitted.
@@ -298,14 +297,14 @@ data OutputConfig = OutputConfig'
 -- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.
 newOutputConfig ::
   -- | 's3OutputLocation'
-  Prelude.Text ->
+  Core.Text ->
   OutputConfig
 newOutputConfig pS3OutputLocation_ =
   OutputConfig'
-    { compilerOptions = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      targetDevice = Prelude.Nothing,
-      targetPlatform = Prelude.Nothing,
+    { compilerOptions = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      targetDevice = Core.Nothing,
+      targetPlatform = Core.Nothing,
       s3OutputLocation = pS3OutputLocation_
     }
 
@@ -367,7 +366,7 @@ newOutputConfig pS3OutputLocation_ =
 --         inside input tar.gz file. For example,
 --         @{\"class_labels\": \"imagenet_labels_1000.txt\"}@. Labels
 --         inside the txt file should be separated by newlines.
-outputConfig_compilerOptions :: Lens.Lens' OutputConfig (Prelude.Maybe Prelude.Text)
+outputConfig_compilerOptions :: Lens.Lens' OutputConfig (Core.Maybe Core.Text)
 outputConfig_compilerOptions = Lens.lens (\OutputConfig' {compilerOptions} -> compilerOptions) (\s@OutputConfig' {} a -> s {compilerOptions = a} :: OutputConfig)
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
@@ -386,14 +385,14 @@ outputConfig_compilerOptions = Lens.lens (\OutputConfig' {compilerOptions} -> co
 --
 -- -   Alias name ARN:
 --     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
-outputConfig_kmsKeyId :: Lens.Lens' OutputConfig (Prelude.Maybe Prelude.Text)
+outputConfig_kmsKeyId :: Lens.Lens' OutputConfig (Core.Maybe Core.Text)
 outputConfig_kmsKeyId = Lens.lens (\OutputConfig' {kmsKeyId} -> kmsKeyId) (\s@OutputConfig' {} a -> s {kmsKeyId = a} :: OutputConfig)
 
 -- | Identifies the target device or the machine learning instance that you
 -- want to run your model on after the compilation has completed.
 -- Alternatively, you can specify OS, architecture, and accelerator using
 -- TargetPlatform fields. It can be used instead of @TargetPlatform@.
-outputConfig_targetDevice :: Lens.Lens' OutputConfig (Prelude.Maybe TargetDevice)
+outputConfig_targetDevice :: Lens.Lens' OutputConfig (Core.Maybe TargetDevice)
 outputConfig_targetDevice = Lens.lens (\OutputConfig' {targetDevice} -> targetDevice) (\s@OutputConfig' {} a -> s {targetDevice = a} :: OutputConfig)
 
 -- | Contains information about a target platform that you want your model to
@@ -436,42 +435,41 @@ outputConfig_targetDevice = Lens.lens (\OutputConfig' {targetDevice} -> targetDe
 --     @\"TargetPlatform\": {\"Os\": \"ANDROID\", \"Arch\": \"ARM64\"},@
 --
 --     @ \"CompilerOptions\": {\'ANDROID_PLATFORM\': 29}@
-outputConfig_targetPlatform :: Lens.Lens' OutputConfig (Prelude.Maybe TargetPlatform)
+outputConfig_targetPlatform :: Lens.Lens' OutputConfig (Core.Maybe TargetPlatform)
 outputConfig_targetPlatform = Lens.lens (\OutputConfig' {targetPlatform} -> targetPlatform) (\s@OutputConfig' {} a -> s {targetPlatform = a} :: OutputConfig)
 
 -- | Identifies the S3 bucket where you want Amazon SageMaker to store the
 -- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.
-outputConfig_s3OutputLocation :: Lens.Lens' OutputConfig Prelude.Text
+outputConfig_s3OutputLocation :: Lens.Lens' OutputConfig Core.Text
 outputConfig_s3OutputLocation = Lens.lens (\OutputConfig' {s3OutputLocation} -> s3OutputLocation) (\s@OutputConfig' {} a -> s {s3OutputLocation = a} :: OutputConfig)
 
-instance Prelude.FromJSON OutputConfig where
+instance Core.FromJSON OutputConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputConfig"
       ( \x ->
           OutputConfig'
-            Prelude.<$> (x Prelude..:? "CompilerOptions")
-            Prelude.<*> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..:? "TargetDevice")
-            Prelude.<*> (x Prelude..:? "TargetPlatform")
-            Prelude.<*> (x Prelude..: "S3OutputLocation")
+            Core.<$> (x Core..:? "CompilerOptions")
+            Core.<*> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..:? "TargetDevice")
+            Core.<*> (x Core..:? "TargetPlatform")
+            Core.<*> (x Core..: "S3OutputLocation")
       )
 
-instance Prelude.Hashable OutputConfig
+instance Core.Hashable OutputConfig
 
-instance Prelude.NFData OutputConfig
+instance Core.NFData OutputConfig
 
-instance Prelude.ToJSON OutputConfig where
+instance Core.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CompilerOptions" Prelude..=)
-              Prelude.<$> compilerOptions,
-            ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            ("TargetDevice" Prelude..=) Prelude.<$> targetDevice,
-            ("TargetPlatform" Prelude..=)
-              Prelude.<$> targetPlatform,
-            Prelude.Just
-              ("S3OutputLocation" Prelude..= s3OutputLocation)
+    Core.object
+      ( Core.catMaybes
+          [ ("CompilerOptions" Core..=)
+              Core.<$> compilerOptions,
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            ("TargetDevice" Core..=) Core.<$> targetDevice,
+            ("TargetPlatform" Core..=) Core.<$> targetPlatform,
+            Core.Just
+              ("S3OutputLocation" Core..= s3OutputLocation)
           ]
       )

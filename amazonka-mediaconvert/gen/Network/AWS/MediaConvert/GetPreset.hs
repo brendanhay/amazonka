@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.MediaConvert.GetPreset
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetPreset' smart constructor.
 data GetPreset = GetPreset'
   { -- | The name of the preset.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPreset' with all optional fields omitted.
@@ -64,58 +63,56 @@ data GetPreset = GetPreset'
 -- 'name', 'getPreset_name' - The name of the preset.
 newGetPreset ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   GetPreset
 newGetPreset pName_ = GetPreset' {name = pName_}
 
 -- | The name of the preset.
-getPreset_name :: Lens.Lens' GetPreset Prelude.Text
+getPreset_name :: Lens.Lens' GetPreset Core.Text
 getPreset_name = Lens.lens (\GetPreset' {name} -> name) (\s@GetPreset' {} a -> s {name = a} :: GetPreset)
 
-instance Prelude.AWSRequest GetPreset where
-  type Rs GetPreset = GetPresetResponse
+instance Core.AWSRequest GetPreset where
+  type AWSResponse GetPreset = GetPresetResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetPresetResponse'
-            Prelude.<$> (x Prelude..?> "preset")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "preset")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetPreset
+instance Core.Hashable GetPreset
 
-instance Prelude.NFData GetPreset
+instance Core.NFData GetPreset
 
-instance Prelude.ToHeaders GetPreset where
+instance Core.ToHeaders GetPreset where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetPreset where
+instance Core.ToPath GetPreset where
   toPath GetPreset' {..} =
-    Prelude.mconcat
-      ["/2017-08-29/presets/", Prelude.toBS name]
+    Core.mconcat
+      ["/2017-08-29/presets/", Core.toBS name]
 
-instance Prelude.ToQuery GetPreset where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetPreset where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetPresetResponse' smart constructor.
 data GetPresetResponse = GetPresetResponse'
   { -- | A preset is a collection of preconfigured media conversion settings that
     -- you want MediaConvert to apply to the output during the conversion
     -- process.
-    preset :: Prelude.Maybe Preset,
+    preset :: Core.Maybe Preset,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPresetResponse' with all optional fields omitted.
@@ -132,22 +129,22 @@ data GetPresetResponse = GetPresetResponse'
 -- 'httpStatus', 'getPresetResponse_httpStatus' - The response's http status code.
 newGetPresetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetPresetResponse
 newGetPresetResponse pHttpStatus_ =
   GetPresetResponse'
-    { preset = Prelude.Nothing,
+    { preset = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A preset is a collection of preconfigured media conversion settings that
 -- you want MediaConvert to apply to the output during the conversion
 -- process.
-getPresetResponse_preset :: Lens.Lens' GetPresetResponse (Prelude.Maybe Preset)
+getPresetResponse_preset :: Lens.Lens' GetPresetResponse (Core.Maybe Preset)
 getPresetResponse_preset = Lens.lens (\GetPresetResponse' {preset} -> preset) (\s@GetPresetResponse' {} a -> s {preset = a} :: GetPresetResponse)
 
 -- | The response's http status code.
-getPresetResponse_httpStatus :: Lens.Lens' GetPresetResponse Prelude.Int
+getPresetResponse_httpStatus :: Lens.Lens' GetPresetResponse Core.Int
 getPresetResponse_httpStatus = Lens.lens (\GetPresetResponse' {httpStatus} -> httpStatus) (\s@GetPresetResponse' {} a -> s {httpStatus = a} :: GetPresetResponse)
 
-instance Prelude.NFData GetPresetResponse
+instance Core.NFData GetPresetResponse

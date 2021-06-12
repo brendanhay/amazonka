@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.IoT.CreateTopicRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,13 +58,13 @@ data CreateTopicRule = CreateTopicRule'
     --
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
-    tags :: Prelude.Maybe Prelude.Text,
+    tags :: Core.Maybe Core.Text,
     -- | The name of the rule.
-    ruleName :: Prelude.Text,
+    ruleName :: Core.Text,
     -- | The rule payload.
     topicRulePayload :: TopicRulePayload
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTopicRule' with all optional fields omitted.
@@ -90,13 +89,13 @@ data CreateTopicRule = CreateTopicRule'
 -- 'topicRulePayload', 'createTopicRule_topicRulePayload' - The rule payload.
 newCreateTopicRule ::
   -- | 'ruleName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'topicRulePayload'
   TopicRulePayload ->
   CreateTopicRule
 newCreateTopicRule pRuleName_ pTopicRulePayload_ =
   CreateTopicRule'
-    { tags = Prelude.Nothing,
+    { tags = Core.Nothing,
       ruleName = pRuleName_,
       topicRulePayload = pTopicRulePayload_
     }
@@ -110,52 +109,54 @@ newCreateTopicRule pRuleName_ pTopicRulePayload_ =
 --
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
-createTopicRule_tags :: Lens.Lens' CreateTopicRule (Prelude.Maybe Prelude.Text)
+createTopicRule_tags :: Lens.Lens' CreateTopicRule (Core.Maybe Core.Text)
 createTopicRule_tags = Lens.lens (\CreateTopicRule' {tags} -> tags) (\s@CreateTopicRule' {} a -> s {tags = a} :: CreateTopicRule)
 
 -- | The name of the rule.
-createTopicRule_ruleName :: Lens.Lens' CreateTopicRule Prelude.Text
+createTopicRule_ruleName :: Lens.Lens' CreateTopicRule Core.Text
 createTopicRule_ruleName = Lens.lens (\CreateTopicRule' {ruleName} -> ruleName) (\s@CreateTopicRule' {} a -> s {ruleName = a} :: CreateTopicRule)
 
 -- | The rule payload.
 createTopicRule_topicRulePayload :: Lens.Lens' CreateTopicRule TopicRulePayload
 createTopicRule_topicRulePayload = Lens.lens (\CreateTopicRule' {topicRulePayload} -> topicRulePayload) (\s@CreateTopicRule' {} a -> s {topicRulePayload = a} :: CreateTopicRule)
 
-instance Prelude.AWSRequest CreateTopicRule where
-  type Rs CreateTopicRule = CreateTopicRuleResponse
+instance Core.AWSRequest CreateTopicRule where
+  type
+    AWSResponse CreateTopicRule =
+      CreateTopicRuleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull CreateTopicRuleResponse'
 
-instance Prelude.Hashable CreateTopicRule
+instance Core.Hashable CreateTopicRule
 
-instance Prelude.NFData CreateTopicRule
+instance Core.NFData CreateTopicRule
 
-instance Prelude.ToHeaders CreateTopicRule where
+instance Core.ToHeaders CreateTopicRule where
   toHeaders CreateTopicRule' {..} =
-    Prelude.mconcat ["x-amz-tagging" Prelude.=# tags]
+    Core.mconcat ["x-amz-tagging" Core.=# tags]
 
-instance Prelude.ToJSON CreateTopicRule where
+instance Core.ToJSON CreateTopicRule where
   toJSON CreateTopicRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("topicRulePayload" Prelude..= topicRulePayload)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("topicRulePayload" Core..= topicRulePayload)
           ]
       )
 
-instance Prelude.ToPath CreateTopicRule where
+instance Core.ToPath CreateTopicRule where
   toPath CreateTopicRule' {..} =
-    Prelude.mconcat ["/rules/", Prelude.toBS ruleName]
+    Core.mconcat ["/rules/", Core.toBS ruleName]
 
-instance Prelude.ToQuery CreateTopicRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateTopicRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateTopicRuleResponse' smart constructor.
 data CreateTopicRuleResponse = CreateTopicRuleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTopicRuleResponse' with all optional fields omitted.
@@ -165,4 +166,4 @@ newCreateTopicRuleResponse ::
   CreateTopicRuleResponse
 newCreateTopicRuleResponse = CreateTopicRuleResponse'
 
-instance Prelude.NFData CreateTopicRuleResponse
+instance Core.NFData CreateTopicRuleResponse

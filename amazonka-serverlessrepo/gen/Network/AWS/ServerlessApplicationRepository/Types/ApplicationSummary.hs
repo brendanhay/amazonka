@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,46 +19,46 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary of details about the application.
 --
 -- /See:/ 'newApplicationSummary' smart constructor.
 data ApplicationSummary = ApplicationSummary'
   { -- | The date and time this resource was created.
-    creationTime :: Prelude.Maybe Prelude.Text,
+    creationTime :: Core.Maybe Core.Text,
     -- | A valid identifier from <https://spdx.org/licenses/>.
-    spdxLicenseId :: Prelude.Maybe Prelude.Text,
+    spdxLicenseId :: Core.Maybe Core.Text,
     -- | Labels to improve discovery of apps in search results.
     --
     -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
     --
     -- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
-    labels :: Prelude.Maybe [Prelude.Text],
+    labels :: Core.Maybe [Core.Text],
     -- | A URL with more information about the application, for example the
     -- location of your GitHub repository for the application.
-    homePageUrl :: Prelude.Maybe Prelude.Text,
+    homePageUrl :: Core.Maybe Core.Text,
     -- | The description of the application.
     --
     -- Minimum length=1. Maximum length=256
-    description :: Prelude.Text,
+    description :: Core.Text,
     -- | The name of the author publishing the app.
     --
     -- Minimum length=1. Maximum length=127.
     --
     -- Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
-    author :: Prelude.Text,
+    author :: Core.Text,
     -- | The application Amazon Resource Name (ARN).
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     -- | The name of the application.
     --
     -- Minimum length=1. Maximum length=140
     --
     -- Pattern: \"[a-zA-Z0-9\\\\-]+\";
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplicationSummary' with all optional fields omitted.
@@ -101,13 +100,13 @@ data ApplicationSummary = ApplicationSummary'
 -- Pattern: \"[a-zA-Z0-9\\\\-]+\";
 newApplicationSummary ::
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'author'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   ApplicationSummary
 newApplicationSummary
   pDescription_
@@ -115,10 +114,10 @@ newApplicationSummary
   pApplicationId_
   pName_ =
     ApplicationSummary'
-      { creationTime = Prelude.Nothing,
-        spdxLicenseId = Prelude.Nothing,
-        labels = Prelude.Nothing,
-        homePageUrl = Prelude.Nothing,
+      { creationTime = Core.Nothing,
+        spdxLicenseId = Core.Nothing,
+        labels = Core.Nothing,
+        homePageUrl = Core.Nothing,
         description = pDescription_,
         author = pAuthor_,
         applicationId = pApplicationId_,
@@ -126,11 +125,11 @@ newApplicationSummary
       }
 
 -- | The date and time this resource was created.
-applicationSummary_creationTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
+applicationSummary_creationTime :: Lens.Lens' ApplicationSummary (Core.Maybe Core.Text)
 applicationSummary_creationTime = Lens.lens (\ApplicationSummary' {creationTime} -> creationTime) (\s@ApplicationSummary' {} a -> s {creationTime = a} :: ApplicationSummary)
 
 -- | A valid identifier from <https://spdx.org/licenses/>.
-applicationSummary_spdxLicenseId :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
+applicationSummary_spdxLicenseId :: Lens.Lens' ApplicationSummary (Core.Maybe Core.Text)
 applicationSummary_spdxLicenseId = Lens.lens (\ApplicationSummary' {spdxLicenseId} -> spdxLicenseId) (\s@ApplicationSummary' {} a -> s {spdxLicenseId = a} :: ApplicationSummary)
 
 -- | Labels to improve discovery of apps in search results.
@@ -138,18 +137,18 @@ applicationSummary_spdxLicenseId = Lens.lens (\ApplicationSummary' {spdxLicenseI
 -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
 --
 -- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
-applicationSummary_labels :: Lens.Lens' ApplicationSummary (Prelude.Maybe [Prelude.Text])
-applicationSummary_labels = Lens.lens (\ApplicationSummary' {labels} -> labels) (\s@ApplicationSummary' {} a -> s {labels = a} :: ApplicationSummary) Prelude.. Lens.mapping Prelude._Coerce
+applicationSummary_labels :: Lens.Lens' ApplicationSummary (Core.Maybe [Core.Text])
+applicationSummary_labels = Lens.lens (\ApplicationSummary' {labels} -> labels) (\s@ApplicationSummary' {} a -> s {labels = a} :: ApplicationSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | A URL with more information about the application, for example the
 -- location of your GitHub repository for the application.
-applicationSummary_homePageUrl :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
+applicationSummary_homePageUrl :: Lens.Lens' ApplicationSummary (Core.Maybe Core.Text)
 applicationSummary_homePageUrl = Lens.lens (\ApplicationSummary' {homePageUrl} -> homePageUrl) (\s@ApplicationSummary' {} a -> s {homePageUrl = a} :: ApplicationSummary)
 
 -- | The description of the application.
 --
 -- Minimum length=1. Maximum length=256
-applicationSummary_description :: Lens.Lens' ApplicationSummary Prelude.Text
+applicationSummary_description :: Lens.Lens' ApplicationSummary Core.Text
 applicationSummary_description = Lens.lens (\ApplicationSummary' {description} -> description) (\s@ApplicationSummary' {} a -> s {description = a} :: ApplicationSummary)
 
 -- | The name of the author publishing the app.
@@ -157,11 +156,11 @@ applicationSummary_description = Lens.lens (\ApplicationSummary' {description} -
 -- Minimum length=1. Maximum length=127.
 --
 -- Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
-applicationSummary_author :: Lens.Lens' ApplicationSummary Prelude.Text
+applicationSummary_author :: Lens.Lens' ApplicationSummary Core.Text
 applicationSummary_author = Lens.lens (\ApplicationSummary' {author} -> author) (\s@ApplicationSummary' {} a -> s {author = a} :: ApplicationSummary)
 
 -- | The application Amazon Resource Name (ARN).
-applicationSummary_applicationId :: Lens.Lens' ApplicationSummary Prelude.Text
+applicationSummary_applicationId :: Lens.Lens' ApplicationSummary Core.Text
 applicationSummary_applicationId = Lens.lens (\ApplicationSummary' {applicationId} -> applicationId) (\s@ApplicationSummary' {} a -> s {applicationId = a} :: ApplicationSummary)
 
 -- | The name of the application.
@@ -169,25 +168,25 @@ applicationSummary_applicationId = Lens.lens (\ApplicationSummary' {applicationI
 -- Minimum length=1. Maximum length=140
 --
 -- Pattern: \"[a-zA-Z0-9\\\\-]+\";
-applicationSummary_name :: Lens.Lens' ApplicationSummary Prelude.Text
+applicationSummary_name :: Lens.Lens' ApplicationSummary Core.Text
 applicationSummary_name = Lens.lens (\ApplicationSummary' {name} -> name) (\s@ApplicationSummary' {} a -> s {name = a} :: ApplicationSummary)
 
-instance Prelude.FromJSON ApplicationSummary where
+instance Core.FromJSON ApplicationSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Prelude..:? "creationTime")
-            Prelude.<*> (x Prelude..:? "spdxLicenseId")
-            Prelude.<*> (x Prelude..:? "labels" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "homePageUrl")
-            Prelude.<*> (x Prelude..: "description")
-            Prelude.<*> (x Prelude..: "author")
-            Prelude.<*> (x Prelude..: "applicationId")
-            Prelude.<*> (x Prelude..: "name")
+            Core.<$> (x Core..:? "creationTime")
+            Core.<*> (x Core..:? "spdxLicenseId")
+            Core.<*> (x Core..:? "labels" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "homePageUrl")
+            Core.<*> (x Core..: "description")
+            Core.<*> (x Core..: "author")
+            Core.<*> (x Core..: "applicationId")
+            Core.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable ApplicationSummary
+instance Core.Hashable ApplicationSummary
 
-instance Prelude.NFData ApplicationSummary
+instance Core.NFData ApplicationSummary

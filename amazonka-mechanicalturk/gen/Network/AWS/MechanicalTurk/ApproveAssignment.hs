@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,9 +61,9 @@ module Network.AWS.MechanicalTurk.ApproveAssignment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,15 +71,15 @@ import qualified Network.AWS.Response as Response
 data ApproveAssignment = ApproveAssignment'
   { -- | A message for the Worker, which the Worker can see in the Status section
     -- of the web site.
-    requesterFeedback :: Prelude.Maybe Prelude.Text,
+    requesterFeedback :: Core.Maybe Core.Text,
     -- | A flag indicating that an assignment should be approved even if it was
     -- previously rejected. Defaults to @False@.
-    overrideRejection :: Prelude.Maybe Prelude.Bool,
+    overrideRejection :: Core.Maybe Core.Bool,
     -- | The ID of the assignment. The assignment must correspond to a HIT
     -- created by the Requester.
-    assignmentId :: Prelude.Text
+    assignmentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApproveAssignment' with all optional fields omitted.
@@ -100,85 +99,84 @@ data ApproveAssignment = ApproveAssignment'
 -- created by the Requester.
 newApproveAssignment ::
   -- | 'assignmentId'
-  Prelude.Text ->
+  Core.Text ->
   ApproveAssignment
 newApproveAssignment pAssignmentId_ =
   ApproveAssignment'
     { requesterFeedback =
-        Prelude.Nothing,
-      overrideRejection = Prelude.Nothing,
+        Core.Nothing,
+      overrideRejection = Core.Nothing,
       assignmentId = pAssignmentId_
     }
 
 -- | A message for the Worker, which the Worker can see in the Status section
 -- of the web site.
-approveAssignment_requesterFeedback :: Lens.Lens' ApproveAssignment (Prelude.Maybe Prelude.Text)
+approveAssignment_requesterFeedback :: Lens.Lens' ApproveAssignment (Core.Maybe Core.Text)
 approveAssignment_requesterFeedback = Lens.lens (\ApproveAssignment' {requesterFeedback} -> requesterFeedback) (\s@ApproveAssignment' {} a -> s {requesterFeedback = a} :: ApproveAssignment)
 
 -- | A flag indicating that an assignment should be approved even if it was
 -- previously rejected. Defaults to @False@.
-approveAssignment_overrideRejection :: Lens.Lens' ApproveAssignment (Prelude.Maybe Prelude.Bool)
+approveAssignment_overrideRejection :: Lens.Lens' ApproveAssignment (Core.Maybe Core.Bool)
 approveAssignment_overrideRejection = Lens.lens (\ApproveAssignment' {overrideRejection} -> overrideRejection) (\s@ApproveAssignment' {} a -> s {overrideRejection = a} :: ApproveAssignment)
 
 -- | The ID of the assignment. The assignment must correspond to a HIT
 -- created by the Requester.
-approveAssignment_assignmentId :: Lens.Lens' ApproveAssignment Prelude.Text
+approveAssignment_assignmentId :: Lens.Lens' ApproveAssignment Core.Text
 approveAssignment_assignmentId = Lens.lens (\ApproveAssignment' {assignmentId} -> assignmentId) (\s@ApproveAssignment' {} a -> s {assignmentId = a} :: ApproveAssignment)
 
-instance Prelude.AWSRequest ApproveAssignment where
-  type Rs ApproveAssignment = ApproveAssignmentResponse
+instance Core.AWSRequest ApproveAssignment where
+  type
+    AWSResponse ApproveAssignment =
+      ApproveAssignmentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ApproveAssignmentResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ApproveAssignment
+instance Core.Hashable ApproveAssignment
 
-instance Prelude.NFData ApproveAssignment
+instance Core.NFData ApproveAssignment
 
-instance Prelude.ToHeaders ApproveAssignment where
+instance Core.ToHeaders ApproveAssignment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.ApproveAssignment" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.ApproveAssignment" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ApproveAssignment where
+instance Core.ToJSON ApproveAssignment where
   toJSON ApproveAssignment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RequesterFeedback" Prelude..=)
-              Prelude.<$> requesterFeedback,
-            ("OverrideRejection" Prelude..=)
-              Prelude.<$> overrideRejection,
-            Prelude.Just
-              ("AssignmentId" Prelude..= assignmentId)
+    Core.object
+      ( Core.catMaybes
+          [ ("RequesterFeedback" Core..=)
+              Core.<$> requesterFeedback,
+            ("OverrideRejection" Core..=)
+              Core.<$> overrideRejection,
+            Core.Just ("AssignmentId" Core..= assignmentId)
           ]
       )
 
-instance Prelude.ToPath ApproveAssignment where
-  toPath = Prelude.const "/"
+instance Core.ToPath ApproveAssignment where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ApproveAssignment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ApproveAssignment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newApproveAssignmentResponse' smart constructor.
 data ApproveAssignmentResponse = ApproveAssignmentResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApproveAssignmentResponse' with all optional fields omitted.
@@ -191,7 +189,7 @@ data ApproveAssignmentResponse = ApproveAssignmentResponse'
 -- 'httpStatus', 'approveAssignmentResponse_httpStatus' - The response's http status code.
 newApproveAssignmentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ApproveAssignmentResponse
 newApproveAssignmentResponse pHttpStatus_ =
   ApproveAssignmentResponse'
@@ -200,7 +198,7 @@ newApproveAssignmentResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-approveAssignmentResponse_httpStatus :: Lens.Lens' ApproveAssignmentResponse Prelude.Int
+approveAssignmentResponse_httpStatus :: Lens.Lens' ApproveAssignmentResponse Core.Int
 approveAssignmentResponse_httpStatus = Lens.lens (\ApproveAssignmentResponse' {httpStatus} -> httpStatus) (\s@ApproveAssignmentResponse' {} a -> s {httpStatus = a} :: ApproveAssignmentResponse)
 
-instance Prelude.NFData ApproveAssignmentResponse
+instance Core.NFData ApproveAssignmentResponse

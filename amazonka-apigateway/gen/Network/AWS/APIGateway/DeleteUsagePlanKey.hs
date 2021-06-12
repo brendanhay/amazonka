@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.APIGateway.DeleteUsagePlanKey
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ data DeleteUsagePlanKey = DeleteUsagePlanKey'
   { -- | [Required] The Id of the UsagePlan resource representing the usage plan
     -- containing the to-be-deleted UsagePlanKey resource representing a plan
     -- customer.
-    usagePlanId :: Prelude.Text,
+    usagePlanId :: Core.Text,
     -- | [Required] The Id of the UsagePlanKey resource to be deleted.
-    keyId :: Prelude.Text
+    keyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUsagePlanKey' with all optional fields omitted.
@@ -73,9 +72,9 @@ data DeleteUsagePlanKey = DeleteUsagePlanKey'
 -- 'keyId', 'deleteUsagePlanKey_keyId' - [Required] The Id of the UsagePlanKey resource to be deleted.
 newDeleteUsagePlanKey ::
   -- | 'usagePlanId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUsagePlanKey
 newDeleteUsagePlanKey pUsagePlanId_ pKeyId_ =
   DeleteUsagePlanKey'
@@ -86,51 +85,51 @@ newDeleteUsagePlanKey pUsagePlanId_ pKeyId_ =
 -- | [Required] The Id of the UsagePlan resource representing the usage plan
 -- containing the to-be-deleted UsagePlanKey resource representing a plan
 -- customer.
-deleteUsagePlanKey_usagePlanId :: Lens.Lens' DeleteUsagePlanKey Prelude.Text
+deleteUsagePlanKey_usagePlanId :: Lens.Lens' DeleteUsagePlanKey Core.Text
 deleteUsagePlanKey_usagePlanId = Lens.lens (\DeleteUsagePlanKey' {usagePlanId} -> usagePlanId) (\s@DeleteUsagePlanKey' {} a -> s {usagePlanId = a} :: DeleteUsagePlanKey)
 
 -- | [Required] The Id of the UsagePlanKey resource to be deleted.
-deleteUsagePlanKey_keyId :: Lens.Lens' DeleteUsagePlanKey Prelude.Text
+deleteUsagePlanKey_keyId :: Lens.Lens' DeleteUsagePlanKey Core.Text
 deleteUsagePlanKey_keyId = Lens.lens (\DeleteUsagePlanKey' {keyId} -> keyId) (\s@DeleteUsagePlanKey' {} a -> s {keyId = a} :: DeleteUsagePlanKey)
 
-instance Prelude.AWSRequest DeleteUsagePlanKey where
+instance Core.AWSRequest DeleteUsagePlanKey where
   type
-    Rs DeleteUsagePlanKey =
+    AWSResponse DeleteUsagePlanKey =
       DeleteUsagePlanKeyResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteUsagePlanKeyResponse'
 
-instance Prelude.Hashable DeleteUsagePlanKey
+instance Core.Hashable DeleteUsagePlanKey
 
-instance Prelude.NFData DeleteUsagePlanKey
+instance Core.NFData DeleteUsagePlanKey
 
-instance Prelude.ToHeaders DeleteUsagePlanKey where
+instance Core.ToHeaders DeleteUsagePlanKey where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteUsagePlanKey where
+instance Core.ToPath DeleteUsagePlanKey where
   toPath DeleteUsagePlanKey' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/usageplans/",
-        Prelude.toBS usagePlanId,
+        Core.toBS usagePlanId,
         "/keys/",
-        Prelude.toBS keyId
+        Core.toBS keyId
       ]
 
-instance Prelude.ToQuery DeleteUsagePlanKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteUsagePlanKey where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteUsagePlanKeyResponse' smart constructor.
 data DeleteUsagePlanKeyResponse = DeleteUsagePlanKeyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUsagePlanKeyResponse' with all optional fields omitted.
@@ -141,4 +140,4 @@ newDeleteUsagePlanKeyResponse ::
 newDeleteUsagePlanKeyResponse =
   DeleteUsagePlanKeyResponse'
 
-instance Prelude.NFData DeleteUsagePlanKeyResponse
+instance Core.NFData DeleteUsagePlanKeyResponse

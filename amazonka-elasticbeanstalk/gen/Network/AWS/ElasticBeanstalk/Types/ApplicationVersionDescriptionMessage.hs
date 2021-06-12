@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Result message wrapping a single description of an application version.
 --
 -- /See:/ 'newApplicationVersionDescriptionMessage' smart constructor.
 data ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage'
   { -- | The ApplicationVersionDescription of the application version.
-    applicationVersion :: Prelude.Maybe ApplicationVersionDescription
+    applicationVersion :: Core.Maybe ApplicationVersionDescription
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplicationVersionDescriptionMessage' with all optional fields omitted.
@@ -47,25 +46,25 @@ newApplicationVersionDescriptionMessage ::
 newApplicationVersionDescriptionMessage =
   ApplicationVersionDescriptionMessage'
     { applicationVersion =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ApplicationVersionDescription of the application version.
-applicationVersionDescriptionMessage_applicationVersion :: Lens.Lens' ApplicationVersionDescriptionMessage (Prelude.Maybe ApplicationVersionDescription)
+applicationVersionDescriptionMessage_applicationVersion :: Lens.Lens' ApplicationVersionDescriptionMessage (Core.Maybe ApplicationVersionDescription)
 applicationVersionDescriptionMessage_applicationVersion = Lens.lens (\ApplicationVersionDescriptionMessage' {applicationVersion} -> applicationVersion) (\s@ApplicationVersionDescriptionMessage' {} a -> s {applicationVersion = a} :: ApplicationVersionDescriptionMessage)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     ApplicationVersionDescriptionMessage
   where
   parseXML x =
     ApplicationVersionDescriptionMessage'
-      Prelude.<$> (x Prelude..@? "ApplicationVersion")
+      Core.<$> (x Core..@? "ApplicationVersion")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ApplicationVersionDescriptionMessage
 
 instance
-  Prelude.NFData
+  Core.NFData
     ApplicationVersionDescriptionMessage

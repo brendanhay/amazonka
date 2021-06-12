@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.MongoDBTarget where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies an Amazon DocumentDB or MongoDB data store to crawl.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data MongoDBTarget = MongoDBTarget'
   { -- | The name of the connection to use to connect to the Amazon DocumentDB or
     -- MongoDB target.
-    connectionName :: Prelude.Maybe Prelude.Text,
+    connectionName :: Core.Maybe Core.Text,
     -- | Indicates whether to scan all the records, or to sample rows from the
     -- table. Scanning all the records can take a long time when the table is
     -- not a high throughput table.
@@ -37,12 +36,12 @@ data MongoDBTarget = MongoDBTarget'
     -- A value of @true@ means to scan all records, while a value of @false@
     -- means to sample the records. If no value is specified, the value
     -- defaults to @true@.
-    scanAll :: Prelude.Maybe Prelude.Bool,
+    scanAll :: Core.Maybe Core.Bool,
     -- | The path of the Amazon DocumentDB or MongoDB target
     -- (database\/collection).
-    path :: Prelude.Maybe Prelude.Text
+    path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MongoDBTarget' with all optional fields omitted.
@@ -69,14 +68,14 @@ newMongoDBTarget ::
   MongoDBTarget
 newMongoDBTarget =
   MongoDBTarget'
-    { connectionName = Prelude.Nothing,
-      scanAll = Prelude.Nothing,
-      path = Prelude.Nothing
+    { connectionName = Core.Nothing,
+      scanAll = Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | The name of the connection to use to connect to the Amazon DocumentDB or
 -- MongoDB target.
-mongoDBTarget_connectionName :: Lens.Lens' MongoDBTarget (Prelude.Maybe Prelude.Text)
+mongoDBTarget_connectionName :: Lens.Lens' MongoDBTarget (Core.Maybe Core.Text)
 mongoDBTarget_connectionName = Lens.lens (\MongoDBTarget' {connectionName} -> connectionName) (\s@MongoDBTarget' {} a -> s {connectionName = a} :: MongoDBTarget)
 
 -- | Indicates whether to scan all the records, or to sample rows from the
@@ -86,36 +85,35 @@ mongoDBTarget_connectionName = Lens.lens (\MongoDBTarget' {connectionName} -> co
 -- A value of @true@ means to scan all records, while a value of @false@
 -- means to sample the records. If no value is specified, the value
 -- defaults to @true@.
-mongoDBTarget_scanAll :: Lens.Lens' MongoDBTarget (Prelude.Maybe Prelude.Bool)
+mongoDBTarget_scanAll :: Lens.Lens' MongoDBTarget (Core.Maybe Core.Bool)
 mongoDBTarget_scanAll = Lens.lens (\MongoDBTarget' {scanAll} -> scanAll) (\s@MongoDBTarget' {} a -> s {scanAll = a} :: MongoDBTarget)
 
 -- | The path of the Amazon DocumentDB or MongoDB target
 -- (database\/collection).
-mongoDBTarget_path :: Lens.Lens' MongoDBTarget (Prelude.Maybe Prelude.Text)
+mongoDBTarget_path :: Lens.Lens' MongoDBTarget (Core.Maybe Core.Text)
 mongoDBTarget_path = Lens.lens (\MongoDBTarget' {path} -> path) (\s@MongoDBTarget' {} a -> s {path = a} :: MongoDBTarget)
 
-instance Prelude.FromJSON MongoDBTarget where
+instance Core.FromJSON MongoDBTarget where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MongoDBTarget"
       ( \x ->
           MongoDBTarget'
-            Prelude.<$> (x Prelude..:? "ConnectionName")
-            Prelude.<*> (x Prelude..:? "ScanAll")
-            Prelude.<*> (x Prelude..:? "Path")
+            Core.<$> (x Core..:? "ConnectionName")
+            Core.<*> (x Core..:? "ScanAll")
+            Core.<*> (x Core..:? "Path")
       )
 
-instance Prelude.Hashable MongoDBTarget
+instance Core.Hashable MongoDBTarget
 
-instance Prelude.NFData MongoDBTarget
+instance Core.NFData MongoDBTarget
 
-instance Prelude.ToJSON MongoDBTarget where
+instance Core.ToJSON MongoDBTarget where
   toJSON MongoDBTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ConnectionName" Prelude..=)
-              Prelude.<$> connectionName,
-            ("ScanAll" Prelude..=) Prelude.<$> scanAll,
-            ("Path" Prelude..=) Prelude.<$> path
+    Core.object
+      ( Core.catMaybes
+          [ ("ConnectionName" Core..=) Core.<$> connectionName,
+            ("ScanAll" Core..=) Core.<$> scanAll,
+            ("Path" Core..=) Core.<$> path
           ]
       )

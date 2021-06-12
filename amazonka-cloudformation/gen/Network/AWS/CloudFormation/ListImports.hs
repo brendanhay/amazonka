@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,8 @@ module Network.AWS.CloudFormation.ListImports
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,12 +61,12 @@ data ListImports = ListImports'
   { -- | A string (provided by the ListImports response output) that identifies
     -- the next page of stacks that are importing the specified exported output
     -- value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The name of the exported output value. AWS CloudFormation returns the
     -- stack names that are importing this value.
-    exportName :: Prelude.Text
+    exportName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListImports' with all optional fields omitted.
@@ -86,92 +84,90 @@ data ListImports = ListImports'
 -- stack names that are importing this value.
 newListImports ::
   -- | 'exportName'
-  Prelude.Text ->
+  Core.Text ->
   ListImports
 newListImports pExportName_ =
   ListImports'
-    { nextToken = Prelude.Nothing,
+    { nextToken = Core.Nothing,
       exportName = pExportName_
     }
 
 -- | A string (provided by the ListImports response output) that identifies
 -- the next page of stacks that are importing the specified exported output
 -- value.
-listImports_nextToken :: Lens.Lens' ListImports (Prelude.Maybe Prelude.Text)
+listImports_nextToken :: Lens.Lens' ListImports (Core.Maybe Core.Text)
 listImports_nextToken = Lens.lens (\ListImports' {nextToken} -> nextToken) (\s@ListImports' {} a -> s {nextToken = a} :: ListImports)
 
 -- | The name of the exported output value. AWS CloudFormation returns the
 -- stack names that are importing this value.
-listImports_exportName :: Lens.Lens' ListImports Prelude.Text
+listImports_exportName :: Lens.Lens' ListImports Core.Text
 listImports_exportName = Lens.lens (\ListImports' {exportName} -> exportName) (\s@ListImports' {} a -> s {exportName = a} :: ListImports)
 
-instance Pager.AWSPager ListImports where
+instance Core.AWSPager ListImports where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listImportsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listImportsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listImportsResponse_imports Prelude.. Lens._Just
+            Lens.^? listImportsResponse_imports Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listImports_nextToken
           Lens..~ rs
-          Lens.^? listImportsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listImportsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListImports where
-  type Rs ListImports = ListImportsResponse
+instance Core.AWSRequest ListImports where
+  type AWSResponse ListImports = ListImportsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListImportsResult"
       ( \s h x ->
           ListImportsResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> ( x Prelude..@? "Imports" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "Imports" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListImports
+instance Core.Hashable ListImports
 
-instance Prelude.NFData ListImports
+instance Core.NFData ListImports
 
-instance Prelude.ToHeaders ListImports where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListImports where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListImports where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListImports where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListImports where
+instance Core.ToQuery ListImports where
   toQuery ListImports' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("ListImports" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "ExportName" Prelude.=: exportName
+    Core.mconcat
+      [ "Action" Core.=: ("ListImports" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "ExportName" Core.=: exportName
       ]
 
 -- | /See:/ 'newListImportsResponse' smart constructor.
 data ListImportsResponse = ListImportsResponse'
   { -- | A string that identifies the next page of exports. If there is no
     -- additional page, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of stack names that are importing the specified exported output
     -- value.
-    imports :: Prelude.Maybe [Prelude.Text],
+    imports :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListImportsResponse' with all optional fields omitted.
@@ -190,27 +186,27 @@ data ListImportsResponse = ListImportsResponse'
 -- 'httpStatus', 'listImportsResponse_httpStatus' - The response's http status code.
 newListImportsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListImportsResponse
 newListImportsResponse pHttpStatus_ =
   ListImportsResponse'
-    { nextToken = Prelude.Nothing,
-      imports = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      imports = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A string that identifies the next page of exports. If there is no
 -- additional page, this value is null.
-listImportsResponse_nextToken :: Lens.Lens' ListImportsResponse (Prelude.Maybe Prelude.Text)
+listImportsResponse_nextToken :: Lens.Lens' ListImportsResponse (Core.Maybe Core.Text)
 listImportsResponse_nextToken = Lens.lens (\ListImportsResponse' {nextToken} -> nextToken) (\s@ListImportsResponse' {} a -> s {nextToken = a} :: ListImportsResponse)
 
 -- | A list of stack names that are importing the specified exported output
 -- value.
-listImportsResponse_imports :: Lens.Lens' ListImportsResponse (Prelude.Maybe [Prelude.Text])
-listImportsResponse_imports = Lens.lens (\ListImportsResponse' {imports} -> imports) (\s@ListImportsResponse' {} a -> s {imports = a} :: ListImportsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listImportsResponse_imports :: Lens.Lens' ListImportsResponse (Core.Maybe [Core.Text])
+listImportsResponse_imports = Lens.lens (\ListImportsResponse' {imports} -> imports) (\s@ListImportsResponse' {} a -> s {imports = a} :: ListImportsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listImportsResponse_httpStatus :: Lens.Lens' ListImportsResponse Prelude.Int
+listImportsResponse_httpStatus :: Lens.Lens' ListImportsResponse Core.Int
 listImportsResponse_httpStatus = Lens.lens (\ListImportsResponse' {httpStatus} -> httpStatus) (\s@ListImportsResponse' {} a -> s {httpStatus = a} :: ListImportsResponse)
 
-instance Prelude.NFData ListImportsResponse
+instance Core.NFData ListImportsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.ProjectSourceVersion where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A source identifier and its corresponding version.
 --
@@ -30,7 +29,7 @@ data ProjectSourceVersion = ProjectSourceVersion'
   { -- | An identifier for a source in the build project. The identifier can only
     -- contain alphanumeric characters and underscores, and must be less than
     -- 128 characters in length.
-    sourceIdentifier :: Prelude.Text,
+    sourceIdentifier :: Core.Text,
     -- | The source version for the corresponding source identifier. If
     -- specified, must be one of:
     --
@@ -54,9 +53,9 @@ data ProjectSourceVersion = ProjectSourceVersion'
     -- For more information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
     -- in the /AWS CodeBuild User Guide/.
-    sourceVersion :: Prelude.Text
+    sourceVersion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProjectSourceVersion' with all optional fields omitted.
@@ -95,9 +94,9 @@ data ProjectSourceVersion = ProjectSourceVersion'
 -- in the /AWS CodeBuild User Guide/.
 newProjectSourceVersion ::
   -- | 'sourceIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sourceVersion'
-  Prelude.Text ->
+  Core.Text ->
   ProjectSourceVersion
 newProjectSourceVersion
   pSourceIdentifier_
@@ -111,7 +110,7 @@ newProjectSourceVersion
 -- | An identifier for a source in the build project. The identifier can only
 -- contain alphanumeric characters and underscores, and must be less than
 -- 128 characters in length.
-projectSourceVersion_sourceIdentifier :: Lens.Lens' ProjectSourceVersion Prelude.Text
+projectSourceVersion_sourceIdentifier :: Lens.Lens' ProjectSourceVersion Core.Text
 projectSourceVersion_sourceIdentifier = Lens.lens (\ProjectSourceVersion' {sourceIdentifier} -> sourceIdentifier) (\s@ProjectSourceVersion' {} a -> s {sourceIdentifier = a} :: ProjectSourceVersion)
 
 -- | The source version for the corresponding source identifier. If
@@ -137,30 +136,29 @@ projectSourceVersion_sourceIdentifier = Lens.lens (\ProjectSourceVersion' {sourc
 -- For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
 -- in the /AWS CodeBuild User Guide/.
-projectSourceVersion_sourceVersion :: Lens.Lens' ProjectSourceVersion Prelude.Text
+projectSourceVersion_sourceVersion :: Lens.Lens' ProjectSourceVersion Core.Text
 projectSourceVersion_sourceVersion = Lens.lens (\ProjectSourceVersion' {sourceVersion} -> sourceVersion) (\s@ProjectSourceVersion' {} a -> s {sourceVersion = a} :: ProjectSourceVersion)
 
-instance Prelude.FromJSON ProjectSourceVersion where
+instance Core.FromJSON ProjectSourceVersion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProjectSourceVersion"
       ( \x ->
           ProjectSourceVersion'
-            Prelude.<$> (x Prelude..: "sourceIdentifier")
-            Prelude.<*> (x Prelude..: "sourceVersion")
+            Core.<$> (x Core..: "sourceIdentifier")
+            Core.<*> (x Core..: "sourceVersion")
       )
 
-instance Prelude.Hashable ProjectSourceVersion
+instance Core.Hashable ProjectSourceVersion
 
-instance Prelude.NFData ProjectSourceVersion
+instance Core.NFData ProjectSourceVersion
 
-instance Prelude.ToJSON ProjectSourceVersion where
+instance Core.ToJSON ProjectSourceVersion where
   toJSON ProjectSourceVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("sourceIdentifier" Prelude..= sourceIdentifier),
-            Prelude.Just
-              ("sourceVersion" Prelude..= sourceVersion)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("sourceIdentifier" Core..= sourceIdentifier),
+            Core.Just ("sourceVersion" Core..= sourceVersion)
           ]
       )

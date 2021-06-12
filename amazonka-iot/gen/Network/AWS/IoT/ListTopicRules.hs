@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,10 +45,9 @@ module Network.AWS.IoT.ListTopicRules
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,15 +58,15 @@ data ListTopicRules = ListTopicRules'
   { -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The topic.
-    topic :: Prelude.Maybe Prelude.Text,
+    topic :: Core.Maybe Core.Text,
     -- | Specifies whether the rule is disabled.
-    ruleDisabled :: Prelude.Maybe Prelude.Bool
+    ruleDisabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTopicRules' with all optional fields omitted.
@@ -91,79 +89,80 @@ newListTopicRules ::
   ListTopicRules
 newListTopicRules =
   ListTopicRules'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      topic = Prelude.Nothing,
-      ruleDisabled = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      topic = Core.Nothing,
+      ruleDisabled = Core.Nothing
     }
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
-listTopicRules_nextToken :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Text)
+listTopicRules_nextToken :: Lens.Lens' ListTopicRules (Core.Maybe Core.Text)
 listTopicRules_nextToken = Lens.lens (\ListTopicRules' {nextToken} -> nextToken) (\s@ListTopicRules' {} a -> s {nextToken = a} :: ListTopicRules)
 
 -- | The maximum number of results to return.
-listTopicRules_maxResults :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Natural)
+listTopicRules_maxResults :: Lens.Lens' ListTopicRules (Core.Maybe Core.Natural)
 listTopicRules_maxResults = Lens.lens (\ListTopicRules' {maxResults} -> maxResults) (\s@ListTopicRules' {} a -> s {maxResults = a} :: ListTopicRules)
 
 -- | The topic.
-listTopicRules_topic :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Text)
+listTopicRules_topic :: Lens.Lens' ListTopicRules (Core.Maybe Core.Text)
 listTopicRules_topic = Lens.lens (\ListTopicRules' {topic} -> topic) (\s@ListTopicRules' {} a -> s {topic = a} :: ListTopicRules)
 
 -- | Specifies whether the rule is disabled.
-listTopicRules_ruleDisabled :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Bool)
+listTopicRules_ruleDisabled :: Lens.Lens' ListTopicRules (Core.Maybe Core.Bool)
 listTopicRules_ruleDisabled = Lens.lens (\ListTopicRules' {ruleDisabled} -> ruleDisabled) (\s@ListTopicRules' {} a -> s {ruleDisabled = a} :: ListTopicRules)
 
-instance Pager.AWSPager ListTopicRules where
+instance Core.AWSPager ListTopicRules where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listTopicRulesResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listTopicRulesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listTopicRulesResponse_rules Prelude.. Lens._Just
+            Lens.^? listTopicRulesResponse_rules Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTopicRules_nextToken
           Lens..~ rs
-          Lens.^? listTopicRulesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTopicRulesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTopicRules where
-  type Rs ListTopicRules = ListTopicRulesResponse
+instance Core.AWSRequest ListTopicRules where
+  type
+    AWSResponse ListTopicRules =
+      ListTopicRulesResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTopicRulesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "rules" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "rules" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTopicRules
+instance Core.Hashable ListTopicRules
 
-instance Prelude.NFData ListTopicRules
+instance Core.NFData ListTopicRules
 
-instance Prelude.ToHeaders ListTopicRules where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListTopicRules where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListTopicRules where
-  toPath = Prelude.const "/rules"
+instance Core.ToPath ListTopicRules where
+  toPath = Core.const "/rules"
 
-instance Prelude.ToQuery ListTopicRules where
+instance Core.ToQuery ListTopicRules where
   toQuery ListTopicRules' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults,
-        "topic" Prelude.=: topic,
-        "ruleDisabled" Prelude.=: ruleDisabled
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults,
+        "topic" Core.=: topic,
+        "ruleDisabled" Core.=: ruleDisabled
       ]
 
 -- | The output from the ListTopicRules operation.
@@ -172,13 +171,13 @@ instance Prelude.ToQuery ListTopicRules where
 data ListTopicRulesResponse = ListTopicRulesResponse'
   { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The rules.
-    rules :: Prelude.Maybe [TopicRuleListItem],
+    rules :: Core.Maybe [TopicRuleListItem],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTopicRulesResponse' with all optional fields omitted.
@@ -196,27 +195,26 @@ data ListTopicRulesResponse = ListTopicRulesResponse'
 -- 'httpStatus', 'listTopicRulesResponse_httpStatus' - The response's http status code.
 newListTopicRulesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTopicRulesResponse
 newListTopicRulesResponse pHttpStatus_ =
   ListTopicRulesResponse'
-    { nextToken =
-        Prelude.Nothing,
-      rules = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      rules = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
-listTopicRulesResponse_nextToken :: Lens.Lens' ListTopicRulesResponse (Prelude.Maybe Prelude.Text)
+listTopicRulesResponse_nextToken :: Lens.Lens' ListTopicRulesResponse (Core.Maybe Core.Text)
 listTopicRulesResponse_nextToken = Lens.lens (\ListTopicRulesResponse' {nextToken} -> nextToken) (\s@ListTopicRulesResponse' {} a -> s {nextToken = a} :: ListTopicRulesResponse)
 
 -- | The rules.
-listTopicRulesResponse_rules :: Lens.Lens' ListTopicRulesResponse (Prelude.Maybe [TopicRuleListItem])
-listTopicRulesResponse_rules = Lens.lens (\ListTopicRulesResponse' {rules} -> rules) (\s@ListTopicRulesResponse' {} a -> s {rules = a} :: ListTopicRulesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTopicRulesResponse_rules :: Lens.Lens' ListTopicRulesResponse (Core.Maybe [TopicRuleListItem])
+listTopicRulesResponse_rules = Lens.lens (\ListTopicRulesResponse' {rules} -> rules) (\s@ListTopicRulesResponse' {} a -> s {rules = a} :: ListTopicRulesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTopicRulesResponse_httpStatus :: Lens.Lens' ListTopicRulesResponse Prelude.Int
+listTopicRulesResponse_httpStatus :: Lens.Lens' ListTopicRulesResponse Core.Int
 listTopicRulesResponse_httpStatus = Lens.lens (\ListTopicRulesResponse' {httpStatus} -> httpStatus) (\s@ListTopicRulesResponse' {} a -> s {httpStatus = a} :: ListTopicRulesResponse)
 
-instance Prelude.NFData ListTopicRulesResponse
+instance Core.NFData ListTopicRulesResponse

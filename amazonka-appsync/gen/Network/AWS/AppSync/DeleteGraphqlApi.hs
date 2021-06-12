@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.AppSync.DeleteGraphqlApi
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteGraphqlApi' smart constructor.
 data DeleteGraphqlApi = DeleteGraphqlApi'
   { -- | The API ID.
-    apiId :: Prelude.Text
+    apiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGraphqlApi' with all optional fields omitted.
@@ -63,53 +62,53 @@ data DeleteGraphqlApi = DeleteGraphqlApi'
 -- 'apiId', 'deleteGraphqlApi_apiId' - The API ID.
 newDeleteGraphqlApi ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteGraphqlApi
 newDeleteGraphqlApi pApiId_ =
   DeleteGraphqlApi' {apiId = pApiId_}
 
 -- | The API ID.
-deleteGraphqlApi_apiId :: Lens.Lens' DeleteGraphqlApi Prelude.Text
+deleteGraphqlApi_apiId :: Lens.Lens' DeleteGraphqlApi Core.Text
 deleteGraphqlApi_apiId = Lens.lens (\DeleteGraphqlApi' {apiId} -> apiId) (\s@DeleteGraphqlApi' {} a -> s {apiId = a} :: DeleteGraphqlApi)
 
-instance Prelude.AWSRequest DeleteGraphqlApi where
-  type Rs DeleteGraphqlApi = DeleteGraphqlApiResponse
+instance Core.AWSRequest DeleteGraphqlApi where
+  type
+    AWSResponse DeleteGraphqlApi =
+      DeleteGraphqlApiResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteGraphqlApiResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGraphqlApi
+instance Core.Hashable DeleteGraphqlApi
 
-instance Prelude.NFData DeleteGraphqlApi
+instance Core.NFData DeleteGraphqlApi
 
-instance Prelude.ToHeaders DeleteGraphqlApi where
+instance Core.ToHeaders DeleteGraphqlApi where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteGraphqlApi where
+instance Core.ToPath DeleteGraphqlApi where
   toPath DeleteGraphqlApi' {..} =
-    Prelude.mconcat ["/v1/apis/", Prelude.toBS apiId]
+    Core.mconcat ["/v1/apis/", Core.toBS apiId]
 
-instance Prelude.ToQuery DeleteGraphqlApi where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteGraphqlApi where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteGraphqlApiResponse' smart constructor.
 data DeleteGraphqlApiResponse = DeleteGraphqlApiResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGraphqlApiResponse' with all optional fields omitted.
@@ -122,7 +121,7 @@ data DeleteGraphqlApiResponse = DeleteGraphqlApiResponse'
 -- 'httpStatus', 'deleteGraphqlApiResponse_httpStatus' - The response's http status code.
 newDeleteGraphqlApiResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteGraphqlApiResponse
 newDeleteGraphqlApiResponse pHttpStatus_ =
   DeleteGraphqlApiResponse'
@@ -131,7 +130,7 @@ newDeleteGraphqlApiResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteGraphqlApiResponse_httpStatus :: Lens.Lens' DeleteGraphqlApiResponse Prelude.Int
+deleteGraphqlApiResponse_httpStatus :: Lens.Lens' DeleteGraphqlApiResponse Core.Int
 deleteGraphqlApiResponse_httpStatus = Lens.lens (\DeleteGraphqlApiResponse' {httpStatus} -> httpStatus) (\s@DeleteGraphqlApiResponse' {} a -> s {httpStatus = a} :: DeleteGraphqlApiResponse)
 
-instance Prelude.NFData DeleteGraphqlApiResponse
+instance Core.NFData DeleteGraphqlApiResponse

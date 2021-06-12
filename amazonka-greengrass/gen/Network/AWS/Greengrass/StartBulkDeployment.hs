@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,33 +49,33 @@ module Network.AWS.Greengrass.StartBulkDeployment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartBulkDeployment' smart constructor.
 data StartBulkDeployment = StartBulkDeployment'
   { -- | Tag(s) to add to the new resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A client token used to correlate requests and responses.
-    amznClientToken :: Prelude.Maybe Prelude.Text,
+    amznClientToken :: Core.Maybe Core.Text,
     -- | The ARN of the execution role to associate with the bulk deployment
     -- operation. This IAM role must allow the
     -- \'\'greengrass:CreateDeployment\'\' action for all group versions that
     -- are listed in the input file. This IAM role must have access to the S3
     -- bucket containing the input file.
-    executionRoleArn :: Prelude.Text,
+    executionRoleArn :: Core.Text,
     -- | The URI of the input file contained in the S3 bucket. The execution role
     -- must have \'\'getObject\'\' permissions on this bucket to access the
     -- input file. The input file is a JSON-serialized, line delimited file
     -- with UTF-8 encoding that provides a list of group and version IDs and
     -- the deployment type. This file must be less than 100 MB. Currently, AWS
     -- IoT Greengrass supports only \'\'NewDeployment\'\' deployment types.
-    inputFileUri :: Prelude.Text
+    inputFileUri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartBulkDeployment' with all optional fields omitted.
@@ -104,26 +103,26 @@ data StartBulkDeployment = StartBulkDeployment'
 -- IoT Greengrass supports only \'\'NewDeployment\'\' deployment types.
 newStartBulkDeployment ::
   -- | 'executionRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'inputFileUri'
-  Prelude.Text ->
+  Core.Text ->
   StartBulkDeployment
 newStartBulkDeployment
   pExecutionRoleArn_
   pInputFileUri_ =
     StartBulkDeployment'
-      { tags = Prelude.Nothing,
-        amznClientToken = Prelude.Nothing,
+      { tags = Core.Nothing,
+        amznClientToken = Core.Nothing,
         executionRoleArn = pExecutionRoleArn_,
         inputFileUri = pInputFileUri_
       }
 
 -- | Tag(s) to add to the new resource.
-startBulkDeployment_tags :: Lens.Lens' StartBulkDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startBulkDeployment_tags = Lens.lens (\StartBulkDeployment' {tags} -> tags) (\s@StartBulkDeployment' {} a -> s {tags = a} :: StartBulkDeployment) Prelude.. Lens.mapping Prelude._Coerce
+startBulkDeployment_tags :: Lens.Lens' StartBulkDeployment (Core.Maybe (Core.HashMap Core.Text Core.Text))
+startBulkDeployment_tags = Lens.lens (\StartBulkDeployment' {tags} -> tags) (\s@StartBulkDeployment' {} a -> s {tags = a} :: StartBulkDeployment) Core.. Lens.mapping Lens._Coerce
 
 -- | A client token used to correlate requests and responses.
-startBulkDeployment_amznClientToken :: Lens.Lens' StartBulkDeployment (Prelude.Maybe Prelude.Text)
+startBulkDeployment_amznClientToken :: Lens.Lens' StartBulkDeployment (Core.Maybe Core.Text)
 startBulkDeployment_amznClientToken = Lens.lens (\StartBulkDeployment' {amznClientToken} -> amznClientToken) (\s@StartBulkDeployment' {} a -> s {amznClientToken = a} :: StartBulkDeployment)
 
 -- | The ARN of the execution role to associate with the bulk deployment
@@ -131,7 +130,7 @@ startBulkDeployment_amznClientToken = Lens.lens (\StartBulkDeployment' {amznClie
 -- \'\'greengrass:CreateDeployment\'\' action for all group versions that
 -- are listed in the input file. This IAM role must have access to the S3
 -- bucket containing the input file.
-startBulkDeployment_executionRoleArn :: Lens.Lens' StartBulkDeployment Prelude.Text
+startBulkDeployment_executionRoleArn :: Lens.Lens' StartBulkDeployment Core.Text
 startBulkDeployment_executionRoleArn = Lens.lens (\StartBulkDeployment' {executionRoleArn} -> executionRoleArn) (\s@StartBulkDeployment' {} a -> s {executionRoleArn = a} :: StartBulkDeployment)
 
 -- | The URI of the input file contained in the S3 bucket. The execution role
@@ -140,63 +139,62 @@ startBulkDeployment_executionRoleArn = Lens.lens (\StartBulkDeployment' {executi
 -- with UTF-8 encoding that provides a list of group and version IDs and
 -- the deployment type. This file must be less than 100 MB. Currently, AWS
 -- IoT Greengrass supports only \'\'NewDeployment\'\' deployment types.
-startBulkDeployment_inputFileUri :: Lens.Lens' StartBulkDeployment Prelude.Text
+startBulkDeployment_inputFileUri :: Lens.Lens' StartBulkDeployment Core.Text
 startBulkDeployment_inputFileUri = Lens.lens (\StartBulkDeployment' {inputFileUri} -> inputFileUri) (\s@StartBulkDeployment' {} a -> s {inputFileUri = a} :: StartBulkDeployment)
 
-instance Prelude.AWSRequest StartBulkDeployment where
+instance Core.AWSRequest StartBulkDeployment where
   type
-    Rs StartBulkDeployment =
+    AWSResponse StartBulkDeployment =
       StartBulkDeploymentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartBulkDeploymentResponse'
-            Prelude.<$> (x Prelude..?> "BulkDeploymentId")
-            Prelude.<*> (x Prelude..?> "BulkDeploymentArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "BulkDeploymentId")
+            Core.<*> (x Core..?> "BulkDeploymentArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartBulkDeployment
+instance Core.Hashable StartBulkDeployment
 
-instance Prelude.NFData StartBulkDeployment
+instance Core.NFData StartBulkDeployment
 
-instance Prelude.ToHeaders StartBulkDeployment where
+instance Core.ToHeaders StartBulkDeployment where
   toHeaders StartBulkDeployment' {..} =
-    Prelude.mconcat
-      [ "X-Amzn-Client-Token" Prelude.=# amznClientToken,
+    Core.mconcat
+      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToJSON StartBulkDeployment where
+instance Core.ToJSON StartBulkDeployment where
   toJSON StartBulkDeployment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
-              ("ExecutionRoleArn" Prelude..= executionRoleArn),
-            Prelude.Just
-              ("InputFileUri" Prelude..= inputFileUri)
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            Core.Just
+              ("ExecutionRoleArn" Core..= executionRoleArn),
+            Core.Just ("InputFileUri" Core..= inputFileUri)
           ]
       )
 
-instance Prelude.ToPath StartBulkDeployment where
-  toPath = Prelude.const "/greengrass/bulk/deployments"
+instance Core.ToPath StartBulkDeployment where
+  toPath = Core.const "/greengrass/bulk/deployments"
 
-instance Prelude.ToQuery StartBulkDeployment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartBulkDeployment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartBulkDeploymentResponse' smart constructor.
 data StartBulkDeploymentResponse = StartBulkDeploymentResponse'
   { -- | The ID of the bulk deployment.
-    bulkDeploymentId :: Prelude.Maybe Prelude.Text,
+    bulkDeploymentId :: Core.Maybe Core.Text,
     -- | The ARN of the bulk deployment.
-    bulkDeploymentArn :: Prelude.Maybe Prelude.Text,
+    bulkDeploymentArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartBulkDeploymentResponse' with all optional fields omitted.
@@ -213,26 +211,26 @@ data StartBulkDeploymentResponse = StartBulkDeploymentResponse'
 -- 'httpStatus', 'startBulkDeploymentResponse_httpStatus' - The response's http status code.
 newStartBulkDeploymentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartBulkDeploymentResponse
 newStartBulkDeploymentResponse pHttpStatus_ =
   StartBulkDeploymentResponse'
     { bulkDeploymentId =
-        Prelude.Nothing,
-      bulkDeploymentArn = Prelude.Nothing,
+        Core.Nothing,
+      bulkDeploymentArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the bulk deployment.
-startBulkDeploymentResponse_bulkDeploymentId :: Lens.Lens' StartBulkDeploymentResponse (Prelude.Maybe Prelude.Text)
+startBulkDeploymentResponse_bulkDeploymentId :: Lens.Lens' StartBulkDeploymentResponse (Core.Maybe Core.Text)
 startBulkDeploymentResponse_bulkDeploymentId = Lens.lens (\StartBulkDeploymentResponse' {bulkDeploymentId} -> bulkDeploymentId) (\s@StartBulkDeploymentResponse' {} a -> s {bulkDeploymentId = a} :: StartBulkDeploymentResponse)
 
 -- | The ARN of the bulk deployment.
-startBulkDeploymentResponse_bulkDeploymentArn :: Lens.Lens' StartBulkDeploymentResponse (Prelude.Maybe Prelude.Text)
+startBulkDeploymentResponse_bulkDeploymentArn :: Lens.Lens' StartBulkDeploymentResponse (Core.Maybe Core.Text)
 startBulkDeploymentResponse_bulkDeploymentArn = Lens.lens (\StartBulkDeploymentResponse' {bulkDeploymentArn} -> bulkDeploymentArn) (\s@StartBulkDeploymentResponse' {} a -> s {bulkDeploymentArn = a} :: StartBulkDeploymentResponse)
 
 -- | The response's http status code.
-startBulkDeploymentResponse_httpStatus :: Lens.Lens' StartBulkDeploymentResponse Prelude.Int
+startBulkDeploymentResponse_httpStatus :: Lens.Lens' StartBulkDeploymentResponse Core.Int
 startBulkDeploymentResponse_httpStatus = Lens.lens (\StartBulkDeploymentResponse' {httpStatus} -> httpStatus) (\s@StartBulkDeploymentResponse' {} a -> s {httpStatus = a} :: StartBulkDeploymentResponse)
 
-instance Prelude.NFData StartBulkDeploymentResponse
+instance Core.NFData StartBulkDeploymentResponse

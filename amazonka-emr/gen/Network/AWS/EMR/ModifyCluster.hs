@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EMR.ModifyCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data ModifyCluster = ModifyCluster'
   { -- | The number of steps that can be executed concurrently. You can specify a
     -- maximum of 256 steps.
-    stepConcurrencyLevel :: Prelude.Maybe Prelude.Int,
+    stepConcurrencyLevel :: Core.Maybe Core.Int,
     -- | The unique identifier of the cluster.
-    clusterId :: Prelude.Text
+    clusterId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyCluster' with all optional fields omitted.
@@ -72,78 +71,77 @@ data ModifyCluster = ModifyCluster'
 -- 'clusterId', 'modifyCluster_clusterId' - The unique identifier of the cluster.
 newModifyCluster ::
   -- | 'clusterId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyCluster
 newModifyCluster pClusterId_ =
   ModifyCluster'
-    { stepConcurrencyLevel =
-        Prelude.Nothing,
+    { stepConcurrencyLevel = Core.Nothing,
       clusterId = pClusterId_
     }
 
 -- | The number of steps that can be executed concurrently. You can specify a
 -- maximum of 256 steps.
-modifyCluster_stepConcurrencyLevel :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Int)
+modifyCluster_stepConcurrencyLevel :: Lens.Lens' ModifyCluster (Core.Maybe Core.Int)
 modifyCluster_stepConcurrencyLevel = Lens.lens (\ModifyCluster' {stepConcurrencyLevel} -> stepConcurrencyLevel) (\s@ModifyCluster' {} a -> s {stepConcurrencyLevel = a} :: ModifyCluster)
 
 -- | The unique identifier of the cluster.
-modifyCluster_clusterId :: Lens.Lens' ModifyCluster Prelude.Text
+modifyCluster_clusterId :: Lens.Lens' ModifyCluster Core.Text
 modifyCluster_clusterId = Lens.lens (\ModifyCluster' {clusterId} -> clusterId) (\s@ModifyCluster' {} a -> s {clusterId = a} :: ModifyCluster)
 
-instance Prelude.AWSRequest ModifyCluster where
-  type Rs ModifyCluster = ModifyClusterResponse
+instance Core.AWSRequest ModifyCluster where
+  type
+    AWSResponse ModifyCluster =
+      ModifyClusterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ModifyClusterResponse'
-            Prelude.<$> (x Prelude..?> "StepConcurrencyLevel")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StepConcurrencyLevel")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyCluster
+instance Core.Hashable ModifyCluster
 
-instance Prelude.NFData ModifyCluster
+instance Core.NFData ModifyCluster
 
-instance Prelude.ToHeaders ModifyCluster where
+instance Core.ToHeaders ModifyCluster where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.ModifyCluster" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.ModifyCluster" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ModifyCluster where
+instance Core.ToJSON ModifyCluster where
   toJSON ModifyCluster' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StepConcurrencyLevel" Prelude..=)
-              Prelude.<$> stepConcurrencyLevel,
-            Prelude.Just ("ClusterId" Prelude..= clusterId)
+    Core.object
+      ( Core.catMaybes
+          [ ("StepConcurrencyLevel" Core..=)
+              Core.<$> stepConcurrencyLevel,
+            Core.Just ("ClusterId" Core..= clusterId)
           ]
       )
 
-instance Prelude.ToPath ModifyCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyCluster where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ModifyCluster where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newModifyClusterResponse' smart constructor.
 data ModifyClusterResponse = ModifyClusterResponse'
   { -- | The number of steps that can be executed concurrently.
-    stepConcurrencyLevel :: Prelude.Maybe Prelude.Int,
+    stepConcurrencyLevel :: Core.Maybe Core.Int,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterResponse' with all optional fields omitted.
@@ -158,21 +156,21 @@ data ModifyClusterResponse = ModifyClusterResponse'
 -- 'httpStatus', 'modifyClusterResponse_httpStatus' - The response's http status code.
 newModifyClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyClusterResponse
 newModifyClusterResponse pHttpStatus_ =
   ModifyClusterResponse'
     { stepConcurrencyLevel =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The number of steps that can be executed concurrently.
-modifyClusterResponse_stepConcurrencyLevel :: Lens.Lens' ModifyClusterResponse (Prelude.Maybe Prelude.Int)
+modifyClusterResponse_stepConcurrencyLevel :: Lens.Lens' ModifyClusterResponse (Core.Maybe Core.Int)
 modifyClusterResponse_stepConcurrencyLevel = Lens.lens (\ModifyClusterResponse' {stepConcurrencyLevel} -> stepConcurrencyLevel) (\s@ModifyClusterResponse' {} a -> s {stepConcurrencyLevel = a} :: ModifyClusterResponse)
 
 -- | The response's http status code.
-modifyClusterResponse_httpStatus :: Lens.Lens' ModifyClusterResponse Prelude.Int
+modifyClusterResponse_httpStatus :: Lens.Lens' ModifyClusterResponse Core.Int
 modifyClusterResponse_httpStatus = Lens.lens (\ModifyClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterResponse' {} a -> s {httpStatus = a} :: ModifyClusterResponse)
 
-instance Prelude.NFData ModifyClusterResponse
+instance Core.NFData ModifyClusterResponse

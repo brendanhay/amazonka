@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,10 +52,9 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,7 +68,7 @@ data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
     -- This token should be treated as an opaque identifier that is only used
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The task definition family status with which to filter the
     -- @ListTaskDefinitionFamilies@ results. By default, both @ACTIVE@ and
     -- @INACTIVE@ task definition families are listed. If this parameter is set
@@ -80,7 +78,7 @@ data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
     -- task definition revisions are returned. If you paginate the resulting
     -- output, be sure to keep the @status@ value constant in each subsequent
     -- request.
-    status :: Prelude.Maybe TaskDefinitionFamilyStatus,
+    status :: Core.Maybe TaskDefinitionFamilyStatus,
     -- | The maximum number of task definition family results returned by
     -- @ListTaskDefinitionFamilies@ in paginated output. When this parameter is
     -- used, @ListTaskDefinitions@ only returns @maxResults@ results in a
@@ -90,14 +88,14 @@ data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
     -- value. This value can be between 1 and 100. If this parameter is not
     -- used, then @ListTaskDefinitionFamilies@ returns up to 100 results and a
     -- @nextToken@ value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The @familyPrefix@ is a string that is used to filter the results of
     -- @ListTaskDefinitionFamilies@. If you specify a @familyPrefix@, only task
     -- definition family names that begin with the @familyPrefix@ string are
     -- returned.
-    familyPrefix :: Prelude.Maybe Prelude.Text
+    familyPrefix :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTaskDefinitionFamilies' with all optional fields omitted.
@@ -145,10 +143,10 @@ newListTaskDefinitionFamilies ::
 newListTaskDefinitionFamilies =
   ListTaskDefinitionFamilies'
     { nextToken =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      familyPrefix = Prelude.Nothing
+        Core.Nothing,
+      status = Core.Nothing,
+      maxResults = Core.Nothing,
+      familyPrefix = Core.Nothing
     }
 
 -- | The @nextToken@ value returned from a @ListTaskDefinitionFamilies@
@@ -159,7 +157,7 @@ newListTaskDefinitionFamilies =
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listTaskDefinitionFamilies_nextToken :: Lens.Lens' ListTaskDefinitionFamilies (Prelude.Maybe Prelude.Text)
+listTaskDefinitionFamilies_nextToken :: Lens.Lens' ListTaskDefinitionFamilies (Core.Maybe Core.Text)
 listTaskDefinitionFamilies_nextToken = Lens.lens (\ListTaskDefinitionFamilies' {nextToken} -> nextToken) (\s@ListTaskDefinitionFamilies' {} a -> s {nextToken = a} :: ListTaskDefinitionFamilies)
 
 -- | The task definition family status with which to filter the
@@ -171,7 +169,7 @@ listTaskDefinitionFamilies_nextToken = Lens.lens (\ListTaskDefinitionFamilies' {
 -- task definition revisions are returned. If you paginate the resulting
 -- output, be sure to keep the @status@ value constant in each subsequent
 -- request.
-listTaskDefinitionFamilies_status :: Lens.Lens' ListTaskDefinitionFamilies (Prelude.Maybe TaskDefinitionFamilyStatus)
+listTaskDefinitionFamilies_status :: Lens.Lens' ListTaskDefinitionFamilies (Core.Maybe TaskDefinitionFamilyStatus)
 listTaskDefinitionFamilies_status = Lens.lens (\ListTaskDefinitionFamilies' {status} -> status) (\s@ListTaskDefinitionFamilies' {} a -> s {status = a} :: ListTaskDefinitionFamilies)
 
 -- | The maximum number of task definition family results returned by
@@ -183,91 +181,85 @@ listTaskDefinitionFamilies_status = Lens.lens (\ListTaskDefinitionFamilies' {sta
 -- value. This value can be between 1 and 100. If this parameter is not
 -- used, then @ListTaskDefinitionFamilies@ returns up to 100 results and a
 -- @nextToken@ value if applicable.
-listTaskDefinitionFamilies_maxResults :: Lens.Lens' ListTaskDefinitionFamilies (Prelude.Maybe Prelude.Int)
+listTaskDefinitionFamilies_maxResults :: Lens.Lens' ListTaskDefinitionFamilies (Core.Maybe Core.Int)
 listTaskDefinitionFamilies_maxResults = Lens.lens (\ListTaskDefinitionFamilies' {maxResults} -> maxResults) (\s@ListTaskDefinitionFamilies' {} a -> s {maxResults = a} :: ListTaskDefinitionFamilies)
 
 -- | The @familyPrefix@ is a string that is used to filter the results of
 -- @ListTaskDefinitionFamilies@. If you specify a @familyPrefix@, only task
 -- definition family names that begin with the @familyPrefix@ string are
 -- returned.
-listTaskDefinitionFamilies_familyPrefix :: Lens.Lens' ListTaskDefinitionFamilies (Prelude.Maybe Prelude.Text)
+listTaskDefinitionFamilies_familyPrefix :: Lens.Lens' ListTaskDefinitionFamilies (Core.Maybe Core.Text)
 listTaskDefinitionFamilies_familyPrefix = Lens.lens (\ListTaskDefinitionFamilies' {familyPrefix} -> familyPrefix) (\s@ListTaskDefinitionFamilies' {} a -> s {familyPrefix = a} :: ListTaskDefinitionFamilies)
 
-instance Pager.AWSPager ListTaskDefinitionFamilies where
+instance Core.AWSPager ListTaskDefinitionFamilies where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listTaskDefinitionFamiliesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listTaskDefinitionFamiliesResponse_families
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTaskDefinitionFamilies_nextToken
           Lens..~ rs
           Lens.^? listTaskDefinitionFamiliesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    ListTaskDefinitionFamilies
-  where
+instance Core.AWSRequest ListTaskDefinitionFamilies where
   type
-    Rs ListTaskDefinitionFamilies =
+    AWSResponse ListTaskDefinitionFamilies =
       ListTaskDefinitionFamiliesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTaskDefinitionFamiliesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "families" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "families" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTaskDefinitionFamilies
+instance Core.Hashable ListTaskDefinitionFamilies
 
-instance Prelude.NFData ListTaskDefinitionFamilies
+instance Core.NFData ListTaskDefinitionFamilies
 
-instance Prelude.ToHeaders ListTaskDefinitionFamilies where
+instance Core.ToHeaders ListTaskDefinitionFamilies where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.ListTaskDefinitionFamilies" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.ListTaskDefinitionFamilies" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTaskDefinitionFamilies where
+instance Core.ToJSON ListTaskDefinitionFamilies where
   toJSON ListTaskDefinitionFamilies' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("status" Prelude..=) Prelude.<$> status,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("familyPrefix" Prelude..=)
-              Prelude.<$> familyPrefix
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("status" Core..=) Core.<$> status,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("familyPrefix" Core..=) Core.<$> familyPrefix
           ]
       )
 
-instance Prelude.ToPath ListTaskDefinitionFamilies where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTaskDefinitionFamilies where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTaskDefinitionFamilies where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTaskDefinitionFamilies where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTaskDefinitionFamiliesResponse' smart constructor.
 data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
@@ -276,14 +268,14 @@ data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
     -- @ListTaskDefinitionFamilies@ request exceed @maxResults@, this value can
     -- be used to retrieve the next page of results. This value is @null@ when
     -- there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of task definition family names that match the
     -- @ListTaskDefinitionFamilies@ request.
-    families :: Prelude.Maybe [Prelude.Text],
+    families :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTaskDefinitionFamiliesResponse' with all optional fields omitted.
@@ -305,13 +297,13 @@ data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
 -- 'httpStatus', 'listTaskDefinitionFamiliesResponse_httpStatus' - The response's http status code.
 newListTaskDefinitionFamiliesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTaskDefinitionFamiliesResponse
 newListTaskDefinitionFamiliesResponse pHttpStatus_ =
   ListTaskDefinitionFamiliesResponse'
     { nextToken =
-        Prelude.Nothing,
-      families = Prelude.Nothing,
+        Core.Nothing,
+      families = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -320,18 +312,18 @@ newListTaskDefinitionFamiliesResponse pHttpStatus_ =
 -- @ListTaskDefinitionFamilies@ request exceed @maxResults@, this value can
 -- be used to retrieve the next page of results. This value is @null@ when
 -- there are no more results to return.
-listTaskDefinitionFamiliesResponse_nextToken :: Lens.Lens' ListTaskDefinitionFamiliesResponse (Prelude.Maybe Prelude.Text)
+listTaskDefinitionFamiliesResponse_nextToken :: Lens.Lens' ListTaskDefinitionFamiliesResponse (Core.Maybe Core.Text)
 listTaskDefinitionFamiliesResponse_nextToken = Lens.lens (\ListTaskDefinitionFamiliesResponse' {nextToken} -> nextToken) (\s@ListTaskDefinitionFamiliesResponse' {} a -> s {nextToken = a} :: ListTaskDefinitionFamiliesResponse)
 
 -- | The list of task definition family names that match the
 -- @ListTaskDefinitionFamilies@ request.
-listTaskDefinitionFamiliesResponse_families :: Lens.Lens' ListTaskDefinitionFamiliesResponse (Prelude.Maybe [Prelude.Text])
-listTaskDefinitionFamiliesResponse_families = Lens.lens (\ListTaskDefinitionFamiliesResponse' {families} -> families) (\s@ListTaskDefinitionFamiliesResponse' {} a -> s {families = a} :: ListTaskDefinitionFamiliesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTaskDefinitionFamiliesResponse_families :: Lens.Lens' ListTaskDefinitionFamiliesResponse (Core.Maybe [Core.Text])
+listTaskDefinitionFamiliesResponse_families = Lens.lens (\ListTaskDefinitionFamiliesResponse' {families} -> families) (\s@ListTaskDefinitionFamiliesResponse' {} a -> s {families = a} :: ListTaskDefinitionFamiliesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTaskDefinitionFamiliesResponse_httpStatus :: Lens.Lens' ListTaskDefinitionFamiliesResponse Prelude.Int
+listTaskDefinitionFamiliesResponse_httpStatus :: Lens.Lens' ListTaskDefinitionFamiliesResponse Core.Int
 listTaskDefinitionFamiliesResponse_httpStatus = Lens.lens (\ListTaskDefinitionFamiliesResponse' {httpStatus} -> httpStatus) (\s@ListTaskDefinitionFamiliesResponse' {} a -> s {httpStatus = a} :: ListTaskDefinitionFamiliesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListTaskDefinitionFamiliesResponse

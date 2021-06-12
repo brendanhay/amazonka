@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.IoTAnalytics.DeleteDataset
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDataset' smart constructor.
 data DeleteDataset = DeleteDataset'
   { -- | The name of the data set to delete.
-    datasetName :: Prelude.Text
+    datasetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDataset' with all optional fields omitted.
@@ -63,41 +62,42 @@ data DeleteDataset = DeleteDataset'
 -- 'datasetName', 'deleteDataset_datasetName' - The name of the data set to delete.
 newDeleteDataset ::
   -- | 'datasetName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDataset
 newDeleteDataset pDatasetName_ =
   DeleteDataset' {datasetName = pDatasetName_}
 
 -- | The name of the data set to delete.
-deleteDataset_datasetName :: Lens.Lens' DeleteDataset Prelude.Text
+deleteDataset_datasetName :: Lens.Lens' DeleteDataset Core.Text
 deleteDataset_datasetName = Lens.lens (\DeleteDataset' {datasetName} -> datasetName) (\s@DeleteDataset' {} a -> s {datasetName = a} :: DeleteDataset)
 
-instance Prelude.AWSRequest DeleteDataset where
-  type Rs DeleteDataset = DeleteDatasetResponse
+instance Core.AWSRequest DeleteDataset where
+  type
+    AWSResponse DeleteDataset =
+      DeleteDatasetResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteDatasetResponse'
 
-instance Prelude.Hashable DeleteDataset
+instance Core.Hashable DeleteDataset
 
-instance Prelude.NFData DeleteDataset
+instance Core.NFData DeleteDataset
 
-instance Prelude.ToHeaders DeleteDataset where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteDataset where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteDataset where
+instance Core.ToPath DeleteDataset where
   toPath DeleteDataset' {..} =
-    Prelude.mconcat
-      ["/datasets/", Prelude.toBS datasetName]
+    Core.mconcat ["/datasets/", Core.toBS datasetName]
 
-instance Prelude.ToQuery DeleteDataset where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDataset where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDatasetResponse' smart constructor.
 data DeleteDatasetResponse = DeleteDatasetResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDatasetResponse' with all optional fields omitted.
@@ -107,4 +107,4 @@ newDeleteDatasetResponse ::
   DeleteDatasetResponse
 newDeleteDatasetResponse = DeleteDatasetResponse'
 
-instance Prelude.NFData DeleteDatasetResponse
+instance Core.NFData DeleteDatasetResponse

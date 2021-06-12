@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.KMS.PutKeyPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,7 +80,7 @@ data PutKeyPolicy = PutKeyPolicy'
     -- the CMK.
     --
     -- The default value is false.
-    bypassPolicyLockoutSafetyCheck :: Prelude.Maybe Prelude.Bool,
+    bypassPolicyLockoutSafetyCheck :: Core.Maybe Core.Bool,
     -- | A unique identifier for the customer master key (CMK).
     --
     -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
@@ -94,9 +93,9 @@ data PutKeyPolicy = PutKeyPolicy'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Prelude.Text,
+    keyId :: Core.Text,
     -- | The name of the key policy. The only valid value is @default@.
-    policyName :: Prelude.Text,
+    policyName :: Core.Text,
     -- | The key policy to attach to the CMK.
     --
     -- The key policy must meet the following criteria:
@@ -123,9 +122,9 @@ data PutKeyPolicy = PutKeyPolicy'
     -- information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas>
     -- in the /AWS Key Management Service Developer Guide/.
-    policy :: Prelude.Text
+    policy :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutKeyPolicy' with all optional fields omitted.
@@ -194,16 +193,16 @@ data PutKeyPolicy = PutKeyPolicy'
 -- in the /AWS Key Management Service Developer Guide/.
 newPutKeyPolicy ::
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policy'
-  Prelude.Text ->
+  Core.Text ->
   PutKeyPolicy
 newPutKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
   PutKeyPolicy'
     { bypassPolicyLockoutSafetyCheck =
-        Prelude.Nothing,
+        Core.Nothing,
       keyId = pKeyId_,
       policyName = pPolicyName_,
       policy = pPolicy_
@@ -224,7 +223,7 @@ newPutKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
 -- the CMK.
 --
 -- The default value is false.
-putKeyPolicy_bypassPolicyLockoutSafetyCheck :: Lens.Lens' PutKeyPolicy (Prelude.Maybe Prelude.Bool)
+putKeyPolicy_bypassPolicyLockoutSafetyCheck :: Lens.Lens' PutKeyPolicy (Core.Maybe Core.Bool)
 putKeyPolicy_bypassPolicyLockoutSafetyCheck = Lens.lens (\PutKeyPolicy' {bypassPolicyLockoutSafetyCheck} -> bypassPolicyLockoutSafetyCheck) (\s@PutKeyPolicy' {} a -> s {bypassPolicyLockoutSafetyCheck = a} :: PutKeyPolicy)
 
 -- | A unique identifier for the customer master key (CMK).
@@ -239,11 +238,11 @@ putKeyPolicy_bypassPolicyLockoutSafetyCheck = Lens.lens (\PutKeyPolicy' {bypassP
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-putKeyPolicy_keyId :: Lens.Lens' PutKeyPolicy Prelude.Text
+putKeyPolicy_keyId :: Lens.Lens' PutKeyPolicy Core.Text
 putKeyPolicy_keyId = Lens.lens (\PutKeyPolicy' {keyId} -> keyId) (\s@PutKeyPolicy' {} a -> s {keyId = a} :: PutKeyPolicy)
 
 -- | The name of the key policy. The only valid value is @default@.
-putKeyPolicy_policyName :: Lens.Lens' PutKeyPolicy Prelude.Text
+putKeyPolicy_policyName :: Lens.Lens' PutKeyPolicy Core.Text
 putKeyPolicy_policyName = Lens.lens (\PutKeyPolicy' {policyName} -> policyName) (\s@PutKeyPolicy' {} a -> s {policyName = a} :: PutKeyPolicy)
 
 -- | The key policy to attach to the CMK.
@@ -272,54 +271,52 @@ putKeyPolicy_policyName = Lens.lens (\PutKeyPolicy' {policyName} -> policyName) 
 -- information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas>
 -- in the /AWS Key Management Service Developer Guide/.
-putKeyPolicy_policy :: Lens.Lens' PutKeyPolicy Prelude.Text
+putKeyPolicy_policy :: Lens.Lens' PutKeyPolicy Core.Text
 putKeyPolicy_policy = Lens.lens (\PutKeyPolicy' {policy} -> policy) (\s@PutKeyPolicy' {} a -> s {policy = a} :: PutKeyPolicy)
 
-instance Prelude.AWSRequest PutKeyPolicy where
-  type Rs PutKeyPolicy = PutKeyPolicyResponse
+instance Core.AWSRequest PutKeyPolicy where
+  type AWSResponse PutKeyPolicy = PutKeyPolicyResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull PutKeyPolicyResponse'
 
-instance Prelude.Hashable PutKeyPolicy
+instance Core.Hashable PutKeyPolicy
 
-instance Prelude.NFData PutKeyPolicy
+instance Core.NFData PutKeyPolicy
 
-instance Prelude.ToHeaders PutKeyPolicy where
+instance Core.ToHeaders PutKeyPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("TrentService.PutKeyPolicy" :: Prelude.ByteString),
+              Core.=# ("TrentService.PutKeyPolicy" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutKeyPolicy where
+instance Core.ToJSON PutKeyPolicy where
   toJSON PutKeyPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("BypassPolicyLockoutSafetyCheck" Prelude..=)
-              Prelude.<$> bypassPolicyLockoutSafetyCheck,
-            Prelude.Just ("KeyId" Prelude..= keyId),
-            Prelude.Just ("PolicyName" Prelude..= policyName),
-            Prelude.Just ("Policy" Prelude..= policy)
+    Core.object
+      ( Core.catMaybes
+          [ ("BypassPolicyLockoutSafetyCheck" Core..=)
+              Core.<$> bypassPolicyLockoutSafetyCheck,
+            Core.Just ("KeyId" Core..= keyId),
+            Core.Just ("PolicyName" Core..= policyName),
+            Core.Just ("Policy" Core..= policy)
           ]
       )
 
-instance Prelude.ToPath PutKeyPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutKeyPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutKeyPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutKeyPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutKeyPolicyResponse' smart constructor.
 data PutKeyPolicyResponse = PutKeyPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutKeyPolicyResponse' with all optional fields omitted.
@@ -329,4 +326,4 @@ newPutKeyPolicyResponse ::
   PutKeyPolicyResponse
 newPutKeyPolicyResponse = PutKeyPolicyResponse'
 
-instance Prelude.NFData PutKeyPolicyResponse
+instance Core.NFData PutKeyPolicyResponse

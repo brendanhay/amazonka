@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ShareDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.ShareError
 
 -- | Information about the portfolio share operation.
@@ -29,11 +28,11 @@ import Network.AWS.ServiceCatalog.Types.ShareError
 -- /See:/ 'newShareDetails' smart constructor.
 data ShareDetails = ShareDetails'
   { -- | List of errors.
-    shareErrors :: Prelude.Maybe [ShareError],
+    shareErrors :: Core.Maybe [ShareError],
     -- | List of accounts for whom the operation succeeded.
-    successfulShares :: Prelude.Maybe [Prelude.Text]
+    successfulShares :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ShareDetails' with all optional fields omitted.
@@ -50,32 +49,28 @@ newShareDetails ::
   ShareDetails
 newShareDetails =
   ShareDetails'
-    { shareErrors = Prelude.Nothing,
-      successfulShares = Prelude.Nothing
+    { shareErrors = Core.Nothing,
+      successfulShares = Core.Nothing
     }
 
 -- | List of errors.
-shareDetails_shareErrors :: Lens.Lens' ShareDetails (Prelude.Maybe [ShareError])
-shareDetails_shareErrors = Lens.lens (\ShareDetails' {shareErrors} -> shareErrors) (\s@ShareDetails' {} a -> s {shareErrors = a} :: ShareDetails) Prelude.. Lens.mapping Prelude._Coerce
+shareDetails_shareErrors :: Lens.Lens' ShareDetails (Core.Maybe [ShareError])
+shareDetails_shareErrors = Lens.lens (\ShareDetails' {shareErrors} -> shareErrors) (\s@ShareDetails' {} a -> s {shareErrors = a} :: ShareDetails) Core.. Lens.mapping Lens._Coerce
 
 -- | List of accounts for whom the operation succeeded.
-shareDetails_successfulShares :: Lens.Lens' ShareDetails (Prelude.Maybe [Prelude.Text])
-shareDetails_successfulShares = Lens.lens (\ShareDetails' {successfulShares} -> successfulShares) (\s@ShareDetails' {} a -> s {successfulShares = a} :: ShareDetails) Prelude.. Lens.mapping Prelude._Coerce
+shareDetails_successfulShares :: Lens.Lens' ShareDetails (Core.Maybe [Core.Text])
+shareDetails_successfulShares = Lens.lens (\ShareDetails' {successfulShares} -> successfulShares) (\s@ShareDetails' {} a -> s {successfulShares = a} :: ShareDetails) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ShareDetails where
+instance Core.FromJSON ShareDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ShareDetails"
       ( \x ->
           ShareDetails'
-            Prelude.<$> ( x Prelude..:? "ShareErrors"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "SuccessfulShares"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ShareErrors" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "SuccessfulShares" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ShareDetails
+instance Core.Hashable ShareDetails
 
-instance Prelude.NFData ShareDetails
+instance Core.NFData ShareDetails

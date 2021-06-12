@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.Scte27SourceSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Scte27 Source Settings
 --
@@ -34,9 +33,9 @@ data Scte27SourceSettings = Scte27SourceSettings'
     -- Language: Extracts the specified language, whichever PID that happens to
     -- be. - Omit PID and omit Language: Valid only if source is DVB-Sub that
     -- is being passed through; all languages will be passed through.
-    pid :: Prelude.Maybe Prelude.Natural
+    pid :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Scte27SourceSettings' with all optional fields omitted.
@@ -56,7 +55,7 @@ data Scte27SourceSettings = Scte27SourceSettings'
 newScte27SourceSettings ::
   Scte27SourceSettings
 newScte27SourceSettings =
-  Scte27SourceSettings' {pid = Prelude.Nothing}
+  Scte27SourceSettings' {pid = Core.Nothing}
 
 -- | The pid field is used in conjunction with the caption selector
 -- languageCode field as follows: - Specify PID and Language: Extracts
@@ -65,25 +64,22 @@ newScte27SourceSettings =
 -- Language: Extracts the specified language, whichever PID that happens to
 -- be. - Omit PID and omit Language: Valid only if source is DVB-Sub that
 -- is being passed through; all languages will be passed through.
-scte27SourceSettings_pid :: Lens.Lens' Scte27SourceSettings (Prelude.Maybe Prelude.Natural)
+scte27SourceSettings_pid :: Lens.Lens' Scte27SourceSettings (Core.Maybe Core.Natural)
 scte27SourceSettings_pid = Lens.lens (\Scte27SourceSettings' {pid} -> pid) (\s@Scte27SourceSettings' {} a -> s {pid = a} :: Scte27SourceSettings)
 
-instance Prelude.FromJSON Scte27SourceSettings where
+instance Core.FromJSON Scte27SourceSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Scte27SourceSettings"
       ( \x ->
-          Scte27SourceSettings'
-            Prelude.<$> (x Prelude..:? "pid")
+          Scte27SourceSettings' Core.<$> (x Core..:? "pid")
       )
 
-instance Prelude.Hashable Scte27SourceSettings
+instance Core.Hashable Scte27SourceSettings
 
-instance Prelude.NFData Scte27SourceSettings
+instance Core.NFData Scte27SourceSettings
 
-instance Prelude.ToJSON Scte27SourceSettings where
+instance Core.ToJSON Scte27SourceSettings where
   toJSON Scte27SourceSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("pid" Prelude..=) Prelude.<$> pid]
-      )
+    Core.object
+      (Core.catMaybes [("pid" Core..=) Core.<$> pid])

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.EbsInstanceBlockDeviceSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes information used to set up an EBS volume specified in a block
 -- device mapping.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEbsInstanceBlockDeviceSpecification' smart constructor.
 data EbsInstanceBlockDeviceSpecification = EbsInstanceBlockDeviceSpecification'
   { -- | The ID of the EBS volume.
-    volumeId :: Prelude.Maybe Prelude.Text,
+    volumeId :: Core.Maybe Core.Text,
     -- | Indicates whether the volume is deleted on instance termination.
-    deleteOnTermination :: Prelude.Maybe Prelude.Bool
+    deleteOnTermination :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EbsInstanceBlockDeviceSpecification' with all optional fields omitted.
@@ -52,32 +51,32 @@ newEbsInstanceBlockDeviceSpecification ::
 newEbsInstanceBlockDeviceSpecification =
   EbsInstanceBlockDeviceSpecification'
     { volumeId =
-        Prelude.Nothing,
-      deleteOnTermination = Prelude.Nothing
+        Core.Nothing,
+      deleteOnTermination = Core.Nothing
     }
 
 -- | The ID of the EBS volume.
-ebsInstanceBlockDeviceSpecification_volumeId :: Lens.Lens' EbsInstanceBlockDeviceSpecification (Prelude.Maybe Prelude.Text)
+ebsInstanceBlockDeviceSpecification_volumeId :: Lens.Lens' EbsInstanceBlockDeviceSpecification (Core.Maybe Core.Text)
 ebsInstanceBlockDeviceSpecification_volumeId = Lens.lens (\EbsInstanceBlockDeviceSpecification' {volumeId} -> volumeId) (\s@EbsInstanceBlockDeviceSpecification' {} a -> s {volumeId = a} :: EbsInstanceBlockDeviceSpecification)
 
 -- | Indicates whether the volume is deleted on instance termination.
-ebsInstanceBlockDeviceSpecification_deleteOnTermination :: Lens.Lens' EbsInstanceBlockDeviceSpecification (Prelude.Maybe Prelude.Bool)
+ebsInstanceBlockDeviceSpecification_deleteOnTermination :: Lens.Lens' EbsInstanceBlockDeviceSpecification (Core.Maybe Core.Bool)
 ebsInstanceBlockDeviceSpecification_deleteOnTermination = Lens.lens (\EbsInstanceBlockDeviceSpecification' {deleteOnTermination} -> deleteOnTermination) (\s@EbsInstanceBlockDeviceSpecification' {} a -> s {deleteOnTermination = a} :: EbsInstanceBlockDeviceSpecification)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     EbsInstanceBlockDeviceSpecification
 
 instance
-  Prelude.NFData
+  Core.NFData
     EbsInstanceBlockDeviceSpecification
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     EbsInstanceBlockDeviceSpecification
   where
   toQuery EbsInstanceBlockDeviceSpecification' {..} =
-    Prelude.mconcat
-      [ "VolumeId" Prelude.=: volumeId,
-        "DeleteOnTermination" Prelude.=: deleteOnTermination
+    Core.mconcat
+      [ "VolumeId" Core.=: volumeId,
+        "DeleteOnTermination" Core.=: deleteOnTermination
       ]

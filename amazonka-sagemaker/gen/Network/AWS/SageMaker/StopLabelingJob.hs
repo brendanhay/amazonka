@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.SageMaker.StopLabelingJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -47,9 +46,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopLabelingJob' smart constructor.
 data StopLabelingJob = StopLabelingJob'
   { -- | The name of the labeling job to stop.
-    labelingJobName :: Prelude.Text
+    labelingJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopLabelingJob' with all optional fields omitted.
@@ -62,7 +61,7 @@ data StopLabelingJob = StopLabelingJob'
 -- 'labelingJobName', 'stopLabelingJob_labelingJobName' - The name of the labeling job to stop.
 newStopLabelingJob ::
   -- | 'labelingJobName'
-  Prelude.Text ->
+  Core.Text ->
   StopLabelingJob
 newStopLabelingJob pLabelingJobName_ =
   StopLabelingJob'
@@ -71,52 +70,52 @@ newStopLabelingJob pLabelingJobName_ =
     }
 
 -- | The name of the labeling job to stop.
-stopLabelingJob_labelingJobName :: Lens.Lens' StopLabelingJob Prelude.Text
+stopLabelingJob_labelingJobName :: Lens.Lens' StopLabelingJob Core.Text
 stopLabelingJob_labelingJobName = Lens.lens (\StopLabelingJob' {labelingJobName} -> labelingJobName) (\s@StopLabelingJob' {} a -> s {labelingJobName = a} :: StopLabelingJob)
 
-instance Prelude.AWSRequest StopLabelingJob where
-  type Rs StopLabelingJob = StopLabelingJobResponse
+instance Core.AWSRequest StopLabelingJob where
+  type
+    AWSResponse StopLabelingJob =
+      StopLabelingJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull StopLabelingJobResponse'
 
-instance Prelude.Hashable StopLabelingJob
+instance Core.Hashable StopLabelingJob
 
-instance Prelude.NFData StopLabelingJob
+instance Core.NFData StopLabelingJob
 
-instance Prelude.ToHeaders StopLabelingJob where
+instance Core.ToHeaders StopLabelingJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.StopLabelingJob" :: Prelude.ByteString),
+              Core.=# ("SageMaker.StopLabelingJob" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopLabelingJob where
+instance Core.ToJSON StopLabelingJob where
   toJSON StopLabelingJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("LabelingJobName" Prelude..= labelingJobName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("LabelingJobName" Core..= labelingJobName)
           ]
       )
 
-instance Prelude.ToPath StopLabelingJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopLabelingJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopLabelingJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopLabelingJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopLabelingJobResponse' smart constructor.
 data StopLabelingJobResponse = StopLabelingJobResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopLabelingJobResponse' with all optional fields omitted.
@@ -126,4 +125,4 @@ newStopLabelingJobResponse ::
   StopLabelingJobResponse
 newStopLabelingJobResponse = StopLabelingJobResponse'
 
-instance Prelude.NFData StopLabelingJobResponse
+instance Core.NFData StopLabelingJobResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,18 +61,18 @@ module Network.AWS.OpsWorksCM.AssociateNode
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateNode' smart constructor.
 data AssociateNode = AssociateNode'
   { -- | The name of the server with which to associate the node.
-    serverName :: Prelude.Text,
+    serverName :: Core.Text,
     -- | The name of the node.
-    nodeName :: Prelude.Text,
+    nodeName :: Core.Text,
     -- | Engine attributes used for associating the node.
     --
     -- __Attributes accepted in a AssociateNode request for Chef__
@@ -91,7 +90,7 @@ data AssociateNode = AssociateNode'
     --     that is created by the node.
     engineAttributes :: [EngineAttribute]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateNode' with all optional fields omitted.
@@ -122,23 +121,23 @@ data AssociateNode = AssociateNode'
 --     that is created by the node.
 newAssociateNode ::
   -- | 'serverName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'nodeName'
-  Prelude.Text ->
+  Core.Text ->
   AssociateNode
 newAssociateNode pServerName_ pNodeName_ =
   AssociateNode'
     { serverName = pServerName_,
       nodeName = pNodeName_,
-      engineAttributes = Prelude.mempty
+      engineAttributes = Core.mempty
     }
 
 -- | The name of the server with which to associate the node.
-associateNode_serverName :: Lens.Lens' AssociateNode Prelude.Text
+associateNode_serverName :: Lens.Lens' AssociateNode Core.Text
 associateNode_serverName = Lens.lens (\AssociateNode' {serverName} -> serverName) (\s@AssociateNode' {} a -> s {serverName = a} :: AssociateNode)
 
 -- | The name of the node.
-associateNode_nodeName :: Lens.Lens' AssociateNode Prelude.Text
+associateNode_nodeName :: Lens.Lens' AssociateNode Core.Text
 associateNode_nodeName = Lens.lens (\AssociateNode' {nodeName} -> nodeName) (\s@AssociateNode' {} a -> s {nodeName = a} :: AssociateNode)
 
 -- | Engine attributes used for associating the node.
@@ -157,65 +156,65 @@ associateNode_nodeName = Lens.lens (\AssociateNode' {nodeName} -> nodeName) (\s@
 -- -   @PUPPET_NODE_CSR@: A PEM-formatted certificate-signing request (CSR)
 --     that is created by the node.
 associateNode_engineAttributes :: Lens.Lens' AssociateNode [EngineAttribute]
-associateNode_engineAttributes = Lens.lens (\AssociateNode' {engineAttributes} -> engineAttributes) (\s@AssociateNode' {} a -> s {engineAttributes = a} :: AssociateNode) Prelude.. Prelude._Coerce
+associateNode_engineAttributes = Lens.lens (\AssociateNode' {engineAttributes} -> engineAttributes) (\s@AssociateNode' {} a -> s {engineAttributes = a} :: AssociateNode) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AssociateNode where
-  type Rs AssociateNode = AssociateNodeResponse
+instance Core.AWSRequest AssociateNode where
+  type
+    AWSResponse AssociateNode =
+      AssociateNodeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AssociateNodeResponse'
-            Prelude.<$> (x Prelude..?> "NodeAssociationStatusToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NodeAssociationStatusToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateNode
+instance Core.Hashable AssociateNode
 
-instance Prelude.NFData AssociateNode
+instance Core.NFData AssociateNode
 
-instance Prelude.ToHeaders AssociateNode where
+instance Core.ToHeaders AssociateNode where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorksCM_V2016_11_01.AssociateNode" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorksCM_V2016_11_01.AssociateNode" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateNode where
+instance Core.ToJSON AssociateNode where
   toJSON AssociateNode' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ServerName" Prelude..= serverName),
-            Prelude.Just ("NodeName" Prelude..= nodeName),
-            Prelude.Just
-              ("EngineAttributes" Prelude..= engineAttributes)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ServerName" Core..= serverName),
+            Core.Just ("NodeName" Core..= nodeName),
+            Core.Just
+              ("EngineAttributes" Core..= engineAttributes)
           ]
       )
 
-instance Prelude.ToPath AssociateNode where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateNode where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateNode where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateNode where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateNodeResponse' smart constructor.
 data AssociateNodeResponse = AssociateNodeResponse'
   { -- | Contains a token which can be passed to the
     -- @DescribeNodeAssociationStatus@ API call to get the status of the
     -- association request.
-    nodeAssociationStatusToken :: Prelude.Maybe Prelude.Text,
+    nodeAssociationStatusToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateNodeResponse' with all optional fields omitted.
@@ -232,23 +231,23 @@ data AssociateNodeResponse = AssociateNodeResponse'
 -- 'httpStatus', 'associateNodeResponse_httpStatus' - The response's http status code.
 newAssociateNodeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateNodeResponse
 newAssociateNodeResponse pHttpStatus_ =
   AssociateNodeResponse'
     { nodeAssociationStatusToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains a token which can be passed to the
 -- @DescribeNodeAssociationStatus@ API call to get the status of the
 -- association request.
-associateNodeResponse_nodeAssociationStatusToken :: Lens.Lens' AssociateNodeResponse (Prelude.Maybe Prelude.Text)
+associateNodeResponse_nodeAssociationStatusToken :: Lens.Lens' AssociateNodeResponse (Core.Maybe Core.Text)
 associateNodeResponse_nodeAssociationStatusToken = Lens.lens (\AssociateNodeResponse' {nodeAssociationStatusToken} -> nodeAssociationStatusToken) (\s@AssociateNodeResponse' {} a -> s {nodeAssociationStatusToken = a} :: AssociateNodeResponse)
 
 -- | The response's http status code.
-associateNodeResponse_httpStatus :: Lens.Lens' AssociateNodeResponse Prelude.Int
+associateNodeResponse_httpStatus :: Lens.Lens' AssociateNodeResponse Core.Int
 associateNodeResponse_httpStatus = Lens.lens (\AssociateNodeResponse' {httpStatus} -> httpStatus) (\s@AssociateNodeResponse' {} a -> s {httpStatus = a} :: AssociateNodeResponse)
 
-instance Prelude.NFData AssociateNodeResponse
+instance Core.NFData AssociateNodeResponse

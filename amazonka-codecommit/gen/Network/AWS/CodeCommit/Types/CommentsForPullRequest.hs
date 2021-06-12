@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodeCommit.Types.CommentsForPullRequest where
 
 import Network.AWS.CodeCommit.Types.Comment
 import Network.AWS.CodeCommit.Types.Location
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about comments on a pull request.
 --
@@ -31,32 +30,32 @@ import qualified Network.AWS.Prelude as Prelude
 data CommentsForPullRequest = CommentsForPullRequest'
   { -- | The full blob ID of the file on which you want to comment on the
     -- destination commit.
-    beforeBlobId :: Prelude.Maybe Prelude.Text,
+    beforeBlobId :: Core.Maybe Core.Text,
     -- | The name of the repository that contains the pull request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
+    repositoryName :: Core.Maybe Core.Text,
     -- | The full commit ID of the commit that was the tip of the destination
     -- branch when the pull request was created. This commit is superceded by
     -- the after commit in the source branch when and if you merge the source
     -- branch into the destination branch.
-    beforeCommitId :: Prelude.Maybe Prelude.Text,
+    beforeCommitId :: Core.Maybe Core.Text,
     -- | The full blob ID of the file on which you want to comment on the source
     -- commit.
-    afterBlobId :: Prelude.Maybe Prelude.Text,
+    afterBlobId :: Core.Maybe Core.Text,
     -- | The system-generated ID of the pull request.
-    pullRequestId :: Prelude.Maybe Prelude.Text,
+    pullRequestId :: Core.Maybe Core.Text,
     -- | An array of comment objects. Each comment object contains information
     -- about a comment on the pull request.
-    comments :: Prelude.Maybe [Comment],
+    comments :: Core.Maybe [Comment],
     -- | The full commit ID of the commit that was the tip of the source branch
     -- at the time the comment was made.
-    afterCommitId :: Prelude.Maybe Prelude.Text,
+    afterCommitId :: Core.Maybe Core.Text,
     -- | Location information about the comment on the pull request, including
     -- the file name, line number, and whether the version of the file where
     -- the comment was made is BEFORE (destination branch) or AFTER (source
     -- branch).
-    location :: Prelude.Maybe Location
+    location :: Core.Maybe Location
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CommentsForPullRequest' with all optional fields omitted.
@@ -96,74 +95,74 @@ newCommentsForPullRequest ::
 newCommentsForPullRequest =
   CommentsForPullRequest'
     { beforeBlobId =
-        Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
-      beforeCommitId = Prelude.Nothing,
-      afterBlobId = Prelude.Nothing,
-      pullRequestId = Prelude.Nothing,
-      comments = Prelude.Nothing,
-      afterCommitId = Prelude.Nothing,
-      location = Prelude.Nothing
+        Core.Nothing,
+      repositoryName = Core.Nothing,
+      beforeCommitId = Core.Nothing,
+      afterBlobId = Core.Nothing,
+      pullRequestId = Core.Nothing,
+      comments = Core.Nothing,
+      afterCommitId = Core.Nothing,
+      location = Core.Nothing
     }
 
 -- | The full blob ID of the file on which you want to comment on the
 -- destination commit.
-commentsForPullRequest_beforeBlobId :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe Prelude.Text)
+commentsForPullRequest_beforeBlobId :: Lens.Lens' CommentsForPullRequest (Core.Maybe Core.Text)
 commentsForPullRequest_beforeBlobId = Lens.lens (\CommentsForPullRequest' {beforeBlobId} -> beforeBlobId) (\s@CommentsForPullRequest' {} a -> s {beforeBlobId = a} :: CommentsForPullRequest)
 
 -- | The name of the repository that contains the pull request.
-commentsForPullRequest_repositoryName :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe Prelude.Text)
+commentsForPullRequest_repositoryName :: Lens.Lens' CommentsForPullRequest (Core.Maybe Core.Text)
 commentsForPullRequest_repositoryName = Lens.lens (\CommentsForPullRequest' {repositoryName} -> repositoryName) (\s@CommentsForPullRequest' {} a -> s {repositoryName = a} :: CommentsForPullRequest)
 
 -- | The full commit ID of the commit that was the tip of the destination
 -- branch when the pull request was created. This commit is superceded by
 -- the after commit in the source branch when and if you merge the source
 -- branch into the destination branch.
-commentsForPullRequest_beforeCommitId :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe Prelude.Text)
+commentsForPullRequest_beforeCommitId :: Lens.Lens' CommentsForPullRequest (Core.Maybe Core.Text)
 commentsForPullRequest_beforeCommitId = Lens.lens (\CommentsForPullRequest' {beforeCommitId} -> beforeCommitId) (\s@CommentsForPullRequest' {} a -> s {beforeCommitId = a} :: CommentsForPullRequest)
 
 -- | The full blob ID of the file on which you want to comment on the source
 -- commit.
-commentsForPullRequest_afterBlobId :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe Prelude.Text)
+commentsForPullRequest_afterBlobId :: Lens.Lens' CommentsForPullRequest (Core.Maybe Core.Text)
 commentsForPullRequest_afterBlobId = Lens.lens (\CommentsForPullRequest' {afterBlobId} -> afterBlobId) (\s@CommentsForPullRequest' {} a -> s {afterBlobId = a} :: CommentsForPullRequest)
 
 -- | The system-generated ID of the pull request.
-commentsForPullRequest_pullRequestId :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe Prelude.Text)
+commentsForPullRequest_pullRequestId :: Lens.Lens' CommentsForPullRequest (Core.Maybe Core.Text)
 commentsForPullRequest_pullRequestId = Lens.lens (\CommentsForPullRequest' {pullRequestId} -> pullRequestId) (\s@CommentsForPullRequest' {} a -> s {pullRequestId = a} :: CommentsForPullRequest)
 
 -- | An array of comment objects. Each comment object contains information
 -- about a comment on the pull request.
-commentsForPullRequest_comments :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe [Comment])
-commentsForPullRequest_comments = Lens.lens (\CommentsForPullRequest' {comments} -> comments) (\s@CommentsForPullRequest' {} a -> s {comments = a} :: CommentsForPullRequest) Prelude.. Lens.mapping Prelude._Coerce
+commentsForPullRequest_comments :: Lens.Lens' CommentsForPullRequest (Core.Maybe [Comment])
+commentsForPullRequest_comments = Lens.lens (\CommentsForPullRequest' {comments} -> comments) (\s@CommentsForPullRequest' {} a -> s {comments = a} :: CommentsForPullRequest) Core.. Lens.mapping Lens._Coerce
 
 -- | The full commit ID of the commit that was the tip of the source branch
 -- at the time the comment was made.
-commentsForPullRequest_afterCommitId :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe Prelude.Text)
+commentsForPullRequest_afterCommitId :: Lens.Lens' CommentsForPullRequest (Core.Maybe Core.Text)
 commentsForPullRequest_afterCommitId = Lens.lens (\CommentsForPullRequest' {afterCommitId} -> afterCommitId) (\s@CommentsForPullRequest' {} a -> s {afterCommitId = a} :: CommentsForPullRequest)
 
 -- | Location information about the comment on the pull request, including
 -- the file name, line number, and whether the version of the file where
 -- the comment was made is BEFORE (destination branch) or AFTER (source
 -- branch).
-commentsForPullRequest_location :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe Location)
+commentsForPullRequest_location :: Lens.Lens' CommentsForPullRequest (Core.Maybe Location)
 commentsForPullRequest_location = Lens.lens (\CommentsForPullRequest' {location} -> location) (\s@CommentsForPullRequest' {} a -> s {location = a} :: CommentsForPullRequest)
 
-instance Prelude.FromJSON CommentsForPullRequest where
+instance Core.FromJSON CommentsForPullRequest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CommentsForPullRequest"
       ( \x ->
           CommentsForPullRequest'
-            Prelude.<$> (x Prelude..:? "beforeBlobId")
-            Prelude.<*> (x Prelude..:? "repositoryName")
-            Prelude.<*> (x Prelude..:? "beforeCommitId")
-            Prelude.<*> (x Prelude..:? "afterBlobId")
-            Prelude.<*> (x Prelude..:? "pullRequestId")
-            Prelude.<*> (x Prelude..:? "comments" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "afterCommitId")
-            Prelude.<*> (x Prelude..:? "location")
+            Core.<$> (x Core..:? "beforeBlobId")
+            Core.<*> (x Core..:? "repositoryName")
+            Core.<*> (x Core..:? "beforeCommitId")
+            Core.<*> (x Core..:? "afterBlobId")
+            Core.<*> (x Core..:? "pullRequestId")
+            Core.<*> (x Core..:? "comments" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "afterCommitId")
+            Core.<*> (x Core..:? "location")
       )
 
-instance Prelude.Hashable CommentsForPullRequest
+instance Core.Hashable CommentsForPullRequest
 
-instance Prelude.NFData CommentsForPullRequest
+instance Core.NFData CommentsForPullRequest

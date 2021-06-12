@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ResourceDataSyncDestinationDataSharing where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Synchronize Systems Manager Inventory data from multiple AWS accounts
 -- defined in AWS Organizations to a centralized S3 bucket. Data is
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResourceDataSyncDestinationDataSharing' smart constructor.
 data ResourceDataSyncDestinationDataSharing = ResourceDataSyncDestinationDataSharing'
   { -- | The sharing data type. Only @Organization@ is supported.
-    destinationDataSharingType :: Prelude.Maybe Prelude.Text
+    destinationDataSharingType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceDataSyncDestinationDataSharing' with all optional fields omitted.
@@ -49,41 +48,41 @@ newResourceDataSyncDestinationDataSharing ::
 newResourceDataSyncDestinationDataSharing =
   ResourceDataSyncDestinationDataSharing'
     { destinationDataSharingType =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The sharing data type. Only @Organization@ is supported.
-resourceDataSyncDestinationDataSharing_destinationDataSharingType :: Lens.Lens' ResourceDataSyncDestinationDataSharing (Prelude.Maybe Prelude.Text)
+resourceDataSyncDestinationDataSharing_destinationDataSharingType :: Lens.Lens' ResourceDataSyncDestinationDataSharing (Core.Maybe Core.Text)
 resourceDataSyncDestinationDataSharing_destinationDataSharingType = Lens.lens (\ResourceDataSyncDestinationDataSharing' {destinationDataSharingType} -> destinationDataSharingType) (\s@ResourceDataSyncDestinationDataSharing' {} a -> s {destinationDataSharingType = a} :: ResourceDataSyncDestinationDataSharing)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ResourceDataSyncDestinationDataSharing
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceDataSyncDestinationDataSharing"
       ( \x ->
           ResourceDataSyncDestinationDataSharing'
-            Prelude.<$> (x Prelude..:? "DestinationDataSharingType")
+            Core.<$> (x Core..:? "DestinationDataSharingType")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ResourceDataSyncDestinationDataSharing
 
 instance
-  Prelude.NFData
+  Core.NFData
     ResourceDataSyncDestinationDataSharing
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ResourceDataSyncDestinationDataSharing
   where
   toJSON ResourceDataSyncDestinationDataSharing' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DestinationDataSharingType" Prelude..=)
-              Prelude.<$> destinationDataSharingType
+    Core.object
+      ( Core.catMaybes
+          [ ("DestinationDataSharingType" Core..=)
+              Core.<$> destinationDataSharingType
           ]
       )

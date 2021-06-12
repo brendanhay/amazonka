@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CodeDeploy.GetDeployment
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ import qualified Network.AWS.Response as Response
 data GetDeployment = GetDeployment'
   { -- | The unique ID of a deployment associated with the IAM user or AWS
     -- account.
-    deploymentId :: Prelude.Text
+    deploymentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDeployment' with all optional fields omitted.
@@ -73,71 +72,69 @@ data GetDeployment = GetDeployment'
 -- account.
 newGetDeployment ::
   -- | 'deploymentId'
-  Prelude.Text ->
+  Core.Text ->
   GetDeployment
 newGetDeployment pDeploymentId_ =
   GetDeployment' {deploymentId = pDeploymentId_}
 
 -- | The unique ID of a deployment associated with the IAM user or AWS
 -- account.
-getDeployment_deploymentId :: Lens.Lens' GetDeployment Prelude.Text
+getDeployment_deploymentId :: Lens.Lens' GetDeployment Core.Text
 getDeployment_deploymentId = Lens.lens (\GetDeployment' {deploymentId} -> deploymentId) (\s@GetDeployment' {} a -> s {deploymentId = a} :: GetDeployment)
 
-instance Prelude.AWSRequest GetDeployment where
-  type Rs GetDeployment = GetDeploymentResponse
+instance Core.AWSRequest GetDeployment where
+  type
+    AWSResponse GetDeployment =
+      GetDeploymentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentResponse'
-            Prelude.<$> (x Prelude..?> "deploymentInfo")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "deploymentInfo")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeployment
+instance Core.Hashable GetDeployment
 
-instance Prelude.NFData GetDeployment
+instance Core.NFData GetDeployment
 
-instance Prelude.ToHeaders GetDeployment where
+instance Core.ToHeaders GetDeployment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.GetDeployment" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.GetDeployment" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetDeployment where
+instance Core.ToJSON GetDeployment where
   toJSON GetDeployment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("deploymentId" Prelude..= deploymentId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("deploymentId" Core..= deploymentId)]
       )
 
-instance Prelude.ToPath GetDeployment where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetDeployment where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetDeployment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDeployment where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @GetDeployment@ operation.
 --
 -- /See:/ 'newGetDeploymentResponse' smart constructor.
 data GetDeploymentResponse = GetDeploymentResponse'
   { -- | Information about the deployment.
-    deploymentInfo :: Prelude.Maybe DeploymentInfo,
+    deploymentInfo :: Core.Maybe DeploymentInfo,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDeploymentResponse' with all optional fields omitted.
@@ -152,21 +149,21 @@ data GetDeploymentResponse = GetDeploymentResponse'
 -- 'httpStatus', 'getDeploymentResponse_httpStatus' - The response's http status code.
 newGetDeploymentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDeploymentResponse
 newGetDeploymentResponse pHttpStatus_ =
   GetDeploymentResponse'
     { deploymentInfo =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the deployment.
-getDeploymentResponse_deploymentInfo :: Lens.Lens' GetDeploymentResponse (Prelude.Maybe DeploymentInfo)
+getDeploymentResponse_deploymentInfo :: Lens.Lens' GetDeploymentResponse (Core.Maybe DeploymentInfo)
 getDeploymentResponse_deploymentInfo = Lens.lens (\GetDeploymentResponse' {deploymentInfo} -> deploymentInfo) (\s@GetDeploymentResponse' {} a -> s {deploymentInfo = a} :: GetDeploymentResponse)
 
 -- | The response's http status code.
-getDeploymentResponse_httpStatus :: Lens.Lens' GetDeploymentResponse Prelude.Int
+getDeploymentResponse_httpStatus :: Lens.Lens' GetDeploymentResponse Core.Int
 getDeploymentResponse_httpStatus = Lens.lens (\GetDeploymentResponse' {httpStatus} -> httpStatus) (\s@GetDeploymentResponse' {} a -> s {httpStatus = a} :: GetDeploymentResponse)
 
-instance Prelude.NFData GetDeploymentResponse
+instance Core.NFData GetDeploymentResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DataPipeline.Types.Query where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types.Selector
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines the query to run against an object.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data Query = Query'
   { -- | List of selectors that define the query. An object must satisfy all of
     -- the selectors to match the query.
-    selectors :: Prelude.Maybe [Selector]
+    selectors :: Core.Maybe [Selector]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Query' with all optional fields omitted.
@@ -46,20 +45,20 @@ data Query = Query'
 -- the selectors to match the query.
 newQuery ::
   Query
-newQuery = Query' {selectors = Prelude.Nothing}
+newQuery = Query' {selectors = Core.Nothing}
 
 -- | List of selectors that define the query. An object must satisfy all of
 -- the selectors to match the query.
-query_selectors :: Lens.Lens' Query (Prelude.Maybe [Selector])
-query_selectors = Lens.lens (\Query' {selectors} -> selectors) (\s@Query' {} a -> s {selectors = a} :: Query) Prelude.. Lens.mapping Prelude._Coerce
+query_selectors :: Lens.Lens' Query (Core.Maybe [Selector])
+query_selectors = Lens.lens (\Query' {selectors} -> selectors) (\s@Query' {} a -> s {selectors = a} :: Query) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable Query
+instance Core.Hashable Query
 
-instance Prelude.NFData Query
+instance Core.NFData Query
 
-instance Prelude.ToJSON Query where
+instance Core.ToJSON Query where
   toJSON Query' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("selectors" Prelude..=) Prelude.<$> selectors]
+    Core.object
+      ( Core.catMaybes
+          [("selectors" Core..=) Core.<$> selectors]
       )

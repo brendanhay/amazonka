@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.WorkMail.ListMailboxExportJobs
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -53,13 +52,13 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newListMailboxExportJobs' smart constructor.
 data ListMailboxExportJobs = ListMailboxExportJobs'
   { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The organization ID.
-    organizationId :: Prelude.Text
+    organizationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMailboxExportJobs' with all optional fields omitted.
@@ -76,87 +75,84 @@ data ListMailboxExportJobs = ListMailboxExportJobs'
 -- 'organizationId', 'listMailboxExportJobs_organizationId' - The organization ID.
 newListMailboxExportJobs ::
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   ListMailboxExportJobs
 newListMailboxExportJobs pOrganizationId_ =
   ListMailboxExportJobs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       organizationId = pOrganizationId_
     }
 
 -- | The token to use to retrieve the next page of results.
-listMailboxExportJobs_nextToken :: Lens.Lens' ListMailboxExportJobs (Prelude.Maybe Prelude.Text)
+listMailboxExportJobs_nextToken :: Lens.Lens' ListMailboxExportJobs (Core.Maybe Core.Text)
 listMailboxExportJobs_nextToken = Lens.lens (\ListMailboxExportJobs' {nextToken} -> nextToken) (\s@ListMailboxExportJobs' {} a -> s {nextToken = a} :: ListMailboxExportJobs)
 
 -- | The maximum number of results to return in a single call.
-listMailboxExportJobs_maxResults :: Lens.Lens' ListMailboxExportJobs (Prelude.Maybe Prelude.Natural)
+listMailboxExportJobs_maxResults :: Lens.Lens' ListMailboxExportJobs (Core.Maybe Core.Natural)
 listMailboxExportJobs_maxResults = Lens.lens (\ListMailboxExportJobs' {maxResults} -> maxResults) (\s@ListMailboxExportJobs' {} a -> s {maxResults = a} :: ListMailboxExportJobs)
 
 -- | The organization ID.
-listMailboxExportJobs_organizationId :: Lens.Lens' ListMailboxExportJobs Prelude.Text
+listMailboxExportJobs_organizationId :: Lens.Lens' ListMailboxExportJobs Core.Text
 listMailboxExportJobs_organizationId = Lens.lens (\ListMailboxExportJobs' {organizationId} -> organizationId) (\s@ListMailboxExportJobs' {} a -> s {organizationId = a} :: ListMailboxExportJobs)
 
-instance Prelude.AWSRequest ListMailboxExportJobs where
+instance Core.AWSRequest ListMailboxExportJobs where
   type
-    Rs ListMailboxExportJobs =
+    AWSResponse ListMailboxExportJobs =
       ListMailboxExportJobsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListMailboxExportJobsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Jobs" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Jobs" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListMailboxExportJobs
+instance Core.Hashable ListMailboxExportJobs
 
-instance Prelude.NFData ListMailboxExportJobs
+instance Core.NFData ListMailboxExportJobs
 
-instance Prelude.ToHeaders ListMailboxExportJobs where
+instance Core.ToHeaders ListMailboxExportJobs where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.ListMailboxExportJobs" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkMailService.ListMailboxExportJobs" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListMailboxExportJobs where
+instance Core.ToJSON ListMailboxExportJobs where
   toJSON ListMailboxExportJobs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ("OrganizationId" Prelude..= organizationId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("OrganizationId" Core..= organizationId)
           ]
       )
 
-instance Prelude.ToPath ListMailboxExportJobs where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListMailboxExportJobs where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListMailboxExportJobs where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListMailboxExportJobs where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListMailboxExportJobsResponse' smart constructor.
 data ListMailboxExportJobsResponse = ListMailboxExportJobsResponse'
   { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The mailbox export job details.
-    jobs :: Prelude.Maybe [MailboxExportJob],
+    jobs :: Core.Maybe [MailboxExportJob],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMailboxExportJobsResponse' with all optional fields omitted.
@@ -173,26 +169,26 @@ data ListMailboxExportJobsResponse = ListMailboxExportJobsResponse'
 -- 'httpStatus', 'listMailboxExportJobsResponse_httpStatus' - The response's http status code.
 newListMailboxExportJobsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListMailboxExportJobsResponse
 newListMailboxExportJobsResponse pHttpStatus_ =
   ListMailboxExportJobsResponse'
     { nextToken =
-        Prelude.Nothing,
-      jobs = Prelude.Nothing,
+        Core.Nothing,
+      jobs = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results.
-listMailboxExportJobsResponse_nextToken :: Lens.Lens' ListMailboxExportJobsResponse (Prelude.Maybe Prelude.Text)
+listMailboxExportJobsResponse_nextToken :: Lens.Lens' ListMailboxExportJobsResponse (Core.Maybe Core.Text)
 listMailboxExportJobsResponse_nextToken = Lens.lens (\ListMailboxExportJobsResponse' {nextToken} -> nextToken) (\s@ListMailboxExportJobsResponse' {} a -> s {nextToken = a} :: ListMailboxExportJobsResponse)
 
 -- | The mailbox export job details.
-listMailboxExportJobsResponse_jobs :: Lens.Lens' ListMailboxExportJobsResponse (Prelude.Maybe [MailboxExportJob])
-listMailboxExportJobsResponse_jobs = Lens.lens (\ListMailboxExportJobsResponse' {jobs} -> jobs) (\s@ListMailboxExportJobsResponse' {} a -> s {jobs = a} :: ListMailboxExportJobsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listMailboxExportJobsResponse_jobs :: Lens.Lens' ListMailboxExportJobsResponse (Core.Maybe [MailboxExportJob])
+listMailboxExportJobsResponse_jobs = Lens.lens (\ListMailboxExportJobsResponse' {jobs} -> jobs) (\s@ListMailboxExportJobsResponse' {} a -> s {jobs = a} :: ListMailboxExportJobsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listMailboxExportJobsResponse_httpStatus :: Lens.Lens' ListMailboxExportJobsResponse Prelude.Int
+listMailboxExportJobsResponse_httpStatus :: Lens.Lens' ListMailboxExportJobsResponse Core.Int
 listMailboxExportJobsResponse_httpStatus = Lens.lens (\ListMailboxExportJobsResponse' {httpStatus} -> httpStatus) (\s@ListMailboxExportJobsResponse' {} a -> s {httpStatus = a} :: ListMailboxExportJobsResponse)
 
-instance Prelude.NFData ListMailboxExportJobsResponse
+instance Core.NFData ListMailboxExportJobsResponse

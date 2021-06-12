@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Translate.DescribeTextTranslationJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Translate.Types
@@ -53,9 +52,9 @@ data DescribeTextTranslationJob = DescribeTextTranslationJob'
   { -- | The identifier that Amazon Translate generated for the job. The
     -- StartTextTranslationJob operation returns this identifier in its
     -- response.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTextTranslationJob' with all optional fields omitted.
@@ -70,7 +69,7 @@ data DescribeTextTranslationJob = DescribeTextTranslationJob'
 -- response.
 newDescribeTextTranslationJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeTextTranslationJob
 newDescribeTextTranslationJob pJobId_ =
   DescribeTextTranslationJob' {jobId = pJobId_}
@@ -78,66 +77,59 @@ newDescribeTextTranslationJob pJobId_ =
 -- | The identifier that Amazon Translate generated for the job. The
 -- StartTextTranslationJob operation returns this identifier in its
 -- response.
-describeTextTranslationJob_jobId :: Lens.Lens' DescribeTextTranslationJob Prelude.Text
+describeTextTranslationJob_jobId :: Lens.Lens' DescribeTextTranslationJob Core.Text
 describeTextTranslationJob_jobId = Lens.lens (\DescribeTextTranslationJob' {jobId} -> jobId) (\s@DescribeTextTranslationJob' {} a -> s {jobId = a} :: DescribeTextTranslationJob)
 
-instance
-  Prelude.AWSRequest
-    DescribeTextTranslationJob
-  where
+instance Core.AWSRequest DescribeTextTranslationJob where
   type
-    Rs DescribeTextTranslationJob =
+    AWSResponse DescribeTextTranslationJob =
       DescribeTextTranslationJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTextTranslationJobResponse'
-            Prelude.<$> (x Prelude..?> "TextTranslationJobProperties")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TextTranslationJobProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTextTranslationJob
+instance Core.Hashable DescribeTextTranslationJob
 
-instance Prelude.NFData DescribeTextTranslationJob
+instance Core.NFData DescribeTextTranslationJob
 
-instance Prelude.ToHeaders DescribeTextTranslationJob where
+instance Core.ToHeaders DescribeTextTranslationJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShineFrontendService_20170701.DescribeTextTranslationJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShineFrontendService_20170701.DescribeTextTranslationJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTextTranslationJob where
+instance Core.ToJSON DescribeTextTranslationJob where
   toJSON DescribeTextTranslationJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
 
-instance Prelude.ToPath DescribeTextTranslationJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTextTranslationJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTextTranslationJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTextTranslationJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeTextTranslationJobResponse' smart constructor.
 data DescribeTextTranslationJobResponse = DescribeTextTranslationJobResponse'
   { -- | An object that contains the properties associated with an asynchronous
     -- batch translation job.
-    textTranslationJobProperties :: Prelude.Maybe TextTranslationJobProperties,
+    textTranslationJobProperties :: Core.Maybe TextTranslationJobProperties,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTextTranslationJobResponse' with all optional fields omitted.
@@ -153,24 +145,24 @@ data DescribeTextTranslationJobResponse = DescribeTextTranslationJobResponse'
 -- 'httpStatus', 'describeTextTranslationJobResponse_httpStatus' - The response's http status code.
 newDescribeTextTranslationJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTextTranslationJobResponse
 newDescribeTextTranslationJobResponse pHttpStatus_ =
   DescribeTextTranslationJobResponse'
     { textTranslationJobProperties =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains the properties associated with an asynchronous
 -- batch translation job.
-describeTextTranslationJobResponse_textTranslationJobProperties :: Lens.Lens' DescribeTextTranslationJobResponse (Prelude.Maybe TextTranslationJobProperties)
+describeTextTranslationJobResponse_textTranslationJobProperties :: Lens.Lens' DescribeTextTranslationJobResponse (Core.Maybe TextTranslationJobProperties)
 describeTextTranslationJobResponse_textTranslationJobProperties = Lens.lens (\DescribeTextTranslationJobResponse' {textTranslationJobProperties} -> textTranslationJobProperties) (\s@DescribeTextTranslationJobResponse' {} a -> s {textTranslationJobProperties = a} :: DescribeTextTranslationJobResponse)
 
 -- | The response's http status code.
-describeTextTranslationJobResponse_httpStatus :: Lens.Lens' DescribeTextTranslationJobResponse Prelude.Int
+describeTextTranslationJobResponse_httpStatus :: Lens.Lens' DescribeTextTranslationJobResponse Core.Int
 describeTextTranslationJobResponse_httpStatus = Lens.lens (\DescribeTextTranslationJobResponse' {httpStatus} -> httpStatus) (\s@DescribeTextTranslationJobResponse' {} a -> s {httpStatus = a} :: DescribeTextTranslationJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeTextTranslationJobResponse

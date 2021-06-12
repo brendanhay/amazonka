@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -79,8 +78,8 @@ module Network.AWS.AWSHealth.DescribeEventDetailsForOrganization
 where
 
 import Network.AWS.AWSHealth.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -88,12 +87,12 @@ import qualified Network.AWS.Response as Response
 data DescribeEventDetailsForOrganization = DescribeEventDetailsForOrganization'
   { -- | The locale (language) to return information in. English (en) is the
     -- default and the only supported value at this time.
-    locale :: Prelude.Maybe Prelude.Text,
+    locale :: Core.Maybe Core.Text,
     -- | A set of JSON elements that includes the @awsAccountId@ and the
     -- @eventArn@.
-    organizationEventDetailFilters :: Prelude.NonEmpty EventAccountFilter
+    organizationEventDetailFilters :: Core.NonEmpty EventAccountFilter
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventDetailsForOrganization' with all optional fields omitted.
@@ -110,112 +109,106 @@ data DescribeEventDetailsForOrganization = DescribeEventDetailsForOrganization'
 -- @eventArn@.
 newDescribeEventDetailsForOrganization ::
   -- | 'organizationEventDetailFilters'
-  Prelude.NonEmpty EventAccountFilter ->
+  Core.NonEmpty EventAccountFilter ->
   DescribeEventDetailsForOrganization
 newDescribeEventDetailsForOrganization
   pOrganizationEventDetailFilters_ =
     DescribeEventDetailsForOrganization'
       { locale =
-          Prelude.Nothing,
+          Core.Nothing,
         organizationEventDetailFilters =
-          Prelude._Coerce
+          Lens._Coerce
             Lens.# pOrganizationEventDetailFilters_
       }
 
 -- | The locale (language) to return information in. English (en) is the
 -- default and the only supported value at this time.
-describeEventDetailsForOrganization_locale :: Lens.Lens' DescribeEventDetailsForOrganization (Prelude.Maybe Prelude.Text)
+describeEventDetailsForOrganization_locale :: Lens.Lens' DescribeEventDetailsForOrganization (Core.Maybe Core.Text)
 describeEventDetailsForOrganization_locale = Lens.lens (\DescribeEventDetailsForOrganization' {locale} -> locale) (\s@DescribeEventDetailsForOrganization' {} a -> s {locale = a} :: DescribeEventDetailsForOrganization)
 
 -- | A set of JSON elements that includes the @awsAccountId@ and the
 -- @eventArn@.
-describeEventDetailsForOrganization_organizationEventDetailFilters :: Lens.Lens' DescribeEventDetailsForOrganization (Prelude.NonEmpty EventAccountFilter)
-describeEventDetailsForOrganization_organizationEventDetailFilters = Lens.lens (\DescribeEventDetailsForOrganization' {organizationEventDetailFilters} -> organizationEventDetailFilters) (\s@DescribeEventDetailsForOrganization' {} a -> s {organizationEventDetailFilters = a} :: DescribeEventDetailsForOrganization) Prelude.. Prelude._Coerce
+describeEventDetailsForOrganization_organizationEventDetailFilters :: Lens.Lens' DescribeEventDetailsForOrganization (Core.NonEmpty EventAccountFilter)
+describeEventDetailsForOrganization_organizationEventDetailFilters = Lens.lens (\DescribeEventDetailsForOrganization' {organizationEventDetailFilters} -> organizationEventDetailFilters) (\s@DescribeEventDetailsForOrganization' {} a -> s {organizationEventDetailFilters = a} :: DescribeEventDetailsForOrganization) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeEventDetailsForOrganization
   where
   type
-    Rs DescribeEventDetailsForOrganization =
+    AWSResponse DescribeEventDetailsForOrganization =
       DescribeEventDetailsForOrganizationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEventDetailsForOrganizationResponse'
-            Prelude.<$> ( x Prelude..?> "successfulSet"
-                            Prelude..!@ Prelude.mempty
-                        )
-              Prelude.<*> ( x Prelude..?> "failedSet"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "successfulSet" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "failedSet" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeEventDetailsForOrganization
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeEventDetailsForOrganization
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeEventDetailsForOrganization
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSHealth_20160804.DescribeEventDetailsForOrganization" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSHealth_20160804.DescribeEventDetailsForOrganization" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeEventDetailsForOrganization
   where
   toJSON DescribeEventDetailsForOrganization' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("locale" Prelude..=) Prelude.<$> locale,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("locale" Core..=) Core.<$> locale,
+            Core.Just
               ( "organizationEventDetailFilters"
-                  Prelude..= organizationEventDetailFilters
+                  Core..= organizationEventDetailFilters
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeEventDetailsForOrganization
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeEventDetailsForOrganization
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEventDetailsForOrganizationResponse' smart constructor.
 data DescribeEventDetailsForOrganizationResponse = DescribeEventDetailsForOrganizationResponse'
   { -- | Information about the events that could be retrieved.
-    successfulSet :: Prelude.Maybe [OrganizationEventDetails],
+    successfulSet :: Core.Maybe [OrganizationEventDetails],
     -- | Error messages for any events that could not be retrieved.
-    failedSet :: Prelude.Maybe [OrganizationEventDetailsErrorItem],
+    failedSet :: Core.Maybe [OrganizationEventDetailsErrorItem],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventDetailsForOrganizationResponse' with all optional fields omitted.
@@ -232,29 +225,29 @@ data DescribeEventDetailsForOrganizationResponse = DescribeEventDetailsForOrgani
 -- 'httpStatus', 'describeEventDetailsForOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeEventDetailsForOrganizationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEventDetailsForOrganizationResponse
 newDescribeEventDetailsForOrganizationResponse
   pHttpStatus_ =
     DescribeEventDetailsForOrganizationResponse'
       { successfulSet =
-          Prelude.Nothing,
-        failedSet = Prelude.Nothing,
+          Core.Nothing,
+        failedSet = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the events that could be retrieved.
-describeEventDetailsForOrganizationResponse_successfulSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Prelude.Maybe [OrganizationEventDetails])
-describeEventDetailsForOrganizationResponse_successfulSet = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {successfulSet} -> successfulSet) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {successfulSet = a} :: DescribeEventDetailsForOrganizationResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEventDetailsForOrganizationResponse_successfulSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Core.Maybe [OrganizationEventDetails])
+describeEventDetailsForOrganizationResponse_successfulSet = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {successfulSet} -> successfulSet) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {successfulSet = a} :: DescribeEventDetailsForOrganizationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Error messages for any events that could not be retrieved.
-describeEventDetailsForOrganizationResponse_failedSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Prelude.Maybe [OrganizationEventDetailsErrorItem])
-describeEventDetailsForOrganizationResponse_failedSet = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {failedSet} -> failedSet) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {failedSet = a} :: DescribeEventDetailsForOrganizationResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEventDetailsForOrganizationResponse_failedSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Core.Maybe [OrganizationEventDetailsErrorItem])
+describeEventDetailsForOrganizationResponse_failedSet = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {failedSet} -> failedSet) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {failedSet = a} :: DescribeEventDetailsForOrganizationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEventDetailsForOrganizationResponse_httpStatus :: Lens.Lens' DescribeEventDetailsForOrganizationResponse Prelude.Int
+describeEventDetailsForOrganizationResponse_httpStatus :: Lens.Lens' DescribeEventDetailsForOrganizationResponse Core.Int
 describeEventDetailsForOrganizationResponse_httpStatus = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {httpStatus} -> httpStatus) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {httpStatus = a} :: DescribeEventDetailsForOrganizationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeEventDetailsForOrganizationResponse

@@ -15,44 +15,43 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Waiters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Lens
 import Network.AWS.ElasticTranscoder.ReadJob
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.ElasticTranscoder.ReadJob' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
-newJobComplete :: Waiter.Wait ReadJob
+newJobComplete :: Core.Wait ReadJob
 newJobComplete =
-  Waiter.Wait
-    { Waiter._waitName = "JobComplete",
-      Waiter._waitAttempts = 120,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "JobComplete",
+      Core._waitAttempts = 120,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "Complete"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( readJobResponse_job
-                Prelude.. job'_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. job'_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Canceled"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( readJobResponse_job
-                Prelude.. job'_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. job'_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Error"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( readJobResponse_job
-                Prelude.. job'_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. job'_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }

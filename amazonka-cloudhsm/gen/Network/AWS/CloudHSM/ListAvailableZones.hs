@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.CloudHSM.ListAvailableZones
 where
 
 import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,7 +62,7 @@ import qualified Network.AWS.Response as Response
 data ListAvailableZones = ListAvailableZones'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAvailableZones' with all optional fields omitted.
@@ -73,57 +72,54 @@ newListAvailableZones ::
   ListAvailableZones
 newListAvailableZones = ListAvailableZones'
 
-instance Prelude.AWSRequest ListAvailableZones where
+instance Core.AWSRequest ListAvailableZones where
   type
-    Rs ListAvailableZones =
+    AWSResponse ListAvailableZones =
       ListAvailableZonesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAvailableZonesResponse'
-            Prelude.<$> (x Prelude..?> "AZList" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "AZList" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListAvailableZones
+instance Core.Hashable ListAvailableZones
 
-instance Prelude.NFData ListAvailableZones
+instance Core.NFData ListAvailableZones
 
-instance Prelude.ToHeaders ListAvailableZones where
+instance Core.ToHeaders ListAvailableZones where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.ListAvailableZones" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CloudHsmFrontendService.ListAvailableZones" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListAvailableZones where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON ListAvailableZones where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath ListAvailableZones where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListAvailableZones where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListAvailableZones where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListAvailableZones where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAvailableZonesResponse' smart constructor.
 data ListAvailableZonesResponse = ListAvailableZonesResponse'
   { -- | The list of Availability Zones that have available AWS CloudHSM
     -- capacity.
-    aZList :: Prelude.Maybe [Prelude.Text],
+    aZList :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAvailableZonesResponse' with all optional fields omitted.
@@ -139,22 +135,21 @@ data ListAvailableZonesResponse = ListAvailableZonesResponse'
 -- 'httpStatus', 'listAvailableZonesResponse_httpStatus' - The response's http status code.
 newListAvailableZonesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAvailableZonesResponse
 newListAvailableZonesResponse pHttpStatus_ =
   ListAvailableZonesResponse'
-    { aZList =
-        Prelude.Nothing,
+    { aZList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of Availability Zones that have available AWS CloudHSM
 -- capacity.
-listAvailableZonesResponse_aZList :: Lens.Lens' ListAvailableZonesResponse (Prelude.Maybe [Prelude.Text])
-listAvailableZonesResponse_aZList = Lens.lens (\ListAvailableZonesResponse' {aZList} -> aZList) (\s@ListAvailableZonesResponse' {} a -> s {aZList = a} :: ListAvailableZonesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAvailableZonesResponse_aZList :: Lens.Lens' ListAvailableZonesResponse (Core.Maybe [Core.Text])
+listAvailableZonesResponse_aZList = Lens.lens (\ListAvailableZonesResponse' {aZList} -> aZList) (\s@ListAvailableZonesResponse' {} a -> s {aZList = a} :: ListAvailableZonesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAvailableZonesResponse_httpStatus :: Lens.Lens' ListAvailableZonesResponse Prelude.Int
+listAvailableZonesResponse_httpStatus :: Lens.Lens' ListAvailableZonesResponse Core.Int
 listAvailableZonesResponse_httpStatus = Lens.lens (\ListAvailableZonesResponse' {httpStatus} -> httpStatus) (\s@ListAvailableZonesResponse' {} a -> s {httpStatus = a} :: ListAvailableZonesResponse)
 
-instance Prelude.NFData ListAvailableZonesResponse
+instance Core.NFData ListAvailableZonesResponse

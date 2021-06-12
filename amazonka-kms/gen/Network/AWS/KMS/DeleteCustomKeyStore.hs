@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -93,9 +92,9 @@ module Network.AWS.KMS.DeleteCustomKeyStore
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -103,9 +102,9 @@ import qualified Network.AWS.Response as Response
 data DeleteCustomKeyStore = DeleteCustomKeyStore'
   { -- | Enter the ID of the custom key store you want to delete. To find the ID
     -- of a custom key store, use the DescribeCustomKeyStores operation.
-    customKeyStoreId :: Prelude.Text
+    customKeyStoreId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomKeyStore' with all optional fields omitted.
@@ -119,7 +118,7 @@ data DeleteCustomKeyStore = DeleteCustomKeyStore'
 -- of a custom key store, use the DescribeCustomKeyStores operation.
 newDeleteCustomKeyStore ::
   -- | 'customKeyStoreId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCustomKeyStore
 newDeleteCustomKeyStore pCustomKeyStoreId_ =
   DeleteCustomKeyStore'
@@ -129,61 +128,59 @@ newDeleteCustomKeyStore pCustomKeyStoreId_ =
 
 -- | Enter the ID of the custom key store you want to delete. To find the ID
 -- of a custom key store, use the DescribeCustomKeyStores operation.
-deleteCustomKeyStore_customKeyStoreId :: Lens.Lens' DeleteCustomKeyStore Prelude.Text
+deleteCustomKeyStore_customKeyStoreId :: Lens.Lens' DeleteCustomKeyStore Core.Text
 deleteCustomKeyStore_customKeyStoreId = Lens.lens (\DeleteCustomKeyStore' {customKeyStoreId} -> customKeyStoreId) (\s@DeleteCustomKeyStore' {} a -> s {customKeyStoreId = a} :: DeleteCustomKeyStore)
 
-instance Prelude.AWSRequest DeleteCustomKeyStore where
+instance Core.AWSRequest DeleteCustomKeyStore where
   type
-    Rs DeleteCustomKeyStore =
+    AWSResponse DeleteCustomKeyStore =
       DeleteCustomKeyStoreResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCustomKeyStoreResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCustomKeyStore
+instance Core.Hashable DeleteCustomKeyStore
 
-instance Prelude.NFData DeleteCustomKeyStore
+instance Core.NFData DeleteCustomKeyStore
 
-instance Prelude.ToHeaders DeleteCustomKeyStore where
+instance Core.ToHeaders DeleteCustomKeyStore where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "TrentService.DeleteCustomKeyStore" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "TrentService.DeleteCustomKeyStore" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteCustomKeyStore where
+instance Core.ToJSON DeleteCustomKeyStore where
   toJSON DeleteCustomKeyStore' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CustomKeyStoreId" Prelude..= customKeyStoreId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CustomKeyStoreId" Core..= customKeyStoreId)
           ]
       )
 
-instance Prelude.ToPath DeleteCustomKeyStore where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteCustomKeyStore where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteCustomKeyStore where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteCustomKeyStore where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteCustomKeyStoreResponse' smart constructor.
 data DeleteCustomKeyStoreResponse = DeleteCustomKeyStoreResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomKeyStoreResponse' with all optional fields omitted.
@@ -196,7 +193,7 @@ data DeleteCustomKeyStoreResponse = DeleteCustomKeyStoreResponse'
 -- 'httpStatus', 'deleteCustomKeyStoreResponse_httpStatus' - The response's http status code.
 newDeleteCustomKeyStoreResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteCustomKeyStoreResponse
 newDeleteCustomKeyStoreResponse pHttpStatus_ =
   DeleteCustomKeyStoreResponse'
@@ -205,7 +202,7 @@ newDeleteCustomKeyStoreResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteCustomKeyStoreResponse_httpStatus :: Lens.Lens' DeleteCustomKeyStoreResponse Prelude.Int
+deleteCustomKeyStoreResponse_httpStatus :: Lens.Lens' DeleteCustomKeyStoreResponse Core.Int
 deleteCustomKeyStoreResponse_httpStatus = Lens.lens (\DeleteCustomKeyStoreResponse' {httpStatus} -> httpStatus) (\s@DeleteCustomKeyStoreResponse' {} a -> s {httpStatus = a} :: DeleteCustomKeyStoreResponse)
 
-instance Prelude.NFData DeleteCustomKeyStoreResponse
+instance Core.NFData DeleteCustomKeyStoreResponse

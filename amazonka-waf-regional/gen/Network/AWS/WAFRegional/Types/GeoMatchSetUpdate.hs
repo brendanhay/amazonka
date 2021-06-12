@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.GeoMatchSetUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ChangeAction
 import Network.AWS.WAFRegional.Types.GeoMatchConstraint
 
@@ -45,7 +44,7 @@ data GeoMatchSetUpdate = GeoMatchSetUpdate'
     -- search for.
     geoMatchConstraint :: GeoMatchConstraint
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GeoMatchSetUpdate' with all optional fields omitted.
@@ -80,18 +79,16 @@ geoMatchSetUpdate_action = Lens.lens (\GeoMatchSetUpdate' {action} -> action) (\
 geoMatchSetUpdate_geoMatchConstraint :: Lens.Lens' GeoMatchSetUpdate GeoMatchConstraint
 geoMatchSetUpdate_geoMatchConstraint = Lens.lens (\GeoMatchSetUpdate' {geoMatchConstraint} -> geoMatchConstraint) (\s@GeoMatchSetUpdate' {} a -> s {geoMatchConstraint = a} :: GeoMatchSetUpdate)
 
-instance Prelude.Hashable GeoMatchSetUpdate
+instance Core.Hashable GeoMatchSetUpdate
 
-instance Prelude.NFData GeoMatchSetUpdate
+instance Core.NFData GeoMatchSetUpdate
 
-instance Prelude.ToJSON GeoMatchSetUpdate where
+instance Core.ToJSON GeoMatchSetUpdate where
   toJSON GeoMatchSetUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Prelude..= action),
-            Prelude.Just
-              ( "GeoMatchConstraint"
-                  Prelude..= geoMatchConstraint
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just
+              ("GeoMatchConstraint" Core..= geoMatchConstraint)
           ]
       )

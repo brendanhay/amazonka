@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,8 @@ module Network.AWS.SageMaker.ListTrials
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -65,27 +63,27 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListTrials' smart constructor.
 data ListTrials = ListTrials'
   { -- | A filter that returns only trials created after the specified time.
-    createdAfter :: Prelude.Maybe Prelude.POSIX,
+    createdAfter :: Core.Maybe Core.POSIX,
     -- | The sort order. The default value is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
+    sortOrder :: Core.Maybe SortOrder,
     -- | If the previous call to @ListTrials@ didn\'t return the full set of
     -- trials, the call returns a token for getting the next set of trials.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A filter that returns only trials created before the specified time.
-    createdBefore :: Prelude.Maybe Prelude.POSIX,
+    createdBefore :: Core.Maybe Core.POSIX,
     -- | The maximum number of trials to return in the response. The default
     -- value is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The property used to sort results. The default value is @CreationTime@.
-    sortBy :: Prelude.Maybe SortTrialsBy,
+    sortBy :: Core.Maybe SortTrialsBy,
     -- | A filter that returns only trials that are part of the specified
     -- experiment.
-    experimentName :: Prelude.Maybe Prelude.Text,
+    experimentName :: Core.Maybe Core.Text,
     -- | A filter that returns only trials that are associated with the specified
     -- trial component.
-    trialComponentName :: Prelude.Maybe Prelude.Text
+    trialComponentName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTrials' with all optional fields omitted.
@@ -118,138 +116,130 @@ newListTrials ::
   ListTrials
 newListTrials =
   ListTrials'
-    { createdAfter = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      createdBefore = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      experimentName = Prelude.Nothing,
-      trialComponentName = Prelude.Nothing
+    { createdAfter = Core.Nothing,
+      sortOrder = Core.Nothing,
+      nextToken = Core.Nothing,
+      createdBefore = Core.Nothing,
+      maxResults = Core.Nothing,
+      sortBy = Core.Nothing,
+      experimentName = Core.Nothing,
+      trialComponentName = Core.Nothing
     }
 
 -- | A filter that returns only trials created after the specified time.
-listTrials_createdAfter :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.UTCTime)
-listTrials_createdAfter = Lens.lens (\ListTrials' {createdAfter} -> createdAfter) (\s@ListTrials' {} a -> s {createdAfter = a} :: ListTrials) Prelude.. Lens.mapping Prelude._Time
+listTrials_createdAfter :: Lens.Lens' ListTrials (Core.Maybe Core.UTCTime)
+listTrials_createdAfter = Lens.lens (\ListTrials' {createdAfter} -> createdAfter) (\s@ListTrials' {} a -> s {createdAfter = a} :: ListTrials) Core.. Lens.mapping Core._Time
 
 -- | The sort order. The default value is @Descending@.
-listTrials_sortOrder :: Lens.Lens' ListTrials (Prelude.Maybe SortOrder)
+listTrials_sortOrder :: Lens.Lens' ListTrials (Core.Maybe SortOrder)
 listTrials_sortOrder = Lens.lens (\ListTrials' {sortOrder} -> sortOrder) (\s@ListTrials' {} a -> s {sortOrder = a} :: ListTrials)
 
 -- | If the previous call to @ListTrials@ didn\'t return the full set of
 -- trials, the call returns a token for getting the next set of trials.
-listTrials_nextToken :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.Text)
+listTrials_nextToken :: Lens.Lens' ListTrials (Core.Maybe Core.Text)
 listTrials_nextToken = Lens.lens (\ListTrials' {nextToken} -> nextToken) (\s@ListTrials' {} a -> s {nextToken = a} :: ListTrials)
 
 -- | A filter that returns only trials created before the specified time.
-listTrials_createdBefore :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.UTCTime)
-listTrials_createdBefore = Lens.lens (\ListTrials' {createdBefore} -> createdBefore) (\s@ListTrials' {} a -> s {createdBefore = a} :: ListTrials) Prelude.. Lens.mapping Prelude._Time
+listTrials_createdBefore :: Lens.Lens' ListTrials (Core.Maybe Core.UTCTime)
+listTrials_createdBefore = Lens.lens (\ListTrials' {createdBefore} -> createdBefore) (\s@ListTrials' {} a -> s {createdBefore = a} :: ListTrials) Core.. Lens.mapping Core._Time
 
 -- | The maximum number of trials to return in the response. The default
 -- value is 10.
-listTrials_maxResults :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.Natural)
+listTrials_maxResults :: Lens.Lens' ListTrials (Core.Maybe Core.Natural)
 listTrials_maxResults = Lens.lens (\ListTrials' {maxResults} -> maxResults) (\s@ListTrials' {} a -> s {maxResults = a} :: ListTrials)
 
 -- | The property used to sort results. The default value is @CreationTime@.
-listTrials_sortBy :: Lens.Lens' ListTrials (Prelude.Maybe SortTrialsBy)
+listTrials_sortBy :: Lens.Lens' ListTrials (Core.Maybe SortTrialsBy)
 listTrials_sortBy = Lens.lens (\ListTrials' {sortBy} -> sortBy) (\s@ListTrials' {} a -> s {sortBy = a} :: ListTrials)
 
 -- | A filter that returns only trials that are part of the specified
 -- experiment.
-listTrials_experimentName :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.Text)
+listTrials_experimentName :: Lens.Lens' ListTrials (Core.Maybe Core.Text)
 listTrials_experimentName = Lens.lens (\ListTrials' {experimentName} -> experimentName) (\s@ListTrials' {} a -> s {experimentName = a} :: ListTrials)
 
 -- | A filter that returns only trials that are associated with the specified
 -- trial component.
-listTrials_trialComponentName :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.Text)
+listTrials_trialComponentName :: Lens.Lens' ListTrials (Core.Maybe Core.Text)
 listTrials_trialComponentName = Lens.lens (\ListTrials' {trialComponentName} -> trialComponentName) (\s@ListTrials' {} a -> s {trialComponentName = a} :: ListTrials)
 
-instance Pager.AWSPager ListTrials where
+instance Core.AWSPager ListTrials where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listTrialsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTrialsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listTrialsResponse_trialSummaries
-              Prelude.. Lens._Just
+            Lens.^? listTrialsResponse_trialSummaries Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTrials_nextToken
           Lens..~ rs
-          Lens.^? listTrialsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTrialsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTrials where
-  type Rs ListTrials = ListTrialsResponse
+instance Core.AWSRequest ListTrials where
+  type AWSResponse ListTrials = ListTrialsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTrialsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "TrialSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "TrialSummaries" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTrials
+instance Core.Hashable ListTrials
 
-instance Prelude.NFData ListTrials
+instance Core.NFData ListTrials
 
-instance Prelude.ToHeaders ListTrials where
+instance Core.ToHeaders ListTrials where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.ListTrials" :: Prelude.ByteString),
+              Core.=# ("SageMaker.ListTrials" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTrials where
+instance Core.ToJSON ListTrials where
   toJSON ListTrials' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CreatedAfter" Prelude..=)
-              Prelude.<$> createdAfter,
-            ("SortOrder" Prelude..=) Prelude.<$> sortOrder,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("CreatedBefore" Prelude..=)
-              Prelude.<$> createdBefore,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("SortBy" Prelude..=) Prelude.<$> sortBy,
-            ("ExperimentName" Prelude..=)
-              Prelude.<$> experimentName,
-            ("TrialComponentName" Prelude..=)
-              Prelude.<$> trialComponentName
+    Core.object
+      ( Core.catMaybes
+          [ ("CreatedAfter" Core..=) Core.<$> createdAfter,
+            ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("CreatedBefore" Core..=) Core.<$> createdBefore,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("ExperimentName" Core..=) Core.<$> experimentName,
+            ("TrialComponentName" Core..=)
+              Core.<$> trialComponentName
           ]
       )
 
-instance Prelude.ToPath ListTrials where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTrials where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTrials where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTrials where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTrialsResponse' smart constructor.
 data ListTrialsResponse = ListTrialsResponse'
   { -- | A token for getting the next set of trials, if there are any.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of the summaries of your trials.
-    trialSummaries :: Prelude.Maybe [TrialSummary],
+    trialSummaries :: Core.Maybe [TrialSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTrialsResponse' with all optional fields omitted.
@@ -266,25 +256,25 @@ data ListTrialsResponse = ListTrialsResponse'
 -- 'httpStatus', 'listTrialsResponse_httpStatus' - The response's http status code.
 newListTrialsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTrialsResponse
 newListTrialsResponse pHttpStatus_ =
   ListTrialsResponse'
-    { nextToken = Prelude.Nothing,
-      trialSummaries = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      trialSummaries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token for getting the next set of trials, if there are any.
-listTrialsResponse_nextToken :: Lens.Lens' ListTrialsResponse (Prelude.Maybe Prelude.Text)
+listTrialsResponse_nextToken :: Lens.Lens' ListTrialsResponse (Core.Maybe Core.Text)
 listTrialsResponse_nextToken = Lens.lens (\ListTrialsResponse' {nextToken} -> nextToken) (\s@ListTrialsResponse' {} a -> s {nextToken = a} :: ListTrialsResponse)
 
 -- | A list of the summaries of your trials.
-listTrialsResponse_trialSummaries :: Lens.Lens' ListTrialsResponse (Prelude.Maybe [TrialSummary])
-listTrialsResponse_trialSummaries = Lens.lens (\ListTrialsResponse' {trialSummaries} -> trialSummaries) (\s@ListTrialsResponse' {} a -> s {trialSummaries = a} :: ListTrialsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTrialsResponse_trialSummaries :: Lens.Lens' ListTrialsResponse (Core.Maybe [TrialSummary])
+listTrialsResponse_trialSummaries = Lens.lens (\ListTrialsResponse' {trialSummaries} -> trialSummaries) (\s@ListTrialsResponse' {} a -> s {trialSummaries = a} :: ListTrialsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTrialsResponse_httpStatus :: Lens.Lens' ListTrialsResponse Prelude.Int
+listTrialsResponse_httpStatus :: Lens.Lens' ListTrialsResponse Core.Int
 listTrialsResponse_httpStatus = Lens.lens (\ListTrialsResponse' {httpStatus} -> httpStatus) (\s@ListTrialsResponse' {} a -> s {httpStatus = a} :: ListTrialsResponse)
 
-instance Prelude.NFData ListTrialsResponse
+instance Core.NFData ListTrialsResponse

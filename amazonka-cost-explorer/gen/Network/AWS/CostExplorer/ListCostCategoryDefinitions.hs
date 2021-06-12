@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.CostExplorer.ListCostCategoryDefinitions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +60,13 @@ data ListCostCategoryDefinitions = ListCostCategoryDefinitions'
   { -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The number of entries a paginated response contains.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The date when the Cost Category was effective.
-    effectiveOn :: Prelude.Maybe Prelude.Text
+    effectiveOn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCostCategoryDefinitions' with all optional fields omitted.
@@ -89,95 +88,87 @@ newListCostCategoryDefinitions ::
 newListCostCategoryDefinitions =
   ListCostCategoryDefinitions'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      effectiveOn = Prelude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing,
+      effectiveOn = Core.Nothing
     }
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
-listCostCategoryDefinitions_nextToken :: Lens.Lens' ListCostCategoryDefinitions (Prelude.Maybe Prelude.Text)
+listCostCategoryDefinitions_nextToken :: Lens.Lens' ListCostCategoryDefinitions (Core.Maybe Core.Text)
 listCostCategoryDefinitions_nextToken = Lens.lens (\ListCostCategoryDefinitions' {nextToken} -> nextToken) (\s@ListCostCategoryDefinitions' {} a -> s {nextToken = a} :: ListCostCategoryDefinitions)
 
 -- | The number of entries a paginated response contains.
-listCostCategoryDefinitions_maxResults :: Lens.Lens' ListCostCategoryDefinitions (Prelude.Maybe Prelude.Natural)
+listCostCategoryDefinitions_maxResults :: Lens.Lens' ListCostCategoryDefinitions (Core.Maybe Core.Natural)
 listCostCategoryDefinitions_maxResults = Lens.lens (\ListCostCategoryDefinitions' {maxResults} -> maxResults) (\s@ListCostCategoryDefinitions' {} a -> s {maxResults = a} :: ListCostCategoryDefinitions)
 
 -- | The date when the Cost Category was effective.
-listCostCategoryDefinitions_effectiveOn :: Lens.Lens' ListCostCategoryDefinitions (Prelude.Maybe Prelude.Text)
+listCostCategoryDefinitions_effectiveOn :: Lens.Lens' ListCostCategoryDefinitions (Core.Maybe Core.Text)
 listCostCategoryDefinitions_effectiveOn = Lens.lens (\ListCostCategoryDefinitions' {effectiveOn} -> effectiveOn) (\s@ListCostCategoryDefinitions' {} a -> s {effectiveOn = a} :: ListCostCategoryDefinitions)
 
-instance
-  Prelude.AWSRequest
-    ListCostCategoryDefinitions
-  where
+instance Core.AWSRequest ListCostCategoryDefinitions where
   type
-    Rs ListCostCategoryDefinitions =
+    AWSResponse ListCostCategoryDefinitions =
       ListCostCategoryDefinitionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListCostCategoryDefinitionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "CostCategoryReferences"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "CostCategoryReferences"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListCostCategoryDefinitions
+instance Core.Hashable ListCostCategoryDefinitions
 
-instance Prelude.NFData ListCostCategoryDefinitions
+instance Core.NFData ListCostCategoryDefinitions
 
-instance
-  Prelude.ToHeaders
-    ListCostCategoryDefinitions
-  where
+instance Core.ToHeaders ListCostCategoryDefinitions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSInsightsIndexService.ListCostCategoryDefinitions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSInsightsIndexService.ListCostCategoryDefinitions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListCostCategoryDefinitions where
+instance Core.ToJSON ListCostCategoryDefinitions where
   toJSON ListCostCategoryDefinitions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("EffectiveOn" Prelude..=) Prelude.<$> effectiveOn
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("EffectiveOn" Core..=) Core.<$> effectiveOn
           ]
       )
 
-instance Prelude.ToPath ListCostCategoryDefinitions where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListCostCategoryDefinitions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListCostCategoryDefinitions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListCostCategoryDefinitions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListCostCategoryDefinitionsResponse' smart constructor.
 data ListCostCategoryDefinitionsResponse = ListCostCategoryDefinitionsResponse'
   { -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A reference to a Cost Category containing enough information to identify
     -- the Cost Category.
-    costCategoryReferences :: Prelude.Maybe [CostCategoryReference],
+    costCategoryReferences :: Core.Maybe [CostCategoryReference],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCostCategoryDefinitionsResponse' with all optional fields omitted.
@@ -197,32 +188,31 @@ data ListCostCategoryDefinitionsResponse = ListCostCategoryDefinitionsResponse'
 -- 'httpStatus', 'listCostCategoryDefinitionsResponse_httpStatus' - The response's http status code.
 newListCostCategoryDefinitionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListCostCategoryDefinitionsResponse
 newListCostCategoryDefinitionsResponse pHttpStatus_ =
   ListCostCategoryDefinitionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      costCategoryReferences =
-        Prelude.Nothing,
+        Core.Nothing,
+      costCategoryReferences = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
-listCostCategoryDefinitionsResponse_nextToken :: Lens.Lens' ListCostCategoryDefinitionsResponse (Prelude.Maybe Prelude.Text)
+listCostCategoryDefinitionsResponse_nextToken :: Lens.Lens' ListCostCategoryDefinitionsResponse (Core.Maybe Core.Text)
 listCostCategoryDefinitionsResponse_nextToken = Lens.lens (\ListCostCategoryDefinitionsResponse' {nextToken} -> nextToken) (\s@ListCostCategoryDefinitionsResponse' {} a -> s {nextToken = a} :: ListCostCategoryDefinitionsResponse)
 
 -- | A reference to a Cost Category containing enough information to identify
 -- the Cost Category.
-listCostCategoryDefinitionsResponse_costCategoryReferences :: Lens.Lens' ListCostCategoryDefinitionsResponse (Prelude.Maybe [CostCategoryReference])
-listCostCategoryDefinitionsResponse_costCategoryReferences = Lens.lens (\ListCostCategoryDefinitionsResponse' {costCategoryReferences} -> costCategoryReferences) (\s@ListCostCategoryDefinitionsResponse' {} a -> s {costCategoryReferences = a} :: ListCostCategoryDefinitionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listCostCategoryDefinitionsResponse_costCategoryReferences :: Lens.Lens' ListCostCategoryDefinitionsResponse (Core.Maybe [CostCategoryReference])
+listCostCategoryDefinitionsResponse_costCategoryReferences = Lens.lens (\ListCostCategoryDefinitionsResponse' {costCategoryReferences} -> costCategoryReferences) (\s@ListCostCategoryDefinitionsResponse' {} a -> s {costCategoryReferences = a} :: ListCostCategoryDefinitionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCostCategoryDefinitionsResponse_httpStatus :: Lens.Lens' ListCostCategoryDefinitionsResponse Prelude.Int
+listCostCategoryDefinitionsResponse_httpStatus :: Lens.Lens' ListCostCategoryDefinitionsResponse Core.Int
 listCostCategoryDefinitionsResponse_httpStatus = Lens.lens (\ListCostCategoryDefinitionsResponse' {httpStatus} -> httpStatus) (\s@ListCostCategoryDefinitionsResponse' {} a -> s {httpStatus = a} :: ListCostCategoryDefinitionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListCostCategoryDefinitionsResponse

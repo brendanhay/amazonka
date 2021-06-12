@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.BucketLoggingStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.LoggingEnabled
 
@@ -29,9 +28,9 @@ import Network.AWS.S3.Types.LoggingEnabled
 --
 -- /See:/ 'newBucketLoggingStatus' smart constructor.
 data BucketLoggingStatus = BucketLoggingStatus'
-  { loggingEnabled :: Prelude.Maybe LoggingEnabled
+  { loggingEnabled :: Core.Maybe LoggingEnabled
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BucketLoggingStatus' with all optional fields omitted.
@@ -45,20 +44,17 @@ data BucketLoggingStatus = BucketLoggingStatus'
 newBucketLoggingStatus ::
   BucketLoggingStatus
 newBucketLoggingStatus =
-  BucketLoggingStatus'
-    { loggingEnabled =
-        Prelude.Nothing
-    }
+  BucketLoggingStatus' {loggingEnabled = Core.Nothing}
 
 -- | Undocumented member.
-bucketLoggingStatus_loggingEnabled :: Lens.Lens' BucketLoggingStatus (Prelude.Maybe LoggingEnabled)
+bucketLoggingStatus_loggingEnabled :: Lens.Lens' BucketLoggingStatus (Core.Maybe LoggingEnabled)
 bucketLoggingStatus_loggingEnabled = Lens.lens (\BucketLoggingStatus' {loggingEnabled} -> loggingEnabled) (\s@BucketLoggingStatus' {} a -> s {loggingEnabled = a} :: BucketLoggingStatus)
 
-instance Prelude.Hashable BucketLoggingStatus
+instance Core.Hashable BucketLoggingStatus
 
-instance Prelude.NFData BucketLoggingStatus
+instance Core.NFData BucketLoggingStatus
 
-instance Prelude.ToXML BucketLoggingStatus where
+instance Core.ToXML BucketLoggingStatus where
   toXML BucketLoggingStatus' {..} =
-    Prelude.mconcat
-      ["LoggingEnabled" Prelude.@= loggingEnabled]
+    Core.mconcat
+      ["LoggingEnabled" Core.@= loggingEnabled]

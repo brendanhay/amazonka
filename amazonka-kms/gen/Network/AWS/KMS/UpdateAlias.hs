@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -87,9 +86,9 @@ module Network.AWS.KMS.UpdateAlias
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -99,7 +98,7 @@ data UpdateAlias = UpdateAlias'
     -- with @alias\/@ followed by the alias name, such as
     -- @alias\/ExampleAlias@. You cannot use UpdateAlias to change the alias
     -- name.
-    aliasName :: Prelude.Text,
+    aliasName :: Core.Text,
     -- | Identifies the
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk customer managed CMK>
     -- to associate with the alias. You don\'t have permission to associate an
@@ -122,9 +121,9 @@ data UpdateAlias = UpdateAlias'
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
     --
     -- To verify that the alias is mapped to the correct CMK, use ListAliases.
-    targetKeyId :: Prelude.Text
+    targetKeyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAlias' with all optional fields omitted.
@@ -163,9 +162,9 @@ data UpdateAlias = UpdateAlias'
 -- To verify that the alias is mapped to the correct CMK, use ListAliases.
 newUpdateAlias ::
   -- | 'aliasName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetKeyId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateAlias
 newUpdateAlias pAliasName_ pTargetKeyId_ =
   UpdateAlias'
@@ -177,7 +176,7 @@ newUpdateAlias pAliasName_ pTargetKeyId_ =
 -- with @alias\/@ followed by the alias name, such as
 -- @alias\/ExampleAlias@. You cannot use UpdateAlias to change the alias
 -- name.
-updateAlias_aliasName :: Lens.Lens' UpdateAlias Prelude.Text
+updateAlias_aliasName :: Lens.Lens' UpdateAlias Core.Text
 updateAlias_aliasName = Lens.lens (\UpdateAlias' {aliasName} -> aliasName) (\s@UpdateAlias' {} a -> s {aliasName = a} :: UpdateAlias)
 
 -- | Identifies the
@@ -202,51 +201,49 @@ updateAlias_aliasName = Lens.lens (\UpdateAlias' {aliasName} -> aliasName) (\s@U
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 --
 -- To verify that the alias is mapped to the correct CMK, use ListAliases.
-updateAlias_targetKeyId :: Lens.Lens' UpdateAlias Prelude.Text
+updateAlias_targetKeyId :: Lens.Lens' UpdateAlias Core.Text
 updateAlias_targetKeyId = Lens.lens (\UpdateAlias' {targetKeyId} -> targetKeyId) (\s@UpdateAlias' {} a -> s {targetKeyId = a} :: UpdateAlias)
 
-instance Prelude.AWSRequest UpdateAlias where
-  type Rs UpdateAlias = UpdateAliasResponse
+instance Core.AWSRequest UpdateAlias where
+  type AWSResponse UpdateAlias = UpdateAliasResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull UpdateAliasResponse'
 
-instance Prelude.Hashable UpdateAlias
+instance Core.Hashable UpdateAlias
 
-instance Prelude.NFData UpdateAlias
+instance Core.NFData UpdateAlias
 
-instance Prelude.ToHeaders UpdateAlias where
+instance Core.ToHeaders UpdateAlias where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("TrentService.UpdateAlias" :: Prelude.ByteString),
+              Core.=# ("TrentService.UpdateAlias" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateAlias where
+instance Core.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AliasName" Prelude..= aliasName),
-            Prelude.Just ("TargetKeyId" Prelude..= targetKeyId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AliasName" Core..= aliasName),
+            Core.Just ("TargetKeyId" Core..= targetKeyId)
           ]
       )
 
-instance Prelude.ToPath UpdateAlias where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateAlias where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateAlias where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateAlias where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateAliasResponse' smart constructor.
 data UpdateAliasResponse = UpdateAliasResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAliasResponse' with all optional fields omitted.
@@ -256,4 +253,4 @@ newUpdateAliasResponse ::
   UpdateAliasResponse
 newUpdateAliasResponse = UpdateAliasResponse'
 
-instance Prelude.NFData UpdateAliasResponse
+instance Core.NFData UpdateAliasResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.RoutingStrategy where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.RoutingStrategyType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The routing configuration for a fleet alias.
 --
@@ -42,9 +41,9 @@ import qualified Network.AWS.Prelude as Prelude
 data RoutingStrategy = RoutingStrategy'
   { -- | The unique identifier for a fleet that the alias points to. This value
     -- is the fleet ID, not the fleet ARN.
-    fleetId :: Prelude.Maybe Prelude.Text,
+    fleetId :: Core.Maybe Core.Text,
     -- | The message text to be used with a terminal routing strategy.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The type of routing strategy for the alias.
     --
     -- Possible routing types include the following:
@@ -56,9 +55,9 @@ data RoutingStrategy = RoutingStrategy'
     --     be used to display a message to the user. A terminal alias throws a
     --     TerminalRoutingStrategyException with the RoutingStrategy message
     --     embedded.
-    type' :: Prelude.Maybe RoutingStrategyType
+    type' :: Core.Maybe RoutingStrategyType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RoutingStrategy' with all optional fields omitted.
@@ -88,18 +87,18 @@ newRoutingStrategy ::
   RoutingStrategy
 newRoutingStrategy =
   RoutingStrategy'
-    { fleetId = Prelude.Nothing,
-      message = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { fleetId = Core.Nothing,
+      message = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The unique identifier for a fleet that the alias points to. This value
 -- is the fleet ID, not the fleet ARN.
-routingStrategy_fleetId :: Lens.Lens' RoutingStrategy (Prelude.Maybe Prelude.Text)
+routingStrategy_fleetId :: Lens.Lens' RoutingStrategy (Core.Maybe Core.Text)
 routingStrategy_fleetId = Lens.lens (\RoutingStrategy' {fleetId} -> fleetId) (\s@RoutingStrategy' {} a -> s {fleetId = a} :: RoutingStrategy)
 
 -- | The message text to be used with a terminal routing strategy.
-routingStrategy_message :: Lens.Lens' RoutingStrategy (Prelude.Maybe Prelude.Text)
+routingStrategy_message :: Lens.Lens' RoutingStrategy (Core.Maybe Core.Text)
 routingStrategy_message = Lens.lens (\RoutingStrategy' {message} -> message) (\s@RoutingStrategy' {} a -> s {message = a} :: RoutingStrategy)
 
 -- | The type of routing strategy for the alias.
@@ -113,30 +112,30 @@ routingStrategy_message = Lens.lens (\RoutingStrategy' {message} -> message) (\s
 --     be used to display a message to the user. A terminal alias throws a
 --     TerminalRoutingStrategyException with the RoutingStrategy message
 --     embedded.
-routingStrategy_type :: Lens.Lens' RoutingStrategy (Prelude.Maybe RoutingStrategyType)
+routingStrategy_type :: Lens.Lens' RoutingStrategy (Core.Maybe RoutingStrategyType)
 routingStrategy_type = Lens.lens (\RoutingStrategy' {type'} -> type') (\s@RoutingStrategy' {} a -> s {type' = a} :: RoutingStrategy)
 
-instance Prelude.FromJSON RoutingStrategy where
+instance Core.FromJSON RoutingStrategy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RoutingStrategy"
       ( \x ->
           RoutingStrategy'
-            Prelude.<$> (x Prelude..:? "FleetId")
-            Prelude.<*> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "FleetId")
+            Core.<*> (x Core..:? "Message")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable RoutingStrategy
+instance Core.Hashable RoutingStrategy
 
-instance Prelude.NFData RoutingStrategy
+instance Core.NFData RoutingStrategy
 
-instance Prelude.ToJSON RoutingStrategy where
+instance Core.ToJSON RoutingStrategy where
   toJSON RoutingStrategy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("FleetId" Prelude..=) Prelude.<$> fleetId,
-            ("Message" Prelude..=) Prelude.<$> message,
-            ("Type" Prelude..=) Prelude.<$> type'
+    Core.object
+      ( Core.catMaybes
+          [ ("FleetId" Core..=) Core.<$> fleetId,
+            ("Message" Core..=) Core.<$> message,
+            ("Type" Core..=) Core.<$> type'
           ]
       )

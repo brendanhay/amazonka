@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodePipeline.Types.ActionExecution where
 
 import Network.AWS.CodePipeline.Types.ActionExecutionStatus
 import Network.AWS.CodePipeline.Types.ErrorDetails
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the run of an action.
 --
@@ -31,36 +30,36 @@ import qualified Network.AWS.Prelude as Prelude
 data ActionExecution = ActionExecution'
   { -- | The status of the action, or for a completed action, the last status of
     -- the action.
-    status :: Prelude.Maybe ActionExecutionStatus,
+    status :: Core.Maybe ActionExecutionStatus,
     -- | ID of the workflow action execution in the current stage. Use the
     -- GetPipelineState action to retrieve the current action execution details
     -- of the current stage.
     --
     -- For older executions, this field might be empty. The action execution ID
     -- is available for executions run on or after March 2020.
-    actionExecutionId :: Prelude.Maybe Prelude.Text,
+    actionExecutionId :: Core.Maybe Core.Text,
     -- | The last status change of the action.
-    lastStatusChange :: Prelude.Maybe Prelude.POSIX,
+    lastStatusChange :: Core.Maybe Core.POSIX,
     -- | A percentage of completeness of the action as it runs.
-    percentComplete :: Prelude.Maybe Prelude.Natural,
+    percentComplete :: Core.Maybe Core.Natural,
     -- | The external ID of the run of the action.
-    externalExecutionId :: Prelude.Maybe Prelude.Text,
+    externalExecutionId :: Core.Maybe Core.Text,
     -- | The URL of a resource external to AWS that is used when running the
     -- action (for example, an external repository URL).
-    externalExecutionUrl :: Prelude.Maybe Prelude.Text,
+    externalExecutionUrl :: Core.Maybe Core.Text,
     -- | The ARN of the user who last changed the pipeline.
-    lastUpdatedBy :: Prelude.Maybe Prelude.Text,
+    lastUpdatedBy :: Core.Maybe Core.Text,
     -- | A summary of the run of the action.
-    summary :: Prelude.Maybe Prelude.Text,
+    summary :: Core.Maybe Core.Text,
     -- | The system-generated token used to identify a unique approval request.
     -- The token for each open approval request can be obtained using the
     -- @GetPipelineState@ command. It is used to validate that the approval
     -- request corresponding to this token is still valid.
-    token :: Prelude.Maybe Prelude.Text,
+    token :: Core.Maybe Core.Text,
     -- | The details of an error returned by a URL external to AWS.
-    errorDetails :: Prelude.Maybe ErrorDetails
+    errorDetails :: Core.Maybe ErrorDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionExecution' with all optional fields omitted.
@@ -103,21 +102,21 @@ newActionExecution ::
   ActionExecution
 newActionExecution =
   ActionExecution'
-    { status = Prelude.Nothing,
-      actionExecutionId = Prelude.Nothing,
-      lastStatusChange = Prelude.Nothing,
-      percentComplete = Prelude.Nothing,
-      externalExecutionId = Prelude.Nothing,
-      externalExecutionUrl = Prelude.Nothing,
-      lastUpdatedBy = Prelude.Nothing,
-      summary = Prelude.Nothing,
-      token = Prelude.Nothing,
-      errorDetails = Prelude.Nothing
+    { status = Core.Nothing,
+      actionExecutionId = Core.Nothing,
+      lastStatusChange = Core.Nothing,
+      percentComplete = Core.Nothing,
+      externalExecutionId = Core.Nothing,
+      externalExecutionUrl = Core.Nothing,
+      lastUpdatedBy = Core.Nothing,
+      summary = Core.Nothing,
+      token = Core.Nothing,
+      errorDetails = Core.Nothing
     }
 
 -- | The status of the action, or for a completed action, the last status of
 -- the action.
-actionExecution_status :: Lens.Lens' ActionExecution (Prelude.Maybe ActionExecutionStatus)
+actionExecution_status :: Lens.Lens' ActionExecution (Core.Maybe ActionExecutionStatus)
 actionExecution_status = Lens.lens (\ActionExecution' {status} -> status) (\s@ActionExecution' {} a -> s {status = a} :: ActionExecution)
 
 -- | ID of the workflow action execution in the current stage. Use the
@@ -126,63 +125,63 @@ actionExecution_status = Lens.lens (\ActionExecution' {status} -> status) (\s@Ac
 --
 -- For older executions, this field might be empty. The action execution ID
 -- is available for executions run on or after March 2020.
-actionExecution_actionExecutionId :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
+actionExecution_actionExecutionId :: Lens.Lens' ActionExecution (Core.Maybe Core.Text)
 actionExecution_actionExecutionId = Lens.lens (\ActionExecution' {actionExecutionId} -> actionExecutionId) (\s@ActionExecution' {} a -> s {actionExecutionId = a} :: ActionExecution)
 
 -- | The last status change of the action.
-actionExecution_lastStatusChange :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.UTCTime)
-actionExecution_lastStatusChange = Lens.lens (\ActionExecution' {lastStatusChange} -> lastStatusChange) (\s@ActionExecution' {} a -> s {lastStatusChange = a} :: ActionExecution) Prelude.. Lens.mapping Prelude._Time
+actionExecution_lastStatusChange :: Lens.Lens' ActionExecution (Core.Maybe Core.UTCTime)
+actionExecution_lastStatusChange = Lens.lens (\ActionExecution' {lastStatusChange} -> lastStatusChange) (\s@ActionExecution' {} a -> s {lastStatusChange = a} :: ActionExecution) Core.. Lens.mapping Core._Time
 
 -- | A percentage of completeness of the action as it runs.
-actionExecution_percentComplete :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Natural)
+actionExecution_percentComplete :: Lens.Lens' ActionExecution (Core.Maybe Core.Natural)
 actionExecution_percentComplete = Lens.lens (\ActionExecution' {percentComplete} -> percentComplete) (\s@ActionExecution' {} a -> s {percentComplete = a} :: ActionExecution)
 
 -- | The external ID of the run of the action.
-actionExecution_externalExecutionId :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
+actionExecution_externalExecutionId :: Lens.Lens' ActionExecution (Core.Maybe Core.Text)
 actionExecution_externalExecutionId = Lens.lens (\ActionExecution' {externalExecutionId} -> externalExecutionId) (\s@ActionExecution' {} a -> s {externalExecutionId = a} :: ActionExecution)
 
 -- | The URL of a resource external to AWS that is used when running the
 -- action (for example, an external repository URL).
-actionExecution_externalExecutionUrl :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
+actionExecution_externalExecutionUrl :: Lens.Lens' ActionExecution (Core.Maybe Core.Text)
 actionExecution_externalExecutionUrl = Lens.lens (\ActionExecution' {externalExecutionUrl} -> externalExecutionUrl) (\s@ActionExecution' {} a -> s {externalExecutionUrl = a} :: ActionExecution)
 
 -- | The ARN of the user who last changed the pipeline.
-actionExecution_lastUpdatedBy :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
+actionExecution_lastUpdatedBy :: Lens.Lens' ActionExecution (Core.Maybe Core.Text)
 actionExecution_lastUpdatedBy = Lens.lens (\ActionExecution' {lastUpdatedBy} -> lastUpdatedBy) (\s@ActionExecution' {} a -> s {lastUpdatedBy = a} :: ActionExecution)
 
 -- | A summary of the run of the action.
-actionExecution_summary :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
+actionExecution_summary :: Lens.Lens' ActionExecution (Core.Maybe Core.Text)
 actionExecution_summary = Lens.lens (\ActionExecution' {summary} -> summary) (\s@ActionExecution' {} a -> s {summary = a} :: ActionExecution)
 
 -- | The system-generated token used to identify a unique approval request.
 -- The token for each open approval request can be obtained using the
 -- @GetPipelineState@ command. It is used to validate that the approval
 -- request corresponding to this token is still valid.
-actionExecution_token :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
+actionExecution_token :: Lens.Lens' ActionExecution (Core.Maybe Core.Text)
 actionExecution_token = Lens.lens (\ActionExecution' {token} -> token) (\s@ActionExecution' {} a -> s {token = a} :: ActionExecution)
 
 -- | The details of an error returned by a URL external to AWS.
-actionExecution_errorDetails :: Lens.Lens' ActionExecution (Prelude.Maybe ErrorDetails)
+actionExecution_errorDetails :: Lens.Lens' ActionExecution (Core.Maybe ErrorDetails)
 actionExecution_errorDetails = Lens.lens (\ActionExecution' {errorDetails} -> errorDetails) (\s@ActionExecution' {} a -> s {errorDetails = a} :: ActionExecution)
 
-instance Prelude.FromJSON ActionExecution where
+instance Core.FromJSON ActionExecution where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionExecution"
       ( \x ->
           ActionExecution'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "actionExecutionId")
-            Prelude.<*> (x Prelude..:? "lastStatusChange")
-            Prelude.<*> (x Prelude..:? "percentComplete")
-            Prelude.<*> (x Prelude..:? "externalExecutionId")
-            Prelude.<*> (x Prelude..:? "externalExecutionUrl")
-            Prelude.<*> (x Prelude..:? "lastUpdatedBy")
-            Prelude.<*> (x Prelude..:? "summary")
-            Prelude.<*> (x Prelude..:? "token")
-            Prelude.<*> (x Prelude..:? "errorDetails")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "actionExecutionId")
+            Core.<*> (x Core..:? "lastStatusChange")
+            Core.<*> (x Core..:? "percentComplete")
+            Core.<*> (x Core..:? "externalExecutionId")
+            Core.<*> (x Core..:? "externalExecutionUrl")
+            Core.<*> (x Core..:? "lastUpdatedBy")
+            Core.<*> (x Core..:? "summary")
+            Core.<*> (x Core..:? "token")
+            Core.<*> (x Core..:? "errorDetails")
       )
 
-instance Prelude.Hashable ActionExecution
+instance Core.Hashable ActionExecution
 
-instance Prelude.NFData ActionExecution
+instance Core.NFData ActionExecution

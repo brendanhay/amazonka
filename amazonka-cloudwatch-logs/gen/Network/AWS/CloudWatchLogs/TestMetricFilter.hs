@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,18 +43,18 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newTestMetricFilter' smart constructor.
 data TestMetricFilter = TestMetricFilter'
-  { filterPattern :: Prelude.Text,
+  { filterPattern :: Core.Text,
     -- | The log event messages to test.
-    logEventMessages :: Prelude.NonEmpty Prelude.Text
+    logEventMessages :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TestMetricFilter' with all optional fields omitted.
@@ -70,9 +69,9 @@ data TestMetricFilter = TestMetricFilter'
 -- 'logEventMessages', 'testMetricFilter_logEventMessages' - The log event messages to test.
 newTestMetricFilter ::
   -- | 'filterPattern'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'logEventMessages'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   TestMetricFilter
 newTestMetricFilter
   pFilterPattern_
@@ -80,72 +79,71 @@ newTestMetricFilter
     TestMetricFilter'
       { filterPattern = pFilterPattern_,
         logEventMessages =
-          Prelude._Coerce Lens.# pLogEventMessages_
+          Lens._Coerce Lens.# pLogEventMessages_
       }
 
 -- | Undocumented member.
-testMetricFilter_filterPattern :: Lens.Lens' TestMetricFilter Prelude.Text
+testMetricFilter_filterPattern :: Lens.Lens' TestMetricFilter Core.Text
 testMetricFilter_filterPattern = Lens.lens (\TestMetricFilter' {filterPattern} -> filterPattern) (\s@TestMetricFilter' {} a -> s {filterPattern = a} :: TestMetricFilter)
 
 -- | The log event messages to test.
-testMetricFilter_logEventMessages :: Lens.Lens' TestMetricFilter (Prelude.NonEmpty Prelude.Text)
-testMetricFilter_logEventMessages = Lens.lens (\TestMetricFilter' {logEventMessages} -> logEventMessages) (\s@TestMetricFilter' {} a -> s {logEventMessages = a} :: TestMetricFilter) Prelude.. Prelude._Coerce
+testMetricFilter_logEventMessages :: Lens.Lens' TestMetricFilter (Core.NonEmpty Core.Text)
+testMetricFilter_logEventMessages = Lens.lens (\TestMetricFilter' {logEventMessages} -> logEventMessages) (\s@TestMetricFilter' {} a -> s {logEventMessages = a} :: TestMetricFilter) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TestMetricFilter where
-  type Rs TestMetricFilter = TestMetricFilterResponse
+instance Core.AWSRequest TestMetricFilter where
+  type
+    AWSResponse TestMetricFilter =
+      TestMetricFilterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           TestMetricFilterResponse'
-            Prelude.<$> (x Prelude..?> "matches" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "matches" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TestMetricFilter
+instance Core.Hashable TestMetricFilter
 
-instance Prelude.NFData TestMetricFilter
+instance Core.NFData TestMetricFilter
 
-instance Prelude.ToHeaders TestMetricFilter where
+instance Core.ToHeaders TestMetricFilter where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.TestMetricFilter" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Logs_20140328.TestMetricFilter" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TestMetricFilter where
+instance Core.ToJSON TestMetricFilter where
   toJSON TestMetricFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("filterPattern" Prelude..= filterPattern),
-            Prelude.Just
-              ("logEventMessages" Prelude..= logEventMessages)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("filterPattern" Core..= filterPattern),
+            Core.Just
+              ("logEventMessages" Core..= logEventMessages)
           ]
       )
 
-instance Prelude.ToPath TestMetricFilter where
-  toPath = Prelude.const "/"
+instance Core.ToPath TestMetricFilter where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TestMetricFilter where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TestMetricFilter where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTestMetricFilterResponse' smart constructor.
 data TestMetricFilterResponse = TestMetricFilterResponse'
   { -- | The matched events.
-    matches :: Prelude.Maybe [MetricFilterMatchRecord],
+    matches :: Core.Maybe [MetricFilterMatchRecord],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TestMetricFilterResponse' with all optional fields omitted.
@@ -160,21 +158,20 @@ data TestMetricFilterResponse = TestMetricFilterResponse'
 -- 'httpStatus', 'testMetricFilterResponse_httpStatus' - The response's http status code.
 newTestMetricFilterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TestMetricFilterResponse
 newTestMetricFilterResponse pHttpStatus_ =
   TestMetricFilterResponse'
-    { matches =
-        Prelude.Nothing,
+    { matches = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The matched events.
-testMetricFilterResponse_matches :: Lens.Lens' TestMetricFilterResponse (Prelude.Maybe [MetricFilterMatchRecord])
-testMetricFilterResponse_matches = Lens.lens (\TestMetricFilterResponse' {matches} -> matches) (\s@TestMetricFilterResponse' {} a -> s {matches = a} :: TestMetricFilterResponse) Prelude.. Lens.mapping Prelude._Coerce
+testMetricFilterResponse_matches :: Lens.Lens' TestMetricFilterResponse (Core.Maybe [MetricFilterMatchRecord])
+testMetricFilterResponse_matches = Lens.lens (\TestMetricFilterResponse' {matches} -> matches) (\s@TestMetricFilterResponse' {} a -> s {matches = a} :: TestMetricFilterResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-testMetricFilterResponse_httpStatus :: Lens.Lens' TestMetricFilterResponse Prelude.Int
+testMetricFilterResponse_httpStatus :: Lens.Lens' TestMetricFilterResponse Core.Int
 testMetricFilterResponse_httpStatus = Lens.lens (\TestMetricFilterResponse' {httpStatus} -> httpStatus) (\s@TestMetricFilterResponse' {} a -> s {httpStatus = a} :: TestMetricFilterResponse)
 
-instance Prelude.NFData TestMetricFilterResponse
+instance Core.NFData TestMetricFilterResponse

@@ -873,6 +873,7 @@ module Network.AWS.ECS.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.AgentUpdateStatus
 import Network.AWS.ECS.Types.AssignPublicIp
 import Network.AWS.ECS.Types.Attachment
@@ -995,182 +996,179 @@ import Network.AWS.ECS.Types.VersionInfo
 import Network.AWS.ECS.Types.Volume
 import Network.AWS.ECS.Types.VolumeFrom
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2014-11-13@ of the Amazon EC2 Container Service SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "ECS",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "ecs",
-      Prelude._svcSigningName = "ecs",
-      Prelude._svcVersion = "2014-11-13",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "ECS",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "ECS",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "ecs",
+      Core._serviceSigningName = "ecs",
+      Core._serviceVersion = "2014-11-13",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "ECS",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | There is already a current Amazon ECS container agent update in progress
 -- on the specified container instance. If the container agent becomes
 -- disconnected while it is in a transitional stage, such as @PENDING@ or
 -- @STAGING@, the update process can get stuck in that state. However, when
 -- the agent reconnects, it resumes where it stopped previously.
-_UpdateInProgressException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UpdateInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UpdateInProgressException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UpdateInProgressException"
 
 -- | The specified service could not be found. You can view your available
 -- services with ListServices. Amazon ECS services are cluster-specific and
 -- Region-specific.
-_ServiceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceNotFoundException"
 
 -- | The specified platform version does not satisfy the task definition\'s
 -- required capabilities.
-_PlatformTaskDefinitionIncompatibilityException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PlatformTaskDefinitionIncompatibilityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PlatformTaskDefinitionIncompatibilityException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PlatformTaskDefinitionIncompatibilityException"
 
 -- | The specified task is not supported in this Region.
-_UnsupportedFeatureException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedFeatureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedFeatureException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedFeatureException"
 
 -- | You cannot delete a cluster that has registered container instances.
 -- First, deregister the container instances before you can delete the
 -- cluster. For more information, see DeregisterContainerInstance.
-_ClusterContainsContainerInstancesException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterContainsContainerInstancesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterContainsContainerInstancesException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterContainsContainerInstancesException"
 
 -- | The specified task set could not be found. You can view your available
 -- task sets with DescribeTaskSets. Task sets are specific to each cluster,
 -- service and Region.
-_TaskSetNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TaskSetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TaskSetNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TaskSetNotFoundException"
 
 -- | You cannot delete a cluster that contains services. First, update the
 -- service to reduce its desired task count to 0 and then delete the
 -- service. For more information, see UpdateService and DeleteService.
-_ClusterContainsServicesException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterContainsServicesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterContainsServicesException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterContainsServicesException"
 
 -- | The specified platform version does not exist.
-_PlatformUnknownException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PlatformUnknownException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PlatformUnknownException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PlatformUnknownException"
 
 -- | Your AWS account has been blocked. For more information, contact
 -- <http://aws.amazon.com/contact-us/ AWS Support>.
-_BlockedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_BlockedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _BlockedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "BlockedException"
 
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.
-_InvalidParameterException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | You do not have authorization to perform the requested action.
-_AccessDeniedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | The specified resource is in-use and cannot be removed.
-_ResourceInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
 -- | The limit for the resource has been exceeded.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
@@ -1179,9 +1177,9 @@ _LimitExceededException =
 -- information to proceed with an update. This could be because the agent
 -- running on the container instance is an older or custom version that
 -- does not use our version information.
-_MissingVersionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MissingVersionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MissingVersionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MissingVersionException"
 
@@ -1189,73 +1187,73 @@ _MissingVersionException =
 -- action or resource on behalf of a user that doesn\'t have permissions to
 -- use the action or resource, or specifying an identifier that is not
 -- valid.
-_ClientException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClientException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClientException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClientException"
 
 -- | The specified cluster could not be found. You can view your available
 -- clusters with ListClusters. Amazon ECS clusters are Region-specific.
-_ClusterNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterNotFoundException"
 
 -- | There is no update available for this Amazon ECS container agent. This
 -- could be because the agent is already running the latest version, or it
 -- is so old that there is no update path to the current version.
-_NoUpdateAvailableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoUpdateAvailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoUpdateAvailableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoUpdateAvailableException"
 
 -- | The specified resource could not be found.
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The specified service is not active. You can\'t update a service that is
 -- inactive. If you have previously deleted a service, you can re-create it
 -- with CreateService.
-_ServiceNotActiveException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceNotActiveException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceNotActiveException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceNotActiveException"
 
 -- | You cannot delete a cluster that has active tasks.
-_ClusterContainsTasksException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterContainsTasksException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterContainsTasksException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterContainsTasksException"
 
 -- | The specified target could not be found. You can view your available
 -- container instances with ListContainerInstances. Amazon ECS container
 -- instances are cluster-specific and Region-specific.
-_TargetNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TargetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TargetNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TargetNotFoundException"
 
 -- | You can apply up to 10 custom attributes per resource. You can view the
 -- attributes of a resource with ListAttributes. You can remove existing
 -- attributes on a resource with DeleteAttributes.
-_AttributeLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AttributeLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AttributeLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AttributeLimitExceededException"
 
 -- | These errors are usually caused by a server issue.
-_ServerException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServerException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServerException"

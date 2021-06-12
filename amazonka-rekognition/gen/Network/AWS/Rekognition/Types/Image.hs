@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Image where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.S3Object
 
 -- | Provides the input image either as bytes or an S3 object.
@@ -55,11 +54,11 @@ import Network.AWS.Rekognition.Types.S3Object
 -- /See:/ 'newImage' smart constructor.
 data Image = Image'
   { -- | Blob of image bytes up to 5 MBs.
-    bytes :: Prelude.Maybe Prelude.Base64,
+    bytes :: Core.Maybe Core.Base64,
     -- | Identifies an S3 object as the image source.
-    s3Object :: Prelude.Maybe S3Object
+    s3Object :: Core.Maybe S3Object
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Image' with all optional fields omitted.
@@ -80,8 +79,8 @@ newImage ::
   Image
 newImage =
   Image'
-    { bytes = Prelude.Nothing,
-      s3Object = Prelude.Nothing
+    { bytes = Core.Nothing,
+      s3Object = Core.Nothing
     }
 
 -- | Blob of image bytes up to 5 MBs.--
@@ -89,22 +88,22 @@ newImage =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-image_bytes :: Lens.Lens' Image (Prelude.Maybe Prelude.ByteString)
-image_bytes = Lens.lens (\Image' {bytes} -> bytes) (\s@Image' {} a -> s {bytes = a} :: Image) Prelude.. Lens.mapping Prelude._Base64
+image_bytes :: Lens.Lens' Image (Core.Maybe Core.ByteString)
+image_bytes = Lens.lens (\Image' {bytes} -> bytes) (\s@Image' {} a -> s {bytes = a} :: Image) Core.. Lens.mapping Core._Base64
 
 -- | Identifies an S3 object as the image source.
-image_s3Object :: Lens.Lens' Image (Prelude.Maybe S3Object)
+image_s3Object :: Lens.Lens' Image (Core.Maybe S3Object)
 image_s3Object = Lens.lens (\Image' {s3Object} -> s3Object) (\s@Image' {} a -> s {s3Object = a} :: Image)
 
-instance Prelude.Hashable Image
+instance Core.Hashable Image
 
-instance Prelude.NFData Image
+instance Core.NFData Image
 
-instance Prelude.ToJSON Image where
+instance Core.ToJSON Image where
   toJSON Image' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Bytes" Prelude..=) Prelude.<$> bytes,
-            ("S3Object" Prelude..=) Prelude.<$> s3Object
+    Core.object
+      ( Core.catMaybes
+          [ ("Bytes" Core..=) Core.<$> bytes,
+            ("S3Object" Core..=) Core.<$> s3Object
           ]
       )

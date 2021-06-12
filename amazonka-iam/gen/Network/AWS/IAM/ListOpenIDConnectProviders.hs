@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.IAM.ListOpenIDConnectProviders
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +53,7 @@ import qualified Network.AWS.Response as Response
 data ListOpenIDConnectProviders = ListOpenIDConnectProviders'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOpenIDConnectProviders' with all optional fields omitted.
@@ -65,12 +64,9 @@ newListOpenIDConnectProviders ::
 newListOpenIDConnectProviders =
   ListOpenIDConnectProviders'
 
-instance
-  Prelude.AWSRequest
-    ListOpenIDConnectProviders
-  where
+instance Core.AWSRequest ListOpenIDConnectProviders where
   type
-    Rs ListOpenIDConnectProviders =
+    AWSResponse ListOpenIDConnectProviders =
       ListOpenIDConnectProvidersResponse
   request = Request.postQuery defaultService
   response =
@@ -78,31 +74,30 @@ instance
       "ListOpenIDConnectProvidersResult"
       ( \s h x ->
           ListOpenIDConnectProvidersResponse'
-            Prelude.<$> ( x Prelude..@? "OpenIDConnectProviderList"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "OpenIDConnectProviderList"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListOpenIDConnectProviders
+instance Core.Hashable ListOpenIDConnectProviders
 
-instance Prelude.NFData ListOpenIDConnectProviders
+instance Core.NFData ListOpenIDConnectProviders
 
-instance Prelude.ToHeaders ListOpenIDConnectProviders where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListOpenIDConnectProviders where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListOpenIDConnectProviders where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListOpenIDConnectProviders where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListOpenIDConnectProviders where
+instance Core.ToQuery ListOpenIDConnectProviders where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ("ListOpenIDConnectProviders" :: Prelude.ByteString),
-            "Version"
-              Prelude.=: ("2010-05-08" :: Prelude.ByteString)
+              Core.=: ("ListOpenIDConnectProviders" :: Core.ByteString),
+            "Version" Core.=: ("2010-05-08" :: Core.ByteString)
           ]
       )
 
@@ -113,11 +108,11 @@ instance Prelude.ToQuery ListOpenIDConnectProviders where
 data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'
   { -- | The list of IAM OIDC provider resource objects defined in the AWS
     -- account.
-    openIDConnectProviderList :: Prelude.Maybe [OpenIDConnectProviderListEntry],
+    openIDConnectProviderList :: Core.Maybe [OpenIDConnectProviderListEntry],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOpenIDConnectProvidersResponse' with all optional fields omitted.
@@ -133,24 +128,24 @@ data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'
 -- 'httpStatus', 'listOpenIDConnectProvidersResponse_httpStatus' - The response's http status code.
 newListOpenIDConnectProvidersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListOpenIDConnectProvidersResponse
 newListOpenIDConnectProvidersResponse pHttpStatus_ =
   ListOpenIDConnectProvidersResponse'
     { openIDConnectProviderList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of IAM OIDC provider resource objects defined in the AWS
 -- account.
-listOpenIDConnectProvidersResponse_openIDConnectProviderList :: Lens.Lens' ListOpenIDConnectProvidersResponse (Prelude.Maybe [OpenIDConnectProviderListEntry])
-listOpenIDConnectProvidersResponse_openIDConnectProviderList = Lens.lens (\ListOpenIDConnectProvidersResponse' {openIDConnectProviderList} -> openIDConnectProviderList) (\s@ListOpenIDConnectProvidersResponse' {} a -> s {openIDConnectProviderList = a} :: ListOpenIDConnectProvidersResponse) Prelude.. Lens.mapping Prelude._Coerce
+listOpenIDConnectProvidersResponse_openIDConnectProviderList :: Lens.Lens' ListOpenIDConnectProvidersResponse (Core.Maybe [OpenIDConnectProviderListEntry])
+listOpenIDConnectProvidersResponse_openIDConnectProviderList = Lens.lens (\ListOpenIDConnectProvidersResponse' {openIDConnectProviderList} -> openIDConnectProviderList) (\s@ListOpenIDConnectProvidersResponse' {} a -> s {openIDConnectProviderList = a} :: ListOpenIDConnectProvidersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listOpenIDConnectProvidersResponse_httpStatus :: Lens.Lens' ListOpenIDConnectProvidersResponse Prelude.Int
+listOpenIDConnectProvidersResponse_httpStatus :: Lens.Lens' ListOpenIDConnectProvidersResponse Core.Int
 listOpenIDConnectProvidersResponse_httpStatus = Lens.lens (\ListOpenIDConnectProvidersResponse' {httpStatus} -> httpStatus) (\s@ListOpenIDConnectProvidersResponse' {} a -> s {httpStatus = a} :: ListOpenIDConnectProvidersResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListOpenIDConnectProvidersResponse

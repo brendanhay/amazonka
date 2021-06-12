@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,8 +65,8 @@ module Network.AWS.WAF.DeleteXssMatchSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -79,11 +78,11 @@ data DeleteXssMatchSet = DeleteXssMatchSet'
   { -- | The @XssMatchSetId@ of the XssMatchSet that you want to delete.
     -- @XssMatchSetId@ is returned by CreateXssMatchSet and by
     -- ListXssMatchSets.
-    xssMatchSetId :: Prelude.Text,
+    xssMatchSetId :: Core.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Prelude.Text
+    changeToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteXssMatchSet' with all optional fields omitted.
@@ -100,9 +99,9 @@ data DeleteXssMatchSet = DeleteXssMatchSet'
 -- 'changeToken', 'deleteXssMatchSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newDeleteXssMatchSet ::
   -- | 'xssMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   DeleteXssMatchSet
 newDeleteXssMatchSet pXssMatchSetId_ pChangeToken_ =
   DeleteXssMatchSet'
@@ -113,58 +112,57 @@ newDeleteXssMatchSet pXssMatchSetId_ pChangeToken_ =
 -- | The @XssMatchSetId@ of the XssMatchSet that you want to delete.
 -- @XssMatchSetId@ is returned by CreateXssMatchSet and by
 -- ListXssMatchSets.
-deleteXssMatchSet_xssMatchSetId :: Lens.Lens' DeleteXssMatchSet Prelude.Text
+deleteXssMatchSet_xssMatchSetId :: Lens.Lens' DeleteXssMatchSet Core.Text
 deleteXssMatchSet_xssMatchSetId = Lens.lens (\DeleteXssMatchSet' {xssMatchSetId} -> xssMatchSetId) (\s@DeleteXssMatchSet' {} a -> s {xssMatchSetId = a} :: DeleteXssMatchSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-deleteXssMatchSet_changeToken :: Lens.Lens' DeleteXssMatchSet Prelude.Text
+deleteXssMatchSet_changeToken :: Lens.Lens' DeleteXssMatchSet Core.Text
 deleteXssMatchSet_changeToken = Lens.lens (\DeleteXssMatchSet' {changeToken} -> changeToken) (\s@DeleteXssMatchSet' {} a -> s {changeToken = a} :: DeleteXssMatchSet)
 
-instance Prelude.AWSRequest DeleteXssMatchSet where
-  type Rs DeleteXssMatchSet = DeleteXssMatchSetResponse
+instance Core.AWSRequest DeleteXssMatchSet where
+  type
+    AWSResponse DeleteXssMatchSet =
+      DeleteXssMatchSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteXssMatchSetResponse'
-            Prelude.<$> (x Prelude..?> "ChangeToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteXssMatchSet
+instance Core.Hashable DeleteXssMatchSet
 
-instance Prelude.NFData DeleteXssMatchSet
+instance Core.NFData DeleteXssMatchSet
 
-instance Prelude.ToHeaders DeleteXssMatchSet where
+instance Core.ToHeaders DeleteXssMatchSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.DeleteXssMatchSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.DeleteXssMatchSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteXssMatchSet where
+instance Core.ToJSON DeleteXssMatchSet where
   toJSON DeleteXssMatchSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("XssMatchSetId" Prelude..= xssMatchSetId),
-            Prelude.Just ("ChangeToken" Prelude..= changeToken)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("XssMatchSetId" Core..= xssMatchSetId),
+            Core.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
-instance Prelude.ToPath DeleteXssMatchSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteXssMatchSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteXssMatchSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteXssMatchSet where
+  toQuery = Core.const Core.mempty
 
 -- | The response to a request to delete an XssMatchSet from AWS WAF.
 --
@@ -173,11 +171,11 @@ data DeleteXssMatchSetResponse = DeleteXssMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteXssMatchSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Prelude.Maybe Prelude.Text,
+    changeToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteXssMatchSetResponse' with all optional fields omitted.
@@ -194,23 +192,23 @@ data DeleteXssMatchSetResponse = DeleteXssMatchSetResponse'
 -- 'httpStatus', 'deleteXssMatchSetResponse_httpStatus' - The response's http status code.
 newDeleteXssMatchSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteXssMatchSetResponse
 newDeleteXssMatchSetResponse pHttpStatus_ =
   DeleteXssMatchSetResponse'
     { changeToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteXssMatchSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-deleteXssMatchSetResponse_changeToken :: Lens.Lens' DeleteXssMatchSetResponse (Prelude.Maybe Prelude.Text)
+deleteXssMatchSetResponse_changeToken :: Lens.Lens' DeleteXssMatchSetResponse (Core.Maybe Core.Text)
 deleteXssMatchSetResponse_changeToken = Lens.lens (\DeleteXssMatchSetResponse' {changeToken} -> changeToken) (\s@DeleteXssMatchSetResponse' {} a -> s {changeToken = a} :: DeleteXssMatchSetResponse)
 
 -- | The response's http status code.
-deleteXssMatchSetResponse_httpStatus :: Lens.Lens' DeleteXssMatchSetResponse Prelude.Int
+deleteXssMatchSetResponse_httpStatus :: Lens.Lens' DeleteXssMatchSetResponse Core.Int
 deleteXssMatchSetResponse_httpStatus = Lens.lens (\DeleteXssMatchSetResponse' {httpStatus} -> httpStatus) (\s@DeleteXssMatchSetResponse' {} a -> s {httpStatus = a} :: DeleteXssMatchSetResponse)
 
-instance Prelude.NFData DeleteXssMatchSetResponse
+instance Core.NFData DeleteXssMatchSetResponse

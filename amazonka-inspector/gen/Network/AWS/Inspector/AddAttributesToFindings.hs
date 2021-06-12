@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Inspector.AddAttributesToFindings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data AddAttributesToFindings = AddAttributesToFindings'
   { -- | The ARNs that specify the findings that you want to assign attributes
     -- to.
-    findingArns :: Prelude.NonEmpty Prelude.Text,
+    findingArns :: Core.NonEmpty Core.Text,
     -- | The array of attributes that you want to assign to specified findings.
     attributes :: [Attribute]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddAttributesToFindings' with all optional fields omitted.
@@ -72,82 +71,78 @@ data AddAttributesToFindings = AddAttributesToFindings'
 -- 'attributes', 'addAttributesToFindings_attributes' - The array of attributes that you want to assign to specified findings.
 newAddAttributesToFindings ::
   -- | 'findingArns'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   AddAttributesToFindings
 newAddAttributesToFindings pFindingArns_ =
   AddAttributesToFindings'
     { findingArns =
-        Prelude._Coerce Lens.# pFindingArns_,
-      attributes = Prelude.mempty
+        Lens._Coerce Lens.# pFindingArns_,
+      attributes = Core.mempty
     }
 
 -- | The ARNs that specify the findings that you want to assign attributes
 -- to.
-addAttributesToFindings_findingArns :: Lens.Lens' AddAttributesToFindings (Prelude.NonEmpty Prelude.Text)
-addAttributesToFindings_findingArns = Lens.lens (\AddAttributesToFindings' {findingArns} -> findingArns) (\s@AddAttributesToFindings' {} a -> s {findingArns = a} :: AddAttributesToFindings) Prelude.. Prelude._Coerce
+addAttributesToFindings_findingArns :: Lens.Lens' AddAttributesToFindings (Core.NonEmpty Core.Text)
+addAttributesToFindings_findingArns = Lens.lens (\AddAttributesToFindings' {findingArns} -> findingArns) (\s@AddAttributesToFindings' {} a -> s {findingArns = a} :: AddAttributesToFindings) Core.. Lens._Coerce
 
 -- | The array of attributes that you want to assign to specified findings.
 addAttributesToFindings_attributes :: Lens.Lens' AddAttributesToFindings [Attribute]
-addAttributesToFindings_attributes = Lens.lens (\AddAttributesToFindings' {attributes} -> attributes) (\s@AddAttributesToFindings' {} a -> s {attributes = a} :: AddAttributesToFindings) Prelude.. Prelude._Coerce
+addAttributesToFindings_attributes = Lens.lens (\AddAttributesToFindings' {attributes} -> attributes) (\s@AddAttributesToFindings' {} a -> s {attributes = a} :: AddAttributesToFindings) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddAttributesToFindings where
+instance Core.AWSRequest AddAttributesToFindings where
   type
-    Rs AddAttributesToFindings =
+    AWSResponse AddAttributesToFindings =
       AddAttributesToFindingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AddAttributesToFindingsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "failedItems"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "failedItems" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable AddAttributesToFindings
+instance Core.Hashable AddAttributesToFindings
 
-instance Prelude.NFData AddAttributesToFindings
+instance Core.NFData AddAttributesToFindings
 
-instance Prelude.ToHeaders AddAttributesToFindings where
+instance Core.ToHeaders AddAttributesToFindings where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.AddAttributesToFindings" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.AddAttributesToFindings" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AddAttributesToFindings where
+instance Core.ToJSON AddAttributesToFindings where
   toJSON AddAttributesToFindings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("findingArns" Prelude..= findingArns),
-            Prelude.Just ("attributes" Prelude..= attributes)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("findingArns" Core..= findingArns),
+            Core.Just ("attributes" Core..= attributes)
           ]
       )
 
-instance Prelude.ToPath AddAttributesToFindings where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddAttributesToFindings where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddAttributesToFindings where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AddAttributesToFindings where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAddAttributesToFindingsResponse' smart constructor.
 data AddAttributesToFindingsResponse = AddAttributesToFindingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Attribute details that cannot be described. An error code is provided
     -- for each failed item.
-    failedItems :: Prelude.HashMap Prelude.Text FailedItemDetails
+    failedItems :: Core.HashMap Core.Text FailedItemDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddAttributesToFindingsResponse' with all optional fields omitted.
@@ -163,24 +158,22 @@ data AddAttributesToFindingsResponse = AddAttributesToFindingsResponse'
 -- for each failed item.
 newAddAttributesToFindingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AddAttributesToFindingsResponse
 newAddAttributesToFindingsResponse pHttpStatus_ =
   AddAttributesToFindingsResponse'
     { httpStatus =
         pHttpStatus_,
-      failedItems = Prelude.mempty
+      failedItems = Core.mempty
     }
 
 -- | The response's http status code.
-addAttributesToFindingsResponse_httpStatus :: Lens.Lens' AddAttributesToFindingsResponse Prelude.Int
+addAttributesToFindingsResponse_httpStatus :: Lens.Lens' AddAttributesToFindingsResponse Core.Int
 addAttributesToFindingsResponse_httpStatus = Lens.lens (\AddAttributesToFindingsResponse' {httpStatus} -> httpStatus) (\s@AddAttributesToFindingsResponse' {} a -> s {httpStatus = a} :: AddAttributesToFindingsResponse)
 
 -- | Attribute details that cannot be described. An error code is provided
 -- for each failed item.
-addAttributesToFindingsResponse_failedItems :: Lens.Lens' AddAttributesToFindingsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
-addAttributesToFindingsResponse_failedItems = Lens.lens (\AddAttributesToFindingsResponse' {failedItems} -> failedItems) (\s@AddAttributesToFindingsResponse' {} a -> s {failedItems = a} :: AddAttributesToFindingsResponse) Prelude.. Prelude._Coerce
+addAttributesToFindingsResponse_failedItems :: Lens.Lens' AddAttributesToFindingsResponse (Core.HashMap Core.Text FailedItemDetails)
+addAttributesToFindingsResponse_failedItems = Lens.lens (\AddAttributesToFindingsResponse' {failedItems} -> failedItems) (\s@AddAttributesToFindingsResponse' {} a -> s {failedItems = a} :: AddAttributesToFindingsResponse) Core.. Lens._Coerce
 
-instance
-  Prelude.NFData
-    AddAttributesToFindingsResponse
+instance Core.NFData AddAttributesToFindingsResponse

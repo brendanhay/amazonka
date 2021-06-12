@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributes where
 
 import Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate
 import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a @BatchUpdate@ operation.
 --
@@ -34,7 +33,7 @@ data BatchUpdateObjectAttributes = BatchUpdateObjectAttributes'
     -- | Attributes update structure.
     attributeUpdates :: [ObjectAttributeUpdate]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchUpdateObjectAttributes' with all optional fields omitted.
@@ -55,7 +54,7 @@ newBatchUpdateObjectAttributes pObjectReference_ =
   BatchUpdateObjectAttributes'
     { objectReference =
         pObjectReference_,
-      attributeUpdates = Prelude.mempty
+      attributeUpdates = Core.mempty
     }
 
 -- | Reference that identifies the object.
@@ -64,19 +63,19 @@ batchUpdateObjectAttributes_objectReference = Lens.lens (\BatchUpdateObjectAttri
 
 -- | Attributes update structure.
 batchUpdateObjectAttributes_attributeUpdates :: Lens.Lens' BatchUpdateObjectAttributes [ObjectAttributeUpdate]
-batchUpdateObjectAttributes_attributeUpdates = Lens.lens (\BatchUpdateObjectAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateObjectAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateObjectAttributes) Prelude.. Prelude._Coerce
+batchUpdateObjectAttributes_attributeUpdates = Lens.lens (\BatchUpdateObjectAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateObjectAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateObjectAttributes) Core.. Lens._Coerce
 
-instance Prelude.Hashable BatchUpdateObjectAttributes
+instance Core.Hashable BatchUpdateObjectAttributes
 
-instance Prelude.NFData BatchUpdateObjectAttributes
+instance Core.NFData BatchUpdateObjectAttributes
 
-instance Prelude.ToJSON BatchUpdateObjectAttributes where
+instance Core.ToJSON BatchUpdateObjectAttributes where
   toJSON BatchUpdateObjectAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ObjectReference" Prelude..= objectReference),
-            Prelude.Just
-              ("AttributeUpdates" Prelude..= attributeUpdates)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ObjectReference" Core..= objectReference),
+            Core.Just
+              ("AttributeUpdates" Core..= attributeUpdates)
           ]
       )

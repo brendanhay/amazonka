@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRetentionPolicy' smart constructor.
 data DeleteRetentionPolicy = DeleteRetentionPolicy'
   { -- | The name of the log group.
-    logGroupName :: Prelude.Text
+    logGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRetentionPolicy' with all optional fields omitted.
@@ -63,7 +62,7 @@ data DeleteRetentionPolicy = DeleteRetentionPolicy'
 -- 'logGroupName', 'deleteRetentionPolicy_logGroupName' - The name of the log group.
 newDeleteRetentionPolicy ::
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteRetentionPolicy
 newDeleteRetentionPolicy pLogGroupName_ =
   DeleteRetentionPolicy'
@@ -72,56 +71,52 @@ newDeleteRetentionPolicy pLogGroupName_ =
     }
 
 -- | The name of the log group.
-deleteRetentionPolicy_logGroupName :: Lens.Lens' DeleteRetentionPolicy Prelude.Text
+deleteRetentionPolicy_logGroupName :: Lens.Lens' DeleteRetentionPolicy Core.Text
 deleteRetentionPolicy_logGroupName = Lens.lens (\DeleteRetentionPolicy' {logGroupName} -> logGroupName) (\s@DeleteRetentionPolicy' {} a -> s {logGroupName = a} :: DeleteRetentionPolicy)
 
-instance Prelude.AWSRequest DeleteRetentionPolicy where
+instance Core.AWSRequest DeleteRetentionPolicy where
   type
-    Rs DeleteRetentionPolicy =
+    AWSResponse DeleteRetentionPolicy =
       DeleteRetentionPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteRetentionPolicyResponse'
 
-instance Prelude.Hashable DeleteRetentionPolicy
+instance Core.Hashable DeleteRetentionPolicy
 
-instance Prelude.NFData DeleteRetentionPolicy
+instance Core.NFData DeleteRetentionPolicy
 
-instance Prelude.ToHeaders DeleteRetentionPolicy where
+instance Core.ToHeaders DeleteRetentionPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.DeleteRetentionPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Logs_20140328.DeleteRetentionPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteRetentionPolicy where
+instance Core.ToJSON DeleteRetentionPolicy where
   toJSON DeleteRetentionPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("logGroupName" Prelude..= logGroupName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("logGroupName" Core..= logGroupName)]
       )
 
-instance Prelude.ToPath DeleteRetentionPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteRetentionPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteRetentionPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteRetentionPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteRetentionPolicyResponse' smart constructor.
 data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRetentionPolicyResponse' with all optional fields omitted.
@@ -132,4 +127,4 @@ newDeleteRetentionPolicyResponse ::
 newDeleteRetentionPolicyResponse =
   DeleteRetentionPolicyResponse'
 
-instance Prelude.NFData DeleteRetentionPolicyResponse
+instance Core.NFData DeleteRetentionPolicyResponse

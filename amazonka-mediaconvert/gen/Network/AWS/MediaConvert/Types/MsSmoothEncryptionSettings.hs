@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.MsSmoothEncryptionSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.SpekeKeyProvider
-import qualified Network.AWS.Prelude as Prelude
 
 -- | If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to
 -- specify the value SpekeKeyProvider.
@@ -33,9 +32,9 @@ data MsSmoothEncryptionSettings = MsSmoothEncryptionSettings'
     -- settings when doing DRM encryption with a SPEKE-compliant key provider.
     -- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings
     -- instead.
-    spekeKeyProvider :: Prelude.Maybe SpekeKeyProvider
+    spekeKeyProvider :: Core.Maybe SpekeKeyProvider
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MsSmoothEncryptionSettings' with all optional fields omitted.
@@ -54,34 +53,34 @@ newMsSmoothEncryptionSettings ::
 newMsSmoothEncryptionSettings =
   MsSmoothEncryptionSettings'
     { spekeKeyProvider =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | If your output group type is HLS, DASH, or Microsoft Smooth, use these
 -- settings when doing DRM encryption with a SPEKE-compliant key provider.
 -- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings
 -- instead.
-msSmoothEncryptionSettings_spekeKeyProvider :: Lens.Lens' MsSmoothEncryptionSettings (Prelude.Maybe SpekeKeyProvider)
+msSmoothEncryptionSettings_spekeKeyProvider :: Lens.Lens' MsSmoothEncryptionSettings (Core.Maybe SpekeKeyProvider)
 msSmoothEncryptionSettings_spekeKeyProvider = Lens.lens (\MsSmoothEncryptionSettings' {spekeKeyProvider} -> spekeKeyProvider) (\s@MsSmoothEncryptionSettings' {} a -> s {spekeKeyProvider = a} :: MsSmoothEncryptionSettings)
 
-instance Prelude.FromJSON MsSmoothEncryptionSettings where
+instance Core.FromJSON MsSmoothEncryptionSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MsSmoothEncryptionSettings"
       ( \x ->
           MsSmoothEncryptionSettings'
-            Prelude.<$> (x Prelude..:? "spekeKeyProvider")
+            Core.<$> (x Core..:? "spekeKeyProvider")
       )
 
-instance Prelude.Hashable MsSmoothEncryptionSettings
+instance Core.Hashable MsSmoothEncryptionSettings
 
-instance Prelude.NFData MsSmoothEncryptionSettings
+instance Core.NFData MsSmoothEncryptionSettings
 
-instance Prelude.ToJSON MsSmoothEncryptionSettings where
+instance Core.ToJSON MsSmoothEncryptionSettings where
   toJSON MsSmoothEncryptionSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("spekeKeyProvider" Prelude..=)
-              Prelude.<$> spekeKeyProvider
+    Core.object
+      ( Core.catMaybes
+          [ ("spekeKeyProvider" Core..=)
+              Core.<$> spekeKeyProvider
           ]
       )

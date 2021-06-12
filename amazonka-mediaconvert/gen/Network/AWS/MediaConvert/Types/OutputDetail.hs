@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.OutputDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.VideoDetail
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details regarding output
 --
 -- /See:/ 'newOutputDetail' smart constructor.
 data OutputDetail = OutputDetail'
   { -- | Contains details about the output\'s video stream
-    videoDetails :: Prelude.Maybe VideoDetail,
+    videoDetails :: Core.Maybe VideoDetail,
     -- | Duration in milliseconds
-    durationInMs :: Prelude.Maybe Prelude.Int
+    durationInMs :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputDetail' with all optional fields omitted.
@@ -50,28 +49,28 @@ newOutputDetail ::
   OutputDetail
 newOutputDetail =
   OutputDetail'
-    { videoDetails = Prelude.Nothing,
-      durationInMs = Prelude.Nothing
+    { videoDetails = Core.Nothing,
+      durationInMs = Core.Nothing
     }
 
 -- | Contains details about the output\'s video stream
-outputDetail_videoDetails :: Lens.Lens' OutputDetail (Prelude.Maybe VideoDetail)
+outputDetail_videoDetails :: Lens.Lens' OutputDetail (Core.Maybe VideoDetail)
 outputDetail_videoDetails = Lens.lens (\OutputDetail' {videoDetails} -> videoDetails) (\s@OutputDetail' {} a -> s {videoDetails = a} :: OutputDetail)
 
 -- | Duration in milliseconds
-outputDetail_durationInMs :: Lens.Lens' OutputDetail (Prelude.Maybe Prelude.Int)
+outputDetail_durationInMs :: Lens.Lens' OutputDetail (Core.Maybe Core.Int)
 outputDetail_durationInMs = Lens.lens (\OutputDetail' {durationInMs} -> durationInMs) (\s@OutputDetail' {} a -> s {durationInMs = a} :: OutputDetail)
 
-instance Prelude.FromJSON OutputDetail where
+instance Core.FromJSON OutputDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputDetail"
       ( \x ->
           OutputDetail'
-            Prelude.<$> (x Prelude..:? "videoDetails")
-            Prelude.<*> (x Prelude..:? "durationInMs")
+            Core.<$> (x Core..:? "videoDetails")
+            Core.<*> (x Core..:? "durationInMs")
       )
 
-instance Prelude.Hashable OutputDetail
+instance Core.Hashable OutputDetail
 
-instance Prelude.NFData OutputDetail
+instance Core.NFData OutputDetail

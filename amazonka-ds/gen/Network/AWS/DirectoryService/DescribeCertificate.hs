@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,20 +41,20 @@ module Network.AWS.DirectoryService.DescribeCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeCertificate' smart constructor.
 data DescribeCertificate = DescribeCertificate'
   { -- | The identifier of the directory.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The identifier of the certificate.
-    certificateId :: Prelude.Text
+    certificateId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCertificate' with all optional fields omitted.
@@ -70,9 +69,9 @@ data DescribeCertificate = DescribeCertificate'
 -- 'certificateId', 'describeCertificate_certificateId' - The identifier of the certificate.
 newDescribeCertificate ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'certificateId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeCertificate
 newDescribeCertificate pDirectoryId_ pCertificateId_ =
   DescribeCertificate'
@@ -81,71 +80,68 @@ newDescribeCertificate pDirectoryId_ pCertificateId_ =
     }
 
 -- | The identifier of the directory.
-describeCertificate_directoryId :: Lens.Lens' DescribeCertificate Prelude.Text
+describeCertificate_directoryId :: Lens.Lens' DescribeCertificate Core.Text
 describeCertificate_directoryId = Lens.lens (\DescribeCertificate' {directoryId} -> directoryId) (\s@DescribeCertificate' {} a -> s {directoryId = a} :: DescribeCertificate)
 
 -- | The identifier of the certificate.
-describeCertificate_certificateId :: Lens.Lens' DescribeCertificate Prelude.Text
+describeCertificate_certificateId :: Lens.Lens' DescribeCertificate Core.Text
 describeCertificate_certificateId = Lens.lens (\DescribeCertificate' {certificateId} -> certificateId) (\s@DescribeCertificate' {} a -> s {certificateId = a} :: DescribeCertificate)
 
-instance Prelude.AWSRequest DescribeCertificate where
+instance Core.AWSRequest DescribeCertificate where
   type
-    Rs DescribeCertificate =
+    AWSResponse DescribeCertificate =
       DescribeCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeCertificateResponse'
-            Prelude.<$> (x Prelude..?> "Certificate")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Certificate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCertificate
+instance Core.Hashable DescribeCertificate
 
-instance Prelude.NFData DescribeCertificate
+instance Core.NFData DescribeCertificate
 
-instance Prelude.ToHeaders DescribeCertificate where
+instance Core.ToHeaders DescribeCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.DescribeCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.DescribeCertificate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeCertificate where
+instance Core.ToJSON DescribeCertificate where
   toJSON DescribeCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just
-              ("CertificateId" Prelude..= certificateId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("CertificateId" Core..= certificateId)
           ]
       )
 
-instance Prelude.ToPath DescribeCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeCertificateResponse' smart constructor.
 data DescribeCertificateResponse = DescribeCertificateResponse'
   { -- | Information about the certificate, including registered date time,
     -- certificate state, the reason for the state, expiration date time, and
     -- certificate common name.
-    certificate :: Prelude.Maybe Certificate,
+    certificate :: Core.Maybe Certificate,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCertificateResponse' with all optional fields omitted.
@@ -162,23 +158,23 @@ data DescribeCertificateResponse = DescribeCertificateResponse'
 -- 'httpStatus', 'describeCertificateResponse_httpStatus' - The response's http status code.
 newDescribeCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeCertificateResponse
 newDescribeCertificateResponse pHttpStatus_ =
   DescribeCertificateResponse'
     { certificate =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the certificate, including registered date time,
 -- certificate state, the reason for the state, expiration date time, and
 -- certificate common name.
-describeCertificateResponse_certificate :: Lens.Lens' DescribeCertificateResponse (Prelude.Maybe Certificate)
+describeCertificateResponse_certificate :: Lens.Lens' DescribeCertificateResponse (Core.Maybe Certificate)
 describeCertificateResponse_certificate = Lens.lens (\DescribeCertificateResponse' {certificate} -> certificate) (\s@DescribeCertificateResponse' {} a -> s {certificate = a} :: DescribeCertificateResponse)
 
 -- | The response's http status code.
-describeCertificateResponse_httpStatus :: Lens.Lens' DescribeCertificateResponse Prelude.Int
+describeCertificateResponse_httpStatus :: Lens.Lens' DescribeCertificateResponse Core.Int
 describeCertificateResponse_httpStatus = Lens.lens (\DescribeCertificateResponse' {httpStatus} -> httpStatus) (\s@DescribeCertificateResponse' {} a -> s {httpStatus = a} :: DescribeCertificateResponse)
 
-instance Prelude.NFData DescribeCertificateResponse
+instance Core.NFData DescribeCertificateResponse

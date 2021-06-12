@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.HostedZoneOwner where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | A complex type that identifies a hosted zone that a specified Amazon VPC
@@ -36,16 +35,16 @@ data HostedZoneOwner = HostedZoneOwner'
     -- @OwningAccount@ contains the account ID of that account. For example,
     -- when you use AWS Cloud Map to create a hosted zone, Cloud Map creates
     -- the hosted zone using the current AWS account.
-    owningAccount :: Prelude.Maybe Prelude.Text,
+    owningAccount :: Core.Maybe Core.Text,
     -- | If an AWS service uses its own account to create a hosted zone and
     -- associate the specified VPC with that hosted zone, @OwningService@
     -- contains an abbreviation that identifies the service. For example, if
     -- Amazon Elastic File System (Amazon EFS) created a hosted zone and
     -- associated a VPC with the hosted zone, the value of @OwningService@ is
     -- @efs.amazonaws.com@.
-    owningService :: Prelude.Maybe Prelude.Text
+    owningService :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HostedZoneOwner' with all optional fields omitted.
@@ -71,8 +70,8 @@ newHostedZoneOwner ::
   HostedZoneOwner
 newHostedZoneOwner =
   HostedZoneOwner'
-    { owningAccount = Prelude.Nothing,
-      owningService = Prelude.Nothing
+    { owningAccount = Core.Nothing,
+      owningService = Core.Nothing
     }
 
 -- | If the hosted zone was created by an AWS account, or was created by an
@@ -80,7 +79,7 @@ newHostedZoneOwner =
 -- @OwningAccount@ contains the account ID of that account. For example,
 -- when you use AWS Cloud Map to create a hosted zone, Cloud Map creates
 -- the hosted zone using the current AWS account.
-hostedZoneOwner_owningAccount :: Lens.Lens' HostedZoneOwner (Prelude.Maybe Prelude.Text)
+hostedZoneOwner_owningAccount :: Lens.Lens' HostedZoneOwner (Core.Maybe Core.Text)
 hostedZoneOwner_owningAccount = Lens.lens (\HostedZoneOwner' {owningAccount} -> owningAccount) (\s@HostedZoneOwner' {} a -> s {owningAccount = a} :: HostedZoneOwner)
 
 -- | If an AWS service uses its own account to create a hosted zone and
@@ -89,15 +88,15 @@ hostedZoneOwner_owningAccount = Lens.lens (\HostedZoneOwner' {owningAccount} -> 
 -- Amazon Elastic File System (Amazon EFS) created a hosted zone and
 -- associated a VPC with the hosted zone, the value of @OwningService@ is
 -- @efs.amazonaws.com@.
-hostedZoneOwner_owningService :: Lens.Lens' HostedZoneOwner (Prelude.Maybe Prelude.Text)
+hostedZoneOwner_owningService :: Lens.Lens' HostedZoneOwner (Core.Maybe Core.Text)
 hostedZoneOwner_owningService = Lens.lens (\HostedZoneOwner' {owningService} -> owningService) (\s@HostedZoneOwner' {} a -> s {owningService = a} :: HostedZoneOwner)
 
-instance Prelude.FromXML HostedZoneOwner where
+instance Core.FromXML HostedZoneOwner where
   parseXML x =
     HostedZoneOwner'
-      Prelude.<$> (x Prelude..@? "OwningAccount")
-      Prelude.<*> (x Prelude..@? "OwningService")
+      Core.<$> (x Core..@? "OwningAccount")
+      Core.<*> (x Core..@? "OwningService")
 
-instance Prelude.Hashable HostedZoneOwner
+instance Core.Hashable HostedZoneOwner
 
-instance Prelude.NFData HostedZoneOwner
+instance Core.NFData HostedZoneOwner

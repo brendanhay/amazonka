@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,36 +21,36 @@ module Network.AWS.Connect.Types.User where
 
 import Network.AWS.Connect.Types.UserIdentityInfo
 import Network.AWS.Connect.Types.UserPhoneConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a user account for a Amazon Connect instance.
 --
 -- /See:/ 'newUser' smart constructor.
 data User = User'
   { -- | The identifiers of the security profiles for the user.
-    securityProfileIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    securityProfileIds :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | Information about the user identity.
-    identityInfo :: Prelude.Maybe UserIdentityInfo,
+    identityInfo :: Core.Maybe UserIdentityInfo,
     -- | The Amazon Resource Name (ARN) of the user account.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The identifier of the user account.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The identifier of the hierarchy group for the user.
-    hierarchyGroupId :: Prelude.Maybe Prelude.Text,
+    hierarchyGroupId :: Core.Maybe Core.Text,
     -- | The identifier of the user account in the directory used for identity
     -- management.
-    directoryUserId :: Prelude.Maybe Prelude.Text,
+    directoryUserId :: Core.Maybe Core.Text,
     -- | The identifier of the routing profile for the user.
-    routingProfileId :: Prelude.Maybe Prelude.Text,
+    routingProfileId :: Core.Maybe Core.Text,
     -- | The tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Information about the phone configuration for the user.
-    phoneConfig :: Prelude.Maybe UserPhoneConfig,
+    phoneConfig :: Core.Maybe UserPhoneConfig,
     -- | The user name assigned to the user account.
-    username :: Prelude.Maybe Prelude.Text
+    username :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'User' with all optional fields omitted.
@@ -85,77 +84,77 @@ newUser ::
   User
 newUser =
   User'
-    { securityProfileIds = Prelude.Nothing,
-      identityInfo = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      hierarchyGroupId = Prelude.Nothing,
-      directoryUserId = Prelude.Nothing,
-      routingProfileId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      phoneConfig = Prelude.Nothing,
-      username = Prelude.Nothing
+    { securityProfileIds = Core.Nothing,
+      identityInfo = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      hierarchyGroupId = Core.Nothing,
+      directoryUserId = Core.Nothing,
+      routingProfileId = Core.Nothing,
+      tags = Core.Nothing,
+      phoneConfig = Core.Nothing,
+      username = Core.Nothing
     }
 
 -- | The identifiers of the security profiles for the user.
-user_securityProfileIds :: Lens.Lens' User (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-user_securityProfileIds = Lens.lens (\User' {securityProfileIds} -> securityProfileIds) (\s@User' {} a -> s {securityProfileIds = a} :: User) Prelude.. Lens.mapping Prelude._Coerce
+user_securityProfileIds :: Lens.Lens' User (Core.Maybe (Core.NonEmpty Core.Text))
+user_securityProfileIds = Lens.lens (\User' {securityProfileIds} -> securityProfileIds) (\s@User' {} a -> s {securityProfileIds = a} :: User) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the user identity.
-user_identityInfo :: Lens.Lens' User (Prelude.Maybe UserIdentityInfo)
+user_identityInfo :: Lens.Lens' User (Core.Maybe UserIdentityInfo)
 user_identityInfo = Lens.lens (\User' {identityInfo} -> identityInfo) (\s@User' {} a -> s {identityInfo = a} :: User)
 
 -- | The Amazon Resource Name (ARN) of the user account.
-user_arn :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_arn :: Lens.Lens' User (Core.Maybe Core.Text)
 user_arn = Lens.lens (\User' {arn} -> arn) (\s@User' {} a -> s {arn = a} :: User)
 
 -- | The identifier of the user account.
-user_id :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_id :: Lens.Lens' User (Core.Maybe Core.Text)
 user_id = Lens.lens (\User' {id} -> id) (\s@User' {} a -> s {id = a} :: User)
 
 -- | The identifier of the hierarchy group for the user.
-user_hierarchyGroupId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_hierarchyGroupId :: Lens.Lens' User (Core.Maybe Core.Text)
 user_hierarchyGroupId = Lens.lens (\User' {hierarchyGroupId} -> hierarchyGroupId) (\s@User' {} a -> s {hierarchyGroupId = a} :: User)
 
 -- | The identifier of the user account in the directory used for identity
 -- management.
-user_directoryUserId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_directoryUserId :: Lens.Lens' User (Core.Maybe Core.Text)
 user_directoryUserId = Lens.lens (\User' {directoryUserId} -> directoryUserId) (\s@User' {} a -> s {directoryUserId = a} :: User)
 
 -- | The identifier of the routing profile for the user.
-user_routingProfileId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_routingProfileId :: Lens.Lens' User (Core.Maybe Core.Text)
 user_routingProfileId = Lens.lens (\User' {routingProfileId} -> routingProfileId) (\s@User' {} a -> s {routingProfileId = a} :: User)
 
 -- | The tags.
-user_tags :: Lens.Lens' User (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-user_tags = Lens.lens (\User' {tags} -> tags) (\s@User' {} a -> s {tags = a} :: User) Prelude.. Lens.mapping Prelude._Coerce
+user_tags :: Lens.Lens' User (Core.Maybe (Core.HashMap Core.Text Core.Text))
+user_tags = Lens.lens (\User' {tags} -> tags) (\s@User' {} a -> s {tags = a} :: User) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the phone configuration for the user.
-user_phoneConfig :: Lens.Lens' User (Prelude.Maybe UserPhoneConfig)
+user_phoneConfig :: Lens.Lens' User (Core.Maybe UserPhoneConfig)
 user_phoneConfig = Lens.lens (\User' {phoneConfig} -> phoneConfig) (\s@User' {} a -> s {phoneConfig = a} :: User)
 
 -- | The user name assigned to the user account.
-user_username :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_username :: Lens.Lens' User (Core.Maybe Core.Text)
 user_username = Lens.lens (\User' {username} -> username) (\s@User' {} a -> s {username = a} :: User)
 
-instance Prelude.FromJSON User where
+instance Core.FromJSON User where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Prelude..:? "SecurityProfileIds")
-            Prelude.<*> (x Prelude..:? "IdentityInfo")
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "HierarchyGroupId")
-            Prelude.<*> (x Prelude..:? "DirectoryUserId")
-            Prelude.<*> (x Prelude..:? "RoutingProfileId")
-            Prelude.<*> (x Prelude..:? "Tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "PhoneConfig")
-            Prelude.<*> (x Prelude..:? "Username")
+            Core.<$> (x Core..:? "SecurityProfileIds")
+            Core.<*> (x Core..:? "IdentityInfo")
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "HierarchyGroupId")
+            Core.<*> (x Core..:? "DirectoryUserId")
+            Core.<*> (x Core..:? "RoutingProfileId")
+            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "PhoneConfig")
+            Core.<*> (x Core..:? "Username")
       )
 
-instance Prelude.Hashable User
+instance Core.Hashable User
 
-instance Prelude.NFData User
+instance Core.NFData User

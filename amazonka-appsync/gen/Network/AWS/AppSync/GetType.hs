@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,21 +42,21 @@ module Network.AWS.AppSync.GetType
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetType' smart constructor.
 data GetType = GetType'
   { -- | The API ID.
-    apiId :: Prelude.Text,
+    apiId :: Core.Text,
     -- | The type name.
-    typeName :: Prelude.Text,
+    typeName :: Core.Text,
     -- | The type format: SDL or JSON.
     format :: TypeDefinitionFormat
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetType' with all optional fields omitted.
@@ -74,9 +73,9 @@ data GetType = GetType'
 -- 'format', 'getType_format' - The type format: SDL or JSON.
 newGetType ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'typeName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'format'
   TypeDefinitionFormat ->
   GetType
@@ -88,64 +87,62 @@ newGetType pApiId_ pTypeName_ pFormat_ =
     }
 
 -- | The API ID.
-getType_apiId :: Lens.Lens' GetType Prelude.Text
+getType_apiId :: Lens.Lens' GetType Core.Text
 getType_apiId = Lens.lens (\GetType' {apiId} -> apiId) (\s@GetType' {} a -> s {apiId = a} :: GetType)
 
 -- | The type name.
-getType_typeName :: Lens.Lens' GetType Prelude.Text
+getType_typeName :: Lens.Lens' GetType Core.Text
 getType_typeName = Lens.lens (\GetType' {typeName} -> typeName) (\s@GetType' {} a -> s {typeName = a} :: GetType)
 
 -- | The type format: SDL or JSON.
 getType_format :: Lens.Lens' GetType TypeDefinitionFormat
 getType_format = Lens.lens (\GetType' {format} -> format) (\s@GetType' {} a -> s {format = a} :: GetType)
 
-instance Prelude.AWSRequest GetType where
-  type Rs GetType = GetTypeResponse
+instance Core.AWSRequest GetType where
+  type AWSResponse GetType = GetTypeResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetTypeResponse'
-            Prelude.<$> (x Prelude..?> "type")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "type")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetType
+instance Core.Hashable GetType
 
-instance Prelude.NFData GetType
+instance Core.NFData GetType
 
-instance Prelude.ToHeaders GetType where
+instance Core.ToHeaders GetType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetType where
+instance Core.ToPath GetType where
   toPath GetType' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apis/",
-        Prelude.toBS apiId,
+        Core.toBS apiId,
         "/types/",
-        Prelude.toBS typeName
+        Core.toBS typeName
       ]
 
-instance Prelude.ToQuery GetType where
+instance Core.ToQuery GetType where
   toQuery GetType' {..} =
-    Prelude.mconcat ["format" Prelude.=: format]
+    Core.mconcat ["format" Core.=: format]
 
 -- | /See:/ 'newGetTypeResponse' smart constructor.
 data GetTypeResponse = GetTypeResponse'
   { -- | The @Type@ object.
-    type' :: Prelude.Maybe Type,
+    type' :: Core.Maybe Type,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTypeResponse' with all optional fields omitted.
@@ -160,20 +157,20 @@ data GetTypeResponse = GetTypeResponse'
 -- 'httpStatus', 'getTypeResponse_httpStatus' - The response's http status code.
 newGetTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetTypeResponse
 newGetTypeResponse pHttpStatus_ =
   GetTypeResponse'
-    { type' = Prelude.Nothing,
+    { type' = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @Type@ object.
-getTypeResponse_type :: Lens.Lens' GetTypeResponse (Prelude.Maybe Type)
+getTypeResponse_type :: Lens.Lens' GetTypeResponse (Core.Maybe Type)
 getTypeResponse_type = Lens.lens (\GetTypeResponse' {type'} -> type') (\s@GetTypeResponse' {} a -> s {type' = a} :: GetTypeResponse)
 
 -- | The response's http status code.
-getTypeResponse_httpStatus :: Lens.Lens' GetTypeResponse Prelude.Int
+getTypeResponse_httpStatus :: Lens.Lens' GetTypeResponse Core.Int
 getTypeResponse_httpStatus = Lens.lens (\GetTypeResponse' {httpStatus} -> httpStatus) (\s@GetTypeResponse' {} a -> s {httpStatus = a} :: GetTypeResponse)
 
-instance Prelude.NFData GetTypeResponse
+instance Core.NFData GetTypeResponse

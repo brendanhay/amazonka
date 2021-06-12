@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.UnsuccessfulItem where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.UnsuccessfulItemError
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about items that were not successfully processed in a batch
 -- call.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newUnsuccessfulItem' smart constructor.
 data UnsuccessfulItem = UnsuccessfulItem'
   { -- | The ID of the resource.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | Information about the error.
-    error :: Prelude.Maybe UnsuccessfulItemError
+    error :: Core.Maybe UnsuccessfulItemError
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnsuccessfulItem' with all optional fields omitted.
@@ -52,24 +51,24 @@ newUnsuccessfulItem ::
   UnsuccessfulItem
 newUnsuccessfulItem =
   UnsuccessfulItem'
-    { resourceId = Prelude.Nothing,
-      error = Prelude.Nothing
+    { resourceId = Core.Nothing,
+      error = Core.Nothing
     }
 
 -- | The ID of the resource.
-unsuccessfulItem_resourceId :: Lens.Lens' UnsuccessfulItem (Prelude.Maybe Prelude.Text)
+unsuccessfulItem_resourceId :: Lens.Lens' UnsuccessfulItem (Core.Maybe Core.Text)
 unsuccessfulItem_resourceId = Lens.lens (\UnsuccessfulItem' {resourceId} -> resourceId) (\s@UnsuccessfulItem' {} a -> s {resourceId = a} :: UnsuccessfulItem)
 
 -- | Information about the error.
-unsuccessfulItem_error :: Lens.Lens' UnsuccessfulItem (Prelude.Maybe UnsuccessfulItemError)
+unsuccessfulItem_error :: Lens.Lens' UnsuccessfulItem (Core.Maybe UnsuccessfulItemError)
 unsuccessfulItem_error = Lens.lens (\UnsuccessfulItem' {error} -> error) (\s@UnsuccessfulItem' {} a -> s {error = a} :: UnsuccessfulItem)
 
-instance Prelude.FromXML UnsuccessfulItem where
+instance Core.FromXML UnsuccessfulItem where
   parseXML x =
     UnsuccessfulItem'
-      Prelude.<$> (x Prelude..@? "resourceId")
-      Prelude.<*> (x Prelude..@? "error")
+      Core.<$> (x Core..@? "resourceId")
+      Core.<*> (x Core..@? "error")
 
-instance Prelude.Hashable UnsuccessfulItem
+instance Core.Hashable UnsuccessfulItem
 
-instance Prelude.NFData UnsuccessfulItem
+instance Core.NFData UnsuccessfulItem

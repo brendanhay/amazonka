@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.AgeRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Structure containing the estimated age range, in years, for a face.
 --
@@ -33,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAgeRange' smart constructor.
 data AgeRange = AgeRange'
   { -- | The highest estimated age.
-    high :: Prelude.Maybe Prelude.Natural,
+    high :: Core.Maybe Core.Natural,
     -- | The lowest estimated age.
-    low :: Prelude.Maybe Prelude.Natural
+    low :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AgeRange' with all optional fields omitted.
@@ -53,29 +52,25 @@ data AgeRange = AgeRange'
 newAgeRange ::
   AgeRange
 newAgeRange =
-  AgeRange'
-    { high = Prelude.Nothing,
-      low = Prelude.Nothing
-    }
+  AgeRange' {high = Core.Nothing, low = Core.Nothing}
 
 -- | The highest estimated age.
-ageRange_high :: Lens.Lens' AgeRange (Prelude.Maybe Prelude.Natural)
+ageRange_high :: Lens.Lens' AgeRange (Core.Maybe Core.Natural)
 ageRange_high = Lens.lens (\AgeRange' {high} -> high) (\s@AgeRange' {} a -> s {high = a} :: AgeRange)
 
 -- | The lowest estimated age.
-ageRange_low :: Lens.Lens' AgeRange (Prelude.Maybe Prelude.Natural)
+ageRange_low :: Lens.Lens' AgeRange (Core.Maybe Core.Natural)
 ageRange_low = Lens.lens (\AgeRange' {low} -> low) (\s@AgeRange' {} a -> s {low = a} :: AgeRange)
 
-instance Prelude.FromJSON AgeRange where
+instance Core.FromJSON AgeRange where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AgeRange"
       ( \x ->
           AgeRange'
-            Prelude.<$> (x Prelude..:? "High")
-            Prelude.<*> (x Prelude..:? "Low")
+            Core.<$> (x Core..:? "High") Core.<*> (x Core..:? "Low")
       )
 
-instance Prelude.Hashable AgeRange
+instance Core.Hashable AgeRange
 
-instance Prelude.NFData AgeRange
+instance Core.NFData AgeRange

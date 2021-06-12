@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.ReservedDBInstancesOffering where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.RecurringCharge
 
 -- | This data type is used as a response element in the
@@ -30,27 +29,27 @@ import Network.AWS.RDS.Types.RecurringCharge
 -- /See:/ 'newReservedDBInstancesOffering' smart constructor.
 data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
   { -- | The duration of the offering in seconds.
-    duration :: Prelude.Maybe Prelude.Int,
+    duration :: Core.Maybe Core.Int,
     -- | The currency code for the reserved DB instance offering.
-    currencyCode :: Prelude.Maybe Prelude.Text,
+    currencyCode :: Core.Maybe Core.Text,
     -- | Indicates if the offering applies to Multi-AZ deployments.
-    multiAZ :: Prelude.Maybe Prelude.Bool,
+    multiAZ :: Core.Maybe Core.Bool,
     -- | The DB instance class for the reserved DB instance.
-    dbInstanceClass :: Prelude.Maybe Prelude.Text,
+    dbInstanceClass :: Core.Maybe Core.Text,
     -- | The fixed price charged for this offering.
-    fixedPrice :: Prelude.Maybe Prelude.Double,
+    fixedPrice :: Core.Maybe Core.Double,
     -- | The hourly price charged for this offering.
-    usagePrice :: Prelude.Maybe Prelude.Double,
+    usagePrice :: Core.Maybe Core.Double,
     -- | The offering type.
-    offeringType :: Prelude.Maybe Prelude.Text,
+    offeringType :: Core.Maybe Core.Text,
     -- | The recurring price charged to run this reserved DB instance.
-    recurringCharges :: Prelude.Maybe [RecurringCharge],
+    recurringCharges :: Core.Maybe [RecurringCharge],
     -- | The database engine used by the offering.
-    productDescription :: Prelude.Maybe Prelude.Text,
+    productDescription :: Core.Maybe Core.Text,
     -- | The offering identifier.
-    reservedDBInstancesOfferingId :: Prelude.Maybe Prelude.Text
+    reservedDBInstancesOfferingId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReservedDBInstancesOffering' with all optional fields omitted.
@@ -84,76 +83,74 @@ newReservedDBInstancesOffering ::
 newReservedDBInstancesOffering =
   ReservedDBInstancesOffering'
     { duration =
-        Prelude.Nothing,
-      currencyCode = Prelude.Nothing,
-      multiAZ = Prelude.Nothing,
-      dbInstanceClass = Prelude.Nothing,
-      fixedPrice = Prelude.Nothing,
-      usagePrice = Prelude.Nothing,
-      offeringType = Prelude.Nothing,
-      recurringCharges = Prelude.Nothing,
-      productDescription = Prelude.Nothing,
-      reservedDBInstancesOfferingId =
-        Prelude.Nothing
+        Core.Nothing,
+      currencyCode = Core.Nothing,
+      multiAZ = Core.Nothing,
+      dbInstanceClass = Core.Nothing,
+      fixedPrice = Core.Nothing,
+      usagePrice = Core.Nothing,
+      offeringType = Core.Nothing,
+      recurringCharges = Core.Nothing,
+      productDescription = Core.Nothing,
+      reservedDBInstancesOfferingId = Core.Nothing
     }
 
 -- | The duration of the offering in seconds.
-reservedDBInstancesOffering_duration :: Lens.Lens' ReservedDBInstancesOffering (Prelude.Maybe Prelude.Int)
+reservedDBInstancesOffering_duration :: Lens.Lens' ReservedDBInstancesOffering (Core.Maybe Core.Int)
 reservedDBInstancesOffering_duration = Lens.lens (\ReservedDBInstancesOffering' {duration} -> duration) (\s@ReservedDBInstancesOffering' {} a -> s {duration = a} :: ReservedDBInstancesOffering)
 
 -- | The currency code for the reserved DB instance offering.
-reservedDBInstancesOffering_currencyCode :: Lens.Lens' ReservedDBInstancesOffering (Prelude.Maybe Prelude.Text)
+reservedDBInstancesOffering_currencyCode :: Lens.Lens' ReservedDBInstancesOffering (Core.Maybe Core.Text)
 reservedDBInstancesOffering_currencyCode = Lens.lens (\ReservedDBInstancesOffering' {currencyCode} -> currencyCode) (\s@ReservedDBInstancesOffering' {} a -> s {currencyCode = a} :: ReservedDBInstancesOffering)
 
 -- | Indicates if the offering applies to Multi-AZ deployments.
-reservedDBInstancesOffering_multiAZ :: Lens.Lens' ReservedDBInstancesOffering (Prelude.Maybe Prelude.Bool)
+reservedDBInstancesOffering_multiAZ :: Lens.Lens' ReservedDBInstancesOffering (Core.Maybe Core.Bool)
 reservedDBInstancesOffering_multiAZ = Lens.lens (\ReservedDBInstancesOffering' {multiAZ} -> multiAZ) (\s@ReservedDBInstancesOffering' {} a -> s {multiAZ = a} :: ReservedDBInstancesOffering)
 
 -- | The DB instance class for the reserved DB instance.
-reservedDBInstancesOffering_dbInstanceClass :: Lens.Lens' ReservedDBInstancesOffering (Prelude.Maybe Prelude.Text)
+reservedDBInstancesOffering_dbInstanceClass :: Lens.Lens' ReservedDBInstancesOffering (Core.Maybe Core.Text)
 reservedDBInstancesOffering_dbInstanceClass = Lens.lens (\ReservedDBInstancesOffering' {dbInstanceClass} -> dbInstanceClass) (\s@ReservedDBInstancesOffering' {} a -> s {dbInstanceClass = a} :: ReservedDBInstancesOffering)
 
 -- | The fixed price charged for this offering.
-reservedDBInstancesOffering_fixedPrice :: Lens.Lens' ReservedDBInstancesOffering (Prelude.Maybe Prelude.Double)
+reservedDBInstancesOffering_fixedPrice :: Lens.Lens' ReservedDBInstancesOffering (Core.Maybe Core.Double)
 reservedDBInstancesOffering_fixedPrice = Lens.lens (\ReservedDBInstancesOffering' {fixedPrice} -> fixedPrice) (\s@ReservedDBInstancesOffering' {} a -> s {fixedPrice = a} :: ReservedDBInstancesOffering)
 
 -- | The hourly price charged for this offering.
-reservedDBInstancesOffering_usagePrice :: Lens.Lens' ReservedDBInstancesOffering (Prelude.Maybe Prelude.Double)
+reservedDBInstancesOffering_usagePrice :: Lens.Lens' ReservedDBInstancesOffering (Core.Maybe Core.Double)
 reservedDBInstancesOffering_usagePrice = Lens.lens (\ReservedDBInstancesOffering' {usagePrice} -> usagePrice) (\s@ReservedDBInstancesOffering' {} a -> s {usagePrice = a} :: ReservedDBInstancesOffering)
 
 -- | The offering type.
-reservedDBInstancesOffering_offeringType :: Lens.Lens' ReservedDBInstancesOffering (Prelude.Maybe Prelude.Text)
+reservedDBInstancesOffering_offeringType :: Lens.Lens' ReservedDBInstancesOffering (Core.Maybe Core.Text)
 reservedDBInstancesOffering_offeringType = Lens.lens (\ReservedDBInstancesOffering' {offeringType} -> offeringType) (\s@ReservedDBInstancesOffering' {} a -> s {offeringType = a} :: ReservedDBInstancesOffering)
 
 -- | The recurring price charged to run this reserved DB instance.
-reservedDBInstancesOffering_recurringCharges :: Lens.Lens' ReservedDBInstancesOffering (Prelude.Maybe [RecurringCharge])
-reservedDBInstancesOffering_recurringCharges = Lens.lens (\ReservedDBInstancesOffering' {recurringCharges} -> recurringCharges) (\s@ReservedDBInstancesOffering' {} a -> s {recurringCharges = a} :: ReservedDBInstancesOffering) Prelude.. Lens.mapping Prelude._Coerce
+reservedDBInstancesOffering_recurringCharges :: Lens.Lens' ReservedDBInstancesOffering (Core.Maybe [RecurringCharge])
+reservedDBInstancesOffering_recurringCharges = Lens.lens (\ReservedDBInstancesOffering' {recurringCharges} -> recurringCharges) (\s@ReservedDBInstancesOffering' {} a -> s {recurringCharges = a} :: ReservedDBInstancesOffering) Core.. Lens.mapping Lens._Coerce
 
 -- | The database engine used by the offering.
-reservedDBInstancesOffering_productDescription :: Lens.Lens' ReservedDBInstancesOffering (Prelude.Maybe Prelude.Text)
+reservedDBInstancesOffering_productDescription :: Lens.Lens' ReservedDBInstancesOffering (Core.Maybe Core.Text)
 reservedDBInstancesOffering_productDescription = Lens.lens (\ReservedDBInstancesOffering' {productDescription} -> productDescription) (\s@ReservedDBInstancesOffering' {} a -> s {productDescription = a} :: ReservedDBInstancesOffering)
 
 -- | The offering identifier.
-reservedDBInstancesOffering_reservedDBInstancesOfferingId :: Lens.Lens' ReservedDBInstancesOffering (Prelude.Maybe Prelude.Text)
+reservedDBInstancesOffering_reservedDBInstancesOfferingId :: Lens.Lens' ReservedDBInstancesOffering (Core.Maybe Core.Text)
 reservedDBInstancesOffering_reservedDBInstancesOfferingId = Lens.lens (\ReservedDBInstancesOffering' {reservedDBInstancesOfferingId} -> reservedDBInstancesOfferingId) (\s@ReservedDBInstancesOffering' {} a -> s {reservedDBInstancesOfferingId = a} :: ReservedDBInstancesOffering)
 
-instance Prelude.FromXML ReservedDBInstancesOffering where
+instance Core.FromXML ReservedDBInstancesOffering where
   parseXML x =
     ReservedDBInstancesOffering'
-      Prelude.<$> (x Prelude..@? "Duration")
-      Prelude.<*> (x Prelude..@? "CurrencyCode")
-      Prelude.<*> (x Prelude..@? "MultiAZ")
-      Prelude.<*> (x Prelude..@? "DBInstanceClass")
-      Prelude.<*> (x Prelude..@? "FixedPrice")
-      Prelude.<*> (x Prelude..@? "UsagePrice")
-      Prelude.<*> (x Prelude..@? "OfferingType")
-      Prelude.<*> ( x Prelude..@? "RecurringCharges"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "RecurringCharge")
-                  )
-      Prelude.<*> (x Prelude..@? "ProductDescription")
-      Prelude.<*> (x Prelude..@? "ReservedDBInstancesOfferingId")
+      Core.<$> (x Core..@? "Duration")
+      Core.<*> (x Core..@? "CurrencyCode")
+      Core.<*> (x Core..@? "MultiAZ")
+      Core.<*> (x Core..@? "DBInstanceClass")
+      Core.<*> (x Core..@? "FixedPrice")
+      Core.<*> (x Core..@? "UsagePrice")
+      Core.<*> (x Core..@? "OfferingType")
+      Core.<*> ( x Core..@? "RecurringCharges" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "RecurringCharge")
+               )
+      Core.<*> (x Core..@? "ProductDescription")
+      Core.<*> (x Core..@? "ReservedDBInstancesOfferingId")
 
-instance Prelude.Hashable ReservedDBInstancesOffering
+instance Core.Hashable ReservedDBInstancesOffering
 
-instance Prelude.NFData ReservedDBInstancesOffering
+instance Core.NFData ReservedDBInstancesOffering

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,18 +58,18 @@ module Network.AWS.Lightsail.ExportSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newExportSnapshot' smart constructor.
 data ExportSnapshot = ExportSnapshot'
   { -- | The name of the instance or disk snapshot to be exported to Amazon EC2.
-    sourceSnapshotName :: Prelude.Text
+    sourceSnapshotName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportSnapshot' with all optional fields omitted.
@@ -83,7 +82,7 @@ data ExportSnapshot = ExportSnapshot'
 -- 'sourceSnapshotName', 'exportSnapshot_sourceSnapshotName' - The name of the instance or disk snapshot to be exported to Amazon EC2.
 newExportSnapshot ::
   -- | 'sourceSnapshotName'
-  Prelude.Text ->
+  Core.Text ->
   ExportSnapshot
 newExportSnapshot pSourceSnapshotName_ =
   ExportSnapshot'
@@ -92,68 +91,64 @@ newExportSnapshot pSourceSnapshotName_ =
     }
 
 -- | The name of the instance or disk snapshot to be exported to Amazon EC2.
-exportSnapshot_sourceSnapshotName :: Lens.Lens' ExportSnapshot Prelude.Text
+exportSnapshot_sourceSnapshotName :: Lens.Lens' ExportSnapshot Core.Text
 exportSnapshot_sourceSnapshotName = Lens.lens (\ExportSnapshot' {sourceSnapshotName} -> sourceSnapshotName) (\s@ExportSnapshot' {} a -> s {sourceSnapshotName = a} :: ExportSnapshot)
 
-instance Prelude.AWSRequest ExportSnapshot where
-  type Rs ExportSnapshot = ExportSnapshotResponse
+instance Core.AWSRequest ExportSnapshot where
+  type
+    AWSResponse ExportSnapshot =
+      ExportSnapshotResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ExportSnapshotResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ExportSnapshot
+instance Core.Hashable ExportSnapshot
 
-instance Prelude.NFData ExportSnapshot
+instance Core.NFData ExportSnapshot
 
-instance Prelude.ToHeaders ExportSnapshot where
+instance Core.ToHeaders ExportSnapshot where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.ExportSnapshot" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.ExportSnapshot" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ExportSnapshot where
+instance Core.ToJSON ExportSnapshot where
   toJSON ExportSnapshot' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "sourceSnapshotName"
-                  Prelude..= sourceSnapshotName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("sourceSnapshotName" Core..= sourceSnapshotName)
           ]
       )
 
-instance Prelude.ToPath ExportSnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath ExportSnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ExportSnapshot where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ExportSnapshot where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newExportSnapshotResponse' smart constructor.
 data ExportSnapshotResponse = ExportSnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportSnapshotResponse' with all optional fields omitted.
@@ -170,23 +165,22 @@ data ExportSnapshotResponse = ExportSnapshotResponse'
 -- 'httpStatus', 'exportSnapshotResponse_httpStatus' - The response's http status code.
 newExportSnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ExportSnapshotResponse
 newExportSnapshotResponse pHttpStatus_ =
   ExportSnapshotResponse'
-    { operations =
-        Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-exportSnapshotResponse_operations :: Lens.Lens' ExportSnapshotResponse (Prelude.Maybe [Operation])
-exportSnapshotResponse_operations = Lens.lens (\ExportSnapshotResponse' {operations} -> operations) (\s@ExportSnapshotResponse' {} a -> s {operations = a} :: ExportSnapshotResponse) Prelude.. Lens.mapping Prelude._Coerce
+exportSnapshotResponse_operations :: Lens.Lens' ExportSnapshotResponse (Core.Maybe [Operation])
+exportSnapshotResponse_operations = Lens.lens (\ExportSnapshotResponse' {operations} -> operations) (\s@ExportSnapshotResponse' {} a -> s {operations = a} :: ExportSnapshotResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-exportSnapshotResponse_httpStatus :: Lens.Lens' ExportSnapshotResponse Prelude.Int
+exportSnapshotResponse_httpStatus :: Lens.Lens' ExportSnapshotResponse Core.Int
 exportSnapshotResponse_httpStatus = Lens.lens (\ExportSnapshotResponse' {httpStatus} -> httpStatus) (\s@ExportSnapshotResponse' {} a -> s {httpStatus = a} :: ExportSnapshotResponse)
 
-instance Prelude.NFData ExportSnapshotResponse
+instance Core.NFData ExportSnapshotResponse

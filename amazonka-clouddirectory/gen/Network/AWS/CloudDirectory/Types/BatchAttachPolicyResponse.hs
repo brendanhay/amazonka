@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchAttachPolicyResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of an AttachPolicy response operation.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data BatchAttachPolicyResponse = BatchAttachPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchAttachPolicyResponse' with all optional fields omitted.
@@ -40,12 +39,12 @@ newBatchAttachPolicyResponse ::
 newBatchAttachPolicyResponse =
   BatchAttachPolicyResponse'
 
-instance Prelude.FromJSON BatchAttachPolicyResponse where
+instance Core.FromJSON BatchAttachPolicyResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchAttachPolicyResponse"
-      (\x -> Prelude.pure BatchAttachPolicyResponse')
+      (\x -> Core.pure BatchAttachPolicyResponse')
 
-instance Prelude.Hashable BatchAttachPolicyResponse
+instance Core.Hashable BatchAttachPolicyResponse
 
-instance Prelude.NFData BatchAttachPolicyResponse
+instance Core.NFData BatchAttachPolicyResponse

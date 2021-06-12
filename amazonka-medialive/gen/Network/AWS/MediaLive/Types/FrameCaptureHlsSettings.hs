@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.FrameCaptureHlsSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Frame Capture Hls Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data FrameCaptureHlsSettings = FrameCaptureHlsSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FrameCaptureHlsSettings' with all optional fields omitted.
@@ -39,16 +38,15 @@ newFrameCaptureHlsSettings ::
   FrameCaptureHlsSettings
 newFrameCaptureHlsSettings = FrameCaptureHlsSettings'
 
-instance Prelude.FromJSON FrameCaptureHlsSettings where
+instance Core.FromJSON FrameCaptureHlsSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FrameCaptureHlsSettings"
-      (\x -> Prelude.pure FrameCaptureHlsSettings')
+      (\x -> Core.pure FrameCaptureHlsSettings')
 
-instance Prelude.Hashable FrameCaptureHlsSettings
+instance Core.Hashable FrameCaptureHlsSettings
 
-instance Prelude.NFData FrameCaptureHlsSettings
+instance Core.NFData FrameCaptureHlsSettings
 
-instance Prelude.ToJSON FrameCaptureHlsSettings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON FrameCaptureHlsSettings where
+  toJSON = Core.const (Core.Object Core.mempty)

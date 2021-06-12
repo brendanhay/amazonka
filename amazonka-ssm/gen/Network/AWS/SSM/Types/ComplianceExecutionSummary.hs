@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ComplianceExecutionSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary of the call execution that includes an execution ID, the type
 -- of execution (for example, @Command@), and the date\/time of the
@@ -33,14 +32,14 @@ data ComplianceExecutionSummary = ComplianceExecutionSummary'
   { -- | An ID created by the system when @PutComplianceItems@ was called. For
     -- example, @CommandID@ is a valid execution ID. You can use this ID in
     -- subsequent calls.
-    executionId :: Prelude.Maybe Prelude.Text,
+    executionId :: Core.Maybe Core.Text,
     -- | The type of execution. For example, @Command@ is a valid execution type.
-    executionType :: Prelude.Maybe Prelude.Text,
+    executionType :: Core.Maybe Core.Text,
     -- | The time the execution ran as a datetime object that is saved in the
     -- following format: yyyy-MM-dd\'T\'HH:mm:ss\'Z\'.
-    executionTime :: Prelude.POSIX
+    executionTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComplianceExecutionSummary' with all optional fields omitted.
@@ -60,55 +59,53 @@ data ComplianceExecutionSummary = ComplianceExecutionSummary'
 -- following format: yyyy-MM-dd\'T\'HH:mm:ss\'Z\'.
 newComplianceExecutionSummary ::
   -- | 'executionTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   ComplianceExecutionSummary
 newComplianceExecutionSummary pExecutionTime_ =
   ComplianceExecutionSummary'
     { executionId =
-        Prelude.Nothing,
-      executionType = Prelude.Nothing,
+        Core.Nothing,
+      executionType = Core.Nothing,
       executionTime =
-        Prelude._Time Lens.# pExecutionTime_
+        Core._Time Lens.# pExecutionTime_
     }
 
 -- | An ID created by the system when @PutComplianceItems@ was called. For
 -- example, @CommandID@ is a valid execution ID. You can use this ID in
 -- subsequent calls.
-complianceExecutionSummary_executionId :: Lens.Lens' ComplianceExecutionSummary (Prelude.Maybe Prelude.Text)
+complianceExecutionSummary_executionId :: Lens.Lens' ComplianceExecutionSummary (Core.Maybe Core.Text)
 complianceExecutionSummary_executionId = Lens.lens (\ComplianceExecutionSummary' {executionId} -> executionId) (\s@ComplianceExecutionSummary' {} a -> s {executionId = a} :: ComplianceExecutionSummary)
 
 -- | The type of execution. For example, @Command@ is a valid execution type.
-complianceExecutionSummary_executionType :: Lens.Lens' ComplianceExecutionSummary (Prelude.Maybe Prelude.Text)
+complianceExecutionSummary_executionType :: Lens.Lens' ComplianceExecutionSummary (Core.Maybe Core.Text)
 complianceExecutionSummary_executionType = Lens.lens (\ComplianceExecutionSummary' {executionType} -> executionType) (\s@ComplianceExecutionSummary' {} a -> s {executionType = a} :: ComplianceExecutionSummary)
 
 -- | The time the execution ran as a datetime object that is saved in the
 -- following format: yyyy-MM-dd\'T\'HH:mm:ss\'Z\'.
-complianceExecutionSummary_executionTime :: Lens.Lens' ComplianceExecutionSummary Prelude.UTCTime
-complianceExecutionSummary_executionTime = Lens.lens (\ComplianceExecutionSummary' {executionTime} -> executionTime) (\s@ComplianceExecutionSummary' {} a -> s {executionTime = a} :: ComplianceExecutionSummary) Prelude.. Prelude._Time
+complianceExecutionSummary_executionTime :: Lens.Lens' ComplianceExecutionSummary Core.UTCTime
+complianceExecutionSummary_executionTime = Lens.lens (\ComplianceExecutionSummary' {executionTime} -> executionTime) (\s@ComplianceExecutionSummary' {} a -> s {executionTime = a} :: ComplianceExecutionSummary) Core.. Core._Time
 
-instance Prelude.FromJSON ComplianceExecutionSummary where
+instance Core.FromJSON ComplianceExecutionSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ComplianceExecutionSummary"
       ( \x ->
           ComplianceExecutionSummary'
-            Prelude.<$> (x Prelude..:? "ExecutionId")
-            Prelude.<*> (x Prelude..:? "ExecutionType")
-            Prelude.<*> (x Prelude..: "ExecutionTime")
+            Core.<$> (x Core..:? "ExecutionId")
+            Core.<*> (x Core..:? "ExecutionType")
+            Core.<*> (x Core..: "ExecutionTime")
       )
 
-instance Prelude.Hashable ComplianceExecutionSummary
+instance Core.Hashable ComplianceExecutionSummary
 
-instance Prelude.NFData ComplianceExecutionSummary
+instance Core.NFData ComplianceExecutionSummary
 
-instance Prelude.ToJSON ComplianceExecutionSummary where
+instance Core.ToJSON ComplianceExecutionSummary where
   toJSON ComplianceExecutionSummary' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExecutionId" Prelude..=) Prelude.<$> executionId,
-            ("ExecutionType" Prelude..=)
-              Prelude.<$> executionType,
-            Prelude.Just
-              ("ExecutionTime" Prelude..= executionTime)
+    Core.object
+      ( Core.catMaybes
+          [ ("ExecutionId" Core..=) Core.<$> executionId,
+            ("ExecutionType" Core..=) Core.<$> executionType,
+            Core.Just ("ExecutionTime" Core..= executionTime)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Cloud9.UpdateEnvironmentMembership
 where
 
 import Network.AWS.Cloud9.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,10 +52,10 @@ import qualified Network.AWS.Response as Response
 data UpdateEnvironmentMembership = UpdateEnvironmentMembership'
   { -- | The ID of the environment for the environment member whose settings you
     -- want to change.
-    environmentId :: Prelude.Text,
+    environmentId :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the environment member whose settings
     -- you want to change.
-    userArn :: Prelude.Text,
+    userArn :: Core.Text,
     -- | The replacement type of environment member permissions you want to
     -- associate with this environment member. Available values include:
     --
@@ -65,7 +64,7 @@ data UpdateEnvironmentMembership = UpdateEnvironmentMembership'
     -- -   @read-write@: Has read-write access to the environment.
     permissions :: MemberPermissions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEnvironmentMembership' with all optional fields omitted.
@@ -89,9 +88,9 @@ data UpdateEnvironmentMembership = UpdateEnvironmentMembership'
 -- -   @read-write@: Has read-write access to the environment.
 newUpdateEnvironmentMembership ::
   -- | 'environmentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'permissions'
   MemberPermissions ->
   UpdateEnvironmentMembership
@@ -108,12 +107,12 @@ newUpdateEnvironmentMembership
 
 -- | The ID of the environment for the environment member whose settings you
 -- want to change.
-updateEnvironmentMembership_environmentId :: Lens.Lens' UpdateEnvironmentMembership Prelude.Text
+updateEnvironmentMembership_environmentId :: Lens.Lens' UpdateEnvironmentMembership Core.Text
 updateEnvironmentMembership_environmentId = Lens.lens (\UpdateEnvironmentMembership' {environmentId} -> environmentId) (\s@UpdateEnvironmentMembership' {} a -> s {environmentId = a} :: UpdateEnvironmentMembership)
 
 -- | The Amazon Resource Name (ARN) of the environment member whose settings
 -- you want to change.
-updateEnvironmentMembership_userArn :: Lens.Lens' UpdateEnvironmentMembership Prelude.Text
+updateEnvironmentMembership_userArn :: Lens.Lens' UpdateEnvironmentMembership Core.Text
 updateEnvironmentMembership_userArn = Lens.lens (\UpdateEnvironmentMembership' {userArn} -> userArn) (\s@UpdateEnvironmentMembership' {} a -> s {userArn = a} :: UpdateEnvironmentMembership)
 
 -- | The replacement type of environment member permissions you want to
@@ -125,69 +124,60 @@ updateEnvironmentMembership_userArn = Lens.lens (\UpdateEnvironmentMembership' {
 updateEnvironmentMembership_permissions :: Lens.Lens' UpdateEnvironmentMembership MemberPermissions
 updateEnvironmentMembership_permissions = Lens.lens (\UpdateEnvironmentMembership' {permissions} -> permissions) (\s@UpdateEnvironmentMembership' {} a -> s {permissions = a} :: UpdateEnvironmentMembership)
 
-instance
-  Prelude.AWSRequest
-    UpdateEnvironmentMembership
-  where
+instance Core.AWSRequest UpdateEnvironmentMembership where
   type
-    Rs UpdateEnvironmentMembership =
+    AWSResponse UpdateEnvironmentMembership =
       UpdateEnvironmentMembershipResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateEnvironmentMembershipResponse'
-            Prelude.<$> (x Prelude..?> "membership")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "membership")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEnvironmentMembership
+instance Core.Hashable UpdateEnvironmentMembership
 
-instance Prelude.NFData UpdateEnvironmentMembership
+instance Core.NFData UpdateEnvironmentMembership
 
-instance
-  Prelude.ToHeaders
-    UpdateEnvironmentMembership
-  where
+instance Core.ToHeaders UpdateEnvironmentMembership where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateEnvironmentMembership where
+instance Core.ToJSON UpdateEnvironmentMembership where
   toJSON UpdateEnvironmentMembership' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("environmentId" Prelude..= environmentId),
-            Prelude.Just ("userArn" Prelude..= userArn),
-            Prelude.Just ("permissions" Prelude..= permissions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("environmentId" Core..= environmentId),
+            Core.Just ("userArn" Core..= userArn),
+            Core.Just ("permissions" Core..= permissions)
           ]
       )
 
-instance Prelude.ToPath UpdateEnvironmentMembership where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateEnvironmentMembership where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateEnvironmentMembership where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateEnvironmentMembership where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateEnvironmentMembershipResponse' smart constructor.
 data UpdateEnvironmentMembershipResponse = UpdateEnvironmentMembershipResponse'
   { -- | Information about the environment member whose settings were changed.
-    membership :: Prelude.Maybe EnvironmentMember,
+    membership :: Core.Maybe EnvironmentMember,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEnvironmentMembershipResponse' with all optional fields omitted.
@@ -202,23 +192,23 @@ data UpdateEnvironmentMembershipResponse = UpdateEnvironmentMembershipResponse'
 -- 'httpStatus', 'updateEnvironmentMembershipResponse_httpStatus' - The response's http status code.
 newUpdateEnvironmentMembershipResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateEnvironmentMembershipResponse
 newUpdateEnvironmentMembershipResponse pHttpStatus_ =
   UpdateEnvironmentMembershipResponse'
     { membership =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the environment member whose settings were changed.
-updateEnvironmentMembershipResponse_membership :: Lens.Lens' UpdateEnvironmentMembershipResponse (Prelude.Maybe EnvironmentMember)
+updateEnvironmentMembershipResponse_membership :: Lens.Lens' UpdateEnvironmentMembershipResponse (Core.Maybe EnvironmentMember)
 updateEnvironmentMembershipResponse_membership = Lens.lens (\UpdateEnvironmentMembershipResponse' {membership} -> membership) (\s@UpdateEnvironmentMembershipResponse' {} a -> s {membership = a} :: UpdateEnvironmentMembershipResponse)
 
 -- | The response's http status code.
-updateEnvironmentMembershipResponse_httpStatus :: Lens.Lens' UpdateEnvironmentMembershipResponse Prelude.Int
+updateEnvironmentMembershipResponse_httpStatus :: Lens.Lens' UpdateEnvironmentMembershipResponse Core.Int
 updateEnvironmentMembershipResponse_httpStatus = Lens.lens (\UpdateEnvironmentMembershipResponse' {httpStatus} -> httpStatus) (\s@UpdateEnvironmentMembershipResponse' {} a -> s {httpStatus = a} :: UpdateEnvironmentMembershipResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateEnvironmentMembershipResponse

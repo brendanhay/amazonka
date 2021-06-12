@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -78,10 +77,9 @@ module Network.AWS.Glacier.ListMultipartUploads
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -93,23 +91,23 @@ data ListMultipartUploads = ListMultipartUploads'
   { -- | Specifies the maximum number of uploads returned in the response body.
     -- If this value is not specified, the List Uploads operation returns up to
     -- 50 uploads.
-    limit :: Prelude.Maybe Prelude.Text,
+    limit :: Core.Maybe Core.Text,
     -- | An opaque string used for pagination. This value specifies the upload at
     -- which the listing of uploads should begin. Get the marker value from a
     -- previous List Uploads response. You need only include the marker if you
     -- are continuing the pagination of results started in a previous List
     -- Uploads request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMultipartUploads' with all optional fields omitted.
@@ -138,14 +136,14 @@ data ListMultipartUploads = ListMultipartUploads'
 -- 'vaultName', 'listMultipartUploads_vaultName' - The name of the vault.
 newListMultipartUploads ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   ListMultipartUploads
 newListMultipartUploads pAccountId_ pVaultName_ =
   ListMultipartUploads'
-    { limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { limit = Core.Nothing,
+      marker = Core.Nothing,
       accountId = pAccountId_,
       vaultName = pVaultName_
     }
@@ -153,7 +151,7 @@ newListMultipartUploads pAccountId_ pVaultName_ =
 -- | Specifies the maximum number of uploads returned in the response body.
 -- If this value is not specified, the List Uploads operation returns up to
 -- 50 uploads.
-listMultipartUploads_limit :: Lens.Lens' ListMultipartUploads (Prelude.Maybe Prelude.Text)
+listMultipartUploads_limit :: Lens.Lens' ListMultipartUploads (Core.Maybe Core.Text)
 listMultipartUploads_limit = Lens.lens (\ListMultipartUploads' {limit} -> limit) (\s@ListMultipartUploads' {} a -> s {limit = a} :: ListMultipartUploads)
 
 -- | An opaque string used for pagination. This value specifies the upload at
@@ -161,7 +159,7 @@ listMultipartUploads_limit = Lens.lens (\ListMultipartUploads' {limit} -> limit)
 -- previous List Uploads response. You need only include the marker if you
 -- are continuing the pagination of results started in a previous List
 -- Uploads request.
-listMultipartUploads_marker :: Lens.Lens' ListMultipartUploads (Prelude.Maybe Prelude.Text)
+listMultipartUploads_marker :: Lens.Lens' ListMultipartUploads (Core.Maybe Core.Text)
 listMultipartUploads_marker = Lens.lens (\ListMultipartUploads' {marker} -> marker) (\s@ListMultipartUploads' {} a -> s {marker = a} :: ListMultipartUploads)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -169,92 +167,87 @@ listMultipartUploads_marker = Lens.lens (\ListMultipartUploads' {marker} -> mark
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-listMultipartUploads_accountId :: Lens.Lens' ListMultipartUploads Prelude.Text
+listMultipartUploads_accountId :: Lens.Lens' ListMultipartUploads Core.Text
 listMultipartUploads_accountId = Lens.lens (\ListMultipartUploads' {accountId} -> accountId) (\s@ListMultipartUploads' {} a -> s {accountId = a} :: ListMultipartUploads)
 
 -- | The name of the vault.
-listMultipartUploads_vaultName :: Lens.Lens' ListMultipartUploads Prelude.Text
+listMultipartUploads_vaultName :: Lens.Lens' ListMultipartUploads Core.Text
 listMultipartUploads_vaultName = Lens.lens (\ListMultipartUploads' {vaultName} -> vaultName) (\s@ListMultipartUploads' {} a -> s {vaultName = a} :: ListMultipartUploads)
 
-instance Pager.AWSPager ListMultipartUploads where
+instance Core.AWSPager ListMultipartUploads where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listMultipartUploadsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listMultipartUploadsResponse_uploadsList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listMultipartUploads_marker
           Lens..~ rs
-          Lens.^? listMultipartUploadsResponse_marker
-            Prelude.. Lens._Just
+          Lens.^? listMultipartUploadsResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListMultipartUploads where
+instance Core.AWSRequest ListMultipartUploads where
   type
-    Rs ListMultipartUploads =
+    AWSResponse ListMultipartUploads =
       ListMultipartUploadsResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.get defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListMultipartUploadsResponse'
-            Prelude.<$> ( x Prelude..?> "UploadsList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UploadsList" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListMultipartUploads
+instance Core.Hashable ListMultipartUploads
 
-instance Prelude.NFData ListMultipartUploads
+instance Core.NFData ListMultipartUploads
 
-instance Prelude.ToHeaders ListMultipartUploads where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListMultipartUploads where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListMultipartUploads where
+instance Core.ToPath ListMultipartUploads where
   toPath ListMultipartUploads' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/multipart-uploads"
       ]
 
-instance Prelude.ToQuery ListMultipartUploads where
+instance Core.ToQuery ListMultipartUploads where
   toQuery ListMultipartUploads' {..} =
-    Prelude.mconcat
-      [ "limit" Prelude.=: limit,
-        "marker" Prelude.=: marker
-      ]
+    Core.mconcat
+      ["limit" Core.=: limit, "marker" Core.=: marker]
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'newListMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
   { -- | A list of in-progress multipart uploads.
-    uploadsList :: Prelude.Maybe [UploadListElement],
+    uploadsList :: Core.Maybe [UploadListElement],
     -- | An opaque string that represents where to continue pagination of the
     -- results. You use the marker in a new List Multipart Uploads request to
     -- obtain more uploads in the list. If there are no more uploads, this
     -- value is @null@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMultipartUploadsResponse' with all optional fields omitted.
@@ -274,29 +267,29 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 -- 'httpStatus', 'listMultipartUploadsResponse_httpStatus' - The response's http status code.
 newListMultipartUploadsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListMultipartUploadsResponse
 newListMultipartUploadsResponse pHttpStatus_ =
   ListMultipartUploadsResponse'
     { uploadsList =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of in-progress multipart uploads.
-listMultipartUploadsResponse_uploadsList :: Lens.Lens' ListMultipartUploadsResponse (Prelude.Maybe [UploadListElement])
-listMultipartUploadsResponse_uploadsList = Lens.lens (\ListMultipartUploadsResponse' {uploadsList} -> uploadsList) (\s@ListMultipartUploadsResponse' {} a -> s {uploadsList = a} :: ListMultipartUploadsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listMultipartUploadsResponse_uploadsList :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe [UploadListElement])
+listMultipartUploadsResponse_uploadsList = Lens.lens (\ListMultipartUploadsResponse' {uploadsList} -> uploadsList) (\s@ListMultipartUploadsResponse' {} a -> s {uploadsList = a} :: ListMultipartUploadsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use the marker in a new List Multipart Uploads request to
 -- obtain more uploads in the list. If there are no more uploads, this
 -- value is @null@.
-listMultipartUploadsResponse_marker :: Lens.Lens' ListMultipartUploadsResponse (Prelude.Maybe Prelude.Text)
+listMultipartUploadsResponse_marker :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Core.Text)
 listMultipartUploadsResponse_marker = Lens.lens (\ListMultipartUploadsResponse' {marker} -> marker) (\s@ListMultipartUploadsResponse' {} a -> s {marker = a} :: ListMultipartUploadsResponse)
 
 -- | The response's http status code.
-listMultipartUploadsResponse_httpStatus :: Lens.Lens' ListMultipartUploadsResponse Prelude.Int
+listMultipartUploadsResponse_httpStatus :: Lens.Lens' ListMultipartUploadsResponse Core.Int
 listMultipartUploadsResponse_httpStatus = Lens.lens (\ListMultipartUploadsResponse' {httpStatus} -> httpStatus) (\s@ListMultipartUploadsResponse' {} a -> s {httpStatus = a} :: ListMultipartUploadsResponse)
 
-instance Prelude.NFData ListMultipartUploadsResponse
+instance Core.NFData ListMultipartUploadsResponse

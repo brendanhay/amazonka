@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SlotDateTimeRangeRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the time period for a Scheduled Instance to start its first
 -- schedule. The time period must span less than one day.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSlotDateTimeRangeRequest' smart constructor.
 data SlotDateTimeRangeRequest = SlotDateTimeRangeRequest'
   { -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
-    earliestTime :: Prelude.ISO8601,
+    earliestTime :: Core.ISO8601,
     -- | The latest date and time, in UTC, for the Scheduled Instance to start.
     -- This value must be later than or equal to the earliest date and at most
     -- three months in the future.
-    latestTime :: Prelude.ISO8601
+    latestTime :: Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SlotDateTimeRangeRequest' with all optional fields omitted.
@@ -53,36 +52,36 @@ data SlotDateTimeRangeRequest = SlotDateTimeRangeRequest'
 -- three months in the future.
 newSlotDateTimeRangeRequest ::
   -- | 'earliestTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'latestTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   SlotDateTimeRangeRequest
 newSlotDateTimeRangeRequest
   pEarliestTime_
   pLatestTime_ =
     SlotDateTimeRangeRequest'
       { earliestTime =
-          Prelude._Time Lens.# pEarliestTime_,
-        latestTime = Prelude._Time Lens.# pLatestTime_
+          Core._Time Lens.# pEarliestTime_,
+        latestTime = Core._Time Lens.# pLatestTime_
       }
 
 -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
-slotDateTimeRangeRequest_earliestTime :: Lens.Lens' SlotDateTimeRangeRequest Prelude.UTCTime
-slotDateTimeRangeRequest_earliestTime = Lens.lens (\SlotDateTimeRangeRequest' {earliestTime} -> earliestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {earliestTime = a} :: SlotDateTimeRangeRequest) Prelude.. Prelude._Time
+slotDateTimeRangeRequest_earliestTime :: Lens.Lens' SlotDateTimeRangeRequest Core.UTCTime
+slotDateTimeRangeRequest_earliestTime = Lens.lens (\SlotDateTimeRangeRequest' {earliestTime} -> earliestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {earliestTime = a} :: SlotDateTimeRangeRequest) Core.. Core._Time
 
 -- | The latest date and time, in UTC, for the Scheduled Instance to start.
 -- This value must be later than or equal to the earliest date and at most
 -- three months in the future.
-slotDateTimeRangeRequest_latestTime :: Lens.Lens' SlotDateTimeRangeRequest Prelude.UTCTime
-slotDateTimeRangeRequest_latestTime = Lens.lens (\SlotDateTimeRangeRequest' {latestTime} -> latestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {latestTime = a} :: SlotDateTimeRangeRequest) Prelude.. Prelude._Time
+slotDateTimeRangeRequest_latestTime :: Lens.Lens' SlotDateTimeRangeRequest Core.UTCTime
+slotDateTimeRangeRequest_latestTime = Lens.lens (\SlotDateTimeRangeRequest' {latestTime} -> latestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {latestTime = a} :: SlotDateTimeRangeRequest) Core.. Core._Time
 
-instance Prelude.Hashable SlotDateTimeRangeRequest
+instance Core.Hashable SlotDateTimeRangeRequest
 
-instance Prelude.NFData SlotDateTimeRangeRequest
+instance Core.NFData SlotDateTimeRangeRequest
 
-instance Prelude.ToQuery SlotDateTimeRangeRequest where
+instance Core.ToQuery SlotDateTimeRangeRequest where
   toQuery SlotDateTimeRangeRequest' {..} =
-    Prelude.mconcat
-      [ "EarliestTime" Prelude.=: earliestTime,
-        "LatestTime" Prelude.=: latestTime
+    Core.mconcat
+      [ "EarliestTime" Core.=: earliestTime,
+        "LatestTime" Core.=: latestTime
       ]

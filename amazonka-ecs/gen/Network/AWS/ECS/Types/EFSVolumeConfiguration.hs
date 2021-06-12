@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.EFSVolumeConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.EFSAuthorizationConfig
 import Network.AWS.ECS.Types.EFSTransitEncryption
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This parameter is specified when you are using an Amazon Elastic File
 -- System file system for task storage. For more information, see
@@ -38,7 +37,7 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
     -- helper uses. For more information, see
     -- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS Mount Helper>
     -- in the /Amazon Elastic File System User Guide/.
-    transitEncryptionPort :: Prelude.Maybe Prelude.Int,
+    transitEncryptionPort :: Core.Maybe Core.Int,
     -- | The directory within the Amazon EFS file system to mount as the root
     -- directory inside the host. If this parameter is omitted, the root of the
     -- Amazon EFS volume will be used. Specifying @\/@ will have the same
@@ -47,9 +46,9 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
     -- If an EFS access point is specified in the @authorizationConfig@, the
     -- root directory parameter must either be omitted or set to @\/@ which
     -- will enforce the path set on the EFS access point.
-    rootDirectory :: Prelude.Maybe Prelude.Text,
+    rootDirectory :: Core.Maybe Core.Text,
     -- | The authorization configuration details for the Amazon EFS file system.
-    authorizationConfig :: Prelude.Maybe EFSAuthorizationConfig,
+    authorizationConfig :: Core.Maybe EFSAuthorizationConfig,
     -- | Whether or not to enable encryption for Amazon EFS data in transit
     -- between the Amazon ECS host and the Amazon EFS server. Transit
     -- encryption must be enabled if Amazon EFS IAM authorization is used. If
@@ -57,11 +56,11 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
     -- more information, see
     -- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting Data in Transit>
     -- in the /Amazon Elastic File System User Guide/.
-    transitEncryption :: Prelude.Maybe EFSTransitEncryption,
+    transitEncryption :: Core.Maybe EFSTransitEncryption,
     -- | The Amazon EFS file system ID to use.
-    fileSystemId :: Prelude.Text
+    fileSystemId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EFSVolumeConfiguration' with all optional fields omitted.
@@ -100,15 +99,15 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
 -- 'fileSystemId', 'eFSVolumeConfiguration_fileSystemId' - The Amazon EFS file system ID to use.
 newEFSVolumeConfiguration ::
   -- | 'fileSystemId'
-  Prelude.Text ->
+  Core.Text ->
   EFSVolumeConfiguration
 newEFSVolumeConfiguration pFileSystemId_ =
   EFSVolumeConfiguration'
     { transitEncryptionPort =
-        Prelude.Nothing,
-      rootDirectory = Prelude.Nothing,
-      authorizationConfig = Prelude.Nothing,
-      transitEncryption = Prelude.Nothing,
+        Core.Nothing,
+      rootDirectory = Core.Nothing,
+      authorizationConfig = Core.Nothing,
+      transitEncryption = Core.Nothing,
       fileSystemId = pFileSystemId_
     }
 
@@ -118,7 +117,7 @@ newEFSVolumeConfiguration pFileSystemId_ =
 -- helper uses. For more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS Mount Helper>
 -- in the /Amazon Elastic File System User Guide/.
-eFSVolumeConfiguration_transitEncryptionPort :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe Prelude.Int)
+eFSVolumeConfiguration_transitEncryptionPort :: Lens.Lens' EFSVolumeConfiguration (Core.Maybe Core.Int)
 eFSVolumeConfiguration_transitEncryptionPort = Lens.lens (\EFSVolumeConfiguration' {transitEncryptionPort} -> transitEncryptionPort) (\s@EFSVolumeConfiguration' {} a -> s {transitEncryptionPort = a} :: EFSVolumeConfiguration)
 
 -- | The directory within the Amazon EFS file system to mount as the root
@@ -129,11 +128,11 @@ eFSVolumeConfiguration_transitEncryptionPort = Lens.lens (\EFSVolumeConfiguratio
 -- If an EFS access point is specified in the @authorizationConfig@, the
 -- root directory parameter must either be omitted or set to @\/@ which
 -- will enforce the path set on the EFS access point.
-eFSVolumeConfiguration_rootDirectory :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe Prelude.Text)
+eFSVolumeConfiguration_rootDirectory :: Lens.Lens' EFSVolumeConfiguration (Core.Maybe Core.Text)
 eFSVolumeConfiguration_rootDirectory = Lens.lens (\EFSVolumeConfiguration' {rootDirectory} -> rootDirectory) (\s@EFSVolumeConfiguration' {} a -> s {rootDirectory = a} :: EFSVolumeConfiguration)
 
 -- | The authorization configuration details for the Amazon EFS file system.
-eFSVolumeConfiguration_authorizationConfig :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe EFSAuthorizationConfig)
+eFSVolumeConfiguration_authorizationConfig :: Lens.Lens' EFSVolumeConfiguration (Core.Maybe EFSAuthorizationConfig)
 eFSVolumeConfiguration_authorizationConfig = Lens.lens (\EFSVolumeConfiguration' {authorizationConfig} -> authorizationConfig) (\s@EFSVolumeConfiguration' {} a -> s {authorizationConfig = a} :: EFSVolumeConfiguration)
 
 -- | Whether or not to enable encryption for Amazon EFS data in transit
@@ -143,43 +142,41 @@ eFSVolumeConfiguration_authorizationConfig = Lens.lens (\EFSVolumeConfiguration'
 -- more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting Data in Transit>
 -- in the /Amazon Elastic File System User Guide/.
-eFSVolumeConfiguration_transitEncryption :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe EFSTransitEncryption)
+eFSVolumeConfiguration_transitEncryption :: Lens.Lens' EFSVolumeConfiguration (Core.Maybe EFSTransitEncryption)
 eFSVolumeConfiguration_transitEncryption = Lens.lens (\EFSVolumeConfiguration' {transitEncryption} -> transitEncryption) (\s@EFSVolumeConfiguration' {} a -> s {transitEncryption = a} :: EFSVolumeConfiguration)
 
 -- | The Amazon EFS file system ID to use.
-eFSVolumeConfiguration_fileSystemId :: Lens.Lens' EFSVolumeConfiguration Prelude.Text
+eFSVolumeConfiguration_fileSystemId :: Lens.Lens' EFSVolumeConfiguration Core.Text
 eFSVolumeConfiguration_fileSystemId = Lens.lens (\EFSVolumeConfiguration' {fileSystemId} -> fileSystemId) (\s@EFSVolumeConfiguration' {} a -> s {fileSystemId = a} :: EFSVolumeConfiguration)
 
-instance Prelude.FromJSON EFSVolumeConfiguration where
+instance Core.FromJSON EFSVolumeConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EFSVolumeConfiguration"
       ( \x ->
           EFSVolumeConfiguration'
-            Prelude.<$> (x Prelude..:? "transitEncryptionPort")
-            Prelude.<*> (x Prelude..:? "rootDirectory")
-            Prelude.<*> (x Prelude..:? "authorizationConfig")
-            Prelude.<*> (x Prelude..:? "transitEncryption")
-            Prelude.<*> (x Prelude..: "fileSystemId")
+            Core.<$> (x Core..:? "transitEncryptionPort")
+            Core.<*> (x Core..:? "rootDirectory")
+            Core.<*> (x Core..:? "authorizationConfig")
+            Core.<*> (x Core..:? "transitEncryption")
+            Core.<*> (x Core..: "fileSystemId")
       )
 
-instance Prelude.Hashable EFSVolumeConfiguration
+instance Core.Hashable EFSVolumeConfiguration
 
-instance Prelude.NFData EFSVolumeConfiguration
+instance Core.NFData EFSVolumeConfiguration
 
-instance Prelude.ToJSON EFSVolumeConfiguration where
+instance Core.ToJSON EFSVolumeConfiguration where
   toJSON EFSVolumeConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("transitEncryptionPort" Prelude..=)
-              Prelude.<$> transitEncryptionPort,
-            ("rootDirectory" Prelude..=)
-              Prelude.<$> rootDirectory,
-            ("authorizationConfig" Prelude..=)
-              Prelude.<$> authorizationConfig,
-            ("transitEncryption" Prelude..=)
-              Prelude.<$> transitEncryption,
-            Prelude.Just
-              ("fileSystemId" Prelude..= fileSystemId)
+    Core.object
+      ( Core.catMaybes
+          [ ("transitEncryptionPort" Core..=)
+              Core.<$> transitEncryptionPort,
+            ("rootDirectory" Core..=) Core.<$> rootDirectory,
+            ("authorizationConfig" Core..=)
+              Core.<$> authorizationConfig,
+            ("transitEncryption" Core..=)
+              Core.<$> transitEncryption,
+            Core.Just ("fileSystemId" Core..= fileSystemId)
           ]
       )

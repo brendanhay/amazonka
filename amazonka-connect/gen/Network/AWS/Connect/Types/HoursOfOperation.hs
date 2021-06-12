@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,29 +20,29 @@
 module Network.AWS.Connect.Types.HoursOfOperation where
 
 import Network.AWS.Connect.Types.HoursOfOperationConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about of the hours of operation.
 --
 -- /See:/ 'newHoursOfOperation' smart constructor.
 data HoursOfOperation = HoursOfOperation'
   { -- | Configuration information for the hours of operation.
-    config :: Prelude.Maybe [HoursOfOperationConfig],
+    config :: Core.Maybe [HoursOfOperationConfig],
     -- | The Amazon Resource Name (ARN) for the hours of operation.
-    hoursOfOperationArn :: Prelude.Maybe Prelude.Text,
+    hoursOfOperationArn :: Core.Maybe Core.Text,
     -- | The name for the hours of operation.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The description for the hours of operation.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The time zone for the hours of operation.
-    timeZone :: Prelude.Maybe Prelude.Text,
+    timeZone :: Core.Maybe Core.Text,
     -- | The identifier for the hours of operation.
-    hoursOfOperationId :: Prelude.Maybe Prelude.Text
+    hoursOfOperationId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HoursOfOperation' with all optional fields omitted.
@@ -70,58 +69,58 @@ newHoursOfOperation ::
   HoursOfOperation
 newHoursOfOperation =
   HoursOfOperation'
-    { config = Prelude.Nothing,
-      hoursOfOperationArn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      timeZone = Prelude.Nothing,
-      hoursOfOperationId = Prelude.Nothing
+    { config = Core.Nothing,
+      hoursOfOperationArn = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing,
+      description = Core.Nothing,
+      timeZone = Core.Nothing,
+      hoursOfOperationId = Core.Nothing
     }
 
 -- | Configuration information for the hours of operation.
-hoursOfOperation_config :: Lens.Lens' HoursOfOperation (Prelude.Maybe [HoursOfOperationConfig])
-hoursOfOperation_config = Lens.lens (\HoursOfOperation' {config} -> config) (\s@HoursOfOperation' {} a -> s {config = a} :: HoursOfOperation) Prelude.. Lens.mapping Prelude._Coerce
+hoursOfOperation_config :: Lens.Lens' HoursOfOperation (Core.Maybe [HoursOfOperationConfig])
+hoursOfOperation_config = Lens.lens (\HoursOfOperation' {config} -> config) (\s@HoursOfOperation' {} a -> s {config = a} :: HoursOfOperation) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) for the hours of operation.
-hoursOfOperation_hoursOfOperationArn :: Lens.Lens' HoursOfOperation (Prelude.Maybe Prelude.Text)
+hoursOfOperation_hoursOfOperationArn :: Lens.Lens' HoursOfOperation (Core.Maybe Core.Text)
 hoursOfOperation_hoursOfOperationArn = Lens.lens (\HoursOfOperation' {hoursOfOperationArn} -> hoursOfOperationArn) (\s@HoursOfOperation' {} a -> s {hoursOfOperationArn = a} :: HoursOfOperation)
 
 -- | The name for the hours of operation.
-hoursOfOperation_name :: Lens.Lens' HoursOfOperation (Prelude.Maybe Prelude.Text)
+hoursOfOperation_name :: Lens.Lens' HoursOfOperation (Core.Maybe Core.Text)
 hoursOfOperation_name = Lens.lens (\HoursOfOperation' {name} -> name) (\s@HoursOfOperation' {} a -> s {name = a} :: HoursOfOperation)
 
 -- | One or more tags.
-hoursOfOperation_tags :: Lens.Lens' HoursOfOperation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-hoursOfOperation_tags = Lens.lens (\HoursOfOperation' {tags} -> tags) (\s@HoursOfOperation' {} a -> s {tags = a} :: HoursOfOperation) Prelude.. Lens.mapping Prelude._Coerce
+hoursOfOperation_tags :: Lens.Lens' HoursOfOperation (Core.Maybe (Core.HashMap Core.Text Core.Text))
+hoursOfOperation_tags = Lens.lens (\HoursOfOperation' {tags} -> tags) (\s@HoursOfOperation' {} a -> s {tags = a} :: HoursOfOperation) Core.. Lens.mapping Lens._Coerce
 
 -- | The description for the hours of operation.
-hoursOfOperation_description :: Lens.Lens' HoursOfOperation (Prelude.Maybe Prelude.Text)
+hoursOfOperation_description :: Lens.Lens' HoursOfOperation (Core.Maybe Core.Text)
 hoursOfOperation_description = Lens.lens (\HoursOfOperation' {description} -> description) (\s@HoursOfOperation' {} a -> s {description = a} :: HoursOfOperation)
 
 -- | The time zone for the hours of operation.
-hoursOfOperation_timeZone :: Lens.Lens' HoursOfOperation (Prelude.Maybe Prelude.Text)
+hoursOfOperation_timeZone :: Lens.Lens' HoursOfOperation (Core.Maybe Core.Text)
 hoursOfOperation_timeZone = Lens.lens (\HoursOfOperation' {timeZone} -> timeZone) (\s@HoursOfOperation' {} a -> s {timeZone = a} :: HoursOfOperation)
 
 -- | The identifier for the hours of operation.
-hoursOfOperation_hoursOfOperationId :: Lens.Lens' HoursOfOperation (Prelude.Maybe Prelude.Text)
+hoursOfOperation_hoursOfOperationId :: Lens.Lens' HoursOfOperation (Core.Maybe Core.Text)
 hoursOfOperation_hoursOfOperationId = Lens.lens (\HoursOfOperation' {hoursOfOperationId} -> hoursOfOperationId) (\s@HoursOfOperation' {} a -> s {hoursOfOperationId = a} :: HoursOfOperation)
 
-instance Prelude.FromJSON HoursOfOperation where
+instance Core.FromJSON HoursOfOperation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HoursOfOperation"
       ( \x ->
           HoursOfOperation'
-            Prelude.<$> (x Prelude..:? "Config" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "HoursOfOperationArn")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "TimeZone")
-            Prelude.<*> (x Prelude..:? "HoursOfOperationId")
+            Core.<$> (x Core..:? "Config" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "HoursOfOperationArn")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "TimeZone")
+            Core.<*> (x Core..:? "HoursOfOperationId")
       )
 
-instance Prelude.Hashable HoursOfOperation
+instance Core.Hashable HoursOfOperation
 
-instance Prelude.NFData HoursOfOperation
+instance Core.NFData HoursOfOperation

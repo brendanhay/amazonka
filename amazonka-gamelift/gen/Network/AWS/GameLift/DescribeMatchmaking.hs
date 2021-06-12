@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,9 +71,9 @@ module Network.AWS.GameLift.DescribeMatchmaking
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,9 +83,9 @@ import qualified Network.AWS.Response as Response
 data DescribeMatchmaking = DescribeMatchmaking'
   { -- | A unique identifier for a matchmaking ticket. You can include up to 10
     -- ID values.
-    ticketIds :: [Prelude.Text]
+    ticketIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMatchmaking' with all optional fields omitted.
@@ -101,59 +100,53 @@ data DescribeMatchmaking = DescribeMatchmaking'
 newDescribeMatchmaking ::
   DescribeMatchmaking
 newDescribeMatchmaking =
-  DescribeMatchmaking' {ticketIds = Prelude.mempty}
+  DescribeMatchmaking' {ticketIds = Core.mempty}
 
 -- | A unique identifier for a matchmaking ticket. You can include up to 10
 -- ID values.
-describeMatchmaking_ticketIds :: Lens.Lens' DescribeMatchmaking [Prelude.Text]
-describeMatchmaking_ticketIds = Lens.lens (\DescribeMatchmaking' {ticketIds} -> ticketIds) (\s@DescribeMatchmaking' {} a -> s {ticketIds = a} :: DescribeMatchmaking) Prelude.. Prelude._Coerce
+describeMatchmaking_ticketIds :: Lens.Lens' DescribeMatchmaking [Core.Text]
+describeMatchmaking_ticketIds = Lens.lens (\DescribeMatchmaking' {ticketIds} -> ticketIds) (\s@DescribeMatchmaking' {} a -> s {ticketIds = a} :: DescribeMatchmaking) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DescribeMatchmaking where
+instance Core.AWSRequest DescribeMatchmaking where
   type
-    Rs DescribeMatchmaking =
+    AWSResponse DescribeMatchmaking =
       DescribeMatchmakingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeMatchmakingResponse'
-            Prelude.<$> ( x Prelude..?> "TicketList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TicketList" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMatchmaking
+instance Core.Hashable DescribeMatchmaking
 
-instance Prelude.NFData DescribeMatchmaking
+instance Core.NFData DescribeMatchmaking
 
-instance Prelude.ToHeaders DescribeMatchmaking where
+instance Core.ToHeaders DescribeMatchmaking where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.DescribeMatchmaking" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("GameLift.DescribeMatchmaking" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeMatchmaking where
+instance Core.ToJSON DescribeMatchmaking where
   toJSON DescribeMatchmaking' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TicketIds" Prelude..= ticketIds)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TicketIds" Core..= ticketIds)]
       )
 
-instance Prelude.ToPath DescribeMatchmaking where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeMatchmaking where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeMatchmaking where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeMatchmaking where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -161,11 +154,11 @@ instance Prelude.ToQuery DescribeMatchmaking where
 data DescribeMatchmakingResponse = DescribeMatchmakingResponse'
   { -- | A collection of existing matchmaking ticket objects matching the
     -- request.
-    ticketList :: Prelude.Maybe [MatchmakingTicket],
+    ticketList :: Core.Maybe [MatchmakingTicket],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMatchmakingResponse' with all optional fields omitted.
@@ -181,22 +174,22 @@ data DescribeMatchmakingResponse = DescribeMatchmakingResponse'
 -- 'httpStatus', 'describeMatchmakingResponse_httpStatus' - The response's http status code.
 newDescribeMatchmakingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeMatchmakingResponse
 newDescribeMatchmakingResponse pHttpStatus_ =
   DescribeMatchmakingResponse'
     { ticketList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A collection of existing matchmaking ticket objects matching the
 -- request.
-describeMatchmakingResponse_ticketList :: Lens.Lens' DescribeMatchmakingResponse (Prelude.Maybe [MatchmakingTicket])
-describeMatchmakingResponse_ticketList = Lens.lens (\DescribeMatchmakingResponse' {ticketList} -> ticketList) (\s@DescribeMatchmakingResponse' {} a -> s {ticketList = a} :: DescribeMatchmakingResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeMatchmakingResponse_ticketList :: Lens.Lens' DescribeMatchmakingResponse (Core.Maybe [MatchmakingTicket])
+describeMatchmakingResponse_ticketList = Lens.lens (\DescribeMatchmakingResponse' {ticketList} -> ticketList) (\s@DescribeMatchmakingResponse' {} a -> s {ticketList = a} :: DescribeMatchmakingResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeMatchmakingResponse_httpStatus :: Lens.Lens' DescribeMatchmakingResponse Prelude.Int
+describeMatchmakingResponse_httpStatus :: Lens.Lens' DescribeMatchmakingResponse Core.Int
 describeMatchmakingResponse_httpStatus = Lens.lens (\DescribeMatchmakingResponse' {httpStatus} -> httpStatus) (\s@DescribeMatchmakingResponse' {} a -> s {httpStatus = a} :: DescribeMatchmakingResponse)
 
-instance Prelude.NFData DescribeMatchmakingResponse
+instance Core.NFData DescribeMatchmakingResponse

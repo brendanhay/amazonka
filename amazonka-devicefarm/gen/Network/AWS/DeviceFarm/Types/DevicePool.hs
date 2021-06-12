@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.DevicePool where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.DevicePoolType
 import Network.AWS.DeviceFarm.Types.Rule
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a collection of device types.
 --
 -- /See:/ 'newDevicePool' smart constructor.
 data DevicePool = DevicePool'
   { -- | Information about the device pool\'s rules.
-    rules :: Prelude.Maybe [Rule],
+    rules :: Core.Maybe [Rule],
     -- | The device pool\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The device pool\'s name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The number of devices that Device Farm can add to your device pool.
     -- Device Farm adds devices that are available and meet the criteria that
     -- you assign for the @rules@ parameter. Depending on how many devices meet
@@ -43,9 +42,9 @@ data DevicePool = DevicePool'
     --
     -- By specifying the maximum number of devices, you can control the costs
     -- that you incur by running tests.
-    maxDevices :: Prelude.Maybe Prelude.Int,
+    maxDevices :: Core.Maybe Core.Int,
     -- | The device pool\'s description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The device pool\'s type.
     --
     -- Allowed values include:
@@ -55,9 +54,9 @@ data DevicePool = DevicePool'
     --
     -- -   PRIVATE: A device pool that is created and managed by the device
     --     pool developer.
-    type' :: Prelude.Maybe DevicePoolType
+    type' :: Core.Maybe DevicePoolType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DevicePool' with all optional fields omitted.
@@ -97,24 +96,24 @@ newDevicePool ::
   DevicePool
 newDevicePool =
   DevicePool'
-    { rules = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      maxDevices = Prelude.Nothing,
-      description = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { rules = Core.Nothing,
+      arn = Core.Nothing,
+      name = Core.Nothing,
+      maxDevices = Core.Nothing,
+      description = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | Information about the device pool\'s rules.
-devicePool_rules :: Lens.Lens' DevicePool (Prelude.Maybe [Rule])
-devicePool_rules = Lens.lens (\DevicePool' {rules} -> rules) (\s@DevicePool' {} a -> s {rules = a} :: DevicePool) Prelude.. Lens.mapping Prelude._Coerce
+devicePool_rules :: Lens.Lens' DevicePool (Core.Maybe [Rule])
+devicePool_rules = Lens.lens (\DevicePool' {rules} -> rules) (\s@DevicePool' {} a -> s {rules = a} :: DevicePool) Core.. Lens.mapping Lens._Coerce
 
 -- | The device pool\'s ARN.
-devicePool_arn :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Text)
+devicePool_arn :: Lens.Lens' DevicePool (Core.Maybe Core.Text)
 devicePool_arn = Lens.lens (\DevicePool' {arn} -> arn) (\s@DevicePool' {} a -> s {arn = a} :: DevicePool)
 
 -- | The device pool\'s name.
-devicePool_name :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Text)
+devicePool_name :: Lens.Lens' DevicePool (Core.Maybe Core.Text)
 devicePool_name = Lens.lens (\DevicePool' {name} -> name) (\s@DevicePool' {} a -> s {name = a} :: DevicePool)
 
 -- | The number of devices that Device Farm can add to your device pool.
@@ -125,11 +124,11 @@ devicePool_name = Lens.lens (\DevicePool' {name} -> name) (\s@DevicePool' {} a -
 --
 -- By specifying the maximum number of devices, you can control the costs
 -- that you incur by running tests.
-devicePool_maxDevices :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Int)
+devicePool_maxDevices :: Lens.Lens' DevicePool (Core.Maybe Core.Int)
 devicePool_maxDevices = Lens.lens (\DevicePool' {maxDevices} -> maxDevices) (\s@DevicePool' {} a -> s {maxDevices = a} :: DevicePool)
 
 -- | The device pool\'s description.
-devicePool_description :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Text)
+devicePool_description :: Lens.Lens' DevicePool (Core.Maybe Core.Text)
 devicePool_description = Lens.lens (\DevicePool' {description} -> description) (\s@DevicePool' {} a -> s {description = a} :: DevicePool)
 
 -- | The device pool\'s type.
@@ -141,23 +140,23 @@ devicePool_description = Lens.lens (\DevicePool' {description} -> description) (
 --
 -- -   PRIVATE: A device pool that is created and managed by the device
 --     pool developer.
-devicePool_type :: Lens.Lens' DevicePool (Prelude.Maybe DevicePoolType)
+devicePool_type :: Lens.Lens' DevicePool (Core.Maybe DevicePoolType)
 devicePool_type = Lens.lens (\DevicePool' {type'} -> type') (\s@DevicePool' {} a -> s {type' = a} :: DevicePool)
 
-instance Prelude.FromJSON DevicePool where
+instance Core.FromJSON DevicePool where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DevicePool"
       ( \x ->
           DevicePool'
-            Prelude.<$> (x Prelude..:? "rules" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "maxDevices")
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "rules" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "maxDevices")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable DevicePool
+instance Core.Hashable DevicePool
 
-instance Prelude.NFData DevicePool
+instance Core.NFData DevicePool

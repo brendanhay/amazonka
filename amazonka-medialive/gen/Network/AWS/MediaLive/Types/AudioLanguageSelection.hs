@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.AudioLanguageSelection where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioLanguageSelectionPolicy
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Audio Language Selection
 --
@@ -35,12 +34,12 @@ data AudioLanguageSelection = AudioLanguageSelection'
     -- \"loose\", then on a PMT update the demux will choose another audio
     -- stream in the program with the same stream type if it can\'t find one
     -- with the same language.
-    languageSelectionPolicy :: Prelude.Maybe AudioLanguageSelectionPolicy,
+    languageSelectionPolicy :: Core.Maybe AudioLanguageSelectionPolicy,
     -- | Selects a specific three-letter language code from within an audio
     -- source.
-    languageCode :: Prelude.Text
+    languageCode :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AudioLanguageSelection' with all optional fields omitted.
@@ -62,12 +61,12 @@ data AudioLanguageSelection = AudioLanguageSelection'
 -- source.
 newAudioLanguageSelection ::
   -- | 'languageCode'
-  Prelude.Text ->
+  Core.Text ->
   AudioLanguageSelection
 newAudioLanguageSelection pLanguageCode_ =
   AudioLanguageSelection'
     { languageSelectionPolicy =
-        Prelude.Nothing,
+        Core.Nothing,
       languageCode = pLanguageCode_
     }
 
@@ -78,35 +77,34 @@ newAudioLanguageSelection pLanguageCode_ =
 -- \"loose\", then on a PMT update the demux will choose another audio
 -- stream in the program with the same stream type if it can\'t find one
 -- with the same language.
-audioLanguageSelection_languageSelectionPolicy :: Lens.Lens' AudioLanguageSelection (Prelude.Maybe AudioLanguageSelectionPolicy)
+audioLanguageSelection_languageSelectionPolicy :: Lens.Lens' AudioLanguageSelection (Core.Maybe AudioLanguageSelectionPolicy)
 audioLanguageSelection_languageSelectionPolicy = Lens.lens (\AudioLanguageSelection' {languageSelectionPolicy} -> languageSelectionPolicy) (\s@AudioLanguageSelection' {} a -> s {languageSelectionPolicy = a} :: AudioLanguageSelection)
 
 -- | Selects a specific three-letter language code from within an audio
 -- source.
-audioLanguageSelection_languageCode :: Lens.Lens' AudioLanguageSelection Prelude.Text
+audioLanguageSelection_languageCode :: Lens.Lens' AudioLanguageSelection Core.Text
 audioLanguageSelection_languageCode = Lens.lens (\AudioLanguageSelection' {languageCode} -> languageCode) (\s@AudioLanguageSelection' {} a -> s {languageCode = a} :: AudioLanguageSelection)
 
-instance Prelude.FromJSON AudioLanguageSelection where
+instance Core.FromJSON AudioLanguageSelection where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AudioLanguageSelection"
       ( \x ->
           AudioLanguageSelection'
-            Prelude.<$> (x Prelude..:? "languageSelectionPolicy")
-            Prelude.<*> (x Prelude..: "languageCode")
+            Core.<$> (x Core..:? "languageSelectionPolicy")
+            Core.<*> (x Core..: "languageCode")
       )
 
-instance Prelude.Hashable AudioLanguageSelection
+instance Core.Hashable AudioLanguageSelection
 
-instance Prelude.NFData AudioLanguageSelection
+instance Core.NFData AudioLanguageSelection
 
-instance Prelude.ToJSON AudioLanguageSelection where
+instance Core.ToJSON AudioLanguageSelection where
   toJSON AudioLanguageSelection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("languageSelectionPolicy" Prelude..=)
-              Prelude.<$> languageSelectionPolicy,
-            Prelude.Just
-              ("languageCode" Prelude..= languageCode)
+    Core.object
+      ( Core.catMaybes
+          [ ("languageSelectionPolicy" Core..=)
+              Core.<$> languageSelectionPolicy,
+            Core.Just ("languageCode" Core..= languageCode)
           ]
       )

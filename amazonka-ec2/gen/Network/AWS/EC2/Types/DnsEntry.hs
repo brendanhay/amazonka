@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DnsEntry where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a DNS entry.
 --
 -- /See:/ 'newDnsEntry' smart constructor.
 data DnsEntry = DnsEntry'
   { -- | The ID of the private hosted zone.
-    hostedZoneId :: Prelude.Maybe Prelude.Text,
+    hostedZoneId :: Core.Maybe Core.Text,
     -- | The DNS name.
-    dnsName :: Prelude.Maybe Prelude.Text
+    dnsName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DnsEntry' with all optional fields omitted.
@@ -50,24 +49,24 @@ newDnsEntry ::
   DnsEntry
 newDnsEntry =
   DnsEntry'
-    { hostedZoneId = Prelude.Nothing,
-      dnsName = Prelude.Nothing
+    { hostedZoneId = Core.Nothing,
+      dnsName = Core.Nothing
     }
 
 -- | The ID of the private hosted zone.
-dnsEntry_hostedZoneId :: Lens.Lens' DnsEntry (Prelude.Maybe Prelude.Text)
+dnsEntry_hostedZoneId :: Lens.Lens' DnsEntry (Core.Maybe Core.Text)
 dnsEntry_hostedZoneId = Lens.lens (\DnsEntry' {hostedZoneId} -> hostedZoneId) (\s@DnsEntry' {} a -> s {hostedZoneId = a} :: DnsEntry)
 
 -- | The DNS name.
-dnsEntry_dnsName :: Lens.Lens' DnsEntry (Prelude.Maybe Prelude.Text)
+dnsEntry_dnsName :: Lens.Lens' DnsEntry (Core.Maybe Core.Text)
 dnsEntry_dnsName = Lens.lens (\DnsEntry' {dnsName} -> dnsName) (\s@DnsEntry' {} a -> s {dnsName = a} :: DnsEntry)
 
-instance Prelude.FromXML DnsEntry where
+instance Core.FromXML DnsEntry where
   parseXML x =
     DnsEntry'
-      Prelude.<$> (x Prelude..@? "hostedZoneId")
-      Prelude.<*> (x Prelude..@? "dnsName")
+      Core.<$> (x Core..@? "hostedZoneId")
+      Core.<*> (x Core..@? "dnsName")
 
-instance Prelude.Hashable DnsEntry
+instance Core.Hashable DnsEntry
 
-instance Prelude.NFData DnsEntry
+instance Core.NFData DnsEntry

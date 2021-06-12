@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.ECS.DeleteCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ import qualified Network.AWS.Response as Response
 data DeleteCluster = DeleteCluster'
   { -- | The short name or full Amazon Resource Name (ARN) of the cluster to
     -- delete.
-    cluster :: Prelude.Text
+    cluster :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCluster' with all optional fields omitted.
@@ -75,67 +74,67 @@ data DeleteCluster = DeleteCluster'
 -- delete.
 newDeleteCluster ::
   -- | 'cluster'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCluster
 newDeleteCluster pCluster_ =
   DeleteCluster' {cluster = pCluster_}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster to
 -- delete.
-deleteCluster_cluster :: Lens.Lens' DeleteCluster Prelude.Text
+deleteCluster_cluster :: Lens.Lens' DeleteCluster Core.Text
 deleteCluster_cluster = Lens.lens (\DeleteCluster' {cluster} -> cluster) (\s@DeleteCluster' {} a -> s {cluster = a} :: DeleteCluster)
 
-instance Prelude.AWSRequest DeleteCluster where
-  type Rs DeleteCluster = DeleteClusterResponse
+instance Core.AWSRequest DeleteCluster where
+  type
+    AWSResponse DeleteCluster =
+      DeleteClusterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteClusterResponse'
-            Prelude.<$> (x Prelude..?> "cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCluster
+instance Core.Hashable DeleteCluster
 
-instance Prelude.NFData DeleteCluster
+instance Core.NFData DeleteCluster
 
-instance Prelude.ToHeaders DeleteCluster where
+instance Core.ToHeaders DeleteCluster where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.DeleteCluster" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.DeleteCluster" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteCluster where
+instance Core.ToJSON DeleteCluster where
   toJSON DeleteCluster' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("cluster" Prelude..= cluster)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("cluster" Core..= cluster)]
       )
 
-instance Prelude.ToPath DeleteCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteCluster where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteCluster where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
   { -- | The full description of the deleted cluster.
-    cluster :: Prelude.Maybe Cluster,
+    cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteClusterResponse' with all optional fields omitted.
@@ -150,20 +149,20 @@ data DeleteClusterResponse = DeleteClusterResponse'
 -- 'httpStatus', 'deleteClusterResponse_httpStatus' - The response's http status code.
 newDeleteClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteClusterResponse
 newDeleteClusterResponse pHttpStatus_ =
   DeleteClusterResponse'
-    { cluster = Prelude.Nothing,
+    { cluster = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of the deleted cluster.
-deleteClusterResponse_cluster :: Lens.Lens' DeleteClusterResponse (Prelude.Maybe Cluster)
+deleteClusterResponse_cluster :: Lens.Lens' DeleteClusterResponse (Core.Maybe Cluster)
 deleteClusterResponse_cluster = Lens.lens (\DeleteClusterResponse' {cluster} -> cluster) (\s@DeleteClusterResponse' {} a -> s {cluster = a} :: DeleteClusterResponse)
 
 -- | The response's http status code.
-deleteClusterResponse_httpStatus :: Lens.Lens' DeleteClusterResponse Prelude.Int
+deleteClusterResponse_httpStatus :: Lens.Lens' DeleteClusterResponse Core.Int
 deleteClusterResponse_httpStatus = Lens.lens (\DeleteClusterResponse' {httpStatus} -> httpStatus) (\s@DeleteClusterResponse' {} a -> s {httpStatus = a} :: DeleteClusterResponse)
 
-instance Prelude.NFData DeleteClusterResponse
+instance Core.NFData DeleteClusterResponse

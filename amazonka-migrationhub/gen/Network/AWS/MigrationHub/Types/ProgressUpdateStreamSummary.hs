@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary of the AWS resource used for access control that is implicitly
 -- linked to your AWS account.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ProgressUpdateStreamSummary = ProgressUpdateStreamSummary'
   { -- | The name of the ProgressUpdateStream. /Do not store personal data in
     -- this field./
-    progressUpdateStreamName :: Prelude.Maybe Prelude.Text
+    progressUpdateStreamName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProgressUpdateStreamSummary' with all optional fields omitted.
@@ -49,23 +48,23 @@ newProgressUpdateStreamSummary ::
 newProgressUpdateStreamSummary =
   ProgressUpdateStreamSummary'
     { progressUpdateStreamName =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in
 -- this field./
-progressUpdateStreamSummary_progressUpdateStreamName :: Lens.Lens' ProgressUpdateStreamSummary (Prelude.Maybe Prelude.Text)
+progressUpdateStreamSummary_progressUpdateStreamName :: Lens.Lens' ProgressUpdateStreamSummary (Core.Maybe Core.Text)
 progressUpdateStreamSummary_progressUpdateStreamName = Lens.lens (\ProgressUpdateStreamSummary' {progressUpdateStreamName} -> progressUpdateStreamName) (\s@ProgressUpdateStreamSummary' {} a -> s {progressUpdateStreamName = a} :: ProgressUpdateStreamSummary)
 
-instance Prelude.FromJSON ProgressUpdateStreamSummary where
+instance Core.FromJSON ProgressUpdateStreamSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProgressUpdateStreamSummary"
       ( \x ->
           ProgressUpdateStreamSummary'
-            Prelude.<$> (x Prelude..:? "ProgressUpdateStreamName")
+            Core.<$> (x Core..:? "ProgressUpdateStreamName")
       )
 
-instance Prelude.Hashable ProgressUpdateStreamSummary
+instance Core.Hashable ProgressUpdateStreamSummary
 
-instance Prelude.NFData ProgressUpdateStreamSummary
+instance Core.NFData ProgressUpdateStreamSummary

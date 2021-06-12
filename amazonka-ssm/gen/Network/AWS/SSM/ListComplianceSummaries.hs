@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.SSM.ListComplianceSummaries
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -59,16 +57,16 @@ import Network.AWS.SSM.Types
 data ListComplianceSummaries = ListComplianceSummaries'
   { -- | A token to start the list. Use this token to get the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return for this call. Currently, you can
     -- specify null or 50. The call also returns a token that you can specify
     -- in a subsequent call to get the next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more compliance or inventory filters. Use a filter to return a
     -- more specific list of results.
-    filters :: Prelude.Maybe [ComplianceStringFilter]
+    filters :: Core.Maybe [ComplianceStringFilter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListComplianceSummaries' with all optional fields omitted.
@@ -91,115 +89,112 @@ newListComplianceSummaries ::
   ListComplianceSummaries
 newListComplianceSummaries =
   ListComplianceSummaries'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
-listComplianceSummaries_nextToken :: Lens.Lens' ListComplianceSummaries (Prelude.Maybe Prelude.Text)
+listComplianceSummaries_nextToken :: Lens.Lens' ListComplianceSummaries (Core.Maybe Core.Text)
 listComplianceSummaries_nextToken = Lens.lens (\ListComplianceSummaries' {nextToken} -> nextToken) (\s@ListComplianceSummaries' {} a -> s {nextToken = a} :: ListComplianceSummaries)
 
 -- | The maximum number of items to return for this call. Currently, you can
 -- specify null or 50. The call also returns a token that you can specify
 -- in a subsequent call to get the next set of results.
-listComplianceSummaries_maxResults :: Lens.Lens' ListComplianceSummaries (Prelude.Maybe Prelude.Natural)
+listComplianceSummaries_maxResults :: Lens.Lens' ListComplianceSummaries (Core.Maybe Core.Natural)
 listComplianceSummaries_maxResults = Lens.lens (\ListComplianceSummaries' {maxResults} -> maxResults) (\s@ListComplianceSummaries' {} a -> s {maxResults = a} :: ListComplianceSummaries)
 
 -- | One or more compliance or inventory filters. Use a filter to return a
 -- more specific list of results.
-listComplianceSummaries_filters :: Lens.Lens' ListComplianceSummaries (Prelude.Maybe [ComplianceStringFilter])
-listComplianceSummaries_filters = Lens.lens (\ListComplianceSummaries' {filters} -> filters) (\s@ListComplianceSummaries' {} a -> s {filters = a} :: ListComplianceSummaries) Prelude.. Lens.mapping Prelude._Coerce
+listComplianceSummaries_filters :: Lens.Lens' ListComplianceSummaries (Core.Maybe [ComplianceStringFilter])
+listComplianceSummaries_filters = Lens.lens (\ListComplianceSummaries' {filters} -> filters) (\s@ListComplianceSummaries' {} a -> s {filters = a} :: ListComplianceSummaries) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager ListComplianceSummaries where
+instance Core.AWSPager ListComplianceSummaries where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listComplianceSummariesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listComplianceSummariesResponse_complianceSummaryItems
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listComplianceSummaries_nextToken
           Lens..~ rs
           Lens.^? listComplianceSummariesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListComplianceSummaries where
+instance Core.AWSRequest ListComplianceSummaries where
   type
-    Rs ListComplianceSummaries =
+    AWSResponse ListComplianceSummaries =
       ListComplianceSummariesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListComplianceSummariesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ComplianceSummaryItems"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "ComplianceSummaryItems"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListComplianceSummaries
+instance Core.Hashable ListComplianceSummaries
 
-instance Prelude.NFData ListComplianceSummaries
+instance Core.NFData ListComplianceSummaries
 
-instance Prelude.ToHeaders ListComplianceSummaries where
+instance Core.ToHeaders ListComplianceSummaries where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.ListComplianceSummaries" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.ListComplianceSummaries" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListComplianceSummaries where
+instance Core.ToJSON ListComplianceSummaries where
   toJSON ListComplianceSummaries' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters
           ]
       )
 
-instance Prelude.ToPath ListComplianceSummaries where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListComplianceSummaries where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListComplianceSummaries where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListComplianceSummaries where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListComplianceSummariesResponse' smart constructor.
 data ListComplianceSummariesResponse = ListComplianceSummariesResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of compliant and non-compliant summary counts based on compliance
     -- types. For example, this call returns State Manager associations,
     -- patches, or custom compliance types according to the filter criteria
     -- that you specified.
-    complianceSummaryItems :: Prelude.Maybe [ComplianceSummaryItem],
+    complianceSummaryItems :: Core.Maybe [ComplianceSummaryItem],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListComplianceSummariesResponse' with all optional fields omitted.
@@ -220,32 +215,30 @@ data ListComplianceSummariesResponse = ListComplianceSummariesResponse'
 -- 'httpStatus', 'listComplianceSummariesResponse_httpStatus' - The response's http status code.
 newListComplianceSummariesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListComplianceSummariesResponse
 newListComplianceSummariesResponse pHttpStatus_ =
   ListComplianceSummariesResponse'
     { nextToken =
-        Prelude.Nothing,
-      complianceSummaryItems = Prelude.Nothing,
+        Core.Nothing,
+      complianceSummaryItems = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
-listComplianceSummariesResponse_nextToken :: Lens.Lens' ListComplianceSummariesResponse (Prelude.Maybe Prelude.Text)
+listComplianceSummariesResponse_nextToken :: Lens.Lens' ListComplianceSummariesResponse (Core.Maybe Core.Text)
 listComplianceSummariesResponse_nextToken = Lens.lens (\ListComplianceSummariesResponse' {nextToken} -> nextToken) (\s@ListComplianceSummariesResponse' {} a -> s {nextToken = a} :: ListComplianceSummariesResponse)
 
 -- | A list of compliant and non-compliant summary counts based on compliance
 -- types. For example, this call returns State Manager associations,
 -- patches, or custom compliance types according to the filter criteria
 -- that you specified.
-listComplianceSummariesResponse_complianceSummaryItems :: Lens.Lens' ListComplianceSummariesResponse (Prelude.Maybe [ComplianceSummaryItem])
-listComplianceSummariesResponse_complianceSummaryItems = Lens.lens (\ListComplianceSummariesResponse' {complianceSummaryItems} -> complianceSummaryItems) (\s@ListComplianceSummariesResponse' {} a -> s {complianceSummaryItems = a} :: ListComplianceSummariesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listComplianceSummariesResponse_complianceSummaryItems :: Lens.Lens' ListComplianceSummariesResponse (Core.Maybe [ComplianceSummaryItem])
+listComplianceSummariesResponse_complianceSummaryItems = Lens.lens (\ListComplianceSummariesResponse' {complianceSummaryItems} -> complianceSummaryItems) (\s@ListComplianceSummariesResponse' {} a -> s {complianceSummaryItems = a} :: ListComplianceSummariesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listComplianceSummariesResponse_httpStatus :: Lens.Lens' ListComplianceSummariesResponse Prelude.Int
+listComplianceSummariesResponse_httpStatus :: Lens.Lens' ListComplianceSummariesResponse Core.Int
 listComplianceSummariesResponse_httpStatus = Lens.lens (\ListComplianceSummariesResponse' {httpStatus} -> httpStatus) (\s@ListComplianceSummariesResponse' {} a -> s {httpStatus = a} :: ListComplianceSummariesResponse)
 
-instance
-  Prelude.NFData
-    ListComplianceSummariesResponse
+instance Core.NFData ListComplianceSummariesResponse

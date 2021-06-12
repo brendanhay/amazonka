@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.Preset where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.PresetSettings
 import Network.AWS.MediaConvert.Types.Type
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A preset is a collection of preconfigured media conversion settings that
 -- you want MediaConvert to apply to the output during the conversion
@@ -32,25 +31,25 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPreset' smart constructor.
 data Preset = Preset'
   { -- | An optional category you create to organize your presets.
-    category :: Prelude.Maybe Prelude.Text,
+    category :: Core.Maybe Core.Text,
     -- | An identifier for this resource that is unique within all of AWS.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The timestamp in epoch seconds for preset creation.
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | The timestamp in epoch seconds when the preset was last updated.
-    lastUpdated :: Prelude.Maybe Prelude.POSIX,
+    lastUpdated :: Core.Maybe Core.POSIX,
     -- | An optional description you create for each preset.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | A preset can be of two types: system or custom. System or built-in
     -- preset can\'t be modified or deleted by the user.
-    type' :: Prelude.Maybe Type,
+    type' :: Core.Maybe Type,
     -- | Settings for preset
     settings :: PresetSettings,
     -- | A name you create for each preset. Each name must be unique within your
     -- account.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Preset' with all optional fields omitted.
@@ -81,43 +80,43 @@ newPreset ::
   -- | 'settings'
   PresetSettings ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Preset
 newPreset pSettings_ pName_ =
   Preset'
-    { category = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing,
-      description = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { category = Core.Nothing,
+      arn = Core.Nothing,
+      createdAt = Core.Nothing,
+      lastUpdated = Core.Nothing,
+      description = Core.Nothing,
+      type' = Core.Nothing,
       settings = pSettings_,
       name = pName_
     }
 
 -- | An optional category you create to organize your presets.
-preset_category :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
+preset_category :: Lens.Lens' Preset (Core.Maybe Core.Text)
 preset_category = Lens.lens (\Preset' {category} -> category) (\s@Preset' {} a -> s {category = a} :: Preset)
 
 -- | An identifier for this resource that is unique within all of AWS.
-preset_arn :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
+preset_arn :: Lens.Lens' Preset (Core.Maybe Core.Text)
 preset_arn = Lens.lens (\Preset' {arn} -> arn) (\s@Preset' {} a -> s {arn = a} :: Preset)
 
 -- | The timestamp in epoch seconds for preset creation.
-preset_createdAt :: Lens.Lens' Preset (Prelude.Maybe Prelude.UTCTime)
-preset_createdAt = Lens.lens (\Preset' {createdAt} -> createdAt) (\s@Preset' {} a -> s {createdAt = a} :: Preset) Prelude.. Lens.mapping Prelude._Time
+preset_createdAt :: Lens.Lens' Preset (Core.Maybe Core.UTCTime)
+preset_createdAt = Lens.lens (\Preset' {createdAt} -> createdAt) (\s@Preset' {} a -> s {createdAt = a} :: Preset) Core.. Lens.mapping Core._Time
 
 -- | The timestamp in epoch seconds when the preset was last updated.
-preset_lastUpdated :: Lens.Lens' Preset (Prelude.Maybe Prelude.UTCTime)
-preset_lastUpdated = Lens.lens (\Preset' {lastUpdated} -> lastUpdated) (\s@Preset' {} a -> s {lastUpdated = a} :: Preset) Prelude.. Lens.mapping Prelude._Time
+preset_lastUpdated :: Lens.Lens' Preset (Core.Maybe Core.UTCTime)
+preset_lastUpdated = Lens.lens (\Preset' {lastUpdated} -> lastUpdated) (\s@Preset' {} a -> s {lastUpdated = a} :: Preset) Core.. Lens.mapping Core._Time
 
 -- | An optional description you create for each preset.
-preset_description :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
+preset_description :: Lens.Lens' Preset (Core.Maybe Core.Text)
 preset_description = Lens.lens (\Preset' {description} -> description) (\s@Preset' {} a -> s {description = a} :: Preset)
 
 -- | A preset can be of two types: system or custom. System or built-in
 -- preset can\'t be modified or deleted by the user.
-preset_type :: Lens.Lens' Preset (Prelude.Maybe Type)
+preset_type :: Lens.Lens' Preset (Core.Maybe Type)
 preset_type = Lens.lens (\Preset' {type'} -> type') (\s@Preset' {} a -> s {type' = a} :: Preset)
 
 -- | Settings for preset
@@ -126,25 +125,25 @@ preset_settings = Lens.lens (\Preset' {settings} -> settings) (\s@Preset' {} a -
 
 -- | A name you create for each preset. Each name must be unique within your
 -- account.
-preset_name :: Lens.Lens' Preset Prelude.Text
+preset_name :: Lens.Lens' Preset Core.Text
 preset_name = Lens.lens (\Preset' {name} -> name) (\s@Preset' {} a -> s {name = a} :: Preset)
 
-instance Prelude.FromJSON Preset where
+instance Core.FromJSON Preset where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Preset"
       ( \x ->
           Preset'
-            Prelude.<$> (x Prelude..:? "category")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "createdAt")
-            Prelude.<*> (x Prelude..:? "lastUpdated")
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..: "settings")
-            Prelude.<*> (x Prelude..: "name")
+            Core.<$> (x Core..:? "category")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "lastUpdated")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..: "settings")
+            Core.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable Preset
+instance Core.Hashable Preset
 
-instance Prelude.NFData Preset
+instance Core.NFData Preset

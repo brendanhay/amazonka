@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.APIGateway.UpdateRequestValidator
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +55,13 @@ import qualified Network.AWS.Response as Response
 data UpdateRequestValidator = UpdateRequestValidator'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Prelude.Maybe [PatchOperation],
+    patchOperations :: Core.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The identifier of RequestValidator to be updated.
-    requestValidatorId :: Prelude.Text
+    requestValidatorId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRequestValidator' with all optional fields omitted.
@@ -80,70 +79,72 @@ data UpdateRequestValidator = UpdateRequestValidator'
 -- 'requestValidatorId', 'updateRequestValidator_requestValidatorId' - [Required] The identifier of RequestValidator to be updated.
 newUpdateRequestValidator ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'requestValidatorId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateRequestValidator
 newUpdateRequestValidator
   pRestApiId_
   pRequestValidatorId_ =
     UpdateRequestValidator'
       { patchOperations =
-          Prelude.Nothing,
+          Core.Nothing,
         restApiId = pRestApiId_,
         requestValidatorId = pRequestValidatorId_
       }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateRequestValidator_patchOperations :: Lens.Lens' UpdateRequestValidator (Prelude.Maybe [PatchOperation])
-updateRequestValidator_patchOperations = Lens.lens (\UpdateRequestValidator' {patchOperations} -> patchOperations) (\s@UpdateRequestValidator' {} a -> s {patchOperations = a} :: UpdateRequestValidator) Prelude.. Lens.mapping Prelude._Coerce
+updateRequestValidator_patchOperations :: Lens.Lens' UpdateRequestValidator (Core.Maybe [PatchOperation])
+updateRequestValidator_patchOperations = Lens.lens (\UpdateRequestValidator' {patchOperations} -> patchOperations) (\s@UpdateRequestValidator' {} a -> s {patchOperations = a} :: UpdateRequestValidator) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateRequestValidator_restApiId :: Lens.Lens' UpdateRequestValidator Prelude.Text
+updateRequestValidator_restApiId :: Lens.Lens' UpdateRequestValidator Core.Text
 updateRequestValidator_restApiId = Lens.lens (\UpdateRequestValidator' {restApiId} -> restApiId) (\s@UpdateRequestValidator' {} a -> s {restApiId = a} :: UpdateRequestValidator)
 
 -- | [Required] The identifier of RequestValidator to be updated.
-updateRequestValidator_requestValidatorId :: Lens.Lens' UpdateRequestValidator Prelude.Text
+updateRequestValidator_requestValidatorId :: Lens.Lens' UpdateRequestValidator Core.Text
 updateRequestValidator_requestValidatorId = Lens.lens (\UpdateRequestValidator' {requestValidatorId} -> requestValidatorId) (\s@UpdateRequestValidator' {} a -> s {requestValidatorId = a} :: UpdateRequestValidator)
 
-instance Prelude.AWSRequest UpdateRequestValidator where
-  type Rs UpdateRequestValidator = RequestValidator
+instance Core.AWSRequest UpdateRequestValidator where
+  type
+    AWSResponse UpdateRequestValidator =
+      RequestValidator
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateRequestValidator
+instance Core.Hashable UpdateRequestValidator
 
-instance Prelude.NFData UpdateRequestValidator
+instance Core.NFData UpdateRequestValidator
 
-instance Prelude.ToHeaders UpdateRequestValidator where
+instance Core.ToHeaders UpdateRequestValidator where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateRequestValidator where
+instance Core.ToJSON UpdateRequestValidator where
   toJSON UpdateRequestValidator' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("patchOperations" Prelude..=)
-              Prelude.<$> patchOperations
+    Core.object
+      ( Core.catMaybes
+          [ ("patchOperations" Core..=)
+              Core.<$> patchOperations
           ]
       )
 
-instance Prelude.ToPath UpdateRequestValidator where
+instance Core.ToPath UpdateRequestValidator where
   toPath UpdateRequestValidator' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/requestvalidators/",
-        Prelude.toBS requestValidatorId
+        Core.toBS requestValidatorId
       ]
 
-instance Prelude.ToQuery UpdateRequestValidator where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateRequestValidator where
+  toQuery = Core.const Core.mempty

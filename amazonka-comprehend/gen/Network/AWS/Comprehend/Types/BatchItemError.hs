@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Comprehend.Types.BatchItemError where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an error that occurred while processing a document in a batch.
 -- The operation returns on @BatchItemError@ object for each document that
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBatchItemError' smart constructor.
 data BatchItemError = BatchItemError'
   { -- | The zero-based index of the document in the input list.
-    index :: Prelude.Maybe Prelude.Int,
+    index :: Core.Maybe Core.Int,
     -- | A text description of the error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The numeric error code of the error.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchItemError' with all optional fields omitted.
@@ -55,34 +54,34 @@ newBatchItemError ::
   BatchItemError
 newBatchItemError =
   BatchItemError'
-    { index = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { index = Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The zero-based index of the document in the input list.
-batchItemError_index :: Lens.Lens' BatchItemError (Prelude.Maybe Prelude.Int)
+batchItemError_index :: Lens.Lens' BatchItemError (Core.Maybe Core.Int)
 batchItemError_index = Lens.lens (\BatchItemError' {index} -> index) (\s@BatchItemError' {} a -> s {index = a} :: BatchItemError)
 
 -- | A text description of the error.
-batchItemError_errorMessage :: Lens.Lens' BatchItemError (Prelude.Maybe Prelude.Text)
+batchItemError_errorMessage :: Lens.Lens' BatchItemError (Core.Maybe Core.Text)
 batchItemError_errorMessage = Lens.lens (\BatchItemError' {errorMessage} -> errorMessage) (\s@BatchItemError' {} a -> s {errorMessage = a} :: BatchItemError)
 
 -- | The numeric error code of the error.
-batchItemError_errorCode :: Lens.Lens' BatchItemError (Prelude.Maybe Prelude.Text)
+batchItemError_errorCode :: Lens.Lens' BatchItemError (Core.Maybe Core.Text)
 batchItemError_errorCode = Lens.lens (\BatchItemError' {errorCode} -> errorCode) (\s@BatchItemError' {} a -> s {errorCode = a} :: BatchItemError)
 
-instance Prelude.FromJSON BatchItemError where
+instance Core.FromJSON BatchItemError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchItemError"
       ( \x ->
           BatchItemError'
-            Prelude.<$> (x Prelude..:? "Index")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "Index")
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable BatchItemError
+instance Core.Hashable BatchItemError
 
-instance Prelude.NFData BatchItemError
+instance Core.NFData BatchItemError

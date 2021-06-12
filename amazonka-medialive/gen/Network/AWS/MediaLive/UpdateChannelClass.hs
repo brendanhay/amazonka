@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.MediaLive.UpdateChannelClass
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +52,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateChannelClass'' smart constructor.
 data UpdateChannelClass' = UpdateChannelClass''
   { -- | A list of output destinations for this channel.
-    destinations :: Prelude.Maybe [OutputDestination],
+    destinations :: Core.Maybe [OutputDestination],
     -- | Channel Id of the channel whose class should be updated.
-    channelId :: Prelude.Text,
+    channelId :: Core.Text,
     -- | The channel class that you wish to update this channel to use.
     channelClass :: ChannelClass
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateChannelClass'' with all optional fields omitted.
@@ -76,89 +75,84 @@ data UpdateChannelClass' = UpdateChannelClass''
 -- 'channelClass', 'updateChannelClass'_channelClass' - The channel class that you wish to update this channel to use.
 newUpdateChannelClass' ::
   -- | 'channelId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'channelClass'
   ChannelClass ->
   UpdateChannelClass'
 newUpdateChannelClass' pChannelId_ pChannelClass_ =
   UpdateChannelClass''
-    { destinations =
-        Prelude.Nothing,
+    { destinations = Core.Nothing,
       channelId = pChannelId_,
       channelClass = pChannelClass_
     }
 
 -- | A list of output destinations for this channel.
-updateChannelClass'_destinations :: Lens.Lens' UpdateChannelClass' (Prelude.Maybe [OutputDestination])
-updateChannelClass'_destinations = Lens.lens (\UpdateChannelClass'' {destinations} -> destinations) (\s@UpdateChannelClass'' {} a -> s {destinations = a} :: UpdateChannelClass') Prelude.. Lens.mapping Prelude._Coerce
+updateChannelClass'_destinations :: Lens.Lens' UpdateChannelClass' (Core.Maybe [OutputDestination])
+updateChannelClass'_destinations = Lens.lens (\UpdateChannelClass'' {destinations} -> destinations) (\s@UpdateChannelClass'' {} a -> s {destinations = a} :: UpdateChannelClass') Core.. Lens.mapping Lens._Coerce
 
 -- | Channel Id of the channel whose class should be updated.
-updateChannelClass'_channelId :: Lens.Lens' UpdateChannelClass' Prelude.Text
+updateChannelClass'_channelId :: Lens.Lens' UpdateChannelClass' Core.Text
 updateChannelClass'_channelId = Lens.lens (\UpdateChannelClass'' {channelId} -> channelId) (\s@UpdateChannelClass'' {} a -> s {channelId = a} :: UpdateChannelClass')
 
 -- | The channel class that you wish to update this channel to use.
 updateChannelClass'_channelClass :: Lens.Lens' UpdateChannelClass' ChannelClass
 updateChannelClass'_channelClass = Lens.lens (\UpdateChannelClass'' {channelClass} -> channelClass) (\s@UpdateChannelClass'' {} a -> s {channelClass = a} :: UpdateChannelClass')
 
-instance Prelude.AWSRequest UpdateChannelClass' where
+instance Core.AWSRequest UpdateChannelClass' where
   type
-    Rs UpdateChannelClass' =
+    AWSResponse UpdateChannelClass' =
       UpdateChannelClassResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateChannelClassResponse'
-            Prelude.<$> (x Prelude..?> "channel")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "channel")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateChannelClass'
+instance Core.Hashable UpdateChannelClass'
 
-instance Prelude.NFData UpdateChannelClass'
+instance Core.NFData UpdateChannelClass'
 
-instance Prelude.ToHeaders UpdateChannelClass' where
+instance Core.ToHeaders UpdateChannelClass' where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateChannelClass' where
+instance Core.ToJSON UpdateChannelClass' where
   toJSON UpdateChannelClass'' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("destinations" Prelude..=)
-              Prelude.<$> destinations,
-            Prelude.Just
-              ("channelClass" Prelude..= channelClass)
+    Core.object
+      ( Core.catMaybes
+          [ ("destinations" Core..=) Core.<$> destinations,
+            Core.Just ("channelClass" Core..= channelClass)
           ]
       )
 
-instance Prelude.ToPath UpdateChannelClass' where
+instance Core.ToPath UpdateChannelClass' where
   toPath UpdateChannelClass'' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/prod/channels/",
-        Prelude.toBS channelId,
+        Core.toBS channelId,
         "/channelClass"
       ]
 
-instance Prelude.ToQuery UpdateChannelClass' where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateChannelClass' where
+  toQuery = Core.const Core.mempty
 
 -- | Placeholder documentation for UpdateChannelClassResponse
 --
 -- /See:/ 'newUpdateChannelClassResponse' smart constructor.
 data UpdateChannelClassResponse = UpdateChannelClassResponse'
-  { channel :: Prelude.Maybe Channel,
+  { channel :: Core.Maybe Channel,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateChannelClassResponse' with all optional fields omitted.
@@ -173,21 +167,20 @@ data UpdateChannelClassResponse = UpdateChannelClassResponse'
 -- 'httpStatus', 'updateChannelClassResponse_httpStatus' - The response's http status code.
 newUpdateChannelClassResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateChannelClassResponse
 newUpdateChannelClassResponse pHttpStatus_ =
   UpdateChannelClassResponse'
-    { channel =
-        Prelude.Nothing,
+    { channel = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateChannelClassResponse_channel :: Lens.Lens' UpdateChannelClassResponse (Prelude.Maybe Channel)
+updateChannelClassResponse_channel :: Lens.Lens' UpdateChannelClassResponse (Core.Maybe Channel)
 updateChannelClassResponse_channel = Lens.lens (\UpdateChannelClassResponse' {channel} -> channel) (\s@UpdateChannelClassResponse' {} a -> s {channel = a} :: UpdateChannelClassResponse)
 
 -- | The response's http status code.
-updateChannelClassResponse_httpStatus :: Lens.Lens' UpdateChannelClassResponse Prelude.Int
+updateChannelClassResponse_httpStatus :: Lens.Lens' UpdateChannelClassResponse Core.Int
 updateChannelClassResponse_httpStatus = Lens.lens (\UpdateChannelClassResponse' {httpStatus} -> httpStatus) (\s@UpdateChannelClassResponse' {} a -> s {httpStatus = a} :: UpdateChannelClassResponse)
 
-instance Prelude.NFData UpdateChannelClassResponse
+instance Core.NFData UpdateChannelClassResponse

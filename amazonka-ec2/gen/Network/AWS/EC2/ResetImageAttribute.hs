@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.EC2.ResetImageAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,14 +53,14 @@ data ResetImageAttribute = ResetImageAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The attribute to reset (currently you can only reset the launch
     -- permission attribute).
     attribute :: ResetImageAttributeName,
     -- | The ID of the AMI.
-    imageId :: Prelude.Text
+    imageId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetImageAttribute' with all optional fields omitted.
@@ -84,11 +83,11 @@ newResetImageAttribute ::
   -- | 'attribute'
   ResetImageAttributeName ->
   -- | 'imageId'
-  Prelude.Text ->
+  Core.Text ->
   ResetImageAttribute
 newResetImageAttribute pAttribute_ pImageId_ =
   ResetImageAttribute'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       attribute = pAttribute_,
       imageId = pImageId_
     }
@@ -97,7 +96,7 @@ newResetImageAttribute pAttribute_ pImageId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-resetImageAttribute_dryRun :: Lens.Lens' ResetImageAttribute (Prelude.Maybe Prelude.Bool)
+resetImageAttribute_dryRun :: Lens.Lens' ResetImageAttribute (Core.Maybe Core.Bool)
 resetImageAttribute_dryRun = Lens.lens (\ResetImageAttribute' {dryRun} -> dryRun) (\s@ResetImageAttribute' {} a -> s {dryRun = a} :: ResetImageAttribute)
 
 -- | The attribute to reset (currently you can only reset the launch
@@ -106,44 +105,43 @@ resetImageAttribute_attribute :: Lens.Lens' ResetImageAttribute ResetImageAttrib
 resetImageAttribute_attribute = Lens.lens (\ResetImageAttribute' {attribute} -> attribute) (\s@ResetImageAttribute' {} a -> s {attribute = a} :: ResetImageAttribute)
 
 -- | The ID of the AMI.
-resetImageAttribute_imageId :: Lens.Lens' ResetImageAttribute Prelude.Text
+resetImageAttribute_imageId :: Lens.Lens' ResetImageAttribute Core.Text
 resetImageAttribute_imageId = Lens.lens (\ResetImageAttribute' {imageId} -> imageId) (\s@ResetImageAttribute' {} a -> s {imageId = a} :: ResetImageAttribute)
 
-instance Prelude.AWSRequest ResetImageAttribute where
+instance Core.AWSRequest ResetImageAttribute where
   type
-    Rs ResetImageAttribute =
+    AWSResponse ResetImageAttribute =
       ResetImageAttributeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull ResetImageAttributeResponse'
 
-instance Prelude.Hashable ResetImageAttribute
+instance Core.Hashable ResetImageAttribute
 
-instance Prelude.NFData ResetImageAttribute
+instance Core.NFData ResetImageAttribute
 
-instance Prelude.ToHeaders ResetImageAttribute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ResetImageAttribute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ResetImageAttribute where
-  toPath = Prelude.const "/"
+instance Core.ToPath ResetImageAttribute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ResetImageAttribute where
+instance Core.ToQuery ResetImageAttribute where
   toQuery ResetImageAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ResetImageAttribute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "Attribute" Prelude.=: attribute,
-        "ImageId" Prelude.=: imageId
+          Core.=: ("ResetImageAttribute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Attribute" Core.=: attribute,
+        "ImageId" Core.=: imageId
       ]
 
 -- | /See:/ 'newResetImageAttributeResponse' smart constructor.
 data ResetImageAttributeResponse = ResetImageAttributeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetImageAttributeResponse' with all optional fields omitted.
@@ -154,4 +152,4 @@ newResetImageAttributeResponse ::
 newResetImageAttributeResponse =
   ResetImageAttributeResponse'
 
-instance Prelude.NFData ResetImageAttributeResponse
+instance Core.NFData ResetImageAttributeResponse

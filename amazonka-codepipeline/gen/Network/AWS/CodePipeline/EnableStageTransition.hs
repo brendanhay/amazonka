@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.CodePipeline.EnableStageTransition
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,18 +49,18 @@ import qualified Network.AWS.Response as Response
 data EnableStageTransition = EnableStageTransition'
   { -- | The name of the pipeline in which you want to enable the flow of
     -- artifacts from one stage to another.
-    pipelineName :: Prelude.Text,
+    pipelineName :: Core.Text,
     -- | The name of the stage where you want to enable the transition of
     -- artifacts, either into the stage (inbound) or from that stage to the
     -- next stage (outbound).
-    stageName :: Prelude.Text,
+    stageName :: Core.Text,
     -- | Specifies whether artifacts are allowed to enter the stage and be
     -- processed by the actions in that stage (inbound) or whether already
     -- processed artifacts are allowed to transition to the next stage
     -- (outbound).
     transitionType :: StageTransitionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableStageTransition' with all optional fields omitted.
@@ -84,9 +83,9 @@ data EnableStageTransition = EnableStageTransition'
 -- (outbound).
 newEnableStageTransition ::
   -- | 'pipelineName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stageName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'transitionType'
   StageTransitionType ->
   EnableStageTransition
@@ -103,13 +102,13 @@ newEnableStageTransition
 
 -- | The name of the pipeline in which you want to enable the flow of
 -- artifacts from one stage to another.
-enableStageTransition_pipelineName :: Lens.Lens' EnableStageTransition Prelude.Text
+enableStageTransition_pipelineName :: Lens.Lens' EnableStageTransition Core.Text
 enableStageTransition_pipelineName = Lens.lens (\EnableStageTransition' {pipelineName} -> pipelineName) (\s@EnableStageTransition' {} a -> s {pipelineName = a} :: EnableStageTransition)
 
 -- | The name of the stage where you want to enable the transition of
 -- artifacts, either into the stage (inbound) or from that stage to the
 -- next stage (outbound).
-enableStageTransition_stageName :: Lens.Lens' EnableStageTransition Prelude.Text
+enableStageTransition_stageName :: Lens.Lens' EnableStageTransition Core.Text
 enableStageTransition_stageName = Lens.lens (\EnableStageTransition' {stageName} -> stageName) (\s@EnableStageTransition' {} a -> s {stageName = a} :: EnableStageTransition)
 
 -- | Specifies whether artifacts are allowed to enter the stage and be
@@ -119,56 +118,52 @@ enableStageTransition_stageName = Lens.lens (\EnableStageTransition' {stageName}
 enableStageTransition_transitionType :: Lens.Lens' EnableStageTransition StageTransitionType
 enableStageTransition_transitionType = Lens.lens (\EnableStageTransition' {transitionType} -> transitionType) (\s@EnableStageTransition' {} a -> s {transitionType = a} :: EnableStageTransition)
 
-instance Prelude.AWSRequest EnableStageTransition where
+instance Core.AWSRequest EnableStageTransition where
   type
-    Rs EnableStageTransition =
+    AWSResponse EnableStageTransition =
       EnableStageTransitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull EnableStageTransitionResponse'
 
-instance Prelude.Hashable EnableStageTransition
+instance Core.Hashable EnableStageTransition
 
-instance Prelude.NFData EnableStageTransition
+instance Core.NFData EnableStageTransition
 
-instance Prelude.ToHeaders EnableStageTransition where
+instance Core.ToHeaders EnableStageTransition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.EnableStageTransition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.EnableStageTransition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON EnableStageTransition where
+instance Core.ToJSON EnableStageTransition where
   toJSON EnableStageTransition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("pipelineName" Prelude..= pipelineName),
-            Prelude.Just ("stageName" Prelude..= stageName),
-            Prelude.Just
-              ("transitionType" Prelude..= transitionType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pipelineName" Core..= pipelineName),
+            Core.Just ("stageName" Core..= stageName),
+            Core.Just ("transitionType" Core..= transitionType)
           ]
       )
 
-instance Prelude.ToPath EnableStageTransition where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableStageTransition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableStageTransition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnableStageTransition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEnableStageTransitionResponse' smart constructor.
 data EnableStageTransitionResponse = EnableStageTransitionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableStageTransitionResponse' with all optional fields omitted.
@@ -179,4 +174,4 @@ newEnableStageTransitionResponse ::
 newEnableStageTransitionResponse =
   EnableStageTransitionResponse'
 
-instance Prelude.NFData EnableStageTransitionResponse
+instance Core.NFData EnableStageTransitionResponse

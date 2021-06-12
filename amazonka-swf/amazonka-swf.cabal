@@ -204,10 +204,10 @@ library
     Network.AWS.SWF.UntagResource
     Network.AWS.SWF.Waiters
 
-  reexported-modules: Network.AWS.Prelude
+  reexported-modules: Network.AWS
   build-depends:
-    , amazonka-core  >=1.6.1 && <1.6.2
-    , base           >=4.13  && <5
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-swf-test
   type:             exitcode-stdio-1.0
@@ -225,7 +225,7 @@ test-suite amazonka-swf-test
     Test.AWS.SWF.Internal
 
   build-depends:
-    , amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka              >=1.6.1 && <1.6.2
     , amazonka-swf
     , amazonka-test         >=1.6.1 && <1.6.2
     , base

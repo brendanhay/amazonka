@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.GameLift.DescribeVpcPeeringAuthorizations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +61,7 @@ import qualified Network.AWS.Response as Response
 data DescribeVpcPeeringAuthorizations = DescribeVpcPeeringAuthorizations'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcPeeringAuthorizations' with all optional fields omitted.
@@ -74,77 +73,66 @@ newDescribeVpcPeeringAuthorizations =
   DescribeVpcPeeringAuthorizations'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeVpcPeeringAuthorizations
   where
   type
-    Rs DescribeVpcPeeringAuthorizations =
+    AWSResponse DescribeVpcPeeringAuthorizations =
       DescribeVpcPeeringAuthorizationsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeVpcPeeringAuthorizationsResponse'
-            Prelude.<$> ( x Prelude..?> "VpcPeeringAuthorizations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "VpcPeeringAuthorizations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeVpcPeeringAuthorizations
 
-instance
-  Prelude.NFData
-    DescribeVpcPeeringAuthorizations
+instance Core.NFData DescribeVpcPeeringAuthorizations
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeVpcPeeringAuthorizations
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.DescribeVpcPeeringAuthorizations" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.DescribeVpcPeeringAuthorizations" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DescribeVpcPeeringAuthorizations
-  where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DescribeVpcPeeringAuthorizations where
+  toJSON = Core.const (Core.Object Core.mempty)
+
+instance Core.ToPath DescribeVpcPeeringAuthorizations where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToPath
+  Core.ToQuery
     DescribeVpcPeeringAuthorizations
   where
-  toPath = Prelude.const "/"
-
-instance
-  Prelude.ToQuery
-    DescribeVpcPeeringAuthorizations
-  where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeVpcPeeringAuthorizationsResponse' smart constructor.
 data DescribeVpcPeeringAuthorizationsResponse = DescribeVpcPeeringAuthorizationsResponse'
   { -- | A collection of objects that describe all valid VPC peering operations
     -- for the current AWS account.
-    vpcPeeringAuthorizations :: Prelude.Maybe [VpcPeeringAuthorization],
+    vpcPeeringAuthorizations :: Core.Maybe [VpcPeeringAuthorization],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcPeeringAuthorizationsResponse' with all optional fields omitted.
@@ -160,25 +148,25 @@ data DescribeVpcPeeringAuthorizationsResponse = DescribeVpcPeeringAuthorizations
 -- 'httpStatus', 'describeVpcPeeringAuthorizationsResponse_httpStatus' - The response's http status code.
 newDescribeVpcPeeringAuthorizationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeVpcPeeringAuthorizationsResponse
 newDescribeVpcPeeringAuthorizationsResponse
   pHttpStatus_ =
     DescribeVpcPeeringAuthorizationsResponse'
       { vpcPeeringAuthorizations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A collection of objects that describe all valid VPC peering operations
 -- for the current AWS account.
-describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations :: Lens.Lens' DescribeVpcPeeringAuthorizationsResponse (Prelude.Maybe [VpcPeeringAuthorization])
-describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations = Lens.lens (\DescribeVpcPeeringAuthorizationsResponse' {vpcPeeringAuthorizations} -> vpcPeeringAuthorizations) (\s@DescribeVpcPeeringAuthorizationsResponse' {} a -> s {vpcPeeringAuthorizations = a} :: DescribeVpcPeeringAuthorizationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations :: Lens.Lens' DescribeVpcPeeringAuthorizationsResponse (Core.Maybe [VpcPeeringAuthorization])
+describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations = Lens.lens (\DescribeVpcPeeringAuthorizationsResponse' {vpcPeeringAuthorizations} -> vpcPeeringAuthorizations) (\s@DescribeVpcPeeringAuthorizationsResponse' {} a -> s {vpcPeeringAuthorizations = a} :: DescribeVpcPeeringAuthorizationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeVpcPeeringAuthorizationsResponse_httpStatus :: Lens.Lens' DescribeVpcPeeringAuthorizationsResponse Prelude.Int
+describeVpcPeeringAuthorizationsResponse_httpStatus :: Lens.Lens' DescribeVpcPeeringAuthorizationsResponse Core.Int
 describeVpcPeeringAuthorizationsResponse_httpStatus = Lens.lens (\DescribeVpcPeeringAuthorizationsResponse' {httpStatus} -> httpStatus) (\s@DescribeVpcPeeringAuthorizationsResponse' {} a -> s {httpStatus = a} :: DescribeVpcPeeringAuthorizationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeVpcPeeringAuthorizationsResponse

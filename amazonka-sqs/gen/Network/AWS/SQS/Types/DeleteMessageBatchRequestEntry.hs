@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Encloses a receipt handle and an identifier for it.
 --
@@ -34,11 +33,11 @@ data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
     --
     -- This identifier can have up to 80 characters. The following characters
     -- are accepted: alphanumeric characters, hyphens(-), and underscores (_).
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | A receipt handle.
-    receiptHandle :: Prelude.Text
+    receiptHandle :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMessageBatchRequestEntry' with all optional fields omitted.
@@ -59,9 +58,9 @@ data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
 -- 'receiptHandle', 'deleteMessageBatchRequestEntry_receiptHandle' - A receipt handle.
 newDeleteMessageBatchRequestEntry ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'receiptHandle'
-  Prelude.Text ->
+  Core.Text ->
   DeleteMessageBatchRequestEntry
 newDeleteMessageBatchRequestEntry
   pId_
@@ -78,27 +77,20 @@ newDeleteMessageBatchRequestEntry
 --
 -- This identifier can have up to 80 characters. The following characters
 -- are accepted: alphanumeric characters, hyphens(-), and underscores (_).
-deleteMessageBatchRequestEntry_id :: Lens.Lens' DeleteMessageBatchRequestEntry Prelude.Text
+deleteMessageBatchRequestEntry_id :: Lens.Lens' DeleteMessageBatchRequestEntry Core.Text
 deleteMessageBatchRequestEntry_id = Lens.lens (\DeleteMessageBatchRequestEntry' {id} -> id) (\s@DeleteMessageBatchRequestEntry' {} a -> s {id = a} :: DeleteMessageBatchRequestEntry)
 
 -- | A receipt handle.
-deleteMessageBatchRequestEntry_receiptHandle :: Lens.Lens' DeleteMessageBatchRequestEntry Prelude.Text
+deleteMessageBatchRequestEntry_receiptHandle :: Lens.Lens' DeleteMessageBatchRequestEntry Core.Text
 deleteMessageBatchRequestEntry_receiptHandle = Lens.lens (\DeleteMessageBatchRequestEntry' {receiptHandle} -> receiptHandle) (\s@DeleteMessageBatchRequestEntry' {} a -> s {receiptHandle = a} :: DeleteMessageBatchRequestEntry)
 
-instance
-  Prelude.Hashable
-    DeleteMessageBatchRequestEntry
+instance Core.Hashable DeleteMessageBatchRequestEntry
 
-instance
-  Prelude.NFData
-    DeleteMessageBatchRequestEntry
+instance Core.NFData DeleteMessageBatchRequestEntry
 
-instance
-  Prelude.ToQuery
-    DeleteMessageBatchRequestEntry
-  where
+instance Core.ToQuery DeleteMessageBatchRequestEntry where
   toQuery DeleteMessageBatchRequestEntry' {..} =
-    Prelude.mconcat
-      [ "Id" Prelude.=: id,
-        "ReceiptHandle" Prelude.=: receiptHandle
+    Core.mconcat
+      [ "Id" Core.=: id,
+        "ReceiptHandle" Core.=: receiptHandle
       ]

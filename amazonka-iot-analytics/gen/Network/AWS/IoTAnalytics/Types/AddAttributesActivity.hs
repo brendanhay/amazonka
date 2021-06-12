@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.AddAttributesActivity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An activity that adds other attributes based on existing attributes in
 -- the message.
@@ -29,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAddAttributesActivity' smart constructor.
 data AddAttributesActivity = AddAttributesActivity'
   { -- | The next activity in the pipeline.
-    next :: Prelude.Maybe Prelude.Text,
+    next :: Core.Maybe Core.Text,
     -- | The name of the addAttributes activity.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | A list of 1-50 @AttributeNameMapping@ objects that map an existing
     -- attribute to a new attribute.
     --
     -- The existing attributes remain in the message, so if you want to remove
     -- the originals, use @RemoveAttributeActivity@.
-    attributes :: Prelude.HashMap Prelude.Text Prelude.Text
+    attributes :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddAttributesActivity' with all optional fields omitted.
@@ -60,21 +59,21 @@ data AddAttributesActivity = AddAttributesActivity'
 -- the originals, use @RemoveAttributeActivity@.
 newAddAttributesActivity ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   AddAttributesActivity
 newAddAttributesActivity pName_ =
   AddAttributesActivity'
-    { next = Prelude.Nothing,
+    { next = Core.Nothing,
       name = pName_,
-      attributes = Prelude.mempty
+      attributes = Core.mempty
     }
 
 -- | The next activity in the pipeline.
-addAttributesActivity_next :: Lens.Lens' AddAttributesActivity (Prelude.Maybe Prelude.Text)
+addAttributesActivity_next :: Lens.Lens' AddAttributesActivity (Core.Maybe Core.Text)
 addAttributesActivity_next = Lens.lens (\AddAttributesActivity' {next} -> next) (\s@AddAttributesActivity' {} a -> s {next = a} :: AddAttributesActivity)
 
 -- | The name of the addAttributes activity.
-addAttributesActivity_name :: Lens.Lens' AddAttributesActivity Prelude.Text
+addAttributesActivity_name :: Lens.Lens' AddAttributesActivity Core.Text
 addAttributesActivity_name = Lens.lens (\AddAttributesActivity' {name} -> name) (\s@AddAttributesActivity' {} a -> s {name = a} :: AddAttributesActivity)
 
 -- | A list of 1-50 @AttributeNameMapping@ objects that map an existing
@@ -82,32 +81,30 @@ addAttributesActivity_name = Lens.lens (\AddAttributesActivity' {name} -> name) 
 --
 -- The existing attributes remain in the message, so if you want to remove
 -- the originals, use @RemoveAttributeActivity@.
-addAttributesActivity_attributes :: Lens.Lens' AddAttributesActivity (Prelude.HashMap Prelude.Text Prelude.Text)
-addAttributesActivity_attributes = Lens.lens (\AddAttributesActivity' {attributes} -> attributes) (\s@AddAttributesActivity' {} a -> s {attributes = a} :: AddAttributesActivity) Prelude.. Prelude._Coerce
+addAttributesActivity_attributes :: Lens.Lens' AddAttributesActivity (Core.HashMap Core.Text Core.Text)
+addAttributesActivity_attributes = Lens.lens (\AddAttributesActivity' {attributes} -> attributes) (\s@AddAttributesActivity' {} a -> s {attributes = a} :: AddAttributesActivity) Core.. Lens._Coerce
 
-instance Prelude.FromJSON AddAttributesActivity where
+instance Core.FromJSON AddAttributesActivity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AddAttributesActivity"
       ( \x ->
           AddAttributesActivity'
-            Prelude.<$> (x Prelude..:? "next")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> ( x Prelude..:? "attributes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "next")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..:? "attributes" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AddAttributesActivity
+instance Core.Hashable AddAttributesActivity
 
-instance Prelude.NFData AddAttributesActivity
+instance Core.NFData AddAttributesActivity
 
-instance Prelude.ToJSON AddAttributesActivity where
+instance Core.ToJSON AddAttributesActivity where
   toJSON AddAttributesActivity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("next" Prelude..=) Prelude.<$> next,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("attributes" Prelude..= attributes)
+    Core.object
+      ( Core.catMaybes
+          [ ("next" Core..=) Core.<$> next,
+            Core.Just ("name" Core..= name),
+            Core.Just ("attributes" Core..= attributes)
           ]
       )

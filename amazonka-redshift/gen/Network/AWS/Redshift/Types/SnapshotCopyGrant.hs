@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.SnapshotCopyGrant where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Tag
 
@@ -36,14 +35,14 @@ import Network.AWS.Redshift.Types.Tag
 -- /See:/ 'newSnapshotCopyGrant' smart constructor.
 data SnapshotCopyGrant = SnapshotCopyGrant'
   { -- | The name of the snapshot copy grant.
-    snapshotCopyGrantName :: Prelude.Maybe Prelude.Text,
+    snapshotCopyGrantName :: Core.Maybe Core.Text,
     -- | The unique identifier of the customer master key (CMK) in AWS KMS to
     -- which Amazon Redshift is granted permission.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | A list of tag instances.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SnapshotCopyGrant' with all optional fields omitted.
@@ -64,33 +63,33 @@ newSnapshotCopyGrant ::
 newSnapshotCopyGrant =
   SnapshotCopyGrant'
     { snapshotCopyGrantName =
-        Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      tags = Prelude.Nothing
+        Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The name of the snapshot copy grant.
-snapshotCopyGrant_snapshotCopyGrantName :: Lens.Lens' SnapshotCopyGrant (Prelude.Maybe Prelude.Text)
+snapshotCopyGrant_snapshotCopyGrantName :: Lens.Lens' SnapshotCopyGrant (Core.Maybe Core.Text)
 snapshotCopyGrant_snapshotCopyGrantName = Lens.lens (\SnapshotCopyGrant' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@SnapshotCopyGrant' {} a -> s {snapshotCopyGrantName = a} :: SnapshotCopyGrant)
 
 -- | The unique identifier of the customer master key (CMK) in AWS KMS to
 -- which Amazon Redshift is granted permission.
-snapshotCopyGrant_kmsKeyId :: Lens.Lens' SnapshotCopyGrant (Prelude.Maybe Prelude.Text)
+snapshotCopyGrant_kmsKeyId :: Lens.Lens' SnapshotCopyGrant (Core.Maybe Core.Text)
 snapshotCopyGrant_kmsKeyId = Lens.lens (\SnapshotCopyGrant' {kmsKeyId} -> kmsKeyId) (\s@SnapshotCopyGrant' {} a -> s {kmsKeyId = a} :: SnapshotCopyGrant)
 
 -- | A list of tag instances.
-snapshotCopyGrant_tags :: Lens.Lens' SnapshotCopyGrant (Prelude.Maybe [Tag])
-snapshotCopyGrant_tags = Lens.lens (\SnapshotCopyGrant' {tags} -> tags) (\s@SnapshotCopyGrant' {} a -> s {tags = a} :: SnapshotCopyGrant) Prelude.. Lens.mapping Prelude._Coerce
+snapshotCopyGrant_tags :: Lens.Lens' SnapshotCopyGrant (Core.Maybe [Tag])
+snapshotCopyGrant_tags = Lens.lens (\SnapshotCopyGrant' {tags} -> tags) (\s@SnapshotCopyGrant' {} a -> s {tags = a} :: SnapshotCopyGrant) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML SnapshotCopyGrant where
+instance Core.FromXML SnapshotCopyGrant where
   parseXML x =
     SnapshotCopyGrant'
-      Prelude.<$> (x Prelude..@? "SnapshotCopyGrantName")
-      Prelude.<*> (x Prelude..@? "KmsKeyId")
-      Prelude.<*> ( x Prelude..@? "Tags" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "Tag")
-                  )
+      Core.<$> (x Core..@? "SnapshotCopyGrantName")
+      Core.<*> (x Core..@? "KmsKeyId")
+      Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "Tag")
+               )
 
-instance Prelude.Hashable SnapshotCopyGrant
+instance Core.Hashable SnapshotCopyGrant
 
-instance Prelude.NFData SnapshotCopyGrant
+instance Core.NFData SnapshotCopyGrant

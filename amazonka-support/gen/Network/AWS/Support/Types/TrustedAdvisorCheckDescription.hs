@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,30 +19,30 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Support.Types.TrustedAdvisorCheckDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The description and metadata for a Trusted Advisor check.
 --
 -- /See:/ 'newTrustedAdvisorCheckDescription' smart constructor.
 data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'
   { -- | The unique identifier for the Trusted Advisor check.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The display name for the Trusted Advisor check.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The description of the Trusted Advisor check, which includes the alert
     -- criteria and recommended operations (contains HTML markup).
-    description :: Prelude.Text,
+    description :: Core.Text,
     -- | The category of the Trusted Advisor check.
-    category :: Prelude.Text,
+    category :: Core.Text,
     -- | The column headings for the data returned by the Trusted Advisor check.
     -- The order of the headings corresponds to the order of the data in the
     -- __Metadata__ element of the TrustedAdvisorResourceDetail for the check.
     -- __Metadata__ contains all the data that is shown in the Excel download,
     -- even in those cases where the UI shows just summary data.
-    metadata :: [Prelude.Text]
+    metadata :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrustedAdvisorCheckDescription' with all optional fields omitted.
@@ -69,13 +68,13 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'
 -- even in those cases where the UI shows just summary data.
 newTrustedAdvisorCheckDescription ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'category'
-  Prelude.Text ->
+  Core.Text ->
   TrustedAdvisorCheckDescription
 newTrustedAdvisorCheckDescription
   pId_
@@ -87,24 +86,24 @@ newTrustedAdvisorCheckDescription
         name = pName_,
         description = pDescription_,
         category = pCategory_,
-        metadata = Prelude.mempty
+        metadata = Core.mempty
       }
 
 -- | The unique identifier for the Trusted Advisor check.
-trustedAdvisorCheckDescription_id :: Lens.Lens' TrustedAdvisorCheckDescription Prelude.Text
+trustedAdvisorCheckDescription_id :: Lens.Lens' TrustedAdvisorCheckDescription Core.Text
 trustedAdvisorCheckDescription_id = Lens.lens (\TrustedAdvisorCheckDescription' {id} -> id) (\s@TrustedAdvisorCheckDescription' {} a -> s {id = a} :: TrustedAdvisorCheckDescription)
 
 -- | The display name for the Trusted Advisor check.
-trustedAdvisorCheckDescription_name :: Lens.Lens' TrustedAdvisorCheckDescription Prelude.Text
+trustedAdvisorCheckDescription_name :: Lens.Lens' TrustedAdvisorCheckDescription Core.Text
 trustedAdvisorCheckDescription_name = Lens.lens (\TrustedAdvisorCheckDescription' {name} -> name) (\s@TrustedAdvisorCheckDescription' {} a -> s {name = a} :: TrustedAdvisorCheckDescription)
 
 -- | The description of the Trusted Advisor check, which includes the alert
 -- criteria and recommended operations (contains HTML markup).
-trustedAdvisorCheckDescription_description :: Lens.Lens' TrustedAdvisorCheckDescription Prelude.Text
+trustedAdvisorCheckDescription_description :: Lens.Lens' TrustedAdvisorCheckDescription Core.Text
 trustedAdvisorCheckDescription_description = Lens.lens (\TrustedAdvisorCheckDescription' {description} -> description) (\s@TrustedAdvisorCheckDescription' {} a -> s {description = a} :: TrustedAdvisorCheckDescription)
 
 -- | The category of the Trusted Advisor check.
-trustedAdvisorCheckDescription_category :: Lens.Lens' TrustedAdvisorCheckDescription Prelude.Text
+trustedAdvisorCheckDescription_category :: Lens.Lens' TrustedAdvisorCheckDescription Core.Text
 trustedAdvisorCheckDescription_category = Lens.lens (\TrustedAdvisorCheckDescription' {category} -> category) (\s@TrustedAdvisorCheckDescription' {} a -> s {category = a} :: TrustedAdvisorCheckDescription)
 
 -- | The column headings for the data returned by the Trusted Advisor check.
@@ -112,31 +111,22 @@ trustedAdvisorCheckDescription_category = Lens.lens (\TrustedAdvisorCheckDescrip
 -- __Metadata__ element of the TrustedAdvisorResourceDetail for the check.
 -- __Metadata__ contains all the data that is shown in the Excel download,
 -- even in those cases where the UI shows just summary data.
-trustedAdvisorCheckDescription_metadata :: Lens.Lens' TrustedAdvisorCheckDescription [Prelude.Text]
-trustedAdvisorCheckDescription_metadata = Lens.lens (\TrustedAdvisorCheckDescription' {metadata} -> metadata) (\s@TrustedAdvisorCheckDescription' {} a -> s {metadata = a} :: TrustedAdvisorCheckDescription) Prelude.. Prelude._Coerce
+trustedAdvisorCheckDescription_metadata :: Lens.Lens' TrustedAdvisorCheckDescription [Core.Text]
+trustedAdvisorCheckDescription_metadata = Lens.lens (\TrustedAdvisorCheckDescription' {metadata} -> metadata) (\s@TrustedAdvisorCheckDescription' {} a -> s {metadata = a} :: TrustedAdvisorCheckDescription) Core.. Lens._Coerce
 
-instance
-  Prelude.FromJSON
-    TrustedAdvisorCheckDescription
-  where
+instance Core.FromJSON TrustedAdvisorCheckDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrustedAdvisorCheckDescription"
       ( \x ->
           TrustedAdvisorCheckDescription'
-            Prelude.<$> (x Prelude..: "id")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "description")
-            Prelude.<*> (x Prelude..: "category")
-            Prelude.<*> ( x Prelude..:? "metadata"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..: "id")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "description")
+            Core.<*> (x Core..: "category")
+            Core.<*> (x Core..:? "metadata" Core..!= Core.mempty)
       )
 
-instance
-  Prelude.Hashable
-    TrustedAdvisorCheckDescription
+instance Core.Hashable TrustedAdvisorCheckDescription
 
-instance
-  Prelude.NFData
-    TrustedAdvisorCheckDescription
+instance Core.NFData TrustedAdvisorCheckDescription

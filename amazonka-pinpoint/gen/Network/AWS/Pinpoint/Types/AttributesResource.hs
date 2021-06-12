@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.AttributesResource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the type and the names of attributes that
 -- were removed from all the endpoints that are associated with an
@@ -31,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 data AttributesResource = AttributesResource'
   { -- | An array that specifies the names of the attributes that were removed
     -- from the endpoints.
-    attributes :: Prelude.Maybe [Prelude.Text],
+    attributes :: Core.Maybe [Core.Text],
     -- | The type of attribute or attributes that were removed from the
     -- endpoints. Valid values are:
     --
@@ -42,11 +41,11 @@ data AttributesResource = AttributesResource'
     --     Amazon Pinpoint for endpoints.
     --
     -- -   endpoint-user-attributes - Custom attributes that describe users.
-    attributeType :: Prelude.Text,
+    attributeType :: Core.Text,
     -- | The unique identifier for the application.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributesResource' with all optional fields omitted.
@@ -73,21 +72,21 @@ data AttributesResource = AttributesResource'
 -- 'applicationId', 'attributesResource_applicationId' - The unique identifier for the application.
 newAttributesResource ::
   -- | 'attributeType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   AttributesResource
 newAttributesResource pAttributeType_ pApplicationId_ =
   AttributesResource'
-    { attributes = Prelude.Nothing,
+    { attributes = Core.Nothing,
       attributeType = pAttributeType_,
       applicationId = pApplicationId_
     }
 
 -- | An array that specifies the names of the attributes that were removed
 -- from the endpoints.
-attributesResource_attributes :: Lens.Lens' AttributesResource (Prelude.Maybe [Prelude.Text])
-attributesResource_attributes = Lens.lens (\AttributesResource' {attributes} -> attributes) (\s@AttributesResource' {} a -> s {attributes = a} :: AttributesResource) Prelude.. Lens.mapping Prelude._Coerce
+attributesResource_attributes :: Lens.Lens' AttributesResource (Core.Maybe [Core.Text])
+attributesResource_attributes = Lens.lens (\AttributesResource' {attributes} -> attributes) (\s@AttributesResource' {} a -> s {attributes = a} :: AttributesResource) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of attribute or attributes that were removed from the
 -- endpoints. Valid values are:
@@ -99,26 +98,24 @@ attributesResource_attributes = Lens.lens (\AttributesResource' {attributes} -> 
 --     Amazon Pinpoint for endpoints.
 --
 -- -   endpoint-user-attributes - Custom attributes that describe users.
-attributesResource_attributeType :: Lens.Lens' AttributesResource Prelude.Text
+attributesResource_attributeType :: Lens.Lens' AttributesResource Core.Text
 attributesResource_attributeType = Lens.lens (\AttributesResource' {attributeType} -> attributeType) (\s@AttributesResource' {} a -> s {attributeType = a} :: AttributesResource)
 
 -- | The unique identifier for the application.
-attributesResource_applicationId :: Lens.Lens' AttributesResource Prelude.Text
+attributesResource_applicationId :: Lens.Lens' AttributesResource Core.Text
 attributesResource_applicationId = Lens.lens (\AttributesResource' {applicationId} -> applicationId) (\s@AttributesResource' {} a -> s {applicationId = a} :: AttributesResource)
 
-instance Prelude.FromJSON AttributesResource where
+instance Core.FromJSON AttributesResource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttributesResource"
       ( \x ->
           AttributesResource'
-            Prelude.<$> ( x Prelude..:? "Attributes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "AttributeType")
-            Prelude.<*> (x Prelude..: "ApplicationId")
+            Core.<$> (x Core..:? "Attributes" Core..!= Core.mempty)
+            Core.<*> (x Core..: "AttributeType")
+            Core.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable AttributesResource
+instance Core.Hashable AttributesResource
 
-instance Prelude.NFData AttributesResource
+instance Core.NFData AttributesResource

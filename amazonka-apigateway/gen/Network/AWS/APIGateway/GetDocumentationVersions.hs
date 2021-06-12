@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.APIGateway.GetDocumentationVersions
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +55,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetDocumentationVersions' smart constructor.
 data GetDocumentationVersions = GetDocumentationVersions'
   { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
+    position :: Core.Maybe Core.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int,
+    limit :: Core.Maybe Core.Int,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text
+    restApiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDocumentationVersions' with all optional fields omitted.
@@ -82,92 +80,89 @@ data GetDocumentationVersions = GetDocumentationVersions'
 -- 'restApiId', 'getDocumentationVersions_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetDocumentationVersions ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   GetDocumentationVersions
 newGetDocumentationVersions pRestApiId_ =
   GetDocumentationVersions'
-    { position =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { position = Core.Nothing,
+      limit = Core.Nothing,
       restApiId = pRestApiId_
     }
 
 -- | The current pagination position in the paged result set.
-getDocumentationVersions_position :: Lens.Lens' GetDocumentationVersions (Prelude.Maybe Prelude.Text)
+getDocumentationVersions_position :: Lens.Lens' GetDocumentationVersions (Core.Maybe Core.Text)
 getDocumentationVersions_position = Lens.lens (\GetDocumentationVersions' {position} -> position) (\s@GetDocumentationVersions' {} a -> s {position = a} :: GetDocumentationVersions)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getDocumentationVersions_limit :: Lens.Lens' GetDocumentationVersions (Prelude.Maybe Prelude.Int)
+getDocumentationVersions_limit :: Lens.Lens' GetDocumentationVersions (Core.Maybe Core.Int)
 getDocumentationVersions_limit = Lens.lens (\GetDocumentationVersions' {limit} -> limit) (\s@GetDocumentationVersions' {} a -> s {limit = a} :: GetDocumentationVersions)
 
 -- | [Required] The string identifier of the associated RestApi.
-getDocumentationVersions_restApiId :: Lens.Lens' GetDocumentationVersions Prelude.Text
+getDocumentationVersions_restApiId :: Lens.Lens' GetDocumentationVersions Core.Text
 getDocumentationVersions_restApiId = Lens.lens (\GetDocumentationVersions' {restApiId} -> restApiId) (\s@GetDocumentationVersions' {} a -> s {restApiId = a} :: GetDocumentationVersions)
 
-instance Pager.AWSPager GetDocumentationVersions where
+instance Core.AWSPager GetDocumentationVersions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getDocumentationVersionsResponse_position
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getDocumentationVersionsResponse_items
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getDocumentationVersions_position
           Lens..~ rs
           Lens.^? getDocumentationVersionsResponse_position
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest GetDocumentationVersions where
+instance Core.AWSRequest GetDocumentationVersions where
   type
-    Rs GetDocumentationVersions =
+    AWSResponse GetDocumentationVersions =
       GetDocumentationVersionsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDocumentationVersionsResponse'
-            Prelude.<$> (x Prelude..?> "item" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "position")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "position")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDocumentationVersions
+instance Core.Hashable GetDocumentationVersions
 
-instance Prelude.NFData GetDocumentationVersions
+instance Core.NFData GetDocumentationVersions
 
-instance Prelude.ToHeaders GetDocumentationVersions where
+instance Core.ToHeaders GetDocumentationVersions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetDocumentationVersions where
+instance Core.ToPath GetDocumentationVersions where
   toPath GetDocumentationVersions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/documentation/versions"
       ]
 
-instance Prelude.ToQuery GetDocumentationVersions where
+instance Core.ToQuery GetDocumentationVersions where
   toQuery GetDocumentationVersions' {..} =
-    Prelude.mconcat
-      [ "position" Prelude.=: position,
-        "limit" Prelude.=: limit
-      ]
+    Core.mconcat
+      ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | The collection of documentation snapshots of an API.
 --
@@ -180,12 +175,12 @@ instance Prelude.ToQuery GetDocumentationVersions where
 -- /See:/ 'newGetDocumentationVersionsResponse' smart constructor.
 data GetDocumentationVersionsResponse = GetDocumentationVersionsResponse'
   { -- | The current page of elements from this collection.
-    items :: Prelude.Maybe [DocumentationVersion],
-    position :: Prelude.Maybe Prelude.Text,
+    items :: Core.Maybe [DocumentationVersion],
+    position :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDocumentationVersionsResponse' with all optional fields omitted.
@@ -202,28 +197,26 @@ data GetDocumentationVersionsResponse = GetDocumentationVersionsResponse'
 -- 'httpStatus', 'getDocumentationVersionsResponse_httpStatus' - The response's http status code.
 newGetDocumentationVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDocumentationVersionsResponse
 newGetDocumentationVersionsResponse pHttpStatus_ =
   GetDocumentationVersionsResponse'
     { items =
-        Prelude.Nothing,
-      position = Prelude.Nothing,
+        Core.Nothing,
+      position = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getDocumentationVersionsResponse_items :: Lens.Lens' GetDocumentationVersionsResponse (Prelude.Maybe [DocumentationVersion])
-getDocumentationVersionsResponse_items = Lens.lens (\GetDocumentationVersionsResponse' {items} -> items) (\s@GetDocumentationVersionsResponse' {} a -> s {items = a} :: GetDocumentationVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getDocumentationVersionsResponse_items :: Lens.Lens' GetDocumentationVersionsResponse (Core.Maybe [DocumentationVersion])
+getDocumentationVersionsResponse_items = Lens.lens (\GetDocumentationVersionsResponse' {items} -> items) (\s@GetDocumentationVersionsResponse' {} a -> s {items = a} :: GetDocumentationVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getDocumentationVersionsResponse_position :: Lens.Lens' GetDocumentationVersionsResponse (Prelude.Maybe Prelude.Text)
+getDocumentationVersionsResponse_position :: Lens.Lens' GetDocumentationVersionsResponse (Core.Maybe Core.Text)
 getDocumentationVersionsResponse_position = Lens.lens (\GetDocumentationVersionsResponse' {position} -> position) (\s@GetDocumentationVersionsResponse' {} a -> s {position = a} :: GetDocumentationVersionsResponse)
 
 -- | The response's http status code.
-getDocumentationVersionsResponse_httpStatus :: Lens.Lens' GetDocumentationVersionsResponse Prelude.Int
+getDocumentationVersionsResponse_httpStatus :: Lens.Lens' GetDocumentationVersionsResponse Core.Int
 getDocumentationVersionsResponse_httpStatus = Lens.lens (\GetDocumentationVersionsResponse' {httpStatus} -> httpStatus) (\s@GetDocumentationVersionsResponse' {} a -> s {httpStatus = a} :: GetDocumentationVersionsResponse)
 
-instance
-  Prelude.NFData
-    GetDocumentationVersionsResponse
+instance Core.NFData GetDocumentationVersionsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -180,8 +179,8 @@ module Network.AWS.STS.AssumeRoleWithSAML
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.STS.Types
@@ -215,7 +214,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- role that is being assumed. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
     -- in the /IAM User Guide/.
-    policyArns :: Prelude.Maybe [PolicyDescriptorType],
+    policyArns :: Core.Maybe [PolicyDescriptorType],
     -- | An IAM policy in JSON format that you want to use as an inline session
     -- policy.
     --
@@ -242,7 +241,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- requirements. The @PackedPolicySize@ response element indicates by
     -- percentage how close the policies and tags for your request are to the
     -- upper size limit.
-    policy :: Prelude.Maybe Prelude.Text,
+    policy :: Core.Maybe Core.Text,
     -- | The duration, in seconds, of the role session. Your role session lasts
     -- for the duration that you specify for the @DurationSeconds@ parameter,
     -- or until the time specified in the SAML authentication response\'s
@@ -266,20 +265,20 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- console session. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the AWS Management Console>
     -- in the /IAM User Guide/.
-    durationSeconds :: Prelude.Maybe Prelude.Natural,
+    durationSeconds :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the SAML provider in IAM that
     -- describes the IdP.
-    principalArn :: Prelude.Text,
+    principalArn :: Core.Text,
     -- | The base-64 encoded SAML authentication response provided by the IdP.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims>
     -- in the /IAM User Guide/.
-    sAMLAssertion :: Prelude.Text
+    sAMLAssertion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssumeRoleWithSAML' with all optional fields omitted.
@@ -380,20 +379,20 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 -- in the /IAM User Guide/.
 newAssumeRoleWithSAML ::
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'principalArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sAMLAssertion'
-  Prelude.Text ->
+  Core.Text ->
   AssumeRoleWithSAML
 newAssumeRoleWithSAML
   pRoleArn_
   pPrincipalArn_
   pSAMLAssertion_ =
     AssumeRoleWithSAML'
-      { policyArns = Prelude.Nothing,
-        policy = Prelude.Nothing,
-        durationSeconds = Prelude.Nothing,
+      { policyArns = Core.Nothing,
+        policy = Core.Nothing,
+        durationSeconds = Core.Nothing,
         roleArn = pRoleArn_,
         principalArn = pPrincipalArn_,
         sAMLAssertion = pSAMLAssertion_
@@ -426,8 +425,8 @@ newAssumeRoleWithSAML
 -- role that is being assumed. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
-assumeRoleWithSAML_policyArns :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe [PolicyDescriptorType])
-assumeRoleWithSAML_policyArns = Lens.lens (\AssumeRoleWithSAML' {policyArns} -> policyArns) (\s@AssumeRoleWithSAML' {} a -> s {policyArns = a} :: AssumeRoleWithSAML) Prelude.. Lens.mapping Prelude._Coerce
+assumeRoleWithSAML_policyArns :: Lens.Lens' AssumeRoleWithSAML (Core.Maybe [PolicyDescriptorType])
+assumeRoleWithSAML_policyArns = Lens.lens (\AssumeRoleWithSAML' {policyArns} -> policyArns) (\s@AssumeRoleWithSAML' {} a -> s {policyArns = a} :: AssumeRoleWithSAML) Core.. Lens.mapping Lens._Coerce
 
 -- | An IAM policy in JSON format that you want to use as an inline session
 -- policy.
@@ -455,7 +454,7 @@ assumeRoleWithSAML_policyArns = Lens.lens (\AssumeRoleWithSAML' {policyArns} -> 
 -- requirements. The @PackedPolicySize@ response element indicates by
 -- percentage how close the policies and tags for your request are to the
 -- upper size limit.
-assumeRoleWithSAML_policy :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe Prelude.Text)
+assumeRoleWithSAML_policy :: Lens.Lens' AssumeRoleWithSAML (Core.Maybe Core.Text)
 assumeRoleWithSAML_policy = Lens.lens (\AssumeRoleWithSAML' {policy} -> policy) (\s@AssumeRoleWithSAML' {} a -> s {policy = a} :: AssumeRoleWithSAML)
 
 -- | The duration, in seconds, of the role session. Your role session lasts
@@ -481,16 +480,16 @@ assumeRoleWithSAML_policy = Lens.lens (\AssumeRoleWithSAML' {policy} -> policy) 
 -- console session. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the AWS Management Console>
 -- in the /IAM User Guide/.
-assumeRoleWithSAML_durationSeconds :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe Prelude.Natural)
+assumeRoleWithSAML_durationSeconds :: Lens.Lens' AssumeRoleWithSAML (Core.Maybe Core.Natural)
 assumeRoleWithSAML_durationSeconds = Lens.lens (\AssumeRoleWithSAML' {durationSeconds} -> durationSeconds) (\s@AssumeRoleWithSAML' {} a -> s {durationSeconds = a} :: AssumeRoleWithSAML)
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
-assumeRoleWithSAML_roleArn :: Lens.Lens' AssumeRoleWithSAML Prelude.Text
+assumeRoleWithSAML_roleArn :: Lens.Lens' AssumeRoleWithSAML Core.Text
 assumeRoleWithSAML_roleArn = Lens.lens (\AssumeRoleWithSAML' {roleArn} -> roleArn) (\s@AssumeRoleWithSAML' {} a -> s {roleArn = a} :: AssumeRoleWithSAML)
 
 -- | The Amazon Resource Name (ARN) of the SAML provider in IAM that
 -- describes the IdP.
-assumeRoleWithSAML_principalArn :: Lens.Lens' AssumeRoleWithSAML Prelude.Text
+assumeRoleWithSAML_principalArn :: Lens.Lens' AssumeRoleWithSAML Core.Text
 assumeRoleWithSAML_principalArn = Lens.lens (\AssumeRoleWithSAML' {principalArn} -> principalArn) (\s@AssumeRoleWithSAML' {} a -> s {principalArn = a} :: AssumeRoleWithSAML)
 
 -- | The base-64 encoded SAML authentication response provided by the IdP.
@@ -498,12 +497,12 @@ assumeRoleWithSAML_principalArn = Lens.lens (\AssumeRoleWithSAML' {principalArn}
 -- For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims>
 -- in the /IAM User Guide/.
-assumeRoleWithSAML_sAMLAssertion :: Lens.Lens' AssumeRoleWithSAML Prelude.Text
+assumeRoleWithSAML_sAMLAssertion :: Lens.Lens' AssumeRoleWithSAML Core.Text
 assumeRoleWithSAML_sAMLAssertion = Lens.lens (\AssumeRoleWithSAML' {sAMLAssertion} -> sAMLAssertion) (\s@AssumeRoleWithSAML' {} a -> s {sAMLAssertion = a} :: AssumeRoleWithSAML)
 
-instance Prelude.AWSRequest AssumeRoleWithSAML where
+instance Core.AWSRequest AssumeRoleWithSAML where
   type
-    Rs AssumeRoleWithSAML =
+    AWSResponse AssumeRoleWithSAML =
       AssumeRoleWithSAMLResponse
   request = Request.postQuery defaultService
   response =
@@ -511,44 +510,41 @@ instance Prelude.AWSRequest AssumeRoleWithSAML where
       "AssumeRoleWithSAMLResult"
       ( \s h x ->
           AssumeRoleWithSAMLResponse'
-            Prelude.<$> (x Prelude..@? "NameQualifier")
-            Prelude.<*> (x Prelude..@? "Audience")
-            Prelude.<*> (x Prelude..@? "SubjectType")
-            Prelude.<*> (x Prelude..@? "Subject")
-            Prelude.<*> (x Prelude..@? "Issuer")
-            Prelude.<*> (x Prelude..@? "Credentials")
-            Prelude.<*> (x Prelude..@? "AssumedRoleUser")
-            Prelude.<*> (x Prelude..@? "PackedPolicySize")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NameQualifier")
+            Core.<*> (x Core..@? "Audience")
+            Core.<*> (x Core..@? "SubjectType")
+            Core.<*> (x Core..@? "Subject")
+            Core.<*> (x Core..@? "Issuer")
+            Core.<*> (x Core..@? "Credentials")
+            Core.<*> (x Core..@? "AssumedRoleUser")
+            Core.<*> (x Core..@? "PackedPolicySize")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssumeRoleWithSAML
+instance Core.Hashable AssumeRoleWithSAML
 
-instance Prelude.NFData AssumeRoleWithSAML
+instance Core.NFData AssumeRoleWithSAML
 
-instance Prelude.ToHeaders AssumeRoleWithSAML where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AssumeRoleWithSAML where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AssumeRoleWithSAML where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssumeRoleWithSAML where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssumeRoleWithSAML where
+instance Core.ToQuery AssumeRoleWithSAML where
   toQuery AssumeRoleWithSAML' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AssumeRoleWithSAML" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-06-15" :: Prelude.ByteString),
+          Core.=: ("AssumeRoleWithSAML" :: Core.ByteString),
+        "Version" Core.=: ("2011-06-15" :: Core.ByteString),
         "PolicyArns"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> policyArns
-            ),
-        "Policy" Prelude.=: policy,
-        "DurationSeconds" Prelude.=: durationSeconds,
-        "RoleArn" Prelude.=: roleArn,
-        "PrincipalArn" Prelude.=: principalArn,
-        "SAMLAssertion" Prelude.=: sAMLAssertion
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> policyArns),
+        "Policy" Core.=: policy,
+        "DurationSeconds" Core.=: durationSeconds,
+        "RoleArn" Core.=: roleArn,
+        "PrincipalArn" Core.=: principalArn,
+        "SAMLAssertion" Core.=: sAMLAssertion
       ]
 
 -- | Contains the response to a successful AssumeRoleWithSAML request,
@@ -565,10 +561,10 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     -- The following pseudocode shows how the hash value is calculated:
     --
     -- @BASE64 ( SHA1 ( \"https:\/\/example.com\/saml\" + \"123456789012\" + \"\/MySAMLIdP\" ) )@
-    nameQualifier :: Prelude.Maybe Prelude.Text,
+    nameQualifier :: Core.Maybe Core.Text,
     -- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
     -- element of the SAML assertion.
-    audience :: Prelude.Maybe Prelude.Text,
+    audience :: Core.Maybe Core.Text,
     -- | The format of the name ID, as defined by the @Format@ attribute in the
     -- @NameID@ element of the SAML assertion. Typical examples of the format
     -- are @transient@ or @persistent@.
@@ -578,31 +574,31 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     -- example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is
     -- returned as @transient@. If the format includes any other prefix, the
     -- format is returned with no modifications.
-    subjectType :: Prelude.Maybe Prelude.Text,
+    subjectType :: Core.Maybe Core.Text,
     -- | The value of the @NameID@ element in the @Subject@ element of the SAML
     -- assertion.
-    subject :: Prelude.Maybe Prelude.Text,
+    subject :: Core.Maybe Core.Text,
     -- | The value of the @Issuer@ element of the SAML assertion.
-    issuer :: Prelude.Maybe Prelude.Text,
+    issuer :: Core.Maybe Core.Text,
     -- | The temporary security credentials, which include an access key ID, a
     -- secret access key, and a security (or session) token.
     --
     -- The size of the security token that STS API operations return is not
     -- fixed. We strongly recommend that you make no assumptions about the
     -- maximum size.
-    credentials :: Prelude.Maybe Prelude.AuthEnv,
+    credentials :: Core.Maybe Core.AuthEnv,
     -- | The identifiers for the temporary security credentials that the
     -- operation returns.
-    assumedRoleUser :: Prelude.Maybe AssumedRoleUser,
+    assumedRoleUser :: Core.Maybe AssumedRoleUser,
     -- | A percentage value that indicates the packed size of the session
     -- policies and session tags combined passed in the request. The request
     -- fails if the packed size is greater than 100 percent, which means the
     -- policies and tags exceeded the allowed space.
-    packedPolicySize :: Prelude.Maybe Prelude.Natural,
+    packedPolicySize :: Core.Maybe Core.Natural,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssumeRoleWithSAMLResponse' with all optional fields omitted.
@@ -657,19 +653,19 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 -- 'httpStatus', 'assumeRoleWithSAMLResponse_httpStatus' - The response's http status code.
 newAssumeRoleWithSAMLResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssumeRoleWithSAMLResponse
 newAssumeRoleWithSAMLResponse pHttpStatus_ =
   AssumeRoleWithSAMLResponse'
     { nameQualifier =
-        Prelude.Nothing,
-      audience = Prelude.Nothing,
-      subjectType = Prelude.Nothing,
-      subject = Prelude.Nothing,
-      issuer = Prelude.Nothing,
-      credentials = Prelude.Nothing,
-      assumedRoleUser = Prelude.Nothing,
-      packedPolicySize = Prelude.Nothing,
+        Core.Nothing,
+      audience = Core.Nothing,
+      subjectType = Core.Nothing,
+      subject = Core.Nothing,
+      issuer = Core.Nothing,
+      credentials = Core.Nothing,
+      assumedRoleUser = Core.Nothing,
+      packedPolicySize = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -681,12 +677,12 @@ newAssumeRoleWithSAMLResponse pHttpStatus_ =
 -- The following pseudocode shows how the hash value is calculated:
 --
 -- @BASE64 ( SHA1 ( \"https:\/\/example.com\/saml\" + \"123456789012\" + \"\/MySAMLIdP\" ) )@
-assumeRoleWithSAMLResponse_nameQualifier :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
+assumeRoleWithSAMLResponse_nameQualifier :: Lens.Lens' AssumeRoleWithSAMLResponse (Core.Maybe Core.Text)
 assumeRoleWithSAMLResponse_nameQualifier = Lens.lens (\AssumeRoleWithSAMLResponse' {nameQualifier} -> nameQualifier) (\s@AssumeRoleWithSAMLResponse' {} a -> s {nameQualifier = a} :: AssumeRoleWithSAMLResponse)
 
 -- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
 -- element of the SAML assertion.
-assumeRoleWithSAMLResponse_audience :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
+assumeRoleWithSAMLResponse_audience :: Lens.Lens' AssumeRoleWithSAMLResponse (Core.Maybe Core.Text)
 assumeRoleWithSAMLResponse_audience = Lens.lens (\AssumeRoleWithSAMLResponse' {audience} -> audience) (\s@AssumeRoleWithSAMLResponse' {} a -> s {audience = a} :: AssumeRoleWithSAMLResponse)
 
 -- | The format of the name ID, as defined by the @Format@ attribute in the
@@ -698,16 +694,16 @@ assumeRoleWithSAMLResponse_audience = Lens.lens (\AssumeRoleWithSAMLResponse' {a
 -- example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is
 -- returned as @transient@. If the format includes any other prefix, the
 -- format is returned with no modifications.
-assumeRoleWithSAMLResponse_subjectType :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
+assumeRoleWithSAMLResponse_subjectType :: Lens.Lens' AssumeRoleWithSAMLResponse (Core.Maybe Core.Text)
 assumeRoleWithSAMLResponse_subjectType = Lens.lens (\AssumeRoleWithSAMLResponse' {subjectType} -> subjectType) (\s@AssumeRoleWithSAMLResponse' {} a -> s {subjectType = a} :: AssumeRoleWithSAMLResponse)
 
 -- | The value of the @NameID@ element in the @Subject@ element of the SAML
 -- assertion.
-assumeRoleWithSAMLResponse_subject :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
+assumeRoleWithSAMLResponse_subject :: Lens.Lens' AssumeRoleWithSAMLResponse (Core.Maybe Core.Text)
 assumeRoleWithSAMLResponse_subject = Lens.lens (\AssumeRoleWithSAMLResponse' {subject} -> subject) (\s@AssumeRoleWithSAMLResponse' {} a -> s {subject = a} :: AssumeRoleWithSAMLResponse)
 
 -- | The value of the @Issuer@ element of the SAML assertion.
-assumeRoleWithSAMLResponse_issuer :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
+assumeRoleWithSAMLResponse_issuer :: Lens.Lens' AssumeRoleWithSAMLResponse (Core.Maybe Core.Text)
 assumeRoleWithSAMLResponse_issuer = Lens.lens (\AssumeRoleWithSAMLResponse' {issuer} -> issuer) (\s@AssumeRoleWithSAMLResponse' {} a -> s {issuer = a} :: AssumeRoleWithSAMLResponse)
 
 -- | The temporary security credentials, which include an access key ID, a
@@ -716,23 +712,23 @@ assumeRoleWithSAMLResponse_issuer = Lens.lens (\AssumeRoleWithSAMLResponse' {iss
 -- The size of the security token that STS API operations return is not
 -- fixed. We strongly recommend that you make no assumptions about the
 -- maximum size.
-assumeRoleWithSAMLResponse_credentials :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.AuthEnv)
+assumeRoleWithSAMLResponse_credentials :: Lens.Lens' AssumeRoleWithSAMLResponse (Core.Maybe Core.AuthEnv)
 assumeRoleWithSAMLResponse_credentials = Lens.lens (\AssumeRoleWithSAMLResponse' {credentials} -> credentials) (\s@AssumeRoleWithSAMLResponse' {} a -> s {credentials = a} :: AssumeRoleWithSAMLResponse)
 
 -- | The identifiers for the temporary security credentials that the
 -- operation returns.
-assumeRoleWithSAMLResponse_assumedRoleUser :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe AssumedRoleUser)
+assumeRoleWithSAMLResponse_assumedRoleUser :: Lens.Lens' AssumeRoleWithSAMLResponse (Core.Maybe AssumedRoleUser)
 assumeRoleWithSAMLResponse_assumedRoleUser = Lens.lens (\AssumeRoleWithSAMLResponse' {assumedRoleUser} -> assumedRoleUser) (\s@AssumeRoleWithSAMLResponse' {} a -> s {assumedRoleUser = a} :: AssumeRoleWithSAMLResponse)
 
 -- | A percentage value that indicates the packed size of the session
 -- policies and session tags combined passed in the request. The request
 -- fails if the packed size is greater than 100 percent, which means the
 -- policies and tags exceeded the allowed space.
-assumeRoleWithSAMLResponse_packedPolicySize :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Natural)
+assumeRoleWithSAMLResponse_packedPolicySize :: Lens.Lens' AssumeRoleWithSAMLResponse (Core.Maybe Core.Natural)
 assumeRoleWithSAMLResponse_packedPolicySize = Lens.lens (\AssumeRoleWithSAMLResponse' {packedPolicySize} -> packedPolicySize) (\s@AssumeRoleWithSAMLResponse' {} a -> s {packedPolicySize = a} :: AssumeRoleWithSAMLResponse)
 
 -- | The response's http status code.
-assumeRoleWithSAMLResponse_httpStatus :: Lens.Lens' AssumeRoleWithSAMLResponse Prelude.Int
+assumeRoleWithSAMLResponse_httpStatus :: Lens.Lens' AssumeRoleWithSAMLResponse Core.Int
 assumeRoleWithSAMLResponse_httpStatus = Lens.lens (\AssumeRoleWithSAMLResponse' {httpStatus} -> httpStatus) (\s@AssumeRoleWithSAMLResponse' {} a -> s {httpStatus = a} :: AssumeRoleWithSAMLResponse)
 
-instance Prelude.NFData AssumeRoleWithSAMLResponse
+instance Core.NFData AssumeRoleWithSAMLResponse

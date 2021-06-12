@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.BounceAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | When included in a receipt rule, this action rejects the received email
 -- by returning a bounce response to the sender and, optionally, publishes
@@ -38,20 +37,20 @@ data BounceAction = BounceAction'
     -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
     -- Amazon SNS topics, see the
     -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-    topicArn :: Prelude.Maybe Prelude.Text,
+    topicArn :: Core.Maybe Core.Text,
     -- | The SMTP enhanced status code, as defined by
     -- <https://tools.ietf.org/html/rfc3463 RFC 3463>.
-    statusCode :: Prelude.Maybe Prelude.Text,
+    statusCode :: Core.Maybe Core.Text,
     -- | The SMTP reply code, as defined by
     -- <https://tools.ietf.org/html/rfc5321 RFC 5321>.
-    smtpReplyCode :: Prelude.Text,
+    smtpReplyCode :: Core.Text,
     -- | Human-readable text to include in the bounce message.
-    message :: Prelude.Text,
+    message :: Core.Text,
     -- | The email address of the sender of the bounced email. This is the
     -- address from which the bounce message will be sent.
-    sender :: Prelude.Text
+    sender :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BounceAction' with all optional fields omitted.
@@ -79,16 +78,16 @@ data BounceAction = BounceAction'
 -- address from which the bounce message will be sent.
 newBounceAction ::
   -- | 'smtpReplyCode'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'message'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sender'
-  Prelude.Text ->
+  Core.Text ->
   BounceAction
 newBounceAction pSmtpReplyCode_ pMessage_ pSender_ =
   BounceAction'
-    { topicArn = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
+    { topicArn = Core.Nothing,
+      statusCode = Core.Nothing,
       smtpReplyCode = pSmtpReplyCode_,
       message = pMessage_,
       sender = pSender_
@@ -99,47 +98,47 @@ newBounceAction pSmtpReplyCode_ pMessage_ pSender_ =
 -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
 -- Amazon SNS topics, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-bounceAction_topicArn :: Lens.Lens' BounceAction (Prelude.Maybe Prelude.Text)
+bounceAction_topicArn :: Lens.Lens' BounceAction (Core.Maybe Core.Text)
 bounceAction_topicArn = Lens.lens (\BounceAction' {topicArn} -> topicArn) (\s@BounceAction' {} a -> s {topicArn = a} :: BounceAction)
 
 -- | The SMTP enhanced status code, as defined by
 -- <https://tools.ietf.org/html/rfc3463 RFC 3463>.
-bounceAction_statusCode :: Lens.Lens' BounceAction (Prelude.Maybe Prelude.Text)
+bounceAction_statusCode :: Lens.Lens' BounceAction (Core.Maybe Core.Text)
 bounceAction_statusCode = Lens.lens (\BounceAction' {statusCode} -> statusCode) (\s@BounceAction' {} a -> s {statusCode = a} :: BounceAction)
 
 -- | The SMTP reply code, as defined by
 -- <https://tools.ietf.org/html/rfc5321 RFC 5321>.
-bounceAction_smtpReplyCode :: Lens.Lens' BounceAction Prelude.Text
+bounceAction_smtpReplyCode :: Lens.Lens' BounceAction Core.Text
 bounceAction_smtpReplyCode = Lens.lens (\BounceAction' {smtpReplyCode} -> smtpReplyCode) (\s@BounceAction' {} a -> s {smtpReplyCode = a} :: BounceAction)
 
 -- | Human-readable text to include in the bounce message.
-bounceAction_message :: Lens.Lens' BounceAction Prelude.Text
+bounceAction_message :: Lens.Lens' BounceAction Core.Text
 bounceAction_message = Lens.lens (\BounceAction' {message} -> message) (\s@BounceAction' {} a -> s {message = a} :: BounceAction)
 
 -- | The email address of the sender of the bounced email. This is the
 -- address from which the bounce message will be sent.
-bounceAction_sender :: Lens.Lens' BounceAction Prelude.Text
+bounceAction_sender :: Lens.Lens' BounceAction Core.Text
 bounceAction_sender = Lens.lens (\BounceAction' {sender} -> sender) (\s@BounceAction' {} a -> s {sender = a} :: BounceAction)
 
-instance Prelude.FromXML BounceAction where
+instance Core.FromXML BounceAction where
   parseXML x =
     BounceAction'
-      Prelude.<$> (x Prelude..@? "TopicArn")
-      Prelude.<*> (x Prelude..@? "StatusCode")
-      Prelude.<*> (x Prelude..@ "SmtpReplyCode")
-      Prelude.<*> (x Prelude..@ "Message")
-      Prelude.<*> (x Prelude..@ "Sender")
+      Core.<$> (x Core..@? "TopicArn")
+      Core.<*> (x Core..@? "StatusCode")
+      Core.<*> (x Core..@ "SmtpReplyCode")
+      Core.<*> (x Core..@ "Message")
+      Core.<*> (x Core..@ "Sender")
 
-instance Prelude.Hashable BounceAction
+instance Core.Hashable BounceAction
 
-instance Prelude.NFData BounceAction
+instance Core.NFData BounceAction
 
-instance Prelude.ToQuery BounceAction where
+instance Core.ToQuery BounceAction where
   toQuery BounceAction' {..} =
-    Prelude.mconcat
-      [ "TopicArn" Prelude.=: topicArn,
-        "StatusCode" Prelude.=: statusCode,
-        "SmtpReplyCode" Prelude.=: smtpReplyCode,
-        "Message" Prelude.=: message,
-        "Sender" Prelude.=: sender
+    Core.mconcat
+      [ "TopicArn" Core.=: topicArn,
+        "StatusCode" Core.=: statusCode,
+        "SmtpReplyCode" Core.=: smtpReplyCode,
+        "Message" Core.=: message,
+        "Sender" Core.=: sender
       ]

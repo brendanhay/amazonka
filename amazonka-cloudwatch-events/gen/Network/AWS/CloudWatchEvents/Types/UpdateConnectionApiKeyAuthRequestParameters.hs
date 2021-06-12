@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the API key authorization parameters to use to update the
 -- connection.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newUpdateConnectionApiKeyAuthRequestParameters' smart constructor.
 data UpdateConnectionApiKeyAuthRequestParameters = UpdateConnectionApiKeyAuthRequestParameters'
   { -- | The value associated with teh API key to use for authorization.
-    apiKeyValue :: Prelude.Maybe Prelude.Text,
+    apiKeyValue :: Core.Maybe Core.Text,
     -- | The name of the API key to use for authorization.
-    apiKeyName :: Prelude.Maybe Prelude.Text
+    apiKeyName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConnectionApiKeyAuthRequestParameters' with all optional fields omitted.
@@ -51,35 +50,35 @@ newUpdateConnectionApiKeyAuthRequestParameters ::
 newUpdateConnectionApiKeyAuthRequestParameters =
   UpdateConnectionApiKeyAuthRequestParameters'
     { apiKeyValue =
-        Prelude.Nothing,
-      apiKeyName = Prelude.Nothing
+        Core.Nothing,
+      apiKeyName = Core.Nothing
     }
 
 -- | The value associated with teh API key to use for authorization.
-updateConnectionApiKeyAuthRequestParameters_apiKeyValue :: Lens.Lens' UpdateConnectionApiKeyAuthRequestParameters (Prelude.Maybe Prelude.Text)
+updateConnectionApiKeyAuthRequestParameters_apiKeyValue :: Lens.Lens' UpdateConnectionApiKeyAuthRequestParameters (Core.Maybe Core.Text)
 updateConnectionApiKeyAuthRequestParameters_apiKeyValue = Lens.lens (\UpdateConnectionApiKeyAuthRequestParameters' {apiKeyValue} -> apiKeyValue) (\s@UpdateConnectionApiKeyAuthRequestParameters' {} a -> s {apiKeyValue = a} :: UpdateConnectionApiKeyAuthRequestParameters)
 
 -- | The name of the API key to use for authorization.
-updateConnectionApiKeyAuthRequestParameters_apiKeyName :: Lens.Lens' UpdateConnectionApiKeyAuthRequestParameters (Prelude.Maybe Prelude.Text)
+updateConnectionApiKeyAuthRequestParameters_apiKeyName :: Lens.Lens' UpdateConnectionApiKeyAuthRequestParameters (Core.Maybe Core.Text)
 updateConnectionApiKeyAuthRequestParameters_apiKeyName = Lens.lens (\UpdateConnectionApiKeyAuthRequestParameters' {apiKeyName} -> apiKeyName) (\s@UpdateConnectionApiKeyAuthRequestParameters' {} a -> s {apiKeyName = a} :: UpdateConnectionApiKeyAuthRequestParameters)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateConnectionApiKeyAuthRequestParameters
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateConnectionApiKeyAuthRequestParameters
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     UpdateConnectionApiKeyAuthRequestParameters
   where
   toJSON
     UpdateConnectionApiKeyAuthRequestParameters' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ ("ApiKeyValue" Prelude..=) Prelude.<$> apiKeyValue,
-              ("ApiKeyName" Prelude..=) Prelude.<$> apiKeyName
+      Core.object
+        ( Core.catMaybes
+            [ ("ApiKeyValue" Core..=) Core.<$> apiKeyValue,
+              ("ApiKeyName" Core..=) Core.<$> apiKeyName
             ]
         )

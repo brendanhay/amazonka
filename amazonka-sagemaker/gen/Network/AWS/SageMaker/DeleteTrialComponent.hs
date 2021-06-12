@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.SageMaker.DeleteTrialComponent
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -52,9 +51,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteTrialComponent' smart constructor.
 data DeleteTrialComponent = DeleteTrialComponent'
   { -- | The name of the component to delete.
-    trialComponentName :: Prelude.Text
+    trialComponentName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTrialComponent' with all optional fields omitted.
@@ -67,7 +66,7 @@ data DeleteTrialComponent = DeleteTrialComponent'
 -- 'trialComponentName', 'deleteTrialComponent_trialComponentName' - The name of the component to delete.
 newDeleteTrialComponent ::
   -- | 'trialComponentName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTrialComponent
 newDeleteTrialComponent pTrialComponentName_ =
   DeleteTrialComponent'
@@ -76,66 +75,62 @@ newDeleteTrialComponent pTrialComponentName_ =
     }
 
 -- | The name of the component to delete.
-deleteTrialComponent_trialComponentName :: Lens.Lens' DeleteTrialComponent Prelude.Text
+deleteTrialComponent_trialComponentName :: Lens.Lens' DeleteTrialComponent Core.Text
 deleteTrialComponent_trialComponentName = Lens.lens (\DeleteTrialComponent' {trialComponentName} -> trialComponentName) (\s@DeleteTrialComponent' {} a -> s {trialComponentName = a} :: DeleteTrialComponent)
 
-instance Prelude.AWSRequest DeleteTrialComponent where
+instance Core.AWSRequest DeleteTrialComponent where
   type
-    Rs DeleteTrialComponent =
+    AWSResponse DeleteTrialComponent =
       DeleteTrialComponentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteTrialComponentResponse'
-            Prelude.<$> (x Prelude..?> "TrialComponentArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TrialComponentArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTrialComponent
+instance Core.Hashable DeleteTrialComponent
 
-instance Prelude.NFData DeleteTrialComponent
+instance Core.NFData DeleteTrialComponent
 
-instance Prelude.ToHeaders DeleteTrialComponent where
+instance Core.ToHeaders DeleteTrialComponent where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteTrialComponent" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DeleteTrialComponent" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteTrialComponent where
+instance Core.ToJSON DeleteTrialComponent where
   toJSON DeleteTrialComponent' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "TrialComponentName"
-                  Prelude..= trialComponentName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("TrialComponentName" Core..= trialComponentName)
           ]
       )
 
-instance Prelude.ToPath DeleteTrialComponent where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTrialComponent where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTrialComponent where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteTrialComponent where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteTrialComponentResponse' smart constructor.
 data DeleteTrialComponentResponse = DeleteTrialComponentResponse'
   { -- | The Amazon Resource Name (ARN) of the component is being deleted.
-    trialComponentArn :: Prelude.Maybe Prelude.Text,
+    trialComponentArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTrialComponentResponse' with all optional fields omitted.
@@ -150,21 +145,21 @@ data DeleteTrialComponentResponse = DeleteTrialComponentResponse'
 -- 'httpStatus', 'deleteTrialComponentResponse_httpStatus' - The response's http status code.
 newDeleteTrialComponentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTrialComponentResponse
 newDeleteTrialComponentResponse pHttpStatus_ =
   DeleteTrialComponentResponse'
     { trialComponentArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the component is being deleted.
-deleteTrialComponentResponse_trialComponentArn :: Lens.Lens' DeleteTrialComponentResponse (Prelude.Maybe Prelude.Text)
+deleteTrialComponentResponse_trialComponentArn :: Lens.Lens' DeleteTrialComponentResponse (Core.Maybe Core.Text)
 deleteTrialComponentResponse_trialComponentArn = Lens.lens (\DeleteTrialComponentResponse' {trialComponentArn} -> trialComponentArn) (\s@DeleteTrialComponentResponse' {} a -> s {trialComponentArn = a} :: DeleteTrialComponentResponse)
 
 -- | The response's http status code.
-deleteTrialComponentResponse_httpStatus :: Lens.Lens' DeleteTrialComponentResponse Prelude.Int
+deleteTrialComponentResponse_httpStatus :: Lens.Lens' DeleteTrialComponentResponse Core.Int
 deleteTrialComponentResponse_httpStatus = Lens.lens (\DeleteTrialComponentResponse' {httpStatus} -> httpStatus) (\s@DeleteTrialComponentResponse' {} a -> s {httpStatus = a} :: DeleteTrialComponentResponse)
 
-instance Prelude.NFData DeleteTrialComponentResponse
+instance Core.NFData DeleteTrialComponentResponse

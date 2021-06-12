@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.JSONOutput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Specifies JSON as request\'s output serialization format.
@@ -30,9 +29,9 @@ import Network.AWS.S3.Internal
 data JSONOutput = JSONOutput'
   { -- | The value used to separate individual records in the output. If no value
     -- is specified, Amazon S3 uses a newline character (\'\\n\').
-    recordDelimiter :: Prelude.Maybe Prelude.Text
+    recordDelimiter :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JSONOutput' with all optional fields omitted.
@@ -47,18 +46,18 @@ data JSONOutput = JSONOutput'
 newJSONOutput ::
   JSONOutput
 newJSONOutput =
-  JSONOutput' {recordDelimiter = Prelude.Nothing}
+  JSONOutput' {recordDelimiter = Core.Nothing}
 
 -- | The value used to separate individual records in the output. If no value
 -- is specified, Amazon S3 uses a newline character (\'\\n\').
-jSONOutput_recordDelimiter :: Lens.Lens' JSONOutput (Prelude.Maybe Prelude.Text)
+jSONOutput_recordDelimiter :: Lens.Lens' JSONOutput (Core.Maybe Core.Text)
 jSONOutput_recordDelimiter = Lens.lens (\JSONOutput' {recordDelimiter} -> recordDelimiter) (\s@JSONOutput' {} a -> s {recordDelimiter = a} :: JSONOutput)
 
-instance Prelude.Hashable JSONOutput
+instance Core.Hashable JSONOutput
 
-instance Prelude.NFData JSONOutput
+instance Core.NFData JSONOutput
 
-instance Prelude.ToXML JSONOutput where
+instance Core.ToXML JSONOutput where
   toXML JSONOutput' {..} =
-    Prelude.mconcat
-      ["RecordDelimiter" Prelude.@= recordDelimiter]
+    Core.mconcat
+      ["RecordDelimiter" Core.@= recordDelimiter]

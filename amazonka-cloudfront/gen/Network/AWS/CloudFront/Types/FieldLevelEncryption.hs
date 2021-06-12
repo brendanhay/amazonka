@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.FieldLevelEncryption where
 
 import Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex data type that includes the profile configurations and other
 -- options specified for field-level encryption.
@@ -32,14 +31,14 @@ data FieldLevelEncryption = FieldLevelEncryption'
   { -- | The configuration ID for a field-level encryption configuration which
     -- includes a set of profiles that specify certain selected data fields to
     -- be encrypted by specific public keys.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The last time the field-level encryption configuration was changed.
-    lastModifiedTime :: Prelude.ISO8601,
+    lastModifiedTime :: Core.ISO8601,
     -- | A complex data type that includes the profile configurations specified
     -- for field-level encryption.
     fieldLevelEncryptionConfig :: FieldLevelEncryptionConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FieldLevelEncryption' with all optional fields omitted.
@@ -59,9 +58,9 @@ data FieldLevelEncryption = FieldLevelEncryption'
 -- for field-level encryption.
 newFieldLevelEncryption ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lastModifiedTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'fieldLevelEncryptionConfig'
   FieldLevelEncryptionConfig ->
   FieldLevelEncryption
@@ -72,7 +71,7 @@ newFieldLevelEncryption
     FieldLevelEncryption'
       { id = pId_,
         lastModifiedTime =
-          Prelude._Time Lens.# pLastModifiedTime_,
+          Core._Time Lens.# pLastModifiedTime_,
         fieldLevelEncryptionConfig =
           pFieldLevelEncryptionConfig_
       }
@@ -80,25 +79,25 @@ newFieldLevelEncryption
 -- | The configuration ID for a field-level encryption configuration which
 -- includes a set of profiles that specify certain selected data fields to
 -- be encrypted by specific public keys.
-fieldLevelEncryption_id :: Lens.Lens' FieldLevelEncryption Prelude.Text
+fieldLevelEncryption_id :: Lens.Lens' FieldLevelEncryption Core.Text
 fieldLevelEncryption_id = Lens.lens (\FieldLevelEncryption' {id} -> id) (\s@FieldLevelEncryption' {} a -> s {id = a} :: FieldLevelEncryption)
 
 -- | The last time the field-level encryption configuration was changed.
-fieldLevelEncryption_lastModifiedTime :: Lens.Lens' FieldLevelEncryption Prelude.UTCTime
-fieldLevelEncryption_lastModifiedTime = Lens.lens (\FieldLevelEncryption' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryption' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryption) Prelude.. Prelude._Time
+fieldLevelEncryption_lastModifiedTime :: Lens.Lens' FieldLevelEncryption Core.UTCTime
+fieldLevelEncryption_lastModifiedTime = Lens.lens (\FieldLevelEncryption' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryption' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryption) Core.. Core._Time
 
 -- | A complex data type that includes the profile configurations specified
 -- for field-level encryption.
 fieldLevelEncryption_fieldLevelEncryptionConfig :: Lens.Lens' FieldLevelEncryption FieldLevelEncryptionConfig
 fieldLevelEncryption_fieldLevelEncryptionConfig = Lens.lens (\FieldLevelEncryption' {fieldLevelEncryptionConfig} -> fieldLevelEncryptionConfig) (\s@FieldLevelEncryption' {} a -> s {fieldLevelEncryptionConfig = a} :: FieldLevelEncryption)
 
-instance Prelude.FromXML FieldLevelEncryption where
+instance Core.FromXML FieldLevelEncryption where
   parseXML x =
     FieldLevelEncryption'
-      Prelude.<$> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "LastModifiedTime")
-      Prelude.<*> (x Prelude..@ "FieldLevelEncryptionConfig")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "LastModifiedTime")
+      Core.<*> (x Core..@ "FieldLevelEncryptionConfig")
 
-instance Prelude.Hashable FieldLevelEncryption
+instance Core.Hashable FieldLevelEncryption
 
-instance Prelude.NFData FieldLevelEncryption
+instance Core.NFData FieldLevelEncryption

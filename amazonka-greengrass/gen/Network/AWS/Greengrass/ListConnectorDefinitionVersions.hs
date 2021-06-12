@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,10 +47,9 @@ module Network.AWS.Greengrass.ListConnectorDefinitionVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,13 +57,13 @@ import qualified Network.AWS.Response as Response
 data ListConnectorDefinitionVersions = ListConnectorDefinitionVersions'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text,
+    maxResults :: Core.Maybe Core.Text,
     -- | The ID of the connector definition.
-    connectorDefinitionId :: Prelude.Text
+    connectorDefinitionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListConnectorDefinitionVersions' with all optional fields omitted.
@@ -83,127 +81,117 @@ data ListConnectorDefinitionVersions = ListConnectorDefinitionVersions'
 -- 'connectorDefinitionId', 'listConnectorDefinitionVersions_connectorDefinitionId' - The ID of the connector definition.
 newListConnectorDefinitionVersions ::
   -- | 'connectorDefinitionId'
-  Prelude.Text ->
+  Core.Text ->
   ListConnectorDefinitionVersions
 newListConnectorDefinitionVersions
   pConnectorDefinitionId_ =
     ListConnectorDefinitionVersions'
       { nextToken =
-          Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+          Core.Nothing,
+        maxResults = Core.Nothing,
         connectorDefinitionId =
           pConnectorDefinitionId_
       }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listConnectorDefinitionVersions_nextToken :: Lens.Lens' ListConnectorDefinitionVersions (Prelude.Maybe Prelude.Text)
+listConnectorDefinitionVersions_nextToken :: Lens.Lens' ListConnectorDefinitionVersions (Core.Maybe Core.Text)
 listConnectorDefinitionVersions_nextToken = Lens.lens (\ListConnectorDefinitionVersions' {nextToken} -> nextToken) (\s@ListConnectorDefinitionVersions' {} a -> s {nextToken = a} :: ListConnectorDefinitionVersions)
 
 -- | The maximum number of results to be returned per request.
-listConnectorDefinitionVersions_maxResults :: Lens.Lens' ListConnectorDefinitionVersions (Prelude.Maybe Prelude.Text)
+listConnectorDefinitionVersions_maxResults :: Lens.Lens' ListConnectorDefinitionVersions (Core.Maybe Core.Text)
 listConnectorDefinitionVersions_maxResults = Lens.lens (\ListConnectorDefinitionVersions' {maxResults} -> maxResults) (\s@ListConnectorDefinitionVersions' {} a -> s {maxResults = a} :: ListConnectorDefinitionVersions)
 
 -- | The ID of the connector definition.
-listConnectorDefinitionVersions_connectorDefinitionId :: Lens.Lens' ListConnectorDefinitionVersions Prelude.Text
+listConnectorDefinitionVersions_connectorDefinitionId :: Lens.Lens' ListConnectorDefinitionVersions Core.Text
 listConnectorDefinitionVersions_connectorDefinitionId = Lens.lens (\ListConnectorDefinitionVersions' {connectorDefinitionId} -> connectorDefinitionId) (\s@ListConnectorDefinitionVersions' {} a -> s {connectorDefinitionId = a} :: ListConnectorDefinitionVersions)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     ListConnectorDefinitionVersions
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listConnectorDefinitionVersionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listConnectorDefinitionVersionsResponse_versions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listConnectorDefinitionVersions_nextToken
           Lens..~ rs
           Lens.^? listConnectorDefinitionVersionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListConnectorDefinitionVersions
   where
   type
-    Rs ListConnectorDefinitionVersions =
+    AWSResponse ListConnectorDefinitionVersions =
       ListConnectorDefinitionVersionsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListConnectorDefinitionVersionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Versions" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Versions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListConnectorDefinitionVersions
 
-instance
-  Prelude.NFData
-    ListConnectorDefinitionVersions
+instance Core.NFData ListConnectorDefinitionVersions
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListConnectorDefinitionVersions
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToPath
-    ListConnectorDefinitionVersions
-  where
+instance Core.ToPath ListConnectorDefinitionVersions where
   toPath ListConnectorDefinitionVersions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/definition/connectors/",
-        Prelude.toBS connectorDefinitionId,
+        Core.toBS connectorDefinitionId,
         "/versions"
       ]
 
-instance
-  Prelude.ToQuery
-    ListConnectorDefinitionVersions
-  where
+instance Core.ToQuery ListConnectorDefinitionVersions where
   toQuery ListConnectorDefinitionVersions' {..} =
-    Prelude.mconcat
-      [ "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListConnectorDefinitionVersionsResponse' smart constructor.
 data ListConnectorDefinitionVersionsResponse = ListConnectorDefinitionVersionsResponse'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about a version.
-    versions :: Prelude.Maybe [VersionInformation],
+    versions :: Core.Maybe [VersionInformation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListConnectorDefinitionVersionsResponse' with all optional fields omitted.
@@ -221,30 +209,30 @@ data ListConnectorDefinitionVersionsResponse = ListConnectorDefinitionVersionsRe
 -- 'httpStatus', 'listConnectorDefinitionVersionsResponse_httpStatus' - The response's http status code.
 newListConnectorDefinitionVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListConnectorDefinitionVersionsResponse
 newListConnectorDefinitionVersionsResponse
   pHttpStatus_ =
     ListConnectorDefinitionVersionsResponse'
       { nextToken =
-          Prelude.Nothing,
-        versions = Prelude.Nothing,
+          Core.Nothing,
+        versions = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listConnectorDefinitionVersionsResponse_nextToken :: Lens.Lens' ListConnectorDefinitionVersionsResponse (Prelude.Maybe Prelude.Text)
+listConnectorDefinitionVersionsResponse_nextToken :: Lens.Lens' ListConnectorDefinitionVersionsResponse (Core.Maybe Core.Text)
 listConnectorDefinitionVersionsResponse_nextToken = Lens.lens (\ListConnectorDefinitionVersionsResponse' {nextToken} -> nextToken) (\s@ListConnectorDefinitionVersionsResponse' {} a -> s {nextToken = a} :: ListConnectorDefinitionVersionsResponse)
 
 -- | Information about a version.
-listConnectorDefinitionVersionsResponse_versions :: Lens.Lens' ListConnectorDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
-listConnectorDefinitionVersionsResponse_versions = Lens.lens (\ListConnectorDefinitionVersionsResponse' {versions} -> versions) (\s@ListConnectorDefinitionVersionsResponse' {} a -> s {versions = a} :: ListConnectorDefinitionVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listConnectorDefinitionVersionsResponse_versions :: Lens.Lens' ListConnectorDefinitionVersionsResponse (Core.Maybe [VersionInformation])
+listConnectorDefinitionVersionsResponse_versions = Lens.lens (\ListConnectorDefinitionVersionsResponse' {versions} -> versions) (\s@ListConnectorDefinitionVersionsResponse' {} a -> s {versions = a} :: ListConnectorDefinitionVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listConnectorDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListConnectorDefinitionVersionsResponse Prelude.Int
+listConnectorDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListConnectorDefinitionVersionsResponse Core.Int
 listConnectorDefinitionVersionsResponse_httpStatus = Lens.lens (\ListConnectorDefinitionVersionsResponse' {httpStatus} -> httpStatus) (\s@ListConnectorDefinitionVersionsResponse' {} a -> s {httpStatus = a} :: ListConnectorDefinitionVersionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListConnectorDefinitionVersionsResponse

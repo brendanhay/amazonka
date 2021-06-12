@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.IAM.GetAccountPasswordPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAccountPasswordPolicy' with all optional fields omitted.
@@ -62,9 +61,9 @@ newGetAccountPasswordPolicy ::
 newGetAccountPasswordPolicy =
   GetAccountPasswordPolicy'
 
-instance Prelude.AWSRequest GetAccountPasswordPolicy where
+instance Core.AWSRequest GetAccountPasswordPolicy where
   type
-    Rs GetAccountPasswordPolicy =
+    AWSResponse GetAccountPasswordPolicy =
       GetAccountPasswordPolicyResponse
   request = Request.postQuery defaultService
   response =
@@ -72,28 +71,27 @@ instance Prelude.AWSRequest GetAccountPasswordPolicy where
       "GetAccountPasswordPolicyResult"
       ( \s h x ->
           GetAccountPasswordPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "PasswordPolicy")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "PasswordPolicy")
       )
 
-instance Prelude.Hashable GetAccountPasswordPolicy
+instance Core.Hashable GetAccountPasswordPolicy
 
-instance Prelude.NFData GetAccountPasswordPolicy
+instance Core.NFData GetAccountPasswordPolicy
 
-instance Prelude.ToHeaders GetAccountPasswordPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetAccountPasswordPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetAccountPasswordPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetAccountPasswordPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetAccountPasswordPolicy where
+instance Core.ToQuery GetAccountPasswordPolicy where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ("GetAccountPasswordPolicy" :: Prelude.ByteString),
-            "Version"
-              Prelude.=: ("2010-05-08" :: Prelude.ByteString)
+              Core.=: ("GetAccountPasswordPolicy" :: Core.ByteString),
+            "Version" Core.=: ("2010-05-08" :: Core.ByteString)
           ]
       )
 
@@ -102,11 +100,11 @@ instance Prelude.ToQuery GetAccountPasswordPolicy where
 -- /See:/ 'newGetAccountPasswordPolicyResponse' smart constructor.
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A structure that contains details about the account\'s password policy.
     passwordPolicy :: PasswordPolicy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAccountPasswordPolicyResponse' with all optional fields omitted.
@@ -121,7 +119,7 @@ data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
 -- 'passwordPolicy', 'getAccountPasswordPolicyResponse_passwordPolicy' - A structure that contains details about the account\'s password policy.
 newGetAccountPasswordPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'passwordPolicy'
   PasswordPolicy ->
   GetAccountPasswordPolicyResponse
@@ -135,13 +133,11 @@ newGetAccountPasswordPolicyResponse
       }
 
 -- | The response's http status code.
-getAccountPasswordPolicyResponse_httpStatus :: Lens.Lens' GetAccountPasswordPolicyResponse Prelude.Int
+getAccountPasswordPolicyResponse_httpStatus :: Lens.Lens' GetAccountPasswordPolicyResponse Core.Int
 getAccountPasswordPolicyResponse_httpStatus = Lens.lens (\GetAccountPasswordPolicyResponse' {httpStatus} -> httpStatus) (\s@GetAccountPasswordPolicyResponse' {} a -> s {httpStatus = a} :: GetAccountPasswordPolicyResponse)
 
 -- | A structure that contains details about the account\'s password policy.
 getAccountPasswordPolicyResponse_passwordPolicy :: Lens.Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 getAccountPasswordPolicyResponse_passwordPolicy = Lens.lens (\GetAccountPasswordPolicyResponse' {passwordPolicy} -> passwordPolicy) (\s@GetAccountPasswordPolicyResponse' {} a -> s {passwordPolicy = a} :: GetAccountPasswordPolicyResponse)
 
-instance
-  Prelude.NFData
-    GetAccountPasswordPolicyResponse
+instance Core.NFData GetAccountPasswordPolicyResponse

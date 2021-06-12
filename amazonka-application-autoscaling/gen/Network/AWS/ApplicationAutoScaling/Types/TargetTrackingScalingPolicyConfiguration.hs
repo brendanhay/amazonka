@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfi
 
 import Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification
 import Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a target tracking scaling policy configuration to use with
 -- Application Auto Scaling.
@@ -36,10 +35,10 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
     -- Otherwise, scale in is enabled and the target tracking scaling policy
     -- can remove capacity from the scalable target. The default value is
     -- @false@.
-    disableScaleIn :: Prelude.Maybe Prelude.Bool,
+    disableScaleIn :: Core.Maybe Core.Bool,
     -- | A predefined metric. You can specify either a predefined metric or a
     -- customized metric.
-    predefinedMetricSpecification :: Prelude.Maybe PredefinedMetricSpecification,
+    predefinedMetricSpecification :: Core.Maybe PredefinedMetricSpecification,
     -- | The amount of time, in seconds, to wait for a previous scale-out
     -- activity to take effect.
     --
@@ -84,10 +83,10 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
     -- -   Amazon Keyspaces tables
     --
     -- -   Amazon MSK broker storage
-    scaleOutCooldown :: Prelude.Maybe Prelude.Int,
+    scaleOutCooldown :: Core.Maybe Core.Int,
     -- | A customized metric. You can specify either a predefined metric or a
     -- customized metric.
-    customizedMetricSpecification :: Prelude.Maybe CustomizedMetricSpecification,
+    customizedMetricSpecification :: Core.Maybe CustomizedMetricSpecification,
     -- | The amount of time, in seconds, after a scale-in activity completes
     -- before another scale-in activity can start.
     --
@@ -130,16 +129,16 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
     -- -   Amazon Keyspaces tables
     --
     -- -   Amazon MSK broker storage
-    scaleInCooldown :: Prelude.Maybe Prelude.Int,
+    scaleInCooldown :: Core.Maybe Core.Int,
     -- | The target value for the metric. Although this property accepts numbers
     -- of type Double, it won\'t accept values that are either too small or too
     -- large. Values must be in the range of -2^360 to 2^360. The value must be
     -- a valid number based on the choice of metric. For example, if the metric
     -- is CPU utilization, then the target value is a percent value that
     -- represents how much of the CPU can be used before scaling out.
-    targetValue :: Prelude.Double
+    targetValue :: Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetTrackingScalingPolicyConfiguration' with all optional fields omitted.
@@ -258,20 +257,19 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
 -- represents how much of the CPU can be used before scaling out.
 newTargetTrackingScalingPolicyConfiguration ::
   -- | 'targetValue'
-  Prelude.Double ->
+  Core.Double ->
   TargetTrackingScalingPolicyConfiguration
 newTargetTrackingScalingPolicyConfiguration
   pTargetValue_ =
     TargetTrackingScalingPolicyConfiguration'
       { disableScaleIn =
-          Prelude.Nothing,
+          Core.Nothing,
         predefinedMetricSpecification =
-          Prelude.Nothing,
-        scaleOutCooldown =
-          Prelude.Nothing,
+          Core.Nothing,
+        scaleOutCooldown = Core.Nothing,
         customizedMetricSpecification =
-          Prelude.Nothing,
-        scaleInCooldown = Prelude.Nothing,
+          Core.Nothing,
+        scaleInCooldown = Core.Nothing,
         targetValue = pTargetValue_
       }
 
@@ -281,12 +279,12 @@ newTargetTrackingScalingPolicyConfiguration
 -- Otherwise, scale in is enabled and the target tracking scaling policy
 -- can remove capacity from the scalable target. The default value is
 -- @false@.
-targetTrackingScalingPolicyConfiguration_disableScaleIn :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe Prelude.Bool)
+targetTrackingScalingPolicyConfiguration_disableScaleIn :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Core.Maybe Core.Bool)
 targetTrackingScalingPolicyConfiguration_disableScaleIn = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {disableScaleIn} -> disableScaleIn) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {disableScaleIn = a} :: TargetTrackingScalingPolicyConfiguration)
 
 -- | A predefined metric. You can specify either a predefined metric or a
 -- customized metric.
-targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe PredefinedMetricSpecification)
+targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Core.Maybe PredefinedMetricSpecification)
 targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {predefinedMetricSpecification} -> predefinedMetricSpecification) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {predefinedMetricSpecification = a} :: TargetTrackingScalingPolicyConfiguration)
 
 -- | The amount of time, in seconds, to wait for a previous scale-out
@@ -333,12 +331,12 @@ targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification = Lens.le
 -- -   Amazon Keyspaces tables
 --
 -- -   Amazon MSK broker storage
-targetTrackingScalingPolicyConfiguration_scaleOutCooldown :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
+targetTrackingScalingPolicyConfiguration_scaleOutCooldown :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Core.Maybe Core.Int)
 targetTrackingScalingPolicyConfiguration_scaleOutCooldown = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {scaleOutCooldown} -> scaleOutCooldown) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {scaleOutCooldown = a} :: TargetTrackingScalingPolicyConfiguration)
 
 -- | A customized metric. You can specify either a predefined metric or a
 -- customized metric.
-targetTrackingScalingPolicyConfiguration_customizedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe CustomizedMetricSpecification)
+targetTrackingScalingPolicyConfiguration_customizedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Core.Maybe CustomizedMetricSpecification)
 targetTrackingScalingPolicyConfiguration_customizedMetricSpecification = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {customizedMetricSpecification} -> customizedMetricSpecification) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {customizedMetricSpecification = a} :: TargetTrackingScalingPolicyConfiguration)
 
 -- | The amount of time, in seconds, after a scale-in activity completes
@@ -383,7 +381,7 @@ targetTrackingScalingPolicyConfiguration_customizedMetricSpecification = Lens.le
 -- -   Amazon Keyspaces tables
 --
 -- -   Amazon MSK broker storage
-targetTrackingScalingPolicyConfiguration_scaleInCooldown :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
+targetTrackingScalingPolicyConfiguration_scaleInCooldown :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Core.Maybe Core.Int)
 targetTrackingScalingPolicyConfiguration_scaleInCooldown = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {scaleInCooldown} -> scaleInCooldown) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {scaleInCooldown = a} :: TargetTrackingScalingPolicyConfiguration)
 
 -- | The target value for the metric. Although this property accepts numbers
@@ -392,51 +390,49 @@ targetTrackingScalingPolicyConfiguration_scaleInCooldown = Lens.lens (\TargetTra
 -- a valid number based on the choice of metric. For example, if the metric
 -- is CPU utilization, then the target value is a percent value that
 -- represents how much of the CPU can be used before scaling out.
-targetTrackingScalingPolicyConfiguration_targetValue :: Lens.Lens' TargetTrackingScalingPolicyConfiguration Prelude.Double
+targetTrackingScalingPolicyConfiguration_targetValue :: Lens.Lens' TargetTrackingScalingPolicyConfiguration Core.Double
 targetTrackingScalingPolicyConfiguration_targetValue = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {targetValue} -> targetValue) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {targetValue = a} :: TargetTrackingScalingPolicyConfiguration)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     TargetTrackingScalingPolicyConfiguration
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TargetTrackingScalingPolicyConfiguration"
       ( \x ->
           TargetTrackingScalingPolicyConfiguration'
-            Prelude.<$> (x Prelude..:? "DisableScaleIn")
-            Prelude.<*> (x Prelude..:? "PredefinedMetricSpecification")
-            Prelude.<*> (x Prelude..:? "ScaleOutCooldown")
-            Prelude.<*> (x Prelude..:? "CustomizedMetricSpecification")
-            Prelude.<*> (x Prelude..:? "ScaleInCooldown")
-            Prelude.<*> (x Prelude..: "TargetValue")
+            Core.<$> (x Core..:? "DisableScaleIn")
+            Core.<*> (x Core..:? "PredefinedMetricSpecification")
+            Core.<*> (x Core..:? "ScaleOutCooldown")
+            Core.<*> (x Core..:? "CustomizedMetricSpecification")
+            Core.<*> (x Core..:? "ScaleInCooldown")
+            Core.<*> (x Core..: "TargetValue")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     TargetTrackingScalingPolicyConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     TargetTrackingScalingPolicyConfiguration
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     TargetTrackingScalingPolicyConfiguration
   where
   toJSON TargetTrackingScalingPolicyConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DisableScaleIn" Prelude..=)
-              Prelude.<$> disableScaleIn,
-            ("PredefinedMetricSpecification" Prelude..=)
-              Prelude.<$> predefinedMetricSpecification,
-            ("ScaleOutCooldown" Prelude..=)
-              Prelude.<$> scaleOutCooldown,
-            ("CustomizedMetricSpecification" Prelude..=)
-              Prelude.<$> customizedMetricSpecification,
-            ("ScaleInCooldown" Prelude..=)
-              Prelude.<$> scaleInCooldown,
-            Prelude.Just ("TargetValue" Prelude..= targetValue)
+    Core.object
+      ( Core.catMaybes
+          [ ("DisableScaleIn" Core..=) Core.<$> disableScaleIn,
+            ("PredefinedMetricSpecification" Core..=)
+              Core.<$> predefinedMetricSpecification,
+            ("ScaleOutCooldown" Core..=)
+              Core.<$> scaleOutCooldown,
+            ("CustomizedMetricSpecification" Core..=)
+              Core.<$> customizedMetricSpecification,
+            ("ScaleInCooldown" Core..=) Core.<$> scaleInCooldown,
+            Core.Just ("TargetValue" Core..= targetValue)
           ]
       )

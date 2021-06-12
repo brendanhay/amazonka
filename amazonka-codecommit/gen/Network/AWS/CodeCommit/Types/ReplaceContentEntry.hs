@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodeCommit.Types.ReplaceContentEntry where
 
 import Network.AWS.CodeCommit.Types.FileModeTypeEnum
 import Network.AWS.CodeCommit.Types.ReplacementTypeEnum
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a replacement content entry in the conflict of a merge
 -- or pull request operation.
@@ -32,16 +31,16 @@ import qualified Network.AWS.Prelude as Prelude
 data ReplaceContentEntry = ReplaceContentEntry'
   { -- | The base-64 encoded content to use when the replacement type is
     -- USE_NEW_CONTENT.
-    content :: Prelude.Maybe Prelude.Base64,
+    content :: Core.Maybe Core.Base64,
     -- | The file mode to apply during conflict resoltion.
-    fileMode :: Prelude.Maybe FileModeTypeEnum,
+    fileMode :: Core.Maybe FileModeTypeEnum,
     -- | The path of the conflicting file.
-    filePath :: Prelude.Text,
+    filePath :: Core.Text,
     -- | The replacement type to use when determining how to resolve the
     -- conflict.
     replacementType :: ReplacementTypeEnum
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplaceContentEntry' with all optional fields omitted.
@@ -66,14 +65,14 @@ data ReplaceContentEntry = ReplaceContentEntry'
 -- conflict.
 newReplaceContentEntry ::
   -- | 'filePath'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'replacementType'
   ReplacementTypeEnum ->
   ReplaceContentEntry
 newReplaceContentEntry pFilePath_ pReplacementType_ =
   ReplaceContentEntry'
-    { content = Prelude.Nothing,
-      fileMode = Prelude.Nothing,
+    { content = Core.Nothing,
+      fileMode = Core.Nothing,
       filePath = pFilePath_,
       replacementType = pReplacementType_
     }
@@ -84,15 +83,15 @@ newReplaceContentEntry pFilePath_ pReplacementType_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-replaceContentEntry_content :: Lens.Lens' ReplaceContentEntry (Prelude.Maybe Prelude.ByteString)
-replaceContentEntry_content = Lens.lens (\ReplaceContentEntry' {content} -> content) (\s@ReplaceContentEntry' {} a -> s {content = a} :: ReplaceContentEntry) Prelude.. Lens.mapping Prelude._Base64
+replaceContentEntry_content :: Lens.Lens' ReplaceContentEntry (Core.Maybe Core.ByteString)
+replaceContentEntry_content = Lens.lens (\ReplaceContentEntry' {content} -> content) (\s@ReplaceContentEntry' {} a -> s {content = a} :: ReplaceContentEntry) Core.. Lens.mapping Core._Base64
 
 -- | The file mode to apply during conflict resoltion.
-replaceContentEntry_fileMode :: Lens.Lens' ReplaceContentEntry (Prelude.Maybe FileModeTypeEnum)
+replaceContentEntry_fileMode :: Lens.Lens' ReplaceContentEntry (Core.Maybe FileModeTypeEnum)
 replaceContentEntry_fileMode = Lens.lens (\ReplaceContentEntry' {fileMode} -> fileMode) (\s@ReplaceContentEntry' {} a -> s {fileMode = a} :: ReplaceContentEntry)
 
 -- | The path of the conflicting file.
-replaceContentEntry_filePath :: Lens.Lens' ReplaceContentEntry Prelude.Text
+replaceContentEntry_filePath :: Lens.Lens' ReplaceContentEntry Core.Text
 replaceContentEntry_filePath = Lens.lens (\ReplaceContentEntry' {filePath} -> filePath) (\s@ReplaceContentEntry' {} a -> s {filePath = a} :: ReplaceContentEntry)
 
 -- | The replacement type to use when determining how to resolve the
@@ -100,18 +99,18 @@ replaceContentEntry_filePath = Lens.lens (\ReplaceContentEntry' {filePath} -> fi
 replaceContentEntry_replacementType :: Lens.Lens' ReplaceContentEntry ReplacementTypeEnum
 replaceContentEntry_replacementType = Lens.lens (\ReplaceContentEntry' {replacementType} -> replacementType) (\s@ReplaceContentEntry' {} a -> s {replacementType = a} :: ReplaceContentEntry)
 
-instance Prelude.Hashable ReplaceContentEntry
+instance Core.Hashable ReplaceContentEntry
 
-instance Prelude.NFData ReplaceContentEntry
+instance Core.NFData ReplaceContentEntry
 
-instance Prelude.ToJSON ReplaceContentEntry where
+instance Core.ToJSON ReplaceContentEntry where
   toJSON ReplaceContentEntry' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("content" Prelude..=) Prelude.<$> content,
-            ("fileMode" Prelude..=) Prelude.<$> fileMode,
-            Prelude.Just ("filePath" Prelude..= filePath),
-            Prelude.Just
-              ("replacementType" Prelude..= replacementType)
+    Core.object
+      ( Core.catMaybes
+          [ ("content" Core..=) Core.<$> content,
+            ("fileMode" Core..=) Core.<$> fileMode,
+            Core.Just ("filePath" Core..= filePath),
+            Core.Just
+              ("replacementType" Core..= replacementType)
           ]
       )

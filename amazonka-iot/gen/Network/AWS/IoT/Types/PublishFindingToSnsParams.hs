@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.PublishFindingToSnsParams where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters to define a mitigation action that publishes findings to
 -- Amazon SNS. You can implement your own custom actions in response to the
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPublishFindingToSnsParams' smart constructor.
 data PublishFindingToSnsParams = PublishFindingToSnsParams'
   { -- | The ARN of the topic to which you want to publish the findings.
-    topicArn :: Prelude.Text
+    topicArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PublishFindingToSnsParams' with all optional fields omitted.
@@ -45,31 +44,31 @@ data PublishFindingToSnsParams = PublishFindingToSnsParams'
 -- 'topicArn', 'publishFindingToSnsParams_topicArn' - The ARN of the topic to which you want to publish the findings.
 newPublishFindingToSnsParams ::
   -- | 'topicArn'
-  Prelude.Text ->
+  Core.Text ->
   PublishFindingToSnsParams
 newPublishFindingToSnsParams pTopicArn_ =
   PublishFindingToSnsParams' {topicArn = pTopicArn_}
 
 -- | The ARN of the topic to which you want to publish the findings.
-publishFindingToSnsParams_topicArn :: Lens.Lens' PublishFindingToSnsParams Prelude.Text
+publishFindingToSnsParams_topicArn :: Lens.Lens' PublishFindingToSnsParams Core.Text
 publishFindingToSnsParams_topicArn = Lens.lens (\PublishFindingToSnsParams' {topicArn} -> topicArn) (\s@PublishFindingToSnsParams' {} a -> s {topicArn = a} :: PublishFindingToSnsParams)
 
-instance Prelude.FromJSON PublishFindingToSnsParams where
+instance Core.FromJSON PublishFindingToSnsParams where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PublishFindingToSnsParams"
       ( \x ->
           PublishFindingToSnsParams'
-            Prelude.<$> (x Prelude..: "topicArn")
+            Core.<$> (x Core..: "topicArn")
       )
 
-instance Prelude.Hashable PublishFindingToSnsParams
+instance Core.Hashable PublishFindingToSnsParams
 
-instance Prelude.NFData PublishFindingToSnsParams
+instance Core.NFData PublishFindingToSnsParams
 
-instance Prelude.ToJSON PublishFindingToSnsParams where
+instance Core.ToJSON PublishFindingToSnsParams where
   toJSON PublishFindingToSnsParams' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("topicArn" Prelude..= topicArn)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("topicArn" Core..= topicArn)]
       )

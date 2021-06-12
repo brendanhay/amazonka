@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MachineLearning.Types.PerformanceMetrics where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Measurements of how well the @MLModel@ performed on known observations.
 -- One of the following metrics is returned, based on the type of the
@@ -43,9 +42,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPerformanceMetrics' smart constructor.
 data PerformanceMetrics = PerformanceMetrics'
-  { properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+  { properties :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PerformanceMetrics' with all optional fields omitted.
@@ -59,23 +58,21 @@ data PerformanceMetrics = PerformanceMetrics'
 newPerformanceMetrics ::
   PerformanceMetrics
 newPerformanceMetrics =
-  PerformanceMetrics' {properties = Prelude.Nothing}
+  PerformanceMetrics' {properties = Core.Nothing}
 
 -- | Undocumented member.
-performanceMetrics_properties :: Lens.Lens' PerformanceMetrics (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-performanceMetrics_properties = Lens.lens (\PerformanceMetrics' {properties} -> properties) (\s@PerformanceMetrics' {} a -> s {properties = a} :: PerformanceMetrics) Prelude.. Lens.mapping Prelude._Coerce
+performanceMetrics_properties :: Lens.Lens' PerformanceMetrics (Core.Maybe (Core.HashMap Core.Text Core.Text))
+performanceMetrics_properties = Lens.lens (\PerformanceMetrics' {properties} -> properties) (\s@PerformanceMetrics' {} a -> s {properties = a} :: PerformanceMetrics) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON PerformanceMetrics where
+instance Core.FromJSON PerformanceMetrics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PerformanceMetrics"
       ( \x ->
           PerformanceMetrics'
-            Prelude.<$> ( x Prelude..:? "Properties"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Properties" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable PerformanceMetrics
+instance Core.Hashable PerformanceMetrics
 
-instance Prelude.NFData PerformanceMetrics
+instance Core.NFData PerformanceMetrics

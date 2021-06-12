@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Batch.TerminateJob
 where
 
 import Network.AWS.Batch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +53,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newTerminateJob' smart constructor.
 data TerminateJob = TerminateJob'
   { -- | The AWS Batch job ID of the job to terminate.
-    jobId :: Prelude.Text,
+    jobId :: Core.Text,
     -- | A message to attach to the job that explains the reason for canceling
     -- it. This message is returned by future DescribeJobs operations on the
     -- job. This message is also recorded in the AWS Batch activity logs.
-    reason :: Prelude.Text
+    reason :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateJob' with all optional fields omitted.
@@ -77,69 +76,67 @@ data TerminateJob = TerminateJob'
 -- job. This message is also recorded in the AWS Batch activity logs.
 newTerminateJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'reason'
-  Prelude.Text ->
+  Core.Text ->
   TerminateJob
 newTerminateJob pJobId_ pReason_ =
   TerminateJob' {jobId = pJobId_, reason = pReason_}
 
 -- | The AWS Batch job ID of the job to terminate.
-terminateJob_jobId :: Lens.Lens' TerminateJob Prelude.Text
+terminateJob_jobId :: Lens.Lens' TerminateJob Core.Text
 terminateJob_jobId = Lens.lens (\TerminateJob' {jobId} -> jobId) (\s@TerminateJob' {} a -> s {jobId = a} :: TerminateJob)
 
 -- | A message to attach to the job that explains the reason for canceling
 -- it. This message is returned by future DescribeJobs operations on the
 -- job. This message is also recorded in the AWS Batch activity logs.
-terminateJob_reason :: Lens.Lens' TerminateJob Prelude.Text
+terminateJob_reason :: Lens.Lens' TerminateJob Core.Text
 terminateJob_reason = Lens.lens (\TerminateJob' {reason} -> reason) (\s@TerminateJob' {} a -> s {reason = a} :: TerminateJob)
 
-instance Prelude.AWSRequest TerminateJob where
-  type Rs TerminateJob = TerminateJobResponse
+instance Core.AWSRequest TerminateJob where
+  type AWSResponse TerminateJob = TerminateJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           TerminateJobResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TerminateJob
+instance Core.Hashable TerminateJob
 
-instance Prelude.NFData TerminateJob
+instance Core.NFData TerminateJob
 
-instance Prelude.ToHeaders TerminateJob where
+instance Core.ToHeaders TerminateJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TerminateJob where
+instance Core.ToJSON TerminateJob where
   toJSON TerminateJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("jobId" Prelude..= jobId),
-            Prelude.Just ("reason" Prelude..= reason)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("jobId" Core..= jobId),
+            Core.Just ("reason" Core..= reason)
           ]
       )
 
-instance Prelude.ToPath TerminateJob where
-  toPath = Prelude.const "/v1/terminatejob"
+instance Core.ToPath TerminateJob where
+  toPath = Core.const "/v1/terminatejob"
 
-instance Prelude.ToQuery TerminateJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TerminateJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTerminateJobResponse' smart constructor.
 data TerminateJobResponse = TerminateJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateJobResponse' with all optional fields omitted.
@@ -152,13 +149,13 @@ data TerminateJobResponse = TerminateJobResponse'
 -- 'httpStatus', 'terminateJobResponse_httpStatus' - The response's http status code.
 newTerminateJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TerminateJobResponse
 newTerminateJobResponse pHttpStatus_ =
   TerminateJobResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-terminateJobResponse_httpStatus :: Lens.Lens' TerminateJobResponse Prelude.Int
+terminateJobResponse_httpStatus :: Lens.Lens' TerminateJobResponse Core.Int
 terminateJobResponse_httpStatus = Lens.lens (\TerminateJobResponse' {httpStatus} -> httpStatus) (\s@TerminateJobResponse' {} a -> s {httpStatus = a} :: TerminateJobResponse)
 
-instance Prelude.NFData TerminateJobResponse
+instance Core.NFData TerminateJobResponse

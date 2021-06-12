@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,26 +42,26 @@ module Network.AWS.DMS.ImportCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newImportCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
   { -- | The location of an imported Oracle Wallet certificate for use with SSL.
-    certificateWallet :: Prelude.Maybe Prelude.Base64,
+    certificateWallet :: Core.Maybe Core.Base64,
     -- | The tags associated with the certificate.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The contents of a @.pem@ file, which contains an X.509 certificate.
-    certificatePem :: Prelude.Maybe Prelude.Text,
+    certificatePem :: Core.Maybe Core.Text,
     -- | A customer-assigned name for the certificate. Identifiers must begin
     -- with a letter and must contain only ASCII letters, digits, and hyphens.
     -- They can\'t end with a hyphen or contain two consecutive hyphens.
-    certificateIdentifier :: Prelude.Text
+    certificateIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportCertificate' with all optional fields omitted.
@@ -87,14 +86,14 @@ data ImportCertificate = ImportCertificate'
 -- They can\'t end with a hyphen or contain two consecutive hyphens.
 newImportCertificate ::
   -- | 'certificateIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   ImportCertificate
 newImportCertificate pCertificateIdentifier_ =
   ImportCertificate'
     { certificateWallet =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
-      certificatePem = Prelude.Nothing,
+        Core.Nothing,
+      tags = Core.Nothing,
+      certificatePem = Core.Nothing,
       certificateIdentifier = pCertificateIdentifier_
     }
 
@@ -103,83 +102,82 @@ newImportCertificate pCertificateIdentifier_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-importCertificate_certificateWallet :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.ByteString)
-importCertificate_certificateWallet = Lens.lens (\ImportCertificate' {certificateWallet} -> certificateWallet) (\s@ImportCertificate' {} a -> s {certificateWallet = a} :: ImportCertificate) Prelude.. Lens.mapping Prelude._Base64
+importCertificate_certificateWallet :: Lens.Lens' ImportCertificate (Core.Maybe Core.ByteString)
+importCertificate_certificateWallet = Lens.lens (\ImportCertificate' {certificateWallet} -> certificateWallet) (\s@ImportCertificate' {} a -> s {certificateWallet = a} :: ImportCertificate) Core.. Lens.mapping Core._Base64
 
 -- | The tags associated with the certificate.
-importCertificate_tags :: Lens.Lens' ImportCertificate (Prelude.Maybe [Tag])
-importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@ImportCertificate' {} a -> s {tags = a} :: ImportCertificate) Prelude.. Lens.mapping Prelude._Coerce
+importCertificate_tags :: Lens.Lens' ImportCertificate (Core.Maybe [Tag])
+importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@ImportCertificate' {} a -> s {tags = a} :: ImportCertificate) Core.. Lens.mapping Lens._Coerce
 
 -- | The contents of a @.pem@ file, which contains an X.509 certificate.
-importCertificate_certificatePem :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
+importCertificate_certificatePem :: Lens.Lens' ImportCertificate (Core.Maybe Core.Text)
 importCertificate_certificatePem = Lens.lens (\ImportCertificate' {certificatePem} -> certificatePem) (\s@ImportCertificate' {} a -> s {certificatePem = a} :: ImportCertificate)
 
 -- | A customer-assigned name for the certificate. Identifiers must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens.
 -- They can\'t end with a hyphen or contain two consecutive hyphens.
-importCertificate_certificateIdentifier :: Lens.Lens' ImportCertificate Prelude.Text
+importCertificate_certificateIdentifier :: Lens.Lens' ImportCertificate Core.Text
 importCertificate_certificateIdentifier = Lens.lens (\ImportCertificate' {certificateIdentifier} -> certificateIdentifier) (\s@ImportCertificate' {} a -> s {certificateIdentifier = a} :: ImportCertificate)
 
-instance Prelude.AWSRequest ImportCertificate where
-  type Rs ImportCertificate = ImportCertificateResponse
+instance Core.AWSRequest ImportCertificate where
+  type
+    AWSResponse ImportCertificate =
+      ImportCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ImportCertificateResponse'
-            Prelude.<$> (x Prelude..?> "Certificate")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Certificate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ImportCertificate
+instance Core.Hashable ImportCertificate
 
-instance Prelude.NFData ImportCertificate
+instance Core.NFData ImportCertificate
 
-instance Prelude.ToHeaders ImportCertificate where
+instance Core.ToHeaders ImportCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.ImportCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.ImportCertificate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ImportCertificate where
+instance Core.ToJSON ImportCertificate where
   toJSON ImportCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CertificateWallet" Prelude..=)
-              Prelude.<$> certificateWallet,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("CertificatePem" Prelude..=)
-              Prelude.<$> certificatePem,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("CertificateWallet" Core..=)
+              Core.<$> certificateWallet,
+            ("Tags" Core..=) Core.<$> tags,
+            ("CertificatePem" Core..=) Core.<$> certificatePem,
+            Core.Just
               ( "CertificateIdentifier"
-                  Prelude..= certificateIdentifier
+                  Core..= certificateIdentifier
               )
           ]
       )
 
-instance Prelude.ToPath ImportCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath ImportCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ImportCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ImportCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newImportCertificateResponse' smart constructor.
 data ImportCertificateResponse = ImportCertificateResponse'
   { -- | The certificate to be uploaded.
-    certificate :: Prelude.Maybe Certificate,
+    certificate :: Core.Maybe Certificate,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportCertificateResponse' with all optional fields omitted.
@@ -194,21 +192,21 @@ data ImportCertificateResponse = ImportCertificateResponse'
 -- 'httpStatus', 'importCertificateResponse_httpStatus' - The response's http status code.
 newImportCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ImportCertificateResponse
 newImportCertificateResponse pHttpStatus_ =
   ImportCertificateResponse'
     { certificate =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The certificate to be uploaded.
-importCertificateResponse_certificate :: Lens.Lens' ImportCertificateResponse (Prelude.Maybe Certificate)
+importCertificateResponse_certificate :: Lens.Lens' ImportCertificateResponse (Core.Maybe Certificate)
 importCertificateResponse_certificate = Lens.lens (\ImportCertificateResponse' {certificate} -> certificate) (\s@ImportCertificateResponse' {} a -> s {certificate = a} :: ImportCertificateResponse)
 
 -- | The response's http status code.
-importCertificateResponse_httpStatus :: Lens.Lens' ImportCertificateResponse Prelude.Int
+importCertificateResponse_httpStatus :: Lens.Lens' ImportCertificateResponse Core.Int
 importCertificateResponse_httpStatus = Lens.lens (\ImportCertificateResponse' {httpStatus} -> httpStatus) (\s@ImportCertificateResponse' {} a -> s {httpStatus = a} :: ImportCertificateResponse)
 
-instance Prelude.NFData ImportCertificateResponse
+instance Core.NFData ImportCertificateResponse

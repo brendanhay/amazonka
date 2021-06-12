@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,27 +20,27 @@
 module Network.AWS.AlexaBusiness.Types.UserData where
 
 import Network.AWS.AlexaBusiness.Types.EnrollmentStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information related to a user.
 --
 -- /See:/ 'newUserData' smart constructor.
 data UserData = UserData'
   { -- | The ARN of a user.
-    userArn :: Prelude.Maybe Prelude.Text,
+    userArn :: Core.Maybe Core.Text,
     -- | The enrollment ARN of a user.
-    enrollmentId :: Prelude.Maybe Prelude.Text,
+    enrollmentId :: Core.Maybe Core.Text,
     -- | The email of a user.
-    email :: Prelude.Maybe Prelude.Text,
+    email :: Core.Maybe Core.Text,
     -- | The enrollment status of a user.
-    enrollmentStatus :: Prelude.Maybe EnrollmentStatus,
+    enrollmentStatus :: Core.Maybe EnrollmentStatus,
     -- | The first name of a user.
-    firstName :: Prelude.Maybe Prelude.Text,
+    firstName :: Core.Maybe Core.Text,
     -- | The last name of a user.
-    lastName :: Prelude.Maybe Prelude.Text
+    lastName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserData' with all optional fields omitted.
@@ -66,52 +65,52 @@ newUserData ::
   UserData
 newUserData =
   UserData'
-    { userArn = Prelude.Nothing,
-      enrollmentId = Prelude.Nothing,
-      email = Prelude.Nothing,
-      enrollmentStatus = Prelude.Nothing,
-      firstName = Prelude.Nothing,
-      lastName = Prelude.Nothing
+    { userArn = Core.Nothing,
+      enrollmentId = Core.Nothing,
+      email = Core.Nothing,
+      enrollmentStatus = Core.Nothing,
+      firstName = Core.Nothing,
+      lastName = Core.Nothing
     }
 
 -- | The ARN of a user.
-userData_userArn :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
+userData_userArn :: Lens.Lens' UserData (Core.Maybe Core.Text)
 userData_userArn = Lens.lens (\UserData' {userArn} -> userArn) (\s@UserData' {} a -> s {userArn = a} :: UserData)
 
 -- | The enrollment ARN of a user.
-userData_enrollmentId :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
+userData_enrollmentId :: Lens.Lens' UserData (Core.Maybe Core.Text)
 userData_enrollmentId = Lens.lens (\UserData' {enrollmentId} -> enrollmentId) (\s@UserData' {} a -> s {enrollmentId = a} :: UserData)
 
 -- | The email of a user.
-userData_email :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
+userData_email :: Lens.Lens' UserData (Core.Maybe Core.Text)
 userData_email = Lens.lens (\UserData' {email} -> email) (\s@UserData' {} a -> s {email = a} :: UserData)
 
 -- | The enrollment status of a user.
-userData_enrollmentStatus :: Lens.Lens' UserData (Prelude.Maybe EnrollmentStatus)
+userData_enrollmentStatus :: Lens.Lens' UserData (Core.Maybe EnrollmentStatus)
 userData_enrollmentStatus = Lens.lens (\UserData' {enrollmentStatus} -> enrollmentStatus) (\s@UserData' {} a -> s {enrollmentStatus = a} :: UserData)
 
 -- | The first name of a user.
-userData_firstName :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
+userData_firstName :: Lens.Lens' UserData (Core.Maybe Core.Text)
 userData_firstName = Lens.lens (\UserData' {firstName} -> firstName) (\s@UserData' {} a -> s {firstName = a} :: UserData)
 
 -- | The last name of a user.
-userData_lastName :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
+userData_lastName :: Lens.Lens' UserData (Core.Maybe Core.Text)
 userData_lastName = Lens.lens (\UserData' {lastName} -> lastName) (\s@UserData' {} a -> s {lastName = a} :: UserData)
 
-instance Prelude.FromJSON UserData where
+instance Core.FromJSON UserData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserData"
       ( \x ->
           UserData'
-            Prelude.<$> (x Prelude..:? "UserArn")
-            Prelude.<*> (x Prelude..:? "EnrollmentId")
-            Prelude.<*> (x Prelude..:? "Email")
-            Prelude.<*> (x Prelude..:? "EnrollmentStatus")
-            Prelude.<*> (x Prelude..:? "FirstName")
-            Prelude.<*> (x Prelude..:? "LastName")
+            Core.<$> (x Core..:? "UserArn")
+            Core.<*> (x Core..:? "EnrollmentId")
+            Core.<*> (x Core..:? "Email")
+            Core.<*> (x Core..:? "EnrollmentStatus")
+            Core.<*> (x Core..:? "FirstName")
+            Core.<*> (x Core..:? "LastName")
       )
 
-instance Prelude.Hashable UserData
+instance Core.Hashable UserData
 
-instance Prelude.NFData UserData
+instance Core.NFData UserData

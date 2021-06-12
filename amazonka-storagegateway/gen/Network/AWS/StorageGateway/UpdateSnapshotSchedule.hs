@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,8 +54,8 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -80,21 +79,21 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
     -- representable in UTF-8 format, and the following special characters: + -
     -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
     -- the maximum length for a tag\'s value is 256.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Optional description of the snapshot that overwrites the existing
     -- description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
     -- operation to return a list of gateway volumes.
-    volumeARN :: Prelude.Text,
+    volumeARN :: Core.Text,
     -- | The hour of the day at which the snapshot schedule begins represented as
     -- /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the
     -- time zone of the gateway.
-    startAt :: Prelude.Natural,
+    startAt :: Core.Natural,
     -- | Frequency of snapshots. Specify the number of hours between snapshots.
-    recurrenceInHours :: Prelude.Natural
+    recurrenceInHours :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSnapshotSchedule' with all optional fields omitted.
@@ -125,19 +124,19 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
 -- 'recurrenceInHours', 'updateSnapshotSchedule_recurrenceInHours' - Frequency of snapshots. Specify the number of hours between snapshots.
 newUpdateSnapshotSchedule ::
   -- | 'volumeARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'startAt'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'recurrenceInHours'
-  Prelude.Natural ->
+  Core.Natural ->
   UpdateSnapshotSchedule
 newUpdateSnapshotSchedule
   pVolumeARN_
   pStartAt_
   pRecurrenceInHours_ =
     UpdateSnapshotSchedule'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { tags = Core.Nothing,
+        description = Core.Nothing,
         volumeARN = pVolumeARN_,
         startAt = pStartAt_,
         recurrenceInHours = pRecurrenceInHours_
@@ -150,79 +149,77 @@ newUpdateSnapshotSchedule
 -- representable in UTF-8 format, and the following special characters: + -
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
-updateSnapshotSchedule_tags :: Lens.Lens' UpdateSnapshotSchedule (Prelude.Maybe [Tag])
-updateSnapshotSchedule_tags = Lens.lens (\UpdateSnapshotSchedule' {tags} -> tags) (\s@UpdateSnapshotSchedule' {} a -> s {tags = a} :: UpdateSnapshotSchedule) Prelude.. Lens.mapping Prelude._Coerce
+updateSnapshotSchedule_tags :: Lens.Lens' UpdateSnapshotSchedule (Core.Maybe [Tag])
+updateSnapshotSchedule_tags = Lens.lens (\UpdateSnapshotSchedule' {tags} -> tags) (\s@UpdateSnapshotSchedule' {} a -> s {tags = a} :: UpdateSnapshotSchedule) Core.. Lens.mapping Lens._Coerce
 
 -- | Optional description of the snapshot that overwrites the existing
 -- description.
-updateSnapshotSchedule_description :: Lens.Lens' UpdateSnapshotSchedule (Prelude.Maybe Prelude.Text)
+updateSnapshotSchedule_description :: Lens.Lens' UpdateSnapshotSchedule (Core.Maybe Core.Text)
 updateSnapshotSchedule_description = Lens.lens (\UpdateSnapshotSchedule' {description} -> description) (\s@UpdateSnapshotSchedule' {} a -> s {description = a} :: UpdateSnapshotSchedule)
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
-updateSnapshotSchedule_volumeARN :: Lens.Lens' UpdateSnapshotSchedule Prelude.Text
+updateSnapshotSchedule_volumeARN :: Lens.Lens' UpdateSnapshotSchedule Core.Text
 updateSnapshotSchedule_volumeARN = Lens.lens (\UpdateSnapshotSchedule' {volumeARN} -> volumeARN) (\s@UpdateSnapshotSchedule' {} a -> s {volumeARN = a} :: UpdateSnapshotSchedule)
 
 -- | The hour of the day at which the snapshot schedule begins represented as
 -- /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the
 -- time zone of the gateway.
-updateSnapshotSchedule_startAt :: Lens.Lens' UpdateSnapshotSchedule Prelude.Natural
+updateSnapshotSchedule_startAt :: Lens.Lens' UpdateSnapshotSchedule Core.Natural
 updateSnapshotSchedule_startAt = Lens.lens (\UpdateSnapshotSchedule' {startAt} -> startAt) (\s@UpdateSnapshotSchedule' {} a -> s {startAt = a} :: UpdateSnapshotSchedule)
 
 -- | Frequency of snapshots. Specify the number of hours between snapshots.
-updateSnapshotSchedule_recurrenceInHours :: Lens.Lens' UpdateSnapshotSchedule Prelude.Natural
+updateSnapshotSchedule_recurrenceInHours :: Lens.Lens' UpdateSnapshotSchedule Core.Natural
 updateSnapshotSchedule_recurrenceInHours = Lens.lens (\UpdateSnapshotSchedule' {recurrenceInHours} -> recurrenceInHours) (\s@UpdateSnapshotSchedule' {} a -> s {recurrenceInHours = a} :: UpdateSnapshotSchedule)
 
-instance Prelude.AWSRequest UpdateSnapshotSchedule where
+instance Core.AWSRequest UpdateSnapshotSchedule where
   type
-    Rs UpdateSnapshotSchedule =
+    AWSResponse UpdateSnapshotSchedule =
       UpdateSnapshotScheduleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateSnapshotScheduleResponse'
-            Prelude.<$> (x Prelude..?> "VolumeARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "VolumeARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSnapshotSchedule
+instance Core.Hashable UpdateSnapshotSchedule
 
-instance Prelude.NFData UpdateSnapshotSchedule
+instance Core.NFData UpdateSnapshotSchedule
 
-instance Prelude.ToHeaders UpdateSnapshotSchedule where
+instance Core.ToHeaders UpdateSnapshotSchedule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.UpdateSnapshotSchedule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.UpdateSnapshotSchedule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateSnapshotSchedule where
+instance Core.ToJSON UpdateSnapshotSchedule where
   toJSON UpdateSnapshotSchedule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("VolumeARN" Prelude..= volumeARN),
-            Prelude.Just ("StartAt" Prelude..= startAt),
-            Prelude.Just
-              ("RecurrenceInHours" Prelude..= recurrenceInHours)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("VolumeARN" Core..= volumeARN),
+            Core.Just ("StartAt" Core..= startAt),
+            Core.Just
+              ("RecurrenceInHours" Core..= recurrenceInHours)
           ]
       )
 
-instance Prelude.ToPath UpdateSnapshotSchedule where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateSnapshotSchedule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateSnapshotSchedule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateSnapshotSchedule where
+  toQuery = Core.const Core.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the updated
 -- storage volume.
@@ -231,11 +228,11 @@ instance Prelude.ToQuery UpdateSnapshotSchedule where
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
   { -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
     -- operation to return a list of gateway volumes.
-    volumeARN :: Prelude.Maybe Prelude.Text,
+    volumeARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSnapshotScheduleResponse' with all optional fields omitted.
@@ -251,24 +248,22 @@ data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
 -- 'httpStatus', 'updateSnapshotScheduleResponse_httpStatus' - The response's http status code.
 newUpdateSnapshotScheduleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateSnapshotScheduleResponse
 newUpdateSnapshotScheduleResponse pHttpStatus_ =
   UpdateSnapshotScheduleResponse'
     { volumeARN =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
-updateSnapshotScheduleResponse_volumeARN :: Lens.Lens' UpdateSnapshotScheduleResponse (Prelude.Maybe Prelude.Text)
+updateSnapshotScheduleResponse_volumeARN :: Lens.Lens' UpdateSnapshotScheduleResponse (Core.Maybe Core.Text)
 updateSnapshotScheduleResponse_volumeARN = Lens.lens (\UpdateSnapshotScheduleResponse' {volumeARN} -> volumeARN) (\s@UpdateSnapshotScheduleResponse' {} a -> s {volumeARN = a} :: UpdateSnapshotScheduleResponse)
 
 -- | The response's http status code.
-updateSnapshotScheduleResponse_httpStatus :: Lens.Lens' UpdateSnapshotScheduleResponse Prelude.Int
+updateSnapshotScheduleResponse_httpStatus :: Lens.Lens' UpdateSnapshotScheduleResponse Core.Int
 updateSnapshotScheduleResponse_httpStatus = Lens.lens (\UpdateSnapshotScheduleResponse' {httpStatus} -> httpStatus) (\s@UpdateSnapshotScheduleResponse' {} a -> s {httpStatus = a} :: UpdateSnapshotScheduleResponse)
 
-instance
-  Prelude.NFData
-    UpdateSnapshotScheduleResponse
+instance Core.NFData UpdateSnapshotScheduleResponse

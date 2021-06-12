@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.QLDB.DeleteLedger
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteLedger' smart constructor.
 data DeleteLedger = DeleteLedger'
   { -- | The name of the ledger that you want to delete.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLedger' with all optional fields omitted.
@@ -66,46 +65,44 @@ data DeleteLedger = DeleteLedger'
 -- 'name', 'deleteLedger_name' - The name of the ledger that you want to delete.
 newDeleteLedger ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLedger
 newDeleteLedger pName_ = DeleteLedger' {name = pName_}
 
 -- | The name of the ledger that you want to delete.
-deleteLedger_name :: Lens.Lens' DeleteLedger Prelude.Text
+deleteLedger_name :: Lens.Lens' DeleteLedger Core.Text
 deleteLedger_name = Lens.lens (\DeleteLedger' {name} -> name) (\s@DeleteLedger' {} a -> s {name = a} :: DeleteLedger)
 
-instance Prelude.AWSRequest DeleteLedger where
-  type Rs DeleteLedger = DeleteLedgerResponse
+instance Core.AWSRequest DeleteLedger where
+  type AWSResponse DeleteLedger = DeleteLedgerResponse
   request = Request.delete defaultService
   response = Response.receiveNull DeleteLedgerResponse'
 
-instance Prelude.Hashable DeleteLedger
+instance Core.Hashable DeleteLedger
 
-instance Prelude.NFData DeleteLedger
+instance Core.NFData DeleteLedger
 
-instance Prelude.ToHeaders DeleteLedger where
+instance Core.ToHeaders DeleteLedger where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteLedger where
+instance Core.ToPath DeleteLedger where
   toPath DeleteLedger' {..} =
-    Prelude.mconcat ["/ledgers/", Prelude.toBS name]
+    Core.mconcat ["/ledgers/", Core.toBS name]
 
-instance Prelude.ToQuery DeleteLedger where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteLedger where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteLedgerResponse' smart constructor.
 data DeleteLedgerResponse = DeleteLedgerResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLedgerResponse' with all optional fields omitted.
@@ -115,4 +112,4 @@ newDeleteLedgerResponse ::
   DeleteLedgerResponse
 newDeleteLedgerResponse = DeleteLedgerResponse'
 
-instance Prelude.NFData DeleteLedgerResponse
+instance Core.NFData DeleteLedgerResponse

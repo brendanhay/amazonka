@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,21 +40,21 @@ module Network.AWS.ECS.UpdateCapacityProvider
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateCapacityProvider' smart constructor.
 data UpdateCapacityProvider = UpdateCapacityProvider'
   { -- | The name of the capacity provider to update.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | An object representing the parameters to update for the Auto Scaling
     -- group capacity provider.
     autoScalingGroupProvider :: AutoScalingGroupProviderUpdate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCapacityProvider' with all optional fields omitted.
@@ -71,7 +70,7 @@ data UpdateCapacityProvider = UpdateCapacityProvider'
 -- group capacity provider.
 newUpdateCapacityProvider ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'autoScalingGroupProvider'
   AutoScalingGroupProviderUpdate ->
   UpdateCapacityProvider
@@ -85,7 +84,7 @@ newUpdateCapacityProvider
       }
 
 -- | The name of the capacity provider to update.
-updateCapacityProvider_name :: Lens.Lens' UpdateCapacityProvider Prelude.Text
+updateCapacityProvider_name :: Lens.Lens' UpdateCapacityProvider Core.Text
 updateCapacityProvider_name = Lens.lens (\UpdateCapacityProvider' {name} -> name) (\s@UpdateCapacityProvider' {} a -> s {name = a} :: UpdateCapacityProvider)
 
 -- | An object representing the parameters to update for the Auto Scaling
@@ -93,63 +92,61 @@ updateCapacityProvider_name = Lens.lens (\UpdateCapacityProvider' {name} -> name
 updateCapacityProvider_autoScalingGroupProvider :: Lens.Lens' UpdateCapacityProvider AutoScalingGroupProviderUpdate
 updateCapacityProvider_autoScalingGroupProvider = Lens.lens (\UpdateCapacityProvider' {autoScalingGroupProvider} -> autoScalingGroupProvider) (\s@UpdateCapacityProvider' {} a -> s {autoScalingGroupProvider = a} :: UpdateCapacityProvider)
 
-instance Prelude.AWSRequest UpdateCapacityProvider where
+instance Core.AWSRequest UpdateCapacityProvider where
   type
-    Rs UpdateCapacityProvider =
+    AWSResponse UpdateCapacityProvider =
       UpdateCapacityProviderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateCapacityProviderResponse'
-            Prelude.<$> (x Prelude..?> "capacityProvider")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "capacityProvider")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCapacityProvider
+instance Core.Hashable UpdateCapacityProvider
 
-instance Prelude.NFData UpdateCapacityProvider
+instance Core.NFData UpdateCapacityProvider
 
-instance Prelude.ToHeaders UpdateCapacityProvider where
+instance Core.ToHeaders UpdateCapacityProvider where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateCapacityProvider" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateCapacityProvider" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateCapacityProvider where
+instance Core.ToJSON UpdateCapacityProvider where
   toJSON UpdateCapacityProvider' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("name" Prelude..= name),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just
               ( "autoScalingGroupProvider"
-                  Prelude..= autoScalingGroupProvider
+                  Core..= autoScalingGroupProvider
               )
           ]
       )
 
-instance Prelude.ToPath UpdateCapacityProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateCapacityProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateCapacityProvider where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateCapacityProvider where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateCapacityProviderResponse' smart constructor.
 data UpdateCapacityProviderResponse = UpdateCapacityProviderResponse'
-  { capacityProvider :: Prelude.Maybe CapacityProvider,
+  { capacityProvider :: Core.Maybe CapacityProvider,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCapacityProviderResponse' with all optional fields omitted.
@@ -164,23 +161,21 @@ data UpdateCapacityProviderResponse = UpdateCapacityProviderResponse'
 -- 'httpStatus', 'updateCapacityProviderResponse_httpStatus' - The response's http status code.
 newUpdateCapacityProviderResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateCapacityProviderResponse
 newUpdateCapacityProviderResponse pHttpStatus_ =
   UpdateCapacityProviderResponse'
     { capacityProvider =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateCapacityProviderResponse_capacityProvider :: Lens.Lens' UpdateCapacityProviderResponse (Prelude.Maybe CapacityProvider)
+updateCapacityProviderResponse_capacityProvider :: Lens.Lens' UpdateCapacityProviderResponse (Core.Maybe CapacityProvider)
 updateCapacityProviderResponse_capacityProvider = Lens.lens (\UpdateCapacityProviderResponse' {capacityProvider} -> capacityProvider) (\s@UpdateCapacityProviderResponse' {} a -> s {capacityProvider = a} :: UpdateCapacityProviderResponse)
 
 -- | The response's http status code.
-updateCapacityProviderResponse_httpStatus :: Lens.Lens' UpdateCapacityProviderResponse Prelude.Int
+updateCapacityProviderResponse_httpStatus :: Lens.Lens' UpdateCapacityProviderResponse Core.Int
 updateCapacityProviderResponse_httpStatus = Lens.lens (\UpdateCapacityProviderResponse' {httpStatus} -> httpStatus) (\s@UpdateCapacityProviderResponse' {} a -> s {httpStatus = a} :: UpdateCapacityProviderResponse)
 
-instance
-  Prelude.NFData
-    UpdateCapacityProviderResponse
+instance Core.NFData UpdateCapacityProviderResponse

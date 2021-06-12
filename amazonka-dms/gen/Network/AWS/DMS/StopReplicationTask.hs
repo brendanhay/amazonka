@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.DMS.StopReplicationTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newStopReplicationTask' smart constructor.
 data StopReplicationTask = StopReplicationTask'
   { -- | The Amazon Resource Name(ARN) of the replication task to be stopped.
-    replicationTaskArn :: Prelude.Text
+    replicationTaskArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopReplicationTask' with all optional fields omitted.
@@ -66,7 +65,7 @@ data StopReplicationTask = StopReplicationTask'
 -- 'replicationTaskArn', 'stopReplicationTask_replicationTaskArn' - The Amazon Resource Name(ARN) of the replication task to be stopped.
 newStopReplicationTask ::
   -- | 'replicationTaskArn'
-  Prelude.Text ->
+  Core.Text ->
   StopReplicationTask
 newStopReplicationTask pReplicationTaskArn_ =
   StopReplicationTask'
@@ -75,68 +74,64 @@ newStopReplicationTask pReplicationTaskArn_ =
     }
 
 -- | The Amazon Resource Name(ARN) of the replication task to be stopped.
-stopReplicationTask_replicationTaskArn :: Lens.Lens' StopReplicationTask Prelude.Text
+stopReplicationTask_replicationTaskArn :: Lens.Lens' StopReplicationTask Core.Text
 stopReplicationTask_replicationTaskArn = Lens.lens (\StopReplicationTask' {replicationTaskArn} -> replicationTaskArn) (\s@StopReplicationTask' {} a -> s {replicationTaskArn = a} :: StopReplicationTask)
 
-instance Prelude.AWSRequest StopReplicationTask where
+instance Core.AWSRequest StopReplicationTask where
   type
-    Rs StopReplicationTask =
+    AWSResponse StopReplicationTask =
       StopReplicationTaskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopReplicationTaskResponse'
-            Prelude.<$> (x Prelude..?> "ReplicationTask")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ReplicationTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopReplicationTask
+instance Core.Hashable StopReplicationTask
 
-instance Prelude.NFData StopReplicationTask
+instance Core.NFData StopReplicationTask
 
-instance Prelude.ToHeaders StopReplicationTask where
+instance Core.ToHeaders StopReplicationTask where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.StopReplicationTask" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.StopReplicationTask" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopReplicationTask where
+instance Core.ToJSON StopReplicationTask where
   toJSON StopReplicationTask' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "ReplicationTaskArn"
-                  Prelude..= replicationTaskArn
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ReplicationTaskArn" Core..= replicationTaskArn)
           ]
       )
 
-instance Prelude.ToPath StopReplicationTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopReplicationTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopReplicationTask where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopReplicationTask where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newStopReplicationTaskResponse' smart constructor.
 data StopReplicationTaskResponse = StopReplicationTaskResponse'
   { -- | The replication task stopped.
-    replicationTask :: Prelude.Maybe ReplicationTask,
+    replicationTask :: Core.Maybe ReplicationTask,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopReplicationTaskResponse' with all optional fields omitted.
@@ -151,21 +146,21 @@ data StopReplicationTaskResponse = StopReplicationTaskResponse'
 -- 'httpStatus', 'stopReplicationTaskResponse_httpStatus' - The response's http status code.
 newStopReplicationTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopReplicationTaskResponse
 newStopReplicationTaskResponse pHttpStatus_ =
   StopReplicationTaskResponse'
     { replicationTask =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The replication task stopped.
-stopReplicationTaskResponse_replicationTask :: Lens.Lens' StopReplicationTaskResponse (Prelude.Maybe ReplicationTask)
+stopReplicationTaskResponse_replicationTask :: Lens.Lens' StopReplicationTaskResponse (Core.Maybe ReplicationTask)
 stopReplicationTaskResponse_replicationTask = Lens.lens (\StopReplicationTaskResponse' {replicationTask} -> replicationTask) (\s@StopReplicationTaskResponse' {} a -> s {replicationTask = a} :: StopReplicationTaskResponse)
 
 -- | The response's http status code.
-stopReplicationTaskResponse_httpStatus :: Lens.Lens' StopReplicationTaskResponse Prelude.Int
+stopReplicationTaskResponse_httpStatus :: Lens.Lens' StopReplicationTaskResponse Core.Int
 stopReplicationTaskResponse_httpStatus = Lens.lens (\StopReplicationTaskResponse' {httpStatus} -> httpStatus) (\s@StopReplicationTaskResponse' {} a -> s {httpStatus = a} :: StopReplicationTaskResponse)
 
-instance Prelude.NFData StopReplicationTaskResponse
+instance Core.NFData StopReplicationTaskResponse

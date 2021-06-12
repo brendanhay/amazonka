@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,8 @@ module Network.AWS.Pricing.GetAttributeValues
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Pricing.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,17 +59,17 @@ import qualified Network.AWS.Response as Response
 data GetAttributeValues = GetAttributeValues'
   { -- | The pagination token that indicates the next set of results that you
     -- want to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return in response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The service code for the service whose attributes you want to retrieve.
     -- For example, if you want the retrieve an EC2 attribute, use @AmazonEC2@.
-    serviceCode :: Prelude.Text,
+    serviceCode :: Core.Text,
     -- | The name of the attribute that you want to retrieve the values for, such
     -- as @volumeType@.
-    attributeName :: Prelude.Text
+    attributeName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAttributeValues' with all optional fields omitted.
@@ -93,124 +91,119 @@ data GetAttributeValues = GetAttributeValues'
 -- as @volumeType@.
 newGetAttributeValues ::
   -- | 'serviceCode'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'attributeName'
-  Prelude.Text ->
+  Core.Text ->
   GetAttributeValues
 newGetAttributeValues pServiceCode_ pAttributeName_ =
   GetAttributeValues'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       serviceCode = pServiceCode_,
       attributeName = pAttributeName_
     }
 
 -- | The pagination token that indicates the next set of results that you
 -- want to retrieve.
-getAttributeValues_nextToken :: Lens.Lens' GetAttributeValues (Prelude.Maybe Prelude.Text)
+getAttributeValues_nextToken :: Lens.Lens' GetAttributeValues (Core.Maybe Core.Text)
 getAttributeValues_nextToken = Lens.lens (\GetAttributeValues' {nextToken} -> nextToken) (\s@GetAttributeValues' {} a -> s {nextToken = a} :: GetAttributeValues)
 
 -- | The maximum number of results to return in response.
-getAttributeValues_maxResults :: Lens.Lens' GetAttributeValues (Prelude.Maybe Prelude.Natural)
+getAttributeValues_maxResults :: Lens.Lens' GetAttributeValues (Core.Maybe Core.Natural)
 getAttributeValues_maxResults = Lens.lens (\GetAttributeValues' {maxResults} -> maxResults) (\s@GetAttributeValues' {} a -> s {maxResults = a} :: GetAttributeValues)
 
 -- | The service code for the service whose attributes you want to retrieve.
 -- For example, if you want the retrieve an EC2 attribute, use @AmazonEC2@.
-getAttributeValues_serviceCode :: Lens.Lens' GetAttributeValues Prelude.Text
+getAttributeValues_serviceCode :: Lens.Lens' GetAttributeValues Core.Text
 getAttributeValues_serviceCode = Lens.lens (\GetAttributeValues' {serviceCode} -> serviceCode) (\s@GetAttributeValues' {} a -> s {serviceCode = a} :: GetAttributeValues)
 
 -- | The name of the attribute that you want to retrieve the values for, such
 -- as @volumeType@.
-getAttributeValues_attributeName :: Lens.Lens' GetAttributeValues Prelude.Text
+getAttributeValues_attributeName :: Lens.Lens' GetAttributeValues Core.Text
 getAttributeValues_attributeName = Lens.lens (\GetAttributeValues' {attributeName} -> attributeName) (\s@GetAttributeValues' {} a -> s {attributeName = a} :: GetAttributeValues)
 
-instance Pager.AWSPager GetAttributeValues where
+instance Core.AWSPager GetAttributeValues where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getAttributeValuesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getAttributeValuesResponse_attributeValues
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getAttributeValues_nextToken
           Lens..~ rs
           Lens.^? getAttributeValuesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest GetAttributeValues where
+instance Core.AWSRequest GetAttributeValues where
   type
-    Rs GetAttributeValues =
+    AWSResponse GetAttributeValues =
       GetAttributeValuesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAttributeValuesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "AttributeValues"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "AttributeValues" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetAttributeValues
+instance Core.Hashable GetAttributeValues
 
-instance Prelude.NFData GetAttributeValues
+instance Core.NFData GetAttributeValues
 
-instance Prelude.ToHeaders GetAttributeValues where
+instance Core.ToHeaders GetAttributeValues where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSPriceListService.GetAttributeValues" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSPriceListService.GetAttributeValues" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetAttributeValues where
+instance Core.ToJSON GetAttributeValues where
   toJSON GetAttributeValues' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServiceCode" Prelude..= serviceCode),
-            Prelude.Just
-              ("AttributeName" Prelude..= attributeName)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("ServiceCode" Core..= serviceCode),
+            Core.Just ("AttributeName" Core..= attributeName)
           ]
       )
 
-instance Prelude.ToPath GetAttributeValues where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetAttributeValues where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetAttributeValues where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetAttributeValues where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetAttributeValuesResponse' smart constructor.
 data GetAttributeValuesResponse = GetAttributeValuesResponse'
   { -- | The pagination token that indicates the next set of results to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of values for an attribute. For example,
     -- @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available
     -- values for the @AmazonEC2@ @volumeType@.
-    attributeValues :: Prelude.Maybe [AttributeValue],
+    attributeValues :: Core.Maybe [AttributeValue],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAttributeValuesResponse' with all optional fields omitted.
@@ -229,28 +222,28 @@ data GetAttributeValuesResponse = GetAttributeValuesResponse'
 -- 'httpStatus', 'getAttributeValuesResponse_httpStatus' - The response's http status code.
 newGetAttributeValuesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetAttributeValuesResponse
 newGetAttributeValuesResponse pHttpStatus_ =
   GetAttributeValuesResponse'
     { nextToken =
-        Prelude.Nothing,
-      attributeValues = Prelude.Nothing,
+        Core.Nothing,
+      attributeValues = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
-getAttributeValuesResponse_nextToken :: Lens.Lens' GetAttributeValuesResponse (Prelude.Maybe Prelude.Text)
+getAttributeValuesResponse_nextToken :: Lens.Lens' GetAttributeValuesResponse (Core.Maybe Core.Text)
 getAttributeValuesResponse_nextToken = Lens.lens (\GetAttributeValuesResponse' {nextToken} -> nextToken) (\s@GetAttributeValuesResponse' {} a -> s {nextToken = a} :: GetAttributeValuesResponse)
 
 -- | The list of values for an attribute. For example,
 -- @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available
 -- values for the @AmazonEC2@ @volumeType@.
-getAttributeValuesResponse_attributeValues :: Lens.Lens' GetAttributeValuesResponse (Prelude.Maybe [AttributeValue])
-getAttributeValuesResponse_attributeValues = Lens.lens (\GetAttributeValuesResponse' {attributeValues} -> attributeValues) (\s@GetAttributeValuesResponse' {} a -> s {attributeValues = a} :: GetAttributeValuesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getAttributeValuesResponse_attributeValues :: Lens.Lens' GetAttributeValuesResponse (Core.Maybe [AttributeValue])
+getAttributeValuesResponse_attributeValues = Lens.lens (\GetAttributeValuesResponse' {attributeValues} -> attributeValues) (\s@GetAttributeValuesResponse' {} a -> s {attributeValues = a} :: GetAttributeValuesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getAttributeValuesResponse_httpStatus :: Lens.Lens' GetAttributeValuesResponse Prelude.Int
+getAttributeValuesResponse_httpStatus :: Lens.Lens' GetAttributeValuesResponse Core.Int
 getAttributeValuesResponse_httpStatus = Lens.lens (\GetAttributeValuesResponse' {httpStatus} -> httpStatus) (\s@GetAttributeValuesResponse' {} a -> s {httpStatus = a} :: GetAttributeValuesResponse)
 
-instance Prelude.NFData GetAttributeValuesResponse
+instance Core.NFData GetAttributeValuesResponse

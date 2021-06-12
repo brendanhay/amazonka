@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.DeviceFarm.GetAccountSettings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +49,7 @@ import qualified Network.AWS.Response as Response
 data GetAccountSettings = GetAccountSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAccountSettings' with all optional fields omitted.
@@ -60,47 +59,44 @@ newGetAccountSettings ::
   GetAccountSettings
 newGetAccountSettings = GetAccountSettings'
 
-instance Prelude.AWSRequest GetAccountSettings where
+instance Core.AWSRequest GetAccountSettings where
   type
-    Rs GetAccountSettings =
+    AWSResponse GetAccountSettings =
       GetAccountSettingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAccountSettingsResponse'
-            Prelude.<$> (x Prelude..?> "accountSettings")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "accountSettings")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccountSettings
+instance Core.Hashable GetAccountSettings
 
-instance Prelude.NFData GetAccountSettings
+instance Core.NFData GetAccountSettings
 
-instance Prelude.ToHeaders GetAccountSettings where
+instance Core.ToHeaders GetAccountSettings where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.GetAccountSettings" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.GetAccountSettings" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetAccountSettings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetAccountSettings where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath GetAccountSettings where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetAccountSettings where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetAccountSettings where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetAccountSettings where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the account settings return values from the
 -- @GetAccountSettings@ request.
@@ -108,11 +104,11 @@ instance Prelude.ToQuery GetAccountSettings where
 -- /See:/ 'newGetAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
   { -- | The account settings.
-    accountSettings :: Prelude.Maybe AccountSettings,
+    accountSettings :: Core.Maybe AccountSettings,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAccountSettingsResponse' with all optional fields omitted.
@@ -127,21 +123,21 @@ data GetAccountSettingsResponse = GetAccountSettingsResponse'
 -- 'httpStatus', 'getAccountSettingsResponse_httpStatus' - The response's http status code.
 newGetAccountSettingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetAccountSettingsResponse
 newGetAccountSettingsResponse pHttpStatus_ =
   GetAccountSettingsResponse'
     { accountSettings =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The account settings.
-getAccountSettingsResponse_accountSettings :: Lens.Lens' GetAccountSettingsResponse (Prelude.Maybe AccountSettings)
+getAccountSettingsResponse_accountSettings :: Lens.Lens' GetAccountSettingsResponse (Core.Maybe AccountSettings)
 getAccountSettingsResponse_accountSettings = Lens.lens (\GetAccountSettingsResponse' {accountSettings} -> accountSettings) (\s@GetAccountSettingsResponse' {} a -> s {accountSettings = a} :: GetAccountSettingsResponse)
 
 -- | The response's http status code.
-getAccountSettingsResponse_httpStatus :: Lens.Lens' GetAccountSettingsResponse Prelude.Int
+getAccountSettingsResponse_httpStatus :: Lens.Lens' GetAccountSettingsResponse Core.Int
 getAccountSettingsResponse_httpStatus = Lens.lens (\GetAccountSettingsResponse' {httpStatus} -> httpStatus) (\s@GetAccountSettingsResponse' {} a -> s {httpStatus = a} :: GetAccountSettingsResponse)
 
-instance Prelude.NFData GetAccountSettingsResponse
+instance Core.NFData GetAccountSettingsResponse

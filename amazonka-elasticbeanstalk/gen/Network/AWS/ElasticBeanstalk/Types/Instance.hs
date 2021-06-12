@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.Instance where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The description of an Amazon EC2 instance.
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
   { -- | The ID of the Amazon EC2 instance.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Instance' with all optional fields omitted.
@@ -43,16 +42,15 @@ data Instance = Instance'
 -- 'id', 'instance_id' - The ID of the Amazon EC2 instance.
 newInstance ::
   Instance
-newInstance = Instance' {id = Prelude.Nothing}
+newInstance = Instance' {id = Core.Nothing}
 
 -- | The ID of the Amazon EC2 instance.
-instance_id :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_id :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_id = Lens.lens (\Instance' {id} -> id) (\s@Instance' {} a -> s {id = a} :: Instance)
 
-instance Prelude.FromXML Instance where
-  parseXML x =
-    Instance' Prelude.<$> (x Prelude..@? "Id")
+instance Core.FromXML Instance where
+  parseXML x = Instance' Core.<$> (x Core..@? "Id")
 
-instance Prelude.Hashable Instance
+instance Core.Hashable Instance
 
-instance Prelude.NFData Instance
+instance Core.NFData Instance

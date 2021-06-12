@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glacier.Types.OutputLocation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.S3Location
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the location where the select job results are
 -- stored.
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data OutputLocation = OutputLocation'
   { -- | Describes an S3 location that will receive the results of the job
     -- request.
-    s3 :: Prelude.Maybe S3Location
+    s3 :: Core.Maybe S3Location
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputLocation' with all optional fields omitted.
@@ -48,28 +47,24 @@ data OutputLocation = OutputLocation'
 newOutputLocation ::
   OutputLocation
 newOutputLocation =
-  OutputLocation' {s3 = Prelude.Nothing}
+  OutputLocation' {s3 = Core.Nothing}
 
 -- | Describes an S3 location that will receive the results of the job
 -- request.
-outputLocation_s3 :: Lens.Lens' OutputLocation (Prelude.Maybe S3Location)
+outputLocation_s3 :: Lens.Lens' OutputLocation (Core.Maybe S3Location)
 outputLocation_s3 = Lens.lens (\OutputLocation' {s3} -> s3) (\s@OutputLocation' {} a -> s {s3 = a} :: OutputLocation)
 
-instance Prelude.FromJSON OutputLocation where
+instance Core.FromJSON OutputLocation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputLocation"
-      ( \x ->
-          OutputLocation' Prelude.<$> (x Prelude..:? "S3")
-      )
+      (\x -> OutputLocation' Core.<$> (x Core..:? "S3"))
 
-instance Prelude.Hashable OutputLocation
+instance Core.Hashable OutputLocation
 
-instance Prelude.NFData OutputLocation
+instance Core.NFData OutputLocation
 
-instance Prelude.ToJSON OutputLocation where
+instance Core.ToJSON OutputLocation where
   toJSON OutputLocation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("S3" Prelude..=) Prelude.<$> s3]
-      )
+    Core.object
+      (Core.catMaybes [("S3" Core..=) Core.<$> s3])

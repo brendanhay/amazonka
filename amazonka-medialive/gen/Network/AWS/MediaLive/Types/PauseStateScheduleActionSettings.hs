@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.PipelinePauseStateSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for the action to set pause state of a channel.
 --
 -- /See:/ 'newPauseStateScheduleActionSettings' smart constructor.
 data PauseStateScheduleActionSettings = PauseStateScheduleActionSettings'
-  { pipelines :: Prelude.Maybe [PipelinePauseStateSettings]
+  { pipelines :: Core.Maybe [PipelinePauseStateSettings]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PauseStateScheduleActionSettings' with all optional fields omitted.
@@ -46,41 +45,34 @@ newPauseStateScheduleActionSettings ::
 newPauseStateScheduleActionSettings =
   PauseStateScheduleActionSettings'
     { pipelines =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Undocumented member.
-pauseStateScheduleActionSettings_pipelines :: Lens.Lens' PauseStateScheduleActionSettings (Prelude.Maybe [PipelinePauseStateSettings])
-pauseStateScheduleActionSettings_pipelines = Lens.lens (\PauseStateScheduleActionSettings' {pipelines} -> pipelines) (\s@PauseStateScheduleActionSettings' {} a -> s {pipelines = a} :: PauseStateScheduleActionSettings) Prelude.. Lens.mapping Prelude._Coerce
+pauseStateScheduleActionSettings_pipelines :: Lens.Lens' PauseStateScheduleActionSettings (Core.Maybe [PipelinePauseStateSettings])
+pauseStateScheduleActionSettings_pipelines = Lens.lens (\PauseStateScheduleActionSettings' {pipelines} -> pipelines) (\s@PauseStateScheduleActionSettings' {} a -> s {pipelines = a} :: PauseStateScheduleActionSettings) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     PauseStateScheduleActionSettings
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PauseStateScheduleActionSettings"
       ( \x ->
           PauseStateScheduleActionSettings'
-            Prelude.<$> ( x Prelude..:? "pipelines"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "pipelines" Core..!= Core.mempty)
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PauseStateScheduleActionSettings
 
-instance
-  Prelude.NFData
-    PauseStateScheduleActionSettings
+instance Core.NFData PauseStateScheduleActionSettings
 
-instance
-  Prelude.ToJSON
-    PauseStateScheduleActionSettings
-  where
+instance Core.ToJSON PauseStateScheduleActionSettings where
   toJSON PauseStateScheduleActionSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("pipelines" Prelude..=) Prelude.<$> pipelines]
+    Core.object
+      ( Core.catMaybes
+          [("pipelines" Core..=) Core.<$> pipelines]
       )

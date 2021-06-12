@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.ByteMatchSetSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -44,12 +43,12 @@ data ByteMatchSetSummary = ByteMatchSetSummary'
     --
     -- @ByteMatchSetId@ is returned by CreateByteMatchSet and by
     -- ListByteMatchSets.
-    byteMatchSetId :: Prelude.Text,
+    byteMatchSetId :: Core.Text,
     -- | A friendly name or description of the ByteMatchSet. You can\'t change
     -- @Name@ after you create a @ByteMatchSet@.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ByteMatchSetSummary' with all optional fields omitted.
@@ -71,9 +70,9 @@ data ByteMatchSetSummary = ByteMatchSetSummary'
 -- @Name@ after you create a @ByteMatchSet@.
 newByteMatchSetSummary ::
   -- | 'byteMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   ByteMatchSetSummary
 newByteMatchSetSummary pByteMatchSetId_ pName_ =
   ByteMatchSetSummary'
@@ -89,24 +88,24 @@ newByteMatchSetSummary pByteMatchSetId_ pName_ =
 --
 -- @ByteMatchSetId@ is returned by CreateByteMatchSet and by
 -- ListByteMatchSets.
-byteMatchSetSummary_byteMatchSetId :: Lens.Lens' ByteMatchSetSummary Prelude.Text
+byteMatchSetSummary_byteMatchSetId :: Lens.Lens' ByteMatchSetSummary Core.Text
 byteMatchSetSummary_byteMatchSetId = Lens.lens (\ByteMatchSetSummary' {byteMatchSetId} -> byteMatchSetId) (\s@ByteMatchSetSummary' {} a -> s {byteMatchSetId = a} :: ByteMatchSetSummary)
 
 -- | A friendly name or description of the ByteMatchSet. You can\'t change
 -- @Name@ after you create a @ByteMatchSet@.
-byteMatchSetSummary_name :: Lens.Lens' ByteMatchSetSummary Prelude.Text
+byteMatchSetSummary_name :: Lens.Lens' ByteMatchSetSummary Core.Text
 byteMatchSetSummary_name = Lens.lens (\ByteMatchSetSummary' {name} -> name) (\s@ByteMatchSetSummary' {} a -> s {name = a} :: ByteMatchSetSummary)
 
-instance Prelude.FromJSON ByteMatchSetSummary where
+instance Core.FromJSON ByteMatchSetSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ByteMatchSetSummary"
       ( \x ->
           ByteMatchSetSummary'
-            Prelude.<$> (x Prelude..: "ByteMatchSetId")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..: "ByteMatchSetId")
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable ByteMatchSetSummary
+instance Core.Hashable ByteMatchSetSummary
 
-instance Prelude.NFData ByteMatchSetSummary
+instance Core.NFData ByteMatchSetSummary

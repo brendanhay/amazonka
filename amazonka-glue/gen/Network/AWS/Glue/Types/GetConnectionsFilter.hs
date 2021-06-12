@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.GetConnectionsFilter where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.ConnectionType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Filters the connection definitions that are returned by the
 -- @GetConnections@ API operation.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newGetConnectionsFilter' smart constructor.
 data GetConnectionsFilter = GetConnectionsFilter'
   { -- | The type of connections to return. Currently, SFTP is not supported.
-    connectionType :: Prelude.Maybe ConnectionType,
+    connectionType :: Core.Maybe ConnectionType,
     -- | A criteria string that must match the criteria recorded in the
     -- connection definition for that connection definition to be returned.
-    matchCriteria :: Prelude.Maybe [Prelude.Text]
+    matchCriteria :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetConnectionsFilter' with all optional fields omitted.
@@ -54,30 +53,28 @@ newGetConnectionsFilter ::
 newGetConnectionsFilter =
   GetConnectionsFilter'
     { connectionType =
-        Prelude.Nothing,
-      matchCriteria = Prelude.Nothing
+        Core.Nothing,
+      matchCriteria = Core.Nothing
     }
 
 -- | The type of connections to return. Currently, SFTP is not supported.
-getConnectionsFilter_connectionType :: Lens.Lens' GetConnectionsFilter (Prelude.Maybe ConnectionType)
+getConnectionsFilter_connectionType :: Lens.Lens' GetConnectionsFilter (Core.Maybe ConnectionType)
 getConnectionsFilter_connectionType = Lens.lens (\GetConnectionsFilter' {connectionType} -> connectionType) (\s@GetConnectionsFilter' {} a -> s {connectionType = a} :: GetConnectionsFilter)
 
 -- | A criteria string that must match the criteria recorded in the
 -- connection definition for that connection definition to be returned.
-getConnectionsFilter_matchCriteria :: Lens.Lens' GetConnectionsFilter (Prelude.Maybe [Prelude.Text])
-getConnectionsFilter_matchCriteria = Lens.lens (\GetConnectionsFilter' {matchCriteria} -> matchCriteria) (\s@GetConnectionsFilter' {} a -> s {matchCriteria = a} :: GetConnectionsFilter) Prelude.. Lens.mapping Prelude._Coerce
+getConnectionsFilter_matchCriteria :: Lens.Lens' GetConnectionsFilter (Core.Maybe [Core.Text])
+getConnectionsFilter_matchCriteria = Lens.lens (\GetConnectionsFilter' {matchCriteria} -> matchCriteria) (\s@GetConnectionsFilter' {} a -> s {matchCriteria = a} :: GetConnectionsFilter) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable GetConnectionsFilter
+instance Core.Hashable GetConnectionsFilter
 
-instance Prelude.NFData GetConnectionsFilter
+instance Core.NFData GetConnectionsFilter
 
-instance Prelude.ToJSON GetConnectionsFilter where
+instance Core.ToJSON GetConnectionsFilter where
   toJSON GetConnectionsFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ConnectionType" Prelude..=)
-              Prelude.<$> connectionType,
-            ("MatchCriteria" Prelude..=)
-              Prelude.<$> matchCriteria
+    Core.object
+      ( Core.catMaybes
+          [ ("ConnectionType" Core..=) Core.<$> connectionType,
+            ("MatchCriteria" Core..=) Core.<$> matchCriteria
           ]
       )

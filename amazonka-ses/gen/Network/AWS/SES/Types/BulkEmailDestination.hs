@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.BulkEmailDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.Destination
 import Network.AWS.SES.Types.MessageTag
 
@@ -34,14 +33,14 @@ data BulkEmailDestination = BulkEmailDestination'
     -- that you send using @SendBulkTemplatedEmail@. Tags correspond to
     -- characteristics of the email that you define, so that you can publish
     -- email sending events.
-    replacementTags :: Prelude.Maybe [MessageTag],
+    replacementTags :: Core.Maybe [MessageTag],
     -- | A list of replacement values to apply to the template. This parameter is
     -- a JSON object, typically consisting of key-value pairs in which the keys
     -- correspond to replacement tags in the email template.
-    replacementTemplateData :: Prelude.Maybe Prelude.Text,
+    replacementTemplateData :: Core.Maybe Core.Text,
     destination :: Destination
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BulkEmailDestination' with all optional fields omitted.
@@ -68,8 +67,8 @@ newBulkEmailDestination ::
 newBulkEmailDestination pDestination_ =
   BulkEmailDestination'
     { replacementTags =
-        Prelude.Nothing,
-      replacementTemplateData = Prelude.Nothing,
+        Core.Nothing,
+      replacementTemplateData = Core.Nothing,
       destination = pDestination_
     }
 
@@ -77,32 +76,30 @@ newBulkEmailDestination pDestination_ =
 -- that you send using @SendBulkTemplatedEmail@. Tags correspond to
 -- characteristics of the email that you define, so that you can publish
 -- email sending events.
-bulkEmailDestination_replacementTags :: Lens.Lens' BulkEmailDestination (Prelude.Maybe [MessageTag])
-bulkEmailDestination_replacementTags = Lens.lens (\BulkEmailDestination' {replacementTags} -> replacementTags) (\s@BulkEmailDestination' {} a -> s {replacementTags = a} :: BulkEmailDestination) Prelude.. Lens.mapping Prelude._Coerce
+bulkEmailDestination_replacementTags :: Lens.Lens' BulkEmailDestination (Core.Maybe [MessageTag])
+bulkEmailDestination_replacementTags = Lens.lens (\BulkEmailDestination' {replacementTags} -> replacementTags) (\s@BulkEmailDestination' {} a -> s {replacementTags = a} :: BulkEmailDestination) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of replacement values to apply to the template. This parameter is
 -- a JSON object, typically consisting of key-value pairs in which the keys
 -- correspond to replacement tags in the email template.
-bulkEmailDestination_replacementTemplateData :: Lens.Lens' BulkEmailDestination (Prelude.Maybe Prelude.Text)
+bulkEmailDestination_replacementTemplateData :: Lens.Lens' BulkEmailDestination (Core.Maybe Core.Text)
 bulkEmailDestination_replacementTemplateData = Lens.lens (\BulkEmailDestination' {replacementTemplateData} -> replacementTemplateData) (\s@BulkEmailDestination' {} a -> s {replacementTemplateData = a} :: BulkEmailDestination)
 
 -- | Undocumented member.
 bulkEmailDestination_destination :: Lens.Lens' BulkEmailDestination Destination
 bulkEmailDestination_destination = Lens.lens (\BulkEmailDestination' {destination} -> destination) (\s@BulkEmailDestination' {} a -> s {destination = a} :: BulkEmailDestination)
 
-instance Prelude.Hashable BulkEmailDestination
+instance Core.Hashable BulkEmailDestination
 
-instance Prelude.NFData BulkEmailDestination
+instance Core.NFData BulkEmailDestination
 
-instance Prelude.ToQuery BulkEmailDestination where
+instance Core.ToQuery BulkEmailDestination where
   toQuery BulkEmailDestination' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "ReplacementTags"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> replacementTags
-            ),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> replacementTags),
         "ReplacementTemplateData"
-          Prelude.=: replacementTemplateData,
-        "Destination" Prelude.=: destination
+          Core.=: replacementTemplateData,
+        "Destination" Core.=: destination
       ]

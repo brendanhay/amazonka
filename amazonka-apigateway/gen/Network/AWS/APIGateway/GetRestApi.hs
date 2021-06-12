@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.APIGateway.GetRestApi
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,9 +61,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetRestApi' smart constructor.
 data GetRestApi = GetRestApi'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text
+    restApiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRestApi' with all optional fields omitted.
@@ -77,39 +76,38 @@ data GetRestApi = GetRestApi'
 -- 'restApiId', 'getRestApi_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetRestApi ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   GetRestApi
 newGetRestApi pRestApiId_ =
   GetRestApi' {restApiId = pRestApiId_}
 
 -- | [Required] The string identifier of the associated RestApi.
-getRestApi_restApiId :: Lens.Lens' GetRestApi Prelude.Text
+getRestApi_restApiId :: Lens.Lens' GetRestApi Core.Text
 getRestApi_restApiId = Lens.lens (\GetRestApi' {restApiId} -> restApiId) (\s@GetRestApi' {} a -> s {restApiId = a} :: GetRestApi)
 
-instance Prelude.AWSRequest GetRestApi where
-  type Rs GetRestApi = RestApi
+instance Core.AWSRequest GetRestApi where
+  type AWSResponse GetRestApi = RestApi
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetRestApi
+instance Core.Hashable GetRestApi
 
-instance Prelude.NFData GetRestApi
+instance Core.NFData GetRestApi
 
-instance Prelude.ToHeaders GetRestApi where
+instance Core.ToHeaders GetRestApi where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetRestApi where
+instance Core.ToPath GetRestApi where
   toPath GetRestApi' {..} =
-    Prelude.mconcat
-      ["/restapis/", Prelude.toBS restApiId]
+    Core.mconcat ["/restapis/", Core.toBS restApiId]
 
-instance Prelude.ToQuery GetRestApi where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRestApi where
+  toQuery = Core.const Core.mempty

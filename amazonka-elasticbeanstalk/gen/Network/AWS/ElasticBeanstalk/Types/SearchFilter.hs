@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.SearchFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes criteria to restrict a list of results.
 --
@@ -41,15 +40,15 @@ import qualified Network.AWS.Prelude as Prelude
 data SearchFilter = SearchFilter'
   { -- | The list of values applied to the @Attribute@ and @Operator@ attributes.
     -- Number of values and valid values vary by @Attribute@.
-    values :: Prelude.Maybe [Prelude.Text],
+    values :: Core.Maybe [Core.Text],
     -- | The operator to apply to the @Attribute@ with each of the @Values@.
     -- Valid values vary by @Attribute@.
-    operator :: Prelude.Maybe Prelude.Text,
+    operator :: Core.Maybe Core.Text,
     -- | The result attribute to which the filter values are applied. Valid
     -- values vary by API action.
-    attribute :: Prelude.Maybe Prelude.Text
+    attribute :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SearchFilter' with all optional fields omitted.
@@ -71,36 +70,36 @@ newSearchFilter ::
   SearchFilter
 newSearchFilter =
   SearchFilter'
-    { values = Prelude.Nothing,
-      operator = Prelude.Nothing,
-      attribute = Prelude.Nothing
+    { values = Core.Nothing,
+      operator = Core.Nothing,
+      attribute = Core.Nothing
     }
 
 -- | The list of values applied to the @Attribute@ and @Operator@ attributes.
 -- Number of values and valid values vary by @Attribute@.
-searchFilter_values :: Lens.Lens' SearchFilter (Prelude.Maybe [Prelude.Text])
-searchFilter_values = Lens.lens (\SearchFilter' {values} -> values) (\s@SearchFilter' {} a -> s {values = a} :: SearchFilter) Prelude.. Lens.mapping Prelude._Coerce
+searchFilter_values :: Lens.Lens' SearchFilter (Core.Maybe [Core.Text])
+searchFilter_values = Lens.lens (\SearchFilter' {values} -> values) (\s@SearchFilter' {} a -> s {values = a} :: SearchFilter) Core.. Lens.mapping Lens._Coerce
 
 -- | The operator to apply to the @Attribute@ with each of the @Values@.
 -- Valid values vary by @Attribute@.
-searchFilter_operator :: Lens.Lens' SearchFilter (Prelude.Maybe Prelude.Text)
+searchFilter_operator :: Lens.Lens' SearchFilter (Core.Maybe Core.Text)
 searchFilter_operator = Lens.lens (\SearchFilter' {operator} -> operator) (\s@SearchFilter' {} a -> s {operator = a} :: SearchFilter)
 
 -- | The result attribute to which the filter values are applied. Valid
 -- values vary by API action.
-searchFilter_attribute :: Lens.Lens' SearchFilter (Prelude.Maybe Prelude.Text)
+searchFilter_attribute :: Lens.Lens' SearchFilter (Core.Maybe Core.Text)
 searchFilter_attribute = Lens.lens (\SearchFilter' {attribute} -> attribute) (\s@SearchFilter' {} a -> s {attribute = a} :: SearchFilter)
 
-instance Prelude.Hashable SearchFilter
+instance Core.Hashable SearchFilter
 
-instance Prelude.NFData SearchFilter
+instance Core.NFData SearchFilter
 
-instance Prelude.ToQuery SearchFilter where
+instance Core.ToQuery SearchFilter where
   toQuery SearchFilter' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Values"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> values),
-        "Operator" Prelude.=: operator,
-        "Attribute" Prelude.=: attribute
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> values),
+        "Operator" Core.=: operator,
+        "Attribute" Core.=: attribute
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.SageMaker.UpdateContext
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -52,15 +51,15 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateContext' smart constructor.
 data UpdateContext = UpdateContext'
   { -- | A list of properties to remove.
-    propertiesToRemove :: Prelude.Maybe [Prelude.Text],
+    propertiesToRemove :: Core.Maybe [Core.Text],
     -- | The new list of properties. Overwrites the current property list.
-    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    properties :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The new description for the context.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the context to update.
-    contextName :: Prelude.Text
+    contextName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateContext' with all optional fields omitted.
@@ -79,87 +78,86 @@ data UpdateContext = UpdateContext'
 -- 'contextName', 'updateContext_contextName' - The name of the context to update.
 newUpdateContext ::
   -- | 'contextName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateContext
 newUpdateContext pContextName_ =
   UpdateContext'
-    { propertiesToRemove =
-        Prelude.Nothing,
-      properties = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { propertiesToRemove = Core.Nothing,
+      properties = Core.Nothing,
+      description = Core.Nothing,
       contextName = pContextName_
     }
 
 -- | A list of properties to remove.
-updateContext_propertiesToRemove :: Lens.Lens' UpdateContext (Prelude.Maybe [Prelude.Text])
-updateContext_propertiesToRemove = Lens.lens (\UpdateContext' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateContext' {} a -> s {propertiesToRemove = a} :: UpdateContext) Prelude.. Lens.mapping Prelude._Coerce
+updateContext_propertiesToRemove :: Lens.Lens' UpdateContext (Core.Maybe [Core.Text])
+updateContext_propertiesToRemove = Lens.lens (\UpdateContext' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateContext' {} a -> s {propertiesToRemove = a} :: UpdateContext) Core.. Lens.mapping Lens._Coerce
 
 -- | The new list of properties. Overwrites the current property list.
-updateContext_properties :: Lens.Lens' UpdateContext (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateContext_properties = Lens.lens (\UpdateContext' {properties} -> properties) (\s@UpdateContext' {} a -> s {properties = a} :: UpdateContext) Prelude.. Lens.mapping Prelude._Coerce
+updateContext_properties :: Lens.Lens' UpdateContext (Core.Maybe (Core.HashMap Core.Text Core.Text))
+updateContext_properties = Lens.lens (\UpdateContext' {properties} -> properties) (\s@UpdateContext' {} a -> s {properties = a} :: UpdateContext) Core.. Lens.mapping Lens._Coerce
 
 -- | The new description for the context.
-updateContext_description :: Lens.Lens' UpdateContext (Prelude.Maybe Prelude.Text)
+updateContext_description :: Lens.Lens' UpdateContext (Core.Maybe Core.Text)
 updateContext_description = Lens.lens (\UpdateContext' {description} -> description) (\s@UpdateContext' {} a -> s {description = a} :: UpdateContext)
 
 -- | The name of the context to update.
-updateContext_contextName :: Lens.Lens' UpdateContext Prelude.Text
+updateContext_contextName :: Lens.Lens' UpdateContext Core.Text
 updateContext_contextName = Lens.lens (\UpdateContext' {contextName} -> contextName) (\s@UpdateContext' {} a -> s {contextName = a} :: UpdateContext)
 
-instance Prelude.AWSRequest UpdateContext where
-  type Rs UpdateContext = UpdateContextResponse
+instance Core.AWSRequest UpdateContext where
+  type
+    AWSResponse UpdateContext =
+      UpdateContextResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateContextResponse'
-            Prelude.<$> (x Prelude..?> "ContextArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ContextArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateContext
+instance Core.Hashable UpdateContext
 
-instance Prelude.NFData UpdateContext
+instance Core.NFData UpdateContext
 
-instance Prelude.ToHeaders UpdateContext where
+instance Core.ToHeaders UpdateContext where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.UpdateContext" :: Prelude.ByteString),
+              Core.=# ("SageMaker.UpdateContext" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateContext where
+instance Core.ToJSON UpdateContext where
   toJSON UpdateContext' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PropertiesToRemove" Prelude..=)
-              Prelude.<$> propertiesToRemove,
-            ("Properties" Prelude..=) Prelude.<$> properties,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("ContextName" Prelude..= contextName)
+    Core.object
+      ( Core.catMaybes
+          [ ("PropertiesToRemove" Core..=)
+              Core.<$> propertiesToRemove,
+            ("Properties" Core..=) Core.<$> properties,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("ContextName" Core..= contextName)
           ]
       )
 
-instance Prelude.ToPath UpdateContext where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateContext where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateContext where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateContext where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateContextResponse' smart constructor.
 data UpdateContextResponse = UpdateContextResponse'
   { -- | The Amazon Resource Name (ARN) of the context.
-    contextArn :: Prelude.Maybe Prelude.Text,
+    contextArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateContextResponse' with all optional fields omitted.
@@ -174,21 +172,20 @@ data UpdateContextResponse = UpdateContextResponse'
 -- 'httpStatus', 'updateContextResponse_httpStatus' - The response's http status code.
 newUpdateContextResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateContextResponse
 newUpdateContextResponse pHttpStatus_ =
   UpdateContextResponse'
-    { contextArn =
-        Prelude.Nothing,
+    { contextArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the context.
-updateContextResponse_contextArn :: Lens.Lens' UpdateContextResponse (Prelude.Maybe Prelude.Text)
+updateContextResponse_contextArn :: Lens.Lens' UpdateContextResponse (Core.Maybe Core.Text)
 updateContextResponse_contextArn = Lens.lens (\UpdateContextResponse' {contextArn} -> contextArn) (\s@UpdateContextResponse' {} a -> s {contextArn = a} :: UpdateContextResponse)
 
 -- | The response's http status code.
-updateContextResponse_httpStatus :: Lens.Lens' UpdateContextResponse Prelude.Int
+updateContextResponse_httpStatus :: Lens.Lens' UpdateContextResponse Core.Int
 updateContextResponse_httpStatus = Lens.lens (\UpdateContextResponse' {httpStatus} -> httpStatus) (\s@UpdateContextResponse' {} a -> s {httpStatus = a} :: UpdateContextResponse)
 
-instance Prelude.NFData UpdateContextResponse
+instance Core.NFData UpdateContextResponse

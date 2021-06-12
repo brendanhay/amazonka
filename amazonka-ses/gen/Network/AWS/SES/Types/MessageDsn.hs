@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.MessageDsn where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.ExtensionField
 
 -- | Message-related information to include in the Delivery Status
@@ -34,18 +33,18 @@ import Network.AWS.SES.Types.ExtensionField
 -- /See:/ 'newMessageDsn' smart constructor.
 data MessageDsn = MessageDsn'
   { -- | Additional X-headers to include in the DSN.
-    extensionFields :: Prelude.Maybe [ExtensionField],
+    extensionFields :: Core.Maybe [ExtensionField],
     -- | When the message was received by the reporting mail transfer agent
     -- (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time
     -- format.
-    arrivalDate :: Prelude.Maybe Prelude.ISO8601,
+    arrivalDate :: Core.Maybe Core.ISO8601,
     -- | The reporting MTA that attempted to deliver the message, formatted as
     -- specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
     -- (@mta-name-type; mta-name@). The default value is
     -- @dns; inbound-smtp.[region].amazonaws.com@.
-    reportingMta :: Prelude.Text
+    reportingMta :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MessageDsn' with all optional fields omitted.
@@ -67,44 +66,42 @@ data MessageDsn = MessageDsn'
 -- @dns; inbound-smtp.[region].amazonaws.com@.
 newMessageDsn ::
   -- | 'reportingMta'
-  Prelude.Text ->
+  Core.Text ->
   MessageDsn
 newMessageDsn pReportingMta_ =
   MessageDsn'
-    { extensionFields = Prelude.Nothing,
-      arrivalDate = Prelude.Nothing,
+    { extensionFields = Core.Nothing,
+      arrivalDate = Core.Nothing,
       reportingMta = pReportingMta_
     }
 
 -- | Additional X-headers to include in the DSN.
-messageDsn_extensionFields :: Lens.Lens' MessageDsn (Prelude.Maybe [ExtensionField])
-messageDsn_extensionFields = Lens.lens (\MessageDsn' {extensionFields} -> extensionFields) (\s@MessageDsn' {} a -> s {extensionFields = a} :: MessageDsn) Prelude.. Lens.mapping Prelude._Coerce
+messageDsn_extensionFields :: Lens.Lens' MessageDsn (Core.Maybe [ExtensionField])
+messageDsn_extensionFields = Lens.lens (\MessageDsn' {extensionFields} -> extensionFields) (\s@MessageDsn' {} a -> s {extensionFields = a} :: MessageDsn) Core.. Lens.mapping Lens._Coerce
 
 -- | When the message was received by the reporting mail transfer agent
 -- (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time
 -- format.
-messageDsn_arrivalDate :: Lens.Lens' MessageDsn (Prelude.Maybe Prelude.UTCTime)
-messageDsn_arrivalDate = Lens.lens (\MessageDsn' {arrivalDate} -> arrivalDate) (\s@MessageDsn' {} a -> s {arrivalDate = a} :: MessageDsn) Prelude.. Lens.mapping Prelude._Time
+messageDsn_arrivalDate :: Lens.Lens' MessageDsn (Core.Maybe Core.UTCTime)
+messageDsn_arrivalDate = Lens.lens (\MessageDsn' {arrivalDate} -> arrivalDate) (\s@MessageDsn' {} a -> s {arrivalDate = a} :: MessageDsn) Core.. Lens.mapping Core._Time
 
 -- | The reporting MTA that attempted to deliver the message, formatted as
 -- specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
 -- (@mta-name-type; mta-name@). The default value is
 -- @dns; inbound-smtp.[region].amazonaws.com@.
-messageDsn_reportingMta :: Lens.Lens' MessageDsn Prelude.Text
+messageDsn_reportingMta :: Lens.Lens' MessageDsn Core.Text
 messageDsn_reportingMta = Lens.lens (\MessageDsn' {reportingMta} -> reportingMta) (\s@MessageDsn' {} a -> s {reportingMta = a} :: MessageDsn)
 
-instance Prelude.Hashable MessageDsn
+instance Core.Hashable MessageDsn
 
-instance Prelude.NFData MessageDsn
+instance Core.NFData MessageDsn
 
-instance Prelude.ToQuery MessageDsn where
+instance Core.ToQuery MessageDsn where
   toQuery MessageDsn' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "ExtensionFields"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> extensionFields
-            ),
-        "ArrivalDate" Prelude.=: arrivalDate,
-        "ReportingMta" Prelude.=: reportingMta
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> extensionFields),
+        "ArrivalDate" Core.=: arrivalDate,
+        "ReportingMta" Core.=: reportingMta
       ]

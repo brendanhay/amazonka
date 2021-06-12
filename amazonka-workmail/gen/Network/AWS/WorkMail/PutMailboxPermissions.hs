@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.WorkMail.PutMailboxPermissions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -53,13 +52,13 @@ import Network.AWS.WorkMail.Types
 data PutMailboxPermissions = PutMailboxPermissions'
   { -- | The identifier of the organization under which the user, group, or
     -- resource exists.
-    organizationId :: Prelude.Text,
+    organizationId :: Core.Text,
     -- | The identifier of the user, group, or resource for which to update
     -- mailbox permissions.
-    entityId :: Prelude.Text,
+    entityId :: Core.Text,
     -- | The identifier of the user, group, or resource to which to grant the
     -- permissions.
-    granteeId :: Prelude.Text,
+    granteeId :: Core.Text,
     -- | The permissions granted to the grantee. SEND_AS allows the grantee to
     -- send email as the owner of the mailbox (the grantee is not mentioned on
     -- these emails). SEND_ON_BEHALF allows the grantee to send email on behalf
@@ -69,7 +68,7 @@ data PutMailboxPermissions = PutMailboxPermissions'
     -- set on the mailbox.
     permissionValues :: [PermissionType]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutMailboxPermissions' with all optional fields omitted.
@@ -97,11 +96,11 @@ data PutMailboxPermissions = PutMailboxPermissions'
 -- set on the mailbox.
 newPutMailboxPermissions ::
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'entityId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'granteeId'
-  Prelude.Text ->
+  Core.Text ->
   PutMailboxPermissions
 newPutMailboxPermissions
   pOrganizationId_
@@ -112,22 +111,22 @@ newPutMailboxPermissions
           pOrganizationId_,
         entityId = pEntityId_,
         granteeId = pGranteeId_,
-        permissionValues = Prelude.mempty
+        permissionValues = Core.mempty
       }
 
 -- | The identifier of the organization under which the user, group, or
 -- resource exists.
-putMailboxPermissions_organizationId :: Lens.Lens' PutMailboxPermissions Prelude.Text
+putMailboxPermissions_organizationId :: Lens.Lens' PutMailboxPermissions Core.Text
 putMailboxPermissions_organizationId = Lens.lens (\PutMailboxPermissions' {organizationId} -> organizationId) (\s@PutMailboxPermissions' {} a -> s {organizationId = a} :: PutMailboxPermissions)
 
 -- | The identifier of the user, group, or resource for which to update
 -- mailbox permissions.
-putMailboxPermissions_entityId :: Lens.Lens' PutMailboxPermissions Prelude.Text
+putMailboxPermissions_entityId :: Lens.Lens' PutMailboxPermissions Core.Text
 putMailboxPermissions_entityId = Lens.lens (\PutMailboxPermissions' {entityId} -> entityId) (\s@PutMailboxPermissions' {} a -> s {entityId = a} :: PutMailboxPermissions)
 
 -- | The identifier of the user, group, or resource to which to grant the
 -- permissions.
-putMailboxPermissions_granteeId :: Lens.Lens' PutMailboxPermissions Prelude.Text
+putMailboxPermissions_granteeId :: Lens.Lens' PutMailboxPermissions Core.Text
 putMailboxPermissions_granteeId = Lens.lens (\PutMailboxPermissions' {granteeId} -> granteeId) (\s@PutMailboxPermissions' {} a -> s {granteeId = a} :: PutMailboxPermissions)
 
 -- | The permissions granted to the grantee. SEND_AS allows the grantee to
@@ -138,64 +137,61 @@ putMailboxPermissions_granteeId = Lens.lens (\PutMailboxPermissions' {granteeId}
 -- access to the mailbox, irrespective of other folder-level permissions
 -- set on the mailbox.
 putMailboxPermissions_permissionValues :: Lens.Lens' PutMailboxPermissions [PermissionType]
-putMailboxPermissions_permissionValues = Lens.lens (\PutMailboxPermissions' {permissionValues} -> permissionValues) (\s@PutMailboxPermissions' {} a -> s {permissionValues = a} :: PutMailboxPermissions) Prelude.. Prelude._Coerce
+putMailboxPermissions_permissionValues = Lens.lens (\PutMailboxPermissions' {permissionValues} -> permissionValues) (\s@PutMailboxPermissions' {} a -> s {permissionValues = a} :: PutMailboxPermissions) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest PutMailboxPermissions where
+instance Core.AWSRequest PutMailboxPermissions where
   type
-    Rs PutMailboxPermissions =
+    AWSResponse PutMailboxPermissions =
       PutMailboxPermissionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutMailboxPermissionsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutMailboxPermissions
+instance Core.Hashable PutMailboxPermissions
 
-instance Prelude.NFData PutMailboxPermissions
+instance Core.NFData PutMailboxPermissions
 
-instance Prelude.ToHeaders PutMailboxPermissions where
+instance Core.ToHeaders PutMailboxPermissions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.PutMailboxPermissions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkMailService.PutMailboxPermissions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutMailboxPermissions where
+instance Core.ToJSON PutMailboxPermissions where
   toJSON PutMailboxPermissions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("OrganizationId" Prelude..= organizationId),
-            Prelude.Just ("EntityId" Prelude..= entityId),
-            Prelude.Just ("GranteeId" Prelude..= granteeId),
-            Prelude.Just
-              ("PermissionValues" Prelude..= permissionValues)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("EntityId" Core..= entityId),
+            Core.Just ("GranteeId" Core..= granteeId),
+            Core.Just
+              ("PermissionValues" Core..= permissionValues)
           ]
       )
 
-instance Prelude.ToPath PutMailboxPermissions where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutMailboxPermissions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutMailboxPermissions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutMailboxPermissions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutMailboxPermissionsResponse' smart constructor.
 data PutMailboxPermissionsResponse = PutMailboxPermissionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutMailboxPermissionsResponse' with all optional fields omitted.
@@ -208,7 +204,7 @@ data PutMailboxPermissionsResponse = PutMailboxPermissionsResponse'
 -- 'httpStatus', 'putMailboxPermissionsResponse_httpStatus' - The response's http status code.
 newPutMailboxPermissionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutMailboxPermissionsResponse
 newPutMailboxPermissionsResponse pHttpStatus_ =
   PutMailboxPermissionsResponse'
@@ -217,7 +213,7 @@ newPutMailboxPermissionsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putMailboxPermissionsResponse_httpStatus :: Lens.Lens' PutMailboxPermissionsResponse Prelude.Int
+putMailboxPermissionsResponse_httpStatus :: Lens.Lens' PutMailboxPermissionsResponse Core.Int
 putMailboxPermissionsResponse_httpStatus = Lens.lens (\PutMailboxPermissionsResponse' {httpStatus} -> httpStatus) (\s@PutMailboxPermissionsResponse' {} a -> s {httpStatus = a} :: PutMailboxPermissionsResponse)
 
-instance Prelude.NFData PutMailboxPermissionsResponse
+instance Core.NFData PutMailboxPermissionsResponse

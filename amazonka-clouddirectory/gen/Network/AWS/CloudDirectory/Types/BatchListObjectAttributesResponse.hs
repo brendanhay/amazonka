@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,20 +20,20 @@
 module Network.AWS.CloudDirectory.Types.BatchListObjectAttributesResponse where
 
 import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a ListObjectAttributes response operation.
 --
 -- /See:/ 'newBatchListObjectAttributesResponse' smart constructor.
 data BatchListObjectAttributesResponse = BatchListObjectAttributesResponse'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The attributes map that is associated with the object. @AttributeArn@ is
     -- the key; attribute value is the value.
-    attributes :: Prelude.Maybe [AttributeKeyAndValue]
+    attributes :: Core.Maybe [AttributeKeyAndValue]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchListObjectAttributesResponse' with all optional fields omitted.
@@ -53,38 +52,36 @@ newBatchListObjectAttributesResponse ::
 newBatchListObjectAttributesResponse =
   BatchListObjectAttributesResponse'
     { nextToken =
-        Prelude.Nothing,
-      attributes = Prelude.Nothing
+        Core.Nothing,
+      attributes = Core.Nothing
     }
 
 -- | The pagination token.
-batchListObjectAttributesResponse_nextToken :: Lens.Lens' BatchListObjectAttributesResponse (Prelude.Maybe Prelude.Text)
+batchListObjectAttributesResponse_nextToken :: Lens.Lens' BatchListObjectAttributesResponse (Core.Maybe Core.Text)
 batchListObjectAttributesResponse_nextToken = Lens.lens (\BatchListObjectAttributesResponse' {nextToken} -> nextToken) (\s@BatchListObjectAttributesResponse' {} a -> s {nextToken = a} :: BatchListObjectAttributesResponse)
 
 -- | The attributes map that is associated with the object. @AttributeArn@ is
 -- the key; attribute value is the value.
-batchListObjectAttributesResponse_attributes :: Lens.Lens' BatchListObjectAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
-batchListObjectAttributesResponse_attributes = Lens.lens (\BatchListObjectAttributesResponse' {attributes} -> attributes) (\s@BatchListObjectAttributesResponse' {} a -> s {attributes = a} :: BatchListObjectAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchListObjectAttributesResponse_attributes :: Lens.Lens' BatchListObjectAttributesResponse (Core.Maybe [AttributeKeyAndValue])
+batchListObjectAttributesResponse_attributes = Lens.lens (\BatchListObjectAttributesResponse' {attributes} -> attributes) (\s@BatchListObjectAttributesResponse' {} a -> s {attributes = a} :: BatchListObjectAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     BatchListObjectAttributesResponse
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchListObjectAttributesResponse"
       ( \x ->
           BatchListObjectAttributesResponse'
-            Prelude.<$> (x Prelude..:? "NextToken")
-            Prelude.<*> ( x Prelude..:? "Attributes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Attributes" Core..!= Core.mempty)
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchListObjectAttributesResponse
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchListObjectAttributesResponse

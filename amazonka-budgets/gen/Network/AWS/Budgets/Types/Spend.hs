@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Budgets.Types.Spend where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The amount of cost or usage that is measured for a budget.
 --
@@ -36,12 +35,12 @@ import qualified Network.AWS.Prelude as Prelude
 data Spend = Spend'
   { -- | The cost or usage amount that is associated with a budget forecast,
     -- actual spend, or budget threshold.
-    amount :: Prelude.Text,
+    amount :: Core.Text,
     -- | The unit of measurement that is used for the budget forecast, actual
     -- spend, or budget threshold, such as dollars or GB.
-    unit :: Prelude.Text
+    unit :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Spend' with all optional fields omitted.
@@ -58,42 +57,41 @@ data Spend = Spend'
 -- spend, or budget threshold, such as dollars or GB.
 newSpend ::
   -- | 'amount'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'unit'
-  Prelude.Text ->
+  Core.Text ->
   Spend
 newSpend pAmount_ pUnit_ =
   Spend' {amount = pAmount_, unit = pUnit_}
 
 -- | The cost or usage amount that is associated with a budget forecast,
 -- actual spend, or budget threshold.
-spend_amount :: Lens.Lens' Spend Prelude.Text
+spend_amount :: Lens.Lens' Spend Core.Text
 spend_amount = Lens.lens (\Spend' {amount} -> amount) (\s@Spend' {} a -> s {amount = a} :: Spend)
 
 -- | The unit of measurement that is used for the budget forecast, actual
 -- spend, or budget threshold, such as dollars or GB.
-spend_unit :: Lens.Lens' Spend Prelude.Text
+spend_unit :: Lens.Lens' Spend Core.Text
 spend_unit = Lens.lens (\Spend' {unit} -> unit) (\s@Spend' {} a -> s {unit = a} :: Spend)
 
-instance Prelude.FromJSON Spend where
+instance Core.FromJSON Spend where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Spend"
       ( \x ->
           Spend'
-            Prelude.<$> (x Prelude..: "Amount")
-            Prelude.<*> (x Prelude..: "Unit")
+            Core.<$> (x Core..: "Amount") Core.<*> (x Core..: "Unit")
       )
 
-instance Prelude.Hashable Spend
+instance Core.Hashable Spend
 
-instance Prelude.NFData Spend
+instance Core.NFData Spend
 
-instance Prelude.ToJSON Spend where
+instance Core.ToJSON Spend where
   toJSON Spend' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Amount" Prelude..= amount),
-            Prelude.Just ("Unit" Prelude..= unit)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Amount" Core..= amount),
+            Core.Just ("Unit" Core..= unit)
           ]
       )

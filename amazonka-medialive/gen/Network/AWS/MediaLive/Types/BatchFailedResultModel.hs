@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.BatchFailedResultModel where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details from a failed operation
 --
 -- /See:/ 'newBatchFailedResultModel' smart constructor.
 data BatchFailedResultModel = BatchFailedResultModel'
   { -- | Error message for the failed operation
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | ARN of the resource
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | ID of the resource
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Error code for the failed operation
-    code :: Prelude.Maybe Prelude.Text
+    code :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchFailedResultModel' with all optional fields omitted.
@@ -57,40 +56,40 @@ newBatchFailedResultModel ::
   BatchFailedResultModel
 newBatchFailedResultModel =
   BatchFailedResultModel'
-    { message = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      code = Prelude.Nothing
+    { message = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | Error message for the failed operation
-batchFailedResultModel_message :: Lens.Lens' BatchFailedResultModel (Prelude.Maybe Prelude.Text)
+batchFailedResultModel_message :: Lens.Lens' BatchFailedResultModel (Core.Maybe Core.Text)
 batchFailedResultModel_message = Lens.lens (\BatchFailedResultModel' {message} -> message) (\s@BatchFailedResultModel' {} a -> s {message = a} :: BatchFailedResultModel)
 
 -- | ARN of the resource
-batchFailedResultModel_arn :: Lens.Lens' BatchFailedResultModel (Prelude.Maybe Prelude.Text)
+batchFailedResultModel_arn :: Lens.Lens' BatchFailedResultModel (Core.Maybe Core.Text)
 batchFailedResultModel_arn = Lens.lens (\BatchFailedResultModel' {arn} -> arn) (\s@BatchFailedResultModel' {} a -> s {arn = a} :: BatchFailedResultModel)
 
 -- | ID of the resource
-batchFailedResultModel_id :: Lens.Lens' BatchFailedResultModel (Prelude.Maybe Prelude.Text)
+batchFailedResultModel_id :: Lens.Lens' BatchFailedResultModel (Core.Maybe Core.Text)
 batchFailedResultModel_id = Lens.lens (\BatchFailedResultModel' {id} -> id) (\s@BatchFailedResultModel' {} a -> s {id = a} :: BatchFailedResultModel)
 
 -- | Error code for the failed operation
-batchFailedResultModel_code :: Lens.Lens' BatchFailedResultModel (Prelude.Maybe Prelude.Text)
+batchFailedResultModel_code :: Lens.Lens' BatchFailedResultModel (Core.Maybe Core.Text)
 batchFailedResultModel_code = Lens.lens (\BatchFailedResultModel' {code} -> code) (\s@BatchFailedResultModel' {} a -> s {code = a} :: BatchFailedResultModel)
 
-instance Prelude.FromJSON BatchFailedResultModel where
+instance Core.FromJSON BatchFailedResultModel where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchFailedResultModel"
       ( \x ->
           BatchFailedResultModel'
-            Prelude.<$> (x Prelude..:? "message")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "code")
+            Core.<$> (x Core..:? "message")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "code")
       )
 
-instance Prelude.Hashable BatchFailedResultModel
+instance Core.Hashable BatchFailedResultModel
 
-instance Prelude.NFData BatchFailedResultModel
+instance Core.NFData BatchFailedResultModel

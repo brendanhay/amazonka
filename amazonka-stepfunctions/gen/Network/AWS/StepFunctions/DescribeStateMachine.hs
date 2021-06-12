@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.StepFunctions.DescribeStateMachine
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -60,9 +59,9 @@ import Network.AWS.StepFunctions.Types
 -- | /See:/ 'newDescribeStateMachine' smart constructor.
 data DescribeStateMachine = DescribeStateMachine'
   { -- | The Amazon Resource Name (ARN) of the state machine to describe.
-    stateMachineArn :: Prelude.Text
+    stateMachineArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStateMachine' with all optional fields omitted.
@@ -75,7 +74,7 @@ data DescribeStateMachine = DescribeStateMachine'
 -- 'stateMachineArn', 'describeStateMachine_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine to describe.
 newDescribeStateMachine ::
   -- | 'stateMachineArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeStateMachine
 newDescribeStateMachine pStateMachineArn_ =
   DescribeStateMachine'
@@ -84,75 +83,73 @@ newDescribeStateMachine pStateMachineArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the state machine to describe.
-describeStateMachine_stateMachineArn :: Lens.Lens' DescribeStateMachine Prelude.Text
+describeStateMachine_stateMachineArn :: Lens.Lens' DescribeStateMachine Core.Text
 describeStateMachine_stateMachineArn = Lens.lens (\DescribeStateMachine' {stateMachineArn} -> stateMachineArn) (\s@DescribeStateMachine' {} a -> s {stateMachineArn = a} :: DescribeStateMachine)
 
-instance Prelude.AWSRequest DescribeStateMachine where
+instance Core.AWSRequest DescribeStateMachine where
   type
-    Rs DescribeStateMachine =
+    AWSResponse DescribeStateMachine =
       DescribeStateMachineResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeStateMachineResponse'
-            Prelude.<$> (x Prelude..?> "status")
-            Prelude.<*> (x Prelude..?> "tracingConfiguration")
-            Prelude.<*> (x Prelude..?> "loggingConfiguration")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "stateMachineArn")
-            Prelude.<*> (x Prelude..:> "name")
-            Prelude.<*> (x Prelude..:> "definition")
-            Prelude.<*> (x Prelude..:> "roleArn")
-            Prelude.<*> (x Prelude..:> "type")
-            Prelude.<*> (x Prelude..:> "creationDate")
+            Core.<$> (x Core..?> "status")
+            Core.<*> (x Core..?> "tracingConfiguration")
+            Core.<*> (x Core..?> "loggingConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "stateMachineArn")
+            Core.<*> (x Core..:> "name")
+            Core.<*> (x Core..:> "definition")
+            Core.<*> (x Core..:> "roleArn")
+            Core.<*> (x Core..:> "type")
+            Core.<*> (x Core..:> "creationDate")
       )
 
-instance Prelude.Hashable DescribeStateMachine
+instance Core.Hashable DescribeStateMachine
 
-instance Prelude.NFData DescribeStateMachine
+instance Core.NFData DescribeStateMachine
 
-instance Prelude.ToHeaders DescribeStateMachine where
+instance Core.ToHeaders DescribeStateMachine where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSStepFunctions.DescribeStateMachine" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSStepFunctions.DescribeStateMachine" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeStateMachine where
+instance Core.ToJSON DescribeStateMachine where
   toJSON DescribeStateMachine' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("stateMachineArn" Prelude..= stateMachineArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("stateMachineArn" Core..= stateMachineArn)
           ]
       )
 
-instance Prelude.ToPath DescribeStateMachine where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeStateMachine where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeStateMachine where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeStateMachine where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeStateMachineResponse' smart constructor.
 data DescribeStateMachineResponse = DescribeStateMachineResponse'
   { -- | The current status of the state machine.
-    status :: Prelude.Maybe StateMachineStatus,
+    status :: Core.Maybe StateMachineStatus,
     -- | Selects whether AWS X-Ray tracing is enabled.
-    tracingConfiguration :: Prelude.Maybe TracingConfiguration,
-    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
+    tracingConfiguration :: Core.Maybe TracingConfiguration,
+    loggingConfiguration :: Core.Maybe LoggingConfiguration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) that identifies the state machine.
-    stateMachineArn :: Prelude.Text,
+    stateMachineArn :: Core.Text,
     -- | The name of the state machine.
     --
     -- A name must /not/ contain:
@@ -169,20 +166,20 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
     --
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The Amazon States Language definition of the state machine. See
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-    definition :: Prelude.Sensitive Prelude.Text,
+    definition :: Core.Sensitive Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role used when creating this
     -- state machine. (The IAM role maintains security by granting Step
     -- Functions access to AWS resources.)
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The @type@ of the state machine (@STANDARD@ or @EXPRESS@).
     type' :: StateMachineType,
     -- | The date the state machine is created.
-    creationDate :: Prelude.POSIX
+    creationDate :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStateMachineResponse' with all optional fields omitted.
@@ -231,19 +228,19 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
 -- 'creationDate', 'describeStateMachineResponse_creationDate' - The date the state machine is created.
 newDescribeStateMachineResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'stateMachineArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'definition'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   StateMachineType ->
   -- | 'creationDate'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   DescribeStateMachineResponse
 newDescribeStateMachineResponse
   pHttpStatus_
@@ -255,38 +252,38 @@ newDescribeStateMachineResponse
   pCreationDate_ =
     DescribeStateMachineResponse'
       { status =
-          Prelude.Nothing,
-        tracingConfiguration = Prelude.Nothing,
-        loggingConfiguration = Prelude.Nothing,
+          Core.Nothing,
+        tracingConfiguration = Core.Nothing,
+        loggingConfiguration = Core.Nothing,
         httpStatus = pHttpStatus_,
         stateMachineArn = pStateMachineArn_,
         name = pName_,
         definition =
-          Prelude._Sensitive Lens.# pDefinition_,
+          Core._Sensitive Lens.# pDefinition_,
         roleArn = pRoleArn_,
         type' = pType_,
         creationDate =
-          Prelude._Time Lens.# pCreationDate_
+          Core._Time Lens.# pCreationDate_
       }
 
 -- | The current status of the state machine.
-describeStateMachineResponse_status :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe StateMachineStatus)
+describeStateMachineResponse_status :: Lens.Lens' DescribeStateMachineResponse (Core.Maybe StateMachineStatus)
 describeStateMachineResponse_status = Lens.lens (\DescribeStateMachineResponse' {status} -> status) (\s@DescribeStateMachineResponse' {} a -> s {status = a} :: DescribeStateMachineResponse)
 
 -- | Selects whether AWS X-Ray tracing is enabled.
-describeStateMachineResponse_tracingConfiguration :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe TracingConfiguration)
+describeStateMachineResponse_tracingConfiguration :: Lens.Lens' DescribeStateMachineResponse (Core.Maybe TracingConfiguration)
 describeStateMachineResponse_tracingConfiguration = Lens.lens (\DescribeStateMachineResponse' {tracingConfiguration} -> tracingConfiguration) (\s@DescribeStateMachineResponse' {} a -> s {tracingConfiguration = a} :: DescribeStateMachineResponse)
 
 -- | Undocumented member.
-describeStateMachineResponse_loggingConfiguration :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe LoggingConfiguration)
+describeStateMachineResponse_loggingConfiguration :: Lens.Lens' DescribeStateMachineResponse (Core.Maybe LoggingConfiguration)
 describeStateMachineResponse_loggingConfiguration = Lens.lens (\DescribeStateMachineResponse' {loggingConfiguration} -> loggingConfiguration) (\s@DescribeStateMachineResponse' {} a -> s {loggingConfiguration = a} :: DescribeStateMachineResponse)
 
 -- | The response's http status code.
-describeStateMachineResponse_httpStatus :: Lens.Lens' DescribeStateMachineResponse Prelude.Int
+describeStateMachineResponse_httpStatus :: Lens.Lens' DescribeStateMachineResponse Core.Int
 describeStateMachineResponse_httpStatus = Lens.lens (\DescribeStateMachineResponse' {httpStatus} -> httpStatus) (\s@DescribeStateMachineResponse' {} a -> s {httpStatus = a} :: DescribeStateMachineResponse)
 
 -- | The Amazon Resource Name (ARN) that identifies the state machine.
-describeStateMachineResponse_stateMachineArn :: Lens.Lens' DescribeStateMachineResponse Prelude.Text
+describeStateMachineResponse_stateMachineArn :: Lens.Lens' DescribeStateMachineResponse Core.Text
 describeStateMachineResponse_stateMachineArn = Lens.lens (\DescribeStateMachineResponse' {stateMachineArn} -> stateMachineArn) (\s@DescribeStateMachineResponse' {} a -> s {stateMachineArn = a} :: DescribeStateMachineResponse)
 
 -- | The name of the state machine.
@@ -305,18 +302,18 @@ describeStateMachineResponse_stateMachineArn = Lens.lens (\DescribeStateMachineR
 --
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
-describeStateMachineResponse_name :: Lens.Lens' DescribeStateMachineResponse Prelude.Text
+describeStateMachineResponse_name :: Lens.Lens' DescribeStateMachineResponse Core.Text
 describeStateMachineResponse_name = Lens.lens (\DescribeStateMachineResponse' {name} -> name) (\s@DescribeStateMachineResponse' {} a -> s {name = a} :: DescribeStateMachineResponse)
 
 -- | The Amazon States Language definition of the state machine. See
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-describeStateMachineResponse_definition :: Lens.Lens' DescribeStateMachineResponse Prelude.Text
-describeStateMachineResponse_definition = Lens.lens (\DescribeStateMachineResponse' {definition} -> definition) (\s@DescribeStateMachineResponse' {} a -> s {definition = a} :: DescribeStateMachineResponse) Prelude.. Prelude._Sensitive
+describeStateMachineResponse_definition :: Lens.Lens' DescribeStateMachineResponse Core.Text
+describeStateMachineResponse_definition = Lens.lens (\DescribeStateMachineResponse' {definition} -> definition) (\s@DescribeStateMachineResponse' {} a -> s {definition = a} :: DescribeStateMachineResponse) Core.. Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the IAM role used when creating this
 -- state machine. (The IAM role maintains security by granting Step
 -- Functions access to AWS resources.)
-describeStateMachineResponse_roleArn :: Lens.Lens' DescribeStateMachineResponse Prelude.Text
+describeStateMachineResponse_roleArn :: Lens.Lens' DescribeStateMachineResponse Core.Text
 describeStateMachineResponse_roleArn = Lens.lens (\DescribeStateMachineResponse' {roleArn} -> roleArn) (\s@DescribeStateMachineResponse' {} a -> s {roleArn = a} :: DescribeStateMachineResponse)
 
 -- | The @type@ of the state machine (@STANDARD@ or @EXPRESS@).
@@ -324,7 +321,7 @@ describeStateMachineResponse_type :: Lens.Lens' DescribeStateMachineResponse Sta
 describeStateMachineResponse_type = Lens.lens (\DescribeStateMachineResponse' {type'} -> type') (\s@DescribeStateMachineResponse' {} a -> s {type' = a} :: DescribeStateMachineResponse)
 
 -- | The date the state machine is created.
-describeStateMachineResponse_creationDate :: Lens.Lens' DescribeStateMachineResponse Prelude.UTCTime
-describeStateMachineResponse_creationDate = Lens.lens (\DescribeStateMachineResponse' {creationDate} -> creationDate) (\s@DescribeStateMachineResponse' {} a -> s {creationDate = a} :: DescribeStateMachineResponse) Prelude.. Prelude._Time
+describeStateMachineResponse_creationDate :: Lens.Lens' DescribeStateMachineResponse Core.UTCTime
+describeStateMachineResponse_creationDate = Lens.lens (\DescribeStateMachineResponse' {creationDate} -> creationDate) (\s@DescribeStateMachineResponse' {} a -> s {creationDate = a} :: DescribeStateMachineResponse) Core.. Core._Time
 
-instance Prelude.NFData DescribeStateMachineResponse
+instance Core.NFData DescribeStateMachineResponse

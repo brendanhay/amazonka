@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,9 +36,9 @@ module Network.AWS.FMS.DeletePolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,12 +72,12 @@ data DeletePolicy = DeletePolicy'
     -- scope of the policy, those accounts and resources are handled by the
     -- policy. All others are out of scope. If you don\'t specify tags or
     -- accounts, all resources are in scope.
-    deleteAllPolicyResources :: Prelude.Maybe Prelude.Bool,
+    deleteAllPolicyResources :: Core.Maybe Core.Bool,
     -- | The ID of the policy that you want to delete. You can retrieve this ID
     -- from @PutPolicy@ and @ListPolicies@.
-    policyId :: Prelude.Text
+    policyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicy' with all optional fields omitted.
@@ -121,12 +120,12 @@ data DeletePolicy = DeletePolicy'
 -- from @PutPolicy@ and @ListPolicies@.
 newDeletePolicy ::
   -- | 'policyId'
-  Prelude.Text ->
+  Core.Text ->
   DeletePolicy
 newDeletePolicy pPolicyId_ =
   DeletePolicy'
     { deleteAllPolicyResources =
-        Prelude.Nothing,
+        Core.Nothing,
       policyId = pPolicyId_
     }
 
@@ -158,59 +157,55 @@ newDeletePolicy pPolicyId_ =
 -- scope of the policy, those accounts and resources are handled by the
 -- policy. All others are out of scope. If you don\'t specify tags or
 -- accounts, all resources are in scope.
-deletePolicy_deleteAllPolicyResources :: Lens.Lens' DeletePolicy (Prelude.Maybe Prelude.Bool)
+deletePolicy_deleteAllPolicyResources :: Lens.Lens' DeletePolicy (Core.Maybe Core.Bool)
 deletePolicy_deleteAllPolicyResources = Lens.lens (\DeletePolicy' {deleteAllPolicyResources} -> deleteAllPolicyResources) (\s@DeletePolicy' {} a -> s {deleteAllPolicyResources = a} :: DeletePolicy)
 
 -- | The ID of the policy that you want to delete. You can retrieve this ID
 -- from @PutPolicy@ and @ListPolicies@.
-deletePolicy_policyId :: Lens.Lens' DeletePolicy Prelude.Text
+deletePolicy_policyId :: Lens.Lens' DeletePolicy Core.Text
 deletePolicy_policyId = Lens.lens (\DeletePolicy' {policyId} -> policyId) (\s@DeletePolicy' {} a -> s {policyId = a} :: DeletePolicy)
 
-instance Prelude.AWSRequest DeletePolicy where
-  type Rs DeletePolicy = DeletePolicyResponse
+instance Core.AWSRequest DeletePolicy where
+  type AWSResponse DeletePolicy = DeletePolicyResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull DeletePolicyResponse'
 
-instance Prelude.Hashable DeletePolicy
+instance Core.Hashable DeletePolicy
 
-instance Prelude.NFData DeletePolicy
+instance Core.NFData DeletePolicy
 
-instance Prelude.ToHeaders DeletePolicy where
+instance Core.ToHeaders DeletePolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSFMS_20180101.DeletePolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSFMS_20180101.DeletePolicy" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeletePolicy where
+instance Core.ToJSON DeletePolicy where
   toJSON DeletePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DeleteAllPolicyResources" Prelude..=)
-              Prelude.<$> deleteAllPolicyResources,
-            Prelude.Just ("PolicyId" Prelude..= policyId)
+    Core.object
+      ( Core.catMaybes
+          [ ("DeleteAllPolicyResources" Core..=)
+              Core.<$> deleteAllPolicyResources,
+            Core.Just ("PolicyId" Core..= policyId)
           ]
       )
 
-instance Prelude.ToPath DeletePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeletePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeletePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeletePolicyResponse' smart constructor.
 data DeletePolicyResponse = DeletePolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicyResponse' with all optional fields omitted.
@@ -220,4 +215,4 @@ newDeletePolicyResponse ::
   DeletePolicyResponse
 newDeletePolicyResponse = DeletePolicyResponse'
 
-instance Prelude.NFData DeletePolicyResponse
+instance Core.NFData DeletePolicyResponse

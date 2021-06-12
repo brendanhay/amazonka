@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,30 +49,30 @@ module Network.AWS.CloudWatchEvents.CreateApiDestination
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateApiDestination' smart constructor.
 data CreateApiDestination = CreateApiDestination'
   { -- | A description for the API destination to create.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The maximum number of requests per second to send to the HTTP invocation
     -- endpoint.
-    invocationRateLimitPerSecond :: Prelude.Maybe Prelude.Natural,
+    invocationRateLimitPerSecond :: Core.Maybe Core.Natural,
     -- | The name for the API destination to create.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The ARN of the connection to use for the API destination. The
     -- destination endpoint must support the authorization type specified for
     -- the connection.
-    connectionArn :: Prelude.Text,
+    connectionArn :: Core.Text,
     -- | The URL to the HTTP invocation endpoint for the API destination.
-    invocationEndpoint :: Prelude.Text,
+    invocationEndpoint :: Core.Text,
     -- | The method to use for the request to the HTTP invocation endpoint.
     httpMethod :: ApiDestinationHttpMethod
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApiDestination' with all optional fields omitted.
@@ -99,11 +98,11 @@ data CreateApiDestination = CreateApiDestination'
 -- 'httpMethod', 'createApiDestination_httpMethod' - The method to use for the request to the HTTP invocation endpoint.
 newCreateApiDestination ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'connectionArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'invocationEndpoint'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'httpMethod'
   ApiDestinationHttpMethod ->
   CreateApiDestination
@@ -113,9 +112,8 @@ newCreateApiDestination
   pInvocationEndpoint_
   pHttpMethod_ =
     CreateApiDestination'
-      { description =
-          Prelude.Nothing,
-        invocationRateLimitPerSecond = Prelude.Nothing,
+      { description = Core.Nothing,
+        invocationRateLimitPerSecond = Core.Nothing,
         name = pName_,
         connectionArn = pConnectionArn_,
         invocationEndpoint = pInvocationEndpoint_,
@@ -123,104 +121,101 @@ newCreateApiDestination
       }
 
 -- | A description for the API destination to create.
-createApiDestination_description :: Lens.Lens' CreateApiDestination (Prelude.Maybe Prelude.Text)
+createApiDestination_description :: Lens.Lens' CreateApiDestination (Core.Maybe Core.Text)
 createApiDestination_description = Lens.lens (\CreateApiDestination' {description} -> description) (\s@CreateApiDestination' {} a -> s {description = a} :: CreateApiDestination)
 
 -- | The maximum number of requests per second to send to the HTTP invocation
 -- endpoint.
-createApiDestination_invocationRateLimitPerSecond :: Lens.Lens' CreateApiDestination (Prelude.Maybe Prelude.Natural)
+createApiDestination_invocationRateLimitPerSecond :: Lens.Lens' CreateApiDestination (Core.Maybe Core.Natural)
 createApiDestination_invocationRateLimitPerSecond = Lens.lens (\CreateApiDestination' {invocationRateLimitPerSecond} -> invocationRateLimitPerSecond) (\s@CreateApiDestination' {} a -> s {invocationRateLimitPerSecond = a} :: CreateApiDestination)
 
 -- | The name for the API destination to create.
-createApiDestination_name :: Lens.Lens' CreateApiDestination Prelude.Text
+createApiDestination_name :: Lens.Lens' CreateApiDestination Core.Text
 createApiDestination_name = Lens.lens (\CreateApiDestination' {name} -> name) (\s@CreateApiDestination' {} a -> s {name = a} :: CreateApiDestination)
 
 -- | The ARN of the connection to use for the API destination. The
 -- destination endpoint must support the authorization type specified for
 -- the connection.
-createApiDestination_connectionArn :: Lens.Lens' CreateApiDestination Prelude.Text
+createApiDestination_connectionArn :: Lens.Lens' CreateApiDestination Core.Text
 createApiDestination_connectionArn = Lens.lens (\CreateApiDestination' {connectionArn} -> connectionArn) (\s@CreateApiDestination' {} a -> s {connectionArn = a} :: CreateApiDestination)
 
 -- | The URL to the HTTP invocation endpoint for the API destination.
-createApiDestination_invocationEndpoint :: Lens.Lens' CreateApiDestination Prelude.Text
+createApiDestination_invocationEndpoint :: Lens.Lens' CreateApiDestination Core.Text
 createApiDestination_invocationEndpoint = Lens.lens (\CreateApiDestination' {invocationEndpoint} -> invocationEndpoint) (\s@CreateApiDestination' {} a -> s {invocationEndpoint = a} :: CreateApiDestination)
 
 -- | The method to use for the request to the HTTP invocation endpoint.
 createApiDestination_httpMethod :: Lens.Lens' CreateApiDestination ApiDestinationHttpMethod
 createApiDestination_httpMethod = Lens.lens (\CreateApiDestination' {httpMethod} -> httpMethod) (\s@CreateApiDestination' {} a -> s {httpMethod = a} :: CreateApiDestination)
 
-instance Prelude.AWSRequest CreateApiDestination where
+instance Core.AWSRequest CreateApiDestination where
   type
-    Rs CreateApiDestination =
+    AWSResponse CreateApiDestination =
       CreateApiDestinationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateApiDestinationResponse'
-            Prelude.<$> (x Prelude..?> "CreationTime")
-            Prelude.<*> (x Prelude..?> "ApiDestinationArn")
-            Prelude.<*> (x Prelude..?> "ApiDestinationState")
-            Prelude.<*> (x Prelude..?> "LastModifiedTime")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CreationTime")
+            Core.<*> (x Core..?> "ApiDestinationArn")
+            Core.<*> (x Core..?> "ApiDestinationState")
+            Core.<*> (x Core..?> "LastModifiedTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApiDestination
+instance Core.Hashable CreateApiDestination
 
-instance Prelude.NFData CreateApiDestination
+instance Core.NFData CreateApiDestination
 
-instance Prelude.ToHeaders CreateApiDestination where
+instance Core.ToHeaders CreateApiDestination where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSEvents.CreateApiDestination" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSEvents.CreateApiDestination" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateApiDestination where
+instance Core.ToJSON CreateApiDestination where
   toJSON CreateApiDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Description" Prelude..=) Prelude.<$> description,
-            ("InvocationRateLimitPerSecond" Prelude..=)
-              Prelude.<$> invocationRateLimitPerSecond,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just
-              ("ConnectionArn" Prelude..= connectionArn),
-            Prelude.Just
-              ("InvocationEndpoint" Prelude..= invocationEndpoint),
-            Prelude.Just ("HttpMethod" Prelude..= httpMethod)
+    Core.object
+      ( Core.catMaybes
+          [ ("Description" Core..=) Core.<$> description,
+            ("InvocationRateLimitPerSecond" Core..=)
+              Core.<$> invocationRateLimitPerSecond,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("ConnectionArn" Core..= connectionArn),
+            Core.Just
+              ("InvocationEndpoint" Core..= invocationEndpoint),
+            Core.Just ("HttpMethod" Core..= httpMethod)
           ]
       )
 
-instance Prelude.ToPath CreateApiDestination where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateApiDestination where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateApiDestination where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateApiDestination where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateApiDestinationResponse' smart constructor.
 data CreateApiDestinationResponse = CreateApiDestinationResponse'
   { -- | A time stamp indicating the time that the API destination was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The ARN of the API destination that was created by the request.
-    apiDestinationArn :: Prelude.Maybe Prelude.Text,
+    apiDestinationArn :: Core.Maybe Core.Text,
     -- | The state of the API destination that was created by the request.
-    apiDestinationState :: Prelude.Maybe ApiDestinationState,
+    apiDestinationState :: Core.Maybe ApiDestinationState,
     -- | A time stamp indicating the time that the API destination was last
     -- modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApiDestinationResponse' with all optional fields omitted.
@@ -242,37 +237,37 @@ data CreateApiDestinationResponse = CreateApiDestinationResponse'
 -- 'httpStatus', 'createApiDestinationResponse_httpStatus' - The response's http status code.
 newCreateApiDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateApiDestinationResponse
 newCreateApiDestinationResponse pHttpStatus_ =
   CreateApiDestinationResponse'
     { creationTime =
-        Prelude.Nothing,
-      apiDestinationArn = Prelude.Nothing,
-      apiDestinationState = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
+        Core.Nothing,
+      apiDestinationArn = Core.Nothing,
+      apiDestinationState = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A time stamp indicating the time that the API destination was created.
-createApiDestinationResponse_creationTime :: Lens.Lens' CreateApiDestinationResponse (Prelude.Maybe Prelude.UTCTime)
-createApiDestinationResponse_creationTime = Lens.lens (\CreateApiDestinationResponse' {creationTime} -> creationTime) (\s@CreateApiDestinationResponse' {} a -> s {creationTime = a} :: CreateApiDestinationResponse) Prelude.. Lens.mapping Prelude._Time
+createApiDestinationResponse_creationTime :: Lens.Lens' CreateApiDestinationResponse (Core.Maybe Core.UTCTime)
+createApiDestinationResponse_creationTime = Lens.lens (\CreateApiDestinationResponse' {creationTime} -> creationTime) (\s@CreateApiDestinationResponse' {} a -> s {creationTime = a} :: CreateApiDestinationResponse) Core.. Lens.mapping Core._Time
 
 -- | The ARN of the API destination that was created by the request.
-createApiDestinationResponse_apiDestinationArn :: Lens.Lens' CreateApiDestinationResponse (Prelude.Maybe Prelude.Text)
+createApiDestinationResponse_apiDestinationArn :: Lens.Lens' CreateApiDestinationResponse (Core.Maybe Core.Text)
 createApiDestinationResponse_apiDestinationArn = Lens.lens (\CreateApiDestinationResponse' {apiDestinationArn} -> apiDestinationArn) (\s@CreateApiDestinationResponse' {} a -> s {apiDestinationArn = a} :: CreateApiDestinationResponse)
 
 -- | The state of the API destination that was created by the request.
-createApiDestinationResponse_apiDestinationState :: Lens.Lens' CreateApiDestinationResponse (Prelude.Maybe ApiDestinationState)
+createApiDestinationResponse_apiDestinationState :: Lens.Lens' CreateApiDestinationResponse (Core.Maybe ApiDestinationState)
 createApiDestinationResponse_apiDestinationState = Lens.lens (\CreateApiDestinationResponse' {apiDestinationState} -> apiDestinationState) (\s@CreateApiDestinationResponse' {} a -> s {apiDestinationState = a} :: CreateApiDestinationResponse)
 
 -- | A time stamp indicating the time that the API destination was last
 -- modified.
-createApiDestinationResponse_lastModifiedTime :: Lens.Lens' CreateApiDestinationResponse (Prelude.Maybe Prelude.UTCTime)
-createApiDestinationResponse_lastModifiedTime = Lens.lens (\CreateApiDestinationResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateApiDestinationResponse' {} a -> s {lastModifiedTime = a} :: CreateApiDestinationResponse) Prelude.. Lens.mapping Prelude._Time
+createApiDestinationResponse_lastModifiedTime :: Lens.Lens' CreateApiDestinationResponse (Core.Maybe Core.UTCTime)
+createApiDestinationResponse_lastModifiedTime = Lens.lens (\CreateApiDestinationResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateApiDestinationResponse' {} a -> s {lastModifiedTime = a} :: CreateApiDestinationResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-createApiDestinationResponse_httpStatus :: Lens.Lens' CreateApiDestinationResponse Prelude.Int
+createApiDestinationResponse_httpStatus :: Lens.Lens' CreateApiDestinationResponse Core.Int
 createApiDestinationResponse_httpStatus = Lens.lens (\CreateApiDestinationResponse' {httpStatus} -> httpStatus) (\s@CreateApiDestinationResponse' {} a -> s {httpStatus = a} :: CreateApiDestinationResponse)
 
-instance Prelude.NFData CreateApiDestinationResponse
+instance Core.NFData CreateApiDestinationResponse

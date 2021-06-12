@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.FlowLogsConfigurationResult where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DataSourceStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the status of VPC flow logs as a data source.
 --
@@ -31,7 +30,7 @@ data FlowLogsConfigurationResult = FlowLogsConfigurationResult'
   { -- | Denotes whether VPC flow logs is enabled as a data source.
     status :: DataSourceStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FlowLogsConfigurationResult' with all optional fields omitted.
@@ -53,15 +52,15 @@ newFlowLogsConfigurationResult pStatus_ =
 flowLogsConfigurationResult_status :: Lens.Lens' FlowLogsConfigurationResult DataSourceStatus
 flowLogsConfigurationResult_status = Lens.lens (\FlowLogsConfigurationResult' {status} -> status) (\s@FlowLogsConfigurationResult' {} a -> s {status = a} :: FlowLogsConfigurationResult)
 
-instance Prelude.FromJSON FlowLogsConfigurationResult where
+instance Core.FromJSON FlowLogsConfigurationResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FlowLogsConfigurationResult"
       ( \x ->
           FlowLogsConfigurationResult'
-            Prelude.<$> (x Prelude..: "status")
+            Core.<$> (x Core..: "status")
       )
 
-instance Prelude.Hashable FlowLogsConfigurationResult
+instance Core.Hashable FlowLogsConfigurationResult
 
-instance Prelude.NFData FlowLogsConfigurationResult
+instance Core.NFData FlowLogsConfigurationResult

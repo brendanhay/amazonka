@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -101,8 +100,8 @@ module Network.AWS.S3.PutBucketInventoryConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -112,15 +111,15 @@ data PutBucketInventoryConfiguration = PutBucketInventoryConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the bucket where the inventory configuration will be stored.
     bucket :: BucketName,
     -- | The ID used to identify the inventory configuration.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | Specifies the inventory configuration.
     inventoryConfiguration :: InventoryConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketInventoryConfiguration' with all optional fields omitted.
@@ -143,7 +142,7 @@ newPutBucketInventoryConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'inventoryConfiguration'
   InventoryConfiguration ->
   PutBucketInventoryConfiguration
@@ -153,7 +152,7 @@ newPutBucketInventoryConfiguration
   pInventoryConfiguration_ =
     PutBucketInventoryConfiguration'
       { expectedBucketOwner =
-          Prelude.Nothing,
+          Core.Nothing,
         bucket = pBucket_,
         id = pId_,
         inventoryConfiguration =
@@ -163,7 +162,7 @@ newPutBucketInventoryConfiguration
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketInventoryConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketInventoryConfiguration (Prelude.Maybe Prelude.Text)
+putBucketInventoryConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketInventoryConfiguration (Core.Maybe Core.Text)
 putBucketInventoryConfiguration_expectedBucketOwner = Lens.lens (\PutBucketInventoryConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketInventoryConfiguration' {} a -> s {expectedBucketOwner = a} :: PutBucketInventoryConfiguration)
 
 -- | The name of the bucket where the inventory configuration will be stored.
@@ -171,7 +170,7 @@ putBucketInventoryConfiguration_bucket :: Lens.Lens' PutBucketInventoryConfigura
 putBucketInventoryConfiguration_bucket = Lens.lens (\PutBucketInventoryConfiguration' {bucket} -> bucket) (\s@PutBucketInventoryConfiguration' {} a -> s {bucket = a} :: PutBucketInventoryConfiguration)
 
 -- | The ID used to identify the inventory configuration.
-putBucketInventoryConfiguration_id :: Lens.Lens' PutBucketInventoryConfiguration Prelude.Text
+putBucketInventoryConfiguration_id :: Lens.Lens' PutBucketInventoryConfiguration Core.Text
 putBucketInventoryConfiguration_id = Lens.lens (\PutBucketInventoryConfiguration' {id} -> id) (\s@PutBucketInventoryConfiguration' {} a -> s {id = a} :: PutBucketInventoryConfiguration)
 
 -- | Specifies the inventory configuration.
@@ -179,11 +178,11 @@ putBucketInventoryConfiguration_inventoryConfiguration :: Lens.Lens' PutBucketIn
 putBucketInventoryConfiguration_inventoryConfiguration = Lens.lens (\PutBucketInventoryConfiguration' {inventoryConfiguration} -> inventoryConfiguration) (\s@PutBucketInventoryConfiguration' {} a -> s {inventoryConfiguration = a} :: PutBucketInventoryConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PutBucketInventoryConfiguration
   where
   type
-    Rs PutBucketInventoryConfiguration =
+    AWSResponse PutBucketInventoryConfiguration =
       PutBucketInventoryConfigurationResponse
   request = Request.putXML defaultService
   response =
@@ -191,51 +190,43 @@ instance
       PutBucketInventoryConfigurationResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PutBucketInventoryConfiguration
 
-instance
-  Prelude.NFData
-    PutBucketInventoryConfiguration
+instance Core.NFData PutBucketInventoryConfiguration
 
 instance
-  Prelude.ToElement
+  Core.ToElement
     PutBucketInventoryConfiguration
   where
   toElement PutBucketInventoryConfiguration' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}InventoryConfiguration"
       inventoryConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     PutBucketInventoryConfiguration
   where
   toHeaders PutBucketInventoryConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance
-  Prelude.ToPath
-    PutBucketInventoryConfiguration
-  where
+instance Core.ToPath PutBucketInventoryConfiguration where
   toPath PutBucketInventoryConfiguration' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance
-  Prelude.ToQuery
-    PutBucketInventoryConfiguration
-  where
+instance Core.ToQuery PutBucketInventoryConfiguration where
   toQuery PutBucketInventoryConfiguration' {..} =
-    Prelude.mconcat ["id" Prelude.=: id, "inventory"]
+    Core.mconcat ["id" Core.=: id, "inventory"]
 
 -- | /See:/ 'newPutBucketInventoryConfigurationResponse' smart constructor.
 data PutBucketInventoryConfigurationResponse = PutBucketInventoryConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketInventoryConfigurationResponse' with all optional fields omitted.
@@ -247,5 +238,5 @@ newPutBucketInventoryConfigurationResponse =
   PutBucketInventoryConfigurationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutBucketInventoryConfigurationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.MessageTag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the name and value of a tag that you can provide to @SendEmail@
 -- or @SendRawEmail@ to apply to an email.
@@ -39,16 +38,16 @@ data MessageTag = MessageTag'
     --     underscores (_), or dashes (-).
     --
     -- -   Contain less than 256 characters.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The value of the tag. The value must:
     --
     -- -   This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
     --     underscores (_), or dashes (-).
     --
     -- -   Contain less than 256 characters.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MessageTag' with all optional fields omitted.
@@ -73,9 +72,9 @@ data MessageTag = MessageTag'
 -- -   Contain less than 256 characters.
 newMessageTag ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   MessageTag
 newMessageTag pName_ pValue_ =
   MessageTag' {name = pName_, value = pValue_}
@@ -86,7 +85,7 @@ newMessageTag pName_ pValue_ =
 --     underscores (_), or dashes (-).
 --
 -- -   Contain less than 256 characters.
-messageTag_name :: Lens.Lens' MessageTag Prelude.Text
+messageTag_name :: Lens.Lens' MessageTag Core.Text
 messageTag_name = Lens.lens (\MessageTag' {name} -> name) (\s@MessageTag' {} a -> s {name = a} :: MessageTag)
 
 -- | The value of the tag. The value must:
@@ -95,14 +94,14 @@ messageTag_name = Lens.lens (\MessageTag' {name} -> name) (\s@MessageTag' {} a -
 --     underscores (_), or dashes (-).
 --
 -- -   Contain less than 256 characters.
-messageTag_value :: Lens.Lens' MessageTag Prelude.Text
+messageTag_value :: Lens.Lens' MessageTag Core.Text
 messageTag_value = Lens.lens (\MessageTag' {value} -> value) (\s@MessageTag' {} a -> s {value = a} :: MessageTag)
 
-instance Prelude.Hashable MessageTag
+instance Core.Hashable MessageTag
 
-instance Prelude.NFData MessageTag
+instance Core.NFData MessageTag
 
-instance Prelude.ToQuery MessageTag where
+instance Core.ToQuery MessageTag where
   toQuery MessageTag' {..} =
-    Prelude.mconcat
-      ["Name" Prelude.=: name, "Value" Prelude.=: value]
+    Core.mconcat
+      ["Name" Core.=: name, "Value" Core.=: value]

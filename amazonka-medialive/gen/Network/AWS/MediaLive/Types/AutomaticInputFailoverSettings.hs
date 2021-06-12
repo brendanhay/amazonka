@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FailoverCondition
 import Network.AWS.MediaLive.Types.InputPreference
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The settings for Automatic Input Failover.
 --
@@ -31,22 +30,22 @@ import qualified Network.AWS.Prelude as Prelude
 data AutomaticInputFailoverSettings = AutomaticInputFailoverSettings'
   { -- | A list of failover conditions. If any of these conditions occur,
     -- MediaLive will perform a failover to the other input.
-    failoverConditions :: Prelude.Maybe [FailoverCondition],
+    failoverConditions :: Core.Maybe [FailoverCondition],
     -- | This clear time defines the requirement a recovered input must meet to
     -- be considered healthy. The input must have no failover conditions for
     -- this length of time. Enter a time in milliseconds. This value is
     -- particularly important if the input_preference for the failover pair is
     -- set to PRIMARY_INPUT_PREFERRED, because after this time, MediaLive will
     -- switch back to the primary input.
-    errorClearTimeMsec :: Prelude.Maybe Prelude.Natural,
+    errorClearTimeMsec :: Core.Maybe Core.Natural,
     -- | Input preference when deciding which input to make active when a
     -- previously failed input has recovered.
-    inputPreference :: Prelude.Maybe InputPreference,
+    inputPreference :: Core.Maybe InputPreference,
     -- | The input ID of the secondary input in the automatic input failover
     -- pair.
-    secondaryInputId :: Prelude.Text
+    secondaryInputId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutomaticInputFailoverSettings' with all optional fields omitted.
@@ -73,21 +72,21 @@ data AutomaticInputFailoverSettings = AutomaticInputFailoverSettings'
 -- pair.
 newAutomaticInputFailoverSettings ::
   -- | 'secondaryInputId'
-  Prelude.Text ->
+  Core.Text ->
   AutomaticInputFailoverSettings
 newAutomaticInputFailoverSettings pSecondaryInputId_ =
   AutomaticInputFailoverSettings'
     { failoverConditions =
-        Prelude.Nothing,
-      errorClearTimeMsec = Prelude.Nothing,
-      inputPreference = Prelude.Nothing,
+        Core.Nothing,
+      errorClearTimeMsec = Core.Nothing,
+      inputPreference = Core.Nothing,
       secondaryInputId = pSecondaryInputId_
     }
 
 -- | A list of failover conditions. If any of these conditions occur,
 -- MediaLive will perform a failover to the other input.
-automaticInputFailoverSettings_failoverConditions :: Lens.Lens' AutomaticInputFailoverSettings (Prelude.Maybe [FailoverCondition])
-automaticInputFailoverSettings_failoverConditions = Lens.lens (\AutomaticInputFailoverSettings' {failoverConditions} -> failoverConditions) (\s@AutomaticInputFailoverSettings' {} a -> s {failoverConditions = a} :: AutomaticInputFailoverSettings) Prelude.. Lens.mapping Prelude._Coerce
+automaticInputFailoverSettings_failoverConditions :: Lens.Lens' AutomaticInputFailoverSettings (Core.Maybe [FailoverCondition])
+automaticInputFailoverSettings_failoverConditions = Lens.lens (\AutomaticInputFailoverSettings' {failoverConditions} -> failoverConditions) (\s@AutomaticInputFailoverSettings' {} a -> s {failoverConditions = a} :: AutomaticInputFailoverSettings) Core.. Lens.mapping Lens._Coerce
 
 -- | This clear time defines the requirement a recovered input must meet to
 -- be considered healthy. The input must have no failover conditions for
@@ -95,58 +94,47 @@ automaticInputFailoverSettings_failoverConditions = Lens.lens (\AutomaticInputFa
 -- particularly important if the input_preference for the failover pair is
 -- set to PRIMARY_INPUT_PREFERRED, because after this time, MediaLive will
 -- switch back to the primary input.
-automaticInputFailoverSettings_errorClearTimeMsec :: Lens.Lens' AutomaticInputFailoverSettings (Prelude.Maybe Prelude.Natural)
+automaticInputFailoverSettings_errorClearTimeMsec :: Lens.Lens' AutomaticInputFailoverSettings (Core.Maybe Core.Natural)
 automaticInputFailoverSettings_errorClearTimeMsec = Lens.lens (\AutomaticInputFailoverSettings' {errorClearTimeMsec} -> errorClearTimeMsec) (\s@AutomaticInputFailoverSettings' {} a -> s {errorClearTimeMsec = a} :: AutomaticInputFailoverSettings)
 
 -- | Input preference when deciding which input to make active when a
 -- previously failed input has recovered.
-automaticInputFailoverSettings_inputPreference :: Lens.Lens' AutomaticInputFailoverSettings (Prelude.Maybe InputPreference)
+automaticInputFailoverSettings_inputPreference :: Lens.Lens' AutomaticInputFailoverSettings (Core.Maybe InputPreference)
 automaticInputFailoverSettings_inputPreference = Lens.lens (\AutomaticInputFailoverSettings' {inputPreference} -> inputPreference) (\s@AutomaticInputFailoverSettings' {} a -> s {inputPreference = a} :: AutomaticInputFailoverSettings)
 
 -- | The input ID of the secondary input in the automatic input failover
 -- pair.
-automaticInputFailoverSettings_secondaryInputId :: Lens.Lens' AutomaticInputFailoverSettings Prelude.Text
+automaticInputFailoverSettings_secondaryInputId :: Lens.Lens' AutomaticInputFailoverSettings Core.Text
 automaticInputFailoverSettings_secondaryInputId = Lens.lens (\AutomaticInputFailoverSettings' {secondaryInputId} -> secondaryInputId) (\s@AutomaticInputFailoverSettings' {} a -> s {secondaryInputId = a} :: AutomaticInputFailoverSettings)
 
-instance
-  Prelude.FromJSON
-    AutomaticInputFailoverSettings
-  where
+instance Core.FromJSON AutomaticInputFailoverSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutomaticInputFailoverSettings"
       ( \x ->
           AutomaticInputFailoverSettings'
-            Prelude.<$> ( x Prelude..:? "failoverConditions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "errorClearTimeMsec")
-            Prelude.<*> (x Prelude..:? "inputPreference")
-            Prelude.<*> (x Prelude..: "secondaryInputId")
+            Core.<$> ( x Core..:? "failoverConditions"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "errorClearTimeMsec")
+            Core.<*> (x Core..:? "inputPreference")
+            Core.<*> (x Core..: "secondaryInputId")
       )
 
-instance
-  Prelude.Hashable
-    AutomaticInputFailoverSettings
+instance Core.Hashable AutomaticInputFailoverSettings
 
-instance
-  Prelude.NFData
-    AutomaticInputFailoverSettings
+instance Core.NFData AutomaticInputFailoverSettings
 
-instance
-  Prelude.ToJSON
-    AutomaticInputFailoverSettings
-  where
+instance Core.ToJSON AutomaticInputFailoverSettings where
   toJSON AutomaticInputFailoverSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("failoverConditions" Prelude..=)
-              Prelude.<$> failoverConditions,
-            ("errorClearTimeMsec" Prelude..=)
-              Prelude.<$> errorClearTimeMsec,
-            ("inputPreference" Prelude..=)
-              Prelude.<$> inputPreference,
-            Prelude.Just
-              ("secondaryInputId" Prelude..= secondaryInputId)
+    Core.object
+      ( Core.catMaybes
+          [ ("failoverConditions" Core..=)
+              Core.<$> failoverConditions,
+            ("errorClearTimeMsec" Core..=)
+              Core.<$> errorClearTimeMsec,
+            ("inputPreference" Core..=) Core.<$> inputPreference,
+            Core.Just
+              ("secondaryInputId" Core..= secondaryInputId)
           ]
       )

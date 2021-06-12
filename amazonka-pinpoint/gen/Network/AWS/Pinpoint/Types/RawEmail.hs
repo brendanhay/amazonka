@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.RawEmail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the contents of an email message, represented as a raw MIME
 -- message.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data RawEmail = RawEmail'
   { -- | The email message, represented as a raw MIME message. The entire message
     -- must be base64 encoded.
-    data' :: Prelude.Maybe Prelude.Base64
+    data' :: Core.Maybe Core.Base64
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RawEmail' with all optional fields omitted.
@@ -50,7 +49,7 @@ data RawEmail = RawEmail'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newRawEmail ::
   RawEmail
-newRawEmail = RawEmail' {data' = Prelude.Nothing}
+newRawEmail = RawEmail' {data' = Core.Nothing}
 
 -- | The email message, represented as a raw MIME message. The entire message
 -- must be base64 encoded.--
@@ -58,16 +57,14 @@ newRawEmail = RawEmail' {data' = Prelude.Nothing}
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-rawEmail_data :: Lens.Lens' RawEmail (Prelude.Maybe Prelude.ByteString)
-rawEmail_data = Lens.lens (\RawEmail' {data'} -> data') (\s@RawEmail' {} a -> s {data' = a} :: RawEmail) Prelude.. Lens.mapping Prelude._Base64
+rawEmail_data :: Lens.Lens' RawEmail (Core.Maybe Core.ByteString)
+rawEmail_data = Lens.lens (\RawEmail' {data'} -> data') (\s@RawEmail' {} a -> s {data' = a} :: RawEmail) Core.. Lens.mapping Core._Base64
 
-instance Prelude.Hashable RawEmail
+instance Core.Hashable RawEmail
 
-instance Prelude.NFData RawEmail
+instance Core.NFData RawEmail
 
-instance Prelude.ToJSON RawEmail where
+instance Core.ToJSON RawEmail where
   toJSON RawEmail' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Data" Prelude..=) Prelude.<$> data']
-      )
+    Core.object
+      (Core.catMaybes [("Data" Core..=) Core.<$> data'])

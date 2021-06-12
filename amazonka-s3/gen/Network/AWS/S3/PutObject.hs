@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -158,8 +157,8 @@ module Network.AWS.S3.PutObject
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -186,29 +185,29 @@ data PutObject = PutObject'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting Websites on Amazon S3>
     -- and
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html How to Configure Website Page Redirects>.
-    websiteRedirectLocation :: Prelude.Maybe Prelude.Text,
+    websiteRedirectLocation :: Core.Maybe Core.Text,
     -- | Allows grantee to read the object data and its metadata.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    grantRead :: Prelude.Maybe Prelude.Text,
+    grantRead :: Core.Maybe Core.Text,
     -- | A standard MIME type describing the format of the contents. For more
     -- information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17>.
-    contentType :: Prelude.Maybe Prelude.Text,
+    contentType :: Core.Maybe Core.Text,
     -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | Specifies presentational information for the object. For more
     -- information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1>.
-    contentDisposition :: Prelude.Maybe Prelude.Text,
+    contentDisposition :: Core.Maybe Core.Text,
     -- | The language the content is in.
-    contentLanguage :: Prelude.Maybe Prelude.Text,
+    contentLanguage :: Core.Maybe Core.Text,
     -- | Specifies the AWS KMS Encryption Context to use for object encryption.
     -- The value of this header is a base64-encoded UTF-8 string holding JSON
     -- with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    sSEKMSEncryptionContext :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The base64-encoded 128-bit MD5 digest of the message (without the
     -- headers) according to RFC 1864. This header can be used as a message
     -- integrity check to verify that the data is the same data that was
@@ -216,18 +215,18 @@ data PutObject = PutObject'
     -- Content-MD5 mechanism as an end-to-end integrity check. For more
     -- information about REST request authentication, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication>.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
+    contentMD5 :: Core.Maybe Core.Text,
     -- | A map of metadata to store with the object in S3.
-    metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
+    metadata :: Core.HashMap Core.Text Core.Text,
     -- | Size of the body in bytes. This parameter is useful when the size of the
     -- body cannot be determined automatically. For more information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13>.
-    contentLength :: Prelude.Maybe Prelude.Integer,
+    contentLength :: Core.Maybe Core.Integer,
     -- | Specifies what content encodings have been applied to the object and
     -- thus what decoding mechanisms must be applied to obtain the media-type
     -- referenced by the Content-Type header field. For more information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11>.
-    contentEncoding :: Prelude.Maybe Prelude.Text,
+    contentEncoding :: Core.Maybe Core.Text,
     -- | If @x-amz-server-side-encryption@ is present and has the value of
     -- @aws:kms@, this header specifies the ID of the AWS Key Management
     -- Service (AWS KMS) symmetrical customer managed customer master key (CMK)
@@ -239,11 +238,11 @@ data PutObject = PutObject'
     -- @x-amz-server-side-encryption:aws:kms@, but do not
     -- provide@ x-amz-server-side-encryption-aws-kms-key-id@, Amazon S3 uses
     -- the AWS managed CMK in AWS to protect the data.
-    sSEKMSKeyId :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    sSEKMSKeyId :: Core.Maybe (Core.Sensitive Core.Text),
     -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
     -- 1321. Amazon S3 uses this header for a message integrity check to ensure
     -- that the encryption key was transmitted without error.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
+    sSECustomerKeyMD5 :: Core.Maybe Core.Text,
     -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly
     -- created objects. The STANDARD storage class provides high durability and
     -- high availability. Depending on performance needs, you can specify a
@@ -251,7 +250,7 @@ data PutObject = PutObject'
     -- Storage Class. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>
     -- in the /Amazon S3 Service Developer Guide/.
-    storageClass :: Prelude.Maybe StorageClass,
+    storageClass :: Core.Maybe StorageClass,
     -- | Specifies whether Amazon S3 should use an S3 Bucket Key for object
     -- encryption with server-side encryption using AWS KMS (SSE-KMS). Setting
     -- this header to @true@ causes Amazon S3 to use an S3 Bucket Key for
@@ -259,57 +258,57 @@ data PutObject = PutObject'
     --
     -- Specifying this header with a PUT operation doesn’t affect bucket-level
     -- settings for S3 Bucket Key.
-    bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
+    bucketKeyEnabled :: Core.Maybe Core.Bool,
     -- | Allows grantee to write the ACL for the applicable object.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    grantWriteACP :: Prelude.Maybe Prelude.Text,
+    grantWriteACP :: Core.Maybe Core.Text,
     -- | The server-side encryption algorithm used when storing this object in
     -- Amazon S3 (for example, AES256, aws:kms).
-    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
+    serverSideEncryption :: Core.Maybe ServerSideEncryption,
     -- | Specifies whether a legal hold will be applied to this object. For more
     -- information about S3 Object Lock, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
-    objectLockLegalHoldStatus :: Prelude.Maybe ObjectLockLegalHoldStatus,
+    objectLockLegalHoldStatus :: Core.Maybe ObjectLockLegalHoldStatus,
     -- | Allows grantee to read the object ACL.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    grantReadACP :: Prelude.Maybe Prelude.Text,
+    grantReadACP :: Core.Maybe Core.Text,
     -- | The canned ACL to apply to the object. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    acl :: Prelude.Maybe ObjectCannedACL,
+    acl :: Core.Maybe ObjectCannedACL,
     -- | Specifies the algorithm to use to when encrypting the object (for
     -- example, AES256).
-    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
+    sSECustomerAlgorithm :: Core.Maybe Core.Text,
+    requestPayer :: Core.Maybe RequestPayer,
     -- | Specifies the customer-provided encryption key for Amazon S3 to use in
     -- encrypting data. This value is used to store the object and then it is
     -- discarded; Amazon S3 does not store the encryption key. The key must be
     -- appropriate for use with the algorithm specified in the
     -- @x-amz-server-side-encryption-customer-algorithm@ header.
-    sSECustomerKey :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    sSECustomerKey :: Core.Maybe (Core.Sensitive Core.Text),
     -- | Can be used to specify caching behavior along the request\/reply chain.
     -- For more information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>.
-    cacheControl :: Prelude.Maybe Prelude.Text,
+    cacheControl :: Core.Maybe Core.Text,
     -- | The date and time at which the object is no longer cacheable. For more
     -- information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21>.
-    expires :: Prelude.Maybe Prelude.ISO8601,
+    expires :: Core.Maybe Core.ISO8601,
     -- | The Object Lock mode that you want to apply to this object.
-    objectLockMode :: Prelude.Maybe ObjectLockMode,
+    objectLockMode :: Core.Maybe ObjectLockMode,
     -- | The date and time when you want this object\'s Object Lock to expire.
-    objectLockRetainUntilDate :: Prelude.Maybe Prelude.ISO8601,
+    objectLockRetainUntilDate :: Core.Maybe Core.ISO8601,
     -- | The tag-set for the object. The tag-set must be encoded as URL Query
     -- parameters. (For example, \"Key1=Value1\")
-    tagging :: Prelude.Maybe Prelude.Text,
+    tagging :: Core.Maybe Core.Text,
     -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
     -- object.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    grantFullControl :: Prelude.Maybe Prelude.Text,
+    grantFullControl :: Core.Maybe Core.Text,
     -- | The bucket name to which the PUT operation was initiated.
     --
     -- When using this API with an access point, you must direct requests to
@@ -334,9 +333,9 @@ data PutObject = PutObject'
     -- | Object key for which the PUT operation was initiated.
     key :: ObjectKey,
     -- | Object data.
-    body :: Prelude.RqBody
+    body :: Core.RequestBody
   }
-  deriving (Prelude.Show, Prelude.Generic)
+  deriving (Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutObject' with all optional fields omitted.
@@ -521,40 +520,39 @@ newPutObject ::
   -- | 'key'
   ObjectKey ->
   -- | 'body'
-  Prelude.RqBody ->
+  Core.RequestBody ->
   PutObject
 newPutObject pBucket_ pKey_ pBody_ =
   PutObject'
-    { websiteRedirectLocation =
-        Prelude.Nothing,
-      grantRead = Prelude.Nothing,
-      contentType = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
-      contentDisposition = Prelude.Nothing,
-      contentLanguage = Prelude.Nothing,
-      sSEKMSEncryptionContext = Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
-      metadata = Prelude.mempty,
-      contentLength = Prelude.Nothing,
-      contentEncoding = Prelude.Nothing,
-      sSEKMSKeyId = Prelude.Nothing,
-      sSECustomerKeyMD5 = Prelude.Nothing,
-      storageClass = Prelude.Nothing,
-      bucketKeyEnabled = Prelude.Nothing,
-      grantWriteACP = Prelude.Nothing,
-      serverSideEncryption = Prelude.Nothing,
-      objectLockLegalHoldStatus = Prelude.Nothing,
-      grantReadACP = Prelude.Nothing,
-      acl = Prelude.Nothing,
-      sSECustomerAlgorithm = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
-      sSECustomerKey = Prelude.Nothing,
-      cacheControl = Prelude.Nothing,
-      expires = Prelude.Nothing,
-      objectLockMode = Prelude.Nothing,
-      objectLockRetainUntilDate = Prelude.Nothing,
-      tagging = Prelude.Nothing,
-      grantFullControl = Prelude.Nothing,
+    { websiteRedirectLocation = Core.Nothing,
+      grantRead = Core.Nothing,
+      contentType = Core.Nothing,
+      expectedBucketOwner = Core.Nothing,
+      contentDisposition = Core.Nothing,
+      contentLanguage = Core.Nothing,
+      sSEKMSEncryptionContext = Core.Nothing,
+      contentMD5 = Core.Nothing,
+      metadata = Core.mempty,
+      contentLength = Core.Nothing,
+      contentEncoding = Core.Nothing,
+      sSEKMSKeyId = Core.Nothing,
+      sSECustomerKeyMD5 = Core.Nothing,
+      storageClass = Core.Nothing,
+      bucketKeyEnabled = Core.Nothing,
+      grantWriteACP = Core.Nothing,
+      serverSideEncryption = Core.Nothing,
+      objectLockLegalHoldStatus = Core.Nothing,
+      grantReadACP = Core.Nothing,
+      acl = Core.Nothing,
+      sSECustomerAlgorithm = Core.Nothing,
+      requestPayer = Core.Nothing,
+      sSECustomerKey = Core.Nothing,
+      cacheControl = Core.Nothing,
+      expires = Core.Nothing,
+      objectLockMode = Core.Nothing,
+      objectLockRetainUntilDate = Core.Nothing,
+      tagging = Core.Nothing,
+      grantFullControl = Core.Nothing,
       bucket = pBucket_,
       key = pKey_,
       body = pBody_
@@ -580,42 +578,42 @@ newPutObject pBucket_ pKey_ pBody_ =
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting Websites on Amazon S3>
 -- and
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html How to Configure Website Page Redirects>.
-putObject_websiteRedirectLocation :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_websiteRedirectLocation :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_websiteRedirectLocation = Lens.lens (\PutObject' {websiteRedirectLocation} -> websiteRedirectLocation) (\s@PutObject' {} a -> s {websiteRedirectLocation = a} :: PutObject)
 
 -- | Allows grantee to read the object data and its metadata.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-putObject_grantRead :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_grantRead :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_grantRead = Lens.lens (\PutObject' {grantRead} -> grantRead) (\s@PutObject' {} a -> s {grantRead = a} :: PutObject)
 
 -- | A standard MIME type describing the format of the contents. For more
 -- information, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17>.
-putObject_contentType :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_contentType :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_contentType = Lens.lens (\PutObject' {contentType} -> contentType) (\s@PutObject' {} a -> s {contentType = a} :: PutObject)
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putObject_expectedBucketOwner :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_expectedBucketOwner :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_expectedBucketOwner = Lens.lens (\PutObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObject' {} a -> s {expectedBucketOwner = a} :: PutObject)
 
 -- | Specifies presentational information for the object. For more
 -- information, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1>.
-putObject_contentDisposition :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_contentDisposition :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_contentDisposition = Lens.lens (\PutObject' {contentDisposition} -> contentDisposition) (\s@PutObject' {} a -> s {contentDisposition = a} :: PutObject)
 
 -- | The language the content is in.
-putObject_contentLanguage :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_contentLanguage :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_contentLanguage = Lens.lens (\PutObject' {contentLanguage} -> contentLanguage) (\s@PutObject' {} a -> s {contentLanguage = a} :: PutObject)
 
 -- | Specifies the AWS KMS Encryption Context to use for object encryption.
 -- The value of this header is a base64-encoded UTF-8 string holding JSON
 -- with the encryption context key-value pairs.
-putObject_sSEKMSEncryptionContext :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
-putObject_sSEKMSEncryptionContext = Lens.lens (\PutObject' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@PutObject' {} a -> s {sSEKMSEncryptionContext = a} :: PutObject) Prelude.. Lens.mapping Prelude._Sensitive
+putObject_sSEKMSEncryptionContext :: Lens.Lens' PutObject (Core.Maybe Core.Text)
+putObject_sSEKMSEncryptionContext = Lens.lens (\PutObject' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@PutObject' {} a -> s {sSEKMSEncryptionContext = a} :: PutObject) Core.. Lens.mapping Core._Sensitive
 
 -- | The base64-encoded 128-bit MD5 digest of the message (without the
 -- headers) according to RFC 1864. This header can be used as a message
@@ -624,24 +622,24 @@ putObject_sSEKMSEncryptionContext = Lens.lens (\PutObject' {sSEKMSEncryptionCont
 -- Content-MD5 mechanism as an end-to-end integrity check. For more
 -- information about REST request authentication, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication>.
-putObject_contentMD5 :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_contentMD5 :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_contentMD5 = Lens.lens (\PutObject' {contentMD5} -> contentMD5) (\s@PutObject' {} a -> s {contentMD5 = a} :: PutObject)
 
 -- | A map of metadata to store with the object in S3.
-putObject_metadata :: Lens.Lens' PutObject (Prelude.HashMap Prelude.Text Prelude.Text)
-putObject_metadata = Lens.lens (\PutObject' {metadata} -> metadata) (\s@PutObject' {} a -> s {metadata = a} :: PutObject) Prelude.. Prelude._Coerce
+putObject_metadata :: Lens.Lens' PutObject (Core.HashMap Core.Text Core.Text)
+putObject_metadata = Lens.lens (\PutObject' {metadata} -> metadata) (\s@PutObject' {} a -> s {metadata = a} :: PutObject) Core.. Lens._Coerce
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically. For more information, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13>.
-putObject_contentLength :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Integer)
+putObject_contentLength :: Lens.Lens' PutObject (Core.Maybe Core.Integer)
 putObject_contentLength = Lens.lens (\PutObject' {contentLength} -> contentLength) (\s@PutObject' {} a -> s {contentLength = a} :: PutObject)
 
 -- | Specifies what content encodings have been applied to the object and
 -- thus what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field. For more information, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11>.
-putObject_contentEncoding :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_contentEncoding :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_contentEncoding = Lens.lens (\PutObject' {contentEncoding} -> contentEncoding) (\s@PutObject' {} a -> s {contentEncoding = a} :: PutObject)
 
 -- | If @x-amz-server-side-encryption@ is present and has the value of
@@ -655,13 +653,13 @@ putObject_contentEncoding = Lens.lens (\PutObject' {contentEncoding} -> contentE
 -- @x-amz-server-side-encryption:aws:kms@, but do not
 -- provide@ x-amz-server-side-encryption-aws-kms-key-id@, Amazon S3 uses
 -- the AWS managed CMK in AWS to protect the data.
-putObject_sSEKMSKeyId :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
-putObject_sSEKMSKeyId = Lens.lens (\PutObject' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@PutObject' {} a -> s {sSEKMSKeyId = a} :: PutObject) Prelude.. Lens.mapping Prelude._Sensitive
+putObject_sSEKMSKeyId :: Lens.Lens' PutObject (Core.Maybe Core.Text)
+putObject_sSEKMSKeyId = Lens.lens (\PutObject' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@PutObject' {} a -> s {sSEKMSKeyId = a} :: PutObject) Core.. Lens.mapping Core._Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- that the encryption key was transmitted without error.
-putObject_sSECustomerKeyMD5 :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_sSECustomerKeyMD5 :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_sSECustomerKeyMD5 = Lens.lens (\PutObject' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@PutObject' {} a -> s {sSECustomerKeyMD5 = a} :: PutObject)
 
 -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly
@@ -671,7 +669,7 @@ putObject_sSECustomerKeyMD5 = Lens.lens (\PutObject' {sSECustomerKeyMD5} -> sSEC
 -- Storage Class. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>
 -- in the /Amazon S3 Service Developer Guide/.
-putObject_storageClass :: Lens.Lens' PutObject (Prelude.Maybe StorageClass)
+putObject_storageClass :: Lens.Lens' PutObject (Core.Maybe StorageClass)
 putObject_storageClass = Lens.lens (\PutObject' {storageClass} -> storageClass) (\s@PutObject' {} a -> s {storageClass = a} :: PutObject)
 
 -- | Specifies whether Amazon S3 should use an S3 Bucket Key for object
@@ -681,46 +679,46 @@ putObject_storageClass = Lens.lens (\PutObject' {storageClass} -> storageClass) 
 --
 -- Specifying this header with a PUT operation doesn’t affect bucket-level
 -- settings for S3 Bucket Key.
-putObject_bucketKeyEnabled :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Bool)
+putObject_bucketKeyEnabled :: Lens.Lens' PutObject (Core.Maybe Core.Bool)
 putObject_bucketKeyEnabled = Lens.lens (\PutObject' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@PutObject' {} a -> s {bucketKeyEnabled = a} :: PutObject)
 
 -- | Allows grantee to write the ACL for the applicable object.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-putObject_grantWriteACP :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_grantWriteACP :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_grantWriteACP = Lens.lens (\PutObject' {grantWriteACP} -> grantWriteACP) (\s@PutObject' {} a -> s {grantWriteACP = a} :: PutObject)
 
 -- | The server-side encryption algorithm used when storing this object in
 -- Amazon S3 (for example, AES256, aws:kms).
-putObject_serverSideEncryption :: Lens.Lens' PutObject (Prelude.Maybe ServerSideEncryption)
+putObject_serverSideEncryption :: Lens.Lens' PutObject (Core.Maybe ServerSideEncryption)
 putObject_serverSideEncryption = Lens.lens (\PutObject' {serverSideEncryption} -> serverSideEncryption) (\s@PutObject' {} a -> s {serverSideEncryption = a} :: PutObject)
 
 -- | Specifies whether a legal hold will be applied to this object. For more
 -- information about S3 Object Lock, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
-putObject_objectLockLegalHoldStatus :: Lens.Lens' PutObject (Prelude.Maybe ObjectLockLegalHoldStatus)
+putObject_objectLockLegalHoldStatus :: Lens.Lens' PutObject (Core.Maybe ObjectLockLegalHoldStatus)
 putObject_objectLockLegalHoldStatus = Lens.lens (\PutObject' {objectLockLegalHoldStatus} -> objectLockLegalHoldStatus) (\s@PutObject' {} a -> s {objectLockLegalHoldStatus = a} :: PutObject)
 
 -- | Allows grantee to read the object ACL.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-putObject_grantReadACP :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_grantReadACP :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_grantReadACP = Lens.lens (\PutObject' {grantReadACP} -> grantReadACP) (\s@PutObject' {} a -> s {grantReadACP = a} :: PutObject)
 
 -- | The canned ACL to apply to the object. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-putObject_acl :: Lens.Lens' PutObject (Prelude.Maybe ObjectCannedACL)
+putObject_acl :: Lens.Lens' PutObject (Core.Maybe ObjectCannedACL)
 putObject_acl = Lens.lens (\PutObject' {acl} -> acl) (\s@PutObject' {} a -> s {acl = a} :: PutObject)
 
 -- | Specifies the algorithm to use to when encrypting the object (for
 -- example, AES256).
-putObject_sSECustomerAlgorithm :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_sSECustomerAlgorithm :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_sSECustomerAlgorithm = Lens.lens (\PutObject' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@PutObject' {} a -> s {sSECustomerAlgorithm = a} :: PutObject)
 
 -- | Undocumented member.
-putObject_requestPayer :: Lens.Lens' PutObject (Prelude.Maybe RequestPayer)
+putObject_requestPayer :: Lens.Lens' PutObject (Core.Maybe RequestPayer)
 putObject_requestPayer = Lens.lens (\PutObject' {requestPayer} -> requestPayer) (\s@PutObject' {} a -> s {requestPayer = a} :: PutObject)
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
@@ -728,39 +726,39 @@ putObject_requestPayer = Lens.lens (\PutObject' {requestPayer} -> requestPayer) 
 -- discarded; Amazon S3 does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- @x-amz-server-side-encryption-customer-algorithm@ header.
-putObject_sSECustomerKey :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
-putObject_sSECustomerKey = Lens.lens (\PutObject' {sSECustomerKey} -> sSECustomerKey) (\s@PutObject' {} a -> s {sSECustomerKey = a} :: PutObject) Prelude.. Lens.mapping Prelude._Sensitive
+putObject_sSECustomerKey :: Lens.Lens' PutObject (Core.Maybe Core.Text)
+putObject_sSECustomerKey = Lens.lens (\PutObject' {sSECustomerKey} -> sSECustomerKey) (\s@PutObject' {} a -> s {sSECustomerKey = a} :: PutObject) Core.. Lens.mapping Core._Sensitive
 
 -- | Can be used to specify caching behavior along the request\/reply chain.
 -- For more information, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>.
-putObject_cacheControl :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_cacheControl :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_cacheControl = Lens.lens (\PutObject' {cacheControl} -> cacheControl) (\s@PutObject' {} a -> s {cacheControl = a} :: PutObject)
 
 -- | The date and time at which the object is no longer cacheable. For more
 -- information, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21>.
-putObject_expires :: Lens.Lens' PutObject (Prelude.Maybe Prelude.UTCTime)
-putObject_expires = Lens.lens (\PutObject' {expires} -> expires) (\s@PutObject' {} a -> s {expires = a} :: PutObject) Prelude.. Lens.mapping Prelude._Time
+putObject_expires :: Lens.Lens' PutObject (Core.Maybe Core.UTCTime)
+putObject_expires = Lens.lens (\PutObject' {expires} -> expires) (\s@PutObject' {} a -> s {expires = a} :: PutObject) Core.. Lens.mapping Core._Time
 
 -- | The Object Lock mode that you want to apply to this object.
-putObject_objectLockMode :: Lens.Lens' PutObject (Prelude.Maybe ObjectLockMode)
+putObject_objectLockMode :: Lens.Lens' PutObject (Core.Maybe ObjectLockMode)
 putObject_objectLockMode = Lens.lens (\PutObject' {objectLockMode} -> objectLockMode) (\s@PutObject' {} a -> s {objectLockMode = a} :: PutObject)
 
 -- | The date and time when you want this object\'s Object Lock to expire.
-putObject_objectLockRetainUntilDate :: Lens.Lens' PutObject (Prelude.Maybe Prelude.UTCTime)
-putObject_objectLockRetainUntilDate = Lens.lens (\PutObject' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@PutObject' {} a -> s {objectLockRetainUntilDate = a} :: PutObject) Prelude.. Lens.mapping Prelude._Time
+putObject_objectLockRetainUntilDate :: Lens.Lens' PutObject (Core.Maybe Core.UTCTime)
+putObject_objectLockRetainUntilDate = Lens.lens (\PutObject' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@PutObject' {} a -> s {objectLockRetainUntilDate = a} :: PutObject) Core.. Lens.mapping Core._Time
 
 -- | The tag-set for the object. The tag-set must be encoded as URL Query
 -- parameters. (For example, \"Key1=Value1\")
-putObject_tagging :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_tagging :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_tagging = Lens.lens (\PutObject' {tagging} -> tagging) (\s@PutObject' {} a -> s {tagging = a} :: PutObject)
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-putObject_grantFullControl :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_grantFullControl :: Lens.Lens' PutObject (Core.Maybe Core.Text)
 putObject_grantFullControl = Lens.lens (\PutObject' {grantFullControl} -> grantFullControl) (\s@PutObject' {} a -> s {grantFullControl = a} :: PutObject)
 
 -- | The bucket name to which the PUT operation was initiated.
@@ -791,140 +789,137 @@ putObject_key :: Lens.Lens' PutObject ObjectKey
 putObject_key = Lens.lens (\PutObject' {key} -> key) (\s@PutObject' {} a -> s {key = a} :: PutObject)
 
 -- | Object data.
-putObject_body :: Lens.Lens' PutObject Prelude.RqBody
+putObject_body :: Lens.Lens' PutObject Core.RequestBody
 putObject_body = Lens.lens (\PutObject' {body} -> body) (\s@PutObject' {} a -> s {body = a} :: PutObject)
 
-instance Prelude.AWSRequest PutObject where
-  type Rs PutObject = PutObjectResponse
+instance Core.AWSRequest PutObject where
+  type AWSResponse PutObject = PutObjectResponse
   request =
     Request.expectHeader
-      Prelude.. Request.putBody defaultService
+      Core.. Request.putBody defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutObjectResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-            Prelude.<*> (h Prelude..#? "x-amz-request-charged")
-            Prelude.<*> (h Prelude..#? "x-amz-expiration")
-            Prelude.<*> ( h
-                            Prelude..#? "x-amz-server-side-encryption-context"
-                        )
-            Prelude.<*> ( h
-                            Prelude..#? "x-amz-server-side-encryption-aws-kms-key-id"
-                        )
-            Prelude.<*> ( h
-                            Prelude..#? "x-amz-server-side-encryption-customer-key-MD5"
-                        )
-            Prelude.<*> (h Prelude..#? "x-amz-version-id")
-            Prelude.<*> ( h
-                            Prelude..#? "x-amz-server-side-encryption-bucket-key-enabled"
-                        )
-            Prelude.<*> (h Prelude..#? "x-amz-server-side-encryption")
-            Prelude.<*> ( h
-                            Prelude..#? "x-amz-server-side-encryption-customer-algorithm"
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag")
+            Core.<*> (h Core..#? "x-amz-request-charged")
+            Core.<*> (h Core..#? "x-amz-expiration")
+            Core.<*> (h Core..#? "x-amz-server-side-encryption-context")
+            Core.<*> ( h
+                         Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
+                     )
+            Core.<*> ( h
+                         Core..#? "x-amz-server-side-encryption-customer-key-MD5"
+                     )
+            Core.<*> (h Core..#? "x-amz-version-id")
+            Core.<*> ( h
+                         Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
+                     )
+            Core.<*> (h Core..#? "x-amz-server-side-encryption")
+            Core.<*> ( h
+                         Core..#? "x-amz-server-side-encryption-customer-algorithm"
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.ToBody PutObject where
-  toBody PutObject' {..} = Prelude.toBody body
+instance Core.ToBody PutObject where
+  toBody PutObject' {..} = Core.toBody body
 
-instance Prelude.ToHeaders PutObject where
+instance Core.ToHeaders PutObject where
   toHeaders PutObject' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-website-redirect-location"
-          Prelude.=# websiteRedirectLocation,
-        "x-amz-grant-read" Prelude.=# grantRead,
-        "Content-Type" Prelude.=# contentType,
+          Core.=# websiteRedirectLocation,
+        "x-amz-grant-read" Core.=# grantRead,
+        "Content-Type" Core.=# contentType,
         "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "Content-Disposition" Prelude.=# contentDisposition,
-        "Content-Language" Prelude.=# contentLanguage,
+          Core.=# expectedBucketOwner,
+        "Content-Disposition" Core.=# contentDisposition,
+        "Content-Language" Core.=# contentLanguage,
         "x-amz-server-side-encryption-context"
-          Prelude.=# sSEKMSEncryptionContext,
-        "Content-MD5" Prelude.=# contentMD5,
-        "x-amz-meta-" Prelude.=# metadata,
-        "Content-Length" Prelude.=# contentLength,
-        "Content-Encoding" Prelude.=# contentEncoding,
+          Core.=# sSEKMSEncryptionContext,
+        "Content-MD5" Core.=# contentMD5,
+        "x-amz-meta-" Core.=# metadata,
+        "Content-Length" Core.=# contentLength,
+        "Content-Encoding" Core.=# contentEncoding,
         "x-amz-server-side-encryption-aws-kms-key-id"
-          Prelude.=# sSEKMSKeyId,
+          Core.=# sSEKMSKeyId,
         "x-amz-server-side-encryption-customer-key-MD5"
-          Prelude.=# sSECustomerKeyMD5,
-        "x-amz-storage-class" Prelude.=# storageClass,
+          Core.=# sSECustomerKeyMD5,
+        "x-amz-storage-class" Core.=# storageClass,
         "x-amz-server-side-encryption-bucket-key-enabled"
-          Prelude.=# bucketKeyEnabled,
-        "x-amz-grant-write-acp" Prelude.=# grantWriteACP,
+          Core.=# bucketKeyEnabled,
+        "x-amz-grant-write-acp" Core.=# grantWriteACP,
         "x-amz-server-side-encryption"
-          Prelude.=# serverSideEncryption,
+          Core.=# serverSideEncryption,
         "x-amz-object-lock-legal-hold"
-          Prelude.=# objectLockLegalHoldStatus,
-        "x-amz-grant-read-acp" Prelude.=# grantReadACP,
-        "x-amz-acl" Prelude.=# acl,
+          Core.=# objectLockLegalHoldStatus,
+        "x-amz-grant-read-acp" Core.=# grantReadACP,
+        "x-amz-acl" Core.=# acl,
         "x-amz-server-side-encryption-customer-algorithm"
-          Prelude.=# sSECustomerAlgorithm,
-        "x-amz-request-payer" Prelude.=# requestPayer,
+          Core.=# sSECustomerAlgorithm,
+        "x-amz-request-payer" Core.=# requestPayer,
         "x-amz-server-side-encryption-customer-key"
-          Prelude.=# sSECustomerKey,
-        "Cache-Control" Prelude.=# cacheControl,
-        "Expires" Prelude.=# expires,
-        "x-amz-object-lock-mode" Prelude.=# objectLockMode,
+          Core.=# sSECustomerKey,
+        "Cache-Control" Core.=# cacheControl,
+        "Expires" Core.=# expires,
+        "x-amz-object-lock-mode" Core.=# objectLockMode,
         "x-amz-object-lock-retain-until-date"
-          Prelude.=# objectLockRetainUntilDate,
-        "x-amz-tagging" Prelude.=# tagging,
-        "x-amz-grant-full-control"
-          Prelude.=# grantFullControl
+          Core.=# objectLockRetainUntilDate,
+        "x-amz-tagging" Core.=# tagging,
+        "x-amz-grant-full-control" Core.=# grantFullControl
       ]
 
-instance Prelude.ToPath PutObject where
+instance Core.ToPath PutObject where
   toPath PutObject' {..} =
-    Prelude.mconcat
-      ["/", Prelude.toBS bucket, "/", Prelude.toBS key]
+    Core.mconcat
+      ["/", Core.toBS bucket, "/", Core.toBS key]
 
-instance Prelude.ToQuery PutObject where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutObject where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutObjectResponse' smart constructor.
 data PutObjectResponse = PutObjectResponse'
   { -- | Entity tag for the uploaded object.
-    eTag :: Prelude.Maybe ETag,
-    requestCharged :: Prelude.Maybe RequestCharged,
+    eTag :: Core.Maybe ETag,
+    requestCharged :: Core.Maybe RequestCharged,
     -- | If the expiration is configured for the object (see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html PutBucketLifecycleConfiguration>),
     -- the response includes this header. It includes the expiry-date and
     -- rule-id key-value pairs that provide information about object
     -- expiration. The value of the rule-id is URL encoded.
-    expiration :: Prelude.Maybe Prelude.Text,
+    expiration :: Core.Maybe Core.Text,
     -- | If present, specifies the AWS KMS Encryption Context to use for object
     -- encryption. The value of this header is a base64-encoded UTF-8 string
     -- holding JSON with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    sSEKMSEncryptionContext :: Core.Maybe (Core.Sensitive Core.Text),
     -- | If @x-amz-server-side-encryption@ is present and has the value of
     -- @aws:kms@, this header specifies the ID of the AWS Key Management
     -- Service (AWS KMS) symmetric customer managed customer master key (CMK)
     -- that was used for the object.
-    sSEKMSKeyId :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    sSEKMSKeyId :: Core.Maybe (Core.Sensitive Core.Text),
     -- | If server-side encryption with a customer-provided encryption key was
     -- requested, the response will include this header to provide round-trip
     -- message integrity verification of the customer-provided encryption key.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
+    sSECustomerKeyMD5 :: Core.Maybe Core.Text,
     -- | Version of the object.
-    versionId :: Prelude.Maybe ObjectVersionId,
+    versionId :: Core.Maybe ObjectVersionId,
     -- | Indicates whether the uploaded object uses an S3 Bucket Key for
     -- server-side encryption with AWS KMS (SSE-KMS).
-    bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
+    bucketKeyEnabled :: Core.Maybe Core.Bool,
     -- | If you specified server-side encryption either with an AWS KMS customer
     -- master key (CMK) or Amazon S3-managed encryption key in your PUT
     -- request, the response includes this header. It confirms the encryption
     -- algorithm that Amazon S3 used to encrypt the object.
-    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
+    serverSideEncryption :: Core.Maybe ServerSideEncryption,
     -- | If server-side encryption with a customer-provided encryption key was
     -- requested, the response will include this header confirming the
     -- encryption algorithm used.
-    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    sSECustomerAlgorithm :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutObjectResponse' with all optional fields omitted.
@@ -974,29 +969,29 @@ data PutObjectResponse = PutObjectResponse'
 -- 'httpStatus', 'putObjectResponse_httpStatus' - The response's http status code.
 newPutObjectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutObjectResponse
 newPutObjectResponse pHttpStatus_ =
   PutObjectResponse'
-    { eTag = Prelude.Nothing,
-      requestCharged = Prelude.Nothing,
-      expiration = Prelude.Nothing,
-      sSEKMSEncryptionContext = Prelude.Nothing,
-      sSEKMSKeyId = Prelude.Nothing,
-      sSECustomerKeyMD5 = Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      bucketKeyEnabled = Prelude.Nothing,
-      serverSideEncryption = Prelude.Nothing,
-      sSECustomerAlgorithm = Prelude.Nothing,
+    { eTag = Core.Nothing,
+      requestCharged = Core.Nothing,
+      expiration = Core.Nothing,
+      sSEKMSEncryptionContext = Core.Nothing,
+      sSEKMSKeyId = Core.Nothing,
+      sSECustomerKeyMD5 = Core.Nothing,
+      versionId = Core.Nothing,
+      bucketKeyEnabled = Core.Nothing,
+      serverSideEncryption = Core.Nothing,
+      sSECustomerAlgorithm = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Entity tag for the uploaded object.
-putObjectResponse_eTag :: Lens.Lens' PutObjectResponse (Prelude.Maybe ETag)
+putObjectResponse_eTag :: Lens.Lens' PutObjectResponse (Core.Maybe ETag)
 putObjectResponse_eTag = Lens.lens (\PutObjectResponse' {eTag} -> eTag) (\s@PutObjectResponse' {} a -> s {eTag = a} :: PutObjectResponse)
 
 -- | Undocumented member.
-putObjectResponse_requestCharged :: Lens.Lens' PutObjectResponse (Prelude.Maybe RequestCharged)
+putObjectResponse_requestCharged :: Lens.Lens' PutObjectResponse (Core.Maybe RequestCharged)
 putObjectResponse_requestCharged = Lens.lens (\PutObjectResponse' {requestCharged} -> requestCharged) (\s@PutObjectResponse' {} a -> s {requestCharged = a} :: PutObjectResponse)
 
 -- | If the expiration is configured for the object (see
@@ -1004,52 +999,52 @@ putObjectResponse_requestCharged = Lens.lens (\PutObjectResponse' {requestCharge
 -- the response includes this header. It includes the expiry-date and
 -- rule-id key-value pairs that provide information about object
 -- expiration. The value of the rule-id is URL encoded.
-putObjectResponse_expiration :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
+putObjectResponse_expiration :: Lens.Lens' PutObjectResponse (Core.Maybe Core.Text)
 putObjectResponse_expiration = Lens.lens (\PutObjectResponse' {expiration} -> expiration) (\s@PutObjectResponse' {} a -> s {expiration = a} :: PutObjectResponse)
 
 -- | If present, specifies the AWS KMS Encryption Context to use for object
 -- encryption. The value of this header is a base64-encoded UTF-8 string
 -- holding JSON with the encryption context key-value pairs.
-putObjectResponse_sSEKMSEncryptionContext :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
-putObjectResponse_sSEKMSEncryptionContext = Lens.lens (\PutObjectResponse' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@PutObjectResponse' {} a -> s {sSEKMSEncryptionContext = a} :: PutObjectResponse) Prelude.. Lens.mapping Prelude._Sensitive
+putObjectResponse_sSEKMSEncryptionContext :: Lens.Lens' PutObjectResponse (Core.Maybe Core.Text)
+putObjectResponse_sSEKMSEncryptionContext = Lens.lens (\PutObjectResponse' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@PutObjectResponse' {} a -> s {sSEKMSEncryptionContext = a} :: PutObjectResponse) Core.. Lens.mapping Core._Sensitive
 
 -- | If @x-amz-server-side-encryption@ is present and has the value of
 -- @aws:kms@, this header specifies the ID of the AWS Key Management
 -- Service (AWS KMS) symmetric customer managed customer master key (CMK)
 -- that was used for the object.
-putObjectResponse_sSEKMSKeyId :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
-putObjectResponse_sSEKMSKeyId = Lens.lens (\PutObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@PutObjectResponse' {} a -> s {sSEKMSKeyId = a} :: PutObjectResponse) Prelude.. Lens.mapping Prelude._Sensitive
+putObjectResponse_sSEKMSKeyId :: Lens.Lens' PutObjectResponse (Core.Maybe Core.Text)
+putObjectResponse_sSEKMSKeyId = Lens.lens (\PutObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@PutObjectResponse' {} a -> s {sSEKMSKeyId = a} :: PutObjectResponse) Core.. Lens.mapping Core._Sensitive
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round-trip
 -- message integrity verification of the customer-provided encryption key.
-putObjectResponse_sSECustomerKeyMD5 :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
+putObjectResponse_sSECustomerKeyMD5 :: Lens.Lens' PutObjectResponse (Core.Maybe Core.Text)
 putObjectResponse_sSECustomerKeyMD5 = Lens.lens (\PutObjectResponse' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@PutObjectResponse' {} a -> s {sSECustomerKeyMD5 = a} :: PutObjectResponse)
 
 -- | Version of the object.
-putObjectResponse_versionId :: Lens.Lens' PutObjectResponse (Prelude.Maybe ObjectVersionId)
+putObjectResponse_versionId :: Lens.Lens' PutObjectResponse (Core.Maybe ObjectVersionId)
 putObjectResponse_versionId = Lens.lens (\PutObjectResponse' {versionId} -> versionId) (\s@PutObjectResponse' {} a -> s {versionId = a} :: PutObjectResponse)
 
 -- | Indicates whether the uploaded object uses an S3 Bucket Key for
 -- server-side encryption with AWS KMS (SSE-KMS).
-putObjectResponse_bucketKeyEnabled :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Bool)
+putObjectResponse_bucketKeyEnabled :: Lens.Lens' PutObjectResponse (Core.Maybe Core.Bool)
 putObjectResponse_bucketKeyEnabled = Lens.lens (\PutObjectResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@PutObjectResponse' {} a -> s {bucketKeyEnabled = a} :: PutObjectResponse)
 
 -- | If you specified server-side encryption either with an AWS KMS customer
 -- master key (CMK) or Amazon S3-managed encryption key in your PUT
 -- request, the response includes this header. It confirms the encryption
 -- algorithm that Amazon S3 used to encrypt the object.
-putObjectResponse_serverSideEncryption :: Lens.Lens' PutObjectResponse (Prelude.Maybe ServerSideEncryption)
+putObjectResponse_serverSideEncryption :: Lens.Lens' PutObjectResponse (Core.Maybe ServerSideEncryption)
 putObjectResponse_serverSideEncryption = Lens.lens (\PutObjectResponse' {serverSideEncryption} -> serverSideEncryption) (\s@PutObjectResponse' {} a -> s {serverSideEncryption = a} :: PutObjectResponse)
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
 -- encryption algorithm used.
-putObjectResponse_sSECustomerAlgorithm :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
+putObjectResponse_sSECustomerAlgorithm :: Lens.Lens' PutObjectResponse (Core.Maybe Core.Text)
 putObjectResponse_sSECustomerAlgorithm = Lens.lens (\PutObjectResponse' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@PutObjectResponse' {} a -> s {sSECustomerAlgorithm = a} :: PutObjectResponse)
 
 -- | The response's http status code.
-putObjectResponse_httpStatus :: Lens.Lens' PutObjectResponse Prelude.Int
+putObjectResponse_httpStatus :: Lens.Lens' PutObjectResponse Core.Int
 putObjectResponse_httpStatus = Lens.lens (\PutObjectResponse' {httpStatus} -> httpStatus) (\s@PutObjectResponse' {} a -> s {httpStatus = a} :: PutObjectResponse)
 
-instance Prelude.NFData PutObjectResponse
+instance Core.NFData PutObjectResponse

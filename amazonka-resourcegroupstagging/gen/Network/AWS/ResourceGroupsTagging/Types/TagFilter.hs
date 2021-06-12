@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ResourceGroupsTagging.Types.TagFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of tags (keys and values) that are used to specify the associated
 -- resources.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data TagFilter = TagFilter'
   { -- | One part of a key-value pair that makes up a tag. A key is a general
     -- label that acts like a category for more specific tag values.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | One part of a key-value pair that make up a tag. A value acts as a
     -- descriptor within a tag category (key). The value can be empty or null.
-    values :: Prelude.Maybe [Prelude.Text]
+    values :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagFilter' with all optional fields omitted.
@@ -54,29 +53,29 @@ newTagFilter ::
   TagFilter
 newTagFilter =
   TagFilter'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing
     }
 
 -- | One part of a key-value pair that makes up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
-tagFilter_key :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
+tagFilter_key :: Lens.Lens' TagFilter (Core.Maybe Core.Text)
 tagFilter_key = Lens.lens (\TagFilter' {key} -> key) (\s@TagFilter' {} a -> s {key = a} :: TagFilter)
 
 -- | One part of a key-value pair that make up a tag. A value acts as a
 -- descriptor within a tag category (key). The value can be empty or null.
-tagFilter_values :: Lens.Lens' TagFilter (Prelude.Maybe [Prelude.Text])
-tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Prelude.. Lens.mapping Prelude._Coerce
+tagFilter_values :: Lens.Lens' TagFilter (Core.Maybe [Core.Text])
+tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable TagFilter
+instance Core.Hashable TagFilter
 
-instance Prelude.NFData TagFilter
+instance Core.NFData TagFilter
 
-instance Prelude.ToJSON TagFilter where
+instance Core.ToJSON TagFilter where
   toJSON TagFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Values" Prelude..=) Prelude.<$> values
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Values" Core..=) Core.<$> values
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.InstanceFleetStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.InstanceFleetState
 import Network.AWS.EMR.Types.InstanceFleetStateChangeReason
 import Network.AWS.EMR.Types.InstanceFleetTimeline
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The status of the instance fleet.
 --
@@ -34,7 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInstanceFleetStatus' smart constructor.
 data InstanceFleetStatus = InstanceFleetStatus'
   { -- | Provides status change reason details for the instance fleet.
-    stateChangeReason :: Prelude.Maybe InstanceFleetStateChangeReason,
+    stateChangeReason :: Core.Maybe InstanceFleetStateChangeReason,
     -- | A code representing the instance fleet status.
     --
     -- -   @PROVISIONING@—The instance fleet is provisioning EC2 resources and
@@ -57,13 +56,13 @@ data InstanceFleetStatus = InstanceFleetStatus'
     --
     -- -   @TERMINATED@—The instance fleet is no longer active, and all EC2
     --     instances have been terminated.
-    state :: Prelude.Maybe InstanceFleetState,
+    state :: Core.Maybe InstanceFleetState,
     -- | Provides historical timestamps for the instance fleet, including the
     -- time of creation, the time it became ready to run jobs, and the time of
     -- termination.
-    timeline :: Prelude.Maybe InstanceFleetTimeline
+    timeline :: Core.Maybe InstanceFleetTimeline
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceFleetStatus' with all optional fields omitted.
@@ -106,13 +105,13 @@ newInstanceFleetStatus ::
 newInstanceFleetStatus =
   InstanceFleetStatus'
     { stateChangeReason =
-        Prelude.Nothing,
-      state = Prelude.Nothing,
-      timeline = Prelude.Nothing
+        Core.Nothing,
+      state = Core.Nothing,
+      timeline = Core.Nothing
     }
 
 -- | Provides status change reason details for the instance fleet.
-instanceFleetStatus_stateChangeReason :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetStateChangeReason)
+instanceFleetStatus_stateChangeReason :: Lens.Lens' InstanceFleetStatus (Core.Maybe InstanceFleetStateChangeReason)
 instanceFleetStatus_stateChangeReason = Lens.lens (\InstanceFleetStatus' {stateChangeReason} -> stateChangeReason) (\s@InstanceFleetStatus' {} a -> s {stateChangeReason = a} :: InstanceFleetStatus)
 
 -- | A code representing the instance fleet status.
@@ -137,26 +136,26 @@ instanceFleetStatus_stateChangeReason = Lens.lens (\InstanceFleetStatus' {stateC
 --
 -- -   @TERMINATED@—The instance fleet is no longer active, and all EC2
 --     instances have been terminated.
-instanceFleetStatus_state :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetState)
+instanceFleetStatus_state :: Lens.Lens' InstanceFleetStatus (Core.Maybe InstanceFleetState)
 instanceFleetStatus_state = Lens.lens (\InstanceFleetStatus' {state} -> state) (\s@InstanceFleetStatus' {} a -> s {state = a} :: InstanceFleetStatus)
 
 -- | Provides historical timestamps for the instance fleet, including the
 -- time of creation, the time it became ready to run jobs, and the time of
 -- termination.
-instanceFleetStatus_timeline :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetTimeline)
+instanceFleetStatus_timeline :: Lens.Lens' InstanceFleetStatus (Core.Maybe InstanceFleetTimeline)
 instanceFleetStatus_timeline = Lens.lens (\InstanceFleetStatus' {timeline} -> timeline) (\s@InstanceFleetStatus' {} a -> s {timeline = a} :: InstanceFleetStatus)
 
-instance Prelude.FromJSON InstanceFleetStatus where
+instance Core.FromJSON InstanceFleetStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceFleetStatus"
       ( \x ->
           InstanceFleetStatus'
-            Prelude.<$> (x Prelude..:? "StateChangeReason")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "Timeline")
+            Core.<$> (x Core..:? "StateChangeReason")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "Timeline")
       )
 
-instance Prelude.Hashable InstanceFleetStatus
+instance Core.Hashable InstanceFleetStatus
 
-instance Prelude.NFData InstanceFleetStatus
+instance Core.NFData InstanceFleetStatus

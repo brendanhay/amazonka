@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFormation.Types.TypeVersionSummary where
 
 import Network.AWS.CloudFormation.Types.RegistryType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains summary information about a specific version of a
 -- CloudFormation type.
@@ -30,23 +29,23 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTypeVersionSummary' smart constructor.
 data TypeVersionSummary = TypeVersionSummary'
   { -- | The name of the type.
-    typeName :: Prelude.Maybe Prelude.Text,
+    typeName :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the type version.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The ID of a specific version of the type. The version ID is the value at
     -- the end of the Amazon Resource Name (ARN) assigned to the type version
     -- when it is registered.
-    versionId :: Prelude.Maybe Prelude.Text,
+    versionId :: Core.Maybe Core.Text,
     -- | The description of the type version.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Whether the specified type version is set as the default version.
-    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
+    isDefaultVersion :: Core.Maybe Core.Bool,
     -- | The kind of type.
-    type' :: Prelude.Maybe RegistryType,
+    type' :: Core.Maybe RegistryType,
     -- | When the version was registered.
-    timeCreated :: Prelude.Maybe Prelude.ISO8601
+    timeCreated :: Core.Maybe Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TypeVersionSummary' with all optional fields omitted.
@@ -75,56 +74,56 @@ newTypeVersionSummary ::
   TypeVersionSummary
 newTypeVersionSummary =
   TypeVersionSummary'
-    { typeName = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      isDefaultVersion = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      timeCreated = Prelude.Nothing
+    { typeName = Core.Nothing,
+      arn = Core.Nothing,
+      versionId = Core.Nothing,
+      description = Core.Nothing,
+      isDefaultVersion = Core.Nothing,
+      type' = Core.Nothing,
+      timeCreated = Core.Nothing
     }
 
 -- | The name of the type.
-typeVersionSummary_typeName :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
+typeVersionSummary_typeName :: Lens.Lens' TypeVersionSummary (Core.Maybe Core.Text)
 typeVersionSummary_typeName = Lens.lens (\TypeVersionSummary' {typeName} -> typeName) (\s@TypeVersionSummary' {} a -> s {typeName = a} :: TypeVersionSummary)
 
 -- | The Amazon Resource Name (ARN) of the type version.
-typeVersionSummary_arn :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
+typeVersionSummary_arn :: Lens.Lens' TypeVersionSummary (Core.Maybe Core.Text)
 typeVersionSummary_arn = Lens.lens (\TypeVersionSummary' {arn} -> arn) (\s@TypeVersionSummary' {} a -> s {arn = a} :: TypeVersionSummary)
 
 -- | The ID of a specific version of the type. The version ID is the value at
 -- the end of the Amazon Resource Name (ARN) assigned to the type version
 -- when it is registered.
-typeVersionSummary_versionId :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
+typeVersionSummary_versionId :: Lens.Lens' TypeVersionSummary (Core.Maybe Core.Text)
 typeVersionSummary_versionId = Lens.lens (\TypeVersionSummary' {versionId} -> versionId) (\s@TypeVersionSummary' {} a -> s {versionId = a} :: TypeVersionSummary)
 
 -- | The description of the type version.
-typeVersionSummary_description :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
+typeVersionSummary_description :: Lens.Lens' TypeVersionSummary (Core.Maybe Core.Text)
 typeVersionSummary_description = Lens.lens (\TypeVersionSummary' {description} -> description) (\s@TypeVersionSummary' {} a -> s {description = a} :: TypeVersionSummary)
 
 -- | Whether the specified type version is set as the default version.
-typeVersionSummary_isDefaultVersion :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Bool)
+typeVersionSummary_isDefaultVersion :: Lens.Lens' TypeVersionSummary (Core.Maybe Core.Bool)
 typeVersionSummary_isDefaultVersion = Lens.lens (\TypeVersionSummary' {isDefaultVersion} -> isDefaultVersion) (\s@TypeVersionSummary' {} a -> s {isDefaultVersion = a} :: TypeVersionSummary)
 
 -- | The kind of type.
-typeVersionSummary_type :: Lens.Lens' TypeVersionSummary (Prelude.Maybe RegistryType)
+typeVersionSummary_type :: Lens.Lens' TypeVersionSummary (Core.Maybe RegistryType)
 typeVersionSummary_type = Lens.lens (\TypeVersionSummary' {type'} -> type') (\s@TypeVersionSummary' {} a -> s {type' = a} :: TypeVersionSummary)
 
 -- | When the version was registered.
-typeVersionSummary_timeCreated :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.UTCTime)
-typeVersionSummary_timeCreated = Lens.lens (\TypeVersionSummary' {timeCreated} -> timeCreated) (\s@TypeVersionSummary' {} a -> s {timeCreated = a} :: TypeVersionSummary) Prelude.. Lens.mapping Prelude._Time
+typeVersionSummary_timeCreated :: Lens.Lens' TypeVersionSummary (Core.Maybe Core.UTCTime)
+typeVersionSummary_timeCreated = Lens.lens (\TypeVersionSummary' {timeCreated} -> timeCreated) (\s@TypeVersionSummary' {} a -> s {timeCreated = a} :: TypeVersionSummary) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromXML TypeVersionSummary where
+instance Core.FromXML TypeVersionSummary where
   parseXML x =
     TypeVersionSummary'
-      Prelude.<$> (x Prelude..@? "TypeName")
-      Prelude.<*> (x Prelude..@? "Arn")
-      Prelude.<*> (x Prelude..@? "VersionId")
-      Prelude.<*> (x Prelude..@? "Description")
-      Prelude.<*> (x Prelude..@? "IsDefaultVersion")
-      Prelude.<*> (x Prelude..@? "Type")
-      Prelude.<*> (x Prelude..@? "TimeCreated")
+      Core.<$> (x Core..@? "TypeName")
+      Core.<*> (x Core..@? "Arn")
+      Core.<*> (x Core..@? "VersionId")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "IsDefaultVersion")
+      Core.<*> (x Core..@? "Type")
+      Core.<*> (x Core..@? "TimeCreated")
 
-instance Prelude.Hashable TypeVersionSummary
+instance Core.Hashable TypeVersionSummary
 
-instance Prelude.NFData TypeVersionSummary
+instance Core.NFData TypeVersionSummary

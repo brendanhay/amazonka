@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.SageMaker.DescribeWorkforce
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -57,9 +56,9 @@ data DescribeWorkforce = DescribeWorkforce'
   { -- | The name of the private workforce whose access you want to restrict.
     -- @WorkforceName@ is automatically set to @default@ when a workforce is
     -- created and cannot be modified.
-    workforceName :: Prelude.Text
+    workforceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkforce' with all optional fields omitted.
@@ -74,7 +73,7 @@ data DescribeWorkforce = DescribeWorkforce'
 -- created and cannot be modified.
 newDescribeWorkforce ::
   -- | 'workforceName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeWorkforce
 newDescribeWorkforce pWorkforceName_ =
   DescribeWorkforce' {workforceName = pWorkforceName_}
@@ -82,58 +81,54 @@ newDescribeWorkforce pWorkforceName_ =
 -- | The name of the private workforce whose access you want to restrict.
 -- @WorkforceName@ is automatically set to @default@ when a workforce is
 -- created and cannot be modified.
-describeWorkforce_workforceName :: Lens.Lens' DescribeWorkforce Prelude.Text
+describeWorkforce_workforceName :: Lens.Lens' DescribeWorkforce Core.Text
 describeWorkforce_workforceName = Lens.lens (\DescribeWorkforce' {workforceName} -> workforceName) (\s@DescribeWorkforce' {} a -> s {workforceName = a} :: DescribeWorkforce)
 
-instance Prelude.AWSRequest DescribeWorkforce where
-  type Rs DescribeWorkforce = DescribeWorkforceResponse
+instance Core.AWSRequest DescribeWorkforce where
+  type
+    AWSResponse DescribeWorkforce =
+      DescribeWorkforceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkforceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "Workforce")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "Workforce")
       )
 
-instance Prelude.Hashable DescribeWorkforce
+instance Core.Hashable DescribeWorkforce
 
-instance Prelude.NFData DescribeWorkforce
+instance Core.NFData DescribeWorkforce
 
-instance Prelude.ToHeaders DescribeWorkforce where
+instance Core.ToHeaders DescribeWorkforce where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DescribeWorkforce" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.DescribeWorkforce" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeWorkforce where
+instance Core.ToJSON DescribeWorkforce where
   toJSON DescribeWorkforce' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("WorkforceName" Prelude..= workforceName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WorkforceName" Core..= workforceName)]
       )
 
-instance Prelude.ToPath DescribeWorkforce where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeWorkforce where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeWorkforce where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeWorkforce where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeWorkforceResponse' smart constructor.
 data DescribeWorkforceResponse = DescribeWorkforceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A single private workforce, which is automatically created when you
     -- create your first private work team. You can create one private work
     -- force in each AWS Region. By default, any workforce-related API
@@ -142,7 +137,7 @@ data DescribeWorkforceResponse = DescribeWorkforceResponse'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce>.
     workforce :: Workforce
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkforceResponse' with all optional fields omitted.
@@ -162,7 +157,7 @@ data DescribeWorkforceResponse = DescribeWorkforceResponse'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce>.
 newDescribeWorkforceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'workforce'
   Workforce ->
   DescribeWorkforceResponse
@@ -174,7 +169,7 @@ newDescribeWorkforceResponse pHttpStatus_ pWorkforce_ =
     }
 
 -- | The response's http status code.
-describeWorkforceResponse_httpStatus :: Lens.Lens' DescribeWorkforceResponse Prelude.Int
+describeWorkforceResponse_httpStatus :: Lens.Lens' DescribeWorkforceResponse Core.Int
 describeWorkforceResponse_httpStatus = Lens.lens (\DescribeWorkforceResponse' {httpStatus} -> httpStatus) (\s@DescribeWorkforceResponse' {} a -> s {httpStatus = a} :: DescribeWorkforceResponse)
 
 -- | A single private workforce, which is automatically created when you
@@ -186,4 +181,4 @@ describeWorkforceResponse_httpStatus = Lens.lens (\DescribeWorkforceResponse' {h
 describeWorkforceResponse_workforce :: Lens.Lens' DescribeWorkforceResponse Workforce
 describeWorkforceResponse_workforce = Lens.lens (\DescribeWorkforceResponse' {workforce} -> workforce) (\s@DescribeWorkforceResponse' {} a -> s {workforce = a} :: DescribeWorkforceResponse)
 
-instance Prelude.NFData DescribeWorkforceResponse
+instance Core.NFData DescribeWorkforceResponse

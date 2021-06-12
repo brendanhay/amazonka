@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Support.Types.TrustedAdvisorResourcesSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about AWS resources that were analyzed in a call to Trusted
 -- Advisor DescribeTrustedAdvisorCheckSummaries.
@@ -30,18 +29,18 @@ import qualified Network.AWS.Prelude as Prelude
 data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
   { -- | The number of AWS resources that were analyzed by the Trusted Advisor
     -- check.
-    resourcesProcessed :: Prelude.Integer,
+    resourcesProcessed :: Core.Integer,
     -- | The number of AWS resources that were flagged (listed) by the Trusted
     -- Advisor check.
-    resourcesFlagged :: Prelude.Integer,
+    resourcesFlagged :: Core.Integer,
     -- | The number of AWS resources ignored by Trusted Advisor because
     -- information was unavailable.
-    resourcesIgnored :: Prelude.Integer,
+    resourcesIgnored :: Core.Integer,
     -- | The number of AWS resources ignored by Trusted Advisor because they were
     -- marked as suppressed by the user.
-    resourcesSuppressed :: Prelude.Integer
+    resourcesSuppressed :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrustedAdvisorResourcesSummary' with all optional fields omitted.
@@ -64,13 +63,13 @@ data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
 -- marked as suppressed by the user.
 newTrustedAdvisorResourcesSummary ::
   -- | 'resourcesProcessed'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'resourcesFlagged'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'resourcesIgnored'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'resourcesSuppressed'
-  Prelude.Integer ->
+  Core.Integer ->
   TrustedAdvisorResourcesSummary
 newTrustedAdvisorResourcesSummary
   pResourcesProcessed_
@@ -87,43 +86,36 @@ newTrustedAdvisorResourcesSummary
 
 -- | The number of AWS resources that were analyzed by the Trusted Advisor
 -- check.
-trustedAdvisorResourcesSummary_resourcesProcessed :: Lens.Lens' TrustedAdvisorResourcesSummary Prelude.Integer
+trustedAdvisorResourcesSummary_resourcesProcessed :: Lens.Lens' TrustedAdvisorResourcesSummary Core.Integer
 trustedAdvisorResourcesSummary_resourcesProcessed = Lens.lens (\TrustedAdvisorResourcesSummary' {resourcesProcessed} -> resourcesProcessed) (\s@TrustedAdvisorResourcesSummary' {} a -> s {resourcesProcessed = a} :: TrustedAdvisorResourcesSummary)
 
 -- | The number of AWS resources that were flagged (listed) by the Trusted
 -- Advisor check.
-trustedAdvisorResourcesSummary_resourcesFlagged :: Lens.Lens' TrustedAdvisorResourcesSummary Prelude.Integer
+trustedAdvisorResourcesSummary_resourcesFlagged :: Lens.Lens' TrustedAdvisorResourcesSummary Core.Integer
 trustedAdvisorResourcesSummary_resourcesFlagged = Lens.lens (\TrustedAdvisorResourcesSummary' {resourcesFlagged} -> resourcesFlagged) (\s@TrustedAdvisorResourcesSummary' {} a -> s {resourcesFlagged = a} :: TrustedAdvisorResourcesSummary)
 
 -- | The number of AWS resources ignored by Trusted Advisor because
 -- information was unavailable.
-trustedAdvisorResourcesSummary_resourcesIgnored :: Lens.Lens' TrustedAdvisorResourcesSummary Prelude.Integer
+trustedAdvisorResourcesSummary_resourcesIgnored :: Lens.Lens' TrustedAdvisorResourcesSummary Core.Integer
 trustedAdvisorResourcesSummary_resourcesIgnored = Lens.lens (\TrustedAdvisorResourcesSummary' {resourcesIgnored} -> resourcesIgnored) (\s@TrustedAdvisorResourcesSummary' {} a -> s {resourcesIgnored = a} :: TrustedAdvisorResourcesSummary)
 
 -- | The number of AWS resources ignored by Trusted Advisor because they were
 -- marked as suppressed by the user.
-trustedAdvisorResourcesSummary_resourcesSuppressed :: Lens.Lens' TrustedAdvisorResourcesSummary Prelude.Integer
+trustedAdvisorResourcesSummary_resourcesSuppressed :: Lens.Lens' TrustedAdvisorResourcesSummary Core.Integer
 trustedAdvisorResourcesSummary_resourcesSuppressed = Lens.lens (\TrustedAdvisorResourcesSummary' {resourcesSuppressed} -> resourcesSuppressed) (\s@TrustedAdvisorResourcesSummary' {} a -> s {resourcesSuppressed = a} :: TrustedAdvisorResourcesSummary)
 
-instance
-  Prelude.FromJSON
-    TrustedAdvisorResourcesSummary
-  where
+instance Core.FromJSON TrustedAdvisorResourcesSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrustedAdvisorResourcesSummary"
       ( \x ->
           TrustedAdvisorResourcesSummary'
-            Prelude.<$> (x Prelude..: "resourcesProcessed")
-            Prelude.<*> (x Prelude..: "resourcesFlagged")
-            Prelude.<*> (x Prelude..: "resourcesIgnored")
-            Prelude.<*> (x Prelude..: "resourcesSuppressed")
+            Core.<$> (x Core..: "resourcesProcessed")
+            Core.<*> (x Core..: "resourcesFlagged")
+            Core.<*> (x Core..: "resourcesIgnored")
+            Core.<*> (x Core..: "resourcesSuppressed")
       )
 
-instance
-  Prelude.Hashable
-    TrustedAdvisorResourcesSummary
+instance Core.Hashable TrustedAdvisorResourcesSummary
 
-instance
-  Prelude.NFData
-    TrustedAdvisorResourcesSummary
+instance Core.NFData TrustedAdvisorResourcesSummary

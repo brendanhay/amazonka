@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudWatchEvents.Types.EventSource where
 
 import Network.AWS.CloudWatchEvents.Types.EventSourceState
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A partner event source is created by an SaaS partner. If a customer
 -- creates a partner event bus that matches this event source, that AWS
@@ -31,25 +30,25 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEventSource' smart constructor.
 data EventSource = EventSource'
   { -- | The date and time the event source was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The date and time that the event source will expire, if the AWS account
     -- doesn\'t create a matching event bus for it.
-    expirationTime :: Prelude.Maybe Prelude.POSIX,
+    expirationTime :: Core.Maybe Core.POSIX,
     -- | The ARN of the event source.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The state of the event source. If it is ACTIVE, you have already created
     -- a matching event bus for this event source, and that event bus is
     -- active. If it is PENDING, either you haven\'t yet created a matching
     -- event bus, or that event bus is deactivated. If it is DELETED, you have
     -- created a matching event bus, but the event source has since been
     -- deleted.
-    state :: Prelude.Maybe EventSourceState,
+    state :: Core.Maybe EventSourceState,
     -- | The name of the event source.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The name of the partner that created the event source.
-    createdBy :: Prelude.Maybe Prelude.Text
+    createdBy :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventSource' with all optional fields omitted.
@@ -80,25 +79,25 @@ newEventSource ::
   EventSource
 newEventSource =
   EventSource'
-    { creationTime = Prelude.Nothing,
-      expirationTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      createdBy = Prelude.Nothing
+    { creationTime = Core.Nothing,
+      expirationTime = Core.Nothing,
+      arn = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      createdBy = Core.Nothing
     }
 
 -- | The date and time the event source was created.
-eventSource_creationTime :: Lens.Lens' EventSource (Prelude.Maybe Prelude.UTCTime)
-eventSource_creationTime = Lens.lens (\EventSource' {creationTime} -> creationTime) (\s@EventSource' {} a -> s {creationTime = a} :: EventSource) Prelude.. Lens.mapping Prelude._Time
+eventSource_creationTime :: Lens.Lens' EventSource (Core.Maybe Core.UTCTime)
+eventSource_creationTime = Lens.lens (\EventSource' {creationTime} -> creationTime) (\s@EventSource' {} a -> s {creationTime = a} :: EventSource) Core.. Lens.mapping Core._Time
 
 -- | The date and time that the event source will expire, if the AWS account
 -- doesn\'t create a matching event bus for it.
-eventSource_expirationTime :: Lens.Lens' EventSource (Prelude.Maybe Prelude.UTCTime)
-eventSource_expirationTime = Lens.lens (\EventSource' {expirationTime} -> expirationTime) (\s@EventSource' {} a -> s {expirationTime = a} :: EventSource) Prelude.. Lens.mapping Prelude._Time
+eventSource_expirationTime :: Lens.Lens' EventSource (Core.Maybe Core.UTCTime)
+eventSource_expirationTime = Lens.lens (\EventSource' {expirationTime} -> expirationTime) (\s@EventSource' {} a -> s {expirationTime = a} :: EventSource) Core.. Lens.mapping Core._Time
 
 -- | The ARN of the event source.
-eventSource_arn :: Lens.Lens' EventSource (Prelude.Maybe Prelude.Text)
+eventSource_arn :: Lens.Lens' EventSource (Core.Maybe Core.Text)
 eventSource_arn = Lens.lens (\EventSource' {arn} -> arn) (\s@EventSource' {} a -> s {arn = a} :: EventSource)
 
 -- | The state of the event source. If it is ACTIVE, you have already created
@@ -107,31 +106,31 @@ eventSource_arn = Lens.lens (\EventSource' {arn} -> arn) (\s@EventSource' {} a -
 -- event bus, or that event bus is deactivated. If it is DELETED, you have
 -- created a matching event bus, but the event source has since been
 -- deleted.
-eventSource_state :: Lens.Lens' EventSource (Prelude.Maybe EventSourceState)
+eventSource_state :: Lens.Lens' EventSource (Core.Maybe EventSourceState)
 eventSource_state = Lens.lens (\EventSource' {state} -> state) (\s@EventSource' {} a -> s {state = a} :: EventSource)
 
 -- | The name of the event source.
-eventSource_name :: Lens.Lens' EventSource (Prelude.Maybe Prelude.Text)
+eventSource_name :: Lens.Lens' EventSource (Core.Maybe Core.Text)
 eventSource_name = Lens.lens (\EventSource' {name} -> name) (\s@EventSource' {} a -> s {name = a} :: EventSource)
 
 -- | The name of the partner that created the event source.
-eventSource_createdBy :: Lens.Lens' EventSource (Prelude.Maybe Prelude.Text)
+eventSource_createdBy :: Lens.Lens' EventSource (Core.Maybe Core.Text)
 eventSource_createdBy = Lens.lens (\EventSource' {createdBy} -> createdBy) (\s@EventSource' {} a -> s {createdBy = a} :: EventSource)
 
-instance Prelude.FromJSON EventSource where
+instance Core.FromJSON EventSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EventSource"
       ( \x ->
           EventSource'
-            Prelude.<$> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "ExpirationTime")
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "CreatedBy")
+            Core.<$> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "ExpirationTime")
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "CreatedBy")
       )
 
-instance Prelude.Hashable EventSource
+instance Core.Hashable EventSource
 
-instance Prelude.NFData EventSource
+instance Core.NFData EventSource

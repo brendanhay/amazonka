@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ActionSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ActionSource
 import Network.AWS.SageMaker.Types.ActionStatus
 
@@ -33,21 +32,21 @@ import Network.AWS.SageMaker.Types.ActionStatus
 -- /See:/ 'newActionSummary' smart constructor.
 data ActionSummary = ActionSummary'
   { -- | The status of the action.
-    status :: Prelude.Maybe ActionStatus,
+    status :: Core.Maybe ActionStatus,
     -- | When the action was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The name of the action.
-    actionName :: Prelude.Maybe Prelude.Text,
+    actionName :: Core.Maybe Core.Text,
     -- | The type of the action.
-    actionType :: Prelude.Maybe Prelude.Text,
+    actionType :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the action.
-    actionArn :: Prelude.Maybe Prelude.Text,
+    actionArn :: Core.Maybe Core.Text,
     -- | The source of the action.
-    source :: Prelude.Maybe ActionSource,
+    source :: Core.Maybe ActionSource,
     -- | When the action was last modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX
+    lastModifiedTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionSummary' with all optional fields omitted.
@@ -74,58 +73,58 @@ newActionSummary ::
   ActionSummary
 newActionSummary =
   ActionSummary'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      actionName = Prelude.Nothing,
-      actionType = Prelude.Nothing,
-      actionArn = Prelude.Nothing,
-      source = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing
+    { status = Core.Nothing,
+      creationTime = Core.Nothing,
+      actionName = Core.Nothing,
+      actionType = Core.Nothing,
+      actionArn = Core.Nothing,
+      source = Core.Nothing,
+      lastModifiedTime = Core.Nothing
     }
 
 -- | The status of the action.
-actionSummary_status :: Lens.Lens' ActionSummary (Prelude.Maybe ActionStatus)
+actionSummary_status :: Lens.Lens' ActionSummary (Core.Maybe ActionStatus)
 actionSummary_status = Lens.lens (\ActionSummary' {status} -> status) (\s@ActionSummary' {} a -> s {status = a} :: ActionSummary)
 
 -- | When the action was created.
-actionSummary_creationTime :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.UTCTime)
-actionSummary_creationTime = Lens.lens (\ActionSummary' {creationTime} -> creationTime) (\s@ActionSummary' {} a -> s {creationTime = a} :: ActionSummary) Prelude.. Lens.mapping Prelude._Time
+actionSummary_creationTime :: Lens.Lens' ActionSummary (Core.Maybe Core.UTCTime)
+actionSummary_creationTime = Lens.lens (\ActionSummary' {creationTime} -> creationTime) (\s@ActionSummary' {} a -> s {creationTime = a} :: ActionSummary) Core.. Lens.mapping Core._Time
 
 -- | The name of the action.
-actionSummary_actionName :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.Text)
+actionSummary_actionName :: Lens.Lens' ActionSummary (Core.Maybe Core.Text)
 actionSummary_actionName = Lens.lens (\ActionSummary' {actionName} -> actionName) (\s@ActionSummary' {} a -> s {actionName = a} :: ActionSummary)
 
 -- | The type of the action.
-actionSummary_actionType :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.Text)
+actionSummary_actionType :: Lens.Lens' ActionSummary (Core.Maybe Core.Text)
 actionSummary_actionType = Lens.lens (\ActionSummary' {actionType} -> actionType) (\s@ActionSummary' {} a -> s {actionType = a} :: ActionSummary)
 
 -- | The Amazon Resource Name (ARN) of the action.
-actionSummary_actionArn :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.Text)
+actionSummary_actionArn :: Lens.Lens' ActionSummary (Core.Maybe Core.Text)
 actionSummary_actionArn = Lens.lens (\ActionSummary' {actionArn} -> actionArn) (\s@ActionSummary' {} a -> s {actionArn = a} :: ActionSummary)
 
 -- | The source of the action.
-actionSummary_source :: Lens.Lens' ActionSummary (Prelude.Maybe ActionSource)
+actionSummary_source :: Lens.Lens' ActionSummary (Core.Maybe ActionSource)
 actionSummary_source = Lens.lens (\ActionSummary' {source} -> source) (\s@ActionSummary' {} a -> s {source = a} :: ActionSummary)
 
 -- | When the action was last modified.
-actionSummary_lastModifiedTime :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.UTCTime)
-actionSummary_lastModifiedTime = Lens.lens (\ActionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ActionSummary' {} a -> s {lastModifiedTime = a} :: ActionSummary) Prelude.. Lens.mapping Prelude._Time
+actionSummary_lastModifiedTime :: Lens.Lens' ActionSummary (Core.Maybe Core.UTCTime)
+actionSummary_lastModifiedTime = Lens.lens (\ActionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ActionSummary' {} a -> s {lastModifiedTime = a} :: ActionSummary) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON ActionSummary where
+instance Core.FromJSON ActionSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionSummary"
       ( \x ->
           ActionSummary'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "ActionName")
-            Prelude.<*> (x Prelude..:? "ActionType")
-            Prelude.<*> (x Prelude..:? "ActionArn")
-            Prelude.<*> (x Prelude..:? "Source")
-            Prelude.<*> (x Prelude..:? "LastModifiedTime")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "ActionName")
+            Core.<*> (x Core..:? "ActionType")
+            Core.<*> (x Core..:? "ActionArn")
+            Core.<*> (x Core..:? "Source")
+            Core.<*> (x Core..:? "LastModifiedTime")
       )
 
-instance Prelude.Hashable ActionSummary
+instance Core.Hashable ActionSummary
 
-instance Prelude.NFData ActionSummary
+instance Core.NFData ActionSummary

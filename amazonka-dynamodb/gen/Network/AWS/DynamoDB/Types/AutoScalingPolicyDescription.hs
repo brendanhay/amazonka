@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.AutoScalingPolicyDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationDescription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of the scaling policy.
 --
 -- /See:/ 'newAutoScalingPolicyDescription' smart constructor.
 data AutoScalingPolicyDescription = AutoScalingPolicyDescription'
   { -- | The name of the scaling policy.
-    policyName :: Prelude.Maybe Prelude.Text,
+    policyName :: Core.Maybe Core.Text,
     -- | Represents a target tracking scaling policy configuration.
-    targetTrackingScalingPolicyConfiguration :: Prelude.Maybe AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    targetTrackingScalingPolicyConfiguration :: Core.Maybe AutoScalingTargetTrackingScalingPolicyConfigurationDescription
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoScalingPolicyDescription' with all optional fields omitted.
@@ -51,36 +50,31 @@ newAutoScalingPolicyDescription ::
 newAutoScalingPolicyDescription =
   AutoScalingPolicyDescription'
     { policyName =
-        Prelude.Nothing,
+        Core.Nothing,
       targetTrackingScalingPolicyConfiguration =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The name of the scaling policy.
-autoScalingPolicyDescription_policyName :: Lens.Lens' AutoScalingPolicyDescription (Prelude.Maybe Prelude.Text)
+autoScalingPolicyDescription_policyName :: Lens.Lens' AutoScalingPolicyDescription (Core.Maybe Core.Text)
 autoScalingPolicyDescription_policyName = Lens.lens (\AutoScalingPolicyDescription' {policyName} -> policyName) (\s@AutoScalingPolicyDescription' {} a -> s {policyName = a} :: AutoScalingPolicyDescription)
 
 -- | Represents a target tracking scaling policy configuration.
-autoScalingPolicyDescription_targetTrackingScalingPolicyConfiguration :: Lens.Lens' AutoScalingPolicyDescription (Prelude.Maybe AutoScalingTargetTrackingScalingPolicyConfigurationDescription)
+autoScalingPolicyDescription_targetTrackingScalingPolicyConfiguration :: Lens.Lens' AutoScalingPolicyDescription (Core.Maybe AutoScalingTargetTrackingScalingPolicyConfigurationDescription)
 autoScalingPolicyDescription_targetTrackingScalingPolicyConfiguration = Lens.lens (\AutoScalingPolicyDescription' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@AutoScalingPolicyDescription' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: AutoScalingPolicyDescription)
 
-instance
-  Prelude.FromJSON
-    AutoScalingPolicyDescription
-  where
+instance Core.FromJSON AutoScalingPolicyDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoScalingPolicyDescription"
       ( \x ->
           AutoScalingPolicyDescription'
-            Prelude.<$> (x Prelude..:? "PolicyName")
-            Prelude.<*> ( x
-                            Prelude..:? "TargetTrackingScalingPolicyConfiguration"
-                        )
+            Core.<$> (x Core..:? "PolicyName")
+            Core.<*> ( x
+                         Core..:? "TargetTrackingScalingPolicyConfiguration"
+                     )
       )
 
-instance
-  Prelude.Hashable
-    AutoScalingPolicyDescription
+instance Core.Hashable AutoScalingPolicyDescription
 
-instance Prelude.NFData AutoScalingPolicyDescription
+instance Core.NFData AutoScalingPolicyDescription

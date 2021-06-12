@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,21 +43,20 @@ module Network.AWS.IoT.ListProvisioningTemplates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListProvisioningTemplates' smart constructor.
 data ListProvisioningTemplates = ListProvisioningTemplates'
   { -- | A token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListProvisioningTemplates' with all optional fields omitted.
@@ -76,83 +74,81 @@ newListProvisioningTemplates ::
 newListProvisioningTemplates =
   ListProvisioningTemplates'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | A token to retrieve the next set of results.
-listProvisioningTemplates_nextToken :: Lens.Lens' ListProvisioningTemplates (Prelude.Maybe Prelude.Text)
+listProvisioningTemplates_nextToken :: Lens.Lens' ListProvisioningTemplates (Core.Maybe Core.Text)
 listProvisioningTemplates_nextToken = Lens.lens (\ListProvisioningTemplates' {nextToken} -> nextToken) (\s@ListProvisioningTemplates' {} a -> s {nextToken = a} :: ListProvisioningTemplates)
 
 -- | The maximum number of results to return at one time.
-listProvisioningTemplates_maxResults :: Lens.Lens' ListProvisioningTemplates (Prelude.Maybe Prelude.Natural)
+listProvisioningTemplates_maxResults :: Lens.Lens' ListProvisioningTemplates (Core.Maybe Core.Natural)
 listProvisioningTemplates_maxResults = Lens.lens (\ListProvisioningTemplates' {maxResults} -> maxResults) (\s@ListProvisioningTemplates' {} a -> s {maxResults = a} :: ListProvisioningTemplates)
 
-instance Pager.AWSPager ListProvisioningTemplates where
+instance Core.AWSPager ListProvisioningTemplates where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listProvisioningTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listProvisioningTemplatesResponse_templates
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listProvisioningTemplates_nextToken
           Lens..~ rs
           Lens.^? listProvisioningTemplatesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListProvisioningTemplates where
+instance Core.AWSRequest ListProvisioningTemplates where
   type
-    Rs ListProvisioningTemplates =
+    AWSResponse ListProvisioningTemplates =
       ListProvisioningTemplatesResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListProvisioningTemplatesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "templates"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "templates" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListProvisioningTemplates
+instance Core.Hashable ListProvisioningTemplates
 
-instance Prelude.NFData ListProvisioningTemplates
+instance Core.NFData ListProvisioningTemplates
 
-instance Prelude.ToHeaders ListProvisioningTemplates where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListProvisioningTemplates where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListProvisioningTemplates where
-  toPath = Prelude.const "/provisioning-templates"
+instance Core.ToPath ListProvisioningTemplates where
+  toPath = Core.const "/provisioning-templates"
 
-instance Prelude.ToQuery ListProvisioningTemplates where
+instance Core.ToQuery ListProvisioningTemplates where
   toQuery ListProvisioningTemplates' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListProvisioningTemplatesResponse' smart constructor.
 data ListProvisioningTemplatesResponse = ListProvisioningTemplatesResponse'
   { -- | A token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of fleet provisioning templates
-    templates :: Prelude.Maybe [ProvisioningTemplateSummary],
+    templates :: Core.Maybe [ProvisioningTemplateSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListProvisioningTemplatesResponse' with all optional fields omitted.
@@ -169,28 +165,28 @@ data ListProvisioningTemplatesResponse = ListProvisioningTemplatesResponse'
 -- 'httpStatus', 'listProvisioningTemplatesResponse_httpStatus' - The response's http status code.
 newListProvisioningTemplatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListProvisioningTemplatesResponse
 newListProvisioningTemplatesResponse pHttpStatus_ =
   ListProvisioningTemplatesResponse'
     { nextToken =
-        Prelude.Nothing,
-      templates = Prelude.Nothing,
+        Core.Nothing,
+      templates = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token to retrieve the next set of results.
-listProvisioningTemplatesResponse_nextToken :: Lens.Lens' ListProvisioningTemplatesResponse (Prelude.Maybe Prelude.Text)
+listProvisioningTemplatesResponse_nextToken :: Lens.Lens' ListProvisioningTemplatesResponse (Core.Maybe Core.Text)
 listProvisioningTemplatesResponse_nextToken = Lens.lens (\ListProvisioningTemplatesResponse' {nextToken} -> nextToken) (\s@ListProvisioningTemplatesResponse' {} a -> s {nextToken = a} :: ListProvisioningTemplatesResponse)
 
 -- | A list of fleet provisioning templates
-listProvisioningTemplatesResponse_templates :: Lens.Lens' ListProvisioningTemplatesResponse (Prelude.Maybe [ProvisioningTemplateSummary])
-listProvisioningTemplatesResponse_templates = Lens.lens (\ListProvisioningTemplatesResponse' {templates} -> templates) (\s@ListProvisioningTemplatesResponse' {} a -> s {templates = a} :: ListProvisioningTemplatesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listProvisioningTemplatesResponse_templates :: Lens.Lens' ListProvisioningTemplatesResponse (Core.Maybe [ProvisioningTemplateSummary])
+listProvisioningTemplatesResponse_templates = Lens.lens (\ListProvisioningTemplatesResponse' {templates} -> templates) (\s@ListProvisioningTemplatesResponse' {} a -> s {templates = a} :: ListProvisioningTemplatesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listProvisioningTemplatesResponse_httpStatus :: Lens.Lens' ListProvisioningTemplatesResponse Prelude.Int
+listProvisioningTemplatesResponse_httpStatus :: Lens.Lens' ListProvisioningTemplatesResponse Core.Int
 listProvisioningTemplatesResponse_httpStatus = Lens.lens (\ListProvisioningTemplatesResponse' {httpStatus} -> httpStatus) (\s@ListProvisioningTemplatesResponse' {} a -> s {httpStatus = a} :: ListProvisioningTemplatesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListProvisioningTemplatesResponse

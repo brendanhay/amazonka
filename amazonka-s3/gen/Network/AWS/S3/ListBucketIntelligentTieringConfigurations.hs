@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -70,8 +69,8 @@ module Network.AWS.S3.ListBucketIntelligentTieringConfigurations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -80,12 +79,12 @@ import Network.AWS.S3.Types
 data ListBucketIntelligentTieringConfigurations = ListBucketIntelligentTieringConfigurations'
   { -- | The ContinuationToken that represents a placeholder from where this
     -- request should begin.
-    continuationToken :: Prelude.Maybe Prelude.Text,
+    continuationToken :: Core.Maybe Core.Text,
     -- | The name of the Amazon S3 bucket whose configuration you want to modify
     -- or retrieve.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListBucketIntelligentTieringConfigurations' with all optional fields omitted.
@@ -108,13 +107,13 @@ newListBucketIntelligentTieringConfigurations
   pBucket_ =
     ListBucketIntelligentTieringConfigurations'
       { continuationToken =
-          Prelude.Nothing,
+          Core.Nothing,
         bucket = pBucket_
       }
 
 -- | The ContinuationToken that represents a placeholder from where this
 -- request should begin.
-listBucketIntelligentTieringConfigurations_continuationToken :: Lens.Lens' ListBucketIntelligentTieringConfigurations (Prelude.Maybe Prelude.Text)
+listBucketIntelligentTieringConfigurations_continuationToken :: Lens.Lens' ListBucketIntelligentTieringConfigurations (Core.Maybe Core.Text)
 listBucketIntelligentTieringConfigurations_continuationToken = Lens.lens (\ListBucketIntelligentTieringConfigurations' {continuationToken} -> continuationToken) (\s@ListBucketIntelligentTieringConfigurations' {} a -> s {continuationToken = a} :: ListBucketIntelligentTieringConfigurations)
 
 -- | The name of the Amazon S3 bucket whose configuration you want to modify
@@ -123,59 +122,58 @@ listBucketIntelligentTieringConfigurations_bucket :: Lens.Lens' ListBucketIntell
 listBucketIntelligentTieringConfigurations_bucket = Lens.lens (\ListBucketIntelligentTieringConfigurations' {bucket} -> bucket) (\s@ListBucketIntelligentTieringConfigurations' {} a -> s {bucket = a} :: ListBucketIntelligentTieringConfigurations)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListBucketIntelligentTieringConfigurations
   where
   type
-    Rs ListBucketIntelligentTieringConfigurations =
+    AWSResponse
+      ListBucketIntelligentTieringConfigurations =
       ListBucketIntelligentTieringConfigurationsResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListBucketIntelligentTieringConfigurationsResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-              Prelude.<*> ( Prelude.may
-                              ( Prelude.parseXMLList
-                                  "IntelligentTieringConfiguration"
-                              )
-                              x
-                          )
-              Prelude.<*> (x Prelude..@? "NextContinuationToken")
-              Prelude.<*> (x Prelude..@? "ContinuationToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "IsTruncated")
+              Core.<*> ( Core.may
+                           (Core.parseXMLList "IntelligentTieringConfiguration")
+                           x
+                       )
+              Core.<*> (x Core..@? "NextContinuationToken")
+              Core.<*> (x Core..@? "ContinuationToken")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListBucketIntelligentTieringConfigurations
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListBucketIntelligentTieringConfigurations
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListBucketIntelligentTieringConfigurations
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     ListBucketIntelligentTieringConfigurations
   where
   toPath
     ListBucketIntelligentTieringConfigurations' {..} =
-      Prelude.mconcat ["/", Prelude.toBS bucket]
+      Core.mconcat ["/", Core.toBS bucket]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ListBucketIntelligentTieringConfigurations
   where
   toQuery
     ListBucketIntelligentTieringConfigurations' {..} =
-      Prelude.mconcat
-        [ "continuation-token" Prelude.=: continuationToken,
+      Core.mconcat
+        [ "continuation-token" Core.=: continuationToken,
           "intelligent-tiering"
         ]
 
@@ -184,21 +182,21 @@ data ListBucketIntelligentTieringConfigurationsResponse = ListBucketIntelligentT
   { -- | Indicates whether the returned list of analytics configurations is
     -- complete. A value of true indicates that the list is not complete and
     -- the NextContinuationToken will be provided for a subsequent request.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | The list of S3 Intelligent-Tiering configurations for a bucket.
-    intelligentTieringConfigurationList :: Prelude.Maybe [IntelligentTieringConfiguration],
+    intelligentTieringConfigurationList :: Core.Maybe [IntelligentTieringConfiguration],
     -- | The marker used to continue this inventory configuration listing. Use
     -- the @NextContinuationToken@ from this response to continue the listing
     -- in a subsequent request. The continuation token is an opaque value that
     -- Amazon S3 understands.
-    nextContinuationToken :: Prelude.Maybe Prelude.Text,
+    nextContinuationToken :: Core.Maybe Core.Text,
     -- | The ContinuationToken that represents a placeholder from where this
     -- request should begin.
-    continuationToken :: Prelude.Maybe Prelude.Text,
+    continuationToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListBucketIntelligentTieringConfigurationsResponse' with all optional fields omitted.
@@ -225,19 +223,19 @@ data ListBucketIntelligentTieringConfigurationsResponse = ListBucketIntelligentT
 -- 'httpStatus', 'listBucketIntelligentTieringConfigurationsResponse_httpStatus' - The response's http status code.
 newListBucketIntelligentTieringConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListBucketIntelligentTieringConfigurationsResponse
 newListBucketIntelligentTieringConfigurationsResponse
   pHttpStatus_ =
     ListBucketIntelligentTieringConfigurationsResponse'
       { isTruncated =
-          Prelude.Nothing,
+          Core.Nothing,
         intelligentTieringConfigurationList =
-          Prelude.Nothing,
+          Core.Nothing,
         nextContinuationToken =
-          Prelude.Nothing,
+          Core.Nothing,
         continuationToken =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
@@ -245,29 +243,29 @@ newListBucketIntelligentTieringConfigurationsResponse
 -- | Indicates whether the returned list of analytics configurations is
 -- complete. A value of true indicates that the list is not complete and
 -- the NextContinuationToken will be provided for a subsequent request.
-listBucketIntelligentTieringConfigurationsResponse_isTruncated :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Prelude.Maybe Prelude.Bool)
+listBucketIntelligentTieringConfigurationsResponse_isTruncated :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Core.Maybe Core.Bool)
 listBucketIntelligentTieringConfigurationsResponse_isTruncated = Lens.lens (\ListBucketIntelligentTieringConfigurationsResponse' {isTruncated} -> isTruncated) (\s@ListBucketIntelligentTieringConfigurationsResponse' {} a -> s {isTruncated = a} :: ListBucketIntelligentTieringConfigurationsResponse)
 
 -- | The list of S3 Intelligent-Tiering configurations for a bucket.
-listBucketIntelligentTieringConfigurationsResponse_intelligentTieringConfigurationList :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Prelude.Maybe [IntelligentTieringConfiguration])
-listBucketIntelligentTieringConfigurationsResponse_intelligentTieringConfigurationList = Lens.lens (\ListBucketIntelligentTieringConfigurationsResponse' {intelligentTieringConfigurationList} -> intelligentTieringConfigurationList) (\s@ListBucketIntelligentTieringConfigurationsResponse' {} a -> s {intelligentTieringConfigurationList = a} :: ListBucketIntelligentTieringConfigurationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listBucketIntelligentTieringConfigurationsResponse_intelligentTieringConfigurationList :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Core.Maybe [IntelligentTieringConfiguration])
+listBucketIntelligentTieringConfigurationsResponse_intelligentTieringConfigurationList = Lens.lens (\ListBucketIntelligentTieringConfigurationsResponse' {intelligentTieringConfigurationList} -> intelligentTieringConfigurationList) (\s@ListBucketIntelligentTieringConfigurationsResponse' {} a -> s {intelligentTieringConfigurationList = a} :: ListBucketIntelligentTieringConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The marker used to continue this inventory configuration listing. Use
 -- the @NextContinuationToken@ from this response to continue the listing
 -- in a subsequent request. The continuation token is an opaque value that
 -- Amazon S3 understands.
-listBucketIntelligentTieringConfigurationsResponse_nextContinuationToken :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Prelude.Maybe Prelude.Text)
+listBucketIntelligentTieringConfigurationsResponse_nextContinuationToken :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Core.Maybe Core.Text)
 listBucketIntelligentTieringConfigurationsResponse_nextContinuationToken = Lens.lens (\ListBucketIntelligentTieringConfigurationsResponse' {nextContinuationToken} -> nextContinuationToken) (\s@ListBucketIntelligentTieringConfigurationsResponse' {} a -> s {nextContinuationToken = a} :: ListBucketIntelligentTieringConfigurationsResponse)
 
 -- | The ContinuationToken that represents a placeholder from where this
 -- request should begin.
-listBucketIntelligentTieringConfigurationsResponse_continuationToken :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Prelude.Maybe Prelude.Text)
+listBucketIntelligentTieringConfigurationsResponse_continuationToken :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Core.Maybe Core.Text)
 listBucketIntelligentTieringConfigurationsResponse_continuationToken = Lens.lens (\ListBucketIntelligentTieringConfigurationsResponse' {continuationToken} -> continuationToken) (\s@ListBucketIntelligentTieringConfigurationsResponse' {} a -> s {continuationToken = a} :: ListBucketIntelligentTieringConfigurationsResponse)
 
 -- | The response's http status code.
-listBucketIntelligentTieringConfigurationsResponse_httpStatus :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse Prelude.Int
+listBucketIntelligentTieringConfigurationsResponse_httpStatus :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse Core.Int
 listBucketIntelligentTieringConfigurationsResponse_httpStatus = Lens.lens (\ListBucketIntelligentTieringConfigurationsResponse' {httpStatus} -> httpStatus) (\s@ListBucketIntelligentTieringConfigurationsResponse' {} a -> s {httpStatus = a} :: ListBucketIntelligentTieringConfigurationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListBucketIntelligentTieringConfigurationsResponse

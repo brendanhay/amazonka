@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,10 +43,9 @@ module Network.AWS.Greengrass.ListResourceDefinitions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data ListResourceDefinitions = ListResourceDefinitions'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text
+    maxResults :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListResourceDefinitions' with all optional fields omitted.
@@ -77,95 +75,90 @@ newListResourceDefinitions ::
   ListResourceDefinitions
 newListResourceDefinitions =
   ListResourceDefinitions'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listResourceDefinitions_nextToken :: Lens.Lens' ListResourceDefinitions (Prelude.Maybe Prelude.Text)
+listResourceDefinitions_nextToken :: Lens.Lens' ListResourceDefinitions (Core.Maybe Core.Text)
 listResourceDefinitions_nextToken = Lens.lens (\ListResourceDefinitions' {nextToken} -> nextToken) (\s@ListResourceDefinitions' {} a -> s {nextToken = a} :: ListResourceDefinitions)
 
 -- | The maximum number of results to be returned per request.
-listResourceDefinitions_maxResults :: Lens.Lens' ListResourceDefinitions (Prelude.Maybe Prelude.Text)
+listResourceDefinitions_maxResults :: Lens.Lens' ListResourceDefinitions (Core.Maybe Core.Text)
 listResourceDefinitions_maxResults = Lens.lens (\ListResourceDefinitions' {maxResults} -> maxResults) (\s@ListResourceDefinitions' {} a -> s {maxResults = a} :: ListResourceDefinitions)
 
-instance Pager.AWSPager ListResourceDefinitions where
+instance Core.AWSPager ListResourceDefinitions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listResourceDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listResourceDefinitionsResponse_definitions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listResourceDefinitions_nextToken
           Lens..~ rs
           Lens.^? listResourceDefinitionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListResourceDefinitions where
+instance Core.AWSRequest ListResourceDefinitions where
   type
-    Rs ListResourceDefinitions =
+    AWSResponse ListResourceDefinitions =
       ListResourceDefinitionsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListResourceDefinitionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Definitions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Definitions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListResourceDefinitions
+instance Core.Hashable ListResourceDefinitions
 
-instance Prelude.NFData ListResourceDefinitions
+instance Core.NFData ListResourceDefinitions
 
-instance Prelude.ToHeaders ListResourceDefinitions where
+instance Core.ToHeaders ListResourceDefinitions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListResourceDefinitions where
+instance Core.ToPath ListResourceDefinitions where
   toPath =
-    Prelude.const "/greengrass/definition/resources"
+    Core.const "/greengrass/definition/resources"
 
-instance Prelude.ToQuery ListResourceDefinitions where
+instance Core.ToQuery ListResourceDefinitions where
   toQuery ListResourceDefinitions' {..} =
-    Prelude.mconcat
-      [ "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListResourceDefinitionsResponse' smart constructor.
 data ListResourceDefinitionsResponse = ListResourceDefinitionsResponse'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about a definition.
-    definitions :: Prelude.Maybe [DefinitionInformation],
+    definitions :: Core.Maybe [DefinitionInformation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListResourceDefinitionsResponse' with all optional fields omitted.
@@ -183,29 +176,27 @@ data ListResourceDefinitionsResponse = ListResourceDefinitionsResponse'
 -- 'httpStatus', 'listResourceDefinitionsResponse_httpStatus' - The response's http status code.
 newListResourceDefinitionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListResourceDefinitionsResponse
 newListResourceDefinitionsResponse pHttpStatus_ =
   ListResourceDefinitionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      definitions = Prelude.Nothing,
+        Core.Nothing,
+      definitions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listResourceDefinitionsResponse_nextToken :: Lens.Lens' ListResourceDefinitionsResponse (Prelude.Maybe Prelude.Text)
+listResourceDefinitionsResponse_nextToken :: Lens.Lens' ListResourceDefinitionsResponse (Core.Maybe Core.Text)
 listResourceDefinitionsResponse_nextToken = Lens.lens (\ListResourceDefinitionsResponse' {nextToken} -> nextToken) (\s@ListResourceDefinitionsResponse' {} a -> s {nextToken = a} :: ListResourceDefinitionsResponse)
 
 -- | Information about a definition.
-listResourceDefinitionsResponse_definitions :: Lens.Lens' ListResourceDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
-listResourceDefinitionsResponse_definitions = Lens.lens (\ListResourceDefinitionsResponse' {definitions} -> definitions) (\s@ListResourceDefinitionsResponse' {} a -> s {definitions = a} :: ListResourceDefinitionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listResourceDefinitionsResponse_definitions :: Lens.Lens' ListResourceDefinitionsResponse (Core.Maybe [DefinitionInformation])
+listResourceDefinitionsResponse_definitions = Lens.lens (\ListResourceDefinitionsResponse' {definitions} -> definitions) (\s@ListResourceDefinitionsResponse' {} a -> s {definitions = a} :: ListResourceDefinitionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listResourceDefinitionsResponse_httpStatus :: Lens.Lens' ListResourceDefinitionsResponse Prelude.Int
+listResourceDefinitionsResponse_httpStatus :: Lens.Lens' ListResourceDefinitionsResponse Core.Int
 listResourceDefinitionsResponse_httpStatus = Lens.lens (\ListResourceDefinitionsResponse' {httpStatus} -> httpStatus) (\s@ListResourceDefinitionsResponse' {} a -> s {httpStatus = a} :: ListResourceDefinitionsResponse)
 
-instance
-  Prelude.NFData
-    ListResourceDefinitionsResponse
+instance Core.NFData ListResourceDefinitionsResponse

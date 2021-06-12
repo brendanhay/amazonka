@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MechanicalTurk.Types.NotificationSpecification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.EventType
 import Network.AWS.MechanicalTurk.Types.NotificationTransport
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The NotificationSpecification data structure describes a HIT event
 -- notification for a HIT type.
@@ -38,12 +37,12 @@ data NotificationSpecification = NotificationSpecification'
     -- -   When Transport is SQS, the Destination is your queue URL.
     --
     -- -   When Transport is SNS, the Destination is the ARN of your topic.
-    destination :: Prelude.Text,
+    destination :: Core.Text,
     -- | The method Amazon Mechanical Turk uses to send the notification. Valid
     -- Values: Email | SQS | SNS.
     transport :: NotificationTransport,
     -- | The version of the Notification API to use. Valid value is 2006-05-05.
-    version :: Prelude.Text,
+    version :: Core.Text,
     -- | The list of events that should cause notifications to be sent. Valid
     -- Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned |
     -- AssignmentSubmitted | AssignmentRejected | AssignmentApproved |
@@ -52,7 +51,7 @@ data NotificationSpecification = NotificationSpecification'
     -- operation.
     eventTypes :: [EventType]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NotificationSpecification' with all optional fields omitted.
@@ -84,11 +83,11 @@ data NotificationSpecification = NotificationSpecification'
 -- operation.
 newNotificationSpecification ::
   -- | 'destination'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'transport'
   NotificationTransport ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   NotificationSpecification
 newNotificationSpecification
   pDestination_
@@ -99,7 +98,7 @@ newNotificationSpecification
           pDestination_,
         transport = pTransport_,
         version = pVersion_,
-        eventTypes = Prelude.mempty
+        eventTypes = Core.mempty
       }
 
 -- | The target for notification messages. The Destination’s format is
@@ -110,7 +109,7 @@ newNotificationSpecification
 -- -   When Transport is SQS, the Destination is your queue URL.
 --
 -- -   When Transport is SNS, the Destination is the ARN of your topic.
-notificationSpecification_destination :: Lens.Lens' NotificationSpecification Prelude.Text
+notificationSpecification_destination :: Lens.Lens' NotificationSpecification Core.Text
 notificationSpecification_destination = Lens.lens (\NotificationSpecification' {destination} -> destination) (\s@NotificationSpecification' {} a -> s {destination = a} :: NotificationSpecification)
 
 -- | The method Amazon Mechanical Turk uses to send the notification. Valid
@@ -119,7 +118,7 @@ notificationSpecification_transport :: Lens.Lens' NotificationSpecification Noti
 notificationSpecification_transport = Lens.lens (\NotificationSpecification' {transport} -> transport) (\s@NotificationSpecification' {} a -> s {transport = a} :: NotificationSpecification)
 
 -- | The version of the Notification API to use. Valid value is 2006-05-05.
-notificationSpecification_version :: Lens.Lens' NotificationSpecification Prelude.Text
+notificationSpecification_version :: Lens.Lens' NotificationSpecification Core.Text
 notificationSpecification_version = Lens.lens (\NotificationSpecification' {version} -> version) (\s@NotificationSpecification' {} a -> s {version = a} :: NotificationSpecification)
 
 -- | The list of events that should cause notifications to be sent. Valid
@@ -129,19 +128,19 @@ notificationSpecification_version = Lens.lens (\NotificationSpecification' {vers
 -- Ping. The Ping event is only valid for the SendTestEventNotification
 -- operation.
 notificationSpecification_eventTypes :: Lens.Lens' NotificationSpecification [EventType]
-notificationSpecification_eventTypes = Lens.lens (\NotificationSpecification' {eventTypes} -> eventTypes) (\s@NotificationSpecification' {} a -> s {eventTypes = a} :: NotificationSpecification) Prelude.. Prelude._Coerce
+notificationSpecification_eventTypes = Lens.lens (\NotificationSpecification' {eventTypes} -> eventTypes) (\s@NotificationSpecification' {} a -> s {eventTypes = a} :: NotificationSpecification) Core.. Lens._Coerce
 
-instance Prelude.Hashable NotificationSpecification
+instance Core.Hashable NotificationSpecification
 
-instance Prelude.NFData NotificationSpecification
+instance Core.NFData NotificationSpecification
 
-instance Prelude.ToJSON NotificationSpecification where
+instance Core.ToJSON NotificationSpecification where
   toJSON NotificationSpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Destination" Prelude..= destination),
-            Prelude.Just ("Transport" Prelude..= transport),
-            Prelude.Just ("Version" Prelude..= version),
-            Prelude.Just ("EventTypes" Prelude..= eventTypes)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Destination" Core..= destination),
+            Core.Just ("Transport" Core..= transport),
+            Core.Just ("Version" Core..= version),
+            Core.Just ("EventTypes" Core..= eventTypes)
           ]
       )

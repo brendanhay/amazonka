@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SecurityGroupReference where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a VPC with a security group that references your security
 -- group.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSecurityGroupReference' smart constructor.
 data SecurityGroupReference = SecurityGroupReference'
   { -- | The ID of the VPC peering connection.
-    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
+    vpcPeeringConnectionId :: Core.Maybe Core.Text,
     -- | The ID of your security group.
-    groupId :: Prelude.Maybe Prelude.Text,
+    groupId :: Core.Maybe Core.Text,
     -- | The ID of the VPC with the referencing security group.
-    referencingVpcId :: Prelude.Maybe Prelude.Text
+    referencingVpcId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SecurityGroupReference' with all optional fields omitted.
@@ -56,30 +55,30 @@ newSecurityGroupReference ::
 newSecurityGroupReference =
   SecurityGroupReference'
     { vpcPeeringConnectionId =
-        Prelude.Nothing,
-      groupId = Prelude.Nothing,
-      referencingVpcId = Prelude.Nothing
+        Core.Nothing,
+      groupId = Core.Nothing,
+      referencingVpcId = Core.Nothing
     }
 
 -- | The ID of the VPC peering connection.
-securityGroupReference_vpcPeeringConnectionId :: Lens.Lens' SecurityGroupReference (Prelude.Maybe Prelude.Text)
+securityGroupReference_vpcPeeringConnectionId :: Lens.Lens' SecurityGroupReference (Core.Maybe Core.Text)
 securityGroupReference_vpcPeeringConnectionId = Lens.lens (\SecurityGroupReference' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@SecurityGroupReference' {} a -> s {vpcPeeringConnectionId = a} :: SecurityGroupReference)
 
 -- | The ID of your security group.
-securityGroupReference_groupId :: Lens.Lens' SecurityGroupReference (Prelude.Maybe Prelude.Text)
+securityGroupReference_groupId :: Lens.Lens' SecurityGroupReference (Core.Maybe Core.Text)
 securityGroupReference_groupId = Lens.lens (\SecurityGroupReference' {groupId} -> groupId) (\s@SecurityGroupReference' {} a -> s {groupId = a} :: SecurityGroupReference)
 
 -- | The ID of the VPC with the referencing security group.
-securityGroupReference_referencingVpcId :: Lens.Lens' SecurityGroupReference (Prelude.Maybe Prelude.Text)
+securityGroupReference_referencingVpcId :: Lens.Lens' SecurityGroupReference (Core.Maybe Core.Text)
 securityGroupReference_referencingVpcId = Lens.lens (\SecurityGroupReference' {referencingVpcId} -> referencingVpcId) (\s@SecurityGroupReference' {} a -> s {referencingVpcId = a} :: SecurityGroupReference)
 
-instance Prelude.FromXML SecurityGroupReference where
+instance Core.FromXML SecurityGroupReference where
   parseXML x =
     SecurityGroupReference'
-      Prelude.<$> (x Prelude..@? "vpcPeeringConnectionId")
-      Prelude.<*> (x Prelude..@? "groupId")
-      Prelude.<*> (x Prelude..@? "referencingVpcId")
+      Core.<$> (x Core..@? "vpcPeeringConnectionId")
+      Core.<*> (x Core..@? "groupId")
+      Core.<*> (x Core..@? "referencingVpcId")
 
-instance Prelude.Hashable SecurityGroupReference
+instance Core.Hashable SecurityGroupReference
 
-instance Prelude.NFData SecurityGroupReference
+instance Core.NFData SecurityGroupReference

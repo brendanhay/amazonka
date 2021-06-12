@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.Redshift.DescribeSnapshotSchedules
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -58,29 +56,29 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDescribeSnapshotSchedules' smart constructor.
 data DescribeSnapshotSchedules = DescribeSnapshotSchedules'
   { -- | The key value for a snapshot schedule tag.
-    tagKeys :: Prelude.Maybe [Prelude.Text],
+    tagKeys :: Core.Maybe [Core.Text],
     -- | A unique identifier for a snapshot schedule.
-    scheduleIdentifier :: Prelude.Maybe Prelude.Text,
+    scheduleIdentifier :: Core.Maybe Core.Text,
     -- | The unique identifier for the cluster whose snapshot schedules you want
     -- to view.
-    clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    clusterIdentifier :: Core.Maybe Core.Text,
     -- | The value corresponding to the key of the snapshot schedule tag.
-    tagValues :: Prelude.Maybe [Prelude.Text],
+    tagValues :: Core.Maybe [Core.Text],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @marker@ parameter and retrying the command. If the
     -- @marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number or response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
     -- retrieve the next set of records by retrying the command with the
     -- returned @marker@ value.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSnapshotSchedules' with all optional fields omitted.
@@ -115,31 +113,30 @@ newDescribeSnapshotSchedules ::
   DescribeSnapshotSchedules
 newDescribeSnapshotSchedules =
   DescribeSnapshotSchedules'
-    { tagKeys =
-        Prelude.Nothing,
-      scheduleIdentifier = Prelude.Nothing,
-      clusterIdentifier = Prelude.Nothing,
-      tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+    { tagKeys = Core.Nothing,
+      scheduleIdentifier = Core.Nothing,
+      clusterIdentifier = Core.Nothing,
+      tagValues = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The key value for a snapshot schedule tag.
-describeSnapshotSchedules_tagKeys :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe [Prelude.Text])
-describeSnapshotSchedules_tagKeys = Lens.lens (\DescribeSnapshotSchedules' {tagKeys} -> tagKeys) (\s@DescribeSnapshotSchedules' {} a -> s {tagKeys = a} :: DescribeSnapshotSchedules) Prelude.. Lens.mapping Prelude._Coerce
+describeSnapshotSchedules_tagKeys :: Lens.Lens' DescribeSnapshotSchedules (Core.Maybe [Core.Text])
+describeSnapshotSchedules_tagKeys = Lens.lens (\DescribeSnapshotSchedules' {tagKeys} -> tagKeys) (\s@DescribeSnapshotSchedules' {} a -> s {tagKeys = a} :: DescribeSnapshotSchedules) Core.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for a snapshot schedule.
-describeSnapshotSchedules_scheduleIdentifier :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe Prelude.Text)
+describeSnapshotSchedules_scheduleIdentifier :: Lens.Lens' DescribeSnapshotSchedules (Core.Maybe Core.Text)
 describeSnapshotSchedules_scheduleIdentifier = Lens.lens (\DescribeSnapshotSchedules' {scheduleIdentifier} -> scheduleIdentifier) (\s@DescribeSnapshotSchedules' {} a -> s {scheduleIdentifier = a} :: DescribeSnapshotSchedules)
 
 -- | The unique identifier for the cluster whose snapshot schedules you want
 -- to view.
-describeSnapshotSchedules_clusterIdentifier :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe Prelude.Text)
+describeSnapshotSchedules_clusterIdentifier :: Lens.Lens' DescribeSnapshotSchedules (Core.Maybe Core.Text)
 describeSnapshotSchedules_clusterIdentifier = Lens.lens (\DescribeSnapshotSchedules' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeSnapshotSchedules' {} a -> s {clusterIdentifier = a} :: DescribeSnapshotSchedules)
 
 -- | The value corresponding to the key of the snapshot schedule tag.
-describeSnapshotSchedules_tagValues :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe [Prelude.Text])
-describeSnapshotSchedules_tagValues = Lens.lens (\DescribeSnapshotSchedules' {tagValues} -> tagValues) (\s@DescribeSnapshotSchedules' {} a -> s {tagValues = a} :: DescribeSnapshotSchedules) Prelude.. Lens.mapping Prelude._Coerce
+describeSnapshotSchedules_tagValues :: Lens.Lens' DescribeSnapshotSchedules (Core.Maybe [Core.Text])
+describeSnapshotSchedules_tagValues = Lens.lens (\DescribeSnapshotSchedules' {tagValues} -> tagValues) (\s@DescribeSnapshotSchedules' {} a -> s {tagValues = a} :: DescribeSnapshotSchedules) Core.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -147,7 +144,7 @@ describeSnapshotSchedules_tagValues = Lens.lens (\DescribeSnapshotSchedules' {ta
 -- marker value in the @marker@ parameter and retrying the command. If the
 -- @marker@ field is empty, all response records have been retrieved for
 -- the request.
-describeSnapshotSchedules_marker :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe Prelude.Text)
+describeSnapshotSchedules_marker :: Lens.Lens' DescribeSnapshotSchedules (Core.Maybe Core.Text)
 describeSnapshotSchedules_marker = Lens.lens (\DescribeSnapshotSchedules' {marker} -> marker) (\s@DescribeSnapshotSchedules' {} a -> s {marker = a} :: DescribeSnapshotSchedules)
 
 -- | The maximum number or response records to return in each call. If the
@@ -155,34 +152,34 @@ describeSnapshotSchedules_marker = Lens.lens (\DescribeSnapshotSchedules' {marke
 -- value, a value is returned in a @marker@ field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned @marker@ value.
-describeSnapshotSchedules_maxRecords :: Lens.Lens' DescribeSnapshotSchedules (Prelude.Maybe Prelude.Int)
+describeSnapshotSchedules_maxRecords :: Lens.Lens' DescribeSnapshotSchedules (Core.Maybe Core.Int)
 describeSnapshotSchedules_maxRecords = Lens.lens (\DescribeSnapshotSchedules' {maxRecords} -> maxRecords) (\s@DescribeSnapshotSchedules' {} a -> s {maxRecords = a} :: DescribeSnapshotSchedules)
 
-instance Pager.AWSPager DescribeSnapshotSchedules where
+instance Core.AWSPager DescribeSnapshotSchedules where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeSnapshotSchedulesResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeSnapshotSchedulesResponse_snapshotSchedules
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeSnapshotSchedules_marker
           Lens..~ rs
           Lens.^? describeSnapshotSchedulesResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeSnapshotSchedules where
+instance Core.AWSRequest DescribeSnapshotSchedules where
   type
-    Rs DescribeSnapshotSchedules =
+    AWSResponse DescribeSnapshotSchedules =
       DescribeSnapshotSchedulesResponse
   request = Request.postQuery defaultService
   response =
@@ -190,61 +187,56 @@ instance Prelude.AWSRequest DescribeSnapshotSchedules where
       "DescribeSnapshotSchedulesResult"
       ( \s h x ->
           DescribeSnapshotSchedulesResponse'
-            Prelude.<$> ( x Prelude..@? "SnapshotSchedules"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "SnapshotSchedule")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "SnapshotSchedules" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "SnapshotSchedule")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSnapshotSchedules
+instance Core.Hashable DescribeSnapshotSchedules
 
-instance Prelude.NFData DescribeSnapshotSchedules
+instance Core.NFData DescribeSnapshotSchedules
 
-instance Prelude.ToHeaders DescribeSnapshotSchedules where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeSnapshotSchedules where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeSnapshotSchedules where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSnapshotSchedules where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeSnapshotSchedules where
+instance Core.ToQuery DescribeSnapshotSchedules where
   toQuery DescribeSnapshotSchedules' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeSnapshotSchedules" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+          Core.=: ("DescribeSnapshotSchedules" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
         "TagKeys"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "ScheduleIdentifier" Prelude.=: scheduleIdentifier,
-        "ClusterIdentifier" Prelude.=: clusterIdentifier,
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagKey" Core.<$> tagKeys),
+        "ScheduleIdentifier" Core.=: scheduleIdentifier,
+        "ClusterIdentifier" Core.=: clusterIdentifier,
         "TagValues"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "TagValue"
-                Prelude.<$> tagValues
-            ),
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Core.<$> tagValues),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeSnapshotSchedulesResponse' smart constructor.
 data DescribeSnapshotSchedulesResponse = DescribeSnapshotSchedulesResponse'
   { -- | A list of SnapshotSchedules.
-    snapshotSchedules :: Prelude.Maybe [SnapshotSchedule],
+    snapshotSchedules :: Core.Maybe [SnapshotSchedule],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @marker@ parameter and retrying the command. If the
     -- @marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSnapshotSchedulesResponse' with all optional fields omitted.
@@ -266,19 +258,19 @@ data DescribeSnapshotSchedulesResponse = DescribeSnapshotSchedulesResponse'
 -- 'httpStatus', 'describeSnapshotSchedulesResponse_httpStatus' - The response's http status code.
 newDescribeSnapshotSchedulesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSnapshotSchedulesResponse
 newDescribeSnapshotSchedulesResponse pHttpStatus_ =
   DescribeSnapshotSchedulesResponse'
     { snapshotSchedules =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of SnapshotSchedules.
-describeSnapshotSchedulesResponse_snapshotSchedules :: Lens.Lens' DescribeSnapshotSchedulesResponse (Prelude.Maybe [SnapshotSchedule])
-describeSnapshotSchedulesResponse_snapshotSchedules = Lens.lens (\DescribeSnapshotSchedulesResponse' {snapshotSchedules} -> snapshotSchedules) (\s@DescribeSnapshotSchedulesResponse' {} a -> s {snapshotSchedules = a} :: DescribeSnapshotSchedulesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeSnapshotSchedulesResponse_snapshotSchedules :: Lens.Lens' DescribeSnapshotSchedulesResponse (Core.Maybe [SnapshotSchedule])
+describeSnapshotSchedulesResponse_snapshotSchedules = Lens.lens (\DescribeSnapshotSchedulesResponse' {snapshotSchedules} -> snapshotSchedules) (\s@DescribeSnapshotSchedulesResponse' {} a -> s {snapshotSchedules = a} :: DescribeSnapshotSchedulesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -286,13 +278,13 @@ describeSnapshotSchedulesResponse_snapshotSchedules = Lens.lens (\DescribeSnapsh
 -- marker value in the @marker@ parameter and retrying the command. If the
 -- @marker@ field is empty, all response records have been retrieved for
 -- the request.
-describeSnapshotSchedulesResponse_marker :: Lens.Lens' DescribeSnapshotSchedulesResponse (Prelude.Maybe Prelude.Text)
+describeSnapshotSchedulesResponse_marker :: Lens.Lens' DescribeSnapshotSchedulesResponse (Core.Maybe Core.Text)
 describeSnapshotSchedulesResponse_marker = Lens.lens (\DescribeSnapshotSchedulesResponse' {marker} -> marker) (\s@DescribeSnapshotSchedulesResponse' {} a -> s {marker = a} :: DescribeSnapshotSchedulesResponse)
 
 -- | The response's http status code.
-describeSnapshotSchedulesResponse_httpStatus :: Lens.Lens' DescribeSnapshotSchedulesResponse Prelude.Int
+describeSnapshotSchedulesResponse_httpStatus :: Lens.Lens' DescribeSnapshotSchedulesResponse Core.Int
 describeSnapshotSchedulesResponse_httpStatus = Lens.lens (\DescribeSnapshotSchedulesResponse' {httpStatus} -> httpStatus) (\s@DescribeSnapshotSchedulesResponse' {} a -> s {httpStatus = a} :: DescribeSnapshotSchedulesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeSnapshotSchedulesResponse

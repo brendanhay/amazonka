@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,21 +20,21 @@
 module Network.AWS.AlexaBusiness.Types.DeviceEvent where
 
 import Network.AWS.AlexaBusiness.Types.DeviceEventType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The list of device events.
 --
 -- /See:/ 'newDeviceEvent' smart constructor.
 data DeviceEvent = DeviceEvent'
   { -- | The time (in epoch) when the event occurred.
-    timestamp :: Prelude.Maybe Prelude.POSIX,
+    timestamp :: Core.Maybe Core.POSIX,
     -- | The value of the event.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The type of device event.
-    type' :: Prelude.Maybe DeviceEventType
+    type' :: Core.Maybe DeviceEventType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeviceEvent' with all optional fields omitted.
@@ -54,34 +53,34 @@ newDeviceEvent ::
   DeviceEvent
 newDeviceEvent =
   DeviceEvent'
-    { timestamp = Prelude.Nothing,
-      value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { timestamp = Core.Nothing,
+      value = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The time (in epoch) when the event occurred.
-deviceEvent_timestamp :: Lens.Lens' DeviceEvent (Prelude.Maybe Prelude.UTCTime)
-deviceEvent_timestamp = Lens.lens (\DeviceEvent' {timestamp} -> timestamp) (\s@DeviceEvent' {} a -> s {timestamp = a} :: DeviceEvent) Prelude.. Lens.mapping Prelude._Time
+deviceEvent_timestamp :: Lens.Lens' DeviceEvent (Core.Maybe Core.UTCTime)
+deviceEvent_timestamp = Lens.lens (\DeviceEvent' {timestamp} -> timestamp) (\s@DeviceEvent' {} a -> s {timestamp = a} :: DeviceEvent) Core.. Lens.mapping Core._Time
 
 -- | The value of the event.
-deviceEvent_value :: Lens.Lens' DeviceEvent (Prelude.Maybe Prelude.Text)
+deviceEvent_value :: Lens.Lens' DeviceEvent (Core.Maybe Core.Text)
 deviceEvent_value = Lens.lens (\DeviceEvent' {value} -> value) (\s@DeviceEvent' {} a -> s {value = a} :: DeviceEvent)
 
 -- | The type of device event.
-deviceEvent_type :: Lens.Lens' DeviceEvent (Prelude.Maybe DeviceEventType)
+deviceEvent_type :: Lens.Lens' DeviceEvent (Core.Maybe DeviceEventType)
 deviceEvent_type = Lens.lens (\DeviceEvent' {type'} -> type') (\s@DeviceEvent' {} a -> s {type' = a} :: DeviceEvent)
 
-instance Prelude.FromJSON DeviceEvent where
+instance Core.FromJSON DeviceEvent where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeviceEvent"
       ( \x ->
           DeviceEvent'
-            Prelude.<$> (x Prelude..:? "Timestamp")
-            Prelude.<*> (x Prelude..:? "Value")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Timestamp")
+            Core.<*> (x Core..:? "Value")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable DeviceEvent
+instance Core.Hashable DeviceEvent
 
-instance Prelude.NFData DeviceEvent
+instance Core.NFData DeviceEvent

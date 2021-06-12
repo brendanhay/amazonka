@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,24 +46,23 @@ module Network.AWS.Polly.ListSpeechSynthesisTasks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
 import Network.AWS.Polly.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListSpeechSynthesisTasks' smart constructor.
 data ListSpeechSynthesisTasks = ListSpeechSynthesisTasks'
   { -- | Status of the speech synthesis tasks returned in a List operation
-    status :: Prelude.Maybe TaskStatus,
+    status :: Core.Maybe TaskStatus,
     -- | The pagination token to use in the next request to continue the listing
     -- of speech synthesis tasks.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Maximum number of speech synthesis tasks returned in a List operation.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSpeechSynthesisTasks' with all optional fields omitted.
@@ -84,93 +82,91 @@ newListSpeechSynthesisTasks ::
   ListSpeechSynthesisTasks
 newListSpeechSynthesisTasks =
   ListSpeechSynthesisTasks'
-    { status = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { status = Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | Status of the speech synthesis tasks returned in a List operation
-listSpeechSynthesisTasks_status :: Lens.Lens' ListSpeechSynthesisTasks (Prelude.Maybe TaskStatus)
+listSpeechSynthesisTasks_status :: Lens.Lens' ListSpeechSynthesisTasks (Core.Maybe TaskStatus)
 listSpeechSynthesisTasks_status = Lens.lens (\ListSpeechSynthesisTasks' {status} -> status) (\s@ListSpeechSynthesisTasks' {} a -> s {status = a} :: ListSpeechSynthesisTasks)
 
 -- | The pagination token to use in the next request to continue the listing
 -- of speech synthesis tasks.
-listSpeechSynthesisTasks_nextToken :: Lens.Lens' ListSpeechSynthesisTasks (Prelude.Maybe Prelude.Text)
+listSpeechSynthesisTasks_nextToken :: Lens.Lens' ListSpeechSynthesisTasks (Core.Maybe Core.Text)
 listSpeechSynthesisTasks_nextToken = Lens.lens (\ListSpeechSynthesisTasks' {nextToken} -> nextToken) (\s@ListSpeechSynthesisTasks' {} a -> s {nextToken = a} :: ListSpeechSynthesisTasks)
 
 -- | Maximum number of speech synthesis tasks returned in a List operation.
-listSpeechSynthesisTasks_maxResults :: Lens.Lens' ListSpeechSynthesisTasks (Prelude.Maybe Prelude.Natural)
+listSpeechSynthesisTasks_maxResults :: Lens.Lens' ListSpeechSynthesisTasks (Core.Maybe Core.Natural)
 listSpeechSynthesisTasks_maxResults = Lens.lens (\ListSpeechSynthesisTasks' {maxResults} -> maxResults) (\s@ListSpeechSynthesisTasks' {} a -> s {maxResults = a} :: ListSpeechSynthesisTasks)
 
-instance Pager.AWSPager ListSpeechSynthesisTasks where
+instance Core.AWSPager ListSpeechSynthesisTasks where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listSpeechSynthesisTasksResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listSpeechSynthesisTasksResponse_synthesisTasks
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listSpeechSynthesisTasks_nextToken
           Lens..~ rs
           Lens.^? listSpeechSynthesisTasksResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListSpeechSynthesisTasks where
+instance Core.AWSRequest ListSpeechSynthesisTasks where
   type
-    Rs ListSpeechSynthesisTasks =
+    AWSResponse ListSpeechSynthesisTasks =
       ListSpeechSynthesisTasksResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListSpeechSynthesisTasksResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "SynthesisTasks"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "SynthesisTasks" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListSpeechSynthesisTasks
+instance Core.Hashable ListSpeechSynthesisTasks
 
-instance Prelude.NFData ListSpeechSynthesisTasks
+instance Core.NFData ListSpeechSynthesisTasks
 
-instance Prelude.ToHeaders ListSpeechSynthesisTasks where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListSpeechSynthesisTasks where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListSpeechSynthesisTasks where
-  toPath = Prelude.const "/v1/synthesisTasks"
+instance Core.ToPath ListSpeechSynthesisTasks where
+  toPath = Core.const "/v1/synthesisTasks"
 
-instance Prelude.ToQuery ListSpeechSynthesisTasks where
+instance Core.ToQuery ListSpeechSynthesisTasks where
   toQuery ListSpeechSynthesisTasks' {..} =
-    Prelude.mconcat
-      [ "Status" Prelude.=: status,
-        "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "Status" Core.=: status,
+        "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListSpeechSynthesisTasksResponse' smart constructor.
 data ListSpeechSynthesisTasksResponse = ListSpeechSynthesisTasksResponse'
   { -- | An opaque pagination token returned from the previous List operation in
     -- this request. If present, this indicates where to continue the listing.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | List of SynthesisTask objects that provides information from the
     -- specified task in the list request, including output format, creation
     -- time, task status, and so on.
-    synthesisTasks :: Prelude.Maybe [SynthesisTask],
+    synthesisTasks :: Core.Maybe [SynthesisTask],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSpeechSynthesisTasksResponse' with all optional fields omitted.
@@ -190,31 +186,29 @@ data ListSpeechSynthesisTasksResponse = ListSpeechSynthesisTasksResponse'
 -- 'httpStatus', 'listSpeechSynthesisTasksResponse_httpStatus' - The response's http status code.
 newListSpeechSynthesisTasksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSpeechSynthesisTasksResponse
 newListSpeechSynthesisTasksResponse pHttpStatus_ =
   ListSpeechSynthesisTasksResponse'
     { nextToken =
-        Prelude.Nothing,
-      synthesisTasks = Prelude.Nothing,
+        Core.Nothing,
+      synthesisTasks = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An opaque pagination token returned from the previous List operation in
 -- this request. If present, this indicates where to continue the listing.
-listSpeechSynthesisTasksResponse_nextToken :: Lens.Lens' ListSpeechSynthesisTasksResponse (Prelude.Maybe Prelude.Text)
+listSpeechSynthesisTasksResponse_nextToken :: Lens.Lens' ListSpeechSynthesisTasksResponse (Core.Maybe Core.Text)
 listSpeechSynthesisTasksResponse_nextToken = Lens.lens (\ListSpeechSynthesisTasksResponse' {nextToken} -> nextToken) (\s@ListSpeechSynthesisTasksResponse' {} a -> s {nextToken = a} :: ListSpeechSynthesisTasksResponse)
 
 -- | List of SynthesisTask objects that provides information from the
 -- specified task in the list request, including output format, creation
 -- time, task status, and so on.
-listSpeechSynthesisTasksResponse_synthesisTasks :: Lens.Lens' ListSpeechSynthesisTasksResponse (Prelude.Maybe [SynthesisTask])
-listSpeechSynthesisTasksResponse_synthesisTasks = Lens.lens (\ListSpeechSynthesisTasksResponse' {synthesisTasks} -> synthesisTasks) (\s@ListSpeechSynthesisTasksResponse' {} a -> s {synthesisTasks = a} :: ListSpeechSynthesisTasksResponse) Prelude.. Lens.mapping Prelude._Coerce
+listSpeechSynthesisTasksResponse_synthesisTasks :: Lens.Lens' ListSpeechSynthesisTasksResponse (Core.Maybe [SynthesisTask])
+listSpeechSynthesisTasksResponse_synthesisTasks = Lens.lens (\ListSpeechSynthesisTasksResponse' {synthesisTasks} -> synthesisTasks) (\s@ListSpeechSynthesisTasksResponse' {} a -> s {synthesisTasks = a} :: ListSpeechSynthesisTasksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listSpeechSynthesisTasksResponse_httpStatus :: Lens.Lens' ListSpeechSynthesisTasksResponse Prelude.Int
+listSpeechSynthesisTasksResponse_httpStatus :: Lens.Lens' ListSpeechSynthesisTasksResponse Core.Int
 listSpeechSynthesisTasksResponse_httpStatus = Lens.lens (\ListSpeechSynthesisTasksResponse' {httpStatus} -> httpStatus) (\s@ListSpeechSynthesisTasksResponse' {} a -> s {httpStatus = a} :: ListSpeechSynthesisTasksResponse)
 
-instance
-  Prelude.NFData
-    ListSpeechSynthesisTasksResponse
+instance Core.NFData ListSpeechSynthesisTasksResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceStatusSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceStatusDetails
 import Network.AWS.EC2.Types.SummaryStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the status of an instance.
 --
 -- /See:/ 'newInstanceStatusSummary' smart constructor.
 data InstanceStatusSummary = InstanceStatusSummary'
   { -- | The system instance health or application instance health.
-    details :: Prelude.Maybe [InstanceStatusDetails],
+    details :: Core.Maybe [InstanceStatusDetails],
     -- | The status.
     status :: SummaryStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceStatusSummary' with all optional fields omitted.
@@ -54,26 +53,26 @@ newInstanceStatusSummary ::
   InstanceStatusSummary
 newInstanceStatusSummary pStatus_ =
   InstanceStatusSummary'
-    { details = Prelude.Nothing,
+    { details = Core.Nothing,
       status = pStatus_
     }
 
 -- | The system instance health or application instance health.
-instanceStatusSummary_details :: Lens.Lens' InstanceStatusSummary (Prelude.Maybe [InstanceStatusDetails])
-instanceStatusSummary_details = Lens.lens (\InstanceStatusSummary' {details} -> details) (\s@InstanceStatusSummary' {} a -> s {details = a} :: InstanceStatusSummary) Prelude.. Lens.mapping Prelude._Coerce
+instanceStatusSummary_details :: Lens.Lens' InstanceStatusSummary (Core.Maybe [InstanceStatusDetails])
+instanceStatusSummary_details = Lens.lens (\InstanceStatusSummary' {details} -> details) (\s@InstanceStatusSummary' {} a -> s {details = a} :: InstanceStatusSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | The status.
 instanceStatusSummary_status :: Lens.Lens' InstanceStatusSummary SummaryStatus
 instanceStatusSummary_status = Lens.lens (\InstanceStatusSummary' {status} -> status) (\s@InstanceStatusSummary' {} a -> s {status = a} :: InstanceStatusSummary)
 
-instance Prelude.FromXML InstanceStatusSummary where
+instance Core.FromXML InstanceStatusSummary where
   parseXML x =
     InstanceStatusSummary'
-      Prelude.<$> ( x Prelude..@? "details" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@ "status")
+      Core.<$> ( x Core..@? "details" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@ "status")
 
-instance Prelude.Hashable InstanceStatusSummary
+instance Core.Hashable InstanceStatusSummary
 
-instance Prelude.NFData InstanceStatusSummary
+instance Core.NFData InstanceStatusSummary

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,20 +40,20 @@ module Network.AWS.ELBv2.ModifyTargetGroupAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyTargetGroupAttributes' smart constructor.
 data ModifyTargetGroupAttributes = ModifyTargetGroupAttributes'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupArn :: Prelude.Text,
+    targetGroupArn :: Core.Text,
     -- | The attributes.
     attributes :: [TargetGroupAttribute]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyTargetGroupAttributes' with all optional fields omitted.
@@ -69,29 +68,26 @@ data ModifyTargetGroupAttributes = ModifyTargetGroupAttributes'
 -- 'attributes', 'modifyTargetGroupAttributes_attributes' - The attributes.
 newModifyTargetGroupAttributes ::
   -- | 'targetGroupArn'
-  Prelude.Text ->
+  Core.Text ->
   ModifyTargetGroupAttributes
 newModifyTargetGroupAttributes pTargetGroupArn_ =
   ModifyTargetGroupAttributes'
     { targetGroupArn =
         pTargetGroupArn_,
-      attributes = Prelude.mempty
+      attributes = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the target group.
-modifyTargetGroupAttributes_targetGroupArn :: Lens.Lens' ModifyTargetGroupAttributes Prelude.Text
+modifyTargetGroupAttributes_targetGroupArn :: Lens.Lens' ModifyTargetGroupAttributes Core.Text
 modifyTargetGroupAttributes_targetGroupArn = Lens.lens (\ModifyTargetGroupAttributes' {targetGroupArn} -> targetGroupArn) (\s@ModifyTargetGroupAttributes' {} a -> s {targetGroupArn = a} :: ModifyTargetGroupAttributes)
 
 -- | The attributes.
 modifyTargetGroupAttributes_attributes :: Lens.Lens' ModifyTargetGroupAttributes [TargetGroupAttribute]
-modifyTargetGroupAttributes_attributes = Lens.lens (\ModifyTargetGroupAttributes' {attributes} -> attributes) (\s@ModifyTargetGroupAttributes' {} a -> s {attributes = a} :: ModifyTargetGroupAttributes) Prelude.. Prelude._Coerce
+modifyTargetGroupAttributes_attributes = Lens.lens (\ModifyTargetGroupAttributes' {attributes} -> attributes) (\s@ModifyTargetGroupAttributes' {} a -> s {attributes = a} :: ModifyTargetGroupAttributes) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    ModifyTargetGroupAttributes
-  where
+instance Core.AWSRequest ModifyTargetGroupAttributes where
   type
-    Rs ModifyTargetGroupAttributes =
+    AWSResponse ModifyTargetGroupAttributes =
       ModifyTargetGroupAttributesResponse
   request = Request.postQuery defaultService
   response =
@@ -99,48 +95,41 @@ instance
       "ModifyTargetGroupAttributesResult"
       ( \s h x ->
           ModifyTargetGroupAttributesResponse'
-            Prelude.<$> ( x Prelude..@? "Attributes"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Attributes" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyTargetGroupAttributes
+instance Core.Hashable ModifyTargetGroupAttributes
 
-instance Prelude.NFData ModifyTargetGroupAttributes
+instance Core.NFData ModifyTargetGroupAttributes
 
-instance
-  Prelude.ToHeaders
-    ModifyTargetGroupAttributes
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyTargetGroupAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyTargetGroupAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyTargetGroupAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyTargetGroupAttributes where
+instance Core.ToQuery ModifyTargetGroupAttributes where
   toQuery ModifyTargetGroupAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ModifyTargetGroupAttributes" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
-        "TargetGroupArn" Prelude.=: targetGroupArn,
+          Core.=: ("ModifyTargetGroupAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+        "TargetGroupArn" Core.=: targetGroupArn,
         "Attributes"
-          Prelude.=: Prelude.toQueryList "member" attributes
+          Core.=: Core.toQueryList "member" attributes
       ]
 
 -- | /See:/ 'newModifyTargetGroupAttributesResponse' smart constructor.
 data ModifyTargetGroupAttributesResponse = ModifyTargetGroupAttributesResponse'
   { -- | Information about the attributes.
-    attributes :: Prelude.Maybe [TargetGroupAttribute],
+    attributes :: Core.Maybe [TargetGroupAttribute],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyTargetGroupAttributesResponse' with all optional fields omitted.
@@ -155,23 +144,23 @@ data ModifyTargetGroupAttributesResponse = ModifyTargetGroupAttributesResponse'
 -- 'httpStatus', 'modifyTargetGroupAttributesResponse_httpStatus' - The response's http status code.
 newModifyTargetGroupAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyTargetGroupAttributesResponse
 newModifyTargetGroupAttributesResponse pHttpStatus_ =
   ModifyTargetGroupAttributesResponse'
     { attributes =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the attributes.
-modifyTargetGroupAttributesResponse_attributes :: Lens.Lens' ModifyTargetGroupAttributesResponse (Prelude.Maybe [TargetGroupAttribute])
-modifyTargetGroupAttributesResponse_attributes = Lens.lens (\ModifyTargetGroupAttributesResponse' {attributes} -> attributes) (\s@ModifyTargetGroupAttributesResponse' {} a -> s {attributes = a} :: ModifyTargetGroupAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+modifyTargetGroupAttributesResponse_attributes :: Lens.Lens' ModifyTargetGroupAttributesResponse (Core.Maybe [TargetGroupAttribute])
+modifyTargetGroupAttributesResponse_attributes = Lens.lens (\ModifyTargetGroupAttributesResponse' {attributes} -> attributes) (\s@ModifyTargetGroupAttributesResponse' {} a -> s {attributes = a} :: ModifyTargetGroupAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-modifyTargetGroupAttributesResponse_httpStatus :: Lens.Lens' ModifyTargetGroupAttributesResponse Prelude.Int
+modifyTargetGroupAttributesResponse_httpStatus :: Lens.Lens' ModifyTargetGroupAttributesResponse Core.Int
 modifyTargetGroupAttributesResponse_httpStatus = Lens.lens (\ModifyTargetGroupAttributesResponse' {httpStatus} -> httpStatus) (\s@ModifyTargetGroupAttributesResponse' {} a -> s {httpStatus = a} :: ModifyTargetGroupAttributesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyTargetGroupAttributesResponse

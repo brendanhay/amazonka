@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MigrationHub.Types.CreatedArtifact where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An ARN of the AWS cloud resource target receiving the migration (e.g.,
 -- AMI, EC2 instance, RDS instance, etc.).
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data CreatedArtifact = CreatedArtifact'
   { -- | A description that can be free-form text to record additional detail
     -- about the artifact for clarity or for later reference.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | An ARN that uniquely identifies the result of a migration task.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatedArtifact' with all optional fields omitted.
@@ -50,42 +49,42 @@ data CreatedArtifact = CreatedArtifact'
 -- 'name', 'createdArtifact_name' - An ARN that uniquely identifies the result of a migration task.
 newCreatedArtifact ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CreatedArtifact
 newCreatedArtifact pName_ =
   CreatedArtifact'
-    { description = Prelude.Nothing,
+    { description = Core.Nothing,
       name = pName_
     }
 
 -- | A description that can be free-form text to record additional detail
 -- about the artifact for clarity or for later reference.
-createdArtifact_description :: Lens.Lens' CreatedArtifact (Prelude.Maybe Prelude.Text)
+createdArtifact_description :: Lens.Lens' CreatedArtifact (Core.Maybe Core.Text)
 createdArtifact_description = Lens.lens (\CreatedArtifact' {description} -> description) (\s@CreatedArtifact' {} a -> s {description = a} :: CreatedArtifact)
 
 -- | An ARN that uniquely identifies the result of a migration task.
-createdArtifact_name :: Lens.Lens' CreatedArtifact Prelude.Text
+createdArtifact_name :: Lens.Lens' CreatedArtifact Core.Text
 createdArtifact_name = Lens.lens (\CreatedArtifact' {name} -> name) (\s@CreatedArtifact' {} a -> s {name = a} :: CreatedArtifact)
 
-instance Prelude.FromJSON CreatedArtifact where
+instance Core.FromJSON CreatedArtifact where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CreatedArtifact"
       ( \x ->
           CreatedArtifact'
-            Prelude.<$> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..:? "Description")
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable CreatedArtifact
+instance Core.Hashable CreatedArtifact
 
-instance Prelude.NFData CreatedArtifact
+instance Core.NFData CreatedArtifact
 
-instance Prelude.ToJSON CreatedArtifact where
+instance Core.ToJSON CreatedArtifact where
   toJSON CreatedArtifact' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("Description" Core..=) Core.<$> description,
+            Core.Just ("Name" Core..= name)
           ]
       )

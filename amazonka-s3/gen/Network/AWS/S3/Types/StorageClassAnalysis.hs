@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.StorageClassAnalysis where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.StorageClassAnalysisDataExport
 
@@ -33,9 +32,9 @@ import Network.AWS.S3.Types.StorageClassAnalysisDataExport
 data StorageClassAnalysis = StorageClassAnalysis'
   { -- | Specifies how data related to the storage class analysis for an Amazon
     -- S3 bucket should be exported.
-    dataExport :: Prelude.Maybe StorageClassAnalysisDataExport
+    dataExport :: Core.Maybe StorageClassAnalysisDataExport
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StorageClassAnalysis' with all optional fields omitted.
@@ -50,23 +49,22 @@ data StorageClassAnalysis = StorageClassAnalysis'
 newStorageClassAnalysis ::
   StorageClassAnalysis
 newStorageClassAnalysis =
-  StorageClassAnalysis' {dataExport = Prelude.Nothing}
+  StorageClassAnalysis' {dataExport = Core.Nothing}
 
 -- | Specifies how data related to the storage class analysis for an Amazon
 -- S3 bucket should be exported.
-storageClassAnalysis_dataExport :: Lens.Lens' StorageClassAnalysis (Prelude.Maybe StorageClassAnalysisDataExport)
+storageClassAnalysis_dataExport :: Lens.Lens' StorageClassAnalysis (Core.Maybe StorageClassAnalysisDataExport)
 storageClassAnalysis_dataExport = Lens.lens (\StorageClassAnalysis' {dataExport} -> dataExport) (\s@StorageClassAnalysis' {} a -> s {dataExport = a} :: StorageClassAnalysis)
 
-instance Prelude.FromXML StorageClassAnalysis where
+instance Core.FromXML StorageClassAnalysis where
   parseXML x =
     StorageClassAnalysis'
-      Prelude.<$> (x Prelude..@? "DataExport")
+      Core.<$> (x Core..@? "DataExport")
 
-instance Prelude.Hashable StorageClassAnalysis
+instance Core.Hashable StorageClassAnalysis
 
-instance Prelude.NFData StorageClassAnalysis
+instance Core.NFData StorageClassAnalysis
 
-instance Prelude.ToXML StorageClassAnalysis where
+instance Core.ToXML StorageClassAnalysis where
   toXML StorageClassAnalysis' {..} =
-    Prelude.mconcat
-      ["DataExport" Prelude.@= dataExport]
+    Core.mconcat ["DataExport" Core.@= dataExport]

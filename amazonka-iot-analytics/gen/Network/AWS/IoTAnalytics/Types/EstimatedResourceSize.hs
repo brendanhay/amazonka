@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.EstimatedResourceSize where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The estimated size of the resource.
 --
 -- /See:/ 'newEstimatedResourceSize' smart constructor.
 data EstimatedResourceSize = EstimatedResourceSize'
   { -- | The estimated size of the resource, in bytes.
-    estimatedSizeInBytes :: Prelude.Maybe Prelude.Double,
+    estimatedSizeInBytes :: Core.Maybe Core.Double,
     -- | The time when the estimate of the size of the resource was made.
-    estimatedOn :: Prelude.Maybe Prelude.POSIX
+    estimatedOn :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EstimatedResourceSize' with all optional fields omitted.
@@ -50,28 +49,28 @@ newEstimatedResourceSize ::
 newEstimatedResourceSize =
   EstimatedResourceSize'
     { estimatedSizeInBytes =
-        Prelude.Nothing,
-      estimatedOn = Prelude.Nothing
+        Core.Nothing,
+      estimatedOn = Core.Nothing
     }
 
 -- | The estimated size of the resource, in bytes.
-estimatedResourceSize_estimatedSizeInBytes :: Lens.Lens' EstimatedResourceSize (Prelude.Maybe Prelude.Double)
+estimatedResourceSize_estimatedSizeInBytes :: Lens.Lens' EstimatedResourceSize (Core.Maybe Core.Double)
 estimatedResourceSize_estimatedSizeInBytes = Lens.lens (\EstimatedResourceSize' {estimatedSizeInBytes} -> estimatedSizeInBytes) (\s@EstimatedResourceSize' {} a -> s {estimatedSizeInBytes = a} :: EstimatedResourceSize)
 
 -- | The time when the estimate of the size of the resource was made.
-estimatedResourceSize_estimatedOn :: Lens.Lens' EstimatedResourceSize (Prelude.Maybe Prelude.UTCTime)
-estimatedResourceSize_estimatedOn = Lens.lens (\EstimatedResourceSize' {estimatedOn} -> estimatedOn) (\s@EstimatedResourceSize' {} a -> s {estimatedOn = a} :: EstimatedResourceSize) Prelude.. Lens.mapping Prelude._Time
+estimatedResourceSize_estimatedOn :: Lens.Lens' EstimatedResourceSize (Core.Maybe Core.UTCTime)
+estimatedResourceSize_estimatedOn = Lens.lens (\EstimatedResourceSize' {estimatedOn} -> estimatedOn) (\s@EstimatedResourceSize' {} a -> s {estimatedOn = a} :: EstimatedResourceSize) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON EstimatedResourceSize where
+instance Core.FromJSON EstimatedResourceSize where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EstimatedResourceSize"
       ( \x ->
           EstimatedResourceSize'
-            Prelude.<$> (x Prelude..:? "estimatedSizeInBytes")
-            Prelude.<*> (x Prelude..:? "estimatedOn")
+            Core.<$> (x Core..:? "estimatedSizeInBytes")
+            Core.<*> (x Core..:? "estimatedOn")
       )
 
-instance Prelude.Hashable EstimatedResourceSize
+instance Core.Hashable EstimatedResourceSize
 
-instance Prelude.NFData EstimatedResourceSize
+instance Core.NFData EstimatedResourceSize

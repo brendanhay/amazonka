@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,25 +46,24 @@ module Network.AWS.Comprehend.ListDocumentClassificationJobs
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDocumentClassificationJobs' smart constructor.
 data ListDocumentClassificationJobs = ListDocumentClassificationJobs'
   { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return in each page. The default is
     -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Filters the jobs that are returned. You can filter jobs on their names,
     -- status, or the date and time that they were submitted. You can only set
     -- one filter at a time.
-    filter' :: Prelude.Maybe DocumentClassificationJobFilter
+    filter' :: Core.Maybe DocumentClassificationJobFilter
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDocumentClassificationJobs' with all optional fields omitted.
@@ -88,132 +86,113 @@ newListDocumentClassificationJobs ::
 newListDocumentClassificationJobs =
   ListDocumentClassificationJobs'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing,
+      filter' = Core.Nothing
     }
 
 -- | Identifies the next page of results to return.
-listDocumentClassificationJobs_nextToken :: Lens.Lens' ListDocumentClassificationJobs (Prelude.Maybe Prelude.Text)
+listDocumentClassificationJobs_nextToken :: Lens.Lens' ListDocumentClassificationJobs (Core.Maybe Core.Text)
 listDocumentClassificationJobs_nextToken = Lens.lens (\ListDocumentClassificationJobs' {nextToken} -> nextToken) (\s@ListDocumentClassificationJobs' {} a -> s {nextToken = a} :: ListDocumentClassificationJobs)
 
 -- | The maximum number of results to return in each page. The default is
 -- 100.
-listDocumentClassificationJobs_maxResults :: Lens.Lens' ListDocumentClassificationJobs (Prelude.Maybe Prelude.Natural)
+listDocumentClassificationJobs_maxResults :: Lens.Lens' ListDocumentClassificationJobs (Core.Maybe Core.Natural)
 listDocumentClassificationJobs_maxResults = Lens.lens (\ListDocumentClassificationJobs' {maxResults} -> maxResults) (\s@ListDocumentClassificationJobs' {} a -> s {maxResults = a} :: ListDocumentClassificationJobs)
 
 -- | Filters the jobs that are returned. You can filter jobs on their names,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
-listDocumentClassificationJobs_filter :: Lens.Lens' ListDocumentClassificationJobs (Prelude.Maybe DocumentClassificationJobFilter)
+listDocumentClassificationJobs_filter :: Lens.Lens' ListDocumentClassificationJobs (Core.Maybe DocumentClassificationJobFilter)
 listDocumentClassificationJobs_filter = Lens.lens (\ListDocumentClassificationJobs' {filter'} -> filter') (\s@ListDocumentClassificationJobs' {} a -> s {filter' = a} :: ListDocumentClassificationJobs)
 
-instance
-  Pager.AWSPager
-    ListDocumentClassificationJobs
-  where
+instance Core.AWSPager ListDocumentClassificationJobs where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listDocumentClassificationJobsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listDocumentClassificationJobsResponse_documentClassificationJobPropertiesList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listDocumentClassificationJobs_nextToken
           Lens..~ rs
           Lens.^? listDocumentClassificationJobsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListDocumentClassificationJobs
   where
   type
-    Rs ListDocumentClassificationJobs =
+    AWSResponse ListDocumentClassificationJobs =
       ListDocumentClassificationJobsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListDocumentClassificationJobsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x
-                            Prelude..?> "DocumentClassificationJobPropertiesList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "DocumentClassificationJobPropertiesList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ListDocumentClassificationJobs
+instance Core.Hashable ListDocumentClassificationJobs
+
+instance Core.NFData ListDocumentClassificationJobs
 
 instance
-  Prelude.NFData
-    ListDocumentClassificationJobs
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListDocumentClassificationJobs
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.ListDocumentClassificationJobs" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.ListDocumentClassificationJobs" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    ListDocumentClassificationJobs
-  where
+instance Core.ToJSON ListDocumentClassificationJobs where
   toJSON ListDocumentClassificationJobs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filter" Prelude..=) Prelude.<$> filter'
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filter" Core..=) Core.<$> filter'
           ]
       )
 
-instance
-  Prelude.ToPath
-    ListDocumentClassificationJobs
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListDocumentClassificationJobs where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ListDocumentClassificationJobs
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListDocumentClassificationJobs where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListDocumentClassificationJobsResponse' smart constructor.
 data ListDocumentClassificationJobsResponse = ListDocumentClassificationJobsResponse'
   { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list containing the properties of each job returned.
-    documentClassificationJobPropertiesList :: Prelude.Maybe [DocumentClassificationJobProperties],
+    documentClassificationJobPropertiesList :: Core.Maybe [DocumentClassificationJobProperties],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDocumentClassificationJobsResponse' with all optional fields omitted.
@@ -230,30 +209,30 @@ data ListDocumentClassificationJobsResponse = ListDocumentClassificationJobsResp
 -- 'httpStatus', 'listDocumentClassificationJobsResponse_httpStatus' - The response's http status code.
 newListDocumentClassificationJobsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDocumentClassificationJobsResponse
 newListDocumentClassificationJobsResponse
   pHttpStatus_ =
     ListDocumentClassificationJobsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         documentClassificationJobPropertiesList =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Identifies the next page of results to return.
-listDocumentClassificationJobsResponse_nextToken :: Lens.Lens' ListDocumentClassificationJobsResponse (Prelude.Maybe Prelude.Text)
+listDocumentClassificationJobsResponse_nextToken :: Lens.Lens' ListDocumentClassificationJobsResponse (Core.Maybe Core.Text)
 listDocumentClassificationJobsResponse_nextToken = Lens.lens (\ListDocumentClassificationJobsResponse' {nextToken} -> nextToken) (\s@ListDocumentClassificationJobsResponse' {} a -> s {nextToken = a} :: ListDocumentClassificationJobsResponse)
 
 -- | A list containing the properties of each job returned.
-listDocumentClassificationJobsResponse_documentClassificationJobPropertiesList :: Lens.Lens' ListDocumentClassificationJobsResponse (Prelude.Maybe [DocumentClassificationJobProperties])
-listDocumentClassificationJobsResponse_documentClassificationJobPropertiesList = Lens.lens (\ListDocumentClassificationJobsResponse' {documentClassificationJobPropertiesList} -> documentClassificationJobPropertiesList) (\s@ListDocumentClassificationJobsResponse' {} a -> s {documentClassificationJobPropertiesList = a} :: ListDocumentClassificationJobsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listDocumentClassificationJobsResponse_documentClassificationJobPropertiesList :: Lens.Lens' ListDocumentClassificationJobsResponse (Core.Maybe [DocumentClassificationJobProperties])
+listDocumentClassificationJobsResponse_documentClassificationJobPropertiesList = Lens.lens (\ListDocumentClassificationJobsResponse' {documentClassificationJobPropertiesList} -> documentClassificationJobPropertiesList) (\s@ListDocumentClassificationJobsResponse' {} a -> s {documentClassificationJobPropertiesList = a} :: ListDocumentClassificationJobsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDocumentClassificationJobsResponse_httpStatus :: Lens.Lens' ListDocumentClassificationJobsResponse Prelude.Int
+listDocumentClassificationJobsResponse_httpStatus :: Lens.Lens' ListDocumentClassificationJobsResponse Core.Int
 listDocumentClassificationJobsResponse_httpStatus = Lens.lens (\ListDocumentClassificationJobsResponse' {httpStatus} -> httpStatus) (\s@ListDocumentClassificationJobsResponse' {} a -> s {httpStatus = a} :: ListDocumentClassificationJobsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListDocumentClassificationJobsResponse

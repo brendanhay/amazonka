@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.Lambda.UpdateAlias
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,15 +60,15 @@ data UpdateAlias = UpdateAlias'
   { -- | Only update the alias if the revision ID matches the ID that\'s
     -- specified. Use this option to avoid modifying an alias that has changed
     -- since you last read it.
-    revisionId :: Prelude.Maybe Prelude.Text,
+    revisionId :: Core.Maybe Core.Text,
     -- | The
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration>
     -- of the alias.
-    routingConfig :: Prelude.Maybe AliasRoutingConfiguration,
+    routingConfig :: Core.Maybe AliasRoutingConfiguration,
     -- | The function version that the alias invokes.
-    functionVersion :: Prelude.Maybe Prelude.Text,
+    functionVersion :: Core.Maybe Core.Text,
     -- | A description of the alias.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -83,11 +82,11 @@ data UpdateAlias = UpdateAlias'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Prelude.Text,
+    functionName :: Core.Text,
     -- | The name of the alias.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAlias' with all optional fields omitted.
@@ -126,16 +125,16 @@ data UpdateAlias = UpdateAlias'
 -- 'name', 'updateAlias_name' - The name of the alias.
 newUpdateAlias ::
   -- | 'functionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   UpdateAlias
 newUpdateAlias pFunctionName_ pName_ =
   UpdateAlias'
-    { revisionId = Prelude.Nothing,
-      routingConfig = Prelude.Nothing,
-      functionVersion = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { revisionId = Core.Nothing,
+      routingConfig = Core.Nothing,
+      functionVersion = Core.Nothing,
+      description = Core.Nothing,
       functionName = pFunctionName_,
       name = pName_
     }
@@ -143,21 +142,21 @@ newUpdateAlias pFunctionName_ pName_ =
 -- | Only update the alias if the revision ID matches the ID that\'s
 -- specified. Use this option to avoid modifying an alias that has changed
 -- since you last read it.
-updateAlias_revisionId :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
+updateAlias_revisionId :: Lens.Lens' UpdateAlias (Core.Maybe Core.Text)
 updateAlias_revisionId = Lens.lens (\UpdateAlias' {revisionId} -> revisionId) (\s@UpdateAlias' {} a -> s {revisionId = a} :: UpdateAlias)
 
 -- | The
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration>
 -- of the alias.
-updateAlias_routingConfig :: Lens.Lens' UpdateAlias (Prelude.Maybe AliasRoutingConfiguration)
+updateAlias_routingConfig :: Lens.Lens' UpdateAlias (Core.Maybe AliasRoutingConfiguration)
 updateAlias_routingConfig = Lens.lens (\UpdateAlias' {routingConfig} -> routingConfig) (\s@UpdateAlias' {} a -> s {routingConfig = a} :: UpdateAlias)
 
 -- | The function version that the alias invokes.
-updateAlias_functionVersion :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
+updateAlias_functionVersion :: Lens.Lens' UpdateAlias (Core.Maybe Core.Text)
 updateAlias_functionVersion = Lens.lens (\UpdateAlias' {functionVersion} -> functionVersion) (\s@UpdateAlias' {} a -> s {functionVersion = a} :: UpdateAlias)
 
 -- | A description of the alias.
-updateAlias_description :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
+updateAlias_description :: Lens.Lens' UpdateAlias (Core.Maybe Core.Text)
 updateAlias_description = Lens.lens (\UpdateAlias' {description} -> description) (\s@UpdateAlias' {} a -> s {description = a} :: UpdateAlias)
 
 -- | The name of the Lambda function.
@@ -173,48 +172,46 @@ updateAlias_description = Lens.lens (\UpdateAlias' {description} -> description)
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-updateAlias_functionName :: Lens.Lens' UpdateAlias Prelude.Text
+updateAlias_functionName :: Lens.Lens' UpdateAlias Core.Text
 updateAlias_functionName = Lens.lens (\UpdateAlias' {functionName} -> functionName) (\s@UpdateAlias' {} a -> s {functionName = a} :: UpdateAlias)
 
 -- | The name of the alias.
-updateAlias_name :: Lens.Lens' UpdateAlias Prelude.Text
+updateAlias_name :: Lens.Lens' UpdateAlias Core.Text
 updateAlias_name = Lens.lens (\UpdateAlias' {name} -> name) (\s@UpdateAlias' {} a -> s {name = a} :: UpdateAlias)
 
-instance Prelude.AWSRequest UpdateAlias where
-  type Rs UpdateAlias = AliasConfiguration
+instance Core.AWSRequest UpdateAlias where
+  type AWSResponse UpdateAlias = AliasConfiguration
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateAlias
+instance Core.Hashable UpdateAlias
 
-instance Prelude.NFData UpdateAlias
+instance Core.NFData UpdateAlias
 
-instance Prelude.ToHeaders UpdateAlias where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateAlias where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateAlias where
+instance Core.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RevisionId" Prelude..=) Prelude.<$> revisionId,
-            ("RoutingConfig" Prelude..=)
-              Prelude.<$> routingConfig,
-            ("FunctionVersion" Prelude..=)
-              Prelude.<$> functionVersion,
-            ("Description" Prelude..=) Prelude.<$> description
+    Core.object
+      ( Core.catMaybes
+          [ ("RevisionId" Core..=) Core.<$> revisionId,
+            ("RoutingConfig" Core..=) Core.<$> routingConfig,
+            ("FunctionVersion" Core..=) Core.<$> functionVersion,
+            ("Description" Core..=) Core.<$> description
           ]
       )
 
-instance Prelude.ToPath UpdateAlias where
+instance Core.ToPath UpdateAlias where
   toPath UpdateAlias' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-03-31/functions/",
-        Prelude.toBS functionName,
+        Core.toBS functionName,
         "/aliases/",
-        Prelude.toBS name
+        Core.toBS name
       ]
 
-instance Prelude.ToQuery UpdateAlias where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateAlias where
+  toQuery = Core.const Core.mempty

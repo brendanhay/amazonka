@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.CloudFront.ListTagsForResource
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
   { -- | An ARN of a CloudFront resource.
-    resource :: Prelude.Text
+    resource :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResource' with all optional fields omitted.
@@ -66,52 +65,52 @@ data ListTagsForResource = ListTagsForResource'
 -- 'resource', 'listTagsForResource_resource' - An ARN of a CloudFront resource.
 newListTagsForResource ::
   -- | 'resource'
-  Prelude.Text ->
+  Core.Text ->
   ListTagsForResource
 newListTagsForResource pResource_ =
   ListTagsForResource' {resource = pResource_}
 
 -- | An ARN of a CloudFront resource.
-listTagsForResource_resource :: Lens.Lens' ListTagsForResource Prelude.Text
+listTagsForResource_resource :: Lens.Lens' ListTagsForResource Core.Text
 listTagsForResource_resource = Lens.lens (\ListTagsForResource' {resource} -> resource) (\s@ListTagsForResource' {} a -> s {resource = a} :: ListTagsForResource)
 
-instance Prelude.AWSRequest ListTagsForResource where
+instance Core.AWSRequest ListTagsForResource where
   type
-    Rs ListTagsForResource =
+    AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.parseXML x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.parseXML x)
       )
 
-instance Prelude.Hashable ListTagsForResource
+instance Core.Hashable ListTagsForResource
 
-instance Prelude.NFData ListTagsForResource
+instance Core.NFData ListTagsForResource
 
-instance Prelude.ToHeaders ListTagsForResource where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListTagsForResource where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListTagsForResource where
-  toPath = Prelude.const "/2020-05-31/tagging"
+instance Core.ToPath ListTagsForResource where
+  toPath = Core.const "/2020-05-31/tagging"
 
-instance Prelude.ToQuery ListTagsForResource where
+instance Core.ToQuery ListTagsForResource where
   toQuery ListTagsForResource' {..} =
-    Prelude.mconcat ["Resource" Prelude.=: resource]
+    Core.mconcat ["Resource" Core.=: resource]
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains zero or more @Tag@ elements.
     tags :: Tags
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
@@ -126,7 +125,7 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- 'tags', 'listTagsForResourceResponse_tags' - A complex type that contains zero or more @Tag@ elements.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'tags'
   Tags ->
   ListTagsForResourceResponse
@@ -138,11 +137,11 @@ newListTagsForResourceResponse pHttpStatus_ pTags_ =
     }
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
+listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
 -- | A complex type that contains zero or more @Tag@ elements.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse Tags
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse)
 
-instance Prelude.NFData ListTagsForResourceResponse
+instance Core.NFData ListTagsForResourceResponse

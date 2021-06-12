@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.SQS.DeleteQueue
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -66,9 +65,9 @@ data DeleteQueue = DeleteQueue'
   { -- | The URL of the Amazon SQS queue to delete.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Prelude.Text
+    queueUrl :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteQueue' with all optional fields omitted.
@@ -83,7 +82,7 @@ data DeleteQueue = DeleteQueue'
 -- Queue URLs and names are case-sensitive.
 newDeleteQueue ::
   -- | 'queueUrl'
-  Prelude.Text ->
+  Core.Text ->
   DeleteQueue
 newDeleteQueue pQueueUrl_ =
   DeleteQueue' {queueUrl = pQueueUrl_}
@@ -91,39 +90,37 @@ newDeleteQueue pQueueUrl_ =
 -- | The URL of the Amazon SQS queue to delete.
 --
 -- Queue URLs and names are case-sensitive.
-deleteQueue_queueUrl :: Lens.Lens' DeleteQueue Prelude.Text
+deleteQueue_queueUrl :: Lens.Lens' DeleteQueue Core.Text
 deleteQueue_queueUrl = Lens.lens (\DeleteQueue' {queueUrl} -> queueUrl) (\s@DeleteQueue' {} a -> s {queueUrl = a} :: DeleteQueue)
 
-instance Prelude.AWSRequest DeleteQueue where
-  type Rs DeleteQueue = DeleteQueueResponse
+instance Core.AWSRequest DeleteQueue where
+  type AWSResponse DeleteQueue = DeleteQueueResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteQueueResponse'
 
-instance Prelude.Hashable DeleteQueue
+instance Core.Hashable DeleteQueue
 
-instance Prelude.NFData DeleteQueue
+instance Core.NFData DeleteQueue
 
-instance Prelude.ToHeaders DeleteQueue where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteQueue where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteQueue where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteQueue where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteQueue where
+instance Core.ToQuery DeleteQueue where
   toQuery DeleteQueue' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("DeleteQueue" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Prelude.=: queueUrl
+    Core.mconcat
+      [ "Action" Core.=: ("DeleteQueue" :: Core.ByteString),
+        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+        "QueueUrl" Core.=: queueUrl
       ]
 
 -- | /See:/ 'newDeleteQueueResponse' smart constructor.
 data DeleteQueueResponse = DeleteQueueResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteQueueResponse' with all optional fields omitted.
@@ -133,4 +130,4 @@ newDeleteQueueResponse ::
   DeleteQueueResponse
 newDeleteQueueResponse = DeleteQueueResponse'
 
-instance Prelude.NFData DeleteQueueResponse
+instance Core.NFData DeleteQueueResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,8 +57,8 @@ module Network.AWS.S3.GetBucketPolicyStatus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -69,12 +68,12 @@ data GetBucketPolicyStatus = GetBucketPolicyStatus'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the Amazon S3 bucket whose policy status you want to
     -- retrieve.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketPolicyStatus' with all optional fields omitted.
@@ -97,14 +96,14 @@ newGetBucketPolicyStatus ::
 newGetBucketPolicyStatus pBucket_ =
   GetBucketPolicyStatus'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketPolicyStatus_expectedBucketOwner :: Lens.Lens' GetBucketPolicyStatus (Prelude.Maybe Prelude.Text)
+getBucketPolicyStatus_expectedBucketOwner :: Lens.Lens' GetBucketPolicyStatus (Core.Maybe Core.Text)
 getBucketPolicyStatus_expectedBucketOwner = Lens.lens (\GetBucketPolicyStatus' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketPolicyStatus' {} a -> s {expectedBucketOwner = a} :: GetBucketPolicyStatus)
 
 -- | The name of the Amazon S3 bucket whose policy status you want to
@@ -112,46 +111,45 @@ getBucketPolicyStatus_expectedBucketOwner = Lens.lens (\GetBucketPolicyStatus' {
 getBucketPolicyStatus_bucket :: Lens.Lens' GetBucketPolicyStatus BucketName
 getBucketPolicyStatus_bucket = Lens.lens (\GetBucketPolicyStatus' {bucket} -> bucket) (\s@GetBucketPolicyStatus' {} a -> s {bucket = a} :: GetBucketPolicyStatus)
 
-instance Prelude.AWSRequest GetBucketPolicyStatus where
+instance Core.AWSRequest GetBucketPolicyStatus where
   type
-    Rs GetBucketPolicyStatus =
+    AWSResponse GetBucketPolicyStatus =
       GetBucketPolicyStatusResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetBucketPolicyStatusResponse'
-            Prelude.<$> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketPolicyStatus
+instance Core.Hashable GetBucketPolicyStatus
 
-instance Prelude.NFData GetBucketPolicyStatus
+instance Core.NFData GetBucketPolicyStatus
 
-instance Prelude.ToHeaders GetBucketPolicyStatus where
+instance Core.ToHeaders GetBucketPolicyStatus where
   toHeaders GetBucketPolicyStatus' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath GetBucketPolicyStatus where
+instance Core.ToPath GetBucketPolicyStatus where
   toPath GetBucketPolicyStatus' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery GetBucketPolicyStatus where
-  toQuery =
-    Prelude.const (Prelude.mconcat ["policyStatus"])
+instance Core.ToQuery GetBucketPolicyStatus where
+  toQuery = Core.const (Core.mconcat ["policyStatus"])
 
 -- | /See:/ 'newGetBucketPolicyStatusResponse' smart constructor.
 data GetBucketPolicyStatusResponse = GetBucketPolicyStatusResponse'
   { -- | The policy status for the specified bucket.
-    policyStatus :: Prelude.Maybe PolicyStatus,
+    policyStatus :: Core.Maybe PolicyStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketPolicyStatusResponse' with all optional fields omitted.
@@ -166,21 +164,21 @@ data GetBucketPolicyStatusResponse = GetBucketPolicyStatusResponse'
 -- 'httpStatus', 'getBucketPolicyStatusResponse_httpStatus' - The response's http status code.
 newGetBucketPolicyStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBucketPolicyStatusResponse
 newGetBucketPolicyStatusResponse pHttpStatus_ =
   GetBucketPolicyStatusResponse'
     { policyStatus =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The policy status for the specified bucket.
-getBucketPolicyStatusResponse_policyStatus :: Lens.Lens' GetBucketPolicyStatusResponse (Prelude.Maybe PolicyStatus)
+getBucketPolicyStatusResponse_policyStatus :: Lens.Lens' GetBucketPolicyStatusResponse (Core.Maybe PolicyStatus)
 getBucketPolicyStatusResponse_policyStatus = Lens.lens (\GetBucketPolicyStatusResponse' {policyStatus} -> policyStatus) (\s@GetBucketPolicyStatusResponse' {} a -> s {policyStatus = a} :: GetBucketPolicyStatusResponse)
 
 -- | The response's http status code.
-getBucketPolicyStatusResponse_httpStatus :: Lens.Lens' GetBucketPolicyStatusResponse Prelude.Int
+getBucketPolicyStatusResponse_httpStatus :: Lens.Lens' GetBucketPolicyStatusResponse Core.Int
 getBucketPolicyStatusResponse_httpStatus = Lens.lens (\GetBucketPolicyStatusResponse' {httpStatus} -> httpStatus) (\s@GetBucketPolicyStatusResponse' {} a -> s {httpStatus = a} :: GetBucketPolicyStatusResponse)
 
-instance Prelude.NFData GetBucketPolicyStatusResponse
+instance Core.NFData GetBucketPolicyStatusResponse

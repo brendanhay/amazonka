@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.CostCategoryRule where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.Expression
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Rules are processed in order. If there are multiple rules that match the
 -- line item, then the first rule to match is used to determine that Cost
@@ -30,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCostCategoryRule' smart constructor.
 data CostCategoryRule = CostCategoryRule'
-  { value :: Prelude.Text,
+  { value :: Core.Text,
     -- | An
     -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
     -- object used to categorize costs. This supports dimensions, tags, and
@@ -49,7 +48,7 @@ data CostCategoryRule = CostCategoryRule'
     -- in the /AWS Billing and Cost Management User Guide/.
     rule :: Expression
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CostCategoryRule' with all optional fields omitted.
@@ -79,7 +78,7 @@ data CostCategoryRule = CostCategoryRule'
 -- in the /AWS Billing and Cost Management User Guide/.
 newCostCategoryRule ::
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'rule'
   Expression ->
   CostCategoryRule
@@ -87,7 +86,7 @@ newCostCategoryRule pValue_ pRule_ =
   CostCategoryRule' {value = pValue_, rule = pRule_}
 
 -- | Undocumented member.
-costCategoryRule_value :: Lens.Lens' CostCategoryRule Prelude.Text
+costCategoryRule_value :: Lens.Lens' CostCategoryRule Core.Text
 costCategoryRule_value = Lens.lens (\CostCategoryRule' {value} -> value) (\s@CostCategoryRule' {} a -> s {value = a} :: CostCategoryRule)
 
 -- | An
@@ -109,25 +108,24 @@ costCategoryRule_value = Lens.lens (\CostCategoryRule' {value} -> value) (\s@Cos
 costCategoryRule_rule :: Lens.Lens' CostCategoryRule Expression
 costCategoryRule_rule = Lens.lens (\CostCategoryRule' {rule} -> rule) (\s@CostCategoryRule' {} a -> s {rule = a} :: CostCategoryRule)
 
-instance Prelude.FromJSON CostCategoryRule where
+instance Core.FromJSON CostCategoryRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CostCategoryRule"
       ( \x ->
           CostCategoryRule'
-            Prelude.<$> (x Prelude..: "Value")
-            Prelude.<*> (x Prelude..: "Rule")
+            Core.<$> (x Core..: "Value") Core.<*> (x Core..: "Rule")
       )
 
-instance Prelude.Hashable CostCategoryRule
+instance Core.Hashable CostCategoryRule
 
-instance Prelude.NFData CostCategoryRule
+instance Core.NFData CostCategoryRule
 
-instance Prelude.ToJSON CostCategoryRule where
+instance Core.ToJSON CostCategoryRule where
   toJSON CostCategoryRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Value" Prelude..= value),
-            Prelude.Just ("Rule" Prelude..= rule)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Value" Core..= value),
+            Core.Just ("Rule" Core..= rule)
           ]
       )

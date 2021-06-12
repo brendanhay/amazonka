@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.EventTriggerDefinition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The container for the EventTriggerDefinition$EventResourceARN.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data EventTriggerDefinition = EventTriggerDefinition'
   { -- | The Amazon Resource Name (ARN) for any local Amazon S3 resource that is
     -- an AWS Lambda function\'s event trigger associated with this job.
-    eventResourceARN :: Prelude.Maybe Prelude.Text
+    eventResourceARN :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventTriggerDefinition' with all optional fields omitted.
@@ -48,32 +47,32 @@ newEventTriggerDefinition ::
 newEventTriggerDefinition =
   EventTriggerDefinition'
     { eventResourceARN =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for any local Amazon S3 resource that is
 -- an AWS Lambda function\'s event trigger associated with this job.
-eventTriggerDefinition_eventResourceARN :: Lens.Lens' EventTriggerDefinition (Prelude.Maybe Prelude.Text)
+eventTriggerDefinition_eventResourceARN :: Lens.Lens' EventTriggerDefinition (Core.Maybe Core.Text)
 eventTriggerDefinition_eventResourceARN = Lens.lens (\EventTriggerDefinition' {eventResourceARN} -> eventResourceARN) (\s@EventTriggerDefinition' {} a -> s {eventResourceARN = a} :: EventTriggerDefinition)
 
-instance Prelude.FromJSON EventTriggerDefinition where
+instance Core.FromJSON EventTriggerDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EventTriggerDefinition"
       ( \x ->
           EventTriggerDefinition'
-            Prelude.<$> (x Prelude..:? "EventResourceARN")
+            Core.<$> (x Core..:? "EventResourceARN")
       )
 
-instance Prelude.Hashable EventTriggerDefinition
+instance Core.Hashable EventTriggerDefinition
 
-instance Prelude.NFData EventTriggerDefinition
+instance Core.NFData EventTriggerDefinition
 
-instance Prelude.ToJSON EventTriggerDefinition where
+instance Core.ToJSON EventTriggerDefinition where
   toJSON EventTriggerDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EventResourceARN" Prelude..=)
-              Prelude.<$> eventResourceARN
+    Core.object
+      ( Core.catMaybes
+          [ ("EventResourceARN" Core..=)
+              Core.<$> eventResourceARN
           ]
       )

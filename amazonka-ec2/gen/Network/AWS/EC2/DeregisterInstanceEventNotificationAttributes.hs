@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.EC2.DeregisterInstanceEventNotificationAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +54,11 @@ data DeregisterInstanceEventNotificationAttributes = DeregisterInstanceEventNoti
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Information about the tag keys to deregister.
-    instanceTagAttribute :: Prelude.Maybe DeregisterInstanceTagAttributeRequest
+    instanceTagAttribute :: Core.Maybe DeregisterInstanceTagAttributeRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstanceEventNotificationAttributes' with all optional fields omitted.
@@ -80,84 +79,83 @@ newDeregisterInstanceEventNotificationAttributes ::
 newDeregisterInstanceEventNotificationAttributes =
   DeregisterInstanceEventNotificationAttributes'
     { dryRun =
-        Prelude.Nothing,
+        Core.Nothing,
       instanceTagAttribute =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deregisterInstanceEventNotificationAttributes_dryRun :: Lens.Lens' DeregisterInstanceEventNotificationAttributes (Prelude.Maybe Prelude.Bool)
+deregisterInstanceEventNotificationAttributes_dryRun :: Lens.Lens' DeregisterInstanceEventNotificationAttributes (Core.Maybe Core.Bool)
 deregisterInstanceEventNotificationAttributes_dryRun = Lens.lens (\DeregisterInstanceEventNotificationAttributes' {dryRun} -> dryRun) (\s@DeregisterInstanceEventNotificationAttributes' {} a -> s {dryRun = a} :: DeregisterInstanceEventNotificationAttributes)
 
 -- | Information about the tag keys to deregister.
-deregisterInstanceEventNotificationAttributes_instanceTagAttribute :: Lens.Lens' DeregisterInstanceEventNotificationAttributes (Prelude.Maybe DeregisterInstanceTagAttributeRequest)
+deregisterInstanceEventNotificationAttributes_instanceTagAttribute :: Lens.Lens' DeregisterInstanceEventNotificationAttributes (Core.Maybe DeregisterInstanceTagAttributeRequest)
 deregisterInstanceEventNotificationAttributes_instanceTagAttribute = Lens.lens (\DeregisterInstanceEventNotificationAttributes' {instanceTagAttribute} -> instanceTagAttribute) (\s@DeregisterInstanceEventNotificationAttributes' {} a -> s {instanceTagAttribute = a} :: DeregisterInstanceEventNotificationAttributes)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeregisterInstanceEventNotificationAttributes
   where
   type
-    Rs DeregisterInstanceEventNotificationAttributes =
+    AWSResponse
+      DeregisterInstanceEventNotificationAttributes =
       DeregisterInstanceEventNotificationAttributesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeregisterInstanceEventNotificationAttributesResponse'
-            Prelude.<$> (x Prelude..@? "instanceTagAttribute")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "instanceTagAttribute")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeregisterInstanceEventNotificationAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeregisterInstanceEventNotificationAttributes
 
 instance
-  Prelude.ToHeaders
-    DeregisterInstanceEventNotificationAttributes
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DeregisterInstanceEventNotificationAttributes
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DeregisterInstanceEventNotificationAttributes
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DeregisterInstanceEventNotificationAttributes
   where
   toQuery
     DeregisterInstanceEventNotificationAttributes' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "Action"
-            Prelude.=: ( "DeregisterInstanceEventNotificationAttributes" ::
-                           Prelude.ByteString
-                       ),
-          "Version"
-            Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Prelude.=: dryRun,
-          "InstanceTagAttribute"
-            Prelude.=: instanceTagAttribute
+            Core.=: ( "DeregisterInstanceEventNotificationAttributes" ::
+                        Core.ByteString
+                    ),
+          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "DryRun" Core.=: dryRun,
+          "InstanceTagAttribute" Core.=: instanceTagAttribute
         ]
 
 -- | /See:/ 'newDeregisterInstanceEventNotificationAttributesResponse' smart constructor.
 data DeregisterInstanceEventNotificationAttributesResponse = DeregisterInstanceEventNotificationAttributesResponse'
   { -- | The resulting set of tag keys.
-    instanceTagAttribute :: Prelude.Maybe InstanceTagNotificationAttribute,
+    instanceTagAttribute :: Core.Maybe InstanceTagNotificationAttribute,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstanceEventNotificationAttributesResponse' with all optional fields omitted.
@@ -172,25 +170,25 @@ data DeregisterInstanceEventNotificationAttributesResponse = DeregisterInstanceE
 -- 'httpStatus', 'deregisterInstanceEventNotificationAttributesResponse_httpStatus' - The response's http status code.
 newDeregisterInstanceEventNotificationAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeregisterInstanceEventNotificationAttributesResponse
 newDeregisterInstanceEventNotificationAttributesResponse
   pHttpStatus_ =
     DeregisterInstanceEventNotificationAttributesResponse'
       { instanceTagAttribute =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | The resulting set of tag keys.
-deregisterInstanceEventNotificationAttributesResponse_instanceTagAttribute :: Lens.Lens' DeregisterInstanceEventNotificationAttributesResponse (Prelude.Maybe InstanceTagNotificationAttribute)
+deregisterInstanceEventNotificationAttributesResponse_instanceTagAttribute :: Lens.Lens' DeregisterInstanceEventNotificationAttributesResponse (Core.Maybe InstanceTagNotificationAttribute)
 deregisterInstanceEventNotificationAttributesResponse_instanceTagAttribute = Lens.lens (\DeregisterInstanceEventNotificationAttributesResponse' {instanceTagAttribute} -> instanceTagAttribute) (\s@DeregisterInstanceEventNotificationAttributesResponse' {} a -> s {instanceTagAttribute = a} :: DeregisterInstanceEventNotificationAttributesResponse)
 
 -- | The response's http status code.
-deregisterInstanceEventNotificationAttributesResponse_httpStatus :: Lens.Lens' DeregisterInstanceEventNotificationAttributesResponse Prelude.Int
+deregisterInstanceEventNotificationAttributesResponse_httpStatus :: Lens.Lens' DeregisterInstanceEventNotificationAttributesResponse Core.Int
 deregisterInstanceEventNotificationAttributesResponse_httpStatus = Lens.lens (\DeregisterInstanceEventNotificationAttributesResponse' {httpStatus} -> httpStatus) (\s@DeregisterInstanceEventNotificationAttributesResponse' {} a -> s {httpStatus = a} :: DeregisterInstanceEventNotificationAttributesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeregisterInstanceEventNotificationAttributesResponse

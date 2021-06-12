@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EKS.AssociateEncryptionConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +56,14 @@ import qualified Network.AWS.Response as Response
 data AssociateEncryptionConfig = AssociateEncryptionConfig'
   { -- | The client request token you are using with the encryption
     -- configuration.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The name of the cluster that you are associating with encryption
     -- configuration.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | The configuration you are using for encryption.
     encryptionConfig :: [EncryptionConfig]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateEncryptionConfig' with all optional fields omitted.
@@ -83,87 +82,85 @@ data AssociateEncryptionConfig = AssociateEncryptionConfig'
 -- 'encryptionConfig', 'associateEncryptionConfig_encryptionConfig' - The configuration you are using for encryption.
 newAssociateEncryptionConfig ::
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   AssociateEncryptionConfig
 newAssociateEncryptionConfig pClusterName_ =
   AssociateEncryptionConfig'
     { clientRequestToken =
-        Prelude.Nothing,
+        Core.Nothing,
       clusterName = pClusterName_,
-      encryptionConfig = Prelude.mempty
+      encryptionConfig = Core.mempty
     }
 
 -- | The client request token you are using with the encryption
 -- configuration.
-associateEncryptionConfig_clientRequestToken :: Lens.Lens' AssociateEncryptionConfig (Prelude.Maybe Prelude.Text)
+associateEncryptionConfig_clientRequestToken :: Lens.Lens' AssociateEncryptionConfig (Core.Maybe Core.Text)
 associateEncryptionConfig_clientRequestToken = Lens.lens (\AssociateEncryptionConfig' {clientRequestToken} -> clientRequestToken) (\s@AssociateEncryptionConfig' {} a -> s {clientRequestToken = a} :: AssociateEncryptionConfig)
 
 -- | The name of the cluster that you are associating with encryption
 -- configuration.
-associateEncryptionConfig_clusterName :: Lens.Lens' AssociateEncryptionConfig Prelude.Text
+associateEncryptionConfig_clusterName :: Lens.Lens' AssociateEncryptionConfig Core.Text
 associateEncryptionConfig_clusterName = Lens.lens (\AssociateEncryptionConfig' {clusterName} -> clusterName) (\s@AssociateEncryptionConfig' {} a -> s {clusterName = a} :: AssociateEncryptionConfig)
 
 -- | The configuration you are using for encryption.
 associateEncryptionConfig_encryptionConfig :: Lens.Lens' AssociateEncryptionConfig [EncryptionConfig]
-associateEncryptionConfig_encryptionConfig = Lens.lens (\AssociateEncryptionConfig' {encryptionConfig} -> encryptionConfig) (\s@AssociateEncryptionConfig' {} a -> s {encryptionConfig = a} :: AssociateEncryptionConfig) Prelude.. Prelude._Coerce
+associateEncryptionConfig_encryptionConfig = Lens.lens (\AssociateEncryptionConfig' {encryptionConfig} -> encryptionConfig) (\s@AssociateEncryptionConfig' {} a -> s {encryptionConfig = a} :: AssociateEncryptionConfig) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AssociateEncryptionConfig where
+instance Core.AWSRequest AssociateEncryptionConfig where
   type
-    Rs AssociateEncryptionConfig =
+    AWSResponse AssociateEncryptionConfig =
       AssociateEncryptionConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AssociateEncryptionConfigResponse'
-            Prelude.<$> (x Prelude..?> "update")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "update")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateEncryptionConfig
+instance Core.Hashable AssociateEncryptionConfig
 
-instance Prelude.NFData AssociateEncryptionConfig
+instance Core.NFData AssociateEncryptionConfig
 
-instance Prelude.ToHeaders AssociateEncryptionConfig where
+instance Core.ToHeaders AssociateEncryptionConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateEncryptionConfig where
+instance Core.ToJSON AssociateEncryptionConfig where
   toJSON AssociateEncryptionConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("clientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            Prelude.Just
-              ("encryptionConfig" Prelude..= encryptionConfig)
+    Core.object
+      ( Core.catMaybes
+          [ ("clientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            Core.Just
+              ("encryptionConfig" Core..= encryptionConfig)
           ]
       )
 
-instance Prelude.ToPath AssociateEncryptionConfig where
+instance Core.ToPath AssociateEncryptionConfig where
   toPath AssociateEncryptionConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clusters/",
-        Prelude.toBS clusterName,
+        Core.toBS clusterName,
         "/encryption-config/associate"
       ]
 
-instance Prelude.ToQuery AssociateEncryptionConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateEncryptionConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateEncryptionConfigResponse' smart constructor.
 data AssociateEncryptionConfigResponse = AssociateEncryptionConfigResponse'
-  { update :: Prelude.Maybe Update,
+  { update :: Core.Maybe Update,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateEncryptionConfigResponse' with all optional fields omitted.
@@ -178,23 +175,23 @@ data AssociateEncryptionConfigResponse = AssociateEncryptionConfigResponse'
 -- 'httpStatus', 'associateEncryptionConfigResponse_httpStatus' - The response's http status code.
 newAssociateEncryptionConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateEncryptionConfigResponse
 newAssociateEncryptionConfigResponse pHttpStatus_ =
   AssociateEncryptionConfigResponse'
     { update =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-associateEncryptionConfigResponse_update :: Lens.Lens' AssociateEncryptionConfigResponse (Prelude.Maybe Update)
+associateEncryptionConfigResponse_update :: Lens.Lens' AssociateEncryptionConfigResponse (Core.Maybe Update)
 associateEncryptionConfigResponse_update = Lens.lens (\AssociateEncryptionConfigResponse' {update} -> update) (\s@AssociateEncryptionConfigResponse' {} a -> s {update = a} :: AssociateEncryptionConfigResponse)
 
 -- | The response's http status code.
-associateEncryptionConfigResponse_httpStatus :: Lens.Lens' AssociateEncryptionConfigResponse Prelude.Int
+associateEncryptionConfigResponse_httpStatus :: Lens.Lens' AssociateEncryptionConfigResponse Core.Int
 associateEncryptionConfigResponse_httpStatus = Lens.lens (\AssociateEncryptionConfigResponse' {httpStatus} -> httpStatus) (\s@AssociateEncryptionConfigResponse' {} a -> s {httpStatus = a} :: AssociateEncryptionConfigResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateEncryptionConfigResponse

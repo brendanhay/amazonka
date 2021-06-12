@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.BoundingBox where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the bounding box around the label, face, text or personal
 -- protective equipment. The @left@ (x-coordinate) and @top@ (y-coordinate)
@@ -49,15 +48,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBoundingBox' smart constructor.
 data BoundingBox = BoundingBox'
   { -- | Height of the bounding box as a ratio of the overall image height.
-    height :: Prelude.Maybe Prelude.Double,
+    height :: Core.Maybe Core.Double,
     -- | Width of the bounding box as a ratio of the overall image width.
-    width :: Prelude.Maybe Prelude.Double,
+    width :: Core.Maybe Core.Double,
     -- | Top coordinate of the bounding box as a ratio of overall image height.
-    top :: Prelude.Maybe Prelude.Double,
+    top :: Core.Maybe Core.Double,
     -- | Left coordinate of the bounding box as a ratio of overall image width.
-    left :: Prelude.Maybe Prelude.Double
+    left :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BoundingBox' with all optional fields omitted.
@@ -78,51 +77,51 @@ newBoundingBox ::
   BoundingBox
 newBoundingBox =
   BoundingBox'
-    { height = Prelude.Nothing,
-      width = Prelude.Nothing,
-      top = Prelude.Nothing,
-      left = Prelude.Nothing
+    { height = Core.Nothing,
+      width = Core.Nothing,
+      top = Core.Nothing,
+      left = Core.Nothing
     }
 
 -- | Height of the bounding box as a ratio of the overall image height.
-boundingBox_height :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
+boundingBox_height :: Lens.Lens' BoundingBox (Core.Maybe Core.Double)
 boundingBox_height = Lens.lens (\BoundingBox' {height} -> height) (\s@BoundingBox' {} a -> s {height = a} :: BoundingBox)
 
 -- | Width of the bounding box as a ratio of the overall image width.
-boundingBox_width :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
+boundingBox_width :: Lens.Lens' BoundingBox (Core.Maybe Core.Double)
 boundingBox_width = Lens.lens (\BoundingBox' {width} -> width) (\s@BoundingBox' {} a -> s {width = a} :: BoundingBox)
 
 -- | Top coordinate of the bounding box as a ratio of overall image height.
-boundingBox_top :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
+boundingBox_top :: Lens.Lens' BoundingBox (Core.Maybe Core.Double)
 boundingBox_top = Lens.lens (\BoundingBox' {top} -> top) (\s@BoundingBox' {} a -> s {top = a} :: BoundingBox)
 
 -- | Left coordinate of the bounding box as a ratio of overall image width.
-boundingBox_left :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
+boundingBox_left :: Lens.Lens' BoundingBox (Core.Maybe Core.Double)
 boundingBox_left = Lens.lens (\BoundingBox' {left} -> left) (\s@BoundingBox' {} a -> s {left = a} :: BoundingBox)
 
-instance Prelude.FromJSON BoundingBox where
+instance Core.FromJSON BoundingBox where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BoundingBox"
       ( \x ->
           BoundingBox'
-            Prelude.<$> (x Prelude..:? "Height")
-            Prelude.<*> (x Prelude..:? "Width")
-            Prelude.<*> (x Prelude..:? "Top")
-            Prelude.<*> (x Prelude..:? "Left")
+            Core.<$> (x Core..:? "Height")
+            Core.<*> (x Core..:? "Width")
+            Core.<*> (x Core..:? "Top")
+            Core.<*> (x Core..:? "Left")
       )
 
-instance Prelude.Hashable BoundingBox
+instance Core.Hashable BoundingBox
 
-instance Prelude.NFData BoundingBox
+instance Core.NFData BoundingBox
 
-instance Prelude.ToJSON BoundingBox where
+instance Core.ToJSON BoundingBox where
   toJSON BoundingBox' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Height" Prelude..=) Prelude.<$> height,
-            ("Width" Prelude..=) Prelude.<$> width,
-            ("Top" Prelude..=) Prelude.<$> top,
-            ("Left" Prelude..=) Prelude.<$> left
+    Core.object
+      ( Core.catMaybes
+          [ ("Height" Core..=) Core.<$> height,
+            ("Width" Core..=) Core.<$> width,
+            ("Top" Core..=) Core.<$> top,
+            ("Left" Core..=) Core.<$> left
           ]
       )

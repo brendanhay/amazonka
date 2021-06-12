@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.FMS.Types.NetworkFirewallPolicyDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types.StatefulRuleGroup
 import Network.AWS.FMS.Types.StatelessRuleGroup
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The definition of the AWS Network Firewall firewall policy.
 --
@@ -31,21 +30,21 @@ import qualified Network.AWS.Prelude as Prelude
 data NetworkFirewallPolicyDescription = NetworkFirewallPolicyDescription'
   { -- | The stateless rule groups that are used in the Network Firewall firewall
     -- policy.
-    statelessRuleGroups :: Prelude.Maybe [StatelessRuleGroup],
+    statelessRuleGroups :: Core.Maybe [StatelessRuleGroup],
     -- | The actions to take on packet fragments that don\'t match any of the
     -- stateless rule groups.
-    statelessFragmentDefaultActions :: Prelude.Maybe [Prelude.Text],
+    statelessFragmentDefaultActions :: Core.Maybe [Core.Text],
     -- | The actions to take on packets that don\'t match any of the stateless
     -- rule groups.
-    statelessDefaultActions :: Prelude.Maybe [Prelude.Text],
+    statelessDefaultActions :: Core.Maybe [Core.Text],
     -- | The stateful rule groups that are used in the Network Firewall firewall
     -- policy.
-    statefulRuleGroups :: Prelude.Maybe [StatefulRuleGroup],
+    statefulRuleGroups :: Core.Maybe [StatefulRuleGroup],
     -- | Names of custom actions that are available for use in the stateless
     -- default actions settings.
-    statelessCustomActions :: Prelude.Maybe [Prelude.Text]
+    statelessCustomActions :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkFirewallPolicyDescription' with all optional fields omitted.
@@ -74,69 +73,67 @@ newNetworkFirewallPolicyDescription ::
 newNetworkFirewallPolicyDescription =
   NetworkFirewallPolicyDescription'
     { statelessRuleGroups =
-        Prelude.Nothing,
+        Core.Nothing,
       statelessFragmentDefaultActions =
-        Prelude.Nothing,
-      statelessDefaultActions = Prelude.Nothing,
-      statefulRuleGroups = Prelude.Nothing,
-      statelessCustomActions = Prelude.Nothing
+        Core.Nothing,
+      statelessDefaultActions = Core.Nothing,
+      statefulRuleGroups = Core.Nothing,
+      statelessCustomActions = Core.Nothing
     }
 
 -- | The stateless rule groups that are used in the Network Firewall firewall
 -- policy.
-networkFirewallPolicyDescription_statelessRuleGroups :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe [StatelessRuleGroup])
-networkFirewallPolicyDescription_statelessRuleGroups = Lens.lens (\NetworkFirewallPolicyDescription' {statelessRuleGroups} -> statelessRuleGroups) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessRuleGroups = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Prelude._Coerce
+networkFirewallPolicyDescription_statelessRuleGroups :: Lens.Lens' NetworkFirewallPolicyDescription (Core.Maybe [StatelessRuleGroup])
+networkFirewallPolicyDescription_statelessRuleGroups = Lens.lens (\NetworkFirewallPolicyDescription' {statelessRuleGroups} -> statelessRuleGroups) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessRuleGroups = a} :: NetworkFirewallPolicyDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The actions to take on packet fragments that don\'t match any of the
 -- stateless rule groups.
-networkFirewallPolicyDescription_statelessFragmentDefaultActions :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe [Prelude.Text])
-networkFirewallPolicyDescription_statelessFragmentDefaultActions = Lens.lens (\NetworkFirewallPolicyDescription' {statelessFragmentDefaultActions} -> statelessFragmentDefaultActions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessFragmentDefaultActions = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Prelude._Coerce
+networkFirewallPolicyDescription_statelessFragmentDefaultActions :: Lens.Lens' NetworkFirewallPolicyDescription (Core.Maybe [Core.Text])
+networkFirewallPolicyDescription_statelessFragmentDefaultActions = Lens.lens (\NetworkFirewallPolicyDescription' {statelessFragmentDefaultActions} -> statelessFragmentDefaultActions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessFragmentDefaultActions = a} :: NetworkFirewallPolicyDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The actions to take on packets that don\'t match any of the stateless
 -- rule groups.
-networkFirewallPolicyDescription_statelessDefaultActions :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe [Prelude.Text])
-networkFirewallPolicyDescription_statelessDefaultActions = Lens.lens (\NetworkFirewallPolicyDescription' {statelessDefaultActions} -> statelessDefaultActions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessDefaultActions = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Prelude._Coerce
+networkFirewallPolicyDescription_statelessDefaultActions :: Lens.Lens' NetworkFirewallPolicyDescription (Core.Maybe [Core.Text])
+networkFirewallPolicyDescription_statelessDefaultActions = Lens.lens (\NetworkFirewallPolicyDescription' {statelessDefaultActions} -> statelessDefaultActions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessDefaultActions = a} :: NetworkFirewallPolicyDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The stateful rule groups that are used in the Network Firewall firewall
 -- policy.
-networkFirewallPolicyDescription_statefulRuleGroups :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe [StatefulRuleGroup])
-networkFirewallPolicyDescription_statefulRuleGroups = Lens.lens (\NetworkFirewallPolicyDescription' {statefulRuleGroups} -> statefulRuleGroups) (\s@NetworkFirewallPolicyDescription' {} a -> s {statefulRuleGroups = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Prelude._Coerce
+networkFirewallPolicyDescription_statefulRuleGroups :: Lens.Lens' NetworkFirewallPolicyDescription (Core.Maybe [StatefulRuleGroup])
+networkFirewallPolicyDescription_statefulRuleGroups = Lens.lens (\NetworkFirewallPolicyDescription' {statefulRuleGroups} -> statefulRuleGroups) (\s@NetworkFirewallPolicyDescription' {} a -> s {statefulRuleGroups = a} :: NetworkFirewallPolicyDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | Names of custom actions that are available for use in the stateless
 -- default actions settings.
-networkFirewallPolicyDescription_statelessCustomActions :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe [Prelude.Text])
-networkFirewallPolicyDescription_statelessCustomActions = Lens.lens (\NetworkFirewallPolicyDescription' {statelessCustomActions} -> statelessCustomActions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessCustomActions = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Prelude._Coerce
+networkFirewallPolicyDescription_statelessCustomActions :: Lens.Lens' NetworkFirewallPolicyDescription (Core.Maybe [Core.Text])
+networkFirewallPolicyDescription_statelessCustomActions = Lens.lens (\NetworkFirewallPolicyDescription' {statelessCustomActions} -> statelessCustomActions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessCustomActions = a} :: NetworkFirewallPolicyDescription) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     NetworkFirewallPolicyDescription
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NetworkFirewallPolicyDescription"
       ( \x ->
           NetworkFirewallPolicyDescription'
-            Prelude.<$> ( x Prelude..:? "StatelessRuleGroups"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "StatelessFragmentDefaultActions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "StatelessDefaultActions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "StatefulRuleGroups"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "StatelessCustomActions"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> ( x Core..:? "StatelessRuleGroups"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> ( x Core..:? "StatelessFragmentDefaultActions"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> ( x Core..:? "StatelessDefaultActions"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> ( x Core..:? "StatefulRuleGroups"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> ( x Core..:? "StatelessCustomActions"
+                         Core..!= Core.mempty
+                     )
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     NetworkFirewallPolicyDescription
 
-instance
-  Prelude.NFData
-    NetworkFirewallPolicyDescription
+instance Core.NFData NetworkFirewallPolicyDescription

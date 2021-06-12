@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,18 +36,18 @@ module Network.AWS.Inspector.DeleteAssessmentTarget
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAssessmentTarget' smart constructor.
 data DeleteAssessmentTarget = DeleteAssessmentTarget'
   { -- | The ARN that specifies the assessment target that you want to delete.
-    assessmentTargetArn :: Prelude.Text
+    assessmentTargetArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAssessmentTarget' with all optional fields omitted.
@@ -61,7 +60,7 @@ data DeleteAssessmentTarget = DeleteAssessmentTarget'
 -- 'assessmentTargetArn', 'deleteAssessmentTarget_assessmentTargetArn' - The ARN that specifies the assessment target that you want to delete.
 newDeleteAssessmentTarget ::
   -- | 'assessmentTargetArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAssessmentTarget
 newDeleteAssessmentTarget pAssessmentTargetArn_ =
   DeleteAssessmentTarget'
@@ -70,59 +69,55 @@ newDeleteAssessmentTarget pAssessmentTargetArn_ =
     }
 
 -- | The ARN that specifies the assessment target that you want to delete.
-deleteAssessmentTarget_assessmentTargetArn :: Lens.Lens' DeleteAssessmentTarget Prelude.Text
+deleteAssessmentTarget_assessmentTargetArn :: Lens.Lens' DeleteAssessmentTarget Core.Text
 deleteAssessmentTarget_assessmentTargetArn = Lens.lens (\DeleteAssessmentTarget' {assessmentTargetArn} -> assessmentTargetArn) (\s@DeleteAssessmentTarget' {} a -> s {assessmentTargetArn = a} :: DeleteAssessmentTarget)
 
-instance Prelude.AWSRequest DeleteAssessmentTarget where
+instance Core.AWSRequest DeleteAssessmentTarget where
   type
-    Rs DeleteAssessmentTarget =
+    AWSResponse DeleteAssessmentTarget =
       DeleteAssessmentTargetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteAssessmentTargetResponse'
 
-instance Prelude.Hashable DeleteAssessmentTarget
+instance Core.Hashable DeleteAssessmentTarget
 
-instance Prelude.NFData DeleteAssessmentTarget
+instance Core.NFData DeleteAssessmentTarget
 
-instance Prelude.ToHeaders DeleteAssessmentTarget where
+instance Core.ToHeaders DeleteAssessmentTarget where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.DeleteAssessmentTarget" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.DeleteAssessmentTarget" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteAssessmentTarget where
+instance Core.ToJSON DeleteAssessmentTarget where
   toJSON DeleteAssessmentTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "assessmentTargetArn"
-                  Prelude..= assessmentTargetArn
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("assessmentTargetArn" Core..= assessmentTargetArn)
           ]
       )
 
-instance Prelude.ToPath DeleteAssessmentTarget where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAssessmentTarget where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAssessmentTarget where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAssessmentTarget where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAssessmentTargetResponse' smart constructor.
 data DeleteAssessmentTargetResponse = DeleteAssessmentTargetResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAssessmentTargetResponse' with all optional fields omitted.
@@ -133,6 +128,4 @@ newDeleteAssessmentTargetResponse ::
 newDeleteAssessmentTargetResponse =
   DeleteAssessmentTargetResponse'
 
-instance
-  Prelude.NFData
-    DeleteAssessmentTargetResponse
+instance Core.NFData DeleteAssessmentTargetResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CloudWatchEvents.DisableRule
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ import qualified Network.AWS.Response as Response
 data DisableRule = DisableRule'
   { -- | The name or ARN of the event bus associated with the rule. If you omit
     -- this, the default event bus is used.
-    eventBusName :: Prelude.Maybe Prelude.Text,
+    eventBusName :: Core.Maybe Core.Text,
     -- | The name of the rule.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableRule' with all optional fields omitted.
@@ -71,66 +70,63 @@ data DisableRule = DisableRule'
 -- 'name', 'disableRule_name' - The name of the rule.
 newDisableRule ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DisableRule
 newDisableRule pName_ =
   DisableRule'
-    { eventBusName = Prelude.Nothing,
+    { eventBusName = Core.Nothing,
       name = pName_
     }
 
 -- | The name or ARN of the event bus associated with the rule. If you omit
 -- this, the default event bus is used.
-disableRule_eventBusName :: Lens.Lens' DisableRule (Prelude.Maybe Prelude.Text)
+disableRule_eventBusName :: Lens.Lens' DisableRule (Core.Maybe Core.Text)
 disableRule_eventBusName = Lens.lens (\DisableRule' {eventBusName} -> eventBusName) (\s@DisableRule' {} a -> s {eventBusName = a} :: DisableRule)
 
 -- | The name of the rule.
-disableRule_name :: Lens.Lens' DisableRule Prelude.Text
+disableRule_name :: Lens.Lens' DisableRule Core.Text
 disableRule_name = Lens.lens (\DisableRule' {name} -> name) (\s@DisableRule' {} a -> s {name = a} :: DisableRule)
 
-instance Prelude.AWSRequest DisableRule where
-  type Rs DisableRule = DisableRuleResponse
+instance Core.AWSRequest DisableRule where
+  type AWSResponse DisableRule = DisableRuleResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull DisableRuleResponse'
 
-instance Prelude.Hashable DisableRule
+instance Core.Hashable DisableRule
 
-instance Prelude.NFData DisableRule
+instance Core.NFData DisableRule
 
-instance Prelude.ToHeaders DisableRule where
+instance Core.ToHeaders DisableRule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSEvents.DisableRule" :: Prelude.ByteString),
+              Core.=# ("AWSEvents.DisableRule" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableRule where
+instance Core.ToJSON DisableRule where
   toJSON DisableRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EventBusName" Prelude..=)
-              Prelude.<$> eventBusName,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("EventBusName" Core..=) Core.<$> eventBusName,
+            Core.Just ("Name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath DisableRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableRuleResponse' smart constructor.
 data DisableRuleResponse = DisableRuleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableRuleResponse' with all optional fields omitted.
@@ -140,4 +136,4 @@ newDisableRuleResponse ::
   DisableRuleResponse
 newDisableRuleResponse = DisableRuleResponse'
 
-instance Prelude.NFData DisableRuleResponse
+instance Core.NFData DisableRuleResponse

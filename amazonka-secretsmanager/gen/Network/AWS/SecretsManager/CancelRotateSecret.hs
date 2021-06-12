@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -84,8 +83,8 @@ module Network.AWS.SecretsManager.CancelRotateSecret
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -114,9 +113,9 @@ data CancelRotateSecret = CancelRotateSecret'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Prelude.Text
+    secretId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelRotateSecret' with all optional fields omitted.
@@ -150,7 +149,7 @@ data CancelRotateSecret = CancelRotateSecret'
 -- /AccessDeniedException/ error, depending on your permissions.
 newCancelRotateSecret ::
   -- | 'secretId'
-  Prelude.Text ->
+  Core.Text ->
   CancelRotateSecret
 newCancelRotateSecret pSecretId_ =
   CancelRotateSecret' {secretId = pSecretId_}
@@ -177,73 +176,71 @@ newCancelRotateSecret pSecretId_ =
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-cancelRotateSecret_secretId :: Lens.Lens' CancelRotateSecret Prelude.Text
+cancelRotateSecret_secretId :: Lens.Lens' CancelRotateSecret Core.Text
 cancelRotateSecret_secretId = Lens.lens (\CancelRotateSecret' {secretId} -> secretId) (\s@CancelRotateSecret' {} a -> s {secretId = a} :: CancelRotateSecret)
 
-instance Prelude.AWSRequest CancelRotateSecret where
+instance Core.AWSRequest CancelRotateSecret where
   type
-    Rs CancelRotateSecret =
+    AWSResponse CancelRotateSecret =
       CancelRotateSecretResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CancelRotateSecretResponse'
-            Prelude.<$> (x Prelude..?> "ARN")
-            Prelude.<*> (x Prelude..?> "VersionId")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ARN")
+            Core.<*> (x Core..?> "VersionId")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelRotateSecret
+instance Core.Hashable CancelRotateSecret
 
-instance Prelude.NFData CancelRotateSecret
+instance Core.NFData CancelRotateSecret
 
-instance Prelude.ToHeaders CancelRotateSecret where
+instance Core.ToHeaders CancelRotateSecret where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.CancelRotateSecret" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "secretsmanager.CancelRotateSecret" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CancelRotateSecret where
+instance Core.ToJSON CancelRotateSecret where
   toJSON CancelRotateSecret' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("SecretId" Prelude..= secretId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SecretId" Core..= secretId)]
       )
 
-instance Prelude.ToPath CancelRotateSecret where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelRotateSecret where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelRotateSecret where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CancelRotateSecret where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCancelRotateSecretResponse' smart constructor.
 data CancelRotateSecretResponse = CancelRotateSecretResponse'
   { -- | The ARN of the secret for which rotation was canceled.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The unique identifier of the version of the secret created during the
     -- rotation. This version might not be complete, and should be evaluated
     -- for possible deletion. At the very least, you should remove the
     -- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
     -- Failing to clean up a cancelled rotation can block you from successfully
     -- starting future rotations.
-    versionId :: Prelude.Maybe Prelude.Text,
+    versionId :: Core.Maybe Core.Text,
     -- | The friendly name of the secret for which rotation was canceled.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelRotateSecretResponse' with all optional fields omitted.
@@ -267,18 +264,18 @@ data CancelRotateSecretResponse = CancelRotateSecretResponse'
 -- 'httpStatus', 'cancelRotateSecretResponse_httpStatus' - The response's http status code.
 newCancelRotateSecretResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelRotateSecretResponse
 newCancelRotateSecretResponse pHttpStatus_ =
   CancelRotateSecretResponse'
-    { arn = Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { arn = Core.Nothing,
+      versionId = Core.Nothing,
+      name = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the secret for which rotation was canceled.
-cancelRotateSecretResponse_arn :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
+cancelRotateSecretResponse_arn :: Lens.Lens' CancelRotateSecretResponse (Core.Maybe Core.Text)
 cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -> arn) (\s@CancelRotateSecretResponse' {} a -> s {arn = a} :: CancelRotateSecretResponse)
 
 -- | The unique identifier of the version of the secret created during the
@@ -287,15 +284,15 @@ cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -
 -- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
 -- Failing to clean up a cancelled rotation can block you from successfully
 -- starting future rotations.
-cancelRotateSecretResponse_versionId :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
+cancelRotateSecretResponse_versionId :: Lens.Lens' CancelRotateSecretResponse (Core.Maybe Core.Text)
 cancelRotateSecretResponse_versionId = Lens.lens (\CancelRotateSecretResponse' {versionId} -> versionId) (\s@CancelRotateSecretResponse' {} a -> s {versionId = a} :: CancelRotateSecretResponse)
 
 -- | The friendly name of the secret for which rotation was canceled.
-cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
+cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Core.Maybe Core.Text)
 cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name} -> name) (\s@CancelRotateSecretResponse' {} a -> s {name = a} :: CancelRotateSecretResponse)
 
 -- | The response's http status code.
-cancelRotateSecretResponse_httpStatus :: Lens.Lens' CancelRotateSecretResponse Prelude.Int
+cancelRotateSecretResponse_httpStatus :: Lens.Lens' CancelRotateSecretResponse Core.Int
 cancelRotateSecretResponse_httpStatus = Lens.lens (\CancelRotateSecretResponse' {httpStatus} -> httpStatus) (\s@CancelRotateSecretResponse' {} a -> s {httpStatus = a} :: CancelRotateSecretResponse)
 
-instance Prelude.NFData CancelRotateSecretResponse
+instance Core.NFData CancelRotateSecretResponse

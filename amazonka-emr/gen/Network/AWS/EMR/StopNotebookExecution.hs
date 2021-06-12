@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,18 +35,18 @@ module Network.AWS.EMR.StopNotebookExecution
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopNotebookExecution' smart constructor.
 data StopNotebookExecution = StopNotebookExecution'
   { -- | The unique identifier of the notebook execution.
-    notebookExecutionId :: Prelude.Text
+    notebookExecutionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopNotebookExecution' with all optional fields omitted.
@@ -60,7 +59,7 @@ data StopNotebookExecution = StopNotebookExecution'
 -- 'notebookExecutionId', 'stopNotebookExecution_notebookExecutionId' - The unique identifier of the notebook execution.
 newStopNotebookExecution ::
   -- | 'notebookExecutionId'
-  Prelude.Text ->
+  Core.Text ->
   StopNotebookExecution
 newStopNotebookExecution pNotebookExecutionId_ =
   StopNotebookExecution'
@@ -69,58 +68,54 @@ newStopNotebookExecution pNotebookExecutionId_ =
     }
 
 -- | The unique identifier of the notebook execution.
-stopNotebookExecution_notebookExecutionId :: Lens.Lens' StopNotebookExecution Prelude.Text
+stopNotebookExecution_notebookExecutionId :: Lens.Lens' StopNotebookExecution Core.Text
 stopNotebookExecution_notebookExecutionId = Lens.lens (\StopNotebookExecution' {notebookExecutionId} -> notebookExecutionId) (\s@StopNotebookExecution' {} a -> s {notebookExecutionId = a} :: StopNotebookExecution)
 
-instance Prelude.AWSRequest StopNotebookExecution where
+instance Core.AWSRequest StopNotebookExecution where
   type
-    Rs StopNotebookExecution =
+    AWSResponse StopNotebookExecution =
       StopNotebookExecutionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull StopNotebookExecutionResponse'
 
-instance Prelude.Hashable StopNotebookExecution
+instance Core.Hashable StopNotebookExecution
 
-instance Prelude.NFData StopNotebookExecution
+instance Core.NFData StopNotebookExecution
 
-instance Prelude.ToHeaders StopNotebookExecution where
+instance Core.ToHeaders StopNotebookExecution where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.StopNotebookExecution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.StopNotebookExecution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopNotebookExecution where
+instance Core.ToJSON StopNotebookExecution where
   toJSON StopNotebookExecution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "NotebookExecutionId"
-                  Prelude..= notebookExecutionId
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("NotebookExecutionId" Core..= notebookExecutionId)
           ]
       )
 
-instance Prelude.ToPath StopNotebookExecution where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopNotebookExecution where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopNotebookExecution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopNotebookExecution where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopNotebookExecutionResponse' smart constructor.
 data StopNotebookExecutionResponse = StopNotebookExecutionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopNotebookExecutionResponse' with all optional fields omitted.
@@ -131,4 +126,4 @@ newStopNotebookExecutionResponse ::
 newStopNotebookExecutionResponse =
   StopNotebookExecutionResponse'
 
-instance Prelude.NFData StopNotebookExecutionResponse
+instance Core.NFData StopNotebookExecutionResponse

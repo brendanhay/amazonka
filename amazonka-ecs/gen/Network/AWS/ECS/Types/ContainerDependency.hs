@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.ContainerDependency where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.ContainerCondition
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The dependencies defined for container startup and shutdown. A container
 -- can contain multiple dependencies. When a dependency is defined for
@@ -49,7 +48,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newContainerDependency' smart constructor.
 data ContainerDependency = ContainerDependency'
   { -- | The name of a container.
-    containerName :: Prelude.Text,
+    containerName :: Core.Text,
     -- | The dependency condition of the container. The following are the
     -- available conditions and their behavior:
     --
@@ -73,7 +72,7 @@ data ContainerDependency = ContainerDependency'
     --     configured. This condition is confirmed only at task startup.
     condition :: ContainerCondition
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContainerDependency' with all optional fields omitted.
@@ -108,7 +107,7 @@ data ContainerDependency = ContainerDependency'
 --     configured. This condition is confirmed only at task startup.
 newContainerDependency ::
   -- | 'containerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'condition'
   ContainerCondition ->
   ContainerDependency
@@ -120,7 +119,7 @@ newContainerDependency pContainerName_ pCondition_ =
     }
 
 -- | The name of a container.
-containerDependency_containerName :: Lens.Lens' ContainerDependency Prelude.Text
+containerDependency_containerName :: Lens.Lens' ContainerDependency Core.Text
 containerDependency_containerName = Lens.lens (\ContainerDependency' {containerName} -> containerName) (\s@ContainerDependency' {} a -> s {containerName = a} :: ContainerDependency)
 
 -- | The dependency condition of the container. The following are the
@@ -147,26 +146,25 @@ containerDependency_containerName = Lens.lens (\ContainerDependency' {containerN
 containerDependency_condition :: Lens.Lens' ContainerDependency ContainerCondition
 containerDependency_condition = Lens.lens (\ContainerDependency' {condition} -> condition) (\s@ContainerDependency' {} a -> s {condition = a} :: ContainerDependency)
 
-instance Prelude.FromJSON ContainerDependency where
+instance Core.FromJSON ContainerDependency where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContainerDependency"
       ( \x ->
           ContainerDependency'
-            Prelude.<$> (x Prelude..: "containerName")
-            Prelude.<*> (x Prelude..: "condition")
+            Core.<$> (x Core..: "containerName")
+            Core.<*> (x Core..: "condition")
       )
 
-instance Prelude.Hashable ContainerDependency
+instance Core.Hashable ContainerDependency
 
-instance Prelude.NFData ContainerDependency
+instance Core.NFData ContainerDependency
 
-instance Prelude.ToJSON ContainerDependency where
+instance Core.ToJSON ContainerDependency where
   toJSON ContainerDependency' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("containerName" Prelude..= containerName),
-            Prelude.Just ("condition" Prelude..= condition)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("containerName" Core..= containerName),
+            Core.Just ("condition" Core..= condition)
           ]
       )

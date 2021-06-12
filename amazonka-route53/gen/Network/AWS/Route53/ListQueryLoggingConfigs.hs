@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,8 @@ module Network.AWS.Route53.ListQueryLoggingConfigs
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -72,7 +70,7 @@ data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
     -- For the second and subsequent requests, get the value of @NextToken@
     -- from the previous response and specify that value for @NextToken@ in the
     -- request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | (Optional) The maximum number of query logging configurations that you
     -- want Amazon Route 53 to return in response to the current request. If
     -- the current AWS account has more than @MaxResults@ configurations, use
@@ -82,16 +80,16 @@ data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
     --
     -- If you don\'t specify a value for @MaxResults@, Route 53 returns up to
     -- 100 configurations.
-    maxResults :: Prelude.Maybe Prelude.Text,
+    maxResults :: Core.Maybe Core.Text,
     -- | (Optional) If you want to list the query logging configuration that is
     -- associated with a hosted zone, specify the ID in @HostedZoneId@.
     --
     -- If you don\'t specify a hosted zone ID, @ListQueryLoggingConfigs@
     -- returns all of the configurations that are associated with the current
     -- AWS account.
-    hostedZoneId :: Prelude.Maybe ResourceId
+    hostedZoneId :: Core.Maybe ResourceId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListQueryLoggingConfigs' with all optional fields omitted.
@@ -131,10 +129,9 @@ newListQueryLoggingConfigs ::
   ListQueryLoggingConfigs
 newListQueryLoggingConfigs =
   ListQueryLoggingConfigs'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      hostedZoneId = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      hostedZoneId = Core.Nothing
     }
 
 -- | (Optional) If the current AWS account has more than @MaxResults@ query
@@ -146,7 +143,7 @@ newListQueryLoggingConfigs =
 -- For the second and subsequent requests, get the value of @NextToken@
 -- from the previous response and specify that value for @NextToken@ in the
 -- request.
-listQueryLoggingConfigs_nextToken :: Lens.Lens' ListQueryLoggingConfigs (Prelude.Maybe Prelude.Text)
+listQueryLoggingConfigs_nextToken :: Lens.Lens' ListQueryLoggingConfigs (Core.Maybe Core.Text)
 listQueryLoggingConfigs_nextToken = Lens.lens (\ListQueryLoggingConfigs' {nextToken} -> nextToken) (\s@ListQueryLoggingConfigs' {} a -> s {nextToken = a} :: ListQueryLoggingConfigs)
 
 -- | (Optional) The maximum number of query logging configurations that you
@@ -158,7 +155,7 @@ listQueryLoggingConfigs_nextToken = Lens.lens (\ListQueryLoggingConfigs' {nextTo
 --
 -- If you don\'t specify a value for @MaxResults@, Route 53 returns up to
 -- 100 configurations.
-listQueryLoggingConfigs_maxResults :: Lens.Lens' ListQueryLoggingConfigs (Prelude.Maybe Prelude.Text)
+listQueryLoggingConfigs_maxResults :: Lens.Lens' ListQueryLoggingConfigs (Core.Maybe Core.Text)
 listQueryLoggingConfigs_maxResults = Lens.lens (\ListQueryLoggingConfigs' {maxResults} -> maxResults) (\s@ListQueryLoggingConfigs' {} a -> s {maxResults = a} :: ListQueryLoggingConfigs)
 
 -- | (Optional) If you want to list the query logging configuration that is
@@ -167,64 +164,63 @@ listQueryLoggingConfigs_maxResults = Lens.lens (\ListQueryLoggingConfigs' {maxRe
 -- If you don\'t specify a hosted zone ID, @ListQueryLoggingConfigs@
 -- returns all of the configurations that are associated with the current
 -- AWS account.
-listQueryLoggingConfigs_hostedZoneId :: Lens.Lens' ListQueryLoggingConfigs (Prelude.Maybe ResourceId)
+listQueryLoggingConfigs_hostedZoneId :: Lens.Lens' ListQueryLoggingConfigs (Core.Maybe ResourceId)
 listQueryLoggingConfigs_hostedZoneId = Lens.lens (\ListQueryLoggingConfigs' {hostedZoneId} -> hostedZoneId) (\s@ListQueryLoggingConfigs' {} a -> s {hostedZoneId = a} :: ListQueryLoggingConfigs)
 
-instance Pager.AWSPager ListQueryLoggingConfigs where
+instance Core.AWSPager ListQueryLoggingConfigs where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listQueryLoggingConfigsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. listQueryLoggingConfigsResponse_queryLoggingConfigs
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listQueryLoggingConfigs_nextToken
           Lens..~ rs
           Lens.^? listQueryLoggingConfigsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListQueryLoggingConfigs where
+instance Core.AWSRequest ListQueryLoggingConfigs where
   type
-    Rs ListQueryLoggingConfigs =
+    AWSResponse ListQueryLoggingConfigs =
       ListQueryLoggingConfigsResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListQueryLoggingConfigsResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "QueryLoggingConfigs"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "QueryLoggingConfig"
-                        )
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "QueryLoggingConfigs"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "QueryLoggingConfig"
+                     )
       )
 
-instance Prelude.Hashable ListQueryLoggingConfigs
+instance Core.Hashable ListQueryLoggingConfigs
 
-instance Prelude.NFData ListQueryLoggingConfigs
+instance Core.NFData ListQueryLoggingConfigs
 
-instance Prelude.ToHeaders ListQueryLoggingConfigs where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListQueryLoggingConfigs where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListQueryLoggingConfigs where
-  toPath =
-    Prelude.const "/2013-04-01/queryloggingconfig"
+instance Core.ToPath ListQueryLoggingConfigs where
+  toPath = Core.const "/2013-04-01/queryloggingconfig"
 
-instance Prelude.ToQuery ListQueryLoggingConfigs where
+instance Core.ToQuery ListQueryLoggingConfigs where
   toQuery ListQueryLoggingConfigs' {..} =
-    Prelude.mconcat
-      [ "nexttoken" Prelude.=: nextToken,
-        "maxresults" Prelude.=: maxResults,
-        "hostedzoneid" Prelude.=: hostedZoneId
+    Core.mconcat
+      [ "nexttoken" Core.=: nextToken,
+        "maxresults" Core.=: maxResults,
+        "hostedzoneid" Core.=: hostedZoneId
       ]
 
 -- | /See:/ 'newListQueryLoggingConfigsResponse' smart constructor.
@@ -238,16 +234,16 @@ data ListQueryLoggingConfigsResponse = ListQueryLoggingConfigsResponse'
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html ListQueryLoggingConfigs>
     -- request. Get the value of @NextToken@ that Amazon Route 53 returned in
     -- the previous response and include it in @NextToken@ in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | An array that contains one
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html QueryLoggingConfig>
     -- element for each configuration for DNS query logging that is associated
     -- with the current AWS account.
     queryLoggingConfigs :: [QueryLoggingConfig]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListQueryLoggingConfigsResponse' with all optional fields omitted.
@@ -275,14 +271,14 @@ data ListQueryLoggingConfigsResponse = ListQueryLoggingConfigsResponse'
 -- with the current AWS account.
 newListQueryLoggingConfigsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListQueryLoggingConfigsResponse
 newListQueryLoggingConfigsResponse pHttpStatus_ =
   ListQueryLoggingConfigsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      queryLoggingConfigs = Prelude.mempty
+      queryLoggingConfigs = Core.mempty
     }
 
 -- | If a response includes the last of the query logging configurations that
@@ -294,11 +290,11 @@ newListQueryLoggingConfigsResponse pHttpStatus_ =
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html ListQueryLoggingConfigs>
 -- request. Get the value of @NextToken@ that Amazon Route 53 returned in
 -- the previous response and include it in @NextToken@ in the next request.
-listQueryLoggingConfigsResponse_nextToken :: Lens.Lens' ListQueryLoggingConfigsResponse (Prelude.Maybe Prelude.Text)
+listQueryLoggingConfigsResponse_nextToken :: Lens.Lens' ListQueryLoggingConfigsResponse (Core.Maybe Core.Text)
 listQueryLoggingConfigsResponse_nextToken = Lens.lens (\ListQueryLoggingConfigsResponse' {nextToken} -> nextToken) (\s@ListQueryLoggingConfigsResponse' {} a -> s {nextToken = a} :: ListQueryLoggingConfigsResponse)
 
 -- | The response's http status code.
-listQueryLoggingConfigsResponse_httpStatus :: Lens.Lens' ListQueryLoggingConfigsResponse Prelude.Int
+listQueryLoggingConfigsResponse_httpStatus :: Lens.Lens' ListQueryLoggingConfigsResponse Core.Int
 listQueryLoggingConfigsResponse_httpStatus = Lens.lens (\ListQueryLoggingConfigsResponse' {httpStatus} -> httpStatus) (\s@ListQueryLoggingConfigsResponse' {} a -> s {httpStatus = a} :: ListQueryLoggingConfigsResponse)
 
 -- | An array that contains one
@@ -306,8 +302,6 @@ listQueryLoggingConfigsResponse_httpStatus = Lens.lens (\ListQueryLoggingConfigs
 -- element for each configuration for DNS query logging that is associated
 -- with the current AWS account.
 listQueryLoggingConfigsResponse_queryLoggingConfigs :: Lens.Lens' ListQueryLoggingConfigsResponse [QueryLoggingConfig]
-listQueryLoggingConfigsResponse_queryLoggingConfigs = Lens.lens (\ListQueryLoggingConfigsResponse' {queryLoggingConfigs} -> queryLoggingConfigs) (\s@ListQueryLoggingConfigsResponse' {} a -> s {queryLoggingConfigs = a} :: ListQueryLoggingConfigsResponse) Prelude.. Prelude._Coerce
+listQueryLoggingConfigsResponse_queryLoggingConfigs = Lens.lens (\ListQueryLoggingConfigsResponse' {queryLoggingConfigs} -> queryLoggingConfigs) (\s@ListQueryLoggingConfigsResponse' {} a -> s {queryLoggingConfigs = a} :: ListQueryLoggingConfigsResponse) Core.. Lens._Coerce
 
-instance
-  Prelude.NFData
-    ListQueryLoggingConfigsResponse
+instance Core.NFData ListQueryLoggingConfigsResponse

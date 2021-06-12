@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.APIGateway.UpdateUsagePlan
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,11 +58,11 @@ import qualified Network.AWS.Response as Response
 data UpdateUsagePlan = UpdateUsagePlan'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Prelude.Maybe [PatchOperation],
+    patchOperations :: Core.Maybe [PatchOperation],
     -- | [Required] The Id of the to-be-updated usage plan.
-    usagePlanId :: Prelude.Text
+    usagePlanId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUsagePlan' with all optional fields omitted.
@@ -79,56 +78,56 @@ data UpdateUsagePlan = UpdateUsagePlan'
 -- 'usagePlanId', 'updateUsagePlan_usagePlanId' - [Required] The Id of the to-be-updated usage plan.
 newUpdateUsagePlan ::
   -- | 'usagePlanId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateUsagePlan
 newUpdateUsagePlan pUsagePlanId_ =
   UpdateUsagePlan'
-    { patchOperations = Prelude.Nothing,
+    { patchOperations = Core.Nothing,
       usagePlanId = pUsagePlanId_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateUsagePlan_patchOperations :: Lens.Lens' UpdateUsagePlan (Prelude.Maybe [PatchOperation])
-updateUsagePlan_patchOperations = Lens.lens (\UpdateUsagePlan' {patchOperations} -> patchOperations) (\s@UpdateUsagePlan' {} a -> s {patchOperations = a} :: UpdateUsagePlan) Prelude.. Lens.mapping Prelude._Coerce
+updateUsagePlan_patchOperations :: Lens.Lens' UpdateUsagePlan (Core.Maybe [PatchOperation])
+updateUsagePlan_patchOperations = Lens.lens (\UpdateUsagePlan' {patchOperations} -> patchOperations) (\s@UpdateUsagePlan' {} a -> s {patchOperations = a} :: UpdateUsagePlan) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The Id of the to-be-updated usage plan.
-updateUsagePlan_usagePlanId :: Lens.Lens' UpdateUsagePlan Prelude.Text
+updateUsagePlan_usagePlanId :: Lens.Lens' UpdateUsagePlan Core.Text
 updateUsagePlan_usagePlanId = Lens.lens (\UpdateUsagePlan' {usagePlanId} -> usagePlanId) (\s@UpdateUsagePlan' {} a -> s {usagePlanId = a} :: UpdateUsagePlan)
 
-instance Prelude.AWSRequest UpdateUsagePlan where
-  type Rs UpdateUsagePlan = UsagePlan
+instance Core.AWSRequest UpdateUsagePlan where
+  type AWSResponse UpdateUsagePlan = UsagePlan
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateUsagePlan
+instance Core.Hashable UpdateUsagePlan
 
-instance Prelude.NFData UpdateUsagePlan
+instance Core.NFData UpdateUsagePlan
 
-instance Prelude.ToHeaders UpdateUsagePlan where
+instance Core.ToHeaders UpdateUsagePlan where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateUsagePlan where
+instance Core.ToJSON UpdateUsagePlan where
   toJSON UpdateUsagePlan' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("patchOperations" Prelude..=)
-              Prelude.<$> patchOperations
+    Core.object
+      ( Core.catMaybes
+          [ ("patchOperations" Core..=)
+              Core.<$> patchOperations
           ]
       )
 
-instance Prelude.ToPath UpdateUsagePlan where
+instance Core.ToPath UpdateUsagePlan where
   toPath UpdateUsagePlan' {..} =
-    Prelude.mconcat
-      ["/usageplans/", Prelude.toBS usagePlanId]
+    Core.mconcat
+      ["/usageplans/", Core.toBS usagePlanId]
 
-instance Prelude.ToQuery UpdateUsagePlan where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateUsagePlan where
+  toQuery = Core.const Core.mempty

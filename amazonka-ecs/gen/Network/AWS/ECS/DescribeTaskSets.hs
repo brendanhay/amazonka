@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,28 +47,28 @@ module Network.AWS.ECS.DescribeTaskSets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTaskSets' smart constructor.
 data DescribeTaskSets = DescribeTaskSets'
   { -- | The ID or full Amazon Resource Name (ARN) of task sets to describe.
-    taskSets :: Prelude.Maybe [Prelude.Text],
+    taskSets :: Core.Maybe [Core.Text],
     -- | Specifies whether to see the resource tags for the task set. If @TAGS@
     -- is specified, the tags are included in the response. If this field is
     -- omitted, tags are not included in the response.
-    include :: Prelude.Maybe [TaskSetField],
+    include :: Core.Maybe [TaskSetField],
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the service that the task sets exist in.
-    cluster :: Prelude.Text,
+    cluster :: Core.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the service that
     -- the task sets exist in.
-    service :: Prelude.Text
+    service :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTaskSets' with all optional fields omitted.
@@ -92,96 +91,96 @@ data DescribeTaskSets = DescribeTaskSets'
 -- the task sets exist in.
 newDescribeTaskSets ::
   -- | 'cluster'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'service'
-  Prelude.Text ->
+  Core.Text ->
   DescribeTaskSets
 newDescribeTaskSets pCluster_ pService_ =
   DescribeTaskSets'
-    { taskSets = Prelude.Nothing,
-      include = Prelude.Nothing,
+    { taskSets = Core.Nothing,
+      include = Core.Nothing,
       cluster = pCluster_,
       service = pService_
     }
 
 -- | The ID or full Amazon Resource Name (ARN) of task sets to describe.
-describeTaskSets_taskSets :: Lens.Lens' DescribeTaskSets (Prelude.Maybe [Prelude.Text])
-describeTaskSets_taskSets = Lens.lens (\DescribeTaskSets' {taskSets} -> taskSets) (\s@DescribeTaskSets' {} a -> s {taskSets = a} :: DescribeTaskSets) Prelude.. Lens.mapping Prelude._Coerce
+describeTaskSets_taskSets :: Lens.Lens' DescribeTaskSets (Core.Maybe [Core.Text])
+describeTaskSets_taskSets = Lens.lens (\DescribeTaskSets' {taskSets} -> taskSets) (\s@DescribeTaskSets' {} a -> s {taskSets = a} :: DescribeTaskSets) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether to see the resource tags for the task set. If @TAGS@
 -- is specified, the tags are included in the response. If this field is
 -- omitted, tags are not included in the response.
-describeTaskSets_include :: Lens.Lens' DescribeTaskSets (Prelude.Maybe [TaskSetField])
-describeTaskSets_include = Lens.lens (\DescribeTaskSets' {include} -> include) (\s@DescribeTaskSets' {} a -> s {include = a} :: DescribeTaskSets) Prelude.. Lens.mapping Prelude._Coerce
+describeTaskSets_include :: Lens.Lens' DescribeTaskSets (Core.Maybe [TaskSetField])
+describeTaskSets_include = Lens.lens (\DescribeTaskSets' {include} -> include) (\s@DescribeTaskSets' {} a -> s {include = a} :: DescribeTaskSets) Core.. Lens.mapping Lens._Coerce
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service that the task sets exist in.
-describeTaskSets_cluster :: Lens.Lens' DescribeTaskSets Prelude.Text
+describeTaskSets_cluster :: Lens.Lens' DescribeTaskSets Core.Text
 describeTaskSets_cluster = Lens.lens (\DescribeTaskSets' {cluster} -> cluster) (\s@DescribeTaskSets' {} a -> s {cluster = a} :: DescribeTaskSets)
 
 -- | The short name or full Amazon Resource Name (ARN) of the service that
 -- the task sets exist in.
-describeTaskSets_service :: Lens.Lens' DescribeTaskSets Prelude.Text
+describeTaskSets_service :: Lens.Lens' DescribeTaskSets Core.Text
 describeTaskSets_service = Lens.lens (\DescribeTaskSets' {service} -> service) (\s@DescribeTaskSets' {} a -> s {service = a} :: DescribeTaskSets)
 
-instance Prelude.AWSRequest DescribeTaskSets where
-  type Rs DescribeTaskSets = DescribeTaskSetsResponse
+instance Core.AWSRequest DescribeTaskSets where
+  type
+    AWSResponse DescribeTaskSets =
+      DescribeTaskSetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTaskSetsResponse'
-            Prelude.<$> (x Prelude..?> "taskSets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "failures" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "taskSets" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "failures" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTaskSets
+instance Core.Hashable DescribeTaskSets
 
-instance Prelude.NFData DescribeTaskSets
+instance Core.NFData DescribeTaskSets
 
-instance Prelude.ToHeaders DescribeTaskSets where
+instance Core.ToHeaders DescribeTaskSets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTaskSets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTaskSets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTaskSets where
+instance Core.ToJSON DescribeTaskSets where
   toJSON DescribeTaskSets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("taskSets" Prelude..=) Prelude.<$> taskSets,
-            ("include" Prelude..=) Prelude.<$> include,
-            Prelude.Just ("cluster" Prelude..= cluster),
-            Prelude.Just ("service" Prelude..= service)
+    Core.object
+      ( Core.catMaybes
+          [ ("taskSets" Core..=) Core.<$> taskSets,
+            ("include" Core..=) Core.<$> include,
+            Core.Just ("cluster" Core..= cluster),
+            Core.Just ("service" Core..= service)
           ]
       )
 
-instance Prelude.ToPath DescribeTaskSets where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTaskSets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTaskSets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTaskSets where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeTaskSetsResponse' smart constructor.
 data DescribeTaskSetsResponse = DescribeTaskSetsResponse'
   { -- | The list of task sets described.
-    taskSets :: Prelude.Maybe [TaskSet],
+    taskSets :: Core.Maybe [TaskSet],
     -- | Any failures associated with the call.
-    failures :: Prelude.Maybe [Failure],
+    failures :: Core.Maybe [Failure],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTaskSetsResponse' with all optional fields omitted.
@@ -198,26 +197,25 @@ data DescribeTaskSetsResponse = DescribeTaskSetsResponse'
 -- 'httpStatus', 'describeTaskSetsResponse_httpStatus' - The response's http status code.
 newDescribeTaskSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTaskSetsResponse
 newDescribeTaskSetsResponse pHttpStatus_ =
   DescribeTaskSetsResponse'
-    { taskSets =
-        Prelude.Nothing,
-      failures = Prelude.Nothing,
+    { taskSets = Core.Nothing,
+      failures = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of task sets described.
-describeTaskSetsResponse_taskSets :: Lens.Lens' DescribeTaskSetsResponse (Prelude.Maybe [TaskSet])
-describeTaskSetsResponse_taskSets = Lens.lens (\DescribeTaskSetsResponse' {taskSets} -> taskSets) (\s@DescribeTaskSetsResponse' {} a -> s {taskSets = a} :: DescribeTaskSetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTaskSetsResponse_taskSets :: Lens.Lens' DescribeTaskSetsResponse (Core.Maybe [TaskSet])
+describeTaskSetsResponse_taskSets = Lens.lens (\DescribeTaskSetsResponse' {taskSets} -> taskSets) (\s@DescribeTaskSetsResponse' {} a -> s {taskSets = a} :: DescribeTaskSetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Any failures associated with the call.
-describeTaskSetsResponse_failures :: Lens.Lens' DescribeTaskSetsResponse (Prelude.Maybe [Failure])
-describeTaskSetsResponse_failures = Lens.lens (\DescribeTaskSetsResponse' {failures} -> failures) (\s@DescribeTaskSetsResponse' {} a -> s {failures = a} :: DescribeTaskSetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTaskSetsResponse_failures :: Lens.Lens' DescribeTaskSetsResponse (Core.Maybe [Failure])
+describeTaskSetsResponse_failures = Lens.lens (\DescribeTaskSetsResponse' {failures} -> failures) (\s@DescribeTaskSetsResponse' {} a -> s {failures = a} :: DescribeTaskSetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTaskSetsResponse_httpStatus :: Lens.Lens' DescribeTaskSetsResponse Prelude.Int
+describeTaskSetsResponse_httpStatus :: Lens.Lens' DescribeTaskSetsResponse Core.Int
 describeTaskSetsResponse_httpStatus = Lens.lens (\DescribeTaskSetsResponse' {httpStatus} -> httpStatus) (\s@DescribeTaskSetsResponse' {} a -> s {httpStatus = a} :: DescribeTaskSetsResponse)
 
-instance Prelude.NFData DescribeTaskSetsResponse
+instance Core.NFData DescribeTaskSetsResponse

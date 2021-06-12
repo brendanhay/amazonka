@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.AttributeDefinition where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ScalarAttributeType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an attribute for describing the key schema for the table and
 -- indexes.
@@ -30,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAttributeDefinition' smart constructor.
 data AttributeDefinition = AttributeDefinition'
   { -- | A name for the attribute.
-    attributeName :: Prelude.Text,
+    attributeName :: Core.Text,
     -- | The data type for the attribute, where:
     --
     -- -   @S@ - the attribute is of type String
@@ -40,7 +39,7 @@ data AttributeDefinition = AttributeDefinition'
     -- -   @B@ - the attribute is of type Binary
     attributeType :: ScalarAttributeType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributeDefinition' with all optional fields omitted.
@@ -61,7 +60,7 @@ data AttributeDefinition = AttributeDefinition'
 -- -   @B@ - the attribute is of type Binary
 newAttributeDefinition ::
   -- | 'attributeName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'attributeType'
   ScalarAttributeType ->
   AttributeDefinition
@@ -75,7 +74,7 @@ newAttributeDefinition
       }
 
 -- | A name for the attribute.
-attributeDefinition_attributeName :: Lens.Lens' AttributeDefinition Prelude.Text
+attributeDefinition_attributeName :: Lens.Lens' AttributeDefinition Core.Text
 attributeDefinition_attributeName = Lens.lens (\AttributeDefinition' {attributeName} -> attributeName) (\s@AttributeDefinition' {} a -> s {attributeName = a} :: AttributeDefinition)
 
 -- | The data type for the attribute, where:
@@ -88,27 +87,25 @@ attributeDefinition_attributeName = Lens.lens (\AttributeDefinition' {attributeN
 attributeDefinition_attributeType :: Lens.Lens' AttributeDefinition ScalarAttributeType
 attributeDefinition_attributeType = Lens.lens (\AttributeDefinition' {attributeType} -> attributeType) (\s@AttributeDefinition' {} a -> s {attributeType = a} :: AttributeDefinition)
 
-instance Prelude.FromJSON AttributeDefinition where
+instance Core.FromJSON AttributeDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttributeDefinition"
       ( \x ->
           AttributeDefinition'
-            Prelude.<$> (x Prelude..: "AttributeName")
-            Prelude.<*> (x Prelude..: "AttributeType")
+            Core.<$> (x Core..: "AttributeName")
+            Core.<*> (x Core..: "AttributeType")
       )
 
-instance Prelude.Hashable AttributeDefinition
+instance Core.Hashable AttributeDefinition
 
-instance Prelude.NFData AttributeDefinition
+instance Core.NFData AttributeDefinition
 
-instance Prelude.ToJSON AttributeDefinition where
+instance Core.ToJSON AttributeDefinition where
   toJSON AttributeDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AttributeName" Prelude..= attributeName),
-            Prelude.Just
-              ("AttributeType" Prelude..= attributeType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AttributeName" Core..= attributeName),
+            Core.Just ("AttributeType" Core..= attributeType)
           ]
       )

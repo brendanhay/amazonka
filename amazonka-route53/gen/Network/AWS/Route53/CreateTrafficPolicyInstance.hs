@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.Route53.CreateTrafficPolicyInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -69,18 +68,18 @@ data CreateTrafficPolicyInstance = CreateTrafficPolicyInstance'
     -- www.example.com) for which Amazon Route 53 responds to DNS queries by
     -- using the resource record sets that Route 53 creates for this traffic
     -- policy instance.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | (Optional) The TTL that you want Amazon Route 53 to assign to all of the
     -- resource record sets that it creates in the specified hosted zone.
-    ttl :: Prelude.Natural,
+    ttl :: Core.Natural,
     -- | The ID of the traffic policy that you want to use to create resource
     -- record sets in the specified hosted zone.
-    trafficPolicyId :: Prelude.Text,
+    trafficPolicyId :: Core.Text,
     -- | The version of the traffic policy that you want to use to create
     -- resource record sets in the specified hosted zone.
-    trafficPolicyVersion :: Prelude.Natural
+    trafficPolicyVersion :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTrafficPolicyInstance' with all optional fields omitted.
@@ -110,13 +109,13 @@ newCreateTrafficPolicyInstance ::
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ttl'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'trafficPolicyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'trafficPolicyVersion'
-  Prelude.Natural ->
+  Core.Natural ->
   CreateTrafficPolicyInstance
 newCreateTrafficPolicyInstance
   pHostedZoneId_
@@ -142,75 +141,65 @@ createTrafficPolicyInstance_hostedZoneId = Lens.lens (\CreateTrafficPolicyInstan
 -- www.example.com) for which Amazon Route 53 responds to DNS queries by
 -- using the resource record sets that Route 53 creates for this traffic
 -- policy instance.
-createTrafficPolicyInstance_name :: Lens.Lens' CreateTrafficPolicyInstance Prelude.Text
+createTrafficPolicyInstance_name :: Lens.Lens' CreateTrafficPolicyInstance Core.Text
 createTrafficPolicyInstance_name = Lens.lens (\CreateTrafficPolicyInstance' {name} -> name) (\s@CreateTrafficPolicyInstance' {} a -> s {name = a} :: CreateTrafficPolicyInstance)
 
 -- | (Optional) The TTL that you want Amazon Route 53 to assign to all of the
 -- resource record sets that it creates in the specified hosted zone.
-createTrafficPolicyInstance_ttl :: Lens.Lens' CreateTrafficPolicyInstance Prelude.Natural
+createTrafficPolicyInstance_ttl :: Lens.Lens' CreateTrafficPolicyInstance Core.Natural
 createTrafficPolicyInstance_ttl = Lens.lens (\CreateTrafficPolicyInstance' {ttl} -> ttl) (\s@CreateTrafficPolicyInstance' {} a -> s {ttl = a} :: CreateTrafficPolicyInstance)
 
 -- | The ID of the traffic policy that you want to use to create resource
 -- record sets in the specified hosted zone.
-createTrafficPolicyInstance_trafficPolicyId :: Lens.Lens' CreateTrafficPolicyInstance Prelude.Text
+createTrafficPolicyInstance_trafficPolicyId :: Lens.Lens' CreateTrafficPolicyInstance Core.Text
 createTrafficPolicyInstance_trafficPolicyId = Lens.lens (\CreateTrafficPolicyInstance' {trafficPolicyId} -> trafficPolicyId) (\s@CreateTrafficPolicyInstance' {} a -> s {trafficPolicyId = a} :: CreateTrafficPolicyInstance)
 
 -- | The version of the traffic policy that you want to use to create
 -- resource record sets in the specified hosted zone.
-createTrafficPolicyInstance_trafficPolicyVersion :: Lens.Lens' CreateTrafficPolicyInstance Prelude.Natural
+createTrafficPolicyInstance_trafficPolicyVersion :: Lens.Lens' CreateTrafficPolicyInstance Core.Natural
 createTrafficPolicyInstance_trafficPolicyVersion = Lens.lens (\CreateTrafficPolicyInstance' {trafficPolicyVersion} -> trafficPolicyVersion) (\s@CreateTrafficPolicyInstance' {} a -> s {trafficPolicyVersion = a} :: CreateTrafficPolicyInstance)
 
-instance
-  Prelude.AWSRequest
-    CreateTrafficPolicyInstance
-  where
+instance Core.AWSRequest CreateTrafficPolicyInstance where
   type
-    Rs CreateTrafficPolicyInstance =
+    AWSResponse CreateTrafficPolicyInstance =
       CreateTrafficPolicyInstanceResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateTrafficPolicyInstanceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "TrafficPolicyInstance")
-            Prelude.<*> (h Prelude..# "Location")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "TrafficPolicyInstance")
+            Core.<*> (h Core..# "Location")
       )
 
-instance Prelude.Hashable CreateTrafficPolicyInstance
+instance Core.Hashable CreateTrafficPolicyInstance
 
-instance Prelude.NFData CreateTrafficPolicyInstance
+instance Core.NFData CreateTrafficPolicyInstance
 
-instance
-  Prelude.ToElement
-    CreateTrafficPolicyInstance
-  where
+instance Core.ToElement CreateTrafficPolicyInstance where
   toElement =
-    Prelude.mkElement
+    Core.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateTrafficPolicyInstanceRequest"
 
-instance
-  Prelude.ToHeaders
-    CreateTrafficPolicyInstance
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateTrafficPolicyInstance where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateTrafficPolicyInstance where
+instance Core.ToPath CreateTrafficPolicyInstance where
   toPath =
-    Prelude.const "/2013-04-01/trafficpolicyinstance"
+    Core.const "/2013-04-01/trafficpolicyinstance"
 
-instance Prelude.ToQuery CreateTrafficPolicyInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateTrafficPolicyInstance where
+  toQuery = Core.const Core.mempty
 
-instance Prelude.ToXML CreateTrafficPolicyInstance where
+instance Core.ToXML CreateTrafficPolicyInstance where
   toXML CreateTrafficPolicyInstance' {..} =
-    Prelude.mconcat
-      [ "HostedZoneId" Prelude.@= hostedZoneId,
-        "Name" Prelude.@= name,
-        "TTL" Prelude.@= ttl,
-        "TrafficPolicyId" Prelude.@= trafficPolicyId,
-        "TrafficPolicyVersion"
-          Prelude.@= trafficPolicyVersion
+    Core.mconcat
+      [ "HostedZoneId" Core.@= hostedZoneId,
+        "Name" Core.@= name,
+        "TTL" Core.@= ttl,
+        "TrafficPolicyId" Core.@= trafficPolicyId,
+        "TrafficPolicyVersion" Core.@= trafficPolicyVersion
       ]
 
 -- | A complex type that contains the response information for the
@@ -219,14 +208,14 @@ instance Prelude.ToXML CreateTrafficPolicyInstance where
 -- /See:/ 'newCreateTrafficPolicyInstanceResponse' smart constructor.
 data CreateTrafficPolicyInstanceResponse = CreateTrafficPolicyInstanceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains settings for the new traffic policy
     -- instance.
     trafficPolicyInstance :: TrafficPolicyInstance,
     -- | A unique URL that represents a new traffic policy instance.
-    location :: Prelude.Text
+    location :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTrafficPolicyInstanceResponse' with all optional fields omitted.
@@ -244,11 +233,11 @@ data CreateTrafficPolicyInstanceResponse = CreateTrafficPolicyInstanceResponse'
 -- 'location', 'createTrafficPolicyInstanceResponse_location' - A unique URL that represents a new traffic policy instance.
 newCreateTrafficPolicyInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'trafficPolicyInstance'
   TrafficPolicyInstance ->
   -- | 'location'
-  Prelude.Text ->
+  Core.Text ->
   CreateTrafficPolicyInstanceResponse
 newCreateTrafficPolicyInstanceResponse
   pHttpStatus_
@@ -263,7 +252,7 @@ newCreateTrafficPolicyInstanceResponse
       }
 
 -- | The response's http status code.
-createTrafficPolicyInstanceResponse_httpStatus :: Lens.Lens' CreateTrafficPolicyInstanceResponse Prelude.Int
+createTrafficPolicyInstanceResponse_httpStatus :: Lens.Lens' CreateTrafficPolicyInstanceResponse Core.Int
 createTrafficPolicyInstanceResponse_httpStatus = Lens.lens (\CreateTrafficPolicyInstanceResponse' {httpStatus} -> httpStatus) (\s@CreateTrafficPolicyInstanceResponse' {} a -> s {httpStatus = a} :: CreateTrafficPolicyInstanceResponse)
 
 -- | A complex type that contains settings for the new traffic policy
@@ -272,9 +261,9 @@ createTrafficPolicyInstanceResponse_trafficPolicyInstance :: Lens.Lens' CreateTr
 createTrafficPolicyInstanceResponse_trafficPolicyInstance = Lens.lens (\CreateTrafficPolicyInstanceResponse' {trafficPolicyInstance} -> trafficPolicyInstance) (\s@CreateTrafficPolicyInstanceResponse' {} a -> s {trafficPolicyInstance = a} :: CreateTrafficPolicyInstanceResponse)
 
 -- | A unique URL that represents a new traffic policy instance.
-createTrafficPolicyInstanceResponse_location :: Lens.Lens' CreateTrafficPolicyInstanceResponse Prelude.Text
+createTrafficPolicyInstanceResponse_location :: Lens.Lens' CreateTrafficPolicyInstanceResponse Core.Text
 createTrafficPolicyInstanceResponse_location = Lens.lens (\CreateTrafficPolicyInstanceResponse' {location} -> location) (\s@CreateTrafficPolicyInstanceResponse' {} a -> s {location = a} :: CreateTrafficPolicyInstanceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateTrafficPolicyInstanceResponse

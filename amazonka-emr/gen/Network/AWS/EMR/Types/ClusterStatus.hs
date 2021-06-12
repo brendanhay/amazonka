@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.ClusterStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ClusterState
 import Network.AWS.EMR.Types.ClusterStateChangeReason
 import Network.AWS.EMR.Types.ClusterTimeline
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The detailed status of the cluster.
 --
 -- /See:/ 'newClusterStatus' smart constructor.
 data ClusterStatus = ClusterStatus'
   { -- | The reason for the cluster status change.
-    stateChangeReason :: Prelude.Maybe ClusterStateChangeReason,
+    stateChangeReason :: Core.Maybe ClusterStateChangeReason,
     -- | The current state of the cluster.
-    state :: Prelude.Maybe ClusterState,
+    state :: Core.Maybe ClusterState,
     -- | A timeline that represents the status of a cluster over the lifetime of
     -- the cluster.
-    timeline :: Prelude.Maybe ClusterTimeline
+    timeline :: Core.Maybe ClusterTimeline
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClusterStatus' with all optional fields omitted.
@@ -58,35 +57,35 @@ newClusterStatus ::
   ClusterStatus
 newClusterStatus =
   ClusterStatus'
-    { stateChangeReason = Prelude.Nothing,
-      state = Prelude.Nothing,
-      timeline = Prelude.Nothing
+    { stateChangeReason = Core.Nothing,
+      state = Core.Nothing,
+      timeline = Core.Nothing
     }
 
 -- | The reason for the cluster status change.
-clusterStatus_stateChangeReason :: Lens.Lens' ClusterStatus (Prelude.Maybe ClusterStateChangeReason)
+clusterStatus_stateChangeReason :: Lens.Lens' ClusterStatus (Core.Maybe ClusterStateChangeReason)
 clusterStatus_stateChangeReason = Lens.lens (\ClusterStatus' {stateChangeReason} -> stateChangeReason) (\s@ClusterStatus' {} a -> s {stateChangeReason = a} :: ClusterStatus)
 
 -- | The current state of the cluster.
-clusterStatus_state :: Lens.Lens' ClusterStatus (Prelude.Maybe ClusterState)
+clusterStatus_state :: Lens.Lens' ClusterStatus (Core.Maybe ClusterState)
 clusterStatus_state = Lens.lens (\ClusterStatus' {state} -> state) (\s@ClusterStatus' {} a -> s {state = a} :: ClusterStatus)
 
 -- | A timeline that represents the status of a cluster over the lifetime of
 -- the cluster.
-clusterStatus_timeline :: Lens.Lens' ClusterStatus (Prelude.Maybe ClusterTimeline)
+clusterStatus_timeline :: Lens.Lens' ClusterStatus (Core.Maybe ClusterTimeline)
 clusterStatus_timeline = Lens.lens (\ClusterStatus' {timeline} -> timeline) (\s@ClusterStatus' {} a -> s {timeline = a} :: ClusterStatus)
 
-instance Prelude.FromJSON ClusterStatus where
+instance Core.FromJSON ClusterStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ClusterStatus"
       ( \x ->
           ClusterStatus'
-            Prelude.<$> (x Prelude..:? "StateChangeReason")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "Timeline")
+            Core.<$> (x Core..:? "StateChangeReason")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "Timeline")
       )
 
-instance Prelude.Hashable ClusterStatus
+instance Core.Hashable ClusterStatus
 
-instance Prelude.NFData ClusterStatus
+instance Core.NFData ClusterStatus

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -79,15 +78,15 @@ module Network.AWS.SageMaker.CreateTransformJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateTransformJob' smart constructor.
 data CreateTransformJob = CreateTransformJob'
-  { experimentConfig :: Prelude.Maybe ExperimentConfig,
+  { experimentConfig :: Core.Maybe ExperimentConfig,
     -- | The maximum number of parallel requests that can be sent to each
     -- instance in a transform job. If @MaxConcurrentTransforms@ is set to @0@
     -- or left unset, Amazon SageMaker checks the optional execution-parameters
@@ -97,10 +96,10 @@ data CreateTransformJob = CreateTransformJob'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests How Containers Serve Requests>.
     -- For built-in algorithms, you don\'t need to set a value for
     -- @MaxConcurrentTransforms@.
-    maxConcurrentTransforms :: Prelude.Maybe Prelude.Natural,
+    maxConcurrentTransforms :: Core.Maybe Core.Natural,
     -- | The environment variables to set in the Docker container. We support up
     -- to 16 key and values entries in the map.
-    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    environment :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The maximum allowed size of the payload, in MB. A /payload/ is the data
     -- portion of a record (without metadata). The value in @MaxPayloadInMB@
     -- must be greater than, or equal to, the size of a single record. To
@@ -113,7 +112,7 @@ data CreateTransformJob = CreateTransformJob'
     -- transmitted using HTTP chunked encoding, set the value to @0@. This
     -- feature works only in supported algorithms. Currently, Amazon SageMaker
     -- built-in algorithms do not support HTTP chunked encoding.
-    maxPayloadInMB :: Prelude.Maybe Prelude.Natural,
+    maxPayloadInMB :: Core.Maybe Core.Natural,
     -- | Specifies the number of records to include in a mini-batch for an HTTP
     -- inference request. A /record/ // is a single unit of input data that
     -- inference can be made on. For example, a single line in a CSV file is a
@@ -129,14 +128,14 @@ data CreateTransformJob = CreateTransformJob'
     -- To fit as many records in a mini-batch as can fit within the
     -- @MaxPayloadInMB@ limit, set @BatchStrategy@ to @MultiRecord@ and
     -- @SplitType@ to @Line@.
-    batchStrategy :: Prelude.Maybe BatchStrategy,
+    batchStrategy :: Core.Maybe BatchStrategy,
     -- | Configures the timeout and maximum number of retries for processing a
     -- transform job invocation.
-    modelClientConfig :: Prelude.Maybe ModelClientConfig,
+    modelClientConfig :: Core.Maybe ModelClientConfig,
     -- | (Optional) An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
     -- in the /AWS Billing and Cost Management User Guide/.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The data structure used to specify the data to be used for inference in
     -- a batch transform job and to associate the data that is relevant to the
     -- prediction results in the output. The input filter provided allows you
@@ -145,14 +144,14 @@ data CreateTransformJob = CreateTransformJob'
     -- data relevant to interpreting the predictions in the output from the
     -- job. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html Associate Prediction Results with their Corresponding Input Records>.
-    dataProcessing :: Prelude.Maybe DataProcessing,
+    dataProcessing :: Core.Maybe DataProcessing,
     -- | The name of the transform job. The name must be unique within an AWS
     -- Region in an AWS account.
-    transformJobName :: Prelude.Text,
+    transformJobName :: Core.Text,
     -- | The name of the model that you want to use for the transform job.
     -- @ModelName@ must be the name of an existing Amazon SageMaker model
     -- within an AWS Region in an AWS account.
-    modelName :: Prelude.Text,
+    modelName :: Core.Text,
     -- | Describes the input source and the way the transform job consumes it.
     transformInput :: TransformInput,
     -- | Describes the results of the transform job.
@@ -161,7 +160,7 @@ data CreateTransformJob = CreateTransformJob'
     -- count, to use for the transform job.
     transformResources :: TransformResources
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTransformJob' with all optional fields omitted.
@@ -246,9 +245,9 @@ data CreateTransformJob = CreateTransformJob'
 -- count, to use for the transform job.
 newCreateTransformJob ::
   -- | 'transformJobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'modelName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'transformInput'
   TransformInput ->
   -- | 'transformOutput'
@@ -264,14 +263,14 @@ newCreateTransformJob
   pTransformResources_ =
     CreateTransformJob'
       { experimentConfig =
-          Prelude.Nothing,
-        maxConcurrentTransforms = Prelude.Nothing,
-        environment = Prelude.Nothing,
-        maxPayloadInMB = Prelude.Nothing,
-        batchStrategy = Prelude.Nothing,
-        modelClientConfig = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        dataProcessing = Prelude.Nothing,
+          Core.Nothing,
+        maxConcurrentTransforms = Core.Nothing,
+        environment = Core.Nothing,
+        maxPayloadInMB = Core.Nothing,
+        batchStrategy = Core.Nothing,
+        modelClientConfig = Core.Nothing,
+        tags = Core.Nothing,
+        dataProcessing = Core.Nothing,
         transformJobName = pTransformJobName_,
         modelName = pModelName_,
         transformInput = pTransformInput_,
@@ -280,7 +279,7 @@ newCreateTransformJob
       }
 
 -- | Undocumented member.
-createTransformJob_experimentConfig :: Lens.Lens' CreateTransformJob (Prelude.Maybe ExperimentConfig)
+createTransformJob_experimentConfig :: Lens.Lens' CreateTransformJob (Core.Maybe ExperimentConfig)
 createTransformJob_experimentConfig = Lens.lens (\CreateTransformJob' {experimentConfig} -> experimentConfig) (\s@CreateTransformJob' {} a -> s {experimentConfig = a} :: CreateTransformJob)
 
 -- | The maximum number of parallel requests that can be sent to each
@@ -292,13 +291,13 @@ createTransformJob_experimentConfig = Lens.lens (\CreateTransformJob' {experimen
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests How Containers Serve Requests>.
 -- For built-in algorithms, you don\'t need to set a value for
 -- @MaxConcurrentTransforms@.
-createTransformJob_maxConcurrentTransforms :: Lens.Lens' CreateTransformJob (Prelude.Maybe Prelude.Natural)
+createTransformJob_maxConcurrentTransforms :: Lens.Lens' CreateTransformJob (Core.Maybe Core.Natural)
 createTransformJob_maxConcurrentTransforms = Lens.lens (\CreateTransformJob' {maxConcurrentTransforms} -> maxConcurrentTransforms) (\s@CreateTransformJob' {} a -> s {maxConcurrentTransforms = a} :: CreateTransformJob)
 
 -- | The environment variables to set in the Docker container. We support up
 -- to 16 key and values entries in the map.
-createTransformJob_environment :: Lens.Lens' CreateTransformJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createTransformJob_environment = Lens.lens (\CreateTransformJob' {environment} -> environment) (\s@CreateTransformJob' {} a -> s {environment = a} :: CreateTransformJob) Prelude.. Lens.mapping Prelude._Coerce
+createTransformJob_environment :: Lens.Lens' CreateTransformJob (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createTransformJob_environment = Lens.lens (\CreateTransformJob' {environment} -> environment) (\s@CreateTransformJob' {} a -> s {environment = a} :: CreateTransformJob) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum allowed size of the payload, in MB. A /payload/ is the data
 -- portion of a record (without metadata). The value in @MaxPayloadInMB@
@@ -312,7 +311,7 @@ createTransformJob_environment = Lens.lens (\CreateTransformJob' {environment} -
 -- transmitted using HTTP chunked encoding, set the value to @0@. This
 -- feature works only in supported algorithms. Currently, Amazon SageMaker
 -- built-in algorithms do not support HTTP chunked encoding.
-createTransformJob_maxPayloadInMB :: Lens.Lens' CreateTransformJob (Prelude.Maybe Prelude.Natural)
+createTransformJob_maxPayloadInMB :: Lens.Lens' CreateTransformJob (Core.Maybe Core.Natural)
 createTransformJob_maxPayloadInMB = Lens.lens (\CreateTransformJob' {maxPayloadInMB} -> maxPayloadInMB) (\s@CreateTransformJob' {} a -> s {maxPayloadInMB = a} :: CreateTransformJob)
 
 -- | Specifies the number of records to include in a mini-batch for an HTTP
@@ -330,19 +329,19 @@ createTransformJob_maxPayloadInMB = Lens.lens (\CreateTransformJob' {maxPayloadI
 -- To fit as many records in a mini-batch as can fit within the
 -- @MaxPayloadInMB@ limit, set @BatchStrategy@ to @MultiRecord@ and
 -- @SplitType@ to @Line@.
-createTransformJob_batchStrategy :: Lens.Lens' CreateTransformJob (Prelude.Maybe BatchStrategy)
+createTransformJob_batchStrategy :: Lens.Lens' CreateTransformJob (Core.Maybe BatchStrategy)
 createTransformJob_batchStrategy = Lens.lens (\CreateTransformJob' {batchStrategy} -> batchStrategy) (\s@CreateTransformJob' {} a -> s {batchStrategy = a} :: CreateTransformJob)
 
 -- | Configures the timeout and maximum number of retries for processing a
 -- transform job invocation.
-createTransformJob_modelClientConfig :: Lens.Lens' CreateTransformJob (Prelude.Maybe ModelClientConfig)
+createTransformJob_modelClientConfig :: Lens.Lens' CreateTransformJob (Core.Maybe ModelClientConfig)
 createTransformJob_modelClientConfig = Lens.lens (\CreateTransformJob' {modelClientConfig} -> modelClientConfig) (\s@CreateTransformJob' {} a -> s {modelClientConfig = a} :: CreateTransformJob)
 
 -- | (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
 -- in the /AWS Billing and Cost Management User Guide/.
-createTransformJob_tags :: Lens.Lens' CreateTransformJob (Prelude.Maybe [Tag])
-createTransformJob_tags = Lens.lens (\CreateTransformJob' {tags} -> tags) (\s@CreateTransformJob' {} a -> s {tags = a} :: CreateTransformJob) Prelude.. Lens.mapping Prelude._Coerce
+createTransformJob_tags :: Lens.Lens' CreateTransformJob (Core.Maybe [Tag])
+createTransformJob_tags = Lens.lens (\CreateTransformJob' {tags} -> tags) (\s@CreateTransformJob' {} a -> s {tags = a} :: CreateTransformJob) Core.. Lens.mapping Lens._Coerce
 
 -- | The data structure used to specify the data to be used for inference in
 -- a batch transform job and to associate the data that is relevant to the
@@ -352,18 +351,18 @@ createTransformJob_tags = Lens.lens (\CreateTransformJob' {tags} -> tags) (\s@Cr
 -- data relevant to interpreting the predictions in the output from the
 -- job. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html Associate Prediction Results with their Corresponding Input Records>.
-createTransformJob_dataProcessing :: Lens.Lens' CreateTransformJob (Prelude.Maybe DataProcessing)
+createTransformJob_dataProcessing :: Lens.Lens' CreateTransformJob (Core.Maybe DataProcessing)
 createTransformJob_dataProcessing = Lens.lens (\CreateTransformJob' {dataProcessing} -> dataProcessing) (\s@CreateTransformJob' {} a -> s {dataProcessing = a} :: CreateTransformJob)
 
 -- | The name of the transform job. The name must be unique within an AWS
 -- Region in an AWS account.
-createTransformJob_transformJobName :: Lens.Lens' CreateTransformJob Prelude.Text
+createTransformJob_transformJobName :: Lens.Lens' CreateTransformJob Core.Text
 createTransformJob_transformJobName = Lens.lens (\CreateTransformJob' {transformJobName} -> transformJobName) (\s@CreateTransformJob' {} a -> s {transformJobName = a} :: CreateTransformJob)
 
 -- | The name of the model that you want to use for the transform job.
 -- @ModelName@ must be the name of an existing Amazon SageMaker model
 -- within an AWS Region in an AWS account.
-createTransformJob_modelName :: Lens.Lens' CreateTransformJob Prelude.Text
+createTransformJob_modelName :: Lens.Lens' CreateTransformJob Core.Text
 createTransformJob_modelName = Lens.lens (\CreateTransformJob' {modelName} -> modelName) (\s@CreateTransformJob' {} a -> s {modelName = a} :: CreateTransformJob)
 
 -- | Describes the input source and the way the transform job consumes it.
@@ -379,84 +378,74 @@ createTransformJob_transformOutput = Lens.lens (\CreateTransformJob' {transformO
 createTransformJob_transformResources :: Lens.Lens' CreateTransformJob TransformResources
 createTransformJob_transformResources = Lens.lens (\CreateTransformJob' {transformResources} -> transformResources) (\s@CreateTransformJob' {} a -> s {transformResources = a} :: CreateTransformJob)
 
-instance Prelude.AWSRequest CreateTransformJob where
+instance Core.AWSRequest CreateTransformJob where
   type
-    Rs CreateTransformJob =
+    AWSResponse CreateTransformJob =
       CreateTransformJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateTransformJobResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "TransformJobArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "TransformJobArn")
       )
 
-instance Prelude.Hashable CreateTransformJob
+instance Core.Hashable CreateTransformJob
 
-instance Prelude.NFData CreateTransformJob
+instance Core.NFData CreateTransformJob
 
-instance Prelude.ToHeaders CreateTransformJob where
+instance Core.ToHeaders CreateTransformJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.CreateTransformJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.CreateTransformJob" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateTransformJob where
+instance Core.ToJSON CreateTransformJob where
   toJSON CreateTransformJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExperimentConfig" Prelude..=)
-              Prelude.<$> experimentConfig,
-            ("MaxConcurrentTransforms" Prelude..=)
-              Prelude.<$> maxConcurrentTransforms,
-            ("Environment" Prelude..=) Prelude.<$> environment,
-            ("MaxPayloadInMB" Prelude..=)
-              Prelude.<$> maxPayloadInMB,
-            ("BatchStrategy" Prelude..=)
-              Prelude.<$> batchStrategy,
-            ("ModelClientConfig" Prelude..=)
-              Prelude.<$> modelClientConfig,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("DataProcessing" Prelude..=)
-              Prelude.<$> dataProcessing,
-            Prelude.Just
-              ("TransformJobName" Prelude..= transformJobName),
-            Prelude.Just ("ModelName" Prelude..= modelName),
-            Prelude.Just
-              ("TransformInput" Prelude..= transformInput),
-            Prelude.Just
-              ("TransformOutput" Prelude..= transformOutput),
-            Prelude.Just
-              ( "TransformResources"
-                  Prelude..= transformResources
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("ExperimentConfig" Core..=)
+              Core.<$> experimentConfig,
+            ("MaxConcurrentTransforms" Core..=)
+              Core.<$> maxConcurrentTransforms,
+            ("Environment" Core..=) Core.<$> environment,
+            ("MaxPayloadInMB" Core..=) Core.<$> maxPayloadInMB,
+            ("BatchStrategy" Core..=) Core.<$> batchStrategy,
+            ("ModelClientConfig" Core..=)
+              Core.<$> modelClientConfig,
+            ("Tags" Core..=) Core.<$> tags,
+            ("DataProcessing" Core..=) Core.<$> dataProcessing,
+            Core.Just
+              ("TransformJobName" Core..= transformJobName),
+            Core.Just ("ModelName" Core..= modelName),
+            Core.Just ("TransformInput" Core..= transformInput),
+            Core.Just
+              ("TransformOutput" Core..= transformOutput),
+            Core.Just
+              ("TransformResources" Core..= transformResources)
           ]
       )
 
-instance Prelude.ToPath CreateTransformJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateTransformJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateTransformJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateTransformJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateTransformJobResponse' smart constructor.
 data CreateTransformJobResponse = CreateTransformJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the transform job.
-    transformJobArn :: Prelude.Text
+    transformJobArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTransformJobResponse' with all optional fields omitted.
@@ -471,9 +460,9 @@ data CreateTransformJobResponse = CreateTransformJobResponse'
 -- 'transformJobArn', 'createTransformJobResponse_transformJobArn' - The Amazon Resource Name (ARN) of the transform job.
 newCreateTransformJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'transformJobArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateTransformJobResponse
 newCreateTransformJobResponse
   pHttpStatus_
@@ -485,11 +474,11 @@ newCreateTransformJobResponse
       }
 
 -- | The response's http status code.
-createTransformJobResponse_httpStatus :: Lens.Lens' CreateTransformJobResponse Prelude.Int
+createTransformJobResponse_httpStatus :: Lens.Lens' CreateTransformJobResponse Core.Int
 createTransformJobResponse_httpStatus = Lens.lens (\CreateTransformJobResponse' {httpStatus} -> httpStatus) (\s@CreateTransformJobResponse' {} a -> s {httpStatus = a} :: CreateTransformJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the transform job.
-createTransformJobResponse_transformJobArn :: Lens.Lens' CreateTransformJobResponse Prelude.Text
+createTransformJobResponse_transformJobArn :: Lens.Lens' CreateTransformJobResponse Core.Text
 createTransformJobResponse_transformJobArn = Lens.lens (\CreateTransformJobResponse' {transformJobArn} -> transformJobArn) (\s@CreateTransformJobResponse' {} a -> s {transformJobArn = a} :: CreateTransformJobResponse)
 
-instance Prelude.NFData CreateTransformJobResponse
+instance Core.NFData CreateTransformJobResponse

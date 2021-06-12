@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TargetGroup where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a load balancer target group.
 --
 -- /See:/ 'newTargetGroup' smart constructor.
 data TargetGroup = TargetGroup'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetGroup' with all optional fields omitted.
@@ -44,20 +43,19 @@ data TargetGroup = TargetGroup'
 -- 'arn', 'targetGroup_arn' - The Amazon Resource Name (ARN) of the target group.
 newTargetGroup ::
   TargetGroup
-newTargetGroup = TargetGroup' {arn = Prelude.Nothing}
+newTargetGroup = TargetGroup' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the target group.
-targetGroup_arn :: Lens.Lens' TargetGroup (Prelude.Maybe Prelude.Text)
+targetGroup_arn :: Lens.Lens' TargetGroup (Core.Maybe Core.Text)
 targetGroup_arn = Lens.lens (\TargetGroup' {arn} -> arn) (\s@TargetGroup' {} a -> s {arn = a} :: TargetGroup)
 
-instance Prelude.FromXML TargetGroup where
-  parseXML x =
-    TargetGroup' Prelude.<$> (x Prelude..@? "arn")
+instance Core.FromXML TargetGroup where
+  parseXML x = TargetGroup' Core.<$> (x Core..@? "arn")
 
-instance Prelude.Hashable TargetGroup
+instance Core.Hashable TargetGroup
 
-instance Prelude.NFData TargetGroup
+instance Core.NFData TargetGroup
 
-instance Prelude.ToQuery TargetGroup where
+instance Core.ToQuery TargetGroup where
   toQuery TargetGroup' {..} =
-    Prelude.mconcat ["Arn" Prelude.=: arn]
+    Core.mconcat ["Arn" Core.=: arn]

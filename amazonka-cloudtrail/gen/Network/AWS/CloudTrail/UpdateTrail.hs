@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,8 +68,8 @@ module Network.AWS.CloudTrail.UpdateTrail
 where
 
 import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,13 +86,13 @@ data UpdateTrail = UpdateTrail'
     -- belong to the organization. If the trail is an organization trail and
     -- this is set to false, the trail will remain in the current AWS account
     -- but be deleted from all member accounts in the organization.
-    isOrganizationTrail :: Prelude.Maybe Prelude.Bool,
+    isOrganizationTrail :: Core.Maybe Core.Bool,
     -- | Specifies the name of the Amazon SNS topic defined for notification of
     -- log file delivery. The maximum length is 256 characters.
-    snsTopicName :: Prelude.Maybe Prelude.Text,
+    snsTopicName :: Core.Maybe Core.Text,
     -- | Specifies whether the trail is publishing events from global services
     -- such as IAM to the log files.
-    includeGlobalServiceEvents :: Prelude.Maybe Prelude.Bool,
+    includeGlobalServiceEvents :: Core.Maybe Core.Bool,
     -- | Specifies the KMS key ID to use to encrypt the logs delivered by
     -- CloudTrail. The value can be an alias name prefixed by \"alias\/\", a
     -- fully specified ARN to an alias, a fully specified ARN to a key, or a
@@ -108,17 +107,17 @@ data UpdateTrail = UpdateTrail'
     -- -   arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012
     --
     -- -   12345678-1234-1234-1234-123456789012
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | Specifies the Amazon S3 key prefix that comes after the name of the
     -- bucket you have designated for log file delivery. For more information,
     -- see
     -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files>.
     -- The maximum length is 200 characters.
-    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    s3KeyPrefix :: Core.Maybe Core.Text,
     -- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
     -- identifier that represents the log group to which CloudTrail logs will
     -- be delivered. Not required unless you specify CloudWatchLogsRoleArn.
-    cloudWatchLogsLogGroupArn :: Prelude.Maybe Prelude.Text,
+    cloudWatchLogsLogGroupArn :: Core.Maybe Core.Text,
     -- | Specifies whether the trail applies only to the current region or to all
     -- regions. The default is false. If the trail exists only in the current
     -- region and this value is set to true, shadow trails (replications of the
@@ -127,14 +126,14 @@ data UpdateTrail = UpdateTrail'
     -- region where it was created, and its shadow trails in other regions will
     -- be deleted. As a best practice, consider using trails that log events in
     -- all regions.
-    isMultiRegionTrail :: Prelude.Maybe Prelude.Bool,
+    isMultiRegionTrail :: Core.Maybe Core.Bool,
     -- | Specifies the name of the Amazon S3 bucket designated for publishing log
     -- files. See
     -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements>.
-    s3BucketName :: Prelude.Maybe Prelude.Text,
+    s3BucketName :: Core.Maybe Core.Text,
     -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
     -- to a user\'s log group.
-    cloudWatchLogsRoleArn :: Prelude.Maybe Prelude.Text,
+    cloudWatchLogsRoleArn :: Core.Maybe Core.Text,
     -- | Specifies whether log file validation is enabled. The default is false.
     --
     -- When you disable log file integrity validation, the chain of digest
@@ -146,7 +145,7 @@ data UpdateTrail = UpdateTrail'
     -- created for the log files delivered from noon on January 2 to noon on
     -- January 10. The same applies whenever you stop CloudTrail logging or
     -- delete a trail.
-    enableLogFileValidation :: Prelude.Maybe Prelude.Bool,
+    enableLogFileValidation :: Core.Maybe Core.Bool,
     -- | Specifies the name of the trail or trail ARN. If @Name@ is a trail name,
     -- the string must meet the following requirements:
     --
@@ -165,9 +164,9 @@ data UpdateTrail = UpdateTrail'
     -- If @Name@ is a trail ARN, it must be in the format:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTrail' with all optional fields omitted.
@@ -266,20 +265,20 @@ data UpdateTrail = UpdateTrail'
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newUpdateTrail ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   UpdateTrail
 newUpdateTrail pName_ =
   UpdateTrail'
-    { isOrganizationTrail = Prelude.Nothing,
-      snsTopicName = Prelude.Nothing,
-      includeGlobalServiceEvents = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      s3KeyPrefix = Prelude.Nothing,
-      cloudWatchLogsLogGroupArn = Prelude.Nothing,
-      isMultiRegionTrail = Prelude.Nothing,
-      s3BucketName = Prelude.Nothing,
-      cloudWatchLogsRoleArn = Prelude.Nothing,
-      enableLogFileValidation = Prelude.Nothing,
+    { isOrganizationTrail = Core.Nothing,
+      snsTopicName = Core.Nothing,
+      includeGlobalServiceEvents = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      s3KeyPrefix = Core.Nothing,
+      cloudWatchLogsLogGroupArn = Core.Nothing,
+      isMultiRegionTrail = Core.Nothing,
+      s3BucketName = Core.Nothing,
+      cloudWatchLogsRoleArn = Core.Nothing,
+      enableLogFileValidation = Core.Nothing,
       name = pName_
     }
 
@@ -292,17 +291,17 @@ newUpdateTrail pName_ =
 -- belong to the organization. If the trail is an organization trail and
 -- this is set to false, the trail will remain in the current AWS account
 -- but be deleted from all member accounts in the organization.
-updateTrail_isOrganizationTrail :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Bool)
+updateTrail_isOrganizationTrail :: Lens.Lens' UpdateTrail (Core.Maybe Core.Bool)
 updateTrail_isOrganizationTrail = Lens.lens (\UpdateTrail' {isOrganizationTrail} -> isOrganizationTrail) (\s@UpdateTrail' {} a -> s {isOrganizationTrail = a} :: UpdateTrail)
 
 -- | Specifies the name of the Amazon SNS topic defined for notification of
 -- log file delivery. The maximum length is 256 characters.
-updateTrail_snsTopicName :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Text)
+updateTrail_snsTopicName :: Lens.Lens' UpdateTrail (Core.Maybe Core.Text)
 updateTrail_snsTopicName = Lens.lens (\UpdateTrail' {snsTopicName} -> snsTopicName) (\s@UpdateTrail' {} a -> s {snsTopicName = a} :: UpdateTrail)
 
 -- | Specifies whether the trail is publishing events from global services
 -- such as IAM to the log files.
-updateTrail_includeGlobalServiceEvents :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Bool)
+updateTrail_includeGlobalServiceEvents :: Lens.Lens' UpdateTrail (Core.Maybe Core.Bool)
 updateTrail_includeGlobalServiceEvents = Lens.lens (\UpdateTrail' {includeGlobalServiceEvents} -> includeGlobalServiceEvents) (\s@UpdateTrail' {} a -> s {includeGlobalServiceEvents = a} :: UpdateTrail)
 
 -- | Specifies the KMS key ID to use to encrypt the logs delivered by
@@ -319,7 +318,7 @@ updateTrail_includeGlobalServiceEvents = Lens.lens (\UpdateTrail' {includeGlobal
 -- -   arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012
 --
 -- -   12345678-1234-1234-1234-123456789012
-updateTrail_kmsKeyId :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Text)
+updateTrail_kmsKeyId :: Lens.Lens' UpdateTrail (Core.Maybe Core.Text)
 updateTrail_kmsKeyId = Lens.lens (\UpdateTrail' {kmsKeyId} -> kmsKeyId) (\s@UpdateTrail' {} a -> s {kmsKeyId = a} :: UpdateTrail)
 
 -- | Specifies the Amazon S3 key prefix that comes after the name of the
@@ -327,13 +326,13 @@ updateTrail_kmsKeyId = Lens.lens (\UpdateTrail' {kmsKeyId} -> kmsKeyId) (\s@Upda
 -- see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files>.
 -- The maximum length is 200 characters.
-updateTrail_s3KeyPrefix :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Text)
+updateTrail_s3KeyPrefix :: Lens.Lens' UpdateTrail (Core.Maybe Core.Text)
 updateTrail_s3KeyPrefix = Lens.lens (\UpdateTrail' {s3KeyPrefix} -> s3KeyPrefix) (\s@UpdateTrail' {} a -> s {s3KeyPrefix = a} :: UpdateTrail)
 
 -- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
 -- identifier that represents the log group to which CloudTrail logs will
 -- be delivered. Not required unless you specify CloudWatchLogsRoleArn.
-updateTrail_cloudWatchLogsLogGroupArn :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Text)
+updateTrail_cloudWatchLogsLogGroupArn :: Lens.Lens' UpdateTrail (Core.Maybe Core.Text)
 updateTrail_cloudWatchLogsLogGroupArn = Lens.lens (\UpdateTrail' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@UpdateTrail' {} a -> s {cloudWatchLogsLogGroupArn = a} :: UpdateTrail)
 
 -- | Specifies whether the trail applies only to the current region or to all
@@ -344,18 +343,18 @@ updateTrail_cloudWatchLogsLogGroupArn = Lens.lens (\UpdateTrail' {cloudWatchLogs
 -- region where it was created, and its shadow trails in other regions will
 -- be deleted. As a best practice, consider using trails that log events in
 -- all regions.
-updateTrail_isMultiRegionTrail :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Bool)
+updateTrail_isMultiRegionTrail :: Lens.Lens' UpdateTrail (Core.Maybe Core.Bool)
 updateTrail_isMultiRegionTrail = Lens.lens (\UpdateTrail' {isMultiRegionTrail} -> isMultiRegionTrail) (\s@UpdateTrail' {} a -> s {isMultiRegionTrail = a} :: UpdateTrail)
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files. See
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements>.
-updateTrail_s3BucketName :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Text)
+updateTrail_s3BucketName :: Lens.Lens' UpdateTrail (Core.Maybe Core.Text)
 updateTrail_s3BucketName = Lens.lens (\UpdateTrail' {s3BucketName} -> s3BucketName) (\s@UpdateTrail' {} a -> s {s3BucketName = a} :: UpdateTrail)
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
 -- to a user\'s log group.
-updateTrail_cloudWatchLogsRoleArn :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Text)
+updateTrail_cloudWatchLogsRoleArn :: Lens.Lens' UpdateTrail (Core.Maybe Core.Text)
 updateTrail_cloudWatchLogsRoleArn = Lens.lens (\UpdateTrail' {cloudWatchLogsRoleArn} -> cloudWatchLogsRoleArn) (\s@UpdateTrail' {} a -> s {cloudWatchLogsRoleArn = a} :: UpdateTrail)
 
 -- | Specifies whether log file validation is enabled. The default is false.
@@ -369,7 +368,7 @@ updateTrail_cloudWatchLogsRoleArn = Lens.lens (\UpdateTrail' {cloudWatchLogsRole
 -- created for the log files delivered from noon on January 2 to noon on
 -- January 10. The same applies whenever you stop CloudTrail logging or
 -- delete a trail.
-updateTrail_enableLogFileValidation :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Bool)
+updateTrail_enableLogFileValidation :: Lens.Lens' UpdateTrail (Core.Maybe Core.Bool)
 updateTrail_enableLogFileValidation = Lens.lens (\UpdateTrail' {enableLogFileValidation} -> enableLogFileValidation) (\s@UpdateTrail' {} a -> s {enableLogFileValidation = a} :: UpdateTrail)
 
 -- | Specifies the name of the trail or trail ARN. If @Name@ is a trail name,
@@ -390,80 +389,78 @@ updateTrail_enableLogFileValidation = Lens.lens (\UpdateTrail' {enableLogFileVal
 -- If @Name@ is a trail ARN, it must be in the format:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-updateTrail_name :: Lens.Lens' UpdateTrail Prelude.Text
+updateTrail_name :: Lens.Lens' UpdateTrail Core.Text
 updateTrail_name = Lens.lens (\UpdateTrail' {name} -> name) (\s@UpdateTrail' {} a -> s {name = a} :: UpdateTrail)
 
-instance Prelude.AWSRequest UpdateTrail where
-  type Rs UpdateTrail = UpdateTrailResponse
+instance Core.AWSRequest UpdateTrail where
+  type AWSResponse UpdateTrail = UpdateTrailResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateTrailResponse'
-            Prelude.<$> (x Prelude..?> "TrailARN")
-            Prelude.<*> (x Prelude..?> "LogFileValidationEnabled")
-            Prelude.<*> (x Prelude..?> "IsOrganizationTrail")
-            Prelude.<*> (x Prelude..?> "SnsTopicName")
-            Prelude.<*> (x Prelude..?> "IncludeGlobalServiceEvents")
-            Prelude.<*> (x Prelude..?> "KmsKeyId")
-            Prelude.<*> (x Prelude..?> "S3KeyPrefix")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "CloudWatchLogsLogGroupArn")
-            Prelude.<*> (x Prelude..?> "IsMultiRegionTrail")
-            Prelude.<*> (x Prelude..?> "S3BucketName")
-            Prelude.<*> (x Prelude..?> "CloudWatchLogsRoleArn")
-            Prelude.<*> (x Prelude..?> "SnsTopicARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TrailARN")
+            Core.<*> (x Core..?> "LogFileValidationEnabled")
+            Core.<*> (x Core..?> "IsOrganizationTrail")
+            Core.<*> (x Core..?> "SnsTopicName")
+            Core.<*> (x Core..?> "IncludeGlobalServiceEvents")
+            Core.<*> (x Core..?> "KmsKeyId")
+            Core.<*> (x Core..?> "S3KeyPrefix")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "CloudWatchLogsLogGroupArn")
+            Core.<*> (x Core..?> "IsMultiRegionTrail")
+            Core.<*> (x Core..?> "S3BucketName")
+            Core.<*> (x Core..?> "CloudWatchLogsRoleArn")
+            Core.<*> (x Core..?> "SnsTopicARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTrail
+instance Core.Hashable UpdateTrail
 
-instance Prelude.NFData UpdateTrail
+instance Core.NFData UpdateTrail
 
-instance Prelude.ToHeaders UpdateTrail where
+instance Core.ToHeaders UpdateTrail where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.UpdateTrail" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.UpdateTrail" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateTrail where
+instance Core.ToJSON UpdateTrail where
   toJSON UpdateTrail' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IsOrganizationTrail" Prelude..=)
-              Prelude.<$> isOrganizationTrail,
-            ("SnsTopicName" Prelude..=) Prelude.<$> snsTopicName,
-            ("IncludeGlobalServiceEvents" Prelude..=)
-              Prelude.<$> includeGlobalServiceEvents,
-            ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            ("S3KeyPrefix" Prelude..=) Prelude.<$> s3KeyPrefix,
-            ("CloudWatchLogsLogGroupArn" Prelude..=)
-              Prelude.<$> cloudWatchLogsLogGroupArn,
-            ("IsMultiRegionTrail" Prelude..=)
-              Prelude.<$> isMultiRegionTrail,
-            ("S3BucketName" Prelude..=) Prelude.<$> s3BucketName,
-            ("CloudWatchLogsRoleArn" Prelude..=)
-              Prelude.<$> cloudWatchLogsRoleArn,
-            ("EnableLogFileValidation" Prelude..=)
-              Prelude.<$> enableLogFileValidation,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("IsOrganizationTrail" Core..=)
+              Core.<$> isOrganizationTrail,
+            ("SnsTopicName" Core..=) Core.<$> snsTopicName,
+            ("IncludeGlobalServiceEvents" Core..=)
+              Core.<$> includeGlobalServiceEvents,
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            ("S3KeyPrefix" Core..=) Core.<$> s3KeyPrefix,
+            ("CloudWatchLogsLogGroupArn" Core..=)
+              Core.<$> cloudWatchLogsLogGroupArn,
+            ("IsMultiRegionTrail" Core..=)
+              Core.<$> isMultiRegionTrail,
+            ("S3BucketName" Core..=) Core.<$> s3BucketName,
+            ("CloudWatchLogsRoleArn" Core..=)
+              Core.<$> cloudWatchLogsRoleArn,
+            ("EnableLogFileValidation" Core..=)
+              Core.<$> enableLogFileValidation,
+            Core.Just ("Name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath UpdateTrail where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateTrail where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateTrail where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateTrail where
+  toQuery = Core.const Core.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise,
 -- returns an error.
@@ -474,49 +471,49 @@ data UpdateTrailResponse = UpdateTrailResponse'
     -- ARN is:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-    trailARN :: Prelude.Maybe Prelude.Text,
+    trailARN :: Core.Maybe Core.Text,
     -- | Specifies whether log file integrity validation is enabled.
-    logFileValidationEnabled :: Prelude.Maybe Prelude.Bool,
+    logFileValidationEnabled :: Core.Maybe Core.Bool,
     -- | Specifies whether the trail is an organization trail.
-    isOrganizationTrail :: Prelude.Maybe Prelude.Bool,
+    isOrganizationTrail :: Core.Maybe Core.Bool,
     -- | This field is no longer in use. Use SnsTopicARN.
-    snsTopicName :: Prelude.Maybe Prelude.Text,
+    snsTopicName :: Core.Maybe Core.Text,
     -- | Specifies whether the trail is publishing events from global services
     -- such as IAM to the log files.
-    includeGlobalServiceEvents :: Prelude.Maybe Prelude.Bool,
+    includeGlobalServiceEvents :: Core.Maybe Core.Bool,
     -- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
     -- The value is a fully specified ARN to a KMS key in the format:
     --
     -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | Specifies the Amazon S3 key prefix that comes after the name of the
     -- bucket you have designated for log file delivery. For more information,
     -- see
     -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files>.
-    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    s3KeyPrefix :: Core.Maybe Core.Text,
     -- | Specifies the name of the trail.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Specifies the Amazon Resource Name (ARN) of the log group to which
     -- CloudTrail logs will be delivered.
-    cloudWatchLogsLogGroupArn :: Prelude.Maybe Prelude.Text,
+    cloudWatchLogsLogGroupArn :: Core.Maybe Core.Text,
     -- | Specifies whether the trail exists in one region or in all regions.
-    isMultiRegionTrail :: Prelude.Maybe Prelude.Bool,
+    isMultiRegionTrail :: Core.Maybe Core.Bool,
     -- | Specifies the name of the Amazon S3 bucket designated for publishing log
     -- files.
-    s3BucketName :: Prelude.Maybe Prelude.Text,
+    s3BucketName :: Core.Maybe Core.Text,
     -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
     -- to a user\'s log group.
-    cloudWatchLogsRoleArn :: Prelude.Maybe Prelude.Text,
+    cloudWatchLogsRoleArn :: Core.Maybe Core.Text,
     -- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
     -- notifications when log files are delivered. The format of a topic ARN
     -- is:
     --
     -- @arn:aws:sns:us-east-2:123456789012:MyTopic@
-    snsTopicARN :: Prelude.Maybe Prelude.Text,
+    snsTopicARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTrailResponse' with all optional fields omitted.
@@ -572,23 +569,23 @@ data UpdateTrailResponse = UpdateTrailResponse'
 -- 'httpStatus', 'updateTrailResponse_httpStatus' - The response's http status code.
 newUpdateTrailResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateTrailResponse
 newUpdateTrailResponse pHttpStatus_ =
   UpdateTrailResponse'
-    { trailARN = Prelude.Nothing,
-      logFileValidationEnabled = Prelude.Nothing,
-      isOrganizationTrail = Prelude.Nothing,
-      snsTopicName = Prelude.Nothing,
-      includeGlobalServiceEvents = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      s3KeyPrefix = Prelude.Nothing,
-      name = Prelude.Nothing,
-      cloudWatchLogsLogGroupArn = Prelude.Nothing,
-      isMultiRegionTrail = Prelude.Nothing,
-      s3BucketName = Prelude.Nothing,
-      cloudWatchLogsRoleArn = Prelude.Nothing,
-      snsTopicARN = Prelude.Nothing,
+    { trailARN = Core.Nothing,
+      logFileValidationEnabled = Core.Nothing,
+      isOrganizationTrail = Core.Nothing,
+      snsTopicName = Core.Nothing,
+      includeGlobalServiceEvents = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      s3KeyPrefix = Core.Nothing,
+      name = Core.Nothing,
+      cloudWatchLogsLogGroupArn = Core.Nothing,
+      isMultiRegionTrail = Core.Nothing,
+      s3BucketName = Core.Nothing,
+      cloudWatchLogsRoleArn = Core.Nothing,
+      snsTopicARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -596,61 +593,61 @@ newUpdateTrailResponse pHttpStatus_ =
 -- ARN is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-updateTrailResponse_trailARN :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Text)
+updateTrailResponse_trailARN :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Text)
 updateTrailResponse_trailARN = Lens.lens (\UpdateTrailResponse' {trailARN} -> trailARN) (\s@UpdateTrailResponse' {} a -> s {trailARN = a} :: UpdateTrailResponse)
 
 -- | Specifies whether log file integrity validation is enabled.
-updateTrailResponse_logFileValidationEnabled :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Bool)
+updateTrailResponse_logFileValidationEnabled :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Bool)
 updateTrailResponse_logFileValidationEnabled = Lens.lens (\UpdateTrailResponse' {logFileValidationEnabled} -> logFileValidationEnabled) (\s@UpdateTrailResponse' {} a -> s {logFileValidationEnabled = a} :: UpdateTrailResponse)
 
 -- | Specifies whether the trail is an organization trail.
-updateTrailResponse_isOrganizationTrail :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Bool)
+updateTrailResponse_isOrganizationTrail :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Bool)
 updateTrailResponse_isOrganizationTrail = Lens.lens (\UpdateTrailResponse' {isOrganizationTrail} -> isOrganizationTrail) (\s@UpdateTrailResponse' {} a -> s {isOrganizationTrail = a} :: UpdateTrailResponse)
 
 -- | This field is no longer in use. Use SnsTopicARN.
-updateTrailResponse_snsTopicName :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Text)
+updateTrailResponse_snsTopicName :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Text)
 updateTrailResponse_snsTopicName = Lens.lens (\UpdateTrailResponse' {snsTopicName} -> snsTopicName) (\s@UpdateTrailResponse' {} a -> s {snsTopicName = a} :: UpdateTrailResponse)
 
 -- | Specifies whether the trail is publishing events from global services
 -- such as IAM to the log files.
-updateTrailResponse_includeGlobalServiceEvents :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Bool)
+updateTrailResponse_includeGlobalServiceEvents :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Bool)
 updateTrailResponse_includeGlobalServiceEvents = Lens.lens (\UpdateTrailResponse' {includeGlobalServiceEvents} -> includeGlobalServiceEvents) (\s@UpdateTrailResponse' {} a -> s {includeGlobalServiceEvents = a} :: UpdateTrailResponse)
 
 -- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
 -- The value is a fully specified ARN to a KMS key in the format:
 --
 -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
-updateTrailResponse_kmsKeyId :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Text)
+updateTrailResponse_kmsKeyId :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Text)
 updateTrailResponse_kmsKeyId = Lens.lens (\UpdateTrailResponse' {kmsKeyId} -> kmsKeyId) (\s@UpdateTrailResponse' {} a -> s {kmsKeyId = a} :: UpdateTrailResponse)
 
 -- | Specifies the Amazon S3 key prefix that comes after the name of the
 -- bucket you have designated for log file delivery. For more information,
 -- see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files>.
-updateTrailResponse_s3KeyPrefix :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Text)
+updateTrailResponse_s3KeyPrefix :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Text)
 updateTrailResponse_s3KeyPrefix = Lens.lens (\UpdateTrailResponse' {s3KeyPrefix} -> s3KeyPrefix) (\s@UpdateTrailResponse' {} a -> s {s3KeyPrefix = a} :: UpdateTrailResponse)
 
 -- | Specifies the name of the trail.
-updateTrailResponse_name :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Text)
+updateTrailResponse_name :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Text)
 updateTrailResponse_name = Lens.lens (\UpdateTrailResponse' {name} -> name) (\s@UpdateTrailResponse' {} a -> s {name = a} :: UpdateTrailResponse)
 
 -- | Specifies the Amazon Resource Name (ARN) of the log group to which
 -- CloudTrail logs will be delivered.
-updateTrailResponse_cloudWatchLogsLogGroupArn :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Text)
+updateTrailResponse_cloudWatchLogsLogGroupArn :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Text)
 updateTrailResponse_cloudWatchLogsLogGroupArn = Lens.lens (\UpdateTrailResponse' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@UpdateTrailResponse' {} a -> s {cloudWatchLogsLogGroupArn = a} :: UpdateTrailResponse)
 
 -- | Specifies whether the trail exists in one region or in all regions.
-updateTrailResponse_isMultiRegionTrail :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Bool)
+updateTrailResponse_isMultiRegionTrail :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Bool)
 updateTrailResponse_isMultiRegionTrail = Lens.lens (\UpdateTrailResponse' {isMultiRegionTrail} -> isMultiRegionTrail) (\s@UpdateTrailResponse' {} a -> s {isMultiRegionTrail = a} :: UpdateTrailResponse)
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
-updateTrailResponse_s3BucketName :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Text)
+updateTrailResponse_s3BucketName :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Text)
 updateTrailResponse_s3BucketName = Lens.lens (\UpdateTrailResponse' {s3BucketName} -> s3BucketName) (\s@UpdateTrailResponse' {} a -> s {s3BucketName = a} :: UpdateTrailResponse)
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
 -- to a user\'s log group.
-updateTrailResponse_cloudWatchLogsRoleArn :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Text)
+updateTrailResponse_cloudWatchLogsRoleArn :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Text)
 updateTrailResponse_cloudWatchLogsRoleArn = Lens.lens (\UpdateTrailResponse' {cloudWatchLogsRoleArn} -> cloudWatchLogsRoleArn) (\s@UpdateTrailResponse' {} a -> s {cloudWatchLogsRoleArn = a} :: UpdateTrailResponse)
 
 -- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
@@ -658,11 +655,11 @@ updateTrailResponse_cloudWatchLogsRoleArn = Lens.lens (\UpdateTrailResponse' {cl
 -- is:
 --
 -- @arn:aws:sns:us-east-2:123456789012:MyTopic@
-updateTrailResponse_snsTopicARN :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Text)
+updateTrailResponse_snsTopicARN :: Lens.Lens' UpdateTrailResponse (Core.Maybe Core.Text)
 updateTrailResponse_snsTopicARN = Lens.lens (\UpdateTrailResponse' {snsTopicARN} -> snsTopicARN) (\s@UpdateTrailResponse' {} a -> s {snsTopicARN = a} :: UpdateTrailResponse)
 
 -- | The response's http status code.
-updateTrailResponse_httpStatus :: Lens.Lens' UpdateTrailResponse Prelude.Int
+updateTrailResponse_httpStatus :: Lens.Lens' UpdateTrailResponse Core.Int
 updateTrailResponse_httpStatus = Lens.lens (\UpdateTrailResponse' {httpStatus} -> httpStatus) (\s@UpdateTrailResponse' {} a -> s {httpStatus = a} :: UpdateTrailResponse)
 
-instance Prelude.NFData UpdateTrailResponse
+instance Core.NFData UpdateTrailResponse

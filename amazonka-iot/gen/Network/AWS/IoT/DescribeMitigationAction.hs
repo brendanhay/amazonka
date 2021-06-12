@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,18 +46,18 @@ module Network.AWS.IoT.DescribeMitigationAction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeMitigationAction' smart constructor.
 data DescribeMitigationAction = DescribeMitigationAction'
   { -- | The friendly name that uniquely identifies the mitigation action.
-    actionName :: Prelude.Text
+    actionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMitigationAction' with all optional fields omitted.
@@ -71,7 +70,7 @@ data DescribeMitigationAction = DescribeMitigationAction'
 -- 'actionName', 'describeMitigationAction_actionName' - The friendly name that uniquely identifies the mitigation action.
 newDescribeMitigationAction ::
   -- | 'actionName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeMitigationAction
 newDescribeMitigationAction pActionName_ =
   DescribeMitigationAction'
@@ -80,70 +79,68 @@ newDescribeMitigationAction pActionName_ =
     }
 
 -- | The friendly name that uniquely identifies the mitigation action.
-describeMitigationAction_actionName :: Lens.Lens' DescribeMitigationAction Prelude.Text
+describeMitigationAction_actionName :: Lens.Lens' DescribeMitigationAction Core.Text
 describeMitigationAction_actionName = Lens.lens (\DescribeMitigationAction' {actionName} -> actionName) (\s@DescribeMitigationAction' {} a -> s {actionName = a} :: DescribeMitigationAction)
 
-instance Prelude.AWSRequest DescribeMitigationAction where
+instance Core.AWSRequest DescribeMitigationAction where
   type
-    Rs DescribeMitigationAction =
+    AWSResponse DescribeMitigationAction =
       DescribeMitigationActionResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeMitigationActionResponse'
-            Prelude.<$> (x Prelude..?> "lastModifiedDate")
-            Prelude.<*> (x Prelude..?> "actionName")
-            Prelude.<*> (x Prelude..?> "roleArn")
-            Prelude.<*> (x Prelude..?> "actionType")
-            Prelude.<*> (x Prelude..?> "actionArn")
-            Prelude.<*> (x Prelude..?> "actionId")
-            Prelude.<*> (x Prelude..?> "creationDate")
-            Prelude.<*> (x Prelude..?> "actionParams")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "lastModifiedDate")
+            Core.<*> (x Core..?> "actionName")
+            Core.<*> (x Core..?> "roleArn")
+            Core.<*> (x Core..?> "actionType")
+            Core.<*> (x Core..?> "actionArn")
+            Core.<*> (x Core..?> "actionId")
+            Core.<*> (x Core..?> "creationDate")
+            Core.<*> (x Core..?> "actionParams")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMitigationAction
+instance Core.Hashable DescribeMitigationAction
 
-instance Prelude.NFData DescribeMitigationAction
+instance Core.NFData DescribeMitigationAction
 
-instance Prelude.ToHeaders DescribeMitigationAction where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeMitigationAction where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeMitigationAction where
+instance Core.ToPath DescribeMitigationAction where
   toPath DescribeMitigationAction' {..} =
-    Prelude.mconcat
-      [ "/mitigationactions/actions/",
-        Prelude.toBS actionName
-      ]
+    Core.mconcat
+      ["/mitigationactions/actions/", Core.toBS actionName]
 
-instance Prelude.ToQuery DescribeMitigationAction where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeMitigationAction where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeMitigationActionResponse' smart constructor.
 data DescribeMitigationActionResponse = DescribeMitigationActionResponse'
   { -- | The date and time when the mitigation action was last changed.
-    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedDate :: Core.Maybe Core.POSIX,
     -- | The friendly name that uniquely identifies the mitigation action.
-    actionName :: Prelude.Maybe Prelude.Text,
+    actionName :: Core.Maybe Core.Text,
     -- | The ARN of the IAM role used to apply this action.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | The type of mitigation action.
-    actionType :: Prelude.Maybe MitigationActionType,
+    actionType :: Core.Maybe MitigationActionType,
     -- | The ARN that identifies this migration action.
-    actionArn :: Prelude.Maybe Prelude.Text,
+    actionArn :: Core.Maybe Core.Text,
     -- | A unique identifier for this action.
-    actionId :: Prelude.Maybe Prelude.Text,
+    actionId :: Core.Maybe Core.Text,
     -- | The date and time when the mitigation action was added to your AWS
     -- account.
-    creationDate :: Prelude.Maybe Prelude.POSIX,
+    creationDate :: Core.Maybe Core.POSIX,
     -- | Parameters that control how the mitigation action is applied, specific
     -- to the type of mitigation action.
-    actionParams :: Prelude.Maybe MitigationActionParams,
+    actionParams :: Core.Maybe MitigationActionParams,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMitigationActionResponse' with all optional fields omitted.
@@ -174,60 +171,58 @@ data DescribeMitigationActionResponse = DescribeMitigationActionResponse'
 -- 'httpStatus', 'describeMitigationActionResponse_httpStatus' - The response's http status code.
 newDescribeMitigationActionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeMitigationActionResponse
 newDescribeMitigationActionResponse pHttpStatus_ =
   DescribeMitigationActionResponse'
     { lastModifiedDate =
-        Prelude.Nothing,
-      actionName = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      actionType = Prelude.Nothing,
-      actionArn = Prelude.Nothing,
-      actionId = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      actionParams = Prelude.Nothing,
+        Core.Nothing,
+      actionName = Core.Nothing,
+      roleArn = Core.Nothing,
+      actionType = Core.Nothing,
+      actionArn = Core.Nothing,
+      actionId = Core.Nothing,
+      creationDate = Core.Nothing,
+      actionParams = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date and time when the mitigation action was last changed.
-describeMitigationActionResponse_lastModifiedDate :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.UTCTime)
-describeMitigationActionResponse_lastModifiedDate = Lens.lens (\DescribeMitigationActionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeMitigationActionResponse' {} a -> s {lastModifiedDate = a} :: DescribeMitigationActionResponse) Prelude.. Lens.mapping Prelude._Time
+describeMitigationActionResponse_lastModifiedDate :: Lens.Lens' DescribeMitigationActionResponse (Core.Maybe Core.UTCTime)
+describeMitigationActionResponse_lastModifiedDate = Lens.lens (\DescribeMitigationActionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeMitigationActionResponse' {} a -> s {lastModifiedDate = a} :: DescribeMitigationActionResponse) Core.. Lens.mapping Core._Time
 
 -- | The friendly name that uniquely identifies the mitigation action.
-describeMitigationActionResponse_actionName :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
+describeMitigationActionResponse_actionName :: Lens.Lens' DescribeMitigationActionResponse (Core.Maybe Core.Text)
 describeMitigationActionResponse_actionName = Lens.lens (\DescribeMitigationActionResponse' {actionName} -> actionName) (\s@DescribeMitigationActionResponse' {} a -> s {actionName = a} :: DescribeMitigationActionResponse)
 
 -- | The ARN of the IAM role used to apply this action.
-describeMitigationActionResponse_roleArn :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
+describeMitigationActionResponse_roleArn :: Lens.Lens' DescribeMitigationActionResponse (Core.Maybe Core.Text)
 describeMitigationActionResponse_roleArn = Lens.lens (\DescribeMitigationActionResponse' {roleArn} -> roleArn) (\s@DescribeMitigationActionResponse' {} a -> s {roleArn = a} :: DescribeMitigationActionResponse)
 
 -- | The type of mitigation action.
-describeMitigationActionResponse_actionType :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe MitigationActionType)
+describeMitigationActionResponse_actionType :: Lens.Lens' DescribeMitigationActionResponse (Core.Maybe MitigationActionType)
 describeMitigationActionResponse_actionType = Lens.lens (\DescribeMitigationActionResponse' {actionType} -> actionType) (\s@DescribeMitigationActionResponse' {} a -> s {actionType = a} :: DescribeMitigationActionResponse)
 
 -- | The ARN that identifies this migration action.
-describeMitigationActionResponse_actionArn :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
+describeMitigationActionResponse_actionArn :: Lens.Lens' DescribeMitigationActionResponse (Core.Maybe Core.Text)
 describeMitigationActionResponse_actionArn = Lens.lens (\DescribeMitigationActionResponse' {actionArn} -> actionArn) (\s@DescribeMitigationActionResponse' {} a -> s {actionArn = a} :: DescribeMitigationActionResponse)
 
 -- | A unique identifier for this action.
-describeMitigationActionResponse_actionId :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
+describeMitigationActionResponse_actionId :: Lens.Lens' DescribeMitigationActionResponse (Core.Maybe Core.Text)
 describeMitigationActionResponse_actionId = Lens.lens (\DescribeMitigationActionResponse' {actionId} -> actionId) (\s@DescribeMitigationActionResponse' {} a -> s {actionId = a} :: DescribeMitigationActionResponse)
 
 -- | The date and time when the mitigation action was added to your AWS
 -- account.
-describeMitigationActionResponse_creationDate :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.UTCTime)
-describeMitigationActionResponse_creationDate = Lens.lens (\DescribeMitigationActionResponse' {creationDate} -> creationDate) (\s@DescribeMitigationActionResponse' {} a -> s {creationDate = a} :: DescribeMitigationActionResponse) Prelude.. Lens.mapping Prelude._Time
+describeMitigationActionResponse_creationDate :: Lens.Lens' DescribeMitigationActionResponse (Core.Maybe Core.UTCTime)
+describeMitigationActionResponse_creationDate = Lens.lens (\DescribeMitigationActionResponse' {creationDate} -> creationDate) (\s@DescribeMitigationActionResponse' {} a -> s {creationDate = a} :: DescribeMitigationActionResponse) Core.. Lens.mapping Core._Time
 
 -- | Parameters that control how the mitigation action is applied, specific
 -- to the type of mitigation action.
-describeMitigationActionResponse_actionParams :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe MitigationActionParams)
+describeMitigationActionResponse_actionParams :: Lens.Lens' DescribeMitigationActionResponse (Core.Maybe MitigationActionParams)
 describeMitigationActionResponse_actionParams = Lens.lens (\DescribeMitigationActionResponse' {actionParams} -> actionParams) (\s@DescribeMitigationActionResponse' {} a -> s {actionParams = a} :: DescribeMitigationActionResponse)
 
 -- | The response's http status code.
-describeMitigationActionResponse_httpStatus :: Lens.Lens' DescribeMitigationActionResponse Prelude.Int
+describeMitigationActionResponse_httpStatus :: Lens.Lens' DescribeMitigationActionResponse Core.Int
 describeMitigationActionResponse_httpStatus = Lens.lens (\DescribeMitigationActionResponse' {httpStatus} -> httpStatus) (\s@DescribeMitigationActionResponse' {} a -> s {httpStatus = a} :: DescribeMitigationActionResponse)
 
-instance
-  Prelude.NFData
-    DescribeMitigationActionResponse
+instance Core.NFData DescribeMitigationActionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.EKS.CreateAddon
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,7 +62,7 @@ import qualified Network.AWS.Response as Response
 data CreateAddon = CreateAddon'
   { -- | How to resolve parameter value conflicts when migrating an existing
     -- add-on to an Amazon EKS add-on.
-    resolveConflicts :: Prelude.Maybe ResolveConflicts,
+    resolveConflicts :: Core.Maybe ResolveConflicts,
     -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
     -- add-on\'s service account. The role must be assigned the IAM permissions
     -- required by the add-on. If you don\'t specify an existing IAM role, then
@@ -76,27 +75,27 @@ data CreateAddon = CreateAddon'
     -- (OIDC) provider created for your cluster. For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
     -- in the /Amazon EKS User Guide/.
-    serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
+    serviceAccountRoleArn :: Core.Maybe Core.Text,
     -- | The version of the add-on. The version must match one of the versions
     -- returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
     -- .
-    addonVersion :: Prelude.Maybe Prelude.Text,
+    addonVersion :: Core.Maybe Core.Text,
     -- | The metadata to apply to the cluster to assist with categorization and
     -- organization. Each tag consists of a key and an optional value, both of
     -- which you define.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The name of the cluster to create the add-on for.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | The name of the add-on. The name must match one of the names returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
     -- .
-    addonName :: Prelude.Text
+    addonName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAddon' with all optional fields omitted.
@@ -141,24 +140,24 @@ data CreateAddon = CreateAddon'
 -- .
 newCreateAddon ::
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'addonName'
-  Prelude.Text ->
+  Core.Text ->
   CreateAddon
 newCreateAddon pClusterName_ pAddonName_ =
   CreateAddon'
-    { resolveConflicts = Prelude.Nothing,
-      serviceAccountRoleArn = Prelude.Nothing,
-      addonVersion = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { resolveConflicts = Core.Nothing,
+      serviceAccountRoleArn = Core.Nothing,
+      addonVersion = Core.Nothing,
+      tags = Core.Nothing,
+      clientRequestToken = Core.Nothing,
       clusterName = pClusterName_,
       addonName = pAddonName_
     }
 
 -- | How to resolve parameter value conflicts when migrating an existing
 -- add-on to an Amazon EKS add-on.
-createAddon_resolveConflicts :: Lens.Lens' CreateAddon (Prelude.Maybe ResolveConflicts)
+createAddon_resolveConflicts :: Lens.Lens' CreateAddon (Core.Maybe ResolveConflicts)
 createAddon_resolveConflicts = Lens.lens (\CreateAddon' {resolveConflicts} -> resolveConflicts) (\s@CreateAddon' {} a -> s {resolveConflicts = a} :: CreateAddon)
 
 -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
@@ -173,94 +172,92 @@ createAddon_resolveConflicts = Lens.lens (\CreateAddon' {resolveConflicts} -> re
 -- (OIDC) provider created for your cluster. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
 -- in the /Amazon EKS User Guide/.
-createAddon_serviceAccountRoleArn :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
+createAddon_serviceAccountRoleArn :: Lens.Lens' CreateAddon (Core.Maybe Core.Text)
 createAddon_serviceAccountRoleArn = Lens.lens (\CreateAddon' {serviceAccountRoleArn} -> serviceAccountRoleArn) (\s@CreateAddon' {} a -> s {serviceAccountRoleArn = a} :: CreateAddon)
 
 -- | The version of the add-on. The version must match one of the versions
 -- returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
 -- .
-createAddon_addonVersion :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
+createAddon_addonVersion :: Lens.Lens' CreateAddon (Core.Maybe Core.Text)
 createAddon_addonVersion = Lens.lens (\CreateAddon' {addonVersion} -> addonVersion) (\s@CreateAddon' {} a -> s {addonVersion = a} :: CreateAddon)
 
 -- | The metadata to apply to the cluster to assist with categorization and
 -- organization. Each tag consists of a key and an optional value, both of
 -- which you define.
-createAddon_tags :: Lens.Lens' CreateAddon (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAddon_tags = Lens.lens (\CreateAddon' {tags} -> tags) (\s@CreateAddon' {} a -> s {tags = a} :: CreateAddon) Prelude.. Lens.mapping Prelude._Coerce
+createAddon_tags :: Lens.Lens' CreateAddon (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createAddon_tags = Lens.lens (\CreateAddon' {tags} -> tags) (\s@CreateAddon' {} a -> s {tags = a} :: CreateAddon) Core.. Lens.mapping Lens._Coerce
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-createAddon_clientRequestToken :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
+createAddon_clientRequestToken :: Lens.Lens' CreateAddon (Core.Maybe Core.Text)
 createAddon_clientRequestToken = Lens.lens (\CreateAddon' {clientRequestToken} -> clientRequestToken) (\s@CreateAddon' {} a -> s {clientRequestToken = a} :: CreateAddon)
 
 -- | The name of the cluster to create the add-on for.
-createAddon_clusterName :: Lens.Lens' CreateAddon Prelude.Text
+createAddon_clusterName :: Lens.Lens' CreateAddon Core.Text
 createAddon_clusterName = Lens.lens (\CreateAddon' {clusterName} -> clusterName) (\s@CreateAddon' {} a -> s {clusterName = a} :: CreateAddon)
 
 -- | The name of the add-on. The name must match one of the names returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
 -- .
-createAddon_addonName :: Lens.Lens' CreateAddon Prelude.Text
+createAddon_addonName :: Lens.Lens' CreateAddon Core.Text
 createAddon_addonName = Lens.lens (\CreateAddon' {addonName} -> addonName) (\s@CreateAddon' {} a -> s {addonName = a} :: CreateAddon)
 
-instance Prelude.AWSRequest CreateAddon where
-  type Rs CreateAddon = CreateAddonResponse
+instance Core.AWSRequest CreateAddon where
+  type AWSResponse CreateAddon = CreateAddonResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateAddonResponse'
-            Prelude.<$> (x Prelude..?> "addon")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "addon")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAddon
+instance Core.Hashable CreateAddon
 
-instance Prelude.NFData CreateAddon
+instance Core.NFData CreateAddon
 
-instance Prelude.ToHeaders CreateAddon where
+instance Core.ToHeaders CreateAddon where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateAddon where
+instance Core.ToJSON CreateAddon where
   toJSON CreateAddon' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("resolveConflicts" Prelude..=)
-              Prelude.<$> resolveConflicts,
-            ("serviceAccountRoleArn" Prelude..=)
-              Prelude.<$> serviceAccountRoleArn,
-            ("addonVersion" Prelude..=) Prelude.<$> addonVersion,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("clientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            Prelude.Just ("addonName" Prelude..= addonName)
+    Core.object
+      ( Core.catMaybes
+          [ ("resolveConflicts" Core..=)
+              Core.<$> resolveConflicts,
+            ("serviceAccountRoleArn" Core..=)
+              Core.<$> serviceAccountRoleArn,
+            ("addonVersion" Core..=) Core.<$> addonVersion,
+            ("tags" Core..=) Core.<$> tags,
+            ("clientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            Core.Just ("addonName" Core..= addonName)
           ]
       )
 
-instance Prelude.ToPath CreateAddon where
+instance Core.ToPath CreateAddon where
   toPath CreateAddon' {..} =
-    Prelude.mconcat
-      ["/clusters/", Prelude.toBS clusterName, "/addons"]
+    Core.mconcat
+      ["/clusters/", Core.toBS clusterName, "/addons"]
 
-instance Prelude.ToQuery CreateAddon where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateAddon where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateAddonResponse' smart constructor.
 data CreateAddonResponse = CreateAddonResponse'
-  { addon :: Prelude.Maybe Addon,
+  { addon :: Core.Maybe Addon,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAddonResponse' with all optional fields omitted.
@@ -275,20 +272,20 @@ data CreateAddonResponse = CreateAddonResponse'
 -- 'httpStatus', 'createAddonResponse_httpStatus' - The response's http status code.
 newCreateAddonResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateAddonResponse
 newCreateAddonResponse pHttpStatus_ =
   CreateAddonResponse'
-    { addon = Prelude.Nothing,
+    { addon = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createAddonResponse_addon :: Lens.Lens' CreateAddonResponse (Prelude.Maybe Addon)
+createAddonResponse_addon :: Lens.Lens' CreateAddonResponse (Core.Maybe Addon)
 createAddonResponse_addon = Lens.lens (\CreateAddonResponse' {addon} -> addon) (\s@CreateAddonResponse' {} a -> s {addon = a} :: CreateAddonResponse)
 
 -- | The response's http status code.
-createAddonResponse_httpStatus :: Lens.Lens' CreateAddonResponse Prelude.Int
+createAddonResponse_httpStatus :: Lens.Lens' CreateAddonResponse Core.Int
 createAddonResponse_httpStatus = Lens.lens (\CreateAddonResponse' {httpStatus} -> httpStatus) (\s@CreateAddonResponse' {} a -> s {httpStatus = a} :: CreateAddonResponse)
 
-instance Prelude.NFData CreateAddonResponse
+instance Core.NFData CreateAddonResponse

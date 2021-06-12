@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.DeviceFarm.DeleteTestGridProject
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data DeleteTestGridProject = DeleteTestGridProject'
   { -- | The ARN of the project to delete, from CreateTestGridProject or
     -- ListTestGridProjects.
-    projectArn :: Prelude.Text
+    projectArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTestGridProject' with all optional fields omitted.
@@ -69,66 +68,64 @@ data DeleteTestGridProject = DeleteTestGridProject'
 -- ListTestGridProjects.
 newDeleteTestGridProject ::
   -- | 'projectArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTestGridProject
 newDeleteTestGridProject pProjectArn_ =
   DeleteTestGridProject' {projectArn = pProjectArn_}
 
 -- | The ARN of the project to delete, from CreateTestGridProject or
 -- ListTestGridProjects.
-deleteTestGridProject_projectArn :: Lens.Lens' DeleteTestGridProject Prelude.Text
+deleteTestGridProject_projectArn :: Lens.Lens' DeleteTestGridProject Core.Text
 deleteTestGridProject_projectArn = Lens.lens (\DeleteTestGridProject' {projectArn} -> projectArn) (\s@DeleteTestGridProject' {} a -> s {projectArn = a} :: DeleteTestGridProject)
 
-instance Prelude.AWSRequest DeleteTestGridProject where
+instance Core.AWSRequest DeleteTestGridProject where
   type
-    Rs DeleteTestGridProject =
+    AWSResponse DeleteTestGridProject =
       DeleteTestGridProjectResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTestGridProjectResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTestGridProject
+instance Core.Hashable DeleteTestGridProject
 
-instance Prelude.NFData DeleteTestGridProject
+instance Core.NFData DeleteTestGridProject
 
-instance Prelude.ToHeaders DeleteTestGridProject where
+instance Core.ToHeaders DeleteTestGridProject where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.DeleteTestGridProject" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.DeleteTestGridProject" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteTestGridProject where
+instance Core.ToJSON DeleteTestGridProject where
   toJSON DeleteTestGridProject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("projectArn" Prelude..= projectArn)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("projectArn" Core..= projectArn)]
       )
 
-instance Prelude.ToPath DeleteTestGridProject where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTestGridProject where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTestGridProject where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteTestGridProject where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteTestGridProjectResponse' smart constructor.
 data DeleteTestGridProjectResponse = DeleteTestGridProjectResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTestGridProjectResponse' with all optional fields omitted.
@@ -141,7 +138,7 @@ data DeleteTestGridProjectResponse = DeleteTestGridProjectResponse'
 -- 'httpStatus', 'deleteTestGridProjectResponse_httpStatus' - The response's http status code.
 newDeleteTestGridProjectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTestGridProjectResponse
 newDeleteTestGridProjectResponse pHttpStatus_ =
   DeleteTestGridProjectResponse'
@@ -150,7 +147,7 @@ newDeleteTestGridProjectResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteTestGridProjectResponse_httpStatus :: Lens.Lens' DeleteTestGridProjectResponse Prelude.Int
+deleteTestGridProjectResponse_httpStatus :: Lens.Lens' DeleteTestGridProjectResponse Core.Int
 deleteTestGridProjectResponse_httpStatus = Lens.lens (\DeleteTestGridProjectResponse' {httpStatus} -> httpStatus) (\s@DeleteTestGridProjectResponse' {} a -> s {httpStatus = a} :: DeleteTestGridProjectResponse)
 
-instance Prelude.NFData DeleteTestGridProjectResponse
+instance Core.NFData DeleteTestGridProjectResponse

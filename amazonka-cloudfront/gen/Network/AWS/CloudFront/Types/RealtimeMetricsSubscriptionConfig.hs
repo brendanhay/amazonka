@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig where
 
 import Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A subscription configuration for additional CloudWatch metrics.
 --
@@ -32,7 +31,7 @@ data RealtimeMetricsSubscriptionConfig = RealtimeMetricsSubscriptionConfig'
     -- for a given CloudFront distribution.
     realtimeMetricsSubscriptionStatus :: RealtimeMetricsSubscriptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RealtimeMetricsSubscriptionConfig' with all optional fields omitted.
@@ -61,27 +60,24 @@ realtimeMetricsSubscriptionConfig_realtimeMetricsSubscriptionStatus :: Lens.Lens
 realtimeMetricsSubscriptionConfig_realtimeMetricsSubscriptionStatus = Lens.lens (\RealtimeMetricsSubscriptionConfig' {realtimeMetricsSubscriptionStatus} -> realtimeMetricsSubscriptionStatus) (\s@RealtimeMetricsSubscriptionConfig' {} a -> s {realtimeMetricsSubscriptionStatus = a} :: RealtimeMetricsSubscriptionConfig)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     RealtimeMetricsSubscriptionConfig
   where
   parseXML x =
     RealtimeMetricsSubscriptionConfig'
-      Prelude.<$> (x Prelude..@ "RealtimeMetricsSubscriptionStatus")
+      Core.<$> (x Core..@ "RealtimeMetricsSubscriptionStatus")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RealtimeMetricsSubscriptionConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     RealtimeMetricsSubscriptionConfig
 
-instance
-  Prelude.ToXML
-    RealtimeMetricsSubscriptionConfig
-  where
+instance Core.ToXML RealtimeMetricsSubscriptionConfig where
   toXML RealtimeMetricsSubscriptionConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "RealtimeMetricsSubscriptionStatus"
-          Prelude.@= realtimeMetricsSubscriptionStatus
+          Core.@= realtimeMetricsSubscriptionStatus
       ]

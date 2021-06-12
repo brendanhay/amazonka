@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,7 +57,7 @@ import qualified Network.AWS.Response as Response
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAdjustmentTypes' with all optional fields omitted.
@@ -68,9 +67,9 @@ newDescribeAdjustmentTypes ::
   DescribeAdjustmentTypes
 newDescribeAdjustmentTypes = DescribeAdjustmentTypes'
 
-instance Prelude.AWSRequest DescribeAdjustmentTypes where
+instance Core.AWSRequest DescribeAdjustmentTypes where
   type
-    Rs DescribeAdjustmentTypes =
+    AWSResponse DescribeAdjustmentTypes =
       DescribeAdjustmentTypesResponse
   request = Request.postQuery defaultService
   response =
@@ -78,42 +77,40 @@ instance Prelude.AWSRequest DescribeAdjustmentTypes where
       "DescribeAdjustmentTypesResult"
       ( \s h x ->
           DescribeAdjustmentTypesResponse'
-            Prelude.<$> ( x Prelude..@? "AdjustmentTypes"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "AdjustmentTypes" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAdjustmentTypes
+instance Core.Hashable DescribeAdjustmentTypes
 
-instance Prelude.NFData DescribeAdjustmentTypes
+instance Core.NFData DescribeAdjustmentTypes
 
-instance Prelude.ToHeaders DescribeAdjustmentTypes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAdjustmentTypes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAdjustmentTypes where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAdjustmentTypes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAdjustmentTypes where
+instance Core.ToQuery DescribeAdjustmentTypes where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ("DescribeAdjustmentTypes" :: Prelude.ByteString),
-            "Version"
-              Prelude.=: ("2011-01-01" :: Prelude.ByteString)
+              Core.=: ("DescribeAdjustmentTypes" :: Core.ByteString),
+            "Version" Core.=: ("2011-01-01" :: Core.ByteString)
           ]
       )
 
 -- | /See:/ 'newDescribeAdjustmentTypesResponse' smart constructor.
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
   { -- | The policy adjustment types.
-    adjustmentTypes :: Prelude.Maybe [AdjustmentType],
+    adjustmentTypes :: Core.Maybe [AdjustmentType],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAdjustmentTypesResponse' with all optional fields omitted.
@@ -128,23 +125,21 @@ data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
 -- 'httpStatus', 'describeAdjustmentTypesResponse_httpStatus' - The response's http status code.
 newDescribeAdjustmentTypesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAdjustmentTypesResponse
 newDescribeAdjustmentTypesResponse pHttpStatus_ =
   DescribeAdjustmentTypesResponse'
     { adjustmentTypes =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The policy adjustment types.
-describeAdjustmentTypesResponse_adjustmentTypes :: Lens.Lens' DescribeAdjustmentTypesResponse (Prelude.Maybe [AdjustmentType])
-describeAdjustmentTypesResponse_adjustmentTypes = Lens.lens (\DescribeAdjustmentTypesResponse' {adjustmentTypes} -> adjustmentTypes) (\s@DescribeAdjustmentTypesResponse' {} a -> s {adjustmentTypes = a} :: DescribeAdjustmentTypesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAdjustmentTypesResponse_adjustmentTypes :: Lens.Lens' DescribeAdjustmentTypesResponse (Core.Maybe [AdjustmentType])
+describeAdjustmentTypesResponse_adjustmentTypes = Lens.lens (\DescribeAdjustmentTypesResponse' {adjustmentTypes} -> adjustmentTypes) (\s@DescribeAdjustmentTypesResponse' {} a -> s {adjustmentTypes = a} :: DescribeAdjustmentTypesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAdjustmentTypesResponse_httpStatus :: Lens.Lens' DescribeAdjustmentTypesResponse Prelude.Int
+describeAdjustmentTypesResponse_httpStatus :: Lens.Lens' DescribeAdjustmentTypesResponse Core.Int
 describeAdjustmentTypesResponse_httpStatus = Lens.lens (\DescribeAdjustmentTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeAdjustmentTypesResponse' {} a -> s {httpStatus = a} :: DescribeAdjustmentTypesResponse)
 
-instance
-  Prelude.NFData
-    DescribeAdjustmentTypesResponse
+instance Core.NFData DescribeAdjustmentTypesResponse

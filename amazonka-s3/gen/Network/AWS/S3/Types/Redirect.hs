@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Redirect where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Protocol
 
@@ -31,10 +30,10 @@ import Network.AWS.S3.Types.Protocol
 -- /See:/ 'newRedirect' smart constructor.
 data Redirect = Redirect'
   { -- | The host name to use in the redirect request.
-    hostName :: Prelude.Maybe Prelude.Text,
+    hostName :: Core.Maybe Core.Text,
     -- | The HTTP redirect code to use on the response. Not required if one of
     -- the siblings is present.
-    httpRedirectCode :: Prelude.Maybe Prelude.Text,
+    httpRedirectCode :: Core.Maybe Core.Text,
     -- | The object key prefix to use in the redirect request. For example, to
     -- redirect requests for all pages with prefix @docs\/@ (objects in the
     -- @docs\/@ folder) to @documents\/@, you can set a condition block with
@@ -47,7 +46,7 @@ data Redirect = Redirect'
     -- (such as carriage returns) when using XML requests. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-    replaceKeyPrefixWith :: Prelude.Maybe Prelude.Text,
+    replaceKeyPrefixWith :: Core.Maybe Core.Text,
     -- | The specific object key to use in the redirect request. For example,
     -- redirect request to @error.html@. Not required if one of the siblings is
     -- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
@@ -56,12 +55,12 @@ data Redirect = Redirect'
     -- (such as carriage returns) when using XML requests. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-    replaceKeyWith :: Prelude.Maybe Prelude.Text,
+    replaceKeyWith :: Core.Maybe Core.Text,
     -- | Protocol to use when redirecting requests. The default is the protocol
     -- that is used in the original request.
-    protocol :: Prelude.Maybe Protocol
+    protocol :: Core.Maybe Protocol
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Redirect' with all optional fields omitted.
@@ -104,20 +103,20 @@ newRedirect ::
   Redirect
 newRedirect =
   Redirect'
-    { hostName = Prelude.Nothing,
-      httpRedirectCode = Prelude.Nothing,
-      replaceKeyPrefixWith = Prelude.Nothing,
-      replaceKeyWith = Prelude.Nothing,
-      protocol = Prelude.Nothing
+    { hostName = Core.Nothing,
+      httpRedirectCode = Core.Nothing,
+      replaceKeyPrefixWith = Core.Nothing,
+      replaceKeyWith = Core.Nothing,
+      protocol = Core.Nothing
     }
 
 -- | The host name to use in the redirect request.
-redirect_hostName :: Lens.Lens' Redirect (Prelude.Maybe Prelude.Text)
+redirect_hostName :: Lens.Lens' Redirect (Core.Maybe Core.Text)
 redirect_hostName = Lens.lens (\Redirect' {hostName} -> hostName) (\s@Redirect' {} a -> s {hostName = a} :: Redirect)
 
 -- | The HTTP redirect code to use on the response. Not required if one of
 -- the siblings is present.
-redirect_httpRedirectCode :: Lens.Lens' Redirect (Prelude.Maybe Prelude.Text)
+redirect_httpRedirectCode :: Lens.Lens' Redirect (Core.Maybe Core.Text)
 redirect_httpRedirectCode = Lens.lens (\Redirect' {httpRedirectCode} -> httpRedirectCode) (\s@Redirect' {} a -> s {httpRedirectCode = a} :: Redirect)
 
 -- | The object key prefix to use in the redirect request. For example, to
@@ -132,7 +131,7 @@ redirect_httpRedirectCode = Lens.lens (\Redirect' {httpRedirectCode} -> httpRedi
 -- (such as carriage returns) when using XML requests. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-redirect_replaceKeyPrefixWith :: Lens.Lens' Redirect (Prelude.Maybe Prelude.Text)
+redirect_replaceKeyPrefixWith :: Lens.Lens' Redirect (Core.Maybe Core.Text)
 redirect_replaceKeyPrefixWith = Lens.lens (\Redirect' {replaceKeyPrefixWith} -> replaceKeyPrefixWith) (\s@Redirect' {} a -> s {replaceKeyPrefixWith = a} :: Redirect)
 
 -- | The specific object key to use in the redirect request. For example,
@@ -143,34 +142,33 @@ redirect_replaceKeyPrefixWith = Lens.lens (\Redirect' {replaceKeyPrefixWith} -> 
 -- (such as carriage returns) when using XML requests. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-redirect_replaceKeyWith :: Lens.Lens' Redirect (Prelude.Maybe Prelude.Text)
+redirect_replaceKeyWith :: Lens.Lens' Redirect (Core.Maybe Core.Text)
 redirect_replaceKeyWith = Lens.lens (\Redirect' {replaceKeyWith} -> replaceKeyWith) (\s@Redirect' {} a -> s {replaceKeyWith = a} :: Redirect)
 
 -- | Protocol to use when redirecting requests. The default is the protocol
 -- that is used in the original request.
-redirect_protocol :: Lens.Lens' Redirect (Prelude.Maybe Protocol)
+redirect_protocol :: Lens.Lens' Redirect (Core.Maybe Protocol)
 redirect_protocol = Lens.lens (\Redirect' {protocol} -> protocol) (\s@Redirect' {} a -> s {protocol = a} :: Redirect)
 
-instance Prelude.FromXML Redirect where
+instance Core.FromXML Redirect where
   parseXML x =
     Redirect'
-      Prelude.<$> (x Prelude..@? "HostName")
-      Prelude.<*> (x Prelude..@? "HttpRedirectCode")
-      Prelude.<*> (x Prelude..@? "ReplaceKeyPrefixWith")
-      Prelude.<*> (x Prelude..@? "ReplaceKeyWith")
-      Prelude.<*> (x Prelude..@? "Protocol")
+      Core.<$> (x Core..@? "HostName")
+      Core.<*> (x Core..@? "HttpRedirectCode")
+      Core.<*> (x Core..@? "ReplaceKeyPrefixWith")
+      Core.<*> (x Core..@? "ReplaceKeyWith")
+      Core.<*> (x Core..@? "Protocol")
 
-instance Prelude.Hashable Redirect
+instance Core.Hashable Redirect
 
-instance Prelude.NFData Redirect
+instance Core.NFData Redirect
 
-instance Prelude.ToXML Redirect where
+instance Core.ToXML Redirect where
   toXML Redirect' {..} =
-    Prelude.mconcat
-      [ "HostName" Prelude.@= hostName,
-        "HttpRedirectCode" Prelude.@= httpRedirectCode,
-        "ReplaceKeyPrefixWith"
-          Prelude.@= replaceKeyPrefixWith,
-        "ReplaceKeyWith" Prelude.@= replaceKeyWith,
-        "Protocol" Prelude.@= protocol
+    Core.mconcat
+      [ "HostName" Core.@= hostName,
+        "HttpRedirectCode" Core.@= httpRedirectCode,
+        "ReplaceKeyPrefixWith" Core.@= replaceKeyPrefixWith,
+        "ReplaceKeyWith" Core.@= replaceKeyWith,
+        "Protocol" Core.@= protocol
       ]

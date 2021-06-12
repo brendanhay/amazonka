@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.SageMaker.CreateProject
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -58,17 +57,17 @@ data CreateProject = CreateProject'
     -- your AWS resource costs. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
     -- in the /AWS General Reference Guide/.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A description for the project.
-    projectDescription :: Prelude.Maybe Prelude.Text,
+    projectDescription :: Core.Maybe Core.Text,
     -- | The name of the project.
-    projectName :: Prelude.Text,
+    projectName :: Core.Text,
     -- | The product ID and provisioning artifact ID to provision a service
     -- catalog. For information, see
     -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is AWS Service Catalog>.
     serviceCatalogProvisioningDetails :: ServiceCatalogProvisioningDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProject' with all optional fields omitted.
@@ -92,7 +91,7 @@ data CreateProject = CreateProject'
 -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is AWS Service Catalog>.
 newCreateProject ::
   -- | 'projectName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serviceCatalogProvisioningDetails'
   ServiceCatalogProvisioningDetails ->
   CreateProject
@@ -100,8 +99,8 @@ newCreateProject
   pProjectName_
   pServiceCatalogProvisioningDetails_ =
     CreateProject'
-      { tags = Prelude.Nothing,
-        projectDescription = Prelude.Nothing,
+      { tags = Core.Nothing,
+        projectDescription = Core.Nothing,
         projectName = pProjectName_,
         serviceCatalogProvisioningDetails =
           pServiceCatalogProvisioningDetails_
@@ -111,15 +110,15 @@ newCreateProject
 -- your AWS resource costs. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
 -- in the /AWS General Reference Guide/.
-createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe [Tag])
-createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Prelude._Coerce
+createProject_tags :: Lens.Lens' CreateProject (Core.Maybe [Tag])
+createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Core.. Lens.mapping Lens._Coerce
 
 -- | A description for the project.
-createProject_projectDescription :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
+createProject_projectDescription :: Lens.Lens' CreateProject (Core.Maybe Core.Text)
 createProject_projectDescription = Lens.lens (\CreateProject' {projectDescription} -> projectDescription) (\s@CreateProject' {} a -> s {projectDescription = a} :: CreateProject)
 
 -- | The name of the project.
-createProject_projectName :: Lens.Lens' CreateProject Prelude.Text
+createProject_projectName :: Lens.Lens' CreateProject Core.Text
 createProject_projectName = Lens.lens (\CreateProject' {projectName} -> projectName) (\s@CreateProject' {} a -> s {projectName = a} :: CreateProject)
 
 -- | The product ID and provisioning artifact ID to provision a service
@@ -128,66 +127,66 @@ createProject_projectName = Lens.lens (\CreateProject' {projectName} -> projectN
 createProject_serviceCatalogProvisioningDetails :: Lens.Lens' CreateProject ServiceCatalogProvisioningDetails
 createProject_serviceCatalogProvisioningDetails = Lens.lens (\CreateProject' {serviceCatalogProvisioningDetails} -> serviceCatalogProvisioningDetails) (\s@CreateProject' {} a -> s {serviceCatalogProvisioningDetails = a} :: CreateProject)
 
-instance Prelude.AWSRequest CreateProject where
-  type Rs CreateProject = CreateProjectResponse
+instance Core.AWSRequest CreateProject where
+  type
+    AWSResponse CreateProject =
+      CreateProjectResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateProjectResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "ProjectArn")
-            Prelude.<*> (x Prelude..:> "ProjectId")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "ProjectArn")
+            Core.<*> (x Core..:> "ProjectId")
       )
 
-instance Prelude.Hashable CreateProject
+instance Core.Hashable CreateProject
 
-instance Prelude.NFData CreateProject
+instance Core.NFData CreateProject
 
-instance Prelude.ToHeaders CreateProject where
+instance Core.ToHeaders CreateProject where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.CreateProject" :: Prelude.ByteString),
+              Core.=# ("SageMaker.CreateProject" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateProject where
+instance Core.ToJSON CreateProject where
   toJSON CreateProject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            ("ProjectDescription" Prelude..=)
-              Prelude.<$> projectDescription,
-            Prelude.Just ("ProjectName" Prelude..= projectName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            ("ProjectDescription" Core..=)
+              Core.<$> projectDescription,
+            Core.Just ("ProjectName" Core..= projectName),
+            Core.Just
               ( "ServiceCatalogProvisioningDetails"
-                  Prelude..= serviceCatalogProvisioningDetails
+                  Core..= serviceCatalogProvisioningDetails
               )
           ]
       )
 
-instance Prelude.ToPath CreateProject where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateProject where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateProject where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateProject where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the project.
-    projectArn :: Prelude.Text,
+    projectArn :: Core.Text,
     -- | The ID of the new project.
-    projectId :: Prelude.Text
+    projectId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProjectResponse' with all optional fields omitted.
@@ -204,11 +203,11 @@ data CreateProjectResponse = CreateProjectResponse'
 -- 'projectId', 'createProjectResponse_projectId' - The ID of the new project.
 newCreateProjectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'projectArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'projectId'
-  Prelude.Text ->
+  Core.Text ->
   CreateProjectResponse
 newCreateProjectResponse
   pHttpStatus_
@@ -221,15 +220,15 @@ newCreateProjectResponse
       }
 
 -- | The response's http status code.
-createProjectResponse_httpStatus :: Lens.Lens' CreateProjectResponse Prelude.Int
+createProjectResponse_httpStatus :: Lens.Lens' CreateProjectResponse Core.Int
 createProjectResponse_httpStatus = Lens.lens (\CreateProjectResponse' {httpStatus} -> httpStatus) (\s@CreateProjectResponse' {} a -> s {httpStatus = a} :: CreateProjectResponse)
 
 -- | The Amazon Resource Name (ARN) of the project.
-createProjectResponse_projectArn :: Lens.Lens' CreateProjectResponse Prelude.Text
+createProjectResponse_projectArn :: Lens.Lens' CreateProjectResponse Core.Text
 createProjectResponse_projectArn = Lens.lens (\CreateProjectResponse' {projectArn} -> projectArn) (\s@CreateProjectResponse' {} a -> s {projectArn = a} :: CreateProjectResponse)
 
 -- | The ID of the new project.
-createProjectResponse_projectId :: Lens.Lens' CreateProjectResponse Prelude.Text
+createProjectResponse_projectId :: Lens.Lens' CreateProjectResponse Core.Text
 createProjectResponse_projectId = Lens.lens (\CreateProjectResponse' {projectId} -> projectId) (\s@CreateProjectResponse' {} a -> s {projectId = a} :: CreateProjectResponse)
 
-instance Prelude.NFData CreateProjectResponse
+instance Core.NFData CreateProjectResponse

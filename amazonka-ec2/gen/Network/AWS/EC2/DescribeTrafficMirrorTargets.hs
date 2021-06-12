@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,26 +46,25 @@ module Network.AWS.EC2.DescribeTrafficMirrorTargets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTrafficMirrorTargets' smart constructor.
 data DescribeTrafficMirrorTargets = DescribeTrafficMirrorTargets'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more filters. The possible values are:
     --
     -- -   @description@: The Traffic Mirror target description.
@@ -81,11 +79,11 @@ data DescribeTrafficMirrorTargets = DescribeTrafficMirrorTargets'
     --     session.
     --
     -- -   @traffic-mirror-target-id@: The ID of the Traffic Mirror target.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | The ID of the Traffic Mirror targets.
-    trafficMirrorTargetIds :: Prelude.Maybe [Prelude.Text]
+    trafficMirrorTargetIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTrafficMirrorTargets' with all optional fields omitted.
@@ -127,28 +125,28 @@ newDescribeTrafficMirrorTargets ::
 newDescribeTrafficMirrorTargets =
   DescribeTrafficMirrorTargets'
     { nextToken =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      trafficMirrorTargetIds = Prelude.Nothing
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing,
+      trafficMirrorTargetIds = Core.Nothing
     }
 
 -- | The token for the next page of results.
-describeTrafficMirrorTargets_nextToken :: Lens.Lens' DescribeTrafficMirrorTargets (Prelude.Maybe Prelude.Text)
+describeTrafficMirrorTargets_nextToken :: Lens.Lens' DescribeTrafficMirrorTargets (Core.Maybe Core.Text)
 describeTrafficMirrorTargets_nextToken = Lens.lens (\DescribeTrafficMirrorTargets' {nextToken} -> nextToken) (\s@DescribeTrafficMirrorTargets' {} a -> s {nextToken = a} :: DescribeTrafficMirrorTargets)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeTrafficMirrorTargets_dryRun :: Lens.Lens' DescribeTrafficMirrorTargets (Prelude.Maybe Prelude.Bool)
+describeTrafficMirrorTargets_dryRun :: Lens.Lens' DescribeTrafficMirrorTargets (Core.Maybe Core.Bool)
 describeTrafficMirrorTargets_dryRun = Lens.lens (\DescribeTrafficMirrorTargets' {dryRun} -> dryRun) (\s@DescribeTrafficMirrorTargets' {} a -> s {dryRun = a} :: DescribeTrafficMirrorTargets)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeTrafficMirrorTargets_maxResults :: Lens.Lens' DescribeTrafficMirrorTargets (Prelude.Maybe Prelude.Natural)
+describeTrafficMirrorTargets_maxResults :: Lens.Lens' DescribeTrafficMirrorTargets (Core.Maybe Core.Natural)
 describeTrafficMirrorTargets_maxResults = Lens.lens (\DescribeTrafficMirrorTargets' {maxResults} -> maxResults) (\s@DescribeTrafficMirrorTargets' {} a -> s {maxResults = a} :: DescribeTrafficMirrorTargets)
 
 -- | One or more filters. The possible values are:
@@ -165,87 +163,76 @@ describeTrafficMirrorTargets_maxResults = Lens.lens (\DescribeTrafficMirrorTarge
 --     session.
 --
 -- -   @traffic-mirror-target-id@: The ID of the Traffic Mirror target.
-describeTrafficMirrorTargets_filters :: Lens.Lens' DescribeTrafficMirrorTargets (Prelude.Maybe [Filter])
-describeTrafficMirrorTargets_filters = Lens.lens (\DescribeTrafficMirrorTargets' {filters} -> filters) (\s@DescribeTrafficMirrorTargets' {} a -> s {filters = a} :: DescribeTrafficMirrorTargets) Prelude.. Lens.mapping Prelude._Coerce
+describeTrafficMirrorTargets_filters :: Lens.Lens' DescribeTrafficMirrorTargets (Core.Maybe [Filter])
+describeTrafficMirrorTargets_filters = Lens.lens (\DescribeTrafficMirrorTargets' {filters} -> filters) (\s@DescribeTrafficMirrorTargets' {} a -> s {filters = a} :: DescribeTrafficMirrorTargets) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Traffic Mirror targets.
-describeTrafficMirrorTargets_trafficMirrorTargetIds :: Lens.Lens' DescribeTrafficMirrorTargets (Prelude.Maybe [Prelude.Text])
-describeTrafficMirrorTargets_trafficMirrorTargetIds = Lens.lens (\DescribeTrafficMirrorTargets' {trafficMirrorTargetIds} -> trafficMirrorTargetIds) (\s@DescribeTrafficMirrorTargets' {} a -> s {trafficMirrorTargetIds = a} :: DescribeTrafficMirrorTargets) Prelude.. Lens.mapping Prelude._Coerce
+describeTrafficMirrorTargets_trafficMirrorTargetIds :: Lens.Lens' DescribeTrafficMirrorTargets (Core.Maybe [Core.Text])
+describeTrafficMirrorTargets_trafficMirrorTargetIds = Lens.lens (\DescribeTrafficMirrorTargets' {trafficMirrorTargetIds} -> trafficMirrorTargetIds) (\s@DescribeTrafficMirrorTargets' {} a -> s {trafficMirrorTargetIds = a} :: DescribeTrafficMirrorTargets) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeTrafficMirrorTargets where
+instance Core.AWSPager DescribeTrafficMirrorTargets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeTrafficMirrorTargetsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeTrafficMirrorTargetsResponse_trafficMirrorTargets
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeTrafficMirrorTargets_nextToken
           Lens..~ rs
           Lens.^? describeTrafficMirrorTargetsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeTrafficMirrorTargets
-  where
+instance Core.AWSRequest DescribeTrafficMirrorTargets where
   type
-    Rs DescribeTrafficMirrorTargets =
+    AWSResponse DescribeTrafficMirrorTargets =
       DescribeTrafficMirrorTargetsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeTrafficMirrorTargetsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "trafficMirrorTargetSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "trafficMirrorTargetSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeTrafficMirrorTargets
+instance Core.Hashable DescribeTrafficMirrorTargets
 
-instance Prelude.NFData DescribeTrafficMirrorTargets
+instance Core.NFData DescribeTrafficMirrorTargets
 
-instance
-  Prelude.ToHeaders
-    DescribeTrafficMirrorTargets
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeTrafficMirrorTargets where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeTrafficMirrorTargets where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTrafficMirrorTargets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTrafficMirrorTargets where
+instance Core.ToQuery DescribeTrafficMirrorTargets where
   toQuery DescribeTrafficMirrorTargets' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeTrafficMirrorTargets" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TrafficMirrorTargetId"
-              Prelude.<$> trafficMirrorTargetIds
+          Core.=: ("DescribeTrafficMirrorTargets" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters),
+        Core.toQuery
+          ( Core.toQueryList "TrafficMirrorTargetId"
+              Core.<$> trafficMirrorTargetIds
           )
       ]
 
@@ -253,13 +240,13 @@ instance Prelude.ToQuery DescribeTrafficMirrorTargets where
 data DescribeTrafficMirrorTargetsResponse = DescribeTrafficMirrorTargetsResponse'
   { -- | The token to use to retrieve the next page of results. The value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about one or more Traffic Mirror targets.
-    trafficMirrorTargets :: Prelude.Maybe [TrafficMirrorTarget],
+    trafficMirrorTargets :: Core.Maybe [TrafficMirrorTarget],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTrafficMirrorTargetsResponse' with all optional fields omitted.
@@ -277,30 +264,29 @@ data DescribeTrafficMirrorTargetsResponse = DescribeTrafficMirrorTargetsResponse
 -- 'httpStatus', 'describeTrafficMirrorTargetsResponse_httpStatus' - The response's http status code.
 newDescribeTrafficMirrorTargetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTrafficMirrorTargetsResponse
 newDescribeTrafficMirrorTargetsResponse pHttpStatus_ =
   DescribeTrafficMirrorTargetsResponse'
     { nextToken =
-        Prelude.Nothing,
-      trafficMirrorTargets =
-        Prelude.Nothing,
+        Core.Nothing,
+      trafficMirrorTargets = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. The value is
 -- @null@ when there are no more results to return.
-describeTrafficMirrorTargetsResponse_nextToken :: Lens.Lens' DescribeTrafficMirrorTargetsResponse (Prelude.Maybe Prelude.Text)
+describeTrafficMirrorTargetsResponse_nextToken :: Lens.Lens' DescribeTrafficMirrorTargetsResponse (Core.Maybe Core.Text)
 describeTrafficMirrorTargetsResponse_nextToken = Lens.lens (\DescribeTrafficMirrorTargetsResponse' {nextToken} -> nextToken) (\s@DescribeTrafficMirrorTargetsResponse' {} a -> s {nextToken = a} :: DescribeTrafficMirrorTargetsResponse)
 
 -- | Information about one or more Traffic Mirror targets.
-describeTrafficMirrorTargetsResponse_trafficMirrorTargets :: Lens.Lens' DescribeTrafficMirrorTargetsResponse (Prelude.Maybe [TrafficMirrorTarget])
-describeTrafficMirrorTargetsResponse_trafficMirrorTargets = Lens.lens (\DescribeTrafficMirrorTargetsResponse' {trafficMirrorTargets} -> trafficMirrorTargets) (\s@DescribeTrafficMirrorTargetsResponse' {} a -> s {trafficMirrorTargets = a} :: DescribeTrafficMirrorTargetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTrafficMirrorTargetsResponse_trafficMirrorTargets :: Lens.Lens' DescribeTrafficMirrorTargetsResponse (Core.Maybe [TrafficMirrorTarget])
+describeTrafficMirrorTargetsResponse_trafficMirrorTargets = Lens.lens (\DescribeTrafficMirrorTargetsResponse' {trafficMirrorTargets} -> trafficMirrorTargets) (\s@DescribeTrafficMirrorTargetsResponse' {} a -> s {trafficMirrorTargets = a} :: DescribeTrafficMirrorTargetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTrafficMirrorTargetsResponse_httpStatus :: Lens.Lens' DescribeTrafficMirrorTargetsResponse Prelude.Int
+describeTrafficMirrorTargetsResponse_httpStatus :: Lens.Lens' DescribeTrafficMirrorTargetsResponse Core.Int
 describeTrafficMirrorTargetsResponse_httpStatus = Lens.lens (\DescribeTrafficMirrorTargetsResponse' {httpStatus} -> httpStatus) (\s@DescribeTrafficMirrorTargetsResponse' {} a -> s {httpStatus = a} :: DescribeTrafficMirrorTargetsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeTrafficMirrorTargetsResponse

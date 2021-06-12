@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,18 +45,18 @@ module Network.AWS.MachineLearning.DeleteMLModel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteMLModel' smart constructor.
 data DeleteMLModel = DeleteMLModel'
   { -- | A user-supplied ID that uniquely identifies the @MLModel@.
-    mLModelId :: Prelude.Text
+    mLModelId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMLModel' with all optional fields omitted.
@@ -70,57 +69,57 @@ data DeleteMLModel = DeleteMLModel'
 -- 'mLModelId', 'deleteMLModel_mLModelId' - A user-supplied ID that uniquely identifies the @MLModel@.
 newDeleteMLModel ::
   -- | 'mLModelId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteMLModel
 newDeleteMLModel pMLModelId_ =
   DeleteMLModel' {mLModelId = pMLModelId_}
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@.
-deleteMLModel_mLModelId :: Lens.Lens' DeleteMLModel Prelude.Text
+deleteMLModel_mLModelId :: Lens.Lens' DeleteMLModel Core.Text
 deleteMLModel_mLModelId = Lens.lens (\DeleteMLModel' {mLModelId} -> mLModelId) (\s@DeleteMLModel' {} a -> s {mLModelId = a} :: DeleteMLModel)
 
-instance Prelude.AWSRequest DeleteMLModel where
-  type Rs DeleteMLModel = DeleteMLModelResponse
+instance Core.AWSRequest DeleteMLModel where
+  type
+    AWSResponse DeleteMLModel =
+      DeleteMLModelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteMLModelResponse'
-            Prelude.<$> (x Prelude..?> "MLModelId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "MLModelId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMLModel
+instance Core.Hashable DeleteMLModel
 
-instance Prelude.NFData DeleteMLModel
+instance Core.NFData DeleteMLModel
 
-instance Prelude.ToHeaders DeleteMLModel where
+instance Core.ToHeaders DeleteMLModel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonML_20141212.DeleteMLModel" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonML_20141212.DeleteMLModel" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteMLModel where
+instance Core.ToJSON DeleteMLModel where
   toJSON DeleteMLModel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("MLModelId" Prelude..= mLModelId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("MLModelId" Core..= mLModelId)]
       )
 
-instance Prelude.ToPath DeleteMLModel where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteMLModel where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteMLModel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteMLModel where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @DeleteMLModel@ operation.
 --
@@ -131,11 +130,11 @@ instance Prelude.ToQuery DeleteMLModel where
 data DeleteMLModelResponse = DeleteMLModelResponse'
   { -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
     -- should be identical to the value of the @MLModelID@ in the request.
-    mLModelId :: Prelude.Maybe Prelude.Text,
+    mLModelId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMLModelResponse' with all optional fields omitted.
@@ -151,21 +150,21 @@ data DeleteMLModelResponse = DeleteMLModelResponse'
 -- 'httpStatus', 'deleteMLModelResponse_httpStatus' - The response's http status code.
 newDeleteMLModelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteMLModelResponse
 newDeleteMLModelResponse pHttpStatus_ =
   DeleteMLModelResponse'
-    { mLModelId = Prelude.Nothing,
+    { mLModelId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelID@ in the request.
-deleteMLModelResponse_mLModelId :: Lens.Lens' DeleteMLModelResponse (Prelude.Maybe Prelude.Text)
+deleteMLModelResponse_mLModelId :: Lens.Lens' DeleteMLModelResponse (Core.Maybe Core.Text)
 deleteMLModelResponse_mLModelId = Lens.lens (\DeleteMLModelResponse' {mLModelId} -> mLModelId) (\s@DeleteMLModelResponse' {} a -> s {mLModelId = a} :: DeleteMLModelResponse)
 
 -- | The response's http status code.
-deleteMLModelResponse_httpStatus :: Lens.Lens' DeleteMLModelResponse Prelude.Int
+deleteMLModelResponse_httpStatus :: Lens.Lens' DeleteMLModelResponse Core.Int
 deleteMLModelResponse_httpStatus = Lens.lens (\DeleteMLModelResponse' {httpStatus} -> httpStatus) (\s@DeleteMLModelResponse' {} a -> s {httpStatus = a} :: DeleteMLModelResponse)
 
-instance Prelude.NFData DeleteMLModelResponse
+instance Core.NFData DeleteMLModelResponse

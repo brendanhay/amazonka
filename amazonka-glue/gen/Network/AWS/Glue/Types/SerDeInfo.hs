@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.SerDeInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a serialization\/deserialization program (SerDe) that
 -- serves as an extractor and loader.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data SerDeInfo = SerDeInfo'
   { -- | Usually the class that implements the SerDe. An example is
     -- @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@.
-    serializationLibrary :: Prelude.Maybe Prelude.Text,
+    serializationLibrary :: Core.Maybe Core.Text,
     -- | Name of the SerDe.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | These key-value pairs define initialization parameters for the SerDe.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SerDeInfo' with all optional fields omitted.
@@ -56,48 +55,46 @@ newSerDeInfo ::
   SerDeInfo
 newSerDeInfo =
   SerDeInfo'
-    { serializationLibrary = Prelude.Nothing,
-      name = Prelude.Nothing,
-      parameters = Prelude.Nothing
+    { serializationLibrary = Core.Nothing,
+      name = Core.Nothing,
+      parameters = Core.Nothing
     }
 
 -- | Usually the class that implements the SerDe. An example is
 -- @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@.
-serDeInfo_serializationLibrary :: Lens.Lens' SerDeInfo (Prelude.Maybe Prelude.Text)
+serDeInfo_serializationLibrary :: Lens.Lens' SerDeInfo (Core.Maybe Core.Text)
 serDeInfo_serializationLibrary = Lens.lens (\SerDeInfo' {serializationLibrary} -> serializationLibrary) (\s@SerDeInfo' {} a -> s {serializationLibrary = a} :: SerDeInfo)
 
 -- | Name of the SerDe.
-serDeInfo_name :: Lens.Lens' SerDeInfo (Prelude.Maybe Prelude.Text)
+serDeInfo_name :: Lens.Lens' SerDeInfo (Core.Maybe Core.Text)
 serDeInfo_name = Lens.lens (\SerDeInfo' {name} -> name) (\s@SerDeInfo' {} a -> s {name = a} :: SerDeInfo)
 
 -- | These key-value pairs define initialization parameters for the SerDe.
-serDeInfo_parameters :: Lens.Lens' SerDeInfo (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-serDeInfo_parameters = Lens.lens (\SerDeInfo' {parameters} -> parameters) (\s@SerDeInfo' {} a -> s {parameters = a} :: SerDeInfo) Prelude.. Lens.mapping Prelude._Coerce
+serDeInfo_parameters :: Lens.Lens' SerDeInfo (Core.Maybe (Core.HashMap Core.Text Core.Text))
+serDeInfo_parameters = Lens.lens (\SerDeInfo' {parameters} -> parameters) (\s@SerDeInfo' {} a -> s {parameters = a} :: SerDeInfo) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON SerDeInfo where
+instance Core.FromJSON SerDeInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SerDeInfo"
       ( \x ->
           SerDeInfo'
-            Prelude.<$> (x Prelude..:? "SerializationLibrary")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "SerializationLibrary")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable SerDeInfo
+instance Core.Hashable SerDeInfo
 
-instance Prelude.NFData SerDeInfo
+instance Core.NFData SerDeInfo
 
-instance Prelude.ToJSON SerDeInfo where
+instance Core.ToJSON SerDeInfo where
   toJSON SerDeInfo' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SerializationLibrary" Prelude..=)
-              Prelude.<$> serializationLibrary,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("Parameters" Prelude..=) Prelude.<$> parameters
+    Core.object
+      ( Core.catMaybes
+          [ ("SerializationLibrary" Core..=)
+              Core.<$> serializationLibrary,
+            ("Name" Core..=) Core.<$> name,
+            ("Parameters" Core..=) Core.<$> parameters
           ]
       )

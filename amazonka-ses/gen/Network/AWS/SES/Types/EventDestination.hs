@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.EventDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.CloudWatchDestination
 import Network.AWS.SES.Types.EventType
 import Network.AWS.SES.Types.KinesisFirehoseDestination
@@ -45,29 +44,29 @@ import Network.AWS.SES.Types.SNSDestination
 data EventDestination = EventDestination'
   { -- | An object that contains the names, default values, and sources of the
     -- dimensions associated with an Amazon CloudWatch event destination.
-    cloudWatchDestination :: Prelude.Maybe CloudWatchDestination,
+    cloudWatchDestination :: Core.Maybe CloudWatchDestination,
     -- | Sets whether Amazon SES publishes events to this destination when you
     -- send an email with the associated configuration set. Set to @true@ to
     -- enable publishing to this destination; set to @false@ to prevent
     -- publishing to this destination. The default value is @false@.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | An object that contains the delivery stream ARN and the IAM role ARN
     -- associated with an Amazon Kinesis Firehose event destination.
-    kinesisFirehoseDestination :: Prelude.Maybe KinesisFirehoseDestination,
+    kinesisFirehoseDestination :: Core.Maybe KinesisFirehoseDestination,
     -- | An object that contains the topic ARN associated with an Amazon Simple
     -- Notification Service (Amazon SNS) event destination.
-    sNSDestination :: Prelude.Maybe SNSDestination,
+    sNSDestination :: Core.Maybe SNSDestination,
     -- | The name of the event destination. The name must:
     --
     -- -   This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
     --     underscores (_), or dashes (-).
     --
     -- -   Contain less than 64 characters.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The type of email sending events to publish to the event destination.
     matchingEventTypes :: [EventType]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventDestination' with all optional fields omitted.
@@ -101,39 +100,39 @@ data EventDestination = EventDestination'
 -- 'matchingEventTypes', 'eventDestination_matchingEventTypes' - The type of email sending events to publish to the event destination.
 newEventDestination ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   EventDestination
 newEventDestination pName_ =
   EventDestination'
     { cloudWatchDestination =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      kinesisFirehoseDestination = Prelude.Nothing,
-      sNSDestination = Prelude.Nothing,
+        Core.Nothing,
+      enabled = Core.Nothing,
+      kinesisFirehoseDestination = Core.Nothing,
+      sNSDestination = Core.Nothing,
       name = pName_,
-      matchingEventTypes = Prelude.mempty
+      matchingEventTypes = Core.mempty
     }
 
 -- | An object that contains the names, default values, and sources of the
 -- dimensions associated with an Amazon CloudWatch event destination.
-eventDestination_cloudWatchDestination :: Lens.Lens' EventDestination (Prelude.Maybe CloudWatchDestination)
+eventDestination_cloudWatchDestination :: Lens.Lens' EventDestination (Core.Maybe CloudWatchDestination)
 eventDestination_cloudWatchDestination = Lens.lens (\EventDestination' {cloudWatchDestination} -> cloudWatchDestination) (\s@EventDestination' {} a -> s {cloudWatchDestination = a} :: EventDestination)
 
 -- | Sets whether Amazon SES publishes events to this destination when you
 -- send an email with the associated configuration set. Set to @true@ to
 -- enable publishing to this destination; set to @false@ to prevent
 -- publishing to this destination. The default value is @false@.
-eventDestination_enabled :: Lens.Lens' EventDestination (Prelude.Maybe Prelude.Bool)
+eventDestination_enabled :: Lens.Lens' EventDestination (Core.Maybe Core.Bool)
 eventDestination_enabled = Lens.lens (\EventDestination' {enabled} -> enabled) (\s@EventDestination' {} a -> s {enabled = a} :: EventDestination)
 
 -- | An object that contains the delivery stream ARN and the IAM role ARN
 -- associated with an Amazon Kinesis Firehose event destination.
-eventDestination_kinesisFirehoseDestination :: Lens.Lens' EventDestination (Prelude.Maybe KinesisFirehoseDestination)
+eventDestination_kinesisFirehoseDestination :: Lens.Lens' EventDestination (Core.Maybe KinesisFirehoseDestination)
 eventDestination_kinesisFirehoseDestination = Lens.lens (\EventDestination' {kinesisFirehoseDestination} -> kinesisFirehoseDestination) (\s@EventDestination' {} a -> s {kinesisFirehoseDestination = a} :: EventDestination)
 
 -- | An object that contains the topic ARN associated with an Amazon Simple
 -- Notification Service (Amazon SNS) event destination.
-eventDestination_sNSDestination :: Lens.Lens' EventDestination (Prelude.Maybe SNSDestination)
+eventDestination_sNSDestination :: Lens.Lens' EventDestination (Core.Maybe SNSDestination)
 eventDestination_sNSDestination = Lens.lens (\EventDestination' {sNSDestination} -> sNSDestination) (\s@EventDestination' {} a -> s {sNSDestination = a} :: EventDestination)
 
 -- | The name of the event destination. The name must:
@@ -142,40 +141,39 @@ eventDestination_sNSDestination = Lens.lens (\EventDestination' {sNSDestination}
 --     underscores (_), or dashes (-).
 --
 -- -   Contain less than 64 characters.
-eventDestination_name :: Lens.Lens' EventDestination Prelude.Text
+eventDestination_name :: Lens.Lens' EventDestination Core.Text
 eventDestination_name = Lens.lens (\EventDestination' {name} -> name) (\s@EventDestination' {} a -> s {name = a} :: EventDestination)
 
 -- | The type of email sending events to publish to the event destination.
 eventDestination_matchingEventTypes :: Lens.Lens' EventDestination [EventType]
-eventDestination_matchingEventTypes = Lens.lens (\EventDestination' {matchingEventTypes} -> matchingEventTypes) (\s@EventDestination' {} a -> s {matchingEventTypes = a} :: EventDestination) Prelude.. Prelude._Coerce
+eventDestination_matchingEventTypes = Lens.lens (\EventDestination' {matchingEventTypes} -> matchingEventTypes) (\s@EventDestination' {} a -> s {matchingEventTypes = a} :: EventDestination) Core.. Lens._Coerce
 
-instance Prelude.FromXML EventDestination where
+instance Core.FromXML EventDestination where
   parseXML x =
     EventDestination'
-      Prelude.<$> (x Prelude..@? "CloudWatchDestination")
-      Prelude.<*> (x Prelude..@? "Enabled")
-      Prelude.<*> (x Prelude..@? "KinesisFirehoseDestination")
-      Prelude.<*> (x Prelude..@? "SNSDestination")
-      Prelude.<*> (x Prelude..@ "Name")
-      Prelude.<*> ( x Prelude..@? "MatchingEventTypes"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.parseXMLList "member"
-                  )
+      Core.<$> (x Core..@? "CloudWatchDestination")
+      Core.<*> (x Core..@? "Enabled")
+      Core.<*> (x Core..@? "KinesisFirehoseDestination")
+      Core.<*> (x Core..@? "SNSDestination")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> ( x Core..@? "MatchingEventTypes" Core..!@ Core.mempty
+                   Core.>>= Core.parseXMLList "member"
+               )
 
-instance Prelude.Hashable EventDestination
+instance Core.Hashable EventDestination
 
-instance Prelude.NFData EventDestination
+instance Core.NFData EventDestination
 
-instance Prelude.ToQuery EventDestination where
+instance Core.ToQuery EventDestination where
   toQuery EventDestination' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "CloudWatchDestination"
-          Prelude.=: cloudWatchDestination,
-        "Enabled" Prelude.=: enabled,
+          Core.=: cloudWatchDestination,
+        "Enabled" Core.=: enabled,
         "KinesisFirehoseDestination"
-          Prelude.=: kinesisFirehoseDestination,
-        "SNSDestination" Prelude.=: sNSDestination,
-        "Name" Prelude.=: name,
+          Core.=: kinesisFirehoseDestination,
+        "SNSDestination" Core.=: sNSDestination,
+        "Name" Core.=: name,
         "MatchingEventTypes"
-          Prelude.=: Prelude.toQueryList "member" matchingEventTypes
+          Core.=: Core.toQueryList "member" matchingEventTypes
       ]

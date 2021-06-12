@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.FunctionExecutionConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.FunctionIsolationMode
 import Network.AWS.Greengrass.Types.FunctionRunAsConfig
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information that specifies how a Lambda function runs.
 --
 -- /See:/ 'newFunctionExecutionConfig' smart constructor.
 data FunctionExecutionConfig = FunctionExecutionConfig'
-  { isolationMode :: Prelude.Maybe FunctionIsolationMode,
-    runAs :: Prelude.Maybe FunctionRunAsConfig
+  { isolationMode :: Core.Maybe FunctionIsolationMode,
+    runAs :: Core.Maybe FunctionRunAsConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FunctionExecutionConfig' with all optional fields omitted.
@@ -50,38 +49,37 @@ newFunctionExecutionConfig ::
 newFunctionExecutionConfig =
   FunctionExecutionConfig'
     { isolationMode =
-        Prelude.Nothing,
-      runAs = Prelude.Nothing
+        Core.Nothing,
+      runAs = Core.Nothing
     }
 
 -- | Undocumented member.
-functionExecutionConfig_isolationMode :: Lens.Lens' FunctionExecutionConfig (Prelude.Maybe FunctionIsolationMode)
+functionExecutionConfig_isolationMode :: Lens.Lens' FunctionExecutionConfig (Core.Maybe FunctionIsolationMode)
 functionExecutionConfig_isolationMode = Lens.lens (\FunctionExecutionConfig' {isolationMode} -> isolationMode) (\s@FunctionExecutionConfig' {} a -> s {isolationMode = a} :: FunctionExecutionConfig)
 
 -- | Undocumented member.
-functionExecutionConfig_runAs :: Lens.Lens' FunctionExecutionConfig (Prelude.Maybe FunctionRunAsConfig)
+functionExecutionConfig_runAs :: Lens.Lens' FunctionExecutionConfig (Core.Maybe FunctionRunAsConfig)
 functionExecutionConfig_runAs = Lens.lens (\FunctionExecutionConfig' {runAs} -> runAs) (\s@FunctionExecutionConfig' {} a -> s {runAs = a} :: FunctionExecutionConfig)
 
-instance Prelude.FromJSON FunctionExecutionConfig where
+instance Core.FromJSON FunctionExecutionConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FunctionExecutionConfig"
       ( \x ->
           FunctionExecutionConfig'
-            Prelude.<$> (x Prelude..:? "IsolationMode")
-            Prelude.<*> (x Prelude..:? "RunAs")
+            Core.<$> (x Core..:? "IsolationMode")
+            Core.<*> (x Core..:? "RunAs")
       )
 
-instance Prelude.Hashable FunctionExecutionConfig
+instance Core.Hashable FunctionExecutionConfig
 
-instance Prelude.NFData FunctionExecutionConfig
+instance Core.NFData FunctionExecutionConfig
 
-instance Prelude.ToJSON FunctionExecutionConfig where
+instance Core.ToJSON FunctionExecutionConfig where
   toJSON FunctionExecutionConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IsolationMode" Prelude..=)
-              Prelude.<$> isolationMode,
-            ("RunAs" Prelude..=) Prelude.<$> runAs
+    Core.object
+      ( Core.catMaybes
+          [ ("IsolationMode" Core..=) Core.<$> isolationMode,
+            ("RunAs" Core..=) Core.<$> runAs
           ]
       )

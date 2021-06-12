@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.OpsWorks.GrantAccess
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +54,11 @@ data GrantAccess = GrantAccess'
     -- expires at the end of this period, the user will no longer be able to
     -- use the credentials to log in. If the user is logged in at the time, he
     -- or she automatically will be logged out.
-    validForInMinutes :: Prelude.Maybe Prelude.Natural,
+    validForInMinutes :: Core.Maybe Core.Natural,
     -- | The instance\'s AWS OpsWorks Stacks ID.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GrantAccess' with all optional fields omitted.
@@ -77,11 +76,11 @@ data GrantAccess = GrantAccess'
 -- 'instanceId', 'grantAccess_instanceId' - The instance\'s AWS OpsWorks Stacks ID.
 newGrantAccess ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   GrantAccess
 newGrantAccess pInstanceId_ =
   GrantAccess'
-    { validForInMinutes = Prelude.Nothing,
+    { validForInMinutes = Core.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -89,58 +88,54 @@ newGrantAccess pInstanceId_ =
 -- expires at the end of this period, the user will no longer be able to
 -- use the credentials to log in. If the user is logged in at the time, he
 -- or she automatically will be logged out.
-grantAccess_validForInMinutes :: Lens.Lens' GrantAccess (Prelude.Maybe Prelude.Natural)
+grantAccess_validForInMinutes :: Lens.Lens' GrantAccess (Core.Maybe Core.Natural)
 grantAccess_validForInMinutes = Lens.lens (\GrantAccess' {validForInMinutes} -> validForInMinutes) (\s@GrantAccess' {} a -> s {validForInMinutes = a} :: GrantAccess)
 
 -- | The instance\'s AWS OpsWorks Stacks ID.
-grantAccess_instanceId :: Lens.Lens' GrantAccess Prelude.Text
+grantAccess_instanceId :: Lens.Lens' GrantAccess Core.Text
 grantAccess_instanceId = Lens.lens (\GrantAccess' {instanceId} -> instanceId) (\s@GrantAccess' {} a -> s {instanceId = a} :: GrantAccess)
 
-instance Prelude.AWSRequest GrantAccess where
-  type Rs GrantAccess = GrantAccessResponse
+instance Core.AWSRequest GrantAccess where
+  type AWSResponse GrantAccess = GrantAccessResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GrantAccessResponse'
-            Prelude.<$> (x Prelude..?> "TemporaryCredential")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TemporaryCredential")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GrantAccess
+instance Core.Hashable GrantAccess
 
-instance Prelude.NFData GrantAccess
+instance Core.NFData GrantAccess
 
-instance Prelude.ToHeaders GrantAccess where
+instance Core.ToHeaders GrantAccess where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.GrantAccess" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("OpsWorks_20130218.GrantAccess" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GrantAccess where
+instance Core.ToJSON GrantAccess where
   toJSON GrantAccess' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ValidForInMinutes" Prelude..=)
-              Prelude.<$> validForInMinutes,
-            Prelude.Just ("InstanceId" Prelude..= instanceId)
+    Core.object
+      ( Core.catMaybes
+          [ ("ValidForInMinutes" Core..=)
+              Core.<$> validForInMinutes,
+            Core.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
-instance Prelude.ToPath GrantAccess where
-  toPath = Prelude.const "/"
+instance Core.ToPath GrantAccess where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GrantAccess where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GrantAccess where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @GrantAccess@ request.
 --
@@ -149,11 +144,11 @@ data GrantAccessResponse = GrantAccessResponse'
   { -- | A @TemporaryCredential@ object that contains the data needed to log in
     -- to the instance by RDP clients, such as the Microsoft Remote Desktop
     -- Connection.
-    temporaryCredential :: Prelude.Maybe TemporaryCredential,
+    temporaryCredential :: Core.Maybe TemporaryCredential,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GrantAccessResponse' with all optional fields omitted.
@@ -170,23 +165,23 @@ data GrantAccessResponse = GrantAccessResponse'
 -- 'httpStatus', 'grantAccessResponse_httpStatus' - The response's http status code.
 newGrantAccessResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GrantAccessResponse
 newGrantAccessResponse pHttpStatus_ =
   GrantAccessResponse'
     { temporaryCredential =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A @TemporaryCredential@ object that contains the data needed to log in
 -- to the instance by RDP clients, such as the Microsoft Remote Desktop
 -- Connection.
-grantAccessResponse_temporaryCredential :: Lens.Lens' GrantAccessResponse (Prelude.Maybe TemporaryCredential)
+grantAccessResponse_temporaryCredential :: Lens.Lens' GrantAccessResponse (Core.Maybe TemporaryCredential)
 grantAccessResponse_temporaryCredential = Lens.lens (\GrantAccessResponse' {temporaryCredential} -> temporaryCredential) (\s@GrantAccessResponse' {} a -> s {temporaryCredential = a} :: GrantAccessResponse)
 
 -- | The response's http status code.
-grantAccessResponse_httpStatus :: Lens.Lens' GrantAccessResponse Prelude.Int
+grantAccessResponse_httpStatus :: Lens.Lens' GrantAccessResponse Core.Int
 grantAccessResponse_httpStatus = Lens.lens (\GrantAccessResponse' {httpStatus} -> httpStatus) (\s@GrantAccessResponse' {} a -> s {httpStatus = a} :: GrantAccessResponse)
 
-instance Prelude.NFData GrantAccessResponse
+instance Core.NFData GrantAccessResponse

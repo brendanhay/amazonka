@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MachineLearning.Types.RedshiftDatabase where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the database details required to connect to an Amazon Redshift
 -- database.
 --
 -- /See:/ 'newRedshiftDatabase' smart constructor.
 data RedshiftDatabase = RedshiftDatabase'
-  { databaseName :: Prelude.Text,
-    clusterIdentifier :: Prelude.Text
+  { databaseName :: Core.Text,
+    clusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RedshiftDatabase' with all optional fields omitted.
@@ -46,9 +45,9 @@ data RedshiftDatabase = RedshiftDatabase'
 -- 'clusterIdentifier', 'redshiftDatabase_clusterIdentifier' - Undocumented member.
 newRedshiftDatabase ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   RedshiftDatabase
 newRedshiftDatabase
   pDatabaseName_
@@ -59,34 +58,33 @@ newRedshiftDatabase
       }
 
 -- | Undocumented member.
-redshiftDatabase_databaseName :: Lens.Lens' RedshiftDatabase Prelude.Text
+redshiftDatabase_databaseName :: Lens.Lens' RedshiftDatabase Core.Text
 redshiftDatabase_databaseName = Lens.lens (\RedshiftDatabase' {databaseName} -> databaseName) (\s@RedshiftDatabase' {} a -> s {databaseName = a} :: RedshiftDatabase)
 
 -- | Undocumented member.
-redshiftDatabase_clusterIdentifier :: Lens.Lens' RedshiftDatabase Prelude.Text
+redshiftDatabase_clusterIdentifier :: Lens.Lens' RedshiftDatabase Core.Text
 redshiftDatabase_clusterIdentifier = Lens.lens (\RedshiftDatabase' {clusterIdentifier} -> clusterIdentifier) (\s@RedshiftDatabase' {} a -> s {clusterIdentifier = a} :: RedshiftDatabase)
 
-instance Prelude.FromJSON RedshiftDatabase where
+instance Core.FromJSON RedshiftDatabase where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RedshiftDatabase"
       ( \x ->
           RedshiftDatabase'
-            Prelude.<$> (x Prelude..: "DatabaseName")
-            Prelude.<*> (x Prelude..: "ClusterIdentifier")
+            Core.<$> (x Core..: "DatabaseName")
+            Core.<*> (x Core..: "ClusterIdentifier")
       )
 
-instance Prelude.Hashable RedshiftDatabase
+instance Core.Hashable RedshiftDatabase
 
-instance Prelude.NFData RedshiftDatabase
+instance Core.NFData RedshiftDatabase
 
-instance Prelude.ToJSON RedshiftDatabase where
+instance Core.ToJSON RedshiftDatabase where
   toJSON RedshiftDatabase' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just
-              ("ClusterIdentifier" Prelude..= clusterIdentifier)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just
+              ("ClusterIdentifier" Core..= clusterIdentifier)
           ]
       )

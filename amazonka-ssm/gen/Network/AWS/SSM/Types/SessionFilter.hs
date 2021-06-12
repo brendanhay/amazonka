@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.SessionFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.SessionFilterKey
 
 -- | Describes a filter for Session Manager information.
@@ -62,9 +61,9 @@ data SessionFilter = SessionFilter'
     --     -   Failed
     --
     -- -   SessionId: Specify a session ID to return details about the session.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SessionFilter' with all optional fields omitted.
@@ -112,7 +111,7 @@ newSessionFilter ::
   -- | 'key'
   SessionFilterKey ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   SessionFilter
 newSessionFilter pKey_ pValue_ =
   SessionFilter' {key = pKey_, value = pValue_}
@@ -153,18 +152,18 @@ sessionFilter_key = Lens.lens (\SessionFilter' {key} -> key) (\s@SessionFilter' 
 --     -   Failed
 --
 -- -   SessionId: Specify a session ID to return details about the session.
-sessionFilter_value :: Lens.Lens' SessionFilter Prelude.Text
+sessionFilter_value :: Lens.Lens' SessionFilter Core.Text
 sessionFilter_value = Lens.lens (\SessionFilter' {value} -> value) (\s@SessionFilter' {} a -> s {value = a} :: SessionFilter)
 
-instance Prelude.Hashable SessionFilter
+instance Core.Hashable SessionFilter
 
-instance Prelude.NFData SessionFilter
+instance Core.NFData SessionFilter
 
-instance Prelude.ToJSON SessionFilter where
+instance Core.ToJSON SessionFilter where
   toJSON SessionFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("key" Prelude..= key),
-            Prelude.Just ("value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("key" Core..= key),
+            Core.Just ("value" Core..= value)
           ]
       )

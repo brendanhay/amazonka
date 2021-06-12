@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.CmafGroupSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.CmafAdditionalManifest
 import Network.AWS.MediaConvert.Types.CmafClientCache
@@ -34,7 +34,6 @@ import Network.AWS.MediaConvert.Types.CmafWriteDASHManifest
 import Network.AWS.MediaConvert.Types.CmafWriteHLSManifest
 import Network.AWS.MediaConvert.Types.CmafWriteSegmentTimelineInRepresentation
 import Network.AWS.MediaConvert.Types.DestinationSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings)
 -- to CMAF_GROUP_SETTINGS. Each output in a CMAF Output Group may only
@@ -51,33 +50,33 @@ data CmafGroupSettings = CmafGroupSettings'
     -- file that has metadata that marks these segments. If you set it to
     -- segmented files, the service creates multiple files for each output,
     -- each with the content of one segment.
-    segmentLength :: Prelude.Maybe Prelude.Natural,
+    segmentLength :: Core.Maybe Core.Natural,
     -- | When set to SINGLE_FILE, a single output file is generated, which is
     -- internally segmented using the Fragment Length and Segment Length. When
     -- set to SEGMENTED_FILES, separate segment files will be created.
-    segmentControl :: Prelude.Maybe CmafSegmentControl,
+    segmentControl :: Core.Maybe CmafSegmentControl,
     -- | When set to ENABLED, a DASH MPD manifest will be generated for this
     -- output.
-    writeDashManifest :: Prelude.Maybe CmafWriteDASHManifest,
+    writeDashManifest :: Core.Maybe CmafWriteDASHManifest,
     -- | Length of fragments to generate (in seconds). Fragment length must be
     -- compatible with GOP size and Framerate. Note that fragments will end on
     -- the next keyframe after this number of seconds, so actual fragment
     -- length may be longer. When Emit Single File is checked, the
     -- fragmentation is internal to a single output file and it does not cause
     -- the creation of many output files as in other output types.
-    fragmentLength :: Prelude.Maybe Prelude.Natural,
+    fragmentLength :: Core.Maybe Core.Natural,
     -- | When set to GZIP, compresses HLS playlist.
-    manifestCompression :: Prelude.Maybe CmafManifestCompression,
+    manifestCompression :: Core.Maybe CmafManifestCompression,
     -- | A partial URI prefix that will be put in the manifest file at the top
     -- level BaseURL element. Can be used if streams are delivered from a
     -- different URL than the manifest file.
-    baseUrl :: Prelude.Maybe Prelude.Text,
+    baseUrl :: Core.Maybe Core.Text,
     -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
     -- tag of variant manifest.
-    streamInfResolution :: Prelude.Maybe CmafStreamInfResolution,
+    streamInfResolution :: Core.Maybe CmafStreamInfResolution,
     -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8
     -- playlist generation.
-    codecSpecification :: Prelude.Maybe CmafCodecSpecification,
+    codecSpecification :: Core.Maybe CmafCodecSpecification,
     -- | By default, the service creates one top-level .m3u8 HLS manifest and one
     -- top -level .mpd DASH manifest for each CMAF output group in your job.
     -- These default manifests reference every output in the output group. To
@@ -85,7 +84,7 @@ data CmafGroupSettings = CmafGroupSettings'
     -- outputs in the output group, specify a list of them here. For each
     -- additional manifest that you specify, the service creates one HLS
     -- manifest and one DASH manifest.
-    additionalManifests :: Prelude.Maybe [CmafAdditionalManifest],
+    additionalManifests :: Core.Maybe [CmafAdditionalManifest],
     -- | Specify whether your DASH profile is on-demand or main. When you choose
     -- Main profile (MAIN_PROFILE), the service signals
     -- urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When
@@ -93,18 +92,18 @@ data CmafGroupSettings = CmafGroupSettings'
     -- urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose
     -- On-demand, you must also set the output group setting Segment control
     -- (SegmentControl) to Single file (SINGLE_FILE).
-    mpdProfile :: Prelude.Maybe CmafMpdProfile,
+    mpdProfile :: Core.Maybe CmafMpdProfile,
     -- | DRM settings.
-    encryption :: Prelude.Maybe CmafEncryptionSettings,
+    encryption :: Core.Maybe CmafEncryptionSettings,
     -- | Minimum time of initially buffered media that is needed to ensure smooth
     -- playout.
-    minBufferTime :: Prelude.Maybe Prelude.Natural,
+    minBufferTime :: Core.Maybe Core.Natural,
     -- | Use Destination (Destination) to specify the S3 output location and the
     -- output filename base. Destination accepts format identifiers. If you do
     -- not specify the base filename in the URI, the service will use the
     -- filename of the input file. If your job has multiple inputs, the service
     -- uses the filename of the first input file.
-    destination :: Prelude.Maybe Prelude.Text,
+    destination :: Core.Maybe Core.Text,
     -- | Keep this setting at the default value of 0, unless you are
     -- troubleshooting a problem with how devices play back the end of your
     -- video asset. If you know that player devices are hanging on the final
@@ -117,10 +116,10 @@ data CmafGroupSettings = CmafGroupSettings'
     -- length is 3 seconds and your final segment is .5 seconds without a
     -- minimum final segment length; when you set the minimum final segment
     -- length to 1, your final segment is 3.5 seconds.
-    minFinalSegmentLength :: Prelude.Maybe Prelude.Double,
+    minFinalSegmentLength :: Core.Maybe Core.Double,
     -- | Settings associated with the destination. Will vary based on the type of
     -- destination
-    destinationSettings :: Prelude.Maybe DestinationSettings,
+    destinationSettings :: Core.Maybe DestinationSettings,
     -- | When you enable Precise segment duration in DASH manifests
     -- (writeSegmentTimelineInRepresentation), your DASH manifest shows precise
     -- segment durations. The segment duration information appears inside the
@@ -128,20 +127,20 @@ data CmafGroupSettings = CmafGroupSettings'
     -- level. When this feature isn\'t enabled, the segment durations in your
     -- DASH manifest are approximate. The segment duration information appears
     -- in the duration attribute of the SegmentTemplate element.
-    writeSegmentTimelineInRepresentation :: Prelude.Maybe CmafWriteSegmentTimelineInRepresentation,
+    writeSegmentTimelineInRepresentation :: Core.Maybe CmafWriteSegmentTimelineInRepresentation,
     -- | When set to ENABLED, an Apple HLS manifest will be generated for this
     -- output.
-    writeHlsManifest :: Prelude.Maybe CmafWriteHLSManifest,
+    writeHlsManifest :: Core.Maybe CmafWriteHLSManifest,
     -- | Disable this setting only when your workflow requires the
     -- #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled
     -- (ENABLED) and control caching in your video distribution set up. For
     -- example, use the Cache-Control http header.
-    clientCache :: Prelude.Maybe CmafClientCache,
+    clientCache :: Core.Maybe CmafClientCache,
     -- | Indicates whether the output manifest should use floating point values
     -- for segment duration.
-    manifestDurationFormat :: Prelude.Maybe CmafManifestDurationFormat
+    manifestDurationFormat :: Core.Maybe CmafManifestDurationFormat
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CmafGroupSettings' with all optional fields omitted.
@@ -252,26 +251,25 @@ newCmafGroupSettings ::
   CmafGroupSettings
 newCmafGroupSettings =
   CmafGroupSettings'
-    { segmentLength = Prelude.Nothing,
-      segmentControl = Prelude.Nothing,
-      writeDashManifest = Prelude.Nothing,
-      fragmentLength = Prelude.Nothing,
-      manifestCompression = Prelude.Nothing,
-      baseUrl = Prelude.Nothing,
-      streamInfResolution = Prelude.Nothing,
-      codecSpecification = Prelude.Nothing,
-      additionalManifests = Prelude.Nothing,
-      mpdProfile = Prelude.Nothing,
-      encryption = Prelude.Nothing,
-      minBufferTime = Prelude.Nothing,
-      destination = Prelude.Nothing,
-      minFinalSegmentLength = Prelude.Nothing,
-      destinationSettings = Prelude.Nothing,
-      writeSegmentTimelineInRepresentation =
-        Prelude.Nothing,
-      writeHlsManifest = Prelude.Nothing,
-      clientCache = Prelude.Nothing,
-      manifestDurationFormat = Prelude.Nothing
+    { segmentLength = Core.Nothing,
+      segmentControl = Core.Nothing,
+      writeDashManifest = Core.Nothing,
+      fragmentLength = Core.Nothing,
+      manifestCompression = Core.Nothing,
+      baseUrl = Core.Nothing,
+      streamInfResolution = Core.Nothing,
+      codecSpecification = Core.Nothing,
+      additionalManifests = Core.Nothing,
+      mpdProfile = Core.Nothing,
+      encryption = Core.Nothing,
+      minBufferTime = Core.Nothing,
+      destination = Core.Nothing,
+      minFinalSegmentLength = Core.Nothing,
+      destinationSettings = Core.Nothing,
+      writeSegmentTimelineInRepresentation = Core.Nothing,
+      writeHlsManifest = Core.Nothing,
+      clientCache = Core.Nothing,
+      manifestDurationFormat = Core.Nothing
     }
 
 -- | Use this setting to specify the length, in seconds, of each individual
@@ -283,18 +281,18 @@ newCmafGroupSettings =
 -- file that has metadata that marks these segments. If you set it to
 -- segmented files, the service creates multiple files for each output,
 -- each with the content of one segment.
-cmafGroupSettings_segmentLength :: Lens.Lens' CmafGroupSettings (Prelude.Maybe Prelude.Natural)
+cmafGroupSettings_segmentLength :: Lens.Lens' CmafGroupSettings (Core.Maybe Core.Natural)
 cmafGroupSettings_segmentLength = Lens.lens (\CmafGroupSettings' {segmentLength} -> segmentLength) (\s@CmafGroupSettings' {} a -> s {segmentLength = a} :: CmafGroupSettings)
 
 -- | When set to SINGLE_FILE, a single output file is generated, which is
 -- internally segmented using the Fragment Length and Segment Length. When
 -- set to SEGMENTED_FILES, separate segment files will be created.
-cmafGroupSettings_segmentControl :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafSegmentControl)
+cmafGroupSettings_segmentControl :: Lens.Lens' CmafGroupSettings (Core.Maybe CmafSegmentControl)
 cmafGroupSettings_segmentControl = Lens.lens (\CmafGroupSettings' {segmentControl} -> segmentControl) (\s@CmafGroupSettings' {} a -> s {segmentControl = a} :: CmafGroupSettings)
 
 -- | When set to ENABLED, a DASH MPD manifest will be generated for this
 -- output.
-cmafGroupSettings_writeDashManifest :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafWriteDASHManifest)
+cmafGroupSettings_writeDashManifest :: Lens.Lens' CmafGroupSettings (Core.Maybe CmafWriteDASHManifest)
 cmafGroupSettings_writeDashManifest = Lens.lens (\CmafGroupSettings' {writeDashManifest} -> writeDashManifest) (\s@CmafGroupSettings' {} a -> s {writeDashManifest = a} :: CmafGroupSettings)
 
 -- | Length of fragments to generate (in seconds). Fragment length must be
@@ -303,27 +301,27 @@ cmafGroupSettings_writeDashManifest = Lens.lens (\CmafGroupSettings' {writeDashM
 -- length may be longer. When Emit Single File is checked, the
 -- fragmentation is internal to a single output file and it does not cause
 -- the creation of many output files as in other output types.
-cmafGroupSettings_fragmentLength :: Lens.Lens' CmafGroupSettings (Prelude.Maybe Prelude.Natural)
+cmafGroupSettings_fragmentLength :: Lens.Lens' CmafGroupSettings (Core.Maybe Core.Natural)
 cmafGroupSettings_fragmentLength = Lens.lens (\CmafGroupSettings' {fragmentLength} -> fragmentLength) (\s@CmafGroupSettings' {} a -> s {fragmentLength = a} :: CmafGroupSettings)
 
 -- | When set to GZIP, compresses HLS playlist.
-cmafGroupSettings_manifestCompression :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafManifestCompression)
+cmafGroupSettings_manifestCompression :: Lens.Lens' CmafGroupSettings (Core.Maybe CmafManifestCompression)
 cmafGroupSettings_manifestCompression = Lens.lens (\CmafGroupSettings' {manifestCompression} -> manifestCompression) (\s@CmafGroupSettings' {} a -> s {manifestCompression = a} :: CmafGroupSettings)
 
 -- | A partial URI prefix that will be put in the manifest file at the top
 -- level BaseURL element. Can be used if streams are delivered from a
 -- different URL than the manifest file.
-cmafGroupSettings_baseUrl :: Lens.Lens' CmafGroupSettings (Prelude.Maybe Prelude.Text)
+cmafGroupSettings_baseUrl :: Lens.Lens' CmafGroupSettings (Core.Maybe Core.Text)
 cmafGroupSettings_baseUrl = Lens.lens (\CmafGroupSettings' {baseUrl} -> baseUrl) (\s@CmafGroupSettings' {} a -> s {baseUrl = a} :: CmafGroupSettings)
 
 -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
 -- tag of variant manifest.
-cmafGroupSettings_streamInfResolution :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafStreamInfResolution)
+cmafGroupSettings_streamInfResolution :: Lens.Lens' CmafGroupSettings (Core.Maybe CmafStreamInfResolution)
 cmafGroupSettings_streamInfResolution = Lens.lens (\CmafGroupSettings' {streamInfResolution} -> streamInfResolution) (\s@CmafGroupSettings' {} a -> s {streamInfResolution = a} :: CmafGroupSettings)
 
 -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8
 -- playlist generation.
-cmafGroupSettings_codecSpecification :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafCodecSpecification)
+cmafGroupSettings_codecSpecification :: Lens.Lens' CmafGroupSettings (Core.Maybe CmafCodecSpecification)
 cmafGroupSettings_codecSpecification = Lens.lens (\CmafGroupSettings' {codecSpecification} -> codecSpecification) (\s@CmafGroupSettings' {} a -> s {codecSpecification = a} :: CmafGroupSettings)
 
 -- | By default, the service creates one top-level .m3u8 HLS manifest and one
@@ -333,8 +331,8 @@ cmafGroupSettings_codecSpecification = Lens.lens (\CmafGroupSettings' {codecSpec
 -- outputs in the output group, specify a list of them here. For each
 -- additional manifest that you specify, the service creates one HLS
 -- manifest and one DASH manifest.
-cmafGroupSettings_additionalManifests :: Lens.Lens' CmafGroupSettings (Prelude.Maybe [CmafAdditionalManifest])
-cmafGroupSettings_additionalManifests = Lens.lens (\CmafGroupSettings' {additionalManifests} -> additionalManifests) (\s@CmafGroupSettings' {} a -> s {additionalManifests = a} :: CmafGroupSettings) Prelude.. Lens.mapping Prelude._Coerce
+cmafGroupSettings_additionalManifests :: Lens.Lens' CmafGroupSettings (Core.Maybe [CmafAdditionalManifest])
+cmafGroupSettings_additionalManifests = Lens.lens (\CmafGroupSettings' {additionalManifests} -> additionalManifests) (\s@CmafGroupSettings' {} a -> s {additionalManifests = a} :: CmafGroupSettings) Core.. Lens.mapping Lens._Coerce
 
 -- | Specify whether your DASH profile is on-demand or main. When you choose
 -- Main profile (MAIN_PROFILE), the service signals
@@ -343,16 +341,16 @@ cmafGroupSettings_additionalManifests = Lens.lens (\CmafGroupSettings' {addition
 -- urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose
 -- On-demand, you must also set the output group setting Segment control
 -- (SegmentControl) to Single file (SINGLE_FILE).
-cmafGroupSettings_mpdProfile :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafMpdProfile)
+cmafGroupSettings_mpdProfile :: Lens.Lens' CmafGroupSettings (Core.Maybe CmafMpdProfile)
 cmafGroupSettings_mpdProfile = Lens.lens (\CmafGroupSettings' {mpdProfile} -> mpdProfile) (\s@CmafGroupSettings' {} a -> s {mpdProfile = a} :: CmafGroupSettings)
 
 -- | DRM settings.
-cmafGroupSettings_encryption :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafEncryptionSettings)
+cmafGroupSettings_encryption :: Lens.Lens' CmafGroupSettings (Core.Maybe CmafEncryptionSettings)
 cmafGroupSettings_encryption = Lens.lens (\CmafGroupSettings' {encryption} -> encryption) (\s@CmafGroupSettings' {} a -> s {encryption = a} :: CmafGroupSettings)
 
 -- | Minimum time of initially buffered media that is needed to ensure smooth
 -- playout.
-cmafGroupSettings_minBufferTime :: Lens.Lens' CmafGroupSettings (Prelude.Maybe Prelude.Natural)
+cmafGroupSettings_minBufferTime :: Lens.Lens' CmafGroupSettings (Core.Maybe Core.Natural)
 cmafGroupSettings_minBufferTime = Lens.lens (\CmafGroupSettings' {minBufferTime} -> minBufferTime) (\s@CmafGroupSettings' {} a -> s {minBufferTime = a} :: CmafGroupSettings)
 
 -- | Use Destination (Destination) to specify the S3 output location and the
@@ -360,7 +358,7 @@ cmafGroupSettings_minBufferTime = Lens.lens (\CmafGroupSettings' {minBufferTime}
 -- not specify the base filename in the URI, the service will use the
 -- filename of the input file. If your job has multiple inputs, the service
 -- uses the filename of the first input file.
-cmafGroupSettings_destination :: Lens.Lens' CmafGroupSettings (Prelude.Maybe Prelude.Text)
+cmafGroupSettings_destination :: Lens.Lens' CmafGroupSettings (Core.Maybe Core.Text)
 cmafGroupSettings_destination = Lens.lens (\CmafGroupSettings' {destination} -> destination) (\s@CmafGroupSettings' {} a -> s {destination = a} :: CmafGroupSettings)
 
 -- | Keep this setting at the default value of 0, unless you are
@@ -375,12 +373,12 @@ cmafGroupSettings_destination = Lens.lens (\CmafGroupSettings' {destination} -> 
 -- length is 3 seconds and your final segment is .5 seconds without a
 -- minimum final segment length; when you set the minimum final segment
 -- length to 1, your final segment is 3.5 seconds.
-cmafGroupSettings_minFinalSegmentLength :: Lens.Lens' CmafGroupSettings (Prelude.Maybe Prelude.Double)
+cmafGroupSettings_minFinalSegmentLength :: Lens.Lens' CmafGroupSettings (Core.Maybe Core.Double)
 cmafGroupSettings_minFinalSegmentLength = Lens.lens (\CmafGroupSettings' {minFinalSegmentLength} -> minFinalSegmentLength) (\s@CmafGroupSettings' {} a -> s {minFinalSegmentLength = a} :: CmafGroupSettings)
 
 -- | Settings associated with the destination. Will vary based on the type of
 -- destination
-cmafGroupSettings_destinationSettings :: Lens.Lens' CmafGroupSettings (Prelude.Maybe DestinationSettings)
+cmafGroupSettings_destinationSettings :: Lens.Lens' CmafGroupSettings (Core.Maybe DestinationSettings)
 cmafGroupSettings_destinationSettings = Lens.lens (\CmafGroupSettings' {destinationSettings} -> destinationSettings) (\s@CmafGroupSettings' {} a -> s {destinationSettings = a} :: CmafGroupSettings)
 
 -- | When you enable Precise segment duration in DASH manifests
@@ -390,97 +388,91 @@ cmafGroupSettings_destinationSettings = Lens.lens (\CmafGroupSettings' {destinat
 -- level. When this feature isn\'t enabled, the segment durations in your
 -- DASH manifest are approximate. The segment duration information appears
 -- in the duration attribute of the SegmentTemplate element.
-cmafGroupSettings_writeSegmentTimelineInRepresentation :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafWriteSegmentTimelineInRepresentation)
+cmafGroupSettings_writeSegmentTimelineInRepresentation :: Lens.Lens' CmafGroupSettings (Core.Maybe CmafWriteSegmentTimelineInRepresentation)
 cmafGroupSettings_writeSegmentTimelineInRepresentation = Lens.lens (\CmafGroupSettings' {writeSegmentTimelineInRepresentation} -> writeSegmentTimelineInRepresentation) (\s@CmafGroupSettings' {} a -> s {writeSegmentTimelineInRepresentation = a} :: CmafGroupSettings)
 
 -- | When set to ENABLED, an Apple HLS manifest will be generated for this
 -- output.
-cmafGroupSettings_writeHlsManifest :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafWriteHLSManifest)
+cmafGroupSettings_writeHlsManifest :: Lens.Lens' CmafGroupSettings (Core.Maybe CmafWriteHLSManifest)
 cmafGroupSettings_writeHlsManifest = Lens.lens (\CmafGroupSettings' {writeHlsManifest} -> writeHlsManifest) (\s@CmafGroupSettings' {} a -> s {writeHlsManifest = a} :: CmafGroupSettings)
 
 -- | Disable this setting only when your workflow requires the
 -- #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled
 -- (ENABLED) and control caching in your video distribution set up. For
 -- example, use the Cache-Control http header.
-cmafGroupSettings_clientCache :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafClientCache)
+cmafGroupSettings_clientCache :: Lens.Lens' CmafGroupSettings (Core.Maybe CmafClientCache)
 cmafGroupSettings_clientCache = Lens.lens (\CmafGroupSettings' {clientCache} -> clientCache) (\s@CmafGroupSettings' {} a -> s {clientCache = a} :: CmafGroupSettings)
 
 -- | Indicates whether the output manifest should use floating point values
 -- for segment duration.
-cmafGroupSettings_manifestDurationFormat :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafManifestDurationFormat)
+cmafGroupSettings_manifestDurationFormat :: Lens.Lens' CmafGroupSettings (Core.Maybe CmafManifestDurationFormat)
 cmafGroupSettings_manifestDurationFormat = Lens.lens (\CmafGroupSettings' {manifestDurationFormat} -> manifestDurationFormat) (\s@CmafGroupSettings' {} a -> s {manifestDurationFormat = a} :: CmafGroupSettings)
 
-instance Prelude.FromJSON CmafGroupSettings where
+instance Core.FromJSON CmafGroupSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CmafGroupSettings"
       ( \x ->
           CmafGroupSettings'
-            Prelude.<$> (x Prelude..:? "segmentLength")
-            Prelude.<*> (x Prelude..:? "segmentControl")
-            Prelude.<*> (x Prelude..:? "writeDashManifest")
-            Prelude.<*> (x Prelude..:? "fragmentLength")
-            Prelude.<*> (x Prelude..:? "manifestCompression")
-            Prelude.<*> (x Prelude..:? "baseUrl")
-            Prelude.<*> (x Prelude..:? "streamInfResolution")
-            Prelude.<*> (x Prelude..:? "codecSpecification")
-            Prelude.<*> ( x Prelude..:? "additionalManifests"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "mpdProfile")
-            Prelude.<*> (x Prelude..:? "encryption")
-            Prelude.<*> (x Prelude..:? "minBufferTime")
-            Prelude.<*> (x Prelude..:? "destination")
-            Prelude.<*> (x Prelude..:? "minFinalSegmentLength")
-            Prelude.<*> (x Prelude..:? "destinationSettings")
-            Prelude.<*> ( x
-                            Prelude..:? "writeSegmentTimelineInRepresentation"
-                        )
-            Prelude.<*> (x Prelude..:? "writeHlsManifest")
-            Prelude.<*> (x Prelude..:? "clientCache")
-            Prelude.<*> (x Prelude..:? "manifestDurationFormat")
+            Core.<$> (x Core..:? "segmentLength")
+            Core.<*> (x Core..:? "segmentControl")
+            Core.<*> (x Core..:? "writeDashManifest")
+            Core.<*> (x Core..:? "fragmentLength")
+            Core.<*> (x Core..:? "manifestCompression")
+            Core.<*> (x Core..:? "baseUrl")
+            Core.<*> (x Core..:? "streamInfResolution")
+            Core.<*> (x Core..:? "codecSpecification")
+            Core.<*> ( x Core..:? "additionalManifests"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "mpdProfile")
+            Core.<*> (x Core..:? "encryption")
+            Core.<*> (x Core..:? "minBufferTime")
+            Core.<*> (x Core..:? "destination")
+            Core.<*> (x Core..:? "minFinalSegmentLength")
+            Core.<*> (x Core..:? "destinationSettings")
+            Core.<*> (x Core..:? "writeSegmentTimelineInRepresentation")
+            Core.<*> (x Core..:? "writeHlsManifest")
+            Core.<*> (x Core..:? "clientCache")
+            Core.<*> (x Core..:? "manifestDurationFormat")
       )
 
-instance Prelude.Hashable CmafGroupSettings
+instance Core.Hashable CmafGroupSettings
 
-instance Prelude.NFData CmafGroupSettings
+instance Core.NFData CmafGroupSettings
 
-instance Prelude.ToJSON CmafGroupSettings where
+instance Core.ToJSON CmafGroupSettings where
   toJSON CmafGroupSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("segmentLength" Prelude..=)
-              Prelude.<$> segmentLength,
-            ("segmentControl" Prelude..=)
-              Prelude.<$> segmentControl,
-            ("writeDashManifest" Prelude..=)
-              Prelude.<$> writeDashManifest,
-            ("fragmentLength" Prelude..=)
-              Prelude.<$> fragmentLength,
-            ("manifestCompression" Prelude..=)
-              Prelude.<$> manifestCompression,
-            ("baseUrl" Prelude..=) Prelude.<$> baseUrl,
-            ("streamInfResolution" Prelude..=)
-              Prelude.<$> streamInfResolution,
-            ("codecSpecification" Prelude..=)
-              Prelude.<$> codecSpecification,
-            ("additionalManifests" Prelude..=)
-              Prelude.<$> additionalManifests,
-            ("mpdProfile" Prelude..=) Prelude.<$> mpdProfile,
-            ("encryption" Prelude..=) Prelude.<$> encryption,
-            ("minBufferTime" Prelude..=)
-              Prelude.<$> minBufferTime,
-            ("destination" Prelude..=) Prelude.<$> destination,
-            ("minFinalSegmentLength" Prelude..=)
-              Prelude.<$> minFinalSegmentLength,
-            ("destinationSettings" Prelude..=)
-              Prelude.<$> destinationSettings,
-            ("writeSegmentTimelineInRepresentation" Prelude..=)
-              Prelude.<$> writeSegmentTimelineInRepresentation,
-            ("writeHlsManifest" Prelude..=)
-              Prelude.<$> writeHlsManifest,
-            ("clientCache" Prelude..=) Prelude.<$> clientCache,
-            ("manifestDurationFormat" Prelude..=)
-              Prelude.<$> manifestDurationFormat
+    Core.object
+      ( Core.catMaybes
+          [ ("segmentLength" Core..=) Core.<$> segmentLength,
+            ("segmentControl" Core..=) Core.<$> segmentControl,
+            ("writeDashManifest" Core..=)
+              Core.<$> writeDashManifest,
+            ("fragmentLength" Core..=) Core.<$> fragmentLength,
+            ("manifestCompression" Core..=)
+              Core.<$> manifestCompression,
+            ("baseUrl" Core..=) Core.<$> baseUrl,
+            ("streamInfResolution" Core..=)
+              Core.<$> streamInfResolution,
+            ("codecSpecification" Core..=)
+              Core.<$> codecSpecification,
+            ("additionalManifests" Core..=)
+              Core.<$> additionalManifests,
+            ("mpdProfile" Core..=) Core.<$> mpdProfile,
+            ("encryption" Core..=) Core.<$> encryption,
+            ("minBufferTime" Core..=) Core.<$> minBufferTime,
+            ("destination" Core..=) Core.<$> destination,
+            ("minFinalSegmentLength" Core..=)
+              Core.<$> minFinalSegmentLength,
+            ("destinationSettings" Core..=)
+              Core.<$> destinationSettings,
+            ("writeSegmentTimelineInRepresentation" Core..=)
+              Core.<$> writeSegmentTimelineInRepresentation,
+            ("writeHlsManifest" Core..=)
+              Core.<$> writeHlsManifest,
+            ("clientCache" Core..=) Core.<$> clientCache,
+            ("manifestDurationFormat" Core..=)
+              Core.<$> manifestDurationFormat
           ]
       )

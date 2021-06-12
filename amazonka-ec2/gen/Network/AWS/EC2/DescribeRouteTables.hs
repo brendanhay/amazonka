@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,30 +55,29 @@ module Network.AWS.EC2.DescribeRouteTables
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeRouteTables' smart constructor.
 data DescribeRouteTables = DescribeRouteTables'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | One or more route table IDs.
     --
     -- Default: Describes all your route tables.
-    routeTableIds :: Prelude.Maybe [Prelude.Text],
+    routeTableIds :: Core.Maybe [Core.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more filters.
     --
     -- -   @association.route-table-association-id@ - The ID of an association
@@ -148,9 +146,9 @@ data DescribeRouteTables = DescribeRouteTables'
     --     regardless of the tag value.
     --
     -- -   @vpc-id@ - The ID of the VPC for the route table.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRouteTables' with all optional fields omitted.
@@ -247,34 +245,34 @@ newDescribeRouteTables ::
   DescribeRouteTables
 newDescribeRouteTables =
   DescribeRouteTables'
-    { nextToken = Prelude.Nothing,
-      routeTableIds = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      routeTableIds = Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token for the next page of results.
-describeRouteTables_nextToken :: Lens.Lens' DescribeRouteTables (Prelude.Maybe Prelude.Text)
+describeRouteTables_nextToken :: Lens.Lens' DescribeRouteTables (Core.Maybe Core.Text)
 describeRouteTables_nextToken = Lens.lens (\DescribeRouteTables' {nextToken} -> nextToken) (\s@DescribeRouteTables' {} a -> s {nextToken = a} :: DescribeRouteTables)
 
 -- | One or more route table IDs.
 --
 -- Default: Describes all your route tables.
-describeRouteTables_routeTableIds :: Lens.Lens' DescribeRouteTables (Prelude.Maybe [Prelude.Text])
-describeRouteTables_routeTableIds = Lens.lens (\DescribeRouteTables' {routeTableIds} -> routeTableIds) (\s@DescribeRouteTables' {} a -> s {routeTableIds = a} :: DescribeRouteTables) Prelude.. Lens.mapping Prelude._Coerce
+describeRouteTables_routeTableIds :: Lens.Lens' DescribeRouteTables (Core.Maybe [Core.Text])
+describeRouteTables_routeTableIds = Lens.lens (\DescribeRouteTables' {routeTableIds} -> routeTableIds) (\s@DescribeRouteTables' {} a -> s {routeTableIds = a} :: DescribeRouteTables) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeRouteTables_dryRun :: Lens.Lens' DescribeRouteTables (Prelude.Maybe Prelude.Bool)
+describeRouteTables_dryRun :: Lens.Lens' DescribeRouteTables (Core.Maybe Core.Bool)
 describeRouteTables_dryRun = Lens.lens (\DescribeRouteTables' {dryRun} -> dryRun) (\s@DescribeRouteTables' {} a -> s {dryRun = a} :: DescribeRouteTables)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeRouteTables_maxResults :: Lens.Lens' DescribeRouteTables (Prelude.Maybe Prelude.Natural)
+describeRouteTables_maxResults :: Lens.Lens' DescribeRouteTables (Core.Maybe Core.Natural)
 describeRouteTables_maxResults = Lens.lens (\DescribeRouteTables' {maxResults} -> maxResults) (\s@DescribeRouteTables' {} a -> s {maxResults = a} :: DescribeRouteTables)
 
 -- | One or more filters.
@@ -345,74 +343,72 @@ describeRouteTables_maxResults = Lens.lens (\DescribeRouteTables' {maxResults} -
 --     regardless of the tag value.
 --
 -- -   @vpc-id@ - The ID of the VPC for the route table.
-describeRouteTables_filters :: Lens.Lens' DescribeRouteTables (Prelude.Maybe [Filter])
-describeRouteTables_filters = Lens.lens (\DescribeRouteTables' {filters} -> filters) (\s@DescribeRouteTables' {} a -> s {filters = a} :: DescribeRouteTables) Prelude.. Lens.mapping Prelude._Coerce
+describeRouteTables_filters :: Lens.Lens' DescribeRouteTables (Core.Maybe [Filter])
+describeRouteTables_filters = Lens.lens (\DescribeRouteTables' {filters} -> filters) (\s@DescribeRouteTables' {} a -> s {filters = a} :: DescribeRouteTables) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeRouteTables where
+instance Core.AWSPager DescribeRouteTables where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeRouteTablesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeRouteTablesResponse_routeTables
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeRouteTables_nextToken
           Lens..~ rs
           Lens.^? describeRouteTablesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeRouteTables where
+instance Core.AWSRequest DescribeRouteTables where
   type
-    Rs DescribeRouteTables =
+    AWSResponse DescribeRouteTables =
       DescribeRouteTablesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeRouteTablesResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "routeTableSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "routeTableSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRouteTables
+instance Core.Hashable DescribeRouteTables
 
-instance Prelude.NFData DescribeRouteTables
+instance Core.NFData DescribeRouteTables
 
-instance Prelude.ToHeaders DescribeRouteTables where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeRouteTables where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeRouteTables where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeRouteTables where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeRouteTables where
+instance Core.ToQuery DescribeRouteTables where
   toQuery DescribeRouteTables' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeRouteTables" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        Prelude.toQuery
-          ( Prelude.toQueryList "RouteTableId"
-              Prelude.<$> routeTableIds
+          Core.=: ("DescribeRouteTables" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          ( Core.toQueryList "RouteTableId"
+              Core.<$> routeTableIds
           ),
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | Contains the output of DescribeRouteTables.
@@ -421,13 +417,13 @@ instance Prelude.ToQuery DescribeRouteTables where
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about one or more route tables.
-    routeTables :: Prelude.Maybe [RouteTable],
+    routeTables :: Core.Maybe [RouteTable],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRouteTablesResponse' with all optional fields omitted.
@@ -445,27 +441,27 @@ data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
 -- 'httpStatus', 'describeRouteTablesResponse_httpStatus' - The response's http status code.
 newDescribeRouteTablesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeRouteTablesResponse
 newDescribeRouteTablesResponse pHttpStatus_ =
   DescribeRouteTablesResponse'
     { nextToken =
-        Prelude.Nothing,
-      routeTables = Prelude.Nothing,
+        Core.Nothing,
+      routeTables = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeRouteTablesResponse_nextToken :: Lens.Lens' DescribeRouteTablesResponse (Prelude.Maybe Prelude.Text)
+describeRouteTablesResponse_nextToken :: Lens.Lens' DescribeRouteTablesResponse (Core.Maybe Core.Text)
 describeRouteTablesResponse_nextToken = Lens.lens (\DescribeRouteTablesResponse' {nextToken} -> nextToken) (\s@DescribeRouteTablesResponse' {} a -> s {nextToken = a} :: DescribeRouteTablesResponse)
 
 -- | Information about one or more route tables.
-describeRouteTablesResponse_routeTables :: Lens.Lens' DescribeRouteTablesResponse (Prelude.Maybe [RouteTable])
-describeRouteTablesResponse_routeTables = Lens.lens (\DescribeRouteTablesResponse' {routeTables} -> routeTables) (\s@DescribeRouteTablesResponse' {} a -> s {routeTables = a} :: DescribeRouteTablesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeRouteTablesResponse_routeTables :: Lens.Lens' DescribeRouteTablesResponse (Core.Maybe [RouteTable])
+describeRouteTablesResponse_routeTables = Lens.lens (\DescribeRouteTablesResponse' {routeTables} -> routeTables) (\s@DescribeRouteTablesResponse' {} a -> s {routeTables = a} :: DescribeRouteTablesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeRouteTablesResponse_httpStatus :: Lens.Lens' DescribeRouteTablesResponse Prelude.Int
+describeRouteTablesResponse_httpStatus :: Lens.Lens' DescribeRouteTablesResponse Core.Int
 describeRouteTablesResponse_httpStatus = Lens.lens (\DescribeRouteTablesResponse' {httpStatus} -> httpStatus) (\s@DescribeRouteTablesResponse' {} a -> s {httpStatus = a} :: DescribeRouteTablesResponse)
 
-instance Prelude.NFData DescribeRouteTablesResponse
+instance Core.NFData DescribeRouteTablesResponse

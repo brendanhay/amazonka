@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.DashAdditionalManifest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the details for each additional DASH manifest that you want the
 -- service to generate for this output group. Each manifest can reference a
@@ -35,12 +34,12 @@ data DashAdditionalManifest = DashAdditionalManifest'
     -- manifest for your DASH group is film-name.mpd. If you enter
     -- \"-no-premium\" for this setting, then the file name the service
     -- generates for this top-level manifest is film-name-no-premium.mpd.
-    manifestNameModifier :: Prelude.Maybe Prelude.Text,
+    manifestNameModifier :: Core.Maybe Core.Text,
     -- | Specify the outputs that you want this additional top-level manifest to
     -- reference.
-    selectedOutputs :: Prelude.Maybe [Prelude.Text]
+    selectedOutputs :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DashAdditionalManifest' with all optional fields omitted.
@@ -64,8 +63,8 @@ newDashAdditionalManifest ::
 newDashAdditionalManifest =
   DashAdditionalManifest'
     { manifestNameModifier =
-        Prelude.Nothing,
-      selectedOutputs = Prelude.Nothing
+        Core.Nothing,
+      selectedOutputs = Core.Nothing
     }
 
 -- | Specify a name modifier that the service adds to the name of this
@@ -74,37 +73,35 @@ newDashAdditionalManifest =
 -- manifest for your DASH group is film-name.mpd. If you enter
 -- \"-no-premium\" for this setting, then the file name the service
 -- generates for this top-level manifest is film-name-no-premium.mpd.
-dashAdditionalManifest_manifestNameModifier :: Lens.Lens' DashAdditionalManifest (Prelude.Maybe Prelude.Text)
+dashAdditionalManifest_manifestNameModifier :: Lens.Lens' DashAdditionalManifest (Core.Maybe Core.Text)
 dashAdditionalManifest_manifestNameModifier = Lens.lens (\DashAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@DashAdditionalManifest' {} a -> s {manifestNameModifier = a} :: DashAdditionalManifest)
 
 -- | Specify the outputs that you want this additional top-level manifest to
 -- reference.
-dashAdditionalManifest_selectedOutputs :: Lens.Lens' DashAdditionalManifest (Prelude.Maybe [Prelude.Text])
-dashAdditionalManifest_selectedOutputs = Lens.lens (\DashAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@DashAdditionalManifest' {} a -> s {selectedOutputs = a} :: DashAdditionalManifest) Prelude.. Lens.mapping Prelude._Coerce
+dashAdditionalManifest_selectedOutputs :: Lens.Lens' DashAdditionalManifest (Core.Maybe [Core.Text])
+dashAdditionalManifest_selectedOutputs = Lens.lens (\DashAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@DashAdditionalManifest' {} a -> s {selectedOutputs = a} :: DashAdditionalManifest) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON DashAdditionalManifest where
+instance Core.FromJSON DashAdditionalManifest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DashAdditionalManifest"
       ( \x ->
           DashAdditionalManifest'
-            Prelude.<$> (x Prelude..:? "manifestNameModifier")
-            Prelude.<*> ( x Prelude..:? "selectedOutputs"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "manifestNameModifier")
+            Core.<*> (x Core..:? "selectedOutputs" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable DashAdditionalManifest
+instance Core.Hashable DashAdditionalManifest
 
-instance Prelude.NFData DashAdditionalManifest
+instance Core.NFData DashAdditionalManifest
 
-instance Prelude.ToJSON DashAdditionalManifest where
+instance Core.ToJSON DashAdditionalManifest where
   toJSON DashAdditionalManifest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("manifestNameModifier" Prelude..=)
-              Prelude.<$> manifestNameModifier,
-            ("selectedOutputs" Prelude..=)
-              Prelude.<$> selectedOutputs
+    Core.object
+      ( Core.catMaybes
+          [ ("manifestNameModifier" Core..=)
+              Core.<$> manifestNameModifier,
+            ("selectedOutputs" Core..=)
+              Core.<$> selectedOutputs
           ]
       )

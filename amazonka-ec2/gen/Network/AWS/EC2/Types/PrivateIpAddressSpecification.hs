@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PrivateIpAddressSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a secondary private IPv4 address for a network interface.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data PrivateIpAddressSpecification = PrivateIpAddressSpecification'
   { -- | Indicates whether the private IPv4 address is the primary private IPv4
     -- address. Only one IPv4 address can be designated as primary.
-    primary :: Prelude.Maybe Prelude.Bool,
+    primary :: Core.Maybe Core.Bool,
     -- | The private IPv4 addresses.
-    privateIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PrivateIpAddressSpecification' with all optional fields omitted.
@@ -53,40 +52,32 @@ newPrivateIpAddressSpecification ::
 newPrivateIpAddressSpecification =
   PrivateIpAddressSpecification'
     { primary =
-        Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing
+        Core.Nothing,
+      privateIpAddress = Core.Nothing
     }
 
 -- | Indicates whether the private IPv4 address is the primary private IPv4
 -- address. Only one IPv4 address can be designated as primary.
-privateIpAddressSpecification_primary :: Lens.Lens' PrivateIpAddressSpecification (Prelude.Maybe Prelude.Bool)
+privateIpAddressSpecification_primary :: Lens.Lens' PrivateIpAddressSpecification (Core.Maybe Core.Bool)
 privateIpAddressSpecification_primary = Lens.lens (\PrivateIpAddressSpecification' {primary} -> primary) (\s@PrivateIpAddressSpecification' {} a -> s {primary = a} :: PrivateIpAddressSpecification)
 
 -- | The private IPv4 addresses.
-privateIpAddressSpecification_privateIpAddress :: Lens.Lens' PrivateIpAddressSpecification (Prelude.Maybe Prelude.Text)
+privateIpAddressSpecification_privateIpAddress :: Lens.Lens' PrivateIpAddressSpecification (Core.Maybe Core.Text)
 privateIpAddressSpecification_privateIpAddress = Lens.lens (\PrivateIpAddressSpecification' {privateIpAddress} -> privateIpAddress) (\s@PrivateIpAddressSpecification' {} a -> s {privateIpAddress = a} :: PrivateIpAddressSpecification)
 
-instance
-  Prelude.FromXML
-    PrivateIpAddressSpecification
-  where
+instance Core.FromXML PrivateIpAddressSpecification where
   parseXML x =
     PrivateIpAddressSpecification'
-      Prelude.<$> (x Prelude..@? "primary")
-      Prelude.<*> (x Prelude..@? "privateIpAddress")
+      Core.<$> (x Core..@? "primary")
+      Core.<*> (x Core..@? "privateIpAddress")
 
-instance
-  Prelude.Hashable
-    PrivateIpAddressSpecification
+instance Core.Hashable PrivateIpAddressSpecification
 
-instance Prelude.NFData PrivateIpAddressSpecification
+instance Core.NFData PrivateIpAddressSpecification
 
-instance
-  Prelude.ToQuery
-    PrivateIpAddressSpecification
-  where
+instance Core.ToQuery PrivateIpAddressSpecification where
   toQuery PrivateIpAddressSpecification' {..} =
-    Prelude.mconcat
-      [ "Primary" Prelude.=: primary,
-        "PrivateIpAddress" Prelude.=: privateIpAddress
+    Core.mconcat
+      [ "Primary" Core.=: primary,
+        "PrivateIpAddress" Core.=: privateIpAddress
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.CreateImportJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +50,10 @@ import qualified Network.AWS.Response as Response
 data CreateImportJob = CreateImportJob'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     importJobRequest :: ImportJobRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateImportJob' with all optional fields omitted.
@@ -70,7 +69,7 @@ data CreateImportJob = CreateImportJob'
 -- 'importJobRequest', 'createImportJob_importJobRequest' - Undocumented member.
 newCreateImportJob ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'importJobRequest'
   ImportJobRequest ->
   CreateImportJob
@@ -82,66 +81,66 @@ newCreateImportJob pApplicationId_ pImportJobRequest_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-createImportJob_applicationId :: Lens.Lens' CreateImportJob Prelude.Text
+createImportJob_applicationId :: Lens.Lens' CreateImportJob Core.Text
 createImportJob_applicationId = Lens.lens (\CreateImportJob' {applicationId} -> applicationId) (\s@CreateImportJob' {} a -> s {applicationId = a} :: CreateImportJob)
 
 -- | Undocumented member.
 createImportJob_importJobRequest :: Lens.Lens' CreateImportJob ImportJobRequest
 createImportJob_importJobRequest = Lens.lens (\CreateImportJob' {importJobRequest} -> importJobRequest) (\s@CreateImportJob' {} a -> s {importJobRequest = a} :: CreateImportJob)
 
-instance Prelude.AWSRequest CreateImportJob where
-  type Rs CreateImportJob = CreateImportJobResponse
+instance Core.AWSRequest CreateImportJob where
+  type
+    AWSResponse CreateImportJob =
+      CreateImportJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateImportJobResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateImportJob
+instance Core.Hashable CreateImportJob
 
-instance Prelude.NFData CreateImportJob
+instance Core.NFData CreateImportJob
 
-instance Prelude.ToHeaders CreateImportJob where
+instance Core.ToHeaders CreateImportJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateImportJob where
+instance Core.ToJSON CreateImportJob where
   toJSON CreateImportJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ImportJobRequest" Prelude..= importJobRequest)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ImportJobRequest" Core..= importJobRequest)
           ]
       )
 
-instance Prelude.ToPath CreateImportJob where
+instance Core.ToPath CreateImportJob where
   toPath CreateImportJob' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/jobs/import"
       ]
 
-instance Prelude.ToQuery CreateImportJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateImportJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateImportJobResponse' smart constructor.
 data CreateImportJobResponse = CreateImportJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     importJobResponse :: ImportJobResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateImportJobResponse' with all optional fields omitted.
@@ -156,7 +155,7 @@ data CreateImportJobResponse = CreateImportJobResponse'
 -- 'importJobResponse', 'createImportJobResponse_importJobResponse' - Undocumented member.
 newCreateImportJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'importJobResponse'
   ImportJobResponse ->
   CreateImportJobResponse
@@ -169,11 +168,11 @@ newCreateImportJobResponse
       }
 
 -- | The response's http status code.
-createImportJobResponse_httpStatus :: Lens.Lens' CreateImportJobResponse Prelude.Int
+createImportJobResponse_httpStatus :: Lens.Lens' CreateImportJobResponse Core.Int
 createImportJobResponse_httpStatus = Lens.lens (\CreateImportJobResponse' {httpStatus} -> httpStatus) (\s@CreateImportJobResponse' {} a -> s {httpStatus = a} :: CreateImportJobResponse)
 
 -- | Undocumented member.
 createImportJobResponse_importJobResponse :: Lens.Lens' CreateImportJobResponse ImportJobResponse
 createImportJobResponse_importJobResponse = Lens.lens (\CreateImportJobResponse' {importJobResponse} -> importJobResponse) (\s@CreateImportJobResponse' {} a -> s {importJobResponse = a} :: CreateImportJobResponse)
 
-instance Prelude.NFData CreateImportJobResponse
+instance Core.NFData CreateImportJobResponse

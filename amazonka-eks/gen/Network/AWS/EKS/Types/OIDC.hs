@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.OIDC where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the <https://openid.net/connect/ OpenID Connect>
 -- (OIDC) identity provider information for the cluster.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newOIDC' smart constructor.
 data OIDC = OIDC'
   { -- | The issuer URL for the OIDC identity provider.
-    issuer :: Prelude.Maybe Prelude.Text
+    issuer :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OIDC' with all optional fields omitted.
@@ -44,18 +43,18 @@ data OIDC = OIDC'
 -- 'issuer', 'oidc_issuer' - The issuer URL for the OIDC identity provider.
 newOIDC ::
   OIDC
-newOIDC = OIDC' {issuer = Prelude.Nothing}
+newOIDC = OIDC' {issuer = Core.Nothing}
 
 -- | The issuer URL for the OIDC identity provider.
-oidc_issuer :: Lens.Lens' OIDC (Prelude.Maybe Prelude.Text)
+oidc_issuer :: Lens.Lens' OIDC (Core.Maybe Core.Text)
 oidc_issuer = Lens.lens (\OIDC' {issuer} -> issuer) (\s@OIDC' {} a -> s {issuer = a} :: OIDC)
 
-instance Prelude.FromJSON OIDC where
+instance Core.FromJSON OIDC where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OIDC"
-      (\x -> OIDC' Prelude.<$> (x Prelude..:? "issuer"))
+      (\x -> OIDC' Core.<$> (x Core..:? "issuer"))
 
-instance Prelude.Hashable OIDC
+instance Core.Hashable OIDC
 
-instance Prelude.NFData OIDC
+instance Core.NFData OIDC

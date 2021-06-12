@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.EMR.RemoveAutoScalingPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,12 +50,12 @@ import qualified Network.AWS.Response as Response
 data RemoveAutoScalingPolicy = RemoveAutoScalingPolicy'
   { -- | Specifies the ID of a cluster. The instance group to which the automatic
     -- scaling policy is applied is within this cluster.
-    clusterId :: Prelude.Text,
+    clusterId :: Core.Text,
     -- | Specifies the ID of the instance group to which the scaling policy is
     -- applied.
-    instanceGroupId :: Prelude.Text
+    instanceGroupId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveAutoScalingPolicy' with all optional fields omitted.
@@ -73,9 +72,9 @@ data RemoveAutoScalingPolicy = RemoveAutoScalingPolicy'
 -- applied.
 newRemoveAutoScalingPolicy ::
   -- | 'clusterId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceGroupId'
-  Prelude.Text ->
+  Core.Text ->
   RemoveAutoScalingPolicy
 newRemoveAutoScalingPolicy
   pClusterId_
@@ -87,67 +86,65 @@ newRemoveAutoScalingPolicy
 
 -- | Specifies the ID of a cluster. The instance group to which the automatic
 -- scaling policy is applied is within this cluster.
-removeAutoScalingPolicy_clusterId :: Lens.Lens' RemoveAutoScalingPolicy Prelude.Text
+removeAutoScalingPolicy_clusterId :: Lens.Lens' RemoveAutoScalingPolicy Core.Text
 removeAutoScalingPolicy_clusterId = Lens.lens (\RemoveAutoScalingPolicy' {clusterId} -> clusterId) (\s@RemoveAutoScalingPolicy' {} a -> s {clusterId = a} :: RemoveAutoScalingPolicy)
 
 -- | Specifies the ID of the instance group to which the scaling policy is
 -- applied.
-removeAutoScalingPolicy_instanceGroupId :: Lens.Lens' RemoveAutoScalingPolicy Prelude.Text
+removeAutoScalingPolicy_instanceGroupId :: Lens.Lens' RemoveAutoScalingPolicy Core.Text
 removeAutoScalingPolicy_instanceGroupId = Lens.lens (\RemoveAutoScalingPolicy' {instanceGroupId} -> instanceGroupId) (\s@RemoveAutoScalingPolicy' {} a -> s {instanceGroupId = a} :: RemoveAutoScalingPolicy)
 
-instance Prelude.AWSRequest RemoveAutoScalingPolicy where
+instance Core.AWSRequest RemoveAutoScalingPolicy where
   type
-    Rs RemoveAutoScalingPolicy =
+    AWSResponse RemoveAutoScalingPolicy =
       RemoveAutoScalingPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveAutoScalingPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveAutoScalingPolicy
+instance Core.Hashable RemoveAutoScalingPolicy
 
-instance Prelude.NFData RemoveAutoScalingPolicy
+instance Core.NFData RemoveAutoScalingPolicy
 
-instance Prelude.ToHeaders RemoveAutoScalingPolicy where
+instance Core.ToHeaders RemoveAutoScalingPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.RemoveAutoScalingPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.RemoveAutoScalingPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RemoveAutoScalingPolicy where
+instance Core.ToJSON RemoveAutoScalingPolicy where
   toJSON RemoveAutoScalingPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ClusterId" Prelude..= clusterId),
-            Prelude.Just
-              ("InstanceGroupId" Prelude..= instanceGroupId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            Core.Just
+              ("InstanceGroupId" Core..= instanceGroupId)
           ]
       )
 
-instance Prelude.ToPath RemoveAutoScalingPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath RemoveAutoScalingPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RemoveAutoScalingPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RemoveAutoScalingPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRemoveAutoScalingPolicyResponse' smart constructor.
 data RemoveAutoScalingPolicyResponse = RemoveAutoScalingPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveAutoScalingPolicyResponse' with all optional fields omitted.
@@ -160,7 +157,7 @@ data RemoveAutoScalingPolicyResponse = RemoveAutoScalingPolicyResponse'
 -- 'httpStatus', 'removeAutoScalingPolicyResponse_httpStatus' - The response's http status code.
 newRemoveAutoScalingPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RemoveAutoScalingPolicyResponse
 newRemoveAutoScalingPolicyResponse pHttpStatus_ =
   RemoveAutoScalingPolicyResponse'
@@ -169,9 +166,7 @@ newRemoveAutoScalingPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-removeAutoScalingPolicyResponse_httpStatus :: Lens.Lens' RemoveAutoScalingPolicyResponse Prelude.Int
+removeAutoScalingPolicyResponse_httpStatus :: Lens.Lens' RemoveAutoScalingPolicyResponse Core.Int
 removeAutoScalingPolicyResponse_httpStatus = Lens.lens (\RemoveAutoScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@RemoveAutoScalingPolicyResponse' {} a -> s {httpStatus = a} :: RemoveAutoScalingPolicyResponse)
 
-instance
-  Prelude.NFData
-    RemoveAutoScalingPolicyResponse
+instance Core.NFData RemoveAutoScalingPolicyResponse

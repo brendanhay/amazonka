@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types.SharePrincipal where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.PrincipalType
 import Network.AWS.WorkDocs.Types.RoleType
 
@@ -30,13 +29,13 @@ import Network.AWS.WorkDocs.Types.RoleType
 -- /See:/ 'newSharePrincipal' smart constructor.
 data SharePrincipal = SharePrincipal'
   { -- | The ID of the recipient.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The type of the recipient.
     type' :: PrincipalType,
     -- | The role of the recipient.
     role' :: RoleType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SharePrincipal' with all optional fields omitted.
@@ -53,7 +52,7 @@ data SharePrincipal = SharePrincipal'
 -- 'role'', 'sharePrincipal_role' - The role of the recipient.
 newSharePrincipal ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   PrincipalType ->
   -- | 'role''
@@ -67,7 +66,7 @@ newSharePrincipal pId_ pType_ pRole_ =
     }
 
 -- | The ID of the recipient.
-sharePrincipal_id :: Lens.Lens' SharePrincipal Prelude.Text
+sharePrincipal_id :: Lens.Lens' SharePrincipal Core.Text
 sharePrincipal_id = Lens.lens (\SharePrincipal' {id} -> id) (\s@SharePrincipal' {} a -> s {id = a} :: SharePrincipal)
 
 -- | The type of the recipient.
@@ -78,16 +77,16 @@ sharePrincipal_type = Lens.lens (\SharePrincipal' {type'} -> type') (\s@SharePri
 sharePrincipal_role :: Lens.Lens' SharePrincipal RoleType
 sharePrincipal_role = Lens.lens (\SharePrincipal' {role'} -> role') (\s@SharePrincipal' {} a -> s {role' = a} :: SharePrincipal)
 
-instance Prelude.Hashable SharePrincipal
+instance Core.Hashable SharePrincipal
 
-instance Prelude.NFData SharePrincipal
+instance Core.NFData SharePrincipal
 
-instance Prelude.ToJSON SharePrincipal where
+instance Core.ToJSON SharePrincipal where
   toJSON SharePrincipal' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Prelude..= id),
-            Prelude.Just ("Type" Prelude..= type'),
-            Prelude.Just ("Role" Prelude..= role')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            Core.Just ("Type" Core..= type'),
+            Core.Just ("Role" Core..= role')
           ]
       )

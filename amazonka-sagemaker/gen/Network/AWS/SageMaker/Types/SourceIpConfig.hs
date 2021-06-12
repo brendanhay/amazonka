@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.SourceIpConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of IP address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>).
@@ -40,9 +39,9 @@ data SourceIpConfig = SourceIpConfig'
     --
     -- The following Length Constraints apply to individual CIDR values in the
     -- CIDR value list.
-    cidrs :: [Prelude.Text]
+    cidrs :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SourceIpConfig' with all optional fields omitted.
@@ -63,7 +62,7 @@ data SourceIpConfig = SourceIpConfig'
 newSourceIpConfig ::
   SourceIpConfig
 newSourceIpConfig =
-  SourceIpConfig' {cidrs = Prelude.mempty}
+  SourceIpConfig' {cidrs = Core.mempty}
 
 -- | A list of one to ten
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html Classless Inter-Domain Routing>
@@ -73,25 +72,23 @@ newSourceIpConfig =
 --
 -- The following Length Constraints apply to individual CIDR values in the
 -- CIDR value list.
-sourceIpConfig_cidrs :: Lens.Lens' SourceIpConfig [Prelude.Text]
-sourceIpConfig_cidrs = Lens.lens (\SourceIpConfig' {cidrs} -> cidrs) (\s@SourceIpConfig' {} a -> s {cidrs = a} :: SourceIpConfig) Prelude.. Prelude._Coerce
+sourceIpConfig_cidrs :: Lens.Lens' SourceIpConfig [Core.Text]
+sourceIpConfig_cidrs = Lens.lens (\SourceIpConfig' {cidrs} -> cidrs) (\s@SourceIpConfig' {} a -> s {cidrs = a} :: SourceIpConfig) Core.. Lens._Coerce
 
-instance Prelude.FromJSON SourceIpConfig where
+instance Core.FromJSON SourceIpConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SourceIpConfig"
       ( \x ->
           SourceIpConfig'
-            Prelude.<$> (x Prelude..:? "Cidrs" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Cidrs" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable SourceIpConfig
+instance Core.Hashable SourceIpConfig
 
-instance Prelude.NFData SourceIpConfig
+instance Core.NFData SourceIpConfig
 
-instance Prelude.ToJSON SourceIpConfig where
+instance Core.ToJSON SourceIpConfig where
   toJSON SourceIpConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Cidrs" Prelude..= cidrs)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Cidrs" Core..= cidrs)])

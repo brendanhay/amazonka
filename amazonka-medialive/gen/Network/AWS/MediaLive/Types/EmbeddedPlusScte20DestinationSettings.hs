@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Embedded Plus Scte20 Destination Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data EmbeddedPlusScte20DestinationSettings = EmbeddedPlusScte20DestinationSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EmbeddedPlusScte20DestinationSettings' with all optional fields omitted.
@@ -41,27 +40,26 @@ newEmbeddedPlusScte20DestinationSettings =
   EmbeddedPlusScte20DestinationSettings'
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     EmbeddedPlusScte20DestinationSettings
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EmbeddedPlusScte20DestinationSettings"
       ( \x ->
-          Prelude.pure EmbeddedPlusScte20DestinationSettings'
+          Core.pure EmbeddedPlusScte20DestinationSettings'
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     EmbeddedPlusScte20DestinationSettings
 
 instance
-  Prelude.NFData
+  Core.NFData
     EmbeddedPlusScte20DestinationSettings
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     EmbeddedPlusScte20DestinationSettings
   where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+  toJSON = Core.const (Core.Object Core.mempty)

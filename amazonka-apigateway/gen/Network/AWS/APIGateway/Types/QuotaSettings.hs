@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.APIGateway.Types.QuotaSettings where
 
 import Network.AWS.APIGateway.Types.QuotaPeriodType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Quotas configured for a usage plan.
 --
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 data QuotaSettings = QuotaSettings'
   { -- | The time period in which the limit applies. Valid values are \"DAY\",
     -- \"WEEK\" or \"MONTH\".
-    period :: Prelude.Maybe QuotaPeriodType,
+    period :: Core.Maybe QuotaPeriodType,
     -- | The maximum number of requests that can be made in a given time period.
-    limit :: Prelude.Maybe Prelude.Int,
+    limit :: Core.Maybe Core.Int,
     -- | The day that a time period starts. For example, with a time period of
     -- @WEEK@, an offset of @0@ starts on Sunday, and an offset of @1@ starts
     -- on Monday.
-    offset :: Prelude.Maybe Prelude.Int
+    offset :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QuotaSettings' with all optional fields omitted.
@@ -60,47 +59,47 @@ newQuotaSettings ::
   QuotaSettings
 newQuotaSettings =
   QuotaSettings'
-    { period = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      offset = Prelude.Nothing
+    { period = Core.Nothing,
+      limit = Core.Nothing,
+      offset = Core.Nothing
     }
 
 -- | The time period in which the limit applies. Valid values are \"DAY\",
 -- \"WEEK\" or \"MONTH\".
-quotaSettings_period :: Lens.Lens' QuotaSettings (Prelude.Maybe QuotaPeriodType)
+quotaSettings_period :: Lens.Lens' QuotaSettings (Core.Maybe QuotaPeriodType)
 quotaSettings_period = Lens.lens (\QuotaSettings' {period} -> period) (\s@QuotaSettings' {} a -> s {period = a} :: QuotaSettings)
 
 -- | The maximum number of requests that can be made in a given time period.
-quotaSettings_limit :: Lens.Lens' QuotaSettings (Prelude.Maybe Prelude.Int)
+quotaSettings_limit :: Lens.Lens' QuotaSettings (Core.Maybe Core.Int)
 quotaSettings_limit = Lens.lens (\QuotaSettings' {limit} -> limit) (\s@QuotaSettings' {} a -> s {limit = a} :: QuotaSettings)
 
 -- | The day that a time period starts. For example, with a time period of
 -- @WEEK@, an offset of @0@ starts on Sunday, and an offset of @1@ starts
 -- on Monday.
-quotaSettings_offset :: Lens.Lens' QuotaSettings (Prelude.Maybe Prelude.Int)
+quotaSettings_offset :: Lens.Lens' QuotaSettings (Core.Maybe Core.Int)
 quotaSettings_offset = Lens.lens (\QuotaSettings' {offset} -> offset) (\s@QuotaSettings' {} a -> s {offset = a} :: QuotaSettings)
 
-instance Prelude.FromJSON QuotaSettings where
+instance Core.FromJSON QuotaSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "QuotaSettings"
       ( \x ->
           QuotaSettings'
-            Prelude.<$> (x Prelude..:? "period")
-            Prelude.<*> (x Prelude..:? "limit")
-            Prelude.<*> (x Prelude..:? "offset")
+            Core.<$> (x Core..:? "period")
+            Core.<*> (x Core..:? "limit")
+            Core.<*> (x Core..:? "offset")
       )
 
-instance Prelude.Hashable QuotaSettings
+instance Core.Hashable QuotaSettings
 
-instance Prelude.NFData QuotaSettings
+instance Core.NFData QuotaSettings
 
-instance Prelude.ToJSON QuotaSettings where
+instance Core.ToJSON QuotaSettings where
   toJSON QuotaSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("period" Prelude..=) Prelude.<$> period,
-            ("limit" Prelude..=) Prelude.<$> limit,
-            ("offset" Prelude..=) Prelude.<$> offset
+    Core.object
+      ( Core.catMaybes
+          [ ("period" Core..=) Core.<$> period,
+            ("limit" Core..=) Core.<$> limit,
+            ("offset" Core..=) Core.<$> offset
           ]
       )

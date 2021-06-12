@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.EMR.DescribeStep
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeStep' smart constructor.
 data DescribeStep = DescribeStep'
   { -- | The identifier of the cluster with steps to describe.
-    clusterId :: Prelude.Text,
+    clusterId :: Core.Text,
     -- | The identifier of the step to describe.
-    stepId :: Prelude.Text
+    stepId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStep' with all optional fields omitted.
@@ -71,9 +70,9 @@ data DescribeStep = DescribeStep'
 -- 'stepId', 'describeStep_stepId' - The identifier of the step to describe.
 newDescribeStep ::
   -- | 'clusterId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stepId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeStep
 newDescribeStep pClusterId_ pStepId_ =
   DescribeStep'
@@ -82,68 +81,64 @@ newDescribeStep pClusterId_ pStepId_ =
     }
 
 -- | The identifier of the cluster with steps to describe.
-describeStep_clusterId :: Lens.Lens' DescribeStep Prelude.Text
+describeStep_clusterId :: Lens.Lens' DescribeStep Core.Text
 describeStep_clusterId = Lens.lens (\DescribeStep' {clusterId} -> clusterId) (\s@DescribeStep' {} a -> s {clusterId = a} :: DescribeStep)
 
 -- | The identifier of the step to describe.
-describeStep_stepId :: Lens.Lens' DescribeStep Prelude.Text
+describeStep_stepId :: Lens.Lens' DescribeStep Core.Text
 describeStep_stepId = Lens.lens (\DescribeStep' {stepId} -> stepId) (\s@DescribeStep' {} a -> s {stepId = a} :: DescribeStep)
 
-instance Prelude.AWSRequest DescribeStep where
-  type Rs DescribeStep = DescribeStepResponse
+instance Core.AWSRequest DescribeStep where
+  type AWSResponse DescribeStep = DescribeStepResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeStepResponse'
-            Prelude.<$> (x Prelude..?> "Step")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Step")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStep
+instance Core.Hashable DescribeStep
 
-instance Prelude.NFData DescribeStep
+instance Core.NFData DescribeStep
 
-instance Prelude.ToHeaders DescribeStep where
+instance Core.ToHeaders DescribeStep where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.DescribeStep" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("ElasticMapReduce.DescribeStep" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeStep where
+instance Core.ToJSON DescribeStep where
   toJSON DescribeStep' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ClusterId" Prelude..= clusterId),
-            Prelude.Just ("StepId" Prelude..= stepId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            Core.Just ("StepId" Core..= stepId)
           ]
       )
 
-instance Prelude.ToPath DescribeStep where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeStep where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeStep where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeStep where
+  toQuery = Core.const Core.mempty
 
 -- | This output contains the description of the cluster step.
 --
 -- /See:/ 'newDescribeStepResponse' smart constructor.
 data DescribeStepResponse = DescribeStepResponse'
   { -- | The step details for the requested step identifier.
-    step :: Prelude.Maybe Step,
+    step :: Core.Maybe Step,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStepResponse' with all optional fields omitted.
@@ -158,20 +153,20 @@ data DescribeStepResponse = DescribeStepResponse'
 -- 'httpStatus', 'describeStepResponse_httpStatus' - The response's http status code.
 newDescribeStepResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeStepResponse
 newDescribeStepResponse pHttpStatus_ =
   DescribeStepResponse'
-    { step = Prelude.Nothing,
+    { step = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The step details for the requested step identifier.
-describeStepResponse_step :: Lens.Lens' DescribeStepResponse (Prelude.Maybe Step)
+describeStepResponse_step :: Lens.Lens' DescribeStepResponse (Core.Maybe Step)
 describeStepResponse_step = Lens.lens (\DescribeStepResponse' {step} -> step) (\s@DescribeStepResponse' {} a -> s {step = a} :: DescribeStepResponse)
 
 -- | The response's http status code.
-describeStepResponse_httpStatus :: Lens.Lens' DescribeStepResponse Prelude.Int
+describeStepResponse_httpStatus :: Lens.Lens' DescribeStepResponse Core.Int
 describeStepResponse_httpStatus = Lens.lens (\DescribeStepResponse' {httpStatus} -> httpStatus) (\s@DescribeStepResponse' {} a -> s {httpStatus = a} :: DescribeStepResponse)
 
-instance Prelude.NFData DescribeStepResponse
+instance Core.NFData DescribeStepResponse

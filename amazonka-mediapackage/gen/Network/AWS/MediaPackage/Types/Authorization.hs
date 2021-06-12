@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaPackage.Types.Authorization where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | CDN Authorization credentials
 --
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 data Authorization = Authorization'
   { -- | The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage
     -- to communicate with AWS Secrets Manager.
-    secretsRoleArn :: Prelude.Text,
+    secretsRoleArn :: Core.Text,
     -- | The Amazon Resource Name (ARN) for the secret in Secrets Manager that
     -- your Content Distribution Network (CDN) uses for authorization to access
     -- your endpoint.
-    cdnIdentifierSecret :: Prelude.Text
+    cdnIdentifierSecret :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Authorization' with all optional fields omitted.
@@ -53,9 +52,9 @@ data Authorization = Authorization'
 -- your endpoint.
 newAuthorization ::
   -- | 'secretsRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'cdnIdentifierSecret'
-  Prelude.Text ->
+  Core.Text ->
   Authorization
 newAuthorization
   pSecretsRoleArn_
@@ -67,38 +66,35 @@ newAuthorization
 
 -- | The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage
 -- to communicate with AWS Secrets Manager.
-authorization_secretsRoleArn :: Lens.Lens' Authorization Prelude.Text
+authorization_secretsRoleArn :: Lens.Lens' Authorization Core.Text
 authorization_secretsRoleArn = Lens.lens (\Authorization' {secretsRoleArn} -> secretsRoleArn) (\s@Authorization' {} a -> s {secretsRoleArn = a} :: Authorization)
 
 -- | The Amazon Resource Name (ARN) for the secret in Secrets Manager that
 -- your Content Distribution Network (CDN) uses for authorization to access
 -- your endpoint.
-authorization_cdnIdentifierSecret :: Lens.Lens' Authorization Prelude.Text
+authorization_cdnIdentifierSecret :: Lens.Lens' Authorization Core.Text
 authorization_cdnIdentifierSecret = Lens.lens (\Authorization' {cdnIdentifierSecret} -> cdnIdentifierSecret) (\s@Authorization' {} a -> s {cdnIdentifierSecret = a} :: Authorization)
 
-instance Prelude.FromJSON Authorization where
+instance Core.FromJSON Authorization where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Authorization"
       ( \x ->
           Authorization'
-            Prelude.<$> (x Prelude..: "secretsRoleArn")
-            Prelude.<*> (x Prelude..: "cdnIdentifierSecret")
+            Core.<$> (x Core..: "secretsRoleArn")
+            Core.<*> (x Core..: "cdnIdentifierSecret")
       )
 
-instance Prelude.Hashable Authorization
+instance Core.Hashable Authorization
 
-instance Prelude.NFData Authorization
+instance Core.NFData Authorization
 
-instance Prelude.ToJSON Authorization where
+instance Core.ToJSON Authorization where
   toJSON Authorization' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("secretsRoleArn" Prelude..= secretsRoleArn),
-            Prelude.Just
-              ( "cdnIdentifierSecret"
-                  Prelude..= cdnIdentifierSecret
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("secretsRoleArn" Core..= secretsRoleArn),
+            Core.Just
+              ("cdnIdentifierSecret" Core..= cdnIdentifierSecret)
           ]
       )

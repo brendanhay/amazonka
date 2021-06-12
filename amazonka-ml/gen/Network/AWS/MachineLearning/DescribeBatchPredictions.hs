@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,10 +53,9 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,13 +68,13 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
     -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
     --
     -- Results are sorted by @FilterVariable@.
-    sortOrder :: Prelude.Maybe SortOrder,
+    sortOrder :: Core.Maybe SortOrder,
     -- | The equal to operator. The @BatchPrediction@ results will have
     -- @FilterVariable@ values that exactly match the value specified with
     -- @EQ@.
-    eq :: Prelude.Maybe Prelude.Text,
+    eq :: Core.Maybe Core.Text,
     -- | An ID of the page in the paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Use one of the following variables to filter a list of
     -- @BatchPrediction@:
     --
@@ -94,14 +92,14 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
     -- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
     --     @BatchPrediction@. The URL can identify either a file or an Amazon
     --     Simple Storage Solution (Amazon S3) bucket or directory.
-    filterVariable :: Prelude.Maybe BatchPredictionFilterVariable,
+    filterVariable :: Core.Maybe BatchPredictionFilterVariable,
     -- | The greater than operator. The @BatchPrediction@ results will have
     -- @FilterVariable@ values that are greater than the value specified with
     -- @GT@.
-    gt :: Prelude.Maybe Prelude.Text,
+    gt :: Core.Maybe Core.Text,
     -- | The not equal to operator. The @BatchPrediction@ results will have
     -- @FilterVariable@ values not equal to the value specified with @NE@.
-    ne :: Prelude.Maybe Prelude.Text,
+    ne :: Core.Maybe Core.Text,
     -- | A string that is found at the beginning of a variable, such as @Name@ or
     -- @Id@.
     --
@@ -115,24 +113,24 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
     -- -   2014-09-09
     --
     -- -   2014-09-09-Holiday
-    prefix :: Prelude.Maybe Prelude.Text,
+    prefix :: Core.Maybe Core.Text,
     -- | The greater than or equal to operator. The @BatchPrediction@ results
     -- will have @FilterVariable@ values that are greater than or equal to the
     -- value specified with @GE@.
-    ge :: Prelude.Maybe Prelude.Text,
+    ge :: Core.Maybe Core.Text,
     -- | The less than or equal to operator. The @BatchPrediction@ results will
     -- have @FilterVariable@ values that are less than or equal to the value
     -- specified with @LE@.
-    le :: Prelude.Maybe Prelude.Text,
+    le :: Core.Maybe Core.Text,
     -- | The less than operator. The @BatchPrediction@ results will have
     -- @FilterVariable@ values that are less than the value specified with
     -- @LT@.
-    lt :: Prelude.Maybe Prelude.Text,
+    lt :: Core.Maybe Core.Text,
     -- | The number of pages of information to include in the result. The range
     -- of acceptable values is @1@ through @100@. The default value is @100@.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeBatchPredictions' with all optional fields omitted.
@@ -213,18 +211,17 @@ newDescribeBatchPredictions ::
   DescribeBatchPredictions
 newDescribeBatchPredictions =
   DescribeBatchPredictions'
-    { sortOrder =
-        Prelude.Nothing,
-      eq = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      filterVariable = Prelude.Nothing,
-      gt = Prelude.Nothing,
-      ne = Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      ge = Prelude.Nothing,
-      le = Prelude.Nothing,
-      lt = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { sortOrder = Core.Nothing,
+      eq = Core.Nothing,
+      nextToken = Core.Nothing,
+      filterVariable = Core.Nothing,
+      gt = Core.Nothing,
+      ne = Core.Nothing,
+      prefix = Core.Nothing,
+      ge = Core.Nothing,
+      le = Core.Nothing,
+      lt = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | A two-value parameter that determines the sequence of the resulting list
@@ -234,17 +231,17 @@ newDescribeBatchPredictions =
 -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
 -- Results are sorted by @FilterVariable@.
-describeBatchPredictions_sortOrder :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe SortOrder)
+describeBatchPredictions_sortOrder :: Lens.Lens' DescribeBatchPredictions (Core.Maybe SortOrder)
 describeBatchPredictions_sortOrder = Lens.lens (\DescribeBatchPredictions' {sortOrder} -> sortOrder) (\s@DescribeBatchPredictions' {} a -> s {sortOrder = a} :: DescribeBatchPredictions)
 
 -- | The equal to operator. The @BatchPrediction@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
 -- @EQ@.
-describeBatchPredictions_eq :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_eq :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Core.Text)
 describeBatchPredictions_eq = Lens.lens (\DescribeBatchPredictions' {eq} -> eq) (\s@DescribeBatchPredictions' {} a -> s {eq = a} :: DescribeBatchPredictions)
 
 -- | An ID of the page in the paginated results.
-describeBatchPredictions_nextToken :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_nextToken :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Core.Text)
 describeBatchPredictions_nextToken = Lens.lens (\DescribeBatchPredictions' {nextToken} -> nextToken) (\s@DescribeBatchPredictions' {} a -> s {nextToken = a} :: DescribeBatchPredictions)
 
 -- | Use one of the following variables to filter a list of
@@ -264,18 +261,18 @@ describeBatchPredictions_nextToken = Lens.lens (\DescribeBatchPredictions' {next
 -- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
 --     @BatchPrediction@. The URL can identify either a file or an Amazon
 --     Simple Storage Solution (Amazon S3) bucket or directory.
-describeBatchPredictions_filterVariable :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe BatchPredictionFilterVariable)
+describeBatchPredictions_filterVariable :: Lens.Lens' DescribeBatchPredictions (Core.Maybe BatchPredictionFilterVariable)
 describeBatchPredictions_filterVariable = Lens.lens (\DescribeBatchPredictions' {filterVariable} -> filterVariable) (\s@DescribeBatchPredictions' {} a -> s {filterVariable = a} :: DescribeBatchPredictions)
 
 -- | The greater than operator. The @BatchPrediction@ results will have
 -- @FilterVariable@ values that are greater than the value specified with
 -- @GT@.
-describeBatchPredictions_gt :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_gt :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Core.Text)
 describeBatchPredictions_gt = Lens.lens (\DescribeBatchPredictions' {gt} -> gt) (\s@DescribeBatchPredictions' {} a -> s {gt = a} :: DescribeBatchPredictions)
 
 -- | The not equal to operator. The @BatchPrediction@ results will have
 -- @FilterVariable@ values not equal to the value specified with @NE@.
-describeBatchPredictions_ne :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_ne :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Core.Text)
 describeBatchPredictions_ne = Lens.lens (\DescribeBatchPredictions' {ne} -> ne) (\s@DescribeBatchPredictions' {} a -> s {ne = a} :: DescribeBatchPredictions)
 
 -- | A string that is found at the beginning of a variable, such as @Name@ or
@@ -291,111 +288,108 @@ describeBatchPredictions_ne = Lens.lens (\DescribeBatchPredictions' {ne} -> ne) 
 -- -   2014-09-09
 --
 -- -   2014-09-09-Holiday
-describeBatchPredictions_prefix :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_prefix :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Core.Text)
 describeBatchPredictions_prefix = Lens.lens (\DescribeBatchPredictions' {prefix} -> prefix) (\s@DescribeBatchPredictions' {} a -> s {prefix = a} :: DescribeBatchPredictions)
 
 -- | The greater than or equal to operator. The @BatchPrediction@ results
 -- will have @FilterVariable@ values that are greater than or equal to the
 -- value specified with @GE@.
-describeBatchPredictions_ge :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_ge :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Core.Text)
 describeBatchPredictions_ge = Lens.lens (\DescribeBatchPredictions' {ge} -> ge) (\s@DescribeBatchPredictions' {} a -> s {ge = a} :: DescribeBatchPredictions)
 
 -- | The less than or equal to operator. The @BatchPrediction@ results will
 -- have @FilterVariable@ values that are less than or equal to the value
 -- specified with @LE@.
-describeBatchPredictions_le :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_le :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Core.Text)
 describeBatchPredictions_le = Lens.lens (\DescribeBatchPredictions' {le} -> le) (\s@DescribeBatchPredictions' {} a -> s {le = a} :: DescribeBatchPredictions)
 
 -- | The less than operator. The @BatchPrediction@ results will have
 -- @FilterVariable@ values that are less than the value specified with
 -- @LT@.
-describeBatchPredictions_lt :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_lt :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Core.Text)
 describeBatchPredictions_lt = Lens.lens (\DescribeBatchPredictions' {lt} -> lt) (\s@DescribeBatchPredictions' {} a -> s {lt = a} :: DescribeBatchPredictions)
 
 -- | The number of pages of information to include in the result. The range
 -- of acceptable values is @1@ through @100@. The default value is @100@.
-describeBatchPredictions_limit :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Natural)
+describeBatchPredictions_limit :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Core.Natural)
 describeBatchPredictions_limit = Lens.lens (\DescribeBatchPredictions' {limit} -> limit) (\s@DescribeBatchPredictions' {} a -> s {limit = a} :: DescribeBatchPredictions)
 
-instance Pager.AWSPager DescribeBatchPredictions where
+instance Core.AWSPager DescribeBatchPredictions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeBatchPredictionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeBatchPredictionsResponse_results
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeBatchPredictions_nextToken
           Lens..~ rs
           Lens.^? describeBatchPredictionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeBatchPredictions where
+instance Core.AWSRequest DescribeBatchPredictions where
   type
-    Rs DescribeBatchPredictions =
+    AWSResponse DescribeBatchPredictions =
       DescribeBatchPredictionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeBatchPredictionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Results" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Results" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBatchPredictions
+instance Core.Hashable DescribeBatchPredictions
 
-instance Prelude.NFData DescribeBatchPredictions
+instance Core.NFData DescribeBatchPredictions
 
-instance Prelude.ToHeaders DescribeBatchPredictions where
+instance Core.ToHeaders DescribeBatchPredictions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonML_20141212.DescribeBatchPredictions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonML_20141212.DescribeBatchPredictions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeBatchPredictions where
+instance Core.ToJSON DescribeBatchPredictions where
   toJSON DescribeBatchPredictions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SortOrder" Prelude..=) Prelude.<$> sortOrder,
-            ("EQ" Prelude..=) Prelude.<$> eq,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("FilterVariable" Prelude..=)
-              Prelude.<$> filterVariable,
-            ("GT" Prelude..=) Prelude.<$> gt,
-            ("NE" Prelude..=) Prelude.<$> ne,
-            ("Prefix" Prelude..=) Prelude.<$> prefix,
-            ("GE" Prelude..=) Prelude.<$> ge,
-            ("LE" Prelude..=) Prelude.<$> le,
-            ("LT" Prelude..=) Prelude.<$> lt,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("EQ" Core..=) Core.<$> eq,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("FilterVariable" Core..=) Core.<$> filterVariable,
+            ("GT" Core..=) Core.<$> gt,
+            ("NE" Core..=) Core.<$> ne,
+            ("Prefix" Core..=) Core.<$> prefix,
+            ("GE" Core..=) Core.<$> ge,
+            ("LE" Core..=) Core.<$> le,
+            ("LT" Core..=) Core.<$> lt,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath DescribeBatchPredictions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeBatchPredictions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeBatchPredictions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeBatchPredictions where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @DescribeBatchPredictions@ operation. The
 -- content is essentially a list of @BatchPrediction@s.
@@ -404,13 +398,13 @@ instance Prelude.ToQuery DescribeBatchPredictions where
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
   { -- | The ID of the next page in the paginated results that indicates at least
     -- one more page follows.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @BatchPrediction@ objects that meet the search criteria.
-    results :: Prelude.Maybe [BatchPrediction],
+    results :: Core.Maybe [BatchPrediction],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeBatchPredictionsResponse' with all optional fields omitted.
@@ -428,29 +422,27 @@ data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
 -- 'httpStatus', 'describeBatchPredictionsResponse_httpStatus' - The response's http status code.
 newDescribeBatchPredictionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeBatchPredictionsResponse
 newDescribeBatchPredictionsResponse pHttpStatus_ =
   DescribeBatchPredictionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      results = Prelude.Nothing,
+        Core.Nothing,
+      results = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.
-describeBatchPredictionsResponse_nextToken :: Lens.Lens' DescribeBatchPredictionsResponse (Prelude.Maybe Prelude.Text)
+describeBatchPredictionsResponse_nextToken :: Lens.Lens' DescribeBatchPredictionsResponse (Core.Maybe Core.Text)
 describeBatchPredictionsResponse_nextToken = Lens.lens (\DescribeBatchPredictionsResponse' {nextToken} -> nextToken) (\s@DescribeBatchPredictionsResponse' {} a -> s {nextToken = a} :: DescribeBatchPredictionsResponse)
 
 -- | A list of @BatchPrediction@ objects that meet the search criteria.
-describeBatchPredictionsResponse_results :: Lens.Lens' DescribeBatchPredictionsResponse (Prelude.Maybe [BatchPrediction])
-describeBatchPredictionsResponse_results = Lens.lens (\DescribeBatchPredictionsResponse' {results} -> results) (\s@DescribeBatchPredictionsResponse' {} a -> s {results = a} :: DescribeBatchPredictionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeBatchPredictionsResponse_results :: Lens.Lens' DescribeBatchPredictionsResponse (Core.Maybe [BatchPrediction])
+describeBatchPredictionsResponse_results = Lens.lens (\DescribeBatchPredictionsResponse' {results} -> results) (\s@DescribeBatchPredictionsResponse' {} a -> s {results = a} :: DescribeBatchPredictionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeBatchPredictionsResponse_httpStatus :: Lens.Lens' DescribeBatchPredictionsResponse Prelude.Int
+describeBatchPredictionsResponse_httpStatus :: Lens.Lens' DescribeBatchPredictionsResponse Core.Int
 describeBatchPredictionsResponse_httpStatus = Lens.lens (\DescribeBatchPredictionsResponse' {httpStatus} -> httpStatus) (\s@DescribeBatchPredictionsResponse' {} a -> s {httpStatus = a} :: DescribeBatchPredictionsResponse)
 
-instance
-  Prelude.NFData
-    DescribeBatchPredictionsResponse
+instance Core.NFData DescribeBatchPredictionsResponse

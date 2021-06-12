@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StorageGateway.Types.VolumeRecoveryPointInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a storage volume recovery point object.
 --
 -- /See:/ 'newVolumeRecoveryPointInfo' smart constructor.
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
   { -- | The Amazon Resource Name (ARN) of the volume target.
-    volumeARN :: Prelude.Maybe Prelude.Text,
+    volumeARN :: Core.Maybe Core.Text,
     -- | The size of the volume in bytes.
-    volumeSizeInBytes :: Prelude.Maybe Prelude.Integer,
+    volumeSizeInBytes :: Core.Maybe Core.Integer,
     -- | The size of the data stored on the volume in bytes.
     --
     -- This value is not available for volumes created prior to May 13, 2015,
     -- until you store data on the volume.
-    volumeUsageInBytes :: Prelude.Maybe Prelude.Integer,
+    volumeUsageInBytes :: Core.Maybe Core.Integer,
     -- | The time the recovery point was taken.
-    volumeRecoveryPointTime :: Prelude.Maybe Prelude.Text
+    volumeRecoveryPointTime :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VolumeRecoveryPointInfo' with all optional fields omitted.
@@ -63,44 +62,43 @@ newVolumeRecoveryPointInfo ::
   VolumeRecoveryPointInfo
 newVolumeRecoveryPointInfo =
   VolumeRecoveryPointInfo'
-    { volumeARN =
-        Prelude.Nothing,
-      volumeSizeInBytes = Prelude.Nothing,
-      volumeUsageInBytes = Prelude.Nothing,
-      volumeRecoveryPointTime = Prelude.Nothing
+    { volumeARN = Core.Nothing,
+      volumeSizeInBytes = Core.Nothing,
+      volumeUsageInBytes = Core.Nothing,
+      volumeRecoveryPointTime = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the volume target.
-volumeRecoveryPointInfo_volumeARN :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Text)
+volumeRecoveryPointInfo_volumeARN :: Lens.Lens' VolumeRecoveryPointInfo (Core.Maybe Core.Text)
 volumeRecoveryPointInfo_volumeARN = Lens.lens (\VolumeRecoveryPointInfo' {volumeARN} -> volumeARN) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeARN = a} :: VolumeRecoveryPointInfo)
 
 -- | The size of the volume in bytes.
-volumeRecoveryPointInfo_volumeSizeInBytes :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Integer)
+volumeRecoveryPointInfo_volumeSizeInBytes :: Lens.Lens' VolumeRecoveryPointInfo (Core.Maybe Core.Integer)
 volumeRecoveryPointInfo_volumeSizeInBytes = Lens.lens (\VolumeRecoveryPointInfo' {volumeSizeInBytes} -> volumeSizeInBytes) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeSizeInBytes = a} :: VolumeRecoveryPointInfo)
 
 -- | The size of the data stored on the volume in bytes.
 --
 -- This value is not available for volumes created prior to May 13, 2015,
 -- until you store data on the volume.
-volumeRecoveryPointInfo_volumeUsageInBytes :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Integer)
+volumeRecoveryPointInfo_volumeUsageInBytes :: Lens.Lens' VolumeRecoveryPointInfo (Core.Maybe Core.Integer)
 volumeRecoveryPointInfo_volumeUsageInBytes = Lens.lens (\VolumeRecoveryPointInfo' {volumeUsageInBytes} -> volumeUsageInBytes) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeUsageInBytes = a} :: VolumeRecoveryPointInfo)
 
 -- | The time the recovery point was taken.
-volumeRecoveryPointInfo_volumeRecoveryPointTime :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Text)
+volumeRecoveryPointInfo_volumeRecoveryPointTime :: Lens.Lens' VolumeRecoveryPointInfo (Core.Maybe Core.Text)
 volumeRecoveryPointInfo_volumeRecoveryPointTime = Lens.lens (\VolumeRecoveryPointInfo' {volumeRecoveryPointTime} -> volumeRecoveryPointTime) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeRecoveryPointTime = a} :: VolumeRecoveryPointInfo)
 
-instance Prelude.FromJSON VolumeRecoveryPointInfo where
+instance Core.FromJSON VolumeRecoveryPointInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VolumeRecoveryPointInfo"
       ( \x ->
           VolumeRecoveryPointInfo'
-            Prelude.<$> (x Prelude..:? "VolumeARN")
-            Prelude.<*> (x Prelude..:? "VolumeSizeInBytes")
-            Prelude.<*> (x Prelude..:? "VolumeUsageInBytes")
-            Prelude.<*> (x Prelude..:? "VolumeRecoveryPointTime")
+            Core.<$> (x Core..:? "VolumeARN")
+            Core.<*> (x Core..:? "VolumeSizeInBytes")
+            Core.<*> (x Core..:? "VolumeUsageInBytes")
+            Core.<*> (x Core..:? "VolumeRecoveryPointTime")
       )
 
-instance Prelude.Hashable VolumeRecoveryPointInfo
+instance Core.Hashable VolumeRecoveryPointInfo
 
-instance Prelude.NFData VolumeRecoveryPointInfo
+instance Core.NFData VolumeRecoveryPointInfo

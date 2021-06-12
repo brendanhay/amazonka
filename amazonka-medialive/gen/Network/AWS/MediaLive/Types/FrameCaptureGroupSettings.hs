@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.FrameCaptureGroupSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.OutputLocationRef
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Frame Capture Group Settings
 --
@@ -39,7 +38,7 @@ data FrameCaptureGroupSettings = FrameCaptureGroupSettings'
     -- curling-low.00001.jpg
     destination :: OutputLocationRef
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FrameCaptureGroupSettings' with all optional fields omitted.
@@ -80,24 +79,22 @@ newFrameCaptureGroupSettings pDestination_ =
 frameCaptureGroupSettings_destination :: Lens.Lens' FrameCaptureGroupSettings OutputLocationRef
 frameCaptureGroupSettings_destination = Lens.lens (\FrameCaptureGroupSettings' {destination} -> destination) (\s@FrameCaptureGroupSettings' {} a -> s {destination = a} :: FrameCaptureGroupSettings)
 
-instance Prelude.FromJSON FrameCaptureGroupSettings where
+instance Core.FromJSON FrameCaptureGroupSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FrameCaptureGroupSettings"
       ( \x ->
           FrameCaptureGroupSettings'
-            Prelude.<$> (x Prelude..: "destination")
+            Core.<$> (x Core..: "destination")
       )
 
-instance Prelude.Hashable FrameCaptureGroupSettings
+instance Core.Hashable FrameCaptureGroupSettings
 
-instance Prelude.NFData FrameCaptureGroupSettings
+instance Core.NFData FrameCaptureGroupSettings
 
-instance Prelude.ToJSON FrameCaptureGroupSettings where
+instance Core.ToJSON FrameCaptureGroupSettings where
   toJSON FrameCaptureGroupSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("destination" Prelude..= destination)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("destination" Core..= destination)]
       )

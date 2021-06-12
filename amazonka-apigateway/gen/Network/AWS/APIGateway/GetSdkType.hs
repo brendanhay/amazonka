@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.APIGateway.GetSdkType
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetSdkType' smart constructor.
 data GetSdkType = GetSdkType'
   { -- | [Required] The identifier of the queried SdkType instance.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSdkType' with all optional fields omitted.
@@ -68,37 +67,37 @@ data GetSdkType = GetSdkType'
 -- 'id', 'getSdkType_id' - [Required] The identifier of the queried SdkType instance.
 newGetSdkType ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   GetSdkType
 newGetSdkType pId_ = GetSdkType' {id = pId_}
 
 -- | [Required] The identifier of the queried SdkType instance.
-getSdkType_id :: Lens.Lens' GetSdkType Prelude.Text
+getSdkType_id :: Lens.Lens' GetSdkType Core.Text
 getSdkType_id = Lens.lens (\GetSdkType' {id} -> id) (\s@GetSdkType' {} a -> s {id = a} :: GetSdkType)
 
-instance Prelude.AWSRequest GetSdkType where
-  type Rs GetSdkType = SdkType
+instance Core.AWSRequest GetSdkType where
+  type AWSResponse GetSdkType = SdkType
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetSdkType
+instance Core.Hashable GetSdkType
 
-instance Prelude.NFData GetSdkType
+instance Core.NFData GetSdkType
 
-instance Prelude.ToHeaders GetSdkType where
+instance Core.ToHeaders GetSdkType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetSdkType where
+instance Core.ToPath GetSdkType where
   toPath GetSdkType' {..} =
-    Prelude.mconcat ["/sdktypes/", Prelude.toBS id]
+    Core.mconcat ["/sdktypes/", Core.toBS id]
 
-instance Prelude.ToQuery GetSdkType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetSdkType where
+  toQuery = Core.const Core.mempty

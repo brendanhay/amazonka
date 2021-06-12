@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.SchemaChangePolicy where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.DeleteBehavior
 import Network.AWS.Glue.Types.UpdateBehavior
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A policy that specifies update and deletion behaviors for the crawler.
 --
 -- /See:/ 'newSchemaChangePolicy' smart constructor.
 data SchemaChangePolicy = SchemaChangePolicy'
   { -- | The update behavior when the crawler finds a changed schema.
-    updateBehavior :: Prelude.Maybe UpdateBehavior,
+    updateBehavior :: Core.Maybe UpdateBehavior,
     -- | The deletion behavior when the crawler finds a deleted object.
-    deleteBehavior :: Prelude.Maybe DeleteBehavior
+    deleteBehavior :: Core.Maybe DeleteBehavior
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SchemaChangePolicy' with all optional fields omitted.
@@ -51,40 +50,37 @@ newSchemaChangePolicy ::
   SchemaChangePolicy
 newSchemaChangePolicy =
   SchemaChangePolicy'
-    { updateBehavior =
-        Prelude.Nothing,
-      deleteBehavior = Prelude.Nothing
+    { updateBehavior = Core.Nothing,
+      deleteBehavior = Core.Nothing
     }
 
 -- | The update behavior when the crawler finds a changed schema.
-schemaChangePolicy_updateBehavior :: Lens.Lens' SchemaChangePolicy (Prelude.Maybe UpdateBehavior)
+schemaChangePolicy_updateBehavior :: Lens.Lens' SchemaChangePolicy (Core.Maybe UpdateBehavior)
 schemaChangePolicy_updateBehavior = Lens.lens (\SchemaChangePolicy' {updateBehavior} -> updateBehavior) (\s@SchemaChangePolicy' {} a -> s {updateBehavior = a} :: SchemaChangePolicy)
 
 -- | The deletion behavior when the crawler finds a deleted object.
-schemaChangePolicy_deleteBehavior :: Lens.Lens' SchemaChangePolicy (Prelude.Maybe DeleteBehavior)
+schemaChangePolicy_deleteBehavior :: Lens.Lens' SchemaChangePolicy (Core.Maybe DeleteBehavior)
 schemaChangePolicy_deleteBehavior = Lens.lens (\SchemaChangePolicy' {deleteBehavior} -> deleteBehavior) (\s@SchemaChangePolicy' {} a -> s {deleteBehavior = a} :: SchemaChangePolicy)
 
-instance Prelude.FromJSON SchemaChangePolicy where
+instance Core.FromJSON SchemaChangePolicy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SchemaChangePolicy"
       ( \x ->
           SchemaChangePolicy'
-            Prelude.<$> (x Prelude..:? "UpdateBehavior")
-            Prelude.<*> (x Prelude..:? "DeleteBehavior")
+            Core.<$> (x Core..:? "UpdateBehavior")
+            Core.<*> (x Core..:? "DeleteBehavior")
       )
 
-instance Prelude.Hashable SchemaChangePolicy
+instance Core.Hashable SchemaChangePolicy
 
-instance Prelude.NFData SchemaChangePolicy
+instance Core.NFData SchemaChangePolicy
 
-instance Prelude.ToJSON SchemaChangePolicy where
+instance Core.ToJSON SchemaChangePolicy where
   toJSON SchemaChangePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("UpdateBehavior" Prelude..=)
-              Prelude.<$> updateBehavior,
-            ("DeleteBehavior" Prelude..=)
-              Prelude.<$> deleteBehavior
+    Core.object
+      ( Core.catMaybes
+          [ ("UpdateBehavior" Core..=) Core.<$> updateBehavior,
+            ("DeleteBehavior" Core..=) Core.<$> deleteBehavior
           ]
       )

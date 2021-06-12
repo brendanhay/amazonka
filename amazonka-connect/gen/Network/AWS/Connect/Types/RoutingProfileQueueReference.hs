@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,20 +20,20 @@
 module Network.AWS.Connect.Types.RoutingProfileQueueReference where
 
 import Network.AWS.Connect.Types.Channel
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the channel and queue identifier for a routing profile.
 --
 -- /See:/ 'newRoutingProfileQueueReference' smart constructor.
 data RoutingProfileQueueReference = RoutingProfileQueueReference'
   { -- | The identifier for the queue.
-    queueId :: Prelude.Text,
+    queueId :: Core.Text,
     -- | The channels agents can handle in the Contact Control Panel (CCP) for
     -- this routing profile.
     channel :: Channel
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RoutingProfileQueueReference' with all optional fields omitted.
@@ -50,7 +49,7 @@ data RoutingProfileQueueReference = RoutingProfileQueueReference'
 -- this routing profile.
 newRoutingProfileQueueReference ::
   -- | 'queueId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'channel'
   Channel ->
   RoutingProfileQueueReference
@@ -61,7 +60,7 @@ newRoutingProfileQueueReference pQueueId_ pChannel_ =
     }
 
 -- | The identifier for the queue.
-routingProfileQueueReference_queueId :: Lens.Lens' RoutingProfileQueueReference Prelude.Text
+routingProfileQueueReference_queueId :: Lens.Lens' RoutingProfileQueueReference Core.Text
 routingProfileQueueReference_queueId = Lens.lens (\RoutingProfileQueueReference' {queueId} -> queueId) (\s@RoutingProfileQueueReference' {} a -> s {queueId = a} :: RoutingProfileQueueReference)
 
 -- | The channels agents can handle in the Contact Control Panel (CCP) for
@@ -69,17 +68,15 @@ routingProfileQueueReference_queueId = Lens.lens (\RoutingProfileQueueReference'
 routingProfileQueueReference_channel :: Lens.Lens' RoutingProfileQueueReference Channel
 routingProfileQueueReference_channel = Lens.lens (\RoutingProfileQueueReference' {channel} -> channel) (\s@RoutingProfileQueueReference' {} a -> s {channel = a} :: RoutingProfileQueueReference)
 
-instance
-  Prelude.Hashable
-    RoutingProfileQueueReference
+instance Core.Hashable RoutingProfileQueueReference
 
-instance Prelude.NFData RoutingProfileQueueReference
+instance Core.NFData RoutingProfileQueueReference
 
-instance Prelude.ToJSON RoutingProfileQueueReference where
+instance Core.ToJSON RoutingProfileQueueReference where
   toJSON RoutingProfileQueueReference' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("QueueId" Prelude..= queueId),
-            Prelude.Just ("Channel" Prelude..= channel)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("QueueId" Core..= queueId),
+            Core.Just ("Channel" Core..= channel)
           ]
       )

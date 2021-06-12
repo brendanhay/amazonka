@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,10 +47,9 @@ module Network.AWS.IoT.ListCACertificates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,13 +58,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListCACertificates' smart constructor.
 data ListCACertificates = ListCACertificates'
   { -- | The result page size.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    pageSize :: Core.Maybe Core.Natural,
     -- | Determines the order of the results.
-    ascendingOrder :: Prelude.Maybe Prelude.Bool,
+    ascendingOrder :: Core.Maybe Core.Bool,
     -- | The marker for the next set of results.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCACertificates' with all optional fields omitted.
@@ -85,77 +83,75 @@ newListCACertificates ::
   ListCACertificates
 newListCACertificates =
   ListCACertificates'
-    { pageSize = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { pageSize = Core.Nothing,
+      ascendingOrder = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The result page size.
-listCACertificates_pageSize :: Lens.Lens' ListCACertificates (Prelude.Maybe Prelude.Natural)
+listCACertificates_pageSize :: Lens.Lens' ListCACertificates (Core.Maybe Core.Natural)
 listCACertificates_pageSize = Lens.lens (\ListCACertificates' {pageSize} -> pageSize) (\s@ListCACertificates' {} a -> s {pageSize = a} :: ListCACertificates)
 
 -- | Determines the order of the results.
-listCACertificates_ascendingOrder :: Lens.Lens' ListCACertificates (Prelude.Maybe Prelude.Bool)
+listCACertificates_ascendingOrder :: Lens.Lens' ListCACertificates (Core.Maybe Core.Bool)
 listCACertificates_ascendingOrder = Lens.lens (\ListCACertificates' {ascendingOrder} -> ascendingOrder) (\s@ListCACertificates' {} a -> s {ascendingOrder = a} :: ListCACertificates)
 
 -- | The marker for the next set of results.
-listCACertificates_marker :: Lens.Lens' ListCACertificates (Prelude.Maybe Prelude.Text)
+listCACertificates_marker :: Lens.Lens' ListCACertificates (Core.Maybe Core.Text)
 listCACertificates_marker = Lens.lens (\ListCACertificates' {marker} -> marker) (\s@ListCACertificates' {} a -> s {marker = a} :: ListCACertificates)
 
-instance Pager.AWSPager ListCACertificates where
+instance Core.AWSPager ListCACertificates where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listCACertificatesResponse_nextMarker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listCACertificatesResponse_certificates
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listCACertificates_marker
           Lens..~ rs
           Lens.^? listCACertificatesResponse_nextMarker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListCACertificates where
+instance Core.AWSRequest ListCACertificates where
   type
-    Rs ListCACertificates =
+    AWSResponse ListCACertificates =
       ListCACertificatesResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListCACertificatesResponse'
-            Prelude.<$> (x Prelude..?> "nextMarker")
-            Prelude.<*> ( x Prelude..?> "certificates"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextMarker")
+            Core.<*> (x Core..?> "certificates" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListCACertificates
+instance Core.Hashable ListCACertificates
 
-instance Prelude.NFData ListCACertificates
+instance Core.NFData ListCACertificates
 
-instance Prelude.ToHeaders ListCACertificates where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListCACertificates where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListCACertificates where
-  toPath = Prelude.const "/cacertificates"
+instance Core.ToPath ListCACertificates where
+  toPath = Core.const "/cacertificates"
 
-instance Prelude.ToQuery ListCACertificates where
+instance Core.ToQuery ListCACertificates where
   toQuery ListCACertificates' {..} =
-    Prelude.mconcat
-      [ "pageSize" Prelude.=: pageSize,
-        "isAscendingOrder" Prelude.=: ascendingOrder,
-        "marker" Prelude.=: marker
+    Core.mconcat
+      [ "pageSize" Core.=: pageSize,
+        "isAscendingOrder" Core.=: ascendingOrder,
+        "marker" Core.=: marker
       ]
 
 -- | The output from the ListCACertificates operation.
@@ -163,13 +159,13 @@ instance Prelude.ToQuery ListCACertificates where
 -- /See:/ 'newListCACertificatesResponse' smart constructor.
 data ListCACertificatesResponse = ListCACertificatesResponse'
   { -- | The current position within the list of CA certificates.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | The CA certificates registered in your AWS account.
-    certificates :: Prelude.Maybe [CACertificate],
+    certificates :: Core.Maybe [CACertificate],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCACertificatesResponse' with all optional fields omitted.
@@ -186,26 +182,26 @@ data ListCACertificatesResponse = ListCACertificatesResponse'
 -- 'httpStatus', 'listCACertificatesResponse_httpStatus' - The response's http status code.
 newListCACertificatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListCACertificatesResponse
 newListCACertificatesResponse pHttpStatus_ =
   ListCACertificatesResponse'
     { nextMarker =
-        Prelude.Nothing,
-      certificates = Prelude.Nothing,
+        Core.Nothing,
+      certificates = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current position within the list of CA certificates.
-listCACertificatesResponse_nextMarker :: Lens.Lens' ListCACertificatesResponse (Prelude.Maybe Prelude.Text)
+listCACertificatesResponse_nextMarker :: Lens.Lens' ListCACertificatesResponse (Core.Maybe Core.Text)
 listCACertificatesResponse_nextMarker = Lens.lens (\ListCACertificatesResponse' {nextMarker} -> nextMarker) (\s@ListCACertificatesResponse' {} a -> s {nextMarker = a} :: ListCACertificatesResponse)
 
 -- | The CA certificates registered in your AWS account.
-listCACertificatesResponse_certificates :: Lens.Lens' ListCACertificatesResponse (Prelude.Maybe [CACertificate])
-listCACertificatesResponse_certificates = Lens.lens (\ListCACertificatesResponse' {certificates} -> certificates) (\s@ListCACertificatesResponse' {} a -> s {certificates = a} :: ListCACertificatesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listCACertificatesResponse_certificates :: Lens.Lens' ListCACertificatesResponse (Core.Maybe [CACertificate])
+listCACertificatesResponse_certificates = Lens.lens (\ListCACertificatesResponse' {certificates} -> certificates) (\s@ListCACertificatesResponse' {} a -> s {certificates = a} :: ListCACertificatesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCACertificatesResponse_httpStatus :: Lens.Lens' ListCACertificatesResponse Prelude.Int
+listCACertificatesResponse_httpStatus :: Lens.Lens' ListCACertificatesResponse Core.Int
 listCACertificatesResponse_httpStatus = Lens.lens (\ListCACertificatesResponse' {httpStatus} -> httpStatus) (\s@ListCACertificatesResponse' {} a -> s {httpStatus = a} :: ListCACertificatesResponse)
 
-instance Prelude.NFData ListCACertificatesResponse
+instance Core.NFData ListCACertificatesResponse

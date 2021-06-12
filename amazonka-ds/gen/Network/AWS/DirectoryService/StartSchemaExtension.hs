@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.DirectoryService.StartSchemaExtension
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,19 +52,19 @@ import qualified Network.AWS.Response as Response
 data StartSchemaExtension = StartSchemaExtension'
   { -- | The identifier of the directory for which the schema extension will be
     -- applied to.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | If true, creates a snapshot of the directory before applying the schema
     -- extension.
-    createSnapshotBeforeSchemaExtension :: Prelude.Bool,
+    createSnapshotBeforeSchemaExtension :: Core.Bool,
     -- | The LDIF file represented as a string. To construct the LdifContent
     -- string, precede each line as it would be formatted in an ldif file with
     -- \\n. See the example request below for more details. The file size can
     -- be no larger than 1MB.
-    ldifContent :: Prelude.Text,
+    ldifContent :: Core.Text,
     -- | A description of the schema extension.
-    description :: Prelude.Text
+    description :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartSchemaExtension' with all optional fields omitted.
@@ -89,13 +88,13 @@ data StartSchemaExtension = StartSchemaExtension'
 -- 'description', 'startSchemaExtension_description' - A description of the schema extension.
 newStartSchemaExtension ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'createSnapshotBeforeSchemaExtension'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'ldifContent'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   StartSchemaExtension
 newStartSchemaExtension
   pDirectoryId_
@@ -112,85 +111,83 @@ newStartSchemaExtension
 
 -- | The identifier of the directory for which the schema extension will be
 -- applied to.
-startSchemaExtension_directoryId :: Lens.Lens' StartSchemaExtension Prelude.Text
+startSchemaExtension_directoryId :: Lens.Lens' StartSchemaExtension Core.Text
 startSchemaExtension_directoryId = Lens.lens (\StartSchemaExtension' {directoryId} -> directoryId) (\s@StartSchemaExtension' {} a -> s {directoryId = a} :: StartSchemaExtension)
 
 -- | If true, creates a snapshot of the directory before applying the schema
 -- extension.
-startSchemaExtension_createSnapshotBeforeSchemaExtension :: Lens.Lens' StartSchemaExtension Prelude.Bool
+startSchemaExtension_createSnapshotBeforeSchemaExtension :: Lens.Lens' StartSchemaExtension Core.Bool
 startSchemaExtension_createSnapshotBeforeSchemaExtension = Lens.lens (\StartSchemaExtension' {createSnapshotBeforeSchemaExtension} -> createSnapshotBeforeSchemaExtension) (\s@StartSchemaExtension' {} a -> s {createSnapshotBeforeSchemaExtension = a} :: StartSchemaExtension)
 
 -- | The LDIF file represented as a string. To construct the LdifContent
 -- string, precede each line as it would be formatted in an ldif file with
 -- \\n. See the example request below for more details. The file size can
 -- be no larger than 1MB.
-startSchemaExtension_ldifContent :: Lens.Lens' StartSchemaExtension Prelude.Text
+startSchemaExtension_ldifContent :: Lens.Lens' StartSchemaExtension Core.Text
 startSchemaExtension_ldifContent = Lens.lens (\StartSchemaExtension' {ldifContent} -> ldifContent) (\s@StartSchemaExtension' {} a -> s {ldifContent = a} :: StartSchemaExtension)
 
 -- | A description of the schema extension.
-startSchemaExtension_description :: Lens.Lens' StartSchemaExtension Prelude.Text
+startSchemaExtension_description :: Lens.Lens' StartSchemaExtension Core.Text
 startSchemaExtension_description = Lens.lens (\StartSchemaExtension' {description} -> description) (\s@StartSchemaExtension' {} a -> s {description = a} :: StartSchemaExtension)
 
-instance Prelude.AWSRequest StartSchemaExtension where
+instance Core.AWSRequest StartSchemaExtension where
   type
-    Rs StartSchemaExtension =
+    AWSResponse StartSchemaExtension =
       StartSchemaExtensionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartSchemaExtensionResponse'
-            Prelude.<$> (x Prelude..?> "SchemaExtensionId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SchemaExtensionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartSchemaExtension
+instance Core.Hashable StartSchemaExtension
 
-instance Prelude.NFData StartSchemaExtension
+instance Core.NFData StartSchemaExtension
 
-instance Prelude.ToHeaders StartSchemaExtension where
+instance Core.ToHeaders StartSchemaExtension where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.StartSchemaExtension" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.StartSchemaExtension" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartSchemaExtension where
+instance Core.ToJSON StartSchemaExtension where
   toJSON StartSchemaExtension' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just
               ( "CreateSnapshotBeforeSchemaExtension"
-                  Prelude..= createSnapshotBeforeSchemaExtension
+                  Core..= createSnapshotBeforeSchemaExtension
               ),
-            Prelude.Just ("LdifContent" Prelude..= ldifContent),
-            Prelude.Just ("Description" Prelude..= description)
+            Core.Just ("LdifContent" Core..= ldifContent),
+            Core.Just ("Description" Core..= description)
           ]
       )
 
-instance Prelude.ToPath StartSchemaExtension where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartSchemaExtension where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartSchemaExtension where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartSchemaExtension where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartSchemaExtensionResponse' smart constructor.
 data StartSchemaExtensionResponse = StartSchemaExtensionResponse'
   { -- | The identifier of the schema extension that will be applied.
-    schemaExtensionId :: Prelude.Maybe Prelude.Text,
+    schemaExtensionId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartSchemaExtensionResponse' with all optional fields omitted.
@@ -205,21 +202,21 @@ data StartSchemaExtensionResponse = StartSchemaExtensionResponse'
 -- 'httpStatus', 'startSchemaExtensionResponse_httpStatus' - The response's http status code.
 newStartSchemaExtensionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartSchemaExtensionResponse
 newStartSchemaExtensionResponse pHttpStatus_ =
   StartSchemaExtensionResponse'
     { schemaExtensionId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the schema extension that will be applied.
-startSchemaExtensionResponse_schemaExtensionId :: Lens.Lens' StartSchemaExtensionResponse (Prelude.Maybe Prelude.Text)
+startSchemaExtensionResponse_schemaExtensionId :: Lens.Lens' StartSchemaExtensionResponse (Core.Maybe Core.Text)
 startSchemaExtensionResponse_schemaExtensionId = Lens.lens (\StartSchemaExtensionResponse' {schemaExtensionId} -> schemaExtensionId) (\s@StartSchemaExtensionResponse' {} a -> s {schemaExtensionId = a} :: StartSchemaExtensionResponse)
 
 -- | The response's http status code.
-startSchemaExtensionResponse_httpStatus :: Lens.Lens' StartSchemaExtensionResponse Prelude.Int
+startSchemaExtensionResponse_httpStatus :: Lens.Lens' StartSchemaExtensionResponse Core.Int
 startSchemaExtensionResponse_httpStatus = Lens.lens (\StartSchemaExtensionResponse' {httpStatus} -> httpStatus) (\s@StartSchemaExtensionResponse' {} a -> s {httpStatus = a} :: StartSchemaExtensionResponse)
 
-instance Prelude.NFData StartSchemaExtensionResponse
+instance Core.NFData StartSchemaExtensionResponse

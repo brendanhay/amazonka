@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glacier.Types.OutputSerialization where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.CSVOutput
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes how the select output is serialized.
 --
 -- /See:/ 'newOutputSerialization' smart constructor.
 data OutputSerialization = OutputSerialization'
   { -- | Describes the serialization of CSV-encoded query results.
-    csv :: Prelude.Maybe CSVOutput
+    csv :: Core.Maybe CSVOutput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputSerialization' with all optional fields omitted.
@@ -45,28 +44,25 @@ data OutputSerialization = OutputSerialization'
 newOutputSerialization ::
   OutputSerialization
 newOutputSerialization =
-  OutputSerialization' {csv = Prelude.Nothing}
+  OutputSerialization' {csv = Core.Nothing}
 
 -- | Describes the serialization of CSV-encoded query results.
-outputSerialization_csv :: Lens.Lens' OutputSerialization (Prelude.Maybe CSVOutput)
+outputSerialization_csv :: Lens.Lens' OutputSerialization (Core.Maybe CSVOutput)
 outputSerialization_csv = Lens.lens (\OutputSerialization' {csv} -> csv) (\s@OutputSerialization' {} a -> s {csv = a} :: OutputSerialization)
 
-instance Prelude.FromJSON OutputSerialization where
+instance Core.FromJSON OutputSerialization where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputSerialization"
       ( \x ->
-          OutputSerialization'
-            Prelude.<$> (x Prelude..:? "csv")
+          OutputSerialization' Core.<$> (x Core..:? "csv")
       )
 
-instance Prelude.Hashable OutputSerialization
+instance Core.Hashable OutputSerialization
 
-instance Prelude.NFData OutputSerialization
+instance Core.NFData OutputSerialization
 
-instance Prelude.ToJSON OutputSerialization where
+instance Core.ToJSON OutputSerialization where
   toJSON OutputSerialization' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("csv" Prelude..=) Prelude.<$> csv]
-      )
+    Core.object
+      (Core.catMaybes [("csv" Core..=) Core.<$> csv])

@@ -187,6 +187,7 @@ module Network.AWS.DAX.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types.ChangeType
 import Network.AWS.DAX.Types.Cluster
 import Network.AWS.DAX.Types.Endpoint
@@ -209,264 +210,261 @@ import Network.AWS.DAX.Types.Subnet
 import Network.AWS.DAX.Types.SubnetGroup
 import Network.AWS.DAX.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-04-19@ of the Amazon DynamoDB Accelerator (DAX) SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "DAX",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "dax",
-      Prelude._svcSigningName = "dax",
-      Prelude._svcVersion = "2017-04-19",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "DAX",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "DAX",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "dax",
+      Core._serviceSigningName = "dax",
+      Core._serviceVersion = "2017-04-19",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "DAX",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The requested subnet is being used by another subnet group.
-_SubnetInUse :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetInUse =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetInUse"
 
 -- | The VPC network is in an invalid state.
-_InvalidVPCNetworkStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidVPCNetworkStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidVPCNetworkStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidVPCNetworkStateFault"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of subnets in a subnet group.
-_SubnetQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetQuotaExceededFault"
 
 -- | You have attempted to exceed the maximum number of parameter groups.
-_ParameterGroupQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ParameterGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ParameterGroupQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ParameterGroupQuotaExceededFault"
 
 -- | There are not enough system resources to create the cluster you
 -- requested (or to resize an already-existing cluster).
-_InsufficientClusterCapacityFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InsufficientClusterCapacityFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InsufficientClusterCapacityFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InsufficientClusterCapacityFault"
 
 -- | The specified service linked role (SLR) was not found.
-_ServiceLinkedRoleNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceLinkedRoleNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceLinkedRoleNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceLinkedRoleNotFoundFault"
 
 -- | Two or more incompatible parameters were specified.
-_InvalidParameterCombinationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterCombinationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameterCombinationException"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of subnets in a subnet group.
-_SubnetGroupQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetGroupQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetGroupQuotaExceededFault"
 
 -- | The tag does not exist.
-_TagNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TagNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TagNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TagNotFoundFault"
 
 -- | The requested cluster ID does not refer to an existing DAX cluster.
-_ClusterNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterNotFoundFault"
 
 -- | The specified subnet group already exists.
-_SubnetGroupAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetGroupAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetGroupAlreadyExistsFault"
 
 -- | You have attempted to exceed the maximum number of nodes for your AWS
 -- account.
-_NodeQuotaForCustomerExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NodeQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NodeQuotaForCustomerExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NodeQuotaForCustomerExceededFault"
 
 -- | The requested subnet group name does not refer to an existing subnet
 -- group.
-_SubnetGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetGroupNotFoundFault"
 
 -- | The specified parameter group already exists.
-_ParameterGroupAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ParameterGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ParameterGroupAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ParameterGroupAlreadyExistsFault"
 
 -- | The specified parameter group does not exist.
-_ParameterGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ParameterGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ParameterGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ParameterGroupNotFoundFault"
 
 -- | The value for a parameter is invalid.
-_InvalidParameterValueException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterValueException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameterValueException"
 
 -- | None of the nodes in the cluster have the given node ID.
-_NodeNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NodeNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NodeNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NodeNotFoundFault"
 
 -- | The Amazon Resource Name (ARN) supplied in the request is not valid.
-_InvalidARNFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidARNFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidARNFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidARNFault"
 
 -- | You already have a DAX cluster with the given identifier.
-_ClusterAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterAlreadyExistsFault"
 
 -- | The requested DAX cluster is not in the /available/ state.
-_InvalidClusterStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidClusterStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidClusterStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidClusterStateFault"
 
 -- | You have attempted to exceed the maximum number of nodes for a DAX
 -- cluster.
-_NodeQuotaForClusterExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NodeQuotaForClusterExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NodeQuotaForClusterExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NodeQuotaForClusterExceededFault"
 
 -- | An invalid subnet identifier was specified.
-_InvalidSubnet :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSubnet :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSubnet =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSubnet"
 
 -- | You have attempted to exceed the maximum number of DAX clusters for your
 -- AWS account.
-_ClusterQuotaForCustomerExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterQuotaForCustomerExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterQuotaForCustomerExceededFault"
 
 -- | The specified subnet group is currently in use.
-_SubnetGroupInUseFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetGroupInUseFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetGroupInUseFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetGroupInUseFault"
 
 -- | One or more parameters in a parameter group are in an invalid state.
-_InvalidParameterGroupStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterGroupStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterGroupStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameterGroupStateFault"
 
 -- | You have exceeded the maximum number of tags for this DAX cluster.
-_TagQuotaPerResourceExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TagQuotaPerResourceExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TagQuotaPerResourceExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TagQuotaPerResourceExceeded"

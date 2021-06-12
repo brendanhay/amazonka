@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,8 +56,8 @@ module Network.AWS.APIGateway.GetStage
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,11 +66,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetStage' smart constructor.
 data GetStage = GetStage'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The name of the Stage resource to get information about.
-    stageName :: Prelude.Text
+    stageName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetStage' with all optional fields omitted.
@@ -86,9 +85,9 @@ data GetStage = GetStage'
 -- 'stageName', 'getStage_stageName' - [Required] The name of the Stage resource to get information about.
 newGetStage ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stageName'
-  Prelude.Text ->
+  Core.Text ->
   GetStage
 newGetStage pRestApiId_ pStageName_ =
   GetStage'
@@ -97,41 +96,41 @@ newGetStage pRestApiId_ pStageName_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-getStage_restApiId :: Lens.Lens' GetStage Prelude.Text
+getStage_restApiId :: Lens.Lens' GetStage Core.Text
 getStage_restApiId = Lens.lens (\GetStage' {restApiId} -> restApiId) (\s@GetStage' {} a -> s {restApiId = a} :: GetStage)
 
 -- | [Required] The name of the Stage resource to get information about.
-getStage_stageName :: Lens.Lens' GetStage Prelude.Text
+getStage_stageName :: Lens.Lens' GetStage Core.Text
 getStage_stageName = Lens.lens (\GetStage' {stageName} -> stageName) (\s@GetStage' {} a -> s {stageName = a} :: GetStage)
 
-instance Prelude.AWSRequest GetStage where
-  type Rs GetStage = Stage
+instance Core.AWSRequest GetStage where
+  type AWSResponse GetStage = Stage
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetStage
+instance Core.Hashable GetStage
 
-instance Prelude.NFData GetStage
+instance Core.NFData GetStage
 
-instance Prelude.ToHeaders GetStage where
+instance Core.ToHeaders GetStage where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetStage where
+instance Core.ToPath GetStage where
   toPath GetStage' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/stages/",
-        Prelude.toBS stageName
+        Core.toBS stageName
       ]
 
-instance Prelude.ToQuery GetStage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetStage where
+  toQuery = Core.const Core.mempty

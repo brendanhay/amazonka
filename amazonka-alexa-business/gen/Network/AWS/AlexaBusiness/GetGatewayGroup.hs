@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.AlexaBusiness.GetGatewayGroup
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetGatewayGroup' smart constructor.
 data GetGatewayGroup = GetGatewayGroup'
   { -- | The ARN of the gateway group to get.
-    gatewayGroupArn :: Prelude.Text
+    gatewayGroupArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGatewayGroup' with all optional fields omitted.
@@ -64,7 +63,7 @@ data GetGatewayGroup = GetGatewayGroup'
 -- 'gatewayGroupArn', 'getGatewayGroup_gatewayGroupArn' - The ARN of the gateway group to get.
 newGetGatewayGroup ::
   -- | 'gatewayGroupArn'
-  Prelude.Text ->
+  Core.Text ->
   GetGatewayGroup
 newGetGatewayGroup pGatewayGroupArn_ =
   GetGatewayGroup'
@@ -73,61 +72,61 @@ newGetGatewayGroup pGatewayGroupArn_ =
     }
 
 -- | The ARN of the gateway group to get.
-getGatewayGroup_gatewayGroupArn :: Lens.Lens' GetGatewayGroup Prelude.Text
+getGatewayGroup_gatewayGroupArn :: Lens.Lens' GetGatewayGroup Core.Text
 getGatewayGroup_gatewayGroupArn = Lens.lens (\GetGatewayGroup' {gatewayGroupArn} -> gatewayGroupArn) (\s@GetGatewayGroup' {} a -> s {gatewayGroupArn = a} :: GetGatewayGroup)
 
-instance Prelude.AWSRequest GetGatewayGroup where
-  type Rs GetGatewayGroup = GetGatewayGroupResponse
+instance Core.AWSRequest GetGatewayGroup where
+  type
+    AWSResponse GetGatewayGroup =
+      GetGatewayGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetGatewayGroupResponse'
-            Prelude.<$> (x Prelude..?> "GatewayGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GatewayGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetGatewayGroup
+instance Core.Hashable GetGatewayGroup
 
-instance Prelude.NFData GetGatewayGroup
+instance Core.NFData GetGatewayGroup
 
-instance Prelude.ToHeaders GetGatewayGroup where
+instance Core.ToHeaders GetGatewayGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.GetGatewayGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.GetGatewayGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetGatewayGroup where
+instance Core.ToJSON GetGatewayGroup where
   toJSON GetGatewayGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("GatewayGroupArn" Prelude..= gatewayGroupArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("GatewayGroupArn" Core..= gatewayGroupArn)
           ]
       )
 
-instance Prelude.ToPath GetGatewayGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetGatewayGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetGatewayGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetGatewayGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetGatewayGroupResponse' smart constructor.
 data GetGatewayGroupResponse = GetGatewayGroupResponse'
-  { gatewayGroup :: Prelude.Maybe GatewayGroup,
+  { gatewayGroup :: Core.Maybe GatewayGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGatewayGroupResponse' with all optional fields omitted.
@@ -142,21 +141,21 @@ data GetGatewayGroupResponse = GetGatewayGroupResponse'
 -- 'httpStatus', 'getGatewayGroupResponse_httpStatus' - The response's http status code.
 newGetGatewayGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetGatewayGroupResponse
 newGetGatewayGroupResponse pHttpStatus_ =
   GetGatewayGroupResponse'
     { gatewayGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-getGatewayGroupResponse_gatewayGroup :: Lens.Lens' GetGatewayGroupResponse (Prelude.Maybe GatewayGroup)
+getGatewayGroupResponse_gatewayGroup :: Lens.Lens' GetGatewayGroupResponse (Core.Maybe GatewayGroup)
 getGatewayGroupResponse_gatewayGroup = Lens.lens (\GetGatewayGroupResponse' {gatewayGroup} -> gatewayGroup) (\s@GetGatewayGroupResponse' {} a -> s {gatewayGroup = a} :: GetGatewayGroupResponse)
 
 -- | The response's http status code.
-getGatewayGroupResponse_httpStatus :: Lens.Lens' GetGatewayGroupResponse Prelude.Int
+getGatewayGroupResponse_httpStatus :: Lens.Lens' GetGatewayGroupResponse Core.Int
 getGatewayGroupResponse_httpStatus = Lens.lens (\GetGatewayGroupResponse' {httpStatus} -> httpStatus) (\s@GetGatewayGroupResponse' {} a -> s {httpStatus = a} :: GetGatewayGroupResponse)
 
-instance Prelude.NFData GetGatewayGroupResponse
+instance Core.NFData GetGatewayGroupResponse

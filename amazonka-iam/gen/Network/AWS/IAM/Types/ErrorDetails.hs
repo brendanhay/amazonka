@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.ErrorDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the reason that the operation failed.
 --
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newErrorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
   { -- | Detailed information about the reason that the operation failed.
-    message :: Prelude.Text,
+    message :: Core.Text,
     -- | The error code associated with the operation failure.
-    code :: Prelude.Text
+    code :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ErrorDetails' with all optional fields omitted.
@@ -51,27 +50,26 @@ data ErrorDetails = ErrorDetails'
 -- 'code', 'errorDetails_code' - The error code associated with the operation failure.
 newErrorDetails ::
   -- | 'message'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'code'
-  Prelude.Text ->
+  Core.Text ->
   ErrorDetails
 newErrorDetails pMessage_ pCode_ =
   ErrorDetails' {message = pMessage_, code = pCode_}
 
 -- | Detailed information about the reason that the operation failed.
-errorDetails_message :: Lens.Lens' ErrorDetails Prelude.Text
+errorDetails_message :: Lens.Lens' ErrorDetails Core.Text
 errorDetails_message = Lens.lens (\ErrorDetails' {message} -> message) (\s@ErrorDetails' {} a -> s {message = a} :: ErrorDetails)
 
 -- | The error code associated with the operation failure.
-errorDetails_code :: Lens.Lens' ErrorDetails Prelude.Text
+errorDetails_code :: Lens.Lens' ErrorDetails Core.Text
 errorDetails_code = Lens.lens (\ErrorDetails' {code} -> code) (\s@ErrorDetails' {} a -> s {code = a} :: ErrorDetails)
 
-instance Prelude.FromXML ErrorDetails where
+instance Core.FromXML ErrorDetails where
   parseXML x =
     ErrorDetails'
-      Prelude.<$> (x Prelude..@ "Message")
-      Prelude.<*> (x Prelude..@ "Code")
+      Core.<$> (x Core..@ "Message") Core.<*> (x Core..@ "Code")
 
-instance Prelude.Hashable ErrorDetails
+instance Core.Hashable ErrorDetails
 
-instance Prelude.NFData ErrorDetails
+instance Core.NFData ErrorDetails

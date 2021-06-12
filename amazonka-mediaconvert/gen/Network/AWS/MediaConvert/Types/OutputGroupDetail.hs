@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.OutputGroupDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.OutputDetail
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the output groups specified in the job settings.
 --
 -- /See:/ 'newOutputGroupDetail' smart constructor.
 data OutputGroupDetail = OutputGroupDetail'
   { -- | Details about the output
-    outputDetails :: Prelude.Maybe [OutputDetail]
+    outputDetails :: Core.Maybe [OutputDetail]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputGroupDetail' with all optional fields omitted.
@@ -45,23 +44,21 @@ data OutputGroupDetail = OutputGroupDetail'
 newOutputGroupDetail ::
   OutputGroupDetail
 newOutputGroupDetail =
-  OutputGroupDetail' {outputDetails = Prelude.Nothing}
+  OutputGroupDetail' {outputDetails = Core.Nothing}
 
 -- | Details about the output
-outputGroupDetail_outputDetails :: Lens.Lens' OutputGroupDetail (Prelude.Maybe [OutputDetail])
-outputGroupDetail_outputDetails = Lens.lens (\OutputGroupDetail' {outputDetails} -> outputDetails) (\s@OutputGroupDetail' {} a -> s {outputDetails = a} :: OutputGroupDetail) Prelude.. Lens.mapping Prelude._Coerce
+outputGroupDetail_outputDetails :: Lens.Lens' OutputGroupDetail (Core.Maybe [OutputDetail])
+outputGroupDetail_outputDetails = Lens.lens (\OutputGroupDetail' {outputDetails} -> outputDetails) (\s@OutputGroupDetail' {} a -> s {outputDetails = a} :: OutputGroupDetail) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON OutputGroupDetail where
+instance Core.FromJSON OutputGroupDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputGroupDetail"
       ( \x ->
           OutputGroupDetail'
-            Prelude.<$> ( x Prelude..:? "outputDetails"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "outputDetails" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable OutputGroupDetail
+instance Core.Hashable OutputGroupDetail
 
-instance Prelude.NFData OutputGroupDetail
+instance Core.NFData OutputGroupDetail

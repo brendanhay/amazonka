@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.ECR.PutReplicationConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,7 +62,7 @@ data PutReplicationConfiguration = PutReplicationConfiguration'
   { -- | An object representing the replication configuration for a registry.
     replicationConfiguration :: ReplicationConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutReplicationConfiguration' with all optional fields omitted.
@@ -89,69 +88,61 @@ newPutReplicationConfiguration
 putReplicationConfiguration_replicationConfiguration :: Lens.Lens' PutReplicationConfiguration ReplicationConfiguration
 putReplicationConfiguration_replicationConfiguration = Lens.lens (\PutReplicationConfiguration' {replicationConfiguration} -> replicationConfiguration) (\s@PutReplicationConfiguration' {} a -> s {replicationConfiguration = a} :: PutReplicationConfiguration)
 
-instance
-  Prelude.AWSRequest
-    PutReplicationConfiguration
-  where
+instance Core.AWSRequest PutReplicationConfiguration where
   type
-    Rs PutReplicationConfiguration =
+    AWSResponse PutReplicationConfiguration =
       PutReplicationConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutReplicationConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "replicationConfiguration")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "replicationConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutReplicationConfiguration
+instance Core.Hashable PutReplicationConfiguration
 
-instance Prelude.NFData PutReplicationConfiguration
+instance Core.NFData PutReplicationConfiguration
 
-instance
-  Prelude.ToHeaders
-    PutReplicationConfiguration
-  where
+instance Core.ToHeaders PutReplicationConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerRegistry_V20150921.PutReplicationConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.PutReplicationConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutReplicationConfiguration where
+instance Core.ToJSON PutReplicationConfiguration where
   toJSON PutReplicationConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "replicationConfiguration"
-                  Prelude..= replicationConfiguration
+                  Core..= replicationConfiguration
               )
           ]
       )
 
-instance Prelude.ToPath PutReplicationConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutReplicationConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutReplicationConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutReplicationConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutReplicationConfigurationResponse' smart constructor.
 data PutReplicationConfigurationResponse = PutReplicationConfigurationResponse'
   { -- | The contents of the replication configuration for the registry.
-    replicationConfiguration :: Prelude.Maybe ReplicationConfiguration,
+    replicationConfiguration :: Core.Maybe ReplicationConfiguration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutReplicationConfigurationResponse' with all optional fields omitted.
@@ -166,23 +157,23 @@ data PutReplicationConfigurationResponse = PutReplicationConfigurationResponse'
 -- 'httpStatus', 'putReplicationConfigurationResponse_httpStatus' - The response's http status code.
 newPutReplicationConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutReplicationConfigurationResponse
 newPutReplicationConfigurationResponse pHttpStatus_ =
   PutReplicationConfigurationResponse'
     { replicationConfiguration =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The contents of the replication configuration for the registry.
-putReplicationConfigurationResponse_replicationConfiguration :: Lens.Lens' PutReplicationConfigurationResponse (Prelude.Maybe ReplicationConfiguration)
+putReplicationConfigurationResponse_replicationConfiguration :: Lens.Lens' PutReplicationConfigurationResponse (Core.Maybe ReplicationConfiguration)
 putReplicationConfigurationResponse_replicationConfiguration = Lens.lens (\PutReplicationConfigurationResponse' {replicationConfiguration} -> replicationConfiguration) (\s@PutReplicationConfigurationResponse' {} a -> s {replicationConfiguration = a} :: PutReplicationConfigurationResponse)
 
 -- | The response's http status code.
-putReplicationConfigurationResponse_httpStatus :: Lens.Lens' PutReplicationConfigurationResponse Prelude.Int
+putReplicationConfigurationResponse_httpStatus :: Lens.Lens' PutReplicationConfigurationResponse Core.Int
 putReplicationConfigurationResponse_httpStatus = Lens.lens (\PutReplicationConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutReplicationConfigurationResponse' {} a -> s {httpStatus = a} :: PutReplicationConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutReplicationConfigurationResponse

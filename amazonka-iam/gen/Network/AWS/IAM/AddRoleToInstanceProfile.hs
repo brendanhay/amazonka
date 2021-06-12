@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,16 +68,16 @@ data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    instanceProfileName :: Prelude.Text,
+    instanceProfileName :: Core.Text,
     -- | The name of the role to add.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Prelude.Text
+    roleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddRoleToInstanceProfile' with all optional fields omitted.
@@ -103,9 +102,9 @@ data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newAddRoleToInstanceProfile ::
   -- | 'instanceProfileName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleName'
-  Prelude.Text ->
+  Core.Text ->
   AddRoleToInstanceProfile
 newAddRoleToInstanceProfile
   pInstanceProfileName_
@@ -122,7 +121,7 @@ newAddRoleToInstanceProfile
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-addRoleToInstanceProfile_instanceProfileName :: Lens.Lens' AddRoleToInstanceProfile Prelude.Text
+addRoleToInstanceProfile_instanceProfileName :: Lens.Lens' AddRoleToInstanceProfile Core.Text
 addRoleToInstanceProfile_instanceProfileName = Lens.lens (\AddRoleToInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@AddRoleToInstanceProfile' {} a -> s {instanceProfileName = a} :: AddRoleToInstanceProfile)
 
 -- | The name of the role to add.
@@ -131,44 +130,43 @@ addRoleToInstanceProfile_instanceProfileName = Lens.lens (\AddRoleToInstanceProf
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-addRoleToInstanceProfile_roleName :: Lens.Lens' AddRoleToInstanceProfile Prelude.Text
+addRoleToInstanceProfile_roleName :: Lens.Lens' AddRoleToInstanceProfile Core.Text
 addRoleToInstanceProfile_roleName = Lens.lens (\AddRoleToInstanceProfile' {roleName} -> roleName) (\s@AddRoleToInstanceProfile' {} a -> s {roleName = a} :: AddRoleToInstanceProfile)
 
-instance Prelude.AWSRequest AddRoleToInstanceProfile where
+instance Core.AWSRequest AddRoleToInstanceProfile where
   type
-    Rs AddRoleToInstanceProfile =
+    AWSResponse AddRoleToInstanceProfile =
       AddRoleToInstanceProfileResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       AddRoleToInstanceProfileResponse'
 
-instance Prelude.Hashable AddRoleToInstanceProfile
+instance Core.Hashable AddRoleToInstanceProfile
 
-instance Prelude.NFData AddRoleToInstanceProfile
+instance Core.NFData AddRoleToInstanceProfile
 
-instance Prelude.ToHeaders AddRoleToInstanceProfile where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AddRoleToInstanceProfile where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AddRoleToInstanceProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddRoleToInstanceProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddRoleToInstanceProfile where
+instance Core.ToQuery AddRoleToInstanceProfile where
   toQuery AddRoleToInstanceProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AddRoleToInstanceProfile" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "InstanceProfileName" Prelude.=: instanceProfileName,
-        "RoleName" Prelude.=: roleName
+          Core.=: ("AddRoleToInstanceProfile" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "InstanceProfileName" Core.=: instanceProfileName,
+        "RoleName" Core.=: roleName
       ]
 
 -- | /See:/ 'newAddRoleToInstanceProfileResponse' smart constructor.
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddRoleToInstanceProfileResponse' with all optional fields omitted.
@@ -179,6 +177,4 @@ newAddRoleToInstanceProfileResponse ::
 newAddRoleToInstanceProfileResponse =
   AddRoleToInstanceProfileResponse'
 
-instance
-  Prelude.NFData
-    AddRoleToInstanceProfileResponse
+instance Core.NFData AddRoleToInstanceProfileResponse

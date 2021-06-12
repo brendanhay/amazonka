@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.WAF.GetPermissionPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -59,9 +58,9 @@ import Network.AWS.WAF.Types
 data GetPermissionPolicy = GetPermissionPolicy'
   { -- | The Amazon Resource Name (ARN) of the RuleGroup for which you want to
     -- get the policy.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPermissionPolicy' with all optional fields omitted.
@@ -75,71 +74,67 @@ data GetPermissionPolicy = GetPermissionPolicy'
 -- get the policy.
 newGetPermissionPolicy ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   GetPermissionPolicy
 newGetPermissionPolicy pResourceArn_ =
   GetPermissionPolicy' {resourceArn = pResourceArn_}
 
 -- | The Amazon Resource Name (ARN) of the RuleGroup for which you want to
 -- get the policy.
-getPermissionPolicy_resourceArn :: Lens.Lens' GetPermissionPolicy Prelude.Text
+getPermissionPolicy_resourceArn :: Lens.Lens' GetPermissionPolicy Core.Text
 getPermissionPolicy_resourceArn = Lens.lens (\GetPermissionPolicy' {resourceArn} -> resourceArn) (\s@GetPermissionPolicy' {} a -> s {resourceArn = a} :: GetPermissionPolicy)
 
-instance Prelude.AWSRequest GetPermissionPolicy where
+instance Core.AWSRequest GetPermissionPolicy where
   type
-    Rs GetPermissionPolicy =
+    AWSResponse GetPermissionPolicy =
       GetPermissionPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetPermissionPolicyResponse'
-            Prelude.<$> (x Prelude..?> "Policy")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Policy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetPermissionPolicy
+instance Core.Hashable GetPermissionPolicy
 
-instance Prelude.NFData GetPermissionPolicy
+instance Core.NFData GetPermissionPolicy
 
-instance Prelude.ToHeaders GetPermissionPolicy where
+instance Core.ToHeaders GetPermissionPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.GetPermissionPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.GetPermissionPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetPermissionPolicy where
+instance Core.ToJSON GetPermissionPolicy where
   toJSON GetPermissionPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ResourceArn" Prelude..= resourceArn)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ResourceArn" Core..= resourceArn)]
       )
 
-instance Prelude.ToPath GetPermissionPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetPermissionPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetPermissionPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetPermissionPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetPermissionPolicyResponse' smart constructor.
 data GetPermissionPolicyResponse = GetPermissionPolicyResponse'
   { -- | The IAM policy attached to the specified RuleGroup.
-    policy :: Prelude.Maybe Prelude.Text,
+    policy :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPermissionPolicyResponse' with all optional fields omitted.
@@ -154,21 +149,20 @@ data GetPermissionPolicyResponse = GetPermissionPolicyResponse'
 -- 'httpStatus', 'getPermissionPolicyResponse_httpStatus' - The response's http status code.
 newGetPermissionPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetPermissionPolicyResponse
 newGetPermissionPolicyResponse pHttpStatus_ =
   GetPermissionPolicyResponse'
-    { policy =
-        Prelude.Nothing,
+    { policy = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IAM policy attached to the specified RuleGroup.
-getPermissionPolicyResponse_policy :: Lens.Lens' GetPermissionPolicyResponse (Prelude.Maybe Prelude.Text)
+getPermissionPolicyResponse_policy :: Lens.Lens' GetPermissionPolicyResponse (Core.Maybe Core.Text)
 getPermissionPolicyResponse_policy = Lens.lens (\GetPermissionPolicyResponse' {policy} -> policy) (\s@GetPermissionPolicyResponse' {} a -> s {policy = a} :: GetPermissionPolicyResponse)
 
 -- | The response's http status code.
-getPermissionPolicyResponse_httpStatus :: Lens.Lens' GetPermissionPolicyResponse Prelude.Int
+getPermissionPolicyResponse_httpStatus :: Lens.Lens' GetPermissionPolicyResponse Core.Int
 getPermissionPolicyResponse_httpStatus = Lens.lens (\GetPermissionPolicyResponse' {httpStatus} -> httpStatus) (\s@GetPermissionPolicyResponse' {} a -> s {httpStatus = a} :: GetPermissionPolicyResponse)
 
-instance Prelude.NFData GetPermissionPolicyResponse
+instance Core.NFData GetPermissionPolicyResponse

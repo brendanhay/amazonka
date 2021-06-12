@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,19 +37,19 @@ module Network.AWS.Pinpoint.TagResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceArn :: Prelude.Text,
+    resourceArn :: Core.Text,
     tagsModel :: TagsModel
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -65,7 +64,7 @@ data TagResource = TagResource'
 -- 'tagsModel', 'tagResource_tagsModel' - Undocumented member.
 newTagResource ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tagsModel'
   TagsModel ->
   TagResource
@@ -76,53 +75,50 @@ newTagResource pResourceArn_ pTagsModel_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the resource.
-tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
+tagResource_resourceArn :: Lens.Lens' TagResource Core.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
 -- | Undocumented member.
 tagResource_tagsModel :: Lens.Lens' TagResource TagsModel
 tagResource_tagsModel = Lens.lens (\TagResource' {tagsModel} -> tagsModel) (\s@TagResource' {} a -> s {tagsModel = a} :: TagResource)
 
-instance Prelude.AWSRequest TagResource where
-  type Rs TagResource = TagResourceResponse
+instance Core.AWSRequest TagResource where
+  type AWSResponse TagResource = TagResourceResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull TagResourceResponse'
 
-instance Prelude.Hashable TagResource
+instance Core.Hashable TagResource
 
-instance Prelude.NFData TagResource
+instance Core.NFData TagResource
 
-instance Prelude.ToHeaders TagResource where
+instance Core.ToHeaders TagResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TagResource where
+instance Core.ToJSON TagResource where
   toJSON TagResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TagsModel" Prelude..= tagsModel)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TagsModel" Core..= tagsModel)]
       )
 
-instance Prelude.ToPath TagResource where
+instance Core.ToPath TagResource where
   toPath TagResource' {..} =
-    Prelude.mconcat
-      ["/v1/tags/", Prelude.toBS resourceArn]
+    Core.mconcat ["/v1/tags/", Core.toBS resourceArn]
 
-instance Prelude.ToQuery TagResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TagResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResourceResponse' with all optional fields omitted.
@@ -132,4 +128,4 @@ newTagResourceResponse ::
   TagResourceResponse
 newTagResourceResponse = TagResourceResponse'
 
-instance Prelude.NFData TagResourceResponse
+instance Core.NFData TagResourceResponse

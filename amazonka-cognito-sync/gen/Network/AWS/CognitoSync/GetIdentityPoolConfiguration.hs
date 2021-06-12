@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
 where
 
 import Network.AWS.CognitoSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ data GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
   { -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. This is the ID of the pool for which to return a configuration.
-    identityPoolId :: Prelude.Text
+    identityPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIdentityPoolConfiguration' with all optional fields omitted.
@@ -76,7 +75,7 @@ data GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
 -- Cognito. This is the ID of the pool for which to return a configuration.
 newGetIdentityPoolConfiguration ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   GetIdentityPoolConfiguration
 newGetIdentityPoolConfiguration pIdentityPoolId_ =
   GetIdentityPoolConfiguration'
@@ -87,57 +86,47 @@ newGetIdentityPoolConfiguration pIdentityPoolId_ =
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. This is the ID of the pool for which to return a configuration.
-getIdentityPoolConfiguration_identityPoolId :: Lens.Lens' GetIdentityPoolConfiguration Prelude.Text
+getIdentityPoolConfiguration_identityPoolId :: Lens.Lens' GetIdentityPoolConfiguration Core.Text
 getIdentityPoolConfiguration_identityPoolId = Lens.lens (\GetIdentityPoolConfiguration' {identityPoolId} -> identityPoolId) (\s@GetIdentityPoolConfiguration' {} a -> s {identityPoolId = a} :: GetIdentityPoolConfiguration)
 
-instance
-  Prelude.AWSRequest
-    GetIdentityPoolConfiguration
-  where
+instance Core.AWSRequest GetIdentityPoolConfiguration where
   type
-    Rs GetIdentityPoolConfiguration =
+    AWSResponse GetIdentityPoolConfiguration =
       GetIdentityPoolConfigurationResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetIdentityPoolConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "IdentityPoolId")
-            Prelude.<*> (x Prelude..?> "PushSync")
-            Prelude.<*> (x Prelude..?> "CognitoStreams")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "IdentityPoolId")
+            Core.<*> (x Core..?> "PushSync")
+            Core.<*> (x Core..?> "CognitoStreams")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    GetIdentityPoolConfiguration
+instance Core.Hashable GetIdentityPoolConfiguration
 
-instance Prelude.NFData GetIdentityPoolConfiguration
+instance Core.NFData GetIdentityPoolConfiguration
 
-instance
-  Prelude.ToHeaders
-    GetIdentityPoolConfiguration
-  where
+instance Core.ToHeaders GetIdentityPoolConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetIdentityPoolConfiguration where
+instance Core.ToPath GetIdentityPoolConfiguration where
   toPath GetIdentityPoolConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/identitypools/",
-        Prelude.toBS identityPoolId,
+        Core.toBS identityPoolId,
         "/configuration"
       ]
 
-instance Prelude.ToQuery GetIdentityPoolConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetIdentityPoolConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | The output for the GetIdentityPoolConfiguration operation.
 --
@@ -146,15 +135,15 @@ data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
   { -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito.
-    identityPoolId :: Prelude.Maybe Prelude.Text,
+    identityPoolId :: Core.Maybe Core.Text,
     -- | Options to apply to this identity pool for push synchronization.
-    pushSync :: Prelude.Maybe PushSync,
+    pushSync :: Core.Maybe PushSync,
     -- | Options to apply to this identity pool for Amazon Cognito streams.
-    cognitoStreams :: Prelude.Maybe CognitoStreams,
+    cognitoStreams :: Core.Maybe CognitoStreams,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIdentityPoolConfigurationResponse' with all optional fields omitted.
@@ -175,35 +164,35 @@ data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
 -- 'httpStatus', 'getIdentityPoolConfigurationResponse_httpStatus' - The response's http status code.
 newGetIdentityPoolConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetIdentityPoolConfigurationResponse
 newGetIdentityPoolConfigurationResponse pHttpStatus_ =
   GetIdentityPoolConfigurationResponse'
     { identityPoolId =
-        Prelude.Nothing,
-      pushSync = Prelude.Nothing,
-      cognitoStreams = Prelude.Nothing,
+        Core.Nothing,
+      pushSync = Core.Nothing,
+      cognitoStreams = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito.
-getIdentityPoolConfigurationResponse_identityPoolId :: Lens.Lens' GetIdentityPoolConfigurationResponse (Prelude.Maybe Prelude.Text)
+getIdentityPoolConfigurationResponse_identityPoolId :: Lens.Lens' GetIdentityPoolConfigurationResponse (Core.Maybe Core.Text)
 getIdentityPoolConfigurationResponse_identityPoolId = Lens.lens (\GetIdentityPoolConfigurationResponse' {identityPoolId} -> identityPoolId) (\s@GetIdentityPoolConfigurationResponse' {} a -> s {identityPoolId = a} :: GetIdentityPoolConfigurationResponse)
 
 -- | Options to apply to this identity pool for push synchronization.
-getIdentityPoolConfigurationResponse_pushSync :: Lens.Lens' GetIdentityPoolConfigurationResponse (Prelude.Maybe PushSync)
+getIdentityPoolConfigurationResponse_pushSync :: Lens.Lens' GetIdentityPoolConfigurationResponse (Core.Maybe PushSync)
 getIdentityPoolConfigurationResponse_pushSync = Lens.lens (\GetIdentityPoolConfigurationResponse' {pushSync} -> pushSync) (\s@GetIdentityPoolConfigurationResponse' {} a -> s {pushSync = a} :: GetIdentityPoolConfigurationResponse)
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
-getIdentityPoolConfigurationResponse_cognitoStreams :: Lens.Lens' GetIdentityPoolConfigurationResponse (Prelude.Maybe CognitoStreams)
+getIdentityPoolConfigurationResponse_cognitoStreams :: Lens.Lens' GetIdentityPoolConfigurationResponse (Core.Maybe CognitoStreams)
 getIdentityPoolConfigurationResponse_cognitoStreams = Lens.lens (\GetIdentityPoolConfigurationResponse' {cognitoStreams} -> cognitoStreams) (\s@GetIdentityPoolConfigurationResponse' {} a -> s {cognitoStreams = a} :: GetIdentityPoolConfigurationResponse)
 
 -- | The response's http status code.
-getIdentityPoolConfigurationResponse_httpStatus :: Lens.Lens' GetIdentityPoolConfigurationResponse Prelude.Int
+getIdentityPoolConfigurationResponse_httpStatus :: Lens.Lens' GetIdentityPoolConfigurationResponse Core.Int
 getIdentityPoolConfigurationResponse_httpStatus = Lens.lens (\GetIdentityPoolConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetIdentityPoolConfigurationResponse' {} a -> s {httpStatus = a} :: GetIdentityPoolConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetIdentityPoolConfigurationResponse

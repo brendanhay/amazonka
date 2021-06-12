@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.PropertyPredicate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Comparator
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines a property predicate.
 --
 -- /See:/ 'newPropertyPredicate' smart constructor.
 data PropertyPredicate = PropertyPredicate'
   { -- | The key of the property.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The value of the property.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The comparator used to compare this property to others.
-    comparator :: Prelude.Maybe Comparator
+    comparator :: Core.Maybe Comparator
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PropertyPredicate' with all optional fields omitted.
@@ -54,33 +53,33 @@ newPropertyPredicate ::
   PropertyPredicate
 newPropertyPredicate =
   PropertyPredicate'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing,
-      comparator = Prelude.Nothing
+    { key = Core.Nothing,
+      value = Core.Nothing,
+      comparator = Core.Nothing
     }
 
 -- | The key of the property.
-propertyPredicate_key :: Lens.Lens' PropertyPredicate (Prelude.Maybe Prelude.Text)
+propertyPredicate_key :: Lens.Lens' PropertyPredicate (Core.Maybe Core.Text)
 propertyPredicate_key = Lens.lens (\PropertyPredicate' {key} -> key) (\s@PropertyPredicate' {} a -> s {key = a} :: PropertyPredicate)
 
 -- | The value of the property.
-propertyPredicate_value :: Lens.Lens' PropertyPredicate (Prelude.Maybe Prelude.Text)
+propertyPredicate_value :: Lens.Lens' PropertyPredicate (Core.Maybe Core.Text)
 propertyPredicate_value = Lens.lens (\PropertyPredicate' {value} -> value) (\s@PropertyPredicate' {} a -> s {value = a} :: PropertyPredicate)
 
 -- | The comparator used to compare this property to others.
-propertyPredicate_comparator :: Lens.Lens' PropertyPredicate (Prelude.Maybe Comparator)
+propertyPredicate_comparator :: Lens.Lens' PropertyPredicate (Core.Maybe Comparator)
 propertyPredicate_comparator = Lens.lens (\PropertyPredicate' {comparator} -> comparator) (\s@PropertyPredicate' {} a -> s {comparator = a} :: PropertyPredicate)
 
-instance Prelude.Hashable PropertyPredicate
+instance Core.Hashable PropertyPredicate
 
-instance Prelude.NFData PropertyPredicate
+instance Core.NFData PropertyPredicate
 
-instance Prelude.ToJSON PropertyPredicate where
+instance Core.ToJSON PropertyPredicate where
   toJSON PropertyPredicate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Value" Prelude..=) Prelude.<$> value,
-            ("Comparator" Prelude..=) Prelude.<$> comparator
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Value" Core..=) Core.<$> value,
+            ("Comparator" Core..=) Core.<$> comparator
           ]
       )

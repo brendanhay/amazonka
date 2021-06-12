@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.XRay.GetEncryptionConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -47,7 +46,7 @@ import Network.AWS.XRay.Types
 data GetEncryptionConfig = GetEncryptionConfig'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEncryptionConfig' with all optional fields omitted.
@@ -57,44 +56,43 @@ newGetEncryptionConfig ::
   GetEncryptionConfig
 newGetEncryptionConfig = GetEncryptionConfig'
 
-instance Prelude.AWSRequest GetEncryptionConfig where
+instance Core.AWSRequest GetEncryptionConfig where
   type
-    Rs GetEncryptionConfig =
+    AWSResponse GetEncryptionConfig =
       GetEncryptionConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetEncryptionConfigResponse'
-            Prelude.<$> (x Prelude..?> "EncryptionConfig")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "EncryptionConfig")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetEncryptionConfig
+instance Core.Hashable GetEncryptionConfig
 
-instance Prelude.NFData GetEncryptionConfig
+instance Core.NFData GetEncryptionConfig
 
-instance Prelude.ToHeaders GetEncryptionConfig where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetEncryptionConfig where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON GetEncryptionConfig where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetEncryptionConfig where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath GetEncryptionConfig where
-  toPath = Prelude.const "/EncryptionConfig"
+instance Core.ToPath GetEncryptionConfig where
+  toPath = Core.const "/EncryptionConfig"
 
-instance Prelude.ToQuery GetEncryptionConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetEncryptionConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetEncryptionConfigResponse' smart constructor.
 data GetEncryptionConfigResponse = GetEncryptionConfigResponse'
   { -- | The encryption configuration document.
-    encryptionConfig :: Prelude.Maybe EncryptionConfig,
+    encryptionConfig :: Core.Maybe EncryptionConfig,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEncryptionConfigResponse' with all optional fields omitted.
@@ -109,21 +107,21 @@ data GetEncryptionConfigResponse = GetEncryptionConfigResponse'
 -- 'httpStatus', 'getEncryptionConfigResponse_httpStatus' - The response's http status code.
 newGetEncryptionConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetEncryptionConfigResponse
 newGetEncryptionConfigResponse pHttpStatus_ =
   GetEncryptionConfigResponse'
     { encryptionConfig =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The encryption configuration document.
-getEncryptionConfigResponse_encryptionConfig :: Lens.Lens' GetEncryptionConfigResponse (Prelude.Maybe EncryptionConfig)
+getEncryptionConfigResponse_encryptionConfig :: Lens.Lens' GetEncryptionConfigResponse (Core.Maybe EncryptionConfig)
 getEncryptionConfigResponse_encryptionConfig = Lens.lens (\GetEncryptionConfigResponse' {encryptionConfig} -> encryptionConfig) (\s@GetEncryptionConfigResponse' {} a -> s {encryptionConfig = a} :: GetEncryptionConfigResponse)
 
 -- | The response's http status code.
-getEncryptionConfigResponse_httpStatus :: Lens.Lens' GetEncryptionConfigResponse Prelude.Int
+getEncryptionConfigResponse_httpStatus :: Lens.Lens' GetEncryptionConfigResponse Core.Int
 getEncryptionConfigResponse_httpStatus = Lens.lens (\GetEncryptionConfigResponse' {httpStatus} -> httpStatus) (\s@GetEncryptionConfigResponse' {} a -> s {httpStatus = a} :: GetEncryptionConfigResponse)
 
-instance Prelude.NFData GetEncryptionConfigResponse
+instance Core.NFData GetEncryptionConfigResponse

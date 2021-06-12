@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.Lightsail.GetBundles
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,12 +57,12 @@ data GetBundles = GetBundles'
     -- To get a page token, perform an initial @GetBundles@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text,
+    pageToken :: Core.Maybe Core.Text,
     -- | A Boolean value that indicates whether to include inactive bundle
     -- results in your request.
-    includeInactive :: Prelude.Maybe Prelude.Bool
+    includeInactive :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBundles' with all optional fields omitted.
@@ -86,8 +84,8 @@ newGetBundles ::
   GetBundles
 newGetBundles =
   GetBundles'
-    { pageToken = Prelude.Nothing,
-      includeInactive = Prelude.Nothing
+    { pageToken = Core.Nothing,
+      includeInactive = Core.Nothing
     }
 
 -- | The token to advance to the next page of results from your request.
@@ -95,80 +93,75 @@ newGetBundles =
 -- To get a page token, perform an initial @GetBundles@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
-getBundles_pageToken :: Lens.Lens' GetBundles (Prelude.Maybe Prelude.Text)
+getBundles_pageToken :: Lens.Lens' GetBundles (Core.Maybe Core.Text)
 getBundles_pageToken = Lens.lens (\GetBundles' {pageToken} -> pageToken) (\s@GetBundles' {} a -> s {pageToken = a} :: GetBundles)
 
 -- | A Boolean value that indicates whether to include inactive bundle
 -- results in your request.
-getBundles_includeInactive :: Lens.Lens' GetBundles (Prelude.Maybe Prelude.Bool)
+getBundles_includeInactive :: Lens.Lens' GetBundles (Core.Maybe Core.Bool)
 getBundles_includeInactive = Lens.lens (\GetBundles' {includeInactive} -> includeInactive) (\s@GetBundles' {} a -> s {includeInactive = a} :: GetBundles)
 
-instance Pager.AWSPager GetBundles where
+instance Core.AWSPager GetBundles where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? getBundlesResponse_nextPageToken
-              Prelude.. Lens._Just
+            Lens.^? getBundlesResponse_nextPageToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? getBundlesResponse_bundles Prelude.. Lens._Just
+            Lens.^? getBundlesResponse_bundles Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getBundles_pageToken
           Lens..~ rs
-          Lens.^? getBundlesResponse_nextPageToken Prelude.. Lens._Just
+          Lens.^? getBundlesResponse_nextPageToken Core.. Lens._Just
 
-instance Prelude.AWSRequest GetBundles where
-  type Rs GetBundles = GetBundlesResponse
+instance Core.AWSRequest GetBundles where
+  type AWSResponse GetBundles = GetBundlesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetBundlesResponse'
-            Prelude.<$> (x Prelude..?> "nextPageToken")
-            Prelude.<*> (x Prelude..?> "bundles" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextPageToken")
+            Core.<*> (x Core..?> "bundles" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetBundles
+instance Core.Hashable GetBundles
 
-instance Prelude.NFData GetBundles
+instance Core.NFData GetBundles
 
-instance Prelude.ToHeaders GetBundles where
+instance Core.ToHeaders GetBundles where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetBundles" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Lightsail_20161128.GetBundles" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetBundles where
+instance Core.ToJSON GetBundles where
   toJSON GetBundles' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("pageToken" Prelude..=) Prelude.<$> pageToken,
-            ("includeInactive" Prelude..=)
-              Prelude.<$> includeInactive
+    Core.object
+      ( Core.catMaybes
+          [ ("pageToken" Core..=) Core.<$> pageToken,
+            ("includeInactive" Core..=)
+              Core.<$> includeInactive
           ]
       )
 
-instance Prelude.ToPath GetBundles where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetBundles where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetBundles where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetBundles where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetBundlesResponse' smart constructor.
 data GetBundlesResponse = GetBundlesResponse'
@@ -179,14 +172,14 @@ data GetBundlesResponse = GetBundlesResponse'
     --
     -- To get the next page of results, perform another @GetBundles@ request
     -- and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | An array of key-value pairs that contains information about the
     -- available bundles.
-    bundles :: Prelude.Maybe [Bundle],
+    bundles :: Core.Maybe [Bundle],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBundlesResponse' with all optional fields omitted.
@@ -210,13 +203,12 @@ data GetBundlesResponse = GetBundlesResponse'
 -- 'httpStatus', 'getBundlesResponse_httpStatus' - The response's http status code.
 newGetBundlesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBundlesResponse
 newGetBundlesResponse pHttpStatus_ =
   GetBundlesResponse'
-    { nextPageToken =
-        Prelude.Nothing,
-      bundles = Prelude.Nothing,
+    { nextPageToken = Core.Nothing,
+      bundles = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -227,16 +219,16 @@ newGetBundlesResponse pHttpStatus_ =
 --
 -- To get the next page of results, perform another @GetBundles@ request
 -- and specify the next page token using the @pageToken@ parameter.
-getBundlesResponse_nextPageToken :: Lens.Lens' GetBundlesResponse (Prelude.Maybe Prelude.Text)
+getBundlesResponse_nextPageToken :: Lens.Lens' GetBundlesResponse (Core.Maybe Core.Text)
 getBundlesResponse_nextPageToken = Lens.lens (\GetBundlesResponse' {nextPageToken} -> nextPageToken) (\s@GetBundlesResponse' {} a -> s {nextPageToken = a} :: GetBundlesResponse)
 
 -- | An array of key-value pairs that contains information about the
 -- available bundles.
-getBundlesResponse_bundles :: Lens.Lens' GetBundlesResponse (Prelude.Maybe [Bundle])
-getBundlesResponse_bundles = Lens.lens (\GetBundlesResponse' {bundles} -> bundles) (\s@GetBundlesResponse' {} a -> s {bundles = a} :: GetBundlesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getBundlesResponse_bundles :: Lens.Lens' GetBundlesResponse (Core.Maybe [Bundle])
+getBundlesResponse_bundles = Lens.lens (\GetBundlesResponse' {bundles} -> bundles) (\s@GetBundlesResponse' {} a -> s {bundles = a} :: GetBundlesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getBundlesResponse_httpStatus :: Lens.Lens' GetBundlesResponse Prelude.Int
+getBundlesResponse_httpStatus :: Lens.Lens' GetBundlesResponse Core.Int
 getBundlesResponse_httpStatus = Lens.lens (\GetBundlesResponse' {httpStatus} -> httpStatus) (\s@GetBundlesResponse' {} a -> s {httpStatus = a} :: GetBundlesResponse)
 
-instance Prelude.NFData GetBundlesResponse
+instance Core.NFData GetBundlesResponse

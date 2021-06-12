@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -84,9 +83,9 @@ module Network.AWS.Glacier.DescribeJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -99,13 +98,13 @@ data DescribeJob = DescribeJob'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text,
+    vaultName :: Core.Text,
     -- | The ID of the job to describe.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeJob' with all optional fields omitted.
@@ -126,11 +125,11 @@ data DescribeJob = DescribeJob'
 -- 'jobId', 'describeJob_jobId' - The ID of the job to describe.
 newDescribeJob ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeJob
 newDescribeJob pAccountId_ pVaultName_ pJobId_ =
   DescribeJob'
@@ -144,43 +143,43 @@ newDescribeJob pAccountId_ pVaultName_ pJobId_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-describeJob_accountId :: Lens.Lens' DescribeJob Prelude.Text
+describeJob_accountId :: Lens.Lens' DescribeJob Core.Text
 describeJob_accountId = Lens.lens (\DescribeJob' {accountId} -> accountId) (\s@DescribeJob' {} a -> s {accountId = a} :: DescribeJob)
 
 -- | The name of the vault.
-describeJob_vaultName :: Lens.Lens' DescribeJob Prelude.Text
+describeJob_vaultName :: Lens.Lens' DescribeJob Core.Text
 describeJob_vaultName = Lens.lens (\DescribeJob' {vaultName} -> vaultName) (\s@DescribeJob' {} a -> s {vaultName = a} :: DescribeJob)
 
 -- | The ID of the job to describe.
-describeJob_jobId :: Lens.Lens' DescribeJob Prelude.Text
+describeJob_jobId :: Lens.Lens' DescribeJob Core.Text
 describeJob_jobId = Lens.lens (\DescribeJob' {jobId} -> jobId) (\s@DescribeJob' {} a -> s {jobId = a} :: DescribeJob)
 
-instance Prelude.AWSRequest DescribeJob where
-  type Rs DescribeJob = GlacierJobDescription
+instance Core.AWSRequest DescribeJob where
+  type AWSResponse DescribeJob = GlacierJobDescription
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.get defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DescribeJob
+instance Core.Hashable DescribeJob
 
-instance Prelude.NFData DescribeJob
+instance Core.NFData DescribeJob
 
-instance Prelude.ToHeaders DescribeJob where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeJob where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeJob where
+instance Core.ToPath DescribeJob where
   toPath DescribeJob' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/jobs/",
-        Prelude.toBS jobId
+        Core.toBS jobId
       ]
 
-instance Prelude.ToQuery DescribeJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeJob where
+  toQuery = Core.const Core.mempty

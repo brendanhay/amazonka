@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.IoT.DeleteJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,7 +63,7 @@ data DeleteJob = DeleteJob'
     -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
     --
     -- The @namespaceId@ feature is in public preview.
-    namespaceId :: Prelude.Maybe Prelude.Text,
+    namespaceId :: Core.Maybe Core.Text,
     -- | (Optional) When true, you can delete a job which is \"IN_PROGRESS\".
     -- Otherwise, you can only delete a job which is in a terminal state
     -- (\"COMPLETED\" or \"CANCELED\") or an exception will occur. The default
@@ -74,15 +73,15 @@ data DeleteJob = DeleteJob'
     -- executing the job to be unable to access job information or update the
     -- job execution status. Use caution and ensure that each device executing
     -- a job which is deleted is able to recover to a valid state.
-    force :: Prelude.Maybe Prelude.Bool,
+    force :: Core.Maybe Core.Bool,
     -- | The ID of the job to be deleted.
     --
     -- After a job deletion is completed, you may reuse this jobId when you
     -- create a new job. However, this is not recommended, and you must ensure
     -- that your devices are not using the jobId to refer to the deleted job.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteJob' with all optional fields omitted.
@@ -119,12 +118,12 @@ data DeleteJob = DeleteJob'
 -- that your devices are not using the jobId to refer to the deleted job.
 newDeleteJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteJob
 newDeleteJob pJobId_ =
   DeleteJob'
-    { namespaceId = Prelude.Nothing,
-      force = Prelude.Nothing,
+    { namespaceId = Core.Nothing,
+      force = Core.Nothing,
       jobId = pJobId_
     }
 
@@ -137,7 +136,7 @@ newDeleteJob pJobId_ =
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
-deleteJob_namespaceId :: Lens.Lens' DeleteJob (Prelude.Maybe Prelude.Text)
+deleteJob_namespaceId :: Lens.Lens' DeleteJob (Core.Maybe Core.Text)
 deleteJob_namespaceId = Lens.lens (\DeleteJob' {namespaceId} -> namespaceId) (\s@DeleteJob' {} a -> s {namespaceId = a} :: DeleteJob)
 
 -- | (Optional) When true, you can delete a job which is \"IN_PROGRESS\".
@@ -149,7 +148,7 @@ deleteJob_namespaceId = Lens.lens (\DeleteJob' {namespaceId} -> namespaceId) (\s
 -- executing the job to be unable to access job information or update the
 -- job execution status. Use caution and ensure that each device executing
 -- a job which is deleted is able to recover to a valid state.
-deleteJob_force :: Lens.Lens' DeleteJob (Prelude.Maybe Prelude.Bool)
+deleteJob_force :: Lens.Lens' DeleteJob (Core.Maybe Core.Bool)
 deleteJob_force = Lens.lens (\DeleteJob' {force} -> force) (\s@DeleteJob' {} a -> s {force = a} :: DeleteJob)
 
 -- | The ID of the job to be deleted.
@@ -157,37 +156,37 @@ deleteJob_force = Lens.lens (\DeleteJob' {force} -> force) (\s@DeleteJob' {} a -
 -- After a job deletion is completed, you may reuse this jobId when you
 -- create a new job. However, this is not recommended, and you must ensure
 -- that your devices are not using the jobId to refer to the deleted job.
-deleteJob_jobId :: Lens.Lens' DeleteJob Prelude.Text
+deleteJob_jobId :: Lens.Lens' DeleteJob Core.Text
 deleteJob_jobId = Lens.lens (\DeleteJob' {jobId} -> jobId) (\s@DeleteJob' {} a -> s {jobId = a} :: DeleteJob)
 
-instance Prelude.AWSRequest DeleteJob where
-  type Rs DeleteJob = DeleteJobResponse
+instance Core.AWSRequest DeleteJob where
+  type AWSResponse DeleteJob = DeleteJobResponse
   request = Request.delete defaultService
   response = Response.receiveNull DeleteJobResponse'
 
-instance Prelude.Hashable DeleteJob
+instance Core.Hashable DeleteJob
 
-instance Prelude.NFData DeleteJob
+instance Core.NFData DeleteJob
 
-instance Prelude.ToHeaders DeleteJob where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteJob where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteJob where
+instance Core.ToPath DeleteJob where
   toPath DeleteJob' {..} =
-    Prelude.mconcat ["/jobs/", Prelude.toBS jobId]
+    Core.mconcat ["/jobs/", Core.toBS jobId]
 
-instance Prelude.ToQuery DeleteJob where
+instance Core.ToQuery DeleteJob where
   toQuery DeleteJob' {..} =
-    Prelude.mconcat
-      [ "namespaceId" Prelude.=: namespaceId,
-        "force" Prelude.=: force
+    Core.mconcat
+      [ "namespaceId" Core.=: namespaceId,
+        "force" Core.=: force
       ]
 
 -- | /See:/ 'newDeleteJobResponse' smart constructor.
 data DeleteJobResponse = DeleteJobResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteJobResponse' with all optional fields omitted.
@@ -197,4 +196,4 @@ newDeleteJobResponse ::
   DeleteJobResponse
 newDeleteJobResponse = DeleteJobResponse'
 
-instance Prelude.NFData DeleteJobResponse
+instance Core.NFData DeleteJobResponse

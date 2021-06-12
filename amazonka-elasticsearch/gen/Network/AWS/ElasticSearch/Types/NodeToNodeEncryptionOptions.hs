@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the node-to-node encryption options.
 --
 -- /See:/ 'newNodeToNodeEncryptionOptions' smart constructor.
 data NodeToNodeEncryptionOptions = NodeToNodeEncryptionOptions'
   { -- | Specify true to enable node-to-node encryption.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NodeToNodeEncryptionOptions' with all optional fields omitted.
@@ -46,29 +45,29 @@ newNodeToNodeEncryptionOptions ::
 newNodeToNodeEncryptionOptions =
   NodeToNodeEncryptionOptions'
     { enabled =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specify true to enable node-to-node encryption.
-nodeToNodeEncryptionOptions_enabled :: Lens.Lens' NodeToNodeEncryptionOptions (Prelude.Maybe Prelude.Bool)
+nodeToNodeEncryptionOptions_enabled :: Lens.Lens' NodeToNodeEncryptionOptions (Core.Maybe Core.Bool)
 nodeToNodeEncryptionOptions_enabled = Lens.lens (\NodeToNodeEncryptionOptions' {enabled} -> enabled) (\s@NodeToNodeEncryptionOptions' {} a -> s {enabled = a} :: NodeToNodeEncryptionOptions)
 
-instance Prelude.FromJSON NodeToNodeEncryptionOptions where
+instance Core.FromJSON NodeToNodeEncryptionOptions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NodeToNodeEncryptionOptions"
       ( \x ->
           NodeToNodeEncryptionOptions'
-            Prelude.<$> (x Prelude..:? "Enabled")
+            Core.<$> (x Core..:? "Enabled")
       )
 
-instance Prelude.Hashable NodeToNodeEncryptionOptions
+instance Core.Hashable NodeToNodeEncryptionOptions
 
-instance Prelude.NFData NodeToNodeEncryptionOptions
+instance Core.NFData NodeToNodeEncryptionOptions
 
-instance Prelude.ToJSON NodeToNodeEncryptionOptions where
+instance Core.ToJSON NodeToNodeEncryptionOptions where
   toJSON NodeToNodeEncryptionOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Enabled" Prelude..=) Prelude.<$> enabled]
+    Core.object
+      ( Core.catMaybes
+          [("Enabled" Core..=) Core.<$> enabled]
       )

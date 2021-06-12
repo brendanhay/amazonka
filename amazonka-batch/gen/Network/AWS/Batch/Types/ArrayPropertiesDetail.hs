@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types.ArrayPropertiesDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the array properties of a job.
 --
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 data ArrayPropertiesDetail = ArrayPropertiesDetail'
   { -- | The job index within the array that\'s associated with this job. This
     -- parameter is returned for array job children.
-    index :: Prelude.Maybe Prelude.Int,
+    index :: Core.Maybe Core.Int,
     -- | A summary of the number of array job children in each available job
     -- status. This parameter is returned for parent array jobs.
-    statusSummary :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int),
+    statusSummary :: Core.Maybe (Core.HashMap Core.Text Core.Int),
     -- | The size of the array job. This parameter is returned for parent array
     -- jobs.
-    size :: Prelude.Maybe Prelude.Int
+    size :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ArrayPropertiesDetail' with all optional fields omitted.
@@ -59,39 +58,37 @@ newArrayPropertiesDetail ::
   ArrayPropertiesDetail
 newArrayPropertiesDetail =
   ArrayPropertiesDetail'
-    { index = Prelude.Nothing,
-      statusSummary = Prelude.Nothing,
-      size = Prelude.Nothing
+    { index = Core.Nothing,
+      statusSummary = Core.Nothing,
+      size = Core.Nothing
     }
 
 -- | The job index within the array that\'s associated with this job. This
 -- parameter is returned for array job children.
-arrayPropertiesDetail_index :: Lens.Lens' ArrayPropertiesDetail (Prelude.Maybe Prelude.Int)
+arrayPropertiesDetail_index :: Lens.Lens' ArrayPropertiesDetail (Core.Maybe Core.Int)
 arrayPropertiesDetail_index = Lens.lens (\ArrayPropertiesDetail' {index} -> index) (\s@ArrayPropertiesDetail' {} a -> s {index = a} :: ArrayPropertiesDetail)
 
 -- | A summary of the number of array job children in each available job
 -- status. This parameter is returned for parent array jobs.
-arrayPropertiesDetail_statusSummary :: Lens.Lens' ArrayPropertiesDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
-arrayPropertiesDetail_statusSummary = Lens.lens (\ArrayPropertiesDetail' {statusSummary} -> statusSummary) (\s@ArrayPropertiesDetail' {} a -> s {statusSummary = a} :: ArrayPropertiesDetail) Prelude.. Lens.mapping Prelude._Coerce
+arrayPropertiesDetail_statusSummary :: Lens.Lens' ArrayPropertiesDetail (Core.Maybe (Core.HashMap Core.Text Core.Int))
+arrayPropertiesDetail_statusSummary = Lens.lens (\ArrayPropertiesDetail' {statusSummary} -> statusSummary) (\s@ArrayPropertiesDetail' {} a -> s {statusSummary = a} :: ArrayPropertiesDetail) Core.. Lens.mapping Lens._Coerce
 
 -- | The size of the array job. This parameter is returned for parent array
 -- jobs.
-arrayPropertiesDetail_size :: Lens.Lens' ArrayPropertiesDetail (Prelude.Maybe Prelude.Int)
+arrayPropertiesDetail_size :: Lens.Lens' ArrayPropertiesDetail (Core.Maybe Core.Int)
 arrayPropertiesDetail_size = Lens.lens (\ArrayPropertiesDetail' {size} -> size) (\s@ArrayPropertiesDetail' {} a -> s {size = a} :: ArrayPropertiesDetail)
 
-instance Prelude.FromJSON ArrayPropertiesDetail where
+instance Core.FromJSON ArrayPropertiesDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ArrayPropertiesDetail"
       ( \x ->
           ArrayPropertiesDetail'
-            Prelude.<$> (x Prelude..:? "index")
-            Prelude.<*> ( x Prelude..:? "statusSummary"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "size")
+            Core.<$> (x Core..:? "index")
+            Core.<*> (x Core..:? "statusSummary" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "size")
       )
 
-instance Prelude.Hashable ArrayPropertiesDetail
+instance Core.Hashable ArrayPropertiesDetail
 
-instance Prelude.NFData ArrayPropertiesDetail
+instance Core.NFData ArrayPropertiesDetail

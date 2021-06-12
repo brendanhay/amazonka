@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.SageMaker.CreateAction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -60,22 +59,22 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateAction' smart constructor.
 data CreateAction = CreateAction'
   { -- | The status of the action.
-    status :: Prelude.Maybe ActionStatus,
-    metadataProperties :: Prelude.Maybe MetadataProperties,
+    status :: Core.Maybe ActionStatus,
+    metadataProperties :: Core.Maybe MetadataProperties,
     -- | A list of tags to apply to the action.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A list of properties to add to the action.
-    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    properties :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The description of the action.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the action. Must be unique to your account in an AWS Region.
-    actionName :: Prelude.Text,
+    actionName :: Core.Text,
     -- | The source type, ID, and URI.
     source :: ActionSource,
     -- | The action type.
-    actionType :: Prelude.Text
+    actionType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAction' with all optional fields omitted.
@@ -102,46 +101,46 @@ data CreateAction = CreateAction'
 -- 'actionType', 'createAction_actionType' - The action type.
 newCreateAction ::
   -- | 'actionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'source'
   ActionSource ->
   -- | 'actionType'
-  Prelude.Text ->
+  Core.Text ->
   CreateAction
 newCreateAction pActionName_ pSource_ pActionType_ =
   CreateAction'
-    { status = Prelude.Nothing,
-      metadataProperties = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      properties = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { status = Core.Nothing,
+      metadataProperties = Core.Nothing,
+      tags = Core.Nothing,
+      properties = Core.Nothing,
+      description = Core.Nothing,
       actionName = pActionName_,
       source = pSource_,
       actionType = pActionType_
     }
 
 -- | The status of the action.
-createAction_status :: Lens.Lens' CreateAction (Prelude.Maybe ActionStatus)
+createAction_status :: Lens.Lens' CreateAction (Core.Maybe ActionStatus)
 createAction_status = Lens.lens (\CreateAction' {status} -> status) (\s@CreateAction' {} a -> s {status = a} :: CreateAction)
 
 -- | Undocumented member.
-createAction_metadataProperties :: Lens.Lens' CreateAction (Prelude.Maybe MetadataProperties)
+createAction_metadataProperties :: Lens.Lens' CreateAction (Core.Maybe MetadataProperties)
 createAction_metadataProperties = Lens.lens (\CreateAction' {metadataProperties} -> metadataProperties) (\s@CreateAction' {} a -> s {metadataProperties = a} :: CreateAction)
 
 -- | A list of tags to apply to the action.
-createAction_tags :: Lens.Lens' CreateAction (Prelude.Maybe [Tag])
-createAction_tags = Lens.lens (\CreateAction' {tags} -> tags) (\s@CreateAction' {} a -> s {tags = a} :: CreateAction) Prelude.. Lens.mapping Prelude._Coerce
+createAction_tags :: Lens.Lens' CreateAction (Core.Maybe [Tag])
+createAction_tags = Lens.lens (\CreateAction' {tags} -> tags) (\s@CreateAction' {} a -> s {tags = a} :: CreateAction) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of properties to add to the action.
-createAction_properties :: Lens.Lens' CreateAction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAction_properties = Lens.lens (\CreateAction' {properties} -> properties) (\s@CreateAction' {} a -> s {properties = a} :: CreateAction) Prelude.. Lens.mapping Prelude._Coerce
+createAction_properties :: Lens.Lens' CreateAction (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createAction_properties = Lens.lens (\CreateAction' {properties} -> properties) (\s@CreateAction' {} a -> s {properties = a} :: CreateAction) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of the action.
-createAction_description :: Lens.Lens' CreateAction (Prelude.Maybe Prelude.Text)
+createAction_description :: Lens.Lens' CreateAction (Core.Maybe Core.Text)
 createAction_description = Lens.lens (\CreateAction' {description} -> description) (\s@CreateAction' {} a -> s {description = a} :: CreateAction)
 
 -- | The name of the action. Must be unique to your account in an AWS Region.
-createAction_actionName :: Lens.Lens' CreateAction Prelude.Text
+createAction_actionName :: Lens.Lens' CreateAction Core.Text
 createAction_actionName = Lens.lens (\CreateAction' {actionName} -> actionName) (\s@CreateAction' {} a -> s {actionName = a} :: CreateAction)
 
 -- | The source type, ID, and URI.
@@ -149,67 +148,65 @@ createAction_source :: Lens.Lens' CreateAction ActionSource
 createAction_source = Lens.lens (\CreateAction' {source} -> source) (\s@CreateAction' {} a -> s {source = a} :: CreateAction)
 
 -- | The action type.
-createAction_actionType :: Lens.Lens' CreateAction Prelude.Text
+createAction_actionType :: Lens.Lens' CreateAction Core.Text
 createAction_actionType = Lens.lens (\CreateAction' {actionType} -> actionType) (\s@CreateAction' {} a -> s {actionType = a} :: CreateAction)
 
-instance Prelude.AWSRequest CreateAction where
-  type Rs CreateAction = CreateActionResponse
+instance Core.AWSRequest CreateAction where
+  type AWSResponse CreateAction = CreateActionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateActionResponse'
-            Prelude.<$> (x Prelude..?> "ActionArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ActionArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAction
+instance Core.Hashable CreateAction
 
-instance Prelude.NFData CreateAction
+instance Core.NFData CreateAction
 
-instance Prelude.ToHeaders CreateAction where
+instance Core.ToHeaders CreateAction where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.CreateAction" :: Prelude.ByteString),
+              Core.=# ("SageMaker.CreateAction" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateAction where
+instance Core.ToJSON CreateAction where
   toJSON CreateAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Status" Prelude..=) Prelude.<$> status,
-            ("MetadataProperties" Prelude..=)
-              Prelude.<$> metadataProperties,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Properties" Prelude..=) Prelude.<$> properties,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("ActionName" Prelude..= actionName),
-            Prelude.Just ("Source" Prelude..= source),
-            Prelude.Just ("ActionType" Prelude..= actionType)
+    Core.object
+      ( Core.catMaybes
+          [ ("Status" Core..=) Core.<$> status,
+            ("MetadataProperties" Core..=)
+              Core.<$> metadataProperties,
+            ("Tags" Core..=) Core.<$> tags,
+            ("Properties" Core..=) Core.<$> properties,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("ActionName" Core..= actionName),
+            Core.Just ("Source" Core..= source),
+            Core.Just ("ActionType" Core..= actionType)
           ]
       )
 
-instance Prelude.ToPath CreateAction where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateAction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateAction where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateAction where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateActionResponse' smart constructor.
 data CreateActionResponse = CreateActionResponse'
   { -- | The Amazon Resource Name (ARN) of the action.
-    actionArn :: Prelude.Maybe Prelude.Text,
+    actionArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateActionResponse' with all optional fields omitted.
@@ -224,20 +221,20 @@ data CreateActionResponse = CreateActionResponse'
 -- 'httpStatus', 'createActionResponse_httpStatus' - The response's http status code.
 newCreateActionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateActionResponse
 newCreateActionResponse pHttpStatus_ =
   CreateActionResponse'
-    { actionArn = Prelude.Nothing,
+    { actionArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the action.
-createActionResponse_actionArn :: Lens.Lens' CreateActionResponse (Prelude.Maybe Prelude.Text)
+createActionResponse_actionArn :: Lens.Lens' CreateActionResponse (Core.Maybe Core.Text)
 createActionResponse_actionArn = Lens.lens (\CreateActionResponse' {actionArn} -> actionArn) (\s@CreateActionResponse' {} a -> s {actionArn = a} :: CreateActionResponse)
 
 -- | The response's http status code.
-createActionResponse_httpStatus :: Lens.Lens' CreateActionResponse Prelude.Int
+createActionResponse_httpStatus :: Lens.Lens' CreateActionResponse Core.Int
 createActionResponse_httpStatus = Lens.lens (\CreateActionResponse' {httpStatus} -> httpStatus) (\s@CreateActionResponse' {} a -> s {httpStatus = a} :: CreateActionResponse)
 
-instance Prelude.NFData CreateActionResponse
+instance Core.NFData CreateActionResponse

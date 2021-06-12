@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.FpgaInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FpgaDeviceInfo
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the FPGAs for the instance type.
 --
 -- /See:/ 'newFpgaInfo' smart constructor.
 data FpgaInfo = FpgaInfo'
   { -- | The total memory of all FPGA accelerators for the instance type.
-    totalFpgaMemoryInMiB :: Prelude.Maybe Prelude.Int,
+    totalFpgaMemoryInMiB :: Core.Maybe Core.Int,
     -- | Describes the FPGAs for the instance type.
-    fpgas :: Prelude.Maybe [FpgaDeviceInfo]
+    fpgas :: Core.Maybe [FpgaDeviceInfo]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FpgaInfo' with all optional fields omitted.
@@ -51,26 +50,26 @@ newFpgaInfo ::
   FpgaInfo
 newFpgaInfo =
   FpgaInfo'
-    { totalFpgaMemoryInMiB = Prelude.Nothing,
-      fpgas = Prelude.Nothing
+    { totalFpgaMemoryInMiB = Core.Nothing,
+      fpgas = Core.Nothing
     }
 
 -- | The total memory of all FPGA accelerators for the instance type.
-fpgaInfo_totalFpgaMemoryInMiB :: Lens.Lens' FpgaInfo (Prelude.Maybe Prelude.Int)
+fpgaInfo_totalFpgaMemoryInMiB :: Lens.Lens' FpgaInfo (Core.Maybe Core.Int)
 fpgaInfo_totalFpgaMemoryInMiB = Lens.lens (\FpgaInfo' {totalFpgaMemoryInMiB} -> totalFpgaMemoryInMiB) (\s@FpgaInfo' {} a -> s {totalFpgaMemoryInMiB = a} :: FpgaInfo)
 
 -- | Describes the FPGAs for the instance type.
-fpgaInfo_fpgas :: Lens.Lens' FpgaInfo (Prelude.Maybe [FpgaDeviceInfo])
-fpgaInfo_fpgas = Lens.lens (\FpgaInfo' {fpgas} -> fpgas) (\s@FpgaInfo' {} a -> s {fpgas = a} :: FpgaInfo) Prelude.. Lens.mapping Prelude._Coerce
+fpgaInfo_fpgas :: Lens.Lens' FpgaInfo (Core.Maybe [FpgaDeviceInfo])
+fpgaInfo_fpgas = Lens.lens (\FpgaInfo' {fpgas} -> fpgas) (\s@FpgaInfo' {} a -> s {fpgas = a} :: FpgaInfo) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML FpgaInfo where
+instance Core.FromXML FpgaInfo where
   parseXML x =
     FpgaInfo'
-      Prelude.<$> (x Prelude..@? "totalFpgaMemoryInMiB")
-      Prelude.<*> ( x Prelude..@? "fpgas" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> (x Core..@? "totalFpgaMemoryInMiB")
+      Core.<*> ( x Core..@? "fpgas" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable FpgaInfo
+instance Core.Hashable FpgaInfo
 
-instance Prelude.NFData FpgaInfo
+instance Core.NFData FpgaInfo

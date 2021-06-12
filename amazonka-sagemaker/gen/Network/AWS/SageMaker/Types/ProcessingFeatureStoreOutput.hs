@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ProcessingFeatureStoreOutput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration for processing job outputs in Amazon SageMaker Feature
 -- Store.
@@ -31,9 +30,9 @@ data ProcessingFeatureStoreOutput = ProcessingFeatureStoreOutput'
   { -- | The name of the Amazon SageMaker FeatureGroup to use as the destination
     -- for processing job output. Note that your processing script is
     -- responsible for putting records into your Feature Store.
-    featureGroupName :: Prelude.Text
+    featureGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProcessingFeatureStoreOutput' with all optional fields omitted.
@@ -48,7 +47,7 @@ data ProcessingFeatureStoreOutput = ProcessingFeatureStoreOutput'
 -- responsible for putting records into your Feature Store.
 newProcessingFeatureStoreOutput ::
   -- | 'featureGroupName'
-  Prelude.Text ->
+  Core.Text ->
   ProcessingFeatureStoreOutput
 newProcessingFeatureStoreOutput pFeatureGroupName_ =
   ProcessingFeatureStoreOutput'
@@ -59,32 +58,27 @@ newProcessingFeatureStoreOutput pFeatureGroupName_ =
 -- | The name of the Amazon SageMaker FeatureGroup to use as the destination
 -- for processing job output. Note that your processing script is
 -- responsible for putting records into your Feature Store.
-processingFeatureStoreOutput_featureGroupName :: Lens.Lens' ProcessingFeatureStoreOutput Prelude.Text
+processingFeatureStoreOutput_featureGroupName :: Lens.Lens' ProcessingFeatureStoreOutput Core.Text
 processingFeatureStoreOutput_featureGroupName = Lens.lens (\ProcessingFeatureStoreOutput' {featureGroupName} -> featureGroupName) (\s@ProcessingFeatureStoreOutput' {} a -> s {featureGroupName = a} :: ProcessingFeatureStoreOutput)
 
-instance
-  Prelude.FromJSON
-    ProcessingFeatureStoreOutput
-  where
+instance Core.FromJSON ProcessingFeatureStoreOutput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProcessingFeatureStoreOutput"
       ( \x ->
           ProcessingFeatureStoreOutput'
-            Prelude.<$> (x Prelude..: "FeatureGroupName")
+            Core.<$> (x Core..: "FeatureGroupName")
       )
 
-instance
-  Prelude.Hashable
-    ProcessingFeatureStoreOutput
+instance Core.Hashable ProcessingFeatureStoreOutput
 
-instance Prelude.NFData ProcessingFeatureStoreOutput
+instance Core.NFData ProcessingFeatureStoreOutput
 
-instance Prelude.ToJSON ProcessingFeatureStoreOutput where
+instance Core.ToJSON ProcessingFeatureStoreOutput where
   toJSON ProcessingFeatureStoreOutput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("FeatureGroupName" Prelude..= featureGroupName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("FeatureGroupName" Core..= featureGroupName)
           ]
       )

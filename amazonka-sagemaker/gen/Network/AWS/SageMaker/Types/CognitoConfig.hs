@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.CognitoConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Use this parameter to configure your Amazon Cognito workforce. A single
 -- Cognito workforce is created using and corresponds to a single
@@ -35,11 +34,11 @@ data CognitoConfig = CognitoConfig'
     -- sign in to your web or mobile app through Amazon Cognito. Your users can
     -- also sign in through social identity providers like Google, Facebook,
     -- Amazon, or Apple, and through SAML identity providers.
-    userPool :: Prelude.Text,
+    userPool :: Core.Text,
     -- | The client ID for your Amazon Cognito user pool.
-    clientId :: Prelude.Text
+    clientId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CognitoConfig' with all optional fields omitted.
@@ -59,9 +58,9 @@ data CognitoConfig = CognitoConfig'
 -- 'clientId', 'cognitoConfig_clientId' - The client ID for your Amazon Cognito user pool.
 newCognitoConfig ::
   -- | 'userPool'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'clientId'
-  Prelude.Text ->
+  Core.Text ->
   CognitoConfig
 newCognitoConfig pUserPool_ pClientId_ =
   CognitoConfig'
@@ -75,32 +74,32 @@ newCognitoConfig pUserPool_ pClientId_ =
 -- sign in to your web or mobile app through Amazon Cognito. Your users can
 -- also sign in through social identity providers like Google, Facebook,
 -- Amazon, or Apple, and through SAML identity providers.
-cognitoConfig_userPool :: Lens.Lens' CognitoConfig Prelude.Text
+cognitoConfig_userPool :: Lens.Lens' CognitoConfig Core.Text
 cognitoConfig_userPool = Lens.lens (\CognitoConfig' {userPool} -> userPool) (\s@CognitoConfig' {} a -> s {userPool = a} :: CognitoConfig)
 
 -- | The client ID for your Amazon Cognito user pool.
-cognitoConfig_clientId :: Lens.Lens' CognitoConfig Prelude.Text
+cognitoConfig_clientId :: Lens.Lens' CognitoConfig Core.Text
 cognitoConfig_clientId = Lens.lens (\CognitoConfig' {clientId} -> clientId) (\s@CognitoConfig' {} a -> s {clientId = a} :: CognitoConfig)
 
-instance Prelude.FromJSON CognitoConfig where
+instance Core.FromJSON CognitoConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CognitoConfig"
       ( \x ->
           CognitoConfig'
-            Prelude.<$> (x Prelude..: "UserPool")
-            Prelude.<*> (x Prelude..: "ClientId")
+            Core.<$> (x Core..: "UserPool")
+            Core.<*> (x Core..: "ClientId")
       )
 
-instance Prelude.Hashable CognitoConfig
+instance Core.Hashable CognitoConfig
 
-instance Prelude.NFData CognitoConfig
+instance Core.NFData CognitoConfig
 
-instance Prelude.ToJSON CognitoConfig where
+instance Core.ToJSON CognitoConfig where
   toJSON CognitoConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPool" Prelude..= userPool),
-            Prelude.Just ("ClientId" Prelude..= clientId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPool" Core..= userPool),
+            Core.Just ("ClientId" Core..= clientId)
           ]
       )

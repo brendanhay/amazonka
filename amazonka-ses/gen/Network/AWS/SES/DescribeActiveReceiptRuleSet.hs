@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SES.DescribeActiveReceiptRuleSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -59,7 +58,7 @@ import Network.AWS.SES.Types
 data DescribeActiveReceiptRuleSet = DescribeActiveReceiptRuleSet'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeActiveReceiptRuleSet' with all optional fields omitted.
@@ -70,12 +69,9 @@ newDescribeActiveReceiptRuleSet ::
 newDescribeActiveReceiptRuleSet =
   DescribeActiveReceiptRuleSet'
 
-instance
-  Prelude.AWSRequest
-    DescribeActiveReceiptRuleSet
-  where
+instance Core.AWSRequest DescribeActiveReceiptRuleSet where
   type
-    Rs DescribeActiveReceiptRuleSet =
+    AWSResponse DescribeActiveReceiptRuleSet =
       DescribeActiveReceiptRuleSetResponse
   request = Request.postQuery defaultService
   response =
@@ -83,38 +79,30 @@ instance
       "DescribeActiveReceiptRuleSetResult"
       ( \s h x ->
           DescribeActiveReceiptRuleSetResponse'
-            Prelude.<$> ( x Prelude..@? "Rules" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (x Prelude..@? "Metadata")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Rules" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (x Core..@? "Metadata")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeActiveReceiptRuleSet
+instance Core.Hashable DescribeActiveReceiptRuleSet
 
-instance Prelude.NFData DescribeActiveReceiptRuleSet
+instance Core.NFData DescribeActiveReceiptRuleSet
 
-instance
-  Prelude.ToHeaders
-    DescribeActiveReceiptRuleSet
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeActiveReceiptRuleSet where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeActiveReceiptRuleSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeActiveReceiptRuleSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeActiveReceiptRuleSet where
+instance Core.ToQuery DescribeActiveReceiptRuleSet where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ( "DescribeActiveReceiptRuleSet" ::
-                             Prelude.ByteString
-                         ),
-            "Version"
-              Prelude.=: ("2010-12-01" :: Prelude.ByteString)
+              Core.=: ("DescribeActiveReceiptRuleSet" :: Core.ByteString),
+            "Version" Core.=: ("2010-12-01" :: Core.ByteString)
           ]
       )
 
@@ -124,15 +112,15 @@ instance Prelude.ToQuery DescribeActiveReceiptRuleSet where
 -- /See:/ 'newDescribeActiveReceiptRuleSetResponse' smart constructor.
 data DescribeActiveReceiptRuleSetResponse = DescribeActiveReceiptRuleSetResponse'
   { -- | The receipt rules that belong to the active rule set.
-    rules :: Prelude.Maybe [ReceiptRule],
+    rules :: Core.Maybe [ReceiptRule],
     -- | The metadata for the currently active receipt rule set. The metadata
     -- consists of the rule set name and a timestamp of when the rule set was
     -- created.
-    metadata :: Prelude.Maybe ReceiptRuleSetMetadata,
+    metadata :: Core.Maybe ReceiptRuleSetMetadata,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeActiveReceiptRuleSetResponse' with all optional fields omitted.
@@ -151,30 +139,30 @@ data DescribeActiveReceiptRuleSetResponse = DescribeActiveReceiptRuleSetResponse
 -- 'httpStatus', 'describeActiveReceiptRuleSetResponse_httpStatus' - The response's http status code.
 newDescribeActiveReceiptRuleSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeActiveReceiptRuleSetResponse
 newDescribeActiveReceiptRuleSetResponse pHttpStatus_ =
   DescribeActiveReceiptRuleSetResponse'
     { rules =
-        Prelude.Nothing,
-      metadata = Prelude.Nothing,
+        Core.Nothing,
+      metadata = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The receipt rules that belong to the active rule set.
-describeActiveReceiptRuleSetResponse_rules :: Lens.Lens' DescribeActiveReceiptRuleSetResponse (Prelude.Maybe [ReceiptRule])
-describeActiveReceiptRuleSetResponse_rules = Lens.lens (\DescribeActiveReceiptRuleSetResponse' {rules} -> rules) (\s@DescribeActiveReceiptRuleSetResponse' {} a -> s {rules = a} :: DescribeActiveReceiptRuleSetResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeActiveReceiptRuleSetResponse_rules :: Lens.Lens' DescribeActiveReceiptRuleSetResponse (Core.Maybe [ReceiptRule])
+describeActiveReceiptRuleSetResponse_rules = Lens.lens (\DescribeActiveReceiptRuleSetResponse' {rules} -> rules) (\s@DescribeActiveReceiptRuleSetResponse' {} a -> s {rules = a} :: DescribeActiveReceiptRuleSetResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The metadata for the currently active receipt rule set. The metadata
 -- consists of the rule set name and a timestamp of when the rule set was
 -- created.
-describeActiveReceiptRuleSetResponse_metadata :: Lens.Lens' DescribeActiveReceiptRuleSetResponse (Prelude.Maybe ReceiptRuleSetMetadata)
+describeActiveReceiptRuleSetResponse_metadata :: Lens.Lens' DescribeActiveReceiptRuleSetResponse (Core.Maybe ReceiptRuleSetMetadata)
 describeActiveReceiptRuleSetResponse_metadata = Lens.lens (\DescribeActiveReceiptRuleSetResponse' {metadata} -> metadata) (\s@DescribeActiveReceiptRuleSetResponse' {} a -> s {metadata = a} :: DescribeActiveReceiptRuleSetResponse)
 
 -- | The response's http status code.
-describeActiveReceiptRuleSetResponse_httpStatus :: Lens.Lens' DescribeActiveReceiptRuleSetResponse Prelude.Int
+describeActiveReceiptRuleSetResponse_httpStatus :: Lens.Lens' DescribeActiveReceiptRuleSetResponse Core.Int
 describeActiveReceiptRuleSetResponse_httpStatus = Lens.lens (\DescribeActiveReceiptRuleSetResponse' {httpStatus} -> httpStatus) (\s@DescribeActiveReceiptRuleSetResponse' {} a -> s {httpStatus = a} :: DescribeActiveReceiptRuleSetResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeActiveReceiptRuleSetResponse

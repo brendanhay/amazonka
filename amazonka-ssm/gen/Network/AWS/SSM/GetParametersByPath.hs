@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,9 +56,8 @@ module Network.AWS.SSM.GetParametersByPath
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -67,14 +65,14 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newGetParametersByPath' smart constructor.
 data GetParametersByPath = GetParametersByPath'
   { -- | Retrieve all parameters in a hierarchy with their value decrypted.
-    withDecryption :: Prelude.Maybe Prelude.Bool,
+    withDecryption :: Core.Maybe Core.Bool,
     -- | A token to start the list. Use this token to get the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Retrieve all parameters within a hierarchy.
     --
     -- If a user has access to a path, then the user can access all levels of
@@ -83,7 +81,7 @@ data GetParametersByPath = GetParametersByPath'
     -- been denied access in IAM for parameter @\/a\/b@, they can still call
     -- the GetParametersByPath API action recursively for @\/a@ and view
     -- @\/a\/b@.
-    recursive :: Prelude.Maybe Prelude.Bool,
+    recursive :: Core.Maybe Core.Bool,
     -- | Filters to limit the request results.
     --
     -- For @GetParametersByPath@, the following filter @Key@ names are
@@ -91,16 +89,16 @@ data GetParametersByPath = GetParametersByPath'
     --
     -- The following @Key@ values are not supported for @GetParametersByPath@:
     -- @tag@, @Name@, @Path@, and @Tier@.
-    parameterFilters :: Prelude.Maybe [ParameterStringFilter],
+    parameterFilters :: Core.Maybe [ParameterStringFilter],
     -- | The hierarchy for the parameter. Hierarchies start with a forward slash
     -- (\/). The hierachy is the parameter name except the last part of the
     -- parameter. For the API call to succeeed, the last part of the parameter
     -- name cannot be in the path. A parameter name hierarchy can have a
     -- maximum of 15 levels. Here is an example of a hierarchy:
     -- @\/Finance\/Prod\/IAD\/WinServ2016\/license33 @
-    path :: Prelude.Text
+    path :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetParametersByPath' with all optional fields omitted.
@@ -144,32 +142,31 @@ data GetParametersByPath = GetParametersByPath'
 -- @\/Finance\/Prod\/IAD\/WinServ2016\/license33 @
 newGetParametersByPath ::
   -- | 'path'
-  Prelude.Text ->
+  Core.Text ->
   GetParametersByPath
 newGetParametersByPath pPath_ =
   GetParametersByPath'
-    { withDecryption =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      recursive = Prelude.Nothing,
-      parameterFilters = Prelude.Nothing,
+    { withDecryption = Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      recursive = Core.Nothing,
+      parameterFilters = Core.Nothing,
       path = pPath_
     }
 
 -- | Retrieve all parameters in a hierarchy with their value decrypted.
-getParametersByPath_withDecryption :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Bool)
+getParametersByPath_withDecryption :: Lens.Lens' GetParametersByPath (Core.Maybe Core.Bool)
 getParametersByPath_withDecryption = Lens.lens (\GetParametersByPath' {withDecryption} -> withDecryption) (\s@GetParametersByPath' {} a -> s {withDecryption = a} :: GetParametersByPath)
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
-getParametersByPath_nextToken :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Text)
+getParametersByPath_nextToken :: Lens.Lens' GetParametersByPath (Core.Maybe Core.Text)
 getParametersByPath_nextToken = Lens.lens (\GetParametersByPath' {nextToken} -> nextToken) (\s@GetParametersByPath' {} a -> s {nextToken = a} :: GetParametersByPath)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-getParametersByPath_maxResults :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Natural)
+getParametersByPath_maxResults :: Lens.Lens' GetParametersByPath (Core.Maybe Core.Natural)
 getParametersByPath_maxResults = Lens.lens (\GetParametersByPath' {maxResults} -> maxResults) (\s@GetParametersByPath' {} a -> s {maxResults = a} :: GetParametersByPath)
 
 -- | Retrieve all parameters within a hierarchy.
@@ -180,7 +177,7 @@ getParametersByPath_maxResults = Lens.lens (\GetParametersByPath' {maxResults} -
 -- been denied access in IAM for parameter @\/a\/b@, they can still call
 -- the GetParametersByPath API action recursively for @\/a@ and view
 -- @\/a\/b@.
-getParametersByPath_recursive :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Bool)
+getParametersByPath_recursive :: Lens.Lens' GetParametersByPath (Core.Maybe Core.Bool)
 getParametersByPath_recursive = Lens.lens (\GetParametersByPath' {recursive} -> recursive) (\s@GetParametersByPath' {} a -> s {recursive = a} :: GetParametersByPath)
 
 -- | Filters to limit the request results.
@@ -190,8 +187,8 @@ getParametersByPath_recursive = Lens.lens (\GetParametersByPath' {recursive} -> 
 --
 -- The following @Key@ values are not supported for @GetParametersByPath@:
 -- @tag@, @Name@, @Path@, and @Tier@.
-getParametersByPath_parameterFilters :: Lens.Lens' GetParametersByPath (Prelude.Maybe [ParameterStringFilter])
-getParametersByPath_parameterFilters = Lens.lens (\GetParametersByPath' {parameterFilters} -> parameterFilters) (\s@GetParametersByPath' {} a -> s {parameterFilters = a} :: GetParametersByPath) Prelude.. Lens.mapping Prelude._Coerce
+getParametersByPath_parameterFilters :: Lens.Lens' GetParametersByPath (Core.Maybe [ParameterStringFilter])
+getParametersByPath_parameterFilters = Lens.lens (\GetParametersByPath' {parameterFilters} -> parameterFilters) (\s@GetParametersByPath' {} a -> s {parameterFilters = a} :: GetParametersByPath) Core.. Lens.mapping Lens._Coerce
 
 -- | The hierarchy for the parameter. Hierarchies start with a forward slash
 -- (\/). The hierachy is the parameter name except the last part of the
@@ -199,98 +196,91 @@ getParametersByPath_parameterFilters = Lens.lens (\GetParametersByPath' {paramet
 -- name cannot be in the path. A parameter name hierarchy can have a
 -- maximum of 15 levels. Here is an example of a hierarchy:
 -- @\/Finance\/Prod\/IAD\/WinServ2016\/license33 @
-getParametersByPath_path :: Lens.Lens' GetParametersByPath Prelude.Text
+getParametersByPath_path :: Lens.Lens' GetParametersByPath Core.Text
 getParametersByPath_path = Lens.lens (\GetParametersByPath' {path} -> path) (\s@GetParametersByPath' {} a -> s {path = a} :: GetParametersByPath)
 
-instance Pager.AWSPager GetParametersByPath where
+instance Core.AWSPager GetParametersByPath where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getParametersByPathResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getParametersByPathResponse_parameters
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getParametersByPath_nextToken
           Lens..~ rs
           Lens.^? getParametersByPathResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest GetParametersByPath where
+instance Core.AWSRequest GetParametersByPath where
   type
-    Rs GetParametersByPath =
+    AWSResponse GetParametersByPath =
       GetParametersByPathResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetParametersByPathResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Parameters"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Parameters" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetParametersByPath
+instance Core.Hashable GetParametersByPath
 
-instance Prelude.NFData GetParametersByPath
+instance Core.NFData GetParametersByPath
 
-instance Prelude.ToHeaders GetParametersByPath where
+instance Core.ToHeaders GetParametersByPath where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.GetParametersByPath" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonSSM.GetParametersByPath" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetParametersByPath where
+instance Core.ToJSON GetParametersByPath where
   toJSON GetParametersByPath' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("WithDecryption" Prelude..=)
-              Prelude.<$> withDecryption,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Recursive" Prelude..=) Prelude.<$> recursive,
-            ("ParameterFilters" Prelude..=)
-              Prelude.<$> parameterFilters,
-            Prelude.Just ("Path" Prelude..= path)
+    Core.object
+      ( Core.catMaybes
+          [ ("WithDecryption" Core..=) Core.<$> withDecryption,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Recursive" Core..=) Core.<$> recursive,
+            ("ParameterFilters" Core..=)
+              Core.<$> parameterFilters,
+            Core.Just ("Path" Core..= path)
           ]
       )
 
-instance Prelude.ToPath GetParametersByPath where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetParametersByPath where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetParametersByPath where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetParametersByPath where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetParametersByPathResponse' smart constructor.
 data GetParametersByPathResponse = GetParametersByPathResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of parameters found in the specified hierarchy.
-    parameters :: Prelude.Maybe [Parameter],
+    parameters :: Core.Maybe [Parameter],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetParametersByPathResponse' with all optional fields omitted.
@@ -308,27 +298,27 @@ data GetParametersByPathResponse = GetParametersByPathResponse'
 -- 'httpStatus', 'getParametersByPathResponse_httpStatus' - The response's http status code.
 newGetParametersByPathResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetParametersByPathResponse
 newGetParametersByPathResponse pHttpStatus_ =
   GetParametersByPathResponse'
     { nextToken =
-        Prelude.Nothing,
-      parameters = Prelude.Nothing,
+        Core.Nothing,
+      parameters = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
-getParametersByPathResponse_nextToken :: Lens.Lens' GetParametersByPathResponse (Prelude.Maybe Prelude.Text)
+getParametersByPathResponse_nextToken :: Lens.Lens' GetParametersByPathResponse (Core.Maybe Core.Text)
 getParametersByPathResponse_nextToken = Lens.lens (\GetParametersByPathResponse' {nextToken} -> nextToken) (\s@GetParametersByPathResponse' {} a -> s {nextToken = a} :: GetParametersByPathResponse)
 
 -- | A list of parameters found in the specified hierarchy.
-getParametersByPathResponse_parameters :: Lens.Lens' GetParametersByPathResponse (Prelude.Maybe [Parameter])
-getParametersByPathResponse_parameters = Lens.lens (\GetParametersByPathResponse' {parameters} -> parameters) (\s@GetParametersByPathResponse' {} a -> s {parameters = a} :: GetParametersByPathResponse) Prelude.. Lens.mapping Prelude._Coerce
+getParametersByPathResponse_parameters :: Lens.Lens' GetParametersByPathResponse (Core.Maybe [Parameter])
+getParametersByPathResponse_parameters = Lens.lens (\GetParametersByPathResponse' {parameters} -> parameters) (\s@GetParametersByPathResponse' {} a -> s {parameters = a} :: GetParametersByPathResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getParametersByPathResponse_httpStatus :: Lens.Lens' GetParametersByPathResponse Prelude.Int
+getParametersByPathResponse_httpStatus :: Lens.Lens' GetParametersByPathResponse Core.Int
 getParametersByPathResponse_httpStatus = Lens.lens (\GetParametersByPathResponse' {httpStatus} -> httpStatus) (\s@GetParametersByPathResponse' {} a -> s {httpStatus = a} :: GetParametersByPathResponse)
 
-instance Prelude.NFData GetParametersByPathResponse
+instance Core.NFData GetParametersByPathResponse

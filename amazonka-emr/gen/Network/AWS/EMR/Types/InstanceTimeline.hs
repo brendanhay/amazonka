@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.InstanceTimeline where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The timeline of the instance lifecycle.
 --
 -- /See:/ 'newInstanceTimeline' smart constructor.
 data InstanceTimeline = InstanceTimeline'
   { -- | The date and time when the instance was terminated.
-    endDateTime :: Prelude.Maybe Prelude.POSIX,
+    endDateTime :: Core.Maybe Core.POSIX,
     -- | The creation date and time of the instance.
-    creationDateTime :: Prelude.Maybe Prelude.POSIX,
+    creationDateTime :: Core.Maybe Core.POSIX,
     -- | The date and time when the instance was ready to perform tasks.
-    readyDateTime :: Prelude.Maybe Prelude.POSIX
+    readyDateTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceTimeline' with all optional fields omitted.
@@ -53,34 +52,34 @@ newInstanceTimeline ::
   InstanceTimeline
 newInstanceTimeline =
   InstanceTimeline'
-    { endDateTime = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
-      readyDateTime = Prelude.Nothing
+    { endDateTime = Core.Nothing,
+      creationDateTime = Core.Nothing,
+      readyDateTime = Core.Nothing
     }
 
 -- | The date and time when the instance was terminated.
-instanceTimeline_endDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceTimeline_endDateTime = Lens.lens (\InstanceTimeline' {endDateTime} -> endDateTime) (\s@InstanceTimeline' {} a -> s {endDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Prelude._Time
+instanceTimeline_endDateTime :: Lens.Lens' InstanceTimeline (Core.Maybe Core.UTCTime)
+instanceTimeline_endDateTime = Lens.lens (\InstanceTimeline' {endDateTime} -> endDateTime) (\s@InstanceTimeline' {} a -> s {endDateTime = a} :: InstanceTimeline) Core.. Lens.mapping Core._Time
 
 -- | The creation date and time of the instance.
-instanceTimeline_creationDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceTimeline_creationDateTime = Lens.lens (\InstanceTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceTimeline' {} a -> s {creationDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Prelude._Time
+instanceTimeline_creationDateTime :: Lens.Lens' InstanceTimeline (Core.Maybe Core.UTCTime)
+instanceTimeline_creationDateTime = Lens.lens (\InstanceTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceTimeline' {} a -> s {creationDateTime = a} :: InstanceTimeline) Core.. Lens.mapping Core._Time
 
 -- | The date and time when the instance was ready to perform tasks.
-instanceTimeline_readyDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceTimeline_readyDateTime = Lens.lens (\InstanceTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceTimeline' {} a -> s {readyDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Prelude._Time
+instanceTimeline_readyDateTime :: Lens.Lens' InstanceTimeline (Core.Maybe Core.UTCTime)
+instanceTimeline_readyDateTime = Lens.lens (\InstanceTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceTimeline' {} a -> s {readyDateTime = a} :: InstanceTimeline) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON InstanceTimeline where
+instance Core.FromJSON InstanceTimeline where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceTimeline"
       ( \x ->
           InstanceTimeline'
-            Prelude.<$> (x Prelude..:? "EndDateTime")
-            Prelude.<*> (x Prelude..:? "CreationDateTime")
-            Prelude.<*> (x Prelude..:? "ReadyDateTime")
+            Core.<$> (x Core..:? "EndDateTime")
+            Core.<*> (x Core..:? "CreationDateTime")
+            Core.<*> (x Core..:? "ReadyDateTime")
       )
 
-instance Prelude.Hashable InstanceTimeline
+instance Core.Hashable InstanceTimeline
 
-instance Prelude.NFData InstanceTimeline
+instance Core.NFData InstanceTimeline

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,22 +41,22 @@ module Network.AWS.Pinpoint.UpdateJourney
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateJourney' smart constructor.
 data UpdateJourney = UpdateJourney'
   { -- | The unique identifier for the journey.
-    journeyId :: Prelude.Text,
+    journeyId :: Core.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     writeJourneyRequest :: WriteJourneyRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateJourney' with all optional fields omitted.
@@ -75,9 +74,9 @@ data UpdateJourney = UpdateJourney'
 -- 'writeJourneyRequest', 'updateJourney_writeJourneyRequest' - Undocumented member.
 newUpdateJourney ::
   -- | 'journeyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'writeJourneyRequest'
   WriteJourneyRequest ->
   UpdateJourney
@@ -92,74 +91,72 @@ newUpdateJourney
       }
 
 -- | The unique identifier for the journey.
-updateJourney_journeyId :: Lens.Lens' UpdateJourney Prelude.Text
+updateJourney_journeyId :: Lens.Lens' UpdateJourney Core.Text
 updateJourney_journeyId = Lens.lens (\UpdateJourney' {journeyId} -> journeyId) (\s@UpdateJourney' {} a -> s {journeyId = a} :: UpdateJourney)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateJourney_applicationId :: Lens.Lens' UpdateJourney Prelude.Text
+updateJourney_applicationId :: Lens.Lens' UpdateJourney Core.Text
 updateJourney_applicationId = Lens.lens (\UpdateJourney' {applicationId} -> applicationId) (\s@UpdateJourney' {} a -> s {applicationId = a} :: UpdateJourney)
 
 -- | Undocumented member.
 updateJourney_writeJourneyRequest :: Lens.Lens' UpdateJourney WriteJourneyRequest
 updateJourney_writeJourneyRequest = Lens.lens (\UpdateJourney' {writeJourneyRequest} -> writeJourneyRequest) (\s@UpdateJourney' {} a -> s {writeJourneyRequest = a} :: UpdateJourney)
 
-instance Prelude.AWSRequest UpdateJourney where
-  type Rs UpdateJourney = UpdateJourneyResponse
+instance Core.AWSRequest UpdateJourney where
+  type
+    AWSResponse UpdateJourney =
+      UpdateJourneyResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateJourneyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateJourney
+instance Core.Hashable UpdateJourney
 
-instance Prelude.NFData UpdateJourney
+instance Core.NFData UpdateJourney
 
-instance Prelude.ToHeaders UpdateJourney where
+instance Core.ToHeaders UpdateJourney where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateJourney where
+instance Core.ToJSON UpdateJourney where
   toJSON UpdateJourney' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "WriteJourneyRequest"
-                  Prelude..= writeJourneyRequest
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("WriteJourneyRequest" Core..= writeJourneyRequest)
           ]
       )
 
-instance Prelude.ToPath UpdateJourney where
+instance Core.ToPath UpdateJourney where
   toPath UpdateJourney' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/journeys/",
-        Prelude.toBS journeyId
+        Core.toBS journeyId
       ]
 
-instance Prelude.ToQuery UpdateJourney where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateJourney where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateJourneyResponse' smart constructor.
 data UpdateJourneyResponse = UpdateJourneyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     journeyResponse :: JourneyResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateJourneyResponse' with all optional fields omitted.
@@ -174,7 +171,7 @@ data UpdateJourneyResponse = UpdateJourneyResponse'
 -- 'journeyResponse', 'updateJourneyResponse_journeyResponse' - Undocumented member.
 newUpdateJourneyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'journeyResponse'
   JourneyResponse ->
   UpdateJourneyResponse
@@ -187,11 +184,11 @@ newUpdateJourneyResponse
       }
 
 -- | The response's http status code.
-updateJourneyResponse_httpStatus :: Lens.Lens' UpdateJourneyResponse Prelude.Int
+updateJourneyResponse_httpStatus :: Lens.Lens' UpdateJourneyResponse Core.Int
 updateJourneyResponse_httpStatus = Lens.lens (\UpdateJourneyResponse' {httpStatus} -> httpStatus) (\s@UpdateJourneyResponse' {} a -> s {httpStatus = a} :: UpdateJourneyResponse)
 
 -- | Undocumented member.
 updateJourneyResponse_journeyResponse :: Lens.Lens' UpdateJourneyResponse JourneyResponse
 updateJourneyResponse_journeyResponse = Lens.lens (\UpdateJourneyResponse' {journeyResponse} -> journeyResponse) (\s@UpdateJourneyResponse' {} a -> s {journeyResponse = a} :: UpdateJourneyResponse)
 
-instance Prelude.NFData UpdateJourneyResponse
+instance Core.NFData UpdateJourneyResponse

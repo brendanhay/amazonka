@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.DirectoryService.AddRegion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +51,13 @@ import qualified Network.AWS.Response as Response
 data AddRegion = AddRegion'
   { -- | The identifier of the directory to which you want to add Region
     -- replication.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The name of the Region where you want to add domain controllers for
     -- replication. For example, @us-east-1@.
-    regionName :: Prelude.Text,
+    regionName :: Core.Text,
     vPCSettings :: DirectoryVpcSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddRegion' with all optional fields omitted.
@@ -77,9 +76,9 @@ data AddRegion = AddRegion'
 -- 'vPCSettings', 'addRegion_vPCSettings' - Undocumented member.
 newAddRegion ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'regionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vPCSettings'
   DirectoryVpcSettings ->
   AddRegion
@@ -92,69 +91,67 @@ newAddRegion pDirectoryId_ pRegionName_ pVPCSettings_ =
 
 -- | The identifier of the directory to which you want to add Region
 -- replication.
-addRegion_directoryId :: Lens.Lens' AddRegion Prelude.Text
+addRegion_directoryId :: Lens.Lens' AddRegion Core.Text
 addRegion_directoryId = Lens.lens (\AddRegion' {directoryId} -> directoryId) (\s@AddRegion' {} a -> s {directoryId = a} :: AddRegion)
 
 -- | The name of the Region where you want to add domain controllers for
 -- replication. For example, @us-east-1@.
-addRegion_regionName :: Lens.Lens' AddRegion Prelude.Text
+addRegion_regionName :: Lens.Lens' AddRegion Core.Text
 addRegion_regionName = Lens.lens (\AddRegion' {regionName} -> regionName) (\s@AddRegion' {} a -> s {regionName = a} :: AddRegion)
 
 -- | Undocumented member.
 addRegion_vPCSettings :: Lens.Lens' AddRegion DirectoryVpcSettings
 addRegion_vPCSettings = Lens.lens (\AddRegion' {vPCSettings} -> vPCSettings) (\s@AddRegion' {} a -> s {vPCSettings = a} :: AddRegion)
 
-instance Prelude.AWSRequest AddRegion where
-  type Rs AddRegion = AddRegionResponse
+instance Core.AWSRequest AddRegion where
+  type AWSResponse AddRegion = AddRegionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddRegionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AddRegion
+instance Core.Hashable AddRegion
 
-instance Prelude.NFData AddRegion
+instance Core.NFData AddRegion
 
-instance Prelude.ToHeaders AddRegion where
+instance Core.ToHeaders AddRegion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.AddRegion" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.AddRegion" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AddRegion where
+instance Core.ToJSON AddRegion where
   toJSON AddRegion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just ("RegionName" Prelude..= regionName),
-            Prelude.Just ("VPCSettings" Prelude..= vPCSettings)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("RegionName" Core..= regionName),
+            Core.Just ("VPCSettings" Core..= vPCSettings)
           ]
       )
 
-instance Prelude.ToPath AddRegion where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddRegion where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddRegion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AddRegion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAddRegionResponse' smart constructor.
 data AddRegionResponse = AddRegionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddRegionResponse' with all optional fields omitted.
@@ -167,13 +164,13 @@ data AddRegionResponse = AddRegionResponse'
 -- 'httpStatus', 'addRegionResponse_httpStatus' - The response's http status code.
 newAddRegionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AddRegionResponse
 newAddRegionResponse pHttpStatus_ =
   AddRegionResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-addRegionResponse_httpStatus :: Lens.Lens' AddRegionResponse Prelude.Int
+addRegionResponse_httpStatus :: Lens.Lens' AddRegionResponse Core.Int
 addRegionResponse_httpStatus = Lens.lens (\AddRegionResponse' {httpStatus} -> httpStatus) (\s@AddRegionResponse' {} a -> s {httpStatus = a} :: AddRegionResponse)
 
-instance Prelude.NFData AddRegionResponse
+instance Core.NFData AddRegionResponse

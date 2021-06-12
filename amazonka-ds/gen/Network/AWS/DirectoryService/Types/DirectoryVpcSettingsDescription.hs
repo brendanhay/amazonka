@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectoryService.Types.DirectoryVpcSettingsDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the directory.
 --
 -- /See:/ 'newDirectoryVpcSettingsDescription' smart constructor.
 data DirectoryVpcSettingsDescription = DirectoryVpcSettingsDescription'
   { -- | The domain controller security group identifier for the directory.
-    securityGroupId :: Prelude.Maybe Prelude.Text,
+    securityGroupId :: Core.Maybe Core.Text,
     -- | The list of Availability Zones that the directory is in.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    availabilityZones :: Core.Maybe [Core.Text],
     -- | The identifiers of the subnets for the directory servers.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
+    subnetIds :: Core.Maybe [Core.Text],
     -- | The identifier of the VPC that the directory is in.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DirectoryVpcSettingsDescription' with all optional fields omitted.
@@ -58,51 +57,45 @@ newDirectoryVpcSettingsDescription ::
 newDirectoryVpcSettingsDescription =
   DirectoryVpcSettingsDescription'
     { securityGroupId =
-        Prelude.Nothing,
-      availabilityZones = Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+        Core.Nothing,
+      availabilityZones = Core.Nothing,
+      subnetIds = Core.Nothing,
+      vpcId = Core.Nothing
     }
 
 -- | The domain controller security group identifier for the directory.
-directoryVpcSettingsDescription_securityGroupId :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe Prelude.Text)
+directoryVpcSettingsDescription_securityGroupId :: Lens.Lens' DirectoryVpcSettingsDescription (Core.Maybe Core.Text)
 directoryVpcSettingsDescription_securityGroupId = Lens.lens (\DirectoryVpcSettingsDescription' {securityGroupId} -> securityGroupId) (\s@DirectoryVpcSettingsDescription' {} a -> s {securityGroupId = a} :: DirectoryVpcSettingsDescription)
 
 -- | The list of Availability Zones that the directory is in.
-directoryVpcSettingsDescription_availabilityZones :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe [Prelude.Text])
-directoryVpcSettingsDescription_availabilityZones = Lens.lens (\DirectoryVpcSettingsDescription' {availabilityZones} -> availabilityZones) (\s@DirectoryVpcSettingsDescription' {} a -> s {availabilityZones = a} :: DirectoryVpcSettingsDescription) Prelude.. Lens.mapping Prelude._Coerce
+directoryVpcSettingsDescription_availabilityZones :: Lens.Lens' DirectoryVpcSettingsDescription (Core.Maybe [Core.Text])
+directoryVpcSettingsDescription_availabilityZones = Lens.lens (\DirectoryVpcSettingsDescription' {availabilityZones} -> availabilityZones) (\s@DirectoryVpcSettingsDescription' {} a -> s {availabilityZones = a} :: DirectoryVpcSettingsDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifiers of the subnets for the directory servers.
-directoryVpcSettingsDescription_subnetIds :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe [Prelude.Text])
-directoryVpcSettingsDescription_subnetIds = Lens.lens (\DirectoryVpcSettingsDescription' {subnetIds} -> subnetIds) (\s@DirectoryVpcSettingsDescription' {} a -> s {subnetIds = a} :: DirectoryVpcSettingsDescription) Prelude.. Lens.mapping Prelude._Coerce
+directoryVpcSettingsDescription_subnetIds :: Lens.Lens' DirectoryVpcSettingsDescription (Core.Maybe [Core.Text])
+directoryVpcSettingsDescription_subnetIds = Lens.lens (\DirectoryVpcSettingsDescription' {subnetIds} -> subnetIds) (\s@DirectoryVpcSettingsDescription' {} a -> s {subnetIds = a} :: DirectoryVpcSettingsDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the VPC that the directory is in.
-directoryVpcSettingsDescription_vpcId :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe Prelude.Text)
+directoryVpcSettingsDescription_vpcId :: Lens.Lens' DirectoryVpcSettingsDescription (Core.Maybe Core.Text)
 directoryVpcSettingsDescription_vpcId = Lens.lens (\DirectoryVpcSettingsDescription' {vpcId} -> vpcId) (\s@DirectoryVpcSettingsDescription' {} a -> s {vpcId = a} :: DirectoryVpcSettingsDescription)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     DirectoryVpcSettingsDescription
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DirectoryVpcSettingsDescription"
       ( \x ->
           DirectoryVpcSettingsDescription'
-            Prelude.<$> (x Prelude..:? "SecurityGroupId")
-            Prelude.<*> ( x Prelude..:? "AvailabilityZones"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "SubnetIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "VpcId")
+            Core.<$> (x Core..:? "SecurityGroupId")
+            Core.<*> (x Core..:? "AvailabilityZones" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "SubnetIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "VpcId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DirectoryVpcSettingsDescription
 
-instance
-  Prelude.NFData
-    DirectoryVpcSettingsDescription
+instance Core.NFData DirectoryVpcSettingsDescription

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,9 +62,9 @@ module Network.AWS.KinesisAnalytics.StartApplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,14 +73,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newStartApplication' smart constructor.
 data StartApplication = StartApplication'
   { -- | Name of the application.
-    applicationName :: Prelude.Text,
+    applicationName :: Core.Text,
     -- | Identifies the specific input, by ID, that the application starts
     -- consuming. Amazon Kinesis Analytics starts reading the streaming source
     -- associated with the input. You can also specify where in the streaming
     -- source you want Amazon Kinesis Analytics to start reading.
     inputConfigurations :: [InputConfiguration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartApplication' with all optional fields omitted.
@@ -99,17 +98,17 @@ data StartApplication = StartApplication'
 -- source you want Amazon Kinesis Analytics to start reading.
 newStartApplication ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   StartApplication
 newStartApplication pApplicationName_ =
   StartApplication'
     { applicationName =
         pApplicationName_,
-      inputConfigurations = Prelude.mempty
+      inputConfigurations = Core.mempty
     }
 
 -- | Name of the application.
-startApplication_applicationName :: Lens.Lens' StartApplication Prelude.Text
+startApplication_applicationName :: Lens.Lens' StartApplication Core.Text
 startApplication_applicationName = Lens.lens (\StartApplication' {applicationName} -> applicationName) (\s@StartApplication' {} a -> s {applicationName = a} :: StartApplication)
 
 -- | Identifies the specific input, by ID, that the application starts
@@ -117,64 +116,62 @@ startApplication_applicationName = Lens.lens (\StartApplication' {applicationNam
 -- associated with the input. You can also specify where in the streaming
 -- source you want Amazon Kinesis Analytics to start reading.
 startApplication_inputConfigurations :: Lens.Lens' StartApplication [InputConfiguration]
-startApplication_inputConfigurations = Lens.lens (\StartApplication' {inputConfigurations} -> inputConfigurations) (\s@StartApplication' {} a -> s {inputConfigurations = a} :: StartApplication) Prelude.. Prelude._Coerce
+startApplication_inputConfigurations = Lens.lens (\StartApplication' {inputConfigurations} -> inputConfigurations) (\s@StartApplication' {} a -> s {inputConfigurations = a} :: StartApplication) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest StartApplication where
-  type Rs StartApplication = StartApplicationResponse
+instance Core.AWSRequest StartApplication where
+  type
+    AWSResponse StartApplication =
+      StartApplicationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartApplicationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartApplication
+instance Core.Hashable StartApplication
 
-instance Prelude.NFData StartApplication
+instance Core.NFData StartApplication
 
-instance Prelude.ToHeaders StartApplication where
+instance Core.ToHeaders StartApplication where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "KinesisAnalytics_20150814.StartApplication" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "KinesisAnalytics_20150814.StartApplication" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartApplication where
+instance Core.ToJSON StartApplication where
   toJSON StartApplication' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ApplicationName" Prelude..= applicationName),
-            Prelude.Just
-              ( "InputConfigurations"
-                  Prelude..= inputConfigurations
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ApplicationName" Core..= applicationName),
+            Core.Just
+              ("InputConfigurations" Core..= inputConfigurations)
           ]
       )
 
-instance Prelude.ToPath StartApplication where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartApplication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartApplication where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartApplication where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newStartApplicationResponse' smart constructor.
 data StartApplicationResponse = StartApplicationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartApplicationResponse' with all optional fields omitted.
@@ -187,7 +184,7 @@ data StartApplicationResponse = StartApplicationResponse'
 -- 'httpStatus', 'startApplicationResponse_httpStatus' - The response's http status code.
 newStartApplicationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartApplicationResponse
 newStartApplicationResponse pHttpStatus_ =
   StartApplicationResponse'
@@ -196,7 +193,7 @@ newStartApplicationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startApplicationResponse_httpStatus :: Lens.Lens' StartApplicationResponse Prelude.Int
+startApplicationResponse_httpStatus :: Lens.Lens' StartApplicationResponse Core.Int
 startApplicationResponse_httpStatus = Lens.lens (\StartApplicationResponse' {httpStatus} -> httpStatus) (\s@StartApplicationResponse' {} a -> s {httpStatus = a} :: StartApplicationResponse)
 
-instance Prelude.NFData StartApplicationResponse
+instance Core.NFData StartApplicationResponse

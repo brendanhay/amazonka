@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.Inspector.ListExclusions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,16 +57,16 @@ data ListExclusions = ListExclusions'
     -- action. Subsequent calls to the action fill nextToken in the request
     -- with the value of nextToken from the previous response to continue
     -- listing data.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 100. The maximum value is
     -- 500.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The ARN of the assessment run that generated the exclusions that you
     -- want to list.
-    assessmentRunArn :: Prelude.Text
+    assessmentRunArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListExclusions' with all optional fields omitted.
@@ -92,12 +90,12 @@ data ListExclusions = ListExclusions'
 -- want to list.
 newListExclusions ::
   -- | 'assessmentRunArn'
-  Prelude.Text ->
+  Core.Text ->
   ListExclusions
 newListExclusions pAssessmentRunArn_ =
   ListExclusions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       assessmentRunArn = pAssessmentRunArn_
     }
 
@@ -106,87 +104,84 @@ newListExclusions pAssessmentRunArn_ =
 -- action. Subsequent calls to the action fill nextToken in the request
 -- with the value of nextToken from the previous response to continue
 -- listing data.
-listExclusions_nextToken :: Lens.Lens' ListExclusions (Prelude.Maybe Prelude.Text)
+listExclusions_nextToken :: Lens.Lens' ListExclusions (Core.Maybe Core.Text)
 listExclusions_nextToken = Lens.lens (\ListExclusions' {nextToken} -> nextToken) (\s@ListExclusions' {} a -> s {nextToken = a} :: ListExclusions)
 
 -- | You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 100. The maximum value is
 -- 500.
-listExclusions_maxResults :: Lens.Lens' ListExclusions (Prelude.Maybe Prelude.Int)
+listExclusions_maxResults :: Lens.Lens' ListExclusions (Core.Maybe Core.Int)
 listExclusions_maxResults = Lens.lens (\ListExclusions' {maxResults} -> maxResults) (\s@ListExclusions' {} a -> s {maxResults = a} :: ListExclusions)
 
 -- | The ARN of the assessment run that generated the exclusions that you
 -- want to list.
-listExclusions_assessmentRunArn :: Lens.Lens' ListExclusions Prelude.Text
+listExclusions_assessmentRunArn :: Lens.Lens' ListExclusions Core.Text
 listExclusions_assessmentRunArn = Lens.lens (\ListExclusions' {assessmentRunArn} -> assessmentRunArn) (\s@ListExclusions' {} a -> s {assessmentRunArn = a} :: ListExclusions)
 
-instance Pager.AWSPager ListExclusions where
+instance Core.AWSPager ListExclusions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listExclusionsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listExclusionsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. listExclusionsResponse_exclusionArns) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listExclusions_nextToken
           Lens..~ rs
-          Lens.^? listExclusionsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listExclusionsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListExclusions where
-  type Rs ListExclusions = ListExclusionsResponse
+instance Core.AWSRequest ListExclusions where
+  type
+    AWSResponse ListExclusions =
+      ListExclusionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListExclusionsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "exclusionArns"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "exclusionArns" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListExclusions
+instance Core.Hashable ListExclusions
 
-instance Prelude.NFData ListExclusions
+instance Core.NFData ListExclusions
 
-instance Prelude.ToHeaders ListExclusions where
+instance Core.ToHeaders ListExclusions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.ListExclusions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.ListExclusions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListExclusions where
+instance Core.ToJSON ListExclusions where
   toJSON ListExclusions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ("assessmentRunArn" Prelude..= assessmentRunArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            Core.Just
+              ("assessmentRunArn" Core..= assessmentRunArn)
           ]
       )
 
-instance Prelude.ToPath ListExclusions where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListExclusions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListExclusions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListExclusions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListExclusionsResponse' smart constructor.
 data ListExclusionsResponse = ListExclusionsResponse'
@@ -194,13 +189,13 @@ data ListExclusionsResponse = ListExclusionsResponse'
     -- parameters is present in the response and contains the value to use for
     -- the nextToken parameter in a subsequent pagination request. If there is
     -- no more data to be listed, this parameter is set to null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of exclusions\' ARNs returned by the action.
-    exclusionArns :: [Prelude.Text]
+    exclusionArns :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListExclusionsResponse' with all optional fields omitted.
@@ -220,29 +215,28 @@ data ListExclusionsResponse = ListExclusionsResponse'
 -- 'exclusionArns', 'listExclusionsResponse_exclusionArns' - A list of exclusions\' ARNs returned by the action.
 newListExclusionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListExclusionsResponse
 newListExclusionsResponse pHttpStatus_ =
   ListExclusionsResponse'
-    { nextToken =
-        Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      exclusionArns = Prelude.mempty
+      exclusionArns = Core.mempty
     }
 
 -- | When a response is generated, if there is more data to be listed, this
 -- parameters is present in the response and contains the value to use for
 -- the nextToken parameter in a subsequent pagination request. If there is
 -- no more data to be listed, this parameter is set to null.
-listExclusionsResponse_nextToken :: Lens.Lens' ListExclusionsResponse (Prelude.Maybe Prelude.Text)
+listExclusionsResponse_nextToken :: Lens.Lens' ListExclusionsResponse (Core.Maybe Core.Text)
 listExclusionsResponse_nextToken = Lens.lens (\ListExclusionsResponse' {nextToken} -> nextToken) (\s@ListExclusionsResponse' {} a -> s {nextToken = a} :: ListExclusionsResponse)
 
 -- | The response's http status code.
-listExclusionsResponse_httpStatus :: Lens.Lens' ListExclusionsResponse Prelude.Int
+listExclusionsResponse_httpStatus :: Lens.Lens' ListExclusionsResponse Core.Int
 listExclusionsResponse_httpStatus = Lens.lens (\ListExclusionsResponse' {httpStatus} -> httpStatus) (\s@ListExclusionsResponse' {} a -> s {httpStatus = a} :: ListExclusionsResponse)
 
 -- | A list of exclusions\' ARNs returned by the action.
-listExclusionsResponse_exclusionArns :: Lens.Lens' ListExclusionsResponse [Prelude.Text]
-listExclusionsResponse_exclusionArns = Lens.lens (\ListExclusionsResponse' {exclusionArns} -> exclusionArns) (\s@ListExclusionsResponse' {} a -> s {exclusionArns = a} :: ListExclusionsResponse) Prelude.. Prelude._Coerce
+listExclusionsResponse_exclusionArns :: Lens.Lens' ListExclusionsResponse [Core.Text]
+listExclusionsResponse_exclusionArns = Lens.lens (\ListExclusionsResponse' {exclusionArns} -> exclusionArns) (\s@ListExclusionsResponse' {} a -> s {exclusionArns = a} :: ListExclusionsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListExclusionsResponse
+instance Core.NFData ListExclusionsResponse

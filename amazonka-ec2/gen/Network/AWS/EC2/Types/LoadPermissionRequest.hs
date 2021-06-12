@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LoadPermissionRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PermissionGroup
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a load permission.
 --
 -- /See:/ 'newLoadPermissionRequest' smart constructor.
 data LoadPermissionRequest = LoadPermissionRequest'
   { -- | The name of the group.
-    group' :: Prelude.Maybe PermissionGroup,
+    group' :: Core.Maybe PermissionGroup,
     -- | The AWS account ID.
-    userId :: Prelude.Maybe Prelude.Text
+    userId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoadPermissionRequest' with all optional fields omitted.
@@ -51,25 +50,23 @@ newLoadPermissionRequest ::
   LoadPermissionRequest
 newLoadPermissionRequest =
   LoadPermissionRequest'
-    { group' = Prelude.Nothing,
-      userId = Prelude.Nothing
+    { group' = Core.Nothing,
+      userId = Core.Nothing
     }
 
 -- | The name of the group.
-loadPermissionRequest_group :: Lens.Lens' LoadPermissionRequest (Prelude.Maybe PermissionGroup)
+loadPermissionRequest_group :: Lens.Lens' LoadPermissionRequest (Core.Maybe PermissionGroup)
 loadPermissionRequest_group = Lens.lens (\LoadPermissionRequest' {group'} -> group') (\s@LoadPermissionRequest' {} a -> s {group' = a} :: LoadPermissionRequest)
 
 -- | The AWS account ID.
-loadPermissionRequest_userId :: Lens.Lens' LoadPermissionRequest (Prelude.Maybe Prelude.Text)
+loadPermissionRequest_userId :: Lens.Lens' LoadPermissionRequest (Core.Maybe Core.Text)
 loadPermissionRequest_userId = Lens.lens (\LoadPermissionRequest' {userId} -> userId) (\s@LoadPermissionRequest' {} a -> s {userId = a} :: LoadPermissionRequest)
 
-instance Prelude.Hashable LoadPermissionRequest
+instance Core.Hashable LoadPermissionRequest
 
-instance Prelude.NFData LoadPermissionRequest
+instance Core.NFData LoadPermissionRequest
 
-instance Prelude.ToQuery LoadPermissionRequest where
+instance Core.ToQuery LoadPermissionRequest where
   toQuery LoadPermissionRequest' {..} =
-    Prelude.mconcat
-      [ "Group" Prelude.=: group',
-        "UserId" Prelude.=: userId
-      ]
+    Core.mconcat
+      ["Group" Core.=: group', "UserId" Core.=: userId]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Geometry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.BoundingBox
 import Network.AWS.Rekognition.Types.Point
 
@@ -32,12 +31,12 @@ import Network.AWS.Rekognition.Types.Point
 data Geometry = Geometry'
   { -- | Within the bounding box, a fine-grained polygon around the detected
     -- item.
-    polygon :: Prelude.Maybe [Point],
+    polygon :: Core.Maybe [Point],
     -- | An axis-aligned coarse representation of the detected item\'s location
     -- on the image.
-    boundingBox :: Prelude.Maybe BoundingBox
+    boundingBox :: Core.Maybe BoundingBox
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Geometry' with all optional fields omitted.
@@ -56,30 +55,30 @@ newGeometry ::
   Geometry
 newGeometry =
   Geometry'
-    { polygon = Prelude.Nothing,
-      boundingBox = Prelude.Nothing
+    { polygon = Core.Nothing,
+      boundingBox = Core.Nothing
     }
 
 -- | Within the bounding box, a fine-grained polygon around the detected
 -- item.
-geometry_polygon :: Lens.Lens' Geometry (Prelude.Maybe [Point])
-geometry_polygon = Lens.lens (\Geometry' {polygon} -> polygon) (\s@Geometry' {} a -> s {polygon = a} :: Geometry) Prelude.. Lens.mapping Prelude._Coerce
+geometry_polygon :: Lens.Lens' Geometry (Core.Maybe [Point])
+geometry_polygon = Lens.lens (\Geometry' {polygon} -> polygon) (\s@Geometry' {} a -> s {polygon = a} :: Geometry) Core.. Lens.mapping Lens._Coerce
 
 -- | An axis-aligned coarse representation of the detected item\'s location
 -- on the image.
-geometry_boundingBox :: Lens.Lens' Geometry (Prelude.Maybe BoundingBox)
+geometry_boundingBox :: Lens.Lens' Geometry (Core.Maybe BoundingBox)
 geometry_boundingBox = Lens.lens (\Geometry' {boundingBox} -> boundingBox) (\s@Geometry' {} a -> s {boundingBox = a} :: Geometry)
 
-instance Prelude.FromJSON Geometry where
+instance Core.FromJSON Geometry where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Geometry"
       ( \x ->
           Geometry'
-            Prelude.<$> (x Prelude..:? "Polygon" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "BoundingBox")
+            Core.<$> (x Core..:? "Polygon" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "BoundingBox")
       )
 
-instance Prelude.Hashable Geometry
+instance Core.Hashable Geometry
 
-instance Prelude.NFData Geometry
+instance Core.NFData Geometry

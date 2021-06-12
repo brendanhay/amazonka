@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,15 +20,15 @@
 module Network.AWS.CodeDeploy.Types.ErrorInformation where
 
 import Network.AWS.CodeDeploy.Types.DeployErrorCode
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a deployment error.
 --
 -- /See:/ 'newErrorInformation' smart constructor.
 data ErrorInformation = ErrorInformation'
   { -- | An accompanying error message.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | For more information, see
     -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html Error Codes for AWS CodeDeploy>
     -- in the
@@ -75,9 +74,9 @@ data ErrorInformation = ErrorInformation'
     -- -   REVISION_MISSING: The revision ID was missing. This error code is
     --     most likely raised if the revision is deleted after the deployment
     --     is created, but before it is started.
-    code :: Prelude.Maybe DeployErrorCode
+    code :: Core.Maybe DeployErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ErrorInformation' with all optional fields omitted.
@@ -138,12 +137,12 @@ newErrorInformation ::
   ErrorInformation
 newErrorInformation =
   ErrorInformation'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { message = Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | An accompanying error message.
-errorInformation_message :: Lens.Lens' ErrorInformation (Prelude.Maybe Prelude.Text)
+errorInformation_message :: Lens.Lens' ErrorInformation (Core.Maybe Core.Text)
 errorInformation_message = Lens.lens (\ErrorInformation' {message} -> message) (\s@ErrorInformation' {} a -> s {message = a} :: ErrorInformation)
 
 -- | For more information, see
@@ -191,19 +190,18 @@ errorInformation_message = Lens.lens (\ErrorInformation' {message} -> message) (
 -- -   REVISION_MISSING: The revision ID was missing. This error code is
 --     most likely raised if the revision is deleted after the deployment
 --     is created, but before it is started.
-errorInformation_code :: Lens.Lens' ErrorInformation (Prelude.Maybe DeployErrorCode)
+errorInformation_code :: Lens.Lens' ErrorInformation (Core.Maybe DeployErrorCode)
 errorInformation_code = Lens.lens (\ErrorInformation' {code} -> code) (\s@ErrorInformation' {} a -> s {code = a} :: ErrorInformation)
 
-instance Prelude.FromJSON ErrorInformation where
+instance Core.FromJSON ErrorInformation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ErrorInformation"
       ( \x ->
           ErrorInformation'
-            Prelude.<$> (x Prelude..:? "message")
-            Prelude.<*> (x Prelude..:? "code")
+            Core.<$> (x Core..:? "message") Core.<*> (x Core..:? "code")
       )
 
-instance Prelude.Hashable ErrorInformation
+instance Core.Hashable ErrorInformation
 
-instance Prelude.NFData ErrorInformation
+instance Core.NFData ErrorInformation

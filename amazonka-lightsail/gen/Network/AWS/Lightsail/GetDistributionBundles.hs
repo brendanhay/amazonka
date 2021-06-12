@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Lightsail.GetDistributionBundles
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data GetDistributionBundles = GetDistributionBundles'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDistributionBundles' with all optional fields omitted.
@@ -61,56 +60,53 @@ newGetDistributionBundles ::
   GetDistributionBundles
 newGetDistributionBundles = GetDistributionBundles'
 
-instance Prelude.AWSRequest GetDistributionBundles where
+instance Core.AWSRequest GetDistributionBundles where
   type
-    Rs GetDistributionBundles =
+    AWSResponse GetDistributionBundles =
       GetDistributionBundlesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDistributionBundlesResponse'
-            Prelude.<$> (x Prelude..?> "bundles" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "bundles" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDistributionBundles
+instance Core.Hashable GetDistributionBundles
 
-instance Prelude.NFData GetDistributionBundles
+instance Core.NFData GetDistributionBundles
 
-instance Prelude.ToHeaders GetDistributionBundles where
+instance Core.ToHeaders GetDistributionBundles where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetDistributionBundles" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetDistributionBundles" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetDistributionBundles where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetDistributionBundles where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath GetDistributionBundles where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetDistributionBundles where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetDistributionBundles where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDistributionBundles where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDistributionBundlesResponse' smart constructor.
 data GetDistributionBundlesResponse = GetDistributionBundlesResponse'
   { -- | An object that describes a distribution bundle.
-    bundles :: Prelude.Maybe [DistributionBundle],
+    bundles :: Core.Maybe [DistributionBundle],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDistributionBundlesResponse' with all optional fields omitted.
@@ -125,23 +121,21 @@ data GetDistributionBundlesResponse = GetDistributionBundlesResponse'
 -- 'httpStatus', 'getDistributionBundlesResponse_httpStatus' - The response's http status code.
 newGetDistributionBundlesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDistributionBundlesResponse
 newGetDistributionBundlesResponse pHttpStatus_ =
   GetDistributionBundlesResponse'
     { bundles =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes a distribution bundle.
-getDistributionBundlesResponse_bundles :: Lens.Lens' GetDistributionBundlesResponse (Prelude.Maybe [DistributionBundle])
-getDistributionBundlesResponse_bundles = Lens.lens (\GetDistributionBundlesResponse' {bundles} -> bundles) (\s@GetDistributionBundlesResponse' {} a -> s {bundles = a} :: GetDistributionBundlesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getDistributionBundlesResponse_bundles :: Lens.Lens' GetDistributionBundlesResponse (Core.Maybe [DistributionBundle])
+getDistributionBundlesResponse_bundles = Lens.lens (\GetDistributionBundlesResponse' {bundles} -> bundles) (\s@GetDistributionBundlesResponse' {} a -> s {bundles = a} :: GetDistributionBundlesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getDistributionBundlesResponse_httpStatus :: Lens.Lens' GetDistributionBundlesResponse Prelude.Int
+getDistributionBundlesResponse_httpStatus :: Lens.Lens' GetDistributionBundlesResponse Core.Int
 getDistributionBundlesResponse_httpStatus = Lens.lens (\GetDistributionBundlesResponse' {httpStatus} -> httpStatus) (\s@GetDistributionBundlesResponse' {} a -> s {httpStatus = a} :: GetDistributionBundlesResponse)
 
-instance
-  Prelude.NFData
-    GetDistributionBundlesResponse
+instance Core.NFData GetDistributionBundlesResponse

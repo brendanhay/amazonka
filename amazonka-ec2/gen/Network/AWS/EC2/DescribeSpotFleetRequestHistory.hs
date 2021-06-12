@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.EC2.DescribeSpotFleetRequestHistory
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,26 +65,26 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeSpotFleetRequestHistory' smart constructor.
 data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
   { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The type of events to describe. By default, all events are described.
-    eventType :: Prelude.Maybe EventType,
+    eventType :: Core.Maybe EventType,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return in a single call. Specify a
     -- value between 1 and 1000. The default value is 1000. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The ID of the Spot Fleet request.
-    spotFleetRequestId :: Prelude.Text,
+    spotFleetRequestId :: Core.Text,
     -- | The starting date and time for the events, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    startTime :: Prelude.ISO8601
+    startTime :: Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSpotFleetRequestHistory' with all optional fields omitted.
@@ -115,116 +114,105 @@ data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 newDescribeSpotFleetRequestHistory ::
   -- | 'spotFleetRequestId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'startTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   DescribeSpotFleetRequestHistory
 newDescribeSpotFleetRequestHistory
   pSpotFleetRequestId_
   pStartTime_ =
     DescribeSpotFleetRequestHistory'
       { nextToken =
-          Prelude.Nothing,
-        eventType = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+          Core.Nothing,
+        eventType = Core.Nothing,
+        dryRun = Core.Nothing,
+        maxResults = Core.Nothing,
         spotFleetRequestId = pSpotFleetRequestId_,
-        startTime =
-          Prelude._Time Lens.# pStartTime_
+        startTime = Core._Time Lens.# pStartTime_
       }
 
 -- | The token for the next set of results.
-describeSpotFleetRequestHistory_nextToken :: Lens.Lens' DescribeSpotFleetRequestHistory (Prelude.Maybe Prelude.Text)
+describeSpotFleetRequestHistory_nextToken :: Lens.Lens' DescribeSpotFleetRequestHistory (Core.Maybe Core.Text)
 describeSpotFleetRequestHistory_nextToken = Lens.lens (\DescribeSpotFleetRequestHistory' {nextToken} -> nextToken) (\s@DescribeSpotFleetRequestHistory' {} a -> s {nextToken = a} :: DescribeSpotFleetRequestHistory)
 
 -- | The type of events to describe. By default, all events are described.
-describeSpotFleetRequestHistory_eventType :: Lens.Lens' DescribeSpotFleetRequestHistory (Prelude.Maybe EventType)
+describeSpotFleetRequestHistory_eventType :: Lens.Lens' DescribeSpotFleetRequestHistory (Core.Maybe EventType)
 describeSpotFleetRequestHistory_eventType = Lens.lens (\DescribeSpotFleetRequestHistory' {eventType} -> eventType) (\s@DescribeSpotFleetRequestHistory' {} a -> s {eventType = a} :: DescribeSpotFleetRequestHistory)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeSpotFleetRequestHistory_dryRun :: Lens.Lens' DescribeSpotFleetRequestHistory (Prelude.Maybe Prelude.Bool)
+describeSpotFleetRequestHistory_dryRun :: Lens.Lens' DescribeSpotFleetRequestHistory (Core.Maybe Core.Bool)
 describeSpotFleetRequestHistory_dryRun = Lens.lens (\DescribeSpotFleetRequestHistory' {dryRun} -> dryRun) (\s@DescribeSpotFleetRequestHistory' {} a -> s {dryRun = a} :: DescribeSpotFleetRequestHistory)
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
-describeSpotFleetRequestHistory_maxResults :: Lens.Lens' DescribeSpotFleetRequestHistory (Prelude.Maybe Prelude.Natural)
+describeSpotFleetRequestHistory_maxResults :: Lens.Lens' DescribeSpotFleetRequestHistory (Core.Maybe Core.Natural)
 describeSpotFleetRequestHistory_maxResults = Lens.lens (\DescribeSpotFleetRequestHistory' {maxResults} -> maxResults) (\s@DescribeSpotFleetRequestHistory' {} a -> s {maxResults = a} :: DescribeSpotFleetRequestHistory)
 
 -- | The ID of the Spot Fleet request.
-describeSpotFleetRequestHistory_spotFleetRequestId :: Lens.Lens' DescribeSpotFleetRequestHistory Prelude.Text
+describeSpotFleetRequestHistory_spotFleetRequestId :: Lens.Lens' DescribeSpotFleetRequestHistory Core.Text
 describeSpotFleetRequestHistory_spotFleetRequestId = Lens.lens (\DescribeSpotFleetRequestHistory' {spotFleetRequestId} -> spotFleetRequestId) (\s@DescribeSpotFleetRequestHistory' {} a -> s {spotFleetRequestId = a} :: DescribeSpotFleetRequestHistory)
 
 -- | The starting date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-describeSpotFleetRequestHistory_startTime :: Lens.Lens' DescribeSpotFleetRequestHistory Prelude.UTCTime
-describeSpotFleetRequestHistory_startTime = Lens.lens (\DescribeSpotFleetRequestHistory' {startTime} -> startTime) (\s@DescribeSpotFleetRequestHistory' {} a -> s {startTime = a} :: DescribeSpotFleetRequestHistory) Prelude.. Prelude._Time
+describeSpotFleetRequestHistory_startTime :: Lens.Lens' DescribeSpotFleetRequestHistory Core.UTCTime
+describeSpotFleetRequestHistory_startTime = Lens.lens (\DescribeSpotFleetRequestHistory' {startTime} -> startTime) (\s@DescribeSpotFleetRequestHistory' {} a -> s {startTime = a} :: DescribeSpotFleetRequestHistory) Core.. Core._Time
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeSpotFleetRequestHistory
   where
   type
-    Rs DescribeSpotFleetRequestHistory =
+    AWSResponse DescribeSpotFleetRequestHistory =
       DescribeSpotFleetRequestHistoryResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeSpotFleetRequestHistoryResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> (x Prelude..@? "startTime")
-            Prelude.<*> ( x Prelude..@? "historyRecordSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (x Prelude..@? "lastEvaluatedTime")
-            Prelude.<*> (x Prelude..@? "spotFleetRequestId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> (x Core..@? "startTime")
+            Core.<*> ( x Core..@? "historyRecordSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (x Core..@? "lastEvaluatedTime")
+            Core.<*> (x Core..@? "spotFleetRequestId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeSpotFleetRequestHistory
 
-instance
-  Prelude.NFData
-    DescribeSpotFleetRequestHistory
+instance Core.NFData DescribeSpotFleetRequestHistory
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeSpotFleetRequestHistory
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DescribeSpotFleetRequestHistory
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSpotFleetRequestHistory where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeSpotFleetRequestHistory
-  where
+instance Core.ToQuery DescribeSpotFleetRequestHistory where
   toQuery DescribeSpotFleetRequestHistory' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeSpotFleetRequestHistory" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "EventType" Prelude.=: eventType,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        "SpotFleetRequestId" Prelude.=: spotFleetRequestId,
-        "StartTime" Prelude.=: startTime
+          Core.=: ( "DescribeSpotFleetRequestHistory" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "EventType" Core.=: eventType,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        "SpotFleetRequestId" Core.=: spotFleetRequestId,
+        "StartTime" Core.=: startTime
       ]
 
 -- | Contains the output of DescribeSpotFleetRequestHistory.
@@ -233,25 +221,25 @@ instance
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
   { -- | The token required to retrieve the next set of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The starting date and time for the events, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    startTime :: Prelude.Maybe Prelude.ISO8601,
+    startTime :: Core.Maybe Core.ISO8601,
     -- | Information about the events in the history of the Spot Fleet request.
-    historyRecords :: Prelude.Maybe [HistoryRecord],
+    historyRecords :: Core.Maybe [HistoryRecord],
     -- | The last date and time for the events, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
     -- retrieved.
     --
     -- If @nextToken@ indicates that there are more results, this value is not
     -- present.
-    lastEvaluatedTime :: Prelude.Maybe Prelude.ISO8601,
+    lastEvaluatedTime :: Core.Maybe Core.ISO8601,
     -- | The ID of the Spot Fleet request.
-    spotFleetRequestId :: Prelude.Maybe Prelude.Text,
+    spotFleetRequestId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSpotFleetRequestHistoryResponse' with all optional fields omitted.
@@ -281,35 +269,33 @@ data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryRe
 -- 'httpStatus', 'describeSpotFleetRequestHistoryResponse_httpStatus' - The response's http status code.
 newDescribeSpotFleetRequestHistoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSpotFleetRequestHistoryResponse
 newDescribeSpotFleetRequestHistoryResponse
   pHttpStatus_ =
     DescribeSpotFleetRequestHistoryResponse'
       { nextToken =
-          Prelude.Nothing,
-        startTime = Prelude.Nothing,
-        historyRecords = Prelude.Nothing,
-        lastEvaluatedTime =
-          Prelude.Nothing,
-        spotFleetRequestId =
-          Prelude.Nothing,
+          Core.Nothing,
+        startTime = Core.Nothing,
+        historyRecords = Core.Nothing,
+        lastEvaluatedTime = Core.Nothing,
+        spotFleetRequestId = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
-describeSpotFleetRequestHistoryResponse_nextToken :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Prelude.Maybe Prelude.Text)
+describeSpotFleetRequestHistoryResponse_nextToken :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Core.Maybe Core.Text)
 describeSpotFleetRequestHistoryResponse_nextToken = Lens.lens (\DescribeSpotFleetRequestHistoryResponse' {nextToken} -> nextToken) (\s@DescribeSpotFleetRequestHistoryResponse' {} a -> s {nextToken = a} :: DescribeSpotFleetRequestHistoryResponse)
 
 -- | The starting date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-describeSpotFleetRequestHistoryResponse_startTime :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Prelude.Maybe Prelude.UTCTime)
-describeSpotFleetRequestHistoryResponse_startTime = Lens.lens (\DescribeSpotFleetRequestHistoryResponse' {startTime} -> startTime) (\s@DescribeSpotFleetRequestHistoryResponse' {} a -> s {startTime = a} :: DescribeSpotFleetRequestHistoryResponse) Prelude.. Lens.mapping Prelude._Time
+describeSpotFleetRequestHistoryResponse_startTime :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Core.Maybe Core.UTCTime)
+describeSpotFleetRequestHistoryResponse_startTime = Lens.lens (\DescribeSpotFleetRequestHistoryResponse' {startTime} -> startTime) (\s@DescribeSpotFleetRequestHistoryResponse' {} a -> s {startTime = a} :: DescribeSpotFleetRequestHistoryResponse) Core.. Lens.mapping Core._Time
 
 -- | Information about the events in the history of the Spot Fleet request.
-describeSpotFleetRequestHistoryResponse_historyRecords :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Prelude.Maybe [HistoryRecord])
-describeSpotFleetRequestHistoryResponse_historyRecords = Lens.lens (\DescribeSpotFleetRequestHistoryResponse' {historyRecords} -> historyRecords) (\s@DescribeSpotFleetRequestHistoryResponse' {} a -> s {historyRecords = a} :: DescribeSpotFleetRequestHistoryResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeSpotFleetRequestHistoryResponse_historyRecords :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Core.Maybe [HistoryRecord])
+describeSpotFleetRequestHistoryResponse_historyRecords = Lens.lens (\DescribeSpotFleetRequestHistoryResponse' {historyRecords} -> historyRecords) (\s@DescribeSpotFleetRequestHistoryResponse' {} a -> s {historyRecords = a} :: DescribeSpotFleetRequestHistoryResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The last date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
@@ -317,17 +303,17 @@ describeSpotFleetRequestHistoryResponse_historyRecords = Lens.lens (\DescribeSpo
 --
 -- If @nextToken@ indicates that there are more results, this value is not
 -- present.
-describeSpotFleetRequestHistoryResponse_lastEvaluatedTime :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Prelude.Maybe Prelude.UTCTime)
-describeSpotFleetRequestHistoryResponse_lastEvaluatedTime = Lens.lens (\DescribeSpotFleetRequestHistoryResponse' {lastEvaluatedTime} -> lastEvaluatedTime) (\s@DescribeSpotFleetRequestHistoryResponse' {} a -> s {lastEvaluatedTime = a} :: DescribeSpotFleetRequestHistoryResponse) Prelude.. Lens.mapping Prelude._Time
+describeSpotFleetRequestHistoryResponse_lastEvaluatedTime :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Core.Maybe Core.UTCTime)
+describeSpotFleetRequestHistoryResponse_lastEvaluatedTime = Lens.lens (\DescribeSpotFleetRequestHistoryResponse' {lastEvaluatedTime} -> lastEvaluatedTime) (\s@DescribeSpotFleetRequestHistoryResponse' {} a -> s {lastEvaluatedTime = a} :: DescribeSpotFleetRequestHistoryResponse) Core.. Lens.mapping Core._Time
 
 -- | The ID of the Spot Fleet request.
-describeSpotFleetRequestHistoryResponse_spotFleetRequestId :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Prelude.Maybe Prelude.Text)
+describeSpotFleetRequestHistoryResponse_spotFleetRequestId :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Core.Maybe Core.Text)
 describeSpotFleetRequestHistoryResponse_spotFleetRequestId = Lens.lens (\DescribeSpotFleetRequestHistoryResponse' {spotFleetRequestId} -> spotFleetRequestId) (\s@DescribeSpotFleetRequestHistoryResponse' {} a -> s {spotFleetRequestId = a} :: DescribeSpotFleetRequestHistoryResponse)
 
 -- | The response's http status code.
-describeSpotFleetRequestHistoryResponse_httpStatus :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse Prelude.Int
+describeSpotFleetRequestHistoryResponse_httpStatus :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse Core.Int
 describeSpotFleetRequestHistoryResponse_httpStatus = Lens.lens (\DescribeSpotFleetRequestHistoryResponse' {httpStatus} -> httpStatus) (\s@DescribeSpotFleetRequestHistoryResponse' {} a -> s {httpStatus = a} :: DescribeSpotFleetRequestHistoryResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeSpotFleetRequestHistoryResponse

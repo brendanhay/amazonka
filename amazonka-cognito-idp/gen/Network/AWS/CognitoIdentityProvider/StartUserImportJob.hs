@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CognitoIdentityProvider.StartUserImportJob
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data StartUserImportJob = StartUserImportJob'
   { -- | The user pool ID for the user pool that the users are being imported
     -- into.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The job ID for the user import job.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartUserImportJob' with all optional fields omitted.
@@ -73,9 +72,9 @@ data StartUserImportJob = StartUserImportJob'
 -- 'jobId', 'startUserImportJob_jobId' - The job ID for the user import job.
 newStartUserImportJob ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   StartUserImportJob
 newStartUserImportJob pUserPoolId_ pJobId_ =
   StartUserImportJob'
@@ -85,59 +84,57 @@ newStartUserImportJob pUserPoolId_ pJobId_ =
 
 -- | The user pool ID for the user pool that the users are being imported
 -- into.
-startUserImportJob_userPoolId :: Lens.Lens' StartUserImportJob Prelude.Text
+startUserImportJob_userPoolId :: Lens.Lens' StartUserImportJob Core.Text
 startUserImportJob_userPoolId = Lens.lens (\StartUserImportJob' {userPoolId} -> userPoolId) (\s@StartUserImportJob' {} a -> s {userPoolId = a} :: StartUserImportJob)
 
 -- | The job ID for the user import job.
-startUserImportJob_jobId :: Lens.Lens' StartUserImportJob Prelude.Text
+startUserImportJob_jobId :: Lens.Lens' StartUserImportJob Core.Text
 startUserImportJob_jobId = Lens.lens (\StartUserImportJob' {jobId} -> jobId) (\s@StartUserImportJob' {} a -> s {jobId = a} :: StartUserImportJob)
 
-instance Prelude.AWSRequest StartUserImportJob where
+instance Core.AWSRequest StartUserImportJob where
   type
-    Rs StartUserImportJob =
+    AWSResponse StartUserImportJob =
       StartUserImportJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartUserImportJobResponse'
-            Prelude.<$> (x Prelude..?> "UserImportJob")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UserImportJob")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartUserImportJob
+instance Core.Hashable StartUserImportJob
 
-instance Prelude.NFData StartUserImportJob
+instance Core.NFData StartUserImportJob
 
-instance Prelude.ToHeaders StartUserImportJob where
+instance Core.ToHeaders StartUserImportJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.StartUserImportJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.StartUserImportJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartUserImportJob where
+instance Core.ToJSON StartUserImportJob where
   toJSON StartUserImportJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("JobId" Prelude..= jobId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("JobId" Core..= jobId)
           ]
       )
 
-instance Prelude.ToPath StartUserImportJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartUserImportJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartUserImportJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartUserImportJob where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response from the server to the request to start the user
 -- import job.
@@ -145,11 +142,11 @@ instance Prelude.ToQuery StartUserImportJob where
 -- /See:/ 'newStartUserImportJobResponse' smart constructor.
 data StartUserImportJobResponse = StartUserImportJobResponse'
   { -- | The job object that represents the user import job.
-    userImportJob :: Prelude.Maybe UserImportJobType,
+    userImportJob :: Core.Maybe UserImportJobType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartUserImportJobResponse' with all optional fields omitted.
@@ -164,21 +161,21 @@ data StartUserImportJobResponse = StartUserImportJobResponse'
 -- 'httpStatus', 'startUserImportJobResponse_httpStatus' - The response's http status code.
 newStartUserImportJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartUserImportJobResponse
 newStartUserImportJobResponse pHttpStatus_ =
   StartUserImportJobResponse'
     { userImportJob =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The job object that represents the user import job.
-startUserImportJobResponse_userImportJob :: Lens.Lens' StartUserImportJobResponse (Prelude.Maybe UserImportJobType)
+startUserImportJobResponse_userImportJob :: Lens.Lens' StartUserImportJobResponse (Core.Maybe UserImportJobType)
 startUserImportJobResponse_userImportJob = Lens.lens (\StartUserImportJobResponse' {userImportJob} -> userImportJob) (\s@StartUserImportJobResponse' {} a -> s {userImportJob = a} :: StartUserImportJobResponse)
 
 -- | The response's http status code.
-startUserImportJobResponse_httpStatus :: Lens.Lens' StartUserImportJobResponse Prelude.Int
+startUserImportJobResponse_httpStatus :: Lens.Lens' StartUserImportJobResponse Core.Int
 startUserImportJobResponse_httpStatus = Lens.lens (\StartUserImportJobResponse' {httpStatus} -> httpStatus) (\s@StartUserImportJobResponse' {} a -> s {httpStatus = a} :: StartUserImportJobResponse)
 
-instance Prelude.NFData StartUserImportJobResponse
+instance Core.NFData StartUserImportJobResponse

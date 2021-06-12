@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.DeletedObject where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Information about the deleted object.
@@ -29,20 +28,20 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newDeletedObject' smart constructor.
 data DeletedObject = DeletedObject'
   { -- | The name of the deleted object.
-    key :: Prelude.Maybe ObjectKey,
+    key :: Core.Maybe ObjectKey,
     -- | The version ID of the delete marker created as a result of the DELETE
     -- operation. If you delete a specific object version, the value returned
     -- by this header is the version ID of the object version deleted.
-    deleteMarkerVersionId :: Prelude.Maybe Prelude.Text,
+    deleteMarkerVersionId :: Core.Maybe Core.Text,
     -- | Specifies whether the versioned object that was permanently deleted was
     -- (true) or was not (false) a delete marker. In a simple DELETE, this
     -- header indicates whether (true) or not (false) a delete marker was
     -- created.
-    deleteMarker :: Prelude.Maybe Prelude.Bool,
+    deleteMarker :: Core.Maybe Core.Bool,
     -- | The version ID of the deleted object.
-    versionId :: Prelude.Maybe ObjectVersionId
+    versionId :: Core.Maybe ObjectVersionId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletedObject' with all optional fields omitted.
@@ -68,41 +67,41 @@ newDeletedObject ::
   DeletedObject
 newDeletedObject =
   DeletedObject'
-    { key = Prelude.Nothing,
-      deleteMarkerVersionId = Prelude.Nothing,
-      deleteMarker = Prelude.Nothing,
-      versionId = Prelude.Nothing
+    { key = Core.Nothing,
+      deleteMarkerVersionId = Core.Nothing,
+      deleteMarker = Core.Nothing,
+      versionId = Core.Nothing
     }
 
 -- | The name of the deleted object.
-deletedObject_key :: Lens.Lens' DeletedObject (Prelude.Maybe ObjectKey)
+deletedObject_key :: Lens.Lens' DeletedObject (Core.Maybe ObjectKey)
 deletedObject_key = Lens.lens (\DeletedObject' {key} -> key) (\s@DeletedObject' {} a -> s {key = a} :: DeletedObject)
 
 -- | The version ID of the delete marker created as a result of the DELETE
 -- operation. If you delete a specific object version, the value returned
 -- by this header is the version ID of the object version deleted.
-deletedObject_deleteMarkerVersionId :: Lens.Lens' DeletedObject (Prelude.Maybe Prelude.Text)
+deletedObject_deleteMarkerVersionId :: Lens.Lens' DeletedObject (Core.Maybe Core.Text)
 deletedObject_deleteMarkerVersionId = Lens.lens (\DeletedObject' {deleteMarkerVersionId} -> deleteMarkerVersionId) (\s@DeletedObject' {} a -> s {deleteMarkerVersionId = a} :: DeletedObject)
 
 -- | Specifies whether the versioned object that was permanently deleted was
 -- (true) or was not (false) a delete marker. In a simple DELETE, this
 -- header indicates whether (true) or not (false) a delete marker was
 -- created.
-deletedObject_deleteMarker :: Lens.Lens' DeletedObject (Prelude.Maybe Prelude.Bool)
+deletedObject_deleteMarker :: Lens.Lens' DeletedObject (Core.Maybe Core.Bool)
 deletedObject_deleteMarker = Lens.lens (\DeletedObject' {deleteMarker} -> deleteMarker) (\s@DeletedObject' {} a -> s {deleteMarker = a} :: DeletedObject)
 
 -- | The version ID of the deleted object.
-deletedObject_versionId :: Lens.Lens' DeletedObject (Prelude.Maybe ObjectVersionId)
+deletedObject_versionId :: Lens.Lens' DeletedObject (Core.Maybe ObjectVersionId)
 deletedObject_versionId = Lens.lens (\DeletedObject' {versionId} -> versionId) (\s@DeletedObject' {} a -> s {versionId = a} :: DeletedObject)
 
-instance Prelude.FromXML DeletedObject where
+instance Core.FromXML DeletedObject where
   parseXML x =
     DeletedObject'
-      Prelude.<$> (x Prelude..@? "Key")
-      Prelude.<*> (x Prelude..@? "DeleteMarkerVersionId")
-      Prelude.<*> (x Prelude..@? "DeleteMarker")
-      Prelude.<*> (x Prelude..@? "VersionId")
+      Core.<$> (x Core..@? "Key")
+      Core.<*> (x Core..@? "DeleteMarkerVersionId")
+      Core.<*> (x Core..@? "DeleteMarker")
+      Core.<*> (x Core..@? "VersionId")
 
-instance Prelude.Hashable DeletedObject
+instance Core.Hashable DeletedObject
 
-instance Prelude.NFData DeletedObject
+instance Core.NFData DeletedObject

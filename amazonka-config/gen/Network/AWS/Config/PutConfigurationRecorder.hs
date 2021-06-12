@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.Config.PutConfigurationRecorder
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +61,7 @@ data PutConfigurationRecorder = PutConfigurationRecorder'
     -- made to the resources.
     configurationRecorder :: ConfigurationRecorder
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutConfigurationRecorder' with all optional fields omitted.
@@ -89,56 +88,54 @@ newPutConfigurationRecorder pConfigurationRecorder_ =
 putConfigurationRecorder_configurationRecorder :: Lens.Lens' PutConfigurationRecorder ConfigurationRecorder
 putConfigurationRecorder_configurationRecorder = Lens.lens (\PutConfigurationRecorder' {configurationRecorder} -> configurationRecorder) (\s@PutConfigurationRecorder' {} a -> s {configurationRecorder = a} :: PutConfigurationRecorder)
 
-instance Prelude.AWSRequest PutConfigurationRecorder where
+instance Core.AWSRequest PutConfigurationRecorder where
   type
-    Rs PutConfigurationRecorder =
+    AWSResponse PutConfigurationRecorder =
       PutConfigurationRecorderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       PutConfigurationRecorderResponse'
 
-instance Prelude.Hashable PutConfigurationRecorder
+instance Core.Hashable PutConfigurationRecorder
 
-instance Prelude.NFData PutConfigurationRecorder
+instance Core.NFData PutConfigurationRecorder
 
-instance Prelude.ToHeaders PutConfigurationRecorder where
+instance Core.ToHeaders PutConfigurationRecorder where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.PutConfigurationRecorder" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.PutConfigurationRecorder" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutConfigurationRecorder where
+instance Core.ToJSON PutConfigurationRecorder where
   toJSON PutConfigurationRecorder' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ConfigurationRecorder"
-                  Prelude..= configurationRecorder
+                  Core..= configurationRecorder
               )
           ]
       )
 
-instance Prelude.ToPath PutConfigurationRecorder where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutConfigurationRecorder where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutConfigurationRecorder where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutConfigurationRecorder where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutConfigurationRecorderResponse' smart constructor.
 data PutConfigurationRecorderResponse = PutConfigurationRecorderResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutConfigurationRecorderResponse' with all optional fields omitted.
@@ -149,6 +146,4 @@ newPutConfigurationRecorderResponse ::
 newPutConfigurationRecorderResponse =
   PutConfigurationRecorderResponse'
 
-instance
-  Prelude.NFData
-    PutConfigurationRecorderResponse
+instance Core.NFData PutConfigurationRecorderResponse

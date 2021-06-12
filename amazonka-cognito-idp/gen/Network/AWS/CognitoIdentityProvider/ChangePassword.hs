@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CognitoIdentityProvider.ChangePassword
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +51,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newChangePassword' smart constructor.
 data ChangePassword = ChangePassword'
   { -- | The old password.
-    previousPassword :: Prelude.Sensitive Prelude.Text,
+    previousPassword :: Core.Sensitive Core.Text,
     -- | The new password.
-    proposedPassword :: Prelude.Sensitive Prelude.Text,
+    proposedPassword :: Core.Sensitive Core.Text,
     -- | The access token.
-    accessToken :: Prelude.Sensitive Prelude.Text
+    accessToken :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChangePassword' with all optional fields omitted.
@@ -75,11 +74,11 @@ data ChangePassword = ChangePassword'
 -- 'accessToken', 'changePassword_accessToken' - The access token.
 newChangePassword ::
   -- | 'previousPassword'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'proposedPassword'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'accessToken'
-  Prelude.Text ->
+  Core.Text ->
   ChangePassword
 newChangePassword
   pPreviousPassword_
@@ -87,80 +86,79 @@ newChangePassword
   pAccessToken_ =
     ChangePassword'
       { previousPassword =
-          Prelude._Sensitive Lens.# pPreviousPassword_,
+          Core._Sensitive Lens.# pPreviousPassword_,
         proposedPassword =
-          Prelude._Sensitive Lens.# pProposedPassword_,
-        accessToken =
-          Prelude._Sensitive Lens.# pAccessToken_
+          Core._Sensitive Lens.# pProposedPassword_,
+        accessToken = Core._Sensitive Lens.# pAccessToken_
       }
 
 -- | The old password.
-changePassword_previousPassword :: Lens.Lens' ChangePassword Prelude.Text
-changePassword_previousPassword = Lens.lens (\ChangePassword' {previousPassword} -> previousPassword) (\s@ChangePassword' {} a -> s {previousPassword = a} :: ChangePassword) Prelude.. Prelude._Sensitive
+changePassword_previousPassword :: Lens.Lens' ChangePassword Core.Text
+changePassword_previousPassword = Lens.lens (\ChangePassword' {previousPassword} -> previousPassword) (\s@ChangePassword' {} a -> s {previousPassword = a} :: ChangePassword) Core.. Core._Sensitive
 
 -- | The new password.
-changePassword_proposedPassword :: Lens.Lens' ChangePassword Prelude.Text
-changePassword_proposedPassword = Lens.lens (\ChangePassword' {proposedPassword} -> proposedPassword) (\s@ChangePassword' {} a -> s {proposedPassword = a} :: ChangePassword) Prelude.. Prelude._Sensitive
+changePassword_proposedPassword :: Lens.Lens' ChangePassword Core.Text
+changePassword_proposedPassword = Lens.lens (\ChangePassword' {proposedPassword} -> proposedPassword) (\s@ChangePassword' {} a -> s {proposedPassword = a} :: ChangePassword) Core.. Core._Sensitive
 
 -- | The access token.
-changePassword_accessToken :: Lens.Lens' ChangePassword Prelude.Text
-changePassword_accessToken = Lens.lens (\ChangePassword' {accessToken} -> accessToken) (\s@ChangePassword' {} a -> s {accessToken = a} :: ChangePassword) Prelude.. Prelude._Sensitive
+changePassword_accessToken :: Lens.Lens' ChangePassword Core.Text
+changePassword_accessToken = Lens.lens (\ChangePassword' {accessToken} -> accessToken) (\s@ChangePassword' {} a -> s {accessToken = a} :: ChangePassword) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest ChangePassword where
-  type Rs ChangePassword = ChangePasswordResponse
+instance Core.AWSRequest ChangePassword where
+  type
+    AWSResponse ChangePassword =
+      ChangePasswordResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ChangePasswordResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ChangePassword
+instance Core.Hashable ChangePassword
 
-instance Prelude.NFData ChangePassword
+instance Core.NFData ChangePassword
 
-instance Prelude.ToHeaders ChangePassword where
+instance Core.ToHeaders ChangePassword where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.ChangePassword" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.ChangePassword" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ChangePassword where
+instance Core.ToJSON ChangePassword where
   toJSON ChangePassword' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("PreviousPassword" Prelude..= previousPassword),
-            Prelude.Just
-              ("ProposedPassword" Prelude..= proposedPassword),
-            Prelude.Just ("AccessToken" Prelude..= accessToken)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("PreviousPassword" Core..= previousPassword),
+            Core.Just
+              ("ProposedPassword" Core..= proposedPassword),
+            Core.Just ("AccessToken" Core..= accessToken)
           ]
       )
 
-instance Prelude.ToPath ChangePassword where
-  toPath = Prelude.const "/"
+instance Core.ToPath ChangePassword where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ChangePassword where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ChangePassword where
+  toQuery = Core.const Core.mempty
 
 -- | The response from the server to the change password request.
 --
 -- /See:/ 'newChangePasswordResponse' smart constructor.
 data ChangePasswordResponse = ChangePasswordResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChangePasswordResponse' with all optional fields omitted.
@@ -173,13 +171,13 @@ data ChangePasswordResponse = ChangePasswordResponse'
 -- 'httpStatus', 'changePasswordResponse_httpStatus' - The response's http status code.
 newChangePasswordResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ChangePasswordResponse
 newChangePasswordResponse pHttpStatus_ =
   ChangePasswordResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-changePasswordResponse_httpStatus :: Lens.Lens' ChangePasswordResponse Prelude.Int
+changePasswordResponse_httpStatus :: Lens.Lens' ChangePasswordResponse Core.Int
 changePasswordResponse_httpStatus = Lens.lens (\ChangePasswordResponse' {httpStatus} -> httpStatus) (\s@ChangePasswordResponse' {} a -> s {httpStatus = a} :: ChangePasswordResponse)
 
-instance Prelude.NFData ChangePasswordResponse
+instance Core.NFData ChangePasswordResponse

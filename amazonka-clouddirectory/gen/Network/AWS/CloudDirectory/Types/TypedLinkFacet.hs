@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudDirectory.Types.TypedLinkFacet where
 
 import Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines the typed links structure and its attributes. To create a typed
 -- link facet, use the CreateTypedLinkFacet API.
@@ -30,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTypedLinkFacet' smart constructor.
 data TypedLinkFacet = TypedLinkFacet'
   { -- | The unique name of the typed link facet.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | A set of key-value pairs associated with the typed link. Typed link
     -- attributes are used when you have data values that are related to the
     -- link itself, and not to one of the two objects being linked. Identity
@@ -41,9 +40,9 @@ data TypedLinkFacet = TypedLinkFacet'
     -- each other, in the order of significance. Listing typed links can filter
     -- on the values of these attributes. See ListOutgoingTypedLinks and
     -- ListIncomingTypedLinks for details.
-    identityAttributeOrder :: [Prelude.Text]
+    identityAttributeOrder :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TypedLinkFacet' with all optional fields omitted.
@@ -67,17 +66,17 @@ data TypedLinkFacet = TypedLinkFacet'
 -- ListIncomingTypedLinks for details.
 newTypedLinkFacet ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   TypedLinkFacet
 newTypedLinkFacet pName_ =
   TypedLinkFacet'
     { name = pName_,
-      attributes = Prelude.mempty,
-      identityAttributeOrder = Prelude.mempty
+      attributes = Core.mempty,
+      identityAttributeOrder = Core.mempty
     }
 
 -- | The unique name of the typed link facet.
-typedLinkFacet_name :: Lens.Lens' TypedLinkFacet Prelude.Text
+typedLinkFacet_name :: Lens.Lens' TypedLinkFacet Core.Text
 typedLinkFacet_name = Lens.lens (\TypedLinkFacet' {name} -> name) (\s@TypedLinkFacet' {} a -> s {name = a} :: TypedLinkFacet)
 
 -- | A set of key-value pairs associated with the typed link. Typed link
@@ -86,28 +85,28 @@ typedLinkFacet_name = Lens.lens (\TypedLinkFacet' {name} -> name) (\s@TypedLinkF
 -- attributes also serve to distinguish the link from others of the same
 -- type between the same objects.
 typedLinkFacet_attributes :: Lens.Lens' TypedLinkFacet [TypedLinkAttributeDefinition]
-typedLinkFacet_attributes = Lens.lens (\TypedLinkFacet' {attributes} -> attributes) (\s@TypedLinkFacet' {} a -> s {attributes = a} :: TypedLinkFacet) Prelude.. Prelude._Coerce
+typedLinkFacet_attributes = Lens.lens (\TypedLinkFacet' {attributes} -> attributes) (\s@TypedLinkFacet' {} a -> s {attributes = a} :: TypedLinkFacet) Core.. Lens._Coerce
 
 -- | The set of attributes that distinguish links made from this facet from
 -- each other, in the order of significance. Listing typed links can filter
 -- on the values of these attributes. See ListOutgoingTypedLinks and
 -- ListIncomingTypedLinks for details.
-typedLinkFacet_identityAttributeOrder :: Lens.Lens' TypedLinkFacet [Prelude.Text]
-typedLinkFacet_identityAttributeOrder = Lens.lens (\TypedLinkFacet' {identityAttributeOrder} -> identityAttributeOrder) (\s@TypedLinkFacet' {} a -> s {identityAttributeOrder = a} :: TypedLinkFacet) Prelude.. Prelude._Coerce
+typedLinkFacet_identityAttributeOrder :: Lens.Lens' TypedLinkFacet [Core.Text]
+typedLinkFacet_identityAttributeOrder = Lens.lens (\TypedLinkFacet' {identityAttributeOrder} -> identityAttributeOrder) (\s@TypedLinkFacet' {} a -> s {identityAttributeOrder = a} :: TypedLinkFacet) Core.. Lens._Coerce
 
-instance Prelude.Hashable TypedLinkFacet
+instance Core.Hashable TypedLinkFacet
 
-instance Prelude.NFData TypedLinkFacet
+instance Core.NFData TypedLinkFacet
 
-instance Prelude.ToJSON TypedLinkFacet where
+instance Core.ToJSON TypedLinkFacet where
   toJSON TypedLinkFacet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Attributes" Prelude..= attributes),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Attributes" Core..= attributes),
+            Core.Just
               ( "IdentityAttributeOrder"
-                  Prelude..= identityAttributeOrder
+                  Core..= identityAttributeOrder
               )
           ]
       )

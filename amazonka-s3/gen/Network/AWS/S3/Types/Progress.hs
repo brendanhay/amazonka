@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Progress where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | This data type contains information about progress of an operation.
@@ -29,13 +28,13 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newProgress' smart constructor.
 data Progress = Progress'
   { -- | The current number of object bytes scanned.
-    bytesScanned :: Prelude.Maybe Prelude.Integer,
+    bytesScanned :: Core.Maybe Core.Integer,
     -- | The current number of uncompressed object bytes processed.
-    bytesProcessed :: Prelude.Maybe Prelude.Integer,
+    bytesProcessed :: Core.Maybe Core.Integer,
     -- | The current number of bytes of records payload data returned.
-    bytesReturned :: Prelude.Maybe Prelude.Integer
+    bytesReturned :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Progress' with all optional fields omitted.
@@ -54,30 +53,30 @@ newProgress ::
   Progress
 newProgress =
   Progress'
-    { bytesScanned = Prelude.Nothing,
-      bytesProcessed = Prelude.Nothing,
-      bytesReturned = Prelude.Nothing
+    { bytesScanned = Core.Nothing,
+      bytesProcessed = Core.Nothing,
+      bytesReturned = Core.Nothing
     }
 
 -- | The current number of object bytes scanned.
-progress_bytesScanned :: Lens.Lens' Progress (Prelude.Maybe Prelude.Integer)
+progress_bytesScanned :: Lens.Lens' Progress (Core.Maybe Core.Integer)
 progress_bytesScanned = Lens.lens (\Progress' {bytesScanned} -> bytesScanned) (\s@Progress' {} a -> s {bytesScanned = a} :: Progress)
 
 -- | The current number of uncompressed object bytes processed.
-progress_bytesProcessed :: Lens.Lens' Progress (Prelude.Maybe Prelude.Integer)
+progress_bytesProcessed :: Lens.Lens' Progress (Core.Maybe Core.Integer)
 progress_bytesProcessed = Lens.lens (\Progress' {bytesProcessed} -> bytesProcessed) (\s@Progress' {} a -> s {bytesProcessed = a} :: Progress)
 
 -- | The current number of bytes of records payload data returned.
-progress_bytesReturned :: Lens.Lens' Progress (Prelude.Maybe Prelude.Integer)
+progress_bytesReturned :: Lens.Lens' Progress (Core.Maybe Core.Integer)
 progress_bytesReturned = Lens.lens (\Progress' {bytesReturned} -> bytesReturned) (\s@Progress' {} a -> s {bytesReturned = a} :: Progress)
 
-instance Prelude.FromXML Progress where
+instance Core.FromXML Progress where
   parseXML x =
     Progress'
-      Prelude.<$> (x Prelude..@? "BytesScanned")
-      Prelude.<*> (x Prelude..@? "BytesProcessed")
-      Prelude.<*> (x Prelude..@? "BytesReturned")
+      Core.<$> (x Core..@? "BytesScanned")
+      Core.<*> (x Core..@? "BytesProcessed")
+      Core.<*> (x Core..@? "BytesReturned")
 
-instance Prelude.Hashable Progress
+instance Core.Hashable Progress
 
-instance Prelude.NFData Progress
+instance Core.NFData Progress

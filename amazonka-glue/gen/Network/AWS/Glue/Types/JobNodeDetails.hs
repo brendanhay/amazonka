@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.JobNodeDetails where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.JobRun
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of a Job node present in the workflow.
 --
 -- /See:/ 'newJobNodeDetails' smart constructor.
 data JobNodeDetails = JobNodeDetails'
   { -- | The information for the job runs represented by the job node.
-    jobRuns :: Prelude.Maybe [JobRun]
+    jobRuns :: Core.Maybe [JobRun]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobNodeDetails' with all optional fields omitted.
@@ -45,21 +44,21 @@ data JobNodeDetails = JobNodeDetails'
 newJobNodeDetails ::
   JobNodeDetails
 newJobNodeDetails =
-  JobNodeDetails' {jobRuns = Prelude.Nothing}
+  JobNodeDetails' {jobRuns = Core.Nothing}
 
 -- | The information for the job runs represented by the job node.
-jobNodeDetails_jobRuns :: Lens.Lens' JobNodeDetails (Prelude.Maybe [JobRun])
-jobNodeDetails_jobRuns = Lens.lens (\JobNodeDetails' {jobRuns} -> jobRuns) (\s@JobNodeDetails' {} a -> s {jobRuns = a} :: JobNodeDetails) Prelude.. Lens.mapping Prelude._Coerce
+jobNodeDetails_jobRuns :: Lens.Lens' JobNodeDetails (Core.Maybe [JobRun])
+jobNodeDetails_jobRuns = Lens.lens (\JobNodeDetails' {jobRuns} -> jobRuns) (\s@JobNodeDetails' {} a -> s {jobRuns = a} :: JobNodeDetails) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON JobNodeDetails where
+instance Core.FromJSON JobNodeDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobNodeDetails"
       ( \x ->
           JobNodeDetails'
-            Prelude.<$> (x Prelude..:? "JobRuns" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "JobRuns" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable JobNodeDetails
+instance Core.Hashable JobNodeDetails
 
-instance Prelude.NFData JobNodeDetails
+instance Core.NFData JobNodeDetails

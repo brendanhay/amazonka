@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.IoT.ValidateSecurityProfileBehaviors
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +52,7 @@ data ValidateSecurityProfileBehaviors = ValidateSecurityProfileBehaviors'
     -- an alert.
     behaviors :: [Behavior]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValidateSecurityProfileBehaviors' with all optional fields omitted.
@@ -70,81 +69,70 @@ newValidateSecurityProfileBehaviors ::
 newValidateSecurityProfileBehaviors =
   ValidateSecurityProfileBehaviors'
     { behaviors =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | Specifies the behaviors that, when violated by a device (thing), cause
 -- an alert.
 validateSecurityProfileBehaviors_behaviors :: Lens.Lens' ValidateSecurityProfileBehaviors [Behavior]
-validateSecurityProfileBehaviors_behaviors = Lens.lens (\ValidateSecurityProfileBehaviors' {behaviors} -> behaviors) (\s@ValidateSecurityProfileBehaviors' {} a -> s {behaviors = a} :: ValidateSecurityProfileBehaviors) Prelude.. Prelude._Coerce
+validateSecurityProfileBehaviors_behaviors = Lens.lens (\ValidateSecurityProfileBehaviors' {behaviors} -> behaviors) (\s@ValidateSecurityProfileBehaviors' {} a -> s {behaviors = a} :: ValidateSecurityProfileBehaviors) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ValidateSecurityProfileBehaviors
   where
   type
-    Rs ValidateSecurityProfileBehaviors =
+    AWSResponse ValidateSecurityProfileBehaviors =
       ValidateSecurityProfileBehaviorsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ValidateSecurityProfileBehaviorsResponse'
-            Prelude.<$> ( x Prelude..?> "validationErrors"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "valid")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "validationErrors" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "valid")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ValidateSecurityProfileBehaviors
 
-instance
-  Prelude.NFData
-    ValidateSecurityProfileBehaviors
+instance Core.NFData ValidateSecurityProfileBehaviors
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ValidateSecurityProfileBehaviors
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToJSON
-    ValidateSecurityProfileBehaviors
-  where
+instance Core.ToJSON ValidateSecurityProfileBehaviors where
   toJSON ValidateSecurityProfileBehaviors' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("behaviors" Prelude..= behaviors)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("behaviors" Core..= behaviors)]
       )
 
-instance
-  Prelude.ToPath
-    ValidateSecurityProfileBehaviors
-  where
+instance Core.ToPath ValidateSecurityProfileBehaviors where
   toPath =
-    Prelude.const
-      "/security-profile-behaviors/validate"
+    Core.const "/security-profile-behaviors/validate"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ValidateSecurityProfileBehaviors
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newValidateSecurityProfileBehaviorsResponse' smart constructor.
 data ValidateSecurityProfileBehaviorsResponse = ValidateSecurityProfileBehaviorsResponse'
   { -- | The list of any errors found in the behaviors.
-    validationErrors :: Prelude.Maybe [ValidationError],
+    validationErrors :: Core.Maybe [ValidationError],
     -- | True if the behaviors were valid.
-    valid :: Prelude.Maybe Prelude.Bool,
+    valid :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValidateSecurityProfileBehaviorsResponse' with all optional fields omitted.
@@ -161,29 +149,29 @@ data ValidateSecurityProfileBehaviorsResponse = ValidateSecurityProfileBehaviors
 -- 'httpStatus', 'validateSecurityProfileBehaviorsResponse_httpStatus' - The response's http status code.
 newValidateSecurityProfileBehaviorsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ValidateSecurityProfileBehaviorsResponse
 newValidateSecurityProfileBehaviorsResponse
   pHttpStatus_ =
     ValidateSecurityProfileBehaviorsResponse'
       { validationErrors =
-          Prelude.Nothing,
-        valid = Prelude.Nothing,
+          Core.Nothing,
+        valid = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The list of any errors found in the behaviors.
-validateSecurityProfileBehaviorsResponse_validationErrors :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Prelude.Maybe [ValidationError])
-validateSecurityProfileBehaviorsResponse_validationErrors = Lens.lens (\ValidateSecurityProfileBehaviorsResponse' {validationErrors} -> validationErrors) (\s@ValidateSecurityProfileBehaviorsResponse' {} a -> s {validationErrors = a} :: ValidateSecurityProfileBehaviorsResponse) Prelude.. Lens.mapping Prelude._Coerce
+validateSecurityProfileBehaviorsResponse_validationErrors :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Core.Maybe [ValidationError])
+validateSecurityProfileBehaviorsResponse_validationErrors = Lens.lens (\ValidateSecurityProfileBehaviorsResponse' {validationErrors} -> validationErrors) (\s@ValidateSecurityProfileBehaviorsResponse' {} a -> s {validationErrors = a} :: ValidateSecurityProfileBehaviorsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | True if the behaviors were valid.
-validateSecurityProfileBehaviorsResponse_valid :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Prelude.Maybe Prelude.Bool)
+validateSecurityProfileBehaviorsResponse_valid :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Core.Maybe Core.Bool)
 validateSecurityProfileBehaviorsResponse_valid = Lens.lens (\ValidateSecurityProfileBehaviorsResponse' {valid} -> valid) (\s@ValidateSecurityProfileBehaviorsResponse' {} a -> s {valid = a} :: ValidateSecurityProfileBehaviorsResponse)
 
 -- | The response's http status code.
-validateSecurityProfileBehaviorsResponse_httpStatus :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse Prelude.Int
+validateSecurityProfileBehaviorsResponse_httpStatus :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse Core.Int
 validateSecurityProfileBehaviorsResponse_httpStatus = Lens.lens (\ValidateSecurityProfileBehaviorsResponse' {httpStatus} -> httpStatus) (\s@ValidateSecurityProfileBehaviorsResponse' {} a -> s {httpStatus = a} :: ValidateSecurityProfileBehaviorsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ValidateSecurityProfileBehaviorsResponse

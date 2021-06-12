@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.Rec601Settings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Rec601 Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data Rec601Settings = Rec601Settings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Rec601Settings' with all optional fields omitted.
@@ -39,16 +38,15 @@ newRec601Settings ::
   Rec601Settings
 newRec601Settings = Rec601Settings'
 
-instance Prelude.FromJSON Rec601Settings where
+instance Core.FromJSON Rec601Settings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Rec601Settings"
-      (\x -> Prelude.pure Rec601Settings')
+      (\x -> Core.pure Rec601Settings')
 
-instance Prelude.Hashable Rec601Settings
+instance Core.Hashable Rec601Settings
 
-instance Prelude.NFData Rec601Settings
+instance Core.NFData Rec601Settings
 
-instance Prelude.ToJSON Rec601Settings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON Rec601Settings where
+  toJSON = Core.const (Core.Object Core.mempty)

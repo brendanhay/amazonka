@@ -272,6 +272,7 @@ module Network.AWS.Organizations.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.Account
 import Network.AWS.Organizations.Types.AccountJoinedMethod
@@ -309,86 +310,82 @@ import Network.AWS.Organizations.Types.PolicyTypeSummary
 import Network.AWS.Organizations.Types.Root
 import Network.AWS.Organizations.Types.Tag
 import Network.AWS.Organizations.Types.TargetType
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-11-28@ of the Amazon Organizations SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev =
-        "Organizations",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "organizations",
-      Prelude._svcSigningName = "organizations",
-      Prelude._svcVersion = "2016-11-28",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "Organizations",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "Organizations",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "organizations",
+      Core._serviceSigningName = "organizations",
+      Core._serviceVersion = "2016-11-28",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "Organizations",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The specified OU is not empty. Move all accounts to another root or to
 -- other OUs, remove all child OUs, and try the operation again.
-_OrganizationalUnitNotEmptyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OrganizationalUnitNotEmptyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OrganizationalUnitNotEmptyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OrganizationalUnitNotEmptyException"
 
@@ -397,9 +394,9 @@ _OrganizationalUnitNotEmptyException =
 -- you enable that type in the root. For more information, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
 -- in the /AWS Organizations User Guide./
-_PolicyTypeNotEnabledException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PolicyTypeNotEnabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PolicyTypeNotEnabledException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PolicyTypeNotEnabledException"
 
@@ -408,9 +405,9 @@ _PolicyTypeNotEnabledException =
 -- details about service control policy syntax, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
 -- in the /AWS Organizations User Guide./
-_MalformedPolicyDocumentException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MalformedPolicyDocumentException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MalformedPolicyDocumentException"
 
@@ -419,32 +416,32 @@ _MalformedPolicyDocumentException =
 -- might already have a pending invitation from this organization. If you
 -- intend to resend an invitation to an account, ensure that existing
 -- handshakes that might be considered duplicates are canceled or declined.
-_DuplicateHandshakeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateHandshakeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateHandshakeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateHandshakeException"
 
 -- | The organization isn\'t empty. To delete an organization, you must first
 -- remove all accounts except the management account, delete all OUs, and
 -- delete all policies.
-_OrganizationNotEmptyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OrganizationNotEmptyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OrganizationNotEmptyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OrganizationNotEmptyException"
 
 -- | We can\'t find an OU with the @OrganizationalUnitId@ that you specified.
-_OrganizationalUnitNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OrganizationalUnitNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OrganizationalUnitNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OrganizationalUnitNotFoundException"
 
 -- | That account is already present in the specified destination.
-_DuplicateAccountException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateAccountException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateAccountException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateAccountException"
 
@@ -453,17 +450,17 @@ _DuplicateAccountException =
 -- doesn\'t have an effective policy of this type. Contact the
 -- administrator of your organization about attaching a policy of this type
 -- to the account.
-_EffectivePolicyNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EffectivePolicyNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EffectivePolicyNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EffectivePolicyNotFoundException"
 
 -- | The specified handshake is already in the requested state. For example,
 -- you can\'t accept a handshake that was already accepted.
-_HandshakeAlreadyInStateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HandshakeAlreadyInStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _HandshakeAlreadyInStateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "HandshakeAlreadyInStateException"
 
@@ -619,18 +616,18 @@ _HandshakeAlreadyInStateException =
 -- -   TAG_POLICY_VIOLATION: You attempted to create or update a resource
 --     with tags that are not compliant with the tag policy requirements
 --     for this account.
-_ConstraintViolationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConstraintViolationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConstraintViolationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConstraintViolationException"
 
 -- | Your account isn\'t a member of an organization. To make this request,
 -- you must use the credentials of an account that belongs to an
 -- organization.
-_AWSOrganizationsNotInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AWSOrganizationsNotInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AWSOrganizationsNotInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AWSOrganizationsNotInUseException"
 
@@ -640,16 +637,16 @@ _AWSOrganizationsNotInUseException =
 -- see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root Managing AWS Organizations Policies>in
 -- the /AWS Organizations User Guide./
-_PolicyTypeNotAvailableForOrganizationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PolicyTypeNotAvailableForOrganizationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PolicyTypeNotAvailableForOrganizationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PolicyTypeNotAvailableForOrganizationException"
 
 -- | We can\'t find a handshake with the @HandshakeId@ that you specified.
-_HandshakeNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HandshakeNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _HandshakeNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "HandshakeNotFoundException"
 
@@ -731,39 +728,39 @@ _HandshakeNotFoundException =
 --
 -- -   UNRECOGNIZED_SERVICE_PRINCIPAL: You specified a service principal
 --     that isn\'t recognized.
-_InvalidInputException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidInputException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidInputException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidInputException"
 
 -- | We can\'t find a root or OU with the @ParentId@ that you specified.
-_ParentNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ParentNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ParentNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ParentNotFoundException"
 
 -- | A policy with the same name already exists.
-_DuplicatePolicyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicatePolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicatePolicyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicatePolicyException"
 
 -- | This account is already a member of an organization. An account can
 -- belong to only one organization at a time.
-_AlreadyInOrganizationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AlreadyInOrganizationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AlreadyInOrganizationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AlreadyInOrganizationException"
 
 -- | We can\'t find an create account request with the
 -- @CreateAccountRequestId@ that you specified.
-_CreateAccountStatusNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CreateAccountStatusNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CreateAccountStatusNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CreateAccountStatusNotFoundException"
 
@@ -771,17 +768,17 @@ _CreateAccountStatusNotFoundException =
 -- the management account to become a member account in another
 -- organization, you must first delete the current organization of the
 -- management account.
-_MasterCannotLeaveOrganizationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MasterCannotLeaveOrganizationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MasterCannotLeaveOrganizationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MasterCannotLeaveOrganizationException"
 
 -- | The target of the operation is currently being modified by a different
 -- request. Try again later.
-_ConcurrentModificationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConcurrentModificationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
@@ -791,23 +788,23 @@ _ConcurrentModificationException =
 -- more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management>
 -- in the /IAM User Guide./
-_AccessDeniedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | We can\'t find a policy with the @PolicyId@ that you specified.
-_PolicyNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PolicyNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PolicyNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PolicyNotFoundException"
 
 -- | The specified policy type is already enabled in the specified root.
-_PolicyTypeAlreadyEnabledException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PolicyTypeAlreadyEnabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PolicyTypeAlreadyEnabledException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PolicyTypeAlreadyEnabledException"
 
@@ -816,9 +813,9 @@ _PolicyTypeAlreadyEnabledException =
 -- account. For more information, see
 -- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification Email Address Verification>
 -- in the /AWS Organizations User Guide./
-_AccountOwnerNotVerifiedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccountOwnerNotVerifiedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccountOwnerNotVerifiedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccountOwnerNotVerifiedException"
 
@@ -868,48 +865,48 @@ _AccountOwnerNotVerifiedException =
 -- -   PAYMENT_INSTRUMENT_REQUIRED: You can\'t complete the operation with
 --     an account that doesn\'t have a payment instrument, such as a credit
 --     card, associated with it.
-_HandshakeConstraintViolationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HandshakeConstraintViolationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _HandshakeConstraintViolationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "HandshakeConstraintViolationException"
 
 -- | We can\'t find the destination container (a root or OU) with the
 -- @ParentId@ that you specified.
-_DestinationParentNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DestinationParentNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DestinationParentNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DestinationParentNotFoundException"
 
 -- | The selected policy is already attached to the specified target.
-_DuplicatePolicyAttachmentException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicatePolicyAttachmentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicatePolicyAttachmentException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicatePolicyAttachmentException"
 
 -- | This action isn\'t available in the current AWS Region.
-_UnsupportedAPIEndpointException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedAPIEndpointException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedAPIEndpointException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedAPIEndpointException"
 
 -- | We can\'t find an organizational unit (OU) or AWS account with the
 -- @ChildId@ that you specified.
-_ChildNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ChildNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ChildNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ChildNotFoundException"
 
 -- | You can\'t perform the operation on the handshake in its current state.
 -- For example, you can\'t cancel a handshake that was already accepted or
 -- accept a handshake that was already declined.
-_InvalidHandshakeTransitionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidHandshakeTransitionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidHandshakeTransitionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidHandshakeTransitionException"
 
@@ -917,56 +914,56 @@ _InvalidHandshakeTransitionException =
 -- organization hasn\'t finished initializing. This can take up to an hour.
 -- Try again later. If after one hour you continue to receive this error,
 -- contact <https://console.aws.amazon.com/support/home#/ AWS Support>.
-_FinalizingOrganizationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_FinalizingOrganizationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _FinalizingOrganizationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "FinalizingOrganizationException"
 
 -- | The policy is attached to one or more entities. You must detach it from
 -- all roots, OUs, and accounts before performing this operation.
-_PolicyInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PolicyInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PolicyInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PolicyInUseException"
 
 -- | The specified account is not a delegated administrator for this AWS
 -- service.
-_AccountNotRegisteredException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccountNotRegisteredException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccountNotRegisteredException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccountNotRegisteredException"
 
 -- | Changes to the effective policy are in progress, and its contents can\'t
 -- be returned. Try the operation again later.
-_PolicyChangesInProgressException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PolicyChangesInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PolicyChangesInProgressException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PolicyChangesInProgressException"
 
 -- | The specified account is already a delegated administrator for this AWS
 -- service.
-_AccountAlreadyRegisteredException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccountAlreadyRegisteredException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccountAlreadyRegisteredException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccountAlreadyRegisteredException"
 
 -- | The policy isn\'t attached to the specified target in the specified
 -- root.
-_PolicyNotAttachedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PolicyNotAttachedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PolicyNotAttachedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PolicyNotAttachedException"
 
 -- | An OU with the same name already exists.
-_DuplicateOrganizationalUnitException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateOrganizationalUnitException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateOrganizationalUnitException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateOrganizationalUnitException"
 
@@ -974,34 +971,34 @@ _DuplicateOrganizationalUnitException =
 -- @iam:CreateServiceLinkedRole@ for @organizations.amazonaws.com@
 -- permission so that AWS Organizations can create the required
 -- service-linked role. You don\'t have that permission.
-_AccessDeniedForDependencyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessDeniedForDependencyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedForDependencyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessDeniedForDependencyException"
 
 -- | We can\'t find a root, OU, account, or policy with the @TargetId@ that
 -- you specified.
-_TargetNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TargetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TargetNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TargetNotFoundException"
 
 -- | We can\'t find a source root or OU with the @ParentId@ that you
 -- specified.
-_SourceParentNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SourceParentNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SourceParentNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SourceParentNotFoundException"
 
 -- | We can\'t find an AWS account with the @AccountId@ that you specified,
 -- or the account whose credentials you used to make this request isn\'t a
 -- member of an organization.
-_AccountNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccountNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccountNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccountNotFoundException"
 
@@ -1011,23 +1008,23 @@ _AccountNotFoundException =
 -- For information about quotas that affect AWS Organizations, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html Quotas for AWS Organizations>in
 -- the /AWS Organizations User Guide./
-_TooManyRequestsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyRequestsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyRequestsException"
 
 -- | AWS Organizations can\'t complete your request because of an internal
 -- service error. Try again later.
-_ServiceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceException"
 
 -- | We can\'t find a root with the @RootId@ that you specified.
-_RootNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RootNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _RootNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "RootNotFoundException"

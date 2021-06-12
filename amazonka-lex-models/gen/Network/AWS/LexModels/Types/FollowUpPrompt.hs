@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.FollowUpPrompt where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.Prompt
 import Network.AWS.LexModels.Types.Statement
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A prompt for additional activity after an intent is fulfilled. For
 -- example, after the @OrderPizza@ intent is fulfilled, you might prompt
@@ -38,7 +37,7 @@ data FollowUpPrompt = FollowUpPrompt'
     -- intent was canceled.
     rejectionStatement :: Statement
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FollowUpPrompt' with all optional fields omitted.
@@ -75,28 +74,26 @@ followUpPrompt_prompt = Lens.lens (\FollowUpPrompt' {prompt} -> prompt) (\s@Foll
 followUpPrompt_rejectionStatement :: Lens.Lens' FollowUpPrompt Statement
 followUpPrompt_rejectionStatement = Lens.lens (\FollowUpPrompt' {rejectionStatement} -> rejectionStatement) (\s@FollowUpPrompt' {} a -> s {rejectionStatement = a} :: FollowUpPrompt)
 
-instance Prelude.FromJSON FollowUpPrompt where
+instance Core.FromJSON FollowUpPrompt where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FollowUpPrompt"
       ( \x ->
           FollowUpPrompt'
-            Prelude.<$> (x Prelude..: "prompt")
-            Prelude.<*> (x Prelude..: "rejectionStatement")
+            Core.<$> (x Core..: "prompt")
+            Core.<*> (x Core..: "rejectionStatement")
       )
 
-instance Prelude.Hashable FollowUpPrompt
+instance Core.Hashable FollowUpPrompt
 
-instance Prelude.NFData FollowUpPrompt
+instance Core.NFData FollowUpPrompt
 
-instance Prelude.ToJSON FollowUpPrompt where
+instance Core.ToJSON FollowUpPrompt where
   toJSON FollowUpPrompt' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("prompt" Prelude..= prompt),
-            Prelude.Just
-              ( "rejectionStatement"
-                  Prelude..= rejectionStatement
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("prompt" Core..= prompt),
+            Core.Just
+              ("rejectionStatement" Core..= rejectionStatement)
           ]
       )

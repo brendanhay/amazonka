@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.SDB.GetAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
@@ -62,15 +61,15 @@ data GetAttributes = GetAttributes'
     -- SimpleDB will be returned. Otherwise, results will be consistent
     -- eventually, and the client may not see data that was written immediately
     -- before your read.
-    consistentRead :: Prelude.Maybe Prelude.Bool,
+    consistentRead :: Core.Maybe Core.Bool,
     -- | The names of the attributes.
-    attributeNames :: Prelude.Maybe [Prelude.Text],
+    attributeNames :: Core.Maybe [Core.Text],
     -- | The name of the domain in which to perform the operation.
-    domainName :: Prelude.Text,
+    domainName :: Core.Text,
     -- | The name of the item.
-    itemName :: Prelude.Text
+    itemName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAttributes' with all optional fields omitted.
@@ -93,14 +92,14 @@ data GetAttributes = GetAttributes'
 -- 'itemName', 'getAttributes_itemName' - The name of the item.
 newGetAttributes ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'itemName'
-  Prelude.Text ->
+  Core.Text ->
   GetAttributes
 newGetAttributes pDomainName_ pItemName_ =
   GetAttributes'
-    { consistentRead = Prelude.Nothing,
-      attributeNames = Prelude.Nothing,
+    { consistentRead = Core.Nothing,
+      attributeNames = Core.Nothing,
       domainName = pDomainName_,
       itemName = pItemName_
     }
@@ -110,67 +109,68 @@ newGetAttributes pDomainName_ pItemName_ =
 -- SimpleDB will be returned. Otherwise, results will be consistent
 -- eventually, and the client may not see data that was written immediately
 -- before your read.
-getAttributes_consistentRead :: Lens.Lens' GetAttributes (Prelude.Maybe Prelude.Bool)
+getAttributes_consistentRead :: Lens.Lens' GetAttributes (Core.Maybe Core.Bool)
 getAttributes_consistentRead = Lens.lens (\GetAttributes' {consistentRead} -> consistentRead) (\s@GetAttributes' {} a -> s {consistentRead = a} :: GetAttributes)
 
 -- | The names of the attributes.
-getAttributes_attributeNames :: Lens.Lens' GetAttributes (Prelude.Maybe [Prelude.Text])
-getAttributes_attributeNames = Lens.lens (\GetAttributes' {attributeNames} -> attributeNames) (\s@GetAttributes' {} a -> s {attributeNames = a} :: GetAttributes) Prelude.. Lens.mapping Prelude._Coerce
+getAttributes_attributeNames :: Lens.Lens' GetAttributes (Core.Maybe [Core.Text])
+getAttributes_attributeNames = Lens.lens (\GetAttributes' {attributeNames} -> attributeNames) (\s@GetAttributes' {} a -> s {attributeNames = a} :: GetAttributes) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the domain in which to perform the operation.
-getAttributes_domainName :: Lens.Lens' GetAttributes Prelude.Text
+getAttributes_domainName :: Lens.Lens' GetAttributes Core.Text
 getAttributes_domainName = Lens.lens (\GetAttributes' {domainName} -> domainName) (\s@GetAttributes' {} a -> s {domainName = a} :: GetAttributes)
 
 -- | The name of the item.
-getAttributes_itemName :: Lens.Lens' GetAttributes Prelude.Text
+getAttributes_itemName :: Lens.Lens' GetAttributes Core.Text
 getAttributes_itemName = Lens.lens (\GetAttributes' {itemName} -> itemName) (\s@GetAttributes' {} a -> s {itemName = a} :: GetAttributes)
 
-instance Prelude.AWSRequest GetAttributes where
-  type Rs GetAttributes = GetAttributesResponse
+instance Core.AWSRequest GetAttributes where
+  type
+    AWSResponse GetAttributes =
+      GetAttributesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "GetAttributesResult"
       ( \s h x ->
           GetAttributesResponse'
-            Prelude.<$> (Prelude.may (Prelude.parseXMLList "Attribute") x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.may (Core.parseXMLList "Attribute") x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetAttributes
+instance Core.Hashable GetAttributes
 
-instance Prelude.NFData GetAttributes
+instance Core.NFData GetAttributes
 
-instance Prelude.ToHeaders GetAttributes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetAttributes where
+instance Core.ToQuery GetAttributes where
   toQuery GetAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetAttributes" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2009-04-15" :: Prelude.ByteString),
-        "ConsistentRead" Prelude.=: consistentRead,
-        Prelude.toQuery
-          ( Prelude.toQueryList "AttributeName"
-              Prelude.<$> attributeNames
+          Core.=: ("GetAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2009-04-15" :: Core.ByteString),
+        "ConsistentRead" Core.=: consistentRead,
+        Core.toQuery
+          ( Core.toQueryList "AttributeName"
+              Core.<$> attributeNames
           ),
-        "DomainName" Prelude.=: domainName,
-        "ItemName" Prelude.=: itemName
+        "DomainName" Core.=: domainName,
+        "ItemName" Core.=: itemName
       ]
 
 -- | /See:/ 'newGetAttributesResponse' smart constructor.
 data GetAttributesResponse = GetAttributesResponse'
   { -- | The list of attributes returned by the operation.
-    attributes :: Prelude.Maybe [Attribute],
+    attributes :: Core.Maybe [Attribute],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAttributesResponse' with all optional fields omitted.
@@ -185,21 +185,20 @@ data GetAttributesResponse = GetAttributesResponse'
 -- 'httpStatus', 'getAttributesResponse_httpStatus' - The response's http status code.
 newGetAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetAttributesResponse
 newGetAttributesResponse pHttpStatus_ =
   GetAttributesResponse'
-    { attributes =
-        Prelude.Nothing,
+    { attributes = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of attributes returned by the operation.
-getAttributesResponse_attributes :: Lens.Lens' GetAttributesResponse (Prelude.Maybe [Attribute])
-getAttributesResponse_attributes = Lens.lens (\GetAttributesResponse' {attributes} -> attributes) (\s@GetAttributesResponse' {} a -> s {attributes = a} :: GetAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getAttributesResponse_attributes :: Lens.Lens' GetAttributesResponse (Core.Maybe [Attribute])
+getAttributesResponse_attributes = Lens.lens (\GetAttributesResponse' {attributes} -> attributes) (\s@GetAttributesResponse' {} a -> s {attributes = a} :: GetAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getAttributesResponse_httpStatus :: Lens.Lens' GetAttributesResponse Prelude.Int
+getAttributesResponse_httpStatus :: Lens.Lens' GetAttributesResponse Core.Int
 getAttributesResponse_httpStatus = Lens.lens (\GetAttributesResponse' {httpStatus} -> httpStatus) (\s@GetAttributesResponse' {} a -> s {httpStatus = a} :: GetAttributesResponse)
 
-instance Prelude.NFData GetAttributesResponse
+instance Core.NFData GetAttributesResponse

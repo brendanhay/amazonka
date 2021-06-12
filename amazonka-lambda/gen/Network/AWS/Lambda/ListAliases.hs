@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,10 +47,9 @@ module Network.AWS.Lambda.ListAliases
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,12 +57,12 @@ import qualified Network.AWS.Response as Response
 data ListAliases = ListAliases'
   { -- | Specify a function version to only list aliases that invoke that
     -- version.
-    functionVersion :: Prelude.Maybe Prelude.Text,
+    functionVersion :: Core.Maybe Core.Text,
     -- | Limit the number of aliases returned.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -78,9 +76,9 @@ data ListAliases = ListAliases'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Prelude.Text
+    functionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAliases' with all optional fields omitted.
@@ -113,28 +111,28 @@ data ListAliases = ListAliases'
 -- the function name, it is limited to 64 characters in length.
 newListAliases ::
   -- | 'functionName'
-  Prelude.Text ->
+  Core.Text ->
   ListAliases
 newListAliases pFunctionName_ =
   ListAliases'
-    { functionVersion = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { functionVersion = Core.Nothing,
+      maxItems = Core.Nothing,
+      marker = Core.Nothing,
       functionName = pFunctionName_
     }
 
 -- | Specify a function version to only list aliases that invoke that
 -- version.
-listAliases_functionVersion :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_functionVersion :: Lens.Lens' ListAliases (Core.Maybe Core.Text)
 listAliases_functionVersion = Lens.lens (\ListAliases' {functionVersion} -> functionVersion) (\s@ListAliases' {} a -> s {functionVersion = a} :: ListAliases)
 
 -- | Limit the number of aliases returned.
-listAliases_maxItems :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
+listAliases_maxItems :: Lens.Lens' ListAliases (Core.Maybe Core.Natural)
 listAliases_maxItems = Lens.lens (\ListAliases' {maxItems} -> maxItems) (\s@ListAliases' {} a -> s {maxItems = a} :: ListAliases)
 
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
-listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_marker :: Lens.Lens' ListAliases (Core.Maybe Core.Text)
 listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
 
 -- | The name of the Lambda function.
@@ -150,73 +148,73 @@ listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliase
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-listAliases_functionName :: Lens.Lens' ListAliases Prelude.Text
+listAliases_functionName :: Lens.Lens' ListAliases Core.Text
 listAliases_functionName = Lens.lens (\ListAliases' {functionName} -> functionName) (\s@ListAliases' {} a -> s {functionName = a} :: ListAliases)
 
-instance Pager.AWSPager ListAliases where
+instance Core.AWSPager ListAliases where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listAliasesResponse_nextMarker Prelude.. Lens._Just
+            Lens.^? listAliasesResponse_nextMarker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listAliasesResponse_aliases Prelude.. Lens._Just
+            Lens.^? listAliasesResponse_aliases Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listAliases_marker
           Lens..~ rs
-          Lens.^? listAliasesResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listAliasesResponse_nextMarker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListAliases where
-  type Rs ListAliases = ListAliasesResponse
+instance Core.AWSRequest ListAliases where
+  type AWSResponse ListAliases = ListAliasesResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Prelude.<$> (x Prelude..?> "NextMarker")
-            Prelude.<*> (x Prelude..?> "Aliases" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextMarker")
+            Core.<*> (x Core..?> "Aliases" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListAliases
+instance Core.Hashable ListAliases
 
-instance Prelude.NFData ListAliases
+instance Core.NFData ListAliases
 
-instance Prelude.ToHeaders ListAliases where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListAliases where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListAliases where
+instance Core.ToPath ListAliases where
   toPath ListAliases' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-03-31/functions/",
-        Prelude.toBS functionName,
+        Core.toBS functionName,
         "/aliases"
       ]
 
-instance Prelude.ToQuery ListAliases where
+instance Core.ToQuery ListAliases where
   toQuery ListAliases' {..} =
-    Prelude.mconcat
-      [ "FunctionVersion" Prelude.=: functionVersion,
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+    Core.mconcat
+      [ "FunctionVersion" Core.=: functionVersion,
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
   { -- | The pagination token that\'s included if more results are available.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | A list of aliases.
-    aliases :: Prelude.Maybe [AliasConfiguration],
+    aliases :: Core.Maybe [AliasConfiguration],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAliasesResponse' with all optional fields omitted.
@@ -233,25 +231,25 @@ data ListAliasesResponse = ListAliasesResponse'
 -- 'httpStatus', 'listAliasesResponse_httpStatus' - The response's http status code.
 newListAliasesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAliasesResponse
 newListAliasesResponse pHttpStatus_ =
   ListAliasesResponse'
-    { nextMarker = Prelude.Nothing,
-      aliases = Prelude.Nothing,
+    { nextMarker = Core.Nothing,
+      aliases = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token that\'s included if more results are available.
-listAliasesResponse_nextMarker :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Text)
+listAliasesResponse_nextMarker :: Lens.Lens' ListAliasesResponse (Core.Maybe Core.Text)
 listAliasesResponse_nextMarker = Lens.lens (\ListAliasesResponse' {nextMarker} -> nextMarker) (\s@ListAliasesResponse' {} a -> s {nextMarker = a} :: ListAliasesResponse)
 
 -- | A list of aliases.
-listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [AliasConfiguration])
-listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Core.Maybe [AliasConfiguration])
+listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int
+listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Core.Int
 listAliasesResponse_httpStatus = Lens.lens (\ListAliasesResponse' {httpStatus} -> httpStatus) (\s@ListAliasesResponse' {} a -> s {httpStatus = a} :: ListAliasesResponse)
 
-instance Prelude.NFData ListAliasesResponse
+instance Core.NFData ListAliasesResponse

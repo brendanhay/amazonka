@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.IAM.UntagMFADevice
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,12 +55,12 @@ data UntagMFADevice = UntagMFADevice'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    serialNumber :: Prelude.Text,
+    serialNumber :: Core.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified instance profile.
-    tagKeys :: [Prelude.Text]
+    tagKeys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagMFADevice' with all optional fields omitted.
@@ -84,12 +83,12 @@ data UntagMFADevice = UntagMFADevice'
 -- keys are removed from the specified instance profile.
 newUntagMFADevice ::
   -- | 'serialNumber'
-  Prelude.Text ->
+  Core.Text ->
   UntagMFADevice
 newUntagMFADevice pSerialNumber_ =
   UntagMFADevice'
     { serialNumber = pSerialNumber_,
-      tagKeys = Prelude.mempty
+      tagKeys = Core.mempty
     }
 
 -- | The unique identifier for the IAM virtual MFA device from which you want
@@ -100,47 +99,47 @@ newUntagMFADevice pSerialNumber_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-untagMFADevice_serialNumber :: Lens.Lens' UntagMFADevice Prelude.Text
+untagMFADevice_serialNumber :: Lens.Lens' UntagMFADevice Core.Text
 untagMFADevice_serialNumber = Lens.lens (\UntagMFADevice' {serialNumber} -> serialNumber) (\s@UntagMFADevice' {} a -> s {serialNumber = a} :: UntagMFADevice)
 
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified instance profile.
-untagMFADevice_tagKeys :: Lens.Lens' UntagMFADevice [Prelude.Text]
-untagMFADevice_tagKeys = Lens.lens (\UntagMFADevice' {tagKeys} -> tagKeys) (\s@UntagMFADevice' {} a -> s {tagKeys = a} :: UntagMFADevice) Prelude.. Prelude._Coerce
+untagMFADevice_tagKeys :: Lens.Lens' UntagMFADevice [Core.Text]
+untagMFADevice_tagKeys = Lens.lens (\UntagMFADevice' {tagKeys} -> tagKeys) (\s@UntagMFADevice' {} a -> s {tagKeys = a} :: UntagMFADevice) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagMFADevice where
-  type Rs UntagMFADevice = UntagMFADeviceResponse
+instance Core.AWSRequest UntagMFADevice where
+  type
+    AWSResponse UntagMFADevice =
+      UntagMFADeviceResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull UntagMFADeviceResponse'
 
-instance Prelude.Hashable UntagMFADevice
+instance Core.Hashable UntagMFADevice
 
-instance Prelude.NFData UntagMFADevice
+instance Core.NFData UntagMFADevice
 
-instance Prelude.ToHeaders UntagMFADevice where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UntagMFADevice where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UntagMFADevice where
-  toPath = Prelude.const "/"
+instance Core.ToPath UntagMFADevice where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UntagMFADevice where
+instance Core.ToQuery UntagMFADevice where
   toQuery UntagMFADevice' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UntagMFADevice" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "SerialNumber" Prelude.=: serialNumber,
-        "TagKeys"
-          Prelude.=: Prelude.toQueryList "member" tagKeys
+          Core.=: ("UntagMFADevice" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "SerialNumber" Core.=: serialNumber,
+        "TagKeys" Core.=: Core.toQueryList "member" tagKeys
       ]
 
 -- | /See:/ 'newUntagMFADeviceResponse' smart constructor.
 data UntagMFADeviceResponse = UntagMFADeviceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagMFADeviceResponse' with all optional fields omitted.
@@ -150,4 +149,4 @@ newUntagMFADeviceResponse ::
   UntagMFADeviceResponse
 newUntagMFADeviceResponse = UntagMFADeviceResponse'
 
-instance Prelude.NFData UntagMFADeviceResponse
+instance Core.NFData UntagMFADeviceResponse

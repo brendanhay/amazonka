@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.CloudFormation.DescribeAccountLimits
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +58,9 @@ import qualified Network.AWS.Response as Response
 data DescribeAccountLimits = DescribeAccountLimits'
   { -- | A string that identifies the next page of limits that you want to
     -- retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountLimits' with all optional fields omitted.
@@ -77,38 +75,38 @@ data DescribeAccountLimits = DescribeAccountLimits'
 newDescribeAccountLimits ::
   DescribeAccountLimits
 newDescribeAccountLimits =
-  DescribeAccountLimits' {nextToken = Prelude.Nothing}
+  DescribeAccountLimits' {nextToken = Core.Nothing}
 
 -- | A string that identifies the next page of limits that you want to
 -- retrieve.
-describeAccountLimits_nextToken :: Lens.Lens' DescribeAccountLimits (Prelude.Maybe Prelude.Text)
+describeAccountLimits_nextToken :: Lens.Lens' DescribeAccountLimits (Core.Maybe Core.Text)
 describeAccountLimits_nextToken = Lens.lens (\DescribeAccountLimits' {nextToken} -> nextToken) (\s@DescribeAccountLimits' {} a -> s {nextToken = a} :: DescribeAccountLimits)
 
-instance Pager.AWSPager DescribeAccountLimits where
+instance Core.AWSPager DescribeAccountLimits where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeAccountLimitsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeAccountLimitsResponse_accountLimits
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeAccountLimits_nextToken
           Lens..~ rs
           Lens.^? describeAccountLimitsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeAccountLimits where
+instance Core.AWSRequest DescribeAccountLimits where
   type
-    Rs DescribeAccountLimits =
+    AWSResponse DescribeAccountLimits =
       DescribeAccountLimitsResponse
   request = Request.postQuery defaultService
   response =
@@ -116,32 +114,30 @@ instance Prelude.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> ( x Prelude..@? "AccountLimits"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (x Prelude..@? "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "AccountLimits" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccountLimits
+instance Core.Hashable DescribeAccountLimits
 
-instance Prelude.NFData DescribeAccountLimits
+instance Core.NFData DescribeAccountLimits
 
-instance Prelude.ToHeaders DescribeAccountLimits where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAccountLimits where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAccountLimits where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAccountLimits where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAccountLimits where
+instance Core.ToQuery DescribeAccountLimits where
   toQuery DescribeAccountLimits' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeAccountLimits" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken
+          Core.=: ("DescribeAccountLimits" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken
       ]
 
 -- | The output for the DescribeAccountLimits action.
@@ -150,14 +146,14 @@ instance Prelude.ToQuery DescribeAccountLimits where
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
   { -- | An account limit structure that contain a list of AWS CloudFormation
     -- account limits and their values.
-    accountLimits :: Prelude.Maybe [AccountLimit],
+    accountLimits :: Core.Maybe [AccountLimit],
     -- | If the output exceeds 1 MB in size, a string that identifies the next
     -- page of limits. If no additional page exists, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountLimitsResponse' with all optional fields omitted.
@@ -176,28 +172,28 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 -- 'httpStatus', 'describeAccountLimitsResponse_httpStatus' - The response's http status code.
 newDescribeAccountLimitsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAccountLimitsResponse
 newDescribeAccountLimitsResponse pHttpStatus_ =
   DescribeAccountLimitsResponse'
     { accountLimits =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An account limit structure that contain a list of AWS CloudFormation
 -- account limits and their values.
-describeAccountLimitsResponse_accountLimits :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe [AccountLimit])
-describeAccountLimitsResponse_accountLimits = Lens.lens (\DescribeAccountLimitsResponse' {accountLimits} -> accountLimits) (\s@DescribeAccountLimitsResponse' {} a -> s {accountLimits = a} :: DescribeAccountLimitsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAccountLimitsResponse_accountLimits :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe [AccountLimit])
+describeAccountLimitsResponse_accountLimits = Lens.lens (\DescribeAccountLimitsResponse' {accountLimits} -> accountLimits) (\s@DescribeAccountLimitsResponse' {} a -> s {accountLimits = a} :: DescribeAccountLimitsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next
 -- page of limits. If no additional page exists, this value is null.
-describeAccountLimitsResponse_nextToken :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Text)
+describeAccountLimitsResponse_nextToken :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe Core.Text)
 describeAccountLimitsResponse_nextToken = Lens.lens (\DescribeAccountLimitsResponse' {nextToken} -> nextToken) (\s@DescribeAccountLimitsResponse' {} a -> s {nextToken = a} :: DescribeAccountLimitsResponse)
 
 -- | The response's http status code.
-describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Prelude.Int
+describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Core.Int
 describeAccountLimitsResponse_httpStatus = Lens.lens (\DescribeAccountLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountLimitsResponse' {} a -> s {httpStatus = a} :: DescribeAccountLimitsResponse)
 
-instance Prelude.NFData DescribeAccountLimitsResponse
+instance Core.NFData DescribeAccountLimitsResponse

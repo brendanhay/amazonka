@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,8 +64,8 @@ module Network.AWS.WAF.GetSampledRequests
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -75,7 +74,7 @@ import Network.AWS.WAF.Types
 data GetSampledRequests = GetSampledRequests'
   { -- | The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@
     -- to return a sample of requests.
-    webAclId :: Prelude.Text,
+    webAclId :: Core.Text,
     -- | @RuleId@ is one of three values:
     --
     -- -   The @RuleId@ of the @Rule@ or the @RuleGroupId@ of the @RuleGroup@
@@ -85,7 +84,7 @@ data GetSampledRequests = GetSampledRequests'
     -- -   @Default_Action@, which causes @GetSampledRequests@ to return a
     --     sample of the requests that didn\'t match any of the rules in the
     --     specified @WebACL@.
-    ruleId :: Prelude.Text,
+    ruleId :: Core.Text,
     -- | The start date and time and the end date and time of the range for which
     -- you want @GetSampledRequests@ to return a sample of requests. You must
     -- specify the times in Coordinated Universal Time (UTC) format. UTC format
@@ -97,9 +96,9 @@ data GetSampledRequests = GetSampledRequests'
     -- first 5,000 requests that your AWS resource received during the time
     -- range. If your resource received fewer requests than the value of
     -- @MaxItems@, @GetSampledRequests@ returns information about all of them.
-    maxItems :: Prelude.Natural
+    maxItems :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSampledRequests' with all optional fields omitted.
@@ -135,13 +134,13 @@ data GetSampledRequests = GetSampledRequests'
 -- @MaxItems@, @GetSampledRequests@ returns information about all of them.
 newGetSampledRequests ::
   -- | 'webAclId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ruleId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'timeWindow'
   TimeWindow ->
   -- | 'maxItems'
-  Prelude.Natural ->
+  Core.Natural ->
   GetSampledRequests
 newGetSampledRequests
   pWebAclId_
@@ -157,7 +156,7 @@ newGetSampledRequests
 
 -- | The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@
 -- to return a sample of requests.
-getSampledRequests_webAclId :: Lens.Lens' GetSampledRequests Prelude.Text
+getSampledRequests_webAclId :: Lens.Lens' GetSampledRequests Core.Text
 getSampledRequests_webAclId = Lens.lens (\GetSampledRequests' {webAclId} -> webAclId) (\s@GetSampledRequests' {} a -> s {webAclId = a} :: GetSampledRequests)
 
 -- | @RuleId@ is one of three values:
@@ -169,7 +168,7 @@ getSampledRequests_webAclId = Lens.lens (\GetSampledRequests' {webAclId} -> webA
 -- -   @Default_Action@, which causes @GetSampledRequests@ to return a
 --     sample of the requests that didn\'t match any of the rules in the
 --     specified @WebACL@.
-getSampledRequests_ruleId :: Lens.Lens' GetSampledRequests Prelude.Text
+getSampledRequests_ruleId :: Lens.Lens' GetSampledRequests Core.Text
 getSampledRequests_ruleId = Lens.lens (\GetSampledRequests' {ruleId} -> ruleId) (\s@GetSampledRequests' {} a -> s {ruleId = a} :: GetSampledRequests)
 
 -- | The start date and time and the end date and time of the range for which
@@ -185,61 +184,57 @@ getSampledRequests_timeWindow = Lens.lens (\GetSampledRequests' {timeWindow} -> 
 -- first 5,000 requests that your AWS resource received during the time
 -- range. If your resource received fewer requests than the value of
 -- @MaxItems@, @GetSampledRequests@ returns information about all of them.
-getSampledRequests_maxItems :: Lens.Lens' GetSampledRequests Prelude.Natural
+getSampledRequests_maxItems :: Lens.Lens' GetSampledRequests Core.Natural
 getSampledRequests_maxItems = Lens.lens (\GetSampledRequests' {maxItems} -> maxItems) (\s@GetSampledRequests' {} a -> s {maxItems = a} :: GetSampledRequests)
 
-instance Prelude.AWSRequest GetSampledRequests where
+instance Core.AWSRequest GetSampledRequests where
   type
-    Rs GetSampledRequests =
+    AWSResponse GetSampledRequests =
       GetSampledRequestsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetSampledRequestsResponse'
-            Prelude.<$> (x Prelude..?> "TimeWindow")
-            Prelude.<*> (x Prelude..?> "PopulationSize")
-            Prelude.<*> ( x Prelude..?> "SampledRequests"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TimeWindow")
+            Core.<*> (x Core..?> "PopulationSize")
+            Core.<*> (x Core..?> "SampledRequests" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSampledRequests
+instance Core.Hashable GetSampledRequests
 
-instance Prelude.NFData GetSampledRequests
+instance Core.NFData GetSampledRequests
 
-instance Prelude.ToHeaders GetSampledRequests where
+instance Core.ToHeaders GetSampledRequests where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.GetSampledRequests" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.GetSampledRequests" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetSampledRequests where
+instance Core.ToJSON GetSampledRequests where
   toJSON GetSampledRequests' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("WebAclId" Prelude..= webAclId),
-            Prelude.Just ("RuleId" Prelude..= ruleId),
-            Prelude.Just ("TimeWindow" Prelude..= timeWindow),
-            Prelude.Just ("MaxItems" Prelude..= maxItems)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("WebAclId" Core..= webAclId),
+            Core.Just ("RuleId" Core..= ruleId),
+            Core.Just ("TimeWindow" Core..= timeWindow),
+            Core.Just ("MaxItems" Core..= maxItems)
           ]
       )
 
-instance Prelude.ToPath GetSampledRequests where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetSampledRequests where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetSampledRequests where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetSampledRequests where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetSampledRequestsResponse' smart constructor.
 data GetSampledRequestsResponse = GetSampledRequestsResponse'
@@ -248,19 +243,19 @@ data GetSampledRequestsResponse = GetSampledRequestsResponse'
     -- more than 5,000 requests during the time range that you specified in the
     -- request, @GetSampledRequests@ returns the time range for the first 5,000
     -- requests. Times are in Coordinated Universal Time (UTC) format.
-    timeWindow :: Prelude.Maybe TimeWindow,
+    timeWindow :: Core.Maybe TimeWindow,
     -- | The total number of requests from which @GetSampledRequests@ got a
     -- sample of @MaxItems@ requests. If @PopulationSize@ is less than
     -- @MaxItems@, the sample includes every request that your AWS resource
     -- received during the specified time range.
-    populationSize :: Prelude.Maybe Prelude.Integer,
+    populationSize :: Core.Maybe Core.Integer,
     -- | A complex type that contains detailed information about each of the
     -- requests in the sample.
-    sampledRequests :: Prelude.Maybe [SampledHTTPRequest],
+    sampledRequests :: Core.Maybe [SampledHTTPRequest],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSampledRequestsResponse' with all optional fields omitted.
@@ -287,14 +282,14 @@ data GetSampledRequestsResponse = GetSampledRequestsResponse'
 -- 'httpStatus', 'getSampledRequestsResponse_httpStatus' - The response's http status code.
 newGetSampledRequestsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSampledRequestsResponse
 newGetSampledRequestsResponse pHttpStatus_ =
   GetSampledRequestsResponse'
     { timeWindow =
-        Prelude.Nothing,
-      populationSize = Prelude.Nothing,
-      sampledRequests = Prelude.Nothing,
+        Core.Nothing,
+      populationSize = Core.Nothing,
+      sampledRequests = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -303,23 +298,23 @@ newGetSampledRequestsResponse pHttpStatus_ =
 -- more than 5,000 requests during the time range that you specified in the
 -- request, @GetSampledRequests@ returns the time range for the first 5,000
 -- requests. Times are in Coordinated Universal Time (UTC) format.
-getSampledRequestsResponse_timeWindow :: Lens.Lens' GetSampledRequestsResponse (Prelude.Maybe TimeWindow)
+getSampledRequestsResponse_timeWindow :: Lens.Lens' GetSampledRequestsResponse (Core.Maybe TimeWindow)
 getSampledRequestsResponse_timeWindow = Lens.lens (\GetSampledRequestsResponse' {timeWindow} -> timeWindow) (\s@GetSampledRequestsResponse' {} a -> s {timeWindow = a} :: GetSampledRequestsResponse)
 
 -- | The total number of requests from which @GetSampledRequests@ got a
 -- sample of @MaxItems@ requests. If @PopulationSize@ is less than
 -- @MaxItems@, the sample includes every request that your AWS resource
 -- received during the specified time range.
-getSampledRequestsResponse_populationSize :: Lens.Lens' GetSampledRequestsResponse (Prelude.Maybe Prelude.Integer)
+getSampledRequestsResponse_populationSize :: Lens.Lens' GetSampledRequestsResponse (Core.Maybe Core.Integer)
 getSampledRequestsResponse_populationSize = Lens.lens (\GetSampledRequestsResponse' {populationSize} -> populationSize) (\s@GetSampledRequestsResponse' {} a -> s {populationSize = a} :: GetSampledRequestsResponse)
 
 -- | A complex type that contains detailed information about each of the
 -- requests in the sample.
-getSampledRequestsResponse_sampledRequests :: Lens.Lens' GetSampledRequestsResponse (Prelude.Maybe [SampledHTTPRequest])
-getSampledRequestsResponse_sampledRequests = Lens.lens (\GetSampledRequestsResponse' {sampledRequests} -> sampledRequests) (\s@GetSampledRequestsResponse' {} a -> s {sampledRequests = a} :: GetSampledRequestsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getSampledRequestsResponse_sampledRequests :: Lens.Lens' GetSampledRequestsResponse (Core.Maybe [SampledHTTPRequest])
+getSampledRequestsResponse_sampledRequests = Lens.lens (\GetSampledRequestsResponse' {sampledRequests} -> sampledRequests) (\s@GetSampledRequestsResponse' {} a -> s {sampledRequests = a} :: GetSampledRequestsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getSampledRequestsResponse_httpStatus :: Lens.Lens' GetSampledRequestsResponse Prelude.Int
+getSampledRequestsResponse_httpStatus :: Lens.Lens' GetSampledRequestsResponse Core.Int
 getSampledRequestsResponse_httpStatus = Lens.lens (\GetSampledRequestsResponse' {httpStatus} -> httpStatus) (\s@GetSampledRequestsResponse' {} a -> s {httpStatus = a} :: GetSampledRequestsResponse)
 
-instance Prelude.NFData GetSampledRequestsResponse
+instance Core.NFData GetSampledRequestsResponse

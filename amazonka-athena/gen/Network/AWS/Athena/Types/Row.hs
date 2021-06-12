@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.Athena.Types.Row where
 
 import Network.AWS.Athena.Types.Datum
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The rows that comprise a query result table.
 --
 -- /See:/ 'newRow' smart constructor.
 data Row = Row'
   { -- | The data that populates a row in a query result table.
-    data' :: Prelude.Maybe [Datum]
+    data' :: Core.Maybe [Datum]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Row' with all optional fields omitted.
@@ -44,21 +43,21 @@ data Row = Row'
 -- 'data'', 'row_data' - The data that populates a row in a query result table.
 newRow ::
   Row
-newRow = Row' {data' = Prelude.Nothing}
+newRow = Row' {data' = Core.Nothing}
 
 -- | The data that populates a row in a query result table.
-row_data :: Lens.Lens' Row (Prelude.Maybe [Datum])
-row_data = Lens.lens (\Row' {data'} -> data') (\s@Row' {} a -> s {data' = a} :: Row) Prelude.. Lens.mapping Prelude._Coerce
+row_data :: Lens.Lens' Row (Core.Maybe [Datum])
+row_data = Lens.lens (\Row' {data'} -> data') (\s@Row' {} a -> s {data' = a} :: Row) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Row where
+instance Core.FromJSON Row where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Row"
       ( \x ->
           Row'
-            Prelude.<$> (x Prelude..:? "Data" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Data" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Row
+instance Core.Hashable Row
 
-instance Prelude.NFData Row
+instance Core.NFData Row

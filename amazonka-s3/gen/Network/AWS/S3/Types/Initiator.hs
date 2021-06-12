@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Initiator where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container element that identifies who initiated the multipart upload.
@@ -30,11 +29,11 @@ import Network.AWS.S3.Internal
 data Initiator = Initiator'
   { -- | If the principal is an AWS account, it provides the Canonical User ID.
     -- If the principal is an IAM User, it provides a user ARN value.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Name of the Principal.
-    displayName :: Prelude.Maybe Prelude.Text
+    displayName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Initiator' with all optional fields omitted.
@@ -52,25 +51,24 @@ newInitiator ::
   Initiator
 newInitiator =
   Initiator'
-    { id = Prelude.Nothing,
-      displayName = Prelude.Nothing
+    { id = Core.Nothing,
+      displayName = Core.Nothing
     }
 
 -- | If the principal is an AWS account, it provides the Canonical User ID.
 -- If the principal is an IAM User, it provides a user ARN value.
-initiator_id :: Lens.Lens' Initiator (Prelude.Maybe Prelude.Text)
+initiator_id :: Lens.Lens' Initiator (Core.Maybe Core.Text)
 initiator_id = Lens.lens (\Initiator' {id} -> id) (\s@Initiator' {} a -> s {id = a} :: Initiator)
 
 -- | Name of the Principal.
-initiator_displayName :: Lens.Lens' Initiator (Prelude.Maybe Prelude.Text)
+initiator_displayName :: Lens.Lens' Initiator (Core.Maybe Core.Text)
 initiator_displayName = Lens.lens (\Initiator' {displayName} -> displayName) (\s@Initiator' {} a -> s {displayName = a} :: Initiator)
 
-instance Prelude.FromXML Initiator where
+instance Core.FromXML Initiator where
   parseXML x =
     Initiator'
-      Prelude.<$> (x Prelude..@? "ID")
-      Prelude.<*> (x Prelude..@? "DisplayName")
+      Core.<$> (x Core..@? "ID") Core.<*> (x Core..@? "DisplayName")
 
-instance Prelude.Hashable Initiator
+instance Core.Hashable Initiator
 
-instance Prelude.NFData Initiator
+instance Core.NFData Initiator

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Comprehend.Types.AugmentedManifestsListItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An augmented manifest file that provides training data for your custom
 -- model. An augmented manifest file is a labeled dataset that is produced
@@ -30,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAugmentedManifestsListItem' smart constructor.
 data AugmentedManifestsListItem = AugmentedManifestsListItem'
   { -- | The Amazon S3 location of the augmented manifest file.
-    s3Uri :: Prelude.Text,
+    s3Uri :: Core.Text,
     -- | The JSON attribute that contains the annotations for your training
     -- documents. The number of attribute names that you specify depends on
     -- whether your augmented manifest file is the output of a single labeling
@@ -43,9 +42,9 @@ data AugmentedManifestsListItem = AugmentedManifestsListItem'
     -- If your file is the output of a chained labeling job, specify the
     -- LabelAttributeName key for one or more jobs in the chain. Each
     -- LabelAttributeName key provides the annotations from an individual job.
-    attributeNames :: [Prelude.Text]
+    attributeNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AugmentedManifestsListItem' with all optional fields omitted.
@@ -71,16 +70,16 @@ data AugmentedManifestsListItem = AugmentedManifestsListItem'
 -- LabelAttributeName key provides the annotations from an individual job.
 newAugmentedManifestsListItem ::
   -- | 's3Uri'
-  Prelude.Text ->
+  Core.Text ->
   AugmentedManifestsListItem
 newAugmentedManifestsListItem pS3Uri_ =
   AugmentedManifestsListItem'
     { s3Uri = pS3Uri_,
-      attributeNames = Prelude.mempty
+      attributeNames = Core.mempty
     }
 
 -- | The Amazon S3 location of the augmented manifest file.
-augmentedManifestsListItem_s3Uri :: Lens.Lens' AugmentedManifestsListItem Prelude.Text
+augmentedManifestsListItem_s3Uri :: Lens.Lens' AugmentedManifestsListItem Core.Text
 augmentedManifestsListItem_s3Uri = Lens.lens (\AugmentedManifestsListItem' {s3Uri} -> s3Uri) (\s@AugmentedManifestsListItem' {} a -> s {s3Uri = a} :: AugmentedManifestsListItem)
 
 -- | The JSON attribute that contains the annotations for your training
@@ -95,31 +94,28 @@ augmentedManifestsListItem_s3Uri = Lens.lens (\AugmentedManifestsListItem' {s3Ur
 -- If your file is the output of a chained labeling job, specify the
 -- LabelAttributeName key for one or more jobs in the chain. Each
 -- LabelAttributeName key provides the annotations from an individual job.
-augmentedManifestsListItem_attributeNames :: Lens.Lens' AugmentedManifestsListItem [Prelude.Text]
-augmentedManifestsListItem_attributeNames = Lens.lens (\AugmentedManifestsListItem' {attributeNames} -> attributeNames) (\s@AugmentedManifestsListItem' {} a -> s {attributeNames = a} :: AugmentedManifestsListItem) Prelude.. Prelude._Coerce
+augmentedManifestsListItem_attributeNames :: Lens.Lens' AugmentedManifestsListItem [Core.Text]
+augmentedManifestsListItem_attributeNames = Lens.lens (\AugmentedManifestsListItem' {attributeNames} -> attributeNames) (\s@AugmentedManifestsListItem' {} a -> s {attributeNames = a} :: AugmentedManifestsListItem) Core.. Lens._Coerce
 
-instance Prelude.FromJSON AugmentedManifestsListItem where
+instance Core.FromJSON AugmentedManifestsListItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AugmentedManifestsListItem"
       ( \x ->
           AugmentedManifestsListItem'
-            Prelude.<$> (x Prelude..: "S3Uri")
-            Prelude.<*> ( x Prelude..:? "AttributeNames"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..: "S3Uri")
+            Core.<*> (x Core..:? "AttributeNames" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AugmentedManifestsListItem
+instance Core.Hashable AugmentedManifestsListItem
 
-instance Prelude.NFData AugmentedManifestsListItem
+instance Core.NFData AugmentedManifestsListItem
 
-instance Prelude.ToJSON AugmentedManifestsListItem where
+instance Core.ToJSON AugmentedManifestsListItem where
   toJSON AugmentedManifestsListItem' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("S3Uri" Prelude..= s3Uri),
-            Prelude.Just
-              ("AttributeNames" Prelude..= attributeNames)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3Uri" Core..= s3Uri),
+            Core.Just ("AttributeNames" Core..= attributeNames)
           ]
       )

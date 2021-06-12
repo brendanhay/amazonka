@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFormation.Types.RollbackConfiguration where
 
 import Network.AWS.CloudFormation.Types.RollbackTrigger
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Structure containing the rollback triggers for AWS CloudFormation to
 -- monitor during stack creation and updating operations, and for the
@@ -54,7 +53,7 @@ data RollbackConfiguration = RollbackConfiguration'
     -- specified rollback triggers during stack creation and update operations.
     -- Then, for update operations, it begins disposing of old resources
     -- immediately once the operation completes.
-    monitoringTimeInMinutes :: Prelude.Maybe Prelude.Natural,
+    monitoringTimeInMinutes :: Core.Maybe Core.Natural,
     -- | The triggers to monitor during stack creation or update actions.
     --
     -- By default, AWS CloudFormation saves the rollback triggers specified for
@@ -78,9 +77,9 @@ data RollbackConfiguration = RollbackConfiguration'
     --
     -- If a specified trigger is missing, the entire stack operation fails and
     -- is rolled back.
-    rollbackTriggers :: Prelude.Maybe [RollbackTrigger]
+    rollbackTriggers :: Core.Maybe [RollbackTrigger]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RollbackConfiguration' with all optional fields omitted.
@@ -137,8 +136,8 @@ newRollbackConfiguration ::
 newRollbackConfiguration =
   RollbackConfiguration'
     { monitoringTimeInMinutes =
-        Prelude.Nothing,
-      rollbackTriggers = Prelude.Nothing
+        Core.Nothing,
+      rollbackTriggers = Core.Nothing
     }
 
 -- | The amount of time, in minutes, during which CloudFormation should
@@ -159,7 +158,7 @@ newRollbackConfiguration =
 -- specified rollback triggers during stack creation and update operations.
 -- Then, for update operations, it begins disposing of old resources
 -- immediately once the operation completes.
-rollbackConfiguration_monitoringTimeInMinutes :: Lens.Lens' RollbackConfiguration (Prelude.Maybe Prelude.Natural)
+rollbackConfiguration_monitoringTimeInMinutes :: Lens.Lens' RollbackConfiguration (Core.Maybe Core.Natural)
 rollbackConfiguration_monitoringTimeInMinutes = Lens.lens (\RollbackConfiguration' {monitoringTimeInMinutes} -> monitoringTimeInMinutes) (\s@RollbackConfiguration' {} a -> s {monitoringTimeInMinutes = a} :: RollbackConfiguration)
 
 -- | The triggers to monitor during stack creation or update actions.
@@ -185,30 +184,29 @@ rollbackConfiguration_monitoringTimeInMinutes = Lens.lens (\RollbackConfiguratio
 --
 -- If a specified trigger is missing, the entire stack operation fails and
 -- is rolled back.
-rollbackConfiguration_rollbackTriggers :: Lens.Lens' RollbackConfiguration (Prelude.Maybe [RollbackTrigger])
-rollbackConfiguration_rollbackTriggers = Lens.lens (\RollbackConfiguration' {rollbackTriggers} -> rollbackTriggers) (\s@RollbackConfiguration' {} a -> s {rollbackTriggers = a} :: RollbackConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+rollbackConfiguration_rollbackTriggers :: Lens.Lens' RollbackConfiguration (Core.Maybe [RollbackTrigger])
+rollbackConfiguration_rollbackTriggers = Lens.lens (\RollbackConfiguration' {rollbackTriggers} -> rollbackTriggers) (\s@RollbackConfiguration' {} a -> s {rollbackTriggers = a} :: RollbackConfiguration) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML RollbackConfiguration where
+instance Core.FromXML RollbackConfiguration where
   parseXML x =
     RollbackConfiguration'
-      Prelude.<$> (x Prelude..@? "MonitoringTimeInMinutes")
-      Prelude.<*> ( x Prelude..@? "RollbackTriggers"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> (x Core..@? "MonitoringTimeInMinutes")
+      Core.<*> ( x Core..@? "RollbackTriggers" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable RollbackConfiguration
+instance Core.Hashable RollbackConfiguration
 
-instance Prelude.NFData RollbackConfiguration
+instance Core.NFData RollbackConfiguration
 
-instance Prelude.ToQuery RollbackConfiguration where
+instance Core.ToQuery RollbackConfiguration where
   toQuery RollbackConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "MonitoringTimeInMinutes"
-          Prelude.=: monitoringTimeInMinutes,
+          Core.=: monitoringTimeInMinutes,
         "RollbackTriggers"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> rollbackTriggers
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> rollbackTriggers
             )
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFront.Types.OriginGroup where
 
 import Network.AWS.CloudFront.Types.OriginGroupFailoverCriteria
 import Network.AWS.CloudFront.Types.OriginGroupMembers
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An origin group includes two origins (a primary origin and a second
 -- origin to failover to) and a failover criteria that you specify. You
@@ -36,7 +35,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newOriginGroup' smart constructor.
 data OriginGroup = OriginGroup'
   { -- | The origin group\'s ID.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | A complex type that contains information about the failover criteria for
     -- an origin group.
     failoverCriteria :: OriginGroupFailoverCriteria,
@@ -44,7 +43,7 @@ data OriginGroup = OriginGroup'
     -- group.
     members :: OriginGroupMembers
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OriginGroup' with all optional fields omitted.
@@ -63,7 +62,7 @@ data OriginGroup = OriginGroup'
 -- group.
 newOriginGroup ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'failoverCriteria'
   OriginGroupFailoverCriteria ->
   -- | 'members'
@@ -77,7 +76,7 @@ newOriginGroup pId_ pFailoverCriteria_ pMembers_ =
     }
 
 -- | The origin group\'s ID.
-originGroup_id :: Lens.Lens' OriginGroup Prelude.Text
+originGroup_id :: Lens.Lens' OriginGroup Core.Text
 originGroup_id = Lens.lens (\OriginGroup' {id} -> id) (\s@OriginGroup' {} a -> s {id = a} :: OriginGroup)
 
 -- | A complex type that contains information about the failover criteria for
@@ -90,21 +89,21 @@ originGroup_failoverCriteria = Lens.lens (\OriginGroup' {failoverCriteria} -> fa
 originGroup_members :: Lens.Lens' OriginGroup OriginGroupMembers
 originGroup_members = Lens.lens (\OriginGroup' {members} -> members) (\s@OriginGroup' {} a -> s {members = a} :: OriginGroup)
 
-instance Prelude.FromXML OriginGroup where
+instance Core.FromXML OriginGroup where
   parseXML x =
     OriginGroup'
-      Prelude.<$> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "FailoverCriteria")
-      Prelude.<*> (x Prelude..@ "Members")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "FailoverCriteria")
+      Core.<*> (x Core..@ "Members")
 
-instance Prelude.Hashable OriginGroup
+instance Core.Hashable OriginGroup
 
-instance Prelude.NFData OriginGroup
+instance Core.NFData OriginGroup
 
-instance Prelude.ToXML OriginGroup where
+instance Core.ToXML OriginGroup where
   toXML OriginGroup' {..} =
-    Prelude.mconcat
-      [ "Id" Prelude.@= id,
-        "FailoverCriteria" Prelude.@= failoverCriteria,
-        "Members" Prelude.@= members
+    Core.mconcat
+      [ "Id" Core.@= id,
+        "FailoverCriteria" Core.@= failoverCriteria,
+        "Members" Core.@= members
       ]

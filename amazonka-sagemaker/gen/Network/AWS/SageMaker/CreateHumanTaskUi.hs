@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SageMaker.CreateHumanTaskUi
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -55,12 +54,12 @@ data CreateHumanTaskUi = CreateHumanTaskUi'
   { -- | An array of key-value pairs that contain metadata to help you categorize
     -- and organize a human review workflow user interface. Each tag consists
     -- of a key and a value, both of which you define.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The name of the user interface you are creating.
-    humanTaskUiName :: Prelude.Text,
+    humanTaskUiName :: Core.Text,
     uiTemplate :: UiTemplate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateHumanTaskUi' with all optional fields omitted.
@@ -79,13 +78,13 @@ data CreateHumanTaskUi = CreateHumanTaskUi'
 -- 'uiTemplate', 'createHumanTaskUi_uiTemplate' - Undocumented member.
 newCreateHumanTaskUi ::
   -- | 'humanTaskUiName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'uiTemplate'
   UiTemplate ->
   CreateHumanTaskUi
 newCreateHumanTaskUi pHumanTaskUiName_ pUiTemplate_ =
   CreateHumanTaskUi'
-    { tags = Prelude.Nothing,
+    { tags = Core.Nothing,
       humanTaskUiName = pHumanTaskUiName_,
       uiTemplate = pUiTemplate_
     }
@@ -93,73 +92,71 @@ newCreateHumanTaskUi pHumanTaskUiName_ pUiTemplate_ =
 -- | An array of key-value pairs that contain metadata to help you categorize
 -- and organize a human review workflow user interface. Each tag consists
 -- of a key and a value, both of which you define.
-createHumanTaskUi_tags :: Lens.Lens' CreateHumanTaskUi (Prelude.Maybe [Tag])
-createHumanTaskUi_tags = Lens.lens (\CreateHumanTaskUi' {tags} -> tags) (\s@CreateHumanTaskUi' {} a -> s {tags = a} :: CreateHumanTaskUi) Prelude.. Lens.mapping Prelude._Coerce
+createHumanTaskUi_tags :: Lens.Lens' CreateHumanTaskUi (Core.Maybe [Tag])
+createHumanTaskUi_tags = Lens.lens (\CreateHumanTaskUi' {tags} -> tags) (\s@CreateHumanTaskUi' {} a -> s {tags = a} :: CreateHumanTaskUi) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the user interface you are creating.
-createHumanTaskUi_humanTaskUiName :: Lens.Lens' CreateHumanTaskUi Prelude.Text
+createHumanTaskUi_humanTaskUiName :: Lens.Lens' CreateHumanTaskUi Core.Text
 createHumanTaskUi_humanTaskUiName = Lens.lens (\CreateHumanTaskUi' {humanTaskUiName} -> humanTaskUiName) (\s@CreateHumanTaskUi' {} a -> s {humanTaskUiName = a} :: CreateHumanTaskUi)
 
 -- | Undocumented member.
 createHumanTaskUi_uiTemplate :: Lens.Lens' CreateHumanTaskUi UiTemplate
 createHumanTaskUi_uiTemplate = Lens.lens (\CreateHumanTaskUi' {uiTemplate} -> uiTemplate) (\s@CreateHumanTaskUi' {} a -> s {uiTemplate = a} :: CreateHumanTaskUi)
 
-instance Prelude.AWSRequest CreateHumanTaskUi where
-  type Rs CreateHumanTaskUi = CreateHumanTaskUiResponse
+instance Core.AWSRequest CreateHumanTaskUi where
+  type
+    AWSResponse CreateHumanTaskUi =
+      CreateHumanTaskUiResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateHumanTaskUiResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "HumanTaskUiArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "HumanTaskUiArn")
       )
 
-instance Prelude.Hashable CreateHumanTaskUi
+instance Core.Hashable CreateHumanTaskUi
 
-instance Prelude.NFData CreateHumanTaskUi
+instance Core.NFData CreateHumanTaskUi
 
-instance Prelude.ToHeaders CreateHumanTaskUi where
+instance Core.ToHeaders CreateHumanTaskUi where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.CreateHumanTaskUi" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.CreateHumanTaskUi" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateHumanTaskUi where
+instance Core.ToJSON CreateHumanTaskUi where
   toJSON CreateHumanTaskUi' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
-              ("HumanTaskUiName" Prelude..= humanTaskUiName),
-            Prelude.Just ("UiTemplate" Prelude..= uiTemplate)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            Core.Just
+              ("HumanTaskUiName" Core..= humanTaskUiName),
+            Core.Just ("UiTemplate" Core..= uiTemplate)
           ]
       )
 
-instance Prelude.ToPath CreateHumanTaskUi where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateHumanTaskUi where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateHumanTaskUi where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateHumanTaskUi where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateHumanTaskUiResponse' smart constructor.
 data CreateHumanTaskUiResponse = CreateHumanTaskUiResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the human review workflow user
     -- interface you create.
-    humanTaskUiArn :: Prelude.Text
+    humanTaskUiArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateHumanTaskUiResponse' with all optional fields omitted.
@@ -175,9 +172,9 @@ data CreateHumanTaskUiResponse = CreateHumanTaskUiResponse'
 -- interface you create.
 newCreateHumanTaskUiResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'humanTaskUiArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateHumanTaskUiResponse
 newCreateHumanTaskUiResponse
   pHttpStatus_
@@ -189,12 +186,12 @@ newCreateHumanTaskUiResponse
       }
 
 -- | The response's http status code.
-createHumanTaskUiResponse_httpStatus :: Lens.Lens' CreateHumanTaskUiResponse Prelude.Int
+createHumanTaskUiResponse_httpStatus :: Lens.Lens' CreateHumanTaskUiResponse Core.Int
 createHumanTaskUiResponse_httpStatus = Lens.lens (\CreateHumanTaskUiResponse' {httpStatus} -> httpStatus) (\s@CreateHumanTaskUiResponse' {} a -> s {httpStatus = a} :: CreateHumanTaskUiResponse)
 
 -- | The Amazon Resource Name (ARN) of the human review workflow user
 -- interface you create.
-createHumanTaskUiResponse_humanTaskUiArn :: Lens.Lens' CreateHumanTaskUiResponse Prelude.Text
+createHumanTaskUiResponse_humanTaskUiArn :: Lens.Lens' CreateHumanTaskUiResponse Core.Text
 createHumanTaskUiResponse_humanTaskUiArn = Lens.lens (\CreateHumanTaskUiResponse' {humanTaskUiArn} -> humanTaskUiArn) (\s@CreateHumanTaskUiResponse' {} a -> s {humanTaskUiArn = a} :: CreateHumanTaskUiResponse)
 
-instance Prelude.NFData CreateHumanTaskUiResponse
+instance Core.NFData CreateHumanTaskUiResponse

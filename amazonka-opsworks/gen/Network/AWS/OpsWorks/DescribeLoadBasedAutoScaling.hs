@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,18 +47,18 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeLoadBasedAutoScaling' smart constructor.
 data DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
   { -- | An array of layer IDs.
-    layerIds :: [Prelude.Text]
+    layerIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLoadBasedAutoScaling' with all optional fields omitted.
@@ -75,67 +74,57 @@ newDescribeLoadBasedAutoScaling ::
 newDescribeLoadBasedAutoScaling =
   DescribeLoadBasedAutoScaling'
     { layerIds =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | An array of layer IDs.
-describeLoadBasedAutoScaling_layerIds :: Lens.Lens' DescribeLoadBasedAutoScaling [Prelude.Text]
-describeLoadBasedAutoScaling_layerIds = Lens.lens (\DescribeLoadBasedAutoScaling' {layerIds} -> layerIds) (\s@DescribeLoadBasedAutoScaling' {} a -> s {layerIds = a} :: DescribeLoadBasedAutoScaling) Prelude.. Prelude._Coerce
+describeLoadBasedAutoScaling_layerIds :: Lens.Lens' DescribeLoadBasedAutoScaling [Core.Text]
+describeLoadBasedAutoScaling_layerIds = Lens.lens (\DescribeLoadBasedAutoScaling' {layerIds} -> layerIds) (\s@DescribeLoadBasedAutoScaling' {} a -> s {layerIds = a} :: DescribeLoadBasedAutoScaling) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    DescribeLoadBasedAutoScaling
-  where
+instance Core.AWSRequest DescribeLoadBasedAutoScaling where
   type
-    Rs DescribeLoadBasedAutoScaling =
+    AWSResponse DescribeLoadBasedAutoScaling =
       DescribeLoadBasedAutoScalingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeLoadBasedAutoScalingResponse'
-            Prelude.<$> ( x Prelude..?> "LoadBasedAutoScalingConfigurations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "LoadBasedAutoScalingConfigurations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeLoadBasedAutoScaling
+instance Core.Hashable DescribeLoadBasedAutoScaling
 
-instance Prelude.NFData DescribeLoadBasedAutoScaling
+instance Core.NFData DescribeLoadBasedAutoScaling
 
-instance
-  Prelude.ToHeaders
-    DescribeLoadBasedAutoScaling
-  where
+instance Core.ToHeaders DescribeLoadBasedAutoScaling where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DescribeLoadBasedAutoScaling" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DescribeLoadBasedAutoScaling" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeLoadBasedAutoScaling where
+instance Core.ToJSON DescribeLoadBasedAutoScaling where
   toJSON DescribeLoadBasedAutoScaling' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("LayerIds" Prelude..= layerIds)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("LayerIds" Core..= layerIds)]
       )
 
-instance Prelude.ToPath DescribeLoadBasedAutoScaling where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeLoadBasedAutoScaling where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeLoadBasedAutoScaling where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeLoadBasedAutoScaling where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @DescribeLoadBasedAutoScaling@ request.
 --
@@ -143,11 +132,11 @@ instance Prelude.ToQuery DescribeLoadBasedAutoScaling where
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
   { -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe
     -- each layer\'s configuration.
-    loadBasedAutoScalingConfigurations :: Prelude.Maybe [LoadBasedAutoScalingConfiguration],
+    loadBasedAutoScalingConfigurations :: Core.Maybe [LoadBasedAutoScalingConfiguration],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLoadBasedAutoScalingResponse' with all optional fields omitted.
@@ -163,24 +152,24 @@ data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
 -- 'httpStatus', 'describeLoadBasedAutoScalingResponse_httpStatus' - The response's http status code.
 newDescribeLoadBasedAutoScalingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLoadBasedAutoScalingResponse
 newDescribeLoadBasedAutoScalingResponse pHttpStatus_ =
   DescribeLoadBasedAutoScalingResponse'
     { loadBasedAutoScalingConfigurations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe
 -- each layer\'s configuration.
-describeLoadBasedAutoScalingResponse_loadBasedAutoScalingConfigurations :: Lens.Lens' DescribeLoadBasedAutoScalingResponse (Prelude.Maybe [LoadBasedAutoScalingConfiguration])
-describeLoadBasedAutoScalingResponse_loadBasedAutoScalingConfigurations = Lens.lens (\DescribeLoadBasedAutoScalingResponse' {loadBasedAutoScalingConfigurations} -> loadBasedAutoScalingConfigurations) (\s@DescribeLoadBasedAutoScalingResponse' {} a -> s {loadBasedAutoScalingConfigurations = a} :: DescribeLoadBasedAutoScalingResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeLoadBasedAutoScalingResponse_loadBasedAutoScalingConfigurations :: Lens.Lens' DescribeLoadBasedAutoScalingResponse (Core.Maybe [LoadBasedAutoScalingConfiguration])
+describeLoadBasedAutoScalingResponse_loadBasedAutoScalingConfigurations = Lens.lens (\DescribeLoadBasedAutoScalingResponse' {loadBasedAutoScalingConfigurations} -> loadBasedAutoScalingConfigurations) (\s@DescribeLoadBasedAutoScalingResponse' {} a -> s {loadBasedAutoScalingConfigurations = a} :: DescribeLoadBasedAutoScalingResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLoadBasedAutoScalingResponse_httpStatus :: Lens.Lens' DescribeLoadBasedAutoScalingResponse Prelude.Int
+describeLoadBasedAutoScalingResponse_httpStatus :: Lens.Lens' DescribeLoadBasedAutoScalingResponse Core.Int
 describeLoadBasedAutoScalingResponse_httpStatus = Lens.lens (\DescribeLoadBasedAutoScalingResponse' {httpStatus} -> httpStatus) (\s@DescribeLoadBasedAutoScalingResponse' {} a -> s {httpStatus = a} :: DescribeLoadBasedAutoScalingResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeLoadBasedAutoScalingResponse

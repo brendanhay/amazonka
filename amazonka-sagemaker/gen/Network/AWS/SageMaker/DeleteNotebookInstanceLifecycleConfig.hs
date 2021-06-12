@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.SageMaker.DeleteNotebookInstanceLifecycleConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,9 +44,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteNotebookInstanceLifecycleConfig' smart constructor.
 data DeleteNotebookInstanceLifecycleConfig = DeleteNotebookInstanceLifecycleConfig'
   { -- | The name of the lifecycle configuration to delete.
-    notebookInstanceLifecycleConfigName :: Prelude.Text
+    notebookInstanceLifecycleConfigName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNotebookInstanceLifecycleConfig' with all optional fields omitted.
@@ -60,7 +59,7 @@ data DeleteNotebookInstanceLifecycleConfig = DeleteNotebookInstanceLifecycleConf
 -- 'notebookInstanceLifecycleConfigName', 'deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration to delete.
 newDeleteNotebookInstanceLifecycleConfig ::
   -- | 'notebookInstanceLifecycleConfigName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteNotebookInstanceLifecycleConfig
 newDeleteNotebookInstanceLifecycleConfig
   pNotebookInstanceLifecycleConfigName_ =
@@ -70,15 +69,16 @@ newDeleteNotebookInstanceLifecycleConfig
       }
 
 -- | The name of the lifecycle configuration to delete.
-deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName :: Lens.Lens' DeleteNotebookInstanceLifecycleConfig Prelude.Text
+deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName :: Lens.Lens' DeleteNotebookInstanceLifecycleConfig Core.Text
 deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName = Lens.lens (\DeleteNotebookInstanceLifecycleConfig' {notebookInstanceLifecycleConfigName} -> notebookInstanceLifecycleConfigName) (\s@DeleteNotebookInstanceLifecycleConfig' {} a -> s {notebookInstanceLifecycleConfigName = a} :: DeleteNotebookInstanceLifecycleConfig)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteNotebookInstanceLifecycleConfig
   where
   type
-    Rs DeleteNotebookInstanceLifecycleConfig =
+    AWSResponse
+      DeleteNotebookInstanceLifecycleConfig =
       DeleteNotebookInstanceLifecycleConfigResponse
   request = Request.postJSON defaultService
   response =
@@ -86,62 +86,60 @@ instance
       DeleteNotebookInstanceLifecycleConfigResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteNotebookInstanceLifecycleConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteNotebookInstanceLifecycleConfig
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteNotebookInstanceLifecycleConfig
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteNotebookInstanceLifecycleConfig" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DeleteNotebookInstanceLifecycleConfig" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DeleteNotebookInstanceLifecycleConfig
   where
   toJSON DeleteNotebookInstanceLifecycleConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "NotebookInstanceLifecycleConfigName"
-                  Prelude..= notebookInstanceLifecycleConfigName
+                  Core..= notebookInstanceLifecycleConfigName
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteNotebookInstanceLifecycleConfig
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteNotebookInstanceLifecycleConfig
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteNotebookInstanceLifecycleConfigResponse' smart constructor.
 data DeleteNotebookInstanceLifecycleConfigResponse = DeleteNotebookInstanceLifecycleConfigResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNotebookInstanceLifecycleConfigResponse' with all optional fields omitted.
@@ -153,5 +151,5 @@ newDeleteNotebookInstanceLifecycleConfigResponse =
   DeleteNotebookInstanceLifecycleConfigResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteNotebookInstanceLifecycleConfigResponse

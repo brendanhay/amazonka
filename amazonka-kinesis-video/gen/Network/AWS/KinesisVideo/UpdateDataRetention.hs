@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,9 +65,9 @@ module Network.AWS.KinesisVideo.UpdateDataRetention
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,21 +75,21 @@ import qualified Network.AWS.Response as Response
 data UpdateDataRetention = UpdateDataRetention'
   { -- | The Amazon Resource Name (ARN) of the stream whose retention period you
     -- want to change.
-    streamARN :: Prelude.Maybe Prelude.Text,
+    streamARN :: Core.Maybe Core.Text,
     -- | The name of the stream whose retention period you want to change.
-    streamName :: Prelude.Maybe Prelude.Text,
+    streamName :: Core.Maybe Core.Text,
     -- | The version of the stream whose retention period you want to change. To
     -- get the version, call either the @DescribeStream@ or the @ListStreams@
     -- API.
-    currentVersion :: Prelude.Text,
+    currentVersion :: Core.Text,
     -- | Indicates whether you want to increase or decrease the retention period.
     operation :: UpdateDataRetentionOperation,
     -- | The retention period, in hours. The value you specify replaces the
     -- current value. The maximum value for this parameter is 87600 (ten
     -- years).
-    dataRetentionChangeInHours :: Prelude.Natural
+    dataRetentionChangeInHours :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDataRetention' with all optional fields omitted.
@@ -116,19 +115,19 @@ data UpdateDataRetention = UpdateDataRetention'
 -- years).
 newUpdateDataRetention ::
   -- | 'currentVersion'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'operation'
   UpdateDataRetentionOperation ->
   -- | 'dataRetentionChangeInHours'
-  Prelude.Natural ->
+  Core.Natural ->
   UpdateDataRetention
 newUpdateDataRetention
   pCurrentVersion_
   pOperation_
   pDataRetentionChangeInHours_ =
     UpdateDataRetention'
-      { streamARN = Prelude.Nothing,
-        streamName = Prelude.Nothing,
+      { streamARN = Core.Nothing,
+        streamName = Core.Nothing,
         currentVersion = pCurrentVersion_,
         operation = pOperation_,
         dataRetentionChangeInHours =
@@ -137,17 +136,17 @@ newUpdateDataRetention
 
 -- | The Amazon Resource Name (ARN) of the stream whose retention period you
 -- want to change.
-updateDataRetention_streamARN :: Lens.Lens' UpdateDataRetention (Prelude.Maybe Prelude.Text)
+updateDataRetention_streamARN :: Lens.Lens' UpdateDataRetention (Core.Maybe Core.Text)
 updateDataRetention_streamARN = Lens.lens (\UpdateDataRetention' {streamARN} -> streamARN) (\s@UpdateDataRetention' {} a -> s {streamARN = a} :: UpdateDataRetention)
 
 -- | The name of the stream whose retention period you want to change.
-updateDataRetention_streamName :: Lens.Lens' UpdateDataRetention (Prelude.Maybe Prelude.Text)
+updateDataRetention_streamName :: Lens.Lens' UpdateDataRetention (Core.Maybe Core.Text)
 updateDataRetention_streamName = Lens.lens (\UpdateDataRetention' {streamName} -> streamName) (\s@UpdateDataRetention' {} a -> s {streamName = a} :: UpdateDataRetention)
 
 -- | The version of the stream whose retention period you want to change. To
 -- get the version, call either the @DescribeStream@ or the @ListStreams@
 -- API.
-updateDataRetention_currentVersion :: Lens.Lens' UpdateDataRetention Prelude.Text
+updateDataRetention_currentVersion :: Lens.Lens' UpdateDataRetention Core.Text
 updateDataRetention_currentVersion = Lens.lens (\UpdateDataRetention' {currentVersion} -> currentVersion) (\s@UpdateDataRetention' {} a -> s {currentVersion = a} :: UpdateDataRetention)
 
 -- | Indicates whether you want to increase or decrease the retention period.
@@ -157,56 +156,55 @@ updateDataRetention_operation = Lens.lens (\UpdateDataRetention' {operation} -> 
 -- | The retention period, in hours. The value you specify replaces the
 -- current value. The maximum value for this parameter is 87600 (ten
 -- years).
-updateDataRetention_dataRetentionChangeInHours :: Lens.Lens' UpdateDataRetention Prelude.Natural
+updateDataRetention_dataRetentionChangeInHours :: Lens.Lens' UpdateDataRetention Core.Natural
 updateDataRetention_dataRetentionChangeInHours = Lens.lens (\UpdateDataRetention' {dataRetentionChangeInHours} -> dataRetentionChangeInHours) (\s@UpdateDataRetention' {} a -> s {dataRetentionChangeInHours = a} :: UpdateDataRetention)
 
-instance Prelude.AWSRequest UpdateDataRetention where
+instance Core.AWSRequest UpdateDataRetention where
   type
-    Rs UpdateDataRetention =
+    AWSResponse UpdateDataRetention =
       UpdateDataRetentionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDataRetentionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDataRetention
+instance Core.Hashable UpdateDataRetention
 
-instance Prelude.NFData UpdateDataRetention
+instance Core.NFData UpdateDataRetention
 
-instance Prelude.ToHeaders UpdateDataRetention where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateDataRetention where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateDataRetention where
+instance Core.ToJSON UpdateDataRetention where
   toJSON UpdateDataRetention' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StreamARN" Prelude..=) Prelude.<$> streamARN,
-            ("StreamName" Prelude..=) Prelude.<$> streamName,
-            Prelude.Just
-              ("CurrentVersion" Prelude..= currentVersion),
-            Prelude.Just ("Operation" Prelude..= operation),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("StreamARN" Core..=) Core.<$> streamARN,
+            ("StreamName" Core..=) Core.<$> streamName,
+            Core.Just ("CurrentVersion" Core..= currentVersion),
+            Core.Just ("Operation" Core..= operation),
+            Core.Just
               ( "DataRetentionChangeInHours"
-                  Prelude..= dataRetentionChangeInHours
+                  Core..= dataRetentionChangeInHours
               )
           ]
       )
 
-instance Prelude.ToPath UpdateDataRetention where
-  toPath = Prelude.const "/updateDataRetention"
+instance Core.ToPath UpdateDataRetention where
+  toPath = Core.const "/updateDataRetention"
 
-instance Prelude.ToQuery UpdateDataRetention where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDataRetention where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDataRetentionResponse' smart constructor.
 data UpdateDataRetentionResponse = UpdateDataRetentionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDataRetentionResponse' with all optional fields omitted.
@@ -219,7 +217,7 @@ data UpdateDataRetentionResponse = UpdateDataRetentionResponse'
 -- 'httpStatus', 'updateDataRetentionResponse_httpStatus' - The response's http status code.
 newUpdateDataRetentionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateDataRetentionResponse
 newUpdateDataRetentionResponse pHttpStatus_ =
   UpdateDataRetentionResponse'
@@ -228,7 +226,7 @@ newUpdateDataRetentionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateDataRetentionResponse_httpStatus :: Lens.Lens' UpdateDataRetentionResponse Prelude.Int
+updateDataRetentionResponse_httpStatus :: Lens.Lens' UpdateDataRetentionResponse Core.Int
 updateDataRetentionResponse_httpStatus = Lens.lens (\UpdateDataRetentionResponse' {httpStatus} -> httpStatus) (\s@UpdateDataRetentionResponse' {} a -> s {httpStatus = a} :: UpdateDataRetentionResponse)
 
-instance Prelude.NFData UpdateDataRetentionResponse
+instance Core.NFData UpdateDataRetentionResponse

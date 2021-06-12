@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,8 +63,8 @@ module Network.AWS.SSM.CreateOpsItem
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -74,14 +73,14 @@ import Network.AWS.SSM.Types
 data CreateOpsItem = CreateOpsItem'
   { -- | The time specified in a change request for a runbook workflow to end.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedEndTime :: Prelude.Maybe Prelude.POSIX,
+    plannedEndTime :: Core.Maybe Core.POSIX,
     -- | Specify a severity to assign to an OpsItem.
-    severity :: Prelude.Maybe Prelude.Text,
+    severity :: Core.Maybe Core.Text,
     -- | The time a runbook workflow started. Currently reported only for the
     -- OpsItem type @\/aws\/changerequest@.
-    actualStartTime :: Prelude.Maybe Prelude.POSIX,
+    actualStartTime :: Core.Maybe Core.POSIX,
     -- | Specify a category to assign to an OpsItem.
-    category :: Prelude.Maybe Prelude.Text,
+    category :: Core.Maybe Core.Text,
     -- | Operational data is custom data that provides useful reference details
     -- about the OpsItem. For example, you can specify log files, error
     -- strings, license keys, troubleshooting tips, or other relevant data. You
@@ -104,13 +103,13 @@ data CreateOpsItem = CreateOpsItem'
     -- view AWS CLI example commands that use these keys, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
     -- in the /AWS Systems Manager User Guide/.
-    operationalData :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue),
+    operationalData :: Core.Maybe (Core.HashMap Core.Text OpsItemDataValue),
     -- | The importance of this OpsItem in relation to other OpsItems in the
     -- system.
-    priority :: Prelude.Maybe Prelude.Natural,
+    priority :: Core.Maybe Core.Natural,
     -- | The time a runbook workflow ended. Currently reported only for the
     -- OpsItem type @\/aws\/changerequest@.
-    actualEndTime :: Prelude.Maybe Prelude.POSIX,
+    actualEndTime :: Core.Maybe Core.POSIX,
     -- | Optional metadata that you assign to a resource. You can restrict access
     -- to OpsItems by using an inline IAM policy that specifies tags. For more
     -- information, see
@@ -122,33 +121,33 @@ data CreateOpsItem = CreateOpsItem'
     -- @Key=Department,Value=Finance@
     --
     -- To add tags to an existing OpsItem, use the AddTagsToResource action.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The type of OpsItem to create. Currently, the only valid values are
     -- @\/aws\/changerequest@ and @\/aws\/issue@.
-    opsItemType :: Prelude.Maybe Prelude.Text,
+    opsItemType :: Core.Maybe Core.Text,
     -- | The time specified in a change request for a runbook workflow to start.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedStartTime :: Prelude.Maybe Prelude.POSIX,
+    plannedStartTime :: Core.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
     -- sent when this OpsItem is edited or changed.
-    notifications :: Prelude.Maybe [OpsItemNotification],
+    notifications :: Core.Maybe [OpsItemNotification],
     -- | One or more OpsItems that share something in common with the current
     -- OpsItems. For example, related OpsItems can include OpsItems with
     -- similar error messages, impacted resources, or statuses for the impacted
     -- resource.
-    relatedOpsItems :: Prelude.Maybe [RelatedOpsItem],
+    relatedOpsItems :: Core.Maybe [RelatedOpsItem],
     -- | Information about the OpsItem.
-    description :: Prelude.Text,
+    description :: Core.Text,
     -- | The origin of the OpsItem, such as Amazon EC2 or Systems Manager.
     --
     -- The source name can\'t contain the following strings: aws, amazon, and
     -- amzn.
-    source :: Prelude.Text,
+    source :: Core.Text,
     -- | A short heading that describes the nature of the OpsItem and the
     -- impacted resource.
-    title :: Prelude.Text
+    title :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateOpsItem' with all optional fields omitted.
@@ -234,26 +233,26 @@ data CreateOpsItem = CreateOpsItem'
 -- impacted resource.
 newCreateOpsItem ::
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'source'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'title'
-  Prelude.Text ->
+  Core.Text ->
   CreateOpsItem
 newCreateOpsItem pDescription_ pSource_ pTitle_ =
   CreateOpsItem'
-    { plannedEndTime = Prelude.Nothing,
-      severity = Prelude.Nothing,
-      actualStartTime = Prelude.Nothing,
-      category = Prelude.Nothing,
-      operationalData = Prelude.Nothing,
-      priority = Prelude.Nothing,
-      actualEndTime = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      opsItemType = Prelude.Nothing,
-      plannedStartTime = Prelude.Nothing,
-      notifications = Prelude.Nothing,
-      relatedOpsItems = Prelude.Nothing,
+    { plannedEndTime = Core.Nothing,
+      severity = Core.Nothing,
+      actualStartTime = Core.Nothing,
+      category = Core.Nothing,
+      operationalData = Core.Nothing,
+      priority = Core.Nothing,
+      actualEndTime = Core.Nothing,
+      tags = Core.Nothing,
+      opsItemType = Core.Nothing,
+      plannedStartTime = Core.Nothing,
+      notifications = Core.Nothing,
+      relatedOpsItems = Core.Nothing,
       description = pDescription_,
       source = pSource_,
       title = pTitle_
@@ -261,20 +260,20 @@ newCreateOpsItem pDescription_ pSource_ pTitle_ =
 
 -- | The time specified in a change request for a runbook workflow to end.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-createOpsItem_plannedEndTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_plannedEndTime = Lens.lens (\CreateOpsItem' {plannedEndTime} -> plannedEndTime) (\s@CreateOpsItem' {} a -> s {plannedEndTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Prelude._Time
+createOpsItem_plannedEndTime :: Lens.Lens' CreateOpsItem (Core.Maybe Core.UTCTime)
+createOpsItem_plannedEndTime = Lens.lens (\CreateOpsItem' {plannedEndTime} -> plannedEndTime) (\s@CreateOpsItem' {} a -> s {plannedEndTime = a} :: CreateOpsItem) Core.. Lens.mapping Core._Time
 
 -- | Specify a severity to assign to an OpsItem.
-createOpsItem_severity :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
+createOpsItem_severity :: Lens.Lens' CreateOpsItem (Core.Maybe Core.Text)
 createOpsItem_severity = Lens.lens (\CreateOpsItem' {severity} -> severity) (\s@CreateOpsItem' {} a -> s {severity = a} :: CreateOpsItem)
 
 -- | The time a runbook workflow started. Currently reported only for the
 -- OpsItem type @\/aws\/changerequest@.
-createOpsItem_actualStartTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_actualStartTime = Lens.lens (\CreateOpsItem' {actualStartTime} -> actualStartTime) (\s@CreateOpsItem' {} a -> s {actualStartTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Prelude._Time
+createOpsItem_actualStartTime :: Lens.Lens' CreateOpsItem (Core.Maybe Core.UTCTime)
+createOpsItem_actualStartTime = Lens.lens (\CreateOpsItem' {actualStartTime} -> actualStartTime) (\s@CreateOpsItem' {} a -> s {actualStartTime = a} :: CreateOpsItem) Core.. Lens.mapping Core._Time
 
 -- | Specify a category to assign to an OpsItem.
-createOpsItem_category :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
+createOpsItem_category :: Lens.Lens' CreateOpsItem (Core.Maybe Core.Text)
 createOpsItem_category = Lens.lens (\CreateOpsItem' {category} -> category) (\s@CreateOpsItem' {} a -> s {category = a} :: CreateOpsItem)
 
 -- | Operational data is custom data that provides useful reference details
@@ -299,18 +298,18 @@ createOpsItem_category = Lens.lens (\CreateOpsItem' {category} -> category) (\s@
 -- view AWS CLI example commands that use these keys, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
 -- in the /AWS Systems Manager User Guide/.
-createOpsItem_operationalData :: Lens.Lens' CreateOpsItem (Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue))
-createOpsItem_operationalData = Lens.lens (\CreateOpsItem' {operationalData} -> operationalData) (\s@CreateOpsItem' {} a -> s {operationalData = a} :: CreateOpsItem) Prelude.. Lens.mapping Prelude._Coerce
+createOpsItem_operationalData :: Lens.Lens' CreateOpsItem (Core.Maybe (Core.HashMap Core.Text OpsItemDataValue))
+createOpsItem_operationalData = Lens.lens (\CreateOpsItem' {operationalData} -> operationalData) (\s@CreateOpsItem' {} a -> s {operationalData = a} :: CreateOpsItem) Core.. Lens.mapping Lens._Coerce
 
 -- | The importance of this OpsItem in relation to other OpsItems in the
 -- system.
-createOpsItem_priority :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Natural)
+createOpsItem_priority :: Lens.Lens' CreateOpsItem (Core.Maybe Core.Natural)
 createOpsItem_priority = Lens.lens (\CreateOpsItem' {priority} -> priority) (\s@CreateOpsItem' {} a -> s {priority = a} :: CreateOpsItem)
 
 -- | The time a runbook workflow ended. Currently reported only for the
 -- OpsItem type @\/aws\/changerequest@.
-createOpsItem_actualEndTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_actualEndTime = Lens.lens (\CreateOpsItem' {actualEndTime} -> actualEndTime) (\s@CreateOpsItem' {} a -> s {actualEndTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Prelude._Time
+createOpsItem_actualEndTime :: Lens.Lens' CreateOpsItem (Core.Maybe Core.UTCTime)
+createOpsItem_actualEndTime = Lens.lens (\CreateOpsItem' {actualEndTime} -> actualEndTime) (\s@CreateOpsItem' {} a -> s {actualEndTime = a} :: CreateOpsItem) Core.. Lens.mapping Core._Time
 
 -- | Optional metadata that you assign to a resource. You can restrict access
 -- to OpsItems by using an inline IAM policy that specifies tags. For more
@@ -323,118 +322,112 @@ createOpsItem_actualEndTime = Lens.lens (\CreateOpsItem' {actualEndTime} -> actu
 -- @Key=Department,Value=Finance@
 --
 -- To add tags to an existing OpsItem, use the AddTagsToResource action.
-createOpsItem_tags :: Lens.Lens' CreateOpsItem (Prelude.Maybe [Tag])
-createOpsItem_tags = Lens.lens (\CreateOpsItem' {tags} -> tags) (\s@CreateOpsItem' {} a -> s {tags = a} :: CreateOpsItem) Prelude.. Lens.mapping Prelude._Coerce
+createOpsItem_tags :: Lens.Lens' CreateOpsItem (Core.Maybe [Tag])
+createOpsItem_tags = Lens.lens (\CreateOpsItem' {tags} -> tags) (\s@CreateOpsItem' {} a -> s {tags = a} :: CreateOpsItem) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of OpsItem to create. Currently, the only valid values are
 -- @\/aws\/changerequest@ and @\/aws\/issue@.
-createOpsItem_opsItemType :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
+createOpsItem_opsItemType :: Lens.Lens' CreateOpsItem (Core.Maybe Core.Text)
 createOpsItem_opsItemType = Lens.lens (\CreateOpsItem' {opsItemType} -> opsItemType) (\s@CreateOpsItem' {} a -> s {opsItemType = a} :: CreateOpsItem)
 
 -- | The time specified in a change request for a runbook workflow to start.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-createOpsItem_plannedStartTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_plannedStartTime = Lens.lens (\CreateOpsItem' {plannedStartTime} -> plannedStartTime) (\s@CreateOpsItem' {} a -> s {plannedStartTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Prelude._Time
+createOpsItem_plannedStartTime :: Lens.Lens' CreateOpsItem (Core.Maybe Core.UTCTime)
+createOpsItem_plannedStartTime = Lens.lens (\CreateOpsItem' {plannedStartTime} -> plannedStartTime) (\s@CreateOpsItem' {} a -> s {plannedStartTime = a} :: CreateOpsItem) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
 -- sent when this OpsItem is edited or changed.
-createOpsItem_notifications :: Lens.Lens' CreateOpsItem (Prelude.Maybe [OpsItemNotification])
-createOpsItem_notifications = Lens.lens (\CreateOpsItem' {notifications} -> notifications) (\s@CreateOpsItem' {} a -> s {notifications = a} :: CreateOpsItem) Prelude.. Lens.mapping Prelude._Coerce
+createOpsItem_notifications :: Lens.Lens' CreateOpsItem (Core.Maybe [OpsItemNotification])
+createOpsItem_notifications = Lens.lens (\CreateOpsItem' {notifications} -> notifications) (\s@CreateOpsItem' {} a -> s {notifications = a} :: CreateOpsItem) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more OpsItems that share something in common with the current
 -- OpsItems. For example, related OpsItems can include OpsItems with
 -- similar error messages, impacted resources, or statuses for the impacted
 -- resource.
-createOpsItem_relatedOpsItems :: Lens.Lens' CreateOpsItem (Prelude.Maybe [RelatedOpsItem])
-createOpsItem_relatedOpsItems = Lens.lens (\CreateOpsItem' {relatedOpsItems} -> relatedOpsItems) (\s@CreateOpsItem' {} a -> s {relatedOpsItems = a} :: CreateOpsItem) Prelude.. Lens.mapping Prelude._Coerce
+createOpsItem_relatedOpsItems :: Lens.Lens' CreateOpsItem (Core.Maybe [RelatedOpsItem])
+createOpsItem_relatedOpsItems = Lens.lens (\CreateOpsItem' {relatedOpsItems} -> relatedOpsItems) (\s@CreateOpsItem' {} a -> s {relatedOpsItems = a} :: CreateOpsItem) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the OpsItem.
-createOpsItem_description :: Lens.Lens' CreateOpsItem Prelude.Text
+createOpsItem_description :: Lens.Lens' CreateOpsItem Core.Text
 createOpsItem_description = Lens.lens (\CreateOpsItem' {description} -> description) (\s@CreateOpsItem' {} a -> s {description = a} :: CreateOpsItem)
 
 -- | The origin of the OpsItem, such as Amazon EC2 or Systems Manager.
 --
 -- The source name can\'t contain the following strings: aws, amazon, and
 -- amzn.
-createOpsItem_source :: Lens.Lens' CreateOpsItem Prelude.Text
+createOpsItem_source :: Lens.Lens' CreateOpsItem Core.Text
 createOpsItem_source = Lens.lens (\CreateOpsItem' {source} -> source) (\s@CreateOpsItem' {} a -> s {source = a} :: CreateOpsItem)
 
 -- | A short heading that describes the nature of the OpsItem and the
 -- impacted resource.
-createOpsItem_title :: Lens.Lens' CreateOpsItem Prelude.Text
+createOpsItem_title :: Lens.Lens' CreateOpsItem Core.Text
 createOpsItem_title = Lens.lens (\CreateOpsItem' {title} -> title) (\s@CreateOpsItem' {} a -> s {title = a} :: CreateOpsItem)
 
-instance Prelude.AWSRequest CreateOpsItem where
-  type Rs CreateOpsItem = CreateOpsItemResponse
+instance Core.AWSRequest CreateOpsItem where
+  type
+    AWSResponse CreateOpsItem =
+      CreateOpsItemResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateOpsItemResponse'
-            Prelude.<$> (x Prelude..?> "OpsItemId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "OpsItemId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOpsItem
+instance Core.Hashable CreateOpsItem
 
-instance Prelude.NFData CreateOpsItem
+instance Core.NFData CreateOpsItem
 
-instance Prelude.ToHeaders CreateOpsItem where
+instance Core.ToHeaders CreateOpsItem where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonSSM.CreateOpsItem" :: Prelude.ByteString),
+              Core.=# ("AmazonSSM.CreateOpsItem" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateOpsItem where
+instance Core.ToJSON CreateOpsItem where
   toJSON CreateOpsItem' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PlannedEndTime" Prelude..=)
-              Prelude.<$> plannedEndTime,
-            ("Severity" Prelude..=) Prelude.<$> severity,
-            ("ActualStartTime" Prelude..=)
-              Prelude.<$> actualStartTime,
-            ("Category" Prelude..=) Prelude.<$> category,
-            ("OperationalData" Prelude..=)
-              Prelude.<$> operationalData,
-            ("Priority" Prelude..=) Prelude.<$> priority,
-            ("ActualEndTime" Prelude..=)
-              Prelude.<$> actualEndTime,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("OpsItemType" Prelude..=) Prelude.<$> opsItemType,
-            ("PlannedStartTime" Prelude..=)
-              Prelude.<$> plannedStartTime,
-            ("Notifications" Prelude..=)
-              Prelude.<$> notifications,
-            ("RelatedOpsItems" Prelude..=)
-              Prelude.<$> relatedOpsItems,
-            Prelude.Just ("Description" Prelude..= description),
-            Prelude.Just ("Source" Prelude..= source),
-            Prelude.Just ("Title" Prelude..= title)
+    Core.object
+      ( Core.catMaybes
+          [ ("PlannedEndTime" Core..=) Core.<$> plannedEndTime,
+            ("Severity" Core..=) Core.<$> severity,
+            ("ActualStartTime" Core..=) Core.<$> actualStartTime,
+            ("Category" Core..=) Core.<$> category,
+            ("OperationalData" Core..=) Core.<$> operationalData,
+            ("Priority" Core..=) Core.<$> priority,
+            ("ActualEndTime" Core..=) Core.<$> actualEndTime,
+            ("Tags" Core..=) Core.<$> tags,
+            ("OpsItemType" Core..=) Core.<$> opsItemType,
+            ("PlannedStartTime" Core..=)
+              Core.<$> plannedStartTime,
+            ("Notifications" Core..=) Core.<$> notifications,
+            ("RelatedOpsItems" Core..=) Core.<$> relatedOpsItems,
+            Core.Just ("Description" Core..= description),
+            Core.Just ("Source" Core..= source),
+            Core.Just ("Title" Core..= title)
           ]
       )
 
-instance Prelude.ToPath CreateOpsItem where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateOpsItem where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateOpsItem where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateOpsItem where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateOpsItemResponse' smart constructor.
 data CreateOpsItemResponse = CreateOpsItemResponse'
   { -- | The ID of the OpsItem.
-    opsItemId :: Prelude.Maybe Prelude.Text,
+    opsItemId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateOpsItemResponse' with all optional fields omitted.
@@ -449,20 +442,20 @@ data CreateOpsItemResponse = CreateOpsItemResponse'
 -- 'httpStatus', 'createOpsItemResponse_httpStatus' - The response's http status code.
 newCreateOpsItemResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateOpsItemResponse
 newCreateOpsItemResponse pHttpStatus_ =
   CreateOpsItemResponse'
-    { opsItemId = Prelude.Nothing,
+    { opsItemId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the OpsItem.
-createOpsItemResponse_opsItemId :: Lens.Lens' CreateOpsItemResponse (Prelude.Maybe Prelude.Text)
+createOpsItemResponse_opsItemId :: Lens.Lens' CreateOpsItemResponse (Core.Maybe Core.Text)
 createOpsItemResponse_opsItemId = Lens.lens (\CreateOpsItemResponse' {opsItemId} -> opsItemId) (\s@CreateOpsItemResponse' {} a -> s {opsItemId = a} :: CreateOpsItemResponse)
 
 -- | The response's http status code.
-createOpsItemResponse_httpStatus :: Lens.Lens' CreateOpsItemResponse Prelude.Int
+createOpsItemResponse_httpStatus :: Lens.Lens' CreateOpsItemResponse Core.Int
 createOpsItemResponse_httpStatus = Lens.lens (\CreateOpsItemResponse' {httpStatus} -> httpStatus) (\s@CreateOpsItemResponse' {} a -> s {httpStatus = a} :: CreateOpsItemResponse)
 
-instance Prelude.NFData CreateOpsItemResponse
+instance Core.NFData CreateOpsItemResponse

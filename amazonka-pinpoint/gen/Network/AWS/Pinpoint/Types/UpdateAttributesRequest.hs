@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.UpdateAttributesRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies one or more attributes to remove from all the endpoints that
 -- are associated with an application.
@@ -33,9 +32,9 @@ data UpdateAttributesRequest = UpdateAttributesRequest'
     -- exact name of each attribute to remove or it can specify a glob pattern
     -- that an attribute name must match in order for the attribute to be
     -- removed.
-    blacklist :: Prelude.Maybe [Prelude.Text]
+    blacklist :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAttributesRequest' with all optional fields omitted.
@@ -53,26 +52,23 @@ data UpdateAttributesRequest = UpdateAttributesRequest'
 newUpdateAttributesRequest ::
   UpdateAttributesRequest
 newUpdateAttributesRequest =
-  UpdateAttributesRequest'
-    { blacklist =
-        Prelude.Nothing
-    }
+  UpdateAttributesRequest' {blacklist = Core.Nothing}
 
 -- | An array of the attributes to remove from all the endpoints that are
 -- associated with the application. The array can specify the complete,
 -- exact name of each attribute to remove or it can specify a glob pattern
 -- that an attribute name must match in order for the attribute to be
 -- removed.
-updateAttributesRequest_blacklist :: Lens.Lens' UpdateAttributesRequest (Prelude.Maybe [Prelude.Text])
-updateAttributesRequest_blacklist = Lens.lens (\UpdateAttributesRequest' {blacklist} -> blacklist) (\s@UpdateAttributesRequest' {} a -> s {blacklist = a} :: UpdateAttributesRequest) Prelude.. Lens.mapping Prelude._Coerce
+updateAttributesRequest_blacklist :: Lens.Lens' UpdateAttributesRequest (Core.Maybe [Core.Text])
+updateAttributesRequest_blacklist = Lens.lens (\UpdateAttributesRequest' {blacklist} -> blacklist) (\s@UpdateAttributesRequest' {} a -> s {blacklist = a} :: UpdateAttributesRequest) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable UpdateAttributesRequest
+instance Core.Hashable UpdateAttributesRequest
 
-instance Prelude.NFData UpdateAttributesRequest
+instance Core.NFData UpdateAttributesRequest
 
-instance Prelude.ToJSON UpdateAttributesRequest where
+instance Core.ToJSON UpdateAttributesRequest where
   toJSON UpdateAttributesRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Blacklist" Prelude..=) Prelude.<$> blacklist]
+    Core.object
+      ( Core.catMaybes
+          [("Blacklist" Core..=) Core.<$> blacklist]
       )

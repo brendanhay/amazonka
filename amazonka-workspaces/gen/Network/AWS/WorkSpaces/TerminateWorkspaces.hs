@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -68,8 +67,8 @@ module Network.AWS.WorkSpaces.TerminateWorkspaces
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -77,9 +76,9 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newTerminateWorkspaces' smart constructor.
 data TerminateWorkspaces = TerminateWorkspaces'
   { -- | The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.
-    terminateWorkspaceRequests :: Prelude.NonEmpty TerminateRequest
+    terminateWorkspaceRequests :: Core.NonEmpty TerminateRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateWorkspaces' with all optional fields omitted.
@@ -92,77 +91,73 @@ data TerminateWorkspaces = TerminateWorkspaces'
 -- 'terminateWorkspaceRequests', 'terminateWorkspaces_terminateWorkspaceRequests' - The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.
 newTerminateWorkspaces ::
   -- | 'terminateWorkspaceRequests'
-  Prelude.NonEmpty TerminateRequest ->
+  Core.NonEmpty TerminateRequest ->
   TerminateWorkspaces
 newTerminateWorkspaces pTerminateWorkspaceRequests_ =
   TerminateWorkspaces'
     { terminateWorkspaceRequests =
-        Prelude._Coerce Lens.# pTerminateWorkspaceRequests_
+        Lens._Coerce Lens.# pTerminateWorkspaceRequests_
     }
 
 -- | The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.
-terminateWorkspaces_terminateWorkspaceRequests :: Lens.Lens' TerminateWorkspaces (Prelude.NonEmpty TerminateRequest)
-terminateWorkspaces_terminateWorkspaceRequests = Lens.lens (\TerminateWorkspaces' {terminateWorkspaceRequests} -> terminateWorkspaceRequests) (\s@TerminateWorkspaces' {} a -> s {terminateWorkspaceRequests = a} :: TerminateWorkspaces) Prelude.. Prelude._Coerce
+terminateWorkspaces_terminateWorkspaceRequests :: Lens.Lens' TerminateWorkspaces (Core.NonEmpty TerminateRequest)
+terminateWorkspaces_terminateWorkspaceRequests = Lens.lens (\TerminateWorkspaces' {terminateWorkspaceRequests} -> terminateWorkspaceRequests) (\s@TerminateWorkspaces' {} a -> s {terminateWorkspaceRequests = a} :: TerminateWorkspaces) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TerminateWorkspaces where
+instance Core.AWSRequest TerminateWorkspaces where
   type
-    Rs TerminateWorkspaces =
+    AWSResponse TerminateWorkspaces =
       TerminateWorkspacesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           TerminateWorkspacesResponse'
-            Prelude.<$> ( x Prelude..?> "FailedRequests"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FailedRequests" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TerminateWorkspaces
+instance Core.Hashable TerminateWorkspaces
 
-instance Prelude.NFData TerminateWorkspaces
+instance Core.NFData TerminateWorkspaces
 
-instance Prelude.ToHeaders TerminateWorkspaces where
+instance Core.ToHeaders TerminateWorkspaces where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.TerminateWorkspaces" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.TerminateWorkspaces" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TerminateWorkspaces where
+instance Core.ToJSON TerminateWorkspaces where
   toJSON TerminateWorkspaces' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "TerminateWorkspaceRequests"
-                  Prelude..= terminateWorkspaceRequests
+                  Core..= terminateWorkspaceRequests
               )
           ]
       )
 
-instance Prelude.ToPath TerminateWorkspaces where
-  toPath = Prelude.const "/"
+instance Core.ToPath TerminateWorkspaces where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TerminateWorkspaces where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TerminateWorkspaces where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTerminateWorkspacesResponse' smart constructor.
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
   { -- | Information about the WorkSpaces that could not be terminated.
-    failedRequests :: Prelude.Maybe [FailedWorkspaceChangeRequest],
+    failedRequests :: Core.Maybe [FailedWorkspaceChangeRequest],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateWorkspacesResponse' with all optional fields omitted.
@@ -177,21 +172,21 @@ data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
 -- 'httpStatus', 'terminateWorkspacesResponse_httpStatus' - The response's http status code.
 newTerminateWorkspacesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TerminateWorkspacesResponse
 newTerminateWorkspacesResponse pHttpStatus_ =
   TerminateWorkspacesResponse'
     { failedRequests =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the WorkSpaces that could not be terminated.
-terminateWorkspacesResponse_failedRequests :: Lens.Lens' TerminateWorkspacesResponse (Prelude.Maybe [FailedWorkspaceChangeRequest])
-terminateWorkspacesResponse_failedRequests = Lens.lens (\TerminateWorkspacesResponse' {failedRequests} -> failedRequests) (\s@TerminateWorkspacesResponse' {} a -> s {failedRequests = a} :: TerminateWorkspacesResponse) Prelude.. Lens.mapping Prelude._Coerce
+terminateWorkspacesResponse_failedRequests :: Lens.Lens' TerminateWorkspacesResponse (Core.Maybe [FailedWorkspaceChangeRequest])
+terminateWorkspacesResponse_failedRequests = Lens.lens (\TerminateWorkspacesResponse' {failedRequests} -> failedRequests) (\s@TerminateWorkspacesResponse' {} a -> s {failedRequests = a} :: TerminateWorkspacesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-terminateWorkspacesResponse_httpStatus :: Lens.Lens' TerminateWorkspacesResponse Prelude.Int
+terminateWorkspacesResponse_httpStatus :: Lens.Lens' TerminateWorkspacesResponse Core.Int
 terminateWorkspacesResponse_httpStatus = Lens.lens (\TerminateWorkspacesResponse' {httpStatus} -> httpStatus) (\s@TerminateWorkspacesResponse' {} a -> s {httpStatus = a} :: TerminateWorkspacesResponse)
 
-instance Prelude.NFData TerminateWorkspacesResponse
+instance Core.NFData TerminateWorkspacesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.LambdaAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.InvocationType
 
 -- | When included in a receipt rule, this action calls an AWS Lambda
@@ -50,21 +49,21 @@ data LambdaAction = LambdaAction'
     -- should use @Event@ invocation in most cases. Use @RequestResponse@ only
     -- when you want to make a mail flow decision, such as whether to stop the
     -- receipt rule or the receipt rule set.
-    invocationType :: Prelude.Maybe InvocationType,
+    invocationType :: Core.Maybe InvocationType,
     -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
     -- the Lambda action is taken. An example of an Amazon SNS topic ARN is
     -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
     -- Amazon SNS topics, see the
     -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-    topicArn :: Prelude.Maybe Prelude.Text,
+    topicArn :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Lambda function. An example of
     -- an AWS Lambda function ARN is
     -- @arn:aws:lambda:us-west-2:account-id:function:MyFunction@. For more
     -- information about AWS Lambda, see the
     -- <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide>.
-    functionArn :: Prelude.Text
+    functionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LambdaAction' with all optional fields omitted.
@@ -99,12 +98,12 @@ data LambdaAction = LambdaAction'
 -- <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide>.
 newLambdaAction ::
   -- | 'functionArn'
-  Prelude.Text ->
+  Core.Text ->
   LambdaAction
 newLambdaAction pFunctionArn_ =
   LambdaAction'
-    { invocationType = Prelude.Nothing,
-      topicArn = Prelude.Nothing,
+    { invocationType = Core.Nothing,
+      topicArn = Core.Nothing,
       functionArn = pFunctionArn_
     }
 
@@ -119,7 +118,7 @@ newLambdaAction pFunctionArn_ =
 -- should use @Event@ invocation in most cases. Use @RequestResponse@ only
 -- when you want to make a mail flow decision, such as whether to stop the
 -- receipt rule or the receipt rule set.
-lambdaAction_invocationType :: Lens.Lens' LambdaAction (Prelude.Maybe InvocationType)
+lambdaAction_invocationType :: Lens.Lens' LambdaAction (Core.Maybe InvocationType)
 lambdaAction_invocationType = Lens.lens (\LambdaAction' {invocationType} -> invocationType) (\s@LambdaAction' {} a -> s {invocationType = a} :: LambdaAction)
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
@@ -127,7 +126,7 @@ lambdaAction_invocationType = Lens.lens (\LambdaAction' {invocationType} -> invo
 -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
 -- Amazon SNS topics, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-lambdaAction_topicArn :: Lens.Lens' LambdaAction (Prelude.Maybe Prelude.Text)
+lambdaAction_topicArn :: Lens.Lens' LambdaAction (Core.Maybe Core.Text)
 lambdaAction_topicArn = Lens.lens (\LambdaAction' {topicArn} -> topicArn) (\s@LambdaAction' {} a -> s {topicArn = a} :: LambdaAction)
 
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function. An example of
@@ -135,24 +134,24 @@ lambdaAction_topicArn = Lens.lens (\LambdaAction' {topicArn} -> topicArn) (\s@La
 -- @arn:aws:lambda:us-west-2:account-id:function:MyFunction@. For more
 -- information about AWS Lambda, see the
 -- <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide>.
-lambdaAction_functionArn :: Lens.Lens' LambdaAction Prelude.Text
+lambdaAction_functionArn :: Lens.Lens' LambdaAction Core.Text
 lambdaAction_functionArn = Lens.lens (\LambdaAction' {functionArn} -> functionArn) (\s@LambdaAction' {} a -> s {functionArn = a} :: LambdaAction)
 
-instance Prelude.FromXML LambdaAction where
+instance Core.FromXML LambdaAction where
   parseXML x =
     LambdaAction'
-      Prelude.<$> (x Prelude..@? "InvocationType")
-      Prelude.<*> (x Prelude..@? "TopicArn")
-      Prelude.<*> (x Prelude..@ "FunctionArn")
+      Core.<$> (x Core..@? "InvocationType")
+      Core.<*> (x Core..@? "TopicArn")
+      Core.<*> (x Core..@ "FunctionArn")
 
-instance Prelude.Hashable LambdaAction
+instance Core.Hashable LambdaAction
 
-instance Prelude.NFData LambdaAction
+instance Core.NFData LambdaAction
 
-instance Prelude.ToQuery LambdaAction where
+instance Core.ToQuery LambdaAction where
   toQuery LambdaAction' {..} =
-    Prelude.mconcat
-      [ "InvocationType" Prelude.=: invocationType,
-        "TopicArn" Prelude.=: topicArn,
-        "FunctionArn" Prelude.=: functionArn
+    Core.mconcat
+      [ "InvocationType" Core.=: invocationType,
+        "TopicArn" Core.=: topicArn,
+        "FunctionArn" Core.=: functionArn
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.PublicWorkforceTaskPrice where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.USD
 
 -- | Defines the amount of money paid to an Amazon Mechanical Turk worker for
@@ -234,9 +233,9 @@ import Network.AWS.SageMaker.Types.USD
 data PublicWorkforceTaskPrice = PublicWorkforceTaskPrice'
   { -- | Defines the amount of money paid to an Amazon Mechanical Turk worker in
     -- United States dollars.
-    amountInUsd :: Prelude.Maybe USD
+    amountInUsd :: Core.Maybe USD
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PublicWorkforceTaskPrice' with all optional fields omitted.
@@ -253,30 +252,30 @@ newPublicWorkforceTaskPrice ::
 newPublicWorkforceTaskPrice =
   PublicWorkforceTaskPrice'
     { amountInUsd =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Defines the amount of money paid to an Amazon Mechanical Turk worker in
 -- United States dollars.
-publicWorkforceTaskPrice_amountInUsd :: Lens.Lens' PublicWorkforceTaskPrice (Prelude.Maybe USD)
+publicWorkforceTaskPrice_amountInUsd :: Lens.Lens' PublicWorkforceTaskPrice (Core.Maybe USD)
 publicWorkforceTaskPrice_amountInUsd = Lens.lens (\PublicWorkforceTaskPrice' {amountInUsd} -> amountInUsd) (\s@PublicWorkforceTaskPrice' {} a -> s {amountInUsd = a} :: PublicWorkforceTaskPrice)
 
-instance Prelude.FromJSON PublicWorkforceTaskPrice where
+instance Core.FromJSON PublicWorkforceTaskPrice where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PublicWorkforceTaskPrice"
       ( \x ->
           PublicWorkforceTaskPrice'
-            Prelude.<$> (x Prelude..:? "AmountInUsd")
+            Core.<$> (x Core..:? "AmountInUsd")
       )
 
-instance Prelude.Hashable PublicWorkforceTaskPrice
+instance Core.Hashable PublicWorkforceTaskPrice
 
-instance Prelude.NFData PublicWorkforceTaskPrice
+instance Core.NFData PublicWorkforceTaskPrice
 
-instance Prelude.ToJSON PublicWorkforceTaskPrice where
+instance Core.ToJSON PublicWorkforceTaskPrice where
   toJSON PublicWorkforceTaskPrice' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("AmountInUsd" Prelude..=) Prelude.<$> amountInUsd]
+    Core.object
+      ( Core.catMaybes
+          [("AmountInUsd" Core..=) Core.<$> amountInUsd]
       )

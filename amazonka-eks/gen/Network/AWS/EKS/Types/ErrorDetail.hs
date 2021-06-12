@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.ErrorDetail where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.EKSErrorCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an error when an asynchronous operation fails.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ErrorDetail = ErrorDetail'
   { -- | An optional field that contains the resource IDs associated with the
     -- error.
-    resourceIds :: Prelude.Maybe [Prelude.Text],
+    resourceIds :: Core.Maybe [Core.Text],
     -- | A more complete description of the error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | A brief description of the error.
     --
     -- -   __SubnetNotFound__: We couldn\'t find one of the subnets associated
@@ -56,9 +55,9 @@ data ErrorDetail = ErrorDetail'
     --
     -- -   __VpcIdNotFound__: We couldn\'t find the VPC associated with the
     --     cluster.
-    errorCode :: Prelude.Maybe EKSErrorCode
+    errorCode :: Core.Maybe EKSErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ErrorDetail' with all optional fields omitted.
@@ -100,18 +99,18 @@ newErrorDetail ::
   ErrorDetail
 newErrorDetail =
   ErrorDetail'
-    { resourceIds = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { resourceIds = Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | An optional field that contains the resource IDs associated with the
 -- error.
-errorDetail_resourceIds :: Lens.Lens' ErrorDetail (Prelude.Maybe [Prelude.Text])
-errorDetail_resourceIds = Lens.lens (\ErrorDetail' {resourceIds} -> resourceIds) (\s@ErrorDetail' {} a -> s {resourceIds = a} :: ErrorDetail) Prelude.. Lens.mapping Prelude._Coerce
+errorDetail_resourceIds :: Lens.Lens' ErrorDetail (Core.Maybe [Core.Text])
+errorDetail_resourceIds = Lens.lens (\ErrorDetail' {resourceIds} -> resourceIds) (\s@ErrorDetail' {} a -> s {resourceIds = a} :: ErrorDetail) Core.. Lens.mapping Lens._Coerce
 
 -- | A more complete description of the error.
-errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
+errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Core.Maybe Core.Text)
 errorDetail_errorMessage = Lens.lens (\ErrorDetail' {errorMessage} -> errorMessage) (\s@ErrorDetail' {} a -> s {errorMessage = a} :: ErrorDetail)
 
 -- | A brief description of the error.
@@ -137,22 +136,20 @@ errorDetail_errorMessage = Lens.lens (\ErrorDetail' {errorMessage} -> errorMessa
 --
 -- -   __VpcIdNotFound__: We couldn\'t find the VPC associated with the
 --     cluster.
-errorDetail_errorCode :: Lens.Lens' ErrorDetail (Prelude.Maybe EKSErrorCode)
+errorDetail_errorCode :: Lens.Lens' ErrorDetail (Core.Maybe EKSErrorCode)
 errorDetail_errorCode = Lens.lens (\ErrorDetail' {errorCode} -> errorCode) (\s@ErrorDetail' {} a -> s {errorCode = a} :: ErrorDetail)
 
-instance Prelude.FromJSON ErrorDetail where
+instance Core.FromJSON ErrorDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ErrorDetail"
       ( \x ->
           ErrorDetail'
-            Prelude.<$> ( x Prelude..:? "resourceIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "errorMessage")
-            Prelude.<*> (x Prelude..:? "errorCode")
+            Core.<$> (x Core..:? "resourceIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "errorMessage")
+            Core.<*> (x Core..:? "errorCode")
       )
 
-instance Prelude.Hashable ErrorDetail
+instance Core.Hashable ErrorDetail
 
-instance Prelude.NFData ErrorDetail
+instance Core.NFData ErrorDetail

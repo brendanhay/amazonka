@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.EbsBlockDevice where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.VolumeSpecification
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration of requested EBS block device associated with the instance
 -- group.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEbsBlockDevice' smart constructor.
 data EbsBlockDevice = EbsBlockDevice'
   { -- | The device name that is exposed to the instance, such as \/dev\/sdh.
-    device :: Prelude.Maybe Prelude.Text,
+    device :: Core.Maybe Core.Text,
     -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that
     -- will be requested for the EBS volume attached to an EC2 instance in the
     -- cluster.
-    volumeSpecification :: Prelude.Maybe VolumeSpecification
+    volumeSpecification :: Core.Maybe VolumeSpecification
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EbsBlockDevice' with all optional fields omitted.
@@ -55,30 +54,30 @@ newEbsBlockDevice ::
   EbsBlockDevice
 newEbsBlockDevice =
   EbsBlockDevice'
-    { device = Prelude.Nothing,
-      volumeSpecification = Prelude.Nothing
+    { device = Core.Nothing,
+      volumeSpecification = Core.Nothing
     }
 
 -- | The device name that is exposed to the instance, such as \/dev\/sdh.
-ebsBlockDevice_device :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
+ebsBlockDevice_device :: Lens.Lens' EbsBlockDevice (Core.Maybe Core.Text)
 ebsBlockDevice_device = Lens.lens (\EbsBlockDevice' {device} -> device) (\s@EbsBlockDevice' {} a -> s {device = a} :: EbsBlockDevice)
 
 -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that
 -- will be requested for the EBS volume attached to an EC2 instance in the
 -- cluster.
-ebsBlockDevice_volumeSpecification :: Lens.Lens' EbsBlockDevice (Prelude.Maybe VolumeSpecification)
+ebsBlockDevice_volumeSpecification :: Lens.Lens' EbsBlockDevice (Core.Maybe VolumeSpecification)
 ebsBlockDevice_volumeSpecification = Lens.lens (\EbsBlockDevice' {volumeSpecification} -> volumeSpecification) (\s@EbsBlockDevice' {} a -> s {volumeSpecification = a} :: EbsBlockDevice)
 
-instance Prelude.FromJSON EbsBlockDevice where
+instance Core.FromJSON EbsBlockDevice where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EbsBlockDevice"
       ( \x ->
           EbsBlockDevice'
-            Prelude.<$> (x Prelude..:? "Device")
-            Prelude.<*> (x Prelude..:? "VolumeSpecification")
+            Core.<$> (x Core..:? "Device")
+            Core.<*> (x Core..:? "VolumeSpecification")
       )
 
-instance Prelude.Hashable EbsBlockDevice
+instance Core.Hashable EbsBlockDevice
 
-instance Prelude.NFData EbsBlockDevice
+instance Core.NFData EbsBlockDevice

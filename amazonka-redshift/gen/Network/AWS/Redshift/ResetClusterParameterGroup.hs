@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -60,17 +59,17 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup'
     -- to their default values.
     --
     -- Default: @true@
-    resetAllParameters :: Prelude.Maybe Prelude.Bool,
+    resetAllParameters :: Core.Maybe Core.Bool,
     -- | An array of names of parameters to be reset. If /ResetAllParameters/
     -- option is not used, then at least one parameter name must be supplied.
     --
     -- Constraints: A maximum of 20 parameters can be reset in a single
     -- request.
-    parameters :: Prelude.Maybe [Parameter],
+    parameters :: Core.Maybe [Parameter],
     -- | The name of the cluster parameter group to be reset.
-    parameterGroupName :: Prelude.Text
+    parameterGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetClusterParameterGroup' with all optional fields omitted.
@@ -94,13 +93,13 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup'
 -- 'parameterGroupName', 'resetClusterParameterGroup_parameterGroupName' - The name of the cluster parameter group to be reset.
 newResetClusterParameterGroup ::
   -- | 'parameterGroupName'
-  Prelude.Text ->
+  Core.Text ->
   ResetClusterParameterGroup
 newResetClusterParameterGroup pParameterGroupName_ =
   ResetClusterParameterGroup'
     { resetAllParameters =
-        Prelude.Nothing,
-      parameters = Prelude.Nothing,
+        Core.Nothing,
+      parameters = Core.Nothing,
       parameterGroupName = pParameterGroupName_
     }
 
@@ -108,7 +107,7 @@ newResetClusterParameterGroup pParameterGroupName_ =
 -- to their default values.
 --
 -- Default: @true@
-resetClusterParameterGroup_resetAllParameters :: Lens.Lens' ResetClusterParameterGroup (Prelude.Maybe Prelude.Bool)
+resetClusterParameterGroup_resetAllParameters :: Lens.Lens' ResetClusterParameterGroup (Core.Maybe Core.Bool)
 resetClusterParameterGroup_resetAllParameters = Lens.lens (\ResetClusterParameterGroup' {resetAllParameters} -> resetAllParameters) (\s@ResetClusterParameterGroup' {} a -> s {resetAllParameters = a} :: ResetClusterParameterGroup)
 
 -- | An array of names of parameters to be reset. If /ResetAllParameters/
@@ -116,48 +115,42 @@ resetClusterParameterGroup_resetAllParameters = Lens.lens (\ResetClusterParamete
 --
 -- Constraints: A maximum of 20 parameters can be reset in a single
 -- request.
-resetClusterParameterGroup_parameters :: Lens.Lens' ResetClusterParameterGroup (Prelude.Maybe [Parameter])
-resetClusterParameterGroup_parameters = Lens.lens (\ResetClusterParameterGroup' {parameters} -> parameters) (\s@ResetClusterParameterGroup' {} a -> s {parameters = a} :: ResetClusterParameterGroup) Prelude.. Lens.mapping Prelude._Coerce
+resetClusterParameterGroup_parameters :: Lens.Lens' ResetClusterParameterGroup (Core.Maybe [Parameter])
+resetClusterParameterGroup_parameters = Lens.lens (\ResetClusterParameterGroup' {parameters} -> parameters) (\s@ResetClusterParameterGroup' {} a -> s {parameters = a} :: ResetClusterParameterGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the cluster parameter group to be reset.
-resetClusterParameterGroup_parameterGroupName :: Lens.Lens' ResetClusterParameterGroup Prelude.Text
+resetClusterParameterGroup_parameterGroupName :: Lens.Lens' ResetClusterParameterGroup Core.Text
 resetClusterParameterGroup_parameterGroupName = Lens.lens (\ResetClusterParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@ResetClusterParameterGroup' {} a -> s {parameterGroupName = a} :: ResetClusterParameterGroup)
 
-instance
-  Prelude.AWSRequest
-    ResetClusterParameterGroup
-  where
+instance Core.AWSRequest ResetClusterParameterGroup where
   type
-    Rs ResetClusterParameterGroup =
+    AWSResponse ResetClusterParameterGroup =
       ClusterParameterGroupNameMessage
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ResetClusterParameterGroupResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ResetClusterParameterGroup
+instance Core.Hashable ResetClusterParameterGroup
 
-instance Prelude.NFData ResetClusterParameterGroup
+instance Core.NFData ResetClusterParameterGroup
 
-instance Prelude.ToHeaders ResetClusterParameterGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ResetClusterParameterGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ResetClusterParameterGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath ResetClusterParameterGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ResetClusterParameterGroup where
+instance Core.ToQuery ResetClusterParameterGroup where
   toQuery ResetClusterParameterGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ResetClusterParameterGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ResetAllParameters" Prelude.=: resetAllParameters,
+          Core.=: ("ResetClusterParameterGroup" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ResetAllParameters" Core.=: resetAllParameters,
         "Parameters"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "Parameter"
-                Prelude.<$> parameters
-            ),
-        "ParameterGroupName" Prelude.=: parameterGroupName
+          Core.=: Core.toQuery
+            (Core.toQueryList "Parameter" Core.<$> parameters),
+        "ParameterGroupName" Core.=: parameterGroupName
       ]

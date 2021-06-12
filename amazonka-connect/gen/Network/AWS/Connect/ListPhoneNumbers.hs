@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.Connect.ListPhoneNumbers
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,17 +62,17 @@ data ListPhoneNumbers = ListPhoneNumbers'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The type of phone number.
-    phoneNumberTypes :: Prelude.Maybe [PhoneNumberType],
+    phoneNumberTypes :: Core.Maybe [PhoneNumberType],
     -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The ISO country code.
-    phoneNumberCountryCodes :: Prelude.Maybe [PhoneNumberCountryCode],
+    phoneNumberCountryCodes :: Core.Maybe [PhoneNumberCountryCode],
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPhoneNumbers' with all optional fields omitted.
@@ -97,109 +95,107 @@ data ListPhoneNumbers = ListPhoneNumbers'
 -- 'instanceId', 'listPhoneNumbers_instanceId' - The identifier of the Amazon Connect instance.
 newListPhoneNumbers ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   ListPhoneNumbers
 newListPhoneNumbers pInstanceId_ =
   ListPhoneNumbers'
-    { nextToken = Prelude.Nothing,
-      phoneNumberTypes = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      phoneNumberCountryCodes = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      phoneNumberTypes = Core.Nothing,
+      maxResults = Core.Nothing,
+      phoneNumberCountryCodes = Core.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listPhoneNumbers_nextToken :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Text)
+listPhoneNumbers_nextToken :: Lens.Lens' ListPhoneNumbers (Core.Maybe Core.Text)
 listPhoneNumbers_nextToken = Lens.lens (\ListPhoneNumbers' {nextToken} -> nextToken) (\s@ListPhoneNumbers' {} a -> s {nextToken = a} :: ListPhoneNumbers)
 
 -- | The type of phone number.
-listPhoneNumbers_phoneNumberTypes :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe [PhoneNumberType])
-listPhoneNumbers_phoneNumberTypes = Lens.lens (\ListPhoneNumbers' {phoneNumberTypes} -> phoneNumberTypes) (\s@ListPhoneNumbers' {} a -> s {phoneNumberTypes = a} :: ListPhoneNumbers) Prelude.. Lens.mapping Prelude._Coerce
+listPhoneNumbers_phoneNumberTypes :: Lens.Lens' ListPhoneNumbers (Core.Maybe [PhoneNumberType])
+listPhoneNumbers_phoneNumberTypes = Lens.lens (\ListPhoneNumbers' {phoneNumberTypes} -> phoneNumberTypes) (\s@ListPhoneNumbers' {} a -> s {phoneNumberTypes = a} :: ListPhoneNumbers) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to return per page.
-listPhoneNumbers_maxResults :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Natural)
+listPhoneNumbers_maxResults :: Lens.Lens' ListPhoneNumbers (Core.Maybe Core.Natural)
 listPhoneNumbers_maxResults = Lens.lens (\ListPhoneNumbers' {maxResults} -> maxResults) (\s@ListPhoneNumbers' {} a -> s {maxResults = a} :: ListPhoneNumbers)
 
 -- | The ISO country code.
-listPhoneNumbers_phoneNumberCountryCodes :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe [PhoneNumberCountryCode])
-listPhoneNumbers_phoneNumberCountryCodes = Lens.lens (\ListPhoneNumbers' {phoneNumberCountryCodes} -> phoneNumberCountryCodes) (\s@ListPhoneNumbers' {} a -> s {phoneNumberCountryCodes = a} :: ListPhoneNumbers) Prelude.. Lens.mapping Prelude._Coerce
+listPhoneNumbers_phoneNumberCountryCodes :: Lens.Lens' ListPhoneNumbers (Core.Maybe [PhoneNumberCountryCode])
+listPhoneNumbers_phoneNumberCountryCodes = Lens.lens (\ListPhoneNumbers' {phoneNumberCountryCodes} -> phoneNumberCountryCodes) (\s@ListPhoneNumbers' {} a -> s {phoneNumberCountryCodes = a} :: ListPhoneNumbers) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the Amazon Connect instance.
-listPhoneNumbers_instanceId :: Lens.Lens' ListPhoneNumbers Prelude.Text
+listPhoneNumbers_instanceId :: Lens.Lens' ListPhoneNumbers Core.Text
 listPhoneNumbers_instanceId = Lens.lens (\ListPhoneNumbers' {instanceId} -> instanceId) (\s@ListPhoneNumbers' {} a -> s {instanceId = a} :: ListPhoneNumbers)
 
-instance Pager.AWSPager ListPhoneNumbers where
+instance Core.AWSPager ListPhoneNumbers where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listPhoneNumbersResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listPhoneNumbersResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listPhoneNumbersResponse_phoneNumberSummaryList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listPhoneNumbers_nextToken
           Lens..~ rs
-          Lens.^? listPhoneNumbersResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listPhoneNumbersResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListPhoneNumbers where
-  type Rs ListPhoneNumbers = ListPhoneNumbersResponse
+instance Core.AWSRequest ListPhoneNumbers where
+  type
+    AWSResponse ListPhoneNumbers =
+      ListPhoneNumbersResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPhoneNumbersResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "PhoneNumberSummaryList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "PhoneNumberSummaryList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListPhoneNumbers
+instance Core.Hashable ListPhoneNumbers
 
-instance Prelude.NFData ListPhoneNumbers
+instance Core.NFData ListPhoneNumbers
 
-instance Prelude.ToHeaders ListPhoneNumbers where
+instance Core.ToHeaders ListPhoneNumbers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListPhoneNumbers where
+instance Core.ToPath ListPhoneNumbers where
   toPath ListPhoneNumbers' {..} =
-    Prelude.mconcat
-      ["/phone-numbers-summary/", Prelude.toBS instanceId]
+    Core.mconcat
+      ["/phone-numbers-summary/", Core.toBS instanceId]
 
-instance Prelude.ToQuery ListPhoneNumbers where
+instance Core.ToQuery ListPhoneNumbers where
   toQuery ListPhoneNumbers' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
         "phoneNumberTypes"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> phoneNumberTypes
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> phoneNumberTypes
             ),
-        "maxResults" Prelude.=: maxResults,
+        "maxResults" Core.=: maxResults,
         "phoneNumberCountryCodes"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> phoneNumberCountryCodes
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> phoneNumberCountryCodes
             )
       ]
 
@@ -207,13 +203,13 @@ instance Prelude.ToQuery ListPhoneNumbers where
 data ListPhoneNumbersResponse = ListPhoneNumbersResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the phone numbers.
-    phoneNumberSummaryList :: Prelude.Maybe [PhoneNumberSummary],
+    phoneNumberSummaryList :: Core.Maybe [PhoneNumberSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPhoneNumbersResponse' with all optional fields omitted.
@@ -231,27 +227,26 @@ data ListPhoneNumbersResponse = ListPhoneNumbersResponse'
 -- 'httpStatus', 'listPhoneNumbersResponse_httpStatus' - The response's http status code.
 newListPhoneNumbersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPhoneNumbersResponse
 newListPhoneNumbersResponse pHttpStatus_ =
   ListPhoneNumbersResponse'
-    { nextToken =
-        Prelude.Nothing,
-      phoneNumberSummaryList = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      phoneNumberSummaryList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listPhoneNumbersResponse_nextToken :: Lens.Lens' ListPhoneNumbersResponse (Prelude.Maybe Prelude.Text)
+listPhoneNumbersResponse_nextToken :: Lens.Lens' ListPhoneNumbersResponse (Core.Maybe Core.Text)
 listPhoneNumbersResponse_nextToken = Lens.lens (\ListPhoneNumbersResponse' {nextToken} -> nextToken) (\s@ListPhoneNumbersResponse' {} a -> s {nextToken = a} :: ListPhoneNumbersResponse)
 
 -- | Information about the phone numbers.
-listPhoneNumbersResponse_phoneNumberSummaryList :: Lens.Lens' ListPhoneNumbersResponse (Prelude.Maybe [PhoneNumberSummary])
-listPhoneNumbersResponse_phoneNumberSummaryList = Lens.lens (\ListPhoneNumbersResponse' {phoneNumberSummaryList} -> phoneNumberSummaryList) (\s@ListPhoneNumbersResponse' {} a -> s {phoneNumberSummaryList = a} :: ListPhoneNumbersResponse) Prelude.. Lens.mapping Prelude._Coerce
+listPhoneNumbersResponse_phoneNumberSummaryList :: Lens.Lens' ListPhoneNumbersResponse (Core.Maybe [PhoneNumberSummary])
+listPhoneNumbersResponse_phoneNumberSummaryList = Lens.lens (\ListPhoneNumbersResponse' {phoneNumberSummaryList} -> phoneNumberSummaryList) (\s@ListPhoneNumbersResponse' {} a -> s {phoneNumberSummaryList = a} :: ListPhoneNumbersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPhoneNumbersResponse_httpStatus :: Lens.Lens' ListPhoneNumbersResponse Prelude.Int
+listPhoneNumbersResponse_httpStatus :: Lens.Lens' ListPhoneNumbersResponse Core.Int
 listPhoneNumbersResponse_httpStatus = Lens.lens (\ListPhoneNumbersResponse' {httpStatus} -> httpStatus) (\s@ListPhoneNumbersResponse' {} a -> s {httpStatus = a} :: ListPhoneNumbersResponse)
 
-instance Prelude.NFData ListPhoneNumbersResponse
+instance Core.NFData ListPhoneNumbersResponse

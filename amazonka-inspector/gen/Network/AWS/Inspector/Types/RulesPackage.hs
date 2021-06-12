@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.RulesPackage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector rules package. This data
 -- type is used as the response element in the DescribeRulesPackages
@@ -30,17 +29,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRulesPackage' smart constructor.
 data RulesPackage = RulesPackage'
   { -- | The description of the rules package.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The ARN of the rules package.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | The name of the rules package.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The version ID of the rules package.
-    version :: Prelude.Text,
+    version :: Core.Text,
     -- | The provider of the rules package.
-    provider :: Prelude.Text
+    provider :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RulesPackage' with all optional fields omitted.
@@ -61,17 +60,17 @@ data RulesPackage = RulesPackage'
 -- 'provider', 'rulesPackage_provider' - The provider of the rules package.
 newRulesPackage ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'provider'
-  Prelude.Text ->
+  Core.Text ->
   RulesPackage
 newRulesPackage pArn_ pName_ pVersion_ pProvider_ =
   RulesPackage'
-    { description = Prelude.Nothing,
+    { description = Core.Nothing,
       arn = pArn_,
       name = pName_,
       version = pVersion_,
@@ -79,38 +78,38 @@ newRulesPackage pArn_ pName_ pVersion_ pProvider_ =
     }
 
 -- | The description of the rules package.
-rulesPackage_description :: Lens.Lens' RulesPackage (Prelude.Maybe Prelude.Text)
+rulesPackage_description :: Lens.Lens' RulesPackage (Core.Maybe Core.Text)
 rulesPackage_description = Lens.lens (\RulesPackage' {description} -> description) (\s@RulesPackage' {} a -> s {description = a} :: RulesPackage)
 
 -- | The ARN of the rules package.
-rulesPackage_arn :: Lens.Lens' RulesPackage Prelude.Text
+rulesPackage_arn :: Lens.Lens' RulesPackage Core.Text
 rulesPackage_arn = Lens.lens (\RulesPackage' {arn} -> arn) (\s@RulesPackage' {} a -> s {arn = a} :: RulesPackage)
 
 -- | The name of the rules package.
-rulesPackage_name :: Lens.Lens' RulesPackage Prelude.Text
+rulesPackage_name :: Lens.Lens' RulesPackage Core.Text
 rulesPackage_name = Lens.lens (\RulesPackage' {name} -> name) (\s@RulesPackage' {} a -> s {name = a} :: RulesPackage)
 
 -- | The version ID of the rules package.
-rulesPackage_version :: Lens.Lens' RulesPackage Prelude.Text
+rulesPackage_version :: Lens.Lens' RulesPackage Core.Text
 rulesPackage_version = Lens.lens (\RulesPackage' {version} -> version) (\s@RulesPackage' {} a -> s {version = a} :: RulesPackage)
 
 -- | The provider of the rules package.
-rulesPackage_provider :: Lens.Lens' RulesPackage Prelude.Text
+rulesPackage_provider :: Lens.Lens' RulesPackage Core.Text
 rulesPackage_provider = Lens.lens (\RulesPackage' {provider} -> provider) (\s@RulesPackage' {} a -> s {provider = a} :: RulesPackage)
 
-instance Prelude.FromJSON RulesPackage where
+instance Core.FromJSON RulesPackage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RulesPackage"
       ( \x ->
           RulesPackage'
-            Prelude.<$> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..: "arn")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "version")
-            Prelude.<*> (x Prelude..: "provider")
+            Core.<$> (x Core..:? "description")
+            Core.<*> (x Core..: "arn")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "version")
+            Core.<*> (x Core..: "provider")
       )
 
-instance Prelude.Hashable RulesPackage
+instance Core.Hashable RulesPackage
 
-instance Prelude.NFData RulesPackage
+instance Core.NFData RulesPackage

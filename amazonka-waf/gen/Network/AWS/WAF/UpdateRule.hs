@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -88,8 +87,8 @@ module Network.AWS.WAF.UpdateRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -98,9 +97,9 @@ import Network.AWS.WAF.Types
 data UpdateRule = UpdateRule'
   { -- | The @RuleId@ of the @Rule@ that you want to update. @RuleId@ is returned
     -- by @CreateRule@ and by ListRules.
-    ruleId :: Prelude.Text,
+    ruleId :: Core.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Prelude.Text,
+    changeToken :: Core.Text,
     -- | An array of @RuleUpdate@ objects that you want to insert into or delete
     -- from a Rule. For more information, see the applicable data types:
     --
@@ -111,7 +110,7 @@ data UpdateRule = UpdateRule'
     -- -   FieldToMatch: Contains @Data@ and @Type@
     updates :: [RuleUpdate]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRule' with all optional fields omitted.
@@ -136,24 +135,24 @@ data UpdateRule = UpdateRule'
 -- -   FieldToMatch: Contains @Data@ and @Type@
 newUpdateRule ::
   -- | 'ruleId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   UpdateRule
 newUpdateRule pRuleId_ pChangeToken_ =
   UpdateRule'
     { ruleId = pRuleId_,
       changeToken = pChangeToken_,
-      updates = Prelude.mempty
+      updates = Core.mempty
     }
 
 -- | The @RuleId@ of the @Rule@ that you want to update. @RuleId@ is returned
 -- by @CreateRule@ and by ListRules.
-updateRule_ruleId :: Lens.Lens' UpdateRule Prelude.Text
+updateRule_ruleId :: Lens.Lens' UpdateRule Core.Text
 updateRule_ruleId = Lens.lens (\UpdateRule' {ruleId} -> ruleId) (\s@UpdateRule' {} a -> s {ruleId = a} :: UpdateRule)
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateRule_changeToken :: Lens.Lens' UpdateRule Prelude.Text
+updateRule_changeToken :: Lens.Lens' UpdateRule Core.Text
 updateRule_changeToken = Lens.lens (\UpdateRule' {changeToken} -> changeToken) (\s@UpdateRule' {} a -> s {changeToken = a} :: UpdateRule)
 
 -- | An array of @RuleUpdate@ objects that you want to insert into or delete
@@ -165,62 +164,60 @@ updateRule_changeToken = Lens.lens (\UpdateRule' {changeToken} -> changeToken) (
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
 updateRule_updates :: Lens.Lens' UpdateRule [RuleUpdate]
-updateRule_updates = Lens.lens (\UpdateRule' {updates} -> updates) (\s@UpdateRule' {} a -> s {updates = a} :: UpdateRule) Prelude.. Prelude._Coerce
+updateRule_updates = Lens.lens (\UpdateRule' {updates} -> updates) (\s@UpdateRule' {} a -> s {updates = a} :: UpdateRule) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UpdateRule where
-  type Rs UpdateRule = UpdateRuleResponse
+instance Core.AWSRequest UpdateRule where
+  type AWSResponse UpdateRule = UpdateRuleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateRuleResponse'
-            Prelude.<$> (x Prelude..?> "ChangeToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRule
+instance Core.Hashable UpdateRule
 
-instance Prelude.NFData UpdateRule
+instance Core.NFData UpdateRule
 
-instance Prelude.ToHeaders UpdateRule where
+instance Core.ToHeaders UpdateRule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSWAF_20150824.UpdateRule" :: Prelude.ByteString),
+              Core.=# ("AWSWAF_20150824.UpdateRule" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateRule where
+instance Core.ToJSON UpdateRule where
   toJSON UpdateRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("RuleId" Prelude..= ruleId),
-            Prelude.Just ("ChangeToken" Prelude..= changeToken),
-            Prelude.Just ("Updates" Prelude..= updates)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RuleId" Core..= ruleId),
+            Core.Just ("ChangeToken" Core..= changeToken),
+            Core.Just ("Updates" Core..= updates)
           ]
       )
 
-instance Prelude.ToPath UpdateRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateRuleResponse' smart constructor.
 data UpdateRuleResponse = UpdateRuleResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateRule@ request. You
     -- can also use this value to query the status of the request. For more
     -- information, see GetChangeTokenStatus.
-    changeToken :: Prelude.Maybe Prelude.Text,
+    changeToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRuleResponse' with all optional fields omitted.
@@ -237,22 +234,22 @@ data UpdateRuleResponse = UpdateRuleResponse'
 -- 'httpStatus', 'updateRuleResponse_httpStatus' - The response's http status code.
 newUpdateRuleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateRuleResponse
 newUpdateRuleResponse pHttpStatus_ =
   UpdateRuleResponse'
-    { changeToken = Prelude.Nothing,
+    { changeToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRule@ request. You
 -- can also use this value to query the status of the request. For more
 -- information, see GetChangeTokenStatus.
-updateRuleResponse_changeToken :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe Prelude.Text)
+updateRuleResponse_changeToken :: Lens.Lens' UpdateRuleResponse (Core.Maybe Core.Text)
 updateRuleResponse_changeToken = Lens.lens (\UpdateRuleResponse' {changeToken} -> changeToken) (\s@UpdateRuleResponse' {} a -> s {changeToken = a} :: UpdateRuleResponse)
 
 -- | The response's http status code.
-updateRuleResponse_httpStatus :: Lens.Lens' UpdateRuleResponse Prelude.Int
+updateRuleResponse_httpStatus :: Lens.Lens' UpdateRuleResponse Core.Int
 updateRuleResponse_httpStatus = Lens.lens (\UpdateRuleResponse' {httpStatus} -> httpStatus) (\s@UpdateRuleResponse' {} a -> s {httpStatus = a} :: UpdateRuleResponse)
 
-instance Prelude.NFData UpdateRuleResponse
+instance Core.NFData UpdateRuleResponse

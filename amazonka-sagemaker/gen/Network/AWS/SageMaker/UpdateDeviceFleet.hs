@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.SageMaker.UpdateDeviceFleet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -48,15 +47,15 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateDeviceFleet' smart constructor.
 data UpdateDeviceFleet = UpdateDeviceFleet'
   { -- | The Amazon Resource Name (ARN) of the device.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | Description of the fleet.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the fleet.
-    deviceFleetName :: Prelude.Text,
+    deviceFleetName :: Core.Text,
     -- | Output configuration for storing sample data collected by the fleet.
     outputConfig :: EdgeOutputConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceFleet' with all optional fields omitted.
@@ -75,83 +74,80 @@ data UpdateDeviceFleet = UpdateDeviceFleet'
 -- 'outputConfig', 'updateDeviceFleet_outputConfig' - Output configuration for storing sample data collected by the fleet.
 newUpdateDeviceFleet ::
   -- | 'deviceFleetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'outputConfig'
   EdgeOutputConfig ->
   UpdateDeviceFleet
 newUpdateDeviceFleet pDeviceFleetName_ pOutputConfig_ =
   UpdateDeviceFleet'
-    { roleArn = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { roleArn = Core.Nothing,
+      description = Core.Nothing,
       deviceFleetName = pDeviceFleetName_,
       outputConfig = pOutputConfig_
     }
 
 -- | The Amazon Resource Name (ARN) of the device.
-updateDeviceFleet_roleArn :: Lens.Lens' UpdateDeviceFleet (Prelude.Maybe Prelude.Text)
+updateDeviceFleet_roleArn :: Lens.Lens' UpdateDeviceFleet (Core.Maybe Core.Text)
 updateDeviceFleet_roleArn = Lens.lens (\UpdateDeviceFleet' {roleArn} -> roleArn) (\s@UpdateDeviceFleet' {} a -> s {roleArn = a} :: UpdateDeviceFleet)
 
 -- | Description of the fleet.
-updateDeviceFleet_description :: Lens.Lens' UpdateDeviceFleet (Prelude.Maybe Prelude.Text)
+updateDeviceFleet_description :: Lens.Lens' UpdateDeviceFleet (Core.Maybe Core.Text)
 updateDeviceFleet_description = Lens.lens (\UpdateDeviceFleet' {description} -> description) (\s@UpdateDeviceFleet' {} a -> s {description = a} :: UpdateDeviceFleet)
 
 -- | The name of the fleet.
-updateDeviceFleet_deviceFleetName :: Lens.Lens' UpdateDeviceFleet Prelude.Text
+updateDeviceFleet_deviceFleetName :: Lens.Lens' UpdateDeviceFleet Core.Text
 updateDeviceFleet_deviceFleetName = Lens.lens (\UpdateDeviceFleet' {deviceFleetName} -> deviceFleetName) (\s@UpdateDeviceFleet' {} a -> s {deviceFleetName = a} :: UpdateDeviceFleet)
 
 -- | Output configuration for storing sample data collected by the fleet.
 updateDeviceFleet_outputConfig :: Lens.Lens' UpdateDeviceFleet EdgeOutputConfig
 updateDeviceFleet_outputConfig = Lens.lens (\UpdateDeviceFleet' {outputConfig} -> outputConfig) (\s@UpdateDeviceFleet' {} a -> s {outputConfig = a} :: UpdateDeviceFleet)
 
-instance Prelude.AWSRequest UpdateDeviceFleet where
-  type Rs UpdateDeviceFleet = UpdateDeviceFleetResponse
+instance Core.AWSRequest UpdateDeviceFleet where
+  type
+    AWSResponse UpdateDeviceFleet =
+      UpdateDeviceFleetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UpdateDeviceFleetResponse'
 
-instance Prelude.Hashable UpdateDeviceFleet
+instance Core.Hashable UpdateDeviceFleet
 
-instance Prelude.NFData UpdateDeviceFleet
+instance Core.NFData UpdateDeviceFleet
 
-instance Prelude.ToHeaders UpdateDeviceFleet where
+instance Core.ToHeaders UpdateDeviceFleet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.UpdateDeviceFleet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.UpdateDeviceFleet" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateDeviceFleet where
+instance Core.ToJSON UpdateDeviceFleet where
   toJSON UpdateDeviceFleet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RoleArn" Prelude..=) Prelude.<$> roleArn,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just
-              ("DeviceFleetName" Prelude..= deviceFleetName),
-            Prelude.Just
-              ("OutputConfig" Prelude..= outputConfig)
+    Core.object
+      ( Core.catMaybes
+          [ ("RoleArn" Core..=) Core.<$> roleArn,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just
+              ("DeviceFleetName" Core..= deviceFleetName),
+            Core.Just ("OutputConfig" Core..= outputConfig)
           ]
       )
 
-instance Prelude.ToPath UpdateDeviceFleet where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateDeviceFleet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateDeviceFleet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDeviceFleet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDeviceFleetResponse' smart constructor.
 data UpdateDeviceFleetResponse = UpdateDeviceFleetResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceFleetResponse' with all optional fields omitted.
@@ -162,4 +158,4 @@ newUpdateDeviceFleetResponse ::
 newUpdateDeviceFleetResponse =
   UpdateDeviceFleetResponse'
 
-instance Prelude.NFData UpdateDeviceFleetResponse
+instance Core.NFData UpdateDeviceFleetResponse

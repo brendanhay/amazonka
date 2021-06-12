@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.Trace where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.Segment
 
 -- | A collection of segment documents with matching trace IDs.
@@ -31,18 +30,18 @@ data Trace = Trace'
   { -- | LimitExceeded is set to true when the trace has exceeded one of the
     -- defined quotas. For more information about quotas, see
     -- <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas>.
-    limitExceeded :: Prelude.Maybe Prelude.Bool,
+    limitExceeded :: Core.Maybe Core.Bool,
     -- | The length of time in seconds between the start time of the root segment
     -- and the end time of the last segment that completed.
-    duration :: Prelude.Maybe Prelude.Double,
+    duration :: Core.Maybe Core.Double,
     -- | The unique identifier for the request that generated the trace\'s
     -- segments and subsegments.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Segment documents for the segments and subsegments that comprise the
     -- trace.
-    segments :: Prelude.Maybe [Segment]
+    segments :: Core.Maybe [Segment]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Trace' with all optional fields omitted.
@@ -68,47 +67,45 @@ newTrace ::
   Trace
 newTrace =
   Trace'
-    { limitExceeded = Prelude.Nothing,
-      duration = Prelude.Nothing,
-      id = Prelude.Nothing,
-      segments = Prelude.Nothing
+    { limitExceeded = Core.Nothing,
+      duration = Core.Nothing,
+      id = Core.Nothing,
+      segments = Core.Nothing
     }
 
 -- | LimitExceeded is set to true when the trace has exceeded one of the
 -- defined quotas. For more information about quotas, see
 -- <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas>.
-trace_limitExceeded :: Lens.Lens' Trace (Prelude.Maybe Prelude.Bool)
+trace_limitExceeded :: Lens.Lens' Trace (Core.Maybe Core.Bool)
 trace_limitExceeded = Lens.lens (\Trace' {limitExceeded} -> limitExceeded) (\s@Trace' {} a -> s {limitExceeded = a} :: Trace)
 
 -- | The length of time in seconds between the start time of the root segment
 -- and the end time of the last segment that completed.
-trace_duration :: Lens.Lens' Trace (Prelude.Maybe Prelude.Double)
+trace_duration :: Lens.Lens' Trace (Core.Maybe Core.Double)
 trace_duration = Lens.lens (\Trace' {duration} -> duration) (\s@Trace' {} a -> s {duration = a} :: Trace)
 
 -- | The unique identifier for the request that generated the trace\'s
 -- segments and subsegments.
-trace_id :: Lens.Lens' Trace (Prelude.Maybe Prelude.Text)
+trace_id :: Lens.Lens' Trace (Core.Maybe Core.Text)
 trace_id = Lens.lens (\Trace' {id} -> id) (\s@Trace' {} a -> s {id = a} :: Trace)
 
 -- | Segment documents for the segments and subsegments that comprise the
 -- trace.
-trace_segments :: Lens.Lens' Trace (Prelude.Maybe [Segment])
-trace_segments = Lens.lens (\Trace' {segments} -> segments) (\s@Trace' {} a -> s {segments = a} :: Trace) Prelude.. Lens.mapping Prelude._Coerce
+trace_segments :: Lens.Lens' Trace (Core.Maybe [Segment])
+trace_segments = Lens.lens (\Trace' {segments} -> segments) (\s@Trace' {} a -> s {segments = a} :: Trace) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Trace where
+instance Core.FromJSON Trace where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Trace"
       ( \x ->
           Trace'
-            Prelude.<$> (x Prelude..:? "LimitExceeded")
-            Prelude.<*> (x Prelude..:? "Duration")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> ( x Prelude..:? "Segments"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "LimitExceeded")
+            Core.<*> (x Core..:? "Duration")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Segments" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Trace
+instance Core.Hashable Trace
 
-instance Prelude.NFData Trace
+instance Core.NFData Trace

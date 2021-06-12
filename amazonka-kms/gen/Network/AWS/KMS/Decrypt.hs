@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -119,9 +118,9 @@ module Network.AWS.KMS.Decrypt
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -132,7 +131,7 @@ data Decrypt = Decrypt'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
     -- in the /AWS Key Management Service Developer Guide/.
-    grantTokens :: Prelude.Maybe [Prelude.Text],
+    grantTokens :: Core.Maybe [Core.Text],
     -- | Specifies the encryption algorithm that will be used to decrypt the
     -- ciphertext. Specify the same algorithm that was used to encrypt the
     -- data. If you specify a different algorithm, the @Decrypt@ operation
@@ -141,7 +140,7 @@ data Decrypt = Decrypt'
     -- This parameter is required only when the ciphertext was encrypted under
     -- an asymmetric CMK. The default value, @SYMMETRIC_DEFAULT@, represents
     -- the only supported algorithm that is valid for symmetric CMKs.
-    encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
+    encryptionAlgorithm :: Core.Maybe EncryptionAlgorithmSpec,
     -- | Specifies the encryption context to use when decrypting the data. An
     -- encryption context is valid only for
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
@@ -158,7 +157,7 @@ data Decrypt = Decrypt'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
     -- in the /AWS Key Management Service Developer Guide/.
-    encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    encryptionContext :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Specifies the customer master key (CMK) that AWS KMS uses to decrypt the
     -- ciphertext. Enter a key ID of the CMK that was used to encrypt the
     -- ciphertext.
@@ -187,11 +186,11 @@ data Decrypt = Decrypt'
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
     -- get the alias name and alias ARN, use ListAliases.
-    keyId :: Prelude.Maybe Prelude.Text,
+    keyId :: Core.Maybe Core.Text,
     -- | Ciphertext to be decrypted. The blob includes metadata.
-    ciphertextBlob :: Prelude.Base64
+    ciphertextBlob :: Core.Base64
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Decrypt' with all optional fields omitted.
@@ -269,16 +268,16 @@ data Decrypt = Decrypt'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newDecrypt ::
   -- | 'ciphertextBlob'
-  Prelude.ByteString ->
+  Core.ByteString ->
   Decrypt
 newDecrypt pCiphertextBlob_ =
   Decrypt'
-    { grantTokens = Prelude.Nothing,
-      encryptionAlgorithm = Prelude.Nothing,
-      encryptionContext = Prelude.Nothing,
-      keyId = Prelude.Nothing,
+    { grantTokens = Core.Nothing,
+      encryptionAlgorithm = Core.Nothing,
+      encryptionContext = Core.Nothing,
+      keyId = Core.Nothing,
       ciphertextBlob =
-        Prelude._Base64 Lens.# pCiphertextBlob_
+        Core._Base64 Lens.# pCiphertextBlob_
     }
 
 -- | A list of grant tokens.
@@ -286,8 +285,8 @@ newDecrypt pCiphertextBlob_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
 -- in the /AWS Key Management Service Developer Guide/.
-decrypt_grantTokens :: Lens.Lens' Decrypt (Prelude.Maybe [Prelude.Text])
-decrypt_grantTokens = Lens.lens (\Decrypt' {grantTokens} -> grantTokens) (\s@Decrypt' {} a -> s {grantTokens = a} :: Decrypt) Prelude.. Lens.mapping Prelude._Coerce
+decrypt_grantTokens :: Lens.Lens' Decrypt (Core.Maybe [Core.Text])
+decrypt_grantTokens = Lens.lens (\Decrypt' {grantTokens} -> grantTokens) (\s@Decrypt' {} a -> s {grantTokens = a} :: Decrypt) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the encryption algorithm that will be used to decrypt the
 -- ciphertext. Specify the same algorithm that was used to encrypt the
@@ -297,7 +296,7 @@ decrypt_grantTokens = Lens.lens (\Decrypt' {grantTokens} -> grantTokens) (\s@Dec
 -- This parameter is required only when the ciphertext was encrypted under
 -- an asymmetric CMK. The default value, @SYMMETRIC_DEFAULT@, represents
 -- the only supported algorithm that is valid for symmetric CMKs.
-decrypt_encryptionAlgorithm :: Lens.Lens' Decrypt (Prelude.Maybe EncryptionAlgorithmSpec)
+decrypt_encryptionAlgorithm :: Lens.Lens' Decrypt (Core.Maybe EncryptionAlgorithmSpec)
 decrypt_encryptionAlgorithm = Lens.lens (\Decrypt' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@Decrypt' {} a -> s {encryptionAlgorithm = a} :: Decrypt)
 
 -- | Specifies the encryption context to use when decrypting the data. An
@@ -316,8 +315,8 @@ decrypt_encryptionAlgorithm = Lens.lens (\Decrypt' {encryptionAlgorithm} -> encr
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
 -- in the /AWS Key Management Service Developer Guide/.
-decrypt_encryptionContext :: Lens.Lens' Decrypt (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-decrypt_encryptionContext = Lens.lens (\Decrypt' {encryptionContext} -> encryptionContext) (\s@Decrypt' {} a -> s {encryptionContext = a} :: Decrypt) Prelude.. Lens.mapping Prelude._Coerce
+decrypt_encryptionContext :: Lens.Lens' Decrypt (Core.Maybe (Core.HashMap Core.Text Core.Text))
+decrypt_encryptionContext = Lens.lens (\Decrypt' {encryptionContext} -> encryptionContext) (\s@Decrypt' {} a -> s {encryptionContext = a} :: Decrypt) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the customer master key (CMK) that AWS KMS uses to decrypt the
 -- ciphertext. Enter a key ID of the CMK that was used to encrypt the
@@ -347,7 +346,7 @@ decrypt_encryptionContext = Lens.lens (\Decrypt' {encryptionContext} -> encrypti
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
 -- get the alias name and alias ARN, use ListAliases.
-decrypt_keyId :: Lens.Lens' Decrypt (Prelude.Maybe Prelude.Text)
+decrypt_keyId :: Lens.Lens' Decrypt (Core.Maybe Core.Text)
 decrypt_keyId = Lens.lens (\Decrypt' {keyId} -> keyId) (\s@Decrypt' {} a -> s {keyId = a} :: Decrypt)
 
 -- | Ciphertext to be decrypted. The blob includes metadata.--
@@ -355,75 +354,72 @@ decrypt_keyId = Lens.lens (\Decrypt' {keyId} -> keyId) (\s@Decrypt' {} a -> s {k
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-decrypt_ciphertextBlob :: Lens.Lens' Decrypt Prelude.ByteString
-decrypt_ciphertextBlob = Lens.lens (\Decrypt' {ciphertextBlob} -> ciphertextBlob) (\s@Decrypt' {} a -> s {ciphertextBlob = a} :: Decrypt) Prelude.. Prelude._Base64
+decrypt_ciphertextBlob :: Lens.Lens' Decrypt Core.ByteString
+decrypt_ciphertextBlob = Lens.lens (\Decrypt' {ciphertextBlob} -> ciphertextBlob) (\s@Decrypt' {} a -> s {ciphertextBlob = a} :: Decrypt) Core.. Core._Base64
 
-instance Prelude.AWSRequest Decrypt where
-  type Rs Decrypt = DecryptResponse
+instance Core.AWSRequest Decrypt where
+  type AWSResponse Decrypt = DecryptResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DecryptResponse'
-            Prelude.<$> (x Prelude..?> "Plaintext")
-            Prelude.<*> (x Prelude..?> "EncryptionAlgorithm")
-            Prelude.<*> (x Prelude..?> "KeyId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Plaintext")
+            Core.<*> (x Core..?> "EncryptionAlgorithm")
+            Core.<*> (x Core..?> "KeyId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable Decrypt
+instance Core.Hashable Decrypt
 
-instance Prelude.NFData Decrypt
+instance Core.NFData Decrypt
 
-instance Prelude.ToHeaders Decrypt where
+instance Core.ToHeaders Decrypt where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("TrentService.Decrypt" :: Prelude.ByteString),
+              Core.=# ("TrentService.Decrypt" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON Decrypt where
+instance Core.ToJSON Decrypt where
   toJSON Decrypt' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("GrantTokens" Prelude..=) Prelude.<$> grantTokens,
-            ("EncryptionAlgorithm" Prelude..=)
-              Prelude.<$> encryptionAlgorithm,
-            ("EncryptionContext" Prelude..=)
-              Prelude.<$> encryptionContext,
-            ("KeyId" Prelude..=) Prelude.<$> keyId,
-            Prelude.Just
-              ("CiphertextBlob" Prelude..= ciphertextBlob)
+    Core.object
+      ( Core.catMaybes
+          [ ("GrantTokens" Core..=) Core.<$> grantTokens,
+            ("EncryptionAlgorithm" Core..=)
+              Core.<$> encryptionAlgorithm,
+            ("EncryptionContext" Core..=)
+              Core.<$> encryptionContext,
+            ("KeyId" Core..=) Core.<$> keyId,
+            Core.Just ("CiphertextBlob" Core..= ciphertextBlob)
           ]
       )
 
-instance Prelude.ToPath Decrypt where
-  toPath = Prelude.const "/"
+instance Core.ToPath Decrypt where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery Decrypt where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery Decrypt where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDecryptResponse' smart constructor.
 data DecryptResponse = DecryptResponse'
   { -- | Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the
     -- value is Base64-encoded. Otherwise, it is not Base64-encoded.
-    plaintext :: Prelude.Maybe (Prelude.Sensitive Prelude.Base64),
+    plaintext :: Core.Maybe (Core.Sensitive Core.Base64),
     -- | The encryption algorithm that was used to decrypt the ciphertext.
-    encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
+    encryptionAlgorithm :: Core.Maybe EncryptionAlgorithmSpec,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the CMK that was used to decrypt the ciphertext.
-    keyId :: Prelude.Maybe Prelude.Text,
+    keyId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DecryptResponse' with all optional fields omitted.
@@ -449,13 +445,13 @@ data DecryptResponse = DecryptResponse'
 -- 'httpStatus', 'decryptResponse_httpStatus' - The response's http status code.
 newDecryptResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DecryptResponse
 newDecryptResponse pHttpStatus_ =
   DecryptResponse'
-    { plaintext = Prelude.Nothing,
-      encryptionAlgorithm = Prelude.Nothing,
-      keyId = Prelude.Nothing,
+    { plaintext = Core.Nothing,
+      encryptionAlgorithm = Core.Nothing,
+      keyId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -465,21 +461,21 @@ newDecryptResponse pHttpStatus_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-decryptResponse_plaintext :: Lens.Lens' DecryptResponse (Prelude.Maybe Prelude.ByteString)
-decryptResponse_plaintext = Lens.lens (\DecryptResponse' {plaintext} -> plaintext) (\s@DecryptResponse' {} a -> s {plaintext = a} :: DecryptResponse) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Base64)
+decryptResponse_plaintext :: Lens.Lens' DecryptResponse (Core.Maybe Core.ByteString)
+decryptResponse_plaintext = Lens.lens (\DecryptResponse' {plaintext} -> plaintext) (\s@DecryptResponse' {} a -> s {plaintext = a} :: DecryptResponse) Core.. Lens.mapping (Core._Sensitive Core.. Core._Base64)
 
 -- | The encryption algorithm that was used to decrypt the ciphertext.
-decryptResponse_encryptionAlgorithm :: Lens.Lens' DecryptResponse (Prelude.Maybe EncryptionAlgorithmSpec)
+decryptResponse_encryptionAlgorithm :: Lens.Lens' DecryptResponse (Core.Maybe EncryptionAlgorithmSpec)
 decryptResponse_encryptionAlgorithm = Lens.lens (\DecryptResponse' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@DecryptResponse' {} a -> s {encryptionAlgorithm = a} :: DecryptResponse)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
 -- of the CMK that was used to decrypt the ciphertext.
-decryptResponse_keyId :: Lens.Lens' DecryptResponse (Prelude.Maybe Prelude.Text)
+decryptResponse_keyId :: Lens.Lens' DecryptResponse (Core.Maybe Core.Text)
 decryptResponse_keyId = Lens.lens (\DecryptResponse' {keyId} -> keyId) (\s@DecryptResponse' {} a -> s {keyId = a} :: DecryptResponse)
 
 -- | The response's http status code.
-decryptResponse_httpStatus :: Lens.Lens' DecryptResponse Prelude.Int
+decryptResponse_httpStatus :: Lens.Lens' DecryptResponse Core.Int
 decryptResponse_httpStatus = Lens.lens (\DecryptResponse' {httpStatus} -> httpStatus) (\s@DecryptResponse' {} a -> s {httpStatus = a} :: DecryptResponse)
 
-instance Prelude.NFData DecryptResponse
+instance Core.NFData DecryptResponse

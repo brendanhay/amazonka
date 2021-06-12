@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.DeviceMinutes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the total (metered or unmetered) minutes used by the resource
 -- to run tests. Contains the sum of minutes consumed by all children.
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 data DeviceMinutes = DeviceMinutes'
   { -- | When specified, represents only the sum of unmetered minutes used by the
     -- resource to run tests.
-    unmetered :: Prelude.Maybe Prelude.Double,
+    unmetered :: Core.Maybe Core.Double,
     -- | When specified, represents only the sum of metered minutes used by the
     -- resource to run tests.
-    metered :: Prelude.Maybe Prelude.Double,
+    metered :: Core.Maybe Core.Double,
     -- | When specified, represents the total minutes used by the resource to run
     -- tests.
-    total :: Prelude.Maybe Prelude.Double
+    total :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeviceMinutes' with all optional fields omitted.
@@ -60,37 +59,37 @@ newDeviceMinutes ::
   DeviceMinutes
 newDeviceMinutes =
   DeviceMinutes'
-    { unmetered = Prelude.Nothing,
-      metered = Prelude.Nothing,
-      total = Prelude.Nothing
+    { unmetered = Core.Nothing,
+      metered = Core.Nothing,
+      total = Core.Nothing
     }
 
 -- | When specified, represents only the sum of unmetered minutes used by the
 -- resource to run tests.
-deviceMinutes_unmetered :: Lens.Lens' DeviceMinutes (Prelude.Maybe Prelude.Double)
+deviceMinutes_unmetered :: Lens.Lens' DeviceMinutes (Core.Maybe Core.Double)
 deviceMinutes_unmetered = Lens.lens (\DeviceMinutes' {unmetered} -> unmetered) (\s@DeviceMinutes' {} a -> s {unmetered = a} :: DeviceMinutes)
 
 -- | When specified, represents only the sum of metered minutes used by the
 -- resource to run tests.
-deviceMinutes_metered :: Lens.Lens' DeviceMinutes (Prelude.Maybe Prelude.Double)
+deviceMinutes_metered :: Lens.Lens' DeviceMinutes (Core.Maybe Core.Double)
 deviceMinutes_metered = Lens.lens (\DeviceMinutes' {metered} -> metered) (\s@DeviceMinutes' {} a -> s {metered = a} :: DeviceMinutes)
 
 -- | When specified, represents the total minutes used by the resource to run
 -- tests.
-deviceMinutes_total :: Lens.Lens' DeviceMinutes (Prelude.Maybe Prelude.Double)
+deviceMinutes_total :: Lens.Lens' DeviceMinutes (Core.Maybe Core.Double)
 deviceMinutes_total = Lens.lens (\DeviceMinutes' {total} -> total) (\s@DeviceMinutes' {} a -> s {total = a} :: DeviceMinutes)
 
-instance Prelude.FromJSON DeviceMinutes where
+instance Core.FromJSON DeviceMinutes where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeviceMinutes"
       ( \x ->
           DeviceMinutes'
-            Prelude.<$> (x Prelude..:? "unmetered")
-            Prelude.<*> (x Prelude..:? "metered")
-            Prelude.<*> (x Prelude..:? "total")
+            Core.<$> (x Core..:? "unmetered")
+            Core.<*> (x Core..:? "metered")
+            Core.<*> (x Core..:? "total")
       )
 
-instance Prelude.Hashable DeviceMinutes
+instance Core.Hashable DeviceMinutes
 
-instance Prelude.NFData DeviceMinutes
+instance Core.NFData DeviceMinutes

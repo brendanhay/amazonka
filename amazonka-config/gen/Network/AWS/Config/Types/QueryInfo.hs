@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.Config.Types.QueryInfo where
 
 import Network.AWS.Config.Types.FieldInfo
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the query.
 --
 -- /See:/ 'newQueryInfo' smart constructor.
 data QueryInfo = QueryInfo'
   { -- | Returns a @FieldInfo@ object.
-    selectFields :: Prelude.Maybe [FieldInfo]
+    selectFields :: Core.Maybe [FieldInfo]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryInfo' with all optional fields omitted.
@@ -45,23 +44,21 @@ data QueryInfo = QueryInfo'
 newQueryInfo ::
   QueryInfo
 newQueryInfo =
-  QueryInfo' {selectFields = Prelude.Nothing}
+  QueryInfo' {selectFields = Core.Nothing}
 
 -- | Returns a @FieldInfo@ object.
-queryInfo_selectFields :: Lens.Lens' QueryInfo (Prelude.Maybe [FieldInfo])
-queryInfo_selectFields = Lens.lens (\QueryInfo' {selectFields} -> selectFields) (\s@QueryInfo' {} a -> s {selectFields = a} :: QueryInfo) Prelude.. Lens.mapping Prelude._Coerce
+queryInfo_selectFields :: Lens.Lens' QueryInfo (Core.Maybe [FieldInfo])
+queryInfo_selectFields = Lens.lens (\QueryInfo' {selectFields} -> selectFields) (\s@QueryInfo' {} a -> s {selectFields = a} :: QueryInfo) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON QueryInfo where
+instance Core.FromJSON QueryInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "QueryInfo"
       ( \x ->
           QueryInfo'
-            Prelude.<$> ( x Prelude..:? "SelectFields"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "SelectFields" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable QueryInfo
+instance Core.Hashable QueryInfo
 
-instance Prelude.NFData QueryInfo
+instance Core.NFData QueryInfo

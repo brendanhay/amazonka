@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,15 +43,15 @@ module Network.AWS.CloudWatchLogs.PutResourcePolicy
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
   { -- | Name of the new policy. This parameter is required.
-    policyName :: Prelude.Maybe Prelude.Text,
+    policyName :: Core.Maybe Core.Text,
     -- | Details of the new policy, including the identity of the principal that
     -- is enabled to put logs to this account. This is formatted as a JSON
     -- string. This parameter is required.
@@ -63,9 +62,9 @@ data PutResourcePolicy = PutResourcePolicy'
     -- log group or log stream.
     --
     -- @{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"logArn\" } ] } @
-    policyDocument :: Prelude.Maybe Prelude.Text
+    policyDocument :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutResourcePolicy' with all optional fields omitted.
@@ -91,12 +90,12 @@ newPutResourcePolicy ::
   PutResourcePolicy
 newPutResourcePolicy =
   PutResourcePolicy'
-    { policyName = Prelude.Nothing,
-      policyDocument = Prelude.Nothing
+    { policyName = Core.Nothing,
+      policyDocument = Core.Nothing
     }
 
 -- | Name of the new policy. This parameter is required.
-putResourcePolicy_policyName :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
+putResourcePolicy_policyName :: Lens.Lens' PutResourcePolicy (Core.Maybe Core.Text)
 putResourcePolicy_policyName = Lens.lens (\PutResourcePolicy' {policyName} -> policyName) (\s@PutResourcePolicy' {} a -> s {policyName = a} :: PutResourcePolicy)
 
 -- | Details of the new policy, including the identity of the principal that
@@ -109,63 +108,62 @@ putResourcePolicy_policyName = Lens.lens (\PutResourcePolicy' {policyName} -> po
 -- log group or log stream.
 --
 -- @{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"logArn\" } ] } @
-putResourcePolicy_policyDocument :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
+putResourcePolicy_policyDocument :: Lens.Lens' PutResourcePolicy (Core.Maybe Core.Text)
 putResourcePolicy_policyDocument = Lens.lens (\PutResourcePolicy' {policyDocument} -> policyDocument) (\s@PutResourcePolicy' {} a -> s {policyDocument = a} :: PutResourcePolicy)
 
-instance Prelude.AWSRequest PutResourcePolicy where
-  type Rs PutResourcePolicy = PutResourcePolicyResponse
+instance Core.AWSRequest PutResourcePolicy where
+  type
+    AWSResponse PutResourcePolicy =
+      PutResourcePolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutResourcePolicyResponse'
-            Prelude.<$> (x Prelude..?> "resourcePolicy")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "resourcePolicy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutResourcePolicy
+instance Core.Hashable PutResourcePolicy
 
-instance Prelude.NFData PutResourcePolicy
+instance Core.NFData PutResourcePolicy
 
-instance Prelude.ToHeaders PutResourcePolicy where
+instance Core.ToHeaders PutResourcePolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.PutResourcePolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Logs_20140328.PutResourcePolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutResourcePolicy where
+instance Core.ToJSON PutResourcePolicy where
   toJSON PutResourcePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("policyName" Prelude..=) Prelude.<$> policyName,
-            ("policyDocument" Prelude..=)
-              Prelude.<$> policyDocument
+    Core.object
+      ( Core.catMaybes
+          [ ("policyName" Core..=) Core.<$> policyName,
+            ("policyDocument" Core..=) Core.<$> policyDocument
           ]
       )
 
-instance Prelude.ToPath PutResourcePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutResourcePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutResourcePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutResourcePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
   { -- | The new policy.
-    resourcePolicy :: Prelude.Maybe ResourcePolicy,
+    resourcePolicy :: Core.Maybe ResourcePolicy,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutResourcePolicyResponse' with all optional fields omitted.
@@ -180,21 +178,21 @@ data PutResourcePolicyResponse = PutResourcePolicyResponse'
 -- 'httpStatus', 'putResourcePolicyResponse_httpStatus' - The response's http status code.
 newPutResourcePolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutResourcePolicyResponse
 newPutResourcePolicyResponse pHttpStatus_ =
   PutResourcePolicyResponse'
     { resourcePolicy =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The new policy.
-putResourcePolicyResponse_resourcePolicy :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe ResourcePolicy)
+putResourcePolicyResponse_resourcePolicy :: Lens.Lens' PutResourcePolicyResponse (Core.Maybe ResourcePolicy)
 putResourcePolicyResponse_resourcePolicy = Lens.lens (\PutResourcePolicyResponse' {resourcePolicy} -> resourcePolicy) (\s@PutResourcePolicyResponse' {} a -> s {resourcePolicy = a} :: PutResourcePolicyResponse)
 
 -- | The response's http status code.
-putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Prelude.Int
+putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Core.Int
 putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@PutResourcePolicyResponse' {} a -> s {httpStatus = a} :: PutResourcePolicyResponse)
 
-instance Prelude.NFData PutResourcePolicyResponse
+instance Core.NFData PutResourcePolicyResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.InferenceAccelerator where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on a Elastic Inference accelerator. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html Working with Amazon Elastic Inference on Amazon ECS>
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data InferenceAccelerator = InferenceAccelerator'
   { -- | The Elastic Inference accelerator device name. The @deviceName@ must
     -- also be referenced in a container definition as a ResourceRequirement.
-    deviceName :: Prelude.Text,
+    deviceName :: Core.Text,
     -- | The Elastic Inference accelerator type to use.
-    deviceType :: Prelude.Text
+    deviceType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InferenceAccelerator' with all optional fields omitted.
@@ -51,9 +50,9 @@ data InferenceAccelerator = InferenceAccelerator'
 -- 'deviceType', 'inferenceAccelerator_deviceType' - The Elastic Inference accelerator type to use.
 newInferenceAccelerator ::
   -- | 'deviceName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'deviceType'
-  Prelude.Text ->
+  Core.Text ->
   InferenceAccelerator
 newInferenceAccelerator pDeviceName_ pDeviceType_ =
   InferenceAccelerator'
@@ -63,32 +62,32 @@ newInferenceAccelerator pDeviceName_ pDeviceType_ =
 
 -- | The Elastic Inference accelerator device name. The @deviceName@ must
 -- also be referenced in a container definition as a ResourceRequirement.
-inferenceAccelerator_deviceName :: Lens.Lens' InferenceAccelerator Prelude.Text
+inferenceAccelerator_deviceName :: Lens.Lens' InferenceAccelerator Core.Text
 inferenceAccelerator_deviceName = Lens.lens (\InferenceAccelerator' {deviceName} -> deviceName) (\s@InferenceAccelerator' {} a -> s {deviceName = a} :: InferenceAccelerator)
 
 -- | The Elastic Inference accelerator type to use.
-inferenceAccelerator_deviceType :: Lens.Lens' InferenceAccelerator Prelude.Text
+inferenceAccelerator_deviceType :: Lens.Lens' InferenceAccelerator Core.Text
 inferenceAccelerator_deviceType = Lens.lens (\InferenceAccelerator' {deviceType} -> deviceType) (\s@InferenceAccelerator' {} a -> s {deviceType = a} :: InferenceAccelerator)
 
-instance Prelude.FromJSON InferenceAccelerator where
+instance Core.FromJSON InferenceAccelerator where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InferenceAccelerator"
       ( \x ->
           InferenceAccelerator'
-            Prelude.<$> (x Prelude..: "deviceName")
-            Prelude.<*> (x Prelude..: "deviceType")
+            Core.<$> (x Core..: "deviceName")
+            Core.<*> (x Core..: "deviceType")
       )
 
-instance Prelude.Hashable InferenceAccelerator
+instance Core.Hashable InferenceAccelerator
 
-instance Prelude.NFData InferenceAccelerator
+instance Core.NFData InferenceAccelerator
 
-instance Prelude.ToJSON InferenceAccelerator where
+instance Core.ToJSON InferenceAccelerator where
   toJSON InferenceAccelerator' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("deviceName" Prelude..= deviceName),
-            Prelude.Just ("deviceType" Prelude..= deviceType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("deviceName" Core..= deviceName),
+            Core.Just ("deviceType" Core..= deviceType)
           ]
       )

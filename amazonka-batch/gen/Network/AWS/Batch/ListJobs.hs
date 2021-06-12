@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,9 +59,8 @@ module Network.AWS.Batch.ListJobs
 where
 
 import Network.AWS.Batch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,7 +77,7 @@ data ListJobs = ListJobs'
     -- This token should be treated as an opaque identifier that\'s only used
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results returned by @ListJobs@ in paginated
     -- output. When this parameter is used, @ListJobs@ only returns
     -- @maxResults@ results in a single page along with a @nextToken@ response
@@ -88,22 +86,22 @@ data ListJobs = ListJobs'
     -- This value can be between 1 and 100. If this parameter isn\'t used, then
     -- @ListJobs@ returns up to 100 results and a @nextToken@ value if
     -- applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The name or full Amazon Resource Name (ARN) of the job queue used to
     -- list jobs.
-    jobQueue :: Prelude.Maybe Prelude.Text,
+    jobQueue :: Core.Maybe Core.Text,
     -- | The job status used to filter jobs in the specified queue. If you don\'t
     -- specify a status, only @RUNNING@ jobs are returned.
-    jobStatus :: Prelude.Maybe JobStatus,
+    jobStatus :: Core.Maybe JobStatus,
     -- | The job ID for an array job. Specifying an array job ID with this
     -- parameter lists all child jobs from within the specified array.
-    arrayJobId :: Prelude.Maybe Prelude.Text,
+    arrayJobId :: Core.Maybe Core.Text,
     -- | The job ID for a multi-node parallel job. Specifying a multi-node
     -- parallel job ID with this parameter lists all nodes that are associated
     -- with the specified job.
-    multiNodeJobId :: Prelude.Maybe Prelude.Text
+    multiNodeJobId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListJobs' with all optional fields omitted.
@@ -148,12 +146,12 @@ newListJobs ::
   ListJobs
 newListJobs =
   ListJobs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      jobQueue = Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
-      arrayJobId = Prelude.Nothing,
-      multiNodeJobId = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      jobQueue = Core.Nothing,
+      jobStatus = Core.Nothing,
+      arrayJobId = Core.Nothing,
+      multiNodeJobId = Core.Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated @ListJobs@
@@ -165,7 +163,7 @@ newListJobs =
 -- This token should be treated as an opaque identifier that\'s only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_nextToken :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
 listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
 
 -- | The maximum number of results returned by @ListJobs@ in paginated
@@ -176,95 +174,90 @@ listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJob
 -- This value can be between 1 and 100. If this parameter isn\'t used, then
 -- @ListJobs@ returns up to 100 results and a @nextToken@ value if
 -- applicable.
-listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Int)
+listJobs_maxResults :: Lens.Lens' ListJobs (Core.Maybe Core.Int)
 listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
 
 -- | The name or full Amazon Resource Name (ARN) of the job queue used to
 -- list jobs.
-listJobs_jobQueue :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_jobQueue :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
 listJobs_jobQueue = Lens.lens (\ListJobs' {jobQueue} -> jobQueue) (\s@ListJobs' {} a -> s {jobQueue = a} :: ListJobs)
 
 -- | The job status used to filter jobs in the specified queue. If you don\'t
 -- specify a status, only @RUNNING@ jobs are returned.
-listJobs_jobStatus :: Lens.Lens' ListJobs (Prelude.Maybe JobStatus)
+listJobs_jobStatus :: Lens.Lens' ListJobs (Core.Maybe JobStatus)
 listJobs_jobStatus = Lens.lens (\ListJobs' {jobStatus} -> jobStatus) (\s@ListJobs' {} a -> s {jobStatus = a} :: ListJobs)
 
 -- | The job ID for an array job. Specifying an array job ID with this
 -- parameter lists all child jobs from within the specified array.
-listJobs_arrayJobId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_arrayJobId :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
 listJobs_arrayJobId = Lens.lens (\ListJobs' {arrayJobId} -> arrayJobId) (\s@ListJobs' {} a -> s {arrayJobId = a} :: ListJobs)
 
 -- | The job ID for a multi-node parallel job. Specifying a multi-node
 -- parallel job ID with this parameter lists all nodes that are associated
 -- with the specified job.
-listJobs_multiNodeJobId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_multiNodeJobId :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
 listJobs_multiNodeJobId = Lens.lens (\ListJobs' {multiNodeJobId} -> multiNodeJobId) (\s@ListJobs' {} a -> s {multiNodeJobId = a} :: ListJobs)
 
-instance Pager.AWSPager ListJobs where
+instance Core.AWSPager ListJobs where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listJobsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listJobsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. listJobsResponse_jobSummaryList) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listJobs_nextToken
           Lens..~ rs
-          Lens.^? listJobsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listJobsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListJobs where
-  type Rs ListJobs = ListJobsResponse
+instance Core.AWSRequest ListJobs where
+  type AWSResponse ListJobs = ListJobsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "jobSummaryList"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "jobSummaryList" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListJobs
+instance Core.Hashable ListJobs
 
-instance Prelude.NFData ListJobs
+instance Core.NFData ListJobs
 
-instance Prelude.ToHeaders ListJobs where
+instance Core.ToHeaders ListJobs where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListJobs where
+instance Core.ToJSON ListJobs where
   toJSON ListJobs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("jobQueue" Prelude..=) Prelude.<$> jobQueue,
-            ("jobStatus" Prelude..=) Prelude.<$> jobStatus,
-            ("arrayJobId" Prelude..=) Prelude.<$> arrayJobId,
-            ("multiNodeJobId" Prelude..=)
-              Prelude.<$> multiNodeJobId
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("jobQueue" Core..=) Core.<$> jobQueue,
+            ("jobStatus" Core..=) Core.<$> jobStatus,
+            ("arrayJobId" Core..=) Core.<$> arrayJobId,
+            ("multiNodeJobId" Core..=) Core.<$> multiNodeJobId
           ]
       )
 
-instance Prelude.ToPath ListJobs where
-  toPath = Prelude.const "/v1/listjobs"
+instance Core.ToPath ListJobs where
+  toPath = Core.const "/v1/listjobs"
 
-instance Prelude.ToQuery ListJobs where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListJobs where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
@@ -272,13 +265,13 @@ data ListJobsResponse = ListJobsResponse'
     -- the results of a @ListJobs@ request exceed @maxResults@, this value can
     -- be used to retrieve the next page of results. This value is @null@ when
     -- there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of job summaries that match the request.
     jobSummaryList :: [JobSummary]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListJobsResponse' with all optional fields omitted.
@@ -298,28 +291,28 @@ data ListJobsResponse = ListJobsResponse'
 -- 'jobSummaryList', 'listJobsResponse_jobSummaryList' - A list of job summaries that match the request.
 newListJobsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListJobsResponse
 newListJobsResponse pHttpStatus_ =
   ListJobsResponse'
-    { nextToken = Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      jobSummaryList = Prelude.mempty
+      jobSummaryList = Core.mempty
     }
 
 -- | The @nextToken@ value to include in a future @ListJobs@ request. When
 -- the results of a @ListJobs@ request exceed @maxResults@, this value can
 -- be used to retrieve the next page of results. This value is @null@ when
 -- there are no more results to return.
-listJobsResponse_nextToken :: Lens.Lens' ListJobsResponse (Prelude.Maybe Prelude.Text)
+listJobsResponse_nextToken :: Lens.Lens' ListJobsResponse (Core.Maybe Core.Text)
 listJobsResponse_nextToken = Lens.lens (\ListJobsResponse' {nextToken} -> nextToken) (\s@ListJobsResponse' {} a -> s {nextToken = a} :: ListJobsResponse)
 
 -- | The response's http status code.
-listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Prelude.Int
+listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Core.Int
 listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> httpStatus) (\s@ListJobsResponse' {} a -> s {httpStatus = a} :: ListJobsResponse)
 
 -- | A list of job summaries that match the request.
 listJobsResponse_jobSummaryList :: Lens.Lens' ListJobsResponse [JobSummary]
-listJobsResponse_jobSummaryList = Lens.lens (\ListJobsResponse' {jobSummaryList} -> jobSummaryList) (\s@ListJobsResponse' {} a -> s {jobSummaryList = a} :: ListJobsResponse) Prelude.. Prelude._Coerce
+listJobsResponse_jobSummaryList = Lens.lens (\ListJobsResponse' {jobSummaryList} -> jobSummaryList) (\s@ListJobsResponse' {} a -> s {jobSummaryList = a} :: ListJobsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListJobsResponse
+instance Core.NFData ListJobsResponse

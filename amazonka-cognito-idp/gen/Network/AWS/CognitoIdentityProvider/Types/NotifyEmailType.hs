@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentityProvider.Types.NotifyEmailType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The notify email type.
 --
 -- /See:/ 'newNotifyEmailType' smart constructor.
 data NotifyEmailType = NotifyEmailType'
   { -- | The HTML body.
-    htmlBody :: Prelude.Maybe Prelude.Text,
+    htmlBody :: Core.Maybe Core.Text,
     -- | The text body.
-    textBody :: Prelude.Maybe Prelude.Text,
+    textBody :: Core.Maybe Core.Text,
     -- | The subject.
-    subject :: Prelude.Text
+    subject :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NotifyEmailType' with all optional fields omitted.
@@ -51,48 +50,48 @@ data NotifyEmailType = NotifyEmailType'
 -- 'subject', 'notifyEmailType_subject' - The subject.
 newNotifyEmailType ::
   -- | 'subject'
-  Prelude.Text ->
+  Core.Text ->
   NotifyEmailType
 newNotifyEmailType pSubject_ =
   NotifyEmailType'
-    { htmlBody = Prelude.Nothing,
-      textBody = Prelude.Nothing,
+    { htmlBody = Core.Nothing,
+      textBody = Core.Nothing,
       subject = pSubject_
     }
 
 -- | The HTML body.
-notifyEmailType_htmlBody :: Lens.Lens' NotifyEmailType (Prelude.Maybe Prelude.Text)
+notifyEmailType_htmlBody :: Lens.Lens' NotifyEmailType (Core.Maybe Core.Text)
 notifyEmailType_htmlBody = Lens.lens (\NotifyEmailType' {htmlBody} -> htmlBody) (\s@NotifyEmailType' {} a -> s {htmlBody = a} :: NotifyEmailType)
 
 -- | The text body.
-notifyEmailType_textBody :: Lens.Lens' NotifyEmailType (Prelude.Maybe Prelude.Text)
+notifyEmailType_textBody :: Lens.Lens' NotifyEmailType (Core.Maybe Core.Text)
 notifyEmailType_textBody = Lens.lens (\NotifyEmailType' {textBody} -> textBody) (\s@NotifyEmailType' {} a -> s {textBody = a} :: NotifyEmailType)
 
 -- | The subject.
-notifyEmailType_subject :: Lens.Lens' NotifyEmailType Prelude.Text
+notifyEmailType_subject :: Lens.Lens' NotifyEmailType Core.Text
 notifyEmailType_subject = Lens.lens (\NotifyEmailType' {subject} -> subject) (\s@NotifyEmailType' {} a -> s {subject = a} :: NotifyEmailType)
 
-instance Prelude.FromJSON NotifyEmailType where
+instance Core.FromJSON NotifyEmailType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NotifyEmailType"
       ( \x ->
           NotifyEmailType'
-            Prelude.<$> (x Prelude..:? "HtmlBody")
-            Prelude.<*> (x Prelude..:? "TextBody")
-            Prelude.<*> (x Prelude..: "Subject")
+            Core.<$> (x Core..:? "HtmlBody")
+            Core.<*> (x Core..:? "TextBody")
+            Core.<*> (x Core..: "Subject")
       )
 
-instance Prelude.Hashable NotifyEmailType
+instance Core.Hashable NotifyEmailType
 
-instance Prelude.NFData NotifyEmailType
+instance Core.NFData NotifyEmailType
 
-instance Prelude.ToJSON NotifyEmailType where
+instance Core.ToJSON NotifyEmailType where
   toJSON NotifyEmailType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("HtmlBody" Prelude..=) Prelude.<$> htmlBody,
-            ("TextBody" Prelude..=) Prelude.<$> textBody,
-            Prelude.Just ("Subject" Prelude..= subject)
+    Core.object
+      ( Core.catMaybes
+          [ ("HtmlBody" Core..=) Core.<$> htmlBody,
+            ("TextBody" Core..=) Core.<$> textBody,
+            Core.Just ("Subject" Core..= subject)
           ]
       )

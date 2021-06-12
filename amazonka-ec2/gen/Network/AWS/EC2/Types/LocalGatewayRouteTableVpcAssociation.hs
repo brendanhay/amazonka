@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LocalGatewayRouteTableVpcAssociation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an association between a local gateway route table and a VPC.
 --
@@ -31,24 +30,24 @@ import qualified Network.AWS.Prelude as Prelude
 data LocalGatewayRouteTableVpcAssociation = LocalGatewayRouteTableVpcAssociation'
   { -- | The AWS account ID that owns the local gateway route table for the
     -- association.
-    ownerId :: Prelude.Maybe Prelude.Text,
+    ownerId :: Core.Maybe Core.Text,
     -- | The ID of the association.
-    localGatewayRouteTableVpcAssociationId :: Prelude.Maybe Prelude.Text,
+    localGatewayRouteTableVpcAssociationId :: Core.Maybe Core.Text,
     -- | The ID of the local gateway.
-    localGatewayId :: Prelude.Maybe Prelude.Text,
+    localGatewayId :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the local gateway route table for the
     -- association.
-    localGatewayRouteTableArn :: Prelude.Maybe Prelude.Text,
+    localGatewayRouteTableArn :: Core.Maybe Core.Text,
     -- | The state of the association.
-    state :: Prelude.Maybe Prelude.Text,
+    state :: Core.Maybe Core.Text,
     -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Prelude.Maybe Prelude.Text,
+    localGatewayRouteTableId :: Core.Maybe Core.Text,
     -- | The tags assigned to the association.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LocalGatewayRouteTableVpcAssociation' with all optional fields omitted.
@@ -80,76 +79,74 @@ newLocalGatewayRouteTableVpcAssociation ::
 newLocalGatewayRouteTableVpcAssociation =
   LocalGatewayRouteTableVpcAssociation'
     { ownerId =
-        Prelude.Nothing,
+        Core.Nothing,
       localGatewayRouteTableVpcAssociationId =
-        Prelude.Nothing,
-      localGatewayId = Prelude.Nothing,
+        Core.Nothing,
+      localGatewayId = Core.Nothing,
       localGatewayRouteTableArn =
-        Prelude.Nothing,
-      state = Prelude.Nothing,
+        Core.Nothing,
+      state = Core.Nothing,
       localGatewayRouteTableId =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+        Core.Nothing,
+      tags = Core.Nothing,
+      vpcId = Core.Nothing
     }
 
 -- | The AWS account ID that owns the local gateway route table for the
 -- association.
-localGatewayRouteTableVpcAssociation_ownerId :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVpcAssociation_ownerId :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVpcAssociation_ownerId = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {ownerId} -> ownerId) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {ownerId = a} :: LocalGatewayRouteTableVpcAssociation)
 
 -- | The ID of the association.
-localGatewayRouteTableVpcAssociation_localGatewayRouteTableVpcAssociationId :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVpcAssociation_localGatewayRouteTableVpcAssociationId :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVpcAssociation_localGatewayRouteTableVpcAssociationId = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {localGatewayRouteTableVpcAssociationId} -> localGatewayRouteTableVpcAssociationId) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {localGatewayRouteTableVpcAssociationId = a} :: LocalGatewayRouteTableVpcAssociation)
 
 -- | The ID of the local gateway.
-localGatewayRouteTableVpcAssociation_localGatewayId :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVpcAssociation_localGatewayId :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVpcAssociation_localGatewayId = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {localGatewayId} -> localGatewayId) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {localGatewayId = a} :: LocalGatewayRouteTableVpcAssociation)
 
 -- | The Amazon Resource Name (ARN) of the local gateway route table for the
 -- association.
-localGatewayRouteTableVpcAssociation_localGatewayRouteTableArn :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVpcAssociation_localGatewayRouteTableArn :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVpcAssociation_localGatewayRouteTableArn = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {localGatewayRouteTableArn} -> localGatewayRouteTableArn) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {localGatewayRouteTableArn = a} :: LocalGatewayRouteTableVpcAssociation)
 
 -- | The state of the association.
-localGatewayRouteTableVpcAssociation_state :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVpcAssociation_state :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVpcAssociation_state = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {state} -> state) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {state = a} :: LocalGatewayRouteTableVpcAssociation)
 
 -- | The ID of the local gateway route table.
-localGatewayRouteTableVpcAssociation_localGatewayRouteTableId :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVpcAssociation_localGatewayRouteTableId :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVpcAssociation_localGatewayRouteTableId = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {localGatewayRouteTableId = a} :: LocalGatewayRouteTableVpcAssociation)
 
 -- | The tags assigned to the association.
-localGatewayRouteTableVpcAssociation_tags :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe [Tag])
-localGatewayRouteTableVpcAssociation_tags = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {tags} -> tags) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {tags = a} :: LocalGatewayRouteTableVpcAssociation) Prelude.. Lens.mapping Prelude._Coerce
+localGatewayRouteTableVpcAssociation_tags :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Core.Maybe [Tag])
+localGatewayRouteTableVpcAssociation_tags = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {tags} -> tags) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {tags = a} :: LocalGatewayRouteTableVpcAssociation) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the VPC.
-localGatewayRouteTableVpcAssociation_vpcId :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVpcAssociation_vpcId :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVpcAssociation_vpcId = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {vpcId} -> vpcId) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {vpcId = a} :: LocalGatewayRouteTableVpcAssociation)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     LocalGatewayRouteTableVpcAssociation
   where
   parseXML x =
     LocalGatewayRouteTableVpcAssociation'
-      Prelude.<$> (x Prelude..@? "ownerId")
-      Prelude.<*> ( x
-                      Prelude..@? "localGatewayRouteTableVpcAssociationId"
-                  )
-      Prelude.<*> (x Prelude..@? "localGatewayId")
-      Prelude.<*> (x Prelude..@? "localGatewayRouteTableArn")
-      Prelude.<*> (x Prelude..@? "state")
-      Prelude.<*> (x Prelude..@? "localGatewayRouteTableId")
-      Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "vpcId")
+      Core.<$> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "localGatewayRouteTableVpcAssociationId")
+      Core.<*> (x Core..@? "localGatewayId")
+      Core.<*> (x Core..@? "localGatewayRouteTableArn")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "localGatewayRouteTableId")
+      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "vpcId")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LocalGatewayRouteTableVpcAssociation
 
 instance
-  Prelude.NFData
+  Core.NFData
     LocalGatewayRouteTableVpcAssociation

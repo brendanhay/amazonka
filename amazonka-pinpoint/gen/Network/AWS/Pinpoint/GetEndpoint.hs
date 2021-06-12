@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.GetEndpoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data GetEndpoint = GetEndpoint'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     -- | The unique identifier for the endpoint.
-    endpointId :: Prelude.Text
+    endpointId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEndpoint' with all optional fields omitted.
@@ -72,9 +71,9 @@ data GetEndpoint = GetEndpoint'
 -- 'endpointId', 'getEndpoint_endpointId' - The unique identifier for the endpoint.
 newGetEndpoint ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'endpointId'
-  Prelude.Text ->
+  Core.Text ->
   GetEndpoint
 newGetEndpoint pApplicationId_ pEndpointId_ =
   GetEndpoint'
@@ -84,58 +83,56 @@ newGetEndpoint pApplicationId_ pEndpointId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getEndpoint_applicationId :: Lens.Lens' GetEndpoint Prelude.Text
+getEndpoint_applicationId :: Lens.Lens' GetEndpoint Core.Text
 getEndpoint_applicationId = Lens.lens (\GetEndpoint' {applicationId} -> applicationId) (\s@GetEndpoint' {} a -> s {applicationId = a} :: GetEndpoint)
 
 -- | The unique identifier for the endpoint.
-getEndpoint_endpointId :: Lens.Lens' GetEndpoint Prelude.Text
+getEndpoint_endpointId :: Lens.Lens' GetEndpoint Core.Text
 getEndpoint_endpointId = Lens.lens (\GetEndpoint' {endpointId} -> endpointId) (\s@GetEndpoint' {} a -> s {endpointId = a} :: GetEndpoint)
 
-instance Prelude.AWSRequest GetEndpoint where
-  type Rs GetEndpoint = GetEndpointResponse
+instance Core.AWSRequest GetEndpoint where
+  type AWSResponse GetEndpoint = GetEndpointResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetEndpointResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetEndpoint
+instance Core.Hashable GetEndpoint
 
-instance Prelude.NFData GetEndpoint
+instance Core.NFData GetEndpoint
 
-instance Prelude.ToHeaders GetEndpoint where
+instance Core.ToHeaders GetEndpoint where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetEndpoint where
+instance Core.ToPath GetEndpoint where
   toPath GetEndpoint' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/endpoints/",
-        Prelude.toBS endpointId
+        Core.toBS endpointId
       ]
 
-instance Prelude.ToQuery GetEndpoint where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetEndpoint where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetEndpointResponse' smart constructor.
 data GetEndpointResponse = GetEndpointResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     endpointResponse :: EndpointResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEndpointResponse' with all optional fields omitted.
@@ -150,7 +147,7 @@ data GetEndpointResponse = GetEndpointResponse'
 -- 'endpointResponse', 'getEndpointResponse_endpointResponse' - Undocumented member.
 newGetEndpointResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'endpointResponse'
   EndpointResponse ->
   GetEndpointResponse
@@ -163,11 +160,11 @@ newGetEndpointResponse
       }
 
 -- | The response's http status code.
-getEndpointResponse_httpStatus :: Lens.Lens' GetEndpointResponse Prelude.Int
+getEndpointResponse_httpStatus :: Lens.Lens' GetEndpointResponse Core.Int
 getEndpointResponse_httpStatus = Lens.lens (\GetEndpointResponse' {httpStatus} -> httpStatus) (\s@GetEndpointResponse' {} a -> s {httpStatus = a} :: GetEndpointResponse)
 
 -- | Undocumented member.
 getEndpointResponse_endpointResponse :: Lens.Lens' GetEndpointResponse EndpointResponse
 getEndpointResponse_endpointResponse = Lens.lens (\GetEndpointResponse' {endpointResponse} -> endpointResponse) (\s@GetEndpointResponse' {} a -> s {endpointResponse = a} :: GetEndpointResponse)
 
-instance Prelude.NFData GetEndpointResponse
+instance Core.NFData GetEndpointResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,22 +52,21 @@ module Network.AWS.ELBv2.DescribeAccountLimits
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits'
   { -- | The maximum number of results to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    pageSize :: Core.Maybe Core.Natural,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountLimits' with all optional fields omitted.
@@ -86,44 +84,44 @@ newDescribeAccountLimits ::
   DescribeAccountLimits
 newDescribeAccountLimits =
   DescribeAccountLimits'
-    { pageSize = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { pageSize = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The maximum number of results to return with this call.
-describeAccountLimits_pageSize :: Lens.Lens' DescribeAccountLimits (Prelude.Maybe Prelude.Natural)
+describeAccountLimits_pageSize :: Lens.Lens' DescribeAccountLimits (Core.Maybe Core.Natural)
 describeAccountLimits_pageSize = Lens.lens (\DescribeAccountLimits' {pageSize} -> pageSize) (\s@DescribeAccountLimits' {} a -> s {pageSize = a} :: DescribeAccountLimits)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
-describeAccountLimits_marker :: Lens.Lens' DescribeAccountLimits (Prelude.Maybe Prelude.Text)
+describeAccountLimits_marker :: Lens.Lens' DescribeAccountLimits (Core.Maybe Core.Text)
 describeAccountLimits_marker = Lens.lens (\DescribeAccountLimits' {marker} -> marker) (\s@DescribeAccountLimits' {} a -> s {marker = a} :: DescribeAccountLimits)
 
-instance Pager.AWSPager DescribeAccountLimits where
+instance Core.AWSPager DescribeAccountLimits where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeAccountLimitsResponse_nextMarker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeAccountLimitsResponse_limits
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeAccountLimits_marker
           Lens..~ rs
           Lens.^? describeAccountLimitsResponse_nextMarker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeAccountLimits where
+instance Core.AWSRequest DescribeAccountLimits where
   type
-    Rs DescribeAccountLimits =
+    AWSResponse DescribeAccountLimits =
       DescribeAccountLimitsResponse
   request = Request.postQuery defaultService
   response =
@@ -131,45 +129,44 @@ instance Prelude.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> (x Prelude..@? "NextMarker")
-            Prelude.<*> ( x Prelude..@? "Limits" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextMarker")
+            Core.<*> ( x Core..@? "Limits" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccountLimits
+instance Core.Hashable DescribeAccountLimits
 
-instance Prelude.NFData DescribeAccountLimits
+instance Core.NFData DescribeAccountLimits
 
-instance Prelude.ToHeaders DescribeAccountLimits where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAccountLimits where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAccountLimits where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAccountLimits where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAccountLimits where
+instance Core.ToQuery DescribeAccountLimits where
   toQuery DescribeAccountLimits' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeAccountLimits" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
-        "PageSize" Prelude.=: pageSize,
-        "Marker" Prelude.=: marker
+          Core.=: ("DescribeAccountLimits" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+        "PageSize" Core.=: pageSize,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
   { -- | If there are additional results, this is the marker for the next set of
     -- results. Otherwise, this is null.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Information about the limits.
-    limits :: Prelude.Maybe [Limit],
+    limits :: Core.Maybe [Limit],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountLimitsResponse' with all optional fields omitted.
@@ -187,27 +184,27 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 -- 'httpStatus', 'describeAccountLimitsResponse_httpStatus' - The response's http status code.
 newDescribeAccountLimitsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAccountLimitsResponse
 newDescribeAccountLimitsResponse pHttpStatus_ =
   DescribeAccountLimitsResponse'
     { nextMarker =
-        Prelude.Nothing,
-      limits = Prelude.Nothing,
+        Core.Nothing,
+      limits = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
-describeAccountLimitsResponse_nextMarker :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Text)
+describeAccountLimitsResponse_nextMarker :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe Core.Text)
 describeAccountLimitsResponse_nextMarker = Lens.lens (\DescribeAccountLimitsResponse' {nextMarker} -> nextMarker) (\s@DescribeAccountLimitsResponse' {} a -> s {nextMarker = a} :: DescribeAccountLimitsResponse)
 
 -- | Information about the limits.
-describeAccountLimitsResponse_limits :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe [Limit])
-describeAccountLimitsResponse_limits = Lens.lens (\DescribeAccountLimitsResponse' {limits} -> limits) (\s@DescribeAccountLimitsResponse' {} a -> s {limits = a} :: DescribeAccountLimitsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAccountLimitsResponse_limits :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe [Limit])
+describeAccountLimitsResponse_limits = Lens.lens (\DescribeAccountLimitsResponse' {limits} -> limits) (\s@DescribeAccountLimitsResponse' {} a -> s {limits = a} :: DescribeAccountLimitsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Prelude.Int
+describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Core.Int
 describeAccountLimitsResponse_httpStatus = Lens.lens (\DescribeAccountLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountLimitsResponse' {} a -> s {httpStatus = a} :: DescribeAccountLimitsResponse)
 
-instance Prelude.NFData DescribeAccountLimitsResponse
+instance Core.NFData DescribeAccountLimitsResponse

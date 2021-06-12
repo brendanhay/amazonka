@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,31 +19,31 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.EdgeModelStat where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of edge devices with this model.
 --
 -- /See:/ 'newEdgeModelStat' smart constructor.
 data EdgeModelStat = EdgeModelStat'
   { -- | The name of the model.
-    modelName :: Prelude.Text,
+    modelName :: Core.Text,
     -- | The model version.
-    modelVersion :: Prelude.Text,
+    modelVersion :: Core.Text,
     -- | The number of devices that have this model version and do not have a
     -- heart beat.
-    offlineDeviceCount :: Prelude.Integer,
+    offlineDeviceCount :: Core.Integer,
     -- | The number of devices that have this model version and have a heart
     -- beat.
-    connectedDeviceCount :: Prelude.Integer,
+    connectedDeviceCount :: Core.Integer,
     -- | The number of devices that have this model version, a heart beat, and
     -- are currently running.
-    activeDeviceCount :: Prelude.Integer,
+    activeDeviceCount :: Core.Integer,
     -- | The number of devices with this model version and are producing sample
     -- data.
-    samplingDeviceCount :: Prelude.Integer
+    samplingDeviceCount :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EdgeModelStat' with all optional fields omitted.
@@ -71,17 +70,17 @@ data EdgeModelStat = EdgeModelStat'
 -- data.
 newEdgeModelStat ::
   -- | 'modelName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'modelVersion'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'offlineDeviceCount'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'connectedDeviceCount'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'activeDeviceCount'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'samplingDeviceCount'
-  Prelude.Integer ->
+  Core.Integer ->
   EdgeModelStat
 newEdgeModelStat
   pModelName_
@@ -100,47 +99,47 @@ newEdgeModelStat
       }
 
 -- | The name of the model.
-edgeModelStat_modelName :: Lens.Lens' EdgeModelStat Prelude.Text
+edgeModelStat_modelName :: Lens.Lens' EdgeModelStat Core.Text
 edgeModelStat_modelName = Lens.lens (\EdgeModelStat' {modelName} -> modelName) (\s@EdgeModelStat' {} a -> s {modelName = a} :: EdgeModelStat)
 
 -- | The model version.
-edgeModelStat_modelVersion :: Lens.Lens' EdgeModelStat Prelude.Text
+edgeModelStat_modelVersion :: Lens.Lens' EdgeModelStat Core.Text
 edgeModelStat_modelVersion = Lens.lens (\EdgeModelStat' {modelVersion} -> modelVersion) (\s@EdgeModelStat' {} a -> s {modelVersion = a} :: EdgeModelStat)
 
 -- | The number of devices that have this model version and do not have a
 -- heart beat.
-edgeModelStat_offlineDeviceCount :: Lens.Lens' EdgeModelStat Prelude.Integer
+edgeModelStat_offlineDeviceCount :: Lens.Lens' EdgeModelStat Core.Integer
 edgeModelStat_offlineDeviceCount = Lens.lens (\EdgeModelStat' {offlineDeviceCount} -> offlineDeviceCount) (\s@EdgeModelStat' {} a -> s {offlineDeviceCount = a} :: EdgeModelStat)
 
 -- | The number of devices that have this model version and have a heart
 -- beat.
-edgeModelStat_connectedDeviceCount :: Lens.Lens' EdgeModelStat Prelude.Integer
+edgeModelStat_connectedDeviceCount :: Lens.Lens' EdgeModelStat Core.Integer
 edgeModelStat_connectedDeviceCount = Lens.lens (\EdgeModelStat' {connectedDeviceCount} -> connectedDeviceCount) (\s@EdgeModelStat' {} a -> s {connectedDeviceCount = a} :: EdgeModelStat)
 
 -- | The number of devices that have this model version, a heart beat, and
 -- are currently running.
-edgeModelStat_activeDeviceCount :: Lens.Lens' EdgeModelStat Prelude.Integer
+edgeModelStat_activeDeviceCount :: Lens.Lens' EdgeModelStat Core.Integer
 edgeModelStat_activeDeviceCount = Lens.lens (\EdgeModelStat' {activeDeviceCount} -> activeDeviceCount) (\s@EdgeModelStat' {} a -> s {activeDeviceCount = a} :: EdgeModelStat)
 
 -- | The number of devices with this model version and are producing sample
 -- data.
-edgeModelStat_samplingDeviceCount :: Lens.Lens' EdgeModelStat Prelude.Integer
+edgeModelStat_samplingDeviceCount :: Lens.Lens' EdgeModelStat Core.Integer
 edgeModelStat_samplingDeviceCount = Lens.lens (\EdgeModelStat' {samplingDeviceCount} -> samplingDeviceCount) (\s@EdgeModelStat' {} a -> s {samplingDeviceCount = a} :: EdgeModelStat)
 
-instance Prelude.FromJSON EdgeModelStat where
+instance Core.FromJSON EdgeModelStat where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EdgeModelStat"
       ( \x ->
           EdgeModelStat'
-            Prelude.<$> (x Prelude..: "ModelName")
-            Prelude.<*> (x Prelude..: "ModelVersion")
-            Prelude.<*> (x Prelude..: "OfflineDeviceCount")
-            Prelude.<*> (x Prelude..: "ConnectedDeviceCount")
-            Prelude.<*> (x Prelude..: "ActiveDeviceCount")
-            Prelude.<*> (x Prelude..: "SamplingDeviceCount")
+            Core.<$> (x Core..: "ModelName")
+            Core.<*> (x Core..: "ModelVersion")
+            Core.<*> (x Core..: "OfflineDeviceCount")
+            Core.<*> (x Core..: "ConnectedDeviceCount")
+            Core.<*> (x Core..: "ActiveDeviceCount")
+            Core.<*> (x Core..: "SamplingDeviceCount")
       )
 
-instance Prelude.Hashable EdgeModelStat
+instance Core.Hashable EdgeModelStat
 
-instance Prelude.NFData EdgeModelStat
+instance Core.NFData EdgeModelStat

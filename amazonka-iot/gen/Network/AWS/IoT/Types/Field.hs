@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.Field where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.FieldType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the name and data type at a field.
 --
 -- /See:/ 'newField' smart constructor.
 data Field = Field'
   { -- | The name of the field.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The datatype of the field.
-    type' :: Prelude.Maybe FieldType
+    type' :: Core.Maybe FieldType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Field' with all optional fields omitted.
@@ -49,38 +48,34 @@ data Field = Field'
 newField ::
   Field
 newField =
-  Field'
-    { name = Prelude.Nothing,
-      type' = Prelude.Nothing
-    }
+  Field' {name = Core.Nothing, type' = Core.Nothing}
 
 -- | The name of the field.
-field_name :: Lens.Lens' Field (Prelude.Maybe Prelude.Text)
+field_name :: Lens.Lens' Field (Core.Maybe Core.Text)
 field_name = Lens.lens (\Field' {name} -> name) (\s@Field' {} a -> s {name = a} :: Field)
 
 -- | The datatype of the field.
-field_type :: Lens.Lens' Field (Prelude.Maybe FieldType)
+field_type :: Lens.Lens' Field (Core.Maybe FieldType)
 field_type = Lens.lens (\Field' {type'} -> type') (\s@Field' {} a -> s {type' = a} :: Field)
 
-instance Prelude.FromJSON Field where
+instance Core.FromJSON Field where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Field"
       ( \x ->
           Field'
-            Prelude.<$> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "name") Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable Field
+instance Core.Hashable Field
 
-instance Prelude.NFData Field
+instance Core.NFData Field
 
-instance Prelude.ToJSON Field where
+instance Core.ToJSON Field where
   toJSON Field' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("name" Prelude..=) Prelude.<$> name,
-            ("type" Prelude..=) Prelude.<$> type'
+    Core.object
+      ( Core.catMaybes
+          [ ("name" Core..=) Core.<$> name,
+            ("type" Core..=) Core.<$> type'
           ]
       )

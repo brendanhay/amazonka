@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposal where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types.AssociatedGateway
 import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
 import Network.AWS.DirectConnect.Types.RouteFilterPrefix
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the proposal request to attach a virtual private
 -- gateway to a Direct Connect gateway.
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDirectConnectGatewayAssociationProposal' smart constructor.
 data DirectConnectGatewayAssociationProposal = DirectConnectGatewayAssociationProposal'
   { -- | The ID of the association proposal.
-    proposalId :: Prelude.Maybe Prelude.Text,
+    proposalId :: Core.Maybe Core.Text,
     -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
-    requestedAllowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix],
+    requestedAllowedPrefixesToDirectConnectGateway :: Core.Maybe [RouteFilterPrefix],
     -- | The state of the proposal. The following are possible values:
     --
     -- -   @accepted@: The proposal has been accepted. The Direct Connect
@@ -46,18 +45,18 @@ data DirectConnectGatewayAssociationProposal = DirectConnectGatewayAssociationPr
     --
     -- -   @requested@: The proposal has been requested. The Direct Connect
     --     gateway association cannot be used in this state.
-    proposalState :: Prelude.Maybe DirectConnectGatewayAssociationProposalState,
+    proposalState :: Core.Maybe DirectConnectGatewayAssociationProposalState,
     -- | Information about the associated gateway.
-    associatedGateway :: Prelude.Maybe AssociatedGateway,
+    associatedGateway :: Core.Maybe AssociatedGateway,
     -- | The existing Amazon VPC prefixes advertised to the Direct Connect
     -- gateway.
-    existingAllowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix],
+    existingAllowedPrefixesToDirectConnectGateway :: Core.Maybe [RouteFilterPrefix],
     -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Prelude.Maybe Prelude.Text,
+    directConnectGatewayId :: Core.Maybe Core.Text,
     -- | The ID of the AWS account that owns the Direct Connect gateway.
-    directConnectGatewayOwnerAccount :: Prelude.Maybe Prelude.Text
+    directConnectGatewayOwnerAccount :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DirectConnectGatewayAssociationProposal' with all optional fields omitted.
@@ -96,27 +95,26 @@ newDirectConnectGatewayAssociationProposal ::
 newDirectConnectGatewayAssociationProposal =
   DirectConnectGatewayAssociationProposal'
     { proposalId =
-        Prelude.Nothing,
+        Core.Nothing,
       requestedAllowedPrefixesToDirectConnectGateway =
-        Prelude.Nothing,
-      proposalState = Prelude.Nothing,
-      associatedGateway =
-        Prelude.Nothing,
+        Core.Nothing,
+      proposalState = Core.Nothing,
+      associatedGateway = Core.Nothing,
       existingAllowedPrefixesToDirectConnectGateway =
-        Prelude.Nothing,
+        Core.Nothing,
       directConnectGatewayId =
-        Prelude.Nothing,
+        Core.Nothing,
       directConnectGatewayOwnerAccount =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the association proposal.
-directConnectGatewayAssociationProposal_proposalId :: Lens.Lens' DirectConnectGatewayAssociationProposal (Prelude.Maybe Prelude.Text)
+directConnectGatewayAssociationProposal_proposalId :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe Core.Text)
 directConnectGatewayAssociationProposal_proposalId = Lens.lens (\DirectConnectGatewayAssociationProposal' {proposalId} -> proposalId) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {proposalId = a} :: DirectConnectGatewayAssociationProposal)
 
 -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
-directConnectGatewayAssociationProposal_requestedAllowedPrefixesToDirectConnectGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Prelude.Maybe [RouteFilterPrefix])
-directConnectGatewayAssociationProposal_requestedAllowedPrefixesToDirectConnectGateway = Lens.lens (\DirectConnectGatewayAssociationProposal' {requestedAllowedPrefixesToDirectConnectGateway} -> requestedAllowedPrefixesToDirectConnectGateway) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {requestedAllowedPrefixesToDirectConnectGateway = a} :: DirectConnectGatewayAssociationProposal) Prelude.. Lens.mapping Prelude._Coerce
+directConnectGatewayAssociationProposal_requestedAllowedPrefixesToDirectConnectGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe [RouteFilterPrefix])
+directConnectGatewayAssociationProposal_requestedAllowedPrefixesToDirectConnectGateway = Lens.lens (\DirectConnectGatewayAssociationProposal' {requestedAllowedPrefixesToDirectConnectGateway} -> requestedAllowedPrefixesToDirectConnectGateway) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {requestedAllowedPrefixesToDirectConnectGateway = a} :: DirectConnectGatewayAssociationProposal) Core.. Lens.mapping Lens._Coerce
 
 -- | The state of the proposal. The following are possible values:
 --
@@ -129,54 +127,54 @@ directConnectGatewayAssociationProposal_requestedAllowedPrefixesToDirectConnectG
 --
 -- -   @requested@: The proposal has been requested. The Direct Connect
 --     gateway association cannot be used in this state.
-directConnectGatewayAssociationProposal_proposalState :: Lens.Lens' DirectConnectGatewayAssociationProposal (Prelude.Maybe DirectConnectGatewayAssociationProposalState)
+directConnectGatewayAssociationProposal_proposalState :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe DirectConnectGatewayAssociationProposalState)
 directConnectGatewayAssociationProposal_proposalState = Lens.lens (\DirectConnectGatewayAssociationProposal' {proposalState} -> proposalState) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {proposalState = a} :: DirectConnectGatewayAssociationProposal)
 
 -- | Information about the associated gateway.
-directConnectGatewayAssociationProposal_associatedGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Prelude.Maybe AssociatedGateway)
+directConnectGatewayAssociationProposal_associatedGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe AssociatedGateway)
 directConnectGatewayAssociationProposal_associatedGateway = Lens.lens (\DirectConnectGatewayAssociationProposal' {associatedGateway} -> associatedGateway) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {associatedGateway = a} :: DirectConnectGatewayAssociationProposal)
 
 -- | The existing Amazon VPC prefixes advertised to the Direct Connect
 -- gateway.
-directConnectGatewayAssociationProposal_existingAllowedPrefixesToDirectConnectGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Prelude.Maybe [RouteFilterPrefix])
-directConnectGatewayAssociationProposal_existingAllowedPrefixesToDirectConnectGateway = Lens.lens (\DirectConnectGatewayAssociationProposal' {existingAllowedPrefixesToDirectConnectGateway} -> existingAllowedPrefixesToDirectConnectGateway) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {existingAllowedPrefixesToDirectConnectGateway = a} :: DirectConnectGatewayAssociationProposal) Prelude.. Lens.mapping Prelude._Coerce
+directConnectGatewayAssociationProposal_existingAllowedPrefixesToDirectConnectGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe [RouteFilterPrefix])
+directConnectGatewayAssociationProposal_existingAllowedPrefixesToDirectConnectGateway = Lens.lens (\DirectConnectGatewayAssociationProposal' {existingAllowedPrefixesToDirectConnectGateway} -> existingAllowedPrefixesToDirectConnectGateway) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {existingAllowedPrefixesToDirectConnectGateway = a} :: DirectConnectGatewayAssociationProposal) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Direct Connect gateway.
-directConnectGatewayAssociationProposal_directConnectGatewayId :: Lens.Lens' DirectConnectGatewayAssociationProposal (Prelude.Maybe Prelude.Text)
+directConnectGatewayAssociationProposal_directConnectGatewayId :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe Core.Text)
 directConnectGatewayAssociationProposal_directConnectGatewayId = Lens.lens (\DirectConnectGatewayAssociationProposal' {directConnectGatewayId} -> directConnectGatewayId) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {directConnectGatewayId = a} :: DirectConnectGatewayAssociationProposal)
 
 -- | The ID of the AWS account that owns the Direct Connect gateway.
-directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociationProposal (Prelude.Maybe Prelude.Text)
+directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe Core.Text)
 directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount = Lens.lens (\DirectConnectGatewayAssociationProposal' {directConnectGatewayOwnerAccount} -> directConnectGatewayOwnerAccount) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {directConnectGatewayOwnerAccount = a} :: DirectConnectGatewayAssociationProposal)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     DirectConnectGatewayAssociationProposal
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DirectConnectGatewayAssociationProposal"
       ( \x ->
           DirectConnectGatewayAssociationProposal'
-            Prelude.<$> (x Prelude..:? "proposalId")
-            Prelude.<*> ( x
-                            Prelude..:? "requestedAllowedPrefixesToDirectConnectGateway"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "proposalState")
-            Prelude.<*> (x Prelude..:? "associatedGateway")
-            Prelude.<*> ( x
-                            Prelude..:? "existingAllowedPrefixesToDirectConnectGateway"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "directConnectGatewayId")
-            Prelude.<*> (x Prelude..:? "directConnectGatewayOwnerAccount")
+            Core.<$> (x Core..:? "proposalId")
+            Core.<*> ( x
+                         Core..:? "requestedAllowedPrefixesToDirectConnectGateway"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "proposalState")
+            Core.<*> (x Core..:? "associatedGateway")
+            Core.<*> ( x
+                         Core..:? "existingAllowedPrefixesToDirectConnectGateway"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "directConnectGatewayId")
+            Core.<*> (x Core..:? "directConnectGatewayOwnerAccount")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DirectConnectGatewayAssociationProposal
 
 instance
-  Prelude.NFData
+  Core.NFData
     DirectConnectGatewayAssociationProposal

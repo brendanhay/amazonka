@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.APIGateway.CreateResource
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +55,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateResource' smart constructor.
 data CreateResource = CreateResource'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The parent resource\'s identifier.
-    parentId :: Prelude.Text,
+    parentId :: Core.Text,
     -- | The last path segment for this resource.
-    pathPart :: Prelude.Text
+    pathPart :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateResource' with all optional fields omitted.
@@ -79,11 +78,11 @@ data CreateResource = CreateResource'
 -- 'pathPart', 'createResource_pathPart' - The last path segment for this resource.
 newCreateResource ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'parentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'pathPart'
-  Prelude.Text ->
+  Core.Text ->
   CreateResource
 newCreateResource pRestApiId_ pParentId_ pPathPart_ =
   CreateResource'
@@ -93,52 +92,52 @@ newCreateResource pRestApiId_ pParentId_ pPathPart_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-createResource_restApiId :: Lens.Lens' CreateResource Prelude.Text
+createResource_restApiId :: Lens.Lens' CreateResource Core.Text
 createResource_restApiId = Lens.lens (\CreateResource' {restApiId} -> restApiId) (\s@CreateResource' {} a -> s {restApiId = a} :: CreateResource)
 
 -- | [Required] The parent resource\'s identifier.
-createResource_parentId :: Lens.Lens' CreateResource Prelude.Text
+createResource_parentId :: Lens.Lens' CreateResource Core.Text
 createResource_parentId = Lens.lens (\CreateResource' {parentId} -> parentId) (\s@CreateResource' {} a -> s {parentId = a} :: CreateResource)
 
 -- | The last path segment for this resource.
-createResource_pathPart :: Lens.Lens' CreateResource Prelude.Text
+createResource_pathPart :: Lens.Lens' CreateResource Core.Text
 createResource_pathPart = Lens.lens (\CreateResource' {pathPart} -> pathPart) (\s@CreateResource' {} a -> s {pathPart = a} :: CreateResource)
 
-instance Prelude.AWSRequest CreateResource where
-  type Rs CreateResource = Resource
+instance Core.AWSRequest CreateResource where
+  type AWSResponse CreateResource = Resource
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateResource
+instance Core.Hashable CreateResource
 
-instance Prelude.NFData CreateResource
+instance Core.NFData CreateResource
 
-instance Prelude.ToHeaders CreateResource where
+instance Core.ToHeaders CreateResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateResource where
+instance Core.ToJSON CreateResource where
   toJSON CreateResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("pathPart" Prelude..= pathPart)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("pathPart" Core..= pathPart)]
       )
 
-instance Prelude.ToPath CreateResource where
+instance Core.ToPath CreateResource where
   toPath CreateResource' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/resources/",
-        Prelude.toBS parentId
+        Core.toBS parentId
       ]
 
-instance Prelude.ToQuery CreateResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateResource where
+  toQuery = Core.const Core.mempty

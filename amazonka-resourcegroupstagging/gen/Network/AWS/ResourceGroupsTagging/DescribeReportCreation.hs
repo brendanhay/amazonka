@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.ResourceGroupsTagging.DescribeReportCreation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroupsTagging.Types
 import qualified Network.AWS.Response as Response
@@ -52,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data DescribeReportCreation = DescribeReportCreation'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReportCreation' with all optional fields omitted.
@@ -62,49 +61,46 @@ newDescribeReportCreation ::
   DescribeReportCreation
 newDescribeReportCreation = DescribeReportCreation'
 
-instance Prelude.AWSRequest DescribeReportCreation where
+instance Core.AWSRequest DescribeReportCreation where
   type
-    Rs DescribeReportCreation =
+    AWSResponse DescribeReportCreation =
       DescribeReportCreationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeReportCreationResponse'
-            Prelude.<$> (x Prelude..?> "Status")
-            Prelude.<*> (x Prelude..?> "S3Location")
-            Prelude.<*> (x Prelude..?> "ErrorMessage")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Status")
+            Core.<*> (x Core..?> "S3Location")
+            Core.<*> (x Core..?> "ErrorMessage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReportCreation
+instance Core.Hashable DescribeReportCreation
 
-instance Prelude.NFData DescribeReportCreation
+instance Core.NFData DescribeReportCreation
 
-instance Prelude.ToHeaders DescribeReportCreation where
+instance Core.ToHeaders DescribeReportCreation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeReportCreation where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DescribeReportCreation where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DescribeReportCreation where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeReportCreation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeReportCreation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeReportCreation where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeReportCreationResponse' smart constructor.
 data DescribeReportCreationResponse = DescribeReportCreationResponse'
@@ -122,16 +118,16 @@ data DescribeReportCreationResponse = DescribeReportCreationResponse'
     --     accessible.
     --
     -- -   @NO REPORT@ - No report was generated in the last 90 days.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The path to the Amazon S3 bucket where the report was stored on
     -- creation.
-    s3Location :: Prelude.Maybe Prelude.Text,
+    s3Location :: Core.Maybe Core.Text,
     -- | Details of the common errors that all operations return.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReportCreationResponse' with all optional fields omitted.
@@ -164,14 +160,14 @@ data DescribeReportCreationResponse = DescribeReportCreationResponse'
 -- 'httpStatus', 'describeReportCreationResponse_httpStatus' - The response's http status code.
 newDescribeReportCreationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeReportCreationResponse
 newDescribeReportCreationResponse pHttpStatus_ =
   DescribeReportCreationResponse'
     { status =
-        Prelude.Nothing,
-      s3Location = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
+        Core.Nothing,
+      s3Location = Core.Nothing,
+      errorMessage = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -189,22 +185,20 @@ newDescribeReportCreationResponse pHttpStatus_ =
 --     accessible.
 --
 -- -   @NO REPORT@ - No report was generated in the last 90 days.
-describeReportCreationResponse_status :: Lens.Lens' DescribeReportCreationResponse (Prelude.Maybe Prelude.Text)
+describeReportCreationResponse_status :: Lens.Lens' DescribeReportCreationResponse (Core.Maybe Core.Text)
 describeReportCreationResponse_status = Lens.lens (\DescribeReportCreationResponse' {status} -> status) (\s@DescribeReportCreationResponse' {} a -> s {status = a} :: DescribeReportCreationResponse)
 
 -- | The path to the Amazon S3 bucket where the report was stored on
 -- creation.
-describeReportCreationResponse_s3Location :: Lens.Lens' DescribeReportCreationResponse (Prelude.Maybe Prelude.Text)
+describeReportCreationResponse_s3Location :: Lens.Lens' DescribeReportCreationResponse (Core.Maybe Core.Text)
 describeReportCreationResponse_s3Location = Lens.lens (\DescribeReportCreationResponse' {s3Location} -> s3Location) (\s@DescribeReportCreationResponse' {} a -> s {s3Location = a} :: DescribeReportCreationResponse)
 
 -- | Details of the common errors that all operations return.
-describeReportCreationResponse_errorMessage :: Lens.Lens' DescribeReportCreationResponse (Prelude.Maybe Prelude.Text)
+describeReportCreationResponse_errorMessage :: Lens.Lens' DescribeReportCreationResponse (Core.Maybe Core.Text)
 describeReportCreationResponse_errorMessage = Lens.lens (\DescribeReportCreationResponse' {errorMessage} -> errorMessage) (\s@DescribeReportCreationResponse' {} a -> s {errorMessage = a} :: DescribeReportCreationResponse)
 
 -- | The response's http status code.
-describeReportCreationResponse_httpStatus :: Lens.Lens' DescribeReportCreationResponse Prelude.Int
+describeReportCreationResponse_httpStatus :: Lens.Lens' DescribeReportCreationResponse Core.Int
 describeReportCreationResponse_httpStatus = Lens.lens (\DescribeReportCreationResponse' {httpStatus} -> httpStatus) (\s@DescribeReportCreationResponse' {} a -> s {httpStatus = a} :: DescribeReportCreationResponse)
 
-instance
-  Prelude.NFData
-    DescribeReportCreationResponse
+instance Core.NFData DescribeReportCreationResponse

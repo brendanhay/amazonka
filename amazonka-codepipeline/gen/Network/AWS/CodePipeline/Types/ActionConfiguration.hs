@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.ActionConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about an action configuration.
 --
 -- /See:/ 'newActionConfiguration' smart constructor.
 data ActionConfiguration = ActionConfiguration'
   { -- | The configuration data for the action.
-    configuration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    configuration :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionConfiguration' with all optional fields omitted.
@@ -44,26 +43,21 @@ data ActionConfiguration = ActionConfiguration'
 newActionConfiguration ::
   ActionConfiguration
 newActionConfiguration =
-  ActionConfiguration'
-    { configuration =
-        Prelude.Nothing
-    }
+  ActionConfiguration' {configuration = Core.Nothing}
 
 -- | The configuration data for the action.
-actionConfiguration_configuration :: Lens.Lens' ActionConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-actionConfiguration_configuration = Lens.lens (\ActionConfiguration' {configuration} -> configuration) (\s@ActionConfiguration' {} a -> s {configuration = a} :: ActionConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+actionConfiguration_configuration :: Lens.Lens' ActionConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
+actionConfiguration_configuration = Lens.lens (\ActionConfiguration' {configuration} -> configuration) (\s@ActionConfiguration' {} a -> s {configuration = a} :: ActionConfiguration) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ActionConfiguration where
+instance Core.FromJSON ActionConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionConfiguration"
       ( \x ->
           ActionConfiguration'
-            Prelude.<$> ( x Prelude..:? "configuration"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "configuration" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ActionConfiguration
+instance Core.Hashable ActionConfiguration
 
-instance Prelude.NFData ActionConfiguration
+instance Core.NFData ActionConfiguration

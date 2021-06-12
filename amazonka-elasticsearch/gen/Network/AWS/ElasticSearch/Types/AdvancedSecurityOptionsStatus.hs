@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the status of advanced security options for the specified
 -- Elasticsearch domain.
@@ -37,7 +36,7 @@ data AdvancedSecurityOptionsStatus = AdvancedSecurityOptionsStatus'
     -- domain.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdvancedSecurityOptionsStatus' with all optional fields omitted.
@@ -74,21 +73,15 @@ advancedSecurityOptionsStatus_options = Lens.lens (\AdvancedSecurityOptionsStatu
 advancedSecurityOptionsStatus_status :: Lens.Lens' AdvancedSecurityOptionsStatus OptionStatus
 advancedSecurityOptionsStatus_status = Lens.lens (\AdvancedSecurityOptionsStatus' {status} -> status) (\s@AdvancedSecurityOptionsStatus' {} a -> s {status = a} :: AdvancedSecurityOptionsStatus)
 
-instance
-  Prelude.FromJSON
-    AdvancedSecurityOptionsStatus
-  where
+instance Core.FromJSON AdvancedSecurityOptionsStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AdvancedSecurityOptionsStatus"
       ( \x ->
           AdvancedSecurityOptionsStatus'
-            Prelude.<$> (x Prelude..: "Options")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
       )
 
-instance
-  Prelude.Hashable
-    AdvancedSecurityOptionsStatus
+instance Core.Hashable AdvancedSecurityOptionsStatus
 
-instance Prelude.NFData AdvancedSecurityOptionsStatus
+instance Core.NFData AdvancedSecurityOptionsStatus

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.KinesisAnalytics.DeleteApplicationOutput
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,13 +62,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteApplicationOutput' smart constructor.
 data DeleteApplicationOutput = DeleteApplicationOutput'
   { -- | Amazon Kinesis Analytics application name.
-    applicationName :: Prelude.Text,
+    applicationName :: Core.Text,
     -- | Amazon Kinesis Analytics application version. You can use the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation to get the current application version. If the version
     -- specified is not the current version, the
     -- @ConcurrentModificationException@ is returned.
-    currentApplicationVersionId :: Prelude.Natural,
+    currentApplicationVersionId :: Core.Natural,
     -- | The ID of the configuration to delete. Each output configuration that is
     -- added to the application, either when the application is created or
     -- later using the
@@ -79,9 +78,9 @@ data DeleteApplicationOutput = DeleteApplicationOutput'
     -- application configuration. You can use the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation to get the specific @OutputId@.
-    outputId :: Prelude.Text
+    outputId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationOutput' with all optional fields omitted.
@@ -110,11 +109,11 @@ data DeleteApplicationOutput = DeleteApplicationOutput'
 -- operation to get the specific @OutputId@.
 newDeleteApplicationOutput ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'currentApplicationVersionId'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'outputId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteApplicationOutput
 newDeleteApplicationOutput
   pApplicationName_
@@ -129,7 +128,7 @@ newDeleteApplicationOutput
       }
 
 -- | Amazon Kinesis Analytics application name.
-deleteApplicationOutput_applicationName :: Lens.Lens' DeleteApplicationOutput Prelude.Text
+deleteApplicationOutput_applicationName :: Lens.Lens' DeleteApplicationOutput Core.Text
 deleteApplicationOutput_applicationName = Lens.lens (\DeleteApplicationOutput' {applicationName} -> applicationName) (\s@DeleteApplicationOutput' {} a -> s {applicationName = a} :: DeleteApplicationOutput)
 
 -- | Amazon Kinesis Analytics application version. You can use the
@@ -137,7 +136,7 @@ deleteApplicationOutput_applicationName = Lens.lens (\DeleteApplicationOutput' {
 -- operation to get the current application version. If the version
 -- specified is not the current version, the
 -- @ConcurrentModificationException@ is returned.
-deleteApplicationOutput_currentApplicationVersionId :: Lens.Lens' DeleteApplicationOutput Prelude.Natural
+deleteApplicationOutput_currentApplicationVersionId :: Lens.Lens' DeleteApplicationOutput Core.Natural
 deleteApplicationOutput_currentApplicationVersionId = Lens.lens (\DeleteApplicationOutput' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@DeleteApplicationOutput' {} a -> s {currentApplicationVersionId = a} :: DeleteApplicationOutput)
 
 -- | The ID of the configuration to delete. Each output configuration that is
@@ -149,68 +148,66 @@ deleteApplicationOutput_currentApplicationVersionId = Lens.lens (\DeleteApplicat
 -- application configuration. You can use the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
 -- operation to get the specific @OutputId@.
-deleteApplicationOutput_outputId :: Lens.Lens' DeleteApplicationOutput Prelude.Text
+deleteApplicationOutput_outputId :: Lens.Lens' DeleteApplicationOutput Core.Text
 deleteApplicationOutput_outputId = Lens.lens (\DeleteApplicationOutput' {outputId} -> outputId) (\s@DeleteApplicationOutput' {} a -> s {outputId = a} :: DeleteApplicationOutput)
 
-instance Prelude.AWSRequest DeleteApplicationOutput where
+instance Core.AWSRequest DeleteApplicationOutput where
   type
-    Rs DeleteApplicationOutput =
+    AWSResponse DeleteApplicationOutput =
       DeleteApplicationOutputResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteApplicationOutputResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteApplicationOutput
+instance Core.Hashable DeleteApplicationOutput
 
-instance Prelude.NFData DeleteApplicationOutput
+instance Core.NFData DeleteApplicationOutput
 
-instance Prelude.ToHeaders DeleteApplicationOutput where
+instance Core.ToHeaders DeleteApplicationOutput where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "KinesisAnalytics_20150814.DeleteApplicationOutput" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "KinesisAnalytics_20150814.DeleteApplicationOutput" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteApplicationOutput where
+instance Core.ToJSON DeleteApplicationOutput where
   toJSON DeleteApplicationOutput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ApplicationName" Prelude..= applicationName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ApplicationName" Core..= applicationName),
+            Core.Just
               ( "CurrentApplicationVersionId"
-                  Prelude..= currentApplicationVersionId
+                  Core..= currentApplicationVersionId
               ),
-            Prelude.Just ("OutputId" Prelude..= outputId)
+            Core.Just ("OutputId" Core..= outputId)
           ]
       )
 
-instance Prelude.ToPath DeleteApplicationOutput where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteApplicationOutput where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteApplicationOutput where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteApplicationOutput where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newDeleteApplicationOutputResponse' smart constructor.
 data DeleteApplicationOutputResponse = DeleteApplicationOutputResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationOutputResponse' with all optional fields omitted.
@@ -223,7 +220,7 @@ data DeleteApplicationOutputResponse = DeleteApplicationOutputResponse'
 -- 'httpStatus', 'deleteApplicationOutputResponse_httpStatus' - The response's http status code.
 newDeleteApplicationOutputResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteApplicationOutputResponse
 newDeleteApplicationOutputResponse pHttpStatus_ =
   DeleteApplicationOutputResponse'
@@ -232,9 +229,7 @@ newDeleteApplicationOutputResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteApplicationOutputResponse_httpStatus :: Lens.Lens' DeleteApplicationOutputResponse Prelude.Int
+deleteApplicationOutputResponse_httpStatus :: Lens.Lens' DeleteApplicationOutputResponse Core.Int
 deleteApplicationOutputResponse_httpStatus = Lens.lens (\DeleteApplicationOutputResponse' {httpStatus} -> httpStatus) (\s@DeleteApplicationOutputResponse' {} a -> s {httpStatus = a} :: DeleteApplicationOutputResponse)
 
-instance
-  Prelude.NFData
-    DeleteApplicationOutputResponse
+instance Core.NFData DeleteApplicationOutputResponse

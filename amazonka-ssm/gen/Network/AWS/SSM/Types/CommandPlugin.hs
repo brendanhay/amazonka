@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.CommandPlugin where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.CommandPluginStatus
 
 -- | Describes plugin details.
@@ -31,9 +30,9 @@ data CommandPlugin = CommandPlugin'
   { -- | The URL for the complete text written by the plugin to stdout in Amazon
     -- S3. If the S3 bucket for the command was not specified, then this string
     -- is empty.
-    standardOutputUrl :: Prelude.Maybe Prelude.Text,
+    standardOutputUrl :: Core.Maybe Core.Text,
     -- | The status of this plugin. You can run a document with multiple plugins.
-    status :: Prelude.Maybe CommandPluginStatus,
+    status :: Core.Maybe CommandPluginStatus,
     -- | A detailed status of the plugin execution. StatusDetails includes more
     -- information than Status because it includes states resulting from error
     -- and concurrency control parameters. StatusDetails can show different
@@ -79,7 +78,7 @@ data CommandPlugin = CommandPlugin'
     -- -   Terminated: The parent command exceeded its MaxErrors limit and
     --     subsequent command invocations were canceled by the system. This is
     --     a terminal state.
-    statusDetails :: Prelude.Maybe Prelude.Text,
+    statusDetails :: Core.Maybe Core.Text,
     -- | The S3 bucket where the responses to the command executions should be
     -- stored. This was requested when issuing the command. For example, in the
     -- following response:
@@ -93,25 +92,25 @@ data CommandPlugin = CommandPlugin'
     -- i-02573cafcfEXAMPLE is the instance ID;
     --
     -- awsrunShellScript is the name of the plugin.
-    outputS3BucketName :: Prelude.Maybe Prelude.Text,
+    outputS3BucketName :: Core.Maybe Core.Text,
     -- | The URL for the complete text written by the plugin to stderr. If
     -- execution is not yet complete, then this string is empty.
-    standardErrorUrl :: Prelude.Maybe Prelude.Text,
+    standardErrorUrl :: Core.Maybe Core.Text,
     -- | Output of the plugin execution.
-    output :: Prelude.Maybe Prelude.Text,
+    output :: Core.Maybe Core.Text,
     -- | (Deprecated) You can no longer specify this parameter. The system
     -- ignores it. Instead, Systems Manager automatically determines the S3
     -- bucket region.
-    outputS3Region :: Prelude.Maybe Prelude.Text,
+    outputS3Region :: Core.Maybe Core.Text,
     -- | The name of the plugin. Must be one of the following: aws:updateAgent,
     -- aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule,
     -- aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The time the plugin stopped running. Could stop prematurely if, for
     -- example, a cancel command was sent.
-    responseFinishDateTime :: Prelude.Maybe Prelude.POSIX,
+    responseFinishDateTime :: Core.Maybe Core.POSIX,
     -- | A numeric response code generated after running the plugin.
-    responseCode :: Prelude.Maybe Prelude.Int,
+    responseCode :: Core.Maybe Core.Int,
     -- | The S3 directory path inside the bucket where the responses to the
     -- command executions should be stored. This was requested when issuing the
     -- command. For example, in the following response:
@@ -125,11 +124,11 @@ data CommandPlugin = CommandPlugin'
     -- i-02573cafcfEXAMPLE is the instance ID;
     --
     -- awsrunShellScript is the name of the plugin.
-    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    outputS3KeyPrefix :: Core.Maybe Core.Text,
     -- | The time the plugin started running.
-    responseStartDateTime :: Prelude.Maybe Prelude.POSIX
+    responseStartDateTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CommandPlugin' with all optional fields omitted.
@@ -242,28 +241,28 @@ newCommandPlugin ::
   CommandPlugin
 newCommandPlugin =
   CommandPlugin'
-    { standardOutputUrl = Prelude.Nothing,
-      status = Prelude.Nothing,
-      statusDetails = Prelude.Nothing,
-      outputS3BucketName = Prelude.Nothing,
-      standardErrorUrl = Prelude.Nothing,
-      output = Prelude.Nothing,
-      outputS3Region = Prelude.Nothing,
-      name = Prelude.Nothing,
-      responseFinishDateTime = Prelude.Nothing,
-      responseCode = Prelude.Nothing,
-      outputS3KeyPrefix = Prelude.Nothing,
-      responseStartDateTime = Prelude.Nothing
+    { standardOutputUrl = Core.Nothing,
+      status = Core.Nothing,
+      statusDetails = Core.Nothing,
+      outputS3BucketName = Core.Nothing,
+      standardErrorUrl = Core.Nothing,
+      output = Core.Nothing,
+      outputS3Region = Core.Nothing,
+      name = Core.Nothing,
+      responseFinishDateTime = Core.Nothing,
+      responseCode = Core.Nothing,
+      outputS3KeyPrefix = Core.Nothing,
+      responseStartDateTime = Core.Nothing
     }
 
 -- | The URL for the complete text written by the plugin to stdout in Amazon
 -- S3. If the S3 bucket for the command was not specified, then this string
 -- is empty.
-commandPlugin_standardOutputUrl :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_standardOutputUrl :: Lens.Lens' CommandPlugin (Core.Maybe Core.Text)
 commandPlugin_standardOutputUrl = Lens.lens (\CommandPlugin' {standardOutputUrl} -> standardOutputUrl) (\s@CommandPlugin' {} a -> s {standardOutputUrl = a} :: CommandPlugin)
 
 -- | The status of this plugin. You can run a document with multiple plugins.
-commandPlugin_status :: Lens.Lens' CommandPlugin (Prelude.Maybe CommandPluginStatus)
+commandPlugin_status :: Lens.Lens' CommandPlugin (Core.Maybe CommandPluginStatus)
 commandPlugin_status = Lens.lens (\CommandPlugin' {status} -> status) (\s@CommandPlugin' {} a -> s {status = a} :: CommandPlugin)
 
 -- | A detailed status of the plugin execution. StatusDetails includes more
@@ -311,7 +310,7 @@ commandPlugin_status = Lens.lens (\CommandPlugin' {status} -> status) (\s@Comman
 -- -   Terminated: The parent command exceeded its MaxErrors limit and
 --     subsequent command invocations were canceled by the system. This is
 --     a terminal state.
-commandPlugin_statusDetails :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_statusDetails :: Lens.Lens' CommandPlugin (Core.Maybe Core.Text)
 commandPlugin_statusDetails = Lens.lens (\CommandPlugin' {statusDetails} -> statusDetails) (\s@CommandPlugin' {} a -> s {statusDetails = a} :: CommandPlugin)
 
 -- | The S3 bucket where the responses to the command executions should be
@@ -327,37 +326,37 @@ commandPlugin_statusDetails = Lens.lens (\CommandPlugin' {statusDetails} -> stat
 -- i-02573cafcfEXAMPLE is the instance ID;
 --
 -- awsrunShellScript is the name of the plugin.
-commandPlugin_outputS3BucketName :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_outputS3BucketName :: Lens.Lens' CommandPlugin (Core.Maybe Core.Text)
 commandPlugin_outputS3BucketName = Lens.lens (\CommandPlugin' {outputS3BucketName} -> outputS3BucketName) (\s@CommandPlugin' {} a -> s {outputS3BucketName = a} :: CommandPlugin)
 
 -- | The URL for the complete text written by the plugin to stderr. If
 -- execution is not yet complete, then this string is empty.
-commandPlugin_standardErrorUrl :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_standardErrorUrl :: Lens.Lens' CommandPlugin (Core.Maybe Core.Text)
 commandPlugin_standardErrorUrl = Lens.lens (\CommandPlugin' {standardErrorUrl} -> standardErrorUrl) (\s@CommandPlugin' {} a -> s {standardErrorUrl = a} :: CommandPlugin)
 
 -- | Output of the plugin execution.
-commandPlugin_output :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_output :: Lens.Lens' CommandPlugin (Core.Maybe Core.Text)
 commandPlugin_output = Lens.lens (\CommandPlugin' {output} -> output) (\s@CommandPlugin' {} a -> s {output = a} :: CommandPlugin)
 
 -- | (Deprecated) You can no longer specify this parameter. The system
 -- ignores it. Instead, Systems Manager automatically determines the S3
 -- bucket region.
-commandPlugin_outputS3Region :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_outputS3Region :: Lens.Lens' CommandPlugin (Core.Maybe Core.Text)
 commandPlugin_outputS3Region = Lens.lens (\CommandPlugin' {outputS3Region} -> outputS3Region) (\s@CommandPlugin' {} a -> s {outputS3Region = a} :: CommandPlugin)
 
 -- | The name of the plugin. Must be one of the following: aws:updateAgent,
 -- aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule,
 -- aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
-commandPlugin_name :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_name :: Lens.Lens' CommandPlugin (Core.Maybe Core.Text)
 commandPlugin_name = Lens.lens (\CommandPlugin' {name} -> name) (\s@CommandPlugin' {} a -> s {name = a} :: CommandPlugin)
 
 -- | The time the plugin stopped running. Could stop prematurely if, for
 -- example, a cancel command was sent.
-commandPlugin_responseFinishDateTime :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.UTCTime)
-commandPlugin_responseFinishDateTime = Lens.lens (\CommandPlugin' {responseFinishDateTime} -> responseFinishDateTime) (\s@CommandPlugin' {} a -> s {responseFinishDateTime = a} :: CommandPlugin) Prelude.. Lens.mapping Prelude._Time
+commandPlugin_responseFinishDateTime :: Lens.Lens' CommandPlugin (Core.Maybe Core.UTCTime)
+commandPlugin_responseFinishDateTime = Lens.lens (\CommandPlugin' {responseFinishDateTime} -> responseFinishDateTime) (\s@CommandPlugin' {} a -> s {responseFinishDateTime = a} :: CommandPlugin) Core.. Lens.mapping Core._Time
 
 -- | A numeric response code generated after running the plugin.
-commandPlugin_responseCode :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Int)
+commandPlugin_responseCode :: Lens.Lens' CommandPlugin (Core.Maybe Core.Int)
 commandPlugin_responseCode = Lens.lens (\CommandPlugin' {responseCode} -> responseCode) (\s@CommandPlugin' {} a -> s {responseCode = a} :: CommandPlugin)
 
 -- | The S3 directory path inside the bucket where the responses to the
@@ -373,33 +372,33 @@ commandPlugin_responseCode = Lens.lens (\CommandPlugin' {responseCode} -> respon
 -- i-02573cafcfEXAMPLE is the instance ID;
 --
 -- awsrunShellScript is the name of the plugin.
-commandPlugin_outputS3KeyPrefix :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_outputS3KeyPrefix :: Lens.Lens' CommandPlugin (Core.Maybe Core.Text)
 commandPlugin_outputS3KeyPrefix = Lens.lens (\CommandPlugin' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@CommandPlugin' {} a -> s {outputS3KeyPrefix = a} :: CommandPlugin)
 
 -- | The time the plugin started running.
-commandPlugin_responseStartDateTime :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.UTCTime)
-commandPlugin_responseStartDateTime = Lens.lens (\CommandPlugin' {responseStartDateTime} -> responseStartDateTime) (\s@CommandPlugin' {} a -> s {responseStartDateTime = a} :: CommandPlugin) Prelude.. Lens.mapping Prelude._Time
+commandPlugin_responseStartDateTime :: Lens.Lens' CommandPlugin (Core.Maybe Core.UTCTime)
+commandPlugin_responseStartDateTime = Lens.lens (\CommandPlugin' {responseStartDateTime} -> responseStartDateTime) (\s@CommandPlugin' {} a -> s {responseStartDateTime = a} :: CommandPlugin) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON CommandPlugin where
+instance Core.FromJSON CommandPlugin where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CommandPlugin"
       ( \x ->
           CommandPlugin'
-            Prelude.<$> (x Prelude..:? "StandardOutputUrl")
-            Prelude.<*> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "StatusDetails")
-            Prelude.<*> (x Prelude..:? "OutputS3BucketName")
-            Prelude.<*> (x Prelude..:? "StandardErrorUrl")
-            Prelude.<*> (x Prelude..:? "Output")
-            Prelude.<*> (x Prelude..:? "OutputS3Region")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "ResponseFinishDateTime")
-            Prelude.<*> (x Prelude..:? "ResponseCode")
-            Prelude.<*> (x Prelude..:? "OutputS3KeyPrefix")
-            Prelude.<*> (x Prelude..:? "ResponseStartDateTime")
+            Core.<$> (x Core..:? "StandardOutputUrl")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "StatusDetails")
+            Core.<*> (x Core..:? "OutputS3BucketName")
+            Core.<*> (x Core..:? "StandardErrorUrl")
+            Core.<*> (x Core..:? "Output")
+            Core.<*> (x Core..:? "OutputS3Region")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "ResponseFinishDateTime")
+            Core.<*> (x Core..:? "ResponseCode")
+            Core.<*> (x Core..:? "OutputS3KeyPrefix")
+            Core.<*> (x Core..:? "ResponseStartDateTime")
       )
 
-instance Prelude.Hashable CommandPlugin
+instance Core.Hashable CommandPlugin
 
-instance Prelude.NFData CommandPlugin
+instance Core.NFData CommandPlugin

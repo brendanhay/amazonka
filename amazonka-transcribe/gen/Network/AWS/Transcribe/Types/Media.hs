@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Transcribe.Types.Media where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the input media file in a transcription request.
 --
@@ -36,9 +35,9 @@ data Media = Media'
     -- For more information about S3 object names, see
     -- <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
     -- in the /Amazon S3 Developer Guide/.
-    mediaFileUri :: Prelude.Maybe Prelude.Text
+    mediaFileUri :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Media' with all optional fields omitted.
@@ -59,7 +58,7 @@ data Media = Media'
 -- in the /Amazon S3 Developer Guide/.
 newMedia ::
   Media
-newMedia = Media' {mediaFileUri = Prelude.Nothing}
+newMedia = Media' {mediaFileUri = Core.Nothing}
 
 -- | The S3 object location of the input media file. The URI must be in the
 -- same region as the API endpoint that you are calling. The general form
@@ -70,26 +69,22 @@ newMedia = Media' {mediaFileUri = Prelude.Nothing}
 -- For more information about S3 object names, see
 -- <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
 -- in the /Amazon S3 Developer Guide/.
-media_mediaFileUri :: Lens.Lens' Media (Prelude.Maybe Prelude.Text)
+media_mediaFileUri :: Lens.Lens' Media (Core.Maybe Core.Text)
 media_mediaFileUri = Lens.lens (\Media' {mediaFileUri} -> mediaFileUri) (\s@Media' {} a -> s {mediaFileUri = a} :: Media)
 
-instance Prelude.FromJSON Media where
+instance Core.FromJSON Media where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Media"
-      ( \x ->
-          Media' Prelude.<$> (x Prelude..:? "MediaFileUri")
-      )
+      (\x -> Media' Core.<$> (x Core..:? "MediaFileUri"))
 
-instance Prelude.Hashable Media
+instance Core.Hashable Media
 
-instance Prelude.NFData Media
+instance Core.NFData Media
 
-instance Prelude.ToJSON Media where
+instance Core.ToJSON Media where
   toJSON Media' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MediaFileUri" Prelude..=)
-              Prelude.<$> mediaFileUri
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("MediaFileUri" Core..=) Core.<$> mediaFileUri]
       )

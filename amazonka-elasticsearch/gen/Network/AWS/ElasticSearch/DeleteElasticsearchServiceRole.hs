@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data DeleteElasticsearchServiceRole = DeleteElasticsearchServiceRole'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteElasticsearchServiceRole' with all optional fields omitted.
@@ -60,48 +59,38 @@ newDeleteElasticsearchServiceRole =
   DeleteElasticsearchServiceRole'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteElasticsearchServiceRole
   where
   type
-    Rs DeleteElasticsearchServiceRole =
+    AWSResponse DeleteElasticsearchServiceRole =
       DeleteElasticsearchServiceRoleResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteElasticsearchServiceRoleResponse'
 
-instance
-  Prelude.Hashable
-    DeleteElasticsearchServiceRole
+instance Core.Hashable DeleteElasticsearchServiceRole
+
+instance Core.NFData DeleteElasticsearchServiceRole
 
 instance
-  Prelude.NFData
-    DeleteElasticsearchServiceRole
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteElasticsearchServiceRole
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DeleteElasticsearchServiceRole
-  where
-  toPath = Prelude.const "/2015-01-01/es/role"
+instance Core.ToPath DeleteElasticsearchServiceRole where
+  toPath = Core.const "/2015-01-01/es/role"
 
-instance
-  Prelude.ToQuery
-    DeleteElasticsearchServiceRole
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteElasticsearchServiceRole where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteElasticsearchServiceRoleResponse' smart constructor.
 data DeleteElasticsearchServiceRoleResponse = DeleteElasticsearchServiceRoleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteElasticsearchServiceRoleResponse' with all optional fields omitted.
@@ -113,5 +102,5 @@ newDeleteElasticsearchServiceRoleResponse =
   DeleteElasticsearchServiceRoleResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteElasticsearchServiceRoleResponse

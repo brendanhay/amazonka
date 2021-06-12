@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.WafAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.WafActionType
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -54,7 +53,7 @@ data WafAction = WafAction'
     --     specify @COUNT@ for the default action for a @WebACL@.
     type' :: WafActionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WafAction' with all optional fields omitted.
@@ -95,19 +94,17 @@ newWafAction pType_ = WafAction' {type' = pType_}
 wafAction_type :: Lens.Lens' WafAction WafActionType
 wafAction_type = Lens.lens (\WafAction' {type'} -> type') (\s@WafAction' {} a -> s {type' = a} :: WafAction)
 
-instance Prelude.FromJSON WafAction where
+instance Core.FromJSON WafAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WafAction"
-      (\x -> WafAction' Prelude.<$> (x Prelude..: "Type"))
+      (\x -> WafAction' Core.<$> (x Core..: "Type"))
 
-instance Prelude.Hashable WafAction
+instance Core.Hashable WafAction
 
-instance Prelude.NFData WafAction
+instance Core.NFData WafAction
 
-instance Prelude.ToJSON WafAction where
+instance Core.ToJSON WafAction where
   toJSON WafAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Type" Prelude..= type')]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Type" Core..= type')])

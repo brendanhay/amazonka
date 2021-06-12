@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.Rec709Settings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Rec709 Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data Rec709Settings = Rec709Settings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Rec709Settings' with all optional fields omitted.
@@ -39,16 +38,15 @@ newRec709Settings ::
   Rec709Settings
 newRec709Settings = Rec709Settings'
 
-instance Prelude.FromJSON Rec709Settings where
+instance Core.FromJSON Rec709Settings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Rec709Settings"
-      (\x -> Prelude.pure Rec709Settings')
+      (\x -> Core.pure Rec709Settings')
 
-instance Prelude.Hashable Rec709Settings
+instance Core.Hashable Rec709Settings
 
-instance Prelude.NFData Rec709Settings
+instance Core.NFData Rec709Settings
 
-instance Prelude.ToJSON Rec709Settings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON Rec709Settings where
+  toJSON = Core.const (Core.Object Core.mempty)

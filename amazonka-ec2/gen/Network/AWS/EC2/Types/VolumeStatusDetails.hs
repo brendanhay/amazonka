@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.VolumeStatusDetails where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.VolumeStatusName
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a volume status.
 --
 -- /See:/ 'newVolumeStatusDetails' smart constructor.
 data VolumeStatusDetails = VolumeStatusDetails'
   { -- | The intended status of the volume status.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The name of the volume status.
-    name :: Prelude.Maybe VolumeStatusName
+    name :: Core.Maybe VolumeStatusName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VolumeStatusDetails' with all optional fields omitted.
@@ -51,24 +50,23 @@ newVolumeStatusDetails ::
   VolumeStatusDetails
 newVolumeStatusDetails =
   VolumeStatusDetails'
-    { status = Prelude.Nothing,
-      name = Prelude.Nothing
+    { status = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The intended status of the volume status.
-volumeStatusDetails_status :: Lens.Lens' VolumeStatusDetails (Prelude.Maybe Prelude.Text)
+volumeStatusDetails_status :: Lens.Lens' VolumeStatusDetails (Core.Maybe Core.Text)
 volumeStatusDetails_status = Lens.lens (\VolumeStatusDetails' {status} -> status) (\s@VolumeStatusDetails' {} a -> s {status = a} :: VolumeStatusDetails)
 
 -- | The name of the volume status.
-volumeStatusDetails_name :: Lens.Lens' VolumeStatusDetails (Prelude.Maybe VolumeStatusName)
+volumeStatusDetails_name :: Lens.Lens' VolumeStatusDetails (Core.Maybe VolumeStatusName)
 volumeStatusDetails_name = Lens.lens (\VolumeStatusDetails' {name} -> name) (\s@VolumeStatusDetails' {} a -> s {name = a} :: VolumeStatusDetails)
 
-instance Prelude.FromXML VolumeStatusDetails where
+instance Core.FromXML VolumeStatusDetails where
   parseXML x =
     VolumeStatusDetails'
-      Prelude.<$> (x Prelude..@? "status")
-      Prelude.<*> (x Prelude..@? "name")
+      Core.<$> (x Core..@? "status") Core.<*> (x Core..@? "name")
 
-instance Prelude.Hashable VolumeStatusDetails
+instance Core.Hashable VolumeStatusDetails
 
-instance Prelude.NFData VolumeStatusDetails
+instance Core.NFData VolumeStatusDetails

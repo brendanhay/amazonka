@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,29 +20,29 @@
 module Network.AWS.CloudWatchEvents.Types.PartnerEventSourceAccount where
 
 import Network.AWS.CloudWatchEvents.Types.EventSourceState
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The AWS account that a partner event source has been offered to.
 --
 -- /See:/ 'newPartnerEventSourceAccount' smart constructor.
 data PartnerEventSourceAccount = PartnerEventSourceAccount'
   { -- | The date and time the event source was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The date and time that the event source will expire, if the AWS account
     -- doesn\'t create a matching event bus for it.
-    expirationTime :: Prelude.Maybe Prelude.POSIX,
+    expirationTime :: Core.Maybe Core.POSIX,
     -- | The state of the event source. If it is ACTIVE, you have already created
     -- a matching event bus for this event source, and that event bus is
     -- active. If it is PENDING, either you haven\'t yet created a matching
     -- event bus, or that event bus is deactivated. If it is DELETED, you have
     -- created a matching event bus, but the event source has since been
     -- deleted.
-    state :: Prelude.Maybe EventSourceState,
+    state :: Core.Maybe EventSourceState,
     -- | The AWS account ID that the partner event source was offered to.
-    account :: Prelude.Maybe Prelude.Text
+    account :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PartnerEventSourceAccount' with all optional fields omitted.
@@ -71,20 +70,20 @@ newPartnerEventSourceAccount ::
 newPartnerEventSourceAccount =
   PartnerEventSourceAccount'
     { creationTime =
-        Prelude.Nothing,
-      expirationTime = Prelude.Nothing,
-      state = Prelude.Nothing,
-      account = Prelude.Nothing
+        Core.Nothing,
+      expirationTime = Core.Nothing,
+      state = Core.Nothing,
+      account = Core.Nothing
     }
 
 -- | The date and time the event source was created.
-partnerEventSourceAccount_creationTime :: Lens.Lens' PartnerEventSourceAccount (Prelude.Maybe Prelude.UTCTime)
-partnerEventSourceAccount_creationTime = Lens.lens (\PartnerEventSourceAccount' {creationTime} -> creationTime) (\s@PartnerEventSourceAccount' {} a -> s {creationTime = a} :: PartnerEventSourceAccount) Prelude.. Lens.mapping Prelude._Time
+partnerEventSourceAccount_creationTime :: Lens.Lens' PartnerEventSourceAccount (Core.Maybe Core.UTCTime)
+partnerEventSourceAccount_creationTime = Lens.lens (\PartnerEventSourceAccount' {creationTime} -> creationTime) (\s@PartnerEventSourceAccount' {} a -> s {creationTime = a} :: PartnerEventSourceAccount) Core.. Lens.mapping Core._Time
 
 -- | The date and time that the event source will expire, if the AWS account
 -- doesn\'t create a matching event bus for it.
-partnerEventSourceAccount_expirationTime :: Lens.Lens' PartnerEventSourceAccount (Prelude.Maybe Prelude.UTCTime)
-partnerEventSourceAccount_expirationTime = Lens.lens (\PartnerEventSourceAccount' {expirationTime} -> expirationTime) (\s@PartnerEventSourceAccount' {} a -> s {expirationTime = a} :: PartnerEventSourceAccount) Prelude.. Lens.mapping Prelude._Time
+partnerEventSourceAccount_expirationTime :: Lens.Lens' PartnerEventSourceAccount (Core.Maybe Core.UTCTime)
+partnerEventSourceAccount_expirationTime = Lens.lens (\PartnerEventSourceAccount' {expirationTime} -> expirationTime) (\s@PartnerEventSourceAccount' {} a -> s {expirationTime = a} :: PartnerEventSourceAccount) Core.. Lens.mapping Core._Time
 
 -- | The state of the event source. If it is ACTIVE, you have already created
 -- a matching event bus for this event source, and that event bus is
@@ -92,25 +91,25 @@ partnerEventSourceAccount_expirationTime = Lens.lens (\PartnerEventSourceAccount
 -- event bus, or that event bus is deactivated. If it is DELETED, you have
 -- created a matching event bus, but the event source has since been
 -- deleted.
-partnerEventSourceAccount_state :: Lens.Lens' PartnerEventSourceAccount (Prelude.Maybe EventSourceState)
+partnerEventSourceAccount_state :: Lens.Lens' PartnerEventSourceAccount (Core.Maybe EventSourceState)
 partnerEventSourceAccount_state = Lens.lens (\PartnerEventSourceAccount' {state} -> state) (\s@PartnerEventSourceAccount' {} a -> s {state = a} :: PartnerEventSourceAccount)
 
 -- | The AWS account ID that the partner event source was offered to.
-partnerEventSourceAccount_account :: Lens.Lens' PartnerEventSourceAccount (Prelude.Maybe Prelude.Text)
+partnerEventSourceAccount_account :: Lens.Lens' PartnerEventSourceAccount (Core.Maybe Core.Text)
 partnerEventSourceAccount_account = Lens.lens (\PartnerEventSourceAccount' {account} -> account) (\s@PartnerEventSourceAccount' {} a -> s {account = a} :: PartnerEventSourceAccount)
 
-instance Prelude.FromJSON PartnerEventSourceAccount where
+instance Core.FromJSON PartnerEventSourceAccount where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PartnerEventSourceAccount"
       ( \x ->
           PartnerEventSourceAccount'
-            Prelude.<$> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "ExpirationTime")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "Account")
+            Core.<$> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "ExpirationTime")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "Account")
       )
 
-instance Prelude.Hashable PartnerEventSourceAccount
+instance Core.Hashable PartnerEventSourceAccount
 
-instance Prelude.NFData PartnerEventSourceAccount
+instance Core.NFData PartnerEventSourceAccount

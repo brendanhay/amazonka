@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.Cipher where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a cipher used in a policy.
 --
 -- /See:/ 'newCipher' smart constructor.
 data Cipher = Cipher'
   { -- | The priority of the cipher.
-    priority :: Prelude.Maybe Prelude.Int,
+    priority :: Core.Maybe Core.Int,
     -- | The name of the cipher.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Cipher' with all optional fields omitted.
@@ -49,24 +48,23 @@ newCipher ::
   Cipher
 newCipher =
   Cipher'
-    { priority = Prelude.Nothing,
-      name = Prelude.Nothing
+    { priority = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The priority of the cipher.
-cipher_priority :: Lens.Lens' Cipher (Prelude.Maybe Prelude.Int)
+cipher_priority :: Lens.Lens' Cipher (Core.Maybe Core.Int)
 cipher_priority = Lens.lens (\Cipher' {priority} -> priority) (\s@Cipher' {} a -> s {priority = a} :: Cipher)
 
 -- | The name of the cipher.
-cipher_name :: Lens.Lens' Cipher (Prelude.Maybe Prelude.Text)
+cipher_name :: Lens.Lens' Cipher (Core.Maybe Core.Text)
 cipher_name = Lens.lens (\Cipher' {name} -> name) (\s@Cipher' {} a -> s {name = a} :: Cipher)
 
-instance Prelude.FromXML Cipher where
+instance Core.FromXML Cipher where
   parseXML x =
     Cipher'
-      Prelude.<$> (x Prelude..@? "Priority")
-      Prelude.<*> (x Prelude..@? "Name")
+      Core.<$> (x Core..@? "Priority") Core.<*> (x Core..@? "Name")
 
-instance Prelude.Hashable Cipher
+instance Core.Hashable Cipher
 
-instance Prelude.NFData Cipher
+instance Core.NFData Cipher

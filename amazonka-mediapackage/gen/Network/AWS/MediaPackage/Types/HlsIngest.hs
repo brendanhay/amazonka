@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaPackage.Types.HlsIngest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.IngestEndpoint
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An HTTP Live Streaming (HLS) ingest resource configuration.
 --
 -- /See:/ 'newHlsIngest' smart constructor.
 data HlsIngest = HlsIngest'
   { -- | A list of endpoints to which the source stream should be sent.
-    ingestEndpoints :: Prelude.Maybe [IngestEndpoint]
+    ingestEndpoints :: Core.Maybe [IngestEndpoint]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HlsIngest' with all optional fields omitted.
@@ -45,23 +44,21 @@ data HlsIngest = HlsIngest'
 newHlsIngest ::
   HlsIngest
 newHlsIngest =
-  HlsIngest' {ingestEndpoints = Prelude.Nothing}
+  HlsIngest' {ingestEndpoints = Core.Nothing}
 
 -- | A list of endpoints to which the source stream should be sent.
-hlsIngest_ingestEndpoints :: Lens.Lens' HlsIngest (Prelude.Maybe [IngestEndpoint])
-hlsIngest_ingestEndpoints = Lens.lens (\HlsIngest' {ingestEndpoints} -> ingestEndpoints) (\s@HlsIngest' {} a -> s {ingestEndpoints = a} :: HlsIngest) Prelude.. Lens.mapping Prelude._Coerce
+hlsIngest_ingestEndpoints :: Lens.Lens' HlsIngest (Core.Maybe [IngestEndpoint])
+hlsIngest_ingestEndpoints = Lens.lens (\HlsIngest' {ingestEndpoints} -> ingestEndpoints) (\s@HlsIngest' {} a -> s {ingestEndpoints = a} :: HlsIngest) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON HlsIngest where
+instance Core.FromJSON HlsIngest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HlsIngest"
       ( \x ->
           HlsIngest'
-            Prelude.<$> ( x Prelude..:? "ingestEndpoints"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ingestEndpoints" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable HlsIngest
+instance Core.Hashable HlsIngest
 
-instance Prelude.NFData HlsIngest
+instance Core.NFData HlsIngest

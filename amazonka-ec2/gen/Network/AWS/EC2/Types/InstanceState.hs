@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceState where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceStateName
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the current state of an instance.
 --
@@ -57,9 +56,9 @@ data InstanceState = InstanceState'
     --
     -- You can ignore the high byte value by zeroing out all of the bits above
     -- 2^8 or 256 in decimal.
-    code :: Prelude.Int
+    code :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceState' with all optional fields omitted.
@@ -101,7 +100,7 @@ newInstanceState ::
   -- | 'name'
   InstanceStateName ->
   -- | 'code'
-  Prelude.Int ->
+  Core.Int ->
   InstanceState
 newInstanceState pName_ pCode_ =
   InstanceState' {name = pName_, code = pCode_}
@@ -136,15 +135,14 @@ instanceState_name = Lens.lens (\InstanceState' {name} -> name) (\s@InstanceStat
 --
 -- You can ignore the high byte value by zeroing out all of the bits above
 -- 2^8 or 256 in decimal.
-instanceState_code :: Lens.Lens' InstanceState Prelude.Int
+instanceState_code :: Lens.Lens' InstanceState Core.Int
 instanceState_code = Lens.lens (\InstanceState' {code} -> code) (\s@InstanceState' {} a -> s {code = a} :: InstanceState)
 
-instance Prelude.FromXML InstanceState where
+instance Core.FromXML InstanceState where
   parseXML x =
     InstanceState'
-      Prelude.<$> (x Prelude..@ "name")
-      Prelude.<*> (x Prelude..@ "code")
+      Core.<$> (x Core..@ "name") Core.<*> (x Core..@ "code")
 
-instance Prelude.Hashable InstanceState
+instance Core.Hashable InstanceState
 
-instance Prelude.NFData InstanceState
+instance Core.NFData InstanceState

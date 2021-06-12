@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId where
 
 import Network.AWS.CognitoIdentity.Types.CognitoErrorCode
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 -- ErrorCode and IdentityId.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newUnprocessedIdentityId' smart constructor.
 data UnprocessedIdentityId = UnprocessedIdentityId'
   { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Maybe Prelude.Text,
+    identityId :: Core.Maybe Core.Text,
     -- | The error code indicating the type of error that occurred.
-    errorCode :: Prelude.Maybe CognitoErrorCode
+    errorCode :: Core.Maybe CognitoErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnprocessedIdentityId' with all optional fields omitted.
@@ -51,29 +50,28 @@ newUnprocessedIdentityId ::
   UnprocessedIdentityId
 newUnprocessedIdentityId =
   UnprocessedIdentityId'
-    { identityId =
-        Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { identityId = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | A unique identifier in the format REGION:GUID.
-unprocessedIdentityId_identityId :: Lens.Lens' UnprocessedIdentityId (Prelude.Maybe Prelude.Text)
+unprocessedIdentityId_identityId :: Lens.Lens' UnprocessedIdentityId (Core.Maybe Core.Text)
 unprocessedIdentityId_identityId = Lens.lens (\UnprocessedIdentityId' {identityId} -> identityId) (\s@UnprocessedIdentityId' {} a -> s {identityId = a} :: UnprocessedIdentityId)
 
 -- | The error code indicating the type of error that occurred.
-unprocessedIdentityId_errorCode :: Lens.Lens' UnprocessedIdentityId (Prelude.Maybe CognitoErrorCode)
+unprocessedIdentityId_errorCode :: Lens.Lens' UnprocessedIdentityId (Core.Maybe CognitoErrorCode)
 unprocessedIdentityId_errorCode = Lens.lens (\UnprocessedIdentityId' {errorCode} -> errorCode) (\s@UnprocessedIdentityId' {} a -> s {errorCode = a} :: UnprocessedIdentityId)
 
-instance Prelude.FromJSON UnprocessedIdentityId where
+instance Core.FromJSON UnprocessedIdentityId where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UnprocessedIdentityId"
       ( \x ->
           UnprocessedIdentityId'
-            Prelude.<$> (x Prelude..:? "IdentityId")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "IdentityId")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable UnprocessedIdentityId
+instance Core.Hashable UnprocessedIdentityId
 
-instance Prelude.NFData UnprocessedIdentityId
+instance Core.NFData UnprocessedIdentityId

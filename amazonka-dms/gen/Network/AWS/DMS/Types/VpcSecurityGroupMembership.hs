@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DMS.Types.VpcSecurityGroupMembership where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the status of a security group associated with the virtual
 -- private cloud (VPC) hosting your replication and DB instances.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newVpcSecurityGroupMembership' smart constructor.
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership'
   { -- | The status of the VPC security group.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The VPC security group ID.
-    vpcSecurityGroupId :: Prelude.Maybe Prelude.Text
+    vpcSecurityGroupId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VpcSecurityGroupMembership' with all optional fields omitted.
@@ -50,29 +49,28 @@ newVpcSecurityGroupMembership ::
   VpcSecurityGroupMembership
 newVpcSecurityGroupMembership =
   VpcSecurityGroupMembership'
-    { status =
-        Prelude.Nothing,
-      vpcSecurityGroupId = Prelude.Nothing
+    { status = Core.Nothing,
+      vpcSecurityGroupId = Core.Nothing
     }
 
 -- | The status of the VPC security group.
-vpcSecurityGroupMembership_status :: Lens.Lens' VpcSecurityGroupMembership (Prelude.Maybe Prelude.Text)
+vpcSecurityGroupMembership_status :: Lens.Lens' VpcSecurityGroupMembership (Core.Maybe Core.Text)
 vpcSecurityGroupMembership_status = Lens.lens (\VpcSecurityGroupMembership' {status} -> status) (\s@VpcSecurityGroupMembership' {} a -> s {status = a} :: VpcSecurityGroupMembership)
 
 -- | The VPC security group ID.
-vpcSecurityGroupMembership_vpcSecurityGroupId :: Lens.Lens' VpcSecurityGroupMembership (Prelude.Maybe Prelude.Text)
+vpcSecurityGroupMembership_vpcSecurityGroupId :: Lens.Lens' VpcSecurityGroupMembership (Core.Maybe Core.Text)
 vpcSecurityGroupMembership_vpcSecurityGroupId = Lens.lens (\VpcSecurityGroupMembership' {vpcSecurityGroupId} -> vpcSecurityGroupId) (\s@VpcSecurityGroupMembership' {} a -> s {vpcSecurityGroupId = a} :: VpcSecurityGroupMembership)
 
-instance Prelude.FromJSON VpcSecurityGroupMembership where
+instance Core.FromJSON VpcSecurityGroupMembership where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VpcSecurityGroupMembership"
       ( \x ->
           VpcSecurityGroupMembership'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "VpcSecurityGroupId")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "VpcSecurityGroupId")
       )
 
-instance Prelude.Hashable VpcSecurityGroupMembership
+instance Core.Hashable VpcSecurityGroupMembership
 
-instance Prelude.NFData VpcSecurityGroupMembership
+instance Core.NFData VpcSecurityGroupMembership

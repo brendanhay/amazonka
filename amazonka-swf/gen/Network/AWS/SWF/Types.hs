@@ -882,8 +882,8 @@ module Network.AWS.SWF.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ActivityTaskCancelRequestedEventAttributes
 import Network.AWS.SWF.Types.ActivityTaskCanceledEventAttributes
 import Network.AWS.SWF.Types.ActivityTaskCompletedEventAttributes
@@ -1004,122 +1004,120 @@ import Network.AWS.SWF.Types.WorkflowTypeInfo
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-01-25@ of the Amazon Simple Workflow Service SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "SWF",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "swf",
-      Prelude._svcSigningName = "swf",
-      Prelude._svcVersion = "2012-01-25",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "SWF",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "SWF",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "swf",
+      Core._serviceSigningName = "swf",
+      Core._serviceVersion = "2012-01-25",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "SWF",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | Returned by any operation if a system imposed limitation has been
 -- reached. To address this fault you should either clean up unused
 -- resources or increase the limit by contacting AWS.
-_LimitExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededFault"
 
 -- | Returned if the domain already exists. You may get this fault if you are
 -- registering a domain that is either already registered or deprecated, or
 -- if you undeprecate a domain that is currently registered.
-_DomainAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DomainAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DomainAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DomainAlreadyExistsFault"
 
 -- | Returned by StartWorkflowExecution when an open execution with the same
 -- workflowId is already running in the specified domain.
-_WorkflowExecutionAlreadyStartedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WorkflowExecutionAlreadyStartedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WorkflowExecutionAlreadyStartedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WorkflowExecutionAlreadyStartedFault"
 
 -- | Returned when the specified domain has been deprecated.
-_DomainDeprecatedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DomainDeprecatedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DomainDeprecatedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DomainDeprecatedFault"
 
 -- | Returned when the named resource cannot be found with in the scope of
 -- this operation (region or domain). This could happen if the named
 -- resource was never created or is no longer available for this operation.
-_UnknownResourceFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnknownResourceFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnknownResourceFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnknownResourceFault"
 
 -- | Returned when the caller doesn\'t have sufficient permissions to invoke
 -- the action.
-_OperationNotPermittedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OperationNotPermittedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OperationNotPermittedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OperationNotPermittedFault"
 
@@ -1127,24 +1125,24 @@ _OperationNotPermittedFault =
 -- this fault if you are registering a type that is either already
 -- registered or deprecated, or if you undeprecate a type that is currently
 -- registered.
-_TypeAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TypeAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TypeAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TypeAlreadyExistsFault"
 
 -- | You\'ve exceeded the number of tags allowed for a domain.
-_TooManyTagsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTagsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyTagsFault"
 
 -- | Returned when the specified activity or workflow type was already
 -- deprecated.
-_TypeDeprecatedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TypeDeprecatedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TypeDeprecatedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TypeDeprecatedFault"
 
@@ -1159,8 +1157,8 @@ _TypeDeprecatedFault =
 --
 -- If these parameters aren\'t set and no default parameters were defined
 -- in the workflow type, this error is displayed.
-_DefaultUndefinedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DefaultUndefinedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DefaultUndefinedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DefaultUndefinedFault"

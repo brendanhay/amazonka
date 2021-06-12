@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType
 import Network.AWS.MediaConvert.Types.NielsenSourceWatermarkStatusType
 import Network.AWS.MediaConvert.Types.NielsenUniqueTicPerAudioTrackType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Ignore these settings unless you are using Nielsen non-linear
 -- watermarking. Specify the values that MediaConvert uses to generate and
@@ -39,20 +38,20 @@ import qualified Network.AWS.Prelude as Prelude
 data NielsenNonLinearWatermarkSettings = NielsenNonLinearWatermarkSettings'
   { -- | Use the asset name that you provide to Nielsen for this asset. Required
     -- for all Nielsen non-linear watermarking.
-    assetName :: Prelude.Maybe Prelude.Text,
+    assetName :: Core.Maybe Core.Text,
     -- | Choose the type of Nielsen watermarks that you want in your outputs.
     -- When you choose NAES 2 and NW (NAES2_AND_NW), you must provide a value
     -- for the setting SID (sourceId). When you choose CBET (CBET), you must
     -- provide a value for the setting CSID (cbetSourceId). When you choose
     -- NAES 2, NW, and CBET (NAES2_AND_NW_AND_CBET), you must provide values
     -- for both of these settings.
-    activeWatermarkProcess :: Prelude.Maybe NielsenActiveWatermarkProcessType,
+    activeWatermarkProcess :: Core.Maybe NielsenActiveWatermarkProcessType,
     -- | Required. Specify whether your source content already contains Nielsen
     -- non-linear watermarks. When you set this value to Watermarked
     -- (WATERMARKED), the service fails the job. Nielsen requires that you add
     -- non-linear watermarking to only clean content that doesn\'t already have
     -- non-linear Nielsen watermarks.
-    sourceWatermarkStatus :: Prelude.Maybe NielsenSourceWatermarkStatusType,
+    sourceWatermarkStatus :: Core.Maybe NielsenSourceWatermarkStatusType,
     -- | Specify the endpoint for the TIC server that you have deployed and
     -- configured in the AWS Cloud. Required for all Nielsen non-linear
     -- watermarking. MediaConvert can\'t connect directly to a TIC server.
@@ -60,21 +59,21 @@ data NielsenNonLinearWatermarkSettings = NielsenNonLinearWatermarkSettings'
     -- MediaConvert and a TIC server that you deploy in your AWS account. For
     -- more information on deploying a TIC server in your AWS account and the
     -- required API Gateway, contact Nielsen support.
-    ticServerUrl :: Prelude.Maybe Prelude.Text,
+    ticServerUrl :: Core.Maybe Core.Text,
     -- | Use the SID that Nielsen provides to you. This source ID should be
     -- unique to your Nielsen account but common to all of your output assets.
     -- Required for all Nielsen non-linear watermarking. This ID should be
     -- unique to your Nielsen account but common to all of your output assets.
     -- Required for all Nielsen non-linear watermarking.
-    sourceId :: Prelude.Maybe Prelude.Natural,
+    sourceId :: Core.Maybe Core.Natural,
     -- | Use the CSID that Nielsen provides to you. This CBET source ID should be
     -- unique to your Nielsen account but common to all of your output assets
     -- that have CBET watermarking. Required when you choose a value for the
     -- setting Watermark types (ActiveWatermarkProcess) that includes CBET.
-    cbetSourceId :: Prelude.Maybe Prelude.Text,
+    cbetSourceId :: Core.Maybe Core.Text,
     -- | Optional. If this asset uses an episode ID with Nielsen, provide it
     -- here.
-    episodeId :: Prelude.Maybe Prelude.Text,
+    episodeId :: Core.Maybe Core.Text,
     -- | Specify the Amazon S3 location where you want MediaConvert to save your
     -- Nielsen non-linear metadata .zip file. This Amazon S3 bucket must be in
     -- the same Region as the one where you do your MediaConvert transcoding.
@@ -83,24 +82,24 @@ data NielsenNonLinearWatermarkSettings = NielsenNonLinearWatermarkSettings'
     -- metadata .zip files only to your metadata destination Amazon S3 bucket.
     -- It doesn\'t deliver the .zip files to Nielsen. You are responsible for
     -- delivering the metadata .zip files to Nielsen.
-    metadataDestination :: Prelude.Maybe Prelude.Text,
+    metadataDestination :: Core.Maybe Core.Text,
     -- | To create assets that have the same TIC values in each audio track, keep
     -- the default value Share TICs (SAME_TICS_PER_TRACK). To create assets
     -- that have unique TIC values for each audio track, choose Use unique TICs
     -- (RESERVE_UNIQUE_TICS_PER_TRACK).
-    uniqueTicPerAudioTrack :: Prelude.Maybe NielsenUniqueTicPerAudioTrackType,
+    uniqueTicPerAudioTrack :: Core.Maybe NielsenUniqueTicPerAudioTrackType,
     -- | Optional. Use this setting when you want the service to include an ADI
     -- file in the Nielsen metadata .zip file. To provide an ADI file, store it
     -- in Amazon S3 and provide a URL to it here. The URL should be in the
     -- following format: S3:\/\/bucket\/path\/ADI-file. For more information
     -- about the metadata .zip file, see the setting Metadata destination
     -- (metadataDestination).
-    adiFilename :: Prelude.Maybe Prelude.Text,
+    adiFilename :: Core.Maybe Core.Text,
     -- | Use the asset ID that you provide to Nielsen to uniquely identify this
     -- asset. Required for all Nielsen non-linear watermarking.
-    assetId :: Prelude.Maybe Prelude.Text
+    assetId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NielsenNonLinearWatermarkSettings' with all optional fields omitted.
@@ -176,22 +175,22 @@ newNielsenNonLinearWatermarkSettings ::
 newNielsenNonLinearWatermarkSettings =
   NielsenNonLinearWatermarkSettings'
     { assetName =
-        Prelude.Nothing,
-      activeWatermarkProcess = Prelude.Nothing,
-      sourceWatermarkStatus = Prelude.Nothing,
-      ticServerUrl = Prelude.Nothing,
-      sourceId = Prelude.Nothing,
-      cbetSourceId = Prelude.Nothing,
-      episodeId = Prelude.Nothing,
-      metadataDestination = Prelude.Nothing,
-      uniqueTicPerAudioTrack = Prelude.Nothing,
-      adiFilename = Prelude.Nothing,
-      assetId = Prelude.Nothing
+        Core.Nothing,
+      activeWatermarkProcess = Core.Nothing,
+      sourceWatermarkStatus = Core.Nothing,
+      ticServerUrl = Core.Nothing,
+      sourceId = Core.Nothing,
+      cbetSourceId = Core.Nothing,
+      episodeId = Core.Nothing,
+      metadataDestination = Core.Nothing,
+      uniqueTicPerAudioTrack = Core.Nothing,
+      adiFilename = Core.Nothing,
+      assetId = Core.Nothing
     }
 
 -- | Use the asset name that you provide to Nielsen for this asset. Required
 -- for all Nielsen non-linear watermarking.
-nielsenNonLinearWatermarkSettings_assetName :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe Prelude.Text)
+nielsenNonLinearWatermarkSettings_assetName :: Lens.Lens' NielsenNonLinearWatermarkSettings (Core.Maybe Core.Text)
 nielsenNonLinearWatermarkSettings_assetName = Lens.lens (\NielsenNonLinearWatermarkSettings' {assetName} -> assetName) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {assetName = a} :: NielsenNonLinearWatermarkSettings)
 
 -- | Choose the type of Nielsen watermarks that you want in your outputs.
@@ -200,7 +199,7 @@ nielsenNonLinearWatermarkSettings_assetName = Lens.lens (\NielsenNonLinearWaterm
 -- provide a value for the setting CSID (cbetSourceId). When you choose
 -- NAES 2, NW, and CBET (NAES2_AND_NW_AND_CBET), you must provide values
 -- for both of these settings.
-nielsenNonLinearWatermarkSettings_activeWatermarkProcess :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe NielsenActiveWatermarkProcessType)
+nielsenNonLinearWatermarkSettings_activeWatermarkProcess :: Lens.Lens' NielsenNonLinearWatermarkSettings (Core.Maybe NielsenActiveWatermarkProcessType)
 nielsenNonLinearWatermarkSettings_activeWatermarkProcess = Lens.lens (\NielsenNonLinearWatermarkSettings' {activeWatermarkProcess} -> activeWatermarkProcess) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {activeWatermarkProcess = a} :: NielsenNonLinearWatermarkSettings)
 
 -- | Required. Specify whether your source content already contains Nielsen
@@ -208,7 +207,7 @@ nielsenNonLinearWatermarkSettings_activeWatermarkProcess = Lens.lens (\NielsenNo
 -- (WATERMARKED), the service fails the job. Nielsen requires that you add
 -- non-linear watermarking to only clean content that doesn\'t already have
 -- non-linear Nielsen watermarks.
-nielsenNonLinearWatermarkSettings_sourceWatermarkStatus :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe NielsenSourceWatermarkStatusType)
+nielsenNonLinearWatermarkSettings_sourceWatermarkStatus :: Lens.Lens' NielsenNonLinearWatermarkSettings (Core.Maybe NielsenSourceWatermarkStatusType)
 nielsenNonLinearWatermarkSettings_sourceWatermarkStatus = Lens.lens (\NielsenNonLinearWatermarkSettings' {sourceWatermarkStatus} -> sourceWatermarkStatus) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {sourceWatermarkStatus = a} :: NielsenNonLinearWatermarkSettings)
 
 -- | Specify the endpoint for the TIC server that you have deployed and
@@ -218,7 +217,7 @@ nielsenNonLinearWatermarkSettings_sourceWatermarkStatus = Lens.lens (\NielsenNon
 -- MediaConvert and a TIC server that you deploy in your AWS account. For
 -- more information on deploying a TIC server in your AWS account and the
 -- required API Gateway, contact Nielsen support.
-nielsenNonLinearWatermarkSettings_ticServerUrl :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe Prelude.Text)
+nielsenNonLinearWatermarkSettings_ticServerUrl :: Lens.Lens' NielsenNonLinearWatermarkSettings (Core.Maybe Core.Text)
 nielsenNonLinearWatermarkSettings_ticServerUrl = Lens.lens (\NielsenNonLinearWatermarkSettings' {ticServerUrl} -> ticServerUrl) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {ticServerUrl = a} :: NielsenNonLinearWatermarkSettings)
 
 -- | Use the SID that Nielsen provides to you. This source ID should be
@@ -226,19 +225,19 @@ nielsenNonLinearWatermarkSettings_ticServerUrl = Lens.lens (\NielsenNonLinearWat
 -- Required for all Nielsen non-linear watermarking. This ID should be
 -- unique to your Nielsen account but common to all of your output assets.
 -- Required for all Nielsen non-linear watermarking.
-nielsenNonLinearWatermarkSettings_sourceId :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe Prelude.Natural)
+nielsenNonLinearWatermarkSettings_sourceId :: Lens.Lens' NielsenNonLinearWatermarkSettings (Core.Maybe Core.Natural)
 nielsenNonLinearWatermarkSettings_sourceId = Lens.lens (\NielsenNonLinearWatermarkSettings' {sourceId} -> sourceId) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {sourceId = a} :: NielsenNonLinearWatermarkSettings)
 
 -- | Use the CSID that Nielsen provides to you. This CBET source ID should be
 -- unique to your Nielsen account but common to all of your output assets
 -- that have CBET watermarking. Required when you choose a value for the
 -- setting Watermark types (ActiveWatermarkProcess) that includes CBET.
-nielsenNonLinearWatermarkSettings_cbetSourceId :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe Prelude.Text)
+nielsenNonLinearWatermarkSettings_cbetSourceId :: Lens.Lens' NielsenNonLinearWatermarkSettings (Core.Maybe Core.Text)
 nielsenNonLinearWatermarkSettings_cbetSourceId = Lens.lens (\NielsenNonLinearWatermarkSettings' {cbetSourceId} -> cbetSourceId) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {cbetSourceId = a} :: NielsenNonLinearWatermarkSettings)
 
 -- | Optional. If this asset uses an episode ID with Nielsen, provide it
 -- here.
-nielsenNonLinearWatermarkSettings_episodeId :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe Prelude.Text)
+nielsenNonLinearWatermarkSettings_episodeId :: Lens.Lens' NielsenNonLinearWatermarkSettings (Core.Maybe Core.Text)
 nielsenNonLinearWatermarkSettings_episodeId = Lens.lens (\NielsenNonLinearWatermarkSettings' {episodeId} -> episodeId) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {episodeId = a} :: NielsenNonLinearWatermarkSettings)
 
 -- | Specify the Amazon S3 location where you want MediaConvert to save your
@@ -249,14 +248,14 @@ nielsenNonLinearWatermarkSettings_episodeId = Lens.lens (\NielsenNonLinearWaterm
 -- metadata .zip files only to your metadata destination Amazon S3 bucket.
 -- It doesn\'t deliver the .zip files to Nielsen. You are responsible for
 -- delivering the metadata .zip files to Nielsen.
-nielsenNonLinearWatermarkSettings_metadataDestination :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe Prelude.Text)
+nielsenNonLinearWatermarkSettings_metadataDestination :: Lens.Lens' NielsenNonLinearWatermarkSettings (Core.Maybe Core.Text)
 nielsenNonLinearWatermarkSettings_metadataDestination = Lens.lens (\NielsenNonLinearWatermarkSettings' {metadataDestination} -> metadataDestination) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {metadataDestination = a} :: NielsenNonLinearWatermarkSettings)
 
 -- | To create assets that have the same TIC values in each audio track, keep
 -- the default value Share TICs (SAME_TICS_PER_TRACK). To create assets
 -- that have unique TIC values for each audio track, choose Use unique TICs
 -- (RESERVE_UNIQUE_TICS_PER_TRACK).
-nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe NielsenUniqueTicPerAudioTrackType)
+nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack :: Lens.Lens' NielsenNonLinearWatermarkSettings (Core.Maybe NielsenUniqueTicPerAudioTrackType)
 nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack = Lens.lens (\NielsenNonLinearWatermarkSettings' {uniqueTicPerAudioTrack} -> uniqueTicPerAudioTrack) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {uniqueTicPerAudioTrack = a} :: NielsenNonLinearWatermarkSettings)
 
 -- | Optional. Use this setting when you want the service to include an ADI
@@ -265,65 +264,65 @@ nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack = Lens.lens (\NielsenNo
 -- following format: S3:\/\/bucket\/path\/ADI-file. For more information
 -- about the metadata .zip file, see the setting Metadata destination
 -- (metadataDestination).
-nielsenNonLinearWatermarkSettings_adiFilename :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe Prelude.Text)
+nielsenNonLinearWatermarkSettings_adiFilename :: Lens.Lens' NielsenNonLinearWatermarkSettings (Core.Maybe Core.Text)
 nielsenNonLinearWatermarkSettings_adiFilename = Lens.lens (\NielsenNonLinearWatermarkSettings' {adiFilename} -> adiFilename) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {adiFilename = a} :: NielsenNonLinearWatermarkSettings)
 
 -- | Use the asset ID that you provide to Nielsen to uniquely identify this
 -- asset. Required for all Nielsen non-linear watermarking.
-nielsenNonLinearWatermarkSettings_assetId :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe Prelude.Text)
+nielsenNonLinearWatermarkSettings_assetId :: Lens.Lens' NielsenNonLinearWatermarkSettings (Core.Maybe Core.Text)
 nielsenNonLinearWatermarkSettings_assetId = Lens.lens (\NielsenNonLinearWatermarkSettings' {assetId} -> assetId) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {assetId = a} :: NielsenNonLinearWatermarkSettings)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     NielsenNonLinearWatermarkSettings
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NielsenNonLinearWatermarkSettings"
       ( \x ->
           NielsenNonLinearWatermarkSettings'
-            Prelude.<$> (x Prelude..:? "assetName")
-            Prelude.<*> (x Prelude..:? "activeWatermarkProcess")
-            Prelude.<*> (x Prelude..:? "sourceWatermarkStatus")
-            Prelude.<*> (x Prelude..:? "ticServerUrl")
-            Prelude.<*> (x Prelude..:? "sourceId")
-            Prelude.<*> (x Prelude..:? "cbetSourceId")
-            Prelude.<*> (x Prelude..:? "episodeId")
-            Prelude.<*> (x Prelude..:? "metadataDestination")
-            Prelude.<*> (x Prelude..:? "uniqueTicPerAudioTrack")
-            Prelude.<*> (x Prelude..:? "adiFilename")
-            Prelude.<*> (x Prelude..:? "assetId")
+            Core.<$> (x Core..:? "assetName")
+            Core.<*> (x Core..:? "activeWatermarkProcess")
+            Core.<*> (x Core..:? "sourceWatermarkStatus")
+            Core.<*> (x Core..:? "ticServerUrl")
+            Core.<*> (x Core..:? "sourceId")
+            Core.<*> (x Core..:? "cbetSourceId")
+            Core.<*> (x Core..:? "episodeId")
+            Core.<*> (x Core..:? "metadataDestination")
+            Core.<*> (x Core..:? "uniqueTicPerAudioTrack")
+            Core.<*> (x Core..:? "adiFilename")
+            Core.<*> (x Core..:? "assetId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     NielsenNonLinearWatermarkSettings
 
 instance
-  Prelude.NFData
+  Core.NFData
     NielsenNonLinearWatermarkSettings
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     NielsenNonLinearWatermarkSettings
   where
   toJSON NielsenNonLinearWatermarkSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("assetName" Prelude..=) Prelude.<$> assetName,
-            ("activeWatermarkProcess" Prelude..=)
-              Prelude.<$> activeWatermarkProcess,
-            ("sourceWatermarkStatus" Prelude..=)
-              Prelude.<$> sourceWatermarkStatus,
-            ("ticServerUrl" Prelude..=) Prelude.<$> ticServerUrl,
-            ("sourceId" Prelude..=) Prelude.<$> sourceId,
-            ("cbetSourceId" Prelude..=) Prelude.<$> cbetSourceId,
-            ("episodeId" Prelude..=) Prelude.<$> episodeId,
-            ("metadataDestination" Prelude..=)
-              Prelude.<$> metadataDestination,
-            ("uniqueTicPerAudioTrack" Prelude..=)
-              Prelude.<$> uniqueTicPerAudioTrack,
-            ("adiFilename" Prelude..=) Prelude.<$> adiFilename,
-            ("assetId" Prelude..=) Prelude.<$> assetId
+    Core.object
+      ( Core.catMaybes
+          [ ("assetName" Core..=) Core.<$> assetName,
+            ("activeWatermarkProcess" Core..=)
+              Core.<$> activeWatermarkProcess,
+            ("sourceWatermarkStatus" Core..=)
+              Core.<$> sourceWatermarkStatus,
+            ("ticServerUrl" Core..=) Core.<$> ticServerUrl,
+            ("sourceId" Core..=) Core.<$> sourceId,
+            ("cbetSourceId" Core..=) Core.<$> cbetSourceId,
+            ("episodeId" Core..=) Core.<$> episodeId,
+            ("metadataDestination" Core..=)
+              Core.<$> metadataDestination,
+            ("uniqueTicPerAudioTrack" Core..=)
+              Core.<$> uniqueTicPerAudioTrack,
+            ("adiFilename" Core..=) Core.<$> adiFilename,
+            ("assetId" Core..=) Core.<$> assetId
           ]
       )

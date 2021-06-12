@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
 where
 
 import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,16 +55,16 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUnlinkDeveloperIdentity' smart constructor.
 data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
   { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Text,
+    identityId :: Core.Text,
     -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Text,
+    identityPoolId :: Core.Text,
     -- | The \"domain\" by which Cognito will refer to your users.
-    developerProviderName :: Prelude.Text,
+    developerProviderName :: Core.Text,
     -- | A unique ID used by your backend authentication process to identify a
     -- user.
-    developerUserIdentifier :: Prelude.Text
+    developerUserIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnlinkDeveloperIdentity' with all optional fields omitted.
@@ -85,13 +84,13 @@ data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
 -- user.
 newUnlinkDeveloperIdentity ::
   -- | 'identityId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'developerProviderName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'developerUserIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   UnlinkDeveloperIdentity
 newUnlinkDeveloperIdentity
   pIdentityId_
@@ -107,79 +106,76 @@ newUnlinkDeveloperIdentity
       }
 
 -- | A unique identifier in the format REGION:GUID.
-unlinkDeveloperIdentity_identityId :: Lens.Lens' UnlinkDeveloperIdentity Prelude.Text
+unlinkDeveloperIdentity_identityId :: Lens.Lens' UnlinkDeveloperIdentity Core.Text
 unlinkDeveloperIdentity_identityId = Lens.lens (\UnlinkDeveloperIdentity' {identityId} -> identityId) (\s@UnlinkDeveloperIdentity' {} a -> s {identityId = a} :: UnlinkDeveloperIdentity)
 
 -- | An identity pool ID in the format REGION:GUID.
-unlinkDeveloperIdentity_identityPoolId :: Lens.Lens' UnlinkDeveloperIdentity Prelude.Text
+unlinkDeveloperIdentity_identityPoolId :: Lens.Lens' UnlinkDeveloperIdentity Core.Text
 unlinkDeveloperIdentity_identityPoolId = Lens.lens (\UnlinkDeveloperIdentity' {identityPoolId} -> identityPoolId) (\s@UnlinkDeveloperIdentity' {} a -> s {identityPoolId = a} :: UnlinkDeveloperIdentity)
 
 -- | The \"domain\" by which Cognito will refer to your users.
-unlinkDeveloperIdentity_developerProviderName :: Lens.Lens' UnlinkDeveloperIdentity Prelude.Text
+unlinkDeveloperIdentity_developerProviderName :: Lens.Lens' UnlinkDeveloperIdentity Core.Text
 unlinkDeveloperIdentity_developerProviderName = Lens.lens (\UnlinkDeveloperIdentity' {developerProviderName} -> developerProviderName) (\s@UnlinkDeveloperIdentity' {} a -> s {developerProviderName = a} :: UnlinkDeveloperIdentity)
 
 -- | A unique ID used by your backend authentication process to identify a
 -- user.
-unlinkDeveloperIdentity_developerUserIdentifier :: Lens.Lens' UnlinkDeveloperIdentity Prelude.Text
+unlinkDeveloperIdentity_developerUserIdentifier :: Lens.Lens' UnlinkDeveloperIdentity Core.Text
 unlinkDeveloperIdentity_developerUserIdentifier = Lens.lens (\UnlinkDeveloperIdentity' {developerUserIdentifier} -> developerUserIdentifier) (\s@UnlinkDeveloperIdentity' {} a -> s {developerUserIdentifier = a} :: UnlinkDeveloperIdentity)
 
-instance Prelude.AWSRequest UnlinkDeveloperIdentity where
+instance Core.AWSRequest UnlinkDeveloperIdentity where
   type
-    Rs UnlinkDeveloperIdentity =
+    AWSResponse UnlinkDeveloperIdentity =
       UnlinkDeveloperIdentityResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UnlinkDeveloperIdentityResponse'
 
-instance Prelude.Hashable UnlinkDeveloperIdentity
+instance Core.Hashable UnlinkDeveloperIdentity
 
-instance Prelude.NFData UnlinkDeveloperIdentity
+instance Core.NFData UnlinkDeveloperIdentity
 
-instance Prelude.ToHeaders UnlinkDeveloperIdentity where
+instance Core.ToHeaders UnlinkDeveloperIdentity where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityService.UnlinkDeveloperIdentity" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityService.UnlinkDeveloperIdentity" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UnlinkDeveloperIdentity where
+instance Core.ToJSON UnlinkDeveloperIdentity where
   toJSON UnlinkDeveloperIdentity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("IdentityId" Prelude..= identityId),
-            Prelude.Just
-              ("IdentityPoolId" Prelude..= identityPoolId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("IdentityId" Core..= identityId),
+            Core.Just ("IdentityPoolId" Core..= identityPoolId),
+            Core.Just
               ( "DeveloperProviderName"
-                  Prelude..= developerProviderName
+                  Core..= developerProviderName
               ),
-            Prelude.Just
+            Core.Just
               ( "DeveloperUserIdentifier"
-                  Prelude..= developerUserIdentifier
+                  Core..= developerUserIdentifier
               )
           ]
       )
 
-instance Prelude.ToPath UnlinkDeveloperIdentity where
-  toPath = Prelude.const "/"
+instance Core.ToPath UnlinkDeveloperIdentity where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UnlinkDeveloperIdentity where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UnlinkDeveloperIdentity where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUnlinkDeveloperIdentityResponse' smart constructor.
 data UnlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnlinkDeveloperIdentityResponse' with all optional fields omitted.
@@ -190,6 +186,4 @@ newUnlinkDeveloperIdentityResponse ::
 newUnlinkDeveloperIdentityResponse =
   UnlinkDeveloperIdentityResponse'
 
-instance
-  Prelude.NFData
-    UnlinkDeveloperIdentityResponse
+instance Core.NFData UnlinkDeveloperIdentityResponse

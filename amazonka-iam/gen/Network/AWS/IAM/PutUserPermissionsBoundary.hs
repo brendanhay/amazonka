@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.IAM.PutUserPermissionsBoundary
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +57,12 @@ import qualified Network.AWS.Response as Response
 data PutUserPermissionsBoundary = PutUserPermissionsBoundary'
   { -- | The name (friendly name, not ARN) of the IAM user for which you want to
     -- set the permissions boundary.
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The ARN of the policy that is used to set the permissions boundary for
     -- the user.
-    permissionsBoundary :: Prelude.Text
+    permissionsBoundary :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutUserPermissionsBoundary' with all optional fields omitted.
@@ -80,9 +79,9 @@ data PutUserPermissionsBoundary = PutUserPermissionsBoundary'
 -- the user.
 newPutUserPermissionsBoundary ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'permissionsBoundary'
-  Prelude.Text ->
+  Core.Text ->
   PutUserPermissionsBoundary
 newPutUserPermissionsBoundary
   pUserName_
@@ -94,52 +93,48 @@ newPutUserPermissionsBoundary
 
 -- | The name (friendly name, not ARN) of the IAM user for which you want to
 -- set the permissions boundary.
-putUserPermissionsBoundary_userName :: Lens.Lens' PutUserPermissionsBoundary Prelude.Text
+putUserPermissionsBoundary_userName :: Lens.Lens' PutUserPermissionsBoundary Core.Text
 putUserPermissionsBoundary_userName = Lens.lens (\PutUserPermissionsBoundary' {userName} -> userName) (\s@PutUserPermissionsBoundary' {} a -> s {userName = a} :: PutUserPermissionsBoundary)
 
 -- | The ARN of the policy that is used to set the permissions boundary for
 -- the user.
-putUserPermissionsBoundary_permissionsBoundary :: Lens.Lens' PutUserPermissionsBoundary Prelude.Text
+putUserPermissionsBoundary_permissionsBoundary :: Lens.Lens' PutUserPermissionsBoundary Core.Text
 putUserPermissionsBoundary_permissionsBoundary = Lens.lens (\PutUserPermissionsBoundary' {permissionsBoundary} -> permissionsBoundary) (\s@PutUserPermissionsBoundary' {} a -> s {permissionsBoundary = a} :: PutUserPermissionsBoundary)
 
-instance
-  Prelude.AWSRequest
-    PutUserPermissionsBoundary
-  where
+instance Core.AWSRequest PutUserPermissionsBoundary where
   type
-    Rs PutUserPermissionsBoundary =
+    AWSResponse PutUserPermissionsBoundary =
       PutUserPermissionsBoundaryResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       PutUserPermissionsBoundaryResponse'
 
-instance Prelude.Hashable PutUserPermissionsBoundary
+instance Core.Hashable PutUserPermissionsBoundary
 
-instance Prelude.NFData PutUserPermissionsBoundary
+instance Core.NFData PutUserPermissionsBoundary
 
-instance Prelude.ToHeaders PutUserPermissionsBoundary where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutUserPermissionsBoundary where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PutUserPermissionsBoundary where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutUserPermissionsBoundary where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutUserPermissionsBoundary where
+instance Core.ToQuery PutUserPermissionsBoundary where
   toQuery PutUserPermissionsBoundary' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("PutUserPermissionsBoundary" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "PermissionsBoundary" Prelude.=: permissionsBoundary
+          Core.=: ("PutUserPermissionsBoundary" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "PermissionsBoundary" Core.=: permissionsBoundary
       ]
 
 -- | /See:/ 'newPutUserPermissionsBoundaryResponse' smart constructor.
 data PutUserPermissionsBoundaryResponse = PutUserPermissionsBoundaryResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutUserPermissionsBoundaryResponse' with all optional fields omitted.
@@ -151,5 +146,5 @@ newPutUserPermissionsBoundaryResponse =
   PutUserPermissionsBoundaryResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutUserPermissionsBoundaryResponse

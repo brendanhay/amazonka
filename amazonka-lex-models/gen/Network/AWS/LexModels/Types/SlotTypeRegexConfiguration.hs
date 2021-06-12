@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.SlotTypeRegexConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a regular expression used to validate the value of a slot.
 --
@@ -46,9 +45,9 @@ data SlotTypeRegexConfiguration = SlotTypeRegexConfiguration'
     -- -   Infinite repeaters: *, +, or {x,} with no upper bound.
     --
     -- -   Wild card (.)
-    pattern' :: Prelude.Text
+    pattern' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SlotTypeRegexConfiguration' with all optional fields omitted.
@@ -79,7 +78,7 @@ data SlotTypeRegexConfiguration = SlotTypeRegexConfiguration'
 -- -   Wild card (.)
 newSlotTypeRegexConfiguration ::
   -- | 'pattern''
-  Prelude.Text ->
+  Core.Text ->
   SlotTypeRegexConfiguration
 newSlotTypeRegexConfiguration pPattern_ =
   SlotTypeRegexConfiguration' {pattern' = pPattern_}
@@ -103,25 +102,25 @@ newSlotTypeRegexConfiguration pPattern_ =
 -- -   Infinite repeaters: *, +, or {x,} with no upper bound.
 --
 -- -   Wild card (.)
-slotTypeRegexConfiguration_pattern :: Lens.Lens' SlotTypeRegexConfiguration Prelude.Text
+slotTypeRegexConfiguration_pattern :: Lens.Lens' SlotTypeRegexConfiguration Core.Text
 slotTypeRegexConfiguration_pattern = Lens.lens (\SlotTypeRegexConfiguration' {pattern'} -> pattern') (\s@SlotTypeRegexConfiguration' {} a -> s {pattern' = a} :: SlotTypeRegexConfiguration)
 
-instance Prelude.FromJSON SlotTypeRegexConfiguration where
+instance Core.FromJSON SlotTypeRegexConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SlotTypeRegexConfiguration"
       ( \x ->
           SlotTypeRegexConfiguration'
-            Prelude.<$> (x Prelude..: "pattern")
+            Core.<$> (x Core..: "pattern")
       )
 
-instance Prelude.Hashable SlotTypeRegexConfiguration
+instance Core.Hashable SlotTypeRegexConfiguration
 
-instance Prelude.NFData SlotTypeRegexConfiguration
+instance Core.NFData SlotTypeRegexConfiguration
 
-instance Prelude.ToJSON SlotTypeRegexConfiguration where
+instance Core.ToJSON SlotTypeRegexConfiguration where
   toJSON SlotTypeRegexConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("pattern" Prelude..= pattern')]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("pattern" Core..= pattern')]
       )

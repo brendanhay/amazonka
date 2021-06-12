@@ -17,6 +17,5 @@ module Network.AWS.CloudSearch.Waiters where
 
 import Network.AWS.CloudSearch.Lens
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter

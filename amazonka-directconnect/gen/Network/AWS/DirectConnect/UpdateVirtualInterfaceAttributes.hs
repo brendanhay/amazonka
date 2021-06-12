@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,9 +71,9 @@ module Network.AWS.DirectConnect.UpdateVirtualInterfaceAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,11 +81,11 @@ import qualified Network.AWS.Response as Response
 data UpdateVirtualInterfaceAttributes = UpdateVirtualInterfaceAttributes'
   { -- | The maximum transmission unit (MTU), in bytes. The supported values are
     -- 1500 and 9001. The default value is 1500.
-    mtu :: Prelude.Maybe Prelude.Int,
+    mtu :: Core.Maybe Core.Int,
     -- | The ID of the virtual private interface.
-    virtualInterfaceId :: Prelude.Text
+    virtualInterfaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateVirtualInterfaceAttributes' with all optional fields omitted.
@@ -102,86 +101,74 @@ data UpdateVirtualInterfaceAttributes = UpdateVirtualInterfaceAttributes'
 -- 'virtualInterfaceId', 'updateVirtualInterfaceAttributes_virtualInterfaceId' - The ID of the virtual private interface.
 newUpdateVirtualInterfaceAttributes ::
   -- | 'virtualInterfaceId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateVirtualInterfaceAttributes
 newUpdateVirtualInterfaceAttributes
   pVirtualInterfaceId_ =
     UpdateVirtualInterfaceAttributes'
       { mtu =
-          Prelude.Nothing,
+          Core.Nothing,
         virtualInterfaceId = pVirtualInterfaceId_
       }
 
 -- | The maximum transmission unit (MTU), in bytes. The supported values are
 -- 1500 and 9001. The default value is 1500.
-updateVirtualInterfaceAttributes_mtu :: Lens.Lens' UpdateVirtualInterfaceAttributes (Prelude.Maybe Prelude.Int)
+updateVirtualInterfaceAttributes_mtu :: Lens.Lens' UpdateVirtualInterfaceAttributes (Core.Maybe Core.Int)
 updateVirtualInterfaceAttributes_mtu = Lens.lens (\UpdateVirtualInterfaceAttributes' {mtu} -> mtu) (\s@UpdateVirtualInterfaceAttributes' {} a -> s {mtu = a} :: UpdateVirtualInterfaceAttributes)
 
 -- | The ID of the virtual private interface.
-updateVirtualInterfaceAttributes_virtualInterfaceId :: Lens.Lens' UpdateVirtualInterfaceAttributes Prelude.Text
+updateVirtualInterfaceAttributes_virtualInterfaceId :: Lens.Lens' UpdateVirtualInterfaceAttributes Core.Text
 updateVirtualInterfaceAttributes_virtualInterfaceId = Lens.lens (\UpdateVirtualInterfaceAttributes' {virtualInterfaceId} -> virtualInterfaceId) (\s@UpdateVirtualInterfaceAttributes' {} a -> s {virtualInterfaceId = a} :: UpdateVirtualInterfaceAttributes)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateVirtualInterfaceAttributes
   where
   type
-    Rs UpdateVirtualInterfaceAttributes =
+    AWSResponse UpdateVirtualInterfaceAttributes =
       VirtualInterface
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateVirtualInterfaceAttributes
 
-instance
-  Prelude.NFData
-    UpdateVirtualInterfaceAttributes
+instance Core.NFData UpdateVirtualInterfaceAttributes
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateVirtualInterfaceAttributes
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.UpdateVirtualInterfaceAttributes" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.UpdateVirtualInterfaceAttributes" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    UpdateVirtualInterfaceAttributes
-  where
+instance Core.ToJSON UpdateVirtualInterfaceAttributes where
   toJSON UpdateVirtualInterfaceAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("mtu" Prelude..=) Prelude.<$> mtu,
-            Prelude.Just
-              ( "virtualInterfaceId"
-                  Prelude..= virtualInterfaceId
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("mtu" Core..=) Core.<$> mtu,
+            Core.Just
+              ("virtualInterfaceId" Core..= virtualInterfaceId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    UpdateVirtualInterfaceAttributes
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateVirtualInterfaceAttributes where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     UpdateVirtualInterfaceAttributes
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty

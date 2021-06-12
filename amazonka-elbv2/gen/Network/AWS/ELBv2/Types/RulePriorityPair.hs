@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.RulePriorityPair where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the priorities for the rules for a listener.
 --
 -- /See:/ 'newRulePriorityPair' smart constructor.
 data RulePriorityPair = RulePriorityPair'
   { -- | The Amazon Resource Name (ARN) of the rule.
-    ruleArn :: Prelude.Maybe Prelude.Text,
+    ruleArn :: Core.Maybe Core.Text,
     -- | The rule priority.
-    priority :: Prelude.Maybe Prelude.Natural
+    priority :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RulePriorityPair' with all optional fields omitted.
@@ -49,25 +48,25 @@ newRulePriorityPair ::
   RulePriorityPair
 newRulePriorityPair =
   RulePriorityPair'
-    { ruleArn = Prelude.Nothing,
-      priority = Prelude.Nothing
+    { ruleArn = Core.Nothing,
+      priority = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the rule.
-rulePriorityPair_ruleArn :: Lens.Lens' RulePriorityPair (Prelude.Maybe Prelude.Text)
+rulePriorityPair_ruleArn :: Lens.Lens' RulePriorityPair (Core.Maybe Core.Text)
 rulePriorityPair_ruleArn = Lens.lens (\RulePriorityPair' {ruleArn} -> ruleArn) (\s@RulePriorityPair' {} a -> s {ruleArn = a} :: RulePriorityPair)
 
 -- | The rule priority.
-rulePriorityPair_priority :: Lens.Lens' RulePriorityPair (Prelude.Maybe Prelude.Natural)
+rulePriorityPair_priority :: Lens.Lens' RulePriorityPair (Core.Maybe Core.Natural)
 rulePriorityPair_priority = Lens.lens (\RulePriorityPair' {priority} -> priority) (\s@RulePriorityPair' {} a -> s {priority = a} :: RulePriorityPair)
 
-instance Prelude.Hashable RulePriorityPair
+instance Core.Hashable RulePriorityPair
 
-instance Prelude.NFData RulePriorityPair
+instance Core.NFData RulePriorityPair
 
-instance Prelude.ToQuery RulePriorityPair where
+instance Core.ToQuery RulePriorityPair where
   toQuery RulePriorityPair' {..} =
-    Prelude.mconcat
-      [ "RuleArn" Prelude.=: ruleArn,
-        "Priority" Prelude.=: priority
+    Core.mconcat
+      [ "RuleArn" Core.=: ruleArn,
+        "Priority" Core.=: priority
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,13 +19,13 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.SegmentDimensions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.AttributeDimension
 import Network.AWS.Pinpoint.Types.MetricDimension
 import Network.AWS.Pinpoint.Types.SegmentBehaviors
 import Network.AWS.Pinpoint.Types.SegmentDemographics
 import Network.AWS.Pinpoint.Types.SegmentLocation
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the dimension settings for a segment.
 --
@@ -34,21 +33,21 @@ import qualified Network.AWS.Prelude as Prelude
 data SegmentDimensions = SegmentDimensions'
   { -- | The demographic-based criteria, such as device platform, for the
     -- segment.
-    demographic :: Prelude.Maybe SegmentDemographics,
+    demographic :: Core.Maybe SegmentDemographics,
     -- | One or more custom attributes to use as criteria for the segment.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeDimension),
+    attributes :: Core.Maybe (Core.HashMap Core.Text AttributeDimension),
     -- | One or more custom metrics to use as criteria for the segment.
-    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetricDimension),
+    metrics :: Core.Maybe (Core.HashMap Core.Text MetricDimension),
     -- | The behavior-based criteria, such as how recently users have used your
     -- app, for the segment.
-    behavior :: Prelude.Maybe SegmentBehaviors,
+    behavior :: Core.Maybe SegmentBehaviors,
     -- | One or more custom user attributes to use as criteria for the segment.
-    userAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeDimension),
+    userAttributes :: Core.Maybe (Core.HashMap Core.Text AttributeDimension),
     -- | The location-based criteria, such as region or GPS coordinates, for the
     -- segment.
-    location :: Prelude.Maybe SegmentLocation
+    location :: Core.Maybe SegmentLocation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SegmentDimensions' with all optional fields omitted.
@@ -76,73 +75,68 @@ newSegmentDimensions ::
   SegmentDimensions
 newSegmentDimensions =
   SegmentDimensions'
-    { demographic = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      metrics = Prelude.Nothing,
-      behavior = Prelude.Nothing,
-      userAttributes = Prelude.Nothing,
-      location = Prelude.Nothing
+    { demographic = Core.Nothing,
+      attributes = Core.Nothing,
+      metrics = Core.Nothing,
+      behavior = Core.Nothing,
+      userAttributes = Core.Nothing,
+      location = Core.Nothing
     }
 
 -- | The demographic-based criteria, such as device platform, for the
 -- segment.
-segmentDimensions_demographic :: Lens.Lens' SegmentDimensions (Prelude.Maybe SegmentDemographics)
+segmentDimensions_demographic :: Lens.Lens' SegmentDimensions (Core.Maybe SegmentDemographics)
 segmentDimensions_demographic = Lens.lens (\SegmentDimensions' {demographic} -> demographic) (\s@SegmentDimensions' {} a -> s {demographic = a} :: SegmentDimensions)
 
 -- | One or more custom attributes to use as criteria for the segment.
-segmentDimensions_attributes :: Lens.Lens' SegmentDimensions (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeDimension))
-segmentDimensions_attributes = Lens.lens (\SegmentDimensions' {attributes} -> attributes) (\s@SegmentDimensions' {} a -> s {attributes = a} :: SegmentDimensions) Prelude.. Lens.mapping Prelude._Coerce
+segmentDimensions_attributes :: Lens.Lens' SegmentDimensions (Core.Maybe (Core.HashMap Core.Text AttributeDimension))
+segmentDimensions_attributes = Lens.lens (\SegmentDimensions' {attributes} -> attributes) (\s@SegmentDimensions' {} a -> s {attributes = a} :: SegmentDimensions) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more custom metrics to use as criteria for the segment.
-segmentDimensions_metrics :: Lens.Lens' SegmentDimensions (Prelude.Maybe (Prelude.HashMap Prelude.Text MetricDimension))
-segmentDimensions_metrics = Lens.lens (\SegmentDimensions' {metrics} -> metrics) (\s@SegmentDimensions' {} a -> s {metrics = a} :: SegmentDimensions) Prelude.. Lens.mapping Prelude._Coerce
+segmentDimensions_metrics :: Lens.Lens' SegmentDimensions (Core.Maybe (Core.HashMap Core.Text MetricDimension))
+segmentDimensions_metrics = Lens.lens (\SegmentDimensions' {metrics} -> metrics) (\s@SegmentDimensions' {} a -> s {metrics = a} :: SegmentDimensions) Core.. Lens.mapping Lens._Coerce
 
 -- | The behavior-based criteria, such as how recently users have used your
 -- app, for the segment.
-segmentDimensions_behavior :: Lens.Lens' SegmentDimensions (Prelude.Maybe SegmentBehaviors)
+segmentDimensions_behavior :: Lens.Lens' SegmentDimensions (Core.Maybe SegmentBehaviors)
 segmentDimensions_behavior = Lens.lens (\SegmentDimensions' {behavior} -> behavior) (\s@SegmentDimensions' {} a -> s {behavior = a} :: SegmentDimensions)
 
 -- | One or more custom user attributes to use as criteria for the segment.
-segmentDimensions_userAttributes :: Lens.Lens' SegmentDimensions (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeDimension))
-segmentDimensions_userAttributes = Lens.lens (\SegmentDimensions' {userAttributes} -> userAttributes) (\s@SegmentDimensions' {} a -> s {userAttributes = a} :: SegmentDimensions) Prelude.. Lens.mapping Prelude._Coerce
+segmentDimensions_userAttributes :: Lens.Lens' SegmentDimensions (Core.Maybe (Core.HashMap Core.Text AttributeDimension))
+segmentDimensions_userAttributes = Lens.lens (\SegmentDimensions' {userAttributes} -> userAttributes) (\s@SegmentDimensions' {} a -> s {userAttributes = a} :: SegmentDimensions) Core.. Lens.mapping Lens._Coerce
 
 -- | The location-based criteria, such as region or GPS coordinates, for the
 -- segment.
-segmentDimensions_location :: Lens.Lens' SegmentDimensions (Prelude.Maybe SegmentLocation)
+segmentDimensions_location :: Lens.Lens' SegmentDimensions (Core.Maybe SegmentLocation)
 segmentDimensions_location = Lens.lens (\SegmentDimensions' {location} -> location) (\s@SegmentDimensions' {} a -> s {location = a} :: SegmentDimensions)
 
-instance Prelude.FromJSON SegmentDimensions where
+instance Core.FromJSON SegmentDimensions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SegmentDimensions"
       ( \x ->
           SegmentDimensions'
-            Prelude.<$> (x Prelude..:? "Demographic")
-            Prelude.<*> ( x Prelude..:? "Attributes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Metrics" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Behavior")
-            Prelude.<*> ( x Prelude..:? "UserAttributes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Location")
+            Core.<$> (x Core..:? "Demographic")
+            Core.<*> (x Core..:? "Attributes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Metrics" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Behavior")
+            Core.<*> (x Core..:? "UserAttributes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Location")
       )
 
-instance Prelude.Hashable SegmentDimensions
+instance Core.Hashable SegmentDimensions
 
-instance Prelude.NFData SegmentDimensions
+instance Core.NFData SegmentDimensions
 
-instance Prelude.ToJSON SegmentDimensions where
+instance Core.ToJSON SegmentDimensions where
   toJSON SegmentDimensions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Demographic" Prelude..=) Prelude.<$> demographic,
-            ("Attributes" Prelude..=) Prelude.<$> attributes,
-            ("Metrics" Prelude..=) Prelude.<$> metrics,
-            ("Behavior" Prelude..=) Prelude.<$> behavior,
-            ("UserAttributes" Prelude..=)
-              Prelude.<$> userAttributes,
-            ("Location" Prelude..=) Prelude.<$> location
+    Core.object
+      ( Core.catMaybes
+          [ ("Demographic" Core..=) Core.<$> demographic,
+            ("Attributes" Core..=) Core.<$> attributes,
+            ("Metrics" Core..=) Core.<$> metrics,
+            ("Behavior" Core..=) Core.<$> behavior,
+            ("UserAttributes" Core..=) Core.<$> userAttributes,
+            ("Location" Core..=) Core.<$> location
           ]
       )

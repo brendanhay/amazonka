@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,13 +58,13 @@ data CreateUserPoolDomain = CreateUserPoolDomain'
     --
     -- For more information about the hosted domain and custom domains, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain>.
-    customDomainConfig :: Prelude.Maybe CustomDomainConfigType,
+    customDomainConfig :: Core.Maybe CustomDomainConfigType,
     -- | The domain string.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | The user pool ID.
-    userPoolId :: Prelude.Text
+    userPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUserPoolDomain' with all optional fields omitted.
@@ -90,14 +89,14 @@ data CreateUserPoolDomain = CreateUserPoolDomain'
 -- 'userPoolId', 'createUserPoolDomain_userPoolId' - The user pool ID.
 newCreateUserPoolDomain ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   CreateUserPoolDomain
 newCreateUserPoolDomain pDomain_ pUserPoolId_ =
   CreateUserPoolDomain'
     { customDomainConfig =
-        Prelude.Nothing,
+        Core.Nothing,
       domain = pDomain_,
       userPoolId = pUserPoolId_
     }
@@ -111,75 +110,73 @@ newCreateUserPoolDomain pDomain_ pUserPoolId_ =
 --
 -- For more information about the hosted domain and custom domains, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain>.
-createUserPoolDomain_customDomainConfig :: Lens.Lens' CreateUserPoolDomain (Prelude.Maybe CustomDomainConfigType)
+createUserPoolDomain_customDomainConfig :: Lens.Lens' CreateUserPoolDomain (Core.Maybe CustomDomainConfigType)
 createUserPoolDomain_customDomainConfig = Lens.lens (\CreateUserPoolDomain' {customDomainConfig} -> customDomainConfig) (\s@CreateUserPoolDomain' {} a -> s {customDomainConfig = a} :: CreateUserPoolDomain)
 
 -- | The domain string.
-createUserPoolDomain_domain :: Lens.Lens' CreateUserPoolDomain Prelude.Text
+createUserPoolDomain_domain :: Lens.Lens' CreateUserPoolDomain Core.Text
 createUserPoolDomain_domain = Lens.lens (\CreateUserPoolDomain' {domain} -> domain) (\s@CreateUserPoolDomain' {} a -> s {domain = a} :: CreateUserPoolDomain)
 
 -- | The user pool ID.
-createUserPoolDomain_userPoolId :: Lens.Lens' CreateUserPoolDomain Prelude.Text
+createUserPoolDomain_userPoolId :: Lens.Lens' CreateUserPoolDomain Core.Text
 createUserPoolDomain_userPoolId = Lens.lens (\CreateUserPoolDomain' {userPoolId} -> userPoolId) (\s@CreateUserPoolDomain' {} a -> s {userPoolId = a} :: CreateUserPoolDomain)
 
-instance Prelude.AWSRequest CreateUserPoolDomain where
+instance Core.AWSRequest CreateUserPoolDomain where
   type
-    Rs CreateUserPoolDomain =
+    AWSResponse CreateUserPoolDomain =
       CreateUserPoolDomainResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateUserPoolDomainResponse'
-            Prelude.<$> (x Prelude..?> "CloudFrontDomain")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CloudFrontDomain")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUserPoolDomain
+instance Core.Hashable CreateUserPoolDomain
 
-instance Prelude.NFData CreateUserPoolDomain
+instance Core.NFData CreateUserPoolDomain
 
-instance Prelude.ToHeaders CreateUserPoolDomain where
+instance Core.ToHeaders CreateUserPoolDomain where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.CreateUserPoolDomain" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.CreateUserPoolDomain" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateUserPoolDomain where
+instance Core.ToJSON CreateUserPoolDomain where
   toJSON CreateUserPoolDomain' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CustomDomainConfig" Prelude..=)
-              Prelude.<$> customDomainConfig,
-            Prelude.Just ("Domain" Prelude..= domain),
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId)
+    Core.object
+      ( Core.catMaybes
+          [ ("CustomDomainConfig" Core..=)
+              Core.<$> customDomainConfig,
+            Core.Just ("Domain" Core..= domain),
+            Core.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
-instance Prelude.ToPath CreateUserPoolDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateUserPoolDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateUserPoolDomain where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateUserPoolDomain where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateUserPoolDomainResponse' smart constructor.
 data CreateUserPoolDomainResponse = CreateUserPoolDomainResponse'
   { -- | The Amazon CloudFront endpoint that you use as the target of the alias
     -- that you set up with your Domain Name Service (DNS) provider.
-    cloudFrontDomain :: Prelude.Maybe Prelude.Text,
+    cloudFrontDomain :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUserPoolDomainResponse' with all optional fields omitted.
@@ -195,22 +192,22 @@ data CreateUserPoolDomainResponse = CreateUserPoolDomainResponse'
 -- 'httpStatus', 'createUserPoolDomainResponse_httpStatus' - The response's http status code.
 newCreateUserPoolDomainResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateUserPoolDomainResponse
 newCreateUserPoolDomainResponse pHttpStatus_ =
   CreateUserPoolDomainResponse'
     { cloudFrontDomain =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon CloudFront endpoint that you use as the target of the alias
 -- that you set up with your Domain Name Service (DNS) provider.
-createUserPoolDomainResponse_cloudFrontDomain :: Lens.Lens' CreateUserPoolDomainResponse (Prelude.Maybe Prelude.Text)
+createUserPoolDomainResponse_cloudFrontDomain :: Lens.Lens' CreateUserPoolDomainResponse (Core.Maybe Core.Text)
 createUserPoolDomainResponse_cloudFrontDomain = Lens.lens (\CreateUserPoolDomainResponse' {cloudFrontDomain} -> cloudFrontDomain) (\s@CreateUserPoolDomainResponse' {} a -> s {cloudFrontDomain = a} :: CreateUserPoolDomainResponse)
 
 -- | The response's http status code.
-createUserPoolDomainResponse_httpStatus :: Lens.Lens' CreateUserPoolDomainResponse Prelude.Int
+createUserPoolDomainResponse_httpStatus :: Lens.Lens' CreateUserPoolDomainResponse Core.Int
 createUserPoolDomainResponse_httpStatus = Lens.lens (\CreateUserPoolDomainResponse' {httpStatus} -> httpStatus) (\s@CreateUserPoolDomainResponse' {} a -> s {httpStatus = a} :: CreateUserPoolDomainResponse)
 
-instance Prelude.NFData CreateUserPoolDomainResponse
+instance Core.NFData CreateUserPoolDomainResponse

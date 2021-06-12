@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,28 +19,28 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.ImageScanFinding where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.Attribute
 import Network.AWS.ECR.Types.FindingSeverity
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an image scan finding.
 --
 -- /See:/ 'newImageScanFinding' smart constructor.
 data ImageScanFinding = ImageScanFinding'
   { -- | A link containing additional details about the security vulnerability.
-    uri :: Prelude.Maybe Prelude.Text,
+    uri :: Core.Maybe Core.Text,
     -- | The finding severity.
-    severity :: Prelude.Maybe FindingSeverity,
+    severity :: Core.Maybe FindingSeverity,
     -- | The name associated with the finding, usually a CVE number.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A collection of attributes of the host from which the finding is
     -- generated.
-    attributes :: Prelude.Maybe [Attribute],
+    attributes :: Core.Maybe [Attribute],
     -- | The description of the finding.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImageScanFinding' with all optional fields omitted.
@@ -65,49 +64,47 @@ newImageScanFinding ::
   ImageScanFinding
 newImageScanFinding =
   ImageScanFinding'
-    { uri = Prelude.Nothing,
-      severity = Prelude.Nothing,
-      name = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      description = Prelude.Nothing
+    { uri = Core.Nothing,
+      severity = Core.Nothing,
+      name = Core.Nothing,
+      attributes = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | A link containing additional details about the security vulnerability.
-imageScanFinding_uri :: Lens.Lens' ImageScanFinding (Prelude.Maybe Prelude.Text)
+imageScanFinding_uri :: Lens.Lens' ImageScanFinding (Core.Maybe Core.Text)
 imageScanFinding_uri = Lens.lens (\ImageScanFinding' {uri} -> uri) (\s@ImageScanFinding' {} a -> s {uri = a} :: ImageScanFinding)
 
 -- | The finding severity.
-imageScanFinding_severity :: Lens.Lens' ImageScanFinding (Prelude.Maybe FindingSeverity)
+imageScanFinding_severity :: Lens.Lens' ImageScanFinding (Core.Maybe FindingSeverity)
 imageScanFinding_severity = Lens.lens (\ImageScanFinding' {severity} -> severity) (\s@ImageScanFinding' {} a -> s {severity = a} :: ImageScanFinding)
 
 -- | The name associated with the finding, usually a CVE number.
-imageScanFinding_name :: Lens.Lens' ImageScanFinding (Prelude.Maybe Prelude.Text)
+imageScanFinding_name :: Lens.Lens' ImageScanFinding (Core.Maybe Core.Text)
 imageScanFinding_name = Lens.lens (\ImageScanFinding' {name} -> name) (\s@ImageScanFinding' {} a -> s {name = a} :: ImageScanFinding)
 
 -- | A collection of attributes of the host from which the finding is
 -- generated.
-imageScanFinding_attributes :: Lens.Lens' ImageScanFinding (Prelude.Maybe [Attribute])
-imageScanFinding_attributes = Lens.lens (\ImageScanFinding' {attributes} -> attributes) (\s@ImageScanFinding' {} a -> s {attributes = a} :: ImageScanFinding) Prelude.. Lens.mapping Prelude._Coerce
+imageScanFinding_attributes :: Lens.Lens' ImageScanFinding (Core.Maybe [Attribute])
+imageScanFinding_attributes = Lens.lens (\ImageScanFinding' {attributes} -> attributes) (\s@ImageScanFinding' {} a -> s {attributes = a} :: ImageScanFinding) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of the finding.
-imageScanFinding_description :: Lens.Lens' ImageScanFinding (Prelude.Maybe Prelude.Text)
+imageScanFinding_description :: Lens.Lens' ImageScanFinding (Core.Maybe Core.Text)
 imageScanFinding_description = Lens.lens (\ImageScanFinding' {description} -> description) (\s@ImageScanFinding' {} a -> s {description = a} :: ImageScanFinding)
 
-instance Prelude.FromJSON ImageScanFinding where
+instance Core.FromJSON ImageScanFinding where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImageScanFinding"
       ( \x ->
           ImageScanFinding'
-            Prelude.<$> (x Prelude..:? "uri")
-            Prelude.<*> (x Prelude..:? "severity")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> ( x Prelude..:? "attributes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "description")
+            Core.<$> (x Core..:? "uri")
+            Core.<*> (x Core..:? "severity")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "attributes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ImageScanFinding
+instance Core.Hashable ImageScanFinding
 
-instance Prelude.NFData ImageScanFinding
+instance Core.NFData ImageScanFinding

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,30 +19,30 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Polly.Types.Voice where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Polly.Types.Engine
 import Network.AWS.Polly.Types.Gender
 import Network.AWS.Polly.Types.LanguageCode
 import Network.AWS.Polly.Types.VoiceId
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Description of the voice.
 --
 -- /See:/ 'newVoice' smart constructor.
 data Voice = Voice'
   { -- | Language code of the voice.
-    languageCode :: Prelude.Maybe LanguageCode,
+    languageCode :: Core.Maybe LanguageCode,
     -- | Amazon Polly assigned voice ID. This is the ID that you specify when
     -- calling the @SynthesizeSpeech@ operation.
-    id :: Prelude.Maybe VoiceId,
+    id :: Core.Maybe VoiceId,
     -- | Gender of the voice.
-    gender :: Prelude.Maybe Gender,
+    gender :: Core.Maybe Gender,
     -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a
     -- human readable voice name that you might display in your application.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Specifies which engines (@standard@ or @neural@) that are supported by a
     -- given voice.
-    supportedEngines :: Prelude.Maybe [Engine],
+    supportedEngines :: Core.Maybe [Engine],
     -- | Additional codes for languages available for the specified voice in
     -- addition to its default language.
     --
@@ -51,11 +50,11 @@ data Voice = Voice'
     -- because it was first used for that language. Since Aditi is bilingual
     -- and fluent in both Indian English and Hindi, this parameter would show
     -- the code @hi-IN@.
-    additionalLanguageCodes :: Prelude.Maybe [LanguageCode],
+    additionalLanguageCodes :: Core.Maybe [LanguageCode],
     -- | Human readable name of the language in English.
-    languageName :: Prelude.Maybe Prelude.Text
+    languageName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Voice' with all optional fields omitted.
@@ -91,37 +90,37 @@ newVoice ::
   Voice
 newVoice =
   Voice'
-    { languageCode = Prelude.Nothing,
-      id = Prelude.Nothing,
-      gender = Prelude.Nothing,
-      name = Prelude.Nothing,
-      supportedEngines = Prelude.Nothing,
-      additionalLanguageCodes = Prelude.Nothing,
-      languageName = Prelude.Nothing
+    { languageCode = Core.Nothing,
+      id = Core.Nothing,
+      gender = Core.Nothing,
+      name = Core.Nothing,
+      supportedEngines = Core.Nothing,
+      additionalLanguageCodes = Core.Nothing,
+      languageName = Core.Nothing
     }
 
 -- | Language code of the voice.
-voice_languageCode :: Lens.Lens' Voice (Prelude.Maybe LanguageCode)
+voice_languageCode :: Lens.Lens' Voice (Core.Maybe LanguageCode)
 voice_languageCode = Lens.lens (\Voice' {languageCode} -> languageCode) (\s@Voice' {} a -> s {languageCode = a} :: Voice)
 
 -- | Amazon Polly assigned voice ID. This is the ID that you specify when
 -- calling the @SynthesizeSpeech@ operation.
-voice_id :: Lens.Lens' Voice (Prelude.Maybe VoiceId)
+voice_id :: Lens.Lens' Voice (Core.Maybe VoiceId)
 voice_id = Lens.lens (\Voice' {id} -> id) (\s@Voice' {} a -> s {id = a} :: Voice)
 
 -- | Gender of the voice.
-voice_gender :: Lens.Lens' Voice (Prelude.Maybe Gender)
+voice_gender :: Lens.Lens' Voice (Core.Maybe Gender)
 voice_gender = Lens.lens (\Voice' {gender} -> gender) (\s@Voice' {} a -> s {gender = a} :: Voice)
 
 -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a
 -- human readable voice name that you might display in your application.
-voice_name :: Lens.Lens' Voice (Prelude.Maybe Prelude.Text)
+voice_name :: Lens.Lens' Voice (Core.Maybe Core.Text)
 voice_name = Lens.lens (\Voice' {name} -> name) (\s@Voice' {} a -> s {name = a} :: Voice)
 
 -- | Specifies which engines (@standard@ or @neural@) that are supported by a
 -- given voice.
-voice_supportedEngines :: Lens.Lens' Voice (Prelude.Maybe [Engine])
-voice_supportedEngines = Lens.lens (\Voice' {supportedEngines} -> supportedEngines) (\s@Voice' {} a -> s {supportedEngines = a} :: Voice) Prelude.. Lens.mapping Prelude._Coerce
+voice_supportedEngines :: Lens.Lens' Voice (Core.Maybe [Engine])
+voice_supportedEngines = Lens.lens (\Voice' {supportedEngines} -> supportedEngines) (\s@Voice' {} a -> s {supportedEngines = a} :: Voice) Core.. Lens.mapping Lens._Coerce
 
 -- | Additional codes for languages available for the specified voice in
 -- addition to its default language.
@@ -130,32 +129,30 @@ voice_supportedEngines = Lens.lens (\Voice' {supportedEngines} -> supportedEngin
 -- because it was first used for that language. Since Aditi is bilingual
 -- and fluent in both Indian English and Hindi, this parameter would show
 -- the code @hi-IN@.
-voice_additionalLanguageCodes :: Lens.Lens' Voice (Prelude.Maybe [LanguageCode])
-voice_additionalLanguageCodes = Lens.lens (\Voice' {additionalLanguageCodes} -> additionalLanguageCodes) (\s@Voice' {} a -> s {additionalLanguageCodes = a} :: Voice) Prelude.. Lens.mapping Prelude._Coerce
+voice_additionalLanguageCodes :: Lens.Lens' Voice (Core.Maybe [LanguageCode])
+voice_additionalLanguageCodes = Lens.lens (\Voice' {additionalLanguageCodes} -> additionalLanguageCodes) (\s@Voice' {} a -> s {additionalLanguageCodes = a} :: Voice) Core.. Lens.mapping Lens._Coerce
 
 -- | Human readable name of the language in English.
-voice_languageName :: Lens.Lens' Voice (Prelude.Maybe Prelude.Text)
+voice_languageName :: Lens.Lens' Voice (Core.Maybe Core.Text)
 voice_languageName = Lens.lens (\Voice' {languageName} -> languageName) (\s@Voice' {} a -> s {languageName = a} :: Voice)
 
-instance Prelude.FromJSON Voice where
+instance Core.FromJSON Voice where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Voice"
       ( \x ->
           Voice'
-            Prelude.<$> (x Prelude..:? "LanguageCode")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Gender")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> ( x Prelude..:? "SupportedEngines"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "AdditionalLanguageCodes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "LanguageName")
+            Core.<$> (x Core..:? "LanguageCode")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Gender")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "SupportedEngines" Core..!= Core.mempty)
+            Core.<*> ( x Core..:? "AdditionalLanguageCodes"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "LanguageName")
       )
 
-instance Prelude.Hashable Voice
+instance Core.Hashable Voice
 
-instance Prelude.NFData Voice
+instance Core.NFData Voice

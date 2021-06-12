@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.ParameterNameValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a name-value pair that is used to update the value of a
 -- parameter.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newParameterNameValue' smart constructor.
 data ParameterNameValue = ParameterNameValue'
   { -- | The value of the parameter.
-    parameterValue :: Prelude.Maybe Prelude.Text,
+    parameterValue :: Core.Maybe Core.Text,
     -- | The name of the parameter.
-    parameterName :: Prelude.Maybe Prelude.Text
+    parameterName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterNameValue' with all optional fields omitted.
@@ -50,26 +49,25 @@ newParameterNameValue ::
   ParameterNameValue
 newParameterNameValue =
   ParameterNameValue'
-    { parameterValue =
-        Prelude.Nothing,
-      parameterName = Prelude.Nothing
+    { parameterValue = Core.Nothing,
+      parameterName = Core.Nothing
     }
 
 -- | The value of the parameter.
-parameterNameValue_parameterValue :: Lens.Lens' ParameterNameValue (Prelude.Maybe Prelude.Text)
+parameterNameValue_parameterValue :: Lens.Lens' ParameterNameValue (Core.Maybe Core.Text)
 parameterNameValue_parameterValue = Lens.lens (\ParameterNameValue' {parameterValue} -> parameterValue) (\s@ParameterNameValue' {} a -> s {parameterValue = a} :: ParameterNameValue)
 
 -- | The name of the parameter.
-parameterNameValue_parameterName :: Lens.Lens' ParameterNameValue (Prelude.Maybe Prelude.Text)
+parameterNameValue_parameterName :: Lens.Lens' ParameterNameValue (Core.Maybe Core.Text)
 parameterNameValue_parameterName = Lens.lens (\ParameterNameValue' {parameterName} -> parameterName) (\s@ParameterNameValue' {} a -> s {parameterName = a} :: ParameterNameValue)
 
-instance Prelude.Hashable ParameterNameValue
+instance Core.Hashable ParameterNameValue
 
-instance Prelude.NFData ParameterNameValue
+instance Core.NFData ParameterNameValue
 
-instance Prelude.ToQuery ParameterNameValue where
+instance Core.ToQuery ParameterNameValue where
   toQuery ParameterNameValue' {..} =
-    Prelude.mconcat
-      [ "ParameterValue" Prelude.=: parameterValue,
-        "ParameterName" Prelude.=: parameterName
+    Core.mconcat
+      [ "ParameterValue" Core.=: parameterValue,
+        "ParameterName" Core.=: parameterName
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudDirectory.BatchWrite
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data BatchWrite = BatchWrite'
   { -- | The Amazon Resource Name (ARN) that is associated with the Directory.
     -- For more information, see arns.
-    directoryArn :: Prelude.Text,
+    directoryArn :: Core.Text,
     -- | A list of operations that are part of the batch.
     operations :: [BatchWriteOperation]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchWrite' with all optional fields omitted.
@@ -72,68 +71,66 @@ data BatchWrite = BatchWrite'
 -- 'operations', 'batchWrite_operations' - A list of operations that are part of the batch.
 newBatchWrite ::
   -- | 'directoryArn'
-  Prelude.Text ->
+  Core.Text ->
   BatchWrite
 newBatchWrite pDirectoryArn_ =
   BatchWrite'
     { directoryArn = pDirectoryArn_,
-      operations = Prelude.mempty
+      operations = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory.
 -- For more information, see arns.
-batchWrite_directoryArn :: Lens.Lens' BatchWrite Prelude.Text
+batchWrite_directoryArn :: Lens.Lens' BatchWrite Core.Text
 batchWrite_directoryArn = Lens.lens (\BatchWrite' {directoryArn} -> directoryArn) (\s@BatchWrite' {} a -> s {directoryArn = a} :: BatchWrite)
 
 -- | A list of operations that are part of the batch.
 batchWrite_operations :: Lens.Lens' BatchWrite [BatchWriteOperation]
-batchWrite_operations = Lens.lens (\BatchWrite' {operations} -> operations) (\s@BatchWrite' {} a -> s {operations = a} :: BatchWrite) Prelude.. Prelude._Coerce
+batchWrite_operations = Lens.lens (\BatchWrite' {operations} -> operations) (\s@BatchWrite' {} a -> s {operations = a} :: BatchWrite) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchWrite where
-  type Rs BatchWrite = BatchWriteResponse
+instance Core.AWSRequest BatchWrite where
+  type AWSResponse BatchWrite = BatchWriteResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchWriteResponse'
-            Prelude.<$> ( x Prelude..?> "Responses"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Responses" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchWrite
+instance Core.Hashable BatchWrite
 
-instance Prelude.NFData BatchWrite
+instance Core.NFData BatchWrite
 
-instance Prelude.ToHeaders BatchWrite where
+instance Core.ToHeaders BatchWrite where
   toHeaders BatchWrite' {..} =
-    Prelude.mconcat
-      ["x-amz-data-partition" Prelude.=# directoryArn]
+    Core.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance Prelude.ToJSON BatchWrite where
+instance Core.ToJSON BatchWrite where
   toJSON BatchWrite' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Operations" Prelude..= operations)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Operations" Core..= operations)]
       )
 
-instance Prelude.ToPath BatchWrite where
+instance Core.ToPath BatchWrite where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/batchwrite"
 
-instance Prelude.ToQuery BatchWrite where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchWrite where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchWriteResponse' smart constructor.
 data BatchWriteResponse = BatchWriteResponse'
   { -- | A list of all the responses for each batch write.
-    responses :: Prelude.Maybe [BatchWriteOperationResponse],
+    responses :: Core.Maybe [BatchWriteOperationResponse],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchWriteResponse' with all optional fields omitted.
@@ -148,20 +145,20 @@ data BatchWriteResponse = BatchWriteResponse'
 -- 'httpStatus', 'batchWriteResponse_httpStatus' - The response's http status code.
 newBatchWriteResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchWriteResponse
 newBatchWriteResponse pHttpStatus_ =
   BatchWriteResponse'
-    { responses = Prelude.Nothing,
+    { responses = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of all the responses for each batch write.
-batchWriteResponse_responses :: Lens.Lens' BatchWriteResponse (Prelude.Maybe [BatchWriteOperationResponse])
-batchWriteResponse_responses = Lens.lens (\BatchWriteResponse' {responses} -> responses) (\s@BatchWriteResponse' {} a -> s {responses = a} :: BatchWriteResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchWriteResponse_responses :: Lens.Lens' BatchWriteResponse (Core.Maybe [BatchWriteOperationResponse])
+batchWriteResponse_responses = Lens.lens (\BatchWriteResponse' {responses} -> responses) (\s@BatchWriteResponse' {} a -> s {responses = a} :: BatchWriteResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchWriteResponse_httpStatus :: Lens.Lens' BatchWriteResponse Prelude.Int
+batchWriteResponse_httpStatus :: Lens.Lens' BatchWriteResponse Core.Int
 batchWriteResponse_httpStatus = Lens.lens (\BatchWriteResponse' {httpStatus} -> httpStatus) (\s@BatchWriteResponse' {} a -> s {httpStatus = a} :: BatchWriteResponse)
 
-instance Prelude.NFData BatchWriteResponse
+instance Core.NFData BatchWriteResponse

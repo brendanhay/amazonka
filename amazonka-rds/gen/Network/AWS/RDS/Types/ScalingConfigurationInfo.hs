@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.ScalingConfigurationInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Shows the scaling configuration for an Aurora DB cluster in @serverless@
 -- DB engine mode.
@@ -34,25 +33,25 @@ import qualified Network.AWS.Prelude as Prelude
 data ScalingConfigurationInfo = ScalingConfigurationInfo'
   { -- | The maximum capacity for an Aurora DB cluster in @serverless@ DB engine
     -- mode.
-    maxCapacity :: Prelude.Maybe Prelude.Int,
+    maxCapacity :: Core.Maybe Core.Int,
     -- | A value that indicates whether automatic pause is allowed for the Aurora
     -- DB cluster in @serverless@ DB engine mode.
     --
     -- When the value is set to false for an Aurora Serverless DB cluster, the
     -- DB cluster automatically resumes.
-    autoPause :: Prelude.Maybe Prelude.Bool,
+    autoPause :: Core.Maybe Core.Bool,
     -- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
     -- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
-    timeoutAction :: Prelude.Maybe Prelude.Text,
+    timeoutAction :: Core.Maybe Core.Text,
     -- | The remaining amount of time, in seconds, before the Aurora DB cluster
     -- in @serverless@ mode is paused. A DB cluster can be paused only when
     -- it\'s idle (it has no connections).
-    secondsUntilAutoPause :: Prelude.Maybe Prelude.Int,
+    secondsUntilAutoPause :: Core.Maybe Core.Int,
     -- | The maximum capacity for the Aurora DB cluster in @serverless@ DB engine
     -- mode.
-    minCapacity :: Prelude.Maybe Prelude.Int
+    minCapacity :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScalingConfigurationInfo' with all optional fields omitted.
@@ -85,16 +84,16 @@ newScalingConfigurationInfo ::
 newScalingConfigurationInfo =
   ScalingConfigurationInfo'
     { maxCapacity =
-        Prelude.Nothing,
-      autoPause = Prelude.Nothing,
-      timeoutAction = Prelude.Nothing,
-      secondsUntilAutoPause = Prelude.Nothing,
-      minCapacity = Prelude.Nothing
+        Core.Nothing,
+      autoPause = Core.Nothing,
+      timeoutAction = Core.Nothing,
+      secondsUntilAutoPause = Core.Nothing,
+      minCapacity = Core.Nothing
     }
 
 -- | The maximum capacity for an Aurora DB cluster in @serverless@ DB engine
 -- mode.
-scalingConfigurationInfo_maxCapacity :: Lens.Lens' ScalingConfigurationInfo (Prelude.Maybe Prelude.Int)
+scalingConfigurationInfo_maxCapacity :: Lens.Lens' ScalingConfigurationInfo (Core.Maybe Core.Int)
 scalingConfigurationInfo_maxCapacity = Lens.lens (\ScalingConfigurationInfo' {maxCapacity} -> maxCapacity) (\s@ScalingConfigurationInfo' {} a -> s {maxCapacity = a} :: ScalingConfigurationInfo)
 
 -- | A value that indicates whether automatic pause is allowed for the Aurora
@@ -102,34 +101,34 @@ scalingConfigurationInfo_maxCapacity = Lens.lens (\ScalingConfigurationInfo' {ma
 --
 -- When the value is set to false for an Aurora Serverless DB cluster, the
 -- DB cluster automatically resumes.
-scalingConfigurationInfo_autoPause :: Lens.Lens' ScalingConfigurationInfo (Prelude.Maybe Prelude.Bool)
+scalingConfigurationInfo_autoPause :: Lens.Lens' ScalingConfigurationInfo (Core.Maybe Core.Bool)
 scalingConfigurationInfo_autoPause = Lens.lens (\ScalingConfigurationInfo' {autoPause} -> autoPause) (\s@ScalingConfigurationInfo' {} a -> s {autoPause = a} :: ScalingConfigurationInfo)
 
 -- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
 -- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
-scalingConfigurationInfo_timeoutAction :: Lens.Lens' ScalingConfigurationInfo (Prelude.Maybe Prelude.Text)
+scalingConfigurationInfo_timeoutAction :: Lens.Lens' ScalingConfigurationInfo (Core.Maybe Core.Text)
 scalingConfigurationInfo_timeoutAction = Lens.lens (\ScalingConfigurationInfo' {timeoutAction} -> timeoutAction) (\s@ScalingConfigurationInfo' {} a -> s {timeoutAction = a} :: ScalingConfigurationInfo)
 
 -- | The remaining amount of time, in seconds, before the Aurora DB cluster
 -- in @serverless@ mode is paused. A DB cluster can be paused only when
 -- it\'s idle (it has no connections).
-scalingConfigurationInfo_secondsUntilAutoPause :: Lens.Lens' ScalingConfigurationInfo (Prelude.Maybe Prelude.Int)
+scalingConfigurationInfo_secondsUntilAutoPause :: Lens.Lens' ScalingConfigurationInfo (Core.Maybe Core.Int)
 scalingConfigurationInfo_secondsUntilAutoPause = Lens.lens (\ScalingConfigurationInfo' {secondsUntilAutoPause} -> secondsUntilAutoPause) (\s@ScalingConfigurationInfo' {} a -> s {secondsUntilAutoPause = a} :: ScalingConfigurationInfo)
 
 -- | The maximum capacity for the Aurora DB cluster in @serverless@ DB engine
 -- mode.
-scalingConfigurationInfo_minCapacity :: Lens.Lens' ScalingConfigurationInfo (Prelude.Maybe Prelude.Int)
+scalingConfigurationInfo_minCapacity :: Lens.Lens' ScalingConfigurationInfo (Core.Maybe Core.Int)
 scalingConfigurationInfo_minCapacity = Lens.lens (\ScalingConfigurationInfo' {minCapacity} -> minCapacity) (\s@ScalingConfigurationInfo' {} a -> s {minCapacity = a} :: ScalingConfigurationInfo)
 
-instance Prelude.FromXML ScalingConfigurationInfo where
+instance Core.FromXML ScalingConfigurationInfo where
   parseXML x =
     ScalingConfigurationInfo'
-      Prelude.<$> (x Prelude..@? "MaxCapacity")
-      Prelude.<*> (x Prelude..@? "AutoPause")
-      Prelude.<*> (x Prelude..@? "TimeoutAction")
-      Prelude.<*> (x Prelude..@? "SecondsUntilAutoPause")
-      Prelude.<*> (x Prelude..@? "MinCapacity")
+      Core.<$> (x Core..@? "MaxCapacity")
+      Core.<*> (x Core..@? "AutoPause")
+      Core.<*> (x Core..@? "TimeoutAction")
+      Core.<*> (x Core..@? "SecondsUntilAutoPause")
+      Core.<*> (x Core..@? "MinCapacity")
 
-instance Prelude.Hashable ScalingConfigurationInfo
+instance Core.Hashable ScalingConfigurationInfo
 
-instance Prelude.NFData ScalingConfigurationInfo
+instance Core.NFData ScalingConfigurationInfo

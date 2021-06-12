@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CloudFront.Types.ViewerCertificate where
 import Network.AWS.CloudFront.Types.CertificateSource
 import Network.AWS.CloudFront.Types.MinimumProtocolVersion
 import Network.AWS.CloudFront.Types.SSLSupportMethod
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that determines the distribution’s SSL\/TLS configuration
 -- for communicating with viewers.
@@ -104,7 +103,7 @@ data ViewerCertificate = ViewerCertificate'
     --
     -- If the distribution uses the CloudFront domain name such as
     -- @d111111abcdef8.cloudfront.net@, don’t set a value for this field.
-    sSLSupportMethod :: Prelude.Maybe SSLSupportMethod,
+    sSLSupportMethod :: Core.Maybe SSLSupportMethod,
     -- | If the distribution uses the CloudFront domain name such as
     -- @d111111abcdef8.cloudfront.net@, set this field to @true@.
     --
@@ -117,7 +116,7 @@ data ViewerCertificate = ViewerCertificate'
     -- -   @MinimumProtocolVersion@
     --
     -- -   @SSLSupportMethod@
-    cloudFrontDefaultCertificate :: Prelude.Maybe Prelude.Bool,
+    cloudFrontDefaultCertificate :: Core.Maybe Core.Bool,
     -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)
     -- and the SSL\/TLS certificate is stored in
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html AWS Identity and Access Management (AWS IAM)>,
@@ -125,7 +124,7 @@ data ViewerCertificate = ViewerCertificate'
     --
     -- If you specify an IAM certificate ID, you must also specify values for
     -- @MinimumProtocolVersion@ and @SSLSupportMethod@.
-    iAMCertificateId :: Prelude.Maybe Prelude.Text,
+    iAMCertificateId :: Core.Maybe Core.Text,
     -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)
     -- and the SSL\/TLS certificate is stored in
     -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager (ACM)>,
@@ -135,7 +134,7 @@ data ViewerCertificate = ViewerCertificate'
     --
     -- If you specify an ACM certificate ARN, you must also specify values for
     -- @MinimumProtocolVersion@ and @SSLSupportMethod@.
-    aCMCertificateArn :: Prelude.Maybe Prelude.Text,
+    aCMCertificateArn :: Core.Maybe Core.Text,
     -- | This field is deprecated. Use one of the following fields instead:
     --
     -- -   @ACMCertificateArn@
@@ -143,7 +142,7 @@ data ViewerCertificate = ViewerCertificate'
     -- -   @IAMCertificateId@
     --
     -- -   @CloudFrontDefaultCertificate@
-    certificateSource :: Prelude.Maybe CertificateSource,
+    certificateSource :: Core.Maybe CertificateSource,
     -- | This field is deprecated. Use one of the following fields instead:
     --
     -- -   @ACMCertificateArn@
@@ -151,7 +150,7 @@ data ViewerCertificate = ViewerCertificate'
     -- -   @IAMCertificateId@
     --
     -- -   @CloudFrontDefaultCertificate@
-    certificate :: Prelude.Maybe Prelude.Text,
+    certificate :: Core.Maybe Core.Text,
     -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs),
     -- specify the security policy that you want CloudFront to use for HTTPS
     -- connections with viewers. The security policy determines two settings:
@@ -177,9 +176,9 @@ data ViewerCertificate = ViewerCertificate'
     -- @d111111abcdef8.cloudfront.net@ (you set @CloudFrontDefaultCertificate@
     -- to @true@), CloudFront automatically sets the security policy to @TLSv1@
     -- regardless of the value that you set here.
-    minimumProtocolVersion :: Prelude.Maybe MinimumProtocolVersion
+    minimumProtocolVersion :: Core.Maybe MinimumProtocolVersion
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ViewerCertificate' with all optional fields omitted.
@@ -286,14 +285,13 @@ newViewerCertificate ::
   ViewerCertificate
 newViewerCertificate =
   ViewerCertificate'
-    { sSLSupportMethod =
-        Prelude.Nothing,
-      cloudFrontDefaultCertificate = Prelude.Nothing,
-      iAMCertificateId = Prelude.Nothing,
-      aCMCertificateArn = Prelude.Nothing,
-      certificateSource = Prelude.Nothing,
-      certificate = Prelude.Nothing,
-      minimumProtocolVersion = Prelude.Nothing
+    { sSLSupportMethod = Core.Nothing,
+      cloudFrontDefaultCertificate = Core.Nothing,
+      iAMCertificateId = Core.Nothing,
+      aCMCertificateArn = Core.Nothing,
+      certificateSource = Core.Nothing,
+      certificate = Core.Nothing,
+      minimumProtocolVersion = Core.Nothing
     }
 
 -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs),
@@ -316,7 +314,7 @@ newViewerCertificate =
 --
 -- If the distribution uses the CloudFront domain name such as
 -- @d111111abcdef8.cloudfront.net@, don’t set a value for this field.
-viewerCertificate_sSLSupportMethod :: Lens.Lens' ViewerCertificate (Prelude.Maybe SSLSupportMethod)
+viewerCertificate_sSLSupportMethod :: Lens.Lens' ViewerCertificate (Core.Maybe SSLSupportMethod)
 viewerCertificate_sSLSupportMethod = Lens.lens (\ViewerCertificate' {sSLSupportMethod} -> sSLSupportMethod) (\s@ViewerCertificate' {} a -> s {sSLSupportMethod = a} :: ViewerCertificate)
 
 -- | If the distribution uses the CloudFront domain name such as
@@ -331,7 +329,7 @@ viewerCertificate_sSLSupportMethod = Lens.lens (\ViewerCertificate' {sSLSupportM
 -- -   @MinimumProtocolVersion@
 --
 -- -   @SSLSupportMethod@
-viewerCertificate_cloudFrontDefaultCertificate :: Lens.Lens' ViewerCertificate (Prelude.Maybe Prelude.Bool)
+viewerCertificate_cloudFrontDefaultCertificate :: Lens.Lens' ViewerCertificate (Core.Maybe Core.Bool)
 viewerCertificate_cloudFrontDefaultCertificate = Lens.lens (\ViewerCertificate' {cloudFrontDefaultCertificate} -> cloudFrontDefaultCertificate) (\s@ViewerCertificate' {} a -> s {cloudFrontDefaultCertificate = a} :: ViewerCertificate)
 
 -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)
@@ -341,7 +339,7 @@ viewerCertificate_cloudFrontDefaultCertificate = Lens.lens (\ViewerCertificate' 
 --
 -- If you specify an IAM certificate ID, you must also specify values for
 -- @MinimumProtocolVersion@ and @SSLSupportMethod@.
-viewerCertificate_iAMCertificateId :: Lens.Lens' ViewerCertificate (Prelude.Maybe Prelude.Text)
+viewerCertificate_iAMCertificateId :: Lens.Lens' ViewerCertificate (Core.Maybe Core.Text)
 viewerCertificate_iAMCertificateId = Lens.lens (\ViewerCertificate' {iAMCertificateId} -> iAMCertificateId) (\s@ViewerCertificate' {} a -> s {iAMCertificateId = a} :: ViewerCertificate)
 
 -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)
@@ -353,7 +351,7 @@ viewerCertificate_iAMCertificateId = Lens.lens (\ViewerCertificate' {iAMCertific
 --
 -- If you specify an ACM certificate ARN, you must also specify values for
 -- @MinimumProtocolVersion@ and @SSLSupportMethod@.
-viewerCertificate_aCMCertificateArn :: Lens.Lens' ViewerCertificate (Prelude.Maybe Prelude.Text)
+viewerCertificate_aCMCertificateArn :: Lens.Lens' ViewerCertificate (Core.Maybe Core.Text)
 viewerCertificate_aCMCertificateArn = Lens.lens (\ViewerCertificate' {aCMCertificateArn} -> aCMCertificateArn) (\s@ViewerCertificate' {} a -> s {aCMCertificateArn = a} :: ViewerCertificate)
 
 -- | This field is deprecated. Use one of the following fields instead:
@@ -363,7 +361,7 @@ viewerCertificate_aCMCertificateArn = Lens.lens (\ViewerCertificate' {aCMCertifi
 -- -   @IAMCertificateId@
 --
 -- -   @CloudFrontDefaultCertificate@
-viewerCertificate_certificateSource :: Lens.Lens' ViewerCertificate (Prelude.Maybe CertificateSource)
+viewerCertificate_certificateSource :: Lens.Lens' ViewerCertificate (Core.Maybe CertificateSource)
 viewerCertificate_certificateSource = Lens.lens (\ViewerCertificate' {certificateSource} -> certificateSource) (\s@ViewerCertificate' {} a -> s {certificateSource = a} :: ViewerCertificate)
 
 -- | This field is deprecated. Use one of the following fields instead:
@@ -373,7 +371,7 @@ viewerCertificate_certificateSource = Lens.lens (\ViewerCertificate' {certificat
 -- -   @IAMCertificateId@
 --
 -- -   @CloudFrontDefaultCertificate@
-viewerCertificate_certificate :: Lens.Lens' ViewerCertificate (Prelude.Maybe Prelude.Text)
+viewerCertificate_certificate :: Lens.Lens' ViewerCertificate (Core.Maybe Core.Text)
 viewerCertificate_certificate = Lens.lens (\ViewerCertificate' {certificate} -> certificate) (\s@ViewerCertificate' {} a -> s {certificate = a} :: ViewerCertificate)
 
 -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs),
@@ -401,34 +399,34 @@ viewerCertificate_certificate = Lens.lens (\ViewerCertificate' {certificate} -> 
 -- @d111111abcdef8.cloudfront.net@ (you set @CloudFrontDefaultCertificate@
 -- to @true@), CloudFront automatically sets the security policy to @TLSv1@
 -- regardless of the value that you set here.
-viewerCertificate_minimumProtocolVersion :: Lens.Lens' ViewerCertificate (Prelude.Maybe MinimumProtocolVersion)
+viewerCertificate_minimumProtocolVersion :: Lens.Lens' ViewerCertificate (Core.Maybe MinimumProtocolVersion)
 viewerCertificate_minimumProtocolVersion = Lens.lens (\ViewerCertificate' {minimumProtocolVersion} -> minimumProtocolVersion) (\s@ViewerCertificate' {} a -> s {minimumProtocolVersion = a} :: ViewerCertificate)
 
-instance Prelude.FromXML ViewerCertificate where
+instance Core.FromXML ViewerCertificate where
   parseXML x =
     ViewerCertificate'
-      Prelude.<$> (x Prelude..@? "SSLSupportMethod")
-      Prelude.<*> (x Prelude..@? "CloudFrontDefaultCertificate")
-      Prelude.<*> (x Prelude..@? "IAMCertificateId")
-      Prelude.<*> (x Prelude..@? "ACMCertificateArn")
-      Prelude.<*> (x Prelude..@? "CertificateSource")
-      Prelude.<*> (x Prelude..@? "Certificate")
-      Prelude.<*> (x Prelude..@? "MinimumProtocolVersion")
+      Core.<$> (x Core..@? "SSLSupportMethod")
+      Core.<*> (x Core..@? "CloudFrontDefaultCertificate")
+      Core.<*> (x Core..@? "IAMCertificateId")
+      Core.<*> (x Core..@? "ACMCertificateArn")
+      Core.<*> (x Core..@? "CertificateSource")
+      Core.<*> (x Core..@? "Certificate")
+      Core.<*> (x Core..@? "MinimumProtocolVersion")
 
-instance Prelude.Hashable ViewerCertificate
+instance Core.Hashable ViewerCertificate
 
-instance Prelude.NFData ViewerCertificate
+instance Core.NFData ViewerCertificate
 
-instance Prelude.ToXML ViewerCertificate where
+instance Core.ToXML ViewerCertificate where
   toXML ViewerCertificate' {..} =
-    Prelude.mconcat
-      [ "SSLSupportMethod" Prelude.@= sSLSupportMethod,
+    Core.mconcat
+      [ "SSLSupportMethod" Core.@= sSLSupportMethod,
         "CloudFrontDefaultCertificate"
-          Prelude.@= cloudFrontDefaultCertificate,
-        "IAMCertificateId" Prelude.@= iAMCertificateId,
-        "ACMCertificateArn" Prelude.@= aCMCertificateArn,
-        "CertificateSource" Prelude.@= certificateSource,
-        "Certificate" Prelude.@= certificate,
+          Core.@= cloudFrontDefaultCertificate,
+        "IAMCertificateId" Core.@= iAMCertificateId,
+        "ACMCertificateArn" Core.@= aCMCertificateArn,
+        "CertificateSource" Core.@= certificateSource,
+        "Certificate" Core.@= certificate,
         "MinimumProtocolVersion"
-          Prelude.@= minimumProtocolVersion
+          Core.@= minimumProtocolVersion
       ]

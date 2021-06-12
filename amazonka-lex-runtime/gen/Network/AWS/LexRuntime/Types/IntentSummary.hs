@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexRuntime.Types.IntentSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types.ConfirmationStatus
 import Network.AWS.LexRuntime.Types.DialogActionType
 import Network.AWS.LexRuntime.Types.FulfillmentState
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the state of an intent. You can use this
 -- information to get the current state of an intent so that you can
@@ -34,7 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newIntentSummary' smart constructor.
 data IntentSummary = IntentSummary'
   { -- | The name of the intent.
-    intentName :: Prelude.Maybe Prelude.Text,
+    intentName :: Core.Maybe Core.Text,
     -- | The fulfillment state of the intent. The possible values are:
     --
     -- -   @Failed@ - The Lambda function associated with the intent failed to
@@ -46,19 +45,19 @@ data IntentSummary = IntentSummary'
     -- -   @ReadyForFulfillment@ - All of the information necessary for the
     --     intent is present and the intent ready to be fulfilled by the client
     --     application.
-    fulfillmentState :: Prelude.Maybe FulfillmentState,
+    fulfillmentState :: Core.Maybe FulfillmentState,
     -- | Map of the slots that have been gathered and their values.
-    slots :: Prelude.Maybe (Prelude.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    slots :: Core.Maybe (Core.Sensitive (Core.HashMap Core.Text Core.Text)),
     -- | A user-defined label that identifies a particular intent. You can use
     -- this label to return to a previous intent.
     --
     -- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@
     -- operation to filter the intents returned by the operation to those with
     -- only the specified label.
-    checkpointLabel :: Prelude.Maybe Prelude.Text,
+    checkpointLabel :: Core.Maybe Core.Text,
     -- | The next slot to elicit from the user. If there is not slot to elicit,
     -- the field is blank.
-    slotToElicit :: Prelude.Maybe Prelude.Text,
+    slotToElicit :: Core.Maybe Core.Text,
     -- | The status of the intent after the user responds to the confirmation
     -- prompt. If the user confirms the intent, Amazon Lex sets this field to
     -- @Confirmed@. If the user denies the intent, Amazon Lex sets this value
@@ -72,7 +71,7 @@ data IntentSummary = IntentSummary'
     --
     -- -   @None@ - The user has never been prompted for confirmation; or, the
     --     user was prompted but did not confirm or deny the prompt.
-    confirmationStatus :: Prelude.Maybe ConfirmationStatus,
+    confirmationStatus :: Core.Maybe ConfirmationStatus,
     -- | The next action that the bot should take in its interaction with the
     -- user. The possible values are:
     --
@@ -91,7 +90,7 @@ data IntentSummary = IntentSummary'
     --     user.
     dialogActionType :: DialogActionType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IntentSummary' with all optional fields omitted.
@@ -163,17 +162,17 @@ newIntentSummary ::
   IntentSummary
 newIntentSummary pDialogActionType_ =
   IntentSummary'
-    { intentName = Prelude.Nothing,
-      fulfillmentState = Prelude.Nothing,
-      slots = Prelude.Nothing,
-      checkpointLabel = Prelude.Nothing,
-      slotToElicit = Prelude.Nothing,
-      confirmationStatus = Prelude.Nothing,
+    { intentName = Core.Nothing,
+      fulfillmentState = Core.Nothing,
+      slots = Core.Nothing,
+      checkpointLabel = Core.Nothing,
+      slotToElicit = Core.Nothing,
+      confirmationStatus = Core.Nothing,
       dialogActionType = pDialogActionType_
     }
 
 -- | The name of the intent.
-intentSummary_intentName :: Lens.Lens' IntentSummary (Prelude.Maybe Prelude.Text)
+intentSummary_intentName :: Lens.Lens' IntentSummary (Core.Maybe Core.Text)
 intentSummary_intentName = Lens.lens (\IntentSummary' {intentName} -> intentName) (\s@IntentSummary' {} a -> s {intentName = a} :: IntentSummary)
 
 -- | The fulfillment state of the intent. The possible values are:
@@ -187,12 +186,12 @@ intentSummary_intentName = Lens.lens (\IntentSummary' {intentName} -> intentName
 -- -   @ReadyForFulfillment@ - All of the information necessary for the
 --     intent is present and the intent ready to be fulfilled by the client
 --     application.
-intentSummary_fulfillmentState :: Lens.Lens' IntentSummary (Prelude.Maybe FulfillmentState)
+intentSummary_fulfillmentState :: Lens.Lens' IntentSummary (Core.Maybe FulfillmentState)
 intentSummary_fulfillmentState = Lens.lens (\IntentSummary' {fulfillmentState} -> fulfillmentState) (\s@IntentSummary' {} a -> s {fulfillmentState = a} :: IntentSummary)
 
 -- | Map of the slots that have been gathered and their values.
-intentSummary_slots :: Lens.Lens' IntentSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-intentSummary_slots = Lens.lens (\IntentSummary' {slots} -> slots) (\s@IntentSummary' {} a -> s {slots = a} :: IntentSummary) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Coerce)
+intentSummary_slots :: Lens.Lens' IntentSummary (Core.Maybe (Core.HashMap Core.Text Core.Text))
+intentSummary_slots = Lens.lens (\IntentSummary' {slots} -> slots) (\s@IntentSummary' {} a -> s {slots = a} :: IntentSummary) Core.. Lens.mapping (Core._Sensitive Core.. Lens._Coerce)
 
 -- | A user-defined label that identifies a particular intent. You can use
 -- this label to return to a previous intent.
@@ -200,12 +199,12 @@ intentSummary_slots = Lens.lens (\IntentSummary' {slots} -> slots) (\s@IntentSum
 -- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@
 -- operation to filter the intents returned by the operation to those with
 -- only the specified label.
-intentSummary_checkpointLabel :: Lens.Lens' IntentSummary (Prelude.Maybe Prelude.Text)
+intentSummary_checkpointLabel :: Lens.Lens' IntentSummary (Core.Maybe Core.Text)
 intentSummary_checkpointLabel = Lens.lens (\IntentSummary' {checkpointLabel} -> checkpointLabel) (\s@IntentSummary' {} a -> s {checkpointLabel = a} :: IntentSummary)
 
 -- | The next slot to elicit from the user. If there is not slot to elicit,
 -- the field is blank.
-intentSummary_slotToElicit :: Lens.Lens' IntentSummary (Prelude.Maybe Prelude.Text)
+intentSummary_slotToElicit :: Lens.Lens' IntentSummary (Core.Maybe Core.Text)
 intentSummary_slotToElicit = Lens.lens (\IntentSummary' {slotToElicit} -> slotToElicit) (\s@IntentSummary' {} a -> s {slotToElicit = a} :: IntentSummary)
 
 -- | The status of the intent after the user responds to the confirmation
@@ -221,7 +220,7 @@ intentSummary_slotToElicit = Lens.lens (\IntentSummary' {slotToElicit} -> slotTo
 --
 -- -   @None@ - The user has never been prompted for confirmation; or, the
 --     user was prompted but did not confirm or deny the prompt.
-intentSummary_confirmationStatus :: Lens.Lens' IntentSummary (Prelude.Maybe ConfirmationStatus)
+intentSummary_confirmationStatus :: Lens.Lens' IntentSummary (Core.Maybe ConfirmationStatus)
 intentSummary_confirmationStatus = Lens.lens (\IntentSummary' {confirmationStatus} -> confirmationStatus) (\s@IntentSummary' {} a -> s {confirmationStatus = a} :: IntentSummary)
 
 -- | The next action that the bot should take in its interaction with the
@@ -243,39 +242,38 @@ intentSummary_confirmationStatus = Lens.lens (\IntentSummary' {confirmationStatu
 intentSummary_dialogActionType :: Lens.Lens' IntentSummary DialogActionType
 intentSummary_dialogActionType = Lens.lens (\IntentSummary' {dialogActionType} -> dialogActionType) (\s@IntentSummary' {} a -> s {dialogActionType = a} :: IntentSummary)
 
-instance Prelude.FromJSON IntentSummary where
+instance Core.FromJSON IntentSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IntentSummary"
       ( \x ->
           IntentSummary'
-            Prelude.<$> (x Prelude..:? "intentName")
-            Prelude.<*> (x Prelude..:? "fulfillmentState")
-            Prelude.<*> (x Prelude..:? "slots" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "checkpointLabel")
-            Prelude.<*> (x Prelude..:? "slotToElicit")
-            Prelude.<*> (x Prelude..:? "confirmationStatus")
-            Prelude.<*> (x Prelude..: "dialogActionType")
+            Core.<$> (x Core..:? "intentName")
+            Core.<*> (x Core..:? "fulfillmentState")
+            Core.<*> (x Core..:? "slots" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "checkpointLabel")
+            Core.<*> (x Core..:? "slotToElicit")
+            Core.<*> (x Core..:? "confirmationStatus")
+            Core.<*> (x Core..: "dialogActionType")
       )
 
-instance Prelude.Hashable IntentSummary
+instance Core.Hashable IntentSummary
 
-instance Prelude.NFData IntentSummary
+instance Core.NFData IntentSummary
 
-instance Prelude.ToJSON IntentSummary where
+instance Core.ToJSON IntentSummary where
   toJSON IntentSummary' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("intentName" Prelude..=) Prelude.<$> intentName,
-            ("fulfillmentState" Prelude..=)
-              Prelude.<$> fulfillmentState,
-            ("slots" Prelude..=) Prelude.<$> slots,
-            ("checkpointLabel" Prelude..=)
-              Prelude.<$> checkpointLabel,
-            ("slotToElicit" Prelude..=) Prelude.<$> slotToElicit,
-            ("confirmationStatus" Prelude..=)
-              Prelude.<$> confirmationStatus,
-            Prelude.Just
-              ("dialogActionType" Prelude..= dialogActionType)
+    Core.object
+      ( Core.catMaybes
+          [ ("intentName" Core..=) Core.<$> intentName,
+            ("fulfillmentState" Core..=)
+              Core.<$> fulfillmentState,
+            ("slots" Core..=) Core.<$> slots,
+            ("checkpointLabel" Core..=) Core.<$> checkpointLabel,
+            ("slotToElicit" Core..=) Core.<$> slotToElicit,
+            ("confirmationStatus" Core..=)
+              Core.<$> confirmationStatus,
+            Core.Just
+              ("dialogActionType" Core..= dialogActionType)
           ]
       )

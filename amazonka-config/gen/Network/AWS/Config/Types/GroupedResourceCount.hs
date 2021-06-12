@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Config.Types.GroupedResourceCount where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The count of resources that are grouped by the group name.
 --
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 data GroupedResourceCount = GroupedResourceCount'
   { -- | The name of the group that can be region, account ID, or resource type.
     -- For example, region1, region2 if the region was chosen as @GroupByKey@.
-    groupName :: Prelude.Text,
+    groupName :: Core.Text,
     -- | The number of resources in the group.
-    resourceCount :: Prelude.Integer
+    resourceCount :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GroupedResourceCount' with all optional fields omitted.
@@ -49,9 +48,9 @@ data GroupedResourceCount = GroupedResourceCount'
 -- 'resourceCount', 'groupedResourceCount_resourceCount' - The number of resources in the group.
 newGroupedResourceCount ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceCount'
-  Prelude.Integer ->
+  Core.Integer ->
   GroupedResourceCount
 newGroupedResourceCount pGroupName_ pResourceCount_ =
   GroupedResourceCount'
@@ -61,23 +60,23 @@ newGroupedResourceCount pGroupName_ pResourceCount_ =
 
 -- | The name of the group that can be region, account ID, or resource type.
 -- For example, region1, region2 if the region was chosen as @GroupByKey@.
-groupedResourceCount_groupName :: Lens.Lens' GroupedResourceCount Prelude.Text
+groupedResourceCount_groupName :: Lens.Lens' GroupedResourceCount Core.Text
 groupedResourceCount_groupName = Lens.lens (\GroupedResourceCount' {groupName} -> groupName) (\s@GroupedResourceCount' {} a -> s {groupName = a} :: GroupedResourceCount)
 
 -- | The number of resources in the group.
-groupedResourceCount_resourceCount :: Lens.Lens' GroupedResourceCount Prelude.Integer
+groupedResourceCount_resourceCount :: Lens.Lens' GroupedResourceCount Core.Integer
 groupedResourceCount_resourceCount = Lens.lens (\GroupedResourceCount' {resourceCount} -> resourceCount) (\s@GroupedResourceCount' {} a -> s {resourceCount = a} :: GroupedResourceCount)
 
-instance Prelude.FromJSON GroupedResourceCount where
+instance Core.FromJSON GroupedResourceCount where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GroupedResourceCount"
       ( \x ->
           GroupedResourceCount'
-            Prelude.<$> (x Prelude..: "GroupName")
-            Prelude.<*> (x Prelude..: "ResourceCount")
+            Core.<$> (x Core..: "GroupName")
+            Core.<*> (x Core..: "ResourceCount")
       )
 
-instance Prelude.Hashable GroupedResourceCount
+instance Core.Hashable GroupedResourceCount
 
-instance Prelude.NFData GroupedResourceCount
+instance Core.NFData GroupedResourceCount

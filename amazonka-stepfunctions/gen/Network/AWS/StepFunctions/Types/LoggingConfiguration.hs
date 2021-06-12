@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.LoggingConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StepFunctions.Types.LogDestination
 import Network.AWS.StepFunctions.Types.LogLevel
 
@@ -33,14 +32,14 @@ data LoggingConfiguration = LoggingConfiguration'
   { -- | An array of objects that describes where your execution history events
     -- will be logged. Limited to size 1. Required, if your log level is not
     -- set to @OFF@.
-    destinations :: Prelude.Maybe [LogDestination],
+    destinations :: Core.Maybe [LogDestination],
     -- | Defines which category of execution history events are logged.
-    level :: Prelude.Maybe LogLevel,
+    level :: Core.Maybe LogLevel,
     -- | Determines whether execution data is included in your log. When set to
     -- @false@, data is excluded.
-    includeExecutionData :: Prelude.Maybe Prelude.Bool
+    includeExecutionData :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoggingConfiguration' with all optional fields omitted.
@@ -62,52 +61,48 @@ newLoggingConfiguration ::
   LoggingConfiguration
 newLoggingConfiguration =
   LoggingConfiguration'
-    { destinations =
-        Prelude.Nothing,
-      level = Prelude.Nothing,
-      includeExecutionData = Prelude.Nothing
+    { destinations = Core.Nothing,
+      level = Core.Nothing,
+      includeExecutionData = Core.Nothing
     }
 
 -- | An array of objects that describes where your execution history events
 -- will be logged. Limited to size 1. Required, if your log level is not
 -- set to @OFF@.
-loggingConfiguration_destinations :: Lens.Lens' LoggingConfiguration (Prelude.Maybe [LogDestination])
-loggingConfiguration_destinations = Lens.lens (\LoggingConfiguration' {destinations} -> destinations) (\s@LoggingConfiguration' {} a -> s {destinations = a} :: LoggingConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+loggingConfiguration_destinations :: Lens.Lens' LoggingConfiguration (Core.Maybe [LogDestination])
+loggingConfiguration_destinations = Lens.lens (\LoggingConfiguration' {destinations} -> destinations) (\s@LoggingConfiguration' {} a -> s {destinations = a} :: LoggingConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | Defines which category of execution history events are logged.
-loggingConfiguration_level :: Lens.Lens' LoggingConfiguration (Prelude.Maybe LogLevel)
+loggingConfiguration_level :: Lens.Lens' LoggingConfiguration (Core.Maybe LogLevel)
 loggingConfiguration_level = Lens.lens (\LoggingConfiguration' {level} -> level) (\s@LoggingConfiguration' {} a -> s {level = a} :: LoggingConfiguration)
 
 -- | Determines whether execution data is included in your log. When set to
 -- @false@, data is excluded.
-loggingConfiguration_includeExecutionData :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
+loggingConfiguration_includeExecutionData :: Lens.Lens' LoggingConfiguration (Core.Maybe Core.Bool)
 loggingConfiguration_includeExecutionData = Lens.lens (\LoggingConfiguration' {includeExecutionData} -> includeExecutionData) (\s@LoggingConfiguration' {} a -> s {includeExecutionData = a} :: LoggingConfiguration)
 
-instance Prelude.FromJSON LoggingConfiguration where
+instance Core.FromJSON LoggingConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> ( x Prelude..:? "destinations"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "level")
-            Prelude.<*> (x Prelude..:? "includeExecutionData")
+            Core.<$> (x Core..:? "destinations" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "level")
+            Core.<*> (x Core..:? "includeExecutionData")
       )
 
-instance Prelude.Hashable LoggingConfiguration
+instance Core.Hashable LoggingConfiguration
 
-instance Prelude.NFData LoggingConfiguration
+instance Core.NFData LoggingConfiguration
 
-instance Prelude.ToJSON LoggingConfiguration where
+instance Core.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("destinations" Prelude..=)
-              Prelude.<$> destinations,
-            ("level" Prelude..=) Prelude.<$> level,
-            ("includeExecutionData" Prelude..=)
-              Prelude.<$> includeExecutionData
+    Core.object
+      ( Core.catMaybes
+          [ ("destinations" Core..=) Core.<$> destinations,
+            ("level" Core..=) Core.<$> level,
+            ("includeExecutionData" Core..=)
+              Core.<$> includeExecutionData
           ]
       )

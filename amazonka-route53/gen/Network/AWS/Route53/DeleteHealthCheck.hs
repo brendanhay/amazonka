@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,8 +54,8 @@ module Network.AWS.Route53.DeleteHealthCheck
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -66,9 +65,9 @@ import Network.AWS.Route53.Types
 -- /See:/ 'newDeleteHealthCheck' smart constructor.
 data DeleteHealthCheck = DeleteHealthCheck'
   { -- | The ID of the health check that you want to delete.
-    healthCheckId :: Prelude.Text
+    healthCheckId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHealthCheck' with all optional fields omitted.
@@ -81,50 +80,50 @@ data DeleteHealthCheck = DeleteHealthCheck'
 -- 'healthCheckId', 'deleteHealthCheck_healthCheckId' - The ID of the health check that you want to delete.
 newDeleteHealthCheck ::
   -- | 'healthCheckId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteHealthCheck
 newDeleteHealthCheck pHealthCheckId_ =
   DeleteHealthCheck' {healthCheckId = pHealthCheckId_}
 
 -- | The ID of the health check that you want to delete.
-deleteHealthCheck_healthCheckId :: Lens.Lens' DeleteHealthCheck Prelude.Text
+deleteHealthCheck_healthCheckId :: Lens.Lens' DeleteHealthCheck Core.Text
 deleteHealthCheck_healthCheckId = Lens.lens (\DeleteHealthCheck' {healthCheckId} -> healthCheckId) (\s@DeleteHealthCheck' {} a -> s {healthCheckId = a} :: DeleteHealthCheck)
 
-instance Prelude.AWSRequest DeleteHealthCheck where
-  type Rs DeleteHealthCheck = DeleteHealthCheckResponse
+instance Core.AWSRequest DeleteHealthCheck where
+  type
+    AWSResponse DeleteHealthCheck =
+      DeleteHealthCheckResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteHealthCheckResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteHealthCheck
+instance Core.Hashable DeleteHealthCheck
 
-instance Prelude.NFData DeleteHealthCheck
+instance Core.NFData DeleteHealthCheck
 
-instance Prelude.ToHeaders DeleteHealthCheck where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteHealthCheck where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteHealthCheck where
+instance Core.ToPath DeleteHealthCheck where
   toPath DeleteHealthCheck' {..} =
-    Prelude.mconcat
-      [ "/2013-04-01/healthcheck/",
-        Prelude.toBS healthCheckId
-      ]
+    Core.mconcat
+      ["/2013-04-01/healthcheck/", Core.toBS healthCheckId]
 
-instance Prelude.ToQuery DeleteHealthCheck where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteHealthCheck where
+  toQuery = Core.const Core.mempty
 
 -- | An empty element.
 --
 -- /See:/ 'newDeleteHealthCheckResponse' smart constructor.
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHealthCheckResponse' with all optional fields omitted.
@@ -137,7 +136,7 @@ data DeleteHealthCheckResponse = DeleteHealthCheckResponse'
 -- 'httpStatus', 'deleteHealthCheckResponse_httpStatus' - The response's http status code.
 newDeleteHealthCheckResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteHealthCheckResponse
 newDeleteHealthCheckResponse pHttpStatus_ =
   DeleteHealthCheckResponse'
@@ -146,7 +145,7 @@ newDeleteHealthCheckResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteHealthCheckResponse_httpStatus :: Lens.Lens' DeleteHealthCheckResponse Prelude.Int
+deleteHealthCheckResponse_httpStatus :: Lens.Lens' DeleteHealthCheckResponse Core.Int
 deleteHealthCheckResponse_httpStatus = Lens.lens (\DeleteHealthCheckResponse' {httpStatus} -> httpStatus) (\s@DeleteHealthCheckResponse' {} a -> s {httpStatus = a} :: DeleteHealthCheckResponse)
 
-instance Prelude.NFData DeleteHealthCheckResponse
+instance Core.NFData DeleteHealthCheckResponse

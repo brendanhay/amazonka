@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.HoursOfOperationTimeSlice where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The start time or end time for an hours of operation.
 --
 -- /See:/ 'newHoursOfOperationTimeSlice' smart constructor.
 data HoursOfOperationTimeSlice = HoursOfOperationTimeSlice'
   { -- | The hours.
-    hours :: Prelude.Maybe Prelude.Natural,
+    hours :: Core.Maybe Core.Natural,
     -- | The minutes.
-    minutes :: Prelude.Maybe Prelude.Natural
+    minutes :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HoursOfOperationTimeSlice' with all optional fields omitted.
@@ -49,28 +48,27 @@ newHoursOfOperationTimeSlice ::
   HoursOfOperationTimeSlice
 newHoursOfOperationTimeSlice =
   HoursOfOperationTimeSlice'
-    { hours = Prelude.Nothing,
-      minutes = Prelude.Nothing
+    { hours = Core.Nothing,
+      minutes = Core.Nothing
     }
 
 -- | The hours.
-hoursOfOperationTimeSlice_hours :: Lens.Lens' HoursOfOperationTimeSlice (Prelude.Maybe Prelude.Natural)
+hoursOfOperationTimeSlice_hours :: Lens.Lens' HoursOfOperationTimeSlice (Core.Maybe Core.Natural)
 hoursOfOperationTimeSlice_hours = Lens.lens (\HoursOfOperationTimeSlice' {hours} -> hours) (\s@HoursOfOperationTimeSlice' {} a -> s {hours = a} :: HoursOfOperationTimeSlice)
 
 -- | The minutes.
-hoursOfOperationTimeSlice_minutes :: Lens.Lens' HoursOfOperationTimeSlice (Prelude.Maybe Prelude.Natural)
+hoursOfOperationTimeSlice_minutes :: Lens.Lens' HoursOfOperationTimeSlice (Core.Maybe Core.Natural)
 hoursOfOperationTimeSlice_minutes = Lens.lens (\HoursOfOperationTimeSlice' {minutes} -> minutes) (\s@HoursOfOperationTimeSlice' {} a -> s {minutes = a} :: HoursOfOperationTimeSlice)
 
-instance Prelude.FromJSON HoursOfOperationTimeSlice where
+instance Core.FromJSON HoursOfOperationTimeSlice where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HoursOfOperationTimeSlice"
       ( \x ->
           HoursOfOperationTimeSlice'
-            Prelude.<$> (x Prelude..:? "Hours")
-            Prelude.<*> (x Prelude..:? "Minutes")
+            Core.<$> (x Core..:? "Hours") Core.<*> (x Core..:? "Minutes")
       )
 
-instance Prelude.Hashable HoursOfOperationTimeSlice
+instance Core.Hashable HoursOfOperationTimeSlice
 
-instance Prelude.NFData HoursOfOperationTimeSlice
+instance Core.NFData HoursOfOperationTimeSlice

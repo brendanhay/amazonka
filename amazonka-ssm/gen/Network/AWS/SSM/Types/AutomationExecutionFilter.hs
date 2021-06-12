@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.AutomationExecutionFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AutomationExecutionFilterKey
 
 -- | A filter used to match specific automation executions. This is used to
@@ -33,9 +32,9 @@ data AutomationExecutionFilter = AutomationExecutionFilter'
     key :: AutomationExecutionFilterKey,
     -- | The values used to limit the execution information associated with the
     -- filter\'s key.
-    values :: Prelude.NonEmpty Prelude.Text
+    values :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutomationExecutionFilter' with all optional fields omitted.
@@ -53,12 +52,12 @@ newAutomationExecutionFilter ::
   -- | 'key'
   AutomationExecutionFilterKey ->
   -- | 'values'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   AutomationExecutionFilter
 newAutomationExecutionFilter pKey_ pValues_ =
   AutomationExecutionFilter'
     { key = pKey_,
-      values = Prelude._Coerce Lens.# pValues_
+      values = Lens._Coerce Lens.# pValues_
     }
 
 -- | One or more keys to limit the results.
@@ -67,18 +66,18 @@ automationExecutionFilter_key = Lens.lens (\AutomationExecutionFilter' {key} -> 
 
 -- | The values used to limit the execution information associated with the
 -- filter\'s key.
-automationExecutionFilter_values :: Lens.Lens' AutomationExecutionFilter (Prelude.NonEmpty Prelude.Text)
-automationExecutionFilter_values = Lens.lens (\AutomationExecutionFilter' {values} -> values) (\s@AutomationExecutionFilter' {} a -> s {values = a} :: AutomationExecutionFilter) Prelude.. Prelude._Coerce
+automationExecutionFilter_values :: Lens.Lens' AutomationExecutionFilter (Core.NonEmpty Core.Text)
+automationExecutionFilter_values = Lens.lens (\AutomationExecutionFilter' {values} -> values) (\s@AutomationExecutionFilter' {} a -> s {values = a} :: AutomationExecutionFilter) Core.. Lens._Coerce
 
-instance Prelude.Hashable AutomationExecutionFilter
+instance Core.Hashable AutomationExecutionFilter
 
-instance Prelude.NFData AutomationExecutionFilter
+instance Core.NFData AutomationExecutionFilter
 
-instance Prelude.ToJSON AutomationExecutionFilter where
+instance Core.ToJSON AutomationExecutionFilter where
   toJSON AutomationExecutionFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values)
           ]
       )

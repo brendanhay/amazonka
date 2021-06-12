@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about an abort of an execution.
 --
 -- /See:/ 'newExecutionAbortedEventDetails' smart constructor.
 data ExecutionAbortedEventDetails = ExecutionAbortedEventDetails'
   { -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    cause :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The error code of the failure.
-    error :: Prelude.Maybe (Prelude.Sensitive Prelude.Text)
+    error :: Core.Maybe (Core.Sensitive Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExecutionAbortedEventDetails' with all optional fields omitted.
@@ -49,34 +48,27 @@ newExecutionAbortedEventDetails ::
   ExecutionAbortedEventDetails
 newExecutionAbortedEventDetails =
   ExecutionAbortedEventDetails'
-    { cause =
-        Prelude.Nothing,
-      error = Prelude.Nothing
+    { cause = Core.Nothing,
+      error = Core.Nothing
     }
 
 -- | A more detailed explanation of the cause of the failure.
-executionAbortedEventDetails_cause :: Lens.Lens' ExecutionAbortedEventDetails (Prelude.Maybe Prelude.Text)
-executionAbortedEventDetails_cause = Lens.lens (\ExecutionAbortedEventDetails' {cause} -> cause) (\s@ExecutionAbortedEventDetails' {} a -> s {cause = a} :: ExecutionAbortedEventDetails) Prelude.. Lens.mapping Prelude._Sensitive
+executionAbortedEventDetails_cause :: Lens.Lens' ExecutionAbortedEventDetails (Core.Maybe Core.Text)
+executionAbortedEventDetails_cause = Lens.lens (\ExecutionAbortedEventDetails' {cause} -> cause) (\s@ExecutionAbortedEventDetails' {} a -> s {cause = a} :: ExecutionAbortedEventDetails) Core.. Lens.mapping Core._Sensitive
 
 -- | The error code of the failure.
-executionAbortedEventDetails_error :: Lens.Lens' ExecutionAbortedEventDetails (Prelude.Maybe Prelude.Text)
-executionAbortedEventDetails_error = Lens.lens (\ExecutionAbortedEventDetails' {error} -> error) (\s@ExecutionAbortedEventDetails' {} a -> s {error = a} :: ExecutionAbortedEventDetails) Prelude.. Lens.mapping Prelude._Sensitive
+executionAbortedEventDetails_error :: Lens.Lens' ExecutionAbortedEventDetails (Core.Maybe Core.Text)
+executionAbortedEventDetails_error = Lens.lens (\ExecutionAbortedEventDetails' {error} -> error) (\s@ExecutionAbortedEventDetails' {} a -> s {error = a} :: ExecutionAbortedEventDetails) Core.. Lens.mapping Core._Sensitive
 
-instance
-  Prelude.FromJSON
-    ExecutionAbortedEventDetails
-  where
+instance Core.FromJSON ExecutionAbortedEventDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExecutionAbortedEventDetails"
       ( \x ->
           ExecutionAbortedEventDetails'
-            Prelude.<$> (x Prelude..:? "cause")
-            Prelude.<*> (x Prelude..:? "error")
+            Core.<$> (x Core..:? "cause") Core.<*> (x Core..:? "error")
       )
 
-instance
-  Prelude.Hashable
-    ExecutionAbortedEventDetails
+instance Core.Hashable ExecutionAbortedEventDetails
 
-instance Prelude.NFData ExecutionAbortedEventDetails
+instance Core.NFData ExecutionAbortedEventDetails

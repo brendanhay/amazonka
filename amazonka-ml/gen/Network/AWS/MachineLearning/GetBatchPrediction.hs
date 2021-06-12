@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,18 +56,18 @@ module Network.AWS.MachineLearning.GetBatchPrediction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetBatchPrediction' smart constructor.
 data GetBatchPrediction = GetBatchPrediction'
   { -- | An ID assigned to the @BatchPrediction@ at creation.
-    batchPredictionId :: Prelude.Text
+    batchPredictionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBatchPrediction' with all optional fields omitted.
@@ -81,7 +80,7 @@ data GetBatchPrediction = GetBatchPrediction'
 -- 'batchPredictionId', 'getBatchPrediction_batchPredictionId' - An ID assigned to the @BatchPrediction@ at creation.
 newGetBatchPrediction ::
   -- | 'batchPredictionId'
-  Prelude.Text ->
+  Core.Text ->
   GetBatchPrediction
 newGetBatchPrediction pBatchPredictionId_ =
   GetBatchPrediction'
@@ -90,71 +89,69 @@ newGetBatchPrediction pBatchPredictionId_ =
     }
 
 -- | An ID assigned to the @BatchPrediction@ at creation.
-getBatchPrediction_batchPredictionId :: Lens.Lens' GetBatchPrediction Prelude.Text
+getBatchPrediction_batchPredictionId :: Lens.Lens' GetBatchPrediction Core.Text
 getBatchPrediction_batchPredictionId = Lens.lens (\GetBatchPrediction' {batchPredictionId} -> batchPredictionId) (\s@GetBatchPrediction' {} a -> s {batchPredictionId = a} :: GetBatchPrediction)
 
-instance Prelude.AWSRequest GetBatchPrediction where
+instance Core.AWSRequest GetBatchPrediction where
   type
-    Rs GetBatchPrediction =
+    AWSResponse GetBatchPrediction =
       GetBatchPredictionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetBatchPredictionResponse'
-            Prelude.<$> (x Prelude..?> "BatchPredictionId")
-            Prelude.<*> (x Prelude..?> "Status")
-            Prelude.<*> (x Prelude..?> "StartedAt")
-            Prelude.<*> (x Prelude..?> "OutputUri")
-            Prelude.<*> (x Prelude..?> "Message")
-            Prelude.<*> (x Prelude..?> "CreatedAt")
-            Prelude.<*> (x Prelude..?> "FinishedAt")
-            Prelude.<*> (x Prelude..?> "CreatedByIamUser")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "InvalidRecordCount")
-            Prelude.<*> (x Prelude..?> "TotalRecordCount")
-            Prelude.<*> (x Prelude..?> "BatchPredictionDataSourceId")
-            Prelude.<*> (x Prelude..?> "MLModelId")
-            Prelude.<*> (x Prelude..?> "InputDataLocationS3")
-            Prelude.<*> (x Prelude..?> "ComputeTime")
-            Prelude.<*> (x Prelude..?> "LastUpdatedAt")
-            Prelude.<*> (x Prelude..?> "LogUri")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "BatchPredictionId")
+            Core.<*> (x Core..?> "Status")
+            Core.<*> (x Core..?> "StartedAt")
+            Core.<*> (x Core..?> "OutputUri")
+            Core.<*> (x Core..?> "Message")
+            Core.<*> (x Core..?> "CreatedAt")
+            Core.<*> (x Core..?> "FinishedAt")
+            Core.<*> (x Core..?> "CreatedByIamUser")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "InvalidRecordCount")
+            Core.<*> (x Core..?> "TotalRecordCount")
+            Core.<*> (x Core..?> "BatchPredictionDataSourceId")
+            Core.<*> (x Core..?> "MLModelId")
+            Core.<*> (x Core..?> "InputDataLocationS3")
+            Core.<*> (x Core..?> "ComputeTime")
+            Core.<*> (x Core..?> "LastUpdatedAt")
+            Core.<*> (x Core..?> "LogUri")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetBatchPrediction
+instance Core.Hashable GetBatchPrediction
 
-instance Prelude.NFData GetBatchPrediction
+instance Core.NFData GetBatchPrediction
 
-instance Prelude.ToHeaders GetBatchPrediction where
+instance Core.ToHeaders GetBatchPrediction where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonML_20141212.GetBatchPrediction" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonML_20141212.GetBatchPrediction" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetBatchPrediction where
+instance Core.ToJSON GetBatchPrediction where
   toJSON GetBatchPrediction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("BatchPredictionId" Prelude..= batchPredictionId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("BatchPredictionId" Core..= batchPredictionId)
           ]
       )
 
-instance Prelude.ToPath GetBatchPrediction where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetBatchPrediction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetBatchPrediction where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetBatchPrediction where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @GetBatchPrediction@ operation and describes
 -- a @BatchPrediction@.
@@ -163,7 +160,7 @@ instance Prelude.ToQuery GetBatchPrediction where
 data GetBatchPredictionResponse = GetBatchPredictionResponse'
   { -- | An ID assigned to the @BatchPrediction@ at creation. This value should
     -- be identical to the value of the @BatchPredictionID@ in the request.
-    batchPredictionId :: Prelude.Maybe Prelude.Text,
+    batchPredictionId :: Core.Maybe Core.Text,
     -- | The status of the @BatchPrediction@, which can be one of the following
     -- values:
     --
@@ -175,60 +172,60 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
     -- -   @COMPLETED@ - The batch prediction process completed successfully.
     -- -   @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not
     --     usable.
-    status :: Prelude.Maybe EntityStatus,
+    status :: Core.Maybe EntityStatus,
     -- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@
     -- as @INPROGRESS@. @StartedAt@ isn\'t available if the @BatchPrediction@
     -- is in the @PENDING@ state.
-    startedAt :: Prelude.Maybe Prelude.POSIX,
+    startedAt :: Core.Maybe Core.POSIX,
     -- | The location of an Amazon S3 bucket or directory to receive the
     -- operation results.
-    outputUri :: Prelude.Maybe Prelude.Text,
+    outputUri :: Core.Maybe Core.Text,
     -- | A description of the most recent details about processing the batch
     -- prediction request.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The time when the @BatchPrediction@ was created. The time is expressed
     -- in epoch time.
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@
     -- as @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
     -- @BatchPrediction@ is in the @COMPLETED@ or @FAILED@ state.
-    finishedAt :: Prelude.Maybe Prelude.POSIX,
+    finishedAt :: Core.Maybe Core.POSIX,
     -- | The AWS user account that invoked the @BatchPrediction@. The account
     -- type can be either an AWS root account or an AWS Identity and Access
     -- Management (IAM) user account.
-    createdByIamUser :: Prelude.Maybe Prelude.Text,
+    createdByIamUser :: Core.Maybe Core.Text,
     -- | A user-supplied name or description of the @BatchPrediction@.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The number of invalid records that Amazon Machine Learning saw while
     -- processing the @BatchPrediction@.
-    invalidRecordCount :: Prelude.Maybe Prelude.Integer,
+    invalidRecordCount :: Core.Maybe Core.Integer,
     -- | The number of total records that Amazon Machine Learning saw while
     -- processing the @BatchPrediction@.
-    totalRecordCount :: Prelude.Maybe Prelude.Integer,
+    totalRecordCount :: Core.Maybe Core.Integer,
     -- | The ID of the @DataSource@ that was used to create the
     -- @BatchPrediction@.
-    batchPredictionDataSourceId :: Prelude.Maybe Prelude.Text,
+    batchPredictionDataSourceId :: Core.Maybe Core.Text,
     -- | The ID of the @MLModel@ that generated predictions for the
     -- @BatchPrediction@ request.
-    mLModelId :: Prelude.Maybe Prelude.Text,
+    mLModelId :: Core.Maybe Core.Text,
     -- | The location of the data file or directory in Amazon Simple Storage
     -- Service (Amazon S3).
-    inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
+    inputDataLocationS3 :: Core.Maybe Core.Text,
     -- | The approximate CPU time in milliseconds that Amazon Machine Learning
     -- spent processing the @BatchPrediction@, normalized and scaled on
     -- computation resources. @ComputeTime@ is only available if the
     -- @BatchPrediction@ is in the @COMPLETED@ state.
-    computeTime :: Prelude.Maybe Prelude.Integer,
+    computeTime :: Core.Maybe Core.Integer,
     -- | The time of the most recent edit to @BatchPrediction@. The time is
     -- expressed in epoch time.
-    lastUpdatedAt :: Prelude.Maybe Prelude.POSIX,
+    lastUpdatedAt :: Core.Maybe Core.POSIX,
     -- | A link to the file that contains logs of the @CreateBatchPrediction@
     -- operation.
-    logUri :: Prelude.Maybe Prelude.Text,
+    logUri :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBatchPredictionResponse' with all optional fields omitted.
@@ -305,34 +302,34 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
 -- 'httpStatus', 'getBatchPredictionResponse_httpStatus' - The response's http status code.
 newGetBatchPredictionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBatchPredictionResponse
 newGetBatchPredictionResponse pHttpStatus_ =
   GetBatchPredictionResponse'
     { batchPredictionId =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      startedAt = Prelude.Nothing,
-      outputUri = Prelude.Nothing,
-      message = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      finishedAt = Prelude.Nothing,
-      createdByIamUser = Prelude.Nothing,
-      name = Prelude.Nothing,
-      invalidRecordCount = Prelude.Nothing,
-      totalRecordCount = Prelude.Nothing,
-      batchPredictionDataSourceId = Prelude.Nothing,
-      mLModelId = Prelude.Nothing,
-      inputDataLocationS3 = Prelude.Nothing,
-      computeTime = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      logUri = Prelude.Nothing,
+        Core.Nothing,
+      status = Core.Nothing,
+      startedAt = Core.Nothing,
+      outputUri = Core.Nothing,
+      message = Core.Nothing,
+      createdAt = Core.Nothing,
+      finishedAt = Core.Nothing,
+      createdByIamUser = Core.Nothing,
+      name = Core.Nothing,
+      invalidRecordCount = Core.Nothing,
+      totalRecordCount = Core.Nothing,
+      batchPredictionDataSourceId = Core.Nothing,
+      mLModelId = Core.Nothing,
+      inputDataLocationS3 = Core.Nothing,
+      computeTime = Core.Nothing,
+      lastUpdatedAt = Core.Nothing,
+      logUri = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An ID assigned to the @BatchPrediction@ at creation. This value should
 -- be identical to the value of the @BatchPredictionID@ in the request.
-getBatchPredictionResponse_batchPredictionId :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionResponse_batchPredictionId :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Text)
 getBatchPredictionResponse_batchPredictionId = Lens.lens (\GetBatchPredictionResponse' {batchPredictionId} -> batchPredictionId) (\s@GetBatchPredictionResponse' {} a -> s {batchPredictionId = a} :: GetBatchPredictionResponse)
 
 -- | The status of the @BatchPrediction@, which can be one of the following
@@ -346,90 +343,90 @@ getBatchPredictionResponse_batchPredictionId = Lens.lens (\GetBatchPredictionRes
 -- -   @COMPLETED@ - The batch prediction process completed successfully.
 -- -   @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not
 --     usable.
-getBatchPredictionResponse_status :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe EntityStatus)
+getBatchPredictionResponse_status :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe EntityStatus)
 getBatchPredictionResponse_status = Lens.lens (\GetBatchPredictionResponse' {status} -> status) (\s@GetBatchPredictionResponse' {} a -> s {status = a} :: GetBatchPredictionResponse)
 
 -- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@
 -- as @INPROGRESS@. @StartedAt@ isn\'t available if the @BatchPrediction@
 -- is in the @PENDING@ state.
-getBatchPredictionResponse_startedAt :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.UTCTime)
-getBatchPredictionResponse_startedAt = Lens.lens (\GetBatchPredictionResponse' {startedAt} -> startedAt) (\s@GetBatchPredictionResponse' {} a -> s {startedAt = a} :: GetBatchPredictionResponse) Prelude.. Lens.mapping Prelude._Time
+getBatchPredictionResponse_startedAt :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.UTCTime)
+getBatchPredictionResponse_startedAt = Lens.lens (\GetBatchPredictionResponse' {startedAt} -> startedAt) (\s@GetBatchPredictionResponse' {} a -> s {startedAt = a} :: GetBatchPredictionResponse) Core.. Lens.mapping Core._Time
 
 -- | The location of an Amazon S3 bucket or directory to receive the
 -- operation results.
-getBatchPredictionResponse_outputUri :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionResponse_outputUri :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Text)
 getBatchPredictionResponse_outputUri = Lens.lens (\GetBatchPredictionResponse' {outputUri} -> outputUri) (\s@GetBatchPredictionResponse' {} a -> s {outputUri = a} :: GetBatchPredictionResponse)
 
 -- | A description of the most recent details about processing the batch
 -- prediction request.
-getBatchPredictionResponse_message :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionResponse_message :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Text)
 getBatchPredictionResponse_message = Lens.lens (\GetBatchPredictionResponse' {message} -> message) (\s@GetBatchPredictionResponse' {} a -> s {message = a} :: GetBatchPredictionResponse)
 
 -- | The time when the @BatchPrediction@ was created. The time is expressed
 -- in epoch time.
-getBatchPredictionResponse_createdAt :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.UTCTime)
-getBatchPredictionResponse_createdAt = Lens.lens (\GetBatchPredictionResponse' {createdAt} -> createdAt) (\s@GetBatchPredictionResponse' {} a -> s {createdAt = a} :: GetBatchPredictionResponse) Prelude.. Lens.mapping Prelude._Time
+getBatchPredictionResponse_createdAt :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.UTCTime)
+getBatchPredictionResponse_createdAt = Lens.lens (\GetBatchPredictionResponse' {createdAt} -> createdAt) (\s@GetBatchPredictionResponse' {} a -> s {createdAt = a} :: GetBatchPredictionResponse) Core.. Lens.mapping Core._Time
 
 -- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@
 -- as @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
 -- @BatchPrediction@ is in the @COMPLETED@ or @FAILED@ state.
-getBatchPredictionResponse_finishedAt :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.UTCTime)
-getBatchPredictionResponse_finishedAt = Lens.lens (\GetBatchPredictionResponse' {finishedAt} -> finishedAt) (\s@GetBatchPredictionResponse' {} a -> s {finishedAt = a} :: GetBatchPredictionResponse) Prelude.. Lens.mapping Prelude._Time
+getBatchPredictionResponse_finishedAt :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.UTCTime)
+getBatchPredictionResponse_finishedAt = Lens.lens (\GetBatchPredictionResponse' {finishedAt} -> finishedAt) (\s@GetBatchPredictionResponse' {} a -> s {finishedAt = a} :: GetBatchPredictionResponse) Core.. Lens.mapping Core._Time
 
 -- | The AWS user account that invoked the @BatchPrediction@. The account
 -- type can be either an AWS root account or an AWS Identity and Access
 -- Management (IAM) user account.
-getBatchPredictionResponse_createdByIamUser :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionResponse_createdByIamUser :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Text)
 getBatchPredictionResponse_createdByIamUser = Lens.lens (\GetBatchPredictionResponse' {createdByIamUser} -> createdByIamUser) (\s@GetBatchPredictionResponse' {} a -> s {createdByIamUser = a} :: GetBatchPredictionResponse)
 
 -- | A user-supplied name or description of the @BatchPrediction@.
-getBatchPredictionResponse_name :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionResponse_name :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Text)
 getBatchPredictionResponse_name = Lens.lens (\GetBatchPredictionResponse' {name} -> name) (\s@GetBatchPredictionResponse' {} a -> s {name = a} :: GetBatchPredictionResponse)
 
 -- | The number of invalid records that Amazon Machine Learning saw while
 -- processing the @BatchPrediction@.
-getBatchPredictionResponse_invalidRecordCount :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Integer)
+getBatchPredictionResponse_invalidRecordCount :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Integer)
 getBatchPredictionResponse_invalidRecordCount = Lens.lens (\GetBatchPredictionResponse' {invalidRecordCount} -> invalidRecordCount) (\s@GetBatchPredictionResponse' {} a -> s {invalidRecordCount = a} :: GetBatchPredictionResponse)
 
 -- | The number of total records that Amazon Machine Learning saw while
 -- processing the @BatchPrediction@.
-getBatchPredictionResponse_totalRecordCount :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Integer)
+getBatchPredictionResponse_totalRecordCount :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Integer)
 getBatchPredictionResponse_totalRecordCount = Lens.lens (\GetBatchPredictionResponse' {totalRecordCount} -> totalRecordCount) (\s@GetBatchPredictionResponse' {} a -> s {totalRecordCount = a} :: GetBatchPredictionResponse)
 
 -- | The ID of the @DataSource@ that was used to create the
 -- @BatchPrediction@.
-getBatchPredictionResponse_batchPredictionDataSourceId :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionResponse_batchPredictionDataSourceId :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Text)
 getBatchPredictionResponse_batchPredictionDataSourceId = Lens.lens (\GetBatchPredictionResponse' {batchPredictionDataSourceId} -> batchPredictionDataSourceId) (\s@GetBatchPredictionResponse' {} a -> s {batchPredictionDataSourceId = a} :: GetBatchPredictionResponse)
 
 -- | The ID of the @MLModel@ that generated predictions for the
 -- @BatchPrediction@ request.
-getBatchPredictionResponse_mLModelId :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionResponse_mLModelId :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Text)
 getBatchPredictionResponse_mLModelId = Lens.lens (\GetBatchPredictionResponse' {mLModelId} -> mLModelId) (\s@GetBatchPredictionResponse' {} a -> s {mLModelId = a} :: GetBatchPredictionResponse)
 
 -- | The location of the data file or directory in Amazon Simple Storage
 -- Service (Amazon S3).
-getBatchPredictionResponse_inputDataLocationS3 :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionResponse_inputDataLocationS3 :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Text)
 getBatchPredictionResponse_inputDataLocationS3 = Lens.lens (\GetBatchPredictionResponse' {inputDataLocationS3} -> inputDataLocationS3) (\s@GetBatchPredictionResponse' {} a -> s {inputDataLocationS3 = a} :: GetBatchPredictionResponse)
 
 -- | The approximate CPU time in milliseconds that Amazon Machine Learning
 -- spent processing the @BatchPrediction@, normalized and scaled on
 -- computation resources. @ComputeTime@ is only available if the
 -- @BatchPrediction@ is in the @COMPLETED@ state.
-getBatchPredictionResponse_computeTime :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Integer)
+getBatchPredictionResponse_computeTime :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Integer)
 getBatchPredictionResponse_computeTime = Lens.lens (\GetBatchPredictionResponse' {computeTime} -> computeTime) (\s@GetBatchPredictionResponse' {} a -> s {computeTime = a} :: GetBatchPredictionResponse)
 
 -- | The time of the most recent edit to @BatchPrediction@. The time is
 -- expressed in epoch time.
-getBatchPredictionResponse_lastUpdatedAt :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.UTCTime)
-getBatchPredictionResponse_lastUpdatedAt = Lens.lens (\GetBatchPredictionResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetBatchPredictionResponse' {} a -> s {lastUpdatedAt = a} :: GetBatchPredictionResponse) Prelude.. Lens.mapping Prelude._Time
+getBatchPredictionResponse_lastUpdatedAt :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.UTCTime)
+getBatchPredictionResponse_lastUpdatedAt = Lens.lens (\GetBatchPredictionResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetBatchPredictionResponse' {} a -> s {lastUpdatedAt = a} :: GetBatchPredictionResponse) Core.. Lens.mapping Core._Time
 
 -- | A link to the file that contains logs of the @CreateBatchPrediction@
 -- operation.
-getBatchPredictionResponse_logUri :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionResponse_logUri :: Lens.Lens' GetBatchPredictionResponse (Core.Maybe Core.Text)
 getBatchPredictionResponse_logUri = Lens.lens (\GetBatchPredictionResponse' {logUri} -> logUri) (\s@GetBatchPredictionResponse' {} a -> s {logUri = a} :: GetBatchPredictionResponse)
 
 -- | The response's http status code.
-getBatchPredictionResponse_httpStatus :: Lens.Lens' GetBatchPredictionResponse Prelude.Int
+getBatchPredictionResponse_httpStatus :: Lens.Lens' GetBatchPredictionResponse Core.Int
 getBatchPredictionResponse_httpStatus = Lens.lens (\GetBatchPredictionResponse' {httpStatus} -> httpStatus) (\s@GetBatchPredictionResponse' {} a -> s {httpStatus = a} :: GetBatchPredictionResponse)
 
-instance Prelude.NFData GetBatchPredictionResponse
+instance Core.NFData GetBatchPredictionResponse

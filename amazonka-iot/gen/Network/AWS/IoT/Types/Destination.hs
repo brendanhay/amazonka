@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.Destination where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.S3Destination
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the location of the updated firmware.
 --
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
   { -- | Describes the location in S3 of the updated firmware.
-    s3Destination :: Prelude.Maybe S3Destination
+    s3Destination :: Core.Maybe S3Destination
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Destination' with all optional fields omitted.
@@ -45,30 +44,27 @@ data Destination = Destination'
 newDestination ::
   Destination
 newDestination =
-  Destination' {s3Destination = Prelude.Nothing}
+  Destination' {s3Destination = Core.Nothing}
 
 -- | Describes the location in S3 of the updated firmware.
-destination_s3Destination :: Lens.Lens' Destination (Prelude.Maybe S3Destination)
+destination_s3Destination :: Lens.Lens' Destination (Core.Maybe S3Destination)
 destination_s3Destination = Lens.lens (\Destination' {s3Destination} -> s3Destination) (\s@Destination' {} a -> s {s3Destination = a} :: Destination)
 
-instance Prelude.FromJSON Destination where
+instance Core.FromJSON Destination where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Destination"
       ( \x ->
-          Destination'
-            Prelude.<$> (x Prelude..:? "s3Destination")
+          Destination' Core.<$> (x Core..:? "s3Destination")
       )
 
-instance Prelude.Hashable Destination
+instance Core.Hashable Destination
 
-instance Prelude.NFData Destination
+instance Core.NFData Destination
 
-instance Prelude.ToJSON Destination where
+instance Core.ToJSON Destination where
   toJSON Destination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("s3Destination" Prelude..=)
-              Prelude.<$> s3Destination
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("s3Destination" Core..=) Core.<$> s3Destination]
       )

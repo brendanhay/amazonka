@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data LaunchTemplateEnclaveOptions = LaunchTemplateEnclaveOptions'
   { -- | If this parameter is set to @true@, the instance is enabled for AWS
     -- Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateEnclaveOptions' with all optional fields omitted.
@@ -49,21 +48,19 @@ newLaunchTemplateEnclaveOptions ::
 newLaunchTemplateEnclaveOptions =
   LaunchTemplateEnclaveOptions'
     { enabled =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | If this parameter is set to @true@, the instance is enabled for AWS
 -- Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
-launchTemplateEnclaveOptions_enabled :: Lens.Lens' LaunchTemplateEnclaveOptions (Prelude.Maybe Prelude.Bool)
+launchTemplateEnclaveOptions_enabled :: Lens.Lens' LaunchTemplateEnclaveOptions (Core.Maybe Core.Bool)
 launchTemplateEnclaveOptions_enabled = Lens.lens (\LaunchTemplateEnclaveOptions' {enabled} -> enabled) (\s@LaunchTemplateEnclaveOptions' {} a -> s {enabled = a} :: LaunchTemplateEnclaveOptions)
 
-instance Prelude.FromXML LaunchTemplateEnclaveOptions where
+instance Core.FromXML LaunchTemplateEnclaveOptions where
   parseXML x =
     LaunchTemplateEnclaveOptions'
-      Prelude.<$> (x Prelude..@? "enabled")
+      Core.<$> (x Core..@? "enabled")
 
-instance
-  Prelude.Hashable
-    LaunchTemplateEnclaveOptions
+instance Core.Hashable LaunchTemplateEnclaveOptions
 
-instance Prelude.NFData LaunchTemplateEnclaveOptions
+instance Core.NFData LaunchTemplateEnclaveOptions

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,41 +51,40 @@ module Network.AWS.IoT.ListAuditFindings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAuditFindings' smart constructor.
 data ListAuditFindings = ListAuditFindings'
   { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | A filter to limit results to the audit with the specified ID. You must
     -- specify either the taskId or the startTime and endTime, but not both.
-    taskId :: Prelude.Maybe Prelude.Text,
+    taskId :: Core.Maybe Core.Text,
     -- | A filter to limit results to those found after the specified time. You
     -- must specify either the startTime and endTime or the taskId, but not
     -- both.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | A filter to limit results to those found before the specified time. You
     -- must specify either the startTime and endTime or the taskId, but not
     -- both.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | Boolean flag indicating whether only the suppressed findings or the
     -- unsuppressed findings should be listed. If this parameter isn\'t
     -- provided, the response will list both suppressed and unsuppressed
     -- findings.
-    listSuppressedFindings :: Prelude.Maybe Prelude.Bool,
+    listSuppressedFindings :: Core.Maybe Core.Bool,
     -- | Information identifying the noncompliant resource.
-    resourceIdentifier :: Prelude.Maybe ResourceIdentifier,
+    resourceIdentifier :: Core.Maybe ResourceIdentifier,
     -- | A filter to limit results to the findings for the specified audit check.
-    checkName :: Prelude.Maybe Prelude.Text
+    checkName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAuditFindings' with all optional fields omitted.
@@ -123,131 +121,131 @@ newListAuditFindings ::
   ListAuditFindings
 newListAuditFindings =
   ListAuditFindings'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      taskId = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      listSuppressedFindings = Prelude.Nothing,
-      resourceIdentifier = Prelude.Nothing,
-      checkName = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      taskId = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      listSuppressedFindings = Core.Nothing,
+      resourceIdentifier = Core.Nothing,
+      checkName = Core.Nothing
     }
 
 -- | The token for the next set of results.
-listAuditFindings_nextToken :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Text)
+listAuditFindings_nextToken :: Lens.Lens' ListAuditFindings (Core.Maybe Core.Text)
 listAuditFindings_nextToken = Lens.lens (\ListAuditFindings' {nextToken} -> nextToken) (\s@ListAuditFindings' {} a -> s {nextToken = a} :: ListAuditFindings)
 
 -- | The maximum number of results to return at one time. The default is 25.
-listAuditFindings_maxResults :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Natural)
+listAuditFindings_maxResults :: Lens.Lens' ListAuditFindings (Core.Maybe Core.Natural)
 listAuditFindings_maxResults = Lens.lens (\ListAuditFindings' {maxResults} -> maxResults) (\s@ListAuditFindings' {} a -> s {maxResults = a} :: ListAuditFindings)
 
 -- | A filter to limit results to the audit with the specified ID. You must
 -- specify either the taskId or the startTime and endTime, but not both.
-listAuditFindings_taskId :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Text)
+listAuditFindings_taskId :: Lens.Lens' ListAuditFindings (Core.Maybe Core.Text)
 listAuditFindings_taskId = Lens.lens (\ListAuditFindings' {taskId} -> taskId) (\s@ListAuditFindings' {} a -> s {taskId = a} :: ListAuditFindings)
 
 -- | A filter to limit results to those found after the specified time. You
 -- must specify either the startTime and endTime or the taskId, but not
 -- both.
-listAuditFindings_startTime :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.UTCTime)
-listAuditFindings_startTime = Lens.lens (\ListAuditFindings' {startTime} -> startTime) (\s@ListAuditFindings' {} a -> s {startTime = a} :: ListAuditFindings) Prelude.. Lens.mapping Prelude._Time
+listAuditFindings_startTime :: Lens.Lens' ListAuditFindings (Core.Maybe Core.UTCTime)
+listAuditFindings_startTime = Lens.lens (\ListAuditFindings' {startTime} -> startTime) (\s@ListAuditFindings' {} a -> s {startTime = a} :: ListAuditFindings) Core.. Lens.mapping Core._Time
 
 -- | A filter to limit results to those found before the specified time. You
 -- must specify either the startTime and endTime or the taskId, but not
 -- both.
-listAuditFindings_endTime :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.UTCTime)
-listAuditFindings_endTime = Lens.lens (\ListAuditFindings' {endTime} -> endTime) (\s@ListAuditFindings' {} a -> s {endTime = a} :: ListAuditFindings) Prelude.. Lens.mapping Prelude._Time
+listAuditFindings_endTime :: Lens.Lens' ListAuditFindings (Core.Maybe Core.UTCTime)
+listAuditFindings_endTime = Lens.lens (\ListAuditFindings' {endTime} -> endTime) (\s@ListAuditFindings' {} a -> s {endTime = a} :: ListAuditFindings) Core.. Lens.mapping Core._Time
 
 -- | Boolean flag indicating whether only the suppressed findings or the
 -- unsuppressed findings should be listed. If this parameter isn\'t
 -- provided, the response will list both suppressed and unsuppressed
 -- findings.
-listAuditFindings_listSuppressedFindings :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Bool)
+listAuditFindings_listSuppressedFindings :: Lens.Lens' ListAuditFindings (Core.Maybe Core.Bool)
 listAuditFindings_listSuppressedFindings = Lens.lens (\ListAuditFindings' {listSuppressedFindings} -> listSuppressedFindings) (\s@ListAuditFindings' {} a -> s {listSuppressedFindings = a} :: ListAuditFindings)
 
 -- | Information identifying the noncompliant resource.
-listAuditFindings_resourceIdentifier :: Lens.Lens' ListAuditFindings (Prelude.Maybe ResourceIdentifier)
+listAuditFindings_resourceIdentifier :: Lens.Lens' ListAuditFindings (Core.Maybe ResourceIdentifier)
 listAuditFindings_resourceIdentifier = Lens.lens (\ListAuditFindings' {resourceIdentifier} -> resourceIdentifier) (\s@ListAuditFindings' {} a -> s {resourceIdentifier = a} :: ListAuditFindings)
 
 -- | A filter to limit results to the findings for the specified audit check.
-listAuditFindings_checkName :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Text)
+listAuditFindings_checkName :: Lens.Lens' ListAuditFindings (Core.Maybe Core.Text)
 listAuditFindings_checkName = Lens.lens (\ListAuditFindings' {checkName} -> checkName) (\s@ListAuditFindings' {} a -> s {checkName = a} :: ListAuditFindings)
 
-instance Pager.AWSPager ListAuditFindings where
+instance Core.AWSPager ListAuditFindings where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listAuditFindingsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listAuditFindingsResponse_findings
-              Prelude.. Lens._Just
+            Lens.^? listAuditFindingsResponse_findings Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listAuditFindings_nextToken
           Lens..~ rs
-          Lens.^? listAuditFindingsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listAuditFindingsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListAuditFindings where
-  type Rs ListAuditFindings = ListAuditFindingsResponse
+instance Core.AWSRequest ListAuditFindings where
+  type
+    AWSResponse ListAuditFindings =
+      ListAuditFindingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAuditFindingsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "findings" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "findings" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListAuditFindings
+instance Core.Hashable ListAuditFindings
 
-instance Prelude.NFData ListAuditFindings
+instance Core.NFData ListAuditFindings
 
-instance Prelude.ToHeaders ListAuditFindings where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListAuditFindings where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON ListAuditFindings where
+instance Core.ToJSON ListAuditFindings where
   toJSON ListAuditFindings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("taskId" Prelude..=) Prelude.<$> taskId,
-            ("startTime" Prelude..=) Prelude.<$> startTime,
-            ("endTime" Prelude..=) Prelude.<$> endTime,
-            ("listSuppressedFindings" Prelude..=)
-              Prelude.<$> listSuppressedFindings,
-            ("resourceIdentifier" Prelude..=)
-              Prelude.<$> resourceIdentifier,
-            ("checkName" Prelude..=) Prelude.<$> checkName
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("taskId" Core..=) Core.<$> taskId,
+            ("startTime" Core..=) Core.<$> startTime,
+            ("endTime" Core..=) Core.<$> endTime,
+            ("listSuppressedFindings" Core..=)
+              Core.<$> listSuppressedFindings,
+            ("resourceIdentifier" Core..=)
+              Core.<$> resourceIdentifier,
+            ("checkName" Core..=) Core.<$> checkName
           ]
       )
 
-instance Prelude.ToPath ListAuditFindings where
-  toPath = Prelude.const "/audit/findings"
+instance Core.ToPath ListAuditFindings where
+  toPath = Core.const "/audit/findings"
 
-instance Prelude.ToQuery ListAuditFindings where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListAuditFindings where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAuditFindingsResponse' smart constructor.
 data ListAuditFindingsResponse = ListAuditFindingsResponse'
   { -- | A token that can be used to retrieve the next set of results, or @null@
     -- if there are no additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The findings (results) of the audit.
-    findings :: Prelude.Maybe [AuditFinding],
+    findings :: Core.Maybe [AuditFinding],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAuditFindingsResponse' with all optional fields omitted.
@@ -265,27 +263,27 @@ data ListAuditFindingsResponse = ListAuditFindingsResponse'
 -- 'httpStatus', 'listAuditFindingsResponse_httpStatus' - The response's http status code.
 newListAuditFindingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAuditFindingsResponse
 newListAuditFindingsResponse pHttpStatus_ =
   ListAuditFindingsResponse'
     { nextToken =
-        Prelude.Nothing,
-      findings = Prelude.Nothing,
+        Core.Nothing,
+      findings = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
-listAuditFindingsResponse_nextToken :: Lens.Lens' ListAuditFindingsResponse (Prelude.Maybe Prelude.Text)
+listAuditFindingsResponse_nextToken :: Lens.Lens' ListAuditFindingsResponse (Core.Maybe Core.Text)
 listAuditFindingsResponse_nextToken = Lens.lens (\ListAuditFindingsResponse' {nextToken} -> nextToken) (\s@ListAuditFindingsResponse' {} a -> s {nextToken = a} :: ListAuditFindingsResponse)
 
 -- | The findings (results) of the audit.
-listAuditFindingsResponse_findings :: Lens.Lens' ListAuditFindingsResponse (Prelude.Maybe [AuditFinding])
-listAuditFindingsResponse_findings = Lens.lens (\ListAuditFindingsResponse' {findings} -> findings) (\s@ListAuditFindingsResponse' {} a -> s {findings = a} :: ListAuditFindingsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAuditFindingsResponse_findings :: Lens.Lens' ListAuditFindingsResponse (Core.Maybe [AuditFinding])
+listAuditFindingsResponse_findings = Lens.lens (\ListAuditFindingsResponse' {findings} -> findings) (\s@ListAuditFindingsResponse' {} a -> s {findings = a} :: ListAuditFindingsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAuditFindingsResponse_httpStatus :: Lens.Lens' ListAuditFindingsResponse Prelude.Int
+listAuditFindingsResponse_httpStatus :: Lens.Lens' ListAuditFindingsResponse Core.Int
 listAuditFindingsResponse_httpStatus = Lens.lens (\ListAuditFindingsResponse' {httpStatus} -> httpStatus) (\s@ListAuditFindingsResponse' {} a -> s {httpStatus = a} :: ListAuditFindingsResponse)
 
-instance Prelude.NFData ListAuditFindingsResponse
+instance Core.NFData ListAuditFindingsResponse

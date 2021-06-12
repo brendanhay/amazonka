@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A provider representing an Amazon Cognito user pool and its client ID.
 --
 -- /See:/ 'newCognitoIdentityProvider' smart constructor.
 data CognitoIdentityProvider = CognitoIdentityProvider'
   { -- | The client ID for the Amazon Cognito user pool.
-    clientId :: Prelude.Maybe Prelude.Text,
+    clientId :: Core.Maybe Core.Text,
     -- | The provider name for an Amazon Cognito user pool. For example,
     -- @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.
-    providerName :: Prelude.Maybe Prelude.Text,
+    providerName :: Core.Maybe Core.Text,
     -- | TRUE if server-side token validation is enabled for the identity
     -- provider’s token.
     --
@@ -42,9 +41,9 @@ data CognitoIdentityProvider = CognitoIdentityProvider'
     --
     -- If the user is signed out or deleted, the identity pool will return a
     -- 400 Not Authorized error.
-    serverSideTokenCheck :: Prelude.Maybe Prelude.Bool
+    serverSideTokenCheck :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CognitoIdentityProvider' with all optional fields omitted.
@@ -73,19 +72,18 @@ newCognitoIdentityProvider ::
   CognitoIdentityProvider
 newCognitoIdentityProvider =
   CognitoIdentityProvider'
-    { clientId =
-        Prelude.Nothing,
-      providerName = Prelude.Nothing,
-      serverSideTokenCheck = Prelude.Nothing
+    { clientId = Core.Nothing,
+      providerName = Core.Nothing,
+      serverSideTokenCheck = Core.Nothing
     }
 
 -- | The client ID for the Amazon Cognito user pool.
-cognitoIdentityProvider_clientId :: Lens.Lens' CognitoIdentityProvider (Prelude.Maybe Prelude.Text)
+cognitoIdentityProvider_clientId :: Lens.Lens' CognitoIdentityProvider (Core.Maybe Core.Text)
 cognitoIdentityProvider_clientId = Lens.lens (\CognitoIdentityProvider' {clientId} -> clientId) (\s@CognitoIdentityProvider' {} a -> s {clientId = a} :: CognitoIdentityProvider)
 
 -- | The provider name for an Amazon Cognito user pool. For example,
 -- @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.
-cognitoIdentityProvider_providerName :: Lens.Lens' CognitoIdentityProvider (Prelude.Maybe Prelude.Text)
+cognitoIdentityProvider_providerName :: Lens.Lens' CognitoIdentityProvider (Core.Maybe Core.Text)
 cognitoIdentityProvider_providerName = Lens.lens (\CognitoIdentityProvider' {providerName} -> providerName) (\s@CognitoIdentityProvider' {} a -> s {providerName = a} :: CognitoIdentityProvider)
 
 -- | TRUE if server-side token validation is enabled for the identity
@@ -98,31 +96,31 @@ cognitoIdentityProvider_providerName = Lens.lens (\CognitoIdentityProvider' {pro
 --
 -- If the user is signed out or deleted, the identity pool will return a
 -- 400 Not Authorized error.
-cognitoIdentityProvider_serverSideTokenCheck :: Lens.Lens' CognitoIdentityProvider (Prelude.Maybe Prelude.Bool)
+cognitoIdentityProvider_serverSideTokenCheck :: Lens.Lens' CognitoIdentityProvider (Core.Maybe Core.Bool)
 cognitoIdentityProvider_serverSideTokenCheck = Lens.lens (\CognitoIdentityProvider' {serverSideTokenCheck} -> serverSideTokenCheck) (\s@CognitoIdentityProvider' {} a -> s {serverSideTokenCheck = a} :: CognitoIdentityProvider)
 
-instance Prelude.FromJSON CognitoIdentityProvider where
+instance Core.FromJSON CognitoIdentityProvider where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CognitoIdentityProvider"
       ( \x ->
           CognitoIdentityProvider'
-            Prelude.<$> (x Prelude..:? "ClientId")
-            Prelude.<*> (x Prelude..:? "ProviderName")
-            Prelude.<*> (x Prelude..:? "ServerSideTokenCheck")
+            Core.<$> (x Core..:? "ClientId")
+            Core.<*> (x Core..:? "ProviderName")
+            Core.<*> (x Core..:? "ServerSideTokenCheck")
       )
 
-instance Prelude.Hashable CognitoIdentityProvider
+instance Core.Hashable CognitoIdentityProvider
 
-instance Prelude.NFData CognitoIdentityProvider
+instance Core.NFData CognitoIdentityProvider
 
-instance Prelude.ToJSON CognitoIdentityProvider where
+instance Core.ToJSON CognitoIdentityProvider where
   toJSON CognitoIdentityProvider' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ClientId" Prelude..=) Prelude.<$> clientId,
-            ("ProviderName" Prelude..=) Prelude.<$> providerName,
-            ("ServerSideTokenCheck" Prelude..=)
-              Prelude.<$> serverSideTokenCheck
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientId" Core..=) Core.<$> clientId,
+            ("ProviderName" Core..=) Core.<$> providerName,
+            ("ServerSideTokenCheck" Core..=)
+              Core.<$> serverSideTokenCheck
           ]
       )

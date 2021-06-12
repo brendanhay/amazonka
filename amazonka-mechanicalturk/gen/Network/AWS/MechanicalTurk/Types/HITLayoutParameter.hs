@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MechanicalTurk.Types.HITLayoutParameter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The HITLayoutParameter data structure defines parameter values used with
 -- a HITLayout. A HITLayout is a reusable Amazon Mechanical Turk project
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newHITLayoutParameter' smart constructor.
 data HITLayoutParameter = HITLayoutParameter'
   { -- | The name of the parameter in the HITLayout.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The value substituted for the parameter referenced in the HITLayout.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HITLayoutParameter' with all optional fields omitted.
@@ -50,30 +49,30 @@ data HITLayoutParameter = HITLayoutParameter'
 -- 'value', 'hITLayoutParameter_value' - The value substituted for the parameter referenced in the HITLayout.
 newHITLayoutParameter ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   HITLayoutParameter
 newHITLayoutParameter pName_ pValue_ =
   HITLayoutParameter' {name = pName_, value = pValue_}
 
 -- | The name of the parameter in the HITLayout.
-hITLayoutParameter_name :: Lens.Lens' HITLayoutParameter Prelude.Text
+hITLayoutParameter_name :: Lens.Lens' HITLayoutParameter Core.Text
 hITLayoutParameter_name = Lens.lens (\HITLayoutParameter' {name} -> name) (\s@HITLayoutParameter' {} a -> s {name = a} :: HITLayoutParameter)
 
 -- | The value substituted for the parameter referenced in the HITLayout.
-hITLayoutParameter_value :: Lens.Lens' HITLayoutParameter Prelude.Text
+hITLayoutParameter_value :: Lens.Lens' HITLayoutParameter Core.Text
 hITLayoutParameter_value = Lens.lens (\HITLayoutParameter' {value} -> value) (\s@HITLayoutParameter' {} a -> s {value = a} :: HITLayoutParameter)
 
-instance Prelude.Hashable HITLayoutParameter
+instance Core.Hashable HITLayoutParameter
 
-instance Prelude.NFData HITLayoutParameter
+instance Core.NFData HITLayoutParameter
 
-instance Prelude.ToJSON HITLayoutParameter where
+instance Core.ToJSON HITLayoutParameter where
   toJSON HITLayoutParameter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Value" Core..= value)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.WorkSpaces.StartWorkspaces
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -52,9 +51,9 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newStartWorkspaces' smart constructor.
 data StartWorkspaces = StartWorkspaces'
   { -- | The WorkSpaces to start. You can specify up to 25 WorkSpaces.
-    startWorkspaceRequests :: Prelude.NonEmpty StartRequest
+    startWorkspaceRequests :: Core.NonEmpty StartRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartWorkspaces' with all optional fields omitted.
@@ -67,75 +66,73 @@ data StartWorkspaces = StartWorkspaces'
 -- 'startWorkspaceRequests', 'startWorkspaces_startWorkspaceRequests' - The WorkSpaces to start. You can specify up to 25 WorkSpaces.
 newStartWorkspaces ::
   -- | 'startWorkspaceRequests'
-  Prelude.NonEmpty StartRequest ->
+  Core.NonEmpty StartRequest ->
   StartWorkspaces
 newStartWorkspaces pStartWorkspaceRequests_ =
   StartWorkspaces'
     { startWorkspaceRequests =
-        Prelude._Coerce Lens.# pStartWorkspaceRequests_
+        Lens._Coerce Lens.# pStartWorkspaceRequests_
     }
 
 -- | The WorkSpaces to start. You can specify up to 25 WorkSpaces.
-startWorkspaces_startWorkspaceRequests :: Lens.Lens' StartWorkspaces (Prelude.NonEmpty StartRequest)
-startWorkspaces_startWorkspaceRequests = Lens.lens (\StartWorkspaces' {startWorkspaceRequests} -> startWorkspaceRequests) (\s@StartWorkspaces' {} a -> s {startWorkspaceRequests = a} :: StartWorkspaces) Prelude.. Prelude._Coerce
+startWorkspaces_startWorkspaceRequests :: Lens.Lens' StartWorkspaces (Core.NonEmpty StartRequest)
+startWorkspaces_startWorkspaceRequests = Lens.lens (\StartWorkspaces' {startWorkspaceRequests} -> startWorkspaceRequests) (\s@StartWorkspaces' {} a -> s {startWorkspaceRequests = a} :: StartWorkspaces) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest StartWorkspaces where
-  type Rs StartWorkspaces = StartWorkspacesResponse
+instance Core.AWSRequest StartWorkspaces where
+  type
+    AWSResponse StartWorkspaces =
+      StartWorkspacesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartWorkspacesResponse'
-            Prelude.<$> ( x Prelude..?> "FailedRequests"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FailedRequests" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartWorkspaces
+instance Core.Hashable StartWorkspaces
 
-instance Prelude.NFData StartWorkspaces
+instance Core.NFData StartWorkspaces
 
-instance Prelude.ToHeaders StartWorkspaces where
+instance Core.ToHeaders StartWorkspaces where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.StartWorkspaces" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.StartWorkspaces" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartWorkspaces where
+instance Core.ToJSON StartWorkspaces where
   toJSON StartWorkspaces' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "StartWorkspaceRequests"
-                  Prelude..= startWorkspaceRequests
+                  Core..= startWorkspaceRequests
               )
           ]
       )
 
-instance Prelude.ToPath StartWorkspaces where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartWorkspaces where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartWorkspaces where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartWorkspaces where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartWorkspacesResponse' smart constructor.
 data StartWorkspacesResponse = StartWorkspacesResponse'
   { -- | Information about the WorkSpaces that could not be started.
-    failedRequests :: Prelude.Maybe [FailedWorkspaceChangeRequest],
+    failedRequests :: Core.Maybe [FailedWorkspaceChangeRequest],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartWorkspacesResponse' with all optional fields omitted.
@@ -150,21 +147,21 @@ data StartWorkspacesResponse = StartWorkspacesResponse'
 -- 'httpStatus', 'startWorkspacesResponse_httpStatus' - The response's http status code.
 newStartWorkspacesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartWorkspacesResponse
 newStartWorkspacesResponse pHttpStatus_ =
   StartWorkspacesResponse'
     { failedRequests =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the WorkSpaces that could not be started.
-startWorkspacesResponse_failedRequests :: Lens.Lens' StartWorkspacesResponse (Prelude.Maybe [FailedWorkspaceChangeRequest])
-startWorkspacesResponse_failedRequests = Lens.lens (\StartWorkspacesResponse' {failedRequests} -> failedRequests) (\s@StartWorkspacesResponse' {} a -> s {failedRequests = a} :: StartWorkspacesResponse) Prelude.. Lens.mapping Prelude._Coerce
+startWorkspacesResponse_failedRequests :: Lens.Lens' StartWorkspacesResponse (Core.Maybe [FailedWorkspaceChangeRequest])
+startWorkspacesResponse_failedRequests = Lens.lens (\StartWorkspacesResponse' {failedRequests} -> failedRequests) (\s@StartWorkspacesResponse' {} a -> s {failedRequests = a} :: StartWorkspacesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-startWorkspacesResponse_httpStatus :: Lens.Lens' StartWorkspacesResponse Prelude.Int
+startWorkspacesResponse_httpStatus :: Lens.Lens' StartWorkspacesResponse Core.Int
 startWorkspacesResponse_httpStatus = Lens.lens (\StartWorkspacesResponse' {httpStatus} -> httpStatus) (\s@StartWorkspacesResponse' {} a -> s {httpStatus = a} :: StartWorkspacesResponse)
 
-instance Prelude.NFData StartWorkspacesResponse
+instance Core.NFData StartWorkspacesResponse

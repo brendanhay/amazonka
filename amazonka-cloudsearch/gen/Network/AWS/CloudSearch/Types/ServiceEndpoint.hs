@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,16 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudSearch.Types.ServiceEndpoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The endpoint to which service requests can be submitted.
 --
 -- /See:/ 'newServiceEndpoint' smart constructor.
 data ServiceEndpoint = ServiceEndpoint'
-  { endpoint :: Prelude.Maybe Prelude.Text
+  { endpoint :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceEndpoint' with all optional fields omitted.
@@ -43,17 +42,16 @@ data ServiceEndpoint = ServiceEndpoint'
 newServiceEndpoint ::
   ServiceEndpoint
 newServiceEndpoint =
-  ServiceEndpoint' {endpoint = Prelude.Nothing}
+  ServiceEndpoint' {endpoint = Core.Nothing}
 
 -- | Undocumented member.
-serviceEndpoint_endpoint :: Lens.Lens' ServiceEndpoint (Prelude.Maybe Prelude.Text)
+serviceEndpoint_endpoint :: Lens.Lens' ServiceEndpoint (Core.Maybe Core.Text)
 serviceEndpoint_endpoint = Lens.lens (\ServiceEndpoint' {endpoint} -> endpoint) (\s@ServiceEndpoint' {} a -> s {endpoint = a} :: ServiceEndpoint)
 
-instance Prelude.FromXML ServiceEndpoint where
+instance Core.FromXML ServiceEndpoint where
   parseXML x =
-    ServiceEndpoint'
-      Prelude.<$> (x Prelude..@? "Endpoint")
+    ServiceEndpoint' Core.<$> (x Core..@? "Endpoint")
 
-instance Prelude.Hashable ServiceEndpoint
+instance Core.Hashable ServiceEndpoint
 
-instance Prelude.NFData ServiceEndpoint
+instance Core.NFData ServiceEndpoint

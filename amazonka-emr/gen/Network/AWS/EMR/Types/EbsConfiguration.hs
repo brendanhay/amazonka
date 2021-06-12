@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.EbsConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.EbsBlockDeviceConfig
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon EBS configuration of a cluster instance.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data EbsConfiguration = EbsConfiguration'
   { -- | An array of Amazon EBS volume specifications attached to a cluster
     -- instance.
-    ebsBlockDeviceConfigs :: Prelude.Maybe [EbsBlockDeviceConfig],
+    ebsBlockDeviceConfigs :: Core.Maybe [EbsBlockDeviceConfig],
     -- | Indicates whether an Amazon EBS volume is EBS-optimized.
-    ebsOptimized :: Prelude.Maybe Prelude.Bool
+    ebsOptimized :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EbsConfiguration' with all optional fields omitted.
@@ -53,30 +52,29 @@ newEbsConfiguration ::
 newEbsConfiguration =
   EbsConfiguration'
     { ebsBlockDeviceConfigs =
-        Prelude.Nothing,
-      ebsOptimized = Prelude.Nothing
+        Core.Nothing,
+      ebsOptimized = Core.Nothing
     }
 
 -- | An array of Amazon EBS volume specifications attached to a cluster
 -- instance.
-ebsConfiguration_ebsBlockDeviceConfigs :: Lens.Lens' EbsConfiguration (Prelude.Maybe [EbsBlockDeviceConfig])
-ebsConfiguration_ebsBlockDeviceConfigs = Lens.lens (\EbsConfiguration' {ebsBlockDeviceConfigs} -> ebsBlockDeviceConfigs) (\s@EbsConfiguration' {} a -> s {ebsBlockDeviceConfigs = a} :: EbsConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+ebsConfiguration_ebsBlockDeviceConfigs :: Lens.Lens' EbsConfiguration (Core.Maybe [EbsBlockDeviceConfig])
+ebsConfiguration_ebsBlockDeviceConfigs = Lens.lens (\EbsConfiguration' {ebsBlockDeviceConfigs} -> ebsBlockDeviceConfigs) (\s@EbsConfiguration' {} a -> s {ebsBlockDeviceConfigs = a} :: EbsConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether an Amazon EBS volume is EBS-optimized.
-ebsConfiguration_ebsOptimized :: Lens.Lens' EbsConfiguration (Prelude.Maybe Prelude.Bool)
+ebsConfiguration_ebsOptimized :: Lens.Lens' EbsConfiguration (Core.Maybe Core.Bool)
 ebsConfiguration_ebsOptimized = Lens.lens (\EbsConfiguration' {ebsOptimized} -> ebsOptimized) (\s@EbsConfiguration' {} a -> s {ebsOptimized = a} :: EbsConfiguration)
 
-instance Prelude.Hashable EbsConfiguration
+instance Core.Hashable EbsConfiguration
 
-instance Prelude.NFData EbsConfiguration
+instance Core.NFData EbsConfiguration
 
-instance Prelude.ToJSON EbsConfiguration where
+instance Core.ToJSON EbsConfiguration where
   toJSON EbsConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EbsBlockDeviceConfigs" Prelude..=)
-              Prelude.<$> ebsBlockDeviceConfigs,
-            ("EbsOptimized" Prelude..=)
-              Prelude.<$> ebsOptimized
+    Core.object
+      ( Core.catMaybes
+          [ ("EbsBlockDeviceConfigs" Core..=)
+              Core.<$> ebsBlockDeviceConfigs,
+            ("EbsOptimized" Core..=) Core.<$> ebsOptimized
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Transcribe.Types.InputDataConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The object that contains the Amazon S3 object location and access role
 -- required to train and tune your custom language model.
@@ -30,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 data InputDataConfig = InputDataConfig'
   { -- | The Amazon S3 prefix you specify to access the plain text files that you
     -- use to tune your custom language model.
-    tuningDataS3Uri :: Prelude.Maybe Prelude.Text,
+    tuningDataS3Uri :: Core.Maybe Core.Text,
     -- | The Amazon S3 prefix you specify to access the plain text files that you
     -- use to train your custom language model.
-    s3Uri :: Prelude.Text,
+    s3Uri :: Core.Text,
     -- | The Amazon Resource Name (ARN) that uniquely identifies the permissions
     -- you\'ve given Amazon Transcribe to access your Amazon S3 buckets
     -- containing your media files or text data.
-    dataAccessRoleArn :: Prelude.Text
+    dataAccessRoleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputDataConfig' with all optional fields omitted.
@@ -60,56 +59,56 @@ data InputDataConfig = InputDataConfig'
 -- containing your media files or text data.
 newInputDataConfig ::
   -- | 's3Uri'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dataAccessRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   InputDataConfig
 newInputDataConfig pS3Uri_ pDataAccessRoleArn_ =
   InputDataConfig'
-    { tuningDataS3Uri = Prelude.Nothing,
+    { tuningDataS3Uri = Core.Nothing,
       s3Uri = pS3Uri_,
       dataAccessRoleArn = pDataAccessRoleArn_
     }
 
 -- | The Amazon S3 prefix you specify to access the plain text files that you
 -- use to tune your custom language model.
-inputDataConfig_tuningDataS3Uri :: Lens.Lens' InputDataConfig (Prelude.Maybe Prelude.Text)
+inputDataConfig_tuningDataS3Uri :: Lens.Lens' InputDataConfig (Core.Maybe Core.Text)
 inputDataConfig_tuningDataS3Uri = Lens.lens (\InputDataConfig' {tuningDataS3Uri} -> tuningDataS3Uri) (\s@InputDataConfig' {} a -> s {tuningDataS3Uri = a} :: InputDataConfig)
 
 -- | The Amazon S3 prefix you specify to access the plain text files that you
 -- use to train your custom language model.
-inputDataConfig_s3Uri :: Lens.Lens' InputDataConfig Prelude.Text
+inputDataConfig_s3Uri :: Lens.Lens' InputDataConfig Core.Text
 inputDataConfig_s3Uri = Lens.lens (\InputDataConfig' {s3Uri} -> s3Uri) (\s@InputDataConfig' {} a -> s {s3Uri = a} :: InputDataConfig)
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the permissions
 -- you\'ve given Amazon Transcribe to access your Amazon S3 buckets
 -- containing your media files or text data.
-inputDataConfig_dataAccessRoleArn :: Lens.Lens' InputDataConfig Prelude.Text
+inputDataConfig_dataAccessRoleArn :: Lens.Lens' InputDataConfig Core.Text
 inputDataConfig_dataAccessRoleArn = Lens.lens (\InputDataConfig' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@InputDataConfig' {} a -> s {dataAccessRoleArn = a} :: InputDataConfig)
 
-instance Prelude.FromJSON InputDataConfig where
+instance Core.FromJSON InputDataConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputDataConfig"
       ( \x ->
           InputDataConfig'
-            Prelude.<$> (x Prelude..:? "TuningDataS3Uri")
-            Prelude.<*> (x Prelude..: "S3Uri")
-            Prelude.<*> (x Prelude..: "DataAccessRoleArn")
+            Core.<$> (x Core..:? "TuningDataS3Uri")
+            Core.<*> (x Core..: "S3Uri")
+            Core.<*> (x Core..: "DataAccessRoleArn")
       )
 
-instance Prelude.Hashable InputDataConfig
+instance Core.Hashable InputDataConfig
 
-instance Prelude.NFData InputDataConfig
+instance Core.NFData InputDataConfig
 
-instance Prelude.ToJSON InputDataConfig where
+instance Core.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TuningDataS3Uri" Prelude..=)
-              Prelude.<$> tuningDataS3Uri,
-            Prelude.Just ("S3Uri" Prelude..= s3Uri),
-            Prelude.Just
-              ("DataAccessRoleArn" Prelude..= dataAccessRoleArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("TuningDataS3Uri" Core..=)
+              Core.<$> tuningDataS3Uri,
+            Core.Just ("S3Uri" Core..= s3Uri),
+            Core.Just
+              ("DataAccessRoleArn" Core..= dataAccessRoleArn)
           ]
       )

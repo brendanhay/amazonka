@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkMail.Types.Member where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkMail.Types.EntityState
 import Network.AWS.WorkMail.Types.MemberType
 
@@ -30,20 +29,20 @@ import Network.AWS.WorkMail.Types.MemberType
 -- /See:/ 'newMember' smart constructor.
 data Member = Member'
   { -- | The date indicating when the member was enabled for Amazon WorkMail use.
-    enabledDate :: Prelude.Maybe Prelude.POSIX,
+    enabledDate :: Core.Maybe Core.POSIX,
     -- | The identifier of the member.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The state of the member, which can be ENABLED, DISABLED, or DELETED.
-    state :: Prelude.Maybe EntityState,
+    state :: Core.Maybe EntityState,
     -- | The name of the member.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The date indicating when the member was disabled from Amazon WorkMail
     -- use.
-    disabledDate :: Prelude.Maybe Prelude.POSIX,
+    disabledDate :: Core.Maybe Core.POSIX,
     -- | A member can be a user or group.
-    type' :: Prelude.Maybe MemberType
+    type' :: Core.Maybe MemberType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Member' with all optional fields omitted.
@@ -69,53 +68,53 @@ newMember ::
   Member
 newMember =
   Member'
-    { enabledDate = Prelude.Nothing,
-      id = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      disabledDate = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { enabledDate = Core.Nothing,
+      id = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      disabledDate = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The date indicating when the member was enabled for Amazon WorkMail use.
-member_enabledDate :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
-member_enabledDate = Lens.lens (\Member' {enabledDate} -> enabledDate) (\s@Member' {} a -> s {enabledDate = a} :: Member) Prelude.. Lens.mapping Prelude._Time
+member_enabledDate :: Lens.Lens' Member (Core.Maybe Core.UTCTime)
+member_enabledDate = Lens.lens (\Member' {enabledDate} -> enabledDate) (\s@Member' {} a -> s {enabledDate = a} :: Member) Core.. Lens.mapping Core._Time
 
 -- | The identifier of the member.
-member_id :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
+member_id :: Lens.Lens' Member (Core.Maybe Core.Text)
 member_id = Lens.lens (\Member' {id} -> id) (\s@Member' {} a -> s {id = a} :: Member)
 
 -- | The state of the member, which can be ENABLED, DISABLED, or DELETED.
-member_state :: Lens.Lens' Member (Prelude.Maybe EntityState)
+member_state :: Lens.Lens' Member (Core.Maybe EntityState)
 member_state = Lens.lens (\Member' {state} -> state) (\s@Member' {} a -> s {state = a} :: Member)
 
 -- | The name of the member.
-member_name :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
+member_name :: Lens.Lens' Member (Core.Maybe Core.Text)
 member_name = Lens.lens (\Member' {name} -> name) (\s@Member' {} a -> s {name = a} :: Member)
 
 -- | The date indicating when the member was disabled from Amazon WorkMail
 -- use.
-member_disabledDate :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
-member_disabledDate = Lens.lens (\Member' {disabledDate} -> disabledDate) (\s@Member' {} a -> s {disabledDate = a} :: Member) Prelude.. Lens.mapping Prelude._Time
+member_disabledDate :: Lens.Lens' Member (Core.Maybe Core.UTCTime)
+member_disabledDate = Lens.lens (\Member' {disabledDate} -> disabledDate) (\s@Member' {} a -> s {disabledDate = a} :: Member) Core.. Lens.mapping Core._Time
 
 -- | A member can be a user or group.
-member_type :: Lens.Lens' Member (Prelude.Maybe MemberType)
+member_type :: Lens.Lens' Member (Core.Maybe MemberType)
 member_type = Lens.lens (\Member' {type'} -> type') (\s@Member' {} a -> s {type' = a} :: Member)
 
-instance Prelude.FromJSON Member where
+instance Core.FromJSON Member where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Prelude..:? "EnabledDate")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "DisabledDate")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "EnabledDate")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "DisabledDate")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Member
+instance Core.Hashable Member
 
-instance Prelude.NFData Member
+instance Core.NFData Member

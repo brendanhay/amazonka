@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,30 +47,29 @@ module Network.AWS.EC2.DescribeVpcEndpointServiceConfigurations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeVpcEndpointServiceConfigurations' smart constructor.
 data DescribeVpcEndpointServiceConfigurations = DescribeVpcEndpointServiceConfigurations'
   { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results of the initial request can be seen by
     -- sending another request with the returned @NextToken@ value. This value
     -- can be between 5 and 1,000; if @MaxResults@ is given a value larger than
     -- 1,000, only 1,000 results are returned.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The IDs of one or more services.
-    serviceIds :: Prelude.Maybe [Prelude.Text],
+    serviceIds :: Core.Maybe [Core.Text],
     -- | One or more filters.
     --
     -- -   @service-name@ - The name of the service.
@@ -90,9 +88,9 @@ data DescribeVpcEndpointServiceConfigurations = DescribeVpcEndpointServiceConfig
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcEndpointServiceConfigurations' with all optional fields omitted.
@@ -140,22 +138,22 @@ newDescribeVpcEndpointServiceConfigurations ::
 newDescribeVpcEndpointServiceConfigurations =
   DescribeVpcEndpointServiceConfigurations'
     { nextToken =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      serviceIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      serviceIds = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token to retrieve the next page of results.
-describeVpcEndpointServiceConfigurations_nextToken :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Prelude.Maybe Prelude.Text)
+describeVpcEndpointServiceConfigurations_nextToken :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Core.Maybe Core.Text)
 describeVpcEndpointServiceConfigurations_nextToken = Lens.lens (\DescribeVpcEndpointServiceConfigurations' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServiceConfigurations' {} a -> s {nextToken = a} :: DescribeVpcEndpointServiceConfigurations)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeVpcEndpointServiceConfigurations_dryRun :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Prelude.Maybe Prelude.Bool)
+describeVpcEndpointServiceConfigurations_dryRun :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Core.Maybe Core.Bool)
 describeVpcEndpointServiceConfigurations_dryRun = Lens.lens (\DescribeVpcEndpointServiceConfigurations' {dryRun} -> dryRun) (\s@DescribeVpcEndpointServiceConfigurations' {} a -> s {dryRun = a} :: DescribeVpcEndpointServiceConfigurations)
 
 -- | The maximum number of results to return for the request in a single
@@ -163,12 +161,12 @@ describeVpcEndpointServiceConfigurations_dryRun = Lens.lens (\DescribeVpcEndpoin
 -- sending another request with the returned @NextToken@ value. This value
 -- can be between 5 and 1,000; if @MaxResults@ is given a value larger than
 -- 1,000, only 1,000 results are returned.
-describeVpcEndpointServiceConfigurations_maxResults :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Prelude.Maybe Prelude.Int)
+describeVpcEndpointServiceConfigurations_maxResults :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Core.Maybe Core.Int)
 describeVpcEndpointServiceConfigurations_maxResults = Lens.lens (\DescribeVpcEndpointServiceConfigurations' {maxResults} -> maxResults) (\s@DescribeVpcEndpointServiceConfigurations' {} a -> s {maxResults = a} :: DescribeVpcEndpointServiceConfigurations)
 
 -- | The IDs of one or more services.
-describeVpcEndpointServiceConfigurations_serviceIds :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Prelude.Maybe [Prelude.Text])
-describeVpcEndpointServiceConfigurations_serviceIds = Lens.lens (\DescribeVpcEndpointServiceConfigurations' {serviceIds} -> serviceIds) (\s@DescribeVpcEndpointServiceConfigurations' {} a -> s {serviceIds = a} :: DescribeVpcEndpointServiceConfigurations) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcEndpointServiceConfigurations_serviceIds :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Core.Maybe [Core.Text])
+describeVpcEndpointServiceConfigurations_serviceIds = Lens.lens (\DescribeVpcEndpointServiceConfigurations' {serviceIds} -> serviceIds) (\s@DescribeVpcEndpointServiceConfigurations' {} a -> s {serviceIds = a} :: DescribeVpcEndpointServiceConfigurations) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -188,108 +186,106 @@ describeVpcEndpointServiceConfigurations_serviceIds = Lens.lens (\DescribeVpcEnd
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
-describeVpcEndpointServiceConfigurations_filters :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Prelude.Maybe [Filter])
-describeVpcEndpointServiceConfigurations_filters = Lens.lens (\DescribeVpcEndpointServiceConfigurations' {filters} -> filters) (\s@DescribeVpcEndpointServiceConfigurations' {} a -> s {filters = a} :: DescribeVpcEndpointServiceConfigurations) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcEndpointServiceConfigurations_filters :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Core.Maybe [Filter])
+describeVpcEndpointServiceConfigurations_filters = Lens.lens (\DescribeVpcEndpointServiceConfigurations' {filters} -> filters) (\s@DescribeVpcEndpointServiceConfigurations' {} a -> s {filters = a} :: DescribeVpcEndpointServiceConfigurations) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeVpcEndpointServiceConfigurations
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServiceConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeVpcEndpointServiceConfigurations_nextToken
           Lens..~ rs
             Lens.^? describeVpcEndpointServiceConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeVpcEndpointServiceConfigurations
   where
   type
-    Rs DescribeVpcEndpointServiceConfigurations =
+    AWSResponse
+      DescribeVpcEndpointServiceConfigurations =
       DescribeVpcEndpointServiceConfigurationsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeVpcEndpointServiceConfigurationsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-              Prelude.<*> ( x Prelude..@? "serviceConfigurationSet"
-                              Prelude..!@ Prelude.mempty
-                              Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+              Core.<*> ( x Core..@? "serviceConfigurationSet"
+                           Core..!@ Core.mempty
+                           Core.>>= Core.may (Core.parseXMLList "item")
+                       )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeVpcEndpointServiceConfigurations
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeVpcEndpointServiceConfigurations
 
 instance
-  Prelude.ToHeaders
-    DescribeVpcEndpointServiceConfigurations
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeVpcEndpointServiceConfigurations
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeVpcEndpointServiceConfigurations
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeVpcEndpointServiceConfigurations
   where
   toQuery DescribeVpcEndpointServiceConfigurations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeVpcEndpointServiceConfigurations" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          ( Prelude.toQueryList "ServiceId"
-              Prelude.<$> serviceIds
-          ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+          Core.=: ( "DescribeVpcEndpointServiceConfigurations" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "ServiceId" Core.<$> serviceIds),
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeVpcEndpointServiceConfigurationsResponse' smart constructor.
 data DescribeVpcEndpointServiceConfigurationsResponse = DescribeVpcEndpointServiceConfigurationsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about one or more services.
-    serviceConfigurations :: Prelude.Maybe [ServiceConfiguration],
+    serviceConfigurations :: Core.Maybe [ServiceConfiguration],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcEndpointServiceConfigurationsResponse' with all optional fields omitted.
@@ -307,31 +303,31 @@ data DescribeVpcEndpointServiceConfigurationsResponse = DescribeVpcEndpointServi
 -- 'httpStatus', 'describeVpcEndpointServiceConfigurationsResponse_httpStatus' - The response's http status code.
 newDescribeVpcEndpointServiceConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeVpcEndpointServiceConfigurationsResponse
 newDescribeVpcEndpointServiceConfigurationsResponse
   pHttpStatus_ =
     DescribeVpcEndpointServiceConfigurationsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         serviceConfigurations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeVpcEndpointServiceConfigurationsResponse_nextToken :: Lens.Lens' DescribeVpcEndpointServiceConfigurationsResponse (Prelude.Maybe Prelude.Text)
+describeVpcEndpointServiceConfigurationsResponse_nextToken :: Lens.Lens' DescribeVpcEndpointServiceConfigurationsResponse (Core.Maybe Core.Text)
 describeVpcEndpointServiceConfigurationsResponse_nextToken = Lens.lens (\DescribeVpcEndpointServiceConfigurationsResponse' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServiceConfigurationsResponse' {} a -> s {nextToken = a} :: DescribeVpcEndpointServiceConfigurationsResponse)
 
 -- | Information about one or more services.
-describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations :: Lens.Lens' DescribeVpcEndpointServiceConfigurationsResponse (Prelude.Maybe [ServiceConfiguration])
-describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations = Lens.lens (\DescribeVpcEndpointServiceConfigurationsResponse' {serviceConfigurations} -> serviceConfigurations) (\s@DescribeVpcEndpointServiceConfigurationsResponse' {} a -> s {serviceConfigurations = a} :: DescribeVpcEndpointServiceConfigurationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations :: Lens.Lens' DescribeVpcEndpointServiceConfigurationsResponse (Core.Maybe [ServiceConfiguration])
+describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations = Lens.lens (\DescribeVpcEndpointServiceConfigurationsResponse' {serviceConfigurations} -> serviceConfigurations) (\s@DescribeVpcEndpointServiceConfigurationsResponse' {} a -> s {serviceConfigurations = a} :: DescribeVpcEndpointServiceConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeVpcEndpointServiceConfigurationsResponse_httpStatus :: Lens.Lens' DescribeVpcEndpointServiceConfigurationsResponse Prelude.Int
+describeVpcEndpointServiceConfigurationsResponse_httpStatus :: Lens.Lens' DescribeVpcEndpointServiceConfigurationsResponse Core.Int
 describeVpcEndpointServiceConfigurationsResponse_httpStatus = Lens.lens (\DescribeVpcEndpointServiceConfigurationsResponse' {httpStatus} -> httpStatus) (\s@DescribeVpcEndpointServiceConfigurationsResponse' {} a -> s {httpStatus = a} :: DescribeVpcEndpointServiceConfigurationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeVpcEndpointServiceConfigurationsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.EC2.ModifyInstanceCapacityReservationAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +56,13 @@ data ModifyInstanceCapacityReservationAttributes = ModifyInstanceCapacityReserva
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the instance to be modified.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | Information about the Capacity Reservation targeting option.
     capacityReservationSpecification :: CapacityReservationSpecification
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyInstanceCapacityReservationAttributes' with all optional fields omitted.
@@ -83,7 +82,7 @@ data ModifyInstanceCapacityReservationAttributes = ModifyInstanceCapacityReserva
 -- 'capacityReservationSpecification', 'modifyInstanceCapacityReservationAttributes_capacityReservationSpecification' - Information about the Capacity Reservation targeting option.
 newModifyInstanceCapacityReservationAttributes ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'capacityReservationSpecification'
   CapacityReservationSpecification ->
   ModifyInstanceCapacityReservationAttributes
@@ -92,7 +91,7 @@ newModifyInstanceCapacityReservationAttributes
   pCapacityReservationSpecification_ =
     ModifyInstanceCapacityReservationAttributes'
       { dryRun =
-          Prelude.Nothing,
+          Core.Nothing,
         instanceId = pInstanceId_,
         capacityReservationSpecification =
           pCapacityReservationSpecification_
@@ -102,11 +101,11 @@ newModifyInstanceCapacityReservationAttributes
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyInstanceCapacityReservationAttributes_dryRun :: Lens.Lens' ModifyInstanceCapacityReservationAttributes (Prelude.Maybe Prelude.Bool)
+modifyInstanceCapacityReservationAttributes_dryRun :: Lens.Lens' ModifyInstanceCapacityReservationAttributes (Core.Maybe Core.Bool)
 modifyInstanceCapacityReservationAttributes_dryRun = Lens.lens (\ModifyInstanceCapacityReservationAttributes' {dryRun} -> dryRun) (\s@ModifyInstanceCapacityReservationAttributes' {} a -> s {dryRun = a} :: ModifyInstanceCapacityReservationAttributes)
 
 -- | The ID of the instance to be modified.
-modifyInstanceCapacityReservationAttributes_instanceId :: Lens.Lens' ModifyInstanceCapacityReservationAttributes Prelude.Text
+modifyInstanceCapacityReservationAttributes_instanceId :: Lens.Lens' ModifyInstanceCapacityReservationAttributes Core.Text
 modifyInstanceCapacityReservationAttributes_instanceId = Lens.lens (\ModifyInstanceCapacityReservationAttributes' {instanceId} -> instanceId) (\s@ModifyInstanceCapacityReservationAttributes' {} a -> s {instanceId = a} :: ModifyInstanceCapacityReservationAttributes)
 
 -- | Information about the Capacity Reservation targeting option.
@@ -114,68 +113,68 @@ modifyInstanceCapacityReservationAttributes_capacityReservationSpecification :: 
 modifyInstanceCapacityReservationAttributes_capacityReservationSpecification = Lens.lens (\ModifyInstanceCapacityReservationAttributes' {capacityReservationSpecification} -> capacityReservationSpecification) (\s@ModifyInstanceCapacityReservationAttributes' {} a -> s {capacityReservationSpecification = a} :: ModifyInstanceCapacityReservationAttributes)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ModifyInstanceCapacityReservationAttributes
   where
   type
-    Rs ModifyInstanceCapacityReservationAttributes =
+    AWSResponse
+      ModifyInstanceCapacityReservationAttributes =
       ModifyInstanceCapacityReservationAttributesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyInstanceCapacityReservationAttributesResponse'
-            Prelude.<$> (x Prelude..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "return")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ModifyInstanceCapacityReservationAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyInstanceCapacityReservationAttributes
 
 instance
-  Prelude.ToHeaders
-    ModifyInstanceCapacityReservationAttributes
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     ModifyInstanceCapacityReservationAttributes
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    ModifyInstanceCapacityReservationAttributes
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     ModifyInstanceCapacityReservationAttributes
   where
   toQuery
     ModifyInstanceCapacityReservationAttributes' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "Action"
-            Prelude.=: ( "ModifyInstanceCapacityReservationAttributes" ::
-                           Prelude.ByteString
-                       ),
-          "Version"
-            Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Prelude.=: dryRun,
-          "InstanceId" Prelude.=: instanceId,
+            Core.=: ( "ModifyInstanceCapacityReservationAttributes" ::
+                        Core.ByteString
+                    ),
+          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "DryRun" Core.=: dryRun,
+          "InstanceId" Core.=: instanceId,
           "CapacityReservationSpecification"
-            Prelude.=: capacityReservationSpecification
+            Core.=: capacityReservationSpecification
         ]
 
 -- | /See:/ 'newModifyInstanceCapacityReservationAttributesResponse' smart constructor.
 data ModifyInstanceCapacityReservationAttributesResponse = ModifyInstanceCapacityReservationAttributesResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Prelude.Maybe Prelude.Bool,
+    return' :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyInstanceCapacityReservationAttributesResponse' with all optional fields omitted.
@@ -190,25 +189,25 @@ data ModifyInstanceCapacityReservationAttributesResponse = ModifyInstanceCapacit
 -- 'httpStatus', 'modifyInstanceCapacityReservationAttributesResponse_httpStatus' - The response's http status code.
 newModifyInstanceCapacityReservationAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyInstanceCapacityReservationAttributesResponse
 newModifyInstanceCapacityReservationAttributesResponse
   pHttpStatus_ =
     ModifyInstanceCapacityReservationAttributesResponse'
       { return' =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-modifyInstanceCapacityReservationAttributesResponse_return :: Lens.Lens' ModifyInstanceCapacityReservationAttributesResponse (Prelude.Maybe Prelude.Bool)
+modifyInstanceCapacityReservationAttributesResponse_return :: Lens.Lens' ModifyInstanceCapacityReservationAttributesResponse (Core.Maybe Core.Bool)
 modifyInstanceCapacityReservationAttributesResponse_return = Lens.lens (\ModifyInstanceCapacityReservationAttributesResponse' {return'} -> return') (\s@ModifyInstanceCapacityReservationAttributesResponse' {} a -> s {return' = a} :: ModifyInstanceCapacityReservationAttributesResponse)
 
 -- | The response's http status code.
-modifyInstanceCapacityReservationAttributesResponse_httpStatus :: Lens.Lens' ModifyInstanceCapacityReservationAttributesResponse Prelude.Int
+modifyInstanceCapacityReservationAttributesResponse_httpStatus :: Lens.Lens' ModifyInstanceCapacityReservationAttributesResponse Core.Int
 modifyInstanceCapacityReservationAttributesResponse_httpStatus = Lens.lens (\ModifyInstanceCapacityReservationAttributesResponse' {httpStatus} -> httpStatus) (\s@ModifyInstanceCapacityReservationAttributesResponse' {} a -> s {httpStatus = a} :: ModifyInstanceCapacityReservationAttributesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyInstanceCapacityReservationAttributesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.BinaryColumnStatisticsData where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines column statistics supported for bit sequence data values.
 --
 -- /See:/ 'newBinaryColumnStatisticsData' smart constructor.
 data BinaryColumnStatisticsData = BinaryColumnStatisticsData'
   { -- | The size of the longest bit sequence in the column.
-    maximumLength :: Prelude.Natural,
+    maximumLength :: Core.Natural,
     -- | The average bit sequence length in the column.
-    averageLength :: Prelude.Double,
+    averageLength :: Core.Double,
     -- | The number of null values in the column.
-    numberOfNulls :: Prelude.Natural
+    numberOfNulls :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BinaryColumnStatisticsData' with all optional fields omitted.
@@ -51,11 +50,11 @@ data BinaryColumnStatisticsData = BinaryColumnStatisticsData'
 -- 'numberOfNulls', 'binaryColumnStatisticsData_numberOfNulls' - The number of null values in the column.
 newBinaryColumnStatisticsData ::
   -- | 'maximumLength'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'averageLength'
-  Prelude.Double ->
+  Core.Double ->
   -- | 'numberOfNulls'
-  Prelude.Natural ->
+  Core.Natural ->
   BinaryColumnStatisticsData
 newBinaryColumnStatisticsData
   pMaximumLength_
@@ -69,41 +68,38 @@ newBinaryColumnStatisticsData
       }
 
 -- | The size of the longest bit sequence in the column.
-binaryColumnStatisticsData_maximumLength :: Lens.Lens' BinaryColumnStatisticsData Prelude.Natural
+binaryColumnStatisticsData_maximumLength :: Lens.Lens' BinaryColumnStatisticsData Core.Natural
 binaryColumnStatisticsData_maximumLength = Lens.lens (\BinaryColumnStatisticsData' {maximumLength} -> maximumLength) (\s@BinaryColumnStatisticsData' {} a -> s {maximumLength = a} :: BinaryColumnStatisticsData)
 
 -- | The average bit sequence length in the column.
-binaryColumnStatisticsData_averageLength :: Lens.Lens' BinaryColumnStatisticsData Prelude.Double
+binaryColumnStatisticsData_averageLength :: Lens.Lens' BinaryColumnStatisticsData Core.Double
 binaryColumnStatisticsData_averageLength = Lens.lens (\BinaryColumnStatisticsData' {averageLength} -> averageLength) (\s@BinaryColumnStatisticsData' {} a -> s {averageLength = a} :: BinaryColumnStatisticsData)
 
 -- | The number of null values in the column.
-binaryColumnStatisticsData_numberOfNulls :: Lens.Lens' BinaryColumnStatisticsData Prelude.Natural
+binaryColumnStatisticsData_numberOfNulls :: Lens.Lens' BinaryColumnStatisticsData Core.Natural
 binaryColumnStatisticsData_numberOfNulls = Lens.lens (\BinaryColumnStatisticsData' {numberOfNulls} -> numberOfNulls) (\s@BinaryColumnStatisticsData' {} a -> s {numberOfNulls = a} :: BinaryColumnStatisticsData)
 
-instance Prelude.FromJSON BinaryColumnStatisticsData where
+instance Core.FromJSON BinaryColumnStatisticsData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BinaryColumnStatisticsData"
       ( \x ->
           BinaryColumnStatisticsData'
-            Prelude.<$> (x Prelude..: "MaximumLength")
-            Prelude.<*> (x Prelude..: "AverageLength")
-            Prelude.<*> (x Prelude..: "NumberOfNulls")
+            Core.<$> (x Core..: "MaximumLength")
+            Core.<*> (x Core..: "AverageLength")
+            Core.<*> (x Core..: "NumberOfNulls")
       )
 
-instance Prelude.Hashable BinaryColumnStatisticsData
+instance Core.Hashable BinaryColumnStatisticsData
 
-instance Prelude.NFData BinaryColumnStatisticsData
+instance Core.NFData BinaryColumnStatisticsData
 
-instance Prelude.ToJSON BinaryColumnStatisticsData where
+instance Core.ToJSON BinaryColumnStatisticsData where
   toJSON BinaryColumnStatisticsData' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("MaximumLength" Prelude..= maximumLength),
-            Prelude.Just
-              ("AverageLength" Prelude..= averageLength),
-            Prelude.Just
-              ("NumberOfNulls" Prelude..= numberOfNulls)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MaximumLength" Core..= maximumLength),
+            Core.Just ("AverageLength" Core..= averageLength),
+            Core.Just ("NumberOfNulls" Core..= numberOfNulls)
           ]
       )

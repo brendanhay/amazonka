@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Budgets.Types.CalculatedSpend where
 
 import Network.AWS.Budgets.Types.Spend
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The spend objects that are associated with this budget. The
 -- @actualSpend@ tracks how much you\'ve used, cost, usage, RI units, or
@@ -37,12 +36,12 @@ import qualified Network.AWS.Prelude as Prelude
 data CalculatedSpend = CalculatedSpend'
   { -- | The amount of cost, usage, RI units, or Savings Plans units that you are
     -- forecasted to use.
-    forecastedSpend :: Prelude.Maybe Spend,
+    forecastedSpend :: Core.Maybe Spend,
     -- | The amount of cost, usage, RI units, or Savings Plans units that you
     -- have used.
     actualSpend :: Spend
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CalculatedSpend' with all optional fields omitted.
@@ -63,13 +62,13 @@ newCalculatedSpend ::
   CalculatedSpend
 newCalculatedSpend pActualSpend_ =
   CalculatedSpend'
-    { forecastedSpend = Prelude.Nothing,
+    { forecastedSpend = Core.Nothing,
       actualSpend = pActualSpend_
     }
 
 -- | The amount of cost, usage, RI units, or Savings Plans units that you are
 -- forecasted to use.
-calculatedSpend_forecastedSpend :: Lens.Lens' CalculatedSpend (Prelude.Maybe Spend)
+calculatedSpend_forecastedSpend :: Lens.Lens' CalculatedSpend (Core.Maybe Spend)
 calculatedSpend_forecastedSpend = Lens.lens (\CalculatedSpend' {forecastedSpend} -> forecastedSpend) (\s@CalculatedSpend' {} a -> s {forecastedSpend = a} :: CalculatedSpend)
 
 -- | The amount of cost, usage, RI units, or Savings Plans units that you
@@ -77,26 +76,26 @@ calculatedSpend_forecastedSpend = Lens.lens (\CalculatedSpend' {forecastedSpend}
 calculatedSpend_actualSpend :: Lens.Lens' CalculatedSpend Spend
 calculatedSpend_actualSpend = Lens.lens (\CalculatedSpend' {actualSpend} -> actualSpend) (\s@CalculatedSpend' {} a -> s {actualSpend = a} :: CalculatedSpend)
 
-instance Prelude.FromJSON CalculatedSpend where
+instance Core.FromJSON CalculatedSpend where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CalculatedSpend"
       ( \x ->
           CalculatedSpend'
-            Prelude.<$> (x Prelude..:? "ForecastedSpend")
-            Prelude.<*> (x Prelude..: "ActualSpend")
+            Core.<$> (x Core..:? "ForecastedSpend")
+            Core.<*> (x Core..: "ActualSpend")
       )
 
-instance Prelude.Hashable CalculatedSpend
+instance Core.Hashable CalculatedSpend
 
-instance Prelude.NFData CalculatedSpend
+instance Core.NFData CalculatedSpend
 
-instance Prelude.ToJSON CalculatedSpend where
+instance Core.ToJSON CalculatedSpend where
   toJSON CalculatedSpend' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ForecastedSpend" Prelude..=)
-              Prelude.<$> forecastedSpend,
-            Prelude.Just ("ActualSpend" Prelude..= actualSpend)
+    Core.object
+      ( Core.catMaybes
+          [ ("ForecastedSpend" Core..=)
+              Core.<$> forecastedSpend,
+            Core.Just ("ActualSpend" Core..= actualSpend)
           ]
       )

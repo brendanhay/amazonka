@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Transcribe.Types.ContentRedaction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Transcribe.Types.RedactionOutput
 import Network.AWS.Transcribe.Types.RedactionType
 
@@ -42,7 +41,7 @@ data ContentRedaction = ContentRedaction'
     -- the redacted and unredacted transcripts.
     redactionOutput :: RedactionOutput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContentRedaction' with all optional fields omitted.
@@ -91,27 +90,26 @@ contentRedaction_redactionType = Lens.lens (\ContentRedaction' {redactionType} -
 contentRedaction_redactionOutput :: Lens.Lens' ContentRedaction RedactionOutput
 contentRedaction_redactionOutput = Lens.lens (\ContentRedaction' {redactionOutput} -> redactionOutput) (\s@ContentRedaction' {} a -> s {redactionOutput = a} :: ContentRedaction)
 
-instance Prelude.FromJSON ContentRedaction where
+instance Core.FromJSON ContentRedaction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContentRedaction"
       ( \x ->
           ContentRedaction'
-            Prelude.<$> (x Prelude..: "RedactionType")
-            Prelude.<*> (x Prelude..: "RedactionOutput")
+            Core.<$> (x Core..: "RedactionType")
+            Core.<*> (x Core..: "RedactionOutput")
       )
 
-instance Prelude.Hashable ContentRedaction
+instance Core.Hashable ContentRedaction
 
-instance Prelude.NFData ContentRedaction
+instance Core.NFData ContentRedaction
 
-instance Prelude.ToJSON ContentRedaction where
+instance Core.ToJSON ContentRedaction where
   toJSON ContentRedaction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("RedactionType" Prelude..= redactionType),
-            Prelude.Just
-              ("RedactionOutput" Prelude..= redactionOutput)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RedactionType" Core..= redactionType),
+            Core.Just
+              ("RedactionOutput" Core..= redactionOutput)
           ]
       )

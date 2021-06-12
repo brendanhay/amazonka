@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,17 +53,17 @@ module Network.AWS.Comprehend.StopEntitiesDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopEntitiesDetectionJob' smart constructor.
 data StopEntitiesDetectionJob = StopEntitiesDetectionJob'
   { -- | The identifier of the entities detection job to stop.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopEntitiesDetectionJob' with all optional fields omitted.
@@ -77,73 +76,69 @@ data StopEntitiesDetectionJob = StopEntitiesDetectionJob'
 -- 'jobId', 'stopEntitiesDetectionJob_jobId' - The identifier of the entities detection job to stop.
 newStopEntitiesDetectionJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   StopEntitiesDetectionJob
 newStopEntitiesDetectionJob pJobId_ =
   StopEntitiesDetectionJob' {jobId = pJobId_}
 
 -- | The identifier of the entities detection job to stop.
-stopEntitiesDetectionJob_jobId :: Lens.Lens' StopEntitiesDetectionJob Prelude.Text
+stopEntitiesDetectionJob_jobId :: Lens.Lens' StopEntitiesDetectionJob Core.Text
 stopEntitiesDetectionJob_jobId = Lens.lens (\StopEntitiesDetectionJob' {jobId} -> jobId) (\s@StopEntitiesDetectionJob' {} a -> s {jobId = a} :: StopEntitiesDetectionJob)
 
-instance Prelude.AWSRequest StopEntitiesDetectionJob where
+instance Core.AWSRequest StopEntitiesDetectionJob where
   type
-    Rs StopEntitiesDetectionJob =
+    AWSResponse StopEntitiesDetectionJob =
       StopEntitiesDetectionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopEntitiesDetectionJobResponse'
-            Prelude.<$> (x Prelude..?> "JobStatus")
-            Prelude.<*> (x Prelude..?> "JobId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobStatus")
+            Core.<*> (x Core..?> "JobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopEntitiesDetectionJob
+instance Core.Hashable StopEntitiesDetectionJob
 
-instance Prelude.NFData StopEntitiesDetectionJob
+instance Core.NFData StopEntitiesDetectionJob
 
-instance Prelude.ToHeaders StopEntitiesDetectionJob where
+instance Core.ToHeaders StopEntitiesDetectionJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.StopEntitiesDetectionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.StopEntitiesDetectionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopEntitiesDetectionJob where
+instance Core.ToJSON StopEntitiesDetectionJob where
   toJSON StopEntitiesDetectionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
 
-instance Prelude.ToPath StopEntitiesDetectionJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopEntitiesDetectionJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopEntitiesDetectionJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopEntitiesDetectionJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopEntitiesDetectionJobResponse' smart constructor.
 data StopEntitiesDetectionJobResponse = StopEntitiesDetectionJobResponse'
   { -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
     -- the job was previously stopped with the @StopEntitiesDetectionJob@
     -- operation.
-    jobStatus :: Prelude.Maybe JobStatus,
+    jobStatus :: Core.Maybe JobStatus,
     -- | The identifier of the entities detection job to stop.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopEntitiesDetectionJobResponse' with all optional fields omitted.
@@ -162,30 +157,28 @@ data StopEntitiesDetectionJobResponse = StopEntitiesDetectionJobResponse'
 -- 'httpStatus', 'stopEntitiesDetectionJobResponse_httpStatus' - The response's http status code.
 newStopEntitiesDetectionJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopEntitiesDetectionJobResponse
 newStopEntitiesDetectionJobResponse pHttpStatus_ =
   StopEntitiesDetectionJobResponse'
     { jobStatus =
-        Prelude.Nothing,
-      jobId = Prelude.Nothing,
+        Core.Nothing,
+      jobId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the @StopEntitiesDetectionJob@
 -- operation.
-stopEntitiesDetectionJobResponse_jobStatus :: Lens.Lens' StopEntitiesDetectionJobResponse (Prelude.Maybe JobStatus)
+stopEntitiesDetectionJobResponse_jobStatus :: Lens.Lens' StopEntitiesDetectionJobResponse (Core.Maybe JobStatus)
 stopEntitiesDetectionJobResponse_jobStatus = Lens.lens (\StopEntitiesDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopEntitiesDetectionJobResponse' {} a -> s {jobStatus = a} :: StopEntitiesDetectionJobResponse)
 
 -- | The identifier of the entities detection job to stop.
-stopEntitiesDetectionJobResponse_jobId :: Lens.Lens' StopEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
+stopEntitiesDetectionJobResponse_jobId :: Lens.Lens' StopEntitiesDetectionJobResponse (Core.Maybe Core.Text)
 stopEntitiesDetectionJobResponse_jobId = Lens.lens (\StopEntitiesDetectionJobResponse' {jobId} -> jobId) (\s@StopEntitiesDetectionJobResponse' {} a -> s {jobId = a} :: StopEntitiesDetectionJobResponse)
 
 -- | The response's http status code.
-stopEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' StopEntitiesDetectionJobResponse Prelude.Int
+stopEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' StopEntitiesDetectionJobResponse Core.Int
 stopEntitiesDetectionJobResponse_httpStatus = Lens.lens (\StopEntitiesDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StopEntitiesDetectionJobResponse' {} a -> s {httpStatus = a} :: StopEntitiesDetectionJobResponse)
 
-instance
-  Prelude.NFData
-    StopEntitiesDetectionJobResponse
+instance Core.NFData StopEntitiesDetectionJobResponse

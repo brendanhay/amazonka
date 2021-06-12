@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a DetachFromIndex response operation.
 --
 -- /See:/ 'newBatchDetachFromIndexResponse' smart constructor.
 data BatchDetachFromIndexResponse = BatchDetachFromIndexResponse'
   { -- | The @ObjectIdentifier@ of the object that was detached from the index.
-    detachedObjectIdentifier :: Prelude.Maybe Prelude.Text
+    detachedObjectIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDetachFromIndexResponse' with all optional fields omitted.
@@ -46,27 +45,22 @@ newBatchDetachFromIndexResponse ::
 newBatchDetachFromIndexResponse =
   BatchDetachFromIndexResponse'
     { detachedObjectIdentifier =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the object that was detached from the index.
-batchDetachFromIndexResponse_detachedObjectIdentifier :: Lens.Lens' BatchDetachFromIndexResponse (Prelude.Maybe Prelude.Text)
+batchDetachFromIndexResponse_detachedObjectIdentifier :: Lens.Lens' BatchDetachFromIndexResponse (Core.Maybe Core.Text)
 batchDetachFromIndexResponse_detachedObjectIdentifier = Lens.lens (\BatchDetachFromIndexResponse' {detachedObjectIdentifier} -> detachedObjectIdentifier) (\s@BatchDetachFromIndexResponse' {} a -> s {detachedObjectIdentifier = a} :: BatchDetachFromIndexResponse)
 
-instance
-  Prelude.FromJSON
-    BatchDetachFromIndexResponse
-  where
+instance Core.FromJSON BatchDetachFromIndexResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchDetachFromIndexResponse"
       ( \x ->
           BatchDetachFromIndexResponse'
-            Prelude.<$> (x Prelude..:? "DetachedObjectIdentifier")
+            Core.<$> (x Core..:? "DetachedObjectIdentifier")
       )
 
-instance
-  Prelude.Hashable
-    BatchDetachFromIndexResponse
+instance Core.Hashable BatchDetachFromIndexResponse
 
-instance Prelude.NFData BatchDetachFromIndexResponse
+instance Core.NFData BatchDetachFromIndexResponse

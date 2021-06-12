@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types.BusinessReportS3Location where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The S3 location of the output reports.
 --
 -- /See:/ 'newBusinessReportS3Location' smart constructor.
 data BusinessReportS3Location = BusinessReportS3Location'
   { -- | The S3 bucket name of the output reports.
-    bucketName :: Prelude.Maybe Prelude.Text,
+    bucketName :: Core.Maybe Core.Text,
     -- | The path of the business report.
-    path :: Prelude.Maybe Prelude.Text
+    path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BusinessReportS3Location' with all optional fields omitted.
@@ -50,28 +49,28 @@ newBusinessReportS3Location ::
 newBusinessReportS3Location =
   BusinessReportS3Location'
     { bucketName =
-        Prelude.Nothing,
-      path = Prelude.Nothing
+        Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | The S3 bucket name of the output reports.
-businessReportS3Location_bucketName :: Lens.Lens' BusinessReportS3Location (Prelude.Maybe Prelude.Text)
+businessReportS3Location_bucketName :: Lens.Lens' BusinessReportS3Location (Core.Maybe Core.Text)
 businessReportS3Location_bucketName = Lens.lens (\BusinessReportS3Location' {bucketName} -> bucketName) (\s@BusinessReportS3Location' {} a -> s {bucketName = a} :: BusinessReportS3Location)
 
 -- | The path of the business report.
-businessReportS3Location_path :: Lens.Lens' BusinessReportS3Location (Prelude.Maybe Prelude.Text)
+businessReportS3Location_path :: Lens.Lens' BusinessReportS3Location (Core.Maybe Core.Text)
 businessReportS3Location_path = Lens.lens (\BusinessReportS3Location' {path} -> path) (\s@BusinessReportS3Location' {} a -> s {path = a} :: BusinessReportS3Location)
 
-instance Prelude.FromJSON BusinessReportS3Location where
+instance Core.FromJSON BusinessReportS3Location where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BusinessReportS3Location"
       ( \x ->
           BusinessReportS3Location'
-            Prelude.<$> (x Prelude..:? "BucketName")
-            Prelude.<*> (x Prelude..:? "Path")
+            Core.<$> (x Core..:? "BucketName")
+            Core.<*> (x Core..:? "Path")
       )
 
-instance Prelude.Hashable BusinessReportS3Location
+instance Core.Hashable BusinessReportS3Location
 
-instance Prelude.NFData BusinessReportS3Location
+instance Core.NFData BusinessReportS3Location

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.APIGateway.DeleteApiKey
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,9 +46,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteApiKey' smart constructor.
 data DeleteApiKey = DeleteApiKey'
   { -- | [Required] The identifier of the ApiKey resource to be deleted.
-    apiKey :: Prelude.Text
+    apiKey :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApiKey' with all optional fields omitted.
@@ -62,45 +61,45 @@ data DeleteApiKey = DeleteApiKey'
 -- 'apiKey', 'deleteApiKey_apiKey' - [Required] The identifier of the ApiKey resource to be deleted.
 newDeleteApiKey ::
   -- | 'apiKey'
-  Prelude.Text ->
+  Core.Text ->
   DeleteApiKey
 newDeleteApiKey pApiKey_ =
   DeleteApiKey' {apiKey = pApiKey_}
 
 -- | [Required] The identifier of the ApiKey resource to be deleted.
-deleteApiKey_apiKey :: Lens.Lens' DeleteApiKey Prelude.Text
+deleteApiKey_apiKey :: Lens.Lens' DeleteApiKey Core.Text
 deleteApiKey_apiKey = Lens.lens (\DeleteApiKey' {apiKey} -> apiKey) (\s@DeleteApiKey' {} a -> s {apiKey = a} :: DeleteApiKey)
 
-instance Prelude.AWSRequest DeleteApiKey where
-  type Rs DeleteApiKey = DeleteApiKeyResponse
+instance Core.AWSRequest DeleteApiKey where
+  type AWSResponse DeleteApiKey = DeleteApiKeyResponse
   request = Request.delete defaultService
   response = Response.receiveNull DeleteApiKeyResponse'
 
-instance Prelude.Hashable DeleteApiKey
+instance Core.Hashable DeleteApiKey
 
-instance Prelude.NFData DeleteApiKey
+instance Core.NFData DeleteApiKey
 
-instance Prelude.ToHeaders DeleteApiKey where
+instance Core.ToHeaders DeleteApiKey where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteApiKey where
+instance Core.ToPath DeleteApiKey where
   toPath DeleteApiKey' {..} =
-    Prelude.mconcat ["/apikeys/", Prelude.toBS apiKey]
+    Core.mconcat ["/apikeys/", Core.toBS apiKey]
 
-instance Prelude.ToQuery DeleteApiKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteApiKey where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteApiKeyResponse' smart constructor.
 data DeleteApiKeyResponse = DeleteApiKeyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApiKeyResponse' with all optional fields omitted.
@@ -110,4 +109,4 @@ newDeleteApiKeyResponse ::
   DeleteApiKeyResponse
 newDeleteApiKeyResponse = DeleteApiKeyResponse'
 
-instance Prelude.NFData DeleteApiKeyResponse
+instance Core.NFData DeleteApiKeyResponse

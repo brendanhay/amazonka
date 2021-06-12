@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.EncryptionAtRestOptionsStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of the Encryption At Rest options for the specified Elasticsearch
 -- domain.
@@ -37,7 +36,7 @@ data EncryptionAtRestOptionsStatus = EncryptionAtRestOptionsStatus'
     -- Elasticsearch domain.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionAtRestOptionsStatus' with all optional fields omitted.
@@ -74,21 +73,15 @@ encryptionAtRestOptionsStatus_options = Lens.lens (\EncryptionAtRestOptionsStatu
 encryptionAtRestOptionsStatus_status :: Lens.Lens' EncryptionAtRestOptionsStatus OptionStatus
 encryptionAtRestOptionsStatus_status = Lens.lens (\EncryptionAtRestOptionsStatus' {status} -> status) (\s@EncryptionAtRestOptionsStatus' {} a -> s {status = a} :: EncryptionAtRestOptionsStatus)
 
-instance
-  Prelude.FromJSON
-    EncryptionAtRestOptionsStatus
-  where
+instance Core.FromJSON EncryptionAtRestOptionsStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EncryptionAtRestOptionsStatus"
       ( \x ->
           EncryptionAtRestOptionsStatus'
-            Prelude.<$> (x Prelude..: "Options")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
       )
 
-instance
-  Prelude.Hashable
-    EncryptionAtRestOptionsStatus
+instance Core.Hashable EncryptionAtRestOptionsStatus
 
-instance Prelude.NFData EncryptionAtRestOptionsStatus
+instance Core.NFData EncryptionAtRestOptionsStatus

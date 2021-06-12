@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.DMS.DescribeReplicationTaskAssessmentRuns
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,18 +66,18 @@ data DescribeReplicationTaskAssessmentRuns = DescribeReplicationTaskAssessmentRu
     --
     -- Valid filter names: @replication-task-assessment-run-arn@,
     -- @replication-task-arn@, @replication-instance-arn@, @status@
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
     -- results can be retrieved.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReplicationTaskAssessmentRuns' with all optional fields omitted.
@@ -107,9 +106,9 @@ newDescribeReplicationTaskAssessmentRuns ::
 newDescribeReplicationTaskAssessmentRuns =
   DescribeReplicationTaskAssessmentRuns'
     { filters =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | Filters applied to the premigration assessment runs described in the
@@ -117,107 +116,106 @@ newDescribeReplicationTaskAssessmentRuns =
 --
 -- Valid filter names: @replication-task-assessment-run-arn@,
 -- @replication-task-arn@, @replication-instance-arn@, @status@
-describeReplicationTaskAssessmentRuns_filters :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Prelude.Maybe [Filter])
-describeReplicationTaskAssessmentRuns_filters = Lens.lens (\DescribeReplicationTaskAssessmentRuns' {filters} -> filters) (\s@DescribeReplicationTaskAssessmentRuns' {} a -> s {filters = a} :: DescribeReplicationTaskAssessmentRuns) Prelude.. Lens.mapping Prelude._Coerce
+describeReplicationTaskAssessmentRuns_filters :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Core.Maybe [Filter])
+describeReplicationTaskAssessmentRuns_filters = Lens.lens (\DescribeReplicationTaskAssessmentRuns' {filters} -> filters) (\s@DescribeReplicationTaskAssessmentRuns' {} a -> s {filters = a} :: DescribeReplicationTaskAssessmentRuns) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeReplicationTaskAssessmentRuns_marker :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Prelude.Maybe Prelude.Text)
+describeReplicationTaskAssessmentRuns_marker :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Core.Maybe Core.Text)
 describeReplicationTaskAssessmentRuns_marker = Lens.lens (\DescribeReplicationTaskAssessmentRuns' {marker} -> marker) (\s@DescribeReplicationTaskAssessmentRuns' {} a -> s {marker = a} :: DescribeReplicationTaskAssessmentRuns)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
-describeReplicationTaskAssessmentRuns_maxRecords :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Prelude.Maybe Prelude.Int)
+describeReplicationTaskAssessmentRuns_maxRecords :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Core.Maybe Core.Int)
 describeReplicationTaskAssessmentRuns_maxRecords = Lens.lens (\DescribeReplicationTaskAssessmentRuns' {maxRecords} -> maxRecords) (\s@DescribeReplicationTaskAssessmentRuns' {} a -> s {maxRecords = a} :: DescribeReplicationTaskAssessmentRuns)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeReplicationTaskAssessmentRuns
   where
   type
-    Rs DescribeReplicationTaskAssessmentRuns =
+    AWSResponse
+      DescribeReplicationTaskAssessmentRuns =
       DescribeReplicationTaskAssessmentRunsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeReplicationTaskAssessmentRunsResponse'
-            Prelude.<$> ( x Prelude..?> "ReplicationTaskAssessmentRuns"
-                            Prelude..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Prelude..?> "Marker")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "ReplicationTaskAssessmentRuns"
+                         Core..!@ Core.mempty
+                     )
+              Core.<*> (x Core..?> "Marker")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeReplicationTaskAssessmentRuns
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeReplicationTaskAssessmentRuns
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeReplicationTaskAssessmentRuns
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.DescribeReplicationTaskAssessmentRuns" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.DescribeReplicationTaskAssessmentRuns" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeReplicationTaskAssessmentRuns
   where
   toJSON DescribeReplicationTaskAssessmentRuns' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Filters" Prelude..=) Prelude.<$> filters,
-            ("Marker" Prelude..=) Prelude.<$> marker,
-            ("MaxRecords" Prelude..=) Prelude.<$> maxRecords
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("Marker" Core..=) Core.<$> marker,
+            ("MaxRecords" Core..=) Core.<$> maxRecords
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeReplicationTaskAssessmentRuns
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeReplicationTaskAssessmentRuns
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newDescribeReplicationTaskAssessmentRunsResponse' smart constructor.
 data DescribeReplicationTaskAssessmentRunsResponse = DescribeReplicationTaskAssessmentRunsResponse'
   { -- | One or more premigration assessment runs as specified by @Filters@.
-    replicationTaskAssessmentRuns :: Prelude.Maybe [ReplicationTaskAssessmentRun],
+    replicationTaskAssessmentRuns :: Core.Maybe [ReplicationTaskAssessmentRun],
     -- | A pagination token returned for you to pass to a subsequent request. If
     -- you pass this token as the @Marker@ value in a subsequent request, the
     -- response includes only records beyond the marker, up to the value
     -- specified in the request by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReplicationTaskAssessmentRunsResponse' with all optional fields omitted.
@@ -237,32 +235,32 @@ data DescribeReplicationTaskAssessmentRunsResponse = DescribeReplicationTaskAsse
 -- 'httpStatus', 'describeReplicationTaskAssessmentRunsResponse_httpStatus' - The response's http status code.
 newDescribeReplicationTaskAssessmentRunsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeReplicationTaskAssessmentRunsResponse
 newDescribeReplicationTaskAssessmentRunsResponse
   pHttpStatus_ =
     DescribeReplicationTaskAssessmentRunsResponse'
       { replicationTaskAssessmentRuns =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+          Core.Nothing,
+        marker = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | One or more premigration assessment runs as specified by @Filters@.
-describeReplicationTaskAssessmentRunsResponse_replicationTaskAssessmentRuns :: Lens.Lens' DescribeReplicationTaskAssessmentRunsResponse (Prelude.Maybe [ReplicationTaskAssessmentRun])
-describeReplicationTaskAssessmentRunsResponse_replicationTaskAssessmentRuns = Lens.lens (\DescribeReplicationTaskAssessmentRunsResponse' {replicationTaskAssessmentRuns} -> replicationTaskAssessmentRuns) (\s@DescribeReplicationTaskAssessmentRunsResponse' {} a -> s {replicationTaskAssessmentRuns = a} :: DescribeReplicationTaskAssessmentRunsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeReplicationTaskAssessmentRunsResponse_replicationTaskAssessmentRuns :: Lens.Lens' DescribeReplicationTaskAssessmentRunsResponse (Core.Maybe [ReplicationTaskAssessmentRun])
+describeReplicationTaskAssessmentRunsResponse_replicationTaskAssessmentRuns = Lens.lens (\DescribeReplicationTaskAssessmentRunsResponse' {replicationTaskAssessmentRuns} -> replicationTaskAssessmentRuns) (\s@DescribeReplicationTaskAssessmentRunsResponse' {} a -> s {replicationTaskAssessmentRuns = a} :: DescribeReplicationTaskAssessmentRunsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A pagination token returned for you to pass to a subsequent request. If
 -- you pass this token as the @Marker@ value in a subsequent request, the
 -- response includes only records beyond the marker, up to the value
 -- specified in the request by @MaxRecords@.
-describeReplicationTaskAssessmentRunsResponse_marker :: Lens.Lens' DescribeReplicationTaskAssessmentRunsResponse (Prelude.Maybe Prelude.Text)
+describeReplicationTaskAssessmentRunsResponse_marker :: Lens.Lens' DescribeReplicationTaskAssessmentRunsResponse (Core.Maybe Core.Text)
 describeReplicationTaskAssessmentRunsResponse_marker = Lens.lens (\DescribeReplicationTaskAssessmentRunsResponse' {marker} -> marker) (\s@DescribeReplicationTaskAssessmentRunsResponse' {} a -> s {marker = a} :: DescribeReplicationTaskAssessmentRunsResponse)
 
 -- | The response's http status code.
-describeReplicationTaskAssessmentRunsResponse_httpStatus :: Lens.Lens' DescribeReplicationTaskAssessmentRunsResponse Prelude.Int
+describeReplicationTaskAssessmentRunsResponse_httpStatus :: Lens.Lens' DescribeReplicationTaskAssessmentRunsResponse Core.Int
 describeReplicationTaskAssessmentRunsResponse_httpStatus = Lens.lens (\DescribeReplicationTaskAssessmentRunsResponse' {httpStatus} -> httpStatus) (\s@DescribeReplicationTaskAssessmentRunsResponse' {} a -> s {httpStatus = a} :: DescribeReplicationTaskAssessmentRunsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeReplicationTaskAssessmentRunsResponse

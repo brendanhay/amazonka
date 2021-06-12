@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.EC2.AssociateIamInstanceProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +53,9 @@ data AssociateIamInstanceProfile = AssociateIamInstanceProfile'
   { -- | The IAM instance profile.
     iamInstanceProfile :: IamInstanceProfileSpecification,
     -- | The ID of the instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateIamInstanceProfile' with all optional fields omitted.
@@ -73,7 +72,7 @@ newAssociateIamInstanceProfile ::
   -- | 'iamInstanceProfile'
   IamInstanceProfileSpecification ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   AssociateIamInstanceProfile
 newAssociateIamInstanceProfile
   pIamInstanceProfile_
@@ -89,59 +88,50 @@ associateIamInstanceProfile_iamInstanceProfile :: Lens.Lens' AssociateIamInstanc
 associateIamInstanceProfile_iamInstanceProfile = Lens.lens (\AssociateIamInstanceProfile' {iamInstanceProfile} -> iamInstanceProfile) (\s@AssociateIamInstanceProfile' {} a -> s {iamInstanceProfile = a} :: AssociateIamInstanceProfile)
 
 -- | The ID of the instance.
-associateIamInstanceProfile_instanceId :: Lens.Lens' AssociateIamInstanceProfile Prelude.Text
+associateIamInstanceProfile_instanceId :: Lens.Lens' AssociateIamInstanceProfile Core.Text
 associateIamInstanceProfile_instanceId = Lens.lens (\AssociateIamInstanceProfile' {instanceId} -> instanceId) (\s@AssociateIamInstanceProfile' {} a -> s {instanceId = a} :: AssociateIamInstanceProfile)
 
-instance
-  Prelude.AWSRequest
-    AssociateIamInstanceProfile
-  where
+instance Core.AWSRequest AssociateIamInstanceProfile where
   type
-    Rs AssociateIamInstanceProfile =
+    AWSResponse AssociateIamInstanceProfile =
       AssociateIamInstanceProfileResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           AssociateIamInstanceProfileResponse'
-            Prelude.<$> (x Prelude..@? "iamInstanceProfileAssociation")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "iamInstanceProfileAssociation")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateIamInstanceProfile
+instance Core.Hashable AssociateIamInstanceProfile
 
-instance Prelude.NFData AssociateIamInstanceProfile
+instance Core.NFData AssociateIamInstanceProfile
 
-instance
-  Prelude.ToHeaders
-    AssociateIamInstanceProfile
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AssociateIamInstanceProfile where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AssociateIamInstanceProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateIamInstanceProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateIamInstanceProfile where
+instance Core.ToQuery AssociateIamInstanceProfile where
   toQuery AssociateIamInstanceProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "AssociateIamInstanceProfile" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "IamInstanceProfile" Prelude.=: iamInstanceProfile,
-        "InstanceId" Prelude.=: instanceId
+          Core.=: ("AssociateIamInstanceProfile" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "IamInstanceProfile" Core.=: iamInstanceProfile,
+        "InstanceId" Core.=: instanceId
       ]
 
 -- | /See:/ 'newAssociateIamInstanceProfileResponse' smart constructor.
 data AssociateIamInstanceProfileResponse = AssociateIamInstanceProfileResponse'
   { -- | Information about the IAM instance profile association.
-    iamInstanceProfileAssociation :: Prelude.Maybe IamInstanceProfileAssociation,
+    iamInstanceProfileAssociation :: Core.Maybe IamInstanceProfileAssociation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateIamInstanceProfileResponse' with all optional fields omitted.
@@ -156,23 +146,23 @@ data AssociateIamInstanceProfileResponse = AssociateIamInstanceProfileResponse'
 -- 'httpStatus', 'associateIamInstanceProfileResponse_httpStatus' - The response's http status code.
 newAssociateIamInstanceProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateIamInstanceProfileResponse
 newAssociateIamInstanceProfileResponse pHttpStatus_ =
   AssociateIamInstanceProfileResponse'
     { iamInstanceProfileAssociation =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the IAM instance profile association.
-associateIamInstanceProfileResponse_iamInstanceProfileAssociation :: Lens.Lens' AssociateIamInstanceProfileResponse (Prelude.Maybe IamInstanceProfileAssociation)
+associateIamInstanceProfileResponse_iamInstanceProfileAssociation :: Lens.Lens' AssociateIamInstanceProfileResponse (Core.Maybe IamInstanceProfileAssociation)
 associateIamInstanceProfileResponse_iamInstanceProfileAssociation = Lens.lens (\AssociateIamInstanceProfileResponse' {iamInstanceProfileAssociation} -> iamInstanceProfileAssociation) (\s@AssociateIamInstanceProfileResponse' {} a -> s {iamInstanceProfileAssociation = a} :: AssociateIamInstanceProfileResponse)
 
 -- | The response's http status code.
-associateIamInstanceProfileResponse_httpStatus :: Lens.Lens' AssociateIamInstanceProfileResponse Prelude.Int
+associateIamInstanceProfileResponse_httpStatus :: Lens.Lens' AssociateIamInstanceProfileResponse Core.Int
 associateIamInstanceProfileResponse_httpStatus = Lens.lens (\AssociateIamInstanceProfileResponse' {httpStatus} -> httpStatus) (\s@AssociateIamInstanceProfileResponse' {} a -> s {httpStatus = a} :: AssociateIamInstanceProfileResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateIamInstanceProfileResponse

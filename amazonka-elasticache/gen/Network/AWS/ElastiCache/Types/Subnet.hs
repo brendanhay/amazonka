@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.Subnet where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.AvailabilityZone
 import Network.AWS.ElastiCache.Types.SubnetOutpost
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the subnet associated with a cluster. This parameter refers
 -- to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used
@@ -32,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSubnet' smart constructor.
 data Subnet = Subnet'
   { -- | The unique identifier for the subnet.
-    subnetIdentifier :: Prelude.Maybe Prelude.Text,
+    subnetIdentifier :: Core.Maybe Core.Text,
     -- | The Availability Zone associated with the subnet.
-    subnetAvailabilityZone :: Prelude.Maybe AvailabilityZone,
+    subnetAvailabilityZone :: Core.Maybe AvailabilityZone,
     -- | The outpost ARN of the subnet.
-    subnetOutpost :: Prelude.Maybe SubnetOutpost
+    subnetOutpost :: Core.Maybe SubnetOutpost
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Subnet' with all optional fields omitted.
@@ -57,30 +56,30 @@ newSubnet ::
   Subnet
 newSubnet =
   Subnet'
-    { subnetIdentifier = Prelude.Nothing,
-      subnetAvailabilityZone = Prelude.Nothing,
-      subnetOutpost = Prelude.Nothing
+    { subnetIdentifier = Core.Nothing,
+      subnetAvailabilityZone = Core.Nothing,
+      subnetOutpost = Core.Nothing
     }
 
 -- | The unique identifier for the subnet.
-subnet_subnetIdentifier :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
+subnet_subnetIdentifier :: Lens.Lens' Subnet (Core.Maybe Core.Text)
 subnet_subnetIdentifier = Lens.lens (\Subnet' {subnetIdentifier} -> subnetIdentifier) (\s@Subnet' {} a -> s {subnetIdentifier = a} :: Subnet)
 
 -- | The Availability Zone associated with the subnet.
-subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe AvailabilityZone)
+subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Core.Maybe AvailabilityZone)
 subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
 
 -- | The outpost ARN of the subnet.
-subnet_subnetOutpost :: Lens.Lens' Subnet (Prelude.Maybe SubnetOutpost)
+subnet_subnetOutpost :: Lens.Lens' Subnet (Core.Maybe SubnetOutpost)
 subnet_subnetOutpost = Lens.lens (\Subnet' {subnetOutpost} -> subnetOutpost) (\s@Subnet' {} a -> s {subnetOutpost = a} :: Subnet)
 
-instance Prelude.FromXML Subnet where
+instance Core.FromXML Subnet where
   parseXML x =
     Subnet'
-      Prelude.<$> (x Prelude..@? "SubnetIdentifier")
-      Prelude.<*> (x Prelude..@? "SubnetAvailabilityZone")
-      Prelude.<*> (x Prelude..@? "SubnetOutpost")
+      Core.<$> (x Core..@? "SubnetIdentifier")
+      Core.<*> (x Core..@? "SubnetAvailabilityZone")
+      Core.<*> (x Core..@? "SubnetOutpost")
 
-instance Prelude.Hashable Subnet
+instance Core.Hashable Subnet
 
-instance Prelude.NFData Subnet
+instance Core.NFData Subnet

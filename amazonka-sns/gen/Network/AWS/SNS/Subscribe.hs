@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.SNS.Subscribe
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -101,7 +100,7 @@ data Subscribe = Subscribe'
     --     see
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
     --     in the /Amazon SNS Developer Guide/.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Sets whether the response from the @Subscribe@ request includes the
     -- subscription ARN, even if the subscription is not yet confirmed.
     --
@@ -113,7 +112,7 @@ data Subscribe = Subscribe'
     -- the @ConfirmSubscription@ action with a confirmation token.
     --
     -- The default value is @false@.
-    returnSubscriptionArn :: Prelude.Maybe Prelude.Bool,
+    returnSubscriptionArn :: Core.Maybe Core.Bool,
     -- | The endpoint that you want to receive notifications. Endpoints vary by
     -- protocol:
     --
@@ -141,9 +140,9 @@ data Subscribe = Subscribe'
     --
     -- -   For the @firehose@ protocol, the endpoint is the ARN of an Amazon
     --     Kinesis Data Firehose delivery stream.
-    endpoint :: Prelude.Maybe Prelude.Text,
+    endpoint :: Core.Maybe Core.Text,
     -- | The ARN of the topic you want to subscribe to.
-    topicArn :: Prelude.Text,
+    topicArn :: Core.Text,
     -- | The protocol that you want to use. Supported protocols include:
     --
     -- -   @http@ – delivery of JSON-encoded message via HTTP POST
@@ -166,9 +165,9 @@ data Subscribe = Subscribe'
     --
     -- -   @firehose@ – delivery of JSON-encoded message to an Amazon Kinesis
     --     Data Firehose delivery stream.
-    protocol :: Prelude.Text
+    protocol :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Subscribe' with all optional fields omitted.
@@ -284,15 +283,15 @@ data Subscribe = Subscribe'
 --     Data Firehose delivery stream.
 newSubscribe ::
   -- | 'topicArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'protocol'
-  Prelude.Text ->
+  Core.Text ->
   Subscribe
 newSubscribe pTopicArn_ pProtocol_ =
   Subscribe'
-    { attributes = Prelude.Nothing,
-      returnSubscriptionArn = Prelude.Nothing,
-      endpoint = Prelude.Nothing,
+    { attributes = Core.Nothing,
+      returnSubscriptionArn = Core.Nothing,
+      endpoint = Core.Nothing,
       topicArn = pTopicArn_,
       protocol = pProtocol_
     }
@@ -336,8 +335,8 @@ newSubscribe pTopicArn_ pProtocol_ =
 --     see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
-subscribe_attributes :: Lens.Lens' Subscribe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-subscribe_attributes = Lens.lens (\Subscribe' {attributes} -> attributes) (\s@Subscribe' {} a -> s {attributes = a} :: Subscribe) Prelude.. Lens.mapping Prelude._Coerce
+subscribe_attributes :: Lens.Lens' Subscribe (Core.Maybe (Core.HashMap Core.Text Core.Text))
+subscribe_attributes = Lens.lens (\Subscribe' {attributes} -> attributes) (\s@Subscribe' {} a -> s {attributes = a} :: Subscribe) Core.. Lens.mapping Lens._Coerce
 
 -- | Sets whether the response from the @Subscribe@ request includes the
 -- subscription ARN, even if the subscription is not yet confirmed.
@@ -350,7 +349,7 @@ subscribe_attributes = Lens.lens (\Subscribe' {attributes} -> attributes) (\s@Su
 -- the @ConfirmSubscription@ action with a confirmation token.
 --
 -- The default value is @false@.
-subscribe_returnSubscriptionArn :: Lens.Lens' Subscribe (Prelude.Maybe Prelude.Bool)
+subscribe_returnSubscriptionArn :: Lens.Lens' Subscribe (Core.Maybe Core.Bool)
 subscribe_returnSubscriptionArn = Lens.lens (\Subscribe' {returnSubscriptionArn} -> returnSubscriptionArn) (\s@Subscribe' {} a -> s {returnSubscriptionArn = a} :: Subscribe)
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
@@ -380,11 +379,11 @@ subscribe_returnSubscriptionArn = Lens.lens (\Subscribe' {returnSubscriptionArn}
 --
 -- -   For the @firehose@ protocol, the endpoint is the ARN of an Amazon
 --     Kinesis Data Firehose delivery stream.
-subscribe_endpoint :: Lens.Lens' Subscribe (Prelude.Maybe Prelude.Text)
+subscribe_endpoint :: Lens.Lens' Subscribe (Core.Maybe Core.Text)
 subscribe_endpoint = Lens.lens (\Subscribe' {endpoint} -> endpoint) (\s@Subscribe' {} a -> s {endpoint = a} :: Subscribe)
 
 -- | The ARN of the topic you want to subscribe to.
-subscribe_topicArn :: Lens.Lens' Subscribe Prelude.Text
+subscribe_topicArn :: Lens.Lens' Subscribe Core.Text
 subscribe_topicArn = Lens.lens (\Subscribe' {topicArn} -> topicArn) (\s@Subscribe' {} a -> s {topicArn = a} :: Subscribe)
 
 -- | The protocol that you want to use. Supported protocols include:
@@ -409,48 +408,46 @@ subscribe_topicArn = Lens.lens (\Subscribe' {topicArn} -> topicArn) (\s@Subscrib
 --
 -- -   @firehose@ – delivery of JSON-encoded message to an Amazon Kinesis
 --     Data Firehose delivery stream.
-subscribe_protocol :: Lens.Lens' Subscribe Prelude.Text
+subscribe_protocol :: Lens.Lens' Subscribe Core.Text
 subscribe_protocol = Lens.lens (\Subscribe' {protocol} -> protocol) (\s@Subscribe' {} a -> s {protocol = a} :: Subscribe)
 
-instance Prelude.AWSRequest Subscribe where
-  type Rs Subscribe = SubscribeResponse
+instance Core.AWSRequest Subscribe where
+  type AWSResponse Subscribe = SubscribeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "SubscribeResult"
       ( \s h x ->
           SubscribeResponse'
-            Prelude.<$> (x Prelude..@? "SubscriptionArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "SubscriptionArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable Subscribe
+instance Core.Hashable Subscribe
 
-instance Prelude.NFData Subscribe
+instance Core.NFData Subscribe
 
-instance Prelude.ToHeaders Subscribe where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders Subscribe where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath Subscribe where
-  toPath = Prelude.const "/"
+instance Core.ToPath Subscribe where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery Subscribe where
+instance Core.ToQuery Subscribe where
   toQuery Subscribe' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("Subscribe" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
+    Core.mconcat
+      [ "Action" Core.=: ("Subscribe" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
         "Attributes"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryMap "entry" "key" "value"
-                Prelude.<$> attributes
+          Core.=: Core.toQuery
+            ( Core.toQueryMap "entry" "key" "value"
+                Core.<$> attributes
             ),
         "ReturnSubscriptionArn"
-          Prelude.=: returnSubscriptionArn,
-        "Endpoint" Prelude.=: endpoint,
-        "TopicArn" Prelude.=: topicArn,
-        "Protocol" Prelude.=: protocol
+          Core.=: returnSubscriptionArn,
+        "Endpoint" Core.=: endpoint,
+        "TopicArn" Core.=: topicArn,
+        "Protocol" Core.=: protocol
       ]
 
 -- | Response for Subscribe action.
@@ -462,11 +459,11 @@ data SubscribeResponse = SubscribeResponse'
     -- the API request parameter @ReturnSubscriptionArn@ is true, then the
     -- value is always the subscription ARN, even if the subscription requires
     -- confirmation.
-    subscriptionArn :: Prelude.Maybe Prelude.Text,
+    subscriptionArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubscribeResponse' with all optional fields omitted.
@@ -485,12 +482,11 @@ data SubscribeResponse = SubscribeResponse'
 -- 'httpStatus', 'subscribeResponse_httpStatus' - The response's http status code.
 newSubscribeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SubscribeResponse
 newSubscribeResponse pHttpStatus_ =
   SubscribeResponse'
-    { subscriptionArn =
-        Prelude.Nothing,
+    { subscriptionArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -499,11 +495,11 @@ newSubscribeResponse pHttpStatus_ =
 -- the API request parameter @ReturnSubscriptionArn@ is true, then the
 -- value is always the subscription ARN, even if the subscription requires
 -- confirmation.
-subscribeResponse_subscriptionArn :: Lens.Lens' SubscribeResponse (Prelude.Maybe Prelude.Text)
+subscribeResponse_subscriptionArn :: Lens.Lens' SubscribeResponse (Core.Maybe Core.Text)
 subscribeResponse_subscriptionArn = Lens.lens (\SubscribeResponse' {subscriptionArn} -> subscriptionArn) (\s@SubscribeResponse' {} a -> s {subscriptionArn = a} :: SubscribeResponse)
 
 -- | The response's http status code.
-subscribeResponse_httpStatus :: Lens.Lens' SubscribeResponse Prelude.Int
+subscribeResponse_httpStatus :: Lens.Lens' SubscribeResponse Core.Int
 subscribeResponse_httpStatus = Lens.lens (\SubscribeResponse' {httpStatus} -> httpStatus) (\s@SubscribeResponse' {} a -> s {httpStatus = a} :: SubscribeResponse)
 
-instance Prelude.NFData SubscribeResponse
+instance Core.NFData SubscribeResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.Athena.Types.WorkGroupSummary where
 
 import Network.AWS.Athena.Types.EngineVersion
 import Network.AWS.Athena.Types.WorkGroupState
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The summary information for the workgroup, which includes its name,
 -- state, description, and the date and time it was created.
@@ -31,19 +30,19 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newWorkGroupSummary' smart constructor.
 data WorkGroupSummary = WorkGroupSummary'
   { -- | The workgroup creation date and time.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The state of the workgroup.
-    state :: Prelude.Maybe WorkGroupState,
+    state :: Core.Maybe WorkGroupState,
     -- | The name of the workgroup.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The engine version setting for all queries on the workgroup. Queries on
     -- the @AmazonAthenaPreviewFunctionality@ workgroup run on the preview
     -- engine regardless of this setting.
-    engineVersion :: Prelude.Maybe EngineVersion,
+    engineVersion :: Core.Maybe EngineVersion,
     -- | The workgroup description.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkGroupSummary' with all optional fields omitted.
@@ -68,48 +67,48 @@ newWorkGroupSummary ::
   WorkGroupSummary
 newWorkGroupSummary =
   WorkGroupSummary'
-    { creationTime = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      description = Prelude.Nothing
+    { creationTime = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      engineVersion = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The workgroup creation date and time.
-workGroupSummary_creationTime :: Lens.Lens' WorkGroupSummary (Prelude.Maybe Prelude.UTCTime)
-workGroupSummary_creationTime = Lens.lens (\WorkGroupSummary' {creationTime} -> creationTime) (\s@WorkGroupSummary' {} a -> s {creationTime = a} :: WorkGroupSummary) Prelude.. Lens.mapping Prelude._Time
+workGroupSummary_creationTime :: Lens.Lens' WorkGroupSummary (Core.Maybe Core.UTCTime)
+workGroupSummary_creationTime = Lens.lens (\WorkGroupSummary' {creationTime} -> creationTime) (\s@WorkGroupSummary' {} a -> s {creationTime = a} :: WorkGroupSummary) Core.. Lens.mapping Core._Time
 
 -- | The state of the workgroup.
-workGroupSummary_state :: Lens.Lens' WorkGroupSummary (Prelude.Maybe WorkGroupState)
+workGroupSummary_state :: Lens.Lens' WorkGroupSummary (Core.Maybe WorkGroupState)
 workGroupSummary_state = Lens.lens (\WorkGroupSummary' {state} -> state) (\s@WorkGroupSummary' {} a -> s {state = a} :: WorkGroupSummary)
 
 -- | The name of the workgroup.
-workGroupSummary_name :: Lens.Lens' WorkGroupSummary (Prelude.Maybe Prelude.Text)
+workGroupSummary_name :: Lens.Lens' WorkGroupSummary (Core.Maybe Core.Text)
 workGroupSummary_name = Lens.lens (\WorkGroupSummary' {name} -> name) (\s@WorkGroupSummary' {} a -> s {name = a} :: WorkGroupSummary)
 
 -- | The engine version setting for all queries on the workgroup. Queries on
 -- the @AmazonAthenaPreviewFunctionality@ workgroup run on the preview
 -- engine regardless of this setting.
-workGroupSummary_engineVersion :: Lens.Lens' WorkGroupSummary (Prelude.Maybe EngineVersion)
+workGroupSummary_engineVersion :: Lens.Lens' WorkGroupSummary (Core.Maybe EngineVersion)
 workGroupSummary_engineVersion = Lens.lens (\WorkGroupSummary' {engineVersion} -> engineVersion) (\s@WorkGroupSummary' {} a -> s {engineVersion = a} :: WorkGroupSummary)
 
 -- | The workgroup description.
-workGroupSummary_description :: Lens.Lens' WorkGroupSummary (Prelude.Maybe Prelude.Text)
+workGroupSummary_description :: Lens.Lens' WorkGroupSummary (Core.Maybe Core.Text)
 workGroupSummary_description = Lens.lens (\WorkGroupSummary' {description} -> description) (\s@WorkGroupSummary' {} a -> s {description = a} :: WorkGroupSummary)
 
-instance Prelude.FromJSON WorkGroupSummary where
+instance Core.FromJSON WorkGroupSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkGroupSummary"
       ( \x ->
           WorkGroupSummary'
-            Prelude.<$> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "EngineVersion")
-            Prelude.<*> (x Prelude..:? "Description")
+            Core.<$> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "EngineVersion")
+            Core.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable WorkGroupSummary
+instance Core.Hashable WorkGroupSummary
 
-instance Prelude.NFData WorkGroupSummary
+instance Core.NFData WorkGroupSummary

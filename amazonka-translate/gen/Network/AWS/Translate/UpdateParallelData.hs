@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.Translate.UpdateParallelData
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Translate.Types
@@ -56,16 +55,16 @@ import Network.AWS.Translate.Types
 -- | /See:/ 'newUpdateParallelData' smart constructor.
 data UpdateParallelData = UpdateParallelData'
   { -- | A custom description for the parallel data resource in Amazon Translate.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the parallel data resource being updated.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | Specifies the format and S3 location of the parallel data input file.
     parallelDataConfig :: ParallelDataConfig,
     -- | A unique identifier for the request. This token is automatically
     -- generated when you use Amazon Translate through an AWS SDK.
-    clientToken :: Prelude.Text
+    clientToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateParallelData' with all optional fields omitted.
@@ -85,29 +84,29 @@ data UpdateParallelData = UpdateParallelData'
 -- generated when you use Amazon Translate through an AWS SDK.
 newUpdateParallelData ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'parallelDataConfig'
   ParallelDataConfig ->
   -- | 'clientToken'
-  Prelude.Text ->
+  Core.Text ->
   UpdateParallelData
 newUpdateParallelData
   pName_
   pParallelDataConfig_
   pClientToken_ =
     UpdateParallelData'
-      { description = Prelude.Nothing,
+      { description = Core.Nothing,
         name = pName_,
         parallelDataConfig = pParallelDataConfig_,
         clientToken = pClientToken_
       }
 
 -- | A custom description for the parallel data resource in Amazon Translate.
-updateParallelData_description :: Lens.Lens' UpdateParallelData (Prelude.Maybe Prelude.Text)
+updateParallelData_description :: Lens.Lens' UpdateParallelData (Core.Maybe Core.Text)
 updateParallelData_description = Lens.lens (\UpdateParallelData' {description} -> description) (\s@UpdateParallelData' {} a -> s {description = a} :: UpdateParallelData)
 
 -- | The name of the parallel data resource being updated.
-updateParallelData_name :: Lens.Lens' UpdateParallelData Prelude.Text
+updateParallelData_name :: Lens.Lens' UpdateParallelData Core.Text
 updateParallelData_name = Lens.lens (\UpdateParallelData' {name} -> name) (\s@UpdateParallelData' {} a -> s {name = a} :: UpdateParallelData)
 
 -- | Specifies the format and S3 location of the parallel data input file.
@@ -116,79 +115,77 @@ updateParallelData_parallelDataConfig = Lens.lens (\UpdateParallelData' {paralle
 
 -- | A unique identifier for the request. This token is automatically
 -- generated when you use Amazon Translate through an AWS SDK.
-updateParallelData_clientToken :: Lens.Lens' UpdateParallelData Prelude.Text
+updateParallelData_clientToken :: Lens.Lens' UpdateParallelData Core.Text
 updateParallelData_clientToken = Lens.lens (\UpdateParallelData' {clientToken} -> clientToken) (\s@UpdateParallelData' {} a -> s {clientToken = a} :: UpdateParallelData)
 
-instance Prelude.AWSRequest UpdateParallelData where
+instance Core.AWSRequest UpdateParallelData where
   type
-    Rs UpdateParallelData =
+    AWSResponse UpdateParallelData =
       UpdateParallelDataResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateParallelDataResponse'
-            Prelude.<$> (x Prelude..?> "Status")
-            Prelude.<*> (x Prelude..?> "LatestUpdateAttemptStatus")
-            Prelude.<*> (x Prelude..?> "LatestUpdateAttemptAt")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Status")
+            Core.<*> (x Core..?> "LatestUpdateAttemptStatus")
+            Core.<*> (x Core..?> "LatestUpdateAttemptAt")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateParallelData
+instance Core.Hashable UpdateParallelData
 
-instance Prelude.NFData UpdateParallelData
+instance Core.NFData UpdateParallelData
 
-instance Prelude.ToHeaders UpdateParallelData where
+instance Core.ToHeaders UpdateParallelData where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShineFrontendService_20170701.UpdateParallelData" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShineFrontendService_20170701.UpdateParallelData" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateParallelData where
+instance Core.ToJSON UpdateParallelData where
   toJSON UpdateParallelData' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just
-              ("ParallelDataConfig" Prelude..= parallelDataConfig),
-            Prelude.Just ("ClientToken" Prelude..= clientToken)
+    Core.object
+      ( Core.catMaybes
+          [ ("Description" Core..=) Core.<$> description,
+            Core.Just ("Name" Core..= name),
+            Core.Just
+              ("ParallelDataConfig" Core..= parallelDataConfig),
+            Core.Just ("ClientToken" Core..= clientToken)
           ]
       )
 
-instance Prelude.ToPath UpdateParallelData where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateParallelData where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateParallelData where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateParallelData where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateParallelDataResponse' smart constructor.
 data UpdateParallelDataResponse = UpdateParallelDataResponse'
   { -- | The status of the parallel data resource that you are attempting to
     -- update. Your update request is accepted only if this status is either
     -- @ACTIVE@ or @FAILED@.
-    status :: Prelude.Maybe ParallelDataStatus,
+    status :: Core.Maybe ParallelDataStatus,
     -- | The status of the parallel data update attempt. When the updated
     -- parallel data resource is ready for you to use, the status is @ACTIVE@.
-    latestUpdateAttemptStatus :: Prelude.Maybe ParallelDataStatus,
+    latestUpdateAttemptStatus :: Core.Maybe ParallelDataStatus,
     -- | The time that the most recent update was attempted.
-    latestUpdateAttemptAt :: Prelude.Maybe Prelude.POSIX,
+    latestUpdateAttemptAt :: Core.Maybe Core.POSIX,
     -- | The name of the parallel data resource being updated.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateParallelDataResponse' with all optional fields omitted.
@@ -212,39 +209,38 @@ data UpdateParallelDataResponse = UpdateParallelDataResponse'
 -- 'httpStatus', 'updateParallelDataResponse_httpStatus' - The response's http status code.
 newUpdateParallelDataResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateParallelDataResponse
 newUpdateParallelDataResponse pHttpStatus_ =
   UpdateParallelDataResponse'
-    { status =
-        Prelude.Nothing,
-      latestUpdateAttemptStatus = Prelude.Nothing,
-      latestUpdateAttemptAt = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { status = Core.Nothing,
+      latestUpdateAttemptStatus = Core.Nothing,
+      latestUpdateAttemptAt = Core.Nothing,
+      name = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the parallel data resource that you are attempting to
 -- update. Your update request is accepted only if this status is either
 -- @ACTIVE@ or @FAILED@.
-updateParallelDataResponse_status :: Lens.Lens' UpdateParallelDataResponse (Prelude.Maybe ParallelDataStatus)
+updateParallelDataResponse_status :: Lens.Lens' UpdateParallelDataResponse (Core.Maybe ParallelDataStatus)
 updateParallelDataResponse_status = Lens.lens (\UpdateParallelDataResponse' {status} -> status) (\s@UpdateParallelDataResponse' {} a -> s {status = a} :: UpdateParallelDataResponse)
 
 -- | The status of the parallel data update attempt. When the updated
 -- parallel data resource is ready for you to use, the status is @ACTIVE@.
-updateParallelDataResponse_latestUpdateAttemptStatus :: Lens.Lens' UpdateParallelDataResponse (Prelude.Maybe ParallelDataStatus)
+updateParallelDataResponse_latestUpdateAttemptStatus :: Lens.Lens' UpdateParallelDataResponse (Core.Maybe ParallelDataStatus)
 updateParallelDataResponse_latestUpdateAttemptStatus = Lens.lens (\UpdateParallelDataResponse' {latestUpdateAttemptStatus} -> latestUpdateAttemptStatus) (\s@UpdateParallelDataResponse' {} a -> s {latestUpdateAttemptStatus = a} :: UpdateParallelDataResponse)
 
 -- | The time that the most recent update was attempted.
-updateParallelDataResponse_latestUpdateAttemptAt :: Lens.Lens' UpdateParallelDataResponse (Prelude.Maybe Prelude.UTCTime)
-updateParallelDataResponse_latestUpdateAttemptAt = Lens.lens (\UpdateParallelDataResponse' {latestUpdateAttemptAt} -> latestUpdateAttemptAt) (\s@UpdateParallelDataResponse' {} a -> s {latestUpdateAttemptAt = a} :: UpdateParallelDataResponse) Prelude.. Lens.mapping Prelude._Time
+updateParallelDataResponse_latestUpdateAttemptAt :: Lens.Lens' UpdateParallelDataResponse (Core.Maybe Core.UTCTime)
+updateParallelDataResponse_latestUpdateAttemptAt = Lens.lens (\UpdateParallelDataResponse' {latestUpdateAttemptAt} -> latestUpdateAttemptAt) (\s@UpdateParallelDataResponse' {} a -> s {latestUpdateAttemptAt = a} :: UpdateParallelDataResponse) Core.. Lens.mapping Core._Time
 
 -- | The name of the parallel data resource being updated.
-updateParallelDataResponse_name :: Lens.Lens' UpdateParallelDataResponse (Prelude.Maybe Prelude.Text)
+updateParallelDataResponse_name :: Lens.Lens' UpdateParallelDataResponse (Core.Maybe Core.Text)
 updateParallelDataResponse_name = Lens.lens (\UpdateParallelDataResponse' {name} -> name) (\s@UpdateParallelDataResponse' {} a -> s {name = a} :: UpdateParallelDataResponse)
 
 -- | The response's http status code.
-updateParallelDataResponse_httpStatus :: Lens.Lens' UpdateParallelDataResponse Prelude.Int
+updateParallelDataResponse_httpStatus :: Lens.Lens' UpdateParallelDataResponse Core.Int
 updateParallelDataResponse_httpStatus = Lens.lens (\UpdateParallelDataResponse' {httpStatus} -> httpStatus) (\s@UpdateParallelDataResponse' {} a -> s {httpStatus = a} :: UpdateParallelDataResponse)
 
-instance Prelude.NFData UpdateParallelDataResponse
+instance Core.NFData UpdateParallelDataResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.WAFRegional.AssociateWebACL
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -60,7 +59,7 @@ import Network.AWS.WAFRegional.Types
 -- | /See:/ 'newAssociateWebACL' smart constructor.
 data AssociateWebACL = AssociateWebACL'
   { -- | A unique identifier (ID) for the web ACL.
-    webACLId :: Prelude.Text,
+    webACLId :: Core.Text,
     -- | The ARN (Amazon Resource Name) of the resource to be protected, either
     -- an application load balancer or Amazon API Gateway stage.
     --
@@ -71,9 +70,9 @@ data AssociateWebACL = AssociateWebACL'
     --
     -- -   For an Amazon API Gateway stage:
     --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateWebACL' with all optional fields omitted.
@@ -97,9 +96,9 @@ data AssociateWebACL = AssociateWebACL'
 --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
 newAssociateWebACL ::
   -- | 'webACLId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   AssociateWebACL
 newAssociateWebACL pWebACLId_ pResourceArn_ =
   AssociateWebACL'
@@ -108,7 +107,7 @@ newAssociateWebACL pWebACLId_ pResourceArn_ =
     }
 
 -- | A unique identifier (ID) for the web ACL.
-associateWebACL_webACLId :: Lens.Lens' AssociateWebACL Prelude.Text
+associateWebACL_webACLId :: Lens.Lens' AssociateWebACL Core.Text
 associateWebACL_webACLId = Lens.lens (\AssociateWebACL' {webACLId} -> webACLId) (\s@AssociateWebACL' {} a -> s {webACLId = a} :: AssociateWebACL)
 
 -- | The ARN (Amazon Resource Name) of the resource to be protected, either
@@ -121,59 +120,59 @@ associateWebACL_webACLId = Lens.lens (\AssociateWebACL' {webACLId} -> webACLId) 
 --
 -- -   For an Amazon API Gateway stage:
 --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
-associateWebACL_resourceArn :: Lens.Lens' AssociateWebACL Prelude.Text
+associateWebACL_resourceArn :: Lens.Lens' AssociateWebACL Core.Text
 associateWebACL_resourceArn = Lens.lens (\AssociateWebACL' {resourceArn} -> resourceArn) (\s@AssociateWebACL' {} a -> s {resourceArn = a} :: AssociateWebACL)
 
-instance Prelude.AWSRequest AssociateWebACL where
-  type Rs AssociateWebACL = AssociateWebACLResponse
+instance Core.AWSRequest AssociateWebACL where
+  type
+    AWSResponse AssociateWebACL =
+      AssociateWebACLResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateWebACLResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateWebACL
+instance Core.Hashable AssociateWebACL
 
-instance Prelude.NFData AssociateWebACL
+instance Core.NFData AssociateWebACL
 
-instance Prelude.ToHeaders AssociateWebACL where
+instance Core.ToHeaders AssociateWebACL where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.AssociateWebACL" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.AssociateWebACL" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateWebACL where
+instance Core.ToJSON AssociateWebACL where
   toJSON AssociateWebACL' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("WebACLId" Prelude..= webACLId),
-            Prelude.Just ("ResourceArn" Prelude..= resourceArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("WebACLId" Core..= webACLId),
+            Core.Just ("ResourceArn" Core..= resourceArn)
           ]
       )
 
-instance Prelude.ToPath AssociateWebACL where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateWebACL where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateWebACL where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateWebACL where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateWebACLResponse' smart constructor.
 data AssociateWebACLResponse = AssociateWebACLResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateWebACLResponse' with all optional fields omitted.
@@ -186,13 +185,13 @@ data AssociateWebACLResponse = AssociateWebACLResponse'
 -- 'httpStatus', 'associateWebACLResponse_httpStatus' - The response's http status code.
 newAssociateWebACLResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateWebACLResponse
 newAssociateWebACLResponse pHttpStatus_ =
   AssociateWebACLResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-associateWebACLResponse_httpStatus :: Lens.Lens' AssociateWebACLResponse Prelude.Int
+associateWebACLResponse_httpStatus :: Lens.Lens' AssociateWebACLResponse Core.Int
 associateWebACLResponse_httpStatus = Lens.lens (\AssociateWebACLResponse' {httpStatus} -> httpStatus) (\s@AssociateWebACLResponse' {} a -> s {httpStatus = a} :: AssociateWebACLResponse)
 
-instance Prelude.NFData AssociateWebACLResponse
+instance Core.NFData AssociateWebACLResponse

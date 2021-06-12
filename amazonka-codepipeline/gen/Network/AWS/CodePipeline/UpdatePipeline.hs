@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CodePipeline.UpdatePipeline
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +55,7 @@ data UpdatePipeline = UpdatePipeline'
   { -- | The name of the pipeline to be updated.
     pipeline :: PipelineDeclaration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePipeline' with all optional fields omitted.
@@ -78,59 +77,59 @@ newUpdatePipeline pPipeline_ =
 updatePipeline_pipeline :: Lens.Lens' UpdatePipeline PipelineDeclaration
 updatePipeline_pipeline = Lens.lens (\UpdatePipeline' {pipeline} -> pipeline) (\s@UpdatePipeline' {} a -> s {pipeline = a} :: UpdatePipeline)
 
-instance Prelude.AWSRequest UpdatePipeline where
-  type Rs UpdatePipeline = UpdatePipelineResponse
+instance Core.AWSRequest UpdatePipeline where
+  type
+    AWSResponse UpdatePipeline =
+      UpdatePipelineResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdatePipelineResponse'
-            Prelude.<$> (x Prelude..?> "pipeline")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "pipeline")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePipeline
+instance Core.Hashable UpdatePipeline
 
-instance Prelude.NFData UpdatePipeline
+instance Core.NFData UpdatePipeline
 
-instance Prelude.ToHeaders UpdatePipeline where
+instance Core.ToHeaders UpdatePipeline where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.UpdatePipeline" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.UpdatePipeline" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdatePipeline where
+instance Core.ToJSON UpdatePipeline where
   toJSON UpdatePipeline' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("pipeline" Prelude..= pipeline)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("pipeline" Core..= pipeline)]
       )
 
-instance Prelude.ToPath UpdatePipeline where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdatePipeline where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdatePipeline where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdatePipeline where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of an @UpdatePipeline@ action.
 --
 -- /See:/ 'newUpdatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
   { -- | The structure of the updated pipeline.
-    pipeline :: Prelude.Maybe PipelineDeclaration,
+    pipeline :: Core.Maybe PipelineDeclaration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePipelineResponse' with all optional fields omitted.
@@ -145,20 +144,20 @@ data UpdatePipelineResponse = UpdatePipelineResponse'
 -- 'httpStatus', 'updatePipelineResponse_httpStatus' - The response's http status code.
 newUpdatePipelineResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdatePipelineResponse
 newUpdatePipelineResponse pHttpStatus_ =
   UpdatePipelineResponse'
-    { pipeline = Prelude.Nothing,
+    { pipeline = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The structure of the updated pipeline.
-updatePipelineResponse_pipeline :: Lens.Lens' UpdatePipelineResponse (Prelude.Maybe PipelineDeclaration)
+updatePipelineResponse_pipeline :: Lens.Lens' UpdatePipelineResponse (Core.Maybe PipelineDeclaration)
 updatePipelineResponse_pipeline = Lens.lens (\UpdatePipelineResponse' {pipeline} -> pipeline) (\s@UpdatePipelineResponse' {} a -> s {pipeline = a} :: UpdatePipelineResponse)
 
 -- | The response's http status code.
-updatePipelineResponse_httpStatus :: Lens.Lens' UpdatePipelineResponse Prelude.Int
+updatePipelineResponse_httpStatus :: Lens.Lens' UpdatePipelineResponse Core.Int
 updatePipelineResponse_httpStatus = Lens.lens (\UpdatePipelineResponse' {httpStatus} -> httpStatus) (\s@UpdatePipelineResponse' {} a -> s {httpStatus = a} :: UpdatePipelineResponse)
 
-instance Prelude.NFData UpdatePipelineResponse
+instance Core.NFData UpdatePipelineResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.CognitoIdentityProvider.Types.AccountRecoverySettingType where
 
 import Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The data type for @AccountRecoverySetting@.
 --
 -- /See:/ 'newAccountRecoverySettingType' smart constructor.
 data AccountRecoverySettingType = AccountRecoverySettingType'
   { -- | The list of @RecoveryOptionTypes@.
-    recoveryMechanisms :: Prelude.Maybe (Prelude.NonEmpty RecoveryOptionType)
+    recoveryMechanisms :: Core.Maybe (Core.NonEmpty RecoveryOptionType)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccountRecoverySettingType' with all optional fields omitted.
@@ -47,31 +46,31 @@ newAccountRecoverySettingType ::
 newAccountRecoverySettingType =
   AccountRecoverySettingType'
     { recoveryMechanisms =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The list of @RecoveryOptionTypes@.
-accountRecoverySettingType_recoveryMechanisms :: Lens.Lens' AccountRecoverySettingType (Prelude.Maybe (Prelude.NonEmpty RecoveryOptionType))
-accountRecoverySettingType_recoveryMechanisms = Lens.lens (\AccountRecoverySettingType' {recoveryMechanisms} -> recoveryMechanisms) (\s@AccountRecoverySettingType' {} a -> s {recoveryMechanisms = a} :: AccountRecoverySettingType) Prelude.. Lens.mapping Prelude._Coerce
+accountRecoverySettingType_recoveryMechanisms :: Lens.Lens' AccountRecoverySettingType (Core.Maybe (Core.NonEmpty RecoveryOptionType))
+accountRecoverySettingType_recoveryMechanisms = Lens.lens (\AccountRecoverySettingType' {recoveryMechanisms} -> recoveryMechanisms) (\s@AccountRecoverySettingType' {} a -> s {recoveryMechanisms = a} :: AccountRecoverySettingType) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AccountRecoverySettingType where
+instance Core.FromJSON AccountRecoverySettingType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AccountRecoverySettingType"
       ( \x ->
           AccountRecoverySettingType'
-            Prelude.<$> (x Prelude..:? "RecoveryMechanisms")
+            Core.<$> (x Core..:? "RecoveryMechanisms")
       )
 
-instance Prelude.Hashable AccountRecoverySettingType
+instance Core.Hashable AccountRecoverySettingType
 
-instance Prelude.NFData AccountRecoverySettingType
+instance Core.NFData AccountRecoverySettingType
 
-instance Prelude.ToJSON AccountRecoverySettingType where
+instance Core.ToJSON AccountRecoverySettingType where
   toJSON AccountRecoverySettingType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RecoveryMechanisms" Prelude..=)
-              Prelude.<$> recoveryMechanisms
+    Core.object
+      ( Core.catMaybes
+          [ ("RecoveryMechanisms" Core..=)
+              Core.<$> recoveryMechanisms
           ]
       )

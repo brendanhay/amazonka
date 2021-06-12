@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Budgets.Types.ScpActionDefinition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The service control policies (SCP) action definition details.
 --
 -- /See:/ 'newScpActionDefinition' smart constructor.
 data ScpActionDefinition = ScpActionDefinition'
   { -- | The policy ID attached.
-    policyId :: Prelude.Text,
+    policyId :: Core.Text,
     -- | A list of target IDs.
-    targetIds :: Prelude.NonEmpty Prelude.Text
+    targetIds :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScpActionDefinition' with all optional fields omitted.
@@ -47,43 +46,43 @@ data ScpActionDefinition = ScpActionDefinition'
 -- 'targetIds', 'scpActionDefinition_targetIds' - A list of target IDs.
 newScpActionDefinition ::
   -- | 'policyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   ScpActionDefinition
 newScpActionDefinition pPolicyId_ pTargetIds_ =
   ScpActionDefinition'
     { policyId = pPolicyId_,
-      targetIds = Prelude._Coerce Lens.# pTargetIds_
+      targetIds = Lens._Coerce Lens.# pTargetIds_
     }
 
 -- | The policy ID attached.
-scpActionDefinition_policyId :: Lens.Lens' ScpActionDefinition Prelude.Text
+scpActionDefinition_policyId :: Lens.Lens' ScpActionDefinition Core.Text
 scpActionDefinition_policyId = Lens.lens (\ScpActionDefinition' {policyId} -> policyId) (\s@ScpActionDefinition' {} a -> s {policyId = a} :: ScpActionDefinition)
 
 -- | A list of target IDs.
-scpActionDefinition_targetIds :: Lens.Lens' ScpActionDefinition (Prelude.NonEmpty Prelude.Text)
-scpActionDefinition_targetIds = Lens.lens (\ScpActionDefinition' {targetIds} -> targetIds) (\s@ScpActionDefinition' {} a -> s {targetIds = a} :: ScpActionDefinition) Prelude.. Prelude._Coerce
+scpActionDefinition_targetIds :: Lens.Lens' ScpActionDefinition (Core.NonEmpty Core.Text)
+scpActionDefinition_targetIds = Lens.lens (\ScpActionDefinition' {targetIds} -> targetIds) (\s@ScpActionDefinition' {} a -> s {targetIds = a} :: ScpActionDefinition) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ScpActionDefinition where
+instance Core.FromJSON ScpActionDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScpActionDefinition"
       ( \x ->
           ScpActionDefinition'
-            Prelude.<$> (x Prelude..: "PolicyId")
-            Prelude.<*> (x Prelude..: "TargetIds")
+            Core.<$> (x Core..: "PolicyId")
+            Core.<*> (x Core..: "TargetIds")
       )
 
-instance Prelude.Hashable ScpActionDefinition
+instance Core.Hashable ScpActionDefinition
 
-instance Prelude.NFData ScpActionDefinition
+instance Core.NFData ScpActionDefinition
 
-instance Prelude.ToJSON ScpActionDefinition where
+instance Core.ToJSON ScpActionDefinition where
   toJSON ScpActionDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("PolicyId" Prelude..= policyId),
-            Prelude.Just ("TargetIds" Prelude..= targetIds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyId" Core..= policyId),
+            Core.Just ("TargetIds" Core..= targetIds)
           ]
       )

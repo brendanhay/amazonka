@@ -15,86 +15,85 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Waiters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.GetFunction
 import Network.AWS.Lambda.GetFunctionConfiguration
 import Network.AWS.Lambda.Lens
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newFunctionUpdated :: Waiter.Wait GetFunctionConfiguration
+newFunctionUpdated :: Core.Wait GetFunctionConfiguration
 newFunctionUpdated =
-  Waiter.Wait
-    { Waiter._waitName = "FunctionUpdated",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 5,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "FunctionUpdated",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "Successful"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( functionConfiguration_lastUpdateStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( functionConfiguration_lastUpdateStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "InProgress"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
             ( functionConfiguration_lastUpdateStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newFunctionExists :: Waiter.Wait GetFunction
+newFunctionExists :: Core.Wait GetFunction
 newFunctionExists =
-  Waiter.Wait
-    { Waiter._waitName = "FunctionExists",
-      Waiter._waitAttempts = 20,
-      Waiter._waitDelay = 1,
-      Waiter._waitAcceptors =
-        [ Waiter.matchStatus 200 Waiter.AcceptSuccess,
-          Waiter.matchError
+  Core.Wait
+    { Core._waitName = "FunctionExists",
+      Core._waitAttempts = 20,
+      Core._waitDelay = 1,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError
             "ResourceNotFoundException"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newFunctionActive :: Waiter.Wait GetFunctionConfiguration
+newFunctionActive :: Core.Wait GetFunctionConfiguration
 newFunctionActive =
-  Waiter.Wait
-    { Waiter._waitName = "FunctionActive",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 5,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "FunctionActive",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "Active"
-            Waiter.AcceptSuccess
-            ( functionConfiguration_state Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptSuccess
+            ( functionConfiguration_state Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Failed"
-            Waiter.AcceptFailure
-            ( functionConfiguration_state Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptFailure
+            ( functionConfiguration_state Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Pending"
-            Waiter.AcceptRetry
-            ( functionConfiguration_state Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptRetry
+            ( functionConfiguration_state Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }

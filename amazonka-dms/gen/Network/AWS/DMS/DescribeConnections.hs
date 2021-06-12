@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,10 +46,9 @@ module Network.AWS.DMS.DescribeConnections
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,11 +59,11 @@ data DescribeConnections = DescribeConnections'
   { -- | The filters applied to the connection.
     --
     -- Valid filter names: endpoint-arn | replication-instance-arn
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -74,9 +72,9 @@ data DescribeConnections = DescribeConnections'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeConnections' with all optional fields omitted.
@@ -106,21 +104,21 @@ newDescribeConnections ::
   DescribeConnections
 newDescribeConnections =
   DescribeConnections'
-    { filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+    { filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The filters applied to the connection.
 --
 -- Valid filter names: endpoint-arn | replication-instance-arn
-describeConnections_filters :: Lens.Lens' DescribeConnections (Prelude.Maybe [Filter])
-describeConnections_filters = Lens.lens (\DescribeConnections' {filters} -> filters) (\s@DescribeConnections' {} a -> s {filters = a} :: DescribeConnections) Prelude.. Lens.mapping Prelude._Coerce
+describeConnections_filters :: Lens.Lens' DescribeConnections (Core.Maybe [Filter])
+describeConnections_filters = Lens.lens (\DescribeConnections' {filters} -> filters) (\s@DescribeConnections' {} a -> s {filters = a} :: DescribeConnections) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeConnections_marker :: Lens.Lens' DescribeConnections (Prelude.Maybe Prelude.Text)
+describeConnections_marker :: Lens.Lens' DescribeConnections (Core.Maybe Core.Text)
 describeConnections_marker = Lens.lens (\DescribeConnections' {marker} -> marker) (\s@DescribeConnections' {} a -> s {marker = a} :: DescribeConnections)
 
 -- | The maximum number of records to include in the response. If more
@@ -131,96 +129,90 @@ describeConnections_marker = Lens.lens (\DescribeConnections' {marker} -> marker
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeConnections_maxRecords :: Lens.Lens' DescribeConnections (Prelude.Maybe Prelude.Int)
+describeConnections_maxRecords :: Lens.Lens' DescribeConnections (Core.Maybe Core.Int)
 describeConnections_maxRecords = Lens.lens (\DescribeConnections' {maxRecords} -> maxRecords) (\s@DescribeConnections' {} a -> s {maxRecords = a} :: DescribeConnections)
 
-instance Pager.AWSPager DescribeConnections where
+instance Core.AWSPager DescribeConnections where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeConnectionsResponse_marker
-              Prelude.. Lens._Just
+            Lens.^? describeConnectionsResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeConnectionsResponse_connections
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeConnections_marker
           Lens..~ rs
-          Lens.^? describeConnectionsResponse_marker
-            Prelude.. Lens._Just
+          Lens.^? describeConnectionsResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeConnections where
+instance Core.AWSRequest DescribeConnections where
   type
-    Rs DescribeConnections =
+    AWSResponse DescribeConnections =
       DescribeConnectionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectionsResponse'
-            Prelude.<$> ( x Prelude..?> "Connections"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Connections" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConnections
+instance Core.Hashable DescribeConnections
 
-instance Prelude.NFData DescribeConnections
+instance Core.NFData DescribeConnections
 
-instance Prelude.ToHeaders DescribeConnections where
+instance Core.ToHeaders DescribeConnections where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.DescribeConnections" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.DescribeConnections" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeConnections where
+instance Core.ToJSON DescribeConnections where
   toJSON DescribeConnections' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Filters" Prelude..=) Prelude.<$> filters,
-            ("Marker" Prelude..=) Prelude.<$> marker,
-            ("MaxRecords" Prelude..=) Prelude.<$> maxRecords
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("Marker" Core..=) Core.<$> marker,
+            ("MaxRecords" Core..=) Core.<$> maxRecords
           ]
       )
 
-instance Prelude.ToPath DescribeConnections where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeConnections where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeConnections where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeConnections where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newDescribeConnectionsResponse' smart constructor.
 data DescribeConnectionsResponse = DescribeConnectionsResponse'
   { -- | A description of the connections.
-    connections :: Prelude.Maybe [Connection],
+    connections :: Core.Maybe [Connection],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeConnectionsResponse' with all optional fields omitted.
@@ -239,28 +231,28 @@ data DescribeConnectionsResponse = DescribeConnectionsResponse'
 -- 'httpStatus', 'describeConnectionsResponse_httpStatus' - The response's http status code.
 newDescribeConnectionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeConnectionsResponse
 newDescribeConnectionsResponse pHttpStatus_ =
   DescribeConnectionsResponse'
     { connections =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A description of the connections.
-describeConnectionsResponse_connections :: Lens.Lens' DescribeConnectionsResponse (Prelude.Maybe [Connection])
-describeConnectionsResponse_connections = Lens.lens (\DescribeConnectionsResponse' {connections} -> connections) (\s@DescribeConnectionsResponse' {} a -> s {connections = a} :: DescribeConnectionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeConnectionsResponse_connections :: Lens.Lens' DescribeConnectionsResponse (Core.Maybe [Connection])
+describeConnectionsResponse_connections = Lens.lens (\DescribeConnectionsResponse' {connections} -> connections) (\s@DescribeConnectionsResponse' {} a -> s {connections = a} :: DescribeConnectionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeConnectionsResponse_marker :: Lens.Lens' DescribeConnectionsResponse (Prelude.Maybe Prelude.Text)
+describeConnectionsResponse_marker :: Lens.Lens' DescribeConnectionsResponse (Core.Maybe Core.Text)
 describeConnectionsResponse_marker = Lens.lens (\DescribeConnectionsResponse' {marker} -> marker) (\s@DescribeConnectionsResponse' {} a -> s {marker = a} :: DescribeConnectionsResponse)
 
 -- | The response's http status code.
-describeConnectionsResponse_httpStatus :: Lens.Lens' DescribeConnectionsResponse Prelude.Int
+describeConnectionsResponse_httpStatus :: Lens.Lens' DescribeConnectionsResponse Core.Int
 describeConnectionsResponse_httpStatus = Lens.lens (\DescribeConnectionsResponse' {httpStatus} -> httpStatus) (\s@DescribeConnectionsResponse' {} a -> s {httpStatus = a} :: DescribeConnectionsResponse)
 
-instance Prelude.NFData DescribeConnectionsResponse
+instance Core.NFData DescribeConnectionsResponse

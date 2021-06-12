@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.Subscription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.AutoRenew
 import Network.AWS.Shield.Types.Limit
 import Network.AWS.Shield.Types.ProactiveEngagementStatus
@@ -38,7 +37,7 @@ data Subscription = Subscription'
     -- @ENABLED@. You can change this by submitting an @UpdateSubscription@
     -- request. If the @UpdateSubscription@ request does not included a value
     -- for @AutoRenew@, the existing value for @AutoRenew@ remains unchanged.
-    autoRenew :: Prelude.Maybe AutoRenew,
+    autoRenew :: Core.Maybe AutoRenew,
     -- | If @ENABLED@, the DDoS Response Team (DRT) will use email and phone to
     -- notify contacts about escalations to the DRT and to initiate proactive
     -- customer support.
@@ -49,22 +48,22 @@ data Subscription = Subscription'
     --
     -- If @DISABLED@, the DRT will not proactively notify contacts about
     -- escalations or to initiate proactive customer support.
-    proactiveEngagementStatus :: Prelude.Maybe ProactiveEngagementStatus,
+    proactiveEngagementStatus :: Core.Maybe ProactiveEngagementStatus,
     -- | The start time of the subscription, in Unix time in seconds. For more
     -- information see
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The date and time your subscription will end.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | Specifies how many protections of a given type you can create.
-    limits :: Prelude.Maybe [Limit],
+    limits :: Core.Maybe [Limit],
     -- | The length, in seconds, of the AWS Shield Advanced subscription for the
     -- account.
-    timeCommitmentInSeconds :: Prelude.Maybe Prelude.Natural,
+    timeCommitmentInSeconds :: Core.Maybe Core.Natural,
     -- | Limits settings for your subscription.
     subscriptionLimits :: SubscriptionLimits
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Subscription' with all optional fields omitted.
@@ -111,12 +110,12 @@ newSubscription ::
   Subscription
 newSubscription pSubscriptionLimits_ =
   Subscription'
-    { autoRenew = Prelude.Nothing,
-      proactiveEngagementStatus = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      limits = Prelude.Nothing,
-      timeCommitmentInSeconds = Prelude.Nothing,
+    { autoRenew = Core.Nothing,
+      proactiveEngagementStatus = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      limits = Core.Nothing,
+      timeCommitmentInSeconds = Core.Nothing,
       subscriptionLimits = pSubscriptionLimits_
     }
 
@@ -127,7 +126,7 @@ newSubscription pSubscriptionLimits_ =
 -- @ENABLED@. You can change this by submitting an @UpdateSubscription@
 -- request. If the @UpdateSubscription@ request does not included a value
 -- for @AutoRenew@, the existing value for @AutoRenew@ remains unchanged.
-subscription_autoRenew :: Lens.Lens' Subscription (Prelude.Maybe AutoRenew)
+subscription_autoRenew :: Lens.Lens' Subscription (Core.Maybe AutoRenew)
 subscription_autoRenew = Lens.lens (\Subscription' {autoRenew} -> autoRenew) (\s@Subscription' {} a -> s {autoRenew = a} :: Subscription)
 
 -- | If @ENABLED@, the DDoS Response Team (DRT) will use email and phone to
@@ -140,47 +139,47 @@ subscription_autoRenew = Lens.lens (\Subscription' {autoRenew} -> autoRenew) (\s
 --
 -- If @DISABLED@, the DRT will not proactively notify contacts about
 -- escalations or to initiate proactive customer support.
-subscription_proactiveEngagementStatus :: Lens.Lens' Subscription (Prelude.Maybe ProactiveEngagementStatus)
+subscription_proactiveEngagementStatus :: Lens.Lens' Subscription (Core.Maybe ProactiveEngagementStatus)
 subscription_proactiveEngagementStatus = Lens.lens (\Subscription' {proactiveEngagementStatus} -> proactiveEngagementStatus) (\s@Subscription' {} a -> s {proactiveEngagementStatus = a} :: Subscription)
 
 -- | The start time of the subscription, in Unix time in seconds. For more
 -- information see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-subscription_startTime :: Lens.Lens' Subscription (Prelude.Maybe Prelude.UTCTime)
-subscription_startTime = Lens.lens (\Subscription' {startTime} -> startTime) (\s@Subscription' {} a -> s {startTime = a} :: Subscription) Prelude.. Lens.mapping Prelude._Time
+subscription_startTime :: Lens.Lens' Subscription (Core.Maybe Core.UTCTime)
+subscription_startTime = Lens.lens (\Subscription' {startTime} -> startTime) (\s@Subscription' {} a -> s {startTime = a} :: Subscription) Core.. Lens.mapping Core._Time
 
 -- | The date and time your subscription will end.
-subscription_endTime :: Lens.Lens' Subscription (Prelude.Maybe Prelude.UTCTime)
-subscription_endTime = Lens.lens (\Subscription' {endTime} -> endTime) (\s@Subscription' {} a -> s {endTime = a} :: Subscription) Prelude.. Lens.mapping Prelude._Time
+subscription_endTime :: Lens.Lens' Subscription (Core.Maybe Core.UTCTime)
+subscription_endTime = Lens.lens (\Subscription' {endTime} -> endTime) (\s@Subscription' {} a -> s {endTime = a} :: Subscription) Core.. Lens.mapping Core._Time
 
 -- | Specifies how many protections of a given type you can create.
-subscription_limits :: Lens.Lens' Subscription (Prelude.Maybe [Limit])
-subscription_limits = Lens.lens (\Subscription' {limits} -> limits) (\s@Subscription' {} a -> s {limits = a} :: Subscription) Prelude.. Lens.mapping Prelude._Coerce
+subscription_limits :: Lens.Lens' Subscription (Core.Maybe [Limit])
+subscription_limits = Lens.lens (\Subscription' {limits} -> limits) (\s@Subscription' {} a -> s {limits = a} :: Subscription) Core.. Lens.mapping Lens._Coerce
 
 -- | The length, in seconds, of the AWS Shield Advanced subscription for the
 -- account.
-subscription_timeCommitmentInSeconds :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Natural)
+subscription_timeCommitmentInSeconds :: Lens.Lens' Subscription (Core.Maybe Core.Natural)
 subscription_timeCommitmentInSeconds = Lens.lens (\Subscription' {timeCommitmentInSeconds} -> timeCommitmentInSeconds) (\s@Subscription' {} a -> s {timeCommitmentInSeconds = a} :: Subscription)
 
 -- | Limits settings for your subscription.
 subscription_subscriptionLimits :: Lens.Lens' Subscription SubscriptionLimits
 subscription_subscriptionLimits = Lens.lens (\Subscription' {subscriptionLimits} -> subscriptionLimits) (\s@Subscription' {} a -> s {subscriptionLimits = a} :: Subscription)
 
-instance Prelude.FromJSON Subscription where
+instance Core.FromJSON Subscription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Subscription"
       ( \x ->
           Subscription'
-            Prelude.<$> (x Prelude..:? "AutoRenew")
-            Prelude.<*> (x Prelude..:? "ProactiveEngagementStatus")
-            Prelude.<*> (x Prelude..:? "StartTime")
-            Prelude.<*> (x Prelude..:? "EndTime")
-            Prelude.<*> (x Prelude..:? "Limits" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "TimeCommitmentInSeconds")
-            Prelude.<*> (x Prelude..: "SubscriptionLimits")
+            Core.<$> (x Core..:? "AutoRenew")
+            Core.<*> (x Core..:? "ProactiveEngagementStatus")
+            Core.<*> (x Core..:? "StartTime")
+            Core.<*> (x Core..:? "EndTime")
+            Core.<*> (x Core..:? "Limits" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "TimeCommitmentInSeconds")
+            Core.<*> (x Core..: "SubscriptionLimits")
       )
 
-instance Prelude.Hashable Subscription
+instance Core.Hashable Subscription
 
-instance Prelude.NFData Subscription
+instance Core.NFData Subscription

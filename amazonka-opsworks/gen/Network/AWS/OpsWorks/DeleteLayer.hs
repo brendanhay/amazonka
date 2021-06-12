@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,18 +44,18 @@ module Network.AWS.OpsWorks.DeleteLayer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLayer' smart constructor.
 data DeleteLayer = DeleteLayer'
   { -- | The layer ID.
-    layerId :: Prelude.Text
+    layerId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLayer' with all optional fields omitted.
@@ -69,57 +68,53 @@ data DeleteLayer = DeleteLayer'
 -- 'layerId', 'deleteLayer_layerId' - The layer ID.
 newDeleteLayer ::
   -- | 'layerId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLayer
 newDeleteLayer pLayerId_ =
   DeleteLayer' {layerId = pLayerId_}
 
 -- | The layer ID.
-deleteLayer_layerId :: Lens.Lens' DeleteLayer Prelude.Text
+deleteLayer_layerId :: Lens.Lens' DeleteLayer Core.Text
 deleteLayer_layerId = Lens.lens (\DeleteLayer' {layerId} -> layerId) (\s@DeleteLayer' {} a -> s {layerId = a} :: DeleteLayer)
 
-instance Prelude.AWSRequest DeleteLayer where
-  type Rs DeleteLayer = DeleteLayerResponse
+instance Core.AWSRequest DeleteLayer where
+  type AWSResponse DeleteLayer = DeleteLayerResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteLayerResponse'
 
-instance Prelude.Hashable DeleteLayer
+instance Core.Hashable DeleteLayer
 
-instance Prelude.NFData DeleteLayer
+instance Core.NFData DeleteLayer
 
-instance Prelude.ToHeaders DeleteLayer where
+instance Core.ToHeaders DeleteLayer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DeleteLayer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("OpsWorks_20130218.DeleteLayer" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteLayer where
+instance Core.ToJSON DeleteLayer where
   toJSON DeleteLayer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("LayerId" Prelude..= layerId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("LayerId" Core..= layerId)]
       )
 
-instance Prelude.ToPath DeleteLayer where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLayer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLayer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteLayer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteLayerResponse' smart constructor.
 data DeleteLayerResponse = DeleteLayerResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLayerResponse' with all optional fields omitted.
@@ -129,4 +124,4 @@ newDeleteLayerResponse ::
   DeleteLayerResponse
 newDeleteLayerResponse = DeleteLayerResponse'
 
-instance Prelude.NFData DeleteLayerResponse
+instance Core.NFData DeleteLayerResponse

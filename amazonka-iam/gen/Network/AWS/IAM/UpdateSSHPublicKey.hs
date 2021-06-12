@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.IAM.UpdateSSHPublicKey
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,19 +61,19 @@ data UpdateSSHPublicKey = UpdateSSHPublicKey'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The unique identifier for the SSH public key.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that can consist of any upper or lowercased letter or digit.
-    sSHPublicKeyId :: Prelude.Text,
+    sSHPublicKeyId :: Core.Text,
     -- | The status to assign to the SSH public key. @Active@ means that the key
     -- can be used for authentication with an AWS CodeCommit repository.
     -- @Inactive@ means that the key cannot be used.
     status :: StatusType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSSHPublicKey' with all optional fields omitted.
@@ -102,9 +101,9 @@ data UpdateSSHPublicKey = UpdateSSHPublicKey'
 -- @Inactive@ means that the key cannot be used.
 newUpdateSSHPublicKey ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sSHPublicKeyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   StatusType ->
   UpdateSSHPublicKey
@@ -124,7 +123,7 @@ newUpdateSSHPublicKey
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-updateSSHPublicKey_userName :: Lens.Lens' UpdateSSHPublicKey Prelude.Text
+updateSSHPublicKey_userName :: Lens.Lens' UpdateSSHPublicKey Core.Text
 updateSSHPublicKey_userName = Lens.lens (\UpdateSSHPublicKey' {userName} -> userName) (\s@UpdateSSHPublicKey' {} a -> s {userName = a} :: UpdateSSHPublicKey)
 
 -- | The unique identifier for the SSH public key.
@@ -132,7 +131,7 @@ updateSSHPublicKey_userName = Lens.lens (\UpdateSSHPublicKey' {userName} -> user
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that can consist of any upper or lowercased letter or digit.
-updateSSHPublicKey_sSHPublicKeyId :: Lens.Lens' UpdateSSHPublicKey Prelude.Text
+updateSSHPublicKey_sSHPublicKeyId :: Lens.Lens' UpdateSSHPublicKey Core.Text
 updateSSHPublicKey_sSHPublicKeyId = Lens.lens (\UpdateSSHPublicKey' {sSHPublicKeyId} -> sSHPublicKeyId) (\s@UpdateSSHPublicKey' {} a -> s {sSHPublicKeyId = a} :: UpdateSSHPublicKey)
 
 -- | The status to assign to the SSH public key. @Active@ means that the key
@@ -141,41 +140,40 @@ updateSSHPublicKey_sSHPublicKeyId = Lens.lens (\UpdateSSHPublicKey' {sSHPublicKe
 updateSSHPublicKey_status :: Lens.Lens' UpdateSSHPublicKey StatusType
 updateSSHPublicKey_status = Lens.lens (\UpdateSSHPublicKey' {status} -> status) (\s@UpdateSSHPublicKey' {} a -> s {status = a} :: UpdateSSHPublicKey)
 
-instance Prelude.AWSRequest UpdateSSHPublicKey where
+instance Core.AWSRequest UpdateSSHPublicKey where
   type
-    Rs UpdateSSHPublicKey =
+    AWSResponse UpdateSSHPublicKey =
       UpdateSSHPublicKeyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull UpdateSSHPublicKeyResponse'
 
-instance Prelude.Hashable UpdateSSHPublicKey
+instance Core.Hashable UpdateSSHPublicKey
 
-instance Prelude.NFData UpdateSSHPublicKey
+instance Core.NFData UpdateSSHPublicKey
 
-instance Prelude.ToHeaders UpdateSSHPublicKey where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateSSHPublicKey where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateSSHPublicKey where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateSSHPublicKey where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateSSHPublicKey where
+instance Core.ToQuery UpdateSSHPublicKey where
   toQuery UpdateSSHPublicKey' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UpdateSSHPublicKey" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "SSHPublicKeyId" Prelude.=: sSHPublicKeyId,
-        "Status" Prelude.=: status
+          Core.=: ("UpdateSSHPublicKey" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "SSHPublicKeyId" Core.=: sSHPublicKeyId,
+        "Status" Core.=: status
       ]
 
 -- | /See:/ 'newUpdateSSHPublicKeyResponse' smart constructor.
 data UpdateSSHPublicKeyResponse = UpdateSSHPublicKeyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSSHPublicKeyResponse' with all optional fields omitted.
@@ -186,4 +184,4 @@ newUpdateSSHPublicKeyResponse ::
 newUpdateSSHPublicKeyResponse =
   UpdateSSHPublicKeyResponse'
 
-instance Prelude.NFData UpdateSSHPublicKeyResponse
+instance Core.NFData UpdateSSHPublicKeyResponse

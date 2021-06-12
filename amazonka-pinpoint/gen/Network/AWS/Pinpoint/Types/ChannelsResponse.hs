@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.ChannelsResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ChannelResponse
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the general settings and status of all
 -- channels for an application, including channels that aren\'t enabled for
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ChannelsResponse = ChannelsResponse'
   { -- | A map that contains a multipart response for each channel. For each item
     -- in this object, the ChannelType is the key and the Channel is the value.
-    channels :: Prelude.HashMap Prelude.Text ChannelResponse
+    channels :: Core.HashMap Core.Text ChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChannelsResponse' with all optional fields omitted.
@@ -49,24 +48,22 @@ data ChannelsResponse = ChannelsResponse'
 newChannelsResponse ::
   ChannelsResponse
 newChannelsResponse =
-  ChannelsResponse' {channels = Prelude.mempty}
+  ChannelsResponse' {channels = Core.mempty}
 
 -- | A map that contains a multipart response for each channel. For each item
 -- in this object, the ChannelType is the key and the Channel is the value.
-channelsResponse_channels :: Lens.Lens' ChannelsResponse (Prelude.HashMap Prelude.Text ChannelResponse)
-channelsResponse_channels = Lens.lens (\ChannelsResponse' {channels} -> channels) (\s@ChannelsResponse' {} a -> s {channels = a} :: ChannelsResponse) Prelude.. Prelude._Coerce
+channelsResponse_channels :: Lens.Lens' ChannelsResponse (Core.HashMap Core.Text ChannelResponse)
+channelsResponse_channels = Lens.lens (\ChannelsResponse' {channels} -> channels) (\s@ChannelsResponse' {} a -> s {channels = a} :: ChannelsResponse) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ChannelsResponse where
+instance Core.FromJSON ChannelsResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ChannelsResponse"
       ( \x ->
           ChannelsResponse'
-            Prelude.<$> ( x Prelude..:? "Channels"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Channels" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ChannelsResponse
+instance Core.Hashable ChannelsResponse
 
-instance Prelude.NFData ChannelsResponse
+instance Core.NFData ChannelsResponse

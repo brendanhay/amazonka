@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.TrainingData where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.Asset
 
 -- | The dataset used for training.
@@ -30,9 +29,9 @@ import Network.AWS.Rekognition.Types.Asset
 data TrainingData = TrainingData'
   { -- | A Sagemaker GroundTruth manifest file that contains the training images
     -- (assets).
-    assets :: Prelude.Maybe [Asset]
+    assets :: Core.Maybe [Asset]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrainingData' with all optional fields omitted.
@@ -47,29 +46,27 @@ data TrainingData = TrainingData'
 newTrainingData ::
   TrainingData
 newTrainingData =
-  TrainingData' {assets = Prelude.Nothing}
+  TrainingData' {assets = Core.Nothing}
 
 -- | A Sagemaker GroundTruth manifest file that contains the training images
 -- (assets).
-trainingData_assets :: Lens.Lens' TrainingData (Prelude.Maybe [Asset])
-trainingData_assets = Lens.lens (\TrainingData' {assets} -> assets) (\s@TrainingData' {} a -> s {assets = a} :: TrainingData) Prelude.. Lens.mapping Prelude._Coerce
+trainingData_assets :: Lens.Lens' TrainingData (Core.Maybe [Asset])
+trainingData_assets = Lens.lens (\TrainingData' {assets} -> assets) (\s@TrainingData' {} a -> s {assets = a} :: TrainingData) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON TrainingData where
+instance Core.FromJSON TrainingData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrainingData"
       ( \x ->
           TrainingData'
-            Prelude.<$> (x Prelude..:? "Assets" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Assets" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable TrainingData
+instance Core.Hashable TrainingData
 
-instance Prelude.NFData TrainingData
+instance Core.NFData TrainingData
 
-instance Prelude.ToJSON TrainingData where
+instance Core.ToJSON TrainingData where
   toJSON TrainingData' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Assets" Prelude..=) Prelude.<$> assets]
-      )
+    Core.object
+      (Core.catMaybes [("Assets" Core..=) Core.<$> assets])

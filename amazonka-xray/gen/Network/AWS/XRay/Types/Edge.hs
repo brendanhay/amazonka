@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.Edge where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.Alias
 import Network.AWS.XRay.Types.EdgeStatistics
 import Network.AWS.XRay.Types.HistogramEntry
@@ -31,19 +30,19 @@ import Network.AWS.XRay.Types.HistogramEntry
 -- /See:/ 'newEdge' smart constructor.
 data Edge = Edge'
   { -- | Response statistics for segments on the edge.
-    summaryStatistics :: Prelude.Maybe EdgeStatistics,
+    summaryStatistics :: Core.Maybe EdgeStatistics,
     -- | A histogram that maps the spread of client response times on an edge.
-    responseTimeHistogram :: Prelude.Maybe [HistogramEntry],
+    responseTimeHistogram :: Core.Maybe [HistogramEntry],
     -- | Identifier of the edge. Unique within a service map.
-    referenceId :: Prelude.Maybe Prelude.Int,
+    referenceId :: Core.Maybe Core.Int,
     -- | The start time of the first segment on the edge.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The end time of the last segment on the edge.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | Aliases for the edge.
-    aliases :: Prelude.Maybe [Alias]
+    aliases :: Core.Maybe [Alias]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Edge' with all optional fields omitted.
@@ -68,54 +67,54 @@ newEdge ::
   Edge
 newEdge =
   Edge'
-    { summaryStatistics = Prelude.Nothing,
-      responseTimeHistogram = Prelude.Nothing,
-      referenceId = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      aliases = Prelude.Nothing
+    { summaryStatistics = Core.Nothing,
+      responseTimeHistogram = Core.Nothing,
+      referenceId = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      aliases = Core.Nothing
     }
 
 -- | Response statistics for segments on the edge.
-edge_summaryStatistics :: Lens.Lens' Edge (Prelude.Maybe EdgeStatistics)
+edge_summaryStatistics :: Lens.Lens' Edge (Core.Maybe EdgeStatistics)
 edge_summaryStatistics = Lens.lens (\Edge' {summaryStatistics} -> summaryStatistics) (\s@Edge' {} a -> s {summaryStatistics = a} :: Edge)
 
 -- | A histogram that maps the spread of client response times on an edge.
-edge_responseTimeHistogram :: Lens.Lens' Edge (Prelude.Maybe [HistogramEntry])
-edge_responseTimeHistogram = Lens.lens (\Edge' {responseTimeHistogram} -> responseTimeHistogram) (\s@Edge' {} a -> s {responseTimeHistogram = a} :: Edge) Prelude.. Lens.mapping Prelude._Coerce
+edge_responseTimeHistogram :: Lens.Lens' Edge (Core.Maybe [HistogramEntry])
+edge_responseTimeHistogram = Lens.lens (\Edge' {responseTimeHistogram} -> responseTimeHistogram) (\s@Edge' {} a -> s {responseTimeHistogram = a} :: Edge) Core.. Lens.mapping Lens._Coerce
 
 -- | Identifier of the edge. Unique within a service map.
-edge_referenceId :: Lens.Lens' Edge (Prelude.Maybe Prelude.Int)
+edge_referenceId :: Lens.Lens' Edge (Core.Maybe Core.Int)
 edge_referenceId = Lens.lens (\Edge' {referenceId} -> referenceId) (\s@Edge' {} a -> s {referenceId = a} :: Edge)
 
 -- | The start time of the first segment on the edge.
-edge_startTime :: Lens.Lens' Edge (Prelude.Maybe Prelude.UTCTime)
-edge_startTime = Lens.lens (\Edge' {startTime} -> startTime) (\s@Edge' {} a -> s {startTime = a} :: Edge) Prelude.. Lens.mapping Prelude._Time
+edge_startTime :: Lens.Lens' Edge (Core.Maybe Core.UTCTime)
+edge_startTime = Lens.lens (\Edge' {startTime} -> startTime) (\s@Edge' {} a -> s {startTime = a} :: Edge) Core.. Lens.mapping Core._Time
 
 -- | The end time of the last segment on the edge.
-edge_endTime :: Lens.Lens' Edge (Prelude.Maybe Prelude.UTCTime)
-edge_endTime = Lens.lens (\Edge' {endTime} -> endTime) (\s@Edge' {} a -> s {endTime = a} :: Edge) Prelude.. Lens.mapping Prelude._Time
+edge_endTime :: Lens.Lens' Edge (Core.Maybe Core.UTCTime)
+edge_endTime = Lens.lens (\Edge' {endTime} -> endTime) (\s@Edge' {} a -> s {endTime = a} :: Edge) Core.. Lens.mapping Core._Time
 
 -- | Aliases for the edge.
-edge_aliases :: Lens.Lens' Edge (Prelude.Maybe [Alias])
-edge_aliases = Lens.lens (\Edge' {aliases} -> aliases) (\s@Edge' {} a -> s {aliases = a} :: Edge) Prelude.. Lens.mapping Prelude._Coerce
+edge_aliases :: Lens.Lens' Edge (Core.Maybe [Alias])
+edge_aliases = Lens.lens (\Edge' {aliases} -> aliases) (\s@Edge' {} a -> s {aliases = a} :: Edge) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Edge where
+instance Core.FromJSON Edge where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Edge"
       ( \x ->
           Edge'
-            Prelude.<$> (x Prelude..:? "SummaryStatistics")
-            Prelude.<*> ( x Prelude..:? "ResponseTimeHistogram"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ReferenceId")
-            Prelude.<*> (x Prelude..:? "StartTime")
-            Prelude.<*> (x Prelude..:? "EndTime")
-            Prelude.<*> (x Prelude..:? "Aliases" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "SummaryStatistics")
+            Core.<*> ( x Core..:? "ResponseTimeHistogram"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "ReferenceId")
+            Core.<*> (x Core..:? "StartTime")
+            Core.<*> (x Core..:? "EndTime")
+            Core.<*> (x Core..:? "Aliases" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Edge
+instance Core.Hashable Edge
 
-instance Prelude.NFData Edge
+instance Core.NFData Edge

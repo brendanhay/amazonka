@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -71,10 +70,9 @@ module Network.AWS.GameLift.ListGameServerGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,12 +82,12 @@ data ListGameServerGroups = ListGameServerGroups'
     -- results. Use the token returned with the previous call to this
     -- operation. To start at the beginning of the result set, do not specify a
     -- value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential segments.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGameServerGroups' with all optional fields omitted.
@@ -110,106 +108,100 @@ newListGameServerGroups ::
   ListGameServerGroups
 newListGameServerGroups =
   ListGameServerGroups'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | A token that indicates the start of the next sequential segment of
 -- results. Use the token returned with the previous call to this
 -- operation. To start at the beginning of the result set, do not specify a
 -- value.
-listGameServerGroups_nextToken :: Lens.Lens' ListGameServerGroups (Prelude.Maybe Prelude.Text)
+listGameServerGroups_nextToken :: Lens.Lens' ListGameServerGroups (Core.Maybe Core.Text)
 listGameServerGroups_nextToken = Lens.lens (\ListGameServerGroups' {nextToken} -> nextToken) (\s@ListGameServerGroups' {} a -> s {nextToken = a} :: ListGameServerGroups)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential segments.
-listGameServerGroups_limit :: Lens.Lens' ListGameServerGroups (Prelude.Maybe Prelude.Natural)
+listGameServerGroups_limit :: Lens.Lens' ListGameServerGroups (Core.Maybe Core.Natural)
 listGameServerGroups_limit = Lens.lens (\ListGameServerGroups' {limit} -> limit) (\s@ListGameServerGroups' {} a -> s {limit = a} :: ListGameServerGroups)
 
-instance Pager.AWSPager ListGameServerGroups where
+instance Core.AWSPager ListGameServerGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listGameServerGroupsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listGameServerGroupsResponse_gameServerGroups
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listGameServerGroups_nextToken
           Lens..~ rs
           Lens.^? listGameServerGroupsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListGameServerGroups where
+instance Core.AWSRequest ListGameServerGroups where
   type
-    Rs ListGameServerGroups =
+    AWSResponse ListGameServerGroups =
       ListGameServerGroupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListGameServerGroupsResponse'
-            Prelude.<$> ( x Prelude..?> "GameServerGroups"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GameServerGroups" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListGameServerGroups
+instance Core.Hashable ListGameServerGroups
 
-instance Prelude.NFData ListGameServerGroups
+instance Core.NFData ListGameServerGroups
 
-instance Prelude.ToHeaders ListGameServerGroups where
+instance Core.ToHeaders ListGameServerGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.ListGameServerGroups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("GameLift.ListGameServerGroups" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListGameServerGroups where
+instance Core.ToJSON ListGameServerGroups where
   toJSON ListGameServerGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListGameServerGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListGameServerGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListGameServerGroups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListGameServerGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListGameServerGroupsResponse' smart constructor.
 data ListGameServerGroupsResponse = ListGameServerGroupsResponse'
   { -- | A collection of game server group objects that match the request.
-    gameServerGroups :: Prelude.Maybe [GameServerGroup],
+    gameServerGroups :: Core.Maybe [GameServerGroup],
     -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGameServerGroupsResponse' with all optional fields omitted.
@@ -228,28 +220,28 @@ data ListGameServerGroupsResponse = ListGameServerGroupsResponse'
 -- 'httpStatus', 'listGameServerGroupsResponse_httpStatus' - The response's http status code.
 newListGameServerGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListGameServerGroupsResponse
 newListGameServerGroupsResponse pHttpStatus_ =
   ListGameServerGroupsResponse'
     { gameServerGroups =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A collection of game server group objects that match the request.
-listGameServerGroupsResponse_gameServerGroups :: Lens.Lens' ListGameServerGroupsResponse (Prelude.Maybe [GameServerGroup])
-listGameServerGroupsResponse_gameServerGroups = Lens.lens (\ListGameServerGroupsResponse' {gameServerGroups} -> gameServerGroups) (\s@ListGameServerGroupsResponse' {} a -> s {gameServerGroups = a} :: ListGameServerGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listGameServerGroupsResponse_gameServerGroups :: Lens.Lens' ListGameServerGroupsResponse (Core.Maybe [GameServerGroup])
+listGameServerGroupsResponse_gameServerGroups = Lens.lens (\ListGameServerGroupsResponse' {gameServerGroups} -> gameServerGroups) (\s@ListGameServerGroupsResponse' {} a -> s {gameServerGroups = a} :: ListGameServerGroupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
-listGameServerGroupsResponse_nextToken :: Lens.Lens' ListGameServerGroupsResponse (Prelude.Maybe Prelude.Text)
+listGameServerGroupsResponse_nextToken :: Lens.Lens' ListGameServerGroupsResponse (Core.Maybe Core.Text)
 listGameServerGroupsResponse_nextToken = Lens.lens (\ListGameServerGroupsResponse' {nextToken} -> nextToken) (\s@ListGameServerGroupsResponse' {} a -> s {nextToken = a} :: ListGameServerGroupsResponse)
 
 -- | The response's http status code.
-listGameServerGroupsResponse_httpStatus :: Lens.Lens' ListGameServerGroupsResponse Prelude.Int
+listGameServerGroupsResponse_httpStatus :: Lens.Lens' ListGameServerGroupsResponse Core.Int
 listGameServerGroupsResponse_httpStatus = Lens.lens (\ListGameServerGroupsResponse' {httpStatus} -> httpStatus) (\s@ListGameServerGroupsResponse' {} a -> s {httpStatus = a} :: ListGameServerGroupsResponse)
 
-instance Prelude.NFData ListGameServerGroupsResponse
+instance Core.NFData ListGameServerGroupsResponse

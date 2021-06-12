@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.StopExecutionTrigger where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The interaction that stopped a pipeline execution.
 --
 -- /See:/ 'newStopExecutionTrigger' smart constructor.
 data StopExecutionTrigger = StopExecutionTrigger'
   { -- | The user-specified reason the pipeline was stopped.
-    reason :: Prelude.Maybe Prelude.Text
+    reason :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopExecutionTrigger' with all optional fields omitted.
@@ -44,21 +43,20 @@ data StopExecutionTrigger = StopExecutionTrigger'
 newStopExecutionTrigger ::
   StopExecutionTrigger
 newStopExecutionTrigger =
-  StopExecutionTrigger' {reason = Prelude.Nothing}
+  StopExecutionTrigger' {reason = Core.Nothing}
 
 -- | The user-specified reason the pipeline was stopped.
-stopExecutionTrigger_reason :: Lens.Lens' StopExecutionTrigger (Prelude.Maybe Prelude.Text)
+stopExecutionTrigger_reason :: Lens.Lens' StopExecutionTrigger (Core.Maybe Core.Text)
 stopExecutionTrigger_reason = Lens.lens (\StopExecutionTrigger' {reason} -> reason) (\s@StopExecutionTrigger' {} a -> s {reason = a} :: StopExecutionTrigger)
 
-instance Prelude.FromJSON StopExecutionTrigger where
+instance Core.FromJSON StopExecutionTrigger where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StopExecutionTrigger"
       ( \x ->
-          StopExecutionTrigger'
-            Prelude.<$> (x Prelude..:? "reason")
+          StopExecutionTrigger' Core.<$> (x Core..:? "reason")
       )
 
-instance Prelude.Hashable StopExecutionTrigger
+instance Core.Hashable StopExecutionTrigger
 
-instance Prelude.NFData StopExecutionTrigger
+instance Core.NFData StopExecutionTrigger

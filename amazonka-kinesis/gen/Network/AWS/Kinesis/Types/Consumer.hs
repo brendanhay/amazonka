@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Kinesis.Types.Consumer where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.ConsumerStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that represents the details of the consumer you registered.
 -- This type of object is returned by RegisterStreamConsumer.
@@ -31,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 data Consumer = Consumer'
   { -- | The name of the consumer is something you choose when you register the
     -- consumer.
-    consumerName :: Prelude.Text,
+    consumerName :: Core.Text,
     -- | When you register a consumer, Kinesis Data Streams generates an ARN for
     -- it. You need this ARN to be able to call SubscribeToShard.
     --
@@ -39,13 +38,13 @@ data Consumer = Consumer'
     -- it won\'t have the same ARN. That\'s because consumer ARNs contain the
     -- creation timestamp. This is important to keep in mind if you have IAM
     -- policies that reference consumer ARNs.
-    consumerARN :: Prelude.Text,
+    consumerARN :: Core.Text,
     -- | A consumer can\'t read data while in the @CREATING@ or @DELETING@
     -- states.
     consumerStatus :: ConsumerStatus,
-    consumerCreationTimestamp :: Prelude.POSIX
+    consumerCreationTimestamp :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Consumer' with all optional fields omitted.
@@ -72,13 +71,13 @@ data Consumer = Consumer'
 -- 'consumerCreationTimestamp', 'consumer_consumerCreationTimestamp' -
 newConsumer ::
   -- | 'consumerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'consumerARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'consumerStatus'
   ConsumerStatus ->
   -- | 'consumerCreationTimestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   Consumer
 newConsumer
   pConsumerName_
@@ -90,12 +89,12 @@ newConsumer
         consumerARN = pConsumerARN_,
         consumerStatus = pConsumerStatus_,
         consumerCreationTimestamp =
-          Prelude._Time Lens.# pConsumerCreationTimestamp_
+          Core._Time Lens.# pConsumerCreationTimestamp_
       }
 
 -- | The name of the consumer is something you choose when you register the
 -- consumer.
-consumer_consumerName :: Lens.Lens' Consumer Prelude.Text
+consumer_consumerName :: Lens.Lens' Consumer Core.Text
 consumer_consumerName = Lens.lens (\Consumer' {consumerName} -> consumerName) (\s@Consumer' {} a -> s {consumerName = a} :: Consumer)
 
 -- | When you register a consumer, Kinesis Data Streams generates an ARN for
@@ -105,7 +104,7 @@ consumer_consumerName = Lens.lens (\Consumer' {consumerName} -> consumerName) (\
 -- it won\'t have the same ARN. That\'s because consumer ARNs contain the
 -- creation timestamp. This is important to keep in mind if you have IAM
 -- policies that reference consumer ARNs.
-consumer_consumerARN :: Lens.Lens' Consumer Prelude.Text
+consumer_consumerARN :: Lens.Lens' Consumer Core.Text
 consumer_consumerARN = Lens.lens (\Consumer' {consumerARN} -> consumerARN) (\s@Consumer' {} a -> s {consumerARN = a} :: Consumer)
 
 -- | A consumer can\'t read data while in the @CREATING@ or @DELETING@
@@ -114,21 +113,21 @@ consumer_consumerStatus :: Lens.Lens' Consumer ConsumerStatus
 consumer_consumerStatus = Lens.lens (\Consumer' {consumerStatus} -> consumerStatus) (\s@Consumer' {} a -> s {consumerStatus = a} :: Consumer)
 
 -- |
-consumer_consumerCreationTimestamp :: Lens.Lens' Consumer Prelude.UTCTime
-consumer_consumerCreationTimestamp = Lens.lens (\Consumer' {consumerCreationTimestamp} -> consumerCreationTimestamp) (\s@Consumer' {} a -> s {consumerCreationTimestamp = a} :: Consumer) Prelude.. Prelude._Time
+consumer_consumerCreationTimestamp :: Lens.Lens' Consumer Core.UTCTime
+consumer_consumerCreationTimestamp = Lens.lens (\Consumer' {consumerCreationTimestamp} -> consumerCreationTimestamp) (\s@Consumer' {} a -> s {consumerCreationTimestamp = a} :: Consumer) Core.. Core._Time
 
-instance Prelude.FromJSON Consumer where
+instance Core.FromJSON Consumer where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Consumer"
       ( \x ->
           Consumer'
-            Prelude.<$> (x Prelude..: "ConsumerName")
-            Prelude.<*> (x Prelude..: "ConsumerARN")
-            Prelude.<*> (x Prelude..: "ConsumerStatus")
-            Prelude.<*> (x Prelude..: "ConsumerCreationTimestamp")
+            Core.<$> (x Core..: "ConsumerName")
+            Core.<*> (x Core..: "ConsumerARN")
+            Core.<*> (x Core..: "ConsumerStatus")
+            Core.<*> (x Core..: "ConsumerCreationTimestamp")
       )
 
-instance Prelude.Hashable Consumer
+instance Core.Hashable Consumer
 
-instance Prelude.NFData Consumer
+instance Core.NFData Consumer

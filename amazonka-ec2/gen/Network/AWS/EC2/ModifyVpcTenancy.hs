@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.EC2.ModifyVpcTenancy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,13 +64,13 @@ data ModifyVpcTenancy = ModifyVpcTenancy'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the VPC.
-    vpcId :: Prelude.Text,
+    vpcId :: Core.Text,
     -- | The instance tenancy attribute for the VPC.
     instanceTenancy :: VpcTenancy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcTenancy' with all optional fields omitted.
@@ -91,13 +90,13 @@ data ModifyVpcTenancy = ModifyVpcTenancy'
 -- 'instanceTenancy', 'modifyVpcTenancy_instanceTenancy' - The instance tenancy attribute for the VPC.
 newModifyVpcTenancy ::
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceTenancy'
   VpcTenancy ->
   ModifyVpcTenancy
 newModifyVpcTenancy pVpcId_ pInstanceTenancy_ =
   ModifyVpcTenancy'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       vpcId = pVpcId_,
       instanceTenancy = pInstanceTenancy_
     }
@@ -106,58 +105,59 @@ newModifyVpcTenancy pVpcId_ pInstanceTenancy_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVpcTenancy_dryRun :: Lens.Lens' ModifyVpcTenancy (Prelude.Maybe Prelude.Bool)
+modifyVpcTenancy_dryRun :: Lens.Lens' ModifyVpcTenancy (Core.Maybe Core.Bool)
 modifyVpcTenancy_dryRun = Lens.lens (\ModifyVpcTenancy' {dryRun} -> dryRun) (\s@ModifyVpcTenancy' {} a -> s {dryRun = a} :: ModifyVpcTenancy)
 
 -- | The ID of the VPC.
-modifyVpcTenancy_vpcId :: Lens.Lens' ModifyVpcTenancy Prelude.Text
+modifyVpcTenancy_vpcId :: Lens.Lens' ModifyVpcTenancy Core.Text
 modifyVpcTenancy_vpcId = Lens.lens (\ModifyVpcTenancy' {vpcId} -> vpcId) (\s@ModifyVpcTenancy' {} a -> s {vpcId = a} :: ModifyVpcTenancy)
 
 -- | The instance tenancy attribute for the VPC.
 modifyVpcTenancy_instanceTenancy :: Lens.Lens' ModifyVpcTenancy VpcTenancy
 modifyVpcTenancy_instanceTenancy = Lens.lens (\ModifyVpcTenancy' {instanceTenancy} -> instanceTenancy) (\s@ModifyVpcTenancy' {} a -> s {instanceTenancy = a} :: ModifyVpcTenancy)
 
-instance Prelude.AWSRequest ModifyVpcTenancy where
-  type Rs ModifyVpcTenancy = ModifyVpcTenancyResponse
+instance Core.AWSRequest ModifyVpcTenancy where
+  type
+    AWSResponse ModifyVpcTenancy =
+      ModifyVpcTenancyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyVpcTenancyResponse'
-            Prelude.<$> (x Prelude..@? "return")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "return")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyVpcTenancy
+instance Core.Hashable ModifyVpcTenancy
 
-instance Prelude.NFData ModifyVpcTenancy
+instance Core.NFData ModifyVpcTenancy
 
-instance Prelude.ToHeaders ModifyVpcTenancy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyVpcTenancy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyVpcTenancy where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyVpcTenancy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyVpcTenancy where
+instance Core.ToQuery ModifyVpcTenancy where
   toQuery ModifyVpcTenancy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyVpcTenancy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "VpcId" Prelude.=: vpcId,
-        "InstanceTenancy" Prelude.=: instanceTenancy
+          Core.=: ("ModifyVpcTenancy" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "VpcId" Core.=: vpcId,
+        "InstanceTenancy" Core.=: instanceTenancy
       ]
 
 -- | /See:/ 'newModifyVpcTenancyResponse' smart constructor.
 data ModifyVpcTenancyResponse = ModifyVpcTenancyResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, returns an error.
-    returnValue :: Prelude.Maybe Prelude.Bool,
+    returnValue :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcTenancyResponse' with all optional fields omitted.
@@ -172,21 +172,21 @@ data ModifyVpcTenancyResponse = ModifyVpcTenancyResponse'
 -- 'httpStatus', 'modifyVpcTenancyResponse_httpStatus' - The response's http status code.
 newModifyVpcTenancyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyVpcTenancyResponse
 newModifyVpcTenancyResponse pHttpStatus_ =
   ModifyVpcTenancyResponse'
     { returnValue =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, returns an error.
-modifyVpcTenancyResponse_returnValue :: Lens.Lens' ModifyVpcTenancyResponse (Prelude.Maybe Prelude.Bool)
+modifyVpcTenancyResponse_returnValue :: Lens.Lens' ModifyVpcTenancyResponse (Core.Maybe Core.Bool)
 modifyVpcTenancyResponse_returnValue = Lens.lens (\ModifyVpcTenancyResponse' {returnValue} -> returnValue) (\s@ModifyVpcTenancyResponse' {} a -> s {returnValue = a} :: ModifyVpcTenancyResponse)
 
 -- | The response's http status code.
-modifyVpcTenancyResponse_httpStatus :: Lens.Lens' ModifyVpcTenancyResponse Prelude.Int
+modifyVpcTenancyResponse_httpStatus :: Lens.Lens' ModifyVpcTenancyResponse Core.Int
 modifyVpcTenancyResponse_httpStatus = Lens.lens (\ModifyVpcTenancyResponse' {httpStatus} -> httpStatus) (\s@ModifyVpcTenancyResponse' {} a -> s {httpStatus = a} :: ModifyVpcTenancyResponse)
 
-instance Prelude.NFData ModifyVpcTenancyResponse
+instance Core.NFData ModifyVpcTenancyResponse

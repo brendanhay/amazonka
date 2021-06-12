@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.ServiceCatalog.UpdateTagOption
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -51,13 +50,13 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newUpdateTagOption' smart constructor.
 data UpdateTagOption = UpdateTagOption'
   { -- | The updated active state.
-    active :: Prelude.Maybe Prelude.Bool,
+    active :: Core.Maybe Core.Bool,
     -- | The updated value.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The TagOption identifier.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTagOption' with all optional fields omitted.
@@ -74,81 +73,81 @@ data UpdateTagOption = UpdateTagOption'
 -- 'id', 'updateTagOption_id' - The TagOption identifier.
 newUpdateTagOption ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   UpdateTagOption
 newUpdateTagOption pId_ =
   UpdateTagOption'
-    { active = Prelude.Nothing,
-      value = Prelude.Nothing,
+    { active = Core.Nothing,
+      value = Core.Nothing,
       id = pId_
     }
 
 -- | The updated active state.
-updateTagOption_active :: Lens.Lens' UpdateTagOption (Prelude.Maybe Prelude.Bool)
+updateTagOption_active :: Lens.Lens' UpdateTagOption (Core.Maybe Core.Bool)
 updateTagOption_active = Lens.lens (\UpdateTagOption' {active} -> active) (\s@UpdateTagOption' {} a -> s {active = a} :: UpdateTagOption)
 
 -- | The updated value.
-updateTagOption_value :: Lens.Lens' UpdateTagOption (Prelude.Maybe Prelude.Text)
+updateTagOption_value :: Lens.Lens' UpdateTagOption (Core.Maybe Core.Text)
 updateTagOption_value = Lens.lens (\UpdateTagOption' {value} -> value) (\s@UpdateTagOption' {} a -> s {value = a} :: UpdateTagOption)
 
 -- | The TagOption identifier.
-updateTagOption_id :: Lens.Lens' UpdateTagOption Prelude.Text
+updateTagOption_id :: Lens.Lens' UpdateTagOption Core.Text
 updateTagOption_id = Lens.lens (\UpdateTagOption' {id} -> id) (\s@UpdateTagOption' {} a -> s {id = a} :: UpdateTagOption)
 
-instance Prelude.AWSRequest UpdateTagOption where
-  type Rs UpdateTagOption = UpdateTagOptionResponse
+instance Core.AWSRequest UpdateTagOption where
+  type
+    AWSResponse UpdateTagOption =
+      UpdateTagOptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateTagOptionResponse'
-            Prelude.<$> (x Prelude..?> "TagOptionDetail")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TagOptionDetail")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTagOption
+instance Core.Hashable UpdateTagOption
 
-instance Prelude.NFData UpdateTagOption
+instance Core.NFData UpdateTagOption
 
-instance Prelude.ToHeaders UpdateTagOption where
+instance Core.ToHeaders UpdateTagOption where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.UpdateTagOption" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.UpdateTagOption" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateTagOption where
+instance Core.ToJSON UpdateTagOption where
   toJSON UpdateTagOption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Active" Prelude..=) Prelude.<$> active,
-            ("Value" Prelude..=) Prelude.<$> value,
-            Prelude.Just ("Id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ ("Active" Core..=) Core.<$> active,
+            ("Value" Core..=) Core.<$> value,
+            Core.Just ("Id" Core..= id)
           ]
       )
 
-instance Prelude.ToPath UpdateTagOption where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateTagOption where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateTagOption where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateTagOption where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateTagOptionResponse' smart constructor.
 data UpdateTagOptionResponse = UpdateTagOptionResponse'
   { -- | Information about the TagOption.
-    tagOptionDetail :: Prelude.Maybe TagOptionDetail,
+    tagOptionDetail :: Core.Maybe TagOptionDetail,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTagOptionResponse' with all optional fields omitted.
@@ -163,21 +162,21 @@ data UpdateTagOptionResponse = UpdateTagOptionResponse'
 -- 'httpStatus', 'updateTagOptionResponse_httpStatus' - The response's http status code.
 newUpdateTagOptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateTagOptionResponse
 newUpdateTagOptionResponse pHttpStatus_ =
   UpdateTagOptionResponse'
     { tagOptionDetail =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the TagOption.
-updateTagOptionResponse_tagOptionDetail :: Lens.Lens' UpdateTagOptionResponse (Prelude.Maybe TagOptionDetail)
+updateTagOptionResponse_tagOptionDetail :: Lens.Lens' UpdateTagOptionResponse (Core.Maybe TagOptionDetail)
 updateTagOptionResponse_tagOptionDetail = Lens.lens (\UpdateTagOptionResponse' {tagOptionDetail} -> tagOptionDetail) (\s@UpdateTagOptionResponse' {} a -> s {tagOptionDetail = a} :: UpdateTagOptionResponse)
 
 -- | The response's http status code.
-updateTagOptionResponse_httpStatus :: Lens.Lens' UpdateTagOptionResponse Prelude.Int
+updateTagOptionResponse_httpStatus :: Lens.Lens' UpdateTagOptionResponse Core.Int
 updateTagOptionResponse_httpStatus = Lens.lens (\UpdateTagOptionResponse' {httpStatus} -> httpStatus) (\s@UpdateTagOptionResponse' {} a -> s {httpStatus = a} :: UpdateTagOptionResponse)
 
-instance Prelude.NFData UpdateTagOptionResponse
+instance Core.NFData UpdateTagOptionResponse

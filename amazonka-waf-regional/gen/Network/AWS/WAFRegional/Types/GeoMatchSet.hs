@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.GeoMatchSet where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.GeoMatchConstraint
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -39,7 +38,7 @@ import Network.AWS.WAFRegional.Types.GeoMatchConstraint
 data GeoMatchSet = GeoMatchSet'
   { -- | A friendly name or description of the GeoMatchSet. You can\'t change the
     -- name of an @GeoMatchSet@ after you create it.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The @GeoMatchSetId@ for an @GeoMatchSet@. You use @GeoMatchSetId@ to get
     -- information about a @GeoMatchSet@ (see GeoMatchSet), update a
     -- @GeoMatchSet@ (see UpdateGeoMatchSet), insert a @GeoMatchSet@ into a
@@ -48,12 +47,12 @@ data GeoMatchSet = GeoMatchSet'
     --
     -- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
     -- ListGeoMatchSets.
-    geoMatchSetId :: Prelude.Text,
+    geoMatchSetId :: Core.Text,
     -- | An array of GeoMatchConstraint objects, which contain the country that
     -- you want AWS WAF to search for.
     geoMatchConstraints :: [GeoMatchConstraint]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GeoMatchSet' with all optional fields omitted.
@@ -79,18 +78,18 @@ data GeoMatchSet = GeoMatchSet'
 -- you want AWS WAF to search for.
 newGeoMatchSet ::
   -- | 'geoMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   GeoMatchSet
 newGeoMatchSet pGeoMatchSetId_ =
   GeoMatchSet'
-    { name = Prelude.Nothing,
+    { name = Core.Nothing,
       geoMatchSetId = pGeoMatchSetId_,
-      geoMatchConstraints = Prelude.mempty
+      geoMatchConstraints = Core.mempty
     }
 
 -- | A friendly name or description of the GeoMatchSet. You can\'t change the
 -- name of an @GeoMatchSet@ after you create it.
-geoMatchSet_name :: Lens.Lens' GeoMatchSet (Prelude.Maybe Prelude.Text)
+geoMatchSet_name :: Lens.Lens' GeoMatchSet (Core.Maybe Core.Text)
 geoMatchSet_name = Lens.lens (\GeoMatchSet' {name} -> name) (\s@GeoMatchSet' {} a -> s {name = a} :: GeoMatchSet)
 
 -- | The @GeoMatchSetId@ for an @GeoMatchSet@. You use @GeoMatchSetId@ to get
@@ -101,27 +100,27 @@ geoMatchSet_name = Lens.lens (\GeoMatchSet' {name} -> name) (\s@GeoMatchSet' {} 
 --
 -- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
 -- ListGeoMatchSets.
-geoMatchSet_geoMatchSetId :: Lens.Lens' GeoMatchSet Prelude.Text
+geoMatchSet_geoMatchSetId :: Lens.Lens' GeoMatchSet Core.Text
 geoMatchSet_geoMatchSetId = Lens.lens (\GeoMatchSet' {geoMatchSetId} -> geoMatchSetId) (\s@GeoMatchSet' {} a -> s {geoMatchSetId = a} :: GeoMatchSet)
 
 -- | An array of GeoMatchConstraint objects, which contain the country that
 -- you want AWS WAF to search for.
 geoMatchSet_geoMatchConstraints :: Lens.Lens' GeoMatchSet [GeoMatchConstraint]
-geoMatchSet_geoMatchConstraints = Lens.lens (\GeoMatchSet' {geoMatchConstraints} -> geoMatchConstraints) (\s@GeoMatchSet' {} a -> s {geoMatchConstraints = a} :: GeoMatchSet) Prelude.. Prelude._Coerce
+geoMatchSet_geoMatchConstraints = Lens.lens (\GeoMatchSet' {geoMatchConstraints} -> geoMatchConstraints) (\s@GeoMatchSet' {} a -> s {geoMatchConstraints = a} :: GeoMatchSet) Core.. Lens._Coerce
 
-instance Prelude.FromJSON GeoMatchSet where
+instance Core.FromJSON GeoMatchSet where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GeoMatchSet"
       ( \x ->
           GeoMatchSet'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..: "GeoMatchSetId")
-            Prelude.<*> ( x Prelude..:? "GeoMatchConstraints"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Name")
+            Core.<*> (x Core..: "GeoMatchSetId")
+            Core.<*> ( x Core..:? "GeoMatchConstraints"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable GeoMatchSet
+instance Core.Hashable GeoMatchSet
 
-instance Prelude.NFData GeoMatchSet
+instance Core.NFData GeoMatchSet

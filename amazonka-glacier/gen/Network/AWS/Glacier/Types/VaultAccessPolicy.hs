@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glacier.Types.VaultAccessPolicy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the vault access policy.
 --
 -- /See:/ 'newVaultAccessPolicy' smart constructor.
 data VaultAccessPolicy = VaultAccessPolicy'
   { -- | The vault access policy.
-    policy :: Prelude.Maybe Prelude.Text
+    policy :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VaultAccessPolicy' with all optional fields omitted.
@@ -44,28 +43,25 @@ data VaultAccessPolicy = VaultAccessPolicy'
 newVaultAccessPolicy ::
   VaultAccessPolicy
 newVaultAccessPolicy =
-  VaultAccessPolicy' {policy = Prelude.Nothing}
+  VaultAccessPolicy' {policy = Core.Nothing}
 
 -- | The vault access policy.
-vaultAccessPolicy_policy :: Lens.Lens' VaultAccessPolicy (Prelude.Maybe Prelude.Text)
+vaultAccessPolicy_policy :: Lens.Lens' VaultAccessPolicy (Core.Maybe Core.Text)
 vaultAccessPolicy_policy = Lens.lens (\VaultAccessPolicy' {policy} -> policy) (\s@VaultAccessPolicy' {} a -> s {policy = a} :: VaultAccessPolicy)
 
-instance Prelude.FromJSON VaultAccessPolicy where
+instance Core.FromJSON VaultAccessPolicy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VaultAccessPolicy"
       ( \x ->
-          VaultAccessPolicy'
-            Prelude.<$> (x Prelude..:? "Policy")
+          VaultAccessPolicy' Core.<$> (x Core..:? "Policy")
       )
 
-instance Prelude.Hashable VaultAccessPolicy
+instance Core.Hashable VaultAccessPolicy
 
-instance Prelude.NFData VaultAccessPolicy
+instance Core.NFData VaultAccessPolicy
 
-instance Prelude.ToJSON VaultAccessPolicy where
+instance Core.ToJSON VaultAccessPolicy where
   toJSON VaultAccessPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Policy" Prelude..=) Prelude.<$> policy]
-      )
+    Core.object
+      (Core.catMaybes [("Policy" Core..=) Core.<$> policy])

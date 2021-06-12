@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.WebACLUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ActivatedRule
 import Network.AWS.WAFRegional.Types.ChangeAction
 
@@ -48,7 +47,7 @@ data WebACLUpdate = WebACLUpdate'
     -- request matches the @Rule@ (@ALLOW@, @BLOCK@, or @COUNT@).
     activatedRule :: ActivatedRule
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WebACLUpdate' with all optional fields omitted.
@@ -89,16 +88,15 @@ webACLUpdate_action = Lens.lens (\WebACLUpdate' {action} -> action) (\s@WebACLUp
 webACLUpdate_activatedRule :: Lens.Lens' WebACLUpdate ActivatedRule
 webACLUpdate_activatedRule = Lens.lens (\WebACLUpdate' {activatedRule} -> activatedRule) (\s@WebACLUpdate' {} a -> s {activatedRule = a} :: WebACLUpdate)
 
-instance Prelude.Hashable WebACLUpdate
+instance Core.Hashable WebACLUpdate
 
-instance Prelude.NFData WebACLUpdate
+instance Core.NFData WebACLUpdate
 
-instance Prelude.ToJSON WebACLUpdate where
+instance Core.ToJSON WebACLUpdate where
   toJSON WebACLUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Prelude..= action),
-            Prelude.Just
-              ("ActivatedRule" Prelude..= activatedRule)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just ("ActivatedRule" Core..= activatedRule)
           ]
       )

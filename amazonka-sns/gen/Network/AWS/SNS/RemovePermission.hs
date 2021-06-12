@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.SNS.RemovePermission
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -48,11 +47,11 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newRemovePermission' smart constructor.
 data RemovePermission = RemovePermission'
   { -- | The ARN of the topic whose access control policy you wish to modify.
-    topicArn :: Prelude.Text,
+    topicArn :: Core.Text,
     -- | The unique label of the statement you want to remove.
-    label :: Prelude.Text
+    label :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemovePermission' with all optional fields omitted.
@@ -67,9 +66,9 @@ data RemovePermission = RemovePermission'
 -- 'label', 'removePermission_label' - The unique label of the statement you want to remove.
 newRemovePermission ::
   -- | 'topicArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'label'
-  Prelude.Text ->
+  Core.Text ->
   RemovePermission
 newRemovePermission pTopicArn_ pLabel_ =
   RemovePermission'
@@ -78,45 +77,46 @@ newRemovePermission pTopicArn_ pLabel_ =
     }
 
 -- | The ARN of the topic whose access control policy you wish to modify.
-removePermission_topicArn :: Lens.Lens' RemovePermission Prelude.Text
+removePermission_topicArn :: Lens.Lens' RemovePermission Core.Text
 removePermission_topicArn = Lens.lens (\RemovePermission' {topicArn} -> topicArn) (\s@RemovePermission' {} a -> s {topicArn = a} :: RemovePermission)
 
 -- | The unique label of the statement you want to remove.
-removePermission_label :: Lens.Lens' RemovePermission Prelude.Text
+removePermission_label :: Lens.Lens' RemovePermission Core.Text
 removePermission_label = Lens.lens (\RemovePermission' {label} -> label) (\s@RemovePermission' {} a -> s {label = a} :: RemovePermission)
 
-instance Prelude.AWSRequest RemovePermission where
-  type Rs RemovePermission = RemovePermissionResponse
+instance Core.AWSRequest RemovePermission where
+  type
+    AWSResponse RemovePermission =
+      RemovePermissionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull RemovePermissionResponse'
 
-instance Prelude.Hashable RemovePermission
+instance Core.Hashable RemovePermission
 
-instance Prelude.NFData RemovePermission
+instance Core.NFData RemovePermission
 
-instance Prelude.ToHeaders RemovePermission where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RemovePermission where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RemovePermission where
-  toPath = Prelude.const "/"
+instance Core.ToPath RemovePermission where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RemovePermission where
+instance Core.ToQuery RemovePermission where
   toQuery RemovePermission' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RemovePermission" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "TopicArn" Prelude.=: topicArn,
-        "Label" Prelude.=: label
+          Core.=: ("RemovePermission" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "TopicArn" Core.=: topicArn,
+        "Label" Core.=: label
       ]
 
 -- | /See:/ 'newRemovePermissionResponse' smart constructor.
 data RemovePermissionResponse = RemovePermissionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemovePermissionResponse' with all optional fields omitted.
@@ -127,4 +127,4 @@ newRemovePermissionResponse ::
 newRemovePermissionResponse =
   RemovePermissionResponse'
 
-instance Prelude.NFData RemovePermissionResponse
+instance Core.NFData RemovePermissionResponse

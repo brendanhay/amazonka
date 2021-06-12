@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplatesMonitoringRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the monitoring for the instance.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data LaunchTemplatesMonitoringRequest = LaunchTemplatesMonitoringRequest'
   { -- | Specify @true@ to enable detailed monitoring. Otherwise, basic
     -- monitoring is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplatesMonitoringRequest' with all optional fields omitted.
@@ -49,25 +48,23 @@ newLaunchTemplatesMonitoringRequest ::
 newLaunchTemplatesMonitoringRequest =
   LaunchTemplatesMonitoringRequest'
     { enabled =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specify @true@ to enable detailed monitoring. Otherwise, basic
 -- monitoring is enabled.
-launchTemplatesMonitoringRequest_enabled :: Lens.Lens' LaunchTemplatesMonitoringRequest (Prelude.Maybe Prelude.Bool)
+launchTemplatesMonitoringRequest_enabled :: Lens.Lens' LaunchTemplatesMonitoringRequest (Core.Maybe Core.Bool)
 launchTemplatesMonitoringRequest_enabled = Lens.lens (\LaunchTemplatesMonitoringRequest' {enabled} -> enabled) (\s@LaunchTemplatesMonitoringRequest' {} a -> s {enabled = a} :: LaunchTemplatesMonitoringRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LaunchTemplatesMonitoringRequest
 
-instance
-  Prelude.NFData
-    LaunchTemplatesMonitoringRequest
+instance Core.NFData LaunchTemplatesMonitoringRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     LaunchTemplatesMonitoringRequest
   where
   toQuery LaunchTemplatesMonitoringRequest' {..} =
-    Prelude.mconcat ["Enabled" Prelude.=: enabled]
+    Core.mconcat ["Enabled" Core.=: enabled]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.InputParallelism where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the number of in-application streams to create for a given
 -- streaming source. For information about parallelism, see
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data InputParallelism = InputParallelism'
   { -- | Number of in-application streams to create. For more information, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html Limits>.
-    count :: Prelude.Maybe Prelude.Natural
+    count :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputParallelism' with all optional fields omitted.
@@ -48,29 +47,26 @@ data InputParallelism = InputParallelism'
 newInputParallelism ::
   InputParallelism
 newInputParallelism =
-  InputParallelism' {count = Prelude.Nothing}
+  InputParallelism' {count = Core.Nothing}
 
 -- | Number of in-application streams to create. For more information, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html Limits>.
-inputParallelism_count :: Lens.Lens' InputParallelism (Prelude.Maybe Prelude.Natural)
+inputParallelism_count :: Lens.Lens' InputParallelism (Core.Maybe Core.Natural)
 inputParallelism_count = Lens.lens (\InputParallelism' {count} -> count) (\s@InputParallelism' {} a -> s {count = a} :: InputParallelism)
 
-instance Prelude.FromJSON InputParallelism where
+instance Core.FromJSON InputParallelism where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputParallelism"
       ( \x ->
-          InputParallelism'
-            Prelude.<$> (x Prelude..:? "Count")
+          InputParallelism' Core.<$> (x Core..:? "Count")
       )
 
-instance Prelude.Hashable InputParallelism
+instance Core.Hashable InputParallelism
 
-instance Prelude.NFData InputParallelism
+instance Core.NFData InputParallelism
 
-instance Prelude.ToJSON InputParallelism where
+instance Core.ToJSON InputParallelism where
   toJSON InputParallelism' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Count" Prelude..=) Prelude.<$> count]
-      )
+    Core.object
+      (Core.catMaybes [("Count" Core..=) Core.<$> count])

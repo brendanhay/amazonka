@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudSearch.Types.SuggesterStatus where
 
 import Network.AWS.CloudSearch.Types.OptionStatus
 import Network.AWS.CloudSearch.Types.Suggester
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The value of a @Suggester@ and its current status.
 --
@@ -32,7 +31,7 @@ data SuggesterStatus = SuggesterStatus'
   { options :: Suggester,
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuggesterStatus' with all optional fields omitted.
@@ -65,12 +64,11 @@ suggesterStatus_options = Lens.lens (\SuggesterStatus' {options} -> options) (\s
 suggesterStatus_status :: Lens.Lens' SuggesterStatus OptionStatus
 suggesterStatus_status = Lens.lens (\SuggesterStatus' {status} -> status) (\s@SuggesterStatus' {} a -> s {status = a} :: SuggesterStatus)
 
-instance Prelude.FromXML SuggesterStatus where
+instance Core.FromXML SuggesterStatus where
   parseXML x =
     SuggesterStatus'
-      Prelude.<$> (x Prelude..@ "Options")
-      Prelude.<*> (x Prelude..@ "Status")
+      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable SuggesterStatus
+instance Core.Hashable SuggesterStatus
 
-instance Prelude.NFData SuggesterStatus
+instance Core.NFData SuggesterStatus

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.XRay.PutEncryptionConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -63,12 +62,12 @@ data PutEncryptionConfig = PutEncryptionConfig'
     --     Use this format to specify a key in a different account.
     --
     -- Omit this key if you set @Type@ to @NONE@.
-    keyId :: Prelude.Maybe Prelude.Text,
+    keyId :: Core.Maybe Core.Text,
     -- | The type of encryption. Set to @KMS@ to use your own key for encryption.
     -- Set to @NONE@ for default encryption.
     type' :: EncryptionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutEncryptionConfig' with all optional fields omitted.
@@ -101,7 +100,7 @@ newPutEncryptionConfig ::
   PutEncryptionConfig
 newPutEncryptionConfig pType_ =
   PutEncryptionConfig'
-    { keyId = Prelude.Nothing,
+    { keyId = Core.Nothing,
       type' = pType_
     }
 
@@ -119,7 +118,7 @@ newPutEncryptionConfig pType_ =
 --     Use this format to specify a key in a different account.
 --
 -- Omit this key if you set @Type@ to @NONE@.
-putEncryptionConfig_keyId :: Lens.Lens' PutEncryptionConfig (Prelude.Maybe Prelude.Text)
+putEncryptionConfig_keyId :: Lens.Lens' PutEncryptionConfig (Core.Maybe Core.Text)
 putEncryptionConfig_keyId = Lens.lens (\PutEncryptionConfig' {keyId} -> keyId) (\s@PutEncryptionConfig' {} a -> s {keyId = a} :: PutEncryptionConfig)
 
 -- | The type of encryption. Set to @KMS@ to use your own key for encryption.
@@ -127,49 +126,49 @@ putEncryptionConfig_keyId = Lens.lens (\PutEncryptionConfig' {keyId} -> keyId) (
 putEncryptionConfig_type :: Lens.Lens' PutEncryptionConfig EncryptionType
 putEncryptionConfig_type = Lens.lens (\PutEncryptionConfig' {type'} -> type') (\s@PutEncryptionConfig' {} a -> s {type' = a} :: PutEncryptionConfig)
 
-instance Prelude.AWSRequest PutEncryptionConfig where
+instance Core.AWSRequest PutEncryptionConfig where
   type
-    Rs PutEncryptionConfig =
+    AWSResponse PutEncryptionConfig =
       PutEncryptionConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutEncryptionConfigResponse'
-            Prelude.<$> (x Prelude..?> "EncryptionConfig")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "EncryptionConfig")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutEncryptionConfig
+instance Core.Hashable PutEncryptionConfig
 
-instance Prelude.NFData PutEncryptionConfig
+instance Core.NFData PutEncryptionConfig
 
-instance Prelude.ToHeaders PutEncryptionConfig where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutEncryptionConfig where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON PutEncryptionConfig where
+instance Core.ToJSON PutEncryptionConfig where
   toJSON PutEncryptionConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KeyId" Prelude..=) Prelude.<$> keyId,
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("KeyId" Core..=) Core.<$> keyId,
+            Core.Just ("Type" Core..= type')
           ]
       )
 
-instance Prelude.ToPath PutEncryptionConfig where
-  toPath = Prelude.const "/PutEncryptionConfig"
+instance Core.ToPath PutEncryptionConfig where
+  toPath = Core.const "/PutEncryptionConfig"
 
-instance Prelude.ToQuery PutEncryptionConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutEncryptionConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutEncryptionConfigResponse' smart constructor.
 data PutEncryptionConfigResponse = PutEncryptionConfigResponse'
   { -- | The new encryption configuration.
-    encryptionConfig :: Prelude.Maybe EncryptionConfig,
+    encryptionConfig :: Core.Maybe EncryptionConfig,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutEncryptionConfigResponse' with all optional fields omitted.
@@ -184,21 +183,21 @@ data PutEncryptionConfigResponse = PutEncryptionConfigResponse'
 -- 'httpStatus', 'putEncryptionConfigResponse_httpStatus' - The response's http status code.
 newPutEncryptionConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutEncryptionConfigResponse
 newPutEncryptionConfigResponse pHttpStatus_ =
   PutEncryptionConfigResponse'
     { encryptionConfig =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The new encryption configuration.
-putEncryptionConfigResponse_encryptionConfig :: Lens.Lens' PutEncryptionConfigResponse (Prelude.Maybe EncryptionConfig)
+putEncryptionConfigResponse_encryptionConfig :: Lens.Lens' PutEncryptionConfigResponse (Core.Maybe EncryptionConfig)
 putEncryptionConfigResponse_encryptionConfig = Lens.lens (\PutEncryptionConfigResponse' {encryptionConfig} -> encryptionConfig) (\s@PutEncryptionConfigResponse' {} a -> s {encryptionConfig = a} :: PutEncryptionConfigResponse)
 
 -- | The response's http status code.
-putEncryptionConfigResponse_httpStatus :: Lens.Lens' PutEncryptionConfigResponse Prelude.Int
+putEncryptionConfigResponse_httpStatus :: Lens.Lens' PutEncryptionConfigResponse Core.Int
 putEncryptionConfigResponse_httpStatus = Lens.lens (\PutEncryptionConfigResponse' {httpStatus} -> httpStatus) (\s@PutEncryptionConfigResponse' {} a -> s {httpStatus = a} :: PutEncryptionConfigResponse)
 
-instance Prelude.NFData PutEncryptionConfigResponse
+instance Core.NFData PutEncryptionConfigResponse

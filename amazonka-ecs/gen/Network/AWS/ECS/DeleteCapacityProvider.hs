@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.ECS.DeleteCapacityProvider
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,9 +64,9 @@ import qualified Network.AWS.Response as Response
 data DeleteCapacityProvider = DeleteCapacityProvider'
   { -- | The short name or full Amazon Resource Name (ARN) of the capacity
     -- provider to delete.
-    capacityProvider :: Prelude.Text
+    capacityProvider :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCapacityProvider' with all optional fields omitted.
@@ -81,7 +80,7 @@ data DeleteCapacityProvider = DeleteCapacityProvider'
 -- provider to delete.
 newDeleteCapacityProvider ::
   -- | 'capacityProvider'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCapacityProvider
 newDeleteCapacityProvider pCapacityProvider_ =
   DeleteCapacityProvider'
@@ -91,63 +90,61 @@ newDeleteCapacityProvider pCapacityProvider_ =
 
 -- | The short name or full Amazon Resource Name (ARN) of the capacity
 -- provider to delete.
-deleteCapacityProvider_capacityProvider :: Lens.Lens' DeleteCapacityProvider Prelude.Text
+deleteCapacityProvider_capacityProvider :: Lens.Lens' DeleteCapacityProvider Core.Text
 deleteCapacityProvider_capacityProvider = Lens.lens (\DeleteCapacityProvider' {capacityProvider} -> capacityProvider) (\s@DeleteCapacityProvider' {} a -> s {capacityProvider = a} :: DeleteCapacityProvider)
 
-instance Prelude.AWSRequest DeleteCapacityProvider where
+instance Core.AWSRequest DeleteCapacityProvider where
   type
-    Rs DeleteCapacityProvider =
+    AWSResponse DeleteCapacityProvider =
       DeleteCapacityProviderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteCapacityProviderResponse'
-            Prelude.<$> (x Prelude..?> "capacityProvider")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "capacityProvider")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCapacityProvider
+instance Core.Hashable DeleteCapacityProvider
 
-instance Prelude.NFData DeleteCapacityProvider
+instance Core.NFData DeleteCapacityProvider
 
-instance Prelude.ToHeaders DeleteCapacityProvider where
+instance Core.ToHeaders DeleteCapacityProvider where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.DeleteCapacityProvider" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.DeleteCapacityProvider" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteCapacityProvider where
+instance Core.ToJSON DeleteCapacityProvider where
   toJSON DeleteCapacityProvider' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("capacityProvider" Prelude..= capacityProvider)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("capacityProvider" Core..= capacityProvider)
           ]
       )
 
-instance Prelude.ToPath DeleteCapacityProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteCapacityProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteCapacityProvider where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteCapacityProvider where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteCapacityProviderResponse' smart constructor.
 data DeleteCapacityProviderResponse = DeleteCapacityProviderResponse'
-  { capacityProvider :: Prelude.Maybe CapacityProvider,
+  { capacityProvider :: Core.Maybe CapacityProvider,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCapacityProviderResponse' with all optional fields omitted.
@@ -162,23 +159,21 @@ data DeleteCapacityProviderResponse = DeleteCapacityProviderResponse'
 -- 'httpStatus', 'deleteCapacityProviderResponse_httpStatus' - The response's http status code.
 newDeleteCapacityProviderResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteCapacityProviderResponse
 newDeleteCapacityProviderResponse pHttpStatus_ =
   DeleteCapacityProviderResponse'
     { capacityProvider =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteCapacityProviderResponse_capacityProvider :: Lens.Lens' DeleteCapacityProviderResponse (Prelude.Maybe CapacityProvider)
+deleteCapacityProviderResponse_capacityProvider :: Lens.Lens' DeleteCapacityProviderResponse (Core.Maybe CapacityProvider)
 deleteCapacityProviderResponse_capacityProvider = Lens.lens (\DeleteCapacityProviderResponse' {capacityProvider} -> capacityProvider) (\s@DeleteCapacityProviderResponse' {} a -> s {capacityProvider = a} :: DeleteCapacityProviderResponse)
 
 -- | The response's http status code.
-deleteCapacityProviderResponse_httpStatus :: Lens.Lens' DeleteCapacityProviderResponse Prelude.Int
+deleteCapacityProviderResponse_httpStatus :: Lens.Lens' DeleteCapacityProviderResponse Core.Int
 deleteCapacityProviderResponse_httpStatus = Lens.lens (\DeleteCapacityProviderResponse' {httpStatus} -> httpStatus) (\s@DeleteCapacityProviderResponse' {} a -> s {httpStatus = a} :: DeleteCapacityProviderResponse)
 
-instance
-  Prelude.NFData
-    DeleteCapacityProviderResponse
+instance Core.NFData DeleteCapacityProviderResponse

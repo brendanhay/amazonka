@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,8 +65,8 @@ module Network.AWS.SWF.CountPendingDecisionTasks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -75,11 +74,11 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newCountPendingDecisionTasks' smart constructor.
 data CountPendingDecisionTasks = CountPendingDecisionTasks'
   { -- | The name of the domain that contains the task list.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | The name of the task list.
     taskList :: TaskList
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CountPendingDecisionTasks' with all optional fields omitted.
@@ -94,7 +93,7 @@ data CountPendingDecisionTasks = CountPendingDecisionTasks'
 -- 'taskList', 'countPendingDecisionTasks_taskList' - The name of the task list.
 newCountPendingDecisionTasks ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'taskList'
   TaskList ->
   CountPendingDecisionTasks
@@ -105,50 +104,50 @@ newCountPendingDecisionTasks pDomain_ pTaskList_ =
     }
 
 -- | The name of the domain that contains the task list.
-countPendingDecisionTasks_domain :: Lens.Lens' CountPendingDecisionTasks Prelude.Text
+countPendingDecisionTasks_domain :: Lens.Lens' CountPendingDecisionTasks Core.Text
 countPendingDecisionTasks_domain = Lens.lens (\CountPendingDecisionTasks' {domain} -> domain) (\s@CountPendingDecisionTasks' {} a -> s {domain = a} :: CountPendingDecisionTasks)
 
 -- | The name of the task list.
 countPendingDecisionTasks_taskList :: Lens.Lens' CountPendingDecisionTasks TaskList
 countPendingDecisionTasks_taskList = Lens.lens (\CountPendingDecisionTasks' {taskList} -> taskList) (\s@CountPendingDecisionTasks' {} a -> s {taskList = a} :: CountPendingDecisionTasks)
 
-instance Prelude.AWSRequest CountPendingDecisionTasks where
-  type Rs CountPendingDecisionTasks = PendingTaskCount
+instance Core.AWSRequest CountPendingDecisionTasks where
+  type
+    AWSResponse CountPendingDecisionTasks =
+      PendingTaskCount
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CountPendingDecisionTasks
+instance Core.Hashable CountPendingDecisionTasks
 
-instance Prelude.NFData CountPendingDecisionTasks
+instance Core.NFData CountPendingDecisionTasks
 
-instance Prelude.ToHeaders CountPendingDecisionTasks where
+instance Core.ToHeaders CountPendingDecisionTasks where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.CountPendingDecisionTasks" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.CountPendingDecisionTasks" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CountPendingDecisionTasks where
+instance Core.ToJSON CountPendingDecisionTasks where
   toJSON CountPendingDecisionTasks' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("domain" Prelude..= domain),
-            Prelude.Just ("taskList" Prelude..= taskList)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("taskList" Core..= taskList)
           ]
       )
 
-instance Prelude.ToPath CountPendingDecisionTasks where
-  toPath = Prelude.const "/"
+instance Core.ToPath CountPendingDecisionTasks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CountPendingDecisionTasks where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CountPendingDecisionTasks where
+  toQuery = Core.const Core.mempty

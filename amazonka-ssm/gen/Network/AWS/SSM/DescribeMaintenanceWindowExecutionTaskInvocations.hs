@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -59,22 +57,22 @@ import Network.AWS.SSM.Types
 data DescribeMaintenanceWindowExecutionTaskInvocations = DescribeMaintenanceWindowExecutionTaskInvocations'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Optional filters used to scope down the returned task invocations. The
     -- supported filter key is STATUS with the corresponding values PENDING,
     -- IN_PROGRESS, SUCCESS, FAILED, TIMED_OUT, CANCELLING, and CANCELLED.
-    filters :: Prelude.Maybe [MaintenanceWindowFilter],
+    filters :: Core.Maybe [MaintenanceWindowFilter],
     -- | The ID of the maintenance window execution the task is part of.
-    windowExecutionId :: Prelude.Text,
+    windowExecutionId :: Core.Text,
     -- | The ID of the specific task in the maintenance window task that should
     -- be retrieved.
-    taskId :: Prelude.Text
+    taskId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMaintenanceWindowExecutionTaskInvocations' with all optional fields omitted.
@@ -101,20 +99,19 @@ data DescribeMaintenanceWindowExecutionTaskInvocations = DescribeMaintenanceWind
 -- be retrieved.
 newDescribeMaintenanceWindowExecutionTaskInvocations ::
   -- | 'windowExecutionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'taskId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeMaintenanceWindowExecutionTaskInvocations
 newDescribeMaintenanceWindowExecutionTaskInvocations
   pWindowExecutionId_
   pTaskId_ =
     DescribeMaintenanceWindowExecutionTaskInvocations'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         maxResults =
-          Prelude.Nothing,
-        filters =
-          Prelude.Nothing,
+          Core.Nothing,
+        filters = Core.Nothing,
         windowExecutionId =
           pWindowExecutionId_,
         taskId = pTaskId_
@@ -122,61 +119,61 @@ newDescribeMaintenanceWindowExecutionTaskInvocations
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeMaintenanceWindowExecutionTaskInvocations_nextToken :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowExecutionTaskInvocations_nextToken :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations (Core.Maybe Core.Text)
 describeMaintenanceWindowExecutionTaskInvocations_nextToken = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocations' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowExecutionTaskInvocations' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowExecutionTaskInvocations)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-describeMaintenanceWindowExecutionTaskInvocations_maxResults :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations (Prelude.Maybe Prelude.Natural)
+describeMaintenanceWindowExecutionTaskInvocations_maxResults :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations (Core.Maybe Core.Natural)
 describeMaintenanceWindowExecutionTaskInvocations_maxResults = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocations' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowExecutionTaskInvocations' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowExecutionTaskInvocations)
 
 -- | Optional filters used to scope down the returned task invocations. The
 -- supported filter key is STATUS with the corresponding values PENDING,
 -- IN_PROGRESS, SUCCESS, FAILED, TIMED_OUT, CANCELLING, and CANCELLED.
-describeMaintenanceWindowExecutionTaskInvocations_filters :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations (Prelude.Maybe [MaintenanceWindowFilter])
-describeMaintenanceWindowExecutionTaskInvocations_filters = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocations' {filters} -> filters) (\s@DescribeMaintenanceWindowExecutionTaskInvocations' {} a -> s {filters = a} :: DescribeMaintenanceWindowExecutionTaskInvocations) Prelude.. Lens.mapping Prelude._Coerce
+describeMaintenanceWindowExecutionTaskInvocations_filters :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations (Core.Maybe [MaintenanceWindowFilter])
+describeMaintenanceWindowExecutionTaskInvocations_filters = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocations' {filters} -> filters) (\s@DescribeMaintenanceWindowExecutionTaskInvocations' {} a -> s {filters = a} :: DescribeMaintenanceWindowExecutionTaskInvocations) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the maintenance window execution the task is part of.
-describeMaintenanceWindowExecutionTaskInvocations_windowExecutionId :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations Prelude.Text
+describeMaintenanceWindowExecutionTaskInvocations_windowExecutionId :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations Core.Text
 describeMaintenanceWindowExecutionTaskInvocations_windowExecutionId = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocations' {windowExecutionId} -> windowExecutionId) (\s@DescribeMaintenanceWindowExecutionTaskInvocations' {} a -> s {windowExecutionId = a} :: DescribeMaintenanceWindowExecutionTaskInvocations)
 
 -- | The ID of the specific task in the maintenance window task that should
 -- be retrieved.
-describeMaintenanceWindowExecutionTaskInvocations_taskId :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations Prelude.Text
+describeMaintenanceWindowExecutionTaskInvocations_taskId :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations Core.Text
 describeMaintenanceWindowExecutionTaskInvocations_taskId = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocations' {taskId} -> taskId) (\s@DescribeMaintenanceWindowExecutionTaskInvocations' {} a -> s {taskId = a} :: DescribeMaintenanceWindowExecutionTaskInvocations)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeMaintenanceWindowExecutionTaskInvocations
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeMaintenanceWindowExecutionTaskInvocationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeMaintenanceWindowExecutionTaskInvocationsResponse_windowExecutionTaskInvocationIdentities
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeMaintenanceWindowExecutionTaskInvocations_nextToken
           Lens..~ rs
             Lens.^? describeMaintenanceWindowExecutionTaskInvocationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeMaintenanceWindowExecutionTaskInvocations
   where
   type
-    Rs
+    AWSResponse
       DescribeMaintenanceWindowExecutionTaskInvocations =
       DescribeMaintenanceWindowExecutionTaskInvocationsResponse
   request = Request.postJSON defaultService
@@ -184,80 +181,77 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeMaintenanceWindowExecutionTaskInvocationsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-              Prelude.<*> ( x
-                              Prelude..?> "WindowExecutionTaskInvocationIdentities"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+              Core.<*> ( x Core..?> "WindowExecutionTaskInvocationIdentities"
+                           Core..!@ Core.mempty
+                       )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeMaintenanceWindowExecutionTaskInvocations
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeMaintenanceWindowExecutionTaskInvocations
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeMaintenanceWindowExecutionTaskInvocations
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeMaintenanceWindowExecutionTaskInvocations
   where
   toJSON
     DescribeMaintenanceWindowExecutionTaskInvocations' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-              ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-              ("Filters" Prelude..=) Prelude.<$> filters,
-              Prelude.Just
-                ("WindowExecutionId" Prelude..= windowExecutionId),
-              Prelude.Just ("TaskId" Prelude..= taskId)
+      Core.object
+        ( Core.catMaybes
+            [ ("NextToken" Core..=) Core.<$> nextToken,
+              ("MaxResults" Core..=) Core.<$> maxResults,
+              ("Filters" Core..=) Core.<$> filters,
+              Core.Just
+                ("WindowExecutionId" Core..= windowExecutionId),
+              Core.Just ("TaskId" Core..= taskId)
             ]
         )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeMaintenanceWindowExecutionTaskInvocations
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeMaintenanceWindowExecutionTaskInvocations
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeMaintenanceWindowExecutionTaskInvocationsResponse' smart constructor.
 data DescribeMaintenanceWindowExecutionTaskInvocationsResponse = DescribeMaintenanceWindowExecutionTaskInvocationsResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the task invocation results per invocation.
-    windowExecutionTaskInvocationIdentities :: Prelude.Maybe [MaintenanceWindowExecutionTaskInvocationIdentity],
+    windowExecutionTaskInvocationIdentities :: Core.Maybe [MaintenanceWindowExecutionTaskInvocationIdentity],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMaintenanceWindowExecutionTaskInvocationsResponse' with all optional fields omitted.
@@ -275,32 +269,32 @@ data DescribeMaintenanceWindowExecutionTaskInvocationsResponse = DescribeMainten
 -- 'httpStatus', 'describeMaintenanceWindowExecutionTaskInvocationsResponse_httpStatus' - The response's http status code.
 newDescribeMaintenanceWindowExecutionTaskInvocationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeMaintenanceWindowExecutionTaskInvocationsResponse
 newDescribeMaintenanceWindowExecutionTaskInvocationsResponse
   pHttpStatus_ =
     DescribeMaintenanceWindowExecutionTaskInvocationsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         windowExecutionTaskInvocationIdentities =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-describeMaintenanceWindowExecutionTaskInvocationsResponse_nextToken :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocationsResponse (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowExecutionTaskInvocationsResponse_nextToken :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocationsResponse (Core.Maybe Core.Text)
 describeMaintenanceWindowExecutionTaskInvocationsResponse_nextToken = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocationsResponse' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowExecutionTaskInvocationsResponse' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowExecutionTaskInvocationsResponse)
 
 -- | Information about the task invocation results per invocation.
-describeMaintenanceWindowExecutionTaskInvocationsResponse_windowExecutionTaskInvocationIdentities :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocationsResponse (Prelude.Maybe [MaintenanceWindowExecutionTaskInvocationIdentity])
-describeMaintenanceWindowExecutionTaskInvocationsResponse_windowExecutionTaskInvocationIdentities = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocationsResponse' {windowExecutionTaskInvocationIdentities} -> windowExecutionTaskInvocationIdentities) (\s@DescribeMaintenanceWindowExecutionTaskInvocationsResponse' {} a -> s {windowExecutionTaskInvocationIdentities = a} :: DescribeMaintenanceWindowExecutionTaskInvocationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeMaintenanceWindowExecutionTaskInvocationsResponse_windowExecutionTaskInvocationIdentities :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocationsResponse (Core.Maybe [MaintenanceWindowExecutionTaskInvocationIdentity])
+describeMaintenanceWindowExecutionTaskInvocationsResponse_windowExecutionTaskInvocationIdentities = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocationsResponse' {windowExecutionTaskInvocationIdentities} -> windowExecutionTaskInvocationIdentities) (\s@DescribeMaintenanceWindowExecutionTaskInvocationsResponse' {} a -> s {windowExecutionTaskInvocationIdentities = a} :: DescribeMaintenanceWindowExecutionTaskInvocationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeMaintenanceWindowExecutionTaskInvocationsResponse_httpStatus :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocationsResponse Prelude.Int
+describeMaintenanceWindowExecutionTaskInvocationsResponse_httpStatus :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocationsResponse Core.Int
 describeMaintenanceWindowExecutionTaskInvocationsResponse_httpStatus = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocationsResponse' {httpStatus} -> httpStatus) (\s@DescribeMaintenanceWindowExecutionTaskInvocationsResponse' {} a -> s {httpStatus = a} :: DescribeMaintenanceWindowExecutionTaskInvocationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeMaintenanceWindowExecutionTaskInvocationsResponse

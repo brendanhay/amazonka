@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.OwnershipControlsRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ObjectOwnership
 
@@ -31,7 +30,7 @@ import Network.AWS.S3.Types.ObjectOwnership
 data OwnershipControlsRule = OwnershipControlsRule'
   { objectOwnership :: ObjectOwnership
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OwnershipControlsRule' with all optional fields omitted.
@@ -56,16 +55,16 @@ newOwnershipControlsRule pObjectOwnership_ =
 ownershipControlsRule_objectOwnership :: Lens.Lens' OwnershipControlsRule ObjectOwnership
 ownershipControlsRule_objectOwnership = Lens.lens (\OwnershipControlsRule' {objectOwnership} -> objectOwnership) (\s@OwnershipControlsRule' {} a -> s {objectOwnership = a} :: OwnershipControlsRule)
 
-instance Prelude.FromXML OwnershipControlsRule where
+instance Core.FromXML OwnershipControlsRule where
   parseXML x =
     OwnershipControlsRule'
-      Prelude.<$> (x Prelude..@ "ObjectOwnership")
+      Core.<$> (x Core..@ "ObjectOwnership")
 
-instance Prelude.Hashable OwnershipControlsRule
+instance Core.Hashable OwnershipControlsRule
 
-instance Prelude.NFData OwnershipControlsRule
+instance Core.NFData OwnershipControlsRule
 
-instance Prelude.ToXML OwnershipControlsRule where
+instance Core.ToXML OwnershipControlsRule where
   toXML OwnershipControlsRule' {..} =
-    Prelude.mconcat
-      ["ObjectOwnership" Prelude.@= objectOwnership]
+    Core.mconcat
+      ["ObjectOwnership" Core.@= objectOwnership]

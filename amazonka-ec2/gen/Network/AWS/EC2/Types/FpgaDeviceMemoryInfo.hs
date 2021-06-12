@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.FpgaDeviceMemoryInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the memory for the FPGA accelerator for the instance type.
 --
 -- /See:/ 'newFpgaDeviceMemoryInfo' smart constructor.
 data FpgaDeviceMemoryInfo = FpgaDeviceMemoryInfo'
   { -- | The size of the memory available to the FPGA accelerator, in MiB.
-    sizeInMiB :: Prelude.Maybe Prelude.Int
+    sizeInMiB :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FpgaDeviceMemoryInfo' with all optional fields omitted.
@@ -45,17 +44,17 @@ data FpgaDeviceMemoryInfo = FpgaDeviceMemoryInfo'
 newFpgaDeviceMemoryInfo ::
   FpgaDeviceMemoryInfo
 newFpgaDeviceMemoryInfo =
-  FpgaDeviceMemoryInfo' {sizeInMiB = Prelude.Nothing}
+  FpgaDeviceMemoryInfo' {sizeInMiB = Core.Nothing}
 
 -- | The size of the memory available to the FPGA accelerator, in MiB.
-fpgaDeviceMemoryInfo_sizeInMiB :: Lens.Lens' FpgaDeviceMemoryInfo (Prelude.Maybe Prelude.Int)
+fpgaDeviceMemoryInfo_sizeInMiB :: Lens.Lens' FpgaDeviceMemoryInfo (Core.Maybe Core.Int)
 fpgaDeviceMemoryInfo_sizeInMiB = Lens.lens (\FpgaDeviceMemoryInfo' {sizeInMiB} -> sizeInMiB) (\s@FpgaDeviceMemoryInfo' {} a -> s {sizeInMiB = a} :: FpgaDeviceMemoryInfo)
 
-instance Prelude.FromXML FpgaDeviceMemoryInfo where
+instance Core.FromXML FpgaDeviceMemoryInfo where
   parseXML x =
     FpgaDeviceMemoryInfo'
-      Prelude.<$> (x Prelude..@? "sizeInMiB")
+      Core.<$> (x Core..@? "sizeInMiB")
 
-instance Prelude.Hashable FpgaDeviceMemoryInfo
+instance Core.Hashable FpgaDeviceMemoryInfo
 
-instance Prelude.NFData FpgaDeviceMemoryInfo
+instance Core.NFData FpgaDeviceMemoryInfo

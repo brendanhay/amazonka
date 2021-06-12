@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the burstable performance instance whose credit option for CPU
 -- usage was successfully modified.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSuccessfulInstanceCreditSpecificationItem' smart constructor.
 data SuccessfulInstanceCreditSpecificationItem = SuccessfulInstanceCreditSpecificationItem'
   { -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text
+    instanceId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuccessfulInstanceCreditSpecificationItem' with all optional fields omitted.
@@ -48,25 +47,25 @@ newSuccessfulInstanceCreditSpecificationItem ::
 newSuccessfulInstanceCreditSpecificationItem =
   SuccessfulInstanceCreditSpecificationItem'
     { instanceId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the instance.
-successfulInstanceCreditSpecificationItem_instanceId :: Lens.Lens' SuccessfulInstanceCreditSpecificationItem (Prelude.Maybe Prelude.Text)
+successfulInstanceCreditSpecificationItem_instanceId :: Lens.Lens' SuccessfulInstanceCreditSpecificationItem (Core.Maybe Core.Text)
 successfulInstanceCreditSpecificationItem_instanceId = Lens.lens (\SuccessfulInstanceCreditSpecificationItem' {instanceId} -> instanceId) (\s@SuccessfulInstanceCreditSpecificationItem' {} a -> s {instanceId = a} :: SuccessfulInstanceCreditSpecificationItem)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     SuccessfulInstanceCreditSpecificationItem
   where
   parseXML x =
     SuccessfulInstanceCreditSpecificationItem'
-      Prelude.<$> (x Prelude..@? "instanceId")
+      Core.<$> (x Core..@? "instanceId")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     SuccessfulInstanceCreditSpecificationItem
 
 instance
-  Prelude.NFData
+  Core.NFData
     SuccessfulInstanceCreditSpecificationItem

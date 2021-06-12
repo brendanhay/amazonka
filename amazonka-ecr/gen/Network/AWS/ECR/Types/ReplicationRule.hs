@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.ReplicationRule where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.ReplicationDestination
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An array of objects representing the replication destinations for a
 -- replication configuration. A replication configuration may contain only
@@ -35,7 +34,7 @@ data ReplicationRule = ReplicationRule'
     -- destination.
     destinations :: [ReplicationDestination]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicationRule' with all optional fields omitted.
@@ -50,33 +49,29 @@ data ReplicationRule = ReplicationRule'
 newReplicationRule ::
   ReplicationRule
 newReplicationRule =
-  ReplicationRule' {destinations = Prelude.mempty}
+  ReplicationRule' {destinations = Core.mempty}
 
 -- | An array of objects representing the details of a replication
 -- destination.
 replicationRule_destinations :: Lens.Lens' ReplicationRule [ReplicationDestination]
-replicationRule_destinations = Lens.lens (\ReplicationRule' {destinations} -> destinations) (\s@ReplicationRule' {} a -> s {destinations = a} :: ReplicationRule) Prelude.. Prelude._Coerce
+replicationRule_destinations = Lens.lens (\ReplicationRule' {destinations} -> destinations) (\s@ReplicationRule' {} a -> s {destinations = a} :: ReplicationRule) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ReplicationRule where
+instance Core.FromJSON ReplicationRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReplicationRule"
       ( \x ->
           ReplicationRule'
-            Prelude.<$> ( x Prelude..:? "destinations"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "destinations" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ReplicationRule
+instance Core.Hashable ReplicationRule
 
-instance Prelude.NFData ReplicationRule
+instance Core.NFData ReplicationRule
 
-instance Prelude.ToJSON ReplicationRule where
+instance Core.ToJSON ReplicationRule where
   toJSON ReplicationRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("destinations" Prelude..= destinations)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("destinations" Core..= destinations)]
       )

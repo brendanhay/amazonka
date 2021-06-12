@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.FMS.AssociateAdminAccount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ data AssociateAdminAccount = AssociateAdminAccount'
     -- master account or a member account. For more information about AWS
     -- Organizations and master accounts, see
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization>.
-    adminAccount :: Prelude.Text
+    adminAccount :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateAdminAccount' with all optional fields omitted.
@@ -76,7 +75,7 @@ data AssociateAdminAccount = AssociateAdminAccount'
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization>.
 newAssociateAdminAccount ::
   -- | 'adminAccount'
-  Prelude.Text ->
+  Core.Text ->
   AssociateAdminAccount
 newAssociateAdminAccount pAdminAccount_ =
   AssociateAdminAccount'
@@ -89,56 +88,52 @@ newAssociateAdminAccount pAdminAccount_ =
 -- master account or a member account. For more information about AWS
 -- Organizations and master accounts, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization>.
-associateAdminAccount_adminAccount :: Lens.Lens' AssociateAdminAccount Prelude.Text
+associateAdminAccount_adminAccount :: Lens.Lens' AssociateAdminAccount Core.Text
 associateAdminAccount_adminAccount = Lens.lens (\AssociateAdminAccount' {adminAccount} -> adminAccount) (\s@AssociateAdminAccount' {} a -> s {adminAccount = a} :: AssociateAdminAccount)
 
-instance Prelude.AWSRequest AssociateAdminAccount where
+instance Core.AWSRequest AssociateAdminAccount where
   type
-    Rs AssociateAdminAccount =
+    AWSResponse AssociateAdminAccount =
       AssociateAdminAccountResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull AssociateAdminAccountResponse'
 
-instance Prelude.Hashable AssociateAdminAccount
+instance Core.Hashable AssociateAdminAccount
 
-instance Prelude.NFData AssociateAdminAccount
+instance Core.NFData AssociateAdminAccount
 
-instance Prelude.ToHeaders AssociateAdminAccount where
+instance Core.ToHeaders AssociateAdminAccount where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSFMS_20180101.AssociateAdminAccount" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSFMS_20180101.AssociateAdminAccount" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateAdminAccount where
+instance Core.ToJSON AssociateAdminAccount where
   toJSON AssociateAdminAccount' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AdminAccount" Prelude..= adminAccount)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AdminAccount" Core..= adminAccount)]
       )
 
-instance Prelude.ToPath AssociateAdminAccount where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateAdminAccount where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateAdminAccount where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateAdminAccount where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateAdminAccountResponse' smart constructor.
 data AssociateAdminAccountResponse = AssociateAdminAccountResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateAdminAccountResponse' with all optional fields omitted.
@@ -149,4 +144,4 @@ newAssociateAdminAccountResponse ::
 newAssociateAdminAccountResponse =
   AssociateAdminAccountResponse'
 
-instance Prelude.NFData AssociateAdminAccountResponse
+instance Core.NFData AssociateAdminAccountResponse

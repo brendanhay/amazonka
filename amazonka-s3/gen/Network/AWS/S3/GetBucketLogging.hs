@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.S3.GetBucketLogging
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -59,11 +58,11 @@ data GetBucketLogging = GetBucketLogging'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The bucket name for which to get the logging information.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketLogging' with all optional fields omitted.
@@ -85,56 +84,58 @@ newGetBucketLogging ::
 newGetBucketLogging pBucket_ =
   GetBucketLogging'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketLogging_expectedBucketOwner :: Lens.Lens' GetBucketLogging (Prelude.Maybe Prelude.Text)
+getBucketLogging_expectedBucketOwner :: Lens.Lens' GetBucketLogging (Core.Maybe Core.Text)
 getBucketLogging_expectedBucketOwner = Lens.lens (\GetBucketLogging' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketLogging' {} a -> s {expectedBucketOwner = a} :: GetBucketLogging)
 
 -- | The bucket name for which to get the logging information.
 getBucketLogging_bucket :: Lens.Lens' GetBucketLogging BucketName
 getBucketLogging_bucket = Lens.lens (\GetBucketLogging' {bucket} -> bucket) (\s@GetBucketLogging' {} a -> s {bucket = a} :: GetBucketLogging)
 
-instance Prelude.AWSRequest GetBucketLogging where
-  type Rs GetBucketLogging = GetBucketLoggingResponse
+instance Core.AWSRequest GetBucketLogging where
+  type
+    AWSResponse GetBucketLogging =
+      GetBucketLoggingResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetBucketLoggingResponse'
-            Prelude.<$> (x Prelude..@? "LoggingEnabled")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "LoggingEnabled")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketLogging
+instance Core.Hashable GetBucketLogging
 
-instance Prelude.NFData GetBucketLogging
+instance Core.NFData GetBucketLogging
 
-instance Prelude.ToHeaders GetBucketLogging where
+instance Core.ToHeaders GetBucketLogging where
   toHeaders GetBucketLogging' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath GetBucketLogging where
+instance Core.ToPath GetBucketLogging where
   toPath GetBucketLogging' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery GetBucketLogging where
-  toQuery = Prelude.const (Prelude.mconcat ["logging"])
+instance Core.ToQuery GetBucketLogging where
+  toQuery = Core.const (Core.mconcat ["logging"])
 
 -- | /See:/ 'newGetBucketLoggingResponse' smart constructor.
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
-  { loggingEnabled :: Prelude.Maybe LoggingEnabled,
+  { loggingEnabled :: Core.Maybe LoggingEnabled,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketLoggingResponse' with all optional fields omitted.
@@ -149,21 +150,21 @@ data GetBucketLoggingResponse = GetBucketLoggingResponse'
 -- 'httpStatus', 'getBucketLoggingResponse_httpStatus' - The response's http status code.
 newGetBucketLoggingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBucketLoggingResponse
 newGetBucketLoggingResponse pHttpStatus_ =
   GetBucketLoggingResponse'
     { loggingEnabled =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-getBucketLoggingResponse_loggingEnabled :: Lens.Lens' GetBucketLoggingResponse (Prelude.Maybe LoggingEnabled)
+getBucketLoggingResponse_loggingEnabled :: Lens.Lens' GetBucketLoggingResponse (Core.Maybe LoggingEnabled)
 getBucketLoggingResponse_loggingEnabled = Lens.lens (\GetBucketLoggingResponse' {loggingEnabled} -> loggingEnabled) (\s@GetBucketLoggingResponse' {} a -> s {loggingEnabled = a} :: GetBucketLoggingResponse)
 
 -- | The response's http status code.
-getBucketLoggingResponse_httpStatus :: Lens.Lens' GetBucketLoggingResponse Prelude.Int
+getBucketLoggingResponse_httpStatus :: Lens.Lens' GetBucketLoggingResponse Core.Int
 getBucketLoggingResponse_httpStatus = Lens.lens (\GetBucketLoggingResponse' {httpStatus} -> httpStatus) (\s@GetBucketLoggingResponse' {} a -> s {httpStatus = a} :: GetBucketLoggingResponse)
 
-instance Prelude.NFData GetBucketLoggingResponse
+instance Core.NFData GetBucketLoggingResponse

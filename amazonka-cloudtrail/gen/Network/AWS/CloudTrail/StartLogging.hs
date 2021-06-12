@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CloudTrail.StartLogging
 where
 
 import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ data StartLogging = StartLogging'
     -- CloudTrail logs AWS API calls. The format of a trail ARN is:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartLogging' with all optional fields omitted.
@@ -75,7 +74,7 @@ data StartLogging = StartLogging'
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newStartLogging ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   StartLogging
 newStartLogging pName_ = StartLogging' {name = pName_}
 
@@ -83,50 +82,46 @@ newStartLogging pName_ = StartLogging' {name = pName_}
 -- CloudTrail logs AWS API calls. The format of a trail ARN is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-startLogging_name :: Lens.Lens' StartLogging Prelude.Text
+startLogging_name :: Lens.Lens' StartLogging Core.Text
 startLogging_name = Lens.lens (\StartLogging' {name} -> name) (\s@StartLogging' {} a -> s {name = a} :: StartLogging)
 
-instance Prelude.AWSRequest StartLogging where
-  type Rs StartLogging = StartLoggingResponse
+instance Core.AWSRequest StartLogging where
+  type AWSResponse StartLogging = StartLoggingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartLoggingResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartLogging
+instance Core.Hashable StartLogging
 
-instance Prelude.NFData StartLogging
+instance Core.NFData StartLogging
 
-instance Prelude.ToHeaders StartLogging where
+instance Core.ToHeaders StartLogging where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartLogging" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartLogging" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartLogging where
+instance Core.ToJSON StartLogging where
   toJSON StartLogging' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath StartLogging where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartLogging where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartLogging where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartLogging where
+  toQuery = Core.const Core.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise,
 -- returns an error.
@@ -134,9 +129,9 @@ instance Prelude.ToQuery StartLogging where
 -- /See:/ 'newStartLoggingResponse' smart constructor.
 data StartLoggingResponse = StartLoggingResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartLoggingResponse' with all optional fields omitted.
@@ -149,13 +144,13 @@ data StartLoggingResponse = StartLoggingResponse'
 -- 'httpStatus', 'startLoggingResponse_httpStatus' - The response's http status code.
 newStartLoggingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartLoggingResponse
 newStartLoggingResponse pHttpStatus_ =
   StartLoggingResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-startLoggingResponse_httpStatus :: Lens.Lens' StartLoggingResponse Prelude.Int
+startLoggingResponse_httpStatus :: Lens.Lens' StartLoggingResponse Core.Int
 startLoggingResponse_httpStatus = Lens.lens (\StartLoggingResponse' {httpStatus} -> httpStatus) (\s@StartLoggingResponse' {} a -> s {httpStatus = a} :: StartLoggingResponse)
 
-instance Prelude.NFData StartLoggingResponse
+instance Core.NFData StartLoggingResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.ArchiveOutputSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ArchiveContainerSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Archive Output Settings
 --
@@ -30,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 data ArchiveOutputSettings = ArchiveOutputSettings'
   { -- | Output file extension. If excluded, this will be auto-selected from the
     -- container type.
-    extension :: Prelude.Maybe Prelude.Text,
+    extension :: Core.Maybe Core.Text,
     -- | String concatenated to the end of the destination filename. Required for
     -- multiple outputs of the same type.
-    nameModifier :: Prelude.Maybe Prelude.Text,
+    nameModifier :: Core.Maybe Core.Text,
     -- | Settings specific to the container type of the file.
     containerSettings :: ArchiveContainerSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ArchiveOutputSettings' with all optional fields omitted.
@@ -60,47 +59,47 @@ newArchiveOutputSettings ::
   ArchiveOutputSettings
 newArchiveOutputSettings pContainerSettings_ =
   ArchiveOutputSettings'
-    { extension = Prelude.Nothing,
-      nameModifier = Prelude.Nothing,
+    { extension = Core.Nothing,
+      nameModifier = Core.Nothing,
       containerSettings = pContainerSettings_
     }
 
 -- | Output file extension. If excluded, this will be auto-selected from the
 -- container type.
-archiveOutputSettings_extension :: Lens.Lens' ArchiveOutputSettings (Prelude.Maybe Prelude.Text)
+archiveOutputSettings_extension :: Lens.Lens' ArchiveOutputSettings (Core.Maybe Core.Text)
 archiveOutputSettings_extension = Lens.lens (\ArchiveOutputSettings' {extension} -> extension) (\s@ArchiveOutputSettings' {} a -> s {extension = a} :: ArchiveOutputSettings)
 
 -- | String concatenated to the end of the destination filename. Required for
 -- multiple outputs of the same type.
-archiveOutputSettings_nameModifier :: Lens.Lens' ArchiveOutputSettings (Prelude.Maybe Prelude.Text)
+archiveOutputSettings_nameModifier :: Lens.Lens' ArchiveOutputSettings (Core.Maybe Core.Text)
 archiveOutputSettings_nameModifier = Lens.lens (\ArchiveOutputSettings' {nameModifier} -> nameModifier) (\s@ArchiveOutputSettings' {} a -> s {nameModifier = a} :: ArchiveOutputSettings)
 
 -- | Settings specific to the container type of the file.
 archiveOutputSettings_containerSettings :: Lens.Lens' ArchiveOutputSettings ArchiveContainerSettings
 archiveOutputSettings_containerSettings = Lens.lens (\ArchiveOutputSettings' {containerSettings} -> containerSettings) (\s@ArchiveOutputSettings' {} a -> s {containerSettings = a} :: ArchiveOutputSettings)
 
-instance Prelude.FromJSON ArchiveOutputSettings where
+instance Core.FromJSON ArchiveOutputSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ArchiveOutputSettings"
       ( \x ->
           ArchiveOutputSettings'
-            Prelude.<$> (x Prelude..:? "extension")
-            Prelude.<*> (x Prelude..:? "nameModifier")
-            Prelude.<*> (x Prelude..: "containerSettings")
+            Core.<$> (x Core..:? "extension")
+            Core.<*> (x Core..:? "nameModifier")
+            Core.<*> (x Core..: "containerSettings")
       )
 
-instance Prelude.Hashable ArchiveOutputSettings
+instance Core.Hashable ArchiveOutputSettings
 
-instance Prelude.NFData ArchiveOutputSettings
+instance Core.NFData ArchiveOutputSettings
 
-instance Prelude.ToJSON ArchiveOutputSettings where
+instance Core.ToJSON ArchiveOutputSettings where
   toJSON ArchiveOutputSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("extension" Prelude..=) Prelude.<$> extension,
-            ("nameModifier" Prelude..=) Prelude.<$> nameModifier,
-            Prelude.Just
-              ("containerSettings" Prelude..= containerSettings)
+    Core.object
+      ( Core.catMaybes
+          [ ("extension" Core..=) Core.<$> extension,
+            ("nameModifier" Core..=) Core.<$> nameModifier,
+            Core.Just
+              ("containerSettings" Core..= containerSettings)
           ]
       )

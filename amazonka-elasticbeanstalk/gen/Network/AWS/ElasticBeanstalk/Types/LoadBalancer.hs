@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.LoadBalancer where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a LoadBalancer.
 --
 -- /See:/ 'newLoadBalancer' smart constructor.
 data LoadBalancer = LoadBalancer'
   { -- | The name of the LoadBalancer.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoadBalancer' with all optional fields omitted.
@@ -43,17 +42,16 @@ data LoadBalancer = LoadBalancer'
 -- 'name', 'loadBalancer_name' - The name of the LoadBalancer.
 newLoadBalancer ::
   LoadBalancer
-newLoadBalancer =
-  LoadBalancer' {name = Prelude.Nothing}
+newLoadBalancer = LoadBalancer' {name = Core.Nothing}
 
 -- | The name of the LoadBalancer.
-loadBalancer_name :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
+loadBalancer_name :: Lens.Lens' LoadBalancer (Core.Maybe Core.Text)
 loadBalancer_name = Lens.lens (\LoadBalancer' {name} -> name) (\s@LoadBalancer' {} a -> s {name = a} :: LoadBalancer)
 
-instance Prelude.FromXML LoadBalancer where
+instance Core.FromXML LoadBalancer where
   parseXML x =
-    LoadBalancer' Prelude.<$> (x Prelude..@? "Name")
+    LoadBalancer' Core.<$> (x Core..@? "Name")
 
-instance Prelude.Hashable LoadBalancer
+instance Core.Hashable LoadBalancer
 
-instance Prelude.NFData LoadBalancer
+instance Core.NFData LoadBalancer

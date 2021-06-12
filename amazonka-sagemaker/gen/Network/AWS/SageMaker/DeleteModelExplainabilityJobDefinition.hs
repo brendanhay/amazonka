@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.SageMaker.DeleteModelExplainabilityJobDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,9 +44,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteModelExplainabilityJobDefinition' smart constructor.
 data DeleteModelExplainabilityJobDefinition = DeleteModelExplainabilityJobDefinition'
   { -- | The name of the model explainability job definition to delete.
-    jobDefinitionName :: Prelude.Text
+    jobDefinitionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteModelExplainabilityJobDefinition' with all optional fields omitted.
@@ -60,7 +59,7 @@ data DeleteModelExplainabilityJobDefinition = DeleteModelExplainabilityJobDefini
 -- 'jobDefinitionName', 'deleteModelExplainabilityJobDefinition_jobDefinitionName' - The name of the model explainability job definition to delete.
 newDeleteModelExplainabilityJobDefinition ::
   -- | 'jobDefinitionName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteModelExplainabilityJobDefinition
 newDeleteModelExplainabilityJobDefinition
   pJobDefinitionName_ =
@@ -70,15 +69,16 @@ newDeleteModelExplainabilityJobDefinition
       }
 
 -- | The name of the model explainability job definition to delete.
-deleteModelExplainabilityJobDefinition_jobDefinitionName :: Lens.Lens' DeleteModelExplainabilityJobDefinition Prelude.Text
+deleteModelExplainabilityJobDefinition_jobDefinitionName :: Lens.Lens' DeleteModelExplainabilityJobDefinition Core.Text
 deleteModelExplainabilityJobDefinition_jobDefinitionName = Lens.lens (\DeleteModelExplainabilityJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@DeleteModelExplainabilityJobDefinition' {} a -> s {jobDefinitionName = a} :: DeleteModelExplainabilityJobDefinition)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteModelExplainabilityJobDefinition
   where
   type
-    Rs DeleteModelExplainabilityJobDefinition =
+    AWSResponse
+      DeleteModelExplainabilityJobDefinition =
       DeleteModelExplainabilityJobDefinitionResponse
   request = Request.postJSON defaultService
   response =
@@ -86,60 +86,58 @@ instance
       DeleteModelExplainabilityJobDefinitionResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteModelExplainabilityJobDefinition
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteModelExplainabilityJobDefinition
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteModelExplainabilityJobDefinition
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteModelExplainabilityJobDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DeleteModelExplainabilityJobDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DeleteModelExplainabilityJobDefinition
   where
   toJSON DeleteModelExplainabilityJobDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("JobDefinitionName" Prelude..= jobDefinitionName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("JobDefinitionName" Core..= jobDefinitionName)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteModelExplainabilityJobDefinition
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteModelExplainabilityJobDefinition
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteModelExplainabilityJobDefinitionResponse' smart constructor.
 data DeleteModelExplainabilityJobDefinitionResponse = DeleteModelExplainabilityJobDefinitionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteModelExplainabilityJobDefinitionResponse' with all optional fields omitted.
@@ -151,5 +149,5 @@ newDeleteModelExplainabilityJobDefinitionResponse =
   DeleteModelExplainabilityJobDefinitionResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteModelExplainabilityJobDefinitionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.Lightsail.CreateLoadBalancer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,11 +71,11 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- and IPv6.
     --
     -- The default value is @dualstack@.
-    ipAddressType :: Prelude.Maybe IpAddressType,
+    ipAddressType :: Core.Maybe IpAddressType,
     -- | The optional alternative domains and subdomains to use with your
     -- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
     -- @m.example.com@, @blog.example.com@).
-    certificateAlternativeNames :: Prelude.Maybe [Prelude.Text],
+    certificateAlternativeNames :: Core.Maybe [Core.Text],
     -- | The path you provided to perform the load balancer health check. If you
     -- didn\'t specify a health check path, Lightsail uses the root path of
     -- your website (e.g., @\"\/\"@).
@@ -84,28 +83,28 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- You may want to specify a custom health check path other than the root
     -- of your application if your home page loads slowly or has a lot of media
     -- or scripting on it.
-    healthCheckPath :: Prelude.Maybe Prelude.Text,
+    healthCheckPath :: Core.Maybe Core.Text,
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The domain name with which your certificate is associated (e.g.,
     -- @example.com@).
     --
     -- If you specify @certificateDomainName@, then @certificateName@ is
     -- required (and vice-versa).
-    certificateDomainName :: Prelude.Maybe Prelude.Text,
+    certificateDomainName :: Core.Maybe Core.Text,
     -- | The name of the SSL\/TLS certificate.
     --
     -- If you specify @certificateName@, then @certificateDomainName@ is
     -- required (and vice-versa).
-    certificateName :: Prelude.Maybe Prelude.Text,
+    certificateName :: Core.Maybe Core.Text,
     -- | The name of your load balancer.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The instance port where you\'re creating your load balancer.
-    instancePort :: Prelude.Int
+    instancePort :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLoadBalancer' with all optional fields omitted.
@@ -154,21 +153,20 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- 'instancePort', 'createLoadBalancer_instancePort' - The instance port where you\'re creating your load balancer.
 newCreateLoadBalancer ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instancePort'
-  Prelude.Int ->
+  Core.Int ->
   CreateLoadBalancer
 newCreateLoadBalancer
   pLoadBalancerName_
   pInstancePort_ =
     CreateLoadBalancer'
-      { ipAddressType =
-          Prelude.Nothing,
-        certificateAlternativeNames = Prelude.Nothing,
-        healthCheckPath = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        certificateDomainName = Prelude.Nothing,
-        certificateName = Prelude.Nothing,
+      { ipAddressType = Core.Nothing,
+        certificateAlternativeNames = Core.Nothing,
+        healthCheckPath = Core.Nothing,
+        tags = Core.Nothing,
+        certificateDomainName = Core.Nothing,
+        certificateName = Core.Nothing,
         loadBalancerName = pLoadBalancerName_,
         instancePort = pInstancePort_
       }
@@ -179,14 +177,14 @@ newCreateLoadBalancer
 -- and IPv6.
 --
 -- The default value is @dualstack@.
-createLoadBalancer_ipAddressType :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe IpAddressType)
+createLoadBalancer_ipAddressType :: Lens.Lens' CreateLoadBalancer (Core.Maybe IpAddressType)
 createLoadBalancer_ipAddressType = Lens.lens (\CreateLoadBalancer' {ipAddressType} -> ipAddressType) (\s@CreateLoadBalancer' {} a -> s {ipAddressType = a} :: CreateLoadBalancer)
 
 -- | The optional alternative domains and subdomains to use with your
 -- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,
 -- @m.example.com@, @blog.example.com@).
-createLoadBalancer_certificateAlternativeNames :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
-createLoadBalancer_certificateAlternativeNames = Lens.lens (\CreateLoadBalancer' {certificateAlternativeNames} -> certificateAlternativeNames) (\s@CreateLoadBalancer' {} a -> s {certificateAlternativeNames = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Prelude._Coerce
+createLoadBalancer_certificateAlternativeNames :: Lens.Lens' CreateLoadBalancer (Core.Maybe [Core.Text])
+createLoadBalancer_certificateAlternativeNames = Lens.lens (\CreateLoadBalancer' {certificateAlternativeNames} -> certificateAlternativeNames) (\s@CreateLoadBalancer' {} a -> s {certificateAlternativeNames = a} :: CreateLoadBalancer) Core.. Lens.mapping Lens._Coerce
 
 -- | The path you provided to perform the load balancer health check. If you
 -- didn\'t specify a health check path, Lightsail uses the root path of
@@ -195,110 +193,102 @@ createLoadBalancer_certificateAlternativeNames = Lens.lens (\CreateLoadBalancer'
 -- You may want to specify a custom health check path other than the root
 -- of your application if your home page loads slowly or has a lot of media
 -- or scripting on it.
-createLoadBalancer_healthCheckPath :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
+createLoadBalancer_healthCheckPath :: Lens.Lens' CreateLoadBalancer (Core.Maybe Core.Text)
 createLoadBalancer_healthCheckPath = Lens.lens (\CreateLoadBalancer' {healthCheckPath} -> healthCheckPath) (\s@CreateLoadBalancer' {} a -> s {healthCheckPath = a} :: CreateLoadBalancer)
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Tag])
-createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Prelude._Coerce
+createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Core.Maybe [Tag])
+createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Core.. Lens.mapping Lens._Coerce
 
 -- | The domain name with which your certificate is associated (e.g.,
 -- @example.com@).
 --
 -- If you specify @certificateDomainName@, then @certificateName@ is
 -- required (and vice-versa).
-createLoadBalancer_certificateDomainName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
+createLoadBalancer_certificateDomainName :: Lens.Lens' CreateLoadBalancer (Core.Maybe Core.Text)
 createLoadBalancer_certificateDomainName = Lens.lens (\CreateLoadBalancer' {certificateDomainName} -> certificateDomainName) (\s@CreateLoadBalancer' {} a -> s {certificateDomainName = a} :: CreateLoadBalancer)
 
 -- | The name of the SSL\/TLS certificate.
 --
 -- If you specify @certificateName@, then @certificateDomainName@ is
 -- required (and vice-versa).
-createLoadBalancer_certificateName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
+createLoadBalancer_certificateName :: Lens.Lens' CreateLoadBalancer (Core.Maybe Core.Text)
 createLoadBalancer_certificateName = Lens.lens (\CreateLoadBalancer' {certificateName} -> certificateName) (\s@CreateLoadBalancer' {} a -> s {certificateName = a} :: CreateLoadBalancer)
 
 -- | The name of your load balancer.
-createLoadBalancer_loadBalancerName :: Lens.Lens' CreateLoadBalancer Prelude.Text
+createLoadBalancer_loadBalancerName :: Lens.Lens' CreateLoadBalancer Core.Text
 createLoadBalancer_loadBalancerName = Lens.lens (\CreateLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@CreateLoadBalancer' {} a -> s {loadBalancerName = a} :: CreateLoadBalancer)
 
 -- | The instance port where you\'re creating your load balancer.
-createLoadBalancer_instancePort :: Lens.Lens' CreateLoadBalancer Prelude.Int
+createLoadBalancer_instancePort :: Lens.Lens' CreateLoadBalancer Core.Int
 createLoadBalancer_instancePort = Lens.lens (\CreateLoadBalancer' {instancePort} -> instancePort) (\s@CreateLoadBalancer' {} a -> s {instancePort = a} :: CreateLoadBalancer)
 
-instance Prelude.AWSRequest CreateLoadBalancer where
+instance Core.AWSRequest CreateLoadBalancer where
   type
-    Rs CreateLoadBalancer =
+    AWSResponse CreateLoadBalancer =
       CreateLoadBalancerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateLoadBalancerResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLoadBalancer
+instance Core.Hashable CreateLoadBalancer
 
-instance Prelude.NFData CreateLoadBalancer
+instance Core.NFData CreateLoadBalancer
 
-instance Prelude.ToHeaders CreateLoadBalancer where
+instance Core.ToHeaders CreateLoadBalancer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.CreateLoadBalancer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.CreateLoadBalancer" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateLoadBalancer where
+instance Core.ToJSON CreateLoadBalancer where
   toJSON CreateLoadBalancer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ipAddressType" Prelude..=)
-              Prelude.<$> ipAddressType,
-            ("certificateAlternativeNames" Prelude..=)
-              Prelude.<$> certificateAlternativeNames,
-            ("healthCheckPath" Prelude..=)
-              Prelude.<$> healthCheckPath,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("certificateDomainName" Prelude..=)
-              Prelude.<$> certificateDomainName,
-            ("certificateName" Prelude..=)
-              Prelude.<$> certificateName,
-            Prelude.Just
-              ("loadBalancerName" Prelude..= loadBalancerName),
-            Prelude.Just
-              ("instancePort" Prelude..= instancePort)
+    Core.object
+      ( Core.catMaybes
+          [ ("ipAddressType" Core..=) Core.<$> ipAddressType,
+            ("certificateAlternativeNames" Core..=)
+              Core.<$> certificateAlternativeNames,
+            ("healthCheckPath" Core..=) Core.<$> healthCheckPath,
+            ("tags" Core..=) Core.<$> tags,
+            ("certificateDomainName" Core..=)
+              Core.<$> certificateDomainName,
+            ("certificateName" Core..=) Core.<$> certificateName,
+            Core.Just
+              ("loadBalancerName" Core..= loadBalancerName),
+            Core.Just ("instancePort" Core..= instancePort)
           ]
       )
 
-instance Prelude.ToPath CreateLoadBalancer where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateLoadBalancer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateLoadBalancer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateLoadBalancer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLoadBalancerResponse' with all optional fields omitted.
@@ -315,23 +305,23 @@ data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
 -- 'httpStatus', 'createLoadBalancerResponse_httpStatus' - The response's http status code.
 newCreateLoadBalancerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateLoadBalancerResponse
 newCreateLoadBalancerResponse pHttpStatus_ =
   CreateLoadBalancerResponse'
     { operations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createLoadBalancerResponse_operations :: Lens.Lens' CreateLoadBalancerResponse (Prelude.Maybe [Operation])
-createLoadBalancerResponse_operations = Lens.lens (\CreateLoadBalancerResponse' {operations} -> operations) (\s@CreateLoadBalancerResponse' {} a -> s {operations = a} :: CreateLoadBalancerResponse) Prelude.. Lens.mapping Prelude._Coerce
+createLoadBalancerResponse_operations :: Lens.Lens' CreateLoadBalancerResponse (Core.Maybe [Operation])
+createLoadBalancerResponse_operations = Lens.lens (\CreateLoadBalancerResponse' {operations} -> operations) (\s@CreateLoadBalancerResponse' {} a -> s {operations = a} :: CreateLoadBalancerResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createLoadBalancerResponse_httpStatus :: Lens.Lens' CreateLoadBalancerResponse Prelude.Int
+createLoadBalancerResponse_httpStatus :: Lens.Lens' CreateLoadBalancerResponse Core.Int
 createLoadBalancerResponse_httpStatus = Lens.lens (\CreateLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@CreateLoadBalancerResponse' {} a -> s {httpStatus = a} :: CreateLoadBalancerResponse)
 
-instance Prelude.NFData CreateLoadBalancerResponse
+instance Core.NFData CreateLoadBalancerResponse

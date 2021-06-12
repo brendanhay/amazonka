@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the execution timeout that occurred during the
 -- execution.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newExecutionTimedOutEventDetails' smart constructor.
 data ExecutionTimedOutEventDetails = ExecutionTimedOutEventDetails'
   { -- | A more detailed explanation of the cause of the timeout.
-    cause :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    cause :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The error code of the failure.
-    error :: Prelude.Maybe (Prelude.Sensitive Prelude.Text)
+    error :: Core.Maybe (Core.Sensitive Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExecutionTimedOutEventDetails' with all optional fields omitted.
@@ -51,33 +50,27 @@ newExecutionTimedOutEventDetails ::
 newExecutionTimedOutEventDetails =
   ExecutionTimedOutEventDetails'
     { cause =
-        Prelude.Nothing,
-      error = Prelude.Nothing
+        Core.Nothing,
+      error = Core.Nothing
     }
 
 -- | A more detailed explanation of the cause of the timeout.
-executionTimedOutEventDetails_cause :: Lens.Lens' ExecutionTimedOutEventDetails (Prelude.Maybe Prelude.Text)
-executionTimedOutEventDetails_cause = Lens.lens (\ExecutionTimedOutEventDetails' {cause} -> cause) (\s@ExecutionTimedOutEventDetails' {} a -> s {cause = a} :: ExecutionTimedOutEventDetails) Prelude.. Lens.mapping Prelude._Sensitive
+executionTimedOutEventDetails_cause :: Lens.Lens' ExecutionTimedOutEventDetails (Core.Maybe Core.Text)
+executionTimedOutEventDetails_cause = Lens.lens (\ExecutionTimedOutEventDetails' {cause} -> cause) (\s@ExecutionTimedOutEventDetails' {} a -> s {cause = a} :: ExecutionTimedOutEventDetails) Core.. Lens.mapping Core._Sensitive
 
 -- | The error code of the failure.
-executionTimedOutEventDetails_error :: Lens.Lens' ExecutionTimedOutEventDetails (Prelude.Maybe Prelude.Text)
-executionTimedOutEventDetails_error = Lens.lens (\ExecutionTimedOutEventDetails' {error} -> error) (\s@ExecutionTimedOutEventDetails' {} a -> s {error = a} :: ExecutionTimedOutEventDetails) Prelude.. Lens.mapping Prelude._Sensitive
+executionTimedOutEventDetails_error :: Lens.Lens' ExecutionTimedOutEventDetails (Core.Maybe Core.Text)
+executionTimedOutEventDetails_error = Lens.lens (\ExecutionTimedOutEventDetails' {error} -> error) (\s@ExecutionTimedOutEventDetails' {} a -> s {error = a} :: ExecutionTimedOutEventDetails) Core.. Lens.mapping Core._Sensitive
 
-instance
-  Prelude.FromJSON
-    ExecutionTimedOutEventDetails
-  where
+instance Core.FromJSON ExecutionTimedOutEventDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExecutionTimedOutEventDetails"
       ( \x ->
           ExecutionTimedOutEventDetails'
-            Prelude.<$> (x Prelude..:? "cause")
-            Prelude.<*> (x Prelude..:? "error")
+            Core.<$> (x Core..:? "cause") Core.<*> (x Core..:? "error")
       )
 
-instance
-  Prelude.Hashable
-    ExecutionTimedOutEventDetails
+instance Core.Hashable ExecutionTimedOutEventDetails
 
-instance Prelude.NFData ExecutionTimedOutEventDetails
+instance Core.NFData ExecutionTimedOutEventDetails

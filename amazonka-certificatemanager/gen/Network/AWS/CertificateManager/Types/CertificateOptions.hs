@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CertificateManager.Types.CertificateOptions where
 
 import Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Structure that contains options for your certificate. Currently, you can
 -- use this only to specify whether to opt in to or out of certificate
@@ -38,9 +37,9 @@ import qualified Network.AWS.Prelude as Prelude
 data CertificateOptions = CertificateOptions'
   { -- | You can opt out of certificate transparency logging by specifying the
     -- @DISABLED@ option. Opt in by specifying @ENABLED@.
-    certificateTransparencyLoggingPreference :: Prelude.Maybe CertificateTransparencyLoggingPreference
+    certificateTransparencyLoggingPreference :: Core.Maybe CertificateTransparencyLoggingPreference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CertificateOptions' with all optional fields omitted.
@@ -57,36 +56,34 @@ newCertificateOptions ::
 newCertificateOptions =
   CertificateOptions'
     { certificateTransparencyLoggingPreference =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | You can opt out of certificate transparency logging by specifying the
 -- @DISABLED@ option. Opt in by specifying @ENABLED@.
-certificateOptions_certificateTransparencyLoggingPreference :: Lens.Lens' CertificateOptions (Prelude.Maybe CertificateTransparencyLoggingPreference)
+certificateOptions_certificateTransparencyLoggingPreference :: Lens.Lens' CertificateOptions (Core.Maybe CertificateTransparencyLoggingPreference)
 certificateOptions_certificateTransparencyLoggingPreference = Lens.lens (\CertificateOptions' {certificateTransparencyLoggingPreference} -> certificateTransparencyLoggingPreference) (\s@CertificateOptions' {} a -> s {certificateTransparencyLoggingPreference = a} :: CertificateOptions)
 
-instance Prelude.FromJSON CertificateOptions where
+instance Core.FromJSON CertificateOptions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CertificateOptions"
       ( \x ->
           CertificateOptions'
-            Prelude.<$> ( x
-                            Prelude..:? "CertificateTransparencyLoggingPreference"
-                        )
+            Core.<$> ( x
+                         Core..:? "CertificateTransparencyLoggingPreference"
+                     )
       )
 
-instance Prelude.Hashable CertificateOptions
+instance Core.Hashable CertificateOptions
 
-instance Prelude.NFData CertificateOptions
+instance Core.NFData CertificateOptions
 
-instance Prelude.ToJSON CertificateOptions where
+instance Core.ToJSON CertificateOptions where
   toJSON CertificateOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ( "CertificateTransparencyLoggingPreference"
-                Prelude..=
-            )
-              Prelude.<$> certificateTransparencyLoggingPreference
+    Core.object
+      ( Core.catMaybes
+          [ ("CertificateTransparencyLoggingPreference" Core..=)
+              Core.<$> certificateTransparencyLoggingPreference
           ]
       )

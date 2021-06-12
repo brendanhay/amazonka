@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.EnvironmentError where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Error messages for environment variables that couldn\'t be applied.
 --
 -- /See:/ 'newEnvironmentError' smart constructor.
 data EnvironmentError = EnvironmentError'
   { -- | The error message.
-    message :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    message :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The error code.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnvironmentError' with all optional fields omitted.
@@ -49,28 +48,28 @@ newEnvironmentError ::
   EnvironmentError
 newEnvironmentError =
   EnvironmentError'
-    { message = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { message = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The error message.
-environmentError_message :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
-environmentError_message = Lens.lens (\EnvironmentError' {message} -> message) (\s@EnvironmentError' {} a -> s {message = a} :: EnvironmentError) Prelude.. Lens.mapping Prelude._Sensitive
+environmentError_message :: Lens.Lens' EnvironmentError (Core.Maybe Core.Text)
+environmentError_message = Lens.lens (\EnvironmentError' {message} -> message) (\s@EnvironmentError' {} a -> s {message = a} :: EnvironmentError) Core.. Lens.mapping Core._Sensitive
 
 -- | The error code.
-environmentError_errorCode :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
+environmentError_errorCode :: Lens.Lens' EnvironmentError (Core.Maybe Core.Text)
 environmentError_errorCode = Lens.lens (\EnvironmentError' {errorCode} -> errorCode) (\s@EnvironmentError' {} a -> s {errorCode = a} :: EnvironmentError)
 
-instance Prelude.FromJSON EnvironmentError where
+instance Core.FromJSON EnvironmentError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EnvironmentError"
       ( \x ->
           EnvironmentError'
-            Prelude.<$> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "Message")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable EnvironmentError
+instance Core.Hashable EnvironmentError
 
-instance Prelude.NFData EnvironmentError
+instance Core.NFData EnvironmentError

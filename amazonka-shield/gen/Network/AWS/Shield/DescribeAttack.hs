@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.Shield.DescribeAttack
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -49,9 +48,9 @@ import Network.AWS.Shield.Types
 -- | /See:/ 'newDescribeAttack' smart constructor.
 data DescribeAttack = DescribeAttack'
   { -- | The unique identifier (ID) for the attack that to be described.
-    attackId :: Prelude.Text
+    attackId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAttack' with all optional fields omitted.
@@ -64,66 +63,66 @@ data DescribeAttack = DescribeAttack'
 -- 'attackId', 'describeAttack_attackId' - The unique identifier (ID) for the attack that to be described.
 newDescribeAttack ::
   -- | 'attackId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeAttack
 newDescribeAttack pAttackId_ =
   DescribeAttack' {attackId = pAttackId_}
 
 -- | The unique identifier (ID) for the attack that to be described.
-describeAttack_attackId :: Lens.Lens' DescribeAttack Prelude.Text
+describeAttack_attackId :: Lens.Lens' DescribeAttack Core.Text
 describeAttack_attackId = Lens.lens (\DescribeAttack' {attackId} -> attackId) (\s@DescribeAttack' {} a -> s {attackId = a} :: DescribeAttack)
 
-instance Prelude.AWSRequest DescribeAttack where
-  type Rs DescribeAttack = DescribeAttackResponse
+instance Core.AWSRequest DescribeAttack where
+  type
+    AWSResponse DescribeAttack =
+      DescribeAttackResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAttackResponse'
-            Prelude.<$> (x Prelude..?> "Attack")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Attack")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAttack
+instance Core.Hashable DescribeAttack
 
-instance Prelude.NFData DescribeAttack
+instance Core.NFData DescribeAttack
 
-instance Prelude.ToHeaders DescribeAttack where
+instance Core.ToHeaders DescribeAttack where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.DescribeAttack" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.DescribeAttack" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeAttack where
+instance Core.ToJSON DescribeAttack where
   toJSON DescribeAttack' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("AttackId" Prelude..= attackId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AttackId" Core..= attackId)]
       )
 
-instance Prelude.ToPath DescribeAttack where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAttack where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAttack where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAttack where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAttackResponse' smart constructor.
 data DescribeAttackResponse = DescribeAttackResponse'
   { -- | The attack that is described.
-    attack :: Prelude.Maybe AttackDetail,
+    attack :: Core.Maybe AttackDetail,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAttackResponse' with all optional fields omitted.
@@ -138,20 +137,20 @@ data DescribeAttackResponse = DescribeAttackResponse'
 -- 'httpStatus', 'describeAttackResponse_httpStatus' - The response's http status code.
 newDescribeAttackResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAttackResponse
 newDescribeAttackResponse pHttpStatus_ =
   DescribeAttackResponse'
-    { attack = Prelude.Nothing,
+    { attack = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The attack that is described.
-describeAttackResponse_attack :: Lens.Lens' DescribeAttackResponse (Prelude.Maybe AttackDetail)
+describeAttackResponse_attack :: Lens.Lens' DescribeAttackResponse (Core.Maybe AttackDetail)
 describeAttackResponse_attack = Lens.lens (\DescribeAttackResponse' {attack} -> attack) (\s@DescribeAttackResponse' {} a -> s {attack = a} :: DescribeAttackResponse)
 
 -- | The response's http status code.
-describeAttackResponse_httpStatus :: Lens.Lens' DescribeAttackResponse Prelude.Int
+describeAttackResponse_httpStatus :: Lens.Lens' DescribeAttackResponse Core.Int
 describeAttackResponse_httpStatus = Lens.lens (\DescribeAttackResponse' {httpStatus} -> httpStatus) (\s@DescribeAttackResponse' {} a -> s {httpStatus = a} :: DescribeAttackResponse)
 
-instance Prelude.NFData DescribeAttackResponse
+instance Core.NFData DescribeAttackResponse

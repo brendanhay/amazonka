@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudWatchLogs.Types.QueryInfo where
 
 import Network.AWS.CloudWatchLogs.Types.QueryStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about one CloudWatch Logs Insights query that matches the
 -- request in a @DescribeQueries@ operation.
@@ -30,18 +29,18 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newQueryInfo' smart constructor.
 data QueryInfo = QueryInfo'
   { -- | The query string used in this query.
-    queryString :: Prelude.Maybe Prelude.Text,
+    queryString :: Core.Maybe Core.Text,
     -- | The status of this query. Possible values are @Cancelled@, @Complete@,
     -- @Failed@, @Running@, @Scheduled@, and @Unknown@.
-    status :: Prelude.Maybe QueryStatus,
+    status :: Core.Maybe QueryStatus,
     -- | The unique ID number of this query.
-    queryId :: Prelude.Maybe Prelude.Text,
+    queryId :: Core.Maybe Core.Text,
     -- | The name of the log group scanned by this query.
-    logGroupName :: Prelude.Maybe Prelude.Text,
+    logGroupName :: Core.Maybe Core.Text,
     -- | The date and time that this query was created.
-    createTime :: Prelude.Maybe Prelude.Natural
+    createTime :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryInfo' with all optional fields omitted.
@@ -65,47 +64,47 @@ newQueryInfo ::
   QueryInfo
 newQueryInfo =
   QueryInfo'
-    { queryString = Prelude.Nothing,
-      status = Prelude.Nothing,
-      queryId = Prelude.Nothing,
-      logGroupName = Prelude.Nothing,
-      createTime = Prelude.Nothing
+    { queryString = Core.Nothing,
+      status = Core.Nothing,
+      queryId = Core.Nothing,
+      logGroupName = Core.Nothing,
+      createTime = Core.Nothing
     }
 
 -- | The query string used in this query.
-queryInfo_queryString :: Lens.Lens' QueryInfo (Prelude.Maybe Prelude.Text)
+queryInfo_queryString :: Lens.Lens' QueryInfo (Core.Maybe Core.Text)
 queryInfo_queryString = Lens.lens (\QueryInfo' {queryString} -> queryString) (\s@QueryInfo' {} a -> s {queryString = a} :: QueryInfo)
 
 -- | The status of this query. Possible values are @Cancelled@, @Complete@,
 -- @Failed@, @Running@, @Scheduled@, and @Unknown@.
-queryInfo_status :: Lens.Lens' QueryInfo (Prelude.Maybe QueryStatus)
+queryInfo_status :: Lens.Lens' QueryInfo (Core.Maybe QueryStatus)
 queryInfo_status = Lens.lens (\QueryInfo' {status} -> status) (\s@QueryInfo' {} a -> s {status = a} :: QueryInfo)
 
 -- | The unique ID number of this query.
-queryInfo_queryId :: Lens.Lens' QueryInfo (Prelude.Maybe Prelude.Text)
+queryInfo_queryId :: Lens.Lens' QueryInfo (Core.Maybe Core.Text)
 queryInfo_queryId = Lens.lens (\QueryInfo' {queryId} -> queryId) (\s@QueryInfo' {} a -> s {queryId = a} :: QueryInfo)
 
 -- | The name of the log group scanned by this query.
-queryInfo_logGroupName :: Lens.Lens' QueryInfo (Prelude.Maybe Prelude.Text)
+queryInfo_logGroupName :: Lens.Lens' QueryInfo (Core.Maybe Core.Text)
 queryInfo_logGroupName = Lens.lens (\QueryInfo' {logGroupName} -> logGroupName) (\s@QueryInfo' {} a -> s {logGroupName = a} :: QueryInfo)
 
 -- | The date and time that this query was created.
-queryInfo_createTime :: Lens.Lens' QueryInfo (Prelude.Maybe Prelude.Natural)
+queryInfo_createTime :: Lens.Lens' QueryInfo (Core.Maybe Core.Natural)
 queryInfo_createTime = Lens.lens (\QueryInfo' {createTime} -> createTime) (\s@QueryInfo' {} a -> s {createTime = a} :: QueryInfo)
 
-instance Prelude.FromJSON QueryInfo where
+instance Core.FromJSON QueryInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "QueryInfo"
       ( \x ->
           QueryInfo'
-            Prelude.<$> (x Prelude..:? "queryString")
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "queryId")
-            Prelude.<*> (x Prelude..:? "logGroupName")
-            Prelude.<*> (x Prelude..:? "createTime")
+            Core.<$> (x Core..:? "queryString")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "queryId")
+            Core.<*> (x Core..:? "logGroupName")
+            Core.<*> (x Core..:? "createTime")
       )
 
-instance Prelude.Hashable QueryInfo
+instance Core.Hashable QueryInfo
 
-instance Prelude.NFData QueryInfo
+instance Core.NFData QueryInfo

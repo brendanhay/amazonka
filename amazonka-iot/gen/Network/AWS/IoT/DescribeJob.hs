@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,18 +40,18 @@ module Network.AWS.IoT.DescribeJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeJob' smart constructor.
 data DescribeJob = DescribeJob'
   { -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeJob' with all optional fields omitted.
@@ -65,51 +64,51 @@ data DescribeJob = DescribeJob'
 -- 'jobId', 'describeJob_jobId' - The unique identifier you assigned to this job when it was created.
 newDescribeJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeJob
 newDescribeJob pJobId_ =
   DescribeJob' {jobId = pJobId_}
 
 -- | The unique identifier you assigned to this job when it was created.
-describeJob_jobId :: Lens.Lens' DescribeJob Prelude.Text
+describeJob_jobId :: Lens.Lens' DescribeJob Core.Text
 describeJob_jobId = Lens.lens (\DescribeJob' {jobId} -> jobId) (\s@DescribeJob' {} a -> s {jobId = a} :: DescribeJob)
 
-instance Prelude.AWSRequest DescribeJob where
-  type Rs DescribeJob = DescribeJobResponse
+instance Core.AWSRequest DescribeJob where
+  type AWSResponse DescribeJob = DescribeJobResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeJobResponse'
-            Prelude.<$> (x Prelude..?> "job")
-            Prelude.<*> (x Prelude..?> "documentSource")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "job")
+            Core.<*> (x Core..?> "documentSource")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeJob
+instance Core.Hashable DescribeJob
 
-instance Prelude.NFData DescribeJob
+instance Core.NFData DescribeJob
 
-instance Prelude.ToHeaders DescribeJob where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeJob where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeJob where
+instance Core.ToPath DescribeJob where
   toPath DescribeJob' {..} =
-    Prelude.mconcat ["/jobs/", Prelude.toBS jobId]
+    Core.mconcat ["/jobs/", Core.toBS jobId]
 
-instance Prelude.ToQuery DescribeJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeJobResponse' smart constructor.
 data DescribeJobResponse = DescribeJobResponse'
   { -- | Information about the job.
-    job :: Prelude.Maybe Job,
+    job :: Core.Maybe Job,
     -- | An S3 link to the job document.
-    documentSource :: Prelude.Maybe Prelude.Text,
+    documentSource :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeJobResponse' with all optional fields omitted.
@@ -126,25 +125,25 @@ data DescribeJobResponse = DescribeJobResponse'
 -- 'httpStatus', 'describeJobResponse_httpStatus' - The response's http status code.
 newDescribeJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeJobResponse
 newDescribeJobResponse pHttpStatus_ =
   DescribeJobResponse'
-    { job = Prelude.Nothing,
-      documentSource = Prelude.Nothing,
+    { job = Core.Nothing,
+      documentSource = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the job.
-describeJobResponse_job :: Lens.Lens' DescribeJobResponse (Prelude.Maybe Job)
+describeJobResponse_job :: Lens.Lens' DescribeJobResponse (Core.Maybe Job)
 describeJobResponse_job = Lens.lens (\DescribeJobResponse' {job} -> job) (\s@DescribeJobResponse' {} a -> s {job = a} :: DescribeJobResponse)
 
 -- | An S3 link to the job document.
-describeJobResponse_documentSource :: Lens.Lens' DescribeJobResponse (Prelude.Maybe Prelude.Text)
+describeJobResponse_documentSource :: Lens.Lens' DescribeJobResponse (Core.Maybe Core.Text)
 describeJobResponse_documentSource = Lens.lens (\DescribeJobResponse' {documentSource} -> documentSource) (\s@DescribeJobResponse' {} a -> s {documentSource = a} :: DescribeJobResponse)
 
 -- | The response's http status code.
-describeJobResponse_httpStatus :: Lens.Lens' DescribeJobResponse Prelude.Int
+describeJobResponse_httpStatus :: Lens.Lens' DescribeJobResponse Core.Int
 describeJobResponse_httpStatus = Lens.lens (\DescribeJobResponse' {httpStatus} -> httpStatus) (\s@DescribeJobResponse' {} a -> s {httpStatus = a} :: DescribeJobResponse)
 
-instance Prelude.NFData DescribeJobResponse
+instance Core.NFData DescribeJobResponse

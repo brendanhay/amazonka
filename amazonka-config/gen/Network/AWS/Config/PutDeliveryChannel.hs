@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.Config.PutDeliveryChannel
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,7 +63,7 @@ data PutDeliveryChannel = PutDeliveryChannel'
     -- topic.
     deliveryChannel :: DeliveryChannel
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutDeliveryChannel' with all optional fields omitted.
@@ -93,53 +92,51 @@ newPutDeliveryChannel pDeliveryChannel_ =
 putDeliveryChannel_deliveryChannel :: Lens.Lens' PutDeliveryChannel DeliveryChannel
 putDeliveryChannel_deliveryChannel = Lens.lens (\PutDeliveryChannel' {deliveryChannel} -> deliveryChannel) (\s@PutDeliveryChannel' {} a -> s {deliveryChannel = a} :: PutDeliveryChannel)
 
-instance Prelude.AWSRequest PutDeliveryChannel where
+instance Core.AWSRequest PutDeliveryChannel where
   type
-    Rs PutDeliveryChannel =
+    AWSResponse PutDeliveryChannel =
       PutDeliveryChannelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull PutDeliveryChannelResponse'
 
-instance Prelude.Hashable PutDeliveryChannel
+instance Core.Hashable PutDeliveryChannel
 
-instance Prelude.NFData PutDeliveryChannel
+instance Core.NFData PutDeliveryChannel
 
-instance Prelude.ToHeaders PutDeliveryChannel where
+instance Core.ToHeaders PutDeliveryChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.PutDeliveryChannel" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.PutDeliveryChannel" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutDeliveryChannel where
+instance Core.ToJSON PutDeliveryChannel where
   toJSON PutDeliveryChannel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DeliveryChannel" Prelude..= deliveryChannel)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("DeliveryChannel" Core..= deliveryChannel)
           ]
       )
 
-instance Prelude.ToPath PutDeliveryChannel where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutDeliveryChannel where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutDeliveryChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutDeliveryChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutDeliveryChannelResponse' smart constructor.
 data PutDeliveryChannelResponse = PutDeliveryChannelResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutDeliveryChannelResponse' with all optional fields omitted.
@@ -150,4 +147,4 @@ newPutDeliveryChannelResponse ::
 newPutDeliveryChannelResponse =
   PutDeliveryChannelResponse'
 
-instance Prelude.NFData PutDeliveryChannelResponse
+instance Core.NFData PutDeliveryChannelResponse

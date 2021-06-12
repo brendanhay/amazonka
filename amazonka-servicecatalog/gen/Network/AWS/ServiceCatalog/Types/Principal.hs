@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.Principal where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.PrincipalType
 
 -- | Information about a principal.
@@ -29,11 +28,11 @@ import Network.AWS.ServiceCatalog.Types.PrincipalType
 -- /See:/ 'newPrincipal' smart constructor.
 data Principal = Principal'
   { -- | The ARN of the principal (IAM user, role, or group).
-    principalARN :: Prelude.Maybe Prelude.Text,
+    principalARN :: Core.Maybe Core.Text,
     -- | The principal type. The supported value is @IAM@.
-    principalType :: Prelude.Maybe PrincipalType
+    principalType :: Core.Maybe PrincipalType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Principal' with all optional fields omitted.
@@ -50,28 +49,28 @@ newPrincipal ::
   Principal
 newPrincipal =
   Principal'
-    { principalARN = Prelude.Nothing,
-      principalType = Prelude.Nothing
+    { principalARN = Core.Nothing,
+      principalType = Core.Nothing
     }
 
 -- | The ARN of the principal (IAM user, role, or group).
-principal_principalARN :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
+principal_principalARN :: Lens.Lens' Principal (Core.Maybe Core.Text)
 principal_principalARN = Lens.lens (\Principal' {principalARN} -> principalARN) (\s@Principal' {} a -> s {principalARN = a} :: Principal)
 
 -- | The principal type. The supported value is @IAM@.
-principal_principalType :: Lens.Lens' Principal (Prelude.Maybe PrincipalType)
+principal_principalType :: Lens.Lens' Principal (Core.Maybe PrincipalType)
 principal_principalType = Lens.lens (\Principal' {principalType} -> principalType) (\s@Principal' {} a -> s {principalType = a} :: Principal)
 
-instance Prelude.FromJSON Principal where
+instance Core.FromJSON Principal where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Principal"
       ( \x ->
           Principal'
-            Prelude.<$> (x Prelude..:? "PrincipalARN")
-            Prelude.<*> (x Prelude..:? "PrincipalType")
+            Core.<$> (x Core..:? "PrincipalARN")
+            Core.<*> (x Core..:? "PrincipalType")
       )
 
-instance Prelude.Hashable Principal
+instance Core.Hashable Principal
 
-instance Prelude.NFData Principal
+instance Core.NFData Principal

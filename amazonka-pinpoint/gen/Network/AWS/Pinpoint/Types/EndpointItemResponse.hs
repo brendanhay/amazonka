@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.EndpointItemResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the status code and message that result from processing data
 -- for an endpoint.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data EndpointItemResponse = EndpointItemResponse'
   { -- | The custom message that\'s returned in the response as a result of
     -- processing the endpoint data.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The status code that\'s returned in the response as a result of
     -- processing the endpoint data.
-    statusCode :: Prelude.Maybe Prelude.Int
+    statusCode :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EndpointItemResponse' with all optional fields omitted.
@@ -54,30 +53,30 @@ newEndpointItemResponse ::
   EndpointItemResponse
 newEndpointItemResponse =
   EndpointItemResponse'
-    { message = Prelude.Nothing,
-      statusCode = Prelude.Nothing
+    { message = Core.Nothing,
+      statusCode = Core.Nothing
     }
 
 -- | The custom message that\'s returned in the response as a result of
 -- processing the endpoint data.
-endpointItemResponse_message :: Lens.Lens' EndpointItemResponse (Prelude.Maybe Prelude.Text)
+endpointItemResponse_message :: Lens.Lens' EndpointItemResponse (Core.Maybe Core.Text)
 endpointItemResponse_message = Lens.lens (\EndpointItemResponse' {message} -> message) (\s@EndpointItemResponse' {} a -> s {message = a} :: EndpointItemResponse)
 
 -- | The status code that\'s returned in the response as a result of
 -- processing the endpoint data.
-endpointItemResponse_statusCode :: Lens.Lens' EndpointItemResponse (Prelude.Maybe Prelude.Int)
+endpointItemResponse_statusCode :: Lens.Lens' EndpointItemResponse (Core.Maybe Core.Int)
 endpointItemResponse_statusCode = Lens.lens (\EndpointItemResponse' {statusCode} -> statusCode) (\s@EndpointItemResponse' {} a -> s {statusCode = a} :: EndpointItemResponse)
 
-instance Prelude.FromJSON EndpointItemResponse where
+instance Core.FromJSON EndpointItemResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EndpointItemResponse"
       ( \x ->
           EndpointItemResponse'
-            Prelude.<$> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "StatusCode")
+            Core.<$> (x Core..:? "Message")
+            Core.<*> (x Core..:? "StatusCode")
       )
 
-instance Prelude.Hashable EndpointItemResponse
+instance Core.Hashable EndpointItemResponse
 
-instance Prelude.NFData EndpointItemResponse
+instance Core.NFData EndpointItemResponse

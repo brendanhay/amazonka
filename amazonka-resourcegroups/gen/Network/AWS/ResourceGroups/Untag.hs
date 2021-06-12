@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.ResourceGroups.Untag
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -59,11 +58,11 @@ data Untag = Untag'
   { -- | The ARN of the resource group from which to remove tags. The command
     -- removed both the specified keys and any values associated with those
     -- keys.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | The keys of the tags to be removed.
-    keys :: [Prelude.Text]
+    keys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Untag' with all optional fields omitted.
@@ -80,65 +79,63 @@ data Untag = Untag'
 -- 'keys', 'untag_keys' - The keys of the tags to be removed.
 newUntag ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   Untag
 newUntag pArn_ =
-  Untag' {arn = pArn_, keys = Prelude.mempty}
+  Untag' {arn = pArn_, keys = Core.mempty}
 
 -- | The ARN of the resource group from which to remove tags. The command
 -- removed both the specified keys and any values associated with those
 -- keys.
-untag_arn :: Lens.Lens' Untag Prelude.Text
+untag_arn :: Lens.Lens' Untag Core.Text
 untag_arn = Lens.lens (\Untag' {arn} -> arn) (\s@Untag' {} a -> s {arn = a} :: Untag)
 
 -- | The keys of the tags to be removed.
-untag_keys :: Lens.Lens' Untag [Prelude.Text]
-untag_keys = Lens.lens (\Untag' {keys} -> keys) (\s@Untag' {} a -> s {keys = a} :: Untag) Prelude.. Prelude._Coerce
+untag_keys :: Lens.Lens' Untag [Core.Text]
+untag_keys = Lens.lens (\Untag' {keys} -> keys) (\s@Untag' {} a -> s {keys = a} :: Untag) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest Untag where
-  type Rs Untag = UntagResponse
+instance Core.AWSRequest Untag where
+  type AWSResponse Untag = UntagResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UntagResponse'
-            Prelude.<$> (x Prelude..?> "Arn")
-            Prelude.<*> (x Prelude..?> "Keys" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Arn")
+            Core.<*> (x Core..?> "Keys" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable Untag
+instance Core.Hashable Untag
 
-instance Prelude.NFData Untag
+instance Core.NFData Untag
 
-instance Prelude.ToHeaders Untag where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders Untag where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON Untag where
+instance Core.ToJSON Untag where
   toJSON Untag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Keys" Prelude..= keys)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Keys" Core..= keys)])
 
-instance Prelude.ToPath Untag where
+instance Core.ToPath Untag where
   toPath Untag' {..} =
-    Prelude.mconcat
-      ["/resources/", Prelude.toBS arn, "/tags"]
+    Core.mconcat
+      ["/resources/", Core.toBS arn, "/tags"]
 
-instance Prelude.ToQuery Untag where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery Untag where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUntagResponse' smart constructor.
 data UntagResponse = UntagResponse'
   { -- | The ARN of the resource group from which tags have been removed.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The keys of the tags that were removed.
-    keys :: Prelude.Maybe [Prelude.Text],
+    keys :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagResponse' with all optional fields omitted.
@@ -155,25 +152,25 @@ data UntagResponse = UntagResponse'
 -- 'httpStatus', 'untagResponse_httpStatus' - The response's http status code.
 newUntagResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UntagResponse
 newUntagResponse pHttpStatus_ =
   UntagResponse'
-    { arn = Prelude.Nothing,
-      keys = Prelude.Nothing,
+    { arn = Core.Nothing,
+      keys = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the resource group from which tags have been removed.
-untagResponse_arn :: Lens.Lens' UntagResponse (Prelude.Maybe Prelude.Text)
+untagResponse_arn :: Lens.Lens' UntagResponse (Core.Maybe Core.Text)
 untagResponse_arn = Lens.lens (\UntagResponse' {arn} -> arn) (\s@UntagResponse' {} a -> s {arn = a} :: UntagResponse)
 
 -- | The keys of the tags that were removed.
-untagResponse_keys :: Lens.Lens' UntagResponse (Prelude.Maybe [Prelude.Text])
-untagResponse_keys = Lens.lens (\UntagResponse' {keys} -> keys) (\s@UntagResponse' {} a -> s {keys = a} :: UntagResponse) Prelude.. Lens.mapping Prelude._Coerce
+untagResponse_keys :: Lens.Lens' UntagResponse (Core.Maybe [Core.Text])
+untagResponse_keys = Lens.lens (\UntagResponse' {keys} -> keys) (\s@UntagResponse' {} a -> s {keys = a} :: UntagResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-untagResponse_httpStatus :: Lens.Lens' UntagResponse Prelude.Int
+untagResponse_httpStatus :: Lens.Lens' UntagResponse Core.Int
 untagResponse_httpStatus = Lens.lens (\UntagResponse' {httpStatus} -> httpStatus) (\s@UntagResponse' {} a -> s {httpStatus = a} :: UntagResponse)
 
-instance Prelude.NFData UntagResponse
+instance Core.NFData UntagResponse

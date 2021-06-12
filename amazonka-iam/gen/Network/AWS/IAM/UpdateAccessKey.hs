@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.IAM.UpdateAccessKey
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,19 +63,19 @@ data UpdateAccessKey = UpdateAccessKey'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Maybe Prelude.Text,
+    userName :: Core.Maybe Core.Text,
     -- | The access key ID of the secret access key you want to update.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that can consist of any upper or lowercased letter or digit.
-    accessKeyId :: Prelude.AccessKey,
+    accessKeyId :: Core.AccessKey,
     -- | The status you want to assign to the secret access key. @Active@ means
     -- that the key can be used for programmatic calls to AWS, while @Inactive@
     -- means that the key cannot be used.
     status :: StatusType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAccessKey' with all optional fields omitted.
@@ -104,13 +103,13 @@ data UpdateAccessKey = UpdateAccessKey'
 -- means that the key cannot be used.
 newUpdateAccessKey ::
   -- | 'accessKeyId'
-  Prelude.AccessKey ->
+  Core.AccessKey ->
   -- | 'status'
   StatusType ->
   UpdateAccessKey
 newUpdateAccessKey pAccessKeyId_ pStatus_ =
   UpdateAccessKey'
-    { userName = Prelude.Nothing,
+    { userName = Core.Nothing,
       accessKeyId = pAccessKeyId_,
       status = pStatus_
     }
@@ -121,7 +120,7 @@ newUpdateAccessKey pAccessKeyId_ pStatus_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-updateAccessKey_userName :: Lens.Lens' UpdateAccessKey (Prelude.Maybe Prelude.Text)
+updateAccessKey_userName :: Lens.Lens' UpdateAccessKey (Core.Maybe Core.Text)
 updateAccessKey_userName = Lens.lens (\UpdateAccessKey' {userName} -> userName) (\s@UpdateAccessKey' {} a -> s {userName = a} :: UpdateAccessKey)
 
 -- | The access key ID of the secret access key you want to update.
@@ -129,7 +128,7 @@ updateAccessKey_userName = Lens.lens (\UpdateAccessKey' {userName} -> userName) 
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that can consist of any upper or lowercased letter or digit.
-updateAccessKey_accessKeyId :: Lens.Lens' UpdateAccessKey Prelude.AccessKey
+updateAccessKey_accessKeyId :: Lens.Lens' UpdateAccessKey Core.AccessKey
 updateAccessKey_accessKeyId = Lens.lens (\UpdateAccessKey' {accessKeyId} -> accessKeyId) (\s@UpdateAccessKey' {} a -> s {accessKeyId = a} :: UpdateAccessKey)
 
 -- | The status you want to assign to the secret access key. @Active@ means
@@ -138,39 +137,40 @@ updateAccessKey_accessKeyId = Lens.lens (\UpdateAccessKey' {accessKeyId} -> acce
 updateAccessKey_status :: Lens.Lens' UpdateAccessKey StatusType
 updateAccessKey_status = Lens.lens (\UpdateAccessKey' {status} -> status) (\s@UpdateAccessKey' {} a -> s {status = a} :: UpdateAccessKey)
 
-instance Prelude.AWSRequest UpdateAccessKey where
-  type Rs UpdateAccessKey = UpdateAccessKeyResponse
+instance Core.AWSRequest UpdateAccessKey where
+  type
+    AWSResponse UpdateAccessKey =
+      UpdateAccessKeyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull UpdateAccessKeyResponse'
 
-instance Prelude.Hashable UpdateAccessKey
+instance Core.Hashable UpdateAccessKey
 
-instance Prelude.NFData UpdateAccessKey
+instance Core.NFData UpdateAccessKey
 
-instance Prelude.ToHeaders UpdateAccessKey where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateAccessKey where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateAccessKey where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateAccessKey where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateAccessKey where
+instance Core.ToQuery UpdateAccessKey where
   toQuery UpdateAccessKey' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UpdateAccessKey" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "AccessKeyId" Prelude.=: accessKeyId,
-        "Status" Prelude.=: status
+          Core.=: ("UpdateAccessKey" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "AccessKeyId" Core.=: accessKeyId,
+        "Status" Core.=: status
       ]
 
 -- | /See:/ 'newUpdateAccessKeyResponse' smart constructor.
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAccessKeyResponse' with all optional fields omitted.
@@ -180,4 +180,4 @@ newUpdateAccessKeyResponse ::
   UpdateAccessKeyResponse
 newUpdateAccessKeyResponse = UpdateAccessKeyResponse'
 
-instance Prelude.NFData UpdateAccessKeyResponse
+instance Core.NFData UpdateAccessKeyResponse

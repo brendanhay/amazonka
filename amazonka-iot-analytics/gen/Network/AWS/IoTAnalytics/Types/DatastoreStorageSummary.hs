@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary
 import Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Where data store data is stored.
 --
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data DatastoreStorageSummary = DatastoreStorageSummary'
   { -- | Used to store data store data in an S3 bucket managed by AWS IoT
     -- Analytics.
-    serviceManagedS3 :: Prelude.Maybe ServiceManagedDatastoreS3StorageSummary,
+    serviceManagedS3 :: Core.Maybe ServiceManagedDatastoreS3StorageSummary,
     -- | Used to store data store data in an S3 bucket that you manage.
-    customerManagedS3 :: Prelude.Maybe CustomerManagedDatastoreS3StorageSummary
+    customerManagedS3 :: Core.Maybe CustomerManagedDatastoreS3StorageSummary
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DatastoreStorageSummary' with all optional fields omitted.
@@ -54,29 +53,29 @@ newDatastoreStorageSummary ::
 newDatastoreStorageSummary =
   DatastoreStorageSummary'
     { serviceManagedS3 =
-        Prelude.Nothing,
-      customerManagedS3 = Prelude.Nothing
+        Core.Nothing,
+      customerManagedS3 = Core.Nothing
     }
 
 -- | Used to store data store data in an S3 bucket managed by AWS IoT
 -- Analytics.
-datastoreStorageSummary_serviceManagedS3 :: Lens.Lens' DatastoreStorageSummary (Prelude.Maybe ServiceManagedDatastoreS3StorageSummary)
+datastoreStorageSummary_serviceManagedS3 :: Lens.Lens' DatastoreStorageSummary (Core.Maybe ServiceManagedDatastoreS3StorageSummary)
 datastoreStorageSummary_serviceManagedS3 = Lens.lens (\DatastoreStorageSummary' {serviceManagedS3} -> serviceManagedS3) (\s@DatastoreStorageSummary' {} a -> s {serviceManagedS3 = a} :: DatastoreStorageSummary)
 
 -- | Used to store data store data in an S3 bucket that you manage.
-datastoreStorageSummary_customerManagedS3 :: Lens.Lens' DatastoreStorageSummary (Prelude.Maybe CustomerManagedDatastoreS3StorageSummary)
+datastoreStorageSummary_customerManagedS3 :: Lens.Lens' DatastoreStorageSummary (Core.Maybe CustomerManagedDatastoreS3StorageSummary)
 datastoreStorageSummary_customerManagedS3 = Lens.lens (\DatastoreStorageSummary' {customerManagedS3} -> customerManagedS3) (\s@DatastoreStorageSummary' {} a -> s {customerManagedS3 = a} :: DatastoreStorageSummary)
 
-instance Prelude.FromJSON DatastoreStorageSummary where
+instance Core.FromJSON DatastoreStorageSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DatastoreStorageSummary"
       ( \x ->
           DatastoreStorageSummary'
-            Prelude.<$> (x Prelude..:? "serviceManagedS3")
-            Prelude.<*> (x Prelude..:? "customerManagedS3")
+            Core.<$> (x Core..:? "serviceManagedS3")
+            Core.<*> (x Core..:? "customerManagedS3")
       )
 
-instance Prelude.Hashable DatastoreStorageSummary
+instance Core.Hashable DatastoreStorageSummary
 
-instance Prelude.NFData DatastoreStorageSummary
+instance Core.NFData DatastoreStorageSummary

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.XssMatchSetSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -44,11 +43,11 @@ data XssMatchSetSummary = XssMatchSetSummary'
     --
     -- @XssMatchSetId@ is returned by CreateXssMatchSet and by
     -- ListXssMatchSets.
-    xssMatchSetId :: Prelude.Text,
+    xssMatchSetId :: Core.Text,
     -- | The name of the @XssMatchSet@, if any, specified by @Id@.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'XssMatchSetSummary' with all optional fields omitted.
@@ -70,9 +69,9 @@ data XssMatchSetSummary = XssMatchSetSummary'
 -- 'name', 'xssMatchSetSummary_name' - The name of the @XssMatchSet@, if any, specified by @Id@.
 newXssMatchSetSummary ::
   -- | 'xssMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   XssMatchSetSummary
 newXssMatchSetSummary pXssMatchSetId_ pName_ =
   XssMatchSetSummary'
@@ -89,23 +88,23 @@ newXssMatchSetSummary pXssMatchSetId_ pName_ =
 --
 -- @XssMatchSetId@ is returned by CreateXssMatchSet and by
 -- ListXssMatchSets.
-xssMatchSetSummary_xssMatchSetId :: Lens.Lens' XssMatchSetSummary Prelude.Text
+xssMatchSetSummary_xssMatchSetId :: Lens.Lens' XssMatchSetSummary Core.Text
 xssMatchSetSummary_xssMatchSetId = Lens.lens (\XssMatchSetSummary' {xssMatchSetId} -> xssMatchSetId) (\s@XssMatchSetSummary' {} a -> s {xssMatchSetId = a} :: XssMatchSetSummary)
 
 -- | The name of the @XssMatchSet@, if any, specified by @Id@.
-xssMatchSetSummary_name :: Lens.Lens' XssMatchSetSummary Prelude.Text
+xssMatchSetSummary_name :: Lens.Lens' XssMatchSetSummary Core.Text
 xssMatchSetSummary_name = Lens.lens (\XssMatchSetSummary' {name} -> name) (\s@XssMatchSetSummary' {} a -> s {name = a} :: XssMatchSetSummary)
 
-instance Prelude.FromJSON XssMatchSetSummary where
+instance Core.FromJSON XssMatchSetSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "XssMatchSetSummary"
       ( \x ->
           XssMatchSetSummary'
-            Prelude.<$> (x Prelude..: "XssMatchSetId")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..: "XssMatchSetId")
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable XssMatchSetSummary
+instance Core.Hashable XssMatchSetSummary
 
-instance Prelude.NFData XssMatchSetSummary
+instance Core.NFData XssMatchSetSummary

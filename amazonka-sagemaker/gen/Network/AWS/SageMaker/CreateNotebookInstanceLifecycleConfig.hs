@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,8 +59,8 @@ module Network.AWS.SageMaker.CreateNotebookInstanceLifecycleConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -71,14 +70,14 @@ data CreateNotebookInstanceLifecycleConfig = CreateNotebookInstanceLifecycleConf
   { -- | A shell script that runs every time you start a notebook instance,
     -- including when you create the notebook instance. The shell script must
     -- be a base64-encoded string.
-    onStart :: Prelude.Maybe [NotebookInstanceLifecycleHook],
+    onStart :: Core.Maybe [NotebookInstanceLifecycleHook],
     -- | A shell script that runs only once, when you create a notebook instance.
     -- The shell script must be a base64-encoded string.
-    onCreate :: Prelude.Maybe [NotebookInstanceLifecycleHook],
+    onCreate :: Core.Maybe [NotebookInstanceLifecycleHook],
     -- | The name of the lifecycle configuration.
-    notebookInstanceLifecycleConfigName :: Prelude.Text
+    notebookInstanceLifecycleConfigName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNotebookInstanceLifecycleConfig' with all optional fields omitted.
@@ -98,14 +97,14 @@ data CreateNotebookInstanceLifecycleConfig = CreateNotebookInstanceLifecycleConf
 -- 'notebookInstanceLifecycleConfigName', 'createNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
 newCreateNotebookInstanceLifecycleConfig ::
   -- | 'notebookInstanceLifecycleConfigName'
-  Prelude.Text ->
+  Core.Text ->
   CreateNotebookInstanceLifecycleConfig
 newCreateNotebookInstanceLifecycleConfig
   pNotebookInstanceLifecycleConfigName_ =
     CreateNotebookInstanceLifecycleConfig'
       { onStart =
-          Prelude.Nothing,
-        onCreate = Prelude.Nothing,
+          Core.Nothing,
+        onCreate = Core.Nothing,
         notebookInstanceLifecycleConfigName =
           pNotebookInstanceLifecycleConfigName_
       }
@@ -113,96 +112,95 @@ newCreateNotebookInstanceLifecycleConfig
 -- | A shell script that runs every time you start a notebook instance,
 -- including when you create the notebook instance. The shell script must
 -- be a base64-encoded string.
-createNotebookInstanceLifecycleConfig_onStart :: Lens.Lens' CreateNotebookInstanceLifecycleConfig (Prelude.Maybe [NotebookInstanceLifecycleHook])
-createNotebookInstanceLifecycleConfig_onStart = Lens.lens (\CreateNotebookInstanceLifecycleConfig' {onStart} -> onStart) (\s@CreateNotebookInstanceLifecycleConfig' {} a -> s {onStart = a} :: CreateNotebookInstanceLifecycleConfig) Prelude.. Lens.mapping Prelude._Coerce
+createNotebookInstanceLifecycleConfig_onStart :: Lens.Lens' CreateNotebookInstanceLifecycleConfig (Core.Maybe [NotebookInstanceLifecycleHook])
+createNotebookInstanceLifecycleConfig_onStart = Lens.lens (\CreateNotebookInstanceLifecycleConfig' {onStart} -> onStart) (\s@CreateNotebookInstanceLifecycleConfig' {} a -> s {onStart = a} :: CreateNotebookInstanceLifecycleConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | A shell script that runs only once, when you create a notebook instance.
 -- The shell script must be a base64-encoded string.
-createNotebookInstanceLifecycleConfig_onCreate :: Lens.Lens' CreateNotebookInstanceLifecycleConfig (Prelude.Maybe [NotebookInstanceLifecycleHook])
-createNotebookInstanceLifecycleConfig_onCreate = Lens.lens (\CreateNotebookInstanceLifecycleConfig' {onCreate} -> onCreate) (\s@CreateNotebookInstanceLifecycleConfig' {} a -> s {onCreate = a} :: CreateNotebookInstanceLifecycleConfig) Prelude.. Lens.mapping Prelude._Coerce
+createNotebookInstanceLifecycleConfig_onCreate :: Lens.Lens' CreateNotebookInstanceLifecycleConfig (Core.Maybe [NotebookInstanceLifecycleHook])
+createNotebookInstanceLifecycleConfig_onCreate = Lens.lens (\CreateNotebookInstanceLifecycleConfig' {onCreate} -> onCreate) (\s@CreateNotebookInstanceLifecycleConfig' {} a -> s {onCreate = a} :: CreateNotebookInstanceLifecycleConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the lifecycle configuration.
-createNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName :: Lens.Lens' CreateNotebookInstanceLifecycleConfig Prelude.Text
+createNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName :: Lens.Lens' CreateNotebookInstanceLifecycleConfig Core.Text
 createNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName = Lens.lens (\CreateNotebookInstanceLifecycleConfig' {notebookInstanceLifecycleConfigName} -> notebookInstanceLifecycleConfigName) (\s@CreateNotebookInstanceLifecycleConfig' {} a -> s {notebookInstanceLifecycleConfigName = a} :: CreateNotebookInstanceLifecycleConfig)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateNotebookInstanceLifecycleConfig
   where
   type
-    Rs CreateNotebookInstanceLifecycleConfig =
+    AWSResponse
+      CreateNotebookInstanceLifecycleConfig =
       CreateNotebookInstanceLifecycleConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateNotebookInstanceLifecycleConfigResponse'
-            Prelude.<$> (x Prelude..?> "NotebookInstanceLifecycleConfigArn")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NotebookInstanceLifecycleConfigArn")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateNotebookInstanceLifecycleConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateNotebookInstanceLifecycleConfig
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     CreateNotebookInstanceLifecycleConfig
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.CreateNotebookInstanceLifecycleConfig" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.CreateNotebookInstanceLifecycleConfig" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     CreateNotebookInstanceLifecycleConfig
   where
   toJSON CreateNotebookInstanceLifecycleConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("OnStart" Prelude..=) Prelude.<$> onStart,
-            ("OnCreate" Prelude..=) Prelude.<$> onCreate,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("OnStart" Core..=) Core.<$> onStart,
+            ("OnCreate" Core..=) Core.<$> onCreate,
+            Core.Just
               ( "NotebookInstanceLifecycleConfigName"
-                  Prelude..= notebookInstanceLifecycleConfigName
+                  Core..= notebookInstanceLifecycleConfigName
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     CreateNotebookInstanceLifecycleConfig
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CreateNotebookInstanceLifecycleConfig
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateNotebookInstanceLifecycleConfigResponse' smart constructor.
 data CreateNotebookInstanceLifecycleConfigResponse = CreateNotebookInstanceLifecycleConfigResponse'
   { -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
-    notebookInstanceLifecycleConfigArn :: Prelude.Maybe Prelude.Text,
+    notebookInstanceLifecycleConfigArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNotebookInstanceLifecycleConfigResponse' with all optional fields omitted.
@@ -217,24 +215,24 @@ data CreateNotebookInstanceLifecycleConfigResponse = CreateNotebookInstanceLifec
 -- 'httpStatus', 'createNotebookInstanceLifecycleConfigResponse_httpStatus' - The response's http status code.
 newCreateNotebookInstanceLifecycleConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateNotebookInstanceLifecycleConfigResponse
 newCreateNotebookInstanceLifecycleConfigResponse
   pHttpStatus_ =
     CreateNotebookInstanceLifecycleConfigResponse'
       { notebookInstanceLifecycleConfigArn =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
-createNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigArn :: Lens.Lens' CreateNotebookInstanceLifecycleConfigResponse (Prelude.Maybe Prelude.Text)
+createNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigArn :: Lens.Lens' CreateNotebookInstanceLifecycleConfigResponse (Core.Maybe Core.Text)
 createNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigArn = Lens.lens (\CreateNotebookInstanceLifecycleConfigResponse' {notebookInstanceLifecycleConfigArn} -> notebookInstanceLifecycleConfigArn) (\s@CreateNotebookInstanceLifecycleConfigResponse' {} a -> s {notebookInstanceLifecycleConfigArn = a} :: CreateNotebookInstanceLifecycleConfigResponse)
 
 -- | The response's http status code.
-createNotebookInstanceLifecycleConfigResponse_httpStatus :: Lens.Lens' CreateNotebookInstanceLifecycleConfigResponse Prelude.Int
+createNotebookInstanceLifecycleConfigResponse_httpStatus :: Lens.Lens' CreateNotebookInstanceLifecycleConfigResponse Core.Int
 createNotebookInstanceLifecycleConfigResponse_httpStatus = Lens.lens (\CreateNotebookInstanceLifecycleConfigResponse' {httpStatus} -> httpStatus) (\s@CreateNotebookInstanceLifecycleConfigResponse' {} a -> s {httpStatus = a} :: CreateNotebookInstanceLifecycleConfigResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateNotebookInstanceLifecycleConfigResponse

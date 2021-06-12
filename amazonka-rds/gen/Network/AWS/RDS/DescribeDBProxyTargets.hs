@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.RDS.DescribeDBProxyTargets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -58,13 +56,13 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDescribeDBProxyTargets' smart constructor.
 data DescribeDBProxyTargets = DescribeDBProxyTargets'
   { -- | The identifier of the @DBProxyTargetGroup@ to describe.
-    targetGroupName :: Prelude.Maybe Prelude.Text,
+    targetGroupName :: Core.Maybe Core.Text,
     -- | This parameter is not currently supported.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -73,11 +71,11 @@ data DescribeDBProxyTargets = DescribeDBProxyTargets'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Natural,
+    maxRecords :: Core.Maybe Core.Natural,
     -- | The identifier of the @DBProxyTarget@ to describe.
-    dbProxyName :: Prelude.Text
+    dbProxyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDBProxyTargets' with all optional fields omitted.
@@ -107,30 +105,30 @@ data DescribeDBProxyTargets = DescribeDBProxyTargets'
 -- 'dbProxyName', 'describeDBProxyTargets_dbProxyName' - The identifier of the @DBProxyTarget@ to describe.
 newDescribeDBProxyTargets ::
   -- | 'dbProxyName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeDBProxyTargets
 newDescribeDBProxyTargets pDBProxyName_ =
   DescribeDBProxyTargets'
     { targetGroupName =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
+        Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
       dbProxyName = pDBProxyName_
     }
 
 -- | The identifier of the @DBProxyTargetGroup@ to describe.
-describeDBProxyTargets_targetGroupName :: Lens.Lens' DescribeDBProxyTargets (Prelude.Maybe Prelude.Text)
+describeDBProxyTargets_targetGroupName :: Lens.Lens' DescribeDBProxyTargets (Core.Maybe Core.Text)
 describeDBProxyTargets_targetGroupName = Lens.lens (\DescribeDBProxyTargets' {targetGroupName} -> targetGroupName) (\s@DescribeDBProxyTargets' {} a -> s {targetGroupName = a} :: DescribeDBProxyTargets)
 
 -- | This parameter is not currently supported.
-describeDBProxyTargets_filters :: Lens.Lens' DescribeDBProxyTargets (Prelude.Maybe [Filter])
-describeDBProxyTargets_filters = Lens.lens (\DescribeDBProxyTargets' {filters} -> filters) (\s@DescribeDBProxyTargets' {} a -> s {filters = a} :: DescribeDBProxyTargets) Prelude.. Lens.mapping Prelude._Coerce
+describeDBProxyTargets_filters :: Lens.Lens' DescribeDBProxyTargets (Core.Maybe [Filter])
+describeDBProxyTargets_filters = Lens.lens (\DescribeDBProxyTargets' {filters} -> filters) (\s@DescribeDBProxyTargets' {} a -> s {filters = a} :: DescribeDBProxyTargets) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeDBProxyTargets_marker :: Lens.Lens' DescribeDBProxyTargets (Prelude.Maybe Prelude.Text)
+describeDBProxyTargets_marker :: Lens.Lens' DescribeDBProxyTargets (Core.Maybe Core.Text)
 describeDBProxyTargets_marker = Lens.lens (\DescribeDBProxyTargets' {marker} -> marker) (\s@DescribeDBProxyTargets' {} a -> s {marker = a} :: DescribeDBProxyTargets)
 
 -- | The maximum number of records to include in the response. If more
@@ -141,38 +139,38 @@ describeDBProxyTargets_marker = Lens.lens (\DescribeDBProxyTargets' {marker} -> 
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeDBProxyTargets_maxRecords :: Lens.Lens' DescribeDBProxyTargets (Prelude.Maybe Prelude.Natural)
+describeDBProxyTargets_maxRecords :: Lens.Lens' DescribeDBProxyTargets (Core.Maybe Core.Natural)
 describeDBProxyTargets_maxRecords = Lens.lens (\DescribeDBProxyTargets' {maxRecords} -> maxRecords) (\s@DescribeDBProxyTargets' {} a -> s {maxRecords = a} :: DescribeDBProxyTargets)
 
 -- | The identifier of the @DBProxyTarget@ to describe.
-describeDBProxyTargets_dbProxyName :: Lens.Lens' DescribeDBProxyTargets Prelude.Text
+describeDBProxyTargets_dbProxyName :: Lens.Lens' DescribeDBProxyTargets Core.Text
 describeDBProxyTargets_dbProxyName = Lens.lens (\DescribeDBProxyTargets' {dbProxyName} -> dbProxyName) (\s@DescribeDBProxyTargets' {} a -> s {dbProxyName = a} :: DescribeDBProxyTargets)
 
-instance Pager.AWSPager DescribeDBProxyTargets where
+instance Core.AWSPager DescribeDBProxyTargets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeDBProxyTargetsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeDBProxyTargetsResponse_targets
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeDBProxyTargets_marker
           Lens..~ rs
           Lens.^? describeDBProxyTargetsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeDBProxyTargets where
+instance Core.AWSRequest DescribeDBProxyTargets where
   type
-    Rs DescribeDBProxyTargets =
+    AWSResponse DescribeDBProxyTargets =
       DescribeDBProxyTargetsResponse
   request = Request.postQuery defaultService
   response =
@@ -180,52 +178,51 @@ instance Prelude.AWSRequest DescribeDBProxyTargets where
       "DescribeDBProxyTargetsResult"
       ( \s h x ->
           DescribeDBProxyTargetsResponse'
-            Prelude.<$> ( x Prelude..@? "Targets" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Targets" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBProxyTargets
+instance Core.Hashable DescribeDBProxyTargets
 
-instance Prelude.NFData DescribeDBProxyTargets
+instance Core.NFData DescribeDBProxyTargets
 
-instance Prelude.ToHeaders DescribeDBProxyTargets where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeDBProxyTargets where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeDBProxyTargets where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeDBProxyTargets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeDBProxyTargets where
+instance Core.ToQuery DescribeDBProxyTargets where
   toQuery DescribeDBProxyTargets' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeDBProxyTargets" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "TargetGroupName" Prelude.=: targetGroupName,
+          Core.=: ("DescribeDBProxyTargets" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "TargetGroupName" Core.=: targetGroupName,
         "Filters"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords,
-        "DBProxyName" Prelude.=: dbProxyName
+          Core.=: Core.toQuery
+            (Core.toQueryList "Filter" Core.<$> filters),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords,
+        "DBProxyName" Core.=: dbProxyName
       ]
 
 -- | /See:/ 'newDescribeDBProxyTargetsResponse' smart constructor.
 data DescribeDBProxyTargetsResponse = DescribeDBProxyTargetsResponse'
   { -- | An arbitrary number of @DBProxyTarget@ objects, containing details of
     -- the corresponding targets.
-    targets :: Prelude.Maybe [DBProxyTarget],
+    targets :: Core.Maybe [DBProxyTarget],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDBProxyTargetsResponse' with all optional fields omitted.
@@ -245,31 +242,29 @@ data DescribeDBProxyTargetsResponse = DescribeDBProxyTargetsResponse'
 -- 'httpStatus', 'describeDBProxyTargetsResponse_httpStatus' - The response's http status code.
 newDescribeDBProxyTargetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeDBProxyTargetsResponse
 newDescribeDBProxyTargetsResponse pHttpStatus_ =
   DescribeDBProxyTargetsResponse'
     { targets =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An arbitrary number of @DBProxyTarget@ objects, containing details of
 -- the corresponding targets.
-describeDBProxyTargetsResponse_targets :: Lens.Lens' DescribeDBProxyTargetsResponse (Prelude.Maybe [DBProxyTarget])
-describeDBProxyTargetsResponse_targets = Lens.lens (\DescribeDBProxyTargetsResponse' {targets} -> targets) (\s@DescribeDBProxyTargetsResponse' {} a -> s {targets = a} :: DescribeDBProxyTargetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeDBProxyTargetsResponse_targets :: Lens.Lens' DescribeDBProxyTargetsResponse (Core.Maybe [DBProxyTarget])
+describeDBProxyTargetsResponse_targets = Lens.lens (\DescribeDBProxyTargetsResponse' {targets} -> targets) (\s@DescribeDBProxyTargetsResponse' {} a -> s {targets = a} :: DescribeDBProxyTargetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeDBProxyTargetsResponse_marker :: Lens.Lens' DescribeDBProxyTargetsResponse (Prelude.Maybe Prelude.Text)
+describeDBProxyTargetsResponse_marker :: Lens.Lens' DescribeDBProxyTargetsResponse (Core.Maybe Core.Text)
 describeDBProxyTargetsResponse_marker = Lens.lens (\DescribeDBProxyTargetsResponse' {marker} -> marker) (\s@DescribeDBProxyTargetsResponse' {} a -> s {marker = a} :: DescribeDBProxyTargetsResponse)
 
 -- | The response's http status code.
-describeDBProxyTargetsResponse_httpStatus :: Lens.Lens' DescribeDBProxyTargetsResponse Prelude.Int
+describeDBProxyTargetsResponse_httpStatus :: Lens.Lens' DescribeDBProxyTargetsResponse Core.Int
 describeDBProxyTargetsResponse_httpStatus = Lens.lens (\DescribeDBProxyTargetsResponse' {httpStatus} -> httpStatus) (\s@DescribeDBProxyTargetsResponse' {} a -> s {httpStatus = a} :: DescribeDBProxyTargetsResponse)
 
-instance
-  Prelude.NFData
-    DescribeDBProxyTargetsResponse
+instance Core.NFData DescribeDBProxyTargetsResponse

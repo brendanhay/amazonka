@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.StorageGateway.JoinDomain
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -61,30 +60,30 @@ data JoinDomain = JoinDomain'
   { -- | List of IPv4 addresses, NetBIOS names, or host names of your domain
     -- server. If you need to specify the port number include it after the
     -- colon (“:”). For example, @mydc.mydomain.com:389@.
-    domainControllers :: Prelude.Maybe [Prelude.Text],
+    domainControllers :: Core.Maybe [Core.Text],
     -- | The organizational unit (OU) is a container in an Active Directory that
     -- can hold users, groups, computers, and other OUs and this parameter
     -- specifies the OU that the gateway will join within the AD domain.
-    organizationalUnit :: Prelude.Maybe Prelude.Text,
+    organizationalUnit :: Core.Maybe Core.Text,
     -- | Specifies the time in seconds, in which the @JoinDomain@ operation must
     -- complete. The default is 20 seconds.
-    timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
+    timeoutInSeconds :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
     -- operation to return a list of gateways for your account and AWS Region.
-    gatewayARN :: Prelude.Text,
+    gatewayARN :: Core.Text,
     -- | The name of the domain that you want the gateway to join.
-    domainName :: Prelude.Text,
+    domainName :: Core.Text,
     -- | Sets the user name of user who has permission to add the gateway to the
     -- Active Directory domain. The domain user account should be enabled to
     -- join computers to the domain. For example, you can use the domain
     -- administrator account or an account with delegated permissions to join
     -- computers to the domain.
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | Sets the password of the user who has permission to add the gateway to
     -- the Active Directory domain.
-    password :: Prelude.Sensitive Prelude.Text
+    password :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JoinDomain' with all optional fields omitted.
@@ -120,13 +119,13 @@ data JoinDomain = JoinDomain'
 -- the Active Directory domain.
 newJoinDomain ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'password'
-  Prelude.Text ->
+  Core.Text ->
   JoinDomain
 newJoinDomain
   pGatewayARN_
@@ -134,39 +133,39 @@ newJoinDomain
   pUserName_
   pPassword_ =
     JoinDomain'
-      { domainControllers = Prelude.Nothing,
-        organizationalUnit = Prelude.Nothing,
-        timeoutInSeconds = Prelude.Nothing,
+      { domainControllers = Core.Nothing,
+        organizationalUnit = Core.Nothing,
+        timeoutInSeconds = Core.Nothing,
         gatewayARN = pGatewayARN_,
         domainName = pDomainName_,
         userName = pUserName_,
-        password = Prelude._Sensitive Lens.# pPassword_
+        password = Core._Sensitive Lens.# pPassword_
       }
 
 -- | List of IPv4 addresses, NetBIOS names, or host names of your domain
 -- server. If you need to specify the port number include it after the
 -- colon (“:”). For example, @mydc.mydomain.com:389@.
-joinDomain_domainControllers :: Lens.Lens' JoinDomain (Prelude.Maybe [Prelude.Text])
-joinDomain_domainControllers = Lens.lens (\JoinDomain' {domainControllers} -> domainControllers) (\s@JoinDomain' {} a -> s {domainControllers = a} :: JoinDomain) Prelude.. Lens.mapping Prelude._Coerce
+joinDomain_domainControllers :: Lens.Lens' JoinDomain (Core.Maybe [Core.Text])
+joinDomain_domainControllers = Lens.lens (\JoinDomain' {domainControllers} -> domainControllers) (\s@JoinDomain' {} a -> s {domainControllers = a} :: JoinDomain) Core.. Lens.mapping Lens._Coerce
 
 -- | The organizational unit (OU) is a container in an Active Directory that
 -- can hold users, groups, computers, and other OUs and this parameter
 -- specifies the OU that the gateway will join within the AD domain.
-joinDomain_organizationalUnit :: Lens.Lens' JoinDomain (Prelude.Maybe Prelude.Text)
+joinDomain_organizationalUnit :: Lens.Lens' JoinDomain (Core.Maybe Core.Text)
 joinDomain_organizationalUnit = Lens.lens (\JoinDomain' {organizationalUnit} -> organizationalUnit) (\s@JoinDomain' {} a -> s {organizationalUnit = a} :: JoinDomain)
 
 -- | Specifies the time in seconds, in which the @JoinDomain@ operation must
 -- complete. The default is 20 seconds.
-joinDomain_timeoutInSeconds :: Lens.Lens' JoinDomain (Prelude.Maybe Prelude.Natural)
+joinDomain_timeoutInSeconds :: Lens.Lens' JoinDomain (Core.Maybe Core.Natural)
 joinDomain_timeoutInSeconds = Lens.lens (\JoinDomain' {timeoutInSeconds} -> timeoutInSeconds) (\s@JoinDomain' {} a -> s {timeoutInSeconds = a} :: JoinDomain)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
 -- operation to return a list of gateways for your account and AWS Region.
-joinDomain_gatewayARN :: Lens.Lens' JoinDomain Prelude.Text
+joinDomain_gatewayARN :: Lens.Lens' JoinDomain Core.Text
 joinDomain_gatewayARN = Lens.lens (\JoinDomain' {gatewayARN} -> gatewayARN) (\s@JoinDomain' {} a -> s {gatewayARN = a} :: JoinDomain)
 
 -- | The name of the domain that you want the gateway to join.
-joinDomain_domainName :: Lens.Lens' JoinDomain Prelude.Text
+joinDomain_domainName :: Lens.Lens' JoinDomain Core.Text
 joinDomain_domainName = Lens.lens (\JoinDomain' {domainName} -> domainName) (\s@JoinDomain' {} a -> s {domainName = a} :: JoinDomain)
 
 -- | Sets the user name of user who has permission to add the gateway to the
@@ -174,67 +173,65 @@ joinDomain_domainName = Lens.lens (\JoinDomain' {domainName} -> domainName) (\s@
 -- join computers to the domain. For example, you can use the domain
 -- administrator account or an account with delegated permissions to join
 -- computers to the domain.
-joinDomain_userName :: Lens.Lens' JoinDomain Prelude.Text
+joinDomain_userName :: Lens.Lens' JoinDomain Core.Text
 joinDomain_userName = Lens.lens (\JoinDomain' {userName} -> userName) (\s@JoinDomain' {} a -> s {userName = a} :: JoinDomain)
 
 -- | Sets the password of the user who has permission to add the gateway to
 -- the Active Directory domain.
-joinDomain_password :: Lens.Lens' JoinDomain Prelude.Text
-joinDomain_password = Lens.lens (\JoinDomain' {password} -> password) (\s@JoinDomain' {} a -> s {password = a} :: JoinDomain) Prelude.. Prelude._Sensitive
+joinDomain_password :: Lens.Lens' JoinDomain Core.Text
+joinDomain_password = Lens.lens (\JoinDomain' {password} -> password) (\s@JoinDomain' {} a -> s {password = a} :: JoinDomain) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest JoinDomain where
-  type Rs JoinDomain = JoinDomainResponse
+instance Core.AWSRequest JoinDomain where
+  type AWSResponse JoinDomain = JoinDomainResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           JoinDomainResponse'
-            Prelude.<$> (x Prelude..?> "ActiveDirectoryStatus")
-            Prelude.<*> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ActiveDirectoryStatus")
+            Core.<*> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable JoinDomain
+instance Core.Hashable JoinDomain
 
-instance Prelude.NFData JoinDomain
+instance Core.NFData JoinDomain
 
-instance Prelude.ToHeaders JoinDomain where
+instance Core.ToHeaders JoinDomain where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.JoinDomain" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.JoinDomain" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON JoinDomain where
+instance Core.ToJSON JoinDomain where
   toJSON JoinDomain' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DomainControllers" Prelude..=)
-              Prelude.<$> domainControllers,
-            ("OrganizationalUnit" Prelude..=)
-              Prelude.<$> organizationalUnit,
-            ("TimeoutInSeconds" Prelude..=)
-              Prelude.<$> timeoutInSeconds,
-            Prelude.Just ("GatewayARN" Prelude..= gatewayARN),
-            Prelude.Just ("DomainName" Prelude..= domainName),
-            Prelude.Just ("UserName" Prelude..= userName),
-            Prelude.Just ("Password" Prelude..= password)
+    Core.object
+      ( Core.catMaybes
+          [ ("DomainControllers" Core..=)
+              Core.<$> domainControllers,
+            ("OrganizationalUnit" Core..=)
+              Core.<$> organizationalUnit,
+            ("TimeoutInSeconds" Core..=)
+              Core.<$> timeoutInSeconds,
+            Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("DomainName" Core..= domainName),
+            Core.Just ("UserName" Core..= userName),
+            Core.Just ("Password" Core..= password)
           ]
       )
 
-instance Prelude.ToPath JoinDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath JoinDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery JoinDomain where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery JoinDomain where
+  toQuery = Core.const Core.mempty
 
 -- | JoinDomainOutput
 --
@@ -261,14 +258,14 @@ data JoinDomainResponse = JoinDomainResponse'
     --
     -- -   @UNKNOWN_ERROR@: Indicates that the @JoinDomain@ operation failed
     --     due to another type of error.
-    activeDirectoryStatus :: Prelude.Maybe ActiveDirectoryStatus,
+    activeDirectoryStatus :: Core.Maybe ActiveDirectoryStatus,
     -- | The unique Amazon Resource Name (ARN) of the gateway that joined the
     -- domain.
-    gatewayARN :: Prelude.Maybe Prelude.Text,
+    gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JoinDomainResponse' with all optional fields omitted.
@@ -306,13 +303,13 @@ data JoinDomainResponse = JoinDomainResponse'
 -- 'httpStatus', 'joinDomainResponse_httpStatus' - The response's http status code.
 newJoinDomainResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   JoinDomainResponse
 newJoinDomainResponse pHttpStatus_ =
   JoinDomainResponse'
     { activeDirectoryStatus =
-        Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
+        Core.Nothing,
+      gatewayARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -337,16 +334,16 @@ newJoinDomainResponse pHttpStatus_ =
 --
 -- -   @UNKNOWN_ERROR@: Indicates that the @JoinDomain@ operation failed
 --     due to another type of error.
-joinDomainResponse_activeDirectoryStatus :: Lens.Lens' JoinDomainResponse (Prelude.Maybe ActiveDirectoryStatus)
+joinDomainResponse_activeDirectoryStatus :: Lens.Lens' JoinDomainResponse (Core.Maybe ActiveDirectoryStatus)
 joinDomainResponse_activeDirectoryStatus = Lens.lens (\JoinDomainResponse' {activeDirectoryStatus} -> activeDirectoryStatus) (\s@JoinDomainResponse' {} a -> s {activeDirectoryStatus = a} :: JoinDomainResponse)
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that joined the
 -- domain.
-joinDomainResponse_gatewayARN :: Lens.Lens' JoinDomainResponse (Prelude.Maybe Prelude.Text)
+joinDomainResponse_gatewayARN :: Lens.Lens' JoinDomainResponse (Core.Maybe Core.Text)
 joinDomainResponse_gatewayARN = Lens.lens (\JoinDomainResponse' {gatewayARN} -> gatewayARN) (\s@JoinDomainResponse' {} a -> s {gatewayARN = a} :: JoinDomainResponse)
 
 -- | The response's http status code.
-joinDomainResponse_httpStatus :: Lens.Lens' JoinDomainResponse Prelude.Int
+joinDomainResponse_httpStatus :: Lens.Lens' JoinDomainResponse Core.Int
 joinDomainResponse_httpStatus = Lens.lens (\JoinDomainResponse' {httpStatus} -> httpStatus) (\s@JoinDomainResponse' {} a -> s {httpStatus = a} :: JoinDomainResponse)
 
-instance Prelude.NFData JoinDomainResponse
+instance Core.NFData JoinDomainResponse

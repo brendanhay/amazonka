@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.TestingDataResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.TestingData
 import Network.AWS.Rekognition.Types.ValidationData
 
@@ -31,15 +30,15 @@ import Network.AWS.Rekognition.Types.ValidationData
 -- /See:/ 'newTestingDataResult' smart constructor.
 data TestingDataResult = TestingDataResult'
   { -- | The testing dataset that was supplied for training.
-    input :: Prelude.Maybe TestingData,
+    input :: Core.Maybe TestingData,
     -- | The subset of the dataset that was actually tested. Some images (assets)
     -- might not be tested due to file formatting and other issues.
-    output :: Prelude.Maybe TestingData,
+    output :: Core.Maybe TestingData,
     -- | The location of the data validation manifest. The data validation
     -- manifest is created for the test dataset during model training.
-    validation :: Prelude.Maybe ValidationData
+    validation :: Core.Maybe ValidationData
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TestingDataResult' with all optional fields omitted.
@@ -60,36 +59,36 @@ newTestingDataResult ::
   TestingDataResult
 newTestingDataResult =
   TestingDataResult'
-    { input = Prelude.Nothing,
-      output = Prelude.Nothing,
-      validation = Prelude.Nothing
+    { input = Core.Nothing,
+      output = Core.Nothing,
+      validation = Core.Nothing
     }
 
 -- | The testing dataset that was supplied for training.
-testingDataResult_input :: Lens.Lens' TestingDataResult (Prelude.Maybe TestingData)
+testingDataResult_input :: Lens.Lens' TestingDataResult (Core.Maybe TestingData)
 testingDataResult_input = Lens.lens (\TestingDataResult' {input} -> input) (\s@TestingDataResult' {} a -> s {input = a} :: TestingDataResult)
 
 -- | The subset of the dataset that was actually tested. Some images (assets)
 -- might not be tested due to file formatting and other issues.
-testingDataResult_output :: Lens.Lens' TestingDataResult (Prelude.Maybe TestingData)
+testingDataResult_output :: Lens.Lens' TestingDataResult (Core.Maybe TestingData)
 testingDataResult_output = Lens.lens (\TestingDataResult' {output} -> output) (\s@TestingDataResult' {} a -> s {output = a} :: TestingDataResult)
 
 -- | The location of the data validation manifest. The data validation
 -- manifest is created for the test dataset during model training.
-testingDataResult_validation :: Lens.Lens' TestingDataResult (Prelude.Maybe ValidationData)
+testingDataResult_validation :: Lens.Lens' TestingDataResult (Core.Maybe ValidationData)
 testingDataResult_validation = Lens.lens (\TestingDataResult' {validation} -> validation) (\s@TestingDataResult' {} a -> s {validation = a} :: TestingDataResult)
 
-instance Prelude.FromJSON TestingDataResult where
+instance Core.FromJSON TestingDataResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TestingDataResult"
       ( \x ->
           TestingDataResult'
-            Prelude.<$> (x Prelude..:? "Input")
-            Prelude.<*> (x Prelude..:? "Output")
-            Prelude.<*> (x Prelude..:? "Validation")
+            Core.<$> (x Core..:? "Input")
+            Core.<*> (x Core..:? "Output")
+            Core.<*> (x Core..:? "Validation")
       )
 
-instance Prelude.Hashable TestingDataResult
+instance Core.Hashable TestingDataResult
 
-instance Prelude.NFData TestingDataResult
+instance Core.NFData TestingDataResult

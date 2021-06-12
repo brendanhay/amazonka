@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.APIGateway.DeleteUsagePlan
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,9 +46,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteUsagePlan' smart constructor.
 data DeleteUsagePlan = DeleteUsagePlan'
   { -- | [Required] The Id of the to-be-deleted usage plan.
-    usagePlanId :: Prelude.Text
+    usagePlanId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUsagePlan' with all optional fields omitted.
@@ -62,47 +61,49 @@ data DeleteUsagePlan = DeleteUsagePlan'
 -- 'usagePlanId', 'deleteUsagePlan_usagePlanId' - [Required] The Id of the to-be-deleted usage plan.
 newDeleteUsagePlan ::
   -- | 'usagePlanId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUsagePlan
 newDeleteUsagePlan pUsagePlanId_ =
   DeleteUsagePlan' {usagePlanId = pUsagePlanId_}
 
 -- | [Required] The Id of the to-be-deleted usage plan.
-deleteUsagePlan_usagePlanId :: Lens.Lens' DeleteUsagePlan Prelude.Text
+deleteUsagePlan_usagePlanId :: Lens.Lens' DeleteUsagePlan Core.Text
 deleteUsagePlan_usagePlanId = Lens.lens (\DeleteUsagePlan' {usagePlanId} -> usagePlanId) (\s@DeleteUsagePlan' {} a -> s {usagePlanId = a} :: DeleteUsagePlan)
 
-instance Prelude.AWSRequest DeleteUsagePlan where
-  type Rs DeleteUsagePlan = DeleteUsagePlanResponse
+instance Core.AWSRequest DeleteUsagePlan where
+  type
+    AWSResponse DeleteUsagePlan =
+      DeleteUsagePlanResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteUsagePlanResponse'
 
-instance Prelude.Hashable DeleteUsagePlan
+instance Core.Hashable DeleteUsagePlan
 
-instance Prelude.NFData DeleteUsagePlan
+instance Core.NFData DeleteUsagePlan
 
-instance Prelude.ToHeaders DeleteUsagePlan where
+instance Core.ToHeaders DeleteUsagePlan where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteUsagePlan where
+instance Core.ToPath DeleteUsagePlan where
   toPath DeleteUsagePlan' {..} =
-    Prelude.mconcat
-      ["/usageplans/", Prelude.toBS usagePlanId]
+    Core.mconcat
+      ["/usageplans/", Core.toBS usagePlanId]
 
-instance Prelude.ToQuery DeleteUsagePlan where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteUsagePlan where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteUsagePlanResponse' smart constructor.
 data DeleteUsagePlanResponse = DeleteUsagePlanResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUsagePlanResponse' with all optional fields omitted.
@@ -112,4 +113,4 @@ newDeleteUsagePlanResponse ::
   DeleteUsagePlanResponse
 newDeleteUsagePlanResponse = DeleteUsagePlanResponse'
 
-instance Prelude.NFData DeleteUsagePlanResponse
+instance Core.NFData DeleteUsagePlanResponse

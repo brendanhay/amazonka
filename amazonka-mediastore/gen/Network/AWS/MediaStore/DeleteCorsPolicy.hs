@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,18 +43,18 @@ module Network.AWS.MediaStore.DeleteCorsPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteCorsPolicy' smart constructor.
 data DeleteCorsPolicy = DeleteCorsPolicy'
   { -- | The name of the container to remove the policy from.
-    containerName :: Prelude.Text
+    containerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCorsPolicy' with all optional fields omitted.
@@ -68,65 +67,63 @@ data DeleteCorsPolicy = DeleteCorsPolicy'
 -- 'containerName', 'deleteCorsPolicy_containerName' - The name of the container to remove the policy from.
 newDeleteCorsPolicy ::
   -- | 'containerName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCorsPolicy
 newDeleteCorsPolicy pContainerName_ =
   DeleteCorsPolicy' {containerName = pContainerName_}
 
 -- | The name of the container to remove the policy from.
-deleteCorsPolicy_containerName :: Lens.Lens' DeleteCorsPolicy Prelude.Text
+deleteCorsPolicy_containerName :: Lens.Lens' DeleteCorsPolicy Core.Text
 deleteCorsPolicy_containerName = Lens.lens (\DeleteCorsPolicy' {containerName} -> containerName) (\s@DeleteCorsPolicy' {} a -> s {containerName = a} :: DeleteCorsPolicy)
 
-instance Prelude.AWSRequest DeleteCorsPolicy where
-  type Rs DeleteCorsPolicy = DeleteCorsPolicyResponse
+instance Core.AWSRequest DeleteCorsPolicy where
+  type
+    AWSResponse DeleteCorsPolicy =
+      DeleteCorsPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCorsPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCorsPolicy
+instance Core.Hashable DeleteCorsPolicy
 
-instance Prelude.NFData DeleteCorsPolicy
+instance Core.NFData DeleteCorsPolicy
 
-instance Prelude.ToHeaders DeleteCorsPolicy where
+instance Core.ToHeaders DeleteCorsPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MediaStore_20170901.DeleteCorsPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MediaStore_20170901.DeleteCorsPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteCorsPolicy where
+instance Core.ToJSON DeleteCorsPolicy where
   toJSON DeleteCorsPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ContainerName" Prelude..= containerName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ContainerName" Core..= containerName)]
       )
 
-instance Prelude.ToPath DeleteCorsPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteCorsPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteCorsPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteCorsPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteCorsPolicyResponse' smart constructor.
 data DeleteCorsPolicyResponse = DeleteCorsPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCorsPolicyResponse' with all optional fields omitted.
@@ -139,7 +136,7 @@ data DeleteCorsPolicyResponse = DeleteCorsPolicyResponse'
 -- 'httpStatus', 'deleteCorsPolicyResponse_httpStatus' - The response's http status code.
 newDeleteCorsPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteCorsPolicyResponse
 newDeleteCorsPolicyResponse pHttpStatus_ =
   DeleteCorsPolicyResponse'
@@ -148,7 +145,7 @@ newDeleteCorsPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteCorsPolicyResponse_httpStatus :: Lens.Lens' DeleteCorsPolicyResponse Prelude.Int
+deleteCorsPolicyResponse_httpStatus :: Lens.Lens' DeleteCorsPolicyResponse Core.Int
 deleteCorsPolicyResponse_httpStatus = Lens.lens (\DeleteCorsPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteCorsPolicyResponse' {} a -> s {httpStatus = a} :: DeleteCorsPolicyResponse)
 
-instance Prelude.NFData DeleteCorsPolicyResponse
+instance Core.NFData DeleteCorsPolicyResponse

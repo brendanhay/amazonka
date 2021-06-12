@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.OpsWorks.DescribeStacks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ data DescribeStacks = DescribeStacks'
   { -- | An array of stack IDs that specify the stacks to be described. If you
     -- omit this parameter, @DescribeStacks@ returns a description of every
     -- stack.
-    stackIds :: Prelude.Maybe [Prelude.Text]
+    stackIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStacks' with all optional fields omitted.
@@ -75,67 +74,67 @@ data DescribeStacks = DescribeStacks'
 newDescribeStacks ::
   DescribeStacks
 newDescribeStacks =
-  DescribeStacks' {stackIds = Prelude.Nothing}
+  DescribeStacks' {stackIds = Core.Nothing}
 
 -- | An array of stack IDs that specify the stacks to be described. If you
 -- omit this parameter, @DescribeStacks@ returns a description of every
 -- stack.
-describeStacks_stackIds :: Lens.Lens' DescribeStacks (Prelude.Maybe [Prelude.Text])
-describeStacks_stackIds = Lens.lens (\DescribeStacks' {stackIds} -> stackIds) (\s@DescribeStacks' {} a -> s {stackIds = a} :: DescribeStacks) Prelude.. Lens.mapping Prelude._Coerce
+describeStacks_stackIds :: Lens.Lens' DescribeStacks (Core.Maybe [Core.Text])
+describeStacks_stackIds = Lens.lens (\DescribeStacks' {stackIds} -> stackIds) (\s@DescribeStacks' {} a -> s {stackIds = a} :: DescribeStacks) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeStacks where
-  type Rs DescribeStacks = DescribeStacksResponse
+instance Core.AWSRequest DescribeStacks where
+  type
+    AWSResponse DescribeStacks =
+      DescribeStacksResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeStacksResponse'
-            Prelude.<$> (x Prelude..?> "Stacks" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Stacks" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStacks
+instance Core.Hashable DescribeStacks
 
-instance Prelude.NFData DescribeStacks
+instance Core.NFData DescribeStacks
 
-instance Prelude.ToHeaders DescribeStacks where
+instance Core.ToHeaders DescribeStacks where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DescribeStacks" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DescribeStacks" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeStacks where
+instance Core.ToJSON DescribeStacks where
   toJSON DescribeStacks' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("StackIds" Prelude..=) Prelude.<$> stackIds]
+    Core.object
+      ( Core.catMaybes
+          [("StackIds" Core..=) Core.<$> stackIds]
       )
 
-instance Prelude.ToPath DescribeStacks where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeStacks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeStacks where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeStacks where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @DescribeStacks@ request.
 --
 -- /See:/ 'newDescribeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
   { -- | An array of @Stack@ objects that describe the stacks.
-    stacks :: Prelude.Maybe [Stack],
+    stacks :: Core.Maybe [Stack],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStacksResponse' with all optional fields omitted.
@@ -150,20 +149,20 @@ data DescribeStacksResponse = DescribeStacksResponse'
 -- 'httpStatus', 'describeStacksResponse_httpStatus' - The response's http status code.
 newDescribeStacksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeStacksResponse
 newDescribeStacksResponse pHttpStatus_ =
   DescribeStacksResponse'
-    { stacks = Prelude.Nothing,
+    { stacks = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of @Stack@ objects that describe the stacks.
-describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe [Stack])
-describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Core.Maybe [Stack])
+describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeStacksResponse_httpStatus :: Lens.Lens' DescribeStacksResponse Prelude.Int
+describeStacksResponse_httpStatus :: Lens.Lens' DescribeStacksResponse Core.Int
 describeStacksResponse_httpStatus = Lens.lens (\DescribeStacksResponse' {httpStatus} -> httpStatus) (\s@DescribeStacksResponse' {} a -> s {httpStatus = a} :: DescribeStacksResponse)
 
-instance Prelude.NFData DescribeStacksResponse
+instance Core.NFData DescribeStacksResponse

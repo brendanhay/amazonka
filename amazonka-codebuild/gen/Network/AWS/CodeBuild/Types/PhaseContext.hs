@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.PhaseContext where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Additional information about a build phase that has an error. You can
 -- use this information for troubleshooting.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data PhaseContext = PhaseContext'
   { -- | An explanation of the build phase\'s context. This might include a
     -- command ID and an exit code.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The status code for the context of the build phase.
-    statusCode :: Prelude.Maybe Prelude.Text
+    statusCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PhaseContext' with all optional fields omitted.
@@ -52,29 +51,29 @@ newPhaseContext ::
   PhaseContext
 newPhaseContext =
   PhaseContext'
-    { message = Prelude.Nothing,
-      statusCode = Prelude.Nothing
+    { message = Core.Nothing,
+      statusCode = Core.Nothing
     }
 
 -- | An explanation of the build phase\'s context. This might include a
 -- command ID and an exit code.
-phaseContext_message :: Lens.Lens' PhaseContext (Prelude.Maybe Prelude.Text)
+phaseContext_message :: Lens.Lens' PhaseContext (Core.Maybe Core.Text)
 phaseContext_message = Lens.lens (\PhaseContext' {message} -> message) (\s@PhaseContext' {} a -> s {message = a} :: PhaseContext)
 
 -- | The status code for the context of the build phase.
-phaseContext_statusCode :: Lens.Lens' PhaseContext (Prelude.Maybe Prelude.Text)
+phaseContext_statusCode :: Lens.Lens' PhaseContext (Core.Maybe Core.Text)
 phaseContext_statusCode = Lens.lens (\PhaseContext' {statusCode} -> statusCode) (\s@PhaseContext' {} a -> s {statusCode = a} :: PhaseContext)
 
-instance Prelude.FromJSON PhaseContext where
+instance Core.FromJSON PhaseContext where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PhaseContext"
       ( \x ->
           PhaseContext'
-            Prelude.<$> (x Prelude..:? "message")
-            Prelude.<*> (x Prelude..:? "statusCode")
+            Core.<$> (x Core..:? "message")
+            Core.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable PhaseContext
+instance Core.Hashable PhaseContext
 
-instance Prelude.NFData PhaseContext
+instance Core.NFData PhaseContext

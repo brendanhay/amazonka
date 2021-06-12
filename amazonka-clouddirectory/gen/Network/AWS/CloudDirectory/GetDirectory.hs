@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.CloudDirectory.GetDirectory
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDirectory' smart constructor.
 data GetDirectory = GetDirectory'
   { -- | The ARN of the directory.
-    directoryArn :: Prelude.Text
+    directoryArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDirectory' with all optional fields omitted.
@@ -64,55 +63,54 @@ data GetDirectory = GetDirectory'
 -- 'directoryArn', 'getDirectory_directoryArn' - The ARN of the directory.
 newGetDirectory ::
   -- | 'directoryArn'
-  Prelude.Text ->
+  Core.Text ->
   GetDirectory
 newGetDirectory pDirectoryArn_ =
   GetDirectory' {directoryArn = pDirectoryArn_}
 
 -- | The ARN of the directory.
-getDirectory_directoryArn :: Lens.Lens' GetDirectory Prelude.Text
+getDirectory_directoryArn :: Lens.Lens' GetDirectory Core.Text
 getDirectory_directoryArn = Lens.lens (\GetDirectory' {directoryArn} -> directoryArn) (\s@GetDirectory' {} a -> s {directoryArn = a} :: GetDirectory)
 
-instance Prelude.AWSRequest GetDirectory where
-  type Rs GetDirectory = GetDirectoryResponse
+instance Core.AWSRequest GetDirectory where
+  type AWSResponse GetDirectory = GetDirectoryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDirectoryResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "Directory")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "Directory")
       )
 
-instance Prelude.Hashable GetDirectory
+instance Core.Hashable GetDirectory
 
-instance Prelude.NFData GetDirectory
+instance Core.NFData GetDirectory
 
-instance Prelude.ToHeaders GetDirectory where
+instance Core.ToHeaders GetDirectory where
   toHeaders GetDirectory' {..} =
-    Prelude.mconcat
-      ["x-amz-data-partition" Prelude.=# directoryArn]
+    Core.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance Prelude.ToJSON GetDirectory where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetDirectory where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath GetDirectory where
+instance Core.ToPath GetDirectory where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/directory/get"
 
-instance Prelude.ToQuery GetDirectory where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDirectory where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDirectoryResponse' smart constructor.
 data GetDirectoryResponse = GetDirectoryResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Metadata about the directory.
     directory :: Directory
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDirectoryResponse' with all optional fields omitted.
@@ -127,7 +125,7 @@ data GetDirectoryResponse = GetDirectoryResponse'
 -- 'directory', 'getDirectoryResponse_directory' - Metadata about the directory.
 newGetDirectoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'directory'
   Directory ->
   GetDirectoryResponse
@@ -138,11 +136,11 @@ newGetDirectoryResponse pHttpStatus_ pDirectory_ =
     }
 
 -- | The response's http status code.
-getDirectoryResponse_httpStatus :: Lens.Lens' GetDirectoryResponse Prelude.Int
+getDirectoryResponse_httpStatus :: Lens.Lens' GetDirectoryResponse Core.Int
 getDirectoryResponse_httpStatus = Lens.lens (\GetDirectoryResponse' {httpStatus} -> httpStatus) (\s@GetDirectoryResponse' {} a -> s {httpStatus = a} :: GetDirectoryResponse)
 
 -- | Metadata about the directory.
 getDirectoryResponse_directory :: Lens.Lens' GetDirectoryResponse Directory
 getDirectoryResponse_directory = Lens.lens (\GetDirectoryResponse' {directory} -> directory) (\s@GetDirectoryResponse' {} a -> s {directory = a} :: GetDirectoryResponse)
 
-instance Prelude.NFData GetDirectoryResponse
+instance Core.NFData GetDirectoryResponse

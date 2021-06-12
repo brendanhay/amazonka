@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.DeviceFarm.GetDevicePool
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetDevicePool' smart constructor.
 data GetDevicePool = GetDevicePool'
   { -- | The device pool\'s ARN.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDevicePool' with all optional fields omitted.
@@ -66,67 +65,65 @@ data GetDevicePool = GetDevicePool'
 -- 'arn', 'getDevicePool_arn' - The device pool\'s ARN.
 newGetDevicePool ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   GetDevicePool
 newGetDevicePool pArn_ = GetDevicePool' {arn = pArn_}
 
 -- | The device pool\'s ARN.
-getDevicePool_arn :: Lens.Lens' GetDevicePool Prelude.Text
+getDevicePool_arn :: Lens.Lens' GetDevicePool Core.Text
 getDevicePool_arn = Lens.lens (\GetDevicePool' {arn} -> arn) (\s@GetDevicePool' {} a -> s {arn = a} :: GetDevicePool)
 
-instance Prelude.AWSRequest GetDevicePool where
-  type Rs GetDevicePool = GetDevicePoolResponse
+instance Core.AWSRequest GetDevicePool where
+  type
+    AWSResponse GetDevicePool =
+      GetDevicePoolResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDevicePoolResponse'
-            Prelude.<$> (x Prelude..?> "devicePool")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "devicePool")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDevicePool
+instance Core.Hashable GetDevicePool
 
-instance Prelude.NFData GetDevicePool
+instance Core.NFData GetDevicePool
 
-instance Prelude.ToHeaders GetDevicePool where
+instance Core.ToHeaders GetDevicePool where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.GetDevicePool" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.GetDevicePool" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetDevicePool where
+instance Core.ToJSON GetDevicePool where
   toJSON GetDevicePool' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("arn" Prelude..= arn)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
 
-instance Prelude.ToPath GetDevicePool where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetDevicePool where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetDevicePool where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDevicePool where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the result of a get device pool request.
 --
 -- /See:/ 'newGetDevicePoolResponse' smart constructor.
 data GetDevicePoolResponse = GetDevicePoolResponse'
   { -- | An object that contains information about the requested device pool.
-    devicePool :: Prelude.Maybe DevicePool,
+    devicePool :: Core.Maybe DevicePool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDevicePoolResponse' with all optional fields omitted.
@@ -141,21 +138,20 @@ data GetDevicePoolResponse = GetDevicePoolResponse'
 -- 'httpStatus', 'getDevicePoolResponse_httpStatus' - The response's http status code.
 newGetDevicePoolResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDevicePoolResponse
 newGetDevicePoolResponse pHttpStatus_ =
   GetDevicePoolResponse'
-    { devicePool =
-        Prelude.Nothing,
+    { devicePool = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains information about the requested device pool.
-getDevicePoolResponse_devicePool :: Lens.Lens' GetDevicePoolResponse (Prelude.Maybe DevicePool)
+getDevicePoolResponse_devicePool :: Lens.Lens' GetDevicePoolResponse (Core.Maybe DevicePool)
 getDevicePoolResponse_devicePool = Lens.lens (\GetDevicePoolResponse' {devicePool} -> devicePool) (\s@GetDevicePoolResponse' {} a -> s {devicePool = a} :: GetDevicePoolResponse)
 
 -- | The response's http status code.
-getDevicePoolResponse_httpStatus :: Lens.Lens' GetDevicePoolResponse Prelude.Int
+getDevicePoolResponse_httpStatus :: Lens.Lens' GetDevicePoolResponse Core.Int
 getDevicePoolResponse_httpStatus = Lens.lens (\GetDevicePoolResponse' {httpStatus} -> httpStatus) (\s@GetDevicePoolResponse' {} a -> s {httpStatus = a} :: GetDevicePoolResponse)
 
-instance Prelude.NFData GetDevicePoolResponse
+instance Core.NFData GetDevicePoolResponse

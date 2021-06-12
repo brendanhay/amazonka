@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
+
 
 -- Module      : Test.AWS.IoTDataPlane
 -- Copyright   : (c) 2013-2021 Brendan Hay

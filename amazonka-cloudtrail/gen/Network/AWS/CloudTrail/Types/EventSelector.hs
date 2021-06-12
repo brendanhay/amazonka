@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudTrail.Types.EventSelector where
 
 import Network.AWS.CloudTrail.Types.DataResource
 import Network.AWS.CloudTrail.Types.ReadWriteType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Use event selectors to further specify the management and data event
 -- settings for your trail. By default, trails created without specific
@@ -46,14 +45,14 @@ data EventSelector = EventSelector'
     -- API operation and @RunInstances@ is a write-only API operation.
     --
     -- By default, the value is @All@.
-    readWriteType :: Prelude.Maybe ReadWriteType,
+    readWriteType :: Core.Maybe ReadWriteType,
     -- | An optional list of service event sources from which you do not want
     -- management events to be logged on your trail. In this release, the list
     -- can be empty (disables the filter), or it can filter out AWS Key
     -- Management Service events by containing @\"kms.amazonaws.com\"@. By
     -- default, @ExcludeManagementEventSources@ is empty, and AWS KMS events
     -- are included in events that are logged to your trail.
-    excludeManagementEventSources :: Prelude.Maybe [Prelude.Text],
+    excludeManagementEventSources :: Core.Maybe [Core.Text],
     -- | Specify if you want your event selector to include management events for
     -- your trail.
     --
@@ -68,7 +67,7 @@ data EventSelector = EventSelector'
     -- subsequent trail in the same region. For more information about
     -- CloudTrail pricing, see
     -- <http://aws.amazon.com/cloudtrail/pricing/ AWS CloudTrail Pricing>.
-    includeManagementEvents :: Prelude.Maybe Prelude.Bool,
+    includeManagementEvents :: Core.Maybe Core.Bool,
     -- | CloudTrail supports data event logging for Amazon S3 objects and AWS
     -- Lambda functions. You can specify up to 250 resources for an individual
     -- event selector, but the total number of data resources cannot exceed 250
@@ -80,9 +79,9 @@ data EventSelector = EventSelector'
     -- and
     -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in AWS CloudTrail>
     -- in the /AWS CloudTrail User Guide/.
-    dataResources :: Prelude.Maybe [DataResource]
+    dataResources :: Core.Maybe [DataResource]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventSelector' with all optional fields omitted.
@@ -135,10 +134,10 @@ newEventSelector ::
   EventSelector
 newEventSelector =
   EventSelector'
-    { readWriteType = Prelude.Nothing,
-      excludeManagementEventSources = Prelude.Nothing,
-      includeManagementEvents = Prelude.Nothing,
-      dataResources = Prelude.Nothing
+    { readWriteType = Core.Nothing,
+      excludeManagementEventSources = Core.Nothing,
+      includeManagementEvents = Core.Nothing,
+      dataResources = Core.Nothing
     }
 
 -- | Specify if you want your trail to log read-only events, write-only
@@ -146,7 +145,7 @@ newEventSelector =
 -- API operation and @RunInstances@ is a write-only API operation.
 --
 -- By default, the value is @All@.
-eventSelector_readWriteType :: Lens.Lens' EventSelector (Prelude.Maybe ReadWriteType)
+eventSelector_readWriteType :: Lens.Lens' EventSelector (Core.Maybe ReadWriteType)
 eventSelector_readWriteType = Lens.lens (\EventSelector' {readWriteType} -> readWriteType) (\s@EventSelector' {} a -> s {readWriteType = a} :: EventSelector)
 
 -- | An optional list of service event sources from which you do not want
@@ -155,8 +154,8 @@ eventSelector_readWriteType = Lens.lens (\EventSelector' {readWriteType} -> read
 -- Management Service events by containing @\"kms.amazonaws.com\"@. By
 -- default, @ExcludeManagementEventSources@ is empty, and AWS KMS events
 -- are included in events that are logged to your trail.
-eventSelector_excludeManagementEventSources :: Lens.Lens' EventSelector (Prelude.Maybe [Prelude.Text])
-eventSelector_excludeManagementEventSources = Lens.lens (\EventSelector' {excludeManagementEventSources} -> excludeManagementEventSources) (\s@EventSelector' {} a -> s {excludeManagementEventSources = a} :: EventSelector) Prelude.. Lens.mapping Prelude._Coerce
+eventSelector_excludeManagementEventSources :: Lens.Lens' EventSelector (Core.Maybe [Core.Text])
+eventSelector_excludeManagementEventSources = Lens.lens (\EventSelector' {excludeManagementEventSources} -> excludeManagementEventSources) (\s@EventSelector' {} a -> s {excludeManagementEventSources = a} :: EventSelector) Core.. Lens.mapping Lens._Coerce
 
 -- | Specify if you want your event selector to include management events for
 -- your trail.
@@ -172,7 +171,7 @@ eventSelector_excludeManagementEventSources = Lens.lens (\EventSelector' {exclud
 -- subsequent trail in the same region. For more information about
 -- CloudTrail pricing, see
 -- <http://aws.amazon.com/cloudtrail/pricing/ AWS CloudTrail Pricing>.
-eventSelector_includeManagementEvents :: Lens.Lens' EventSelector (Prelude.Maybe Prelude.Bool)
+eventSelector_includeManagementEvents :: Lens.Lens' EventSelector (Core.Maybe Core.Bool)
 eventSelector_includeManagementEvents = Lens.lens (\EventSelector' {includeManagementEvents} -> includeManagementEvents) (\s@EventSelector' {} a -> s {includeManagementEvents = a} :: EventSelector)
 
 -- | CloudTrail supports data event logging for Amazon S3 objects and AWS
@@ -186,40 +185,36 @@ eventSelector_includeManagementEvents = Lens.lens (\EventSelector' {includeManag
 -- and
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in AWS CloudTrail>
 -- in the /AWS CloudTrail User Guide/.
-eventSelector_dataResources :: Lens.Lens' EventSelector (Prelude.Maybe [DataResource])
-eventSelector_dataResources = Lens.lens (\EventSelector' {dataResources} -> dataResources) (\s@EventSelector' {} a -> s {dataResources = a} :: EventSelector) Prelude.. Lens.mapping Prelude._Coerce
+eventSelector_dataResources :: Lens.Lens' EventSelector (Core.Maybe [DataResource])
+eventSelector_dataResources = Lens.lens (\EventSelector' {dataResources} -> dataResources) (\s@EventSelector' {} a -> s {dataResources = a} :: EventSelector) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON EventSelector where
+instance Core.FromJSON EventSelector where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EventSelector"
       ( \x ->
           EventSelector'
-            Prelude.<$> (x Prelude..:? "ReadWriteType")
-            Prelude.<*> ( x Prelude..:? "ExcludeManagementEventSources"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "IncludeManagementEvents")
-            Prelude.<*> ( x Prelude..:? "DataResources"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ReadWriteType")
+            Core.<*> ( x Core..:? "ExcludeManagementEventSources"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "IncludeManagementEvents")
+            Core.<*> (x Core..:? "DataResources" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable EventSelector
+instance Core.Hashable EventSelector
 
-instance Prelude.NFData EventSelector
+instance Core.NFData EventSelector
 
-instance Prelude.ToJSON EventSelector where
+instance Core.ToJSON EventSelector where
   toJSON EventSelector' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ReadWriteType" Prelude..=)
-              Prelude.<$> readWriteType,
-            ("ExcludeManagementEventSources" Prelude..=)
-              Prelude.<$> excludeManagementEventSources,
-            ("IncludeManagementEvents" Prelude..=)
-              Prelude.<$> includeManagementEvents,
-            ("DataResources" Prelude..=)
-              Prelude.<$> dataResources
+    Core.object
+      ( Core.catMaybes
+          [ ("ReadWriteType" Core..=) Core.<$> readWriteType,
+            ("ExcludeManagementEventSources" Core..=)
+              Core.<$> excludeManagementEventSources,
+            ("IncludeManagementEvents" Core..=)
+              Core.<$> includeManagementEvents,
+            ("DataResources" Core..=) Core.<$> dataResources
           ]
       )

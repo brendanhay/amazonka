@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,23 +21,23 @@ module Network.AWS.Comprehend.Types.RedactionConfig where
 
 import Network.AWS.Comprehend.Types.PiiEntitiesDetectionMaskMode
 import Network.AWS.Comprehend.Types.PiiEntityType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides configuration parameters for PII entity redaction.
 --
 -- /See:/ 'newRedactionConfig' smart constructor.
 data RedactionConfig = RedactionConfig'
   { -- | A character that replaces each character in the redacted PII entity.
-    maskCharacter :: Prelude.Maybe Prelude.Text,
+    maskCharacter :: Core.Maybe Core.Text,
     -- | Specifies whether the PII entity is redacted with the mask character or
     -- the entity type.
-    maskMode :: Prelude.Maybe PiiEntitiesDetectionMaskMode,
+    maskMode :: Core.Maybe PiiEntitiesDetectionMaskMode,
     -- | An array of the types of PII entities that Amazon Comprehend detects in
     -- the input text for your request.
-    piiEntityTypes :: Prelude.Maybe [PiiEntityType]
+    piiEntityTypes :: Core.Maybe [PiiEntityType]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RedactionConfig' with all optional fields omitted.
@@ -59,50 +58,46 @@ newRedactionConfig ::
   RedactionConfig
 newRedactionConfig =
   RedactionConfig'
-    { maskCharacter = Prelude.Nothing,
-      maskMode = Prelude.Nothing,
-      piiEntityTypes = Prelude.Nothing
+    { maskCharacter = Core.Nothing,
+      maskMode = Core.Nothing,
+      piiEntityTypes = Core.Nothing
     }
 
 -- | A character that replaces each character in the redacted PII entity.
-redactionConfig_maskCharacter :: Lens.Lens' RedactionConfig (Prelude.Maybe Prelude.Text)
+redactionConfig_maskCharacter :: Lens.Lens' RedactionConfig (Core.Maybe Core.Text)
 redactionConfig_maskCharacter = Lens.lens (\RedactionConfig' {maskCharacter} -> maskCharacter) (\s@RedactionConfig' {} a -> s {maskCharacter = a} :: RedactionConfig)
 
 -- | Specifies whether the PII entity is redacted with the mask character or
 -- the entity type.
-redactionConfig_maskMode :: Lens.Lens' RedactionConfig (Prelude.Maybe PiiEntitiesDetectionMaskMode)
+redactionConfig_maskMode :: Lens.Lens' RedactionConfig (Core.Maybe PiiEntitiesDetectionMaskMode)
 redactionConfig_maskMode = Lens.lens (\RedactionConfig' {maskMode} -> maskMode) (\s@RedactionConfig' {} a -> s {maskMode = a} :: RedactionConfig)
 
 -- | An array of the types of PII entities that Amazon Comprehend detects in
 -- the input text for your request.
-redactionConfig_piiEntityTypes :: Lens.Lens' RedactionConfig (Prelude.Maybe [PiiEntityType])
-redactionConfig_piiEntityTypes = Lens.lens (\RedactionConfig' {piiEntityTypes} -> piiEntityTypes) (\s@RedactionConfig' {} a -> s {piiEntityTypes = a} :: RedactionConfig) Prelude.. Lens.mapping Prelude._Coerce
+redactionConfig_piiEntityTypes :: Lens.Lens' RedactionConfig (Core.Maybe [PiiEntityType])
+redactionConfig_piiEntityTypes = Lens.lens (\RedactionConfig' {piiEntityTypes} -> piiEntityTypes) (\s@RedactionConfig' {} a -> s {piiEntityTypes = a} :: RedactionConfig) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON RedactionConfig where
+instance Core.FromJSON RedactionConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RedactionConfig"
       ( \x ->
           RedactionConfig'
-            Prelude.<$> (x Prelude..:? "MaskCharacter")
-            Prelude.<*> (x Prelude..:? "MaskMode")
-            Prelude.<*> ( x Prelude..:? "PiiEntityTypes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "MaskCharacter")
+            Core.<*> (x Core..:? "MaskMode")
+            Core.<*> (x Core..:? "PiiEntityTypes" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable RedactionConfig
+instance Core.Hashable RedactionConfig
 
-instance Prelude.NFData RedactionConfig
+instance Core.NFData RedactionConfig
 
-instance Prelude.ToJSON RedactionConfig where
+instance Core.ToJSON RedactionConfig where
   toJSON RedactionConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaskCharacter" Prelude..=)
-              Prelude.<$> maskCharacter,
-            ("MaskMode" Prelude..=) Prelude.<$> maskMode,
-            ("PiiEntityTypes" Prelude..=)
-              Prelude.<$> piiEntityTypes
+    Core.object
+      ( Core.catMaybes
+          [ ("MaskCharacter" Core..=) Core.<$> maskCharacter,
+            ("MaskMode" Core..=) Core.<$> maskMode,
+            ("PiiEntityTypes" Core..=) Core.<$> piiEntityTypes
           ]
       )

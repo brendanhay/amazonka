@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides details about execution input or output.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data CloudWatchEventsExecutionDataDetails = CloudWatchEventsExecutionDataDetails'
   { -- | Indicates whether input or output was included in the response. Always
     -- @true@ for API calls.
-    included :: Prelude.Maybe Prelude.Bool
+    included :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloudWatchEventsExecutionDataDetails' with all optional fields omitted.
@@ -48,30 +47,30 @@ newCloudWatchEventsExecutionDataDetails ::
 newCloudWatchEventsExecutionDataDetails =
   CloudWatchEventsExecutionDataDetails'
     { included =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Indicates whether input or output was included in the response. Always
 -- @true@ for API calls.
-cloudWatchEventsExecutionDataDetails_included :: Lens.Lens' CloudWatchEventsExecutionDataDetails (Prelude.Maybe Prelude.Bool)
+cloudWatchEventsExecutionDataDetails_included :: Lens.Lens' CloudWatchEventsExecutionDataDetails (Core.Maybe Core.Bool)
 cloudWatchEventsExecutionDataDetails_included = Lens.lens (\CloudWatchEventsExecutionDataDetails' {included} -> included) (\s@CloudWatchEventsExecutionDataDetails' {} a -> s {included = a} :: CloudWatchEventsExecutionDataDetails)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     CloudWatchEventsExecutionDataDetails
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CloudWatchEventsExecutionDataDetails"
       ( \x ->
           CloudWatchEventsExecutionDataDetails'
-            Prelude.<$> (x Prelude..:? "included")
+            Core.<$> (x Core..:? "included")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CloudWatchEventsExecutionDataDetails
 
 instance
-  Prelude.NFData
+  Core.NFData
     CloudWatchEventsExecutionDataDetails

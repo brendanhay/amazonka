@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Origin access identity configuration. Send a @GET@ request to the
 -- @\/CloudFront API version\/CloudFront\/identity ID\/config@ resource.
@@ -45,11 +44,11 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
     -- @CloudFrontOriginAccessIdentityConfig@ is different from the original
     -- request, CloudFront returns a
     -- @CloudFrontOriginAccessIdentityAlreadyExists@ error.
-    callerReference :: Prelude.Text,
+    callerReference :: Core.Text,
     -- | Any comments you want to include about the origin access identity.
-    comment :: Prelude.Text
+    comment :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloudFrontOriginAccessIdentityConfig' with all optional fields omitted.
@@ -80,9 +79,9 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
 -- 'comment', 'cloudFrontOriginAccessIdentityConfig_comment' - Any comments you want to include about the origin access identity.
 newCloudFrontOriginAccessIdentityConfig ::
   -- | 'callerReference'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'comment'
-  Prelude.Text ->
+  Core.Text ->
   CloudFrontOriginAccessIdentityConfig
 newCloudFrontOriginAccessIdentityConfig
   pCallerReference_
@@ -110,36 +109,36 @@ newCloudFrontOriginAccessIdentityConfig
 -- @CloudFrontOriginAccessIdentityConfig@ is different from the original
 -- request, CloudFront returns a
 -- @CloudFrontOriginAccessIdentityAlreadyExists@ error.
-cloudFrontOriginAccessIdentityConfig_callerReference :: Lens.Lens' CloudFrontOriginAccessIdentityConfig Prelude.Text
+cloudFrontOriginAccessIdentityConfig_callerReference :: Lens.Lens' CloudFrontOriginAccessIdentityConfig Core.Text
 cloudFrontOriginAccessIdentityConfig_callerReference = Lens.lens (\CloudFrontOriginAccessIdentityConfig' {callerReference} -> callerReference) (\s@CloudFrontOriginAccessIdentityConfig' {} a -> s {callerReference = a} :: CloudFrontOriginAccessIdentityConfig)
 
 -- | Any comments you want to include about the origin access identity.
-cloudFrontOriginAccessIdentityConfig_comment :: Lens.Lens' CloudFrontOriginAccessIdentityConfig Prelude.Text
+cloudFrontOriginAccessIdentityConfig_comment :: Lens.Lens' CloudFrontOriginAccessIdentityConfig Core.Text
 cloudFrontOriginAccessIdentityConfig_comment = Lens.lens (\CloudFrontOriginAccessIdentityConfig' {comment} -> comment) (\s@CloudFrontOriginAccessIdentityConfig' {} a -> s {comment = a} :: CloudFrontOriginAccessIdentityConfig)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     CloudFrontOriginAccessIdentityConfig
   where
   parseXML x =
     CloudFrontOriginAccessIdentityConfig'
-      Prelude.<$> (x Prelude..@ "CallerReference")
-      Prelude.<*> (x Prelude..@ "Comment")
+      Core.<$> (x Core..@ "CallerReference")
+      Core.<*> (x Core..@ "Comment")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CloudFrontOriginAccessIdentityConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     CloudFrontOriginAccessIdentityConfig
 
 instance
-  Prelude.ToXML
+  Core.ToXML
     CloudFrontOriginAccessIdentityConfig
   where
   toXML CloudFrontOriginAccessIdentityConfig' {..} =
-    Prelude.mconcat
-      [ "CallerReference" Prelude.@= callerReference,
-        "Comment" Prelude.@= comment
+    Core.mconcat
+      [ "CallerReference" Core.@= callerReference,
+        "Comment" Core.@= comment
       ]

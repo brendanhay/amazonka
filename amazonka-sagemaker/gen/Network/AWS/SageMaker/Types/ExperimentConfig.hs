@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ExperimentConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Associates a SageMaker job as a trial component with an experiment and
 -- trial. Specified when you call the following APIs:
@@ -36,15 +35,15 @@ import qualified Network.AWS.Prelude as Prelude
 data ExperimentConfig = ExperimentConfig'
   { -- | The name of an existing experiment to associate the trial component
     -- with.
-    experimentName :: Prelude.Maybe Prelude.Text,
+    experimentName :: Core.Maybe Core.Text,
     -- | The display name for the trial component. If this key isn\'t specified,
     -- the display name is the trial component name.
-    trialComponentDisplayName :: Prelude.Maybe Prelude.Text,
+    trialComponentDisplayName :: Core.Maybe Core.Text,
     -- | The name of an existing trial to associate the trial component with. If
     -- not specified, a new trial is created.
-    trialName :: Prelude.Maybe Prelude.Text
+    trialName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExperimentConfig' with all optional fields omitted.
@@ -66,49 +65,48 @@ newExperimentConfig ::
   ExperimentConfig
 newExperimentConfig =
   ExperimentConfig'
-    { experimentName = Prelude.Nothing,
-      trialComponentDisplayName = Prelude.Nothing,
-      trialName = Prelude.Nothing
+    { experimentName = Core.Nothing,
+      trialComponentDisplayName = Core.Nothing,
+      trialName = Core.Nothing
     }
 
 -- | The name of an existing experiment to associate the trial component
 -- with.
-experimentConfig_experimentName :: Lens.Lens' ExperimentConfig (Prelude.Maybe Prelude.Text)
+experimentConfig_experimentName :: Lens.Lens' ExperimentConfig (Core.Maybe Core.Text)
 experimentConfig_experimentName = Lens.lens (\ExperimentConfig' {experimentName} -> experimentName) (\s@ExperimentConfig' {} a -> s {experimentName = a} :: ExperimentConfig)
 
 -- | The display name for the trial component. If this key isn\'t specified,
 -- the display name is the trial component name.
-experimentConfig_trialComponentDisplayName :: Lens.Lens' ExperimentConfig (Prelude.Maybe Prelude.Text)
+experimentConfig_trialComponentDisplayName :: Lens.Lens' ExperimentConfig (Core.Maybe Core.Text)
 experimentConfig_trialComponentDisplayName = Lens.lens (\ExperimentConfig' {trialComponentDisplayName} -> trialComponentDisplayName) (\s@ExperimentConfig' {} a -> s {trialComponentDisplayName = a} :: ExperimentConfig)
 
 -- | The name of an existing trial to associate the trial component with. If
 -- not specified, a new trial is created.
-experimentConfig_trialName :: Lens.Lens' ExperimentConfig (Prelude.Maybe Prelude.Text)
+experimentConfig_trialName :: Lens.Lens' ExperimentConfig (Core.Maybe Core.Text)
 experimentConfig_trialName = Lens.lens (\ExperimentConfig' {trialName} -> trialName) (\s@ExperimentConfig' {} a -> s {trialName = a} :: ExperimentConfig)
 
-instance Prelude.FromJSON ExperimentConfig where
+instance Core.FromJSON ExperimentConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExperimentConfig"
       ( \x ->
           ExperimentConfig'
-            Prelude.<$> (x Prelude..:? "ExperimentName")
-            Prelude.<*> (x Prelude..:? "TrialComponentDisplayName")
-            Prelude.<*> (x Prelude..:? "TrialName")
+            Core.<$> (x Core..:? "ExperimentName")
+            Core.<*> (x Core..:? "TrialComponentDisplayName")
+            Core.<*> (x Core..:? "TrialName")
       )
 
-instance Prelude.Hashable ExperimentConfig
+instance Core.Hashable ExperimentConfig
 
-instance Prelude.NFData ExperimentConfig
+instance Core.NFData ExperimentConfig
 
-instance Prelude.ToJSON ExperimentConfig where
+instance Core.ToJSON ExperimentConfig where
   toJSON ExperimentConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExperimentName" Prelude..=)
-              Prelude.<$> experimentName,
-            ("TrialComponentDisplayName" Prelude..=)
-              Prelude.<$> trialComponentDisplayName,
-            ("TrialName" Prelude..=) Prelude.<$> trialName
+    Core.object
+      ( Core.catMaybes
+          [ ("ExperimentName" Core..=) Core.<$> experimentName,
+            ("TrialComponentDisplayName" Core..=)
+              Core.<$> trialComponentDisplayName,
+            ("TrialName" Core..=) Core.<$> trialName
           ]
       )

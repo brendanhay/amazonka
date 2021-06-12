@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.CloudFormation.RecordHandlerProgress
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,27 +58,27 @@ import qualified Network.AWS.Response as Response
 data RecordHandlerProgress = RecordHandlerProgress'
   { -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+    statusMessage :: Core.Maybe Core.Text,
     -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-    resourceModel :: Prelude.Maybe Prelude.Text,
+    resourceModel :: Core.Maybe Core.Text,
     -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-    currentOperationStatus :: Prelude.Maybe OperationStatus,
+    currentOperationStatus :: Core.Maybe OperationStatus,
     -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-    errorCode :: Prelude.Maybe HandlerErrorCode,
+    errorCode :: Core.Maybe HandlerErrorCode,
     -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-    bearerToken :: Prelude.Text,
+    bearerToken :: Core.Text,
     -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
     operationStatus :: OperationStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecordHandlerProgress' with all optional fields omitted.
@@ -111,7 +110,7 @@ data RecordHandlerProgress = RecordHandlerProgress'
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
 newRecordHandlerProgress ::
   -- | 'bearerToken'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'operationStatus'
   OperationStatus ->
   RecordHandlerProgress
@@ -120,43 +119,43 @@ newRecordHandlerProgress
   pOperationStatus_ =
     RecordHandlerProgress'
       { statusMessage =
-          Prelude.Nothing,
-        resourceModel = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        currentOperationStatus = Prelude.Nothing,
-        errorCode = Prelude.Nothing,
+          Core.Nothing,
+        resourceModel = Core.Nothing,
+        clientRequestToken = Core.Nothing,
+        currentOperationStatus = Core.Nothing,
+        errorCode = Core.Nothing,
         bearerToken = pBearerToken_,
         operationStatus = pOperationStatus_
       }
 
 -- | Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-recordHandlerProgress_statusMessage :: Lens.Lens' RecordHandlerProgress (Prelude.Maybe Prelude.Text)
+recordHandlerProgress_statusMessage :: Lens.Lens' RecordHandlerProgress (Core.Maybe Core.Text)
 recordHandlerProgress_statusMessage = Lens.lens (\RecordHandlerProgress' {statusMessage} -> statusMessage) (\s@RecordHandlerProgress' {} a -> s {statusMessage = a} :: RecordHandlerProgress)
 
 -- | Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-recordHandlerProgress_resourceModel :: Lens.Lens' RecordHandlerProgress (Prelude.Maybe Prelude.Text)
+recordHandlerProgress_resourceModel :: Lens.Lens' RecordHandlerProgress (Core.Maybe Core.Text)
 recordHandlerProgress_resourceModel = Lens.lens (\RecordHandlerProgress' {resourceModel} -> resourceModel) (\s@RecordHandlerProgress' {} a -> s {resourceModel = a} :: RecordHandlerProgress)
 
 -- | Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-recordHandlerProgress_clientRequestToken :: Lens.Lens' RecordHandlerProgress (Prelude.Maybe Prelude.Text)
+recordHandlerProgress_clientRequestToken :: Lens.Lens' RecordHandlerProgress (Core.Maybe Core.Text)
 recordHandlerProgress_clientRequestToken = Lens.lens (\RecordHandlerProgress' {clientRequestToken} -> clientRequestToken) (\s@RecordHandlerProgress' {} a -> s {clientRequestToken = a} :: RecordHandlerProgress)
 
 -- | Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-recordHandlerProgress_currentOperationStatus :: Lens.Lens' RecordHandlerProgress (Prelude.Maybe OperationStatus)
+recordHandlerProgress_currentOperationStatus :: Lens.Lens' RecordHandlerProgress (Core.Maybe OperationStatus)
 recordHandlerProgress_currentOperationStatus = Lens.lens (\RecordHandlerProgress' {currentOperationStatus} -> currentOperationStatus) (\s@RecordHandlerProgress' {} a -> s {currentOperationStatus = a} :: RecordHandlerProgress)
 
 -- | Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-recordHandlerProgress_errorCode :: Lens.Lens' RecordHandlerProgress (Prelude.Maybe HandlerErrorCode)
+recordHandlerProgress_errorCode :: Lens.Lens' RecordHandlerProgress (Core.Maybe HandlerErrorCode)
 recordHandlerProgress_errorCode = Lens.lens (\RecordHandlerProgress' {errorCode} -> errorCode) (\s@RecordHandlerProgress' {} a -> s {errorCode = a} :: RecordHandlerProgress)
 
 -- | Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-recordHandlerProgress_bearerToken :: Lens.Lens' RecordHandlerProgress Prelude.Text
+recordHandlerProgress_bearerToken :: Lens.Lens' RecordHandlerProgress Core.Text
 recordHandlerProgress_bearerToken = Lens.lens (\RecordHandlerProgress' {bearerToken} -> bearerToken) (\s@RecordHandlerProgress' {} a -> s {bearerToken = a} :: RecordHandlerProgress)
 
 -- | Reserved for use by the
@@ -164,9 +163,9 @@ recordHandlerProgress_bearerToken = Lens.lens (\RecordHandlerProgress' {bearerTo
 recordHandlerProgress_operationStatus :: Lens.Lens' RecordHandlerProgress OperationStatus
 recordHandlerProgress_operationStatus = Lens.lens (\RecordHandlerProgress' {operationStatus} -> operationStatus) (\s@RecordHandlerProgress' {} a -> s {operationStatus = a} :: RecordHandlerProgress)
 
-instance Prelude.AWSRequest RecordHandlerProgress where
+instance Core.AWSRequest RecordHandlerProgress where
   type
-    Rs RecordHandlerProgress =
+    AWSResponse RecordHandlerProgress =
       RecordHandlerProgressResponse
   request = Request.postQuery defaultService
   response =
@@ -174,42 +173,41 @@ instance Prelude.AWSRequest RecordHandlerProgress where
       "RecordHandlerProgressResult"
       ( \s h x ->
           RecordHandlerProgressResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RecordHandlerProgress
+instance Core.Hashable RecordHandlerProgress
 
-instance Prelude.NFData RecordHandlerProgress
+instance Core.NFData RecordHandlerProgress
 
-instance Prelude.ToHeaders RecordHandlerProgress where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RecordHandlerProgress where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RecordHandlerProgress where
-  toPath = Prelude.const "/"
+instance Core.ToPath RecordHandlerProgress where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RecordHandlerProgress where
+instance Core.ToQuery RecordHandlerProgress where
   toQuery RecordHandlerProgress' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RecordHandlerProgress" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "StatusMessage" Prelude.=: statusMessage,
-        "ResourceModel" Prelude.=: resourceModel,
-        "ClientRequestToken" Prelude.=: clientRequestToken,
+          Core.=: ("RecordHandlerProgress" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "StatusMessage" Core.=: statusMessage,
+        "ResourceModel" Core.=: resourceModel,
+        "ClientRequestToken" Core.=: clientRequestToken,
         "CurrentOperationStatus"
-          Prelude.=: currentOperationStatus,
-        "ErrorCode" Prelude.=: errorCode,
-        "BearerToken" Prelude.=: bearerToken,
-        "OperationStatus" Prelude.=: operationStatus
+          Core.=: currentOperationStatus,
+        "ErrorCode" Core.=: errorCode,
+        "BearerToken" Core.=: bearerToken,
+        "OperationStatus" Core.=: operationStatus
       ]
 
 -- | /See:/ 'newRecordHandlerProgressResponse' smart constructor.
 data RecordHandlerProgressResponse = RecordHandlerProgressResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecordHandlerProgressResponse' with all optional fields omitted.
@@ -222,7 +220,7 @@ data RecordHandlerProgressResponse = RecordHandlerProgressResponse'
 -- 'httpStatus', 'recordHandlerProgressResponse_httpStatus' - The response's http status code.
 newRecordHandlerProgressResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RecordHandlerProgressResponse
 newRecordHandlerProgressResponse pHttpStatus_ =
   RecordHandlerProgressResponse'
@@ -231,7 +229,7 @@ newRecordHandlerProgressResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-recordHandlerProgressResponse_httpStatus :: Lens.Lens' RecordHandlerProgressResponse Prelude.Int
+recordHandlerProgressResponse_httpStatus :: Lens.Lens' RecordHandlerProgressResponse Core.Int
 recordHandlerProgressResponse_httpStatus = Lens.lens (\RecordHandlerProgressResponse' {httpStatus} -> httpStatus) (\s@RecordHandlerProgressResponse' {} a -> s {httpStatus = a} :: RecordHandlerProgressResponse)
 
-instance Prelude.NFData RecordHandlerProgressResponse
+instance Core.NFData RecordHandlerProgressResponse

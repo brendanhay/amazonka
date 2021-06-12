@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.LayersListItem where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.LayerVersionsListItem
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about an
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer>.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLayersListItem' smart constructor.
 data LayersListItem = LayersListItem'
   { -- | The Amazon Resource Name (ARN) of the function layer.
-    layerArn :: Prelude.Maybe Prelude.Text,
+    layerArn :: Core.Maybe Core.Text,
     -- | The name of the layer.
-    layerName :: Prelude.Maybe Prelude.Text,
+    layerName :: Core.Maybe Core.Text,
     -- | The newest version of the layer.
-    latestMatchingVersion :: Prelude.Maybe LayerVersionsListItem
+    latestMatchingVersion :: Core.Maybe LayerVersionsListItem
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LayersListItem' with all optional fields omitted.
@@ -55,34 +54,34 @@ newLayersListItem ::
   LayersListItem
 newLayersListItem =
   LayersListItem'
-    { layerArn = Prelude.Nothing,
-      layerName = Prelude.Nothing,
-      latestMatchingVersion = Prelude.Nothing
+    { layerArn = Core.Nothing,
+      layerName = Core.Nothing,
+      latestMatchingVersion = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the function layer.
-layersListItem_layerArn :: Lens.Lens' LayersListItem (Prelude.Maybe Prelude.Text)
+layersListItem_layerArn :: Lens.Lens' LayersListItem (Core.Maybe Core.Text)
 layersListItem_layerArn = Lens.lens (\LayersListItem' {layerArn} -> layerArn) (\s@LayersListItem' {} a -> s {layerArn = a} :: LayersListItem)
 
 -- | The name of the layer.
-layersListItem_layerName :: Lens.Lens' LayersListItem (Prelude.Maybe Prelude.Text)
+layersListItem_layerName :: Lens.Lens' LayersListItem (Core.Maybe Core.Text)
 layersListItem_layerName = Lens.lens (\LayersListItem' {layerName} -> layerName) (\s@LayersListItem' {} a -> s {layerName = a} :: LayersListItem)
 
 -- | The newest version of the layer.
-layersListItem_latestMatchingVersion :: Lens.Lens' LayersListItem (Prelude.Maybe LayerVersionsListItem)
+layersListItem_latestMatchingVersion :: Lens.Lens' LayersListItem (Core.Maybe LayerVersionsListItem)
 layersListItem_latestMatchingVersion = Lens.lens (\LayersListItem' {latestMatchingVersion} -> latestMatchingVersion) (\s@LayersListItem' {} a -> s {latestMatchingVersion = a} :: LayersListItem)
 
-instance Prelude.FromJSON LayersListItem where
+instance Core.FromJSON LayersListItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LayersListItem"
       ( \x ->
           LayersListItem'
-            Prelude.<$> (x Prelude..:? "LayerArn")
-            Prelude.<*> (x Prelude..:? "LayerName")
-            Prelude.<*> (x Prelude..:? "LatestMatchingVersion")
+            Core.<$> (x Core..:? "LayerArn")
+            Core.<*> (x Core..:? "LayerName")
+            Core.<*> (x Core..:? "LatestMatchingVersion")
       )
 
-instance Prelude.Hashable LayersListItem
+instance Core.Hashable LayersListItem
 
-instance Prelude.NFData LayersListItem
+instance Core.NFData LayersListItem

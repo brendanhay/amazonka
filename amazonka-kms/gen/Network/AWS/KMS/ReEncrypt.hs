@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -144,9 +143,9 @@ module Network.AWS.KMS.ReEncrypt
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -168,13 +167,13 @@ data ReEncrypt = ReEncrypt'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
     -- in the /AWS Key Management Service Developer Guide/.
-    destinationEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    destinationEncryptionContext :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A list of grant tokens.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
     -- in the /AWS Key Management Service Developer Guide/.
-    grantTokens :: Prelude.Maybe [Prelude.Text],
+    grantTokens :: Core.Maybe [Core.Text],
     -- | Specifies the encryption context to use to decrypt the ciphertext. Enter
     -- the same encryption context that was used to encrypt the ciphertext.
     --
@@ -188,7 +187,7 @@ data ReEncrypt = ReEncrypt'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
     -- in the /AWS Key Management Service Developer Guide/.
-    sourceEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    sourceEncryptionContext :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Specifies the customer master key (CMK) that AWS KMS will use to decrypt
     -- the ciphertext before it is re-encrypted. Enter a key ID of the CMK that
     -- was used to encrypt the ciphertext.
@@ -217,14 +216,14 @@ data ReEncrypt = ReEncrypt'
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
     -- get the alias name and alias ARN, use ListAliases.
-    sourceKeyId :: Prelude.Maybe Prelude.Text,
+    sourceKeyId :: Core.Maybe Core.Text,
     -- | Specifies the encryption algorithm that AWS KMS will use to reecrypt the
     -- data after it has decrypted it. The default value, @SYMMETRIC_DEFAULT@,
     -- represents the encryption algorithm used for symmetric CMKs.
     --
     -- This parameter is required only when the destination CMK is an
     -- asymmetric CMK.
-    destinationEncryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
+    destinationEncryptionAlgorithm :: Core.Maybe EncryptionAlgorithmSpec,
     -- | Specifies the encryption algorithm that AWS KMS will use to decrypt the
     -- ciphertext before it is reencrypted. The default value,
     -- @SYMMETRIC_DEFAULT@, represents the algorithm used for symmetric CMKs.
@@ -234,9 +233,9 @@ data ReEncrypt = ReEncrypt'
     --
     -- This parameter is required only when the ciphertext was encrypted under
     -- an asymmetric CMK.
-    sourceEncryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
+    sourceEncryptionAlgorithm :: Core.Maybe EncryptionAlgorithmSpec,
     -- | Ciphertext of the data to reencrypt.
-    ciphertextBlob :: Prelude.Base64,
+    ciphertextBlob :: Core.Base64,
     -- | A unique identifier for the CMK that is used to reencrypt the data.
     -- Specify a symmetric or asymmetric CMK with a @KeyUsage@ value of
     -- @ENCRYPT_DECRYPT@. To find the @KeyUsage@ value of a CMK, use the
@@ -260,9 +259,9 @@ data ReEncrypt = ReEncrypt'
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
     -- get the alias name and alias ARN, use ListAliases.
-    destinationKeyId :: Prelude.Text
+    destinationKeyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReEncrypt' with all optional fields omitted.
@@ -386,21 +385,21 @@ data ReEncrypt = ReEncrypt'
 -- get the alias name and alias ARN, use ListAliases.
 newReEncrypt ::
   -- | 'ciphertextBlob'
-  Prelude.ByteString ->
+  Core.ByteString ->
   -- | 'destinationKeyId'
-  Prelude.Text ->
+  Core.Text ->
   ReEncrypt
 newReEncrypt pCiphertextBlob_ pDestinationKeyId_ =
   ReEncrypt'
     { destinationEncryptionContext =
-        Prelude.Nothing,
-      grantTokens = Prelude.Nothing,
-      sourceEncryptionContext = Prelude.Nothing,
-      sourceKeyId = Prelude.Nothing,
-      destinationEncryptionAlgorithm = Prelude.Nothing,
-      sourceEncryptionAlgorithm = Prelude.Nothing,
+        Core.Nothing,
+      grantTokens = Core.Nothing,
+      sourceEncryptionContext = Core.Nothing,
+      sourceKeyId = Core.Nothing,
+      destinationEncryptionAlgorithm = Core.Nothing,
+      sourceEncryptionAlgorithm = Core.Nothing,
       ciphertextBlob =
-        Prelude._Base64 Lens.# pCiphertextBlob_,
+        Core._Base64 Lens.# pCiphertextBlob_,
       destinationKeyId = pDestinationKeyId_
     }
 
@@ -420,16 +419,16 @@ newReEncrypt pCiphertextBlob_ pDestinationKeyId_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
 -- in the /AWS Key Management Service Developer Guide/.
-reEncrypt_destinationEncryptionContext :: Lens.Lens' ReEncrypt (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-reEncrypt_destinationEncryptionContext = Lens.lens (\ReEncrypt' {destinationEncryptionContext} -> destinationEncryptionContext) (\s@ReEncrypt' {} a -> s {destinationEncryptionContext = a} :: ReEncrypt) Prelude.. Lens.mapping Prelude._Coerce
+reEncrypt_destinationEncryptionContext :: Lens.Lens' ReEncrypt (Core.Maybe (Core.HashMap Core.Text Core.Text))
+reEncrypt_destinationEncryptionContext = Lens.lens (\ReEncrypt' {destinationEncryptionContext} -> destinationEncryptionContext) (\s@ReEncrypt' {} a -> s {destinationEncryptionContext = a} :: ReEncrypt) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of grant tokens.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
 -- in the /AWS Key Management Service Developer Guide/.
-reEncrypt_grantTokens :: Lens.Lens' ReEncrypt (Prelude.Maybe [Prelude.Text])
-reEncrypt_grantTokens = Lens.lens (\ReEncrypt' {grantTokens} -> grantTokens) (\s@ReEncrypt' {} a -> s {grantTokens = a} :: ReEncrypt) Prelude.. Lens.mapping Prelude._Coerce
+reEncrypt_grantTokens :: Lens.Lens' ReEncrypt (Core.Maybe [Core.Text])
+reEncrypt_grantTokens = Lens.lens (\ReEncrypt' {grantTokens} -> grantTokens) (\s@ReEncrypt' {} a -> s {grantTokens = a} :: ReEncrypt) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the encryption context to use to decrypt the ciphertext. Enter
 -- the same encryption context that was used to encrypt the ciphertext.
@@ -444,8 +443,8 @@ reEncrypt_grantTokens = Lens.lens (\ReEncrypt' {grantTokens} -> grantTokens) (\s
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
 -- in the /AWS Key Management Service Developer Guide/.
-reEncrypt_sourceEncryptionContext :: Lens.Lens' ReEncrypt (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-reEncrypt_sourceEncryptionContext = Lens.lens (\ReEncrypt' {sourceEncryptionContext} -> sourceEncryptionContext) (\s@ReEncrypt' {} a -> s {sourceEncryptionContext = a} :: ReEncrypt) Prelude.. Lens.mapping Prelude._Coerce
+reEncrypt_sourceEncryptionContext :: Lens.Lens' ReEncrypt (Core.Maybe (Core.HashMap Core.Text Core.Text))
+reEncrypt_sourceEncryptionContext = Lens.lens (\ReEncrypt' {sourceEncryptionContext} -> sourceEncryptionContext) (\s@ReEncrypt' {} a -> s {sourceEncryptionContext = a} :: ReEncrypt) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the customer master key (CMK) that AWS KMS will use to decrypt
 -- the ciphertext before it is re-encrypted. Enter a key ID of the CMK that
@@ -475,7 +474,7 @@ reEncrypt_sourceEncryptionContext = Lens.lens (\ReEncrypt' {sourceEncryptionCont
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
 -- get the alias name and alias ARN, use ListAliases.
-reEncrypt_sourceKeyId :: Lens.Lens' ReEncrypt (Prelude.Maybe Prelude.Text)
+reEncrypt_sourceKeyId :: Lens.Lens' ReEncrypt (Core.Maybe Core.Text)
 reEncrypt_sourceKeyId = Lens.lens (\ReEncrypt' {sourceKeyId} -> sourceKeyId) (\s@ReEncrypt' {} a -> s {sourceKeyId = a} :: ReEncrypt)
 
 -- | Specifies the encryption algorithm that AWS KMS will use to reecrypt the
@@ -484,7 +483,7 @@ reEncrypt_sourceKeyId = Lens.lens (\ReEncrypt' {sourceKeyId} -> sourceKeyId) (\s
 --
 -- This parameter is required only when the destination CMK is an
 -- asymmetric CMK.
-reEncrypt_destinationEncryptionAlgorithm :: Lens.Lens' ReEncrypt (Prelude.Maybe EncryptionAlgorithmSpec)
+reEncrypt_destinationEncryptionAlgorithm :: Lens.Lens' ReEncrypt (Core.Maybe EncryptionAlgorithmSpec)
 reEncrypt_destinationEncryptionAlgorithm = Lens.lens (\ReEncrypt' {destinationEncryptionAlgorithm} -> destinationEncryptionAlgorithm) (\s@ReEncrypt' {} a -> s {destinationEncryptionAlgorithm = a} :: ReEncrypt)
 
 -- | Specifies the encryption algorithm that AWS KMS will use to decrypt the
@@ -496,7 +495,7 @@ reEncrypt_destinationEncryptionAlgorithm = Lens.lens (\ReEncrypt' {destinationEn
 --
 -- This parameter is required only when the ciphertext was encrypted under
 -- an asymmetric CMK.
-reEncrypt_sourceEncryptionAlgorithm :: Lens.Lens' ReEncrypt (Prelude.Maybe EncryptionAlgorithmSpec)
+reEncrypt_sourceEncryptionAlgorithm :: Lens.Lens' ReEncrypt (Core.Maybe EncryptionAlgorithmSpec)
 reEncrypt_sourceEncryptionAlgorithm = Lens.lens (\ReEncrypt' {sourceEncryptionAlgorithm} -> sourceEncryptionAlgorithm) (\s@ReEncrypt' {} a -> s {sourceEncryptionAlgorithm = a} :: ReEncrypt)
 
 -- | Ciphertext of the data to reencrypt.--
@@ -504,8 +503,8 @@ reEncrypt_sourceEncryptionAlgorithm = Lens.lens (\ReEncrypt' {sourceEncryptionAl
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-reEncrypt_ciphertextBlob :: Lens.Lens' ReEncrypt Prelude.ByteString
-reEncrypt_ciphertextBlob = Lens.lens (\ReEncrypt' {ciphertextBlob} -> ciphertextBlob) (\s@ReEncrypt' {} a -> s {ciphertextBlob = a} :: ReEncrypt) Prelude.. Prelude._Base64
+reEncrypt_ciphertextBlob :: Lens.Lens' ReEncrypt Core.ByteString
+reEncrypt_ciphertextBlob = Lens.lens (\ReEncrypt' {ciphertextBlob} -> ciphertextBlob) (\s@ReEncrypt' {} a -> s {ciphertextBlob = a} :: ReEncrypt) Core.. Core._Base64
 
 -- | A unique identifier for the CMK that is used to reencrypt the data.
 -- Specify a symmetric or asymmetric CMK with a @KeyUsage@ value of
@@ -530,88 +529,85 @@ reEncrypt_ciphertextBlob = Lens.lens (\ReEncrypt' {ciphertextBlob} -> ciphertext
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
 -- get the alias name and alias ARN, use ListAliases.
-reEncrypt_destinationKeyId :: Lens.Lens' ReEncrypt Prelude.Text
+reEncrypt_destinationKeyId :: Lens.Lens' ReEncrypt Core.Text
 reEncrypt_destinationKeyId = Lens.lens (\ReEncrypt' {destinationKeyId} -> destinationKeyId) (\s@ReEncrypt' {} a -> s {destinationKeyId = a} :: ReEncrypt)
 
-instance Prelude.AWSRequest ReEncrypt where
-  type Rs ReEncrypt = ReEncryptResponse
+instance Core.AWSRequest ReEncrypt where
+  type AWSResponse ReEncrypt = ReEncryptResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ReEncryptResponse'
-            Prelude.<$> (x Prelude..?> "SourceKeyId")
-            Prelude.<*> (x Prelude..?> "DestinationEncryptionAlgorithm")
-            Prelude.<*> (x Prelude..?> "CiphertextBlob")
-            Prelude.<*> (x Prelude..?> "SourceEncryptionAlgorithm")
-            Prelude.<*> (x Prelude..?> "KeyId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SourceKeyId")
+            Core.<*> (x Core..?> "DestinationEncryptionAlgorithm")
+            Core.<*> (x Core..?> "CiphertextBlob")
+            Core.<*> (x Core..?> "SourceEncryptionAlgorithm")
+            Core.<*> (x Core..?> "KeyId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ReEncrypt
+instance Core.Hashable ReEncrypt
 
-instance Prelude.NFData ReEncrypt
+instance Core.NFData ReEncrypt
 
-instance Prelude.ToHeaders ReEncrypt where
+instance Core.ToHeaders ReEncrypt where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("TrentService.ReEncrypt" :: Prelude.ByteString),
+              Core.=# ("TrentService.ReEncrypt" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ReEncrypt where
+instance Core.ToJSON ReEncrypt where
   toJSON ReEncrypt' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DestinationEncryptionContext" Prelude..=)
-              Prelude.<$> destinationEncryptionContext,
-            ("GrantTokens" Prelude..=) Prelude.<$> grantTokens,
-            ("SourceEncryptionContext" Prelude..=)
-              Prelude.<$> sourceEncryptionContext,
-            ("SourceKeyId" Prelude..=) Prelude.<$> sourceKeyId,
-            ("DestinationEncryptionAlgorithm" Prelude..=)
-              Prelude.<$> destinationEncryptionAlgorithm,
-            ("SourceEncryptionAlgorithm" Prelude..=)
-              Prelude.<$> sourceEncryptionAlgorithm,
-            Prelude.Just
-              ("CiphertextBlob" Prelude..= ciphertextBlob),
-            Prelude.Just
-              ("DestinationKeyId" Prelude..= destinationKeyId)
+    Core.object
+      ( Core.catMaybes
+          [ ("DestinationEncryptionContext" Core..=)
+              Core.<$> destinationEncryptionContext,
+            ("GrantTokens" Core..=) Core.<$> grantTokens,
+            ("SourceEncryptionContext" Core..=)
+              Core.<$> sourceEncryptionContext,
+            ("SourceKeyId" Core..=) Core.<$> sourceKeyId,
+            ("DestinationEncryptionAlgorithm" Core..=)
+              Core.<$> destinationEncryptionAlgorithm,
+            ("SourceEncryptionAlgorithm" Core..=)
+              Core.<$> sourceEncryptionAlgorithm,
+            Core.Just ("CiphertextBlob" Core..= ciphertextBlob),
+            Core.Just
+              ("DestinationKeyId" Core..= destinationKeyId)
           ]
       )
 
-instance Prelude.ToPath ReEncrypt where
-  toPath = Prelude.const "/"
+instance Core.ToPath ReEncrypt where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ReEncrypt where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ReEncrypt where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newReEncryptResponse' smart constructor.
 data ReEncryptResponse = ReEncryptResponse'
   { -- | Unique identifier of the CMK used to originally encrypt the data.
-    sourceKeyId :: Prelude.Maybe Prelude.Text,
+    sourceKeyId :: Core.Maybe Core.Text,
     -- | The encryption algorithm that was used to reencrypt the data.
-    destinationEncryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
+    destinationEncryptionAlgorithm :: Core.Maybe EncryptionAlgorithmSpec,
     -- | The reencrypted data. When you use the HTTP API or the AWS CLI, the
     -- value is Base64-encoded. Otherwise, it is not Base64-encoded.
-    ciphertextBlob :: Prelude.Maybe Prelude.Base64,
+    ciphertextBlob :: Core.Maybe Core.Base64,
     -- | The encryption algorithm that was used to decrypt the ciphertext before
     -- it was reencrypted.
-    sourceEncryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
+    sourceEncryptionAlgorithm :: Core.Maybe EncryptionAlgorithmSpec,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the CMK that was used to reencrypt the data.
-    keyId :: Prelude.Maybe Prelude.Text,
+    keyId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReEncryptResponse' with all optional fields omitted.
@@ -642,24 +638,24 @@ data ReEncryptResponse = ReEncryptResponse'
 -- 'httpStatus', 'reEncryptResponse_httpStatus' - The response's http status code.
 newReEncryptResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ReEncryptResponse
 newReEncryptResponse pHttpStatus_ =
   ReEncryptResponse'
-    { sourceKeyId = Prelude.Nothing,
-      destinationEncryptionAlgorithm = Prelude.Nothing,
-      ciphertextBlob = Prelude.Nothing,
-      sourceEncryptionAlgorithm = Prelude.Nothing,
-      keyId = Prelude.Nothing,
+    { sourceKeyId = Core.Nothing,
+      destinationEncryptionAlgorithm = Core.Nothing,
+      ciphertextBlob = Core.Nothing,
+      sourceEncryptionAlgorithm = Core.Nothing,
+      keyId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Unique identifier of the CMK used to originally encrypt the data.
-reEncryptResponse_sourceKeyId :: Lens.Lens' ReEncryptResponse (Prelude.Maybe Prelude.Text)
+reEncryptResponse_sourceKeyId :: Lens.Lens' ReEncryptResponse (Core.Maybe Core.Text)
 reEncryptResponse_sourceKeyId = Lens.lens (\ReEncryptResponse' {sourceKeyId} -> sourceKeyId) (\s@ReEncryptResponse' {} a -> s {sourceKeyId = a} :: ReEncryptResponse)
 
 -- | The encryption algorithm that was used to reencrypt the data.
-reEncryptResponse_destinationEncryptionAlgorithm :: Lens.Lens' ReEncryptResponse (Prelude.Maybe EncryptionAlgorithmSpec)
+reEncryptResponse_destinationEncryptionAlgorithm :: Lens.Lens' ReEncryptResponse (Core.Maybe EncryptionAlgorithmSpec)
 reEncryptResponse_destinationEncryptionAlgorithm = Lens.lens (\ReEncryptResponse' {destinationEncryptionAlgorithm} -> destinationEncryptionAlgorithm) (\s@ReEncryptResponse' {} a -> s {destinationEncryptionAlgorithm = a} :: ReEncryptResponse)
 
 -- | The reencrypted data. When you use the HTTP API or the AWS CLI, the
@@ -668,22 +664,22 @@ reEncryptResponse_destinationEncryptionAlgorithm = Lens.lens (\ReEncryptResponse
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-reEncryptResponse_ciphertextBlob :: Lens.Lens' ReEncryptResponse (Prelude.Maybe Prelude.ByteString)
-reEncryptResponse_ciphertextBlob = Lens.lens (\ReEncryptResponse' {ciphertextBlob} -> ciphertextBlob) (\s@ReEncryptResponse' {} a -> s {ciphertextBlob = a} :: ReEncryptResponse) Prelude.. Lens.mapping Prelude._Base64
+reEncryptResponse_ciphertextBlob :: Lens.Lens' ReEncryptResponse (Core.Maybe Core.ByteString)
+reEncryptResponse_ciphertextBlob = Lens.lens (\ReEncryptResponse' {ciphertextBlob} -> ciphertextBlob) (\s@ReEncryptResponse' {} a -> s {ciphertextBlob = a} :: ReEncryptResponse) Core.. Lens.mapping Core._Base64
 
 -- | The encryption algorithm that was used to decrypt the ciphertext before
 -- it was reencrypted.
-reEncryptResponse_sourceEncryptionAlgorithm :: Lens.Lens' ReEncryptResponse (Prelude.Maybe EncryptionAlgorithmSpec)
+reEncryptResponse_sourceEncryptionAlgorithm :: Lens.Lens' ReEncryptResponse (Core.Maybe EncryptionAlgorithmSpec)
 reEncryptResponse_sourceEncryptionAlgorithm = Lens.lens (\ReEncryptResponse' {sourceEncryptionAlgorithm} -> sourceEncryptionAlgorithm) (\s@ReEncryptResponse' {} a -> s {sourceEncryptionAlgorithm = a} :: ReEncryptResponse)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
 -- of the CMK that was used to reencrypt the data.
-reEncryptResponse_keyId :: Lens.Lens' ReEncryptResponse (Prelude.Maybe Prelude.Text)
+reEncryptResponse_keyId :: Lens.Lens' ReEncryptResponse (Core.Maybe Core.Text)
 reEncryptResponse_keyId = Lens.lens (\ReEncryptResponse' {keyId} -> keyId) (\s@ReEncryptResponse' {} a -> s {keyId = a} :: ReEncryptResponse)
 
 -- | The response's http status code.
-reEncryptResponse_httpStatus :: Lens.Lens' ReEncryptResponse Prelude.Int
+reEncryptResponse_httpStatus :: Lens.Lens' ReEncryptResponse Core.Int
 reEncryptResponse_httpStatus = Lens.lens (\ReEncryptResponse' {httpStatus} -> httpStatus) (\s@ReEncryptResponse' {} a -> s {httpStatus = a} :: ReEncryptResponse)
 
-instance Prelude.NFData ReEncryptResponse
+instance Core.NFData ReEncryptResponse

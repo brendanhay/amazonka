@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.CloudFormation.Types.StackInstanceFilter where
 
 import Network.AWS.CloudFormation.Types.StackInstanceFilterName
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The status that stack instances are filtered by.
 --
 -- /See:/ 'newStackInstanceFilter' smart constructor.
 data StackInstanceFilter = StackInstanceFilter'
   { -- | The status to filter by.
-    values :: Prelude.Maybe Prelude.Text,
+    values :: Core.Maybe Core.Text,
     -- | The type of filter to apply.
-    name :: Prelude.Maybe StackInstanceFilterName
+    name :: Core.Maybe StackInstanceFilterName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StackInstanceFilter' with all optional fields omitted.
@@ -50,23 +49,23 @@ newStackInstanceFilter ::
   StackInstanceFilter
 newStackInstanceFilter =
   StackInstanceFilter'
-    { values = Prelude.Nothing,
-      name = Prelude.Nothing
+    { values = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The status to filter by.
-stackInstanceFilter_values :: Lens.Lens' StackInstanceFilter (Prelude.Maybe Prelude.Text)
+stackInstanceFilter_values :: Lens.Lens' StackInstanceFilter (Core.Maybe Core.Text)
 stackInstanceFilter_values = Lens.lens (\StackInstanceFilter' {values} -> values) (\s@StackInstanceFilter' {} a -> s {values = a} :: StackInstanceFilter)
 
 -- | The type of filter to apply.
-stackInstanceFilter_name :: Lens.Lens' StackInstanceFilter (Prelude.Maybe StackInstanceFilterName)
+stackInstanceFilter_name :: Lens.Lens' StackInstanceFilter (Core.Maybe StackInstanceFilterName)
 stackInstanceFilter_name = Lens.lens (\StackInstanceFilter' {name} -> name) (\s@StackInstanceFilter' {} a -> s {name = a} :: StackInstanceFilter)
 
-instance Prelude.Hashable StackInstanceFilter
+instance Core.Hashable StackInstanceFilter
 
-instance Prelude.NFData StackInstanceFilter
+instance Core.NFData StackInstanceFilter
 
-instance Prelude.ToQuery StackInstanceFilter where
+instance Core.ToQuery StackInstanceFilter where
   toQuery StackInstanceFilter' {..} =
-    Prelude.mconcat
-      ["Values" Prelude.=: values, "Name" Prelude.=: name]
+    Core.mconcat
+      ["Values" Core.=: values, "Name" Core.=: name]

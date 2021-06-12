@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.NetworkCardInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the network card support of the instance type.
 --
 -- /See:/ 'newNetworkCardInfo' smart constructor.
 data NetworkCardInfo = NetworkCardInfo'
   { -- | The maximum number of network interfaces for the network card.
-    maximumNetworkInterfaces :: Prelude.Maybe Prelude.Int,
+    maximumNetworkInterfaces :: Core.Maybe Core.Int,
     -- | The index of the network card.
-    networkCardIndex :: Prelude.Maybe Prelude.Int,
+    networkCardIndex :: Core.Maybe Core.Int,
     -- | The network performance of the network card.
-    networkPerformance :: Prelude.Maybe Prelude.Text
+    networkPerformance :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkCardInfo' with all optional fields omitted.
@@ -55,30 +54,30 @@ newNetworkCardInfo ::
 newNetworkCardInfo =
   NetworkCardInfo'
     { maximumNetworkInterfaces =
-        Prelude.Nothing,
-      networkCardIndex = Prelude.Nothing,
-      networkPerformance = Prelude.Nothing
+        Core.Nothing,
+      networkCardIndex = Core.Nothing,
+      networkPerformance = Core.Nothing
     }
 
 -- | The maximum number of network interfaces for the network card.
-networkCardInfo_maximumNetworkInterfaces :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Int)
+networkCardInfo_maximumNetworkInterfaces :: Lens.Lens' NetworkCardInfo (Core.Maybe Core.Int)
 networkCardInfo_maximumNetworkInterfaces = Lens.lens (\NetworkCardInfo' {maximumNetworkInterfaces} -> maximumNetworkInterfaces) (\s@NetworkCardInfo' {} a -> s {maximumNetworkInterfaces = a} :: NetworkCardInfo)
 
 -- | The index of the network card.
-networkCardInfo_networkCardIndex :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Int)
+networkCardInfo_networkCardIndex :: Lens.Lens' NetworkCardInfo (Core.Maybe Core.Int)
 networkCardInfo_networkCardIndex = Lens.lens (\NetworkCardInfo' {networkCardIndex} -> networkCardIndex) (\s@NetworkCardInfo' {} a -> s {networkCardIndex = a} :: NetworkCardInfo)
 
 -- | The network performance of the network card.
-networkCardInfo_networkPerformance :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Text)
+networkCardInfo_networkPerformance :: Lens.Lens' NetworkCardInfo (Core.Maybe Core.Text)
 networkCardInfo_networkPerformance = Lens.lens (\NetworkCardInfo' {networkPerformance} -> networkPerformance) (\s@NetworkCardInfo' {} a -> s {networkPerformance = a} :: NetworkCardInfo)
 
-instance Prelude.FromXML NetworkCardInfo where
+instance Core.FromXML NetworkCardInfo where
   parseXML x =
     NetworkCardInfo'
-      Prelude.<$> (x Prelude..@? "maximumNetworkInterfaces")
-      Prelude.<*> (x Prelude..@? "networkCardIndex")
-      Prelude.<*> (x Prelude..@? "networkPerformance")
+      Core.<$> (x Core..@? "maximumNetworkInterfaces")
+      Core.<*> (x Core..@? "networkCardIndex")
+      Core.<*> (x Core..@? "networkPerformance")
 
-instance Prelude.Hashable NetworkCardInfo
+instance Core.Hashable NetworkCardInfo
 
-instance Prelude.NFData NetworkCardInfo
+instance Core.NFData NetworkCardInfo

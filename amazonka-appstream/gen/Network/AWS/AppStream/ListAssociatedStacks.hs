@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.AppStream.ListAssociatedStacks
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +54,11 @@ import qualified Network.AWS.Response as Response
 data ListAssociatedStacks = ListAssociatedStacks'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The name of the fleet.
-    fleetName :: Prelude.Text
+    fleetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAssociatedStacks' with all optional fields omitted.
@@ -76,104 +74,101 @@ data ListAssociatedStacks = ListAssociatedStacks'
 -- 'fleetName', 'listAssociatedStacks_fleetName' - The name of the fleet.
 newListAssociatedStacks ::
   -- | 'fleetName'
-  Prelude.Text ->
+  Core.Text ->
   ListAssociatedStacks
 newListAssociatedStacks pFleetName_ =
   ListAssociatedStacks'
-    { nextToken = Prelude.Nothing,
+    { nextToken = Core.Nothing,
       fleetName = pFleetName_
     }
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
-listAssociatedStacks_nextToken :: Lens.Lens' ListAssociatedStacks (Prelude.Maybe Prelude.Text)
+listAssociatedStacks_nextToken :: Lens.Lens' ListAssociatedStacks (Core.Maybe Core.Text)
 listAssociatedStacks_nextToken = Lens.lens (\ListAssociatedStacks' {nextToken} -> nextToken) (\s@ListAssociatedStacks' {} a -> s {nextToken = a} :: ListAssociatedStacks)
 
 -- | The name of the fleet.
-listAssociatedStacks_fleetName :: Lens.Lens' ListAssociatedStacks Prelude.Text
+listAssociatedStacks_fleetName :: Lens.Lens' ListAssociatedStacks Core.Text
 listAssociatedStacks_fleetName = Lens.lens (\ListAssociatedStacks' {fleetName} -> fleetName) (\s@ListAssociatedStacks' {} a -> s {fleetName = a} :: ListAssociatedStacks)
 
-instance Pager.AWSPager ListAssociatedStacks where
+instance Core.AWSPager ListAssociatedStacks where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listAssociatedStacksResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listAssociatedStacksResponse_names
-              Prelude.. Lens._Just
+            Lens.^? listAssociatedStacksResponse_names Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listAssociatedStacks_nextToken
           Lens..~ rs
           Lens.^? listAssociatedStacksResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListAssociatedStacks where
+instance Core.AWSRequest ListAssociatedStacks where
   type
-    Rs ListAssociatedStacks =
+    AWSResponse ListAssociatedStacks =
       ListAssociatedStacksResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAssociatedStacksResponse'
-            Prelude.<$> (x Prelude..?> "Names" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Names" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListAssociatedStacks
+instance Core.Hashable ListAssociatedStacks
 
-instance Prelude.NFData ListAssociatedStacks
+instance Core.NFData ListAssociatedStacks
 
-instance Prelude.ToHeaders ListAssociatedStacks where
+instance Core.ToHeaders ListAssociatedStacks where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.ListAssociatedStacks" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.ListAssociatedStacks" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListAssociatedStacks where
+instance Core.ToJSON ListAssociatedStacks where
   toJSON ListAssociatedStacks' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            Prelude.Just ("FleetName" Prelude..= fleetName)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            Core.Just ("FleetName" Core..= fleetName)
           ]
       )
 
-instance Prelude.ToPath ListAssociatedStacks where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListAssociatedStacks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListAssociatedStacks where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListAssociatedStacks where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAssociatedStacksResponse' smart constructor.
 data ListAssociatedStacksResponse = ListAssociatedStacksResponse'
   { -- | The name of the stack.
-    names :: Prelude.Maybe [Prelude.Text],
+    names :: Core.Maybe [Core.Text],
     -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAssociatedStacksResponse' with all optional fields omitted.
@@ -191,27 +186,26 @@ data ListAssociatedStacksResponse = ListAssociatedStacksResponse'
 -- 'httpStatus', 'listAssociatedStacksResponse_httpStatus' - The response's http status code.
 newListAssociatedStacksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAssociatedStacksResponse
 newListAssociatedStacksResponse pHttpStatus_ =
   ListAssociatedStacksResponse'
-    { names =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { names = Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the stack.
-listAssociatedStacksResponse_names :: Lens.Lens' ListAssociatedStacksResponse (Prelude.Maybe [Prelude.Text])
-listAssociatedStacksResponse_names = Lens.lens (\ListAssociatedStacksResponse' {names} -> names) (\s@ListAssociatedStacksResponse' {} a -> s {names = a} :: ListAssociatedStacksResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAssociatedStacksResponse_names :: Lens.Lens' ListAssociatedStacksResponse (Core.Maybe [Core.Text])
+listAssociatedStacksResponse_names = Lens.lens (\ListAssociatedStacksResponse' {names} -> names) (\s@ListAssociatedStacksResponse' {} a -> s {names = a} :: ListAssociatedStacksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
-listAssociatedStacksResponse_nextToken :: Lens.Lens' ListAssociatedStacksResponse (Prelude.Maybe Prelude.Text)
+listAssociatedStacksResponse_nextToken :: Lens.Lens' ListAssociatedStacksResponse (Core.Maybe Core.Text)
 listAssociatedStacksResponse_nextToken = Lens.lens (\ListAssociatedStacksResponse' {nextToken} -> nextToken) (\s@ListAssociatedStacksResponse' {} a -> s {nextToken = a} :: ListAssociatedStacksResponse)
 
 -- | The response's http status code.
-listAssociatedStacksResponse_httpStatus :: Lens.Lens' ListAssociatedStacksResponse Prelude.Int
+listAssociatedStacksResponse_httpStatus :: Lens.Lens' ListAssociatedStacksResponse Core.Int
 listAssociatedStacksResponse_httpStatus = Lens.lens (\ListAssociatedStacksResponse' {httpStatus} -> httpStatus) (\s@ListAssociatedStacksResponse' {} a -> s {httpStatus = a} :: ListAssociatedStacksResponse)
 
-instance Prelude.NFData ListAssociatedStacksResponse
+instance Core.NFData ListAssociatedStacksResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,18 +43,18 @@ module Network.AWS.OpsWorks.DeleteStack
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteStack' smart constructor.
 data DeleteStack = DeleteStack'
   { -- | The stack ID.
-    stackId :: Prelude.Text
+    stackId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStack' with all optional fields omitted.
@@ -68,57 +67,53 @@ data DeleteStack = DeleteStack'
 -- 'stackId', 'deleteStack_stackId' - The stack ID.
 newDeleteStack ::
   -- | 'stackId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteStack
 newDeleteStack pStackId_ =
   DeleteStack' {stackId = pStackId_}
 
 -- | The stack ID.
-deleteStack_stackId :: Lens.Lens' DeleteStack Prelude.Text
+deleteStack_stackId :: Lens.Lens' DeleteStack Core.Text
 deleteStack_stackId = Lens.lens (\DeleteStack' {stackId} -> stackId) (\s@DeleteStack' {} a -> s {stackId = a} :: DeleteStack)
 
-instance Prelude.AWSRequest DeleteStack where
-  type Rs DeleteStack = DeleteStackResponse
+instance Core.AWSRequest DeleteStack where
+  type AWSResponse DeleteStack = DeleteStackResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteStackResponse'
 
-instance Prelude.Hashable DeleteStack
+instance Core.Hashable DeleteStack
 
-instance Prelude.NFData DeleteStack
+instance Core.NFData DeleteStack
 
-instance Prelude.ToHeaders DeleteStack where
+instance Core.ToHeaders DeleteStack where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DeleteStack" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("OpsWorks_20130218.DeleteStack" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteStack where
+instance Core.ToJSON DeleteStack where
   toJSON DeleteStack' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("StackId" Prelude..= stackId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("StackId" Core..= stackId)]
       )
 
-instance Prelude.ToPath DeleteStack where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteStack where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteStack where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteStack where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteStackResponse' smart constructor.
 data DeleteStackResponse = DeleteStackResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStackResponse' with all optional fields omitted.
@@ -128,4 +123,4 @@ newDeleteStackResponse ::
   DeleteStackResponse
 newDeleteStackResponse = DeleteStackResponse'
 
-instance Prelude.NFData DeleteStackResponse
+instance Core.NFData DeleteStackResponse

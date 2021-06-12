@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityList where
 
 import Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentitySummary
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Lists the origin access identities for CloudFront.Send a @GET@ request
 -- to the @\/CloudFront API version\/origin-access-identity\/cloudfront@
@@ -37,30 +36,30 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
   { -- | A complex type that contains one @CloudFrontOriginAccessIdentitySummary@
     -- element for each origin access identity that was created by the current
     -- AWS account.
-    items :: Prelude.Maybe [CloudFrontOriginAccessIdentitySummary],
+    items :: Core.Maybe [CloudFrontOriginAccessIdentitySummary],
     -- | If @IsTruncated@ is @true@, this element is present and contains the
     -- value you can use for the @Marker@ request parameter to continue listing
     -- your origin access identities where they left off.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Use this when paginating results to indicate where to begin in your list
     -- of origin access identities. The results include identities in the list
     -- that occur after the marker. To get the next page of results, set the
     -- @Marker@ to the value of the @NextMarker@ from the current page\'s
     -- response (which is also the ID of the last identity on that page).
-    marker :: Prelude.Text,
+    marker :: Core.Text,
     -- | The maximum number of origin access identities you want in the response
     -- body.
-    maxItems :: Prelude.Int,
+    maxItems :: Core.Int,
     -- | A flag that indicates whether more origin access identities remain to be
     -- listed. If your results were truncated, you can make a follow-up
     -- pagination request using the @Marker@ request parameter to retrieve more
     -- items in the list.
-    isTruncated :: Prelude.Bool,
+    isTruncated :: Core.Bool,
     -- | The number of CloudFront origin access identities that were created by
     -- the current AWS account.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloudFrontOriginAccessIdentityList' with all optional fields omitted.
@@ -96,13 +95,13 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
 -- the current AWS account.
 newCloudFrontOriginAccessIdentityList ::
   -- | 'marker'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'maxItems'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'isTruncated'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   CloudFrontOriginAccessIdentityList
 newCloudFrontOriginAccessIdentityList
   pMarker_
@@ -111,8 +110,8 @@ newCloudFrontOriginAccessIdentityList
   pQuantity_ =
     CloudFrontOriginAccessIdentityList'
       { items =
-          Prelude.Nothing,
-        nextMarker = Prelude.Nothing,
+          Core.Nothing,
+        nextMarker = Core.Nothing,
         marker = pMarker_,
         maxItems = pMaxItems_,
         isTruncated = pIsTruncated_,
@@ -122,13 +121,13 @@ newCloudFrontOriginAccessIdentityList
 -- | A complex type that contains one @CloudFrontOriginAccessIdentitySummary@
 -- element for each origin access identity that was created by the current
 -- AWS account.
-cloudFrontOriginAccessIdentityList_items :: Lens.Lens' CloudFrontOriginAccessIdentityList (Prelude.Maybe [CloudFrontOriginAccessIdentitySummary])
-cloudFrontOriginAccessIdentityList_items = Lens.lens (\CloudFrontOriginAccessIdentityList' {items} -> items) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {items = a} :: CloudFrontOriginAccessIdentityList) Prelude.. Lens.mapping Prelude._Coerce
+cloudFrontOriginAccessIdentityList_items :: Lens.Lens' CloudFrontOriginAccessIdentityList (Core.Maybe [CloudFrontOriginAccessIdentitySummary])
+cloudFrontOriginAccessIdentityList_items = Lens.lens (\CloudFrontOriginAccessIdentityList' {items} -> items) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {items = a} :: CloudFrontOriginAccessIdentityList) Core.. Lens.mapping Lens._Coerce
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value you can use for the @Marker@ request parameter to continue listing
 -- your origin access identities where they left off.
-cloudFrontOriginAccessIdentityList_nextMarker :: Lens.Lens' CloudFrontOriginAccessIdentityList (Prelude.Maybe Prelude.Text)
+cloudFrontOriginAccessIdentityList_nextMarker :: Lens.Lens' CloudFrontOriginAccessIdentityList (Core.Maybe Core.Text)
 cloudFrontOriginAccessIdentityList_nextMarker = Lens.lens (\CloudFrontOriginAccessIdentityList' {nextMarker} -> nextMarker) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {nextMarker = a} :: CloudFrontOriginAccessIdentityList)
 
 -- | Use this when paginating results to indicate where to begin in your list
@@ -136,48 +135,48 @@ cloudFrontOriginAccessIdentityList_nextMarker = Lens.lens (\CloudFrontOriginAcce
 -- that occur after the marker. To get the next page of results, set the
 -- @Marker@ to the value of the @NextMarker@ from the current page\'s
 -- response (which is also the ID of the last identity on that page).
-cloudFrontOriginAccessIdentityList_marker :: Lens.Lens' CloudFrontOriginAccessIdentityList Prelude.Text
+cloudFrontOriginAccessIdentityList_marker :: Lens.Lens' CloudFrontOriginAccessIdentityList Core.Text
 cloudFrontOriginAccessIdentityList_marker = Lens.lens (\CloudFrontOriginAccessIdentityList' {marker} -> marker) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {marker = a} :: CloudFrontOriginAccessIdentityList)
 
 -- | The maximum number of origin access identities you want in the response
 -- body.
-cloudFrontOriginAccessIdentityList_maxItems :: Lens.Lens' CloudFrontOriginAccessIdentityList Prelude.Int
+cloudFrontOriginAccessIdentityList_maxItems :: Lens.Lens' CloudFrontOriginAccessIdentityList Core.Int
 cloudFrontOriginAccessIdentityList_maxItems = Lens.lens (\CloudFrontOriginAccessIdentityList' {maxItems} -> maxItems) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {maxItems = a} :: CloudFrontOriginAccessIdentityList)
 
 -- | A flag that indicates whether more origin access identities remain to be
 -- listed. If your results were truncated, you can make a follow-up
 -- pagination request using the @Marker@ request parameter to retrieve more
 -- items in the list.
-cloudFrontOriginAccessIdentityList_isTruncated :: Lens.Lens' CloudFrontOriginAccessIdentityList Prelude.Bool
+cloudFrontOriginAccessIdentityList_isTruncated :: Lens.Lens' CloudFrontOriginAccessIdentityList Core.Bool
 cloudFrontOriginAccessIdentityList_isTruncated = Lens.lens (\CloudFrontOriginAccessIdentityList' {isTruncated} -> isTruncated) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {isTruncated = a} :: CloudFrontOriginAccessIdentityList)
 
 -- | The number of CloudFront origin access identities that were created by
 -- the current AWS account.
-cloudFrontOriginAccessIdentityList_quantity :: Lens.Lens' CloudFrontOriginAccessIdentityList Prelude.Int
+cloudFrontOriginAccessIdentityList_quantity :: Lens.Lens' CloudFrontOriginAccessIdentityList Core.Int
 cloudFrontOriginAccessIdentityList_quantity = Lens.lens (\CloudFrontOriginAccessIdentityList' {quantity} -> quantity) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {quantity = a} :: CloudFrontOriginAccessIdentityList)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     CloudFrontOriginAccessIdentityList
   where
   parseXML x =
     CloudFrontOriginAccessIdentityList'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        ( Prelude.parseXMLList
-                            "CloudFrontOriginAccessIdentitySummary"
-                        )
-                  )
-      Prelude.<*> (x Prelude..@? "NextMarker")
-      Prelude.<*> (x Prelude..@ "Marker")
-      Prelude.<*> (x Prelude..@ "MaxItems")
-      Prelude.<*> (x Prelude..@ "IsTruncated")
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may
+                     ( Core.parseXMLList
+                         "CloudFrontOriginAccessIdentitySummary"
+                     )
+               )
+      Core.<*> (x Core..@? "NextMarker")
+      Core.<*> (x Core..@ "Marker")
+      Core.<*> (x Core..@ "MaxItems")
+      Core.<*> (x Core..@ "IsTruncated")
+      Core.<*> (x Core..@ "Quantity")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CloudFrontOriginAccessIdentityList
 
 instance
-  Prelude.NFData
+  Core.NFData
     CloudFrontOriginAccessIdentityList

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SpotMarketOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceInterruptionBehavior
 import Network.AWS.EC2.Types.SpotInstanceType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The options for Spot Instances.
 --
@@ -46,10 +45,10 @@ data SpotMarketOptions = SpotMarketOptions'
     -- New accounts or accounts with no previous billing history with AWS are
     -- not eligible for Spot Instances with a defined duration (also known as
     -- Spot blocks).
-    blockDurationMinutes :: Prelude.Maybe Prelude.Int,
+    blockDurationMinutes :: Core.Maybe Core.Int,
     -- | The behavior when a Spot Instance is interrupted. The default is
     -- @terminate@.
-    instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
+    instanceInterruptionBehavior :: Core.Maybe InstanceInterruptionBehavior,
     -- | The end date of the request, in UTC format
     -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). Supported only for persistent
     -- requests.
@@ -60,17 +59,17 @@ data SpotMarketOptions = SpotMarketOptions'
     --
     -- -   For a one-time request, @ValidUntil@ is not supported. The request
     --     remains active until all instances launch or you cancel the request.
-    validUntil :: Prelude.Maybe Prelude.ISO8601,
+    validUntil :: Core.Maybe Core.ISO8601,
     -- | The Spot Instance request type. For
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances>,
     -- persistent Spot Instance requests are only supported when the instance
     -- interruption behavior is either @hibernate@ or @stop@.
-    spotInstanceType :: Prelude.Maybe SpotInstanceType,
+    spotInstanceType :: Core.Maybe SpotInstanceType,
     -- | The maximum hourly price you\'re willing to pay for the Spot Instances.
     -- The default is the On-Demand price.
-    maxPrice :: Prelude.Maybe Prelude.Text
+    maxPrice :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SpotMarketOptions' with all optional fields omitted.
@@ -123,11 +122,11 @@ newSpotMarketOptions ::
 newSpotMarketOptions =
   SpotMarketOptions'
     { blockDurationMinutes =
-        Prelude.Nothing,
-      instanceInterruptionBehavior = Prelude.Nothing,
-      validUntil = Prelude.Nothing,
-      spotInstanceType = Prelude.Nothing,
-      maxPrice = Prelude.Nothing
+        Core.Nothing,
+      instanceInterruptionBehavior = Core.Nothing,
+      validUntil = Core.Nothing,
+      spotInstanceType = Core.Nothing,
+      maxPrice = Core.Nothing
     }
 
 -- | The required duration for the Spot Instances (also known as Spot
@@ -146,12 +145,12 @@ newSpotMarketOptions =
 -- New accounts or accounts with no previous billing history with AWS are
 -- not eligible for Spot Instances with a defined duration (also known as
 -- Spot blocks).
-spotMarketOptions_blockDurationMinutes :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.Int)
+spotMarketOptions_blockDurationMinutes :: Lens.Lens' SpotMarketOptions (Core.Maybe Core.Int)
 spotMarketOptions_blockDurationMinutes = Lens.lens (\SpotMarketOptions' {blockDurationMinutes} -> blockDurationMinutes) (\s@SpotMarketOptions' {} a -> s {blockDurationMinutes = a} :: SpotMarketOptions)
 
 -- | The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
-spotMarketOptions_instanceInterruptionBehavior :: Lens.Lens' SpotMarketOptions (Prelude.Maybe InstanceInterruptionBehavior)
+spotMarketOptions_instanceInterruptionBehavior :: Lens.Lens' SpotMarketOptions (Core.Maybe InstanceInterruptionBehavior)
 spotMarketOptions_instanceInterruptionBehavior = Lens.lens (\SpotMarketOptions' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@SpotMarketOptions' {} a -> s {instanceInterruptionBehavior = a} :: SpotMarketOptions)
 
 -- | The end date of the request, in UTC format
@@ -164,33 +163,32 @@ spotMarketOptions_instanceInterruptionBehavior = Lens.lens (\SpotMarketOptions' 
 --
 -- -   For a one-time request, @ValidUntil@ is not supported. The request
 --     remains active until all instances launch or you cancel the request.
-spotMarketOptions_validUntil :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.UTCTime)
-spotMarketOptions_validUntil = Lens.lens (\SpotMarketOptions' {validUntil} -> validUntil) (\s@SpotMarketOptions' {} a -> s {validUntil = a} :: SpotMarketOptions) Prelude.. Lens.mapping Prelude._Time
+spotMarketOptions_validUntil :: Lens.Lens' SpotMarketOptions (Core.Maybe Core.UTCTime)
+spotMarketOptions_validUntil = Lens.lens (\SpotMarketOptions' {validUntil} -> validUntil) (\s@SpotMarketOptions' {} a -> s {validUntil = a} :: SpotMarketOptions) Core.. Lens.mapping Core._Time
 
 -- | The Spot Instance request type. For
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances>,
 -- persistent Spot Instance requests are only supported when the instance
 -- interruption behavior is either @hibernate@ or @stop@.
-spotMarketOptions_spotInstanceType :: Lens.Lens' SpotMarketOptions (Prelude.Maybe SpotInstanceType)
+spotMarketOptions_spotInstanceType :: Lens.Lens' SpotMarketOptions (Core.Maybe SpotInstanceType)
 spotMarketOptions_spotInstanceType = Lens.lens (\SpotMarketOptions' {spotInstanceType} -> spotInstanceType) (\s@SpotMarketOptions' {} a -> s {spotInstanceType = a} :: SpotMarketOptions)
 
 -- | The maximum hourly price you\'re willing to pay for the Spot Instances.
 -- The default is the On-Demand price.
-spotMarketOptions_maxPrice :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.Text)
+spotMarketOptions_maxPrice :: Lens.Lens' SpotMarketOptions (Core.Maybe Core.Text)
 spotMarketOptions_maxPrice = Lens.lens (\SpotMarketOptions' {maxPrice} -> maxPrice) (\s@SpotMarketOptions' {} a -> s {maxPrice = a} :: SpotMarketOptions)
 
-instance Prelude.Hashable SpotMarketOptions
+instance Core.Hashable SpotMarketOptions
 
-instance Prelude.NFData SpotMarketOptions
+instance Core.NFData SpotMarketOptions
 
-instance Prelude.ToQuery SpotMarketOptions where
+instance Core.ToQuery SpotMarketOptions where
   toQuery SpotMarketOptions' {..} =
-    Prelude.mconcat
-      [ "BlockDurationMinutes"
-          Prelude.=: blockDurationMinutes,
+    Core.mconcat
+      [ "BlockDurationMinutes" Core.=: blockDurationMinutes,
         "InstanceInterruptionBehavior"
-          Prelude.=: instanceInterruptionBehavior,
-        "ValidUntil" Prelude.=: validUntil,
-        "SpotInstanceType" Prelude.=: spotInstanceType,
-        "MaxPrice" Prelude.=: maxPrice
+          Core.=: instanceInterruptionBehavior,
+        "ValidUntil" Core.=: validUntil,
+        "SpotInstanceType" Core.=: spotInstanceType,
+        "MaxPrice" Core.=: maxPrice
       ]

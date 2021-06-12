@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,9 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,33 +68,33 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
     -- If you do not specify a value for this parameter, then the operation
     -- uses the default value of @0@. The result is that IAM user passwords
     -- never expire.
-    maxPasswordAge :: Prelude.Maybe Prelude.Natural,
+    maxPasswordAge :: Core.Maybe Core.Natural,
     -- | Specifies whether IAM user passwords must contain at least one lowercase
     -- character from the ISO basic Latin alphabet (a to z).
     --
     -- If you do not specify a value for this parameter, then the operation
     -- uses the default value of @false@. The result is that passwords do not
     -- require at least one lowercase character.
-    requireLowercaseCharacters :: Prelude.Maybe Prelude.Bool,
+    requireLowercaseCharacters :: Core.Maybe Core.Bool,
     -- | The minimum number of characters allowed in an IAM user password.
     --
     -- If you do not specify a value for this parameter, then the operation
     -- uses the default value of @6@.
-    minimumPasswordLength :: Prelude.Maybe Prelude.Natural,
+    minimumPasswordLength :: Core.Maybe Core.Natural,
     -- | Specifies the number of previous passwords that IAM users are prevented
     -- from reusing.
     --
     -- If you do not specify a value for this parameter, then the operation
     -- uses the default value of @0@. The result is that IAM users are not
     -- prevented from reusing previous passwords.
-    passwordReusePrevention :: Prelude.Maybe Prelude.Natural,
+    passwordReusePrevention :: Core.Maybe Core.Natural,
     -- | Specifies whether IAM user passwords must contain at least one uppercase
     -- character from the ISO basic Latin alphabet (A to Z).
     --
     -- If you do not specify a value for this parameter, then the operation
     -- uses the default value of @false@. The result is that passwords do not
     -- require at least one uppercase character.
-    requireUppercaseCharacters :: Prelude.Maybe Prelude.Bool,
+    requireUppercaseCharacters :: Core.Maybe Core.Bool,
     -- | Allows all IAM users in your account to use the AWS Management Console
     -- to change their own passwords. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM users change their own passwords>
@@ -105,7 +104,7 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
     -- uses the default value of @false@. The result is that IAM users in the
     -- account do not automatically have permissions to change their own
     -- password.
-    allowUsersToChangePassword :: Prelude.Maybe Prelude.Bool,
+    allowUsersToChangePassword :: Core.Maybe Core.Bool,
     -- | Prevents IAM users from setting a new password after their password has
     -- expired. The IAM user cannot be accessed until an administrator resets
     -- the password.
@@ -114,7 +113,7 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
     -- uses the default value of @false@. The result is that IAM users can
     -- change their passwords after they expire and continue to sign in as the
     -- user.
-    hardExpiry :: Prelude.Maybe Prelude.Bool,
+    hardExpiry :: Core.Maybe Core.Bool,
     -- | Specifies whether IAM user passwords must contain at least one of the
     -- following non-alphanumeric characters:
     --
@@ -123,16 +122,16 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
     -- If you do not specify a value for this parameter, then the operation
     -- uses the default value of @false@. The result is that passwords do not
     -- require at least one symbol character.
-    requireSymbols :: Prelude.Maybe Prelude.Bool,
+    requireSymbols :: Core.Maybe Core.Bool,
     -- | Specifies whether IAM user passwords must contain at least one numeric
     -- character (0 to 9).
     --
     -- If you do not specify a value for this parameter, then the operation
     -- uses the default value of @false@. The result is that passwords do not
     -- require at least one numeric character.
-    requireNumbers :: Prelude.Maybe Prelude.Bool
+    requireNumbers :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAccountPasswordPolicy' with all optional fields omitted.
@@ -213,15 +212,15 @@ newUpdateAccountPasswordPolicy ::
 newUpdateAccountPasswordPolicy =
   UpdateAccountPasswordPolicy'
     { maxPasswordAge =
-        Prelude.Nothing,
-      requireLowercaseCharacters = Prelude.Nothing,
-      minimumPasswordLength = Prelude.Nothing,
-      passwordReusePrevention = Prelude.Nothing,
-      requireUppercaseCharacters = Prelude.Nothing,
-      allowUsersToChangePassword = Prelude.Nothing,
-      hardExpiry = Prelude.Nothing,
-      requireSymbols = Prelude.Nothing,
-      requireNumbers = Prelude.Nothing
+        Core.Nothing,
+      requireLowercaseCharacters = Core.Nothing,
+      minimumPasswordLength = Core.Nothing,
+      passwordReusePrevention = Core.Nothing,
+      requireUppercaseCharacters = Core.Nothing,
+      allowUsersToChangePassword = Core.Nothing,
+      hardExpiry = Core.Nothing,
+      requireSymbols = Core.Nothing,
+      requireNumbers = Core.Nothing
     }
 
 -- | The number of days that an IAM user password is valid.
@@ -229,7 +228,7 @@ newUpdateAccountPasswordPolicy =
 -- If you do not specify a value for this parameter, then the operation
 -- uses the default value of @0@. The result is that IAM user passwords
 -- never expire.
-updateAccountPasswordPolicy_maxPasswordAge :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Natural)
+updateAccountPasswordPolicy_maxPasswordAge :: Lens.Lens' UpdateAccountPasswordPolicy (Core.Maybe Core.Natural)
 updateAccountPasswordPolicy_maxPasswordAge = Lens.lens (\UpdateAccountPasswordPolicy' {maxPasswordAge} -> maxPasswordAge) (\s@UpdateAccountPasswordPolicy' {} a -> s {maxPasswordAge = a} :: UpdateAccountPasswordPolicy)
 
 -- | Specifies whether IAM user passwords must contain at least one lowercase
@@ -238,14 +237,14 @@ updateAccountPasswordPolicy_maxPasswordAge = Lens.lens (\UpdateAccountPasswordPo
 -- If you do not specify a value for this parameter, then the operation
 -- uses the default value of @false@. The result is that passwords do not
 -- require at least one lowercase character.
-updateAccountPasswordPolicy_requireLowercaseCharacters :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Bool)
+updateAccountPasswordPolicy_requireLowercaseCharacters :: Lens.Lens' UpdateAccountPasswordPolicy (Core.Maybe Core.Bool)
 updateAccountPasswordPolicy_requireLowercaseCharacters = Lens.lens (\UpdateAccountPasswordPolicy' {requireLowercaseCharacters} -> requireLowercaseCharacters) (\s@UpdateAccountPasswordPolicy' {} a -> s {requireLowercaseCharacters = a} :: UpdateAccountPasswordPolicy)
 
 -- | The minimum number of characters allowed in an IAM user password.
 --
 -- If you do not specify a value for this parameter, then the operation
 -- uses the default value of @6@.
-updateAccountPasswordPolicy_minimumPasswordLength :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Natural)
+updateAccountPasswordPolicy_minimumPasswordLength :: Lens.Lens' UpdateAccountPasswordPolicy (Core.Maybe Core.Natural)
 updateAccountPasswordPolicy_minimumPasswordLength = Lens.lens (\UpdateAccountPasswordPolicy' {minimumPasswordLength} -> minimumPasswordLength) (\s@UpdateAccountPasswordPolicy' {} a -> s {minimumPasswordLength = a} :: UpdateAccountPasswordPolicy)
 
 -- | Specifies the number of previous passwords that IAM users are prevented
@@ -254,7 +253,7 @@ updateAccountPasswordPolicy_minimumPasswordLength = Lens.lens (\UpdateAccountPas
 -- If you do not specify a value for this parameter, then the operation
 -- uses the default value of @0@. The result is that IAM users are not
 -- prevented from reusing previous passwords.
-updateAccountPasswordPolicy_passwordReusePrevention :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Natural)
+updateAccountPasswordPolicy_passwordReusePrevention :: Lens.Lens' UpdateAccountPasswordPolicy (Core.Maybe Core.Natural)
 updateAccountPasswordPolicy_passwordReusePrevention = Lens.lens (\UpdateAccountPasswordPolicy' {passwordReusePrevention} -> passwordReusePrevention) (\s@UpdateAccountPasswordPolicy' {} a -> s {passwordReusePrevention = a} :: UpdateAccountPasswordPolicy)
 
 -- | Specifies whether IAM user passwords must contain at least one uppercase
@@ -263,7 +262,7 @@ updateAccountPasswordPolicy_passwordReusePrevention = Lens.lens (\UpdateAccountP
 -- If you do not specify a value for this parameter, then the operation
 -- uses the default value of @false@. The result is that passwords do not
 -- require at least one uppercase character.
-updateAccountPasswordPolicy_requireUppercaseCharacters :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Bool)
+updateAccountPasswordPolicy_requireUppercaseCharacters :: Lens.Lens' UpdateAccountPasswordPolicy (Core.Maybe Core.Bool)
 updateAccountPasswordPolicy_requireUppercaseCharacters = Lens.lens (\UpdateAccountPasswordPolicy' {requireUppercaseCharacters} -> requireUppercaseCharacters) (\s@UpdateAccountPasswordPolicy' {} a -> s {requireUppercaseCharacters = a} :: UpdateAccountPasswordPolicy)
 
 -- | Allows all IAM users in your account to use the AWS Management Console
@@ -275,7 +274,7 @@ updateAccountPasswordPolicy_requireUppercaseCharacters = Lens.lens (\UpdateAccou
 -- uses the default value of @false@. The result is that IAM users in the
 -- account do not automatically have permissions to change their own
 -- password.
-updateAccountPasswordPolicy_allowUsersToChangePassword :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Bool)
+updateAccountPasswordPolicy_allowUsersToChangePassword :: Lens.Lens' UpdateAccountPasswordPolicy (Core.Maybe Core.Bool)
 updateAccountPasswordPolicy_allowUsersToChangePassword = Lens.lens (\UpdateAccountPasswordPolicy' {allowUsersToChangePassword} -> allowUsersToChangePassword) (\s@UpdateAccountPasswordPolicy' {} a -> s {allowUsersToChangePassword = a} :: UpdateAccountPasswordPolicy)
 
 -- | Prevents IAM users from setting a new password after their password has
@@ -286,7 +285,7 @@ updateAccountPasswordPolicy_allowUsersToChangePassword = Lens.lens (\UpdateAccou
 -- uses the default value of @false@. The result is that IAM users can
 -- change their passwords after they expire and continue to sign in as the
 -- user.
-updateAccountPasswordPolicy_hardExpiry :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Bool)
+updateAccountPasswordPolicy_hardExpiry :: Lens.Lens' UpdateAccountPasswordPolicy (Core.Maybe Core.Bool)
 updateAccountPasswordPolicy_hardExpiry = Lens.lens (\UpdateAccountPasswordPolicy' {hardExpiry} -> hardExpiry) (\s@UpdateAccountPasswordPolicy' {} a -> s {hardExpiry = a} :: UpdateAccountPasswordPolicy)
 
 -- | Specifies whether IAM user passwords must contain at least one of the
@@ -297,7 +296,7 @@ updateAccountPasswordPolicy_hardExpiry = Lens.lens (\UpdateAccountPasswordPolicy
 -- If you do not specify a value for this parameter, then the operation
 -- uses the default value of @false@. The result is that passwords do not
 -- require at least one symbol character.
-updateAccountPasswordPolicy_requireSymbols :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Bool)
+updateAccountPasswordPolicy_requireSymbols :: Lens.Lens' UpdateAccountPasswordPolicy (Core.Maybe Core.Bool)
 updateAccountPasswordPolicy_requireSymbols = Lens.lens (\UpdateAccountPasswordPolicy' {requireSymbols} -> requireSymbols) (\s@UpdateAccountPasswordPolicy' {} a -> s {requireSymbols = a} :: UpdateAccountPasswordPolicy)
 
 -- | Specifies whether IAM user passwords must contain at least one numeric
@@ -306,64 +305,55 @@ updateAccountPasswordPolicy_requireSymbols = Lens.lens (\UpdateAccountPasswordPo
 -- If you do not specify a value for this parameter, then the operation
 -- uses the default value of @false@. The result is that passwords do not
 -- require at least one numeric character.
-updateAccountPasswordPolicy_requireNumbers :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Bool)
+updateAccountPasswordPolicy_requireNumbers :: Lens.Lens' UpdateAccountPasswordPolicy (Core.Maybe Core.Bool)
 updateAccountPasswordPolicy_requireNumbers = Lens.lens (\UpdateAccountPasswordPolicy' {requireNumbers} -> requireNumbers) (\s@UpdateAccountPasswordPolicy' {} a -> s {requireNumbers = a} :: UpdateAccountPasswordPolicy)
 
-instance
-  Prelude.AWSRequest
-    UpdateAccountPasswordPolicy
-  where
+instance Core.AWSRequest UpdateAccountPasswordPolicy where
   type
-    Rs UpdateAccountPasswordPolicy =
+    AWSResponse UpdateAccountPasswordPolicy =
       UpdateAccountPasswordPolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       UpdateAccountPasswordPolicyResponse'
 
-instance Prelude.Hashable UpdateAccountPasswordPolicy
+instance Core.Hashable UpdateAccountPasswordPolicy
 
-instance Prelude.NFData UpdateAccountPasswordPolicy
+instance Core.NFData UpdateAccountPasswordPolicy
 
-instance
-  Prelude.ToHeaders
-    UpdateAccountPasswordPolicy
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateAccountPasswordPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateAccountPasswordPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateAccountPasswordPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateAccountPasswordPolicy where
+instance Core.ToQuery UpdateAccountPasswordPolicy where
   toQuery UpdateAccountPasswordPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "UpdateAccountPasswordPolicy" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "MaxPasswordAge" Prelude.=: maxPasswordAge,
+          Core.=: ("UpdateAccountPasswordPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "MaxPasswordAge" Core.=: maxPasswordAge,
         "RequireLowercaseCharacters"
-          Prelude.=: requireLowercaseCharacters,
+          Core.=: requireLowercaseCharacters,
         "MinimumPasswordLength"
-          Prelude.=: minimumPasswordLength,
+          Core.=: minimumPasswordLength,
         "PasswordReusePrevention"
-          Prelude.=: passwordReusePrevention,
+          Core.=: passwordReusePrevention,
         "RequireUppercaseCharacters"
-          Prelude.=: requireUppercaseCharacters,
+          Core.=: requireUppercaseCharacters,
         "AllowUsersToChangePassword"
-          Prelude.=: allowUsersToChangePassword,
-        "HardExpiry" Prelude.=: hardExpiry,
-        "RequireSymbols" Prelude.=: requireSymbols,
-        "RequireNumbers" Prelude.=: requireNumbers
+          Core.=: allowUsersToChangePassword,
+        "HardExpiry" Core.=: hardExpiry,
+        "RequireSymbols" Core.=: requireSymbols,
+        "RequireNumbers" Core.=: requireNumbers
       ]
 
 -- | /See:/ 'newUpdateAccountPasswordPolicyResponse' smart constructor.
 data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAccountPasswordPolicyResponse' with all optional fields omitted.
@@ -375,5 +365,5 @@ newUpdateAccountPasswordPolicyResponse =
   UpdateAccountPasswordPolicyResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateAccountPasswordPolicyResponse

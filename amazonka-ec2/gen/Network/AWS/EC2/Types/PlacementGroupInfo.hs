@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PlacementGroupInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PlacementGroupStrategy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the placement group support of the instance type.
 --
 -- /See:/ 'newPlacementGroupInfo' smart constructor.
 data PlacementGroupInfo = PlacementGroupInfo'
   { -- | The supported placement group types.
-    supportedStrategies :: Prelude.Maybe [PlacementGroupStrategy]
+    supportedStrategies :: Core.Maybe [PlacementGroupStrategy]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlacementGroupInfo' with all optional fields omitted.
@@ -48,21 +47,21 @@ newPlacementGroupInfo ::
 newPlacementGroupInfo =
   PlacementGroupInfo'
     { supportedStrategies =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The supported placement group types.
-placementGroupInfo_supportedStrategies :: Lens.Lens' PlacementGroupInfo (Prelude.Maybe [PlacementGroupStrategy])
-placementGroupInfo_supportedStrategies = Lens.lens (\PlacementGroupInfo' {supportedStrategies} -> supportedStrategies) (\s@PlacementGroupInfo' {} a -> s {supportedStrategies = a} :: PlacementGroupInfo) Prelude.. Lens.mapping Prelude._Coerce
+placementGroupInfo_supportedStrategies :: Lens.Lens' PlacementGroupInfo (Core.Maybe [PlacementGroupStrategy])
+placementGroupInfo_supportedStrategies = Lens.lens (\PlacementGroupInfo' {supportedStrategies} -> supportedStrategies) (\s@PlacementGroupInfo' {} a -> s {supportedStrategies = a} :: PlacementGroupInfo) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML PlacementGroupInfo where
+instance Core.FromXML PlacementGroupInfo where
   parseXML x =
     PlacementGroupInfo'
-      Prelude.<$> ( x Prelude..@? "supportedStrategies"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> ( x Core..@? "supportedStrategies"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable PlacementGroupInfo
+instance Core.Hashable PlacementGroupInfo
 
-instance Prelude.NFData PlacementGroupInfo
+instance Core.NFData PlacementGroupInfo

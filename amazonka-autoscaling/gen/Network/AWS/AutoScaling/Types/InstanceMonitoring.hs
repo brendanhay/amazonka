@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.InstanceMonitoring where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes whether detailed monitoring is enabled for the Auto Scaling
 -- instances.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data InstanceMonitoring = InstanceMonitoring'
   { -- | If @true@, detailed monitoring is enabled. Otherwise, basic monitoring
     -- is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceMonitoring' with all optional fields omitted.
@@ -47,22 +46,21 @@ data InstanceMonitoring = InstanceMonitoring'
 newInstanceMonitoring ::
   InstanceMonitoring
 newInstanceMonitoring =
-  InstanceMonitoring' {enabled = Prelude.Nothing}
+  InstanceMonitoring' {enabled = Core.Nothing}
 
 -- | If @true@, detailed monitoring is enabled. Otherwise, basic monitoring
 -- is enabled.
-instanceMonitoring_enabled :: Lens.Lens' InstanceMonitoring (Prelude.Maybe Prelude.Bool)
+instanceMonitoring_enabled :: Lens.Lens' InstanceMonitoring (Core.Maybe Core.Bool)
 instanceMonitoring_enabled = Lens.lens (\InstanceMonitoring' {enabled} -> enabled) (\s@InstanceMonitoring' {} a -> s {enabled = a} :: InstanceMonitoring)
 
-instance Prelude.FromXML InstanceMonitoring where
+instance Core.FromXML InstanceMonitoring where
   parseXML x =
-    InstanceMonitoring'
-      Prelude.<$> (x Prelude..@? "Enabled")
+    InstanceMonitoring' Core.<$> (x Core..@? "Enabled")
 
-instance Prelude.Hashable InstanceMonitoring
+instance Core.Hashable InstanceMonitoring
 
-instance Prelude.NFData InstanceMonitoring
+instance Core.NFData InstanceMonitoring
 
-instance Prelude.ToQuery InstanceMonitoring where
+instance Core.ToQuery InstanceMonitoring where
   toQuery InstanceMonitoring' {..} =
-    Prelude.mconcat ["Enabled" Prelude.=: enabled]
+    Core.mconcat ["Enabled" Core.=: enabled]

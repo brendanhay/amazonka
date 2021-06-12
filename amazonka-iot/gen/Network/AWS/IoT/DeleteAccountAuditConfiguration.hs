@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,18 +40,18 @@ module Network.AWS.IoT.DeleteAccountAuditConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAccountAuditConfiguration' smart constructor.
 data DeleteAccountAuditConfiguration = DeleteAccountAuditConfiguration'
   { -- | If true, all scheduled audits are deleted.
-    deleteScheduledAudits :: Prelude.Maybe Prelude.Bool
+    deleteScheduledAudits :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAccountAuditConfiguration' with all optional fields omitted.
@@ -68,64 +67,56 @@ newDeleteAccountAuditConfiguration ::
 newDeleteAccountAuditConfiguration =
   DeleteAccountAuditConfiguration'
     { deleteScheduledAudits =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | If true, all scheduled audits are deleted.
-deleteAccountAuditConfiguration_deleteScheduledAudits :: Lens.Lens' DeleteAccountAuditConfiguration (Prelude.Maybe Prelude.Bool)
+deleteAccountAuditConfiguration_deleteScheduledAudits :: Lens.Lens' DeleteAccountAuditConfiguration (Core.Maybe Core.Bool)
 deleteAccountAuditConfiguration_deleteScheduledAudits = Lens.lens (\DeleteAccountAuditConfiguration' {deleteScheduledAudits} -> deleteScheduledAudits) (\s@DeleteAccountAuditConfiguration' {} a -> s {deleteScheduledAudits = a} :: DeleteAccountAuditConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteAccountAuditConfiguration
   where
   type
-    Rs DeleteAccountAuditConfiguration =
+    AWSResponse DeleteAccountAuditConfiguration =
       DeleteAccountAuditConfigurationResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAccountAuditConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteAccountAuditConfiguration
 
-instance
-  Prelude.NFData
-    DeleteAccountAuditConfiguration
+instance Core.NFData DeleteAccountAuditConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteAccountAuditConfiguration
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DeleteAccountAuditConfiguration
-  where
-  toPath = Prelude.const "/audit/configuration"
+instance Core.ToPath DeleteAccountAuditConfiguration where
+  toPath = Core.const "/audit/configuration"
 
-instance
-  Prelude.ToQuery
-    DeleteAccountAuditConfiguration
-  where
+instance Core.ToQuery DeleteAccountAuditConfiguration where
   toQuery DeleteAccountAuditConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "deleteScheduledAudits"
-          Prelude.=: deleteScheduledAudits
+          Core.=: deleteScheduledAudits
       ]
 
 -- | /See:/ 'newDeleteAccountAuditConfigurationResponse' smart constructor.
 data DeleteAccountAuditConfigurationResponse = DeleteAccountAuditConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAccountAuditConfigurationResponse' with all optional fields omitted.
@@ -138,7 +129,7 @@ data DeleteAccountAuditConfigurationResponse = DeleteAccountAuditConfigurationRe
 -- 'httpStatus', 'deleteAccountAuditConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteAccountAuditConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteAccountAuditConfigurationResponse
 newDeleteAccountAuditConfigurationResponse
   pHttpStatus_ =
@@ -148,9 +139,9 @@ newDeleteAccountAuditConfigurationResponse
       }
 
 -- | The response's http status code.
-deleteAccountAuditConfigurationResponse_httpStatus :: Lens.Lens' DeleteAccountAuditConfigurationResponse Prelude.Int
+deleteAccountAuditConfigurationResponse_httpStatus :: Lens.Lens' DeleteAccountAuditConfigurationResponse Core.Int
 deleteAccountAuditConfigurationResponse_httpStatus = Lens.lens (\DeleteAccountAuditConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteAccountAuditConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteAccountAuditConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteAccountAuditConfigurationResponse

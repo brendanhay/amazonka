@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,9 +71,8 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -90,20 +88,20 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'
     --
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The maximum number of results that are returned per call. Use
     -- @nextPageToken@ to obtain further pages of results.
-    maximumPageSize :: Prelude.Maybe Prelude.Natural,
+    maximumPageSize :: Core.Maybe Core.Natural,
     -- | When set to @true@, returns the events in reverse order. By default the
     -- results are returned in ascending order of the @eventTimeStamp@ of the
     -- events.
-    reverseOrder :: Prelude.Maybe Prelude.Bool,
+    reverseOrder :: Core.Maybe Core.Bool,
     -- | The name of the domain containing the workflow execution.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | Specifies the workflow execution for which to return the history.
     execution :: WorkflowExecution
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetWorkflowExecutionHistory' with all optional fields omitted.
@@ -135,16 +133,16 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'
 -- 'execution', 'getWorkflowExecutionHistory_execution' - Specifies the workflow execution for which to return the history.
 newGetWorkflowExecutionHistory ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'execution'
   WorkflowExecution ->
   GetWorkflowExecutionHistory
 newGetWorkflowExecutionHistory pDomain_ pExecution_ =
   GetWorkflowExecutionHistory'
     { nextPageToken =
-        Prelude.Nothing,
-      maximumPageSize = Prelude.Nothing,
-      reverseOrder = Prelude.Nothing,
+        Core.Nothing,
+      maximumPageSize = Core.Nothing,
+      reverseOrder = Core.Nothing,
       domain = pDomain_,
       execution = pExecution_
     }
@@ -158,107 +156,97 @@ newGetWorkflowExecutionHistory pDomain_ pExecution_ =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-getWorkflowExecutionHistory_nextPageToken :: Lens.Lens' GetWorkflowExecutionHistory (Prelude.Maybe Prelude.Text)
+getWorkflowExecutionHistory_nextPageToken :: Lens.Lens' GetWorkflowExecutionHistory (Core.Maybe Core.Text)
 getWorkflowExecutionHistory_nextPageToken = Lens.lens (\GetWorkflowExecutionHistory' {nextPageToken} -> nextPageToken) (\s@GetWorkflowExecutionHistory' {} a -> s {nextPageToken = a} :: GetWorkflowExecutionHistory)
 
 -- | The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
-getWorkflowExecutionHistory_maximumPageSize :: Lens.Lens' GetWorkflowExecutionHistory (Prelude.Maybe Prelude.Natural)
+getWorkflowExecutionHistory_maximumPageSize :: Lens.Lens' GetWorkflowExecutionHistory (Core.Maybe Core.Natural)
 getWorkflowExecutionHistory_maximumPageSize = Lens.lens (\GetWorkflowExecutionHistory' {maximumPageSize} -> maximumPageSize) (\s@GetWorkflowExecutionHistory' {} a -> s {maximumPageSize = a} :: GetWorkflowExecutionHistory)
 
 -- | When set to @true@, returns the events in reverse order. By default the
 -- results are returned in ascending order of the @eventTimeStamp@ of the
 -- events.
-getWorkflowExecutionHistory_reverseOrder :: Lens.Lens' GetWorkflowExecutionHistory (Prelude.Maybe Prelude.Bool)
+getWorkflowExecutionHistory_reverseOrder :: Lens.Lens' GetWorkflowExecutionHistory (Core.Maybe Core.Bool)
 getWorkflowExecutionHistory_reverseOrder = Lens.lens (\GetWorkflowExecutionHistory' {reverseOrder} -> reverseOrder) (\s@GetWorkflowExecutionHistory' {} a -> s {reverseOrder = a} :: GetWorkflowExecutionHistory)
 
 -- | The name of the domain containing the workflow execution.
-getWorkflowExecutionHistory_domain :: Lens.Lens' GetWorkflowExecutionHistory Prelude.Text
+getWorkflowExecutionHistory_domain :: Lens.Lens' GetWorkflowExecutionHistory Core.Text
 getWorkflowExecutionHistory_domain = Lens.lens (\GetWorkflowExecutionHistory' {domain} -> domain) (\s@GetWorkflowExecutionHistory' {} a -> s {domain = a} :: GetWorkflowExecutionHistory)
 
 -- | Specifies the workflow execution for which to return the history.
 getWorkflowExecutionHistory_execution :: Lens.Lens' GetWorkflowExecutionHistory WorkflowExecution
 getWorkflowExecutionHistory_execution = Lens.lens (\GetWorkflowExecutionHistory' {execution} -> execution) (\s@GetWorkflowExecutionHistory' {} a -> s {execution = a} :: GetWorkflowExecutionHistory)
 
-instance Pager.AWSPager GetWorkflowExecutionHistory where
+instance Core.AWSPager GetWorkflowExecutionHistory where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getWorkflowExecutionHistoryResponse_nextPageToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. getWorkflowExecutionHistoryResponse_events
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getWorkflowExecutionHistory_nextPageToken
           Lens..~ rs
           Lens.^? getWorkflowExecutionHistoryResponse_nextPageToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    GetWorkflowExecutionHistory
-  where
+instance Core.AWSRequest GetWorkflowExecutionHistory where
   type
-    Rs GetWorkflowExecutionHistory =
+    AWSResponse GetWorkflowExecutionHistory =
       GetWorkflowExecutionHistoryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowExecutionHistoryResponse'
-            Prelude.<$> (x Prelude..?> "nextPageToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..?> "events" Prelude..!@ Prelude.mempty)
+            Core.<$> (x Core..?> "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "events" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable GetWorkflowExecutionHistory
+instance Core.Hashable GetWorkflowExecutionHistory
 
-instance Prelude.NFData GetWorkflowExecutionHistory
+instance Core.NFData GetWorkflowExecutionHistory
 
-instance
-  Prelude.ToHeaders
-    GetWorkflowExecutionHistory
-  where
+instance Core.ToHeaders GetWorkflowExecutionHistory where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.GetWorkflowExecutionHistory" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.GetWorkflowExecutionHistory" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetWorkflowExecutionHistory where
+instance Core.ToJSON GetWorkflowExecutionHistory where
   toJSON GetWorkflowExecutionHistory' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextPageToken" Prelude..=)
-              Prelude.<$> nextPageToken,
-            ("maximumPageSize" Prelude..=)
-              Prelude.<$> maximumPageSize,
-            ("reverseOrder" Prelude..=) Prelude.<$> reverseOrder,
-            Prelude.Just ("domain" Prelude..= domain),
-            Prelude.Just ("execution" Prelude..= execution)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextPageToken" Core..=) Core.<$> nextPageToken,
+            ("maximumPageSize" Core..=) Core.<$> maximumPageSize,
+            ("reverseOrder" Core..=) Core.<$> reverseOrder,
+            Core.Just ("domain" Core..= domain),
+            Core.Just ("execution" Core..= execution)
           ]
       )
 
-instance Prelude.ToPath GetWorkflowExecutionHistory where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetWorkflowExecutionHistory where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetWorkflowExecutionHistory where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetWorkflowExecutionHistory where
+  toQuery = Core.const Core.mempty
 
 -- | Paginated representation of a workflow history for a workflow execution.
 -- This is the up to date, complete and authoritative record of the events
@@ -273,13 +261,13 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
     --
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The list of history events.
     events :: [HistoryEvent]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetWorkflowExecutionHistoryResponse' with all optional fields omitted.
@@ -302,14 +290,14 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
 -- 'events', 'getWorkflowExecutionHistoryResponse_events' - The list of history events.
 newGetWorkflowExecutionHistoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetWorkflowExecutionHistoryResponse
 newGetWorkflowExecutionHistoryResponse pHttpStatus_ =
   GetWorkflowExecutionHistoryResponse'
     { nextPageToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      events = Prelude.mempty
+      events = Core.mempty
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -319,17 +307,17 @@ newGetWorkflowExecutionHistoryResponse pHttpStatus_ =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-getWorkflowExecutionHistoryResponse_nextPageToken :: Lens.Lens' GetWorkflowExecutionHistoryResponse (Prelude.Maybe Prelude.Text)
+getWorkflowExecutionHistoryResponse_nextPageToken :: Lens.Lens' GetWorkflowExecutionHistoryResponse (Core.Maybe Core.Text)
 getWorkflowExecutionHistoryResponse_nextPageToken = Lens.lens (\GetWorkflowExecutionHistoryResponse' {nextPageToken} -> nextPageToken) (\s@GetWorkflowExecutionHistoryResponse' {} a -> s {nextPageToken = a} :: GetWorkflowExecutionHistoryResponse)
 
 -- | The response's http status code.
-getWorkflowExecutionHistoryResponse_httpStatus :: Lens.Lens' GetWorkflowExecutionHistoryResponse Prelude.Int
+getWorkflowExecutionHistoryResponse_httpStatus :: Lens.Lens' GetWorkflowExecutionHistoryResponse Core.Int
 getWorkflowExecutionHistoryResponse_httpStatus = Lens.lens (\GetWorkflowExecutionHistoryResponse' {httpStatus} -> httpStatus) (\s@GetWorkflowExecutionHistoryResponse' {} a -> s {httpStatus = a} :: GetWorkflowExecutionHistoryResponse)
 
 -- | The list of history events.
 getWorkflowExecutionHistoryResponse_events :: Lens.Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
-getWorkflowExecutionHistoryResponse_events = Lens.lens (\GetWorkflowExecutionHistoryResponse' {events} -> events) (\s@GetWorkflowExecutionHistoryResponse' {} a -> s {events = a} :: GetWorkflowExecutionHistoryResponse) Prelude.. Prelude._Coerce
+getWorkflowExecutionHistoryResponse_events = Lens.lens (\GetWorkflowExecutionHistoryResponse' {events} -> events) (\s@GetWorkflowExecutionHistoryResponse' {} a -> s {events = a} :: GetWorkflowExecutionHistoryResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetWorkflowExecutionHistoryResponse

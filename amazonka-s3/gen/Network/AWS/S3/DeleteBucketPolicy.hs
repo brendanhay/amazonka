@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,8 +59,8 @@ module Network.AWS.S3.DeleteBucketPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -71,11 +70,11 @@ data DeleteBucketPolicy = DeleteBucketPolicy'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The bucket name.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketPolicy' with all optional fields omitted.
@@ -97,51 +96,51 @@ newDeleteBucketPolicy ::
 newDeleteBucketPolicy pBucket_ =
   DeleteBucketPolicy'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketPolicy_expectedBucketOwner :: Lens.Lens' DeleteBucketPolicy (Prelude.Maybe Prelude.Text)
+deleteBucketPolicy_expectedBucketOwner :: Lens.Lens' DeleteBucketPolicy (Core.Maybe Core.Text)
 deleteBucketPolicy_expectedBucketOwner = Lens.lens (\DeleteBucketPolicy' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketPolicy' {} a -> s {expectedBucketOwner = a} :: DeleteBucketPolicy)
 
 -- | The bucket name.
 deleteBucketPolicy_bucket :: Lens.Lens' DeleteBucketPolicy BucketName
 deleteBucketPolicy_bucket = Lens.lens (\DeleteBucketPolicy' {bucket} -> bucket) (\s@DeleteBucketPolicy' {} a -> s {bucket = a} :: DeleteBucketPolicy)
 
-instance Prelude.AWSRequest DeleteBucketPolicy where
+instance Core.AWSRequest DeleteBucketPolicy where
   type
-    Rs DeleteBucketPolicy =
+    AWSResponse DeleteBucketPolicy =
       DeleteBucketPolicyResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteBucketPolicyResponse'
 
-instance Prelude.Hashable DeleteBucketPolicy
+instance Core.Hashable DeleteBucketPolicy
 
-instance Prelude.NFData DeleteBucketPolicy
+instance Core.NFData DeleteBucketPolicy
 
-instance Prelude.ToHeaders DeleteBucketPolicy where
+instance Core.ToHeaders DeleteBucketPolicy where
   toHeaders DeleteBucketPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath DeleteBucketPolicy where
+instance Core.ToPath DeleteBucketPolicy where
   toPath DeleteBucketPolicy' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery DeleteBucketPolicy where
-  toQuery = Prelude.const (Prelude.mconcat ["policy"])
+instance Core.ToQuery DeleteBucketPolicy where
+  toQuery = Core.const (Core.mconcat ["policy"])
 
 -- | /See:/ 'newDeleteBucketPolicyResponse' smart constructor.
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketPolicyResponse' with all optional fields omitted.
@@ -152,4 +151,4 @@ newDeleteBucketPolicyResponse ::
 newDeleteBucketPolicyResponse =
   DeleteBucketPolicyResponse'
 
-instance Prelude.NFData DeleteBucketPolicyResponse
+instance Core.NFData DeleteBucketPolicyResponse

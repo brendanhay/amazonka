@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.CloudFront.GetKeyGroupConfig
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +57,9 @@ import qualified Network.AWS.Response as Response
 data GetKeyGroupConfig = GetKeyGroupConfig'
   { -- | The identifier of the key group whose configuration you are getting. To
     -- get the identifier, use @ListKeyGroups@.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetKeyGroupConfig' with all optional fields omitted.
@@ -74,56 +73,55 @@ data GetKeyGroupConfig = GetKeyGroupConfig'
 -- get the identifier, use @ListKeyGroups@.
 newGetKeyGroupConfig ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   GetKeyGroupConfig
 newGetKeyGroupConfig pId_ =
   GetKeyGroupConfig' {id = pId_}
 
 -- | The identifier of the key group whose configuration you are getting. To
 -- get the identifier, use @ListKeyGroups@.
-getKeyGroupConfig_id :: Lens.Lens' GetKeyGroupConfig Prelude.Text
+getKeyGroupConfig_id :: Lens.Lens' GetKeyGroupConfig Core.Text
 getKeyGroupConfig_id = Lens.lens (\GetKeyGroupConfig' {id} -> id) (\s@GetKeyGroupConfig' {} a -> s {id = a} :: GetKeyGroupConfig)
 
-instance Prelude.AWSRequest GetKeyGroupConfig where
-  type Rs GetKeyGroupConfig = GetKeyGroupConfigResponse
+instance Core.AWSRequest GetKeyGroupConfig where
+  type
+    AWSResponse GetKeyGroupConfig =
+      GetKeyGroupConfigResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetKeyGroupConfigResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-            Prelude.<*> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag")
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetKeyGroupConfig
+instance Core.Hashable GetKeyGroupConfig
 
-instance Prelude.NFData GetKeyGroupConfig
+instance Core.NFData GetKeyGroupConfig
 
-instance Prelude.ToHeaders GetKeyGroupConfig where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetKeyGroupConfig where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetKeyGroupConfig where
+instance Core.ToPath GetKeyGroupConfig where
   toPath GetKeyGroupConfig' {..} =
-    Prelude.mconcat
-      [ "/2020-05-31/key-group/",
-        Prelude.toBS id,
-        "/config"
-      ]
+    Core.mconcat
+      ["/2020-05-31/key-group/", Core.toBS id, "/config"]
 
-instance Prelude.ToQuery GetKeyGroupConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetKeyGroupConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetKeyGroupConfigResponse' smart constructor.
 data GetKeyGroupConfigResponse = GetKeyGroupConfigResponse'
   { -- | The identifier for this version of the key group.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The key group configuration.
-    keyGroupConfig :: Prelude.Maybe KeyGroupConfig,
+    keyGroupConfig :: Core.Maybe KeyGroupConfig,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetKeyGroupConfigResponse' with all optional fields omitted.
@@ -140,25 +138,25 @@ data GetKeyGroupConfigResponse = GetKeyGroupConfigResponse'
 -- 'httpStatus', 'getKeyGroupConfigResponse_httpStatus' - The response's http status code.
 newGetKeyGroupConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetKeyGroupConfigResponse
 newGetKeyGroupConfigResponse pHttpStatus_ =
   GetKeyGroupConfigResponse'
-    { eTag = Prelude.Nothing,
-      keyGroupConfig = Prelude.Nothing,
+    { eTag = Core.Nothing,
+      keyGroupConfig = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier for this version of the key group.
-getKeyGroupConfigResponse_eTag :: Lens.Lens' GetKeyGroupConfigResponse (Prelude.Maybe Prelude.Text)
+getKeyGroupConfigResponse_eTag :: Lens.Lens' GetKeyGroupConfigResponse (Core.Maybe Core.Text)
 getKeyGroupConfigResponse_eTag = Lens.lens (\GetKeyGroupConfigResponse' {eTag} -> eTag) (\s@GetKeyGroupConfigResponse' {} a -> s {eTag = a} :: GetKeyGroupConfigResponse)
 
 -- | The key group configuration.
-getKeyGroupConfigResponse_keyGroupConfig :: Lens.Lens' GetKeyGroupConfigResponse (Prelude.Maybe KeyGroupConfig)
+getKeyGroupConfigResponse_keyGroupConfig :: Lens.Lens' GetKeyGroupConfigResponse (Core.Maybe KeyGroupConfig)
 getKeyGroupConfigResponse_keyGroupConfig = Lens.lens (\GetKeyGroupConfigResponse' {keyGroupConfig} -> keyGroupConfig) (\s@GetKeyGroupConfigResponse' {} a -> s {keyGroupConfig = a} :: GetKeyGroupConfigResponse)
 
 -- | The response's http status code.
-getKeyGroupConfigResponse_httpStatus :: Lens.Lens' GetKeyGroupConfigResponse Prelude.Int
+getKeyGroupConfigResponse_httpStatus :: Lens.Lens' GetKeyGroupConfigResponse Core.Int
 getKeyGroupConfigResponse_httpStatus = Lens.lens (\GetKeyGroupConfigResponse' {httpStatus} -> httpStatus) (\s@GetKeyGroupConfigResponse' {} a -> s {httpStatus = a} :: GetKeyGroupConfigResponse)
 
-instance Prelude.NFData GetKeyGroupConfigResponse
+instance Core.NFData GetKeyGroupConfigResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.AutoScaling.CreateOrUpdateTags
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +54,7 @@ data CreateOrUpdateTags = CreateOrUpdateTags'
   { -- | One or more tags.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateOrUpdateTags' with all optional fields omitted.
@@ -69,45 +68,44 @@ data CreateOrUpdateTags = CreateOrUpdateTags'
 newCreateOrUpdateTags ::
   CreateOrUpdateTags
 newCreateOrUpdateTags =
-  CreateOrUpdateTags' {tags = Prelude.mempty}
+  CreateOrUpdateTags' {tags = Core.mempty}
 
 -- | One or more tags.
 createOrUpdateTags_tags :: Lens.Lens' CreateOrUpdateTags [Tag]
-createOrUpdateTags_tags = Lens.lens (\CreateOrUpdateTags' {tags} -> tags) (\s@CreateOrUpdateTags' {} a -> s {tags = a} :: CreateOrUpdateTags) Prelude.. Prelude._Coerce
+createOrUpdateTags_tags = Lens.lens (\CreateOrUpdateTags' {tags} -> tags) (\s@CreateOrUpdateTags' {} a -> s {tags = a} :: CreateOrUpdateTags) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateOrUpdateTags where
+instance Core.AWSRequest CreateOrUpdateTags where
   type
-    Rs CreateOrUpdateTags =
+    AWSResponse CreateOrUpdateTags =
       CreateOrUpdateTagsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull CreateOrUpdateTagsResponse'
 
-instance Prelude.Hashable CreateOrUpdateTags
+instance Core.Hashable CreateOrUpdateTags
 
-instance Prelude.NFData CreateOrUpdateTags
+instance Core.NFData CreateOrUpdateTags
 
-instance Prelude.ToHeaders CreateOrUpdateTags where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateOrUpdateTags where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateOrUpdateTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateOrUpdateTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateOrUpdateTags where
+instance Core.ToQuery CreateOrUpdateTags where
   toQuery CreateOrUpdateTags' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateOrUpdateTags" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "Tags" Prelude.=: Prelude.toQueryList "member" tags
+          Core.=: ("CreateOrUpdateTags" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "Tags" Core.=: Core.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newCreateOrUpdateTagsResponse' smart constructor.
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateOrUpdateTagsResponse' with all optional fields omitted.
@@ -118,4 +116,4 @@ newCreateOrUpdateTagsResponse ::
 newCreateOrUpdateTagsResponse =
   CreateOrUpdateTagsResponse'
 
-instance Prelude.NFData CreateOrUpdateTagsResponse
+instance Core.NFData CreateOrUpdateTagsResponse

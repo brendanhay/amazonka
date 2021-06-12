@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactParameter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.ParameterConstraints
 
 -- | Information about a parameter used to provision a product.
@@ -31,19 +30,19 @@ data ProvisioningArtifactParameter = ProvisioningArtifactParameter'
   { -- | If this value is true, the value for this parameter is obfuscated from
     -- view when the parameter is retrieved. This parameter is used to hide
     -- sensitive information.
-    isNoEcho :: Prelude.Maybe Prelude.Bool,
+    isNoEcho :: Core.Maybe Core.Bool,
     -- | Constraints that the administrator has put on a parameter.
-    parameterConstraints :: Prelude.Maybe ParameterConstraints,
+    parameterConstraints :: Core.Maybe ParameterConstraints,
     -- | The parameter type.
-    parameterType :: Prelude.Maybe Prelude.Text,
+    parameterType :: Core.Maybe Core.Text,
     -- | The parameter key.
-    parameterKey :: Prelude.Maybe Prelude.Text,
+    parameterKey :: Core.Maybe Core.Text,
     -- | The description of the parameter.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The default value.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    defaultValue :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProvisioningArtifactParameter' with all optional fields omitted.
@@ -71,59 +70,54 @@ newProvisioningArtifactParameter ::
 newProvisioningArtifactParameter =
   ProvisioningArtifactParameter'
     { isNoEcho =
-        Prelude.Nothing,
-      parameterConstraints = Prelude.Nothing,
-      parameterType = Prelude.Nothing,
-      parameterKey = Prelude.Nothing,
-      description = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+        Core.Nothing,
+      parameterConstraints = Core.Nothing,
+      parameterType = Core.Nothing,
+      parameterKey = Core.Nothing,
+      description = Core.Nothing,
+      defaultValue = Core.Nothing
     }
 
 -- | If this value is true, the value for this parameter is obfuscated from
 -- view when the parameter is retrieved. This parameter is used to hide
 -- sensitive information.
-provisioningArtifactParameter_isNoEcho :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe Prelude.Bool)
+provisioningArtifactParameter_isNoEcho :: Lens.Lens' ProvisioningArtifactParameter (Core.Maybe Core.Bool)
 provisioningArtifactParameter_isNoEcho = Lens.lens (\ProvisioningArtifactParameter' {isNoEcho} -> isNoEcho) (\s@ProvisioningArtifactParameter' {} a -> s {isNoEcho = a} :: ProvisioningArtifactParameter)
 
 -- | Constraints that the administrator has put on a parameter.
-provisioningArtifactParameter_parameterConstraints :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe ParameterConstraints)
+provisioningArtifactParameter_parameterConstraints :: Lens.Lens' ProvisioningArtifactParameter (Core.Maybe ParameterConstraints)
 provisioningArtifactParameter_parameterConstraints = Lens.lens (\ProvisioningArtifactParameter' {parameterConstraints} -> parameterConstraints) (\s@ProvisioningArtifactParameter' {} a -> s {parameterConstraints = a} :: ProvisioningArtifactParameter)
 
 -- | The parameter type.
-provisioningArtifactParameter_parameterType :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe Prelude.Text)
+provisioningArtifactParameter_parameterType :: Lens.Lens' ProvisioningArtifactParameter (Core.Maybe Core.Text)
 provisioningArtifactParameter_parameterType = Lens.lens (\ProvisioningArtifactParameter' {parameterType} -> parameterType) (\s@ProvisioningArtifactParameter' {} a -> s {parameterType = a} :: ProvisioningArtifactParameter)
 
 -- | The parameter key.
-provisioningArtifactParameter_parameterKey :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe Prelude.Text)
+provisioningArtifactParameter_parameterKey :: Lens.Lens' ProvisioningArtifactParameter (Core.Maybe Core.Text)
 provisioningArtifactParameter_parameterKey = Lens.lens (\ProvisioningArtifactParameter' {parameterKey} -> parameterKey) (\s@ProvisioningArtifactParameter' {} a -> s {parameterKey = a} :: ProvisioningArtifactParameter)
 
 -- | The description of the parameter.
-provisioningArtifactParameter_description :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe Prelude.Text)
+provisioningArtifactParameter_description :: Lens.Lens' ProvisioningArtifactParameter (Core.Maybe Core.Text)
 provisioningArtifactParameter_description = Lens.lens (\ProvisioningArtifactParameter' {description} -> description) (\s@ProvisioningArtifactParameter' {} a -> s {description = a} :: ProvisioningArtifactParameter)
 
 -- | The default value.
-provisioningArtifactParameter_defaultValue :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe Prelude.Text)
+provisioningArtifactParameter_defaultValue :: Lens.Lens' ProvisioningArtifactParameter (Core.Maybe Core.Text)
 provisioningArtifactParameter_defaultValue = Lens.lens (\ProvisioningArtifactParameter' {defaultValue} -> defaultValue) (\s@ProvisioningArtifactParameter' {} a -> s {defaultValue = a} :: ProvisioningArtifactParameter)
 
-instance
-  Prelude.FromJSON
-    ProvisioningArtifactParameter
-  where
+instance Core.FromJSON ProvisioningArtifactParameter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProvisioningArtifactParameter"
       ( \x ->
           ProvisioningArtifactParameter'
-            Prelude.<$> (x Prelude..:? "IsNoEcho")
-            Prelude.<*> (x Prelude..:? "ParameterConstraints")
-            Prelude.<*> (x Prelude..:? "ParameterType")
-            Prelude.<*> (x Prelude..:? "ParameterKey")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "DefaultValue")
+            Core.<$> (x Core..:? "IsNoEcho")
+            Core.<*> (x Core..:? "ParameterConstraints")
+            Core.<*> (x Core..:? "ParameterType")
+            Core.<*> (x Core..:? "ParameterKey")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "DefaultValue")
       )
 
-instance
-  Prelude.Hashable
-    ProvisioningArtifactParameter
+instance Core.Hashable ProvisioningArtifactParameter
 
-instance Prelude.NFData ProvisioningArtifactParameter
+instance Core.NFData ProvisioningArtifactParameter

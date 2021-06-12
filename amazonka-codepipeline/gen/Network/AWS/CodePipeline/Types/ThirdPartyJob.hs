@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.ThirdPartyJob where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A response to a @PollForThirdPartyJobs@ request returned by AWS
 -- CodePipeline when there is a job to be worked on by a partner action.
@@ -31,11 +30,11 @@ data ThirdPartyJob = ThirdPartyJob'
   { -- | The @clientToken@ portion of the @clientId@ and @clientToken@ pair used
     -- to verify that the calling entity is allowed access to the job and its
     -- details.
-    clientId :: Prelude.Maybe Prelude.Text,
+    clientId :: Core.Maybe Core.Text,
     -- | The identifier used to identify the job in AWS CodePipeline.
-    jobId :: Prelude.Maybe Prelude.Text
+    jobId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ThirdPartyJob' with all optional fields omitted.
@@ -54,30 +53,30 @@ newThirdPartyJob ::
   ThirdPartyJob
 newThirdPartyJob =
   ThirdPartyJob'
-    { clientId = Prelude.Nothing,
-      jobId = Prelude.Nothing
+    { clientId = Core.Nothing,
+      jobId = Core.Nothing
     }
 
 -- | The @clientToken@ portion of the @clientId@ and @clientToken@ pair used
 -- to verify that the calling entity is allowed access to the job and its
 -- details.
-thirdPartyJob_clientId :: Lens.Lens' ThirdPartyJob (Prelude.Maybe Prelude.Text)
+thirdPartyJob_clientId :: Lens.Lens' ThirdPartyJob (Core.Maybe Core.Text)
 thirdPartyJob_clientId = Lens.lens (\ThirdPartyJob' {clientId} -> clientId) (\s@ThirdPartyJob' {} a -> s {clientId = a} :: ThirdPartyJob)
 
 -- | The identifier used to identify the job in AWS CodePipeline.
-thirdPartyJob_jobId :: Lens.Lens' ThirdPartyJob (Prelude.Maybe Prelude.Text)
+thirdPartyJob_jobId :: Lens.Lens' ThirdPartyJob (Core.Maybe Core.Text)
 thirdPartyJob_jobId = Lens.lens (\ThirdPartyJob' {jobId} -> jobId) (\s@ThirdPartyJob' {} a -> s {jobId = a} :: ThirdPartyJob)
 
-instance Prelude.FromJSON ThirdPartyJob where
+instance Core.FromJSON ThirdPartyJob where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ThirdPartyJob"
       ( \x ->
           ThirdPartyJob'
-            Prelude.<$> (x Prelude..:? "clientId")
-            Prelude.<*> (x Prelude..:? "jobId")
+            Core.<$> (x Core..:? "clientId")
+            Core.<*> (x Core..:? "jobId")
       )
 
-instance Prelude.Hashable ThirdPartyJob
+instance Core.Hashable ThirdPartyJob
 
-instance Prelude.NFData ThirdPartyJob
+instance Core.NFData ThirdPartyJob

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Batch.Types.Device where
 
 import Network.AWS.Batch.Types.DeviceCgroupPermission
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a container instance host device.
 --
@@ -34,14 +33,14 @@ data Device = Device'
   { -- | The explicit permissions to provide to the container for the device. By
     -- default, the container has permissions for @read@, @write@, and @mknod@
     -- for the device.
-    permissions :: Prelude.Maybe [DeviceCgroupPermission],
+    permissions :: Core.Maybe [DeviceCgroupPermission],
     -- | The path inside the container used to expose the host device. By default
     -- the @hostPath@ value is used.
-    containerPath :: Prelude.Maybe Prelude.Text,
+    containerPath :: Core.Maybe Core.Text,
     -- | The path for the device on the host container instance.
-    hostPath :: Prelude.Text
+    hostPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Device' with all optional fields omitted.
@@ -61,54 +60,51 @@ data Device = Device'
 -- 'hostPath', 'device_hostPath' - The path for the device on the host container instance.
 newDevice ::
   -- | 'hostPath'
-  Prelude.Text ->
+  Core.Text ->
   Device
 newDevice pHostPath_ =
   Device'
-    { permissions = Prelude.Nothing,
-      containerPath = Prelude.Nothing,
+    { permissions = Core.Nothing,
+      containerPath = Core.Nothing,
       hostPath = pHostPath_
     }
 
 -- | The explicit permissions to provide to the container for the device. By
 -- default, the container has permissions for @read@, @write@, and @mknod@
 -- for the device.
-device_permissions :: Lens.Lens' Device (Prelude.Maybe [DeviceCgroupPermission])
-device_permissions = Lens.lens (\Device' {permissions} -> permissions) (\s@Device' {} a -> s {permissions = a} :: Device) Prelude.. Lens.mapping Prelude._Coerce
+device_permissions :: Lens.Lens' Device (Core.Maybe [DeviceCgroupPermission])
+device_permissions = Lens.lens (\Device' {permissions} -> permissions) (\s@Device' {} a -> s {permissions = a} :: Device) Core.. Lens.mapping Lens._Coerce
 
 -- | The path inside the container used to expose the host device. By default
 -- the @hostPath@ value is used.
-device_containerPath :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_containerPath :: Lens.Lens' Device (Core.Maybe Core.Text)
 device_containerPath = Lens.lens (\Device' {containerPath} -> containerPath) (\s@Device' {} a -> s {containerPath = a} :: Device)
 
 -- | The path for the device on the host container instance.
-device_hostPath :: Lens.Lens' Device Prelude.Text
+device_hostPath :: Lens.Lens' Device Core.Text
 device_hostPath = Lens.lens (\Device' {hostPath} -> hostPath) (\s@Device' {} a -> s {hostPath = a} :: Device)
 
-instance Prelude.FromJSON Device where
+instance Core.FromJSON Device where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> ( x Prelude..:? "permissions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "containerPath")
-            Prelude.<*> (x Prelude..: "hostPath")
+            Core.<$> (x Core..:? "permissions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "containerPath")
+            Core.<*> (x Core..: "hostPath")
       )
 
-instance Prelude.Hashable Device
+instance Core.Hashable Device
 
-instance Prelude.NFData Device
+instance Core.NFData Device
 
-instance Prelude.ToJSON Device where
+instance Core.ToJSON Device where
   toJSON Device' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("permissions" Prelude..=) Prelude.<$> permissions,
-            ("containerPath" Prelude..=)
-              Prelude.<$> containerPath,
-            Prelude.Just ("hostPath" Prelude..= hostPath)
+    Core.object
+      ( Core.catMaybes
+          [ ("permissions" Core..=) Core.<$> permissions,
+            ("containerPath" Core..=) Core.<$> containerPath,
+            Core.Just ("hostPath" Core..= hostPath)
           ]
       )

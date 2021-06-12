@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ReplicaAutoScalingDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription
 import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingDescription
 import Network.AWS.DynamoDB.Types.ReplicaStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the auto scaling settings of the replica.
 --
 -- /See:/ 'newReplicaAutoScalingDescription' smart constructor.
 data ReplicaAutoScalingDescription = ReplicaAutoScalingDescription'
   { -- | The Region where the replica exists.
-    regionName :: Prelude.Maybe Prelude.Text,
-    replicaProvisionedReadCapacityAutoScalingSettings :: Prelude.Maybe AutoScalingSettingsDescription,
+    regionName :: Core.Maybe Core.Text,
+    replicaProvisionedReadCapacityAutoScalingSettings :: Core.Maybe AutoScalingSettingsDescription,
     -- | Replica-specific global secondary index auto scaling settings.
-    globalSecondaryIndexes :: Prelude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription],
-    replicaProvisionedWriteCapacityAutoScalingSettings :: Prelude.Maybe AutoScalingSettingsDescription,
+    globalSecondaryIndexes :: Core.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription],
+    replicaProvisionedWriteCapacityAutoScalingSettings :: Core.Maybe AutoScalingSettingsDescription,
     -- | The current state of the replica:
     --
     -- -   @CREATING@ - The replica is being created.
@@ -45,9 +44,9 @@ data ReplicaAutoScalingDescription = ReplicaAutoScalingDescription'
     -- -   @DELETING@ - The replica is being deleted.
     --
     -- -   @ACTIVE@ - The replica is ready for use.
-    replicaStatus :: Prelude.Maybe ReplicaStatus
+    replicaStatus :: Core.Maybe ReplicaStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicaAutoScalingDescription' with all optional fields omitted.
@@ -79,29 +78,29 @@ newReplicaAutoScalingDescription ::
 newReplicaAutoScalingDescription =
   ReplicaAutoScalingDescription'
     { regionName =
-        Prelude.Nothing,
+        Core.Nothing,
       replicaProvisionedReadCapacityAutoScalingSettings =
-        Prelude.Nothing,
-      globalSecondaryIndexes = Prelude.Nothing,
+        Core.Nothing,
+      globalSecondaryIndexes = Core.Nothing,
       replicaProvisionedWriteCapacityAutoScalingSettings =
-        Prelude.Nothing,
-      replicaStatus = Prelude.Nothing
+        Core.Nothing,
+      replicaStatus = Core.Nothing
     }
 
 -- | The Region where the replica exists.
-replicaAutoScalingDescription_regionName :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe Prelude.Text)
+replicaAutoScalingDescription_regionName :: Lens.Lens' ReplicaAutoScalingDescription (Core.Maybe Core.Text)
 replicaAutoScalingDescription_regionName = Lens.lens (\ReplicaAutoScalingDescription' {regionName} -> regionName) (\s@ReplicaAutoScalingDescription' {} a -> s {regionName = a} :: ReplicaAutoScalingDescription)
 
 -- | Undocumented member.
-replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe AutoScalingSettingsDescription)
+replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaAutoScalingDescription (Core.Maybe AutoScalingSettingsDescription)
 replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings = Lens.lens (\ReplicaAutoScalingDescription' {replicaProvisionedReadCapacityAutoScalingSettings} -> replicaProvisionedReadCapacityAutoScalingSettings) (\s@ReplicaAutoScalingDescription' {} a -> s {replicaProvisionedReadCapacityAutoScalingSettings = a} :: ReplicaAutoScalingDescription)
 
 -- | Replica-specific global secondary index auto scaling settings.
-replicaAutoScalingDescription_globalSecondaryIndexes :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription])
-replicaAutoScalingDescription_globalSecondaryIndexes = Lens.lens (\ReplicaAutoScalingDescription' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@ReplicaAutoScalingDescription' {} a -> s {globalSecondaryIndexes = a} :: ReplicaAutoScalingDescription) Prelude.. Lens.mapping Prelude._Coerce
+replicaAutoScalingDescription_globalSecondaryIndexes :: Lens.Lens' ReplicaAutoScalingDescription (Core.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription])
+replicaAutoScalingDescription_globalSecondaryIndexes = Lens.lens (\ReplicaAutoScalingDescription' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@ReplicaAutoScalingDescription' {} a -> s {globalSecondaryIndexes = a} :: ReplicaAutoScalingDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe AutoScalingSettingsDescription)
+replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings :: Lens.Lens' ReplicaAutoScalingDescription (Core.Maybe AutoScalingSettingsDescription)
 replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings = Lens.lens (\ReplicaAutoScalingDescription' {replicaProvisionedWriteCapacityAutoScalingSettings} -> replicaProvisionedWriteCapacityAutoScalingSettings) (\s@ReplicaAutoScalingDescription' {} a -> s {replicaProvisionedWriteCapacityAutoScalingSettings = a} :: ReplicaAutoScalingDescription)
 
 -- | The current state of the replica:
@@ -113,33 +112,28 @@ replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings
 -- -   @DELETING@ - The replica is being deleted.
 --
 -- -   @ACTIVE@ - The replica is ready for use.
-replicaAutoScalingDescription_replicaStatus :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe ReplicaStatus)
+replicaAutoScalingDescription_replicaStatus :: Lens.Lens' ReplicaAutoScalingDescription (Core.Maybe ReplicaStatus)
 replicaAutoScalingDescription_replicaStatus = Lens.lens (\ReplicaAutoScalingDescription' {replicaStatus} -> replicaStatus) (\s@ReplicaAutoScalingDescription' {} a -> s {replicaStatus = a} :: ReplicaAutoScalingDescription)
 
-instance
-  Prelude.FromJSON
-    ReplicaAutoScalingDescription
-  where
+instance Core.FromJSON ReplicaAutoScalingDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReplicaAutoScalingDescription"
       ( \x ->
           ReplicaAutoScalingDescription'
-            Prelude.<$> (x Prelude..:? "RegionName")
-            Prelude.<*> ( x
-                            Prelude..:? "ReplicaProvisionedReadCapacityAutoScalingSettings"
-                        )
-            Prelude.<*> ( x Prelude..:? "GlobalSecondaryIndexes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x
-                            Prelude..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings"
-                        )
-            Prelude.<*> (x Prelude..:? "ReplicaStatus")
+            Core.<$> (x Core..:? "RegionName")
+            Core.<*> ( x
+                         Core..:? "ReplicaProvisionedReadCapacityAutoScalingSettings"
+                     )
+            Core.<*> ( x Core..:? "GlobalSecondaryIndexes"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> ( x
+                         Core..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings"
+                     )
+            Core.<*> (x Core..:? "ReplicaStatus")
       )
 
-instance
-  Prelude.Hashable
-    ReplicaAutoScalingDescription
+instance Core.Hashable ReplicaAutoScalingDescription
 
-instance Prelude.NFData ReplicaAutoScalingDescription
+instance Core.NFData ReplicaAutoScalingDescription

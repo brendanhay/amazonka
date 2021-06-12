@@ -22,9 +22,7 @@ module Network.AWS.Route53.Internal
     , getHostedZoneId
     ) where
 
-import Data.String (IsString)
-import Network.AWS.Prelude
-
+import Network.AWS.Core
 import qualified Data.Text as Text
 
 -- | A Route53 identifier for resources such as hosted zones and delegation sets.
@@ -39,8 +37,8 @@ newtype ResourceId = ResourceId { fromResourceId :: Text }
         , Ord
         , Read
         , Show
-        , Data
-        , Typeable
+        
+        
         , Generic
         , IsString
         , FromText

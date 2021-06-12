@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -100,9 +99,9 @@ module Network.AWS.GameLift.CreateGameSession
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -114,7 +113,7 @@ data CreateGameSession = CreateGameSession'
     -- pairs. These properties are passed to a game server process in the
     -- GameSession object with a request to start a new game session (see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
-    gameProperties :: Prelude.Maybe [GameProperty],
+    gameProperties :: Core.Maybe [GameProperty],
     -- | Custom string that uniquely identifies a request for a new game session.
     -- Maximum token length is 48 characters. If provided, this string is
     -- included in the new game session\'s ID. (A game session ARN has the
@@ -123,40 +122,40 @@ data CreateGameSession = CreateGameSession'
     -- Idempotency tokens remain in use for 30 days after a game session has
     -- ended; game session objects are retained for this time period and then
     -- deleted.
-    idempotencyToken :: Prelude.Maybe Prelude.Text,
+    idempotencyToken :: Core.Maybe Core.Text,
     -- | A unique identifier for a player or entity creating the game session.
     -- This ID is used to enforce a resource protection policy (if one exists)
     -- that limits the number of concurrent active game sessions one player can
     -- have.
-    creatorId :: Prelude.Maybe Prelude.Text,
+    creatorId :: Core.Maybe Core.Text,
     -- | A unique identifier for a fleet to create a game session in. You can use
     -- either the fleet ID or ARN value. Each request must reference either a
     -- fleet ID or alias ID, but not both.
-    fleetId :: Prelude.Maybe Prelude.Text,
+    fleetId :: Core.Maybe Core.Text,
     -- | Set of custom game session properties, formatted as a single string
     -- value. This data is passed to a game server process in the GameSession
     -- object with a request to start a new game session (see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
-    gameSessionData :: Prelude.Maybe Prelude.Text,
+    gameSessionData :: Core.Maybe Core.Text,
     -- | /This parameter is no longer preferred. Please use @IdempotencyToken@
     -- instead./ Custom string that uniquely identifies a request for a new
     -- game session. Maximum token length is 48 characters. If provided, this
     -- string is included in the new game session\'s ID. (A game session ARN
     -- has the following format:
     -- @arn:aws:gamelift:\<region>::gamesession\/\<fleet ID>\/\<custom ID string or idempotency token>@.)
-    gameSessionId :: Prelude.Maybe Prelude.Text,
+    gameSessionId :: Core.Maybe Core.Text,
     -- | A descriptive label that is associated with a game session. Session
     -- names do not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A unique identifier for an alias associated with the fleet to create a
     -- game session in. You can use either the alias ID or ARN value. Each
     -- request must reference either a fleet ID or alias ID, but not both.
-    aliasId :: Prelude.Maybe Prelude.Text,
+    aliasId :: Core.Maybe Core.Text,
     -- | The maximum number of players that can be connected simultaneously to
     -- the game session.
-    maximumPlayerSessionCount :: Prelude.Natural
+    maximumPlayerSessionCount :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGameSession' with all optional fields omitted.
@@ -212,19 +211,18 @@ data CreateGameSession = CreateGameSession'
 -- the game session.
 newCreateGameSession ::
   -- | 'maximumPlayerSessionCount'
-  Prelude.Natural ->
+  Core.Natural ->
   CreateGameSession
 newCreateGameSession pMaximumPlayerSessionCount_ =
   CreateGameSession'
-    { gameProperties =
-        Prelude.Nothing,
-      idempotencyToken = Prelude.Nothing,
-      creatorId = Prelude.Nothing,
-      fleetId = Prelude.Nothing,
-      gameSessionData = Prelude.Nothing,
-      gameSessionId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      aliasId = Prelude.Nothing,
+    { gameProperties = Core.Nothing,
+      idempotencyToken = Core.Nothing,
+      creatorId = Core.Nothing,
+      fleetId = Core.Nothing,
+      gameSessionData = Core.Nothing,
+      gameSessionId = Core.Nothing,
+      name = Core.Nothing,
+      aliasId = Core.Nothing,
       maximumPlayerSessionCount =
         pMaximumPlayerSessionCount_
     }
@@ -233,8 +231,8 @@ newCreateGameSession pMaximumPlayerSessionCount_ =
 -- pairs. These properties are passed to a game server process in the
 -- GameSession object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
-createGameSession_gameProperties :: Lens.Lens' CreateGameSession (Prelude.Maybe [GameProperty])
-createGameSession_gameProperties = Lens.lens (\CreateGameSession' {gameProperties} -> gameProperties) (\s@CreateGameSession' {} a -> s {gameProperties = a} :: CreateGameSession) Prelude.. Lens.mapping Prelude._Coerce
+createGameSession_gameProperties :: Lens.Lens' CreateGameSession (Core.Maybe [GameProperty])
+createGameSession_gameProperties = Lens.lens (\CreateGameSession' {gameProperties} -> gameProperties) (\s@CreateGameSession' {} a -> s {gameProperties = a} :: CreateGameSession) Core.. Lens.mapping Lens._Coerce
 
 -- | Custom string that uniquely identifies a request for a new game session.
 -- Maximum token length is 48 characters. If provided, this string is
@@ -244,27 +242,27 @@ createGameSession_gameProperties = Lens.lens (\CreateGameSession' {gamePropertie
 -- Idempotency tokens remain in use for 30 days after a game session has
 -- ended; game session objects are retained for this time period and then
 -- deleted.
-createGameSession_idempotencyToken :: Lens.Lens' CreateGameSession (Prelude.Maybe Prelude.Text)
+createGameSession_idempotencyToken :: Lens.Lens' CreateGameSession (Core.Maybe Core.Text)
 createGameSession_idempotencyToken = Lens.lens (\CreateGameSession' {idempotencyToken} -> idempotencyToken) (\s@CreateGameSession' {} a -> s {idempotencyToken = a} :: CreateGameSession)
 
 -- | A unique identifier for a player or entity creating the game session.
 -- This ID is used to enforce a resource protection policy (if one exists)
 -- that limits the number of concurrent active game sessions one player can
 -- have.
-createGameSession_creatorId :: Lens.Lens' CreateGameSession (Prelude.Maybe Prelude.Text)
+createGameSession_creatorId :: Lens.Lens' CreateGameSession (Core.Maybe Core.Text)
 createGameSession_creatorId = Lens.lens (\CreateGameSession' {creatorId} -> creatorId) (\s@CreateGameSession' {} a -> s {creatorId = a} :: CreateGameSession)
 
 -- | A unique identifier for a fleet to create a game session in. You can use
 -- either the fleet ID or ARN value. Each request must reference either a
 -- fleet ID or alias ID, but not both.
-createGameSession_fleetId :: Lens.Lens' CreateGameSession (Prelude.Maybe Prelude.Text)
+createGameSession_fleetId :: Lens.Lens' CreateGameSession (Core.Maybe Core.Text)
 createGameSession_fleetId = Lens.lens (\CreateGameSession' {fleetId} -> fleetId) (\s@CreateGameSession' {} a -> s {fleetId = a} :: CreateGameSession)
 
 -- | Set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
 -- object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
-createGameSession_gameSessionData :: Lens.Lens' CreateGameSession (Prelude.Maybe Prelude.Text)
+createGameSession_gameSessionData :: Lens.Lens' CreateGameSession (Core.Maybe Core.Text)
 createGameSession_gameSessionData = Lens.lens (\CreateGameSession' {gameSessionData} -> gameSessionData) (\s@CreateGameSession' {} a -> s {gameSessionData = a} :: CreateGameSession)
 
 -- | /This parameter is no longer preferred. Please use @IdempotencyToken@
@@ -273,92 +271,89 @@ createGameSession_gameSessionData = Lens.lens (\CreateGameSession' {gameSessionD
 -- string is included in the new game session\'s ID. (A game session ARN
 -- has the following format:
 -- @arn:aws:gamelift:\<region>::gamesession\/\<fleet ID>\/\<custom ID string or idempotency token>@.)
-createGameSession_gameSessionId :: Lens.Lens' CreateGameSession (Prelude.Maybe Prelude.Text)
+createGameSession_gameSessionId :: Lens.Lens' CreateGameSession (Core.Maybe Core.Text)
 createGameSession_gameSessionId = Lens.lens (\CreateGameSession' {gameSessionId} -> gameSessionId) (\s@CreateGameSession' {} a -> s {gameSessionId = a} :: CreateGameSession)
 
 -- | A descriptive label that is associated with a game session. Session
 -- names do not need to be unique.
-createGameSession_name :: Lens.Lens' CreateGameSession (Prelude.Maybe Prelude.Text)
+createGameSession_name :: Lens.Lens' CreateGameSession (Core.Maybe Core.Text)
 createGameSession_name = Lens.lens (\CreateGameSession' {name} -> name) (\s@CreateGameSession' {} a -> s {name = a} :: CreateGameSession)
 
 -- | A unique identifier for an alias associated with the fleet to create a
 -- game session in. You can use either the alias ID or ARN value. Each
 -- request must reference either a fleet ID or alias ID, but not both.
-createGameSession_aliasId :: Lens.Lens' CreateGameSession (Prelude.Maybe Prelude.Text)
+createGameSession_aliasId :: Lens.Lens' CreateGameSession (Core.Maybe Core.Text)
 createGameSession_aliasId = Lens.lens (\CreateGameSession' {aliasId} -> aliasId) (\s@CreateGameSession' {} a -> s {aliasId = a} :: CreateGameSession)
 
 -- | The maximum number of players that can be connected simultaneously to
 -- the game session.
-createGameSession_maximumPlayerSessionCount :: Lens.Lens' CreateGameSession Prelude.Natural
+createGameSession_maximumPlayerSessionCount :: Lens.Lens' CreateGameSession Core.Natural
 createGameSession_maximumPlayerSessionCount = Lens.lens (\CreateGameSession' {maximumPlayerSessionCount} -> maximumPlayerSessionCount) (\s@CreateGameSession' {} a -> s {maximumPlayerSessionCount = a} :: CreateGameSession)
 
-instance Prelude.AWSRequest CreateGameSession where
-  type Rs CreateGameSession = CreateGameSessionResponse
+instance Core.AWSRequest CreateGameSession where
+  type
+    AWSResponse CreateGameSession =
+      CreateGameSessionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateGameSessionResponse'
-            Prelude.<$> (x Prelude..?> "GameSession")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GameSession")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGameSession
+instance Core.Hashable CreateGameSession
 
-instance Prelude.NFData CreateGameSession
+instance Core.NFData CreateGameSession
 
-instance Prelude.ToHeaders CreateGameSession where
+instance Core.ToHeaders CreateGameSession where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.CreateGameSession" :: Prelude.ByteString),
+              Core.=# ("GameLift.CreateGameSession" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateGameSession where
+instance Core.ToJSON CreateGameSession where
   toJSON CreateGameSession' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("GameProperties" Prelude..=)
-              Prelude.<$> gameProperties,
-            ("IdempotencyToken" Prelude..=)
-              Prelude.<$> idempotencyToken,
-            ("CreatorId" Prelude..=) Prelude.<$> creatorId,
-            ("FleetId" Prelude..=) Prelude.<$> fleetId,
-            ("GameSessionData" Prelude..=)
-              Prelude.<$> gameSessionData,
-            ("GameSessionId" Prelude..=)
-              Prelude.<$> gameSessionId,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("AliasId" Prelude..=) Prelude.<$> aliasId,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("GameProperties" Core..=) Core.<$> gameProperties,
+            ("IdempotencyToken" Core..=)
+              Core.<$> idempotencyToken,
+            ("CreatorId" Core..=) Core.<$> creatorId,
+            ("FleetId" Core..=) Core.<$> fleetId,
+            ("GameSessionData" Core..=) Core.<$> gameSessionData,
+            ("GameSessionId" Core..=) Core.<$> gameSessionId,
+            ("Name" Core..=) Core.<$> name,
+            ("AliasId" Core..=) Core.<$> aliasId,
+            Core.Just
               ( "MaximumPlayerSessionCount"
-                  Prelude..= maximumPlayerSessionCount
+                  Core..= maximumPlayerSessionCount
               )
           ]
       )
 
-instance Prelude.ToPath CreateGameSession where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateGameSession where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateGameSession where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateGameSession where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newCreateGameSessionResponse' smart constructor.
 data CreateGameSessionResponse = CreateGameSessionResponse'
   { -- | Object that describes the newly created game session record.
-    gameSession :: Prelude.Maybe GameSession,
+    gameSession :: Core.Maybe GameSession,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGameSessionResponse' with all optional fields omitted.
@@ -373,21 +368,21 @@ data CreateGameSessionResponse = CreateGameSessionResponse'
 -- 'httpStatus', 'createGameSessionResponse_httpStatus' - The response's http status code.
 newCreateGameSessionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateGameSessionResponse
 newCreateGameSessionResponse pHttpStatus_ =
   CreateGameSessionResponse'
     { gameSession =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Object that describes the newly created game session record.
-createGameSessionResponse_gameSession :: Lens.Lens' CreateGameSessionResponse (Prelude.Maybe GameSession)
+createGameSessionResponse_gameSession :: Lens.Lens' CreateGameSessionResponse (Core.Maybe GameSession)
 createGameSessionResponse_gameSession = Lens.lens (\CreateGameSessionResponse' {gameSession} -> gameSession) (\s@CreateGameSessionResponse' {} a -> s {gameSession = a} :: CreateGameSessionResponse)
 
 -- | The response's http status code.
-createGameSessionResponse_httpStatus :: Lens.Lens' CreateGameSessionResponse Prelude.Int
+createGameSessionResponse_httpStatus :: Lens.Lens' CreateGameSessionResponse Core.Int
 createGameSessionResponse_httpStatus = Lens.lens (\CreateGameSessionResponse' {httpStatus} -> httpStatus) (\s@CreateGameSessionResponse' {} a -> s {httpStatus = a} :: CreateGameSessionResponse)
 
-instance Prelude.NFData CreateGameSessionResponse
+instance Core.NFData CreateGameSessionResponse

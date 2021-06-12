@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,8 @@ module Network.AWS.XRay.GetServiceGraph
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -66,18 +64,18 @@ import Network.AWS.XRay.Types
 -- | /See:/ 'newGetServiceGraph' smart constructor.
 data GetServiceGraph = GetServiceGraph'
   { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The name of a group based on which you want to generate a graph.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of a group based on which you want to
     -- generate a graph.
-    groupARN :: Prelude.Maybe Prelude.Text,
+    groupARN :: Core.Maybe Core.Text,
     -- | The start of the time frame for which to generate a graph.
-    startTime :: Prelude.POSIX,
+    startTime :: Core.POSIX,
     -- | The end of the timeframe for which to generate a graph.
-    endTime :: Prelude.POSIX
+    endTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetServiceGraph' with all optional fields omitted.
@@ -99,121 +97,120 @@ data GetServiceGraph = GetServiceGraph'
 -- 'endTime', 'getServiceGraph_endTime' - The end of the timeframe for which to generate a graph.
 newGetServiceGraph ::
   -- | 'startTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'endTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   GetServiceGraph
 newGetServiceGraph pStartTime_ pEndTime_ =
   GetServiceGraph'
-    { nextToken = Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      groupARN = Prelude.Nothing,
-      startTime = Prelude._Time Lens.# pStartTime_,
-      endTime = Prelude._Time Lens.# pEndTime_
+    { nextToken = Core.Nothing,
+      groupName = Core.Nothing,
+      groupARN = Core.Nothing,
+      startTime = Core._Time Lens.# pStartTime_,
+      endTime = Core._Time Lens.# pEndTime_
     }
 
 -- | Pagination token.
-getServiceGraph_nextToken :: Lens.Lens' GetServiceGraph (Prelude.Maybe Prelude.Text)
+getServiceGraph_nextToken :: Lens.Lens' GetServiceGraph (Core.Maybe Core.Text)
 getServiceGraph_nextToken = Lens.lens (\GetServiceGraph' {nextToken} -> nextToken) (\s@GetServiceGraph' {} a -> s {nextToken = a} :: GetServiceGraph)
 
 -- | The name of a group based on which you want to generate a graph.
-getServiceGraph_groupName :: Lens.Lens' GetServiceGraph (Prelude.Maybe Prelude.Text)
+getServiceGraph_groupName :: Lens.Lens' GetServiceGraph (Core.Maybe Core.Text)
 getServiceGraph_groupName = Lens.lens (\GetServiceGraph' {groupName} -> groupName) (\s@GetServiceGraph' {} a -> s {groupName = a} :: GetServiceGraph)
 
 -- | The Amazon Resource Name (ARN) of a group based on which you want to
 -- generate a graph.
-getServiceGraph_groupARN :: Lens.Lens' GetServiceGraph (Prelude.Maybe Prelude.Text)
+getServiceGraph_groupARN :: Lens.Lens' GetServiceGraph (Core.Maybe Core.Text)
 getServiceGraph_groupARN = Lens.lens (\GetServiceGraph' {groupARN} -> groupARN) (\s@GetServiceGraph' {} a -> s {groupARN = a} :: GetServiceGraph)
 
 -- | The start of the time frame for which to generate a graph.
-getServiceGraph_startTime :: Lens.Lens' GetServiceGraph Prelude.UTCTime
-getServiceGraph_startTime = Lens.lens (\GetServiceGraph' {startTime} -> startTime) (\s@GetServiceGraph' {} a -> s {startTime = a} :: GetServiceGraph) Prelude.. Prelude._Time
+getServiceGraph_startTime :: Lens.Lens' GetServiceGraph Core.UTCTime
+getServiceGraph_startTime = Lens.lens (\GetServiceGraph' {startTime} -> startTime) (\s@GetServiceGraph' {} a -> s {startTime = a} :: GetServiceGraph) Core.. Core._Time
 
 -- | The end of the timeframe for which to generate a graph.
-getServiceGraph_endTime :: Lens.Lens' GetServiceGraph Prelude.UTCTime
-getServiceGraph_endTime = Lens.lens (\GetServiceGraph' {endTime} -> endTime) (\s@GetServiceGraph' {} a -> s {endTime = a} :: GetServiceGraph) Prelude.. Prelude._Time
+getServiceGraph_endTime :: Lens.Lens' GetServiceGraph Core.UTCTime
+getServiceGraph_endTime = Lens.lens (\GetServiceGraph' {endTime} -> endTime) (\s@GetServiceGraph' {} a -> s {endTime = a} :: GetServiceGraph) Core.. Core._Time
 
-instance Pager.AWSPager GetServiceGraph where
+instance Core.AWSPager GetServiceGraph where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? getServiceGraphResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? getServiceGraphResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? getServiceGraphResponse_services
-              Prelude.. Lens._Just
+            Lens.^? getServiceGraphResponse_services Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getServiceGraph_nextToken
           Lens..~ rs
-          Lens.^? getServiceGraphResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? getServiceGraphResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest GetServiceGraph where
-  type Rs GetServiceGraph = GetServiceGraphResponse
+instance Core.AWSRequest GetServiceGraph where
+  type
+    AWSResponse GetServiceGraph =
+      GetServiceGraphResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetServiceGraphResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Services" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "StartTime")
-            Prelude.<*> (x Prelude..?> "ContainsOldGroupVersions")
-            Prelude.<*> (x Prelude..?> "EndTime")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Services" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "StartTime")
+            Core.<*> (x Core..?> "ContainsOldGroupVersions")
+            Core.<*> (x Core..?> "EndTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetServiceGraph
+instance Core.Hashable GetServiceGraph
 
-instance Prelude.NFData GetServiceGraph
+instance Core.NFData GetServiceGraph
 
-instance Prelude.ToHeaders GetServiceGraph where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetServiceGraph where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON GetServiceGraph where
+instance Core.ToJSON GetServiceGraph where
   toJSON GetServiceGraph' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("GroupName" Prelude..=) Prelude.<$> groupName,
-            ("GroupARN" Prelude..=) Prelude.<$> groupARN,
-            Prelude.Just ("StartTime" Prelude..= startTime),
-            Prelude.Just ("EndTime" Prelude..= endTime)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("GroupName" Core..=) Core.<$> groupName,
+            ("GroupARN" Core..=) Core.<$> groupARN,
+            Core.Just ("StartTime" Core..= startTime),
+            Core.Just ("EndTime" Core..= endTime)
           ]
       )
 
-instance Prelude.ToPath GetServiceGraph where
-  toPath = Prelude.const "/ServiceGraph"
+instance Core.ToPath GetServiceGraph where
+  toPath = Core.const "/ServiceGraph"
 
-instance Prelude.ToQuery GetServiceGraph where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetServiceGraph where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetServiceGraphResponse' smart constructor.
 data GetServiceGraphResponse = GetServiceGraphResponse'
   { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The services that have processed a traced request during the specified
     -- time frame.
-    services :: Prelude.Maybe [ServiceInfo],
+    services :: Core.Maybe [ServiceInfo],
     -- | The start of the time frame for which the graph was generated.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | A flag indicating whether the group\'s filter expression has been
     -- consistent, or if the returned service graph may show traces from an
     -- older version of the group\'s filter expression.
-    containsOldGroupVersions :: Prelude.Maybe Prelude.Bool,
+    containsOldGroupVersions :: Core.Maybe Core.Bool,
     -- | The end of the time frame for which the graph was generated.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetServiceGraphResponse' with all optional fields omitted.
@@ -239,44 +236,43 @@ data GetServiceGraphResponse = GetServiceGraphResponse'
 -- 'httpStatus', 'getServiceGraphResponse_httpStatus' - The response's http status code.
 newGetServiceGraphResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetServiceGraphResponse
 newGetServiceGraphResponse pHttpStatus_ =
   GetServiceGraphResponse'
-    { nextToken =
-        Prelude.Nothing,
-      services = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      containsOldGroupVersions = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      services = Core.Nothing,
+      startTime = Core.Nothing,
+      containsOldGroupVersions = Core.Nothing,
+      endTime = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Pagination token.
-getServiceGraphResponse_nextToken :: Lens.Lens' GetServiceGraphResponse (Prelude.Maybe Prelude.Text)
+getServiceGraphResponse_nextToken :: Lens.Lens' GetServiceGraphResponse (Core.Maybe Core.Text)
 getServiceGraphResponse_nextToken = Lens.lens (\GetServiceGraphResponse' {nextToken} -> nextToken) (\s@GetServiceGraphResponse' {} a -> s {nextToken = a} :: GetServiceGraphResponse)
 
 -- | The services that have processed a traced request during the specified
 -- time frame.
-getServiceGraphResponse_services :: Lens.Lens' GetServiceGraphResponse (Prelude.Maybe [ServiceInfo])
-getServiceGraphResponse_services = Lens.lens (\GetServiceGraphResponse' {services} -> services) (\s@GetServiceGraphResponse' {} a -> s {services = a} :: GetServiceGraphResponse) Prelude.. Lens.mapping Prelude._Coerce
+getServiceGraphResponse_services :: Lens.Lens' GetServiceGraphResponse (Core.Maybe [ServiceInfo])
+getServiceGraphResponse_services = Lens.lens (\GetServiceGraphResponse' {services} -> services) (\s@GetServiceGraphResponse' {} a -> s {services = a} :: GetServiceGraphResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The start of the time frame for which the graph was generated.
-getServiceGraphResponse_startTime :: Lens.Lens' GetServiceGraphResponse (Prelude.Maybe Prelude.UTCTime)
-getServiceGraphResponse_startTime = Lens.lens (\GetServiceGraphResponse' {startTime} -> startTime) (\s@GetServiceGraphResponse' {} a -> s {startTime = a} :: GetServiceGraphResponse) Prelude.. Lens.mapping Prelude._Time
+getServiceGraphResponse_startTime :: Lens.Lens' GetServiceGraphResponse (Core.Maybe Core.UTCTime)
+getServiceGraphResponse_startTime = Lens.lens (\GetServiceGraphResponse' {startTime} -> startTime) (\s@GetServiceGraphResponse' {} a -> s {startTime = a} :: GetServiceGraphResponse) Core.. Lens.mapping Core._Time
 
 -- | A flag indicating whether the group\'s filter expression has been
 -- consistent, or if the returned service graph may show traces from an
 -- older version of the group\'s filter expression.
-getServiceGraphResponse_containsOldGroupVersions :: Lens.Lens' GetServiceGraphResponse (Prelude.Maybe Prelude.Bool)
+getServiceGraphResponse_containsOldGroupVersions :: Lens.Lens' GetServiceGraphResponse (Core.Maybe Core.Bool)
 getServiceGraphResponse_containsOldGroupVersions = Lens.lens (\GetServiceGraphResponse' {containsOldGroupVersions} -> containsOldGroupVersions) (\s@GetServiceGraphResponse' {} a -> s {containsOldGroupVersions = a} :: GetServiceGraphResponse)
 
 -- | The end of the time frame for which the graph was generated.
-getServiceGraphResponse_endTime :: Lens.Lens' GetServiceGraphResponse (Prelude.Maybe Prelude.UTCTime)
-getServiceGraphResponse_endTime = Lens.lens (\GetServiceGraphResponse' {endTime} -> endTime) (\s@GetServiceGraphResponse' {} a -> s {endTime = a} :: GetServiceGraphResponse) Prelude.. Lens.mapping Prelude._Time
+getServiceGraphResponse_endTime :: Lens.Lens' GetServiceGraphResponse (Core.Maybe Core.UTCTime)
+getServiceGraphResponse_endTime = Lens.lens (\GetServiceGraphResponse' {endTime} -> endTime) (\s@GetServiceGraphResponse' {} a -> s {endTime = a} :: GetServiceGraphResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-getServiceGraphResponse_httpStatus :: Lens.Lens' GetServiceGraphResponse Prelude.Int
+getServiceGraphResponse_httpStatus :: Lens.Lens' GetServiceGraphResponse Core.Int
 getServiceGraphResponse_httpStatus = Lens.lens (\GetServiceGraphResponse' {httpStatus} -> httpStatus) (\s@GetServiceGraphResponse' {} a -> s {httpStatus = a} :: GetServiceGraphResponse)
 
-instance Prelude.NFData GetServiceGraphResponse
+instance Core.NFData GetServiceGraphResponse

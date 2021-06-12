@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.SavingsPlansCoverage where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.DateInterval
 import Network.AWS.CostExplorer.Types.SavingsPlansCoverageData
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The amount of Savings Plans eligible usage that is covered by Savings
 -- Plans. All calculations consider the On-Demand equivalent of your
@@ -31,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSavingsPlansCoverage' smart constructor.
 data SavingsPlansCoverage = SavingsPlansCoverage'
-  { timePeriod :: Prelude.Maybe DateInterval,
+  { timePeriod :: Core.Maybe DateInterval,
     -- | The attribute that applies to a specific @Dimension@.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The amount of Savings Plans eligible usage that the Savings Plans
     -- covered.
-    coverage :: Prelude.Maybe SavingsPlansCoverageData
+    coverage :: Core.Maybe SavingsPlansCoverageData
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansCoverage' with all optional fields omitted.
@@ -58,37 +57,35 @@ newSavingsPlansCoverage ::
   SavingsPlansCoverage
 newSavingsPlansCoverage =
   SavingsPlansCoverage'
-    { timePeriod = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      coverage = Prelude.Nothing
+    { timePeriod = Core.Nothing,
+      attributes = Core.Nothing,
+      coverage = Core.Nothing
     }
 
 -- | Undocumented member.
-savingsPlansCoverage_timePeriod :: Lens.Lens' SavingsPlansCoverage (Prelude.Maybe DateInterval)
+savingsPlansCoverage_timePeriod :: Lens.Lens' SavingsPlansCoverage (Core.Maybe DateInterval)
 savingsPlansCoverage_timePeriod = Lens.lens (\SavingsPlansCoverage' {timePeriod} -> timePeriod) (\s@SavingsPlansCoverage' {} a -> s {timePeriod = a} :: SavingsPlansCoverage)
 
 -- | The attribute that applies to a specific @Dimension@.
-savingsPlansCoverage_attributes :: Lens.Lens' SavingsPlansCoverage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-savingsPlansCoverage_attributes = Lens.lens (\SavingsPlansCoverage' {attributes} -> attributes) (\s@SavingsPlansCoverage' {} a -> s {attributes = a} :: SavingsPlansCoverage) Prelude.. Lens.mapping Prelude._Coerce
+savingsPlansCoverage_attributes :: Lens.Lens' SavingsPlansCoverage (Core.Maybe (Core.HashMap Core.Text Core.Text))
+savingsPlansCoverage_attributes = Lens.lens (\SavingsPlansCoverage' {attributes} -> attributes) (\s@SavingsPlansCoverage' {} a -> s {attributes = a} :: SavingsPlansCoverage) Core.. Lens.mapping Lens._Coerce
 
 -- | The amount of Savings Plans eligible usage that the Savings Plans
 -- covered.
-savingsPlansCoverage_coverage :: Lens.Lens' SavingsPlansCoverage (Prelude.Maybe SavingsPlansCoverageData)
+savingsPlansCoverage_coverage :: Lens.Lens' SavingsPlansCoverage (Core.Maybe SavingsPlansCoverageData)
 savingsPlansCoverage_coverage = Lens.lens (\SavingsPlansCoverage' {coverage} -> coverage) (\s@SavingsPlansCoverage' {} a -> s {coverage = a} :: SavingsPlansCoverage)
 
-instance Prelude.FromJSON SavingsPlansCoverage where
+instance Core.FromJSON SavingsPlansCoverage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SavingsPlansCoverage"
       ( \x ->
           SavingsPlansCoverage'
-            Prelude.<$> (x Prelude..:? "TimePeriod")
-            Prelude.<*> ( x Prelude..:? "Attributes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Coverage")
+            Core.<$> (x Core..:? "TimePeriod")
+            Core.<*> (x Core..:? "Attributes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Coverage")
       )
 
-instance Prelude.Hashable SavingsPlansCoverage
+instance Core.Hashable SavingsPlansCoverage
 
-instance Prelude.NFData SavingsPlansCoverage
+instance Core.NFData SavingsPlansCoverage

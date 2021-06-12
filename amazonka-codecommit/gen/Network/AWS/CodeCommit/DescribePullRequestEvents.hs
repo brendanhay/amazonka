@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.CodeCommit.DescribePullRequestEvents
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,23 +56,23 @@ import qualified Network.AWS.Response as Response
 data DescribePullRequestEvents = DescribePullRequestEvents'
   { -- | An enumeration token that, when provided in a request, returns the next
     -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A non-zero, non-negative integer used to limit the number of returned
     -- results. The default is 100 events, which is also the maximum number of
     -- events that can be returned in a result.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | Optional. The pull request event type about which you want to return
     -- information.
-    pullRequestEventType :: Prelude.Maybe PullRequestEventType,
+    pullRequestEventType :: Core.Maybe PullRequestEventType,
     -- | The Amazon Resource Name (ARN) of the user whose actions resulted in the
     -- event. Examples include updating the pull request with more commits or
     -- changing the status of a pull request.
-    actorArn :: Prelude.Maybe Prelude.Text,
+    actorArn :: Core.Maybe Core.Text,
     -- | The system-generated ID of the pull request. To get this ID, use
     -- ListPullRequests.
-    pullRequestId :: Prelude.Text
+    pullRequestId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePullRequestEvents' with all optional fields omitted.
@@ -102,132 +100,129 @@ data DescribePullRequestEvents = DescribePullRequestEvents'
 -- ListPullRequests.
 newDescribePullRequestEvents ::
   -- | 'pullRequestId'
-  Prelude.Text ->
+  Core.Text ->
   DescribePullRequestEvents
 newDescribePullRequestEvents pPullRequestId_ =
   DescribePullRequestEvents'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      pullRequestEventType = Prelude.Nothing,
-      actorArn = Prelude.Nothing,
+        Core.Nothing,
+      maxResults = Core.Nothing,
+      pullRequestEventType = Core.Nothing,
+      actorArn = Core.Nothing,
       pullRequestId = pPullRequestId_
     }
 
 -- | An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
-describePullRequestEvents_nextToken :: Lens.Lens' DescribePullRequestEvents (Prelude.Maybe Prelude.Text)
+describePullRequestEvents_nextToken :: Lens.Lens' DescribePullRequestEvents (Core.Maybe Core.Text)
 describePullRequestEvents_nextToken = Lens.lens (\DescribePullRequestEvents' {nextToken} -> nextToken) (\s@DescribePullRequestEvents' {} a -> s {nextToken = a} :: DescribePullRequestEvents)
 
 -- | A non-zero, non-negative integer used to limit the number of returned
 -- results. The default is 100 events, which is also the maximum number of
 -- events that can be returned in a result.
-describePullRequestEvents_maxResults :: Lens.Lens' DescribePullRequestEvents (Prelude.Maybe Prelude.Int)
+describePullRequestEvents_maxResults :: Lens.Lens' DescribePullRequestEvents (Core.Maybe Core.Int)
 describePullRequestEvents_maxResults = Lens.lens (\DescribePullRequestEvents' {maxResults} -> maxResults) (\s@DescribePullRequestEvents' {} a -> s {maxResults = a} :: DescribePullRequestEvents)
 
 -- | Optional. The pull request event type about which you want to return
 -- information.
-describePullRequestEvents_pullRequestEventType :: Lens.Lens' DescribePullRequestEvents (Prelude.Maybe PullRequestEventType)
+describePullRequestEvents_pullRequestEventType :: Lens.Lens' DescribePullRequestEvents (Core.Maybe PullRequestEventType)
 describePullRequestEvents_pullRequestEventType = Lens.lens (\DescribePullRequestEvents' {pullRequestEventType} -> pullRequestEventType) (\s@DescribePullRequestEvents' {} a -> s {pullRequestEventType = a} :: DescribePullRequestEvents)
 
 -- | The Amazon Resource Name (ARN) of the user whose actions resulted in the
 -- event. Examples include updating the pull request with more commits or
 -- changing the status of a pull request.
-describePullRequestEvents_actorArn :: Lens.Lens' DescribePullRequestEvents (Prelude.Maybe Prelude.Text)
+describePullRequestEvents_actorArn :: Lens.Lens' DescribePullRequestEvents (Core.Maybe Core.Text)
 describePullRequestEvents_actorArn = Lens.lens (\DescribePullRequestEvents' {actorArn} -> actorArn) (\s@DescribePullRequestEvents' {} a -> s {actorArn = a} :: DescribePullRequestEvents)
 
 -- | The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
-describePullRequestEvents_pullRequestId :: Lens.Lens' DescribePullRequestEvents Prelude.Text
+describePullRequestEvents_pullRequestId :: Lens.Lens' DescribePullRequestEvents Core.Text
 describePullRequestEvents_pullRequestId = Lens.lens (\DescribePullRequestEvents' {pullRequestId} -> pullRequestId) (\s@DescribePullRequestEvents' {} a -> s {pullRequestId = a} :: DescribePullRequestEvents)
 
-instance Pager.AWSPager DescribePullRequestEvents where
+instance Core.AWSPager DescribePullRequestEvents where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describePullRequestEventsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. describePullRequestEventsResponse_pullRequestEvents
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describePullRequestEvents_nextToken
           Lens..~ rs
           Lens.^? describePullRequestEventsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribePullRequestEvents where
+instance Core.AWSRequest DescribePullRequestEvents where
   type
-    Rs DescribePullRequestEvents =
+    AWSResponse DescribePullRequestEvents =
       DescribePullRequestEventsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribePullRequestEventsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "pullRequestEvents"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..?> "pullRequestEvents"
+                         Core..!@ Core.mempty
+                     )
       )
 
-instance Prelude.Hashable DescribePullRequestEvents
+instance Core.Hashable DescribePullRequestEvents
 
-instance Prelude.NFData DescribePullRequestEvents
+instance Core.NFData DescribePullRequestEvents
 
-instance Prelude.ToHeaders DescribePullRequestEvents where
+instance Core.ToHeaders DescribePullRequestEvents where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.DescribePullRequestEvents" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.DescribePullRequestEvents" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribePullRequestEvents where
+instance Core.ToJSON DescribePullRequestEvents where
   toJSON DescribePullRequestEvents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("pullRequestEventType" Prelude..=)
-              Prelude.<$> pullRequestEventType,
-            ("actorArn" Prelude..=) Prelude.<$> actorArn,
-            Prelude.Just
-              ("pullRequestId" Prelude..= pullRequestId)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("pullRequestEventType" Core..=)
+              Core.<$> pullRequestEventType,
+            ("actorArn" Core..=) Core.<$> actorArn,
+            Core.Just ("pullRequestId" Core..= pullRequestId)
           ]
       )
 
-instance Prelude.ToPath DescribePullRequestEvents where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribePullRequestEvents where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribePullRequestEvents where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribePullRequestEvents where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribePullRequestEventsResponse' smart constructor.
 data DescribePullRequestEventsResponse = DescribePullRequestEventsResponse'
   { -- | An enumeration token that can be used in a request to return the next
     -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Information about the pull request events.
     pullRequestEvents :: [PullRequestEvent]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePullRequestEventsResponse' with all optional fields omitted.
@@ -245,29 +240,29 @@ data DescribePullRequestEventsResponse = DescribePullRequestEventsResponse'
 -- 'pullRequestEvents', 'describePullRequestEventsResponse_pullRequestEvents' - Information about the pull request events.
 newDescribePullRequestEventsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribePullRequestEventsResponse
 newDescribePullRequestEventsResponse pHttpStatus_ =
   DescribePullRequestEventsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      pullRequestEvents = Prelude.mempty
+      pullRequestEvents = Core.mempty
     }
 
 -- | An enumeration token that can be used in a request to return the next
 -- batch of the results.
-describePullRequestEventsResponse_nextToken :: Lens.Lens' DescribePullRequestEventsResponse (Prelude.Maybe Prelude.Text)
+describePullRequestEventsResponse_nextToken :: Lens.Lens' DescribePullRequestEventsResponse (Core.Maybe Core.Text)
 describePullRequestEventsResponse_nextToken = Lens.lens (\DescribePullRequestEventsResponse' {nextToken} -> nextToken) (\s@DescribePullRequestEventsResponse' {} a -> s {nextToken = a} :: DescribePullRequestEventsResponse)
 
 -- | The response's http status code.
-describePullRequestEventsResponse_httpStatus :: Lens.Lens' DescribePullRequestEventsResponse Prelude.Int
+describePullRequestEventsResponse_httpStatus :: Lens.Lens' DescribePullRequestEventsResponse Core.Int
 describePullRequestEventsResponse_httpStatus = Lens.lens (\DescribePullRequestEventsResponse' {httpStatus} -> httpStatus) (\s@DescribePullRequestEventsResponse' {} a -> s {httpStatus = a} :: DescribePullRequestEventsResponse)
 
 -- | Information about the pull request events.
 describePullRequestEventsResponse_pullRequestEvents :: Lens.Lens' DescribePullRequestEventsResponse [PullRequestEvent]
-describePullRequestEventsResponse_pullRequestEvents = Lens.lens (\DescribePullRequestEventsResponse' {pullRequestEvents} -> pullRequestEvents) (\s@DescribePullRequestEventsResponse' {} a -> s {pullRequestEvents = a} :: DescribePullRequestEventsResponse) Prelude.. Prelude._Coerce
+describePullRequestEventsResponse_pullRequestEvents = Lens.lens (\DescribePullRequestEventsResponse' {pullRequestEvents} -> pullRequestEvents) (\s@DescribePullRequestEventsResponse' {} a -> s {pullRequestEvents = a} :: DescribePullRequestEventsResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribePullRequestEventsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.DeviceFarm.ListNetworkProfiles
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +55,15 @@ data ListNetworkProfiles = ListNetworkProfiles'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The type of network profile to return information about. Valid values
     -- are listed here.
-    type' :: Prelude.Maybe NetworkProfileType,
+    type' :: Core.Maybe NetworkProfileType,
     -- | The Amazon Resource Name (ARN) of the project for which you want to list
     -- network profiles.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListNetworkProfiles' with all optional fields omitted.
@@ -86,116 +84,112 @@ data ListNetworkProfiles = ListNetworkProfiles'
 -- network profiles.
 newListNetworkProfiles ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   ListNetworkProfiles
 newListNetworkProfiles pArn_ =
   ListNetworkProfiles'
-    { nextToken = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      type' = Core.Nothing,
       arn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listNetworkProfiles_nextToken :: Lens.Lens' ListNetworkProfiles (Prelude.Maybe Prelude.Text)
+listNetworkProfiles_nextToken :: Lens.Lens' ListNetworkProfiles (Core.Maybe Core.Text)
 listNetworkProfiles_nextToken = Lens.lens (\ListNetworkProfiles' {nextToken} -> nextToken) (\s@ListNetworkProfiles' {} a -> s {nextToken = a} :: ListNetworkProfiles)
 
 -- | The type of network profile to return information about. Valid values
 -- are listed here.
-listNetworkProfiles_type :: Lens.Lens' ListNetworkProfiles (Prelude.Maybe NetworkProfileType)
+listNetworkProfiles_type :: Lens.Lens' ListNetworkProfiles (Core.Maybe NetworkProfileType)
 listNetworkProfiles_type = Lens.lens (\ListNetworkProfiles' {type'} -> type') (\s@ListNetworkProfiles' {} a -> s {type' = a} :: ListNetworkProfiles)
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to list
 -- network profiles.
-listNetworkProfiles_arn :: Lens.Lens' ListNetworkProfiles Prelude.Text
+listNetworkProfiles_arn :: Lens.Lens' ListNetworkProfiles Core.Text
 listNetworkProfiles_arn = Lens.lens (\ListNetworkProfiles' {arn} -> arn) (\s@ListNetworkProfiles' {} a -> s {arn = a} :: ListNetworkProfiles)
 
-instance Pager.AWSPager ListNetworkProfiles where
+instance Core.AWSPager ListNetworkProfiles where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listNetworkProfilesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listNetworkProfilesResponse_networkProfiles
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listNetworkProfiles_nextToken
           Lens..~ rs
           Lens.^? listNetworkProfilesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListNetworkProfiles where
+instance Core.AWSRequest ListNetworkProfiles where
   type
-    Rs ListNetworkProfiles =
+    AWSResponse ListNetworkProfiles =
       ListNetworkProfilesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListNetworkProfilesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "networkProfiles"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "networkProfiles" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListNetworkProfiles
+instance Core.Hashable ListNetworkProfiles
 
-instance Prelude.NFData ListNetworkProfiles
+instance Core.NFData ListNetworkProfiles
 
-instance Prelude.ToHeaders ListNetworkProfiles where
+instance Core.ToHeaders ListNetworkProfiles where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.ListNetworkProfiles" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.ListNetworkProfiles" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListNetworkProfiles where
+instance Core.ToJSON ListNetworkProfiles where
   toJSON ListNetworkProfiles' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("type" Prelude..=) Prelude.<$> type',
-            Prelude.Just ("arn" Prelude..= arn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("type" Core..=) Core.<$> type',
+            Core.Just ("arn" Core..= arn)
           ]
       )
 
-instance Prelude.ToPath ListNetworkProfiles where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListNetworkProfiles where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListNetworkProfiles where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListNetworkProfiles where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListNetworkProfilesResponse' smart constructor.
 data ListNetworkProfilesResponse = ListNetworkProfilesResponse'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of the available network profiles.
-    networkProfiles :: Prelude.Maybe [NetworkProfile],
+    networkProfiles :: Core.Maybe [NetworkProfile],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListNetworkProfilesResponse' with all optional fields omitted.
@@ -214,28 +208,28 @@ data ListNetworkProfilesResponse = ListNetworkProfilesResponse'
 -- 'httpStatus', 'listNetworkProfilesResponse_httpStatus' - The response's http status code.
 newListNetworkProfilesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListNetworkProfilesResponse
 newListNetworkProfilesResponse pHttpStatus_ =
   ListNetworkProfilesResponse'
     { nextToken =
-        Prelude.Nothing,
-      networkProfiles = Prelude.Nothing,
+        Core.Nothing,
+      networkProfiles = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listNetworkProfilesResponse_nextToken :: Lens.Lens' ListNetworkProfilesResponse (Prelude.Maybe Prelude.Text)
+listNetworkProfilesResponse_nextToken :: Lens.Lens' ListNetworkProfilesResponse (Core.Maybe Core.Text)
 listNetworkProfilesResponse_nextToken = Lens.lens (\ListNetworkProfilesResponse' {nextToken} -> nextToken) (\s@ListNetworkProfilesResponse' {} a -> s {nextToken = a} :: ListNetworkProfilesResponse)
 
 -- | A list of the available network profiles.
-listNetworkProfilesResponse_networkProfiles :: Lens.Lens' ListNetworkProfilesResponse (Prelude.Maybe [NetworkProfile])
-listNetworkProfilesResponse_networkProfiles = Lens.lens (\ListNetworkProfilesResponse' {networkProfiles} -> networkProfiles) (\s@ListNetworkProfilesResponse' {} a -> s {networkProfiles = a} :: ListNetworkProfilesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listNetworkProfilesResponse_networkProfiles :: Lens.Lens' ListNetworkProfilesResponse (Core.Maybe [NetworkProfile])
+listNetworkProfilesResponse_networkProfiles = Lens.lens (\ListNetworkProfilesResponse' {networkProfiles} -> networkProfiles) (\s@ListNetworkProfilesResponse' {} a -> s {networkProfiles = a} :: ListNetworkProfilesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listNetworkProfilesResponse_httpStatus :: Lens.Lens' ListNetworkProfilesResponse Prelude.Int
+listNetworkProfilesResponse_httpStatus :: Lens.Lens' ListNetworkProfilesResponse Core.Int
 listNetworkProfilesResponse_httpStatus = Lens.lens (\ListNetworkProfilesResponse' {httpStatus} -> httpStatus) (\s@ListNetworkProfilesResponse' {} a -> s {httpStatus = a} :: ListNetworkProfilesResponse)
 
-instance Prelude.NFData ListNetworkProfilesResponse
+instance Core.NFData ListNetworkProfilesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.WAFRegional.GetByteMatchSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -60,9 +59,9 @@ data GetByteMatchSet = GetByteMatchSet'
   { -- | The @ByteMatchSetId@ of the ByteMatchSet that you want to get.
     -- @ByteMatchSetId@ is returned by CreateByteMatchSet and by
     -- ListByteMatchSets.
-    byteMatchSetId :: Prelude.Text
+    byteMatchSetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetByteMatchSet' with all optional fields omitted.
@@ -77,7 +76,7 @@ data GetByteMatchSet = GetByteMatchSet'
 -- ListByteMatchSets.
 newGetByteMatchSet ::
   -- | 'byteMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   GetByteMatchSet
 newGetByteMatchSet pByteMatchSetId_ =
   GetByteMatchSet' {byteMatchSetId = pByteMatchSetId_}
@@ -85,53 +84,53 @@ newGetByteMatchSet pByteMatchSetId_ =
 -- | The @ByteMatchSetId@ of the ByteMatchSet that you want to get.
 -- @ByteMatchSetId@ is returned by CreateByteMatchSet and by
 -- ListByteMatchSets.
-getByteMatchSet_byteMatchSetId :: Lens.Lens' GetByteMatchSet Prelude.Text
+getByteMatchSet_byteMatchSetId :: Lens.Lens' GetByteMatchSet Core.Text
 getByteMatchSet_byteMatchSetId = Lens.lens (\GetByteMatchSet' {byteMatchSetId} -> byteMatchSetId) (\s@GetByteMatchSet' {} a -> s {byteMatchSetId = a} :: GetByteMatchSet)
 
-instance Prelude.AWSRequest GetByteMatchSet where
-  type Rs GetByteMatchSet = GetByteMatchSetResponse
+instance Core.AWSRequest GetByteMatchSet where
+  type
+    AWSResponse GetByteMatchSet =
+      GetByteMatchSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetByteMatchSetResponse'
-            Prelude.<$> (x Prelude..?> "ByteMatchSet")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ByteMatchSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetByteMatchSet
+instance Core.Hashable GetByteMatchSet
 
-instance Prelude.NFData GetByteMatchSet
+instance Core.NFData GetByteMatchSet
 
-instance Prelude.ToHeaders GetByteMatchSet where
+instance Core.ToHeaders GetByteMatchSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.GetByteMatchSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.GetByteMatchSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetByteMatchSet where
+instance Core.ToJSON GetByteMatchSet where
   toJSON GetByteMatchSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ByteMatchSetId" Prelude..= byteMatchSetId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ByteMatchSetId" Core..= byteMatchSetId)
           ]
       )
 
-instance Prelude.ToPath GetByteMatchSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetByteMatchSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetByteMatchSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetByteMatchSet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetByteMatchSetResponse' smart constructor.
 data GetByteMatchSetResponse = GetByteMatchSetResponse'
@@ -147,11 +146,11 @@ data GetByteMatchSetResponse = GetByteMatchSetResponse'
     --     @PositionalConstraint@, @TargetString@, and @TextTransformation@
     --
     -- -   FieldToMatch: Contains @Data@ and @Type@
-    byteMatchSet :: Prelude.Maybe ByteMatchSet,
+    byteMatchSet :: Core.Maybe ByteMatchSet,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetByteMatchSetResponse' with all optional fields omitted.
@@ -177,12 +176,12 @@ data GetByteMatchSetResponse = GetByteMatchSetResponse'
 -- 'httpStatus', 'getByteMatchSetResponse_httpStatus' - The response's http status code.
 newGetByteMatchSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetByteMatchSetResponse
 newGetByteMatchSetResponse pHttpStatus_ =
   GetByteMatchSetResponse'
     { byteMatchSet =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -198,11 +197,11 @@ newGetByteMatchSetResponse pHttpStatus_ =
 --     @PositionalConstraint@, @TargetString@, and @TextTransformation@
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
-getByteMatchSetResponse_byteMatchSet :: Lens.Lens' GetByteMatchSetResponse (Prelude.Maybe ByteMatchSet)
+getByteMatchSetResponse_byteMatchSet :: Lens.Lens' GetByteMatchSetResponse (Core.Maybe ByteMatchSet)
 getByteMatchSetResponse_byteMatchSet = Lens.lens (\GetByteMatchSetResponse' {byteMatchSet} -> byteMatchSet) (\s@GetByteMatchSetResponse' {} a -> s {byteMatchSet = a} :: GetByteMatchSetResponse)
 
 -- | The response's http status code.
-getByteMatchSetResponse_httpStatus :: Lens.Lens' GetByteMatchSetResponse Prelude.Int
+getByteMatchSetResponse_httpStatus :: Lens.Lens' GetByteMatchSetResponse Core.Int
 getByteMatchSetResponse_httpStatus = Lens.lens (\GetByteMatchSetResponse' {httpStatus} -> httpStatus) (\s@GetByteMatchSetResponse' {} a -> s {httpStatus = a} :: GetByteMatchSetResponse)
 
-instance Prelude.NFData GetByteMatchSetResponse
+instance Core.NFData GetByteMatchSetResponse

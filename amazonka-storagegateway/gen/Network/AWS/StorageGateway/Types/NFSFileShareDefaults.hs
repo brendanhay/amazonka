@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StorageGateway.Types.NFSFileShareDefaults where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes Network File System (NFS) file share default values. Files and
 -- folders stored as Amazon S3 objects in S3 buckets don\'t, by default,
@@ -34,20 +33,20 @@ import qualified Network.AWS.Prelude as Prelude
 data NFSFileShareDefaults = NFSFileShareDefaults'
   { -- | The default owner ID for files in the file share (unless the files have
     -- another owner ID specified). The default value is @nfsnobody@.
-    ownerId :: Prelude.Maybe Prelude.Natural,
+    ownerId :: Core.Maybe Core.Natural,
     -- | The default group ID for the file share (unless the files have another
     -- group ID specified). The default value is @nfsnobody@.
-    groupId :: Prelude.Maybe Prelude.Natural,
+    groupId :: Core.Maybe Core.Natural,
     -- | The Unix directory mode in the form \"nnnn\". For example, @0666@
     -- represents the default access mode for all directories inside the file
     -- share. The default value is @0777@.
-    directoryMode :: Prelude.Maybe Prelude.Text,
+    directoryMode :: Core.Maybe Core.Text,
     -- | The Unix file mode in the form \"nnnn\". For example, @0666@ represents
     -- the default file mode inside the file share. The default value is
     -- @0666@.
-    fileMode :: Prelude.Maybe Prelude.Text
+    fileMode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NFSFileShareDefaults' with all optional fields omitted.
@@ -74,58 +73,57 @@ newNFSFileShareDefaults ::
   NFSFileShareDefaults
 newNFSFileShareDefaults =
   NFSFileShareDefaults'
-    { ownerId = Prelude.Nothing,
-      groupId = Prelude.Nothing,
-      directoryMode = Prelude.Nothing,
-      fileMode = Prelude.Nothing
+    { ownerId = Core.Nothing,
+      groupId = Core.Nothing,
+      directoryMode = Core.Nothing,
+      fileMode = Core.Nothing
     }
 
 -- | The default owner ID for files in the file share (unless the files have
 -- another owner ID specified). The default value is @nfsnobody@.
-nFSFileShareDefaults_ownerId :: Lens.Lens' NFSFileShareDefaults (Prelude.Maybe Prelude.Natural)
+nFSFileShareDefaults_ownerId :: Lens.Lens' NFSFileShareDefaults (Core.Maybe Core.Natural)
 nFSFileShareDefaults_ownerId = Lens.lens (\NFSFileShareDefaults' {ownerId} -> ownerId) (\s@NFSFileShareDefaults' {} a -> s {ownerId = a} :: NFSFileShareDefaults)
 
 -- | The default group ID for the file share (unless the files have another
 -- group ID specified). The default value is @nfsnobody@.
-nFSFileShareDefaults_groupId :: Lens.Lens' NFSFileShareDefaults (Prelude.Maybe Prelude.Natural)
+nFSFileShareDefaults_groupId :: Lens.Lens' NFSFileShareDefaults (Core.Maybe Core.Natural)
 nFSFileShareDefaults_groupId = Lens.lens (\NFSFileShareDefaults' {groupId} -> groupId) (\s@NFSFileShareDefaults' {} a -> s {groupId = a} :: NFSFileShareDefaults)
 
 -- | The Unix directory mode in the form \"nnnn\". For example, @0666@
 -- represents the default access mode for all directories inside the file
 -- share. The default value is @0777@.
-nFSFileShareDefaults_directoryMode :: Lens.Lens' NFSFileShareDefaults (Prelude.Maybe Prelude.Text)
+nFSFileShareDefaults_directoryMode :: Lens.Lens' NFSFileShareDefaults (Core.Maybe Core.Text)
 nFSFileShareDefaults_directoryMode = Lens.lens (\NFSFileShareDefaults' {directoryMode} -> directoryMode) (\s@NFSFileShareDefaults' {} a -> s {directoryMode = a} :: NFSFileShareDefaults)
 
 -- | The Unix file mode in the form \"nnnn\". For example, @0666@ represents
 -- the default file mode inside the file share. The default value is
 -- @0666@.
-nFSFileShareDefaults_fileMode :: Lens.Lens' NFSFileShareDefaults (Prelude.Maybe Prelude.Text)
+nFSFileShareDefaults_fileMode :: Lens.Lens' NFSFileShareDefaults (Core.Maybe Core.Text)
 nFSFileShareDefaults_fileMode = Lens.lens (\NFSFileShareDefaults' {fileMode} -> fileMode) (\s@NFSFileShareDefaults' {} a -> s {fileMode = a} :: NFSFileShareDefaults)
 
-instance Prelude.FromJSON NFSFileShareDefaults where
+instance Core.FromJSON NFSFileShareDefaults where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NFSFileShareDefaults"
       ( \x ->
           NFSFileShareDefaults'
-            Prelude.<$> (x Prelude..:? "OwnerId")
-            Prelude.<*> (x Prelude..:? "GroupId")
-            Prelude.<*> (x Prelude..:? "DirectoryMode")
-            Prelude.<*> (x Prelude..:? "FileMode")
+            Core.<$> (x Core..:? "OwnerId")
+            Core.<*> (x Core..:? "GroupId")
+            Core.<*> (x Core..:? "DirectoryMode")
+            Core.<*> (x Core..:? "FileMode")
       )
 
-instance Prelude.Hashable NFSFileShareDefaults
+instance Core.Hashable NFSFileShareDefaults
 
-instance Prelude.NFData NFSFileShareDefaults
+instance Core.NFData NFSFileShareDefaults
 
-instance Prelude.ToJSON NFSFileShareDefaults where
+instance Core.ToJSON NFSFileShareDefaults where
   toJSON NFSFileShareDefaults' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("OwnerId" Prelude..=) Prelude.<$> ownerId,
-            ("GroupId" Prelude..=) Prelude.<$> groupId,
-            ("DirectoryMode" Prelude..=)
-              Prelude.<$> directoryMode,
-            ("FileMode" Prelude..=) Prelude.<$> fileMode
+    Core.object
+      ( Core.catMaybes
+          [ ("OwnerId" Core..=) Core.<$> ownerId,
+            ("GroupId" Core..=) Core.<$> groupId,
+            ("DirectoryMode" Core..=) Core.<$> directoryMode,
+            ("FileMode" Core..=) Core.<$> fileMode
           ]
       )

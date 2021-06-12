@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,8 +60,8 @@ module Network.AWS.Route53.UpdateTrafficPolicyInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -73,19 +72,19 @@ import Network.AWS.Route53.Types
 -- /See:/ 'newUpdateTrafficPolicyInstance' smart constructor.
 data UpdateTrafficPolicyInstance = UpdateTrafficPolicyInstance'
   { -- | The ID of the traffic policy instance that you want to update.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The TTL that you want Amazon Route 53 to assign to all of the updated
     -- resource record sets.
-    ttl :: Prelude.Natural,
+    ttl :: Core.Natural,
     -- | The ID of the traffic policy that you want Amazon Route 53 to use to
     -- update resource record sets for the specified traffic policy instance.
-    trafficPolicyId :: Prelude.Text,
+    trafficPolicyId :: Core.Text,
     -- | The version of the traffic policy that you want Amazon Route 53 to use
     -- to update resource record sets for the specified traffic policy
     -- instance.
-    trafficPolicyVersion :: Prelude.Natural
+    trafficPolicyVersion :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTrafficPolicyInstance' with all optional fields omitted.
@@ -108,13 +107,13 @@ data UpdateTrafficPolicyInstance = UpdateTrafficPolicyInstance'
 -- instance.
 newUpdateTrafficPolicyInstance ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ttl'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'trafficPolicyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'trafficPolicyVersion'
-  Prelude.Natural ->
+  Core.Natural ->
   UpdateTrafficPolicyInstance
 newUpdateTrafficPolicyInstance
   pId_
@@ -129,76 +128,64 @@ newUpdateTrafficPolicyInstance
       }
 
 -- | The ID of the traffic policy instance that you want to update.
-updateTrafficPolicyInstance_id :: Lens.Lens' UpdateTrafficPolicyInstance Prelude.Text
+updateTrafficPolicyInstance_id :: Lens.Lens' UpdateTrafficPolicyInstance Core.Text
 updateTrafficPolicyInstance_id = Lens.lens (\UpdateTrafficPolicyInstance' {id} -> id) (\s@UpdateTrafficPolicyInstance' {} a -> s {id = a} :: UpdateTrafficPolicyInstance)
 
 -- | The TTL that you want Amazon Route 53 to assign to all of the updated
 -- resource record sets.
-updateTrafficPolicyInstance_ttl :: Lens.Lens' UpdateTrafficPolicyInstance Prelude.Natural
+updateTrafficPolicyInstance_ttl :: Lens.Lens' UpdateTrafficPolicyInstance Core.Natural
 updateTrafficPolicyInstance_ttl = Lens.lens (\UpdateTrafficPolicyInstance' {ttl} -> ttl) (\s@UpdateTrafficPolicyInstance' {} a -> s {ttl = a} :: UpdateTrafficPolicyInstance)
 
 -- | The ID of the traffic policy that you want Amazon Route 53 to use to
 -- update resource record sets for the specified traffic policy instance.
-updateTrafficPolicyInstance_trafficPolicyId :: Lens.Lens' UpdateTrafficPolicyInstance Prelude.Text
+updateTrafficPolicyInstance_trafficPolicyId :: Lens.Lens' UpdateTrafficPolicyInstance Core.Text
 updateTrafficPolicyInstance_trafficPolicyId = Lens.lens (\UpdateTrafficPolicyInstance' {trafficPolicyId} -> trafficPolicyId) (\s@UpdateTrafficPolicyInstance' {} a -> s {trafficPolicyId = a} :: UpdateTrafficPolicyInstance)
 
 -- | The version of the traffic policy that you want Amazon Route 53 to use
 -- to update resource record sets for the specified traffic policy
 -- instance.
-updateTrafficPolicyInstance_trafficPolicyVersion :: Lens.Lens' UpdateTrafficPolicyInstance Prelude.Natural
+updateTrafficPolicyInstance_trafficPolicyVersion :: Lens.Lens' UpdateTrafficPolicyInstance Core.Natural
 updateTrafficPolicyInstance_trafficPolicyVersion = Lens.lens (\UpdateTrafficPolicyInstance' {trafficPolicyVersion} -> trafficPolicyVersion) (\s@UpdateTrafficPolicyInstance' {} a -> s {trafficPolicyVersion = a} :: UpdateTrafficPolicyInstance)
 
-instance
-  Prelude.AWSRequest
-    UpdateTrafficPolicyInstance
-  where
+instance Core.AWSRequest UpdateTrafficPolicyInstance where
   type
-    Rs UpdateTrafficPolicyInstance =
+    AWSResponse UpdateTrafficPolicyInstance =
       UpdateTrafficPolicyInstanceResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           UpdateTrafficPolicyInstanceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "TrafficPolicyInstance")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "TrafficPolicyInstance")
       )
 
-instance Prelude.Hashable UpdateTrafficPolicyInstance
+instance Core.Hashable UpdateTrafficPolicyInstance
 
-instance Prelude.NFData UpdateTrafficPolicyInstance
+instance Core.NFData UpdateTrafficPolicyInstance
 
-instance
-  Prelude.ToElement
-    UpdateTrafficPolicyInstance
-  where
+instance Core.ToElement UpdateTrafficPolicyInstance where
   toElement =
-    Prelude.mkElement
+    Core.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}UpdateTrafficPolicyInstanceRequest"
 
-instance
-  Prelude.ToHeaders
-    UpdateTrafficPolicyInstance
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateTrafficPolicyInstance where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateTrafficPolicyInstance where
+instance Core.ToPath UpdateTrafficPolicyInstance where
   toPath UpdateTrafficPolicyInstance' {..} =
-    Prelude.mconcat
-      [ "/2013-04-01/trafficpolicyinstance/",
-        Prelude.toBS id
-      ]
+    Core.mconcat
+      ["/2013-04-01/trafficpolicyinstance/", Core.toBS id]
 
-instance Prelude.ToQuery UpdateTrafficPolicyInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateTrafficPolicyInstance where
+  toQuery = Core.const Core.mempty
 
-instance Prelude.ToXML UpdateTrafficPolicyInstance where
+instance Core.ToXML UpdateTrafficPolicyInstance where
   toXML UpdateTrafficPolicyInstance' {..} =
-    Prelude.mconcat
-      [ "TTL" Prelude.@= ttl,
-        "TrafficPolicyId" Prelude.@= trafficPolicyId,
-        "TrafficPolicyVersion"
-          Prelude.@= trafficPolicyVersion
+    Core.mconcat
+      [ "TTL" Core.@= ttl,
+        "TrafficPolicyId" Core.@= trafficPolicyId,
+        "TrafficPolicyVersion" Core.@= trafficPolicyVersion
       ]
 
 -- | A complex type that contains information about the resource record sets
@@ -207,12 +194,12 @@ instance Prelude.ToXML UpdateTrafficPolicyInstance where
 -- /See:/ 'newUpdateTrafficPolicyInstanceResponse' smart constructor.
 data UpdateTrafficPolicyInstanceResponse = UpdateTrafficPolicyInstanceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains settings for the updated traffic policy
     -- instance.
     trafficPolicyInstance :: TrafficPolicyInstance
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTrafficPolicyInstanceResponse' with all optional fields omitted.
@@ -228,7 +215,7 @@ data UpdateTrafficPolicyInstanceResponse = UpdateTrafficPolicyInstanceResponse'
 -- instance.
 newUpdateTrafficPolicyInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'trafficPolicyInstance'
   TrafficPolicyInstance ->
   UpdateTrafficPolicyInstanceResponse
@@ -243,7 +230,7 @@ newUpdateTrafficPolicyInstanceResponse
       }
 
 -- | The response's http status code.
-updateTrafficPolicyInstanceResponse_httpStatus :: Lens.Lens' UpdateTrafficPolicyInstanceResponse Prelude.Int
+updateTrafficPolicyInstanceResponse_httpStatus :: Lens.Lens' UpdateTrafficPolicyInstanceResponse Core.Int
 updateTrafficPolicyInstanceResponse_httpStatus = Lens.lens (\UpdateTrafficPolicyInstanceResponse' {httpStatus} -> httpStatus) (\s@UpdateTrafficPolicyInstanceResponse' {} a -> s {httpStatus = a} :: UpdateTrafficPolicyInstanceResponse)
 
 -- | A complex type that contains settings for the updated traffic policy
@@ -252,5 +239,5 @@ updateTrafficPolicyInstanceResponse_trafficPolicyInstance :: Lens.Lens' UpdateTr
 updateTrafficPolicyInstanceResponse_trafficPolicyInstance = Lens.lens (\UpdateTrafficPolicyInstanceResponse' {trafficPolicyInstance} -> trafficPolicyInstance) (\s@UpdateTrafficPolicyInstanceResponse' {} a -> s {trafficPolicyInstance = a} :: UpdateTrafficPolicyInstanceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateTrafficPolicyInstanceResponse

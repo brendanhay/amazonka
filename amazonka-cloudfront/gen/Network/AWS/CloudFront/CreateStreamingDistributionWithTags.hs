@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.CloudFront.CreateStreamingDistributionWithTags
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,7 +58,7 @@ data CreateStreamingDistributionWithTags = CreateStreamingDistributionWithTags'
   { -- | The streaming distribution\'s configuration information.
     streamingDistributionConfigWithTags :: StreamingDistributionConfigWithTags
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStreamingDistributionWithTags' with all optional fields omitted.
@@ -86,75 +85,74 @@ createStreamingDistributionWithTags_streamingDistributionConfigWithTags :: Lens.
 createStreamingDistributionWithTags_streamingDistributionConfigWithTags = Lens.lens (\CreateStreamingDistributionWithTags' {streamingDistributionConfigWithTags} -> streamingDistributionConfigWithTags) (\s@CreateStreamingDistributionWithTags' {} a -> s {streamingDistributionConfigWithTags = a} :: CreateStreamingDistributionWithTags)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateStreamingDistributionWithTags
   where
   type
-    Rs CreateStreamingDistributionWithTags =
+    AWSResponse CreateStreamingDistributionWithTags =
       CreateStreamingDistributionWithTagsResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateStreamingDistributionWithTagsResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-              Prelude.<*> (Prelude.parseXML x)
-              Prelude.<*> (h Prelude..#? "Location")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag")
+            Core.<*> (Core.parseXML x)
+            Core.<*> (h Core..#? "Location")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateStreamingDistributionWithTags
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateStreamingDistributionWithTags
 
 instance
-  Prelude.ToElement
+  Core.ToElement
     CreateStreamingDistributionWithTags
   where
   toElement CreateStreamingDistributionWithTags' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}StreamingDistributionConfigWithTags"
       streamingDistributionConfigWithTags
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     CreateStreamingDistributionWithTags
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     CreateStreamingDistributionWithTags
   where
   toPath =
-    Prelude.const "/2020-05-31/streaming-distribution"
+    Core.const "/2020-05-31/streaming-distribution"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CreateStreamingDistributionWithTags
   where
-  toQuery =
-    Prelude.const (Prelude.mconcat ["WithTags"])
+  toQuery = Core.const (Core.mconcat ["WithTags"])
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newCreateStreamingDistributionWithTagsResponse' smart constructor.
 data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWithTagsResponse'
   { -- | The current version of the distribution created.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The streaming distribution\'s information.
-    streamingDistribution :: Prelude.Maybe StreamingDistribution,
+    streamingDistribution :: Core.Maybe StreamingDistribution,
     -- | The fully qualified URI of the new streaming distribution resource just
     -- created.
-    location :: Prelude.Maybe Prelude.Text,
+    location :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStreamingDistributionWithTagsResponse' with all optional fields omitted.
@@ -174,36 +172,36 @@ data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWi
 -- 'httpStatus', 'createStreamingDistributionWithTagsResponse_httpStatus' - The response's http status code.
 newCreateStreamingDistributionWithTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateStreamingDistributionWithTagsResponse
 newCreateStreamingDistributionWithTagsResponse
   pHttpStatus_ =
     CreateStreamingDistributionWithTagsResponse'
       { eTag =
-          Prelude.Nothing,
+          Core.Nothing,
         streamingDistribution =
-          Prelude.Nothing,
-        location = Prelude.Nothing,
+          Core.Nothing,
+        location = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The current version of the distribution created.
-createStreamingDistributionWithTagsResponse_eTag :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Prelude.Maybe Prelude.Text)
+createStreamingDistributionWithTagsResponse_eTag :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Core.Maybe Core.Text)
 createStreamingDistributionWithTagsResponse_eTag = Lens.lens (\CreateStreamingDistributionWithTagsResponse' {eTag} -> eTag) (\s@CreateStreamingDistributionWithTagsResponse' {} a -> s {eTag = a} :: CreateStreamingDistributionWithTagsResponse)
 
 -- | The streaming distribution\'s information.
-createStreamingDistributionWithTagsResponse_streamingDistribution :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Prelude.Maybe StreamingDistribution)
+createStreamingDistributionWithTagsResponse_streamingDistribution :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Core.Maybe StreamingDistribution)
 createStreamingDistributionWithTagsResponse_streamingDistribution = Lens.lens (\CreateStreamingDistributionWithTagsResponse' {streamingDistribution} -> streamingDistribution) (\s@CreateStreamingDistributionWithTagsResponse' {} a -> s {streamingDistribution = a} :: CreateStreamingDistributionWithTagsResponse)
 
 -- | The fully qualified URI of the new streaming distribution resource just
 -- created.
-createStreamingDistributionWithTagsResponse_location :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Prelude.Maybe Prelude.Text)
+createStreamingDistributionWithTagsResponse_location :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Core.Maybe Core.Text)
 createStreamingDistributionWithTagsResponse_location = Lens.lens (\CreateStreamingDistributionWithTagsResponse' {location} -> location) (\s@CreateStreamingDistributionWithTagsResponse' {} a -> s {location = a} :: CreateStreamingDistributionWithTagsResponse)
 
 -- | The response's http status code.
-createStreamingDistributionWithTagsResponse_httpStatus :: Lens.Lens' CreateStreamingDistributionWithTagsResponse Prelude.Int
+createStreamingDistributionWithTagsResponse_httpStatus :: Lens.Lens' CreateStreamingDistributionWithTagsResponse Core.Int
 createStreamingDistributionWithTagsResponse_httpStatus = Lens.lens (\CreateStreamingDistributionWithTagsResponse' {httpStatus} -> httpStatus) (\s@CreateStreamingDistributionWithTagsResponse' {} a -> s {httpStatus = a} :: CreateStreamingDistributionWithTagsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateStreamingDistributionWithTagsResponse

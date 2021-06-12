@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StorageGateway.Types.VTLDevice where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes
 
 -- | Represents a device object associated with a tape gateway.
@@ -29,18 +28,18 @@ import Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes
 -- /See:/ 'newVTLDevice' smart constructor.
 data VTLDevice = VTLDevice'
   { -- | Specifies the model number of device that the VTL device emulates.
-    vTLDeviceProductIdentifier :: Prelude.Maybe Prelude.Text,
+    vTLDeviceProductIdentifier :: Core.Maybe Core.Text,
     -- | Specifies the vendor of the device that the VTL device object emulates.
-    vTLDeviceVendor :: Prelude.Maybe Prelude.Text,
+    vTLDeviceVendor :: Core.Maybe Core.Text,
     -- | A list of iSCSI information about a VTL device.
-    deviceiSCSIAttributes :: Prelude.Maybe DeviceiSCSIAttributes,
+    deviceiSCSIAttributes :: Core.Maybe DeviceiSCSIAttributes,
     -- | Specifies the type of device that the VTL device emulates.
-    vTLDeviceType :: Prelude.Maybe Prelude.Text,
+    vTLDeviceType :: Core.Maybe Core.Text,
     -- | Specifies the unique Amazon Resource Name (ARN) of the device (tape
     -- drive or media changer).
-    vTLDeviceARN :: Prelude.Maybe Prelude.Text
+    vTLDeviceARN :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VTLDevice' with all optional fields omitted.
@@ -65,47 +64,47 @@ newVTLDevice ::
 newVTLDevice =
   VTLDevice'
     { vTLDeviceProductIdentifier =
-        Prelude.Nothing,
-      vTLDeviceVendor = Prelude.Nothing,
-      deviceiSCSIAttributes = Prelude.Nothing,
-      vTLDeviceType = Prelude.Nothing,
-      vTLDeviceARN = Prelude.Nothing
+        Core.Nothing,
+      vTLDeviceVendor = Core.Nothing,
+      deviceiSCSIAttributes = Core.Nothing,
+      vTLDeviceType = Core.Nothing,
+      vTLDeviceARN = Core.Nothing
     }
 
 -- | Specifies the model number of device that the VTL device emulates.
-vTLDevice_vTLDeviceProductIdentifier :: Lens.Lens' VTLDevice (Prelude.Maybe Prelude.Text)
+vTLDevice_vTLDeviceProductIdentifier :: Lens.Lens' VTLDevice (Core.Maybe Core.Text)
 vTLDevice_vTLDeviceProductIdentifier = Lens.lens (\VTLDevice' {vTLDeviceProductIdentifier} -> vTLDeviceProductIdentifier) (\s@VTLDevice' {} a -> s {vTLDeviceProductIdentifier = a} :: VTLDevice)
 
 -- | Specifies the vendor of the device that the VTL device object emulates.
-vTLDevice_vTLDeviceVendor :: Lens.Lens' VTLDevice (Prelude.Maybe Prelude.Text)
+vTLDevice_vTLDeviceVendor :: Lens.Lens' VTLDevice (Core.Maybe Core.Text)
 vTLDevice_vTLDeviceVendor = Lens.lens (\VTLDevice' {vTLDeviceVendor} -> vTLDeviceVendor) (\s@VTLDevice' {} a -> s {vTLDeviceVendor = a} :: VTLDevice)
 
 -- | A list of iSCSI information about a VTL device.
-vTLDevice_deviceiSCSIAttributes :: Lens.Lens' VTLDevice (Prelude.Maybe DeviceiSCSIAttributes)
+vTLDevice_deviceiSCSIAttributes :: Lens.Lens' VTLDevice (Core.Maybe DeviceiSCSIAttributes)
 vTLDevice_deviceiSCSIAttributes = Lens.lens (\VTLDevice' {deviceiSCSIAttributes} -> deviceiSCSIAttributes) (\s@VTLDevice' {} a -> s {deviceiSCSIAttributes = a} :: VTLDevice)
 
 -- | Specifies the type of device that the VTL device emulates.
-vTLDevice_vTLDeviceType :: Lens.Lens' VTLDevice (Prelude.Maybe Prelude.Text)
+vTLDevice_vTLDeviceType :: Lens.Lens' VTLDevice (Core.Maybe Core.Text)
 vTLDevice_vTLDeviceType = Lens.lens (\VTLDevice' {vTLDeviceType} -> vTLDeviceType) (\s@VTLDevice' {} a -> s {vTLDeviceType = a} :: VTLDevice)
 
 -- | Specifies the unique Amazon Resource Name (ARN) of the device (tape
 -- drive or media changer).
-vTLDevice_vTLDeviceARN :: Lens.Lens' VTLDevice (Prelude.Maybe Prelude.Text)
+vTLDevice_vTLDeviceARN :: Lens.Lens' VTLDevice (Core.Maybe Core.Text)
 vTLDevice_vTLDeviceARN = Lens.lens (\VTLDevice' {vTLDeviceARN} -> vTLDeviceARN) (\s@VTLDevice' {} a -> s {vTLDeviceARN = a} :: VTLDevice)
 
-instance Prelude.FromJSON VTLDevice where
+instance Core.FromJSON VTLDevice where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VTLDevice"
       ( \x ->
           VTLDevice'
-            Prelude.<$> (x Prelude..:? "VTLDeviceProductIdentifier")
-            Prelude.<*> (x Prelude..:? "VTLDeviceVendor")
-            Prelude.<*> (x Prelude..:? "DeviceiSCSIAttributes")
-            Prelude.<*> (x Prelude..:? "VTLDeviceType")
-            Prelude.<*> (x Prelude..:? "VTLDeviceARN")
+            Core.<$> (x Core..:? "VTLDeviceProductIdentifier")
+            Core.<*> (x Core..:? "VTLDeviceVendor")
+            Core.<*> (x Core..:? "DeviceiSCSIAttributes")
+            Core.<*> (x Core..:? "VTLDeviceType")
+            Core.<*> (x Core..:? "VTLDeviceARN")
       )
 
-instance Prelude.Hashable VTLDevice
+instance Core.Hashable VTLDevice
 
-instance Prelude.NFData VTLDevice
+instance Core.NFData VTLDevice

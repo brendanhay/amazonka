@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,20 +42,20 @@ module Network.AWS.CodeCommit.EvaluatePullRequestApprovalRules
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newEvaluatePullRequestApprovalRules' smart constructor.
 data EvaluatePullRequestApprovalRules = EvaluatePullRequestApprovalRules'
   { -- | The system-generated ID of the pull request you want to evaluate.
-    pullRequestId :: Prelude.Text,
+    pullRequestId :: Core.Text,
     -- | The system-generated ID for the pull request revision. To retrieve the
     -- most recent revision ID for a pull request, use GetPullRequest.
-    revisionId :: Prelude.Text
+    revisionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EvaluatePullRequestApprovalRules' with all optional fields omitted.
@@ -72,9 +71,9 @@ data EvaluatePullRequestApprovalRules = EvaluatePullRequestApprovalRules'
 -- most recent revision ID for a pull request, use GetPullRequest.
 newEvaluatePullRequestApprovalRules ::
   -- | 'pullRequestId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'revisionId'
-  Prelude.Text ->
+  Core.Text ->
   EvaluatePullRequestApprovalRules
 newEvaluatePullRequestApprovalRules
   pPullRequestId_
@@ -86,85 +85,74 @@ newEvaluatePullRequestApprovalRules
       }
 
 -- | The system-generated ID of the pull request you want to evaluate.
-evaluatePullRequestApprovalRules_pullRequestId :: Lens.Lens' EvaluatePullRequestApprovalRules Prelude.Text
+evaluatePullRequestApprovalRules_pullRequestId :: Lens.Lens' EvaluatePullRequestApprovalRules Core.Text
 evaluatePullRequestApprovalRules_pullRequestId = Lens.lens (\EvaluatePullRequestApprovalRules' {pullRequestId} -> pullRequestId) (\s@EvaluatePullRequestApprovalRules' {} a -> s {pullRequestId = a} :: EvaluatePullRequestApprovalRules)
 
 -- | The system-generated ID for the pull request revision. To retrieve the
 -- most recent revision ID for a pull request, use GetPullRequest.
-evaluatePullRequestApprovalRules_revisionId :: Lens.Lens' EvaluatePullRequestApprovalRules Prelude.Text
+evaluatePullRequestApprovalRules_revisionId :: Lens.Lens' EvaluatePullRequestApprovalRules Core.Text
 evaluatePullRequestApprovalRules_revisionId = Lens.lens (\EvaluatePullRequestApprovalRules' {revisionId} -> revisionId) (\s@EvaluatePullRequestApprovalRules' {} a -> s {revisionId = a} :: EvaluatePullRequestApprovalRules)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     EvaluatePullRequestApprovalRules
   where
   type
-    Rs EvaluatePullRequestApprovalRules =
+    AWSResponse EvaluatePullRequestApprovalRules =
       EvaluatePullRequestApprovalRulesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           EvaluatePullRequestApprovalRulesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "evaluation")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "evaluation")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     EvaluatePullRequestApprovalRules
 
-instance
-  Prelude.NFData
-    EvaluatePullRequestApprovalRules
+instance Core.NFData EvaluatePullRequestApprovalRules
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     EvaluatePullRequestApprovalRules
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.EvaluatePullRequestApprovalRules" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.EvaluatePullRequestApprovalRules" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    EvaluatePullRequestApprovalRules
-  where
+instance Core.ToJSON EvaluatePullRequestApprovalRules where
   toJSON EvaluatePullRequestApprovalRules' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("pullRequestId" Prelude..= pullRequestId),
-            Prelude.Just ("revisionId" Prelude..= revisionId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pullRequestId" Core..= pullRequestId),
+            Core.Just ("revisionId" Core..= revisionId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    EvaluatePullRequestApprovalRules
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath EvaluatePullRequestApprovalRules where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     EvaluatePullRequestApprovalRules
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEvaluatePullRequestApprovalRulesResponse' smart constructor.
 data EvaluatePullRequestApprovalRulesResponse = EvaluatePullRequestApprovalRulesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The result of the evaluation, including the names of the rules whose
     -- conditions have been met (if any), the names of the rules whose
     -- conditions have not been met (if any), whether the pull request is in
@@ -172,7 +160,7 @@ data EvaluatePullRequestApprovalRulesResponse = EvaluatePullRequestApprovalRules
     -- set aside by an override.
     evaluation :: Evaluation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EvaluatePullRequestApprovalRulesResponse' with all optional fields omitted.
@@ -191,7 +179,7 @@ data EvaluatePullRequestApprovalRulesResponse = EvaluatePullRequestApprovalRules
 -- set aside by an override.
 newEvaluatePullRequestApprovalRulesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'evaluation'
   Evaluation ->
   EvaluatePullRequestApprovalRulesResponse
@@ -205,7 +193,7 @@ newEvaluatePullRequestApprovalRulesResponse
       }
 
 -- | The response's http status code.
-evaluatePullRequestApprovalRulesResponse_httpStatus :: Lens.Lens' EvaluatePullRequestApprovalRulesResponse Prelude.Int
+evaluatePullRequestApprovalRulesResponse_httpStatus :: Lens.Lens' EvaluatePullRequestApprovalRulesResponse Core.Int
 evaluatePullRequestApprovalRulesResponse_httpStatus = Lens.lens (\EvaluatePullRequestApprovalRulesResponse' {httpStatus} -> httpStatus) (\s@EvaluatePullRequestApprovalRulesResponse' {} a -> s {httpStatus = a} :: EvaluatePullRequestApprovalRulesResponse)
 
 -- | The result of the evaluation, including the names of the rules whose
@@ -217,5 +205,5 @@ evaluatePullRequestApprovalRulesResponse_evaluation :: Lens.Lens' EvaluatePullRe
 evaluatePullRequestApprovalRulesResponse_evaluation = Lens.lens (\EvaluatePullRequestApprovalRulesResponse' {evaluation} -> evaluation) (\s@EvaluatePullRequestApprovalRulesResponse' {} a -> s {evaluation = a} :: EvaluatePullRequestApprovalRulesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     EvaluatePullRequestApprovalRulesResponse

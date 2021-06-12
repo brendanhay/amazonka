@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TrialComponentParameterValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The value of a hyperparameter. Only one of @NumberValue@ or
 -- @StringValue@ can be specified.
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data TrialComponentParameterValue = TrialComponentParameterValue'
   { -- | The string value of a categorical hyperparameter. If you specify a value
     -- for this parameter, you can\'t specify the @NumberValue@ parameter.
-    stringValue :: Prelude.Maybe Prelude.Text,
+    stringValue :: Core.Maybe Core.Text,
     -- | The numeric value of a numeric hyperparameter. If you specify a value
     -- for this parameter, you can\'t specify the @StringValue@ parameter.
-    numberValue :: Prelude.Maybe Prelude.Double
+    numberValue :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrialComponentParameterValue' with all optional fields omitted.
@@ -57,44 +56,39 @@ newTrialComponentParameterValue ::
 newTrialComponentParameterValue =
   TrialComponentParameterValue'
     { stringValue =
-        Prelude.Nothing,
-      numberValue = Prelude.Nothing
+        Core.Nothing,
+      numberValue = Core.Nothing
     }
 
 -- | The string value of a categorical hyperparameter. If you specify a value
 -- for this parameter, you can\'t specify the @NumberValue@ parameter.
-trialComponentParameterValue_stringValue :: Lens.Lens' TrialComponentParameterValue (Prelude.Maybe Prelude.Text)
+trialComponentParameterValue_stringValue :: Lens.Lens' TrialComponentParameterValue (Core.Maybe Core.Text)
 trialComponentParameterValue_stringValue = Lens.lens (\TrialComponentParameterValue' {stringValue} -> stringValue) (\s@TrialComponentParameterValue' {} a -> s {stringValue = a} :: TrialComponentParameterValue)
 
 -- | The numeric value of a numeric hyperparameter. If you specify a value
 -- for this parameter, you can\'t specify the @StringValue@ parameter.
-trialComponentParameterValue_numberValue :: Lens.Lens' TrialComponentParameterValue (Prelude.Maybe Prelude.Double)
+trialComponentParameterValue_numberValue :: Lens.Lens' TrialComponentParameterValue (Core.Maybe Core.Double)
 trialComponentParameterValue_numberValue = Lens.lens (\TrialComponentParameterValue' {numberValue} -> numberValue) (\s@TrialComponentParameterValue' {} a -> s {numberValue = a} :: TrialComponentParameterValue)
 
-instance
-  Prelude.FromJSON
-    TrialComponentParameterValue
-  where
+instance Core.FromJSON TrialComponentParameterValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrialComponentParameterValue"
       ( \x ->
           TrialComponentParameterValue'
-            Prelude.<$> (x Prelude..:? "StringValue")
-            Prelude.<*> (x Prelude..:? "NumberValue")
+            Core.<$> (x Core..:? "StringValue")
+            Core.<*> (x Core..:? "NumberValue")
       )
 
-instance
-  Prelude.Hashable
-    TrialComponentParameterValue
+instance Core.Hashable TrialComponentParameterValue
 
-instance Prelude.NFData TrialComponentParameterValue
+instance Core.NFData TrialComponentParameterValue
 
-instance Prelude.ToJSON TrialComponentParameterValue where
+instance Core.ToJSON TrialComponentParameterValue where
   toJSON TrialComponentParameterValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StringValue" Prelude..=) Prelude.<$> stringValue,
-            ("NumberValue" Prelude..=) Prelude.<$> numberValue
+    Core.object
+      ( Core.catMaybes
+          [ ("StringValue" Core..=) Core.<$> stringValue,
+            ("NumberValue" Core..=) Core.<$> numberValue
           ]
       )

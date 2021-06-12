@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.PlacementConstraint where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.PlacementConstraintType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a constraint on task placement. For more
 -- information, see
@@ -37,15 +36,15 @@ data PlacementConstraint = PlacementConstraint'
   { -- | The type of constraint. Use @distinctInstance@ to ensure that each task
     -- in a particular group is running on a different container instance. Use
     -- @memberOf@ to restrict the selection to a group of valid candidates.
-    type' :: Prelude.Maybe PlacementConstraintType,
+    type' :: Core.Maybe PlacementConstraintType,
     -- | A cluster query language expression to apply to the constraint. You
     -- cannot specify an expression if the constraint type is
     -- @distinctInstance@. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    expression :: Prelude.Maybe Prelude.Text
+    expression :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlacementConstraint' with all optional fields omitted.
@@ -68,14 +67,14 @@ newPlacementConstraint ::
   PlacementConstraint
 newPlacementConstraint =
   PlacementConstraint'
-    { type' = Prelude.Nothing,
-      expression = Prelude.Nothing
+    { type' = Core.Nothing,
+      expression = Core.Nothing
     }
 
 -- | The type of constraint. Use @distinctInstance@ to ensure that each task
 -- in a particular group is running on a different container instance. Use
 -- @memberOf@ to restrict the selection to a group of valid candidates.
-placementConstraint_type :: Lens.Lens' PlacementConstraint (Prelude.Maybe PlacementConstraintType)
+placementConstraint_type :: Lens.Lens' PlacementConstraint (Core.Maybe PlacementConstraintType)
 placementConstraint_type = Lens.lens (\PlacementConstraint' {type'} -> type') (\s@PlacementConstraint' {} a -> s {type' = a} :: PlacementConstraint)
 
 -- | A cluster query language expression to apply to the constraint. You
@@ -83,28 +82,28 @@ placementConstraint_type = Lens.lens (\PlacementConstraint' {type'} -> type') (\
 -- @distinctInstance@. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-placementConstraint_expression :: Lens.Lens' PlacementConstraint (Prelude.Maybe Prelude.Text)
+placementConstraint_expression :: Lens.Lens' PlacementConstraint (Core.Maybe Core.Text)
 placementConstraint_expression = Lens.lens (\PlacementConstraint' {expression} -> expression) (\s@PlacementConstraint' {} a -> s {expression = a} :: PlacementConstraint)
 
-instance Prelude.FromJSON PlacementConstraint where
+instance Core.FromJSON PlacementConstraint where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PlacementConstraint"
       ( \x ->
           PlacementConstraint'
-            Prelude.<$> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "expression")
+            Core.<$> (x Core..:? "type")
+            Core.<*> (x Core..:? "expression")
       )
 
-instance Prelude.Hashable PlacementConstraint
+instance Core.Hashable PlacementConstraint
 
-instance Prelude.NFData PlacementConstraint
+instance Core.NFData PlacementConstraint
 
-instance Prelude.ToJSON PlacementConstraint where
+instance Core.ToJSON PlacementConstraint where
   toJSON PlacementConstraint' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("type" Prelude..=) Prelude.<$> type',
-            ("expression" Prelude..=) Prelude.<$> expression
+    Core.object
+      ( Core.catMaybes
+          [ ("type" Core..=) Core.<$> type',
+            ("expression" Core..=) Core.<$> expression
           ]
       )

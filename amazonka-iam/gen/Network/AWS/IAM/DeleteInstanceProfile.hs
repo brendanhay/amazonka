@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.IAM.DeleteInstanceProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ data DeleteInstanceProfile = DeleteInstanceProfile'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    instanceProfileName :: Prelude.Text
+    instanceProfileName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteInstanceProfile' with all optional fields omitted.
@@ -79,7 +78,7 @@ data DeleteInstanceProfile = DeleteInstanceProfile'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newDeleteInstanceProfile ::
   -- | 'instanceProfileName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteInstanceProfile
 newDeleteInstanceProfile pInstanceProfileName_ =
   DeleteInstanceProfile'
@@ -93,42 +92,41 @@ newDeleteInstanceProfile pInstanceProfileName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteInstanceProfile_instanceProfileName :: Lens.Lens' DeleteInstanceProfile Prelude.Text
+deleteInstanceProfile_instanceProfileName :: Lens.Lens' DeleteInstanceProfile Core.Text
 deleteInstanceProfile_instanceProfileName = Lens.lens (\DeleteInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@DeleteInstanceProfile' {} a -> s {instanceProfileName = a} :: DeleteInstanceProfile)
 
-instance Prelude.AWSRequest DeleteInstanceProfile where
+instance Core.AWSRequest DeleteInstanceProfile where
   type
-    Rs DeleteInstanceProfile =
+    AWSResponse DeleteInstanceProfile =
       DeleteInstanceProfileResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteInstanceProfileResponse'
 
-instance Prelude.Hashable DeleteInstanceProfile
+instance Core.Hashable DeleteInstanceProfile
 
-instance Prelude.NFData DeleteInstanceProfile
+instance Core.NFData DeleteInstanceProfile
 
-instance Prelude.ToHeaders DeleteInstanceProfile where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteInstanceProfile where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteInstanceProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteInstanceProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteInstanceProfile where
+instance Core.ToQuery DeleteInstanceProfile where
   toQuery DeleteInstanceProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteInstanceProfile" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "InstanceProfileName" Prelude.=: instanceProfileName
+          Core.=: ("DeleteInstanceProfile" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "InstanceProfileName" Core.=: instanceProfileName
       ]
 
 -- | /See:/ 'newDeleteInstanceProfileResponse' smart constructor.
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteInstanceProfileResponse' with all optional fields omitted.
@@ -139,4 +137,4 @@ newDeleteInstanceProfileResponse ::
 newDeleteInstanceProfileResponse =
   DeleteInstanceProfileResponse'
 
-instance Prelude.NFData DeleteInstanceProfileResponse
+instance Core.NFData DeleteInstanceProfileResponse

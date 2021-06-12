@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AlexaBusiness.Types.UpdateEndOfMeetingReminder where
 
 import Network.AWS.AlexaBusiness.Types.EndOfMeetingReminderType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for the end of meeting reminder feature that are applied to a
 -- room profile. The end of meeting reminder enables Alexa to remind users
@@ -31,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newUpdateEndOfMeetingReminder' smart constructor.
 data UpdateEndOfMeetingReminder = UpdateEndOfMeetingReminder'
   { -- | The type of sound that users hear during the end of meeting reminder.
-    reminderType :: Prelude.Maybe EndOfMeetingReminderType,
+    reminderType :: Core.Maybe EndOfMeetingReminderType,
     -- | Updates settings for the end of meeting reminder feature that are
     -- applied to a room profile. The end of meeting reminder enables Alexa to
     -- remind users when a meeting is ending.
-    reminderAtMinutes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Int),
+    reminderAtMinutes :: Core.Maybe (Core.NonEmpty Core.Int),
     -- | Whether an end of meeting reminder is enabled or not.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEndOfMeetingReminder' with all optional fields omitted.
@@ -61,37 +60,36 @@ newUpdateEndOfMeetingReminder ::
 newUpdateEndOfMeetingReminder =
   UpdateEndOfMeetingReminder'
     { reminderType =
-        Prelude.Nothing,
-      reminderAtMinutes = Prelude.Nothing,
-      enabled = Prelude.Nothing
+        Core.Nothing,
+      reminderAtMinutes = Core.Nothing,
+      enabled = Core.Nothing
     }
 
 -- | The type of sound that users hear during the end of meeting reminder.
-updateEndOfMeetingReminder_reminderType :: Lens.Lens' UpdateEndOfMeetingReminder (Prelude.Maybe EndOfMeetingReminderType)
+updateEndOfMeetingReminder_reminderType :: Lens.Lens' UpdateEndOfMeetingReminder (Core.Maybe EndOfMeetingReminderType)
 updateEndOfMeetingReminder_reminderType = Lens.lens (\UpdateEndOfMeetingReminder' {reminderType} -> reminderType) (\s@UpdateEndOfMeetingReminder' {} a -> s {reminderType = a} :: UpdateEndOfMeetingReminder)
 
 -- | Updates settings for the end of meeting reminder feature that are
 -- applied to a room profile. The end of meeting reminder enables Alexa to
 -- remind users when a meeting is ending.
-updateEndOfMeetingReminder_reminderAtMinutes :: Lens.Lens' UpdateEndOfMeetingReminder (Prelude.Maybe (Prelude.NonEmpty Prelude.Int))
-updateEndOfMeetingReminder_reminderAtMinutes = Lens.lens (\UpdateEndOfMeetingReminder' {reminderAtMinutes} -> reminderAtMinutes) (\s@UpdateEndOfMeetingReminder' {} a -> s {reminderAtMinutes = a} :: UpdateEndOfMeetingReminder) Prelude.. Lens.mapping Prelude._Coerce
+updateEndOfMeetingReminder_reminderAtMinutes :: Lens.Lens' UpdateEndOfMeetingReminder (Core.Maybe (Core.NonEmpty Core.Int))
+updateEndOfMeetingReminder_reminderAtMinutes = Lens.lens (\UpdateEndOfMeetingReminder' {reminderAtMinutes} -> reminderAtMinutes) (\s@UpdateEndOfMeetingReminder' {} a -> s {reminderAtMinutes = a} :: UpdateEndOfMeetingReminder) Core.. Lens.mapping Lens._Coerce
 
 -- | Whether an end of meeting reminder is enabled or not.
-updateEndOfMeetingReminder_enabled :: Lens.Lens' UpdateEndOfMeetingReminder (Prelude.Maybe Prelude.Bool)
+updateEndOfMeetingReminder_enabled :: Lens.Lens' UpdateEndOfMeetingReminder (Core.Maybe Core.Bool)
 updateEndOfMeetingReminder_enabled = Lens.lens (\UpdateEndOfMeetingReminder' {enabled} -> enabled) (\s@UpdateEndOfMeetingReminder' {} a -> s {enabled = a} :: UpdateEndOfMeetingReminder)
 
-instance Prelude.Hashable UpdateEndOfMeetingReminder
+instance Core.Hashable UpdateEndOfMeetingReminder
 
-instance Prelude.NFData UpdateEndOfMeetingReminder
+instance Core.NFData UpdateEndOfMeetingReminder
 
-instance Prelude.ToJSON UpdateEndOfMeetingReminder where
+instance Core.ToJSON UpdateEndOfMeetingReminder where
   toJSON UpdateEndOfMeetingReminder' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ReminderType" Prelude..=)
-              Prelude.<$> reminderType,
-            ("ReminderAtMinutes" Prelude..=)
-              Prelude.<$> reminderAtMinutes,
-            ("Enabled" Prelude..=) Prelude.<$> enabled
+    Core.object
+      ( Core.catMaybes
+          [ ("ReminderType" Core..=) Core.<$> reminderType,
+            ("ReminderAtMinutes" Core..=)
+              Core.<$> reminderAtMinutes,
+            ("Enabled" Core..=) Core.<$> enabled
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SMS.DisassociateConnector
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -51,9 +50,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newDisassociateConnector' smart constructor.
 data DisassociateConnector = DisassociateConnector'
   { -- | The ID of the connector.
-    connectorId :: Prelude.Text
+    connectorId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateConnector' with all optional fields omitted.
@@ -66,67 +65,63 @@ data DisassociateConnector = DisassociateConnector'
 -- 'connectorId', 'disassociateConnector_connectorId' - The ID of the connector.
 newDisassociateConnector ::
   -- | 'connectorId'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateConnector
 newDisassociateConnector pConnectorId_ =
   DisassociateConnector' {connectorId = pConnectorId_}
 
 -- | The ID of the connector.
-disassociateConnector_connectorId :: Lens.Lens' DisassociateConnector Prelude.Text
+disassociateConnector_connectorId :: Lens.Lens' DisassociateConnector Core.Text
 disassociateConnector_connectorId = Lens.lens (\DisassociateConnector' {connectorId} -> connectorId) (\s@DisassociateConnector' {} a -> s {connectorId = a} :: DisassociateConnector)
 
-instance Prelude.AWSRequest DisassociateConnector where
+instance Core.AWSRequest DisassociateConnector where
   type
-    Rs DisassociateConnector =
+    AWSResponse DisassociateConnector =
       DisassociateConnectorResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateConnectorResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateConnector
+instance Core.Hashable DisassociateConnector
 
-instance Prelude.NFData DisassociateConnector
+instance Core.NFData DisassociateConnector
 
-instance Prelude.ToHeaders DisassociateConnector where
+instance Core.ToHeaders DisassociateConnector where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.DisassociateConnector" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.DisassociateConnector" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisassociateConnector where
+instance Core.ToJSON DisassociateConnector where
   toJSON DisassociateConnector' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("connectorId" Prelude..= connectorId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("connectorId" Core..= connectorId)]
       )
 
-instance Prelude.ToPath DisassociateConnector where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateConnector where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisassociateConnector where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateConnector where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateConnectorResponse' smart constructor.
 data DisassociateConnectorResponse = DisassociateConnectorResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateConnectorResponse' with all optional fields omitted.
@@ -139,7 +134,7 @@ data DisassociateConnectorResponse = DisassociateConnectorResponse'
 -- 'httpStatus', 'disassociateConnectorResponse_httpStatus' - The response's http status code.
 newDisassociateConnectorResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateConnectorResponse
 newDisassociateConnectorResponse pHttpStatus_ =
   DisassociateConnectorResponse'
@@ -148,7 +143,7 @@ newDisassociateConnectorResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateConnectorResponse_httpStatus :: Lens.Lens' DisassociateConnectorResponse Prelude.Int
+disassociateConnectorResponse_httpStatus :: Lens.Lens' DisassociateConnectorResponse Core.Int
 disassociateConnectorResponse_httpStatus = Lens.lens (\DisassociateConnectorResponse' {httpStatus} -> httpStatus) (\s@DisassociateConnectorResponse' {} a -> s {httpStatus = a} :: DisassociateConnectorResponse)
 
-instance Prelude.NFData DisassociateConnectorResponse
+instance Core.NFData DisassociateConnectorResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.EMR.DeleteStudioSessionMapping
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +53,7 @@ data DeleteStudioSessionMapping = DeleteStudioSessionMapping'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
     -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
     -- @IdentityId@ must be specified.
-    identityName :: Prelude.Maybe Prelude.Text,
+    identityName :: Core.Maybe Core.Text,
     -- | The globally unique identifier (GUID) of the user or group to remove
     -- from the Amazon EMR Studio. For more information, see
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
@@ -62,14 +61,14 @@ data DeleteStudioSessionMapping = DeleteStudioSessionMapping'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
     -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
     -- @IdentityId@ must be specified.
-    identityId :: Prelude.Maybe Prelude.Text,
+    identityId :: Core.Maybe Core.Text,
     -- | The ID of the Amazon EMR Studio.
-    studioId :: Prelude.Text,
+    studioId :: Core.Text,
     -- | Specifies whether the identity to delete from the Amazon EMR Studio is a
     -- user or a group.
     identityType :: IdentityType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStudioSessionMapping' with all optional fields omitted.
@@ -101,7 +100,7 @@ data DeleteStudioSessionMapping = DeleteStudioSessionMapping'
 -- user or a group.
 newDeleteStudioSessionMapping ::
   -- | 'studioId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identityType'
   IdentityType ->
   DeleteStudioSessionMapping
@@ -110,8 +109,8 @@ newDeleteStudioSessionMapping
   pIdentityType_ =
     DeleteStudioSessionMapping'
       { identityName =
-          Prelude.Nothing,
-        identityId = Prelude.Nothing,
+          Core.Nothing,
+        identityId = Core.Nothing,
         studioId = pStudioId_,
         identityType = pIdentityType_
       }
@@ -123,7 +122,7 @@ newDeleteStudioSessionMapping
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
 -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
 -- @IdentityId@ must be specified.
-deleteStudioSessionMapping_identityName :: Lens.Lens' DeleteStudioSessionMapping (Prelude.Maybe Prelude.Text)
+deleteStudioSessionMapping_identityName :: Lens.Lens' DeleteStudioSessionMapping (Core.Maybe Core.Text)
 deleteStudioSessionMapping_identityName = Lens.lens (\DeleteStudioSessionMapping' {identityName} -> identityName) (\s@DeleteStudioSessionMapping' {} a -> s {identityName = a} :: DeleteStudioSessionMapping)
 
 -- | The globally unique identifier (GUID) of the user or group to remove
@@ -133,11 +132,11 @@ deleteStudioSessionMapping_identityName = Lens.lens (\DeleteStudioSessionMapping
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
 -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
 -- @IdentityId@ must be specified.
-deleteStudioSessionMapping_identityId :: Lens.Lens' DeleteStudioSessionMapping (Prelude.Maybe Prelude.Text)
+deleteStudioSessionMapping_identityId :: Lens.Lens' DeleteStudioSessionMapping (Core.Maybe Core.Text)
 deleteStudioSessionMapping_identityId = Lens.lens (\DeleteStudioSessionMapping' {identityId} -> identityId) (\s@DeleteStudioSessionMapping' {} a -> s {identityId = a} :: DeleteStudioSessionMapping)
 
 -- | The ID of the Amazon EMR Studio.
-deleteStudioSessionMapping_studioId :: Lens.Lens' DeleteStudioSessionMapping Prelude.Text
+deleteStudioSessionMapping_studioId :: Lens.Lens' DeleteStudioSessionMapping Core.Text
 deleteStudioSessionMapping_studioId = Lens.lens (\DeleteStudioSessionMapping' {studioId} -> studioId) (\s@DeleteStudioSessionMapping' {} a -> s {studioId = a} :: DeleteStudioSessionMapping)
 
 -- | Specifies whether the identity to delete from the Amazon EMR Studio is a
@@ -145,61 +144,54 @@ deleteStudioSessionMapping_studioId = Lens.lens (\DeleteStudioSessionMapping' {s
 deleteStudioSessionMapping_identityType :: Lens.Lens' DeleteStudioSessionMapping IdentityType
 deleteStudioSessionMapping_identityType = Lens.lens (\DeleteStudioSessionMapping' {identityType} -> identityType) (\s@DeleteStudioSessionMapping' {} a -> s {identityType = a} :: DeleteStudioSessionMapping)
 
-instance
-  Prelude.AWSRequest
-    DeleteStudioSessionMapping
-  where
+instance Core.AWSRequest DeleteStudioSessionMapping where
   type
-    Rs DeleteStudioSessionMapping =
+    AWSResponse DeleteStudioSessionMapping =
       DeleteStudioSessionMappingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteStudioSessionMappingResponse'
 
-instance Prelude.Hashable DeleteStudioSessionMapping
+instance Core.Hashable DeleteStudioSessionMapping
 
-instance Prelude.NFData DeleteStudioSessionMapping
+instance Core.NFData DeleteStudioSessionMapping
 
-instance Prelude.ToHeaders DeleteStudioSessionMapping where
+instance Core.ToHeaders DeleteStudioSessionMapping where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.DeleteStudioSessionMapping" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.DeleteStudioSessionMapping" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteStudioSessionMapping where
+instance Core.ToJSON DeleteStudioSessionMapping where
   toJSON DeleteStudioSessionMapping' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IdentityName" Prelude..=)
-              Prelude.<$> identityName,
-            ("IdentityId" Prelude..=) Prelude.<$> identityId,
-            Prelude.Just ("StudioId" Prelude..= studioId),
-            Prelude.Just
-              ("IdentityType" Prelude..= identityType)
+    Core.object
+      ( Core.catMaybes
+          [ ("IdentityName" Core..=) Core.<$> identityName,
+            ("IdentityId" Core..=) Core.<$> identityId,
+            Core.Just ("StudioId" Core..= studioId),
+            Core.Just ("IdentityType" Core..= identityType)
           ]
       )
 
-instance Prelude.ToPath DeleteStudioSessionMapping where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteStudioSessionMapping where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteStudioSessionMapping where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteStudioSessionMapping where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteStudioSessionMappingResponse' smart constructor.
 data DeleteStudioSessionMappingResponse = DeleteStudioSessionMappingResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStudioSessionMappingResponse' with all optional fields omitted.
@@ -211,5 +203,5 @@ newDeleteStudioSessionMappingResponse =
   DeleteStudioSessionMappingResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteStudioSessionMappingResponse

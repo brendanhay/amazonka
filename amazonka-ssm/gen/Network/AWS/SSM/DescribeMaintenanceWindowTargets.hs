@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.SSM.DescribeMaintenanceWindowTargets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -57,19 +55,19 @@ import Network.AWS.SSM.Types
 data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Optional filters that can be used to narrow down the scope of the
     -- returned window targets. The supported filter keys are Type,
     -- WindowTargetId and OwnerInformation.
-    filters :: Prelude.Maybe [MaintenanceWindowFilter],
+    filters :: Core.Maybe [MaintenanceWindowFilter],
     -- | The ID of the maintenance window whose targets should be retrieved.
-    windowId :: Prelude.Text
+    windowId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMaintenanceWindowTargets' with all optional fields omitted.
@@ -93,143 +91,133 @@ data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
 -- 'windowId', 'describeMaintenanceWindowTargets_windowId' - The ID of the maintenance window whose targets should be retrieved.
 newDescribeMaintenanceWindowTargets ::
   -- | 'windowId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeMaintenanceWindowTargets
 newDescribeMaintenanceWindowTargets pWindowId_ =
   DescribeMaintenanceWindowTargets'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing,
+        Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing,
       windowId = pWindowId_
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeMaintenanceWindowTargets_nextToken :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowTargets_nextToken :: Lens.Lens' DescribeMaintenanceWindowTargets (Core.Maybe Core.Text)
 describeMaintenanceWindowTargets_nextToken = Lens.lens (\DescribeMaintenanceWindowTargets' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowTargets' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowTargets)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-describeMaintenanceWindowTargets_maxResults :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe Prelude.Natural)
+describeMaintenanceWindowTargets_maxResults :: Lens.Lens' DescribeMaintenanceWindowTargets (Core.Maybe Core.Natural)
 describeMaintenanceWindowTargets_maxResults = Lens.lens (\DescribeMaintenanceWindowTargets' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowTargets' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowTargets)
 
 -- | Optional filters that can be used to narrow down the scope of the
 -- returned window targets. The supported filter keys are Type,
 -- WindowTargetId and OwnerInformation.
-describeMaintenanceWindowTargets_filters :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe [MaintenanceWindowFilter])
-describeMaintenanceWindowTargets_filters = Lens.lens (\DescribeMaintenanceWindowTargets' {filters} -> filters) (\s@DescribeMaintenanceWindowTargets' {} a -> s {filters = a} :: DescribeMaintenanceWindowTargets) Prelude.. Lens.mapping Prelude._Coerce
+describeMaintenanceWindowTargets_filters :: Lens.Lens' DescribeMaintenanceWindowTargets (Core.Maybe [MaintenanceWindowFilter])
+describeMaintenanceWindowTargets_filters = Lens.lens (\DescribeMaintenanceWindowTargets' {filters} -> filters) (\s@DescribeMaintenanceWindowTargets' {} a -> s {filters = a} :: DescribeMaintenanceWindowTargets) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the maintenance window whose targets should be retrieved.
-describeMaintenanceWindowTargets_windowId :: Lens.Lens' DescribeMaintenanceWindowTargets Prelude.Text
+describeMaintenanceWindowTargets_windowId :: Lens.Lens' DescribeMaintenanceWindowTargets Core.Text
 describeMaintenanceWindowTargets_windowId = Lens.lens (\DescribeMaintenanceWindowTargets' {windowId} -> windowId) (\s@DescribeMaintenanceWindowTargets' {} a -> s {windowId = a} :: DescribeMaintenanceWindowTargets)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeMaintenanceWindowTargets
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeMaintenanceWindowTargetsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeMaintenanceWindowTargetsResponse_targets
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeMaintenanceWindowTargets_nextToken
           Lens..~ rs
           Lens.^? describeMaintenanceWindowTargetsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeMaintenanceWindowTargets
   where
   type
-    Rs DescribeMaintenanceWindowTargets =
+    AWSResponse DescribeMaintenanceWindowTargets =
       DescribeMaintenanceWindowTargetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeMaintenanceWindowTargetsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Targets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Targets" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeMaintenanceWindowTargets
 
-instance
-  Prelude.NFData
-    DescribeMaintenanceWindowTargets
+instance Core.NFData DescribeMaintenanceWindowTargets
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeMaintenanceWindowTargets
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DescribeMaintenanceWindowTargets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.DescribeMaintenanceWindowTargets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DescribeMaintenanceWindowTargets
-  where
+instance Core.ToJSON DescribeMaintenanceWindowTargets where
   toJSON DescribeMaintenanceWindowTargets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters,
-            Prelude.Just ("WindowId" Prelude..= windowId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters,
+            Core.Just ("WindowId" Core..= windowId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    DescribeMaintenanceWindowTargets
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeMaintenanceWindowTargets where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeMaintenanceWindowTargets
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeMaintenanceWindowTargetsResponse' smart constructor.
 data DescribeMaintenanceWindowTargetsResponse = DescribeMaintenanceWindowTargetsResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the targets in the maintenance window.
-    targets :: Prelude.Maybe [MaintenanceWindowTarget],
+    targets :: Core.Maybe [MaintenanceWindowTarget],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMaintenanceWindowTargetsResponse' with all optional fields omitted.
@@ -247,30 +235,30 @@ data DescribeMaintenanceWindowTargetsResponse = DescribeMaintenanceWindowTargets
 -- 'httpStatus', 'describeMaintenanceWindowTargetsResponse_httpStatus' - The response's http status code.
 newDescribeMaintenanceWindowTargetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeMaintenanceWindowTargetsResponse
 newDescribeMaintenanceWindowTargetsResponse
   pHttpStatus_ =
     DescribeMaintenanceWindowTargetsResponse'
       { nextToken =
-          Prelude.Nothing,
-        targets = Prelude.Nothing,
+          Core.Nothing,
+        targets = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-describeMaintenanceWindowTargetsResponse_nextToken :: Lens.Lens' DescribeMaintenanceWindowTargetsResponse (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowTargetsResponse_nextToken :: Lens.Lens' DescribeMaintenanceWindowTargetsResponse (Core.Maybe Core.Text)
 describeMaintenanceWindowTargetsResponse_nextToken = Lens.lens (\DescribeMaintenanceWindowTargetsResponse' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowTargetsResponse' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowTargetsResponse)
 
 -- | Information about the targets in the maintenance window.
-describeMaintenanceWindowTargetsResponse_targets :: Lens.Lens' DescribeMaintenanceWindowTargetsResponse (Prelude.Maybe [MaintenanceWindowTarget])
-describeMaintenanceWindowTargetsResponse_targets = Lens.lens (\DescribeMaintenanceWindowTargetsResponse' {targets} -> targets) (\s@DescribeMaintenanceWindowTargetsResponse' {} a -> s {targets = a} :: DescribeMaintenanceWindowTargetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeMaintenanceWindowTargetsResponse_targets :: Lens.Lens' DescribeMaintenanceWindowTargetsResponse (Core.Maybe [MaintenanceWindowTarget])
+describeMaintenanceWindowTargetsResponse_targets = Lens.lens (\DescribeMaintenanceWindowTargetsResponse' {targets} -> targets) (\s@DescribeMaintenanceWindowTargetsResponse' {} a -> s {targets = a} :: DescribeMaintenanceWindowTargetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeMaintenanceWindowTargetsResponse_httpStatus :: Lens.Lens' DescribeMaintenanceWindowTargetsResponse Prelude.Int
+describeMaintenanceWindowTargetsResponse_httpStatus :: Lens.Lens' DescribeMaintenanceWindowTargetsResponse Core.Int
 describeMaintenanceWindowTargetsResponse_httpStatus = Lens.lens (\DescribeMaintenanceWindowTargetsResponse' {httpStatus} -> httpStatus) (\s@DescribeMaintenanceWindowTargetsResponse' {} a -> s {httpStatus = a} :: DescribeMaintenanceWindowTargetsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeMaintenanceWindowTargetsResponse

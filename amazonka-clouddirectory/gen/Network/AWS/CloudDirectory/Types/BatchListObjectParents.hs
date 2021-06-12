@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,16 +20,16 @@
 module Network.AWS.CloudDirectory.Types.BatchListObjectParents where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newBatchListObjectParents' smart constructor.
 data BatchListObjectParents = BatchListObjectParents'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { nextToken :: Core.Maybe Core.Text,
+    maxResults :: Core.Maybe Core.Natural,
     objectReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchListObjectParents' with all optional fields omitted.
@@ -51,35 +50,34 @@ newBatchListObjectParents ::
   BatchListObjectParents
 newBatchListObjectParents pObjectReference_ =
   BatchListObjectParents'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       objectReference = pObjectReference_
     }
 
 -- | Undocumented member.
-batchListObjectParents_nextToken :: Lens.Lens' BatchListObjectParents (Prelude.Maybe Prelude.Text)
+batchListObjectParents_nextToken :: Lens.Lens' BatchListObjectParents (Core.Maybe Core.Text)
 batchListObjectParents_nextToken = Lens.lens (\BatchListObjectParents' {nextToken} -> nextToken) (\s@BatchListObjectParents' {} a -> s {nextToken = a} :: BatchListObjectParents)
 
 -- | Undocumented member.
-batchListObjectParents_maxResults :: Lens.Lens' BatchListObjectParents (Prelude.Maybe Prelude.Natural)
+batchListObjectParents_maxResults :: Lens.Lens' BatchListObjectParents (Core.Maybe Core.Natural)
 batchListObjectParents_maxResults = Lens.lens (\BatchListObjectParents' {maxResults} -> maxResults) (\s@BatchListObjectParents' {} a -> s {maxResults = a} :: BatchListObjectParents)
 
 -- | Undocumented member.
 batchListObjectParents_objectReference :: Lens.Lens' BatchListObjectParents ObjectReference
 batchListObjectParents_objectReference = Lens.lens (\BatchListObjectParents' {objectReference} -> objectReference) (\s@BatchListObjectParents' {} a -> s {objectReference = a} :: BatchListObjectParents)
 
-instance Prelude.Hashable BatchListObjectParents
+instance Core.Hashable BatchListObjectParents
 
-instance Prelude.NFData BatchListObjectParents
+instance Core.NFData BatchListObjectParents
 
-instance Prelude.ToJSON BatchListObjectParents where
+instance Core.ToJSON BatchListObjectParents where
   toJSON BatchListObjectParents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ("ObjectReference" Prelude..= objectReference)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just
+              ("ObjectReference" Core..= objectReference)
           ]
       )

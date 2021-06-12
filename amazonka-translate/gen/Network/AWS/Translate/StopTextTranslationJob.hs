@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.Translate.StopTextTranslationJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Translate.Types
@@ -60,9 +59,9 @@ import Network.AWS.Translate.Types
 -- | /See:/ 'newStopTextTranslationJob' smart constructor.
 data StopTextTranslationJob = StopTextTranslationJob'
   { -- | The job ID of the job to be stopped.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopTextTranslationJob' with all optional fields omitted.
@@ -75,72 +74,68 @@ data StopTextTranslationJob = StopTextTranslationJob'
 -- 'jobId', 'stopTextTranslationJob_jobId' - The job ID of the job to be stopped.
 newStopTextTranslationJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   StopTextTranslationJob
 newStopTextTranslationJob pJobId_ =
   StopTextTranslationJob' {jobId = pJobId_}
 
 -- | The job ID of the job to be stopped.
-stopTextTranslationJob_jobId :: Lens.Lens' StopTextTranslationJob Prelude.Text
+stopTextTranslationJob_jobId :: Lens.Lens' StopTextTranslationJob Core.Text
 stopTextTranslationJob_jobId = Lens.lens (\StopTextTranslationJob' {jobId} -> jobId) (\s@StopTextTranslationJob' {} a -> s {jobId = a} :: StopTextTranslationJob)
 
-instance Prelude.AWSRequest StopTextTranslationJob where
+instance Core.AWSRequest StopTextTranslationJob where
   type
-    Rs StopTextTranslationJob =
+    AWSResponse StopTextTranslationJob =
       StopTextTranslationJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopTextTranslationJobResponse'
-            Prelude.<$> (x Prelude..?> "JobStatus")
-            Prelude.<*> (x Prelude..?> "JobId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobStatus")
+            Core.<*> (x Core..?> "JobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopTextTranslationJob
+instance Core.Hashable StopTextTranslationJob
 
-instance Prelude.NFData StopTextTranslationJob
+instance Core.NFData StopTextTranslationJob
 
-instance Prelude.ToHeaders StopTextTranslationJob where
+instance Core.ToHeaders StopTextTranslationJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShineFrontendService_20170701.StopTextTranslationJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShineFrontendService_20170701.StopTextTranslationJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopTextTranslationJob where
+instance Core.ToJSON StopTextTranslationJob where
   toJSON StopTextTranslationJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
 
-instance Prelude.ToPath StopTextTranslationJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopTextTranslationJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopTextTranslationJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopTextTranslationJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopTextTranslationJobResponse' smart constructor.
 data StopTextTranslationJobResponse = StopTextTranslationJobResponse'
   { -- | The status of the designated job. Upon successful completion, the job\'s
     -- status will be @STOPPED@.
-    jobStatus :: Prelude.Maybe JobStatus,
+    jobStatus :: Core.Maybe JobStatus,
     -- | The job ID of the stopped batch translation job.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopTextTranslationJobResponse' with all optional fields omitted.
@@ -158,29 +153,27 @@ data StopTextTranslationJobResponse = StopTextTranslationJobResponse'
 -- 'httpStatus', 'stopTextTranslationJobResponse_httpStatus' - The response's http status code.
 newStopTextTranslationJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopTextTranslationJobResponse
 newStopTextTranslationJobResponse pHttpStatus_ =
   StopTextTranslationJobResponse'
     { jobStatus =
-        Prelude.Nothing,
-      jobId = Prelude.Nothing,
+        Core.Nothing,
+      jobId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the designated job. Upon successful completion, the job\'s
 -- status will be @STOPPED@.
-stopTextTranslationJobResponse_jobStatus :: Lens.Lens' StopTextTranslationJobResponse (Prelude.Maybe JobStatus)
+stopTextTranslationJobResponse_jobStatus :: Lens.Lens' StopTextTranslationJobResponse (Core.Maybe JobStatus)
 stopTextTranslationJobResponse_jobStatus = Lens.lens (\StopTextTranslationJobResponse' {jobStatus} -> jobStatus) (\s@StopTextTranslationJobResponse' {} a -> s {jobStatus = a} :: StopTextTranslationJobResponse)
 
 -- | The job ID of the stopped batch translation job.
-stopTextTranslationJobResponse_jobId :: Lens.Lens' StopTextTranslationJobResponse (Prelude.Maybe Prelude.Text)
+stopTextTranslationJobResponse_jobId :: Lens.Lens' StopTextTranslationJobResponse (Core.Maybe Core.Text)
 stopTextTranslationJobResponse_jobId = Lens.lens (\StopTextTranslationJobResponse' {jobId} -> jobId) (\s@StopTextTranslationJobResponse' {} a -> s {jobId = a} :: StopTextTranslationJobResponse)
 
 -- | The response's http status code.
-stopTextTranslationJobResponse_httpStatus :: Lens.Lens' StopTextTranslationJobResponse Prelude.Int
+stopTextTranslationJobResponse_httpStatus :: Lens.Lens' StopTextTranslationJobResponse Core.Int
 stopTextTranslationJobResponse_httpStatus = Lens.lens (\StopTextTranslationJobResponse' {httpStatus} -> httpStatus) (\s@StopTextTranslationJobResponse' {} a -> s {httpStatus = a} :: StopTextTranslationJobResponse)
 
-instance
-  Prelude.NFData
-    StopTextTranslationJobResponse
+instance Core.NFData StopTextTranslationJobResponse

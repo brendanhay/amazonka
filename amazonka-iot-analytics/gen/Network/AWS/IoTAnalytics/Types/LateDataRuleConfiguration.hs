@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.LateDataRuleConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.DeltaTimeSessionWindowConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The information needed to configure a delta time session window.
 --
 -- /See:/ 'newLateDataRuleConfiguration' smart constructor.
 data LateDataRuleConfiguration = LateDataRuleConfiguration'
   { -- | The information needed to configure a delta time session window.
-    deltaTimeSessionWindowConfiguration :: Prelude.Maybe DeltaTimeSessionWindowConfiguration
+    deltaTimeSessionWindowConfiguration :: Core.Maybe DeltaTimeSessionWindowConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LateDataRuleConfiguration' with all optional fields omitted.
@@ -47,33 +46,31 @@ newLateDataRuleConfiguration ::
 newLateDataRuleConfiguration =
   LateDataRuleConfiguration'
     { deltaTimeSessionWindowConfiguration =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The information needed to configure a delta time session window.
-lateDataRuleConfiguration_deltaTimeSessionWindowConfiguration :: Lens.Lens' LateDataRuleConfiguration (Prelude.Maybe DeltaTimeSessionWindowConfiguration)
+lateDataRuleConfiguration_deltaTimeSessionWindowConfiguration :: Lens.Lens' LateDataRuleConfiguration (Core.Maybe DeltaTimeSessionWindowConfiguration)
 lateDataRuleConfiguration_deltaTimeSessionWindowConfiguration = Lens.lens (\LateDataRuleConfiguration' {deltaTimeSessionWindowConfiguration} -> deltaTimeSessionWindowConfiguration) (\s@LateDataRuleConfiguration' {} a -> s {deltaTimeSessionWindowConfiguration = a} :: LateDataRuleConfiguration)
 
-instance Prelude.FromJSON LateDataRuleConfiguration where
+instance Core.FromJSON LateDataRuleConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LateDataRuleConfiguration"
       ( \x ->
           LateDataRuleConfiguration'
-            Prelude.<$> ( x
-                            Prelude..:? "deltaTimeSessionWindowConfiguration"
-                        )
+            Core.<$> (x Core..:? "deltaTimeSessionWindowConfiguration")
       )
 
-instance Prelude.Hashable LateDataRuleConfiguration
+instance Core.Hashable LateDataRuleConfiguration
 
-instance Prelude.NFData LateDataRuleConfiguration
+instance Core.NFData LateDataRuleConfiguration
 
-instance Prelude.ToJSON LateDataRuleConfiguration where
+instance Core.ToJSON LateDataRuleConfiguration where
   toJSON LateDataRuleConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deltaTimeSessionWindowConfiguration" Prelude..=)
-              Prelude.<$> deltaTimeSessionWindowConfiguration
+    Core.object
+      ( Core.catMaybes
+          [ ("deltaTimeSessionWindowConfiguration" Core..=)
+              Core.<$> deltaTimeSessionWindowConfiguration
           ]
       )

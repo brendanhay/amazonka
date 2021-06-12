@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EKS.DescribeIdentityProviderConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data DescribeIdentityProviderConfig = DescribeIdentityProviderConfig'
   { -- | The cluster name that the identity provider configuration is associated
     -- to.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | An object that represents an identity provider configuration.
     identityProviderConfig :: IdentityProviderConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentityProviderConfig' with all optional fields omitted.
@@ -72,7 +71,7 @@ data DescribeIdentityProviderConfig = DescribeIdentityProviderConfig'
 -- 'identityProviderConfig', 'describeIdentityProviderConfig_identityProviderConfig' - An object that represents an identity provider configuration.
 newDescribeIdentityProviderConfig ::
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identityProviderConfig'
   IdentityProviderConfig ->
   DescribeIdentityProviderConfig
@@ -88,7 +87,7 @@ newDescribeIdentityProviderConfig
 
 -- | The cluster name that the identity provider configuration is associated
 -- to.
-describeIdentityProviderConfig_clusterName :: Lens.Lens' DescribeIdentityProviderConfig Prelude.Text
+describeIdentityProviderConfig_clusterName :: Lens.Lens' DescribeIdentityProviderConfig Core.Text
 describeIdentityProviderConfig_clusterName = Lens.lens (\DescribeIdentityProviderConfig' {clusterName} -> clusterName) (\s@DescribeIdentityProviderConfig' {} a -> s {clusterName = a} :: DescribeIdentityProviderConfig)
 
 -- | An object that represents an identity provider configuration.
@@ -96,83 +95,68 @@ describeIdentityProviderConfig_identityProviderConfig :: Lens.Lens' DescribeIden
 describeIdentityProviderConfig_identityProviderConfig = Lens.lens (\DescribeIdentityProviderConfig' {identityProviderConfig} -> identityProviderConfig) (\s@DescribeIdentityProviderConfig' {} a -> s {identityProviderConfig = a} :: DescribeIdentityProviderConfig)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeIdentityProviderConfig
   where
   type
-    Rs DescribeIdentityProviderConfig =
+    AWSResponse DescribeIdentityProviderConfig =
       DescribeIdentityProviderConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeIdentityProviderConfigResponse'
-            Prelude.<$> (x Prelude..?> "identityProviderConfig")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "identityProviderConfig")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeIdentityProviderConfig
+instance Core.Hashable DescribeIdentityProviderConfig
+
+instance Core.NFData DescribeIdentityProviderConfig
 
 instance
-  Prelude.NFData
-    DescribeIdentityProviderConfig
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeIdentityProviderConfig
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DescribeIdentityProviderConfig
-  where
+instance Core.ToJSON DescribeIdentityProviderConfig where
   toJSON DescribeIdentityProviderConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "identityProviderConfig"
-                  Prelude..= identityProviderConfig
+                  Core..= identityProviderConfig
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    DescribeIdentityProviderConfig
-  where
+instance Core.ToPath DescribeIdentityProviderConfig where
   toPath DescribeIdentityProviderConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clusters/",
-        Prelude.toBS clusterName,
+        Core.toBS clusterName,
         "/identity-provider-configs/describe"
       ]
 
-instance
-  Prelude.ToQuery
-    DescribeIdentityProviderConfig
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeIdentityProviderConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeIdentityProviderConfigResponse' smart constructor.
 data DescribeIdentityProviderConfigResponse = DescribeIdentityProviderConfigResponse'
   { -- | The object that represents an OpenID Connect (OIDC) identity provider
     -- configuration.
-    identityProviderConfig :: Prelude.Maybe IdentityProviderConfigResponse,
+    identityProviderConfig :: Core.Maybe IdentityProviderConfigResponse,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentityProviderConfigResponse' with all optional fields omitted.
@@ -188,25 +172,25 @@ data DescribeIdentityProviderConfigResponse = DescribeIdentityProviderConfigResp
 -- 'httpStatus', 'describeIdentityProviderConfigResponse_httpStatus' - The response's http status code.
 newDescribeIdentityProviderConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeIdentityProviderConfigResponse
 newDescribeIdentityProviderConfigResponse
   pHttpStatus_ =
     DescribeIdentityProviderConfigResponse'
       { identityProviderConfig =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The object that represents an OpenID Connect (OIDC) identity provider
 -- configuration.
-describeIdentityProviderConfigResponse_identityProviderConfig :: Lens.Lens' DescribeIdentityProviderConfigResponse (Prelude.Maybe IdentityProviderConfigResponse)
+describeIdentityProviderConfigResponse_identityProviderConfig :: Lens.Lens' DescribeIdentityProviderConfigResponse (Core.Maybe IdentityProviderConfigResponse)
 describeIdentityProviderConfigResponse_identityProviderConfig = Lens.lens (\DescribeIdentityProviderConfigResponse' {identityProviderConfig} -> identityProviderConfig) (\s@DescribeIdentityProviderConfigResponse' {} a -> s {identityProviderConfig = a} :: DescribeIdentityProviderConfigResponse)
 
 -- | The response's http status code.
-describeIdentityProviderConfigResponse_httpStatus :: Lens.Lens' DescribeIdentityProviderConfigResponse Prelude.Int
+describeIdentityProviderConfigResponse_httpStatus :: Lens.Lens' DescribeIdentityProviderConfigResponse Core.Int
 describeIdentityProviderConfigResponse_httpStatus = Lens.lens (\DescribeIdentityProviderConfigResponse' {httpStatus} -> httpStatus) (\s@DescribeIdentityProviderConfigResponse' {} a -> s {httpStatus = a} :: DescribeIdentityProviderConfigResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeIdentityProviderConfigResponse

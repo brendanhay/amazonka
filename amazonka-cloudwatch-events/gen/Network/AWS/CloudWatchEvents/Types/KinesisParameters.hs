@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.KinesisParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This object enables you to specify a JSON path to extract from the event
 -- and use as the partition key for the Amazon Kinesis data stream, so that
@@ -35,9 +34,9 @@ data KinesisParameters = KinesisParameters'
     -- key. For more information, see
     -- <https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key Amazon Kinesis Streams Key Concepts>
     -- in the /Amazon Kinesis Streams Developer Guide/.
-    partitionKeyPath :: Prelude.Text
+    partitionKeyPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KinesisParameters' with all optional fields omitted.
@@ -53,7 +52,7 @@ data KinesisParameters = KinesisParameters'
 -- in the /Amazon Kinesis Streams Developer Guide/.
 newKinesisParameters ::
   -- | 'partitionKeyPath'
-  Prelude.Text ->
+  Core.Text ->
   KinesisParameters
 newKinesisParameters pPartitionKeyPath_ =
   KinesisParameters'
@@ -65,27 +64,27 @@ newKinesisParameters pPartitionKeyPath_ =
 -- key. For more information, see
 -- <https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key Amazon Kinesis Streams Key Concepts>
 -- in the /Amazon Kinesis Streams Developer Guide/.
-kinesisParameters_partitionKeyPath :: Lens.Lens' KinesisParameters Prelude.Text
+kinesisParameters_partitionKeyPath :: Lens.Lens' KinesisParameters Core.Text
 kinesisParameters_partitionKeyPath = Lens.lens (\KinesisParameters' {partitionKeyPath} -> partitionKeyPath) (\s@KinesisParameters' {} a -> s {partitionKeyPath = a} :: KinesisParameters)
 
-instance Prelude.FromJSON KinesisParameters where
+instance Core.FromJSON KinesisParameters where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KinesisParameters"
       ( \x ->
           KinesisParameters'
-            Prelude.<$> (x Prelude..: "PartitionKeyPath")
+            Core.<$> (x Core..: "PartitionKeyPath")
       )
 
-instance Prelude.Hashable KinesisParameters
+instance Core.Hashable KinesisParameters
 
-instance Prelude.NFData KinesisParameters
+instance Core.NFData KinesisParameters
 
-instance Prelude.ToJSON KinesisParameters where
+instance Core.ToJSON KinesisParameters where
   toJSON KinesisParameters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("PartitionKeyPath" Prelude..= partitionKeyPath)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("PartitionKeyPath" Core..= partitionKeyPath)
           ]
       )

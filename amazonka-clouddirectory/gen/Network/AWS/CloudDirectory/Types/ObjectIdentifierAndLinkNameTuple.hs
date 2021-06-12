@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A pair of ObjectIdentifier and LinkName.
 --
 -- /See:/ 'newObjectIdentifierAndLinkNameTuple' smart constructor.
 data ObjectIdentifierAndLinkNameTuple = ObjectIdentifierAndLinkNameTuple'
   { -- | The name of the link between the parent and the child object.
-    linkName :: Prelude.Maybe Prelude.Text,
+    linkName :: Core.Maybe Core.Text,
     -- | The ID that is associated with the object.
-    objectIdentifier :: Prelude.Maybe Prelude.Text
+    objectIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ObjectIdentifierAndLinkNameTuple' with all optional fields omitted.
@@ -50,35 +49,33 @@ newObjectIdentifierAndLinkNameTuple ::
 newObjectIdentifierAndLinkNameTuple =
   ObjectIdentifierAndLinkNameTuple'
     { linkName =
-        Prelude.Nothing,
-      objectIdentifier = Prelude.Nothing
+        Core.Nothing,
+      objectIdentifier = Core.Nothing
     }
 
 -- | The name of the link between the parent and the child object.
-objectIdentifierAndLinkNameTuple_linkName :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Prelude.Maybe Prelude.Text)
+objectIdentifierAndLinkNameTuple_linkName :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Core.Maybe Core.Text)
 objectIdentifierAndLinkNameTuple_linkName = Lens.lens (\ObjectIdentifierAndLinkNameTuple' {linkName} -> linkName) (\s@ObjectIdentifierAndLinkNameTuple' {} a -> s {linkName = a} :: ObjectIdentifierAndLinkNameTuple)
 
 -- | The ID that is associated with the object.
-objectIdentifierAndLinkNameTuple_objectIdentifier :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Prelude.Maybe Prelude.Text)
+objectIdentifierAndLinkNameTuple_objectIdentifier :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Core.Maybe Core.Text)
 objectIdentifierAndLinkNameTuple_objectIdentifier = Lens.lens (\ObjectIdentifierAndLinkNameTuple' {objectIdentifier} -> objectIdentifier) (\s@ObjectIdentifierAndLinkNameTuple' {} a -> s {objectIdentifier = a} :: ObjectIdentifierAndLinkNameTuple)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ObjectIdentifierAndLinkNameTuple
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ObjectIdentifierAndLinkNameTuple"
       ( \x ->
           ObjectIdentifierAndLinkNameTuple'
-            Prelude.<$> (x Prelude..:? "LinkName")
-            Prelude.<*> (x Prelude..:? "ObjectIdentifier")
+            Core.<$> (x Core..:? "LinkName")
+            Core.<*> (x Core..:? "ObjectIdentifier")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ObjectIdentifierAndLinkNameTuple
 
-instance
-  Prelude.NFData
-    ObjectIdentifierAndLinkNameTuple
+instance Core.NFData ObjectIdentifierAndLinkNameTuple

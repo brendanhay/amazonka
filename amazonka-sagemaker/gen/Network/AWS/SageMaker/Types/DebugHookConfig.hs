@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.DebugHookConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CollectionConfiguration
 
 -- | Configuration information for the Debugger hook parameters, metric and
@@ -34,16 +33,16 @@ data DebugHookConfig = DebugHookConfig'
   { -- | Configuration information for Debugger tensor collections. To learn more
     -- about how to configure the @CollectionConfiguration@ parameter, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job>.
-    collectionConfigurations :: Prelude.Maybe [CollectionConfiguration],
+    collectionConfigurations :: Core.Maybe [CollectionConfiguration],
     -- | Configuration information for the Debugger hook parameters.
-    hookParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    hookParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Path to local storage location for metrics and tensors. Defaults to
     -- @\/opt\/ml\/output\/tensors\/@.
-    localPath :: Prelude.Maybe Prelude.Text,
+    localPath :: Core.Maybe Core.Text,
     -- | Path to Amazon S3 storage location for metrics and tensors.
-    s3OutputPath :: Prelude.Text
+    s3OutputPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DebugHookConfig' with all optional fields omitted.
@@ -65,66 +64,62 @@ data DebugHookConfig = DebugHookConfig'
 -- 's3OutputPath', 'debugHookConfig_s3OutputPath' - Path to Amazon S3 storage location for metrics and tensors.
 newDebugHookConfig ::
   -- | 's3OutputPath'
-  Prelude.Text ->
+  Core.Text ->
   DebugHookConfig
 newDebugHookConfig pS3OutputPath_ =
   DebugHookConfig'
     { collectionConfigurations =
-        Prelude.Nothing,
-      hookParameters = Prelude.Nothing,
-      localPath = Prelude.Nothing,
+        Core.Nothing,
+      hookParameters = Core.Nothing,
+      localPath = Core.Nothing,
       s3OutputPath = pS3OutputPath_
     }
 
 -- | Configuration information for Debugger tensor collections. To learn more
 -- about how to configure the @CollectionConfiguration@ parameter, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job>.
-debugHookConfig_collectionConfigurations :: Lens.Lens' DebugHookConfig (Prelude.Maybe [CollectionConfiguration])
-debugHookConfig_collectionConfigurations = Lens.lens (\DebugHookConfig' {collectionConfigurations} -> collectionConfigurations) (\s@DebugHookConfig' {} a -> s {collectionConfigurations = a} :: DebugHookConfig) Prelude.. Lens.mapping Prelude._Coerce
+debugHookConfig_collectionConfigurations :: Lens.Lens' DebugHookConfig (Core.Maybe [CollectionConfiguration])
+debugHookConfig_collectionConfigurations = Lens.lens (\DebugHookConfig' {collectionConfigurations} -> collectionConfigurations) (\s@DebugHookConfig' {} a -> s {collectionConfigurations = a} :: DebugHookConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | Configuration information for the Debugger hook parameters.
-debugHookConfig_hookParameters :: Lens.Lens' DebugHookConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-debugHookConfig_hookParameters = Lens.lens (\DebugHookConfig' {hookParameters} -> hookParameters) (\s@DebugHookConfig' {} a -> s {hookParameters = a} :: DebugHookConfig) Prelude.. Lens.mapping Prelude._Coerce
+debugHookConfig_hookParameters :: Lens.Lens' DebugHookConfig (Core.Maybe (Core.HashMap Core.Text Core.Text))
+debugHookConfig_hookParameters = Lens.lens (\DebugHookConfig' {hookParameters} -> hookParameters) (\s@DebugHookConfig' {} a -> s {hookParameters = a} :: DebugHookConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | Path to local storage location for metrics and tensors. Defaults to
 -- @\/opt\/ml\/output\/tensors\/@.
-debugHookConfig_localPath :: Lens.Lens' DebugHookConfig (Prelude.Maybe Prelude.Text)
+debugHookConfig_localPath :: Lens.Lens' DebugHookConfig (Core.Maybe Core.Text)
 debugHookConfig_localPath = Lens.lens (\DebugHookConfig' {localPath} -> localPath) (\s@DebugHookConfig' {} a -> s {localPath = a} :: DebugHookConfig)
 
 -- | Path to Amazon S3 storage location for metrics and tensors.
-debugHookConfig_s3OutputPath :: Lens.Lens' DebugHookConfig Prelude.Text
+debugHookConfig_s3OutputPath :: Lens.Lens' DebugHookConfig Core.Text
 debugHookConfig_s3OutputPath = Lens.lens (\DebugHookConfig' {s3OutputPath} -> s3OutputPath) (\s@DebugHookConfig' {} a -> s {s3OutputPath = a} :: DebugHookConfig)
 
-instance Prelude.FromJSON DebugHookConfig where
+instance Core.FromJSON DebugHookConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DebugHookConfig"
       ( \x ->
           DebugHookConfig'
-            Prelude.<$> ( x Prelude..:? "CollectionConfigurations"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "HookParameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "LocalPath")
-            Prelude.<*> (x Prelude..: "S3OutputPath")
+            Core.<$> ( x Core..:? "CollectionConfigurations"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "HookParameters" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "LocalPath")
+            Core.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable DebugHookConfig
+instance Core.Hashable DebugHookConfig
 
-instance Prelude.NFData DebugHookConfig
+instance Core.NFData DebugHookConfig
 
-instance Prelude.ToJSON DebugHookConfig where
+instance Core.ToJSON DebugHookConfig where
   toJSON DebugHookConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CollectionConfigurations" Prelude..=)
-              Prelude.<$> collectionConfigurations,
-            ("HookParameters" Prelude..=)
-              Prelude.<$> hookParameters,
-            ("LocalPath" Prelude..=) Prelude.<$> localPath,
-            Prelude.Just
-              ("S3OutputPath" Prelude..= s3OutputPath)
+    Core.object
+      ( Core.catMaybes
+          [ ("CollectionConfigurations" Core..=)
+              Core.<$> collectionConfigurations,
+            ("HookParameters" Core..=) Core.<$> hookParameters,
+            ("LocalPath" Core..=) Core.<$> localPath,
+            Core.Just ("S3OutputPath" Core..= s3OutputPath)
           ]
       )

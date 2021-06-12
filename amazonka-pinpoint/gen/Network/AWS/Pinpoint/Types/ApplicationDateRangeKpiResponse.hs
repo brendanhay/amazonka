@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.ApplicationDateRangeKpiResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.BaseKpiResult
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the results of a query that retrieved the data for a standard
 -- metric that applies to an application, and provides information about
@@ -34,7 +33,7 @@ data ApplicationDateRangeKpiResponse = ApplicationDateRangeKpiResponse'
     -- results in a paginated response. This value is null for the Application
     -- Metrics resource because the resource returns all results in a single
     -- page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of objects that contains the results of the query. Each object
     -- contains the value for the metric and metadata about that value.
     kpiResult :: BaseKpiResult,
@@ -44,17 +43,17 @@ data ApplicationDateRangeKpiResponse = ApplicationDateRangeKpiResponse'
     -- of lowercase alphanumeric characters, separated by a hyphen. For a list
     -- of possible values, see the
     -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-    kpiName :: Prelude.Text,
+    kpiName :: Core.Text,
     -- | The last date and time of the date range that was used to filter the
     -- query results, in extended ISO 8601 format. The date range is inclusive.
-    endTime :: Prelude.POSIX,
+    endTime :: Core.POSIX,
     -- | The first date and time of the date range that was used to filter the
     -- query results, in extended ISO 8601 format. The date range is inclusive.
-    startTime :: Prelude.POSIX,
+    startTime :: Core.POSIX,
     -- | The unique identifier for the application that the metric applies to.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplicationDateRangeKpiResponse' with all optional fields omitted.
@@ -90,13 +89,13 @@ newApplicationDateRangeKpiResponse ::
   -- | 'kpiResult'
   BaseKpiResult ->
   -- | 'kpiName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'endTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'startTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   ApplicationDateRangeKpiResponse
 newApplicationDateRangeKpiResponse
   pKpiResult_
@@ -106,12 +105,11 @@ newApplicationDateRangeKpiResponse
   pApplicationId_ =
     ApplicationDateRangeKpiResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         kpiResult = pKpiResult_,
         kpiName = pKpiName_,
-        endTime = Prelude._Time Lens.# pEndTime_,
-        startTime =
-          Prelude._Time Lens.# pStartTime_,
+        endTime = Core._Time Lens.# pEndTime_,
+        startTime = Core._Time Lens.# pStartTime_,
         applicationId = pApplicationId_
       }
 
@@ -119,7 +117,7 @@ newApplicationDateRangeKpiResponse
 -- results in a paginated response. This value is null for the Application
 -- Metrics resource because the resource returns all results in a single
 -- page.
-applicationDateRangeKpiResponse_nextToken :: Lens.Lens' ApplicationDateRangeKpiResponse (Prelude.Maybe Prelude.Text)
+applicationDateRangeKpiResponse_nextToken :: Lens.Lens' ApplicationDateRangeKpiResponse (Core.Maybe Core.Text)
 applicationDateRangeKpiResponse_nextToken = Lens.lens (\ApplicationDateRangeKpiResponse' {nextToken} -> nextToken) (\s@ApplicationDateRangeKpiResponse' {} a -> s {nextToken = a} :: ApplicationDateRangeKpiResponse)
 
 -- | An array of objects that contains the results of the query. Each object
@@ -133,44 +131,42 @@ applicationDateRangeKpiResponse_kpiResult = Lens.lens (\ApplicationDateRangeKpiR
 -- of lowercase alphanumeric characters, separated by a hyphen. For a list
 -- of possible values, see the
 -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-applicationDateRangeKpiResponse_kpiName :: Lens.Lens' ApplicationDateRangeKpiResponse Prelude.Text
+applicationDateRangeKpiResponse_kpiName :: Lens.Lens' ApplicationDateRangeKpiResponse Core.Text
 applicationDateRangeKpiResponse_kpiName = Lens.lens (\ApplicationDateRangeKpiResponse' {kpiName} -> kpiName) (\s@ApplicationDateRangeKpiResponse' {} a -> s {kpiName = a} :: ApplicationDateRangeKpiResponse)
 
 -- | The last date and time of the date range that was used to filter the
 -- query results, in extended ISO 8601 format. The date range is inclusive.
-applicationDateRangeKpiResponse_endTime :: Lens.Lens' ApplicationDateRangeKpiResponse Prelude.UTCTime
-applicationDateRangeKpiResponse_endTime = Lens.lens (\ApplicationDateRangeKpiResponse' {endTime} -> endTime) (\s@ApplicationDateRangeKpiResponse' {} a -> s {endTime = a} :: ApplicationDateRangeKpiResponse) Prelude.. Prelude._Time
+applicationDateRangeKpiResponse_endTime :: Lens.Lens' ApplicationDateRangeKpiResponse Core.UTCTime
+applicationDateRangeKpiResponse_endTime = Lens.lens (\ApplicationDateRangeKpiResponse' {endTime} -> endTime) (\s@ApplicationDateRangeKpiResponse' {} a -> s {endTime = a} :: ApplicationDateRangeKpiResponse) Core.. Core._Time
 
 -- | The first date and time of the date range that was used to filter the
 -- query results, in extended ISO 8601 format. The date range is inclusive.
-applicationDateRangeKpiResponse_startTime :: Lens.Lens' ApplicationDateRangeKpiResponse Prelude.UTCTime
-applicationDateRangeKpiResponse_startTime = Lens.lens (\ApplicationDateRangeKpiResponse' {startTime} -> startTime) (\s@ApplicationDateRangeKpiResponse' {} a -> s {startTime = a} :: ApplicationDateRangeKpiResponse) Prelude.. Prelude._Time
+applicationDateRangeKpiResponse_startTime :: Lens.Lens' ApplicationDateRangeKpiResponse Core.UTCTime
+applicationDateRangeKpiResponse_startTime = Lens.lens (\ApplicationDateRangeKpiResponse' {startTime} -> startTime) (\s@ApplicationDateRangeKpiResponse' {} a -> s {startTime = a} :: ApplicationDateRangeKpiResponse) Core.. Core._Time
 
 -- | The unique identifier for the application that the metric applies to.
-applicationDateRangeKpiResponse_applicationId :: Lens.Lens' ApplicationDateRangeKpiResponse Prelude.Text
+applicationDateRangeKpiResponse_applicationId :: Lens.Lens' ApplicationDateRangeKpiResponse Core.Text
 applicationDateRangeKpiResponse_applicationId = Lens.lens (\ApplicationDateRangeKpiResponse' {applicationId} -> applicationId) (\s@ApplicationDateRangeKpiResponse' {} a -> s {applicationId = a} :: ApplicationDateRangeKpiResponse)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ApplicationDateRangeKpiResponse
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ApplicationDateRangeKpiResponse"
       ( \x ->
           ApplicationDateRangeKpiResponse'
-            Prelude.<$> (x Prelude..:? "NextToken")
-            Prelude.<*> (x Prelude..: "KpiResult")
-            Prelude.<*> (x Prelude..: "KpiName")
-            Prelude.<*> (x Prelude..: "EndTime")
-            Prelude.<*> (x Prelude..: "StartTime")
-            Prelude.<*> (x Prelude..: "ApplicationId")
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..: "KpiResult")
+            Core.<*> (x Core..: "KpiName")
+            Core.<*> (x Core..: "EndTime")
+            Core.<*> (x Core..: "StartTime")
+            Core.<*> (x Core..: "ApplicationId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ApplicationDateRangeKpiResponse
 
-instance
-  Prelude.NFData
-    ApplicationDateRangeKpiResponse
+instance Core.NFData ApplicationDateRangeKpiResponse

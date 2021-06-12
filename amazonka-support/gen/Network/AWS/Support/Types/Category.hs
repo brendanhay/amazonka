@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Support.Types.Category where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A JSON-formatted name\/value pair that represents the category name and
 -- category code of the problem, selected from the DescribeServices
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCategory' smart constructor.
 data Category = Category'
   { -- | The category code for the support case.
-    code :: Prelude.Maybe Prelude.Text,
+    code :: Core.Maybe Core.Text,
     -- | The category name for the support case.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Category' with all optional fields omitted.
@@ -50,29 +49,25 @@ data Category = Category'
 newCategory ::
   Category
 newCategory =
-  Category'
-    { code = Prelude.Nothing,
-      name = Prelude.Nothing
-    }
+  Category' {code = Core.Nothing, name = Core.Nothing}
 
 -- | The category code for the support case.
-category_code :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
+category_code :: Lens.Lens' Category (Core.Maybe Core.Text)
 category_code = Lens.lens (\Category' {code} -> code) (\s@Category' {} a -> s {code = a} :: Category)
 
 -- | The category name for the support case.
-category_name :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
+category_name :: Lens.Lens' Category (Core.Maybe Core.Text)
 category_name = Lens.lens (\Category' {name} -> name) (\s@Category' {} a -> s {name = a} :: Category)
 
-instance Prelude.FromJSON Category where
+instance Core.FromJSON Category where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Category"
       ( \x ->
           Category'
-            Prelude.<$> (x Prelude..:? "code")
-            Prelude.<*> (x Prelude..:? "name")
+            Core.<$> (x Core..:? "code") Core.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable Category
+instance Core.Hashable Category
 
-instance Prelude.NFData Category
+instance Core.NFData Category

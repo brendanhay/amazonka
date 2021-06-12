@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.LifecycleRuleAndOperator where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tag
 
@@ -32,12 +31,12 @@ import Network.AWS.S3.Types.Tag
 -- /See:/ 'newLifecycleRuleAndOperator' smart constructor.
 data LifecycleRuleAndOperator = LifecycleRuleAndOperator'
   { -- | Prefix identifying one or more objects to which the rule applies.
-    prefix :: Prelude.Maybe Prelude.Text,
+    prefix :: Core.Maybe Core.Text,
     -- | All of these tags must exist in the object\'s tag set in order for the
     -- rule to apply.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LifecycleRuleAndOperator' with all optional fields omitted.
@@ -55,36 +54,35 @@ newLifecycleRuleAndOperator ::
   LifecycleRuleAndOperator
 newLifecycleRuleAndOperator =
   LifecycleRuleAndOperator'
-    { prefix = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { prefix = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | Prefix identifying one or more objects to which the rule applies.
-lifecycleRuleAndOperator_prefix :: Lens.Lens' LifecycleRuleAndOperator (Prelude.Maybe Prelude.Text)
+lifecycleRuleAndOperator_prefix :: Lens.Lens' LifecycleRuleAndOperator (Core.Maybe Core.Text)
 lifecycleRuleAndOperator_prefix = Lens.lens (\LifecycleRuleAndOperator' {prefix} -> prefix) (\s@LifecycleRuleAndOperator' {} a -> s {prefix = a} :: LifecycleRuleAndOperator)
 
 -- | All of these tags must exist in the object\'s tag set in order for the
 -- rule to apply.
-lifecycleRuleAndOperator_tags :: Lens.Lens' LifecycleRuleAndOperator (Prelude.Maybe [Tag])
-lifecycleRuleAndOperator_tags = Lens.lens (\LifecycleRuleAndOperator' {tags} -> tags) (\s@LifecycleRuleAndOperator' {} a -> s {tags = a} :: LifecycleRuleAndOperator) Prelude.. Lens.mapping Prelude._Coerce
+lifecycleRuleAndOperator_tags :: Lens.Lens' LifecycleRuleAndOperator (Core.Maybe [Tag])
+lifecycleRuleAndOperator_tags = Lens.lens (\LifecycleRuleAndOperator' {tags} -> tags) (\s@LifecycleRuleAndOperator' {} a -> s {tags = a} :: LifecycleRuleAndOperator) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML LifecycleRuleAndOperator where
+instance Core.FromXML LifecycleRuleAndOperator where
   parseXML x =
     LifecycleRuleAndOperator'
-      Prelude.<$> (x Prelude..@? "Prefix")
-      Prelude.<*> ( x Prelude..@? "Tag" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "Tag")
-                  )
+      Core.<$> (x Core..@? "Prefix")
+      Core.<*> ( x Core..@? "Tag" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "Tag")
+               )
 
-instance Prelude.Hashable LifecycleRuleAndOperator
+instance Core.Hashable LifecycleRuleAndOperator
 
-instance Prelude.NFData LifecycleRuleAndOperator
+instance Core.NFData LifecycleRuleAndOperator
 
-instance Prelude.ToXML LifecycleRuleAndOperator where
+instance Core.ToXML LifecycleRuleAndOperator where
   toXML LifecycleRuleAndOperator' {..} =
-    Prelude.mconcat
-      [ "Prefix" Prelude.@= prefix,
+    Core.mconcat
+      [ "Prefix" Core.@= prefix,
         "Tag"
-          Prelude.@= Prelude.toXML
-            (Prelude.toXMLList "Tag" Prelude.<$> tags)
+          Core.@= Core.toXML (Core.toXMLList "Tag" Core.<$> tags)
       ]

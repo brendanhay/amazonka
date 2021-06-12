@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.Route53Domains.GetDomainSuggestions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -73,18 +72,18 @@ data GetDomainSuggestions = GetDomainSuggestions'
     -- domains. To determine whether the TLD that you want to use supports
     -- internationalized domain names, see
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>.
-    domainName :: Prelude.Text,
+    domainName :: Core.Text,
     -- | The number of suggested domain names that you want Route 53 to return.
     -- Specify a value between 1 and 50.
-    suggestionCount :: Prelude.Int,
+    suggestionCount :: Core.Int,
     -- | If @OnlyAvailable@ is @true@, Route 53 returns only domain names that
     -- are available. If @OnlyAvailable@ is @false@, Route 53 returns domain
     -- names without checking whether they\'re available to be registered. To
     -- determine whether the domain is available, you can call
     -- @checkDomainAvailability@ for each suggestion.
-    onlyAvailable :: Prelude.Bool
+    onlyAvailable :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDomainSuggestions' with all optional fields omitted.
@@ -127,11 +126,11 @@ data GetDomainSuggestions = GetDomainSuggestions'
 -- @checkDomainAvailability@ for each suggestion.
 newGetDomainSuggestions ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'suggestionCount'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'onlyAvailable'
-  Prelude.Bool ->
+  Core.Bool ->
   GetDomainSuggestions
 newGetDomainSuggestions
   pDomainName_
@@ -165,12 +164,12 @@ newGetDomainSuggestions
 -- domains. To determine whether the TLD that you want to use supports
 -- internationalized domain names, see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>.
-getDomainSuggestions_domainName :: Lens.Lens' GetDomainSuggestions Prelude.Text
+getDomainSuggestions_domainName :: Lens.Lens' GetDomainSuggestions Core.Text
 getDomainSuggestions_domainName = Lens.lens (\GetDomainSuggestions' {domainName} -> domainName) (\s@GetDomainSuggestions' {} a -> s {domainName = a} :: GetDomainSuggestions)
 
 -- | The number of suggested domain names that you want Route 53 to return.
 -- Specify a value between 1 and 50.
-getDomainSuggestions_suggestionCount :: Lens.Lens' GetDomainSuggestions Prelude.Int
+getDomainSuggestions_suggestionCount :: Lens.Lens' GetDomainSuggestions Core.Int
 getDomainSuggestions_suggestionCount = Lens.lens (\GetDomainSuggestions' {suggestionCount} -> suggestionCount) (\s@GetDomainSuggestions' {} a -> s {suggestionCount = a} :: GetDomainSuggestions)
 
 -- | If @OnlyAvailable@ is @true@, Route 53 returns only domain names that
@@ -178,71 +177,66 @@ getDomainSuggestions_suggestionCount = Lens.lens (\GetDomainSuggestions' {sugges
 -- names without checking whether they\'re available to be registered. To
 -- determine whether the domain is available, you can call
 -- @checkDomainAvailability@ for each suggestion.
-getDomainSuggestions_onlyAvailable :: Lens.Lens' GetDomainSuggestions Prelude.Bool
+getDomainSuggestions_onlyAvailable :: Lens.Lens' GetDomainSuggestions Core.Bool
 getDomainSuggestions_onlyAvailable = Lens.lens (\GetDomainSuggestions' {onlyAvailable} -> onlyAvailable) (\s@GetDomainSuggestions' {} a -> s {onlyAvailable = a} :: GetDomainSuggestions)
 
-instance Prelude.AWSRequest GetDomainSuggestions where
+instance Core.AWSRequest GetDomainSuggestions where
   type
-    Rs GetDomainSuggestions =
+    AWSResponse GetDomainSuggestions =
       GetDomainSuggestionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDomainSuggestionsResponse'
-            Prelude.<$> ( x Prelude..?> "SuggestionsList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SuggestionsList" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDomainSuggestions
+instance Core.Hashable GetDomainSuggestions
 
-instance Prelude.NFData GetDomainSuggestions
+instance Core.NFData GetDomainSuggestions
 
-instance Prelude.ToHeaders GetDomainSuggestions where
+instance Core.ToHeaders GetDomainSuggestions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53Domains_v20140515.GetDomainSuggestions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53Domains_v20140515.GetDomainSuggestions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetDomainSuggestions where
+instance Core.ToJSON GetDomainSuggestions where
   toJSON GetDomainSuggestions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DomainName" Prelude..= domainName),
-            Prelude.Just
-              ("SuggestionCount" Prelude..= suggestionCount),
-            Prelude.Just
-              ("OnlyAvailable" Prelude..= onlyAvailable)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DomainName" Core..= domainName),
+            Core.Just
+              ("SuggestionCount" Core..= suggestionCount),
+            Core.Just ("OnlyAvailable" Core..= onlyAvailable)
           ]
       )
 
-instance Prelude.ToPath GetDomainSuggestions where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetDomainSuggestions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetDomainSuggestions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDomainSuggestions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDomainSuggestionsResponse' smart constructor.
 data GetDomainSuggestionsResponse = GetDomainSuggestionsResponse'
   { -- | A list of possible domain names. If you specified @true@ for
     -- @OnlyAvailable@ in the request, the list contains only domains that are
     -- available for registration.
-    suggestionsList :: Prelude.Maybe [DomainSuggestion],
+    suggestionsList :: Core.Maybe [DomainSuggestion],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDomainSuggestionsResponse' with all optional fields omitted.
@@ -259,23 +253,23 @@ data GetDomainSuggestionsResponse = GetDomainSuggestionsResponse'
 -- 'httpStatus', 'getDomainSuggestionsResponse_httpStatus' - The response's http status code.
 newGetDomainSuggestionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDomainSuggestionsResponse
 newGetDomainSuggestionsResponse pHttpStatus_ =
   GetDomainSuggestionsResponse'
     { suggestionsList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of possible domain names. If you specified @true@ for
 -- @OnlyAvailable@ in the request, the list contains only domains that are
 -- available for registration.
-getDomainSuggestionsResponse_suggestionsList :: Lens.Lens' GetDomainSuggestionsResponse (Prelude.Maybe [DomainSuggestion])
-getDomainSuggestionsResponse_suggestionsList = Lens.lens (\GetDomainSuggestionsResponse' {suggestionsList} -> suggestionsList) (\s@GetDomainSuggestionsResponse' {} a -> s {suggestionsList = a} :: GetDomainSuggestionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getDomainSuggestionsResponse_suggestionsList :: Lens.Lens' GetDomainSuggestionsResponse (Core.Maybe [DomainSuggestion])
+getDomainSuggestionsResponse_suggestionsList = Lens.lens (\GetDomainSuggestionsResponse' {suggestionsList} -> suggestionsList) (\s@GetDomainSuggestionsResponse' {} a -> s {suggestionsList = a} :: GetDomainSuggestionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getDomainSuggestionsResponse_httpStatus :: Lens.Lens' GetDomainSuggestionsResponse Prelude.Int
+getDomainSuggestionsResponse_httpStatus :: Lens.Lens' GetDomainSuggestionsResponse Core.Int
 getDomainSuggestionsResponse_httpStatus = Lens.lens (\GetDomainSuggestionsResponse' {httpStatus} -> httpStatus) (\s@GetDomainSuggestionsResponse' {} a -> s {httpStatus = a} :: GetDomainSuggestionsResponse)
 
-instance Prelude.NFData GetDomainSuggestionsResponse
+instance Core.NFData GetDomainSuggestionsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.Glue.GetTrigger
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetTrigger' smart constructor.
 data GetTrigger = GetTrigger'
   { -- | The name of the trigger to retrieve.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTrigger' with all optional fields omitted.
@@ -64,63 +63,59 @@ data GetTrigger = GetTrigger'
 -- 'name', 'getTrigger_name' - The name of the trigger to retrieve.
 newGetTrigger ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   GetTrigger
 newGetTrigger pName_ = GetTrigger' {name = pName_}
 
 -- | The name of the trigger to retrieve.
-getTrigger_name :: Lens.Lens' GetTrigger Prelude.Text
+getTrigger_name :: Lens.Lens' GetTrigger Core.Text
 getTrigger_name = Lens.lens (\GetTrigger' {name} -> name) (\s@GetTrigger' {} a -> s {name = a} :: GetTrigger)
 
-instance Prelude.AWSRequest GetTrigger where
-  type Rs GetTrigger = GetTriggerResponse
+instance Core.AWSRequest GetTrigger where
+  type AWSResponse GetTrigger = GetTriggerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetTriggerResponse'
-            Prelude.<$> (x Prelude..?> "Trigger")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Trigger")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetTrigger
+instance Core.Hashable GetTrigger
 
-instance Prelude.NFData GetTrigger
+instance Core.NFData GetTrigger
 
-instance Prelude.ToHeaders GetTrigger where
+instance Core.ToHeaders GetTrigger where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.GetTrigger" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.GetTrigger" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetTrigger where
+instance Core.ToJSON GetTrigger where
   toJSON GetTrigger' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath GetTrigger where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetTrigger where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetTrigger where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetTrigger where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetTriggerResponse' smart constructor.
 data GetTriggerResponse = GetTriggerResponse'
   { -- | The requested trigger definition.
-    trigger :: Prelude.Maybe Trigger,
+    trigger :: Core.Maybe Trigger,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTriggerResponse' with all optional fields omitted.
@@ -135,20 +130,20 @@ data GetTriggerResponse = GetTriggerResponse'
 -- 'httpStatus', 'getTriggerResponse_httpStatus' - The response's http status code.
 newGetTriggerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetTriggerResponse
 newGetTriggerResponse pHttpStatus_ =
   GetTriggerResponse'
-    { trigger = Prelude.Nothing,
+    { trigger = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested trigger definition.
-getTriggerResponse_trigger :: Lens.Lens' GetTriggerResponse (Prelude.Maybe Trigger)
+getTriggerResponse_trigger :: Lens.Lens' GetTriggerResponse (Core.Maybe Trigger)
 getTriggerResponse_trigger = Lens.lens (\GetTriggerResponse' {trigger} -> trigger) (\s@GetTriggerResponse' {} a -> s {trigger = a} :: GetTriggerResponse)
 
 -- | The response's http status code.
-getTriggerResponse_httpStatus :: Lens.Lens' GetTriggerResponse Prelude.Int
+getTriggerResponse_httpStatus :: Lens.Lens' GetTriggerResponse Core.Int
 getTriggerResponse_httpStatus = Lens.lens (\GetTriggerResponse' {httpStatus} -> httpStatus) (\s@GetTriggerResponse' {} a -> s {httpStatus = a} :: GetTriggerResponse)
 
-instance Prelude.NFData GetTriggerResponse
+instance Core.NFData GetTriggerResponse

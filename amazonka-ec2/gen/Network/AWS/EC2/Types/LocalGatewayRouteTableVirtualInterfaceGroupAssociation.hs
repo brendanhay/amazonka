@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LocalGatewayRouteTableVirtualInterfaceGroupAssociation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an association between a local gateway route table and a
 -- virtual interface group.
@@ -32,24 +31,24 @@ import qualified Network.AWS.Prelude as Prelude
 data LocalGatewayRouteTableVirtualInterfaceGroupAssociation = LocalGatewayRouteTableVirtualInterfaceGroupAssociation'
   { -- | The AWS account ID that owns the local gateway virtual interface group
     -- association.
-    ownerId :: Prelude.Maybe Prelude.Text,
+    ownerId :: Core.Maybe Core.Text,
     -- | The ID of the virtual interface group.
-    localGatewayVirtualInterfaceGroupId :: Prelude.Maybe Prelude.Text,
+    localGatewayVirtualInterfaceGroupId :: Core.Maybe Core.Text,
     -- | The ID of the local gateway.
-    localGatewayId :: Prelude.Maybe Prelude.Text,
+    localGatewayId :: Core.Maybe Core.Text,
     -- | The ID of the association.
-    localGatewayRouteTableVirtualInterfaceGroupAssociationId :: Prelude.Maybe Prelude.Text,
+    localGatewayRouteTableVirtualInterfaceGroupAssociationId :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the local gateway route table for the
     -- virtual interface group.
-    localGatewayRouteTableArn :: Prelude.Maybe Prelude.Text,
+    localGatewayRouteTableArn :: Core.Maybe Core.Text,
     -- | The state of the association.
-    state :: Prelude.Maybe Prelude.Text,
+    state :: Core.Maybe Core.Text,
     -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Prelude.Maybe Prelude.Text,
+    localGatewayRouteTableId :: Core.Maybe Core.Text,
     -- | The tags assigned to the association.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LocalGatewayRouteTableVirtualInterfaceGroupAssociation' with all optional fields omitted.
@@ -81,80 +80,79 @@ newLocalGatewayRouteTableVirtualInterfaceGroupAssociation ::
 newLocalGatewayRouteTableVirtualInterfaceGroupAssociation =
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation'
     { ownerId =
-        Prelude.Nothing,
+        Core.Nothing,
       localGatewayVirtualInterfaceGroupId =
-        Prelude.Nothing,
+        Core.Nothing,
       localGatewayId =
-        Prelude.Nothing,
+        Core.Nothing,
       localGatewayRouteTableVirtualInterfaceGroupAssociationId =
-        Prelude.Nothing,
+        Core.Nothing,
       localGatewayRouteTableArn =
-        Prelude.Nothing,
+        Core.Nothing,
       state =
-        Prelude.Nothing,
+        Core.Nothing,
       localGatewayRouteTableId =
-        Prelude.Nothing,
-      tags =
-        Prelude.Nothing
+        Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The AWS account ID that owns the local gateway virtual interface group
 -- association.
-localGatewayRouteTableVirtualInterfaceGroupAssociation_ownerId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVirtualInterfaceGroupAssociation_ownerId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVirtualInterfaceGroupAssociation_ownerId = Lens.lens (\LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {ownerId} -> ownerId) (\s@LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {} a -> s {ownerId = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 
 -- | The ID of the virtual interface group.
-localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayVirtualInterfaceGroupId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayVirtualInterfaceGroupId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayVirtualInterfaceGroupId = Lens.lens (\LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {localGatewayVirtualInterfaceGroupId} -> localGatewayVirtualInterfaceGroupId) (\s@LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {} a -> s {localGatewayVirtualInterfaceGroupId = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 
 -- | The ID of the local gateway.
-localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayId = Lens.lens (\LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {localGatewayId} -> localGatewayId) (\s@LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {} a -> s {localGatewayId = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 
 -- | The ID of the association.
-localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableVirtualInterfaceGroupAssociationId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableVirtualInterfaceGroupAssociationId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableVirtualInterfaceGroupAssociationId = Lens.lens (\LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {localGatewayRouteTableVirtualInterfaceGroupAssociationId} -> localGatewayRouteTableVirtualInterfaceGroupAssociationId) (\s@LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {} a -> s {localGatewayRouteTableVirtualInterfaceGroupAssociationId = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 
 -- | The Amazon Resource Name (ARN) of the local gateway route table for the
 -- virtual interface group.
-localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableArn :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableArn :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableArn = Lens.lens (\LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {localGatewayRouteTableArn} -> localGatewayRouteTableArn) (\s@LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {} a -> s {localGatewayRouteTableArn = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 
 -- | The state of the association.
-localGatewayRouteTableVirtualInterfaceGroupAssociation_state :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVirtualInterfaceGroupAssociation_state :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVirtualInterfaceGroupAssociation_state = Lens.lens (\LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {state} -> state) (\s@LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {} a -> s {state = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 
 -- | The ID of the local gateway route table.
-localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Core.Maybe Core.Text)
 localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableId = Lens.lens (\LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {} a -> s {localGatewayRouteTableId = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 
 -- | The tags assigned to the association.
-localGatewayRouteTableVirtualInterfaceGroupAssociation_tags :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Prelude.Maybe [Tag])
-localGatewayRouteTableVirtualInterfaceGroupAssociation_tags = Lens.lens (\LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {tags} -> tags) (\s@LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {} a -> s {tags = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation) Prelude.. Lens.mapping Prelude._Coerce
+localGatewayRouteTableVirtualInterfaceGroupAssociation_tags :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Core.Maybe [Tag])
+localGatewayRouteTableVirtualInterfaceGroupAssociation_tags = Lens.lens (\LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {tags} -> tags) (\s@LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {} a -> s {tags = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation
   where
   parseXML x =
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation'
-      Prelude.<$> (x Prelude..@? "ownerId")
-        Prelude.<*> (x Prelude..@? "localGatewayVirtualInterfaceGroupId")
-        Prelude.<*> (x Prelude..@? "localGatewayId")
-        Prelude.<*> ( x
-                        Prelude..@? "localGatewayRouteTableVirtualInterfaceGroupAssociationId"
-                    )
-        Prelude.<*> (x Prelude..@? "localGatewayRouteTableArn")
-        Prelude.<*> (x Prelude..@? "state")
-        Prelude.<*> (x Prelude..@? "localGatewayRouteTableId")
-        Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                        Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                    )
+      Core.<$> (x Core..@? "ownerId")
+        Core.<*> (x Core..@? "localGatewayVirtualInterfaceGroupId")
+        Core.<*> (x Core..@? "localGatewayId")
+        Core.<*> ( x
+                     Core..@? "localGatewayRouteTableVirtualInterfaceGroupAssociationId"
+                 )
+        Core.<*> (x Core..@? "localGatewayRouteTableArn")
+        Core.<*> (x Core..@? "state")
+        Core.<*> (x Core..@? "localGatewayRouteTableId")
+        Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                     Core.>>= Core.may (Core.parseXMLList "item")
+                 )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation
 
 instance
-  Prelude.NFData
+  Core.NFData
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation

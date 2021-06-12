@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,9 +60,9 @@ module Network.AWS.IAM.SetSecurityTokenServicePreferences
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,7 +79,7 @@ data SetSecurityTokenServicePreferences = SetSecurityTokenServicePreferences'
     -- in the /IAM User Guide/.
     globalEndpointTokenVersion :: GlobalEndpointTokenVersion
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetSecurityTokenServicePreferences' with all optional fields omitted.
@@ -123,11 +122,11 @@ setSecurityTokenServicePreferences_globalEndpointTokenVersion :: Lens.Lens' SetS
 setSecurityTokenServicePreferences_globalEndpointTokenVersion = Lens.lens (\SetSecurityTokenServicePreferences' {globalEndpointTokenVersion} -> globalEndpointTokenVersion) (\s@SetSecurityTokenServicePreferences' {} a -> s {globalEndpointTokenVersion = a} :: SetSecurityTokenServicePreferences)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     SetSecurityTokenServicePreferences
   where
   type
-    Rs SetSecurityTokenServicePreferences =
+    AWSResponse SetSecurityTokenServicePreferences =
       SetSecurityTokenServicePreferencesResponse
   request = Request.postQuery defaultService
   response =
@@ -135,46 +134,45 @@ instance
       SetSecurityTokenServicePreferencesResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     SetSecurityTokenServicePreferences
 
 instance
-  Prelude.NFData
+  Core.NFData
     SetSecurityTokenServicePreferences
 
 instance
-  Prelude.ToHeaders
-    SetSecurityTokenServicePreferences
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     SetSecurityTokenServicePreferences
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    SetSecurityTokenServicePreferences
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     SetSecurityTokenServicePreferences
   where
   toQuery SetSecurityTokenServicePreferences' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "SetSecurityTokenServicePreferences" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+          Core.=: ( "SetSecurityTokenServicePreferences" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
         "GlobalEndpointTokenVersion"
-          Prelude.=: globalEndpointTokenVersion
+          Core.=: globalEndpointTokenVersion
       ]
 
 -- | /See:/ 'newSetSecurityTokenServicePreferencesResponse' smart constructor.
 data SetSecurityTokenServicePreferencesResponse = SetSecurityTokenServicePreferencesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetSecurityTokenServicePreferencesResponse' with all optional fields omitted.
@@ -186,5 +184,5 @@ newSetSecurityTokenServicePreferencesResponse =
   SetSecurityTokenServicePreferencesResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     SetSecurityTokenServicePreferencesResponse

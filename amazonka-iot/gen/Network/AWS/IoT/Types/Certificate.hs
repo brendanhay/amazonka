@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.Certificate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.CertificateMode
 import Network.AWS.IoT.Types.CertificateStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a certificate.
 --
@@ -32,18 +31,18 @@ data Certificate = Certificate'
   { -- | The status of the certificate.
     --
     -- The status value REGISTER_INACTIVE is deprecated and should not be used.
-    status :: Prelude.Maybe CertificateStatus,
+    status :: Core.Maybe CertificateStatus,
     -- | The mode of the certificate.
-    certificateMode :: Prelude.Maybe CertificateMode,
+    certificateMode :: Core.Maybe CertificateMode,
     -- | The ARN of the certificate.
-    certificateArn :: Prelude.Maybe Prelude.Text,
+    certificateArn :: Core.Maybe Core.Text,
     -- | The date and time the certificate was created.
-    creationDate :: Prelude.Maybe Prelude.POSIX,
+    creationDate :: Core.Maybe Core.POSIX,
     -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
-    certificateId :: Prelude.Maybe Prelude.Text
+    certificateId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Certificate' with all optional fields omitted.
@@ -69,49 +68,49 @@ newCertificate ::
   Certificate
 newCertificate =
   Certificate'
-    { status = Prelude.Nothing,
-      certificateMode = Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      certificateId = Prelude.Nothing
+    { status = Core.Nothing,
+      certificateMode = Core.Nothing,
+      certificateArn = Core.Nothing,
+      creationDate = Core.Nothing,
+      certificateId = Core.Nothing
     }
 
 -- | The status of the certificate.
 --
 -- The status value REGISTER_INACTIVE is deprecated and should not be used.
-certificate_status :: Lens.Lens' Certificate (Prelude.Maybe CertificateStatus)
+certificate_status :: Lens.Lens' Certificate (Core.Maybe CertificateStatus)
 certificate_status = Lens.lens (\Certificate' {status} -> status) (\s@Certificate' {} a -> s {status = a} :: Certificate)
 
 -- | The mode of the certificate.
-certificate_certificateMode :: Lens.Lens' Certificate (Prelude.Maybe CertificateMode)
+certificate_certificateMode :: Lens.Lens' Certificate (Core.Maybe CertificateMode)
 certificate_certificateMode = Lens.lens (\Certificate' {certificateMode} -> certificateMode) (\s@Certificate' {} a -> s {certificateMode = a} :: Certificate)
 
 -- | The ARN of the certificate.
-certificate_certificateArn :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
+certificate_certificateArn :: Lens.Lens' Certificate (Core.Maybe Core.Text)
 certificate_certificateArn = Lens.lens (\Certificate' {certificateArn} -> certificateArn) (\s@Certificate' {} a -> s {certificateArn = a} :: Certificate)
 
 -- | The date and time the certificate was created.
-certificate_creationDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_creationDate = Lens.lens (\Certificate' {creationDate} -> creationDate) (\s@Certificate' {} a -> s {creationDate = a} :: Certificate) Prelude.. Lens.mapping Prelude._Time
+certificate_creationDate :: Lens.Lens' Certificate (Core.Maybe Core.UTCTime)
+certificate_creationDate = Lens.lens (\Certificate' {creationDate} -> creationDate) (\s@Certificate' {} a -> s {creationDate = a} :: Certificate) Core.. Lens.mapping Core._Time
 
 -- | The ID of the certificate. (The last part of the certificate ARN
 -- contains the certificate ID.)
-certificate_certificateId :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
+certificate_certificateId :: Lens.Lens' Certificate (Core.Maybe Core.Text)
 certificate_certificateId = Lens.lens (\Certificate' {certificateId} -> certificateId) (\s@Certificate' {} a -> s {certificateId = a} :: Certificate)
 
-instance Prelude.FromJSON Certificate where
+instance Core.FromJSON Certificate where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Certificate"
       ( \x ->
           Certificate'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "certificateMode")
-            Prelude.<*> (x Prelude..:? "certificateArn")
-            Prelude.<*> (x Prelude..:? "creationDate")
-            Prelude.<*> (x Prelude..:? "certificateId")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "certificateMode")
+            Core.<*> (x Core..:? "certificateArn")
+            Core.<*> (x Core..:? "creationDate")
+            Core.<*> (x Core..:? "certificateId")
       )
 
-instance Prelude.Hashable Certificate
+instance Core.Hashable Certificate
 
-instance Prelude.NFData Certificate
+instance Core.NFData Certificate

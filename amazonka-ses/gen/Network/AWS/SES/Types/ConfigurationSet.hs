@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.ConfigurationSet where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The name of the configuration set.
 --
@@ -41,9 +40,9 @@ data ConfigurationSet = ConfigurationSet'
     --     dashes (-).
     --
     -- -   Contain 64 characters or fewer.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfigurationSet' with all optional fields omitted.
@@ -62,7 +61,7 @@ data ConfigurationSet = ConfigurationSet'
 -- -   Contain 64 characters or fewer.
 newConfigurationSet ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   ConfigurationSet
 newConfigurationSet pName_ =
   ConfigurationSet' {name = pName_}
@@ -74,17 +73,17 @@ newConfigurationSet pName_ =
 --     dashes (-).
 --
 -- -   Contain 64 characters or fewer.
-configurationSet_name :: Lens.Lens' ConfigurationSet Prelude.Text
+configurationSet_name :: Lens.Lens' ConfigurationSet Core.Text
 configurationSet_name = Lens.lens (\ConfigurationSet' {name} -> name) (\s@ConfigurationSet' {} a -> s {name = a} :: ConfigurationSet)
 
-instance Prelude.FromXML ConfigurationSet where
+instance Core.FromXML ConfigurationSet where
   parseXML x =
-    ConfigurationSet' Prelude.<$> (x Prelude..@ "Name")
+    ConfigurationSet' Core.<$> (x Core..@ "Name")
 
-instance Prelude.Hashable ConfigurationSet
+instance Core.Hashable ConfigurationSet
 
-instance Prelude.NFData ConfigurationSet
+instance Core.NFData ConfigurationSet
 
-instance Prelude.ToQuery ConfigurationSet where
+instance Core.ToQuery ConfigurationSet where
   toQuery ConfigurationSet' {..} =
-    Prelude.mconcat ["Name" Prelude.=: name]
+    Core.mconcat ["Name" Core.=: name]

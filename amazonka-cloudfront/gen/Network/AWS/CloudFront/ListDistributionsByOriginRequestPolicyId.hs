@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,26 +50,26 @@ module Network.AWS.CloudFront.ListDistributionsByOriginRequestPolicyId
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDistributionsByOriginRequestPolicyId' smart constructor.
 data ListDistributionsByOriginRequestPolicyId = ListDistributionsByOriginRequestPolicyId'
   { -- | The maximum number of distribution IDs that you want in the response.
-    maxItems :: Prelude.Maybe Prelude.Text,
+    maxItems :: Core.Maybe Core.Text,
     -- | Use this field when paginating results to indicate where to begin in
     -- your list of distribution IDs. The response includes distribution IDs in
     -- the list that occur after the marker. To get the next page of the list,
     -- set this field’s value to the value of @NextMarker@ from the current
     -- page’s response.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The ID of the origin request policy whose associated distribution IDs
     -- you want to list.
-    originRequestPolicyId :: Prelude.Text
+    originRequestPolicyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDistributionsByOriginRequestPolicyId' with all optional fields omitted.
@@ -92,20 +91,20 @@ data ListDistributionsByOriginRequestPolicyId = ListDistributionsByOriginRequest
 -- you want to list.
 newListDistributionsByOriginRequestPolicyId ::
   -- | 'originRequestPolicyId'
-  Prelude.Text ->
+  Core.Text ->
   ListDistributionsByOriginRequestPolicyId
 newListDistributionsByOriginRequestPolicyId
   pOriginRequestPolicyId_ =
     ListDistributionsByOriginRequestPolicyId'
       { maxItems =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+          Core.Nothing,
+        marker = Core.Nothing,
         originRequestPolicyId =
           pOriginRequestPolicyId_
       }
 
 -- | The maximum number of distribution IDs that you want in the response.
-listDistributionsByOriginRequestPolicyId_maxItems :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Prelude.Maybe Prelude.Text)
+listDistributionsByOriginRequestPolicyId_maxItems :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Core.Maybe Core.Text)
 listDistributionsByOriginRequestPolicyId_maxItems = Lens.lens (\ListDistributionsByOriginRequestPolicyId' {maxItems} -> maxItems) (\s@ListDistributionsByOriginRequestPolicyId' {} a -> s {maxItems = a} :: ListDistributionsByOriginRequestPolicyId)
 
 -- | Use this field when paginating results to indicate where to begin in
@@ -113,72 +112,73 @@ listDistributionsByOriginRequestPolicyId_maxItems = Lens.lens (\ListDistribution
 -- the list that occur after the marker. To get the next page of the list,
 -- set this field’s value to the value of @NextMarker@ from the current
 -- page’s response.
-listDistributionsByOriginRequestPolicyId_marker :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Prelude.Maybe Prelude.Text)
+listDistributionsByOriginRequestPolicyId_marker :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Core.Maybe Core.Text)
 listDistributionsByOriginRequestPolicyId_marker = Lens.lens (\ListDistributionsByOriginRequestPolicyId' {marker} -> marker) (\s@ListDistributionsByOriginRequestPolicyId' {} a -> s {marker = a} :: ListDistributionsByOriginRequestPolicyId)
 
 -- | The ID of the origin request policy whose associated distribution IDs
 -- you want to list.
-listDistributionsByOriginRequestPolicyId_originRequestPolicyId :: Lens.Lens' ListDistributionsByOriginRequestPolicyId Prelude.Text
+listDistributionsByOriginRequestPolicyId_originRequestPolicyId :: Lens.Lens' ListDistributionsByOriginRequestPolicyId Core.Text
 listDistributionsByOriginRequestPolicyId_originRequestPolicyId = Lens.lens (\ListDistributionsByOriginRequestPolicyId' {originRequestPolicyId} -> originRequestPolicyId) (\s@ListDistributionsByOriginRequestPolicyId' {} a -> s {originRequestPolicyId = a} :: ListDistributionsByOriginRequestPolicyId)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListDistributionsByOriginRequestPolicyId
   where
   type
-    Rs ListDistributionsByOriginRequestPolicyId =
+    AWSResponse
+      ListDistributionsByOriginRequestPolicyId =
       ListDistributionsByOriginRequestPolicyIdResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListDistributionsByOriginRequestPolicyIdResponse'
-            Prelude.<$> (Prelude.parseXML x)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListDistributionsByOriginRequestPolicyId
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListDistributionsByOriginRequestPolicyId
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListDistributionsByOriginRequestPolicyId
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     ListDistributionsByOriginRequestPolicyId
   where
   toPath ListDistributionsByOriginRequestPolicyId' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2020-05-31/distributionsByOriginRequestPolicyId/",
-        Prelude.toBS originRequestPolicyId
+        Core.toBS originRequestPolicyId
       ]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ListDistributionsByOriginRequestPolicyId
   where
   toQuery ListDistributionsByOriginRequestPolicyId' {..} =
-    Prelude.mconcat
-      [ "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+    Core.mconcat
+      [ "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newListDistributionsByOriginRequestPolicyIdResponse' smart constructor.
 data ListDistributionsByOriginRequestPolicyIdResponse = ListDistributionsByOriginRequestPolicyIdResponse'
   { -- | A list of distribution IDs.
-    distributionIdList :: Prelude.Maybe DistributionIdList,
+    distributionIdList :: Core.Maybe DistributionIdList,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDistributionsByOriginRequestPolicyIdResponse' with all optional fields omitted.
@@ -193,24 +193,24 @@ data ListDistributionsByOriginRequestPolicyIdResponse = ListDistributionsByOrigi
 -- 'httpStatus', 'listDistributionsByOriginRequestPolicyIdResponse_httpStatus' - The response's http status code.
 newListDistributionsByOriginRequestPolicyIdResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDistributionsByOriginRequestPolicyIdResponse
 newListDistributionsByOriginRequestPolicyIdResponse
   pHttpStatus_ =
     ListDistributionsByOriginRequestPolicyIdResponse'
       { distributionIdList =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A list of distribution IDs.
-listDistributionsByOriginRequestPolicyIdResponse_distributionIdList :: Lens.Lens' ListDistributionsByOriginRequestPolicyIdResponse (Prelude.Maybe DistributionIdList)
+listDistributionsByOriginRequestPolicyIdResponse_distributionIdList :: Lens.Lens' ListDistributionsByOriginRequestPolicyIdResponse (Core.Maybe DistributionIdList)
 listDistributionsByOriginRequestPolicyIdResponse_distributionIdList = Lens.lens (\ListDistributionsByOriginRequestPolicyIdResponse' {distributionIdList} -> distributionIdList) (\s@ListDistributionsByOriginRequestPolicyIdResponse' {} a -> s {distributionIdList = a} :: ListDistributionsByOriginRequestPolicyIdResponse)
 
 -- | The response's http status code.
-listDistributionsByOriginRequestPolicyIdResponse_httpStatus :: Lens.Lens' ListDistributionsByOriginRequestPolicyIdResponse Prelude.Int
+listDistributionsByOriginRequestPolicyIdResponse_httpStatus :: Lens.Lens' ListDistributionsByOriginRequestPolicyIdResponse Core.Int
 listDistributionsByOriginRequestPolicyIdResponse_httpStatus = Lens.lens (\ListDistributionsByOriginRequestPolicyIdResponse' {httpStatus} -> httpStatus) (\s@ListDistributionsByOriginRequestPolicyIdResponse' {} a -> s {httpStatus = a} :: ListDistributionsByOriginRequestPolicyIdResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListDistributionsByOriginRequestPolicyIdResponse

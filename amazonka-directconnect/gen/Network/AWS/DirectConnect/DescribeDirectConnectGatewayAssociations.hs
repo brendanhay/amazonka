@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -73,34 +72,33 @@ module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeDirectConnectGatewayAssociations' smart constructor.
 data DescribeDirectConnectGatewayAssociations = DescribeDirectConnectGatewayAssociations'
   { -- | The token provided in the previous call to retrieve the next page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The ID of the virtual private gateway or transit gateway.
-    virtualGatewayId :: Prelude.Maybe Prelude.Text,
+    virtualGatewayId :: Core.Maybe Core.Text,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     --
     -- If @MaxResults@ is given a value larger than 100, only 100 results are
     -- returned.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The ID of the associated gateway.
-    associatedGatewayId :: Prelude.Maybe Prelude.Text,
+    associatedGatewayId :: Core.Maybe Core.Text,
     -- | The ID of the Direct Connect gateway association.
-    associationId :: Prelude.Maybe Prelude.Text,
+    associationId :: Core.Maybe Core.Text,
     -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Prelude.Maybe Prelude.Text
+    directConnectGatewayId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDirectConnectGatewayAssociations' with all optional fields omitted.
@@ -131,23 +129,22 @@ newDescribeDirectConnectGatewayAssociations ::
 newDescribeDirectConnectGatewayAssociations =
   DescribeDirectConnectGatewayAssociations'
     { nextToken =
-        Prelude.Nothing,
-      virtualGatewayId =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+        Core.Nothing,
+      virtualGatewayId = Core.Nothing,
+      maxResults = Core.Nothing,
       associatedGatewayId =
-        Prelude.Nothing,
-      associationId = Prelude.Nothing,
+        Core.Nothing,
+      associationId = Core.Nothing,
       directConnectGatewayId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The token provided in the previous call to retrieve the next page.
-describeDirectConnectGatewayAssociations_nextToken :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Prelude.Maybe Prelude.Text)
+describeDirectConnectGatewayAssociations_nextToken :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Core.Maybe Core.Text)
 describeDirectConnectGatewayAssociations_nextToken = Lens.lens (\DescribeDirectConnectGatewayAssociations' {nextToken} -> nextToken) (\s@DescribeDirectConnectGatewayAssociations' {} a -> s {nextToken = a} :: DescribeDirectConnectGatewayAssociations)
 
 -- | The ID of the virtual private gateway or transit gateway.
-describeDirectConnectGatewayAssociations_virtualGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Prelude.Maybe Prelude.Text)
+describeDirectConnectGatewayAssociations_virtualGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Core.Maybe Core.Text)
 describeDirectConnectGatewayAssociations_virtualGatewayId = Lens.lens (\DescribeDirectConnectGatewayAssociations' {virtualGatewayId} -> virtualGatewayId) (\s@DescribeDirectConnectGatewayAssociations' {} a -> s {virtualGatewayId = a} :: DescribeDirectConnectGatewayAssociations)
 
 -- | The maximum number of results to return with a single call. To retrieve
@@ -156,133 +153,131 @@ describeDirectConnectGatewayAssociations_virtualGatewayId = Lens.lens (\Describe
 --
 -- If @MaxResults@ is given a value larger than 100, only 100 results are
 -- returned.
-describeDirectConnectGatewayAssociations_maxResults :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Prelude.Maybe Prelude.Int)
+describeDirectConnectGatewayAssociations_maxResults :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Core.Maybe Core.Int)
 describeDirectConnectGatewayAssociations_maxResults = Lens.lens (\DescribeDirectConnectGatewayAssociations' {maxResults} -> maxResults) (\s@DescribeDirectConnectGatewayAssociations' {} a -> s {maxResults = a} :: DescribeDirectConnectGatewayAssociations)
 
 -- | The ID of the associated gateway.
-describeDirectConnectGatewayAssociations_associatedGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Prelude.Maybe Prelude.Text)
+describeDirectConnectGatewayAssociations_associatedGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Core.Maybe Core.Text)
 describeDirectConnectGatewayAssociations_associatedGatewayId = Lens.lens (\DescribeDirectConnectGatewayAssociations' {associatedGatewayId} -> associatedGatewayId) (\s@DescribeDirectConnectGatewayAssociations' {} a -> s {associatedGatewayId = a} :: DescribeDirectConnectGatewayAssociations)
 
 -- | The ID of the Direct Connect gateway association.
-describeDirectConnectGatewayAssociations_associationId :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Prelude.Maybe Prelude.Text)
+describeDirectConnectGatewayAssociations_associationId :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Core.Maybe Core.Text)
 describeDirectConnectGatewayAssociations_associationId = Lens.lens (\DescribeDirectConnectGatewayAssociations' {associationId} -> associationId) (\s@DescribeDirectConnectGatewayAssociations' {} a -> s {associationId = a} :: DescribeDirectConnectGatewayAssociations)
 
 -- | The ID of the Direct Connect gateway.
-describeDirectConnectGatewayAssociations_directConnectGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Prelude.Maybe Prelude.Text)
+describeDirectConnectGatewayAssociations_directConnectGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAssociations (Core.Maybe Core.Text)
 describeDirectConnectGatewayAssociations_directConnectGatewayId = Lens.lens (\DescribeDirectConnectGatewayAssociations' {directConnectGatewayId} -> directConnectGatewayId) (\s@DescribeDirectConnectGatewayAssociations' {} a -> s {directConnectGatewayId = a} :: DescribeDirectConnectGatewayAssociations)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeDirectConnectGatewayAssociations
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeDirectConnectGatewayAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeDirectConnectGatewayAssociationsResponse_directConnectGatewayAssociations
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeDirectConnectGatewayAssociations_nextToken
           Lens..~ rs
             Lens.^? describeDirectConnectGatewayAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeDirectConnectGatewayAssociations
   where
   type
-    Rs DescribeDirectConnectGatewayAssociations =
+    AWSResponse
+      DescribeDirectConnectGatewayAssociations =
       DescribeDirectConnectGatewayAssociationsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeDirectConnectGatewayAssociationsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-              Prelude.<*> ( x Prelude..?> "directConnectGatewayAssociations"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+              Core.<*> ( x Core..?> "directConnectGatewayAssociations"
+                           Core..!@ Core.mempty
+                       )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeDirectConnectGatewayAssociations
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeDirectConnectGatewayAssociations
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeDirectConnectGatewayAssociations
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.DescribeDirectConnectGatewayAssociations" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.DescribeDirectConnectGatewayAssociations" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeDirectConnectGatewayAssociations
   where
   toJSON DescribeDirectConnectGatewayAssociations' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("virtualGatewayId" Prelude..=)
-              Prelude.<$> virtualGatewayId,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("associatedGatewayId" Prelude..=)
-              Prelude.<$> associatedGatewayId,
-            ("associationId" Prelude..=)
-              Prelude.<$> associationId,
-            ("directConnectGatewayId" Prelude..=)
-              Prelude.<$> directConnectGatewayId
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("virtualGatewayId" Core..=)
+              Core.<$> virtualGatewayId,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("associatedGatewayId" Core..=)
+              Core.<$> associatedGatewayId,
+            ("associationId" Core..=) Core.<$> associationId,
+            ("directConnectGatewayId" Core..=)
+              Core.<$> directConnectGatewayId
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeDirectConnectGatewayAssociations
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeDirectConnectGatewayAssociations
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeDirectConnectGatewayAssociationsResponse' smart constructor.
 data DescribeDirectConnectGatewayAssociationsResponse = DescribeDirectConnectGatewayAssociationsResponse'
   { -- | The token to retrieve the next page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the associations.
-    directConnectGatewayAssociations :: Prelude.Maybe [DirectConnectGatewayAssociation],
+    directConnectGatewayAssociations :: Core.Maybe [DirectConnectGatewayAssociation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDirectConnectGatewayAssociationsResponse' with all optional fields omitted.
@@ -299,30 +294,30 @@ data DescribeDirectConnectGatewayAssociationsResponse = DescribeDirectConnectGat
 -- 'httpStatus', 'describeDirectConnectGatewayAssociationsResponse_httpStatus' - The response's http status code.
 newDescribeDirectConnectGatewayAssociationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeDirectConnectGatewayAssociationsResponse
 newDescribeDirectConnectGatewayAssociationsResponse
   pHttpStatus_ =
     DescribeDirectConnectGatewayAssociationsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         directConnectGatewayAssociations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to retrieve the next page.
-describeDirectConnectGatewayAssociationsResponse_nextToken :: Lens.Lens' DescribeDirectConnectGatewayAssociationsResponse (Prelude.Maybe Prelude.Text)
+describeDirectConnectGatewayAssociationsResponse_nextToken :: Lens.Lens' DescribeDirectConnectGatewayAssociationsResponse (Core.Maybe Core.Text)
 describeDirectConnectGatewayAssociationsResponse_nextToken = Lens.lens (\DescribeDirectConnectGatewayAssociationsResponse' {nextToken} -> nextToken) (\s@DescribeDirectConnectGatewayAssociationsResponse' {} a -> s {nextToken = a} :: DescribeDirectConnectGatewayAssociationsResponse)
 
 -- | Information about the associations.
-describeDirectConnectGatewayAssociationsResponse_directConnectGatewayAssociations :: Lens.Lens' DescribeDirectConnectGatewayAssociationsResponse (Prelude.Maybe [DirectConnectGatewayAssociation])
-describeDirectConnectGatewayAssociationsResponse_directConnectGatewayAssociations = Lens.lens (\DescribeDirectConnectGatewayAssociationsResponse' {directConnectGatewayAssociations} -> directConnectGatewayAssociations) (\s@DescribeDirectConnectGatewayAssociationsResponse' {} a -> s {directConnectGatewayAssociations = a} :: DescribeDirectConnectGatewayAssociationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeDirectConnectGatewayAssociationsResponse_directConnectGatewayAssociations :: Lens.Lens' DescribeDirectConnectGatewayAssociationsResponse (Core.Maybe [DirectConnectGatewayAssociation])
+describeDirectConnectGatewayAssociationsResponse_directConnectGatewayAssociations = Lens.lens (\DescribeDirectConnectGatewayAssociationsResponse' {directConnectGatewayAssociations} -> directConnectGatewayAssociations) (\s@DescribeDirectConnectGatewayAssociationsResponse' {} a -> s {directConnectGatewayAssociations = a} :: DescribeDirectConnectGatewayAssociationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeDirectConnectGatewayAssociationsResponse_httpStatus :: Lens.Lens' DescribeDirectConnectGatewayAssociationsResponse Prelude.Int
+describeDirectConnectGatewayAssociationsResponse_httpStatus :: Lens.Lens' DescribeDirectConnectGatewayAssociationsResponse Core.Int
 describeDirectConnectGatewayAssociationsResponse_httpStatus = Lens.lens (\DescribeDirectConnectGatewayAssociationsResponse' {httpStatus} -> httpStatus) (\s@DescribeDirectConnectGatewayAssociationsResponse' {} a -> s {httpStatus = a} :: DescribeDirectConnectGatewayAssociationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeDirectConnectGatewayAssociationsResponse

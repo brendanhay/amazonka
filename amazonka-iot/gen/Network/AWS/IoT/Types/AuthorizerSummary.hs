@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AuthorizerSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The authorizer summary.
 --
 -- /See:/ 'newAuthorizerSummary' smart constructor.
 data AuthorizerSummary = AuthorizerSummary'
   { -- | The authorizer ARN.
-    authorizerArn :: Prelude.Maybe Prelude.Text,
+    authorizerArn :: Core.Maybe Core.Text,
     -- | The authorizer name.
-    authorizerName :: Prelude.Maybe Prelude.Text
+    authorizerName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AuthorizerSummary' with all optional fields omitted.
@@ -49,28 +48,28 @@ newAuthorizerSummary ::
   AuthorizerSummary
 newAuthorizerSummary =
   AuthorizerSummary'
-    { authorizerArn = Prelude.Nothing,
-      authorizerName = Prelude.Nothing
+    { authorizerArn = Core.Nothing,
+      authorizerName = Core.Nothing
     }
 
 -- | The authorizer ARN.
-authorizerSummary_authorizerArn :: Lens.Lens' AuthorizerSummary (Prelude.Maybe Prelude.Text)
+authorizerSummary_authorizerArn :: Lens.Lens' AuthorizerSummary (Core.Maybe Core.Text)
 authorizerSummary_authorizerArn = Lens.lens (\AuthorizerSummary' {authorizerArn} -> authorizerArn) (\s@AuthorizerSummary' {} a -> s {authorizerArn = a} :: AuthorizerSummary)
 
 -- | The authorizer name.
-authorizerSummary_authorizerName :: Lens.Lens' AuthorizerSummary (Prelude.Maybe Prelude.Text)
+authorizerSummary_authorizerName :: Lens.Lens' AuthorizerSummary (Core.Maybe Core.Text)
 authorizerSummary_authorizerName = Lens.lens (\AuthorizerSummary' {authorizerName} -> authorizerName) (\s@AuthorizerSummary' {} a -> s {authorizerName = a} :: AuthorizerSummary)
 
-instance Prelude.FromJSON AuthorizerSummary where
+instance Core.FromJSON AuthorizerSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AuthorizerSummary"
       ( \x ->
           AuthorizerSummary'
-            Prelude.<$> (x Prelude..:? "authorizerArn")
-            Prelude.<*> (x Prelude..:? "authorizerName")
+            Core.<$> (x Core..:? "authorizerArn")
+            Core.<*> (x Core..:? "authorizerName")
       )
 
-instance Prelude.Hashable AuthorizerSummary
+instance Core.Hashable AuthorizerSummary
 
-instance Prelude.NFData AuthorizerSummary
+instance Core.NFData AuthorizerSummary

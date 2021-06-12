@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.RedshiftRetryOptions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configures retry behavior in case Kinesis Data Firehose is unable to
 -- deliver documents to Amazon Redshift.
@@ -34,9 +33,9 @@ data RedshiftRetryOptions = RedshiftRetryOptions'
     -- Data Firehose does not retry if the value of @DurationInSeconds@ is 0
     -- (zero) or if the first delivery attempt takes longer than the current
     -- value.
-    durationInSeconds :: Prelude.Maybe Prelude.Natural
+    durationInSeconds :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RedshiftRetryOptions' with all optional fields omitted.
@@ -57,7 +56,7 @@ newRedshiftRetryOptions ::
 newRedshiftRetryOptions =
   RedshiftRetryOptions'
     { durationInSeconds =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The length of time during which Kinesis Data Firehose retries delivery
@@ -66,27 +65,27 @@ newRedshiftRetryOptions =
 -- Data Firehose does not retry if the value of @DurationInSeconds@ is 0
 -- (zero) or if the first delivery attempt takes longer than the current
 -- value.
-redshiftRetryOptions_durationInSeconds :: Lens.Lens' RedshiftRetryOptions (Prelude.Maybe Prelude.Natural)
+redshiftRetryOptions_durationInSeconds :: Lens.Lens' RedshiftRetryOptions (Core.Maybe Core.Natural)
 redshiftRetryOptions_durationInSeconds = Lens.lens (\RedshiftRetryOptions' {durationInSeconds} -> durationInSeconds) (\s@RedshiftRetryOptions' {} a -> s {durationInSeconds = a} :: RedshiftRetryOptions)
 
-instance Prelude.FromJSON RedshiftRetryOptions where
+instance Core.FromJSON RedshiftRetryOptions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RedshiftRetryOptions"
       ( \x ->
           RedshiftRetryOptions'
-            Prelude.<$> (x Prelude..:? "DurationInSeconds")
+            Core.<$> (x Core..:? "DurationInSeconds")
       )
 
-instance Prelude.Hashable RedshiftRetryOptions
+instance Core.Hashable RedshiftRetryOptions
 
-instance Prelude.NFData RedshiftRetryOptions
+instance Core.NFData RedshiftRetryOptions
 
-instance Prelude.ToJSON RedshiftRetryOptions where
+instance Core.ToJSON RedshiftRetryOptions where
   toJSON RedshiftRetryOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DurationInSeconds" Prelude..=)
-              Prelude.<$> durationInSeconds
+    Core.object
+      ( Core.catMaybes
+          [ ("DurationInSeconds" Core..=)
+              Core.<$> durationInSeconds
           ]
       )

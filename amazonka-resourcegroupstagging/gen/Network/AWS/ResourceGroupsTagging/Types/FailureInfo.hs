@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ResourceGroupsTagging.Types.FailureInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode
 
 -- | Information about the errors that are returned for each failed resource.
@@ -56,16 +55,16 @@ import Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode
 -- /See:/ 'newFailureInfo' smart constructor.
 data FailureInfo = FailureInfo'
   { -- | The HTTP status code of the common error.
-    statusCode :: Prelude.Maybe Prelude.Int,
+    statusCode :: Core.Maybe Core.Int,
     -- | The message of the common error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The code of the common error. Valid values include
     -- @InternalServiceException@, @InvalidParameterException@, and any valid
     -- error code returned by the AWS service that hosts the resource that you
     -- want to tag.
-    errorCode :: Prelude.Maybe ResourceErrorCode
+    errorCode :: Core.Maybe ResourceErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailureInfo' with all optional fields omitted.
@@ -87,37 +86,37 @@ newFailureInfo ::
   FailureInfo
 newFailureInfo =
   FailureInfo'
-    { statusCode = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { statusCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The HTTP status code of the common error.
-failureInfo_statusCode :: Lens.Lens' FailureInfo (Prelude.Maybe Prelude.Int)
+failureInfo_statusCode :: Lens.Lens' FailureInfo (Core.Maybe Core.Int)
 failureInfo_statusCode = Lens.lens (\FailureInfo' {statusCode} -> statusCode) (\s@FailureInfo' {} a -> s {statusCode = a} :: FailureInfo)
 
 -- | The message of the common error.
-failureInfo_errorMessage :: Lens.Lens' FailureInfo (Prelude.Maybe Prelude.Text)
+failureInfo_errorMessage :: Lens.Lens' FailureInfo (Core.Maybe Core.Text)
 failureInfo_errorMessage = Lens.lens (\FailureInfo' {errorMessage} -> errorMessage) (\s@FailureInfo' {} a -> s {errorMessage = a} :: FailureInfo)
 
 -- | The code of the common error. Valid values include
 -- @InternalServiceException@, @InvalidParameterException@, and any valid
 -- error code returned by the AWS service that hosts the resource that you
 -- want to tag.
-failureInfo_errorCode :: Lens.Lens' FailureInfo (Prelude.Maybe ResourceErrorCode)
+failureInfo_errorCode :: Lens.Lens' FailureInfo (Core.Maybe ResourceErrorCode)
 failureInfo_errorCode = Lens.lens (\FailureInfo' {errorCode} -> errorCode) (\s@FailureInfo' {} a -> s {errorCode = a} :: FailureInfo)
 
-instance Prelude.FromJSON FailureInfo where
+instance Core.FromJSON FailureInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FailureInfo"
       ( \x ->
           FailureInfo'
-            Prelude.<$> (x Prelude..:? "StatusCode")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "StatusCode")
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable FailureInfo
+instance Core.Hashable FailureInfo
 
-instance Prelude.NFData FailureInfo
+instance Core.NFData FailureInfo

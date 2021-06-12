@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScalingPlans.Types.MetricDimension where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a dimension for a customized metric.
 --
 -- /See:/ 'newMetricDimension' smart constructor.
 data MetricDimension = MetricDimension'
   { -- | The name of the dimension.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The value of the dimension.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetricDimension' with all optional fields omitted.
@@ -47,40 +46,39 @@ data MetricDimension = MetricDimension'
 -- 'value', 'metricDimension_value' - The value of the dimension.
 newMetricDimension ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   MetricDimension
 newMetricDimension pName_ pValue_ =
   MetricDimension' {name = pName_, value = pValue_}
 
 -- | The name of the dimension.
-metricDimension_name :: Lens.Lens' MetricDimension Prelude.Text
+metricDimension_name :: Lens.Lens' MetricDimension Core.Text
 metricDimension_name = Lens.lens (\MetricDimension' {name} -> name) (\s@MetricDimension' {} a -> s {name = a} :: MetricDimension)
 
 -- | The value of the dimension.
-metricDimension_value :: Lens.Lens' MetricDimension Prelude.Text
+metricDimension_value :: Lens.Lens' MetricDimension Core.Text
 metricDimension_value = Lens.lens (\MetricDimension' {value} -> value) (\s@MetricDimension' {} a -> s {value = a} :: MetricDimension)
 
-instance Prelude.FromJSON MetricDimension where
+instance Core.FromJSON MetricDimension where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MetricDimension"
       ( \x ->
           MetricDimension'
-            Prelude.<$> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "Name") Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable MetricDimension
+instance Core.Hashable MetricDimension
 
-instance Prelude.NFData MetricDimension
+instance Core.NFData MetricDimension
 
-instance Prelude.ToJSON MetricDimension where
+instance Core.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Value" Core..= value)
           ]
       )

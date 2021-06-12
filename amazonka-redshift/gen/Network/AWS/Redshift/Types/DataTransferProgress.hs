@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.DataTransferProgress where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes the status of a cluster while it is in the process of resizing
@@ -31,21 +30,21 @@ import Network.AWS.Redshift.Internal
 data DataTransferProgress = DataTransferProgress'
   { -- | Describes the status of the cluster. While the transfer is in progress
     -- the status is @transferringdata@.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | Describes the estimated number of seconds remaining to complete the
     -- transfer.
-    estimatedTimeToCompletionInSeconds :: Prelude.Maybe Prelude.Integer,
+    estimatedTimeToCompletionInSeconds :: Core.Maybe Core.Integer,
     -- | Describes the total amount of data that has been transfered in MB\'s.
-    dataTransferredInMegaBytes :: Prelude.Maybe Prelude.Integer,
+    dataTransferredInMegaBytes :: Core.Maybe Core.Integer,
     -- | Describes the data transfer rate in MB\'s per second.
-    currentRateInMegaBytesPerSecond :: Prelude.Maybe Prelude.Double,
+    currentRateInMegaBytesPerSecond :: Core.Maybe Core.Double,
     -- | Describes the number of seconds that have elapsed during the data
     -- transfer.
-    elapsedTimeInSeconds :: Prelude.Maybe Prelude.Integer,
+    elapsedTimeInSeconds :: Core.Maybe Core.Integer,
     -- | Describes the total amount of data to be transfered in megabytes.
-    totalDataInMegaBytes :: Prelude.Maybe Prelude.Integer
+    totalDataInMegaBytes :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DataTransferProgress' with all optional fields omitted.
@@ -73,51 +72,51 @@ newDataTransferProgress ::
   DataTransferProgress
 newDataTransferProgress =
   DataTransferProgress'
-    { status = Prelude.Nothing,
-      estimatedTimeToCompletionInSeconds = Prelude.Nothing,
-      dataTransferredInMegaBytes = Prelude.Nothing,
-      currentRateInMegaBytesPerSecond = Prelude.Nothing,
-      elapsedTimeInSeconds = Prelude.Nothing,
-      totalDataInMegaBytes = Prelude.Nothing
+    { status = Core.Nothing,
+      estimatedTimeToCompletionInSeconds = Core.Nothing,
+      dataTransferredInMegaBytes = Core.Nothing,
+      currentRateInMegaBytesPerSecond = Core.Nothing,
+      elapsedTimeInSeconds = Core.Nothing,
+      totalDataInMegaBytes = Core.Nothing
     }
 
 -- | Describes the status of the cluster. While the transfer is in progress
 -- the status is @transferringdata@.
-dataTransferProgress_status :: Lens.Lens' DataTransferProgress (Prelude.Maybe Prelude.Text)
+dataTransferProgress_status :: Lens.Lens' DataTransferProgress (Core.Maybe Core.Text)
 dataTransferProgress_status = Lens.lens (\DataTransferProgress' {status} -> status) (\s@DataTransferProgress' {} a -> s {status = a} :: DataTransferProgress)
 
 -- | Describes the estimated number of seconds remaining to complete the
 -- transfer.
-dataTransferProgress_estimatedTimeToCompletionInSeconds :: Lens.Lens' DataTransferProgress (Prelude.Maybe Prelude.Integer)
+dataTransferProgress_estimatedTimeToCompletionInSeconds :: Lens.Lens' DataTransferProgress (Core.Maybe Core.Integer)
 dataTransferProgress_estimatedTimeToCompletionInSeconds = Lens.lens (\DataTransferProgress' {estimatedTimeToCompletionInSeconds} -> estimatedTimeToCompletionInSeconds) (\s@DataTransferProgress' {} a -> s {estimatedTimeToCompletionInSeconds = a} :: DataTransferProgress)
 
 -- | Describes the total amount of data that has been transfered in MB\'s.
-dataTransferProgress_dataTransferredInMegaBytes :: Lens.Lens' DataTransferProgress (Prelude.Maybe Prelude.Integer)
+dataTransferProgress_dataTransferredInMegaBytes :: Lens.Lens' DataTransferProgress (Core.Maybe Core.Integer)
 dataTransferProgress_dataTransferredInMegaBytes = Lens.lens (\DataTransferProgress' {dataTransferredInMegaBytes} -> dataTransferredInMegaBytes) (\s@DataTransferProgress' {} a -> s {dataTransferredInMegaBytes = a} :: DataTransferProgress)
 
 -- | Describes the data transfer rate in MB\'s per second.
-dataTransferProgress_currentRateInMegaBytesPerSecond :: Lens.Lens' DataTransferProgress (Prelude.Maybe Prelude.Double)
+dataTransferProgress_currentRateInMegaBytesPerSecond :: Lens.Lens' DataTransferProgress (Core.Maybe Core.Double)
 dataTransferProgress_currentRateInMegaBytesPerSecond = Lens.lens (\DataTransferProgress' {currentRateInMegaBytesPerSecond} -> currentRateInMegaBytesPerSecond) (\s@DataTransferProgress' {} a -> s {currentRateInMegaBytesPerSecond = a} :: DataTransferProgress)
 
 -- | Describes the number of seconds that have elapsed during the data
 -- transfer.
-dataTransferProgress_elapsedTimeInSeconds :: Lens.Lens' DataTransferProgress (Prelude.Maybe Prelude.Integer)
+dataTransferProgress_elapsedTimeInSeconds :: Lens.Lens' DataTransferProgress (Core.Maybe Core.Integer)
 dataTransferProgress_elapsedTimeInSeconds = Lens.lens (\DataTransferProgress' {elapsedTimeInSeconds} -> elapsedTimeInSeconds) (\s@DataTransferProgress' {} a -> s {elapsedTimeInSeconds = a} :: DataTransferProgress)
 
 -- | Describes the total amount of data to be transfered in megabytes.
-dataTransferProgress_totalDataInMegaBytes :: Lens.Lens' DataTransferProgress (Prelude.Maybe Prelude.Integer)
+dataTransferProgress_totalDataInMegaBytes :: Lens.Lens' DataTransferProgress (Core.Maybe Core.Integer)
 dataTransferProgress_totalDataInMegaBytes = Lens.lens (\DataTransferProgress' {totalDataInMegaBytes} -> totalDataInMegaBytes) (\s@DataTransferProgress' {} a -> s {totalDataInMegaBytes = a} :: DataTransferProgress)
 
-instance Prelude.FromXML DataTransferProgress where
+instance Core.FromXML DataTransferProgress where
   parseXML x =
     DataTransferProgress'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "EstimatedTimeToCompletionInSeconds")
-      Prelude.<*> (x Prelude..@? "DataTransferredInMegaBytes")
-      Prelude.<*> (x Prelude..@? "CurrentRateInMegaBytesPerSecond")
-      Prelude.<*> (x Prelude..@? "ElapsedTimeInSeconds")
-      Prelude.<*> (x Prelude..@? "TotalDataInMegaBytes")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "EstimatedTimeToCompletionInSeconds")
+      Core.<*> (x Core..@? "DataTransferredInMegaBytes")
+      Core.<*> (x Core..@? "CurrentRateInMegaBytesPerSecond")
+      Core.<*> (x Core..@? "ElapsedTimeInSeconds")
+      Core.<*> (x Core..@? "TotalDataInMegaBytes")
 
-instance Prelude.Hashable DataTransferProgress
+instance Core.Hashable DataTransferProgress
 
-instance Prelude.NFData DataTransferProgress
+instance Core.NFData DataTransferProgress

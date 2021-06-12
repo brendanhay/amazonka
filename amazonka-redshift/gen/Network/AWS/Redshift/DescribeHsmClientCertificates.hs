@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,9 +59,8 @@ module Network.AWS.Redshift.DescribeHsmClientCertificates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -74,7 +72,7 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
   { -- | The identifier of a specific HSM client certificate for which you want
     -- information. If no identifier is specified, information is returned for
     -- all HSM client certificates owned by your AWS customer account.
-    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
+    hsmClientCertificateIdentifier :: Core.Maybe Core.Text,
     -- | A tag key or keys for which you want to return all matching HSM client
     -- certificates that are associated with the specified key or keys. For
     -- example, suppose that you have HSM client certificates that are tagged
@@ -82,7 +80,7 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
     -- tag keys in the request, Amazon Redshift returns a response with the HSM
     -- client certificates that have either or both of these tag keys
     -- associated with them.
-    tagKeys :: Prelude.Maybe [Prelude.Text],
+    tagKeys :: Core.Maybe [Core.Text],
     -- | A tag value or values for which you want to return all matching HSM
     -- client certificates that are associated with the specified tag value or
     -- values. For example, suppose that you have HSM client certificates that
@@ -90,14 +88,14 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
     -- these tag values in the request, Amazon Redshift returns a response with
     -- the HSM client certificates that have either or both of these tag values
     -- associated with them.
-    tagValues :: Prelude.Maybe [Prelude.Text],
+    tagValues :: Core.Maybe [Core.Text],
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeHsmClientCertificates
     -- request exceed the value specified in @MaxRecords@, AWS returns a value
     -- in the @Marker@ field of the response. You can retrieve the next set of
     -- response records by providing the returned marker value in the @Marker@
     -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -107,9 +105,9 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHsmClientCertificates' with all optional fields omitted.
@@ -160,17 +158,17 @@ newDescribeHsmClientCertificates ::
 newDescribeHsmClientCertificates =
   DescribeHsmClientCertificates'
     { hsmClientCertificateIdentifier =
-        Prelude.Nothing,
-      tagKeys = Prelude.Nothing,
-      tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      tagKeys = Core.Nothing,
+      tagValues = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The identifier of a specific HSM client certificate for which you want
 -- information. If no identifier is specified, information is returned for
 -- all HSM client certificates owned by your AWS customer account.
-describeHsmClientCertificates_hsmClientCertificateIdentifier :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe Prelude.Text)
+describeHsmClientCertificates_hsmClientCertificateIdentifier :: Lens.Lens' DescribeHsmClientCertificates (Core.Maybe Core.Text)
 describeHsmClientCertificates_hsmClientCertificateIdentifier = Lens.lens (\DescribeHsmClientCertificates' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@DescribeHsmClientCertificates' {} a -> s {hsmClientCertificateIdentifier = a} :: DescribeHsmClientCertificates)
 
 -- | A tag key or keys for which you want to return all matching HSM client
@@ -180,8 +178,8 @@ describeHsmClientCertificates_hsmClientCertificateIdentifier = Lens.lens (\Descr
 -- tag keys in the request, Amazon Redshift returns a response with the HSM
 -- client certificates that have either or both of these tag keys
 -- associated with them.
-describeHsmClientCertificates_tagKeys :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe [Prelude.Text])
-describeHsmClientCertificates_tagKeys = Lens.lens (\DescribeHsmClientCertificates' {tagKeys} -> tagKeys) (\s@DescribeHsmClientCertificates' {} a -> s {tagKeys = a} :: DescribeHsmClientCertificates) Prelude.. Lens.mapping Prelude._Coerce
+describeHsmClientCertificates_tagKeys :: Lens.Lens' DescribeHsmClientCertificates (Core.Maybe [Core.Text])
+describeHsmClientCertificates_tagKeys = Lens.lens (\DescribeHsmClientCertificates' {tagKeys} -> tagKeys) (\s@DescribeHsmClientCertificates' {} a -> s {tagKeys = a} :: DescribeHsmClientCertificates) Core.. Lens.mapping Lens._Coerce
 
 -- | A tag value or values for which you want to return all matching HSM
 -- client certificates that are associated with the specified tag value or
@@ -190,8 +188,8 @@ describeHsmClientCertificates_tagKeys = Lens.lens (\DescribeHsmClientCertificate
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the HSM client certificates that have either or both of these tag values
 -- associated with them.
-describeHsmClientCertificates_tagValues :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe [Prelude.Text])
-describeHsmClientCertificates_tagValues = Lens.lens (\DescribeHsmClientCertificates' {tagValues} -> tagValues) (\s@DescribeHsmClientCertificates' {} a -> s {tagValues = a} :: DescribeHsmClientCertificates) Prelude.. Lens.mapping Prelude._Coerce
+describeHsmClientCertificates_tagValues :: Lens.Lens' DescribeHsmClientCertificates (Core.Maybe [Core.Text])
+describeHsmClientCertificates_tagValues = Lens.lens (\DescribeHsmClientCertificates' {tagValues} -> tagValues) (\s@DescribeHsmClientCertificates' {} a -> s {tagValues = a} :: DescribeHsmClientCertificates) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeHsmClientCertificates
@@ -199,7 +197,7 @@ describeHsmClientCertificates_tagValues = Lens.lens (\DescribeHsmClientCertifica
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-describeHsmClientCertificates_marker :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe Prelude.Text)
+describeHsmClientCertificates_marker :: Lens.Lens' DescribeHsmClientCertificates (Core.Maybe Core.Text)
 describeHsmClientCertificates_marker = Lens.lens (\DescribeHsmClientCertificates' {marker} -> marker) (\s@DescribeHsmClientCertificates' {} a -> s {marker = a} :: DescribeHsmClientCertificates)
 
 -- | The maximum number of response records to return in each call. If the
@@ -211,37 +209,37 @@ describeHsmClientCertificates_marker = Lens.lens (\DescribeHsmClientCertificates
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-describeHsmClientCertificates_maxRecords :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe Prelude.Int)
+describeHsmClientCertificates_maxRecords :: Lens.Lens' DescribeHsmClientCertificates (Core.Maybe Core.Int)
 describeHsmClientCertificates_maxRecords = Lens.lens (\DescribeHsmClientCertificates' {maxRecords} -> maxRecords) (\s@DescribeHsmClientCertificates' {} a -> s {maxRecords = a} :: DescribeHsmClientCertificates)
 
-instance Pager.AWSPager DescribeHsmClientCertificates where
+instance Core.AWSPager DescribeHsmClientCertificates where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeHsmClientCertificatesResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeHsmClientCertificatesResponse_hsmClientCertificates
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeHsmClientCertificates_marker
           Lens..~ rs
           Lens.^? describeHsmClientCertificatesResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeHsmClientCertificates
   where
   type
-    Rs DescribeHsmClientCertificates =
+    AWSResponse DescribeHsmClientCertificates =
       DescribeHsmClientCertificatesResponse
   request = Request.postQuery defaultService
   response =
@@ -249,54 +247,40 @@ instance
       "DescribeHsmClientCertificatesResult"
       ( \s h x ->
           DescribeHsmClientCertificatesResponse'
-            Prelude.<$> ( x Prelude..@? "HsmClientCertificates"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "HsmClientCertificate")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "HsmClientCertificates"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "HsmClientCertificate")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeHsmClientCertificates
+instance Core.Hashable DescribeHsmClientCertificates
 
-instance Prelude.NFData DescribeHsmClientCertificates
+instance Core.NFData DescribeHsmClientCertificates
 
-instance
-  Prelude.ToHeaders
-    DescribeHsmClientCertificates
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeHsmClientCertificates where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeHsmClientCertificates where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeHsmClientCertificates where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeHsmClientCertificates
-  where
+instance Core.ToQuery DescribeHsmClientCertificates where
   toQuery DescribeHsmClientCertificates' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeHsmClientCertificates" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+          Core.=: ("DescribeHsmClientCertificates" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
         "HsmClientCertificateIdentifier"
-          Prelude.=: hsmClientCertificateIdentifier,
+          Core.=: hsmClientCertificateIdentifier,
         "TagKeys"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "TagKey" Prelude.<$> tagKeys),
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagKey" Core.<$> tagKeys),
         "TagValues"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "TagValue"
-                Prelude.<$> tagValues
-            ),
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Core.<$> tagValues),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- |
@@ -306,18 +290,18 @@ data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesRespon
   { -- | A list of the identifiers for one or more HSM client certificates used
     -- by Amazon Redshift clusters to store and retrieve database encryption
     -- keys in an HSM.
-    hsmClientCertificates :: Prelude.Maybe [HsmClientCertificate],
+    hsmClientCertificates :: Core.Maybe [HsmClientCertificate],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
     -- @Marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHsmClientCertificatesResponse' with all optional fields omitted.
@@ -341,21 +325,21 @@ data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesRespon
 -- 'httpStatus', 'describeHsmClientCertificatesResponse_httpStatus' - The response's http status code.
 newDescribeHsmClientCertificatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeHsmClientCertificatesResponse
 newDescribeHsmClientCertificatesResponse pHttpStatus_ =
   DescribeHsmClientCertificatesResponse'
     { hsmClientCertificates =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of the identifiers for one or more HSM client certificates used
 -- by Amazon Redshift clusters to store and retrieve database encryption
 -- keys in an HSM.
-describeHsmClientCertificatesResponse_hsmClientCertificates :: Lens.Lens' DescribeHsmClientCertificatesResponse (Prelude.Maybe [HsmClientCertificate])
-describeHsmClientCertificatesResponse_hsmClientCertificates = Lens.lens (\DescribeHsmClientCertificatesResponse' {hsmClientCertificates} -> hsmClientCertificates) (\s@DescribeHsmClientCertificatesResponse' {} a -> s {hsmClientCertificates = a} :: DescribeHsmClientCertificatesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeHsmClientCertificatesResponse_hsmClientCertificates :: Lens.Lens' DescribeHsmClientCertificatesResponse (Core.Maybe [HsmClientCertificate])
+describeHsmClientCertificatesResponse_hsmClientCertificates = Lens.lens (\DescribeHsmClientCertificatesResponse' {hsmClientCertificates} -> hsmClientCertificates) (\s@DescribeHsmClientCertificatesResponse' {} a -> s {hsmClientCertificates = a} :: DescribeHsmClientCertificatesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -363,13 +347,13 @@ describeHsmClientCertificatesResponse_hsmClientCertificates = Lens.lens (\Descri
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-describeHsmClientCertificatesResponse_marker :: Lens.Lens' DescribeHsmClientCertificatesResponse (Prelude.Maybe Prelude.Text)
+describeHsmClientCertificatesResponse_marker :: Lens.Lens' DescribeHsmClientCertificatesResponse (Core.Maybe Core.Text)
 describeHsmClientCertificatesResponse_marker = Lens.lens (\DescribeHsmClientCertificatesResponse' {marker} -> marker) (\s@DescribeHsmClientCertificatesResponse' {} a -> s {marker = a} :: DescribeHsmClientCertificatesResponse)
 
 -- | The response's http status code.
-describeHsmClientCertificatesResponse_httpStatus :: Lens.Lens' DescribeHsmClientCertificatesResponse Prelude.Int
+describeHsmClientCertificatesResponse_httpStatus :: Lens.Lens' DescribeHsmClientCertificatesResponse Core.Int
 describeHsmClientCertificatesResponse_httpStatus = Lens.lens (\DescribeHsmClientCertificatesResponse' {httpStatus} -> httpStatus) (\s@DescribeHsmClientCertificatesResponse' {} a -> s {httpStatus = a} :: DescribeHsmClientCertificatesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeHsmClientCertificatesResponse

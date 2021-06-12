@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.SageMaker.CreateCodeRepository
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -63,16 +62,16 @@ data CreateCodeRepository = CreateCodeRepository'
     -- resources in different ways, for example, by purpose, owner, or
     -- environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The name of the Git repository. The name must have 1 to 63 characters.
     -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
-    codeRepositoryName :: Prelude.Text,
+    codeRepositoryName :: Core.Text,
     -- | Specifies details about the repository, including the URL where the
     -- repository is located, the default branch, and credentials to use to
     -- access the repository.
     gitConfig :: GitConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCodeRepository' with all optional fields omitted.
@@ -95,7 +94,7 @@ data CreateCodeRepository = CreateCodeRepository'
 -- access the repository.
 newCreateCodeRepository ::
   -- | 'codeRepositoryName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'gitConfig'
   GitConfig ->
   CreateCodeRepository
@@ -103,7 +102,7 @@ newCreateCodeRepository
   pCodeRepositoryName_
   pGitConfig_ =
     CreateCodeRepository'
-      { tags = Prelude.Nothing,
+      { tags = Core.Nothing,
         codeRepositoryName = pCodeRepositoryName_,
         gitConfig = pGitConfig_
       }
@@ -112,12 +111,12 @@ newCreateCodeRepository
 -- resources in different ways, for example, by purpose, owner, or
 -- environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-createCodeRepository_tags :: Lens.Lens' CreateCodeRepository (Prelude.Maybe [Tag])
-createCodeRepository_tags = Lens.lens (\CreateCodeRepository' {tags} -> tags) (\s@CreateCodeRepository' {} a -> s {tags = a} :: CreateCodeRepository) Prelude.. Lens.mapping Prelude._Coerce
+createCodeRepository_tags :: Lens.Lens' CreateCodeRepository (Core.Maybe [Tag])
+createCodeRepository_tags = Lens.lens (\CreateCodeRepository' {tags} -> tags) (\s@CreateCodeRepository' {} a -> s {tags = a} :: CreateCodeRepository) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the Git repository. The name must have 1 to 63 characters.
 -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
-createCodeRepository_codeRepositoryName :: Lens.Lens' CreateCodeRepository Prelude.Text
+createCodeRepository_codeRepositoryName :: Lens.Lens' CreateCodeRepository Core.Text
 createCodeRepository_codeRepositoryName = Lens.lens (\CreateCodeRepository' {codeRepositoryName} -> codeRepositoryName) (\s@CreateCodeRepository' {} a -> s {codeRepositoryName = a} :: CreateCodeRepository)
 
 -- | Specifies details about the repository, including the URL where the
@@ -126,63 +125,61 @@ createCodeRepository_codeRepositoryName = Lens.lens (\CreateCodeRepository' {cod
 createCodeRepository_gitConfig :: Lens.Lens' CreateCodeRepository GitConfig
 createCodeRepository_gitConfig = Lens.lens (\CreateCodeRepository' {gitConfig} -> gitConfig) (\s@CreateCodeRepository' {} a -> s {gitConfig = a} :: CreateCodeRepository)
 
-instance Prelude.AWSRequest CreateCodeRepository where
+instance Core.AWSRequest CreateCodeRepository where
   type
-    Rs CreateCodeRepository =
+    AWSResponse CreateCodeRepository =
       CreateCodeRepositoryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateCodeRepositoryResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "CodeRepositoryArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "CodeRepositoryArn")
       )
 
-instance Prelude.Hashable CreateCodeRepository
+instance Core.Hashable CreateCodeRepository
 
-instance Prelude.NFData CreateCodeRepository
+instance Core.NFData CreateCodeRepository
 
-instance Prelude.ToHeaders CreateCodeRepository where
+instance Core.ToHeaders CreateCodeRepository where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.CreateCodeRepository" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.CreateCodeRepository" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCodeRepository where
+instance Core.ToJSON CreateCodeRepository where
   toJSON CreateCodeRepository' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
-              ("CodeRepositoryName" Prelude..= codeRepositoryName),
-            Prelude.Just ("GitConfig" Prelude..= gitConfig)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            Core.Just
+              ("CodeRepositoryName" Core..= codeRepositoryName),
+            Core.Just ("GitConfig" Core..= gitConfig)
           ]
       )
 
-instance Prelude.ToPath CreateCodeRepository where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCodeRepository where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCodeRepository where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCodeRepository where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateCodeRepositoryResponse' smart constructor.
 data CreateCodeRepositoryResponse = CreateCodeRepositoryResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the new repository.
-    codeRepositoryArn :: Prelude.Text
+    codeRepositoryArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCodeRepositoryResponse' with all optional fields omitted.
@@ -197,9 +194,9 @@ data CreateCodeRepositoryResponse = CreateCodeRepositoryResponse'
 -- 'codeRepositoryArn', 'createCodeRepositoryResponse_codeRepositoryArn' - The Amazon Resource Name (ARN) of the new repository.
 newCreateCodeRepositoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'codeRepositoryArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateCodeRepositoryResponse
 newCreateCodeRepositoryResponse
   pHttpStatus_
@@ -211,11 +208,11 @@ newCreateCodeRepositoryResponse
       }
 
 -- | The response's http status code.
-createCodeRepositoryResponse_httpStatus :: Lens.Lens' CreateCodeRepositoryResponse Prelude.Int
+createCodeRepositoryResponse_httpStatus :: Lens.Lens' CreateCodeRepositoryResponse Core.Int
 createCodeRepositoryResponse_httpStatus = Lens.lens (\CreateCodeRepositoryResponse' {httpStatus} -> httpStatus) (\s@CreateCodeRepositoryResponse' {} a -> s {httpStatus = a} :: CreateCodeRepositoryResponse)
 
 -- | The Amazon Resource Name (ARN) of the new repository.
-createCodeRepositoryResponse_codeRepositoryArn :: Lens.Lens' CreateCodeRepositoryResponse Prelude.Text
+createCodeRepositoryResponse_codeRepositoryArn :: Lens.Lens' CreateCodeRepositoryResponse Core.Text
 createCodeRepositoryResponse_codeRepositoryArn = Lens.lens (\CreateCodeRepositoryResponse' {codeRepositoryArn} -> codeRepositoryArn) (\s@CreateCodeRepositoryResponse' {} a -> s {codeRepositoryArn = a} :: CreateCodeRepositoryResponse)
 
-instance Prelude.NFData CreateCodeRepositoryResponse
+instance Core.NFData CreateCodeRepositoryResponse

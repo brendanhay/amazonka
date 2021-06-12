@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,10 +60,9 @@ module Network.AWS.Kinesis.ListStreams
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,11 +71,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListStreams' smart constructor.
 data ListStreams = ListStreams'
   { -- | The name of the stream to start the list with.
-    exclusiveStartStreamName :: Prelude.Maybe Prelude.Text,
+    exclusiveStartStreamName :: Core.Maybe Core.Text,
     -- | The maximum number of streams to list.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListStreams' with all optional fields omitted.
@@ -95,97 +93,91 @@ newListStreams ::
 newListStreams =
   ListStreams'
     { exclusiveStartStreamName =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+        Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | The name of the stream to start the list with.
-listStreams_exclusiveStartStreamName :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
+listStreams_exclusiveStartStreamName :: Lens.Lens' ListStreams (Core.Maybe Core.Text)
 listStreams_exclusiveStartStreamName = Lens.lens (\ListStreams' {exclusiveStartStreamName} -> exclusiveStartStreamName) (\s@ListStreams' {} a -> s {exclusiveStartStreamName = a} :: ListStreams)
 
 -- | The maximum number of streams to list.
-listStreams_limit :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
+listStreams_limit :: Lens.Lens' ListStreams (Core.Maybe Core.Natural)
 listStreams_limit = Lens.lens (\ListStreams' {limit} -> limit) (\s@ListStreams' {} a -> s {limit = a} :: ListStreams)
 
-instance Pager.AWSPager ListStreams where
+instance Core.AWSPager ListStreams where
   page rq rs
-    | Pager.stop
+    | Core.stop
         (rs Lens.^. listStreamsResponse_hasMoreStreams) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^? listStreamsResponse_streamNames Prelude.. Lens._last
+            Lens.^? listStreamsResponse_streamNames Core.. Lens._last
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listStreams_exclusiveStartStreamName
           Lens..~ rs
-          Lens.^? listStreamsResponse_streamNames Prelude.. Lens._last
+          Lens.^? listStreamsResponse_streamNames Core.. Lens._last
 
-instance Prelude.AWSRequest ListStreams where
-  type Rs ListStreams = ListStreamsResponse
+instance Core.AWSRequest ListStreams where
+  type AWSResponse ListStreams = ListStreamsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "StreamNames"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:> "HasMoreStreams")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "StreamNames" Core..!@ Core.mempty)
+            Core.<*> (x Core..:> "HasMoreStreams")
       )
 
-instance Prelude.Hashable ListStreams
+instance Core.Hashable ListStreams
 
-instance Prelude.NFData ListStreams
+instance Core.NFData ListStreams
 
-instance Prelude.ToHeaders ListStreams where
+instance Core.ToHeaders ListStreams where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.ListStreams" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Kinesis_20131202.ListStreams" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListStreams where
+instance Core.ToJSON ListStreams where
   toJSON ListStreams' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExclusiveStartStreamName" Prelude..=)
-              Prelude.<$> exclusiveStartStreamName,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("ExclusiveStartStreamName" Core..=)
+              Core.<$> exclusiveStartStreamName,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListStreams where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListStreams where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListStreams where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListStreams where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output for @ListStreams@.
 --
 -- /See:/ 'newListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The names of the streams that are associated with the AWS account making
     -- the @ListStreams@ request.
-    streamNames :: [Prelude.Text],
+    streamNames :: [Core.Text],
     -- | If set to @true@, there are more streams available to list.
-    hasMoreStreams :: Prelude.Bool
+    hasMoreStreams :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListStreamsResponse' with all optional fields omitted.
@@ -203,28 +195,28 @@ data ListStreamsResponse = ListStreamsResponse'
 -- 'hasMoreStreams', 'listStreamsResponse_hasMoreStreams' - If set to @true@, there are more streams available to list.
 newListStreamsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'hasMoreStreams'
-  Prelude.Bool ->
+  Core.Bool ->
   ListStreamsResponse
 newListStreamsResponse pHttpStatus_ pHasMoreStreams_ =
   ListStreamsResponse'
     { httpStatus = pHttpStatus_,
-      streamNames = Prelude.mempty,
+      streamNames = Core.mempty,
       hasMoreStreams = pHasMoreStreams_
     }
 
 -- | The response's http status code.
-listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Prelude.Int
+listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Core.Int
 listStreamsResponse_httpStatus = Lens.lens (\ListStreamsResponse' {httpStatus} -> httpStatus) (\s@ListStreamsResponse' {} a -> s {httpStatus = a} :: ListStreamsResponse)
 
 -- | The names of the streams that are associated with the AWS account making
 -- the @ListStreams@ request.
-listStreamsResponse_streamNames :: Lens.Lens' ListStreamsResponse [Prelude.Text]
-listStreamsResponse_streamNames = Lens.lens (\ListStreamsResponse' {streamNames} -> streamNames) (\s@ListStreamsResponse' {} a -> s {streamNames = a} :: ListStreamsResponse) Prelude.. Prelude._Coerce
+listStreamsResponse_streamNames :: Lens.Lens' ListStreamsResponse [Core.Text]
+listStreamsResponse_streamNames = Lens.lens (\ListStreamsResponse' {streamNames} -> streamNames) (\s@ListStreamsResponse' {} a -> s {streamNames = a} :: ListStreamsResponse) Core.. Lens._Coerce
 
 -- | If set to @true@, there are more streams available to list.
-listStreamsResponse_hasMoreStreams :: Lens.Lens' ListStreamsResponse Prelude.Bool
+listStreamsResponse_hasMoreStreams :: Lens.Lens' ListStreamsResponse Core.Bool
 listStreamsResponse_hasMoreStreams = Lens.lens (\ListStreamsResponse' {hasMoreStreams} -> hasMoreStreams) (\s@ListStreamsResponse' {} a -> s {hasMoreStreams = a} :: ListStreamsResponse)
 
-instance Prelude.NFData ListStreamsResponse
+instance Core.NFData ListStreamsResponse

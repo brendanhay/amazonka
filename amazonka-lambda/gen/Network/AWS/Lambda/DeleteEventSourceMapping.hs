@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,18 +65,18 @@ module Network.AWS.Lambda.DeleteEventSourceMapping
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteEventSourceMapping' smart constructor.
 data DeleteEventSourceMapping = DeleteEventSourceMapping'
   { -- | The identifier of the event source mapping.
-    uuid :: Prelude.Text
+    uuid :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEventSourceMapping' with all optional fields omitted.
@@ -90,37 +89,37 @@ data DeleteEventSourceMapping = DeleteEventSourceMapping'
 -- 'uuid', 'deleteEventSourceMapping_uuid' - The identifier of the event source mapping.
 newDeleteEventSourceMapping ::
   -- | 'uuid'
-  Prelude.Text ->
+  Core.Text ->
   DeleteEventSourceMapping
 newDeleteEventSourceMapping pUUID_ =
   DeleteEventSourceMapping' {uuid = pUUID_}
 
 -- | The identifier of the event source mapping.
-deleteEventSourceMapping_uuid :: Lens.Lens' DeleteEventSourceMapping Prelude.Text
+deleteEventSourceMapping_uuid :: Lens.Lens' DeleteEventSourceMapping Core.Text
 deleteEventSourceMapping_uuid = Lens.lens (\DeleteEventSourceMapping' {uuid} -> uuid) (\s@DeleteEventSourceMapping' {} a -> s {uuid = a} :: DeleteEventSourceMapping)
 
-instance Prelude.AWSRequest DeleteEventSourceMapping where
+instance Core.AWSRequest DeleteEventSourceMapping where
   type
-    Rs DeleteEventSourceMapping =
+    AWSResponse DeleteEventSourceMapping =
       EventSourceMappingConfiguration
   request = Request.delete defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DeleteEventSourceMapping
+instance Core.Hashable DeleteEventSourceMapping
 
-instance Prelude.NFData DeleteEventSourceMapping
+instance Core.NFData DeleteEventSourceMapping
 
-instance Prelude.ToHeaders DeleteEventSourceMapping where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteEventSourceMapping where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteEventSourceMapping where
+instance Core.ToPath DeleteEventSourceMapping where
   toPath DeleteEventSourceMapping' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-03-31/event-source-mappings/",
-        Prelude.toBS uuid
+        Core.toBS uuid
       ]
 
-instance Prelude.ToQuery DeleteEventSourceMapping where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteEventSourceMapping where
+  toQuery = Core.const Core.mempty

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.GuardDuty.StartMonitoringMembers
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +52,12 @@ import qualified Network.AWS.Response as Response
 data StartMonitoringMembers = StartMonitoringMembers'
   { -- | The unique ID of the detector of the GuardDuty administrator account
     -- associated with the member accounts to monitor.
-    detectorId :: Prelude.Text,
+    detectorId :: Core.Text,
     -- | A list of account IDs of the GuardDuty member accounts to start
     -- monitoring.
-    accountIds :: Prelude.NonEmpty Prelude.Text
+    accountIds :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartMonitoringMembers' with all optional fields omitted.
@@ -75,83 +74,78 @@ data StartMonitoringMembers = StartMonitoringMembers'
 -- monitoring.
 newStartMonitoringMembers ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'accountIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   StartMonitoringMembers
 newStartMonitoringMembers pDetectorId_ pAccountIds_ =
   StartMonitoringMembers'
     { detectorId = pDetectorId_,
-      accountIds = Prelude._Coerce Lens.# pAccountIds_
+      accountIds = Lens._Coerce Lens.# pAccountIds_
     }
 
 -- | The unique ID of the detector of the GuardDuty administrator account
 -- associated with the member accounts to monitor.
-startMonitoringMembers_detectorId :: Lens.Lens' StartMonitoringMembers Prelude.Text
+startMonitoringMembers_detectorId :: Lens.Lens' StartMonitoringMembers Core.Text
 startMonitoringMembers_detectorId = Lens.lens (\StartMonitoringMembers' {detectorId} -> detectorId) (\s@StartMonitoringMembers' {} a -> s {detectorId = a} :: StartMonitoringMembers)
 
 -- | A list of account IDs of the GuardDuty member accounts to start
 -- monitoring.
-startMonitoringMembers_accountIds :: Lens.Lens' StartMonitoringMembers (Prelude.NonEmpty Prelude.Text)
-startMonitoringMembers_accountIds = Lens.lens (\StartMonitoringMembers' {accountIds} -> accountIds) (\s@StartMonitoringMembers' {} a -> s {accountIds = a} :: StartMonitoringMembers) Prelude.. Prelude._Coerce
+startMonitoringMembers_accountIds :: Lens.Lens' StartMonitoringMembers (Core.NonEmpty Core.Text)
+startMonitoringMembers_accountIds = Lens.lens (\StartMonitoringMembers' {accountIds} -> accountIds) (\s@StartMonitoringMembers' {} a -> s {accountIds = a} :: StartMonitoringMembers) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest StartMonitoringMembers where
+instance Core.AWSRequest StartMonitoringMembers where
   type
-    Rs StartMonitoringMembers =
+    AWSResponse StartMonitoringMembers =
       StartMonitoringMembersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartMonitoringMembersResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "unprocessedAccounts"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..?> "unprocessedAccounts"
+                         Core..!@ Core.mempty
+                     )
       )
 
-instance Prelude.Hashable StartMonitoringMembers
+instance Core.Hashable StartMonitoringMembers
 
-instance Prelude.NFData StartMonitoringMembers
+instance Core.NFData StartMonitoringMembers
 
-instance Prelude.ToHeaders StartMonitoringMembers where
+instance Core.ToHeaders StartMonitoringMembers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartMonitoringMembers where
+instance Core.ToJSON StartMonitoringMembers where
   toJSON StartMonitoringMembers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("accountIds" Prelude..= accountIds)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("accountIds" Core..= accountIds)]
       )
 
-instance Prelude.ToPath StartMonitoringMembers where
+instance Core.ToPath StartMonitoringMembers where
   toPath StartMonitoringMembers' {..} =
-    Prelude.mconcat
-      [ "/detector/",
-        Prelude.toBS detectorId,
-        "/member/start"
-      ]
+    Core.mconcat
+      ["/detector/", Core.toBS detectorId, "/member/start"]
 
-instance Prelude.ToQuery StartMonitoringMembers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartMonitoringMembers where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartMonitoringMembersResponse' smart constructor.
 data StartMonitoringMembersResponse = StartMonitoringMembersResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of objects that contain the unprocessed account and a result
     -- string that explains why it was unprocessed.
     unprocessedAccounts :: [UnprocessedAccount]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartMonitoringMembersResponse' with all optional fields omitted.
@@ -167,24 +161,22 @@ data StartMonitoringMembersResponse = StartMonitoringMembersResponse'
 -- string that explains why it was unprocessed.
 newStartMonitoringMembersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartMonitoringMembersResponse
 newStartMonitoringMembersResponse pHttpStatus_ =
   StartMonitoringMembersResponse'
     { httpStatus =
         pHttpStatus_,
-      unprocessedAccounts = Prelude.mempty
+      unprocessedAccounts = Core.mempty
     }
 
 -- | The response's http status code.
-startMonitoringMembersResponse_httpStatus :: Lens.Lens' StartMonitoringMembersResponse Prelude.Int
+startMonitoringMembersResponse_httpStatus :: Lens.Lens' StartMonitoringMembersResponse Core.Int
 startMonitoringMembersResponse_httpStatus = Lens.lens (\StartMonitoringMembersResponse' {httpStatus} -> httpStatus) (\s@StartMonitoringMembersResponse' {} a -> s {httpStatus = a} :: StartMonitoringMembersResponse)
 
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 startMonitoringMembersResponse_unprocessedAccounts :: Lens.Lens' StartMonitoringMembersResponse [UnprocessedAccount]
-startMonitoringMembersResponse_unprocessedAccounts = Lens.lens (\StartMonitoringMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@StartMonitoringMembersResponse' {} a -> s {unprocessedAccounts = a} :: StartMonitoringMembersResponse) Prelude.. Prelude._Coerce
+startMonitoringMembersResponse_unprocessedAccounts = Lens.lens (\StartMonitoringMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@StartMonitoringMembersResponse' {} a -> s {unprocessedAccounts = a} :: StartMonitoringMembersResponse) Core.. Lens._Coerce
 
-instance
-  Prelude.NFData
-    StartMonitoringMembersResponse
+instance Core.NFData StartMonitoringMembersResponse

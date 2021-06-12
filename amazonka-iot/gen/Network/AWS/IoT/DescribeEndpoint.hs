@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.IoT.DescribeEndpoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,9 +63,9 @@ data DescribeEndpoint = DescribeEndpoint'
     -- We strongly recommend that customers use the newer @iot:Data-ATS@
     -- endpoint type to avoid issues related to the widespread distrust of
     -- Symantec certificate authorities.
-    endpointType :: Prelude.Maybe Prelude.Text
+    endpointType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEndpoint' with all optional fields omitted.
@@ -93,7 +92,7 @@ data DescribeEndpoint = DescribeEndpoint'
 newDescribeEndpoint ::
   DescribeEndpoint
 newDescribeEndpoint =
-  DescribeEndpoint' {endpointType = Prelude.Nothing}
+  DescribeEndpoint' {endpointType = Core.Nothing}
 
 -- | The endpoint type. Valid endpoint types include:
 --
@@ -109,34 +108,35 @@ newDescribeEndpoint =
 -- We strongly recommend that customers use the newer @iot:Data-ATS@
 -- endpoint type to avoid issues related to the widespread distrust of
 -- Symantec certificate authorities.
-describeEndpoint_endpointType :: Lens.Lens' DescribeEndpoint (Prelude.Maybe Prelude.Text)
+describeEndpoint_endpointType :: Lens.Lens' DescribeEndpoint (Core.Maybe Core.Text)
 describeEndpoint_endpointType = Lens.lens (\DescribeEndpoint' {endpointType} -> endpointType) (\s@DescribeEndpoint' {} a -> s {endpointType = a} :: DescribeEndpoint)
 
-instance Prelude.AWSRequest DescribeEndpoint where
-  type Rs DescribeEndpoint = DescribeEndpointResponse
+instance Core.AWSRequest DescribeEndpoint where
+  type
+    AWSResponse DescribeEndpoint =
+      DescribeEndpointResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointResponse'
-            Prelude.<$> (x Prelude..?> "endpointAddress")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "endpointAddress")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEndpoint
+instance Core.Hashable DescribeEndpoint
 
-instance Prelude.NFData DescribeEndpoint
+instance Core.NFData DescribeEndpoint
 
-instance Prelude.ToHeaders DescribeEndpoint where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeEndpoint where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeEndpoint where
-  toPath = Prelude.const "/endpoint"
+instance Core.ToPath DescribeEndpoint where
+  toPath = Core.const "/endpoint"
 
-instance Prelude.ToQuery DescribeEndpoint where
+instance Core.ToQuery DescribeEndpoint where
   toQuery DescribeEndpoint' {..} =
-    Prelude.mconcat
-      ["endpointType" Prelude.=: endpointType]
+    Core.mconcat ["endpointType" Core.=: endpointType]
 
 -- | The output from the DescribeEndpoint operation.
 --
@@ -144,11 +144,11 @@ instance Prelude.ToQuery DescribeEndpoint where
 data DescribeEndpointResponse = DescribeEndpointResponse'
   { -- | The endpoint. The format of the endpoint is as follows:
     -- /identifier/.iot./region/.amazonaws.com.
-    endpointAddress :: Prelude.Maybe Prelude.Text,
+    endpointAddress :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEndpointResponse' with all optional fields omitted.
@@ -164,22 +164,22 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 -- 'httpStatus', 'describeEndpointResponse_httpStatus' - The response's http status code.
 newDescribeEndpointResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEndpointResponse
 newDescribeEndpointResponse pHttpStatus_ =
   DescribeEndpointResponse'
     { endpointAddress =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The endpoint. The format of the endpoint is as follows:
 -- /identifier/.iot./region/.amazonaws.com.
-describeEndpointResponse_endpointAddress :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
+describeEndpointResponse_endpointAddress :: Lens.Lens' DescribeEndpointResponse (Core.Maybe Core.Text)
 describeEndpointResponse_endpointAddress = Lens.lens (\DescribeEndpointResponse' {endpointAddress} -> endpointAddress) (\s@DescribeEndpointResponse' {} a -> s {endpointAddress = a} :: DescribeEndpointResponse)
 
 -- | The response's http status code.
-describeEndpointResponse_httpStatus :: Lens.Lens' DescribeEndpointResponse Prelude.Int
+describeEndpointResponse_httpStatus :: Lens.Lens' DescribeEndpointResponse Core.Int
 describeEndpointResponse_httpStatus = Lens.lens (\DescribeEndpointResponse' {httpStatus} -> httpStatus) (\s@DescribeEndpointResponse' {} a -> s {httpStatus = a} :: DescribeEndpointResponse)
 
-instance Prelude.NFData DescribeEndpointResponse
+instance Core.NFData DescribeEndpointResponse

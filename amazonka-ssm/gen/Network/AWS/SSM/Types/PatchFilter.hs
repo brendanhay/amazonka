@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.PatchFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.PatchFilterKey
 
 -- | Defines which patches should be included in a patch baseline.
@@ -52,9 +51,9 @@ data PatchFilter = PatchFilter'
     --
     -- Run the DescribePatchProperties command to view lists of valid values
     -- for each key based on operating system type.
-    values :: Prelude.NonEmpty Prelude.Text
+    values :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PatchFilter' with all optional fields omitted.
@@ -77,12 +76,12 @@ newPatchFilter ::
   -- | 'key'
   PatchFilterKey ->
   -- | 'values'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   PatchFilter
 newPatchFilter pKey_ pValues_ =
   PatchFilter'
     { key = pKey_,
-      values = Prelude._Coerce Lens.# pValues_
+      values = Lens._Coerce Lens.# pValues_
     }
 
 -- | The key for the filter.
@@ -96,28 +95,27 @@ patchFilter_key = Lens.lens (\PatchFilter' {key} -> key) (\s@PatchFilter' {} a -
 --
 -- Run the DescribePatchProperties command to view lists of valid values
 -- for each key based on operating system type.
-patchFilter_values :: Lens.Lens' PatchFilter (Prelude.NonEmpty Prelude.Text)
-patchFilter_values = Lens.lens (\PatchFilter' {values} -> values) (\s@PatchFilter' {} a -> s {values = a} :: PatchFilter) Prelude.. Prelude._Coerce
+patchFilter_values :: Lens.Lens' PatchFilter (Core.NonEmpty Core.Text)
+patchFilter_values = Lens.lens (\PatchFilter' {values} -> values) (\s@PatchFilter' {} a -> s {values = a} :: PatchFilter) Core.. Lens._Coerce
 
-instance Prelude.FromJSON PatchFilter where
+instance Core.FromJSON PatchFilter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PatchFilter"
       ( \x ->
           PatchFilter'
-            Prelude.<$> (x Prelude..: "Key")
-            Prelude.<*> (x Prelude..: "Values")
+            Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Values")
       )
 
-instance Prelude.Hashable PatchFilter
+instance Core.Hashable PatchFilter
 
-instance Prelude.NFData PatchFilter
+instance Core.NFData PatchFilter
 
-instance Prelude.ToJSON PatchFilter where
+instance Core.ToJSON PatchFilter where
   toJSON PatchFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.ElasticTranscoder.ReadJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data ReadJob = ReadJob'
   { -- | The identifier of the job for which you want to get detailed
     -- information.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReadJob' with all optional fields omitted.
@@ -68,51 +67,50 @@ data ReadJob = ReadJob'
 -- information.
 newReadJob ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   ReadJob
 newReadJob pId_ = ReadJob' {id = pId_}
 
 -- | The identifier of the job for which you want to get detailed
 -- information.
-readJob_id :: Lens.Lens' ReadJob Prelude.Text
+readJob_id :: Lens.Lens' ReadJob Core.Text
 readJob_id = Lens.lens (\ReadJob' {id} -> id) (\s@ReadJob' {} a -> s {id = a} :: ReadJob)
 
-instance Prelude.AWSRequest ReadJob where
-  type Rs ReadJob = ReadJobResponse
+instance Core.AWSRequest ReadJob where
+  type AWSResponse ReadJob = ReadJobResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ReadJobResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "Job")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "Job")
       )
 
-instance Prelude.Hashable ReadJob
+instance Core.Hashable ReadJob
 
-instance Prelude.NFData ReadJob
+instance Core.NFData ReadJob
 
-instance Prelude.ToHeaders ReadJob where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ReadJob where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ReadJob where
+instance Core.ToPath ReadJob where
   toPath ReadJob' {..} =
-    Prelude.mconcat
-      ["/2012-09-25/jobs/", Prelude.toBS id]
+    Core.mconcat ["/2012-09-25/jobs/", Core.toBS id]
 
-instance Prelude.ToQuery ReadJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ReadJob where
+  toQuery = Core.const Core.mempty
 
 -- | The @ReadJobResponse@ structure.
 --
 -- /See:/ 'newReadJobResponse' smart constructor.
 data ReadJobResponse = ReadJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A section of the response body that provides information about the job.
     job :: Job'
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReadJobResponse' with all optional fields omitted.
@@ -127,7 +125,7 @@ data ReadJobResponse = ReadJobResponse'
 -- 'job', 'readJobResponse_job' - A section of the response body that provides information about the job.
 newReadJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'job'
   Job' ->
   ReadJobResponse
@@ -138,11 +136,11 @@ newReadJobResponse pHttpStatus_ pJob_ =
     }
 
 -- | The response's http status code.
-readJobResponse_httpStatus :: Lens.Lens' ReadJobResponse Prelude.Int
+readJobResponse_httpStatus :: Lens.Lens' ReadJobResponse Core.Int
 readJobResponse_httpStatus = Lens.lens (\ReadJobResponse' {httpStatus} -> httpStatus) (\s@ReadJobResponse' {} a -> s {httpStatus = a} :: ReadJobResponse)
 
 -- | A section of the response body that provides information about the job.
 readJobResponse_job :: Lens.Lens' ReadJobResponse Job'
 readJobResponse_job = Lens.lens (\ReadJobResponse' {job} -> job) (\s@ReadJobResponse' {} a -> s {job = a} :: ReadJobResponse)
 
-instance Prelude.NFData ReadJobResponse
+instance Core.NFData ReadJobResponse

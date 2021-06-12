@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,32 +20,32 @@
 module Network.AWS.Connect.Types.ContactFlow where
 
 import Network.AWS.Connect.Types.ContactFlowType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a contact flow.
 --
 -- /See:/ 'newContactFlow' smart constructor.
 data ContactFlow = ContactFlow'
   { -- | The Amazon Resource Name (ARN) of the contact flow.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The identifier of the contact flow.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the contact flow.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The content of the contact flow.
-    content :: Prelude.Maybe Prelude.Text,
+    content :: Core.Maybe Core.Text,
     -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The description of the contact flow.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The type of the contact flow. For descriptions of the available types,
     -- see
     -- <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type>
     -- in the /Amazon Connect Administrator Guide/.
-    type' :: Prelude.Maybe ContactFlowType
+    type' :: Core.Maybe ContactFlowType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContactFlow' with all optional fields omitted.
@@ -76,61 +75,61 @@ newContactFlow ::
   ContactFlow
 newContactFlow =
   ContactFlow'
-    { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      content = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      content = Core.Nothing,
+      tags = Core.Nothing,
+      description = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the contact flow.
-contactFlow_arn :: Lens.Lens' ContactFlow (Prelude.Maybe Prelude.Text)
+contactFlow_arn :: Lens.Lens' ContactFlow (Core.Maybe Core.Text)
 contactFlow_arn = Lens.lens (\ContactFlow' {arn} -> arn) (\s@ContactFlow' {} a -> s {arn = a} :: ContactFlow)
 
 -- | The identifier of the contact flow.
-contactFlow_id :: Lens.Lens' ContactFlow (Prelude.Maybe Prelude.Text)
+contactFlow_id :: Lens.Lens' ContactFlow (Core.Maybe Core.Text)
 contactFlow_id = Lens.lens (\ContactFlow' {id} -> id) (\s@ContactFlow' {} a -> s {id = a} :: ContactFlow)
 
 -- | The name of the contact flow.
-contactFlow_name :: Lens.Lens' ContactFlow (Prelude.Maybe Prelude.Text)
+contactFlow_name :: Lens.Lens' ContactFlow (Core.Maybe Core.Text)
 contactFlow_name = Lens.lens (\ContactFlow' {name} -> name) (\s@ContactFlow' {} a -> s {name = a} :: ContactFlow)
 
 -- | The content of the contact flow.
-contactFlow_content :: Lens.Lens' ContactFlow (Prelude.Maybe Prelude.Text)
+contactFlow_content :: Lens.Lens' ContactFlow (Core.Maybe Core.Text)
 contactFlow_content = Lens.lens (\ContactFlow' {content} -> content) (\s@ContactFlow' {} a -> s {content = a} :: ContactFlow)
 
 -- | One or more tags.
-contactFlow_tags :: Lens.Lens' ContactFlow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-contactFlow_tags = Lens.lens (\ContactFlow' {tags} -> tags) (\s@ContactFlow' {} a -> s {tags = a} :: ContactFlow) Prelude.. Lens.mapping Prelude._Coerce
+contactFlow_tags :: Lens.Lens' ContactFlow (Core.Maybe (Core.HashMap Core.Text Core.Text))
+contactFlow_tags = Lens.lens (\ContactFlow' {tags} -> tags) (\s@ContactFlow' {} a -> s {tags = a} :: ContactFlow) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of the contact flow.
-contactFlow_description :: Lens.Lens' ContactFlow (Prelude.Maybe Prelude.Text)
+contactFlow_description :: Lens.Lens' ContactFlow (Core.Maybe Core.Text)
 contactFlow_description = Lens.lens (\ContactFlow' {description} -> description) (\s@ContactFlow' {} a -> s {description = a} :: ContactFlow)
 
 -- | The type of the contact flow. For descriptions of the available types,
 -- see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type>
 -- in the /Amazon Connect Administrator Guide/.
-contactFlow_type :: Lens.Lens' ContactFlow (Prelude.Maybe ContactFlowType)
+contactFlow_type :: Lens.Lens' ContactFlow (Core.Maybe ContactFlowType)
 contactFlow_type = Lens.lens (\ContactFlow' {type'} -> type') (\s@ContactFlow' {} a -> s {type' = a} :: ContactFlow)
 
-instance Prelude.FromJSON ContactFlow where
+instance Core.FromJSON ContactFlow where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContactFlow"
       ( \x ->
           ContactFlow'
-            Prelude.<$> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Content")
-            Prelude.<*> (x Prelude..:? "Tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Content")
+            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable ContactFlow
+instance Core.Hashable ContactFlow
 
-instance Prelude.NFData ContactFlow
+instance Core.NFData ContactFlow

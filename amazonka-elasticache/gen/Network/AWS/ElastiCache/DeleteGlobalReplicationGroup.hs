@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,21 +55,21 @@ module Network.AWS.ElastiCache.DeleteGlobalReplicationGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteGlobalReplicationGroup' smart constructor.
 data DeleteGlobalReplicationGroup = DeleteGlobalReplicationGroup'
   { -- | The name of the Global Datastore
-    globalReplicationGroupId :: Prelude.Text,
+    globalReplicationGroupId :: Core.Text,
     -- | The primary replication group is retained as a standalone replication
     -- group.
-    retainPrimaryReplicationGroup :: Prelude.Bool
+    retainPrimaryReplicationGroup :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGlobalReplicationGroup' with all optional fields omitted.
@@ -86,9 +85,9 @@ data DeleteGlobalReplicationGroup = DeleteGlobalReplicationGroup'
 -- group.
 newDeleteGlobalReplicationGroup ::
   -- | 'globalReplicationGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'retainPrimaryReplicationGroup'
-  Prelude.Bool ->
+  Core.Bool ->
   DeleteGlobalReplicationGroup
 newDeleteGlobalReplicationGroup
   pGlobalReplicationGroupId_
@@ -101,20 +100,17 @@ newDeleteGlobalReplicationGroup
       }
 
 -- | The name of the Global Datastore
-deleteGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' DeleteGlobalReplicationGroup Prelude.Text
+deleteGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' DeleteGlobalReplicationGroup Core.Text
 deleteGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\DeleteGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@DeleteGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: DeleteGlobalReplicationGroup)
 
 -- | The primary replication group is retained as a standalone replication
 -- group.
-deleteGlobalReplicationGroup_retainPrimaryReplicationGroup :: Lens.Lens' DeleteGlobalReplicationGroup Prelude.Bool
+deleteGlobalReplicationGroup_retainPrimaryReplicationGroup :: Lens.Lens' DeleteGlobalReplicationGroup Core.Bool
 deleteGlobalReplicationGroup_retainPrimaryReplicationGroup = Lens.lens (\DeleteGlobalReplicationGroup' {retainPrimaryReplicationGroup} -> retainPrimaryReplicationGroup) (\s@DeleteGlobalReplicationGroup' {} a -> s {retainPrimaryReplicationGroup = a} :: DeleteGlobalReplicationGroup)
 
-instance
-  Prelude.AWSRequest
-    DeleteGlobalReplicationGroup
-  where
+instance Core.AWSRequest DeleteGlobalReplicationGroup where
   type
-    Rs DeleteGlobalReplicationGroup =
+    AWSResponse DeleteGlobalReplicationGroup =
       DeleteGlobalReplicationGroupResponse
   request = Request.postQuery defaultService
   response =
@@ -122,47 +118,39 @@ instance
       "DeleteGlobalReplicationGroupResult"
       ( \s h x ->
           DeleteGlobalReplicationGroupResponse'
-            Prelude.<$> (x Prelude..@? "GlobalReplicationGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "GlobalReplicationGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DeleteGlobalReplicationGroup
+instance Core.Hashable DeleteGlobalReplicationGroup
 
-instance Prelude.NFData DeleteGlobalReplicationGroup
+instance Core.NFData DeleteGlobalReplicationGroup
 
-instance
-  Prelude.ToHeaders
-    DeleteGlobalReplicationGroup
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteGlobalReplicationGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteGlobalReplicationGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteGlobalReplicationGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteGlobalReplicationGroup where
+instance Core.ToQuery DeleteGlobalReplicationGroup where
   toQuery DeleteGlobalReplicationGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteGlobalReplicationGroup" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+          Core.=: ("DeleteGlobalReplicationGroup" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
         "GlobalReplicationGroupId"
-          Prelude.=: globalReplicationGroupId,
+          Core.=: globalReplicationGroupId,
         "RetainPrimaryReplicationGroup"
-          Prelude.=: retainPrimaryReplicationGroup
+          Core.=: retainPrimaryReplicationGroup
       ]
 
 -- | /See:/ 'newDeleteGlobalReplicationGroupResponse' smart constructor.
 data DeleteGlobalReplicationGroupResponse = DeleteGlobalReplicationGroupResponse'
-  { globalReplicationGroup :: Prelude.Maybe GlobalReplicationGroup,
+  { globalReplicationGroup :: Core.Maybe GlobalReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGlobalReplicationGroupResponse' with all optional fields omitted.
@@ -177,23 +165,23 @@ data DeleteGlobalReplicationGroupResponse = DeleteGlobalReplicationGroupResponse
 -- 'httpStatus', 'deleteGlobalReplicationGroupResponse_httpStatus' - The response's http status code.
 newDeleteGlobalReplicationGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteGlobalReplicationGroupResponse
 newDeleteGlobalReplicationGroupResponse pHttpStatus_ =
   DeleteGlobalReplicationGroupResponse'
     { globalReplicationGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' DeleteGlobalReplicationGroupResponse (Prelude.Maybe GlobalReplicationGroup)
+deleteGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' DeleteGlobalReplicationGroupResponse (Core.Maybe GlobalReplicationGroup)
 deleteGlobalReplicationGroupResponse_globalReplicationGroup = Lens.lens (\DeleteGlobalReplicationGroupResponse' {globalReplicationGroup} -> globalReplicationGroup) (\s@DeleteGlobalReplicationGroupResponse' {} a -> s {globalReplicationGroup = a} :: DeleteGlobalReplicationGroupResponse)
 
 -- | The response's http status code.
-deleteGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' DeleteGlobalReplicationGroupResponse Prelude.Int
+deleteGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' DeleteGlobalReplicationGroupResponse Core.Int
 deleteGlobalReplicationGroupResponse_httpStatus = Lens.lens (\DeleteGlobalReplicationGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteGlobalReplicationGroupResponse' {} a -> s {httpStatus = a} :: DeleteGlobalReplicationGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteGlobalReplicationGroupResponse

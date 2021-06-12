@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MQ.Types.Logs where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The list of information about logs to be enabled for the specified
 -- broker.
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLogs' smart constructor.
 data Logs = Logs'
   { -- | Enables general logging.
-    general :: Prelude.Maybe Prelude.Bool,
+    general :: Core.Maybe Core.Bool,
     -- | Enables audit logging. Every user management action made using JMX or
     -- the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
-    audit :: Prelude.Maybe Prelude.Bool
+    audit :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Logs' with all optional fields omitted.
@@ -51,39 +50,35 @@ data Logs = Logs'
 newLogs ::
   Logs
 newLogs =
-  Logs'
-    { general = Prelude.Nothing,
-      audit = Prelude.Nothing
-    }
+  Logs' {general = Core.Nothing, audit = Core.Nothing}
 
 -- | Enables general logging.
-logs_general :: Lens.Lens' Logs (Prelude.Maybe Prelude.Bool)
+logs_general :: Lens.Lens' Logs (Core.Maybe Core.Bool)
 logs_general = Lens.lens (\Logs' {general} -> general) (\s@Logs' {} a -> s {general = a} :: Logs)
 
 -- | Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
-logs_audit :: Lens.Lens' Logs (Prelude.Maybe Prelude.Bool)
+logs_audit :: Lens.Lens' Logs (Core.Maybe Core.Bool)
 logs_audit = Lens.lens (\Logs' {audit} -> audit) (\s@Logs' {} a -> s {audit = a} :: Logs)
 
-instance Prelude.FromJSON Logs where
+instance Core.FromJSON Logs where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Logs"
       ( \x ->
           Logs'
-            Prelude.<$> (x Prelude..:? "general")
-            Prelude.<*> (x Prelude..:? "audit")
+            Core.<$> (x Core..:? "general") Core.<*> (x Core..:? "audit")
       )
 
-instance Prelude.Hashable Logs
+instance Core.Hashable Logs
 
-instance Prelude.NFData Logs
+instance Core.NFData Logs
 
-instance Prelude.ToJSON Logs where
+instance Core.ToJSON Logs where
   toJSON Logs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("general" Prelude..=) Prelude.<$> general,
-            ("audit" Prelude..=) Prelude.<$> audit
+    Core.object
+      ( Core.catMaybes
+          [ ("general" Core..=) Core.<$> general,
+            ("audit" Core..=) Core.<$> audit
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,21 +42,21 @@ module Network.AWS.AlexaBusiness.PutRoomSkillParameter
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutRoomSkillParameter' smart constructor.
 data PutRoomSkillParameter = PutRoomSkillParameter'
   { -- | The ARN of the room associated with the room skill parameter. Required.
-    roomArn :: Prelude.Maybe Prelude.Text,
+    roomArn :: Core.Maybe Core.Text,
     -- | The ARN of the skill associated with the room skill parameter. Required.
-    skillId :: Prelude.Text,
+    skillId :: Core.Text,
     -- | The updated room skill parameter. Required.
     roomSkillParameter :: RoomSkillParameter
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRoomSkillParameter' with all optional fields omitted.
@@ -74,7 +73,7 @@ data PutRoomSkillParameter = PutRoomSkillParameter'
 -- 'roomSkillParameter', 'putRoomSkillParameter_roomSkillParameter' - The updated room skill parameter. Required.
 newPutRoomSkillParameter ::
   -- | 'skillId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roomSkillParameter'
   RoomSkillParameter ->
   PutRoomSkillParameter
@@ -82,79 +81,75 @@ newPutRoomSkillParameter
   pSkillId_
   pRoomSkillParameter_ =
     PutRoomSkillParameter'
-      { roomArn = Prelude.Nothing,
+      { roomArn = Core.Nothing,
         skillId = pSkillId_,
         roomSkillParameter = pRoomSkillParameter_
       }
 
 -- | The ARN of the room associated with the room skill parameter. Required.
-putRoomSkillParameter_roomArn :: Lens.Lens' PutRoomSkillParameter (Prelude.Maybe Prelude.Text)
+putRoomSkillParameter_roomArn :: Lens.Lens' PutRoomSkillParameter (Core.Maybe Core.Text)
 putRoomSkillParameter_roomArn = Lens.lens (\PutRoomSkillParameter' {roomArn} -> roomArn) (\s@PutRoomSkillParameter' {} a -> s {roomArn = a} :: PutRoomSkillParameter)
 
 -- | The ARN of the skill associated with the room skill parameter. Required.
-putRoomSkillParameter_skillId :: Lens.Lens' PutRoomSkillParameter Prelude.Text
+putRoomSkillParameter_skillId :: Lens.Lens' PutRoomSkillParameter Core.Text
 putRoomSkillParameter_skillId = Lens.lens (\PutRoomSkillParameter' {skillId} -> skillId) (\s@PutRoomSkillParameter' {} a -> s {skillId = a} :: PutRoomSkillParameter)
 
 -- | The updated room skill parameter. Required.
 putRoomSkillParameter_roomSkillParameter :: Lens.Lens' PutRoomSkillParameter RoomSkillParameter
 putRoomSkillParameter_roomSkillParameter = Lens.lens (\PutRoomSkillParameter' {roomSkillParameter} -> roomSkillParameter) (\s@PutRoomSkillParameter' {} a -> s {roomSkillParameter = a} :: PutRoomSkillParameter)
 
-instance Prelude.AWSRequest PutRoomSkillParameter where
+instance Core.AWSRequest PutRoomSkillParameter where
   type
-    Rs PutRoomSkillParameter =
+    AWSResponse PutRoomSkillParameter =
       PutRoomSkillParameterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutRoomSkillParameterResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutRoomSkillParameter
+instance Core.Hashable PutRoomSkillParameter
 
-instance Prelude.NFData PutRoomSkillParameter
+instance Core.NFData PutRoomSkillParameter
 
-instance Prelude.ToHeaders PutRoomSkillParameter where
+instance Core.ToHeaders PutRoomSkillParameter where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.PutRoomSkillParameter" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.PutRoomSkillParameter" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutRoomSkillParameter where
+instance Core.ToJSON PutRoomSkillParameter where
   toJSON PutRoomSkillParameter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RoomArn" Prelude..=) Prelude.<$> roomArn,
-            Prelude.Just ("SkillId" Prelude..= skillId),
-            Prelude.Just
-              ( "RoomSkillParameter"
-                  Prelude..= roomSkillParameter
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("RoomArn" Core..=) Core.<$> roomArn,
+            Core.Just ("SkillId" Core..= skillId),
+            Core.Just
+              ("RoomSkillParameter" Core..= roomSkillParameter)
           ]
       )
 
-instance Prelude.ToPath PutRoomSkillParameter where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutRoomSkillParameter where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutRoomSkillParameter where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutRoomSkillParameter where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutRoomSkillParameterResponse' smart constructor.
 data PutRoomSkillParameterResponse = PutRoomSkillParameterResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRoomSkillParameterResponse' with all optional fields omitted.
@@ -167,7 +162,7 @@ data PutRoomSkillParameterResponse = PutRoomSkillParameterResponse'
 -- 'httpStatus', 'putRoomSkillParameterResponse_httpStatus' - The response's http status code.
 newPutRoomSkillParameterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutRoomSkillParameterResponse
 newPutRoomSkillParameterResponse pHttpStatus_ =
   PutRoomSkillParameterResponse'
@@ -176,7 +171,7 @@ newPutRoomSkillParameterResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putRoomSkillParameterResponse_httpStatus :: Lens.Lens' PutRoomSkillParameterResponse Prelude.Int
+putRoomSkillParameterResponse_httpStatus :: Lens.Lens' PutRoomSkillParameterResponse Core.Int
 putRoomSkillParameterResponse_httpStatus = Lens.lens (\PutRoomSkillParameterResponse' {httpStatus} -> httpStatus) (\s@PutRoomSkillParameterResponse' {} a -> s {httpStatus = a} :: PutRoomSkillParameterResponse)
 
-instance Prelude.NFData PutRoomSkillParameterResponse
+instance Core.NFData PutRoomSkillParameterResponse

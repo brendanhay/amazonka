@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,8 +71,8 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPoolDomain
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,16 +86,16 @@ data UpdateUserPoolDomain = UpdateUserPoolDomain'
     -- This string can include only lowercase letters, numbers, and hyphens. Do
     -- not use a hyphen for the first or last character. Use periods to
     -- separate subdomain names.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | The ID of the user pool that is associated with the custom domain that
     -- you are updating the certificate for.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The configuration for a custom domain that hosts the sign-up and sign-in
     -- pages for your application. Use this object to specify an SSL
     -- certificate that is managed by ACM.
     customDomainConfig :: CustomDomainConfigType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUserPoolDomain' with all optional fields omitted.
@@ -121,9 +120,9 @@ data UpdateUserPoolDomain = UpdateUserPoolDomain'
 -- certificate that is managed by ACM.
 newUpdateUserPoolDomain ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'customDomainConfig'
   CustomDomainConfigType ->
   UpdateUserPoolDomain
@@ -143,12 +142,12 @@ newUpdateUserPoolDomain
 -- This string can include only lowercase letters, numbers, and hyphens. Do
 -- not use a hyphen for the first or last character. Use periods to
 -- separate subdomain names.
-updateUserPoolDomain_domain :: Lens.Lens' UpdateUserPoolDomain Prelude.Text
+updateUserPoolDomain_domain :: Lens.Lens' UpdateUserPoolDomain Core.Text
 updateUserPoolDomain_domain = Lens.lens (\UpdateUserPoolDomain' {domain} -> domain) (\s@UpdateUserPoolDomain' {} a -> s {domain = a} :: UpdateUserPoolDomain)
 
 -- | The ID of the user pool that is associated with the custom domain that
 -- you are updating the certificate for.
-updateUserPoolDomain_userPoolId :: Lens.Lens' UpdateUserPoolDomain Prelude.Text
+updateUserPoolDomain_userPoolId :: Lens.Lens' UpdateUserPoolDomain Core.Text
 updateUserPoolDomain_userPoolId = Lens.lens (\UpdateUserPoolDomain' {userPoolId} -> userPoolId) (\s@UpdateUserPoolDomain' {} a -> s {userPoolId = a} :: UpdateUserPoolDomain)
 
 -- | The configuration for a custom domain that hosts the sign-up and sign-in
@@ -157,56 +156,52 @@ updateUserPoolDomain_userPoolId = Lens.lens (\UpdateUserPoolDomain' {userPoolId}
 updateUserPoolDomain_customDomainConfig :: Lens.Lens' UpdateUserPoolDomain CustomDomainConfigType
 updateUserPoolDomain_customDomainConfig = Lens.lens (\UpdateUserPoolDomain' {customDomainConfig} -> customDomainConfig) (\s@UpdateUserPoolDomain' {} a -> s {customDomainConfig = a} :: UpdateUserPoolDomain)
 
-instance Prelude.AWSRequest UpdateUserPoolDomain where
+instance Core.AWSRequest UpdateUserPoolDomain where
   type
-    Rs UpdateUserPoolDomain =
+    AWSResponse UpdateUserPoolDomain =
       UpdateUserPoolDomainResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateUserPoolDomainResponse'
-            Prelude.<$> (x Prelude..?> "CloudFrontDomain")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CloudFrontDomain")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateUserPoolDomain
+instance Core.Hashable UpdateUserPoolDomain
 
-instance Prelude.NFData UpdateUserPoolDomain
+instance Core.NFData UpdateUserPoolDomain
 
-instance Prelude.ToHeaders UpdateUserPoolDomain where
+instance Core.ToHeaders UpdateUserPoolDomain where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.UpdateUserPoolDomain" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.UpdateUserPoolDomain" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateUserPoolDomain where
+instance Core.ToJSON UpdateUserPoolDomain where
   toJSON UpdateUserPoolDomain' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Domain" Prelude..= domain),
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just
-              ( "CustomDomainConfig"
-                  Prelude..= customDomainConfig
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Domain" Core..= domain),
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just
+              ("CustomDomainConfig" Core..= customDomainConfig)
           ]
       )
 
-instance Prelude.ToPath UpdateUserPoolDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateUserPoolDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateUserPoolDomain where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateUserPoolDomain where
+  toQuery = Core.const Core.mempty
 
 -- | The UpdateUserPoolDomain response output.
 --
@@ -214,11 +209,11 @@ instance Prelude.ToQuery UpdateUserPoolDomain where
 data UpdateUserPoolDomainResponse = UpdateUserPoolDomainResponse'
   { -- | The Amazon CloudFront endpoint that Amazon Cognito set up when you added
     -- the custom domain to your user pool.
-    cloudFrontDomain :: Prelude.Maybe Prelude.Text,
+    cloudFrontDomain :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUserPoolDomainResponse' with all optional fields omitted.
@@ -234,22 +229,22 @@ data UpdateUserPoolDomainResponse = UpdateUserPoolDomainResponse'
 -- 'httpStatus', 'updateUserPoolDomainResponse_httpStatus' - The response's http status code.
 newUpdateUserPoolDomainResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateUserPoolDomainResponse
 newUpdateUserPoolDomainResponse pHttpStatus_ =
   UpdateUserPoolDomainResponse'
     { cloudFrontDomain =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon CloudFront endpoint that Amazon Cognito set up when you added
 -- the custom domain to your user pool.
-updateUserPoolDomainResponse_cloudFrontDomain :: Lens.Lens' UpdateUserPoolDomainResponse (Prelude.Maybe Prelude.Text)
+updateUserPoolDomainResponse_cloudFrontDomain :: Lens.Lens' UpdateUserPoolDomainResponse (Core.Maybe Core.Text)
 updateUserPoolDomainResponse_cloudFrontDomain = Lens.lens (\UpdateUserPoolDomainResponse' {cloudFrontDomain} -> cloudFrontDomain) (\s@UpdateUserPoolDomainResponse' {} a -> s {cloudFrontDomain = a} :: UpdateUserPoolDomainResponse)
 
 -- | The response's http status code.
-updateUserPoolDomainResponse_httpStatus :: Lens.Lens' UpdateUserPoolDomainResponse Prelude.Int
+updateUserPoolDomainResponse_httpStatus :: Lens.Lens' UpdateUserPoolDomainResponse Core.Int
 updateUserPoolDomainResponse_httpStatus = Lens.lens (\UpdateUserPoolDomainResponse' {httpStatus} -> httpStatus) (\s@UpdateUserPoolDomainResponse' {} a -> s {httpStatus = a} :: UpdateUserPoolDomainResponse)
 
-instance Prelude.NFData UpdateUserPoolDomainResponse
+instance Core.NFData UpdateUserPoolDomainResponse

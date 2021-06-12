@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.ElasticSearch.AddTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAddTags' smart constructor.
 data AddTags = AddTags'
   { -- | Specify the @ARN@ for which you want to add the tags.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | List of @Tag@ that need to be added for the Elasticsearch domain.
     tagList :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddTags' with all optional fields omitted.
@@ -71,51 +70,51 @@ data AddTags = AddTags'
 -- 'tagList', 'addTags_tagList' - List of @Tag@ that need to be added for the Elasticsearch domain.
 newAddTags ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   AddTags
 newAddTags pARN_ =
-  AddTags' {arn = pARN_, tagList = Prelude.mempty}
+  AddTags' {arn = pARN_, tagList = Core.mempty}
 
 -- | Specify the @ARN@ for which you want to add the tags.
-addTags_arn :: Lens.Lens' AddTags Prelude.Text
+addTags_arn :: Lens.Lens' AddTags Core.Text
 addTags_arn = Lens.lens (\AddTags' {arn} -> arn) (\s@AddTags' {} a -> s {arn = a} :: AddTags)
 
 -- | List of @Tag@ that need to be added for the Elasticsearch domain.
 addTags_tagList :: Lens.Lens' AddTags [Tag]
-addTags_tagList = Lens.lens (\AddTags' {tagList} -> tagList) (\s@AddTags' {} a -> s {tagList = a} :: AddTags) Prelude.. Prelude._Coerce
+addTags_tagList = Lens.lens (\AddTags' {tagList} -> tagList) (\s@AddTags' {} a -> s {tagList = a} :: AddTags) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddTags where
-  type Rs AddTags = AddTagsResponse
+instance Core.AWSRequest AddTags where
+  type AWSResponse AddTags = AddTagsResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull AddTagsResponse'
 
-instance Prelude.Hashable AddTags
+instance Core.Hashable AddTags
 
-instance Prelude.NFData AddTags
+instance Core.NFData AddTags
 
-instance Prelude.ToHeaders AddTags where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AddTags where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON AddTags where
+instance Core.ToJSON AddTags where
   toJSON AddTags' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ARN" Prelude..= arn),
-            Prelude.Just ("TagList" Prelude..= tagList)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ARN" Core..= arn),
+            Core.Just ("TagList" Core..= tagList)
           ]
       )
 
-instance Prelude.ToPath AddTags where
-  toPath = Prelude.const "/2015-01-01/tags"
+instance Core.ToPath AddTags where
+  toPath = Core.const "/2015-01-01/tags"
 
-instance Prelude.ToQuery AddTags where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AddTags where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddTagsResponse' with all optional fields omitted.
@@ -125,4 +124,4 @@ newAddTagsResponse ::
   AddTagsResponse
 newAddTagsResponse = AddTagsResponse'
 
-instance Prelude.NFData AddTagsResponse
+instance Core.NFData AddTagsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.RequestProgress where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for specifying if periodic @QueryProgress@ messages should be
@@ -31,9 +30,9 @@ import Network.AWS.S3.Internal
 data RequestProgress = RequestProgress'
   { -- | Specifies whether periodic QueryProgress frames should be sent. Valid
     -- values: TRUE, FALSE. Default value: FALSE.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RequestProgress' with all optional fields omitted.
@@ -48,17 +47,17 @@ data RequestProgress = RequestProgress'
 newRequestProgress ::
   RequestProgress
 newRequestProgress =
-  RequestProgress' {enabled = Prelude.Nothing}
+  RequestProgress' {enabled = Core.Nothing}
 
 -- | Specifies whether periodic QueryProgress frames should be sent. Valid
 -- values: TRUE, FALSE. Default value: FALSE.
-requestProgress_enabled :: Lens.Lens' RequestProgress (Prelude.Maybe Prelude.Bool)
+requestProgress_enabled :: Lens.Lens' RequestProgress (Core.Maybe Core.Bool)
 requestProgress_enabled = Lens.lens (\RequestProgress' {enabled} -> enabled) (\s@RequestProgress' {} a -> s {enabled = a} :: RequestProgress)
 
-instance Prelude.Hashable RequestProgress
+instance Core.Hashable RequestProgress
 
-instance Prelude.NFData RequestProgress
+instance Core.NFData RequestProgress
 
-instance Prelude.ToXML RequestProgress where
+instance Core.ToXML RequestProgress where
   toXML RequestProgress' {..} =
-    Prelude.mconcat ["Enabled" Prelude.@= enabled]
+    Core.mconcat ["Enabled" Core.@= enabled]

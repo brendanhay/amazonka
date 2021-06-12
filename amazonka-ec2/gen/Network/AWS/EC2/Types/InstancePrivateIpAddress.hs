@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstancePrivateIpAddress where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceNetworkInterfaceAssociation
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a private IPv4 address.
 --
@@ -31,16 +30,16 @@ import qualified Network.AWS.Prelude as Prelude
 data InstancePrivateIpAddress = InstancePrivateIpAddress'
   { -- | Indicates whether this IPv4 address is the primary private IP address of
     -- the network interface.
-    primary :: Prelude.Maybe Prelude.Bool,
+    primary :: Core.Maybe Core.Bool,
     -- | The association information for an Elastic IP address for the network
     -- interface.
-    association :: Prelude.Maybe InstanceNetworkInterfaceAssociation,
+    association :: Core.Maybe InstanceNetworkInterfaceAssociation,
     -- | The private IPv4 DNS name.
-    privateDnsName :: Prelude.Maybe Prelude.Text,
+    privateDnsName :: Core.Maybe Core.Text,
     -- | The private IPv4 address of the network interface.
-    privateIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstancePrivateIpAddress' with all optional fields omitted.
@@ -63,39 +62,38 @@ newInstancePrivateIpAddress ::
   InstancePrivateIpAddress
 newInstancePrivateIpAddress =
   InstancePrivateIpAddress'
-    { primary =
-        Prelude.Nothing,
-      association = Prelude.Nothing,
-      privateDnsName = Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing
+    { primary = Core.Nothing,
+      association = Core.Nothing,
+      privateDnsName = Core.Nothing,
+      privateIpAddress = Core.Nothing
     }
 
 -- | Indicates whether this IPv4 address is the primary private IP address of
 -- the network interface.
-instancePrivateIpAddress_primary :: Lens.Lens' InstancePrivateIpAddress (Prelude.Maybe Prelude.Bool)
+instancePrivateIpAddress_primary :: Lens.Lens' InstancePrivateIpAddress (Core.Maybe Core.Bool)
 instancePrivateIpAddress_primary = Lens.lens (\InstancePrivateIpAddress' {primary} -> primary) (\s@InstancePrivateIpAddress' {} a -> s {primary = a} :: InstancePrivateIpAddress)
 
 -- | The association information for an Elastic IP address for the network
 -- interface.
-instancePrivateIpAddress_association :: Lens.Lens' InstancePrivateIpAddress (Prelude.Maybe InstanceNetworkInterfaceAssociation)
+instancePrivateIpAddress_association :: Lens.Lens' InstancePrivateIpAddress (Core.Maybe InstanceNetworkInterfaceAssociation)
 instancePrivateIpAddress_association = Lens.lens (\InstancePrivateIpAddress' {association} -> association) (\s@InstancePrivateIpAddress' {} a -> s {association = a} :: InstancePrivateIpAddress)
 
 -- | The private IPv4 DNS name.
-instancePrivateIpAddress_privateDnsName :: Lens.Lens' InstancePrivateIpAddress (Prelude.Maybe Prelude.Text)
+instancePrivateIpAddress_privateDnsName :: Lens.Lens' InstancePrivateIpAddress (Core.Maybe Core.Text)
 instancePrivateIpAddress_privateDnsName = Lens.lens (\InstancePrivateIpAddress' {privateDnsName} -> privateDnsName) (\s@InstancePrivateIpAddress' {} a -> s {privateDnsName = a} :: InstancePrivateIpAddress)
 
 -- | The private IPv4 address of the network interface.
-instancePrivateIpAddress_privateIpAddress :: Lens.Lens' InstancePrivateIpAddress (Prelude.Maybe Prelude.Text)
+instancePrivateIpAddress_privateIpAddress :: Lens.Lens' InstancePrivateIpAddress (Core.Maybe Core.Text)
 instancePrivateIpAddress_privateIpAddress = Lens.lens (\InstancePrivateIpAddress' {privateIpAddress} -> privateIpAddress) (\s@InstancePrivateIpAddress' {} a -> s {privateIpAddress = a} :: InstancePrivateIpAddress)
 
-instance Prelude.FromXML InstancePrivateIpAddress where
+instance Core.FromXML InstancePrivateIpAddress where
   parseXML x =
     InstancePrivateIpAddress'
-      Prelude.<$> (x Prelude..@? "primary")
-      Prelude.<*> (x Prelude..@? "association")
-      Prelude.<*> (x Prelude..@? "privateDnsName")
-      Prelude.<*> (x Prelude..@? "privateIpAddress")
+      Core.<$> (x Core..@? "primary")
+      Core.<*> (x Core..@? "association")
+      Core.<*> (x Core..@? "privateDnsName")
+      Core.<*> (x Core..@? "privateIpAddress")
 
-instance Prelude.Hashable InstancePrivateIpAddress
+instance Core.Hashable InstancePrivateIpAddress
 
-instance Prelude.NFData InstancePrivateIpAddress
+instance Core.NFData InstancePrivateIpAddress

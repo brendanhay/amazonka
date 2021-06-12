@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,14 +58,14 @@ data SetDesiredCapacity = SetDesiredCapacity'
     -- to complete before initiating a scaling activity to set your Auto
     -- Scaling group to its new capacity. By default, Amazon EC2 Auto Scaling
     -- does not honor the cooldown period during manual scaling activities.
-    honorCooldown :: Prelude.Maybe Prelude.Bool,
+    honorCooldown :: Core.Maybe Core.Bool,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text,
+    autoScalingGroupName :: Core.Text,
     -- | The desired capacity is the initial capacity of the Auto Scaling group
     -- after this operation completes and the capacity it attempts to maintain.
-    desiredCapacity :: Prelude.Int
+    desiredCapacity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetDesiredCapacity' with all optional fields omitted.
@@ -87,16 +86,15 @@ data SetDesiredCapacity = SetDesiredCapacity'
 -- after this operation completes and the capacity it attempts to maintain.
 newSetDesiredCapacity ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'desiredCapacity'
-  Prelude.Int ->
+  Core.Int ->
   SetDesiredCapacity
 newSetDesiredCapacity
   pAutoScalingGroupName_
   pDesiredCapacity_ =
     SetDesiredCapacity'
-      { honorCooldown =
-          Prelude.Nothing,
+      { honorCooldown = Core.Nothing,
         autoScalingGroupName = pAutoScalingGroupName_,
         desiredCapacity = pDesiredCapacity_
       }
@@ -105,54 +103,52 @@ newSetDesiredCapacity
 -- to complete before initiating a scaling activity to set your Auto
 -- Scaling group to its new capacity. By default, Amazon EC2 Auto Scaling
 -- does not honor the cooldown period during manual scaling activities.
-setDesiredCapacity_honorCooldown :: Lens.Lens' SetDesiredCapacity (Prelude.Maybe Prelude.Bool)
+setDesiredCapacity_honorCooldown :: Lens.Lens' SetDesiredCapacity (Core.Maybe Core.Bool)
 setDesiredCapacity_honorCooldown = Lens.lens (\SetDesiredCapacity' {honorCooldown} -> honorCooldown) (\s@SetDesiredCapacity' {} a -> s {honorCooldown = a} :: SetDesiredCapacity)
 
 -- | The name of the Auto Scaling group.
-setDesiredCapacity_autoScalingGroupName :: Lens.Lens' SetDesiredCapacity Prelude.Text
+setDesiredCapacity_autoScalingGroupName :: Lens.Lens' SetDesiredCapacity Core.Text
 setDesiredCapacity_autoScalingGroupName = Lens.lens (\SetDesiredCapacity' {autoScalingGroupName} -> autoScalingGroupName) (\s@SetDesiredCapacity' {} a -> s {autoScalingGroupName = a} :: SetDesiredCapacity)
 
 -- | The desired capacity is the initial capacity of the Auto Scaling group
 -- after this operation completes and the capacity it attempts to maintain.
-setDesiredCapacity_desiredCapacity :: Lens.Lens' SetDesiredCapacity Prelude.Int
+setDesiredCapacity_desiredCapacity :: Lens.Lens' SetDesiredCapacity Core.Int
 setDesiredCapacity_desiredCapacity = Lens.lens (\SetDesiredCapacity' {desiredCapacity} -> desiredCapacity) (\s@SetDesiredCapacity' {} a -> s {desiredCapacity = a} :: SetDesiredCapacity)
 
-instance Prelude.AWSRequest SetDesiredCapacity where
+instance Core.AWSRequest SetDesiredCapacity where
   type
-    Rs SetDesiredCapacity =
+    AWSResponse SetDesiredCapacity =
       SetDesiredCapacityResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull SetDesiredCapacityResponse'
 
-instance Prelude.Hashable SetDesiredCapacity
+instance Core.Hashable SetDesiredCapacity
 
-instance Prelude.NFData SetDesiredCapacity
+instance Core.NFData SetDesiredCapacity
 
-instance Prelude.ToHeaders SetDesiredCapacity where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetDesiredCapacity where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SetDesiredCapacity where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetDesiredCapacity where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetDesiredCapacity where
+instance Core.ToQuery SetDesiredCapacity where
   toQuery SetDesiredCapacity' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SetDesiredCapacity" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "HonorCooldown" Prelude.=: honorCooldown,
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName,
-        "DesiredCapacity" Prelude.=: desiredCapacity
+          Core.=: ("SetDesiredCapacity" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "HonorCooldown" Core.=: honorCooldown,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+        "DesiredCapacity" Core.=: desiredCapacity
       ]
 
 -- | /See:/ 'newSetDesiredCapacityResponse' smart constructor.
 data SetDesiredCapacityResponse = SetDesiredCapacityResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetDesiredCapacityResponse' with all optional fields omitted.
@@ -163,4 +159,4 @@ newSetDesiredCapacityResponse ::
 newSetDesiredCapacityResponse =
   SetDesiredCapacityResponse'
 
-instance Prelude.NFData SetDesiredCapacityResponse
+instance Core.NFData SetDesiredCapacityResponse

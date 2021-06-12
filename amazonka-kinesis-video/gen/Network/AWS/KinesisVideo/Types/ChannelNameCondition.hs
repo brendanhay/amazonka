@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideo.Types.ChannelNameCondition where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types.ComparisonOperator
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An optional input parameter for the @ListSignalingChannels@ API. When
 -- this parameter is specified while invoking @ListSignalingChannels@, the
@@ -34,11 +33,11 @@ data ChannelNameCondition = ChannelNameCondition'
   { -- | A comparison operator. Currently, you can only specify the @BEGINS_WITH@
     -- operator, which finds signaling channels whose names begin with a given
     -- prefix.
-    comparisonOperator :: Prelude.Maybe ComparisonOperator,
+    comparisonOperator :: Core.Maybe ComparisonOperator,
     -- | A value to compare.
-    comparisonValue :: Prelude.Maybe Prelude.Text
+    comparisonValue :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChannelNameCondition' with all optional fields omitted.
@@ -58,31 +57,31 @@ newChannelNameCondition ::
 newChannelNameCondition =
   ChannelNameCondition'
     { comparisonOperator =
-        Prelude.Nothing,
-      comparisonValue = Prelude.Nothing
+        Core.Nothing,
+      comparisonValue = Core.Nothing
     }
 
 -- | A comparison operator. Currently, you can only specify the @BEGINS_WITH@
 -- operator, which finds signaling channels whose names begin with a given
 -- prefix.
-channelNameCondition_comparisonOperator :: Lens.Lens' ChannelNameCondition (Prelude.Maybe ComparisonOperator)
+channelNameCondition_comparisonOperator :: Lens.Lens' ChannelNameCondition (Core.Maybe ComparisonOperator)
 channelNameCondition_comparisonOperator = Lens.lens (\ChannelNameCondition' {comparisonOperator} -> comparisonOperator) (\s@ChannelNameCondition' {} a -> s {comparisonOperator = a} :: ChannelNameCondition)
 
 -- | A value to compare.
-channelNameCondition_comparisonValue :: Lens.Lens' ChannelNameCondition (Prelude.Maybe Prelude.Text)
+channelNameCondition_comparisonValue :: Lens.Lens' ChannelNameCondition (Core.Maybe Core.Text)
 channelNameCondition_comparisonValue = Lens.lens (\ChannelNameCondition' {comparisonValue} -> comparisonValue) (\s@ChannelNameCondition' {} a -> s {comparisonValue = a} :: ChannelNameCondition)
 
-instance Prelude.Hashable ChannelNameCondition
+instance Core.Hashable ChannelNameCondition
 
-instance Prelude.NFData ChannelNameCondition
+instance Core.NFData ChannelNameCondition
 
-instance Prelude.ToJSON ChannelNameCondition where
+instance Core.ToJSON ChannelNameCondition where
   toJSON ChannelNameCondition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ComparisonOperator" Prelude..=)
-              Prelude.<$> comparisonOperator,
-            ("ComparisonValue" Prelude..=)
-              Prelude.<$> comparisonValue
+    Core.object
+      ( Core.catMaybes
+          [ ("ComparisonOperator" Core..=)
+              Core.<$> comparisonOperator,
+            ("ComparisonValue" Core..=)
+              Core.<$> comparisonValue
           ]
       )

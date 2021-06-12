@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.CacheBehaviors where
 
 import Network.AWS.CloudFront.Types.CacheBehavior
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains zero or more @CacheBehavior@ elements.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data CacheBehaviors = CacheBehaviors'
   { -- | Optional: A complex type that contains cache behaviors for this
     -- distribution. If @Quantity@ is @0@, you can omit @Items@.
-    items :: Prelude.Maybe [CacheBehavior],
+    items :: Core.Maybe [CacheBehavior],
     -- | The number of cache behaviors for this distribution.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CacheBehaviors' with all optional fields omitted.
@@ -50,42 +49,40 @@ data CacheBehaviors = CacheBehaviors'
 -- 'quantity', 'cacheBehaviors_quantity' - The number of cache behaviors for this distribution.
 newCacheBehaviors ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   CacheBehaviors
 newCacheBehaviors pQuantity_ =
   CacheBehaviors'
-    { items = Prelude.Nothing,
+    { items = Core.Nothing,
       quantity = pQuantity_
     }
 
 -- | Optional: A complex type that contains cache behaviors for this
 -- distribution. If @Quantity@ is @0@, you can omit @Items@.
-cacheBehaviors_items :: Lens.Lens' CacheBehaviors (Prelude.Maybe [CacheBehavior])
-cacheBehaviors_items = Lens.lens (\CacheBehaviors' {items} -> items) (\s@CacheBehaviors' {} a -> s {items = a} :: CacheBehaviors) Prelude.. Lens.mapping Prelude._Coerce
+cacheBehaviors_items :: Lens.Lens' CacheBehaviors (Core.Maybe [CacheBehavior])
+cacheBehaviors_items = Lens.lens (\CacheBehaviors' {items} -> items) (\s@CacheBehaviors' {} a -> s {items = a} :: CacheBehaviors) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of cache behaviors for this distribution.
-cacheBehaviors_quantity :: Lens.Lens' CacheBehaviors Prelude.Int
+cacheBehaviors_quantity :: Lens.Lens' CacheBehaviors Core.Int
 cacheBehaviors_quantity = Lens.lens (\CacheBehaviors' {quantity} -> quantity) (\s@CacheBehaviors' {} a -> s {quantity = a} :: CacheBehaviors)
 
-instance Prelude.FromXML CacheBehaviors where
+instance Core.FromXML CacheBehaviors where
   parseXML x =
     CacheBehaviors'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "CacheBehavior")
-                  )
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "CacheBehavior")
+               )
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable CacheBehaviors
+instance Core.Hashable CacheBehaviors
 
-instance Prelude.NFData CacheBehaviors
+instance Core.NFData CacheBehaviors
 
-instance Prelude.ToXML CacheBehaviors where
+instance Core.ToXML CacheBehaviors where
   toXML CacheBehaviors' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            ( Prelude.toXMLList "CacheBehavior"
-                Prelude.<$> items
-            ),
-        "Quantity" Prelude.@= quantity
+          Core.@= Core.toXML
+            (Core.toXMLList "CacheBehavior" Core.<$> items),
+        "Quantity" Core.@= quantity
       ]

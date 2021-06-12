@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.Config.Types.SourceDetail where
 import Network.AWS.Config.Types.EventSource
 import Network.AWS.Config.Types.MaximumExecutionFrequency
 import Network.AWS.Config.Types.MessageType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the source and the message types that trigger AWS Config to
 -- evaluate your AWS resources against a rule. It also provides the
@@ -36,7 +35,7 @@ import qualified Network.AWS.Prelude as Prelude
 data SourceDetail = SourceDetail'
   { -- | The source of the event, such as an AWS service, that triggers AWS
     -- Config to evaluate your AWS resources.
-    eventSource :: Prelude.Maybe EventSource,
+    eventSource :: Core.Maybe EventSource,
     -- | The frequency at which you want AWS Config to run evaluations for a
     -- custom rule with a periodic trigger. If you specify a value for
     -- @MaximumExecutionFrequency@, then @MessageType@ must use the
@@ -50,7 +49,7 @@ data SourceDetail = SourceDetail'
     -- for each valid value. For example, if you choose @Three_Hours@, AWS
     -- Config runs evaluations once every three hours. In this case,
     -- @Three_Hours@ is the frequency of this rule.
-    maximumExecutionFrequency :: Prelude.Maybe MaximumExecutionFrequency,
+    maximumExecutionFrequency :: Core.Maybe MaximumExecutionFrequency,
     -- | The type of notification that triggers AWS Config to run an evaluation
     -- for a rule. You can specify the following notification types:
     --
@@ -74,9 +73,9 @@ data SourceDetail = SourceDetail'
     -- specify two SourceDetail objects, one for
     -- @ConfigurationItemChangeNotification@ and one for
     -- @OversizedConfigurationItemChangeNotification@.
-    messageType :: Prelude.Maybe MessageType
+    messageType :: Core.Maybe MessageType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SourceDetail' with all optional fields omitted.
@@ -130,14 +129,14 @@ newSourceDetail ::
   SourceDetail
 newSourceDetail =
   SourceDetail'
-    { eventSource = Prelude.Nothing,
-      maximumExecutionFrequency = Prelude.Nothing,
-      messageType = Prelude.Nothing
+    { eventSource = Core.Nothing,
+      maximumExecutionFrequency = Core.Nothing,
+      messageType = Core.Nothing
     }
 
 -- | The source of the event, such as an AWS service, that triggers AWS
 -- Config to evaluate your AWS resources.
-sourceDetail_eventSource :: Lens.Lens' SourceDetail (Prelude.Maybe EventSource)
+sourceDetail_eventSource :: Lens.Lens' SourceDetail (Core.Maybe EventSource)
 sourceDetail_eventSource = Lens.lens (\SourceDetail' {eventSource} -> eventSource) (\s@SourceDetail' {} a -> s {eventSource = a} :: SourceDetail)
 
 -- | The frequency at which you want AWS Config to run evaluations for a
@@ -153,7 +152,7 @@ sourceDetail_eventSource = Lens.lens (\SourceDetail' {eventSource} -> eventSourc
 -- for each valid value. For example, if you choose @Three_Hours@, AWS
 -- Config runs evaluations once every three hours. In this case,
 -- @Three_Hours@ is the frequency of this rule.
-sourceDetail_maximumExecutionFrequency :: Lens.Lens' SourceDetail (Prelude.Maybe MaximumExecutionFrequency)
+sourceDetail_maximumExecutionFrequency :: Lens.Lens' SourceDetail (Core.Maybe MaximumExecutionFrequency)
 sourceDetail_maximumExecutionFrequency = Lens.lens (\SourceDetail' {maximumExecutionFrequency} -> maximumExecutionFrequency) (\s@SourceDetail' {} a -> s {maximumExecutionFrequency = a} :: SourceDetail)
 
 -- | The type of notification that triggers AWS Config to run an evaluation
@@ -179,31 +178,31 @@ sourceDetail_maximumExecutionFrequency = Lens.lens (\SourceDetail' {maximumExecu
 -- specify two SourceDetail objects, one for
 -- @ConfigurationItemChangeNotification@ and one for
 -- @OversizedConfigurationItemChangeNotification@.
-sourceDetail_messageType :: Lens.Lens' SourceDetail (Prelude.Maybe MessageType)
+sourceDetail_messageType :: Lens.Lens' SourceDetail (Core.Maybe MessageType)
 sourceDetail_messageType = Lens.lens (\SourceDetail' {messageType} -> messageType) (\s@SourceDetail' {} a -> s {messageType = a} :: SourceDetail)
 
-instance Prelude.FromJSON SourceDetail where
+instance Core.FromJSON SourceDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SourceDetail"
       ( \x ->
           SourceDetail'
-            Prelude.<$> (x Prelude..:? "EventSource")
-            Prelude.<*> (x Prelude..:? "MaximumExecutionFrequency")
-            Prelude.<*> (x Prelude..:? "MessageType")
+            Core.<$> (x Core..:? "EventSource")
+            Core.<*> (x Core..:? "MaximumExecutionFrequency")
+            Core.<*> (x Core..:? "MessageType")
       )
 
-instance Prelude.Hashable SourceDetail
+instance Core.Hashable SourceDetail
 
-instance Prelude.NFData SourceDetail
+instance Core.NFData SourceDetail
 
-instance Prelude.ToJSON SourceDetail where
+instance Core.ToJSON SourceDetail where
   toJSON SourceDetail' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EventSource" Prelude..=) Prelude.<$> eventSource,
-            ("MaximumExecutionFrequency" Prelude..=)
-              Prelude.<$> maximumExecutionFrequency,
-            ("MessageType" Prelude..=) Prelude.<$> messageType
+    Core.object
+      ( Core.catMaybes
+          [ ("EventSource" Core..=) Core.<$> eventSource,
+            ("MaximumExecutionFrequency" Core..=)
+              Core.<$> maximumExecutionFrequency,
+            ("MessageType" Core..=) Core.<$> messageType
           ]
       )

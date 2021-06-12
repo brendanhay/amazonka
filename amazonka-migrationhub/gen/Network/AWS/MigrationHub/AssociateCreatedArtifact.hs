@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.MigrationHub.AssociateCreatedArtifact
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,17 +64,17 @@ import qualified Network.AWS.Response as Response
 data AssociateCreatedArtifact = AssociateCreatedArtifact'
   { -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The name of the ProgressUpdateStream.
-    progressUpdateStream :: Prelude.Text,
+    progressUpdateStream :: Core.Text,
     -- | Unique identifier that references the migration task. /Do not store
     -- personal data in this field./
-    migrationTaskName :: Prelude.Text,
+    migrationTaskName :: Core.Text,
     -- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2
     -- instance, RDS instance, etc.)
     createdArtifact :: CreatedArtifact
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateCreatedArtifact' with all optional fields omitted.
@@ -97,9 +96,9 @@ data AssociateCreatedArtifact = AssociateCreatedArtifact'
 -- instance, RDS instance, etc.)
 newAssociateCreatedArtifact ::
   -- | 'progressUpdateStream'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'migrationTaskName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'createdArtifact'
   CreatedArtifact ->
   AssociateCreatedArtifact
@@ -108,7 +107,7 @@ newAssociateCreatedArtifact
   pMigrationTaskName_
   pCreatedArtifact_ =
     AssociateCreatedArtifact'
-      { dryRun = Prelude.Nothing,
+      { dryRun = Core.Nothing,
         progressUpdateStream = pProgressUpdateStream_,
         migrationTaskName = pMigrationTaskName_,
         createdArtifact = pCreatedArtifact_
@@ -116,16 +115,16 @@ newAssociateCreatedArtifact
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
-associateCreatedArtifact_dryRun :: Lens.Lens' AssociateCreatedArtifact (Prelude.Maybe Prelude.Bool)
+associateCreatedArtifact_dryRun :: Lens.Lens' AssociateCreatedArtifact (Core.Maybe Core.Bool)
 associateCreatedArtifact_dryRun = Lens.lens (\AssociateCreatedArtifact' {dryRun} -> dryRun) (\s@AssociateCreatedArtifact' {} a -> s {dryRun = a} :: AssociateCreatedArtifact)
 
 -- | The name of the ProgressUpdateStream.
-associateCreatedArtifact_progressUpdateStream :: Lens.Lens' AssociateCreatedArtifact Prelude.Text
+associateCreatedArtifact_progressUpdateStream :: Lens.Lens' AssociateCreatedArtifact Core.Text
 associateCreatedArtifact_progressUpdateStream = Lens.lens (\AssociateCreatedArtifact' {progressUpdateStream} -> progressUpdateStream) (\s@AssociateCreatedArtifact' {} a -> s {progressUpdateStream = a} :: AssociateCreatedArtifact)
 
 -- | Unique identifier that references the migration task. /Do not store
 -- personal data in this field./
-associateCreatedArtifact_migrationTaskName :: Lens.Lens' AssociateCreatedArtifact Prelude.Text
+associateCreatedArtifact_migrationTaskName :: Lens.Lens' AssociateCreatedArtifact Core.Text
 associateCreatedArtifact_migrationTaskName = Lens.lens (\AssociateCreatedArtifact' {migrationTaskName} -> migrationTaskName) (\s@AssociateCreatedArtifact' {} a -> s {migrationTaskName = a} :: AssociateCreatedArtifact)
 
 -- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2
@@ -133,65 +132,63 @@ associateCreatedArtifact_migrationTaskName = Lens.lens (\AssociateCreatedArtifac
 associateCreatedArtifact_createdArtifact :: Lens.Lens' AssociateCreatedArtifact CreatedArtifact
 associateCreatedArtifact_createdArtifact = Lens.lens (\AssociateCreatedArtifact' {createdArtifact} -> createdArtifact) (\s@AssociateCreatedArtifact' {} a -> s {createdArtifact = a} :: AssociateCreatedArtifact)
 
-instance Prelude.AWSRequest AssociateCreatedArtifact where
+instance Core.AWSRequest AssociateCreatedArtifact where
   type
-    Rs AssociateCreatedArtifact =
+    AWSResponse AssociateCreatedArtifact =
       AssociateCreatedArtifactResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateCreatedArtifactResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateCreatedArtifact
+instance Core.Hashable AssociateCreatedArtifact
 
-instance Prelude.NFData AssociateCreatedArtifact
+instance Core.NFData AssociateCreatedArtifact
 
-instance Prelude.ToHeaders AssociateCreatedArtifact where
+instance Core.ToHeaders AssociateCreatedArtifact where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSMigrationHub.AssociateCreatedArtifact" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSMigrationHub.AssociateCreatedArtifact" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateCreatedArtifact where
+instance Core.ToJSON AssociateCreatedArtifact where
   toJSON AssociateCreatedArtifact' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DryRun" Prelude..=) Prelude.<$> dryRun,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("DryRun" Core..=) Core.<$> dryRun,
+            Core.Just
               ( "ProgressUpdateStream"
-                  Prelude..= progressUpdateStream
+                  Core..= progressUpdateStream
               ),
-            Prelude.Just
-              ("MigrationTaskName" Prelude..= migrationTaskName),
-            Prelude.Just
-              ("CreatedArtifact" Prelude..= createdArtifact)
+            Core.Just
+              ("MigrationTaskName" Core..= migrationTaskName),
+            Core.Just
+              ("CreatedArtifact" Core..= createdArtifact)
           ]
       )
 
-instance Prelude.ToPath AssociateCreatedArtifact where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateCreatedArtifact where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateCreatedArtifact where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateCreatedArtifact where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateCreatedArtifactResponse' smart constructor.
 data AssociateCreatedArtifactResponse = AssociateCreatedArtifactResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateCreatedArtifactResponse' with all optional fields omitted.
@@ -204,7 +201,7 @@ data AssociateCreatedArtifactResponse = AssociateCreatedArtifactResponse'
 -- 'httpStatus', 'associateCreatedArtifactResponse_httpStatus' - The response's http status code.
 newAssociateCreatedArtifactResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateCreatedArtifactResponse
 newAssociateCreatedArtifactResponse pHttpStatus_ =
   AssociateCreatedArtifactResponse'
@@ -213,9 +210,7 @@ newAssociateCreatedArtifactResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateCreatedArtifactResponse_httpStatus :: Lens.Lens' AssociateCreatedArtifactResponse Prelude.Int
+associateCreatedArtifactResponse_httpStatus :: Lens.Lens' AssociateCreatedArtifactResponse Core.Int
 associateCreatedArtifactResponse_httpStatus = Lens.lens (\AssociateCreatedArtifactResponse' {httpStatus} -> httpStatus) (\s@AssociateCreatedArtifactResponse' {} a -> s {httpStatus = a} :: AssociateCreatedArtifactResponse)
 
-instance
-  Prelude.NFData
-    AssociateCreatedArtifactResponse
+instance Core.NFData AssociateCreatedArtifactResponse

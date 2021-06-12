@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,8 +59,8 @@ module Network.AWS.Redshift.RestoreTableFromClusterSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -71,27 +70,27 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRestoreTableFromClusterSnapshot' smart constructor.
 data RestoreTableFromClusterSnapshot = RestoreTableFromClusterSnapshot'
   { -- | The name of the schema to restore the table to.
-    targetSchemaName :: Prelude.Maybe Prelude.Text,
+    targetSchemaName :: Core.Maybe Core.Text,
     -- | The name of the database to restore the table to.
-    targetDatabaseName :: Prelude.Maybe Prelude.Text,
+    targetDatabaseName :: Core.Maybe Core.Text,
     -- | The name of the source schema that contains the table to restore from.
     -- If you do not specify a @SourceSchemaName@ value, the default is
     -- @public@.
-    sourceSchemaName :: Prelude.Maybe Prelude.Text,
+    sourceSchemaName :: Core.Maybe Core.Text,
     -- | The identifier of the Amazon Redshift cluster to restore the table to.
-    clusterIdentifier :: Prelude.Text,
+    clusterIdentifier :: Core.Text,
     -- | The identifier of the snapshot to restore the table from. This snapshot
     -- must have been created from the Amazon Redshift cluster specified by the
     -- @ClusterIdentifier@ parameter.
-    snapshotIdentifier :: Prelude.Text,
+    snapshotIdentifier :: Core.Text,
     -- | The name of the source database that contains the table to restore from.
-    sourceDatabaseName :: Prelude.Text,
+    sourceDatabaseName :: Core.Text,
     -- | The name of the source table to restore from.
-    sourceTableName :: Prelude.Text,
+    sourceTableName :: Core.Text,
     -- | The name of the table to create as a result of the current request.
-    newTableName' :: Prelude.Text
+    newTableName' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestoreTableFromClusterSnapshot' with all optional fields omitted.
@@ -122,15 +121,15 @@ data RestoreTableFromClusterSnapshot = RestoreTableFromClusterSnapshot'
 -- 'newTableName'', 'restoreTableFromClusterSnapshot_newTableName' - The name of the table to create as a result of the current request.
 newRestoreTableFromClusterSnapshot ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'snapshotIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sourceDatabaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sourceTableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'newTableName''
-  Prelude.Text ->
+  Core.Text ->
   RestoreTableFromClusterSnapshot
 newRestoreTableFromClusterSnapshot
   pClusterIdentifier_
@@ -140,9 +139,9 @@ newRestoreTableFromClusterSnapshot
   pNewTableName_ =
     RestoreTableFromClusterSnapshot'
       { targetSchemaName =
-          Prelude.Nothing,
-        targetDatabaseName = Prelude.Nothing,
-        sourceSchemaName = Prelude.Nothing,
+          Core.Nothing,
+        targetDatabaseName = Core.Nothing,
+        sourceSchemaName = Core.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         snapshotIdentifier = pSnapshotIdentifier_,
         sourceDatabaseName = pSourceDatabaseName_,
@@ -151,47 +150,47 @@ newRestoreTableFromClusterSnapshot
       }
 
 -- | The name of the schema to restore the table to.
-restoreTableFromClusterSnapshot_targetSchemaName :: Lens.Lens' RestoreTableFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreTableFromClusterSnapshot_targetSchemaName :: Lens.Lens' RestoreTableFromClusterSnapshot (Core.Maybe Core.Text)
 restoreTableFromClusterSnapshot_targetSchemaName = Lens.lens (\RestoreTableFromClusterSnapshot' {targetSchemaName} -> targetSchemaName) (\s@RestoreTableFromClusterSnapshot' {} a -> s {targetSchemaName = a} :: RestoreTableFromClusterSnapshot)
 
 -- | The name of the database to restore the table to.
-restoreTableFromClusterSnapshot_targetDatabaseName :: Lens.Lens' RestoreTableFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreTableFromClusterSnapshot_targetDatabaseName :: Lens.Lens' RestoreTableFromClusterSnapshot (Core.Maybe Core.Text)
 restoreTableFromClusterSnapshot_targetDatabaseName = Lens.lens (\RestoreTableFromClusterSnapshot' {targetDatabaseName} -> targetDatabaseName) (\s@RestoreTableFromClusterSnapshot' {} a -> s {targetDatabaseName = a} :: RestoreTableFromClusterSnapshot)
 
 -- | The name of the source schema that contains the table to restore from.
 -- If you do not specify a @SourceSchemaName@ value, the default is
 -- @public@.
-restoreTableFromClusterSnapshot_sourceSchemaName :: Lens.Lens' RestoreTableFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreTableFromClusterSnapshot_sourceSchemaName :: Lens.Lens' RestoreTableFromClusterSnapshot (Core.Maybe Core.Text)
 restoreTableFromClusterSnapshot_sourceSchemaName = Lens.lens (\RestoreTableFromClusterSnapshot' {sourceSchemaName} -> sourceSchemaName) (\s@RestoreTableFromClusterSnapshot' {} a -> s {sourceSchemaName = a} :: RestoreTableFromClusterSnapshot)
 
 -- | The identifier of the Amazon Redshift cluster to restore the table to.
-restoreTableFromClusterSnapshot_clusterIdentifier :: Lens.Lens' RestoreTableFromClusterSnapshot Prelude.Text
+restoreTableFromClusterSnapshot_clusterIdentifier :: Lens.Lens' RestoreTableFromClusterSnapshot Core.Text
 restoreTableFromClusterSnapshot_clusterIdentifier = Lens.lens (\RestoreTableFromClusterSnapshot' {clusterIdentifier} -> clusterIdentifier) (\s@RestoreTableFromClusterSnapshot' {} a -> s {clusterIdentifier = a} :: RestoreTableFromClusterSnapshot)
 
 -- | The identifier of the snapshot to restore the table from. This snapshot
 -- must have been created from the Amazon Redshift cluster specified by the
 -- @ClusterIdentifier@ parameter.
-restoreTableFromClusterSnapshot_snapshotIdentifier :: Lens.Lens' RestoreTableFromClusterSnapshot Prelude.Text
+restoreTableFromClusterSnapshot_snapshotIdentifier :: Lens.Lens' RestoreTableFromClusterSnapshot Core.Text
 restoreTableFromClusterSnapshot_snapshotIdentifier = Lens.lens (\RestoreTableFromClusterSnapshot' {snapshotIdentifier} -> snapshotIdentifier) (\s@RestoreTableFromClusterSnapshot' {} a -> s {snapshotIdentifier = a} :: RestoreTableFromClusterSnapshot)
 
 -- | The name of the source database that contains the table to restore from.
-restoreTableFromClusterSnapshot_sourceDatabaseName :: Lens.Lens' RestoreTableFromClusterSnapshot Prelude.Text
+restoreTableFromClusterSnapshot_sourceDatabaseName :: Lens.Lens' RestoreTableFromClusterSnapshot Core.Text
 restoreTableFromClusterSnapshot_sourceDatabaseName = Lens.lens (\RestoreTableFromClusterSnapshot' {sourceDatabaseName} -> sourceDatabaseName) (\s@RestoreTableFromClusterSnapshot' {} a -> s {sourceDatabaseName = a} :: RestoreTableFromClusterSnapshot)
 
 -- | The name of the source table to restore from.
-restoreTableFromClusterSnapshot_sourceTableName :: Lens.Lens' RestoreTableFromClusterSnapshot Prelude.Text
+restoreTableFromClusterSnapshot_sourceTableName :: Lens.Lens' RestoreTableFromClusterSnapshot Core.Text
 restoreTableFromClusterSnapshot_sourceTableName = Lens.lens (\RestoreTableFromClusterSnapshot' {sourceTableName} -> sourceTableName) (\s@RestoreTableFromClusterSnapshot' {} a -> s {sourceTableName = a} :: RestoreTableFromClusterSnapshot)
 
 -- | The name of the table to create as a result of the current request.
-restoreTableFromClusterSnapshot_newTableName :: Lens.Lens' RestoreTableFromClusterSnapshot Prelude.Text
+restoreTableFromClusterSnapshot_newTableName :: Lens.Lens' RestoreTableFromClusterSnapshot Core.Text
 restoreTableFromClusterSnapshot_newTableName = Lens.lens (\RestoreTableFromClusterSnapshot' {newTableName'} -> newTableName') (\s@RestoreTableFromClusterSnapshot' {} a -> s {newTableName' = a} :: RestoreTableFromClusterSnapshot)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     RestoreTableFromClusterSnapshot
   where
   type
-    Rs RestoreTableFromClusterSnapshot =
+    AWSResponse RestoreTableFromClusterSnapshot =
       RestoreTableFromClusterSnapshotResponse
   request = Request.postQuery defaultService
   response =
@@ -199,59 +198,50 @@ instance
       "RestoreTableFromClusterSnapshotResult"
       ( \s h x ->
           RestoreTableFromClusterSnapshotResponse'
-            Prelude.<$> (x Prelude..@? "TableRestoreStatus")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "TableRestoreStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RestoreTableFromClusterSnapshot
 
-instance
-  Prelude.NFData
-    RestoreTableFromClusterSnapshot
+instance Core.NFData RestoreTableFromClusterSnapshot
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     RestoreTableFromClusterSnapshot
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    RestoreTableFromClusterSnapshot
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath RestoreTableFromClusterSnapshot where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    RestoreTableFromClusterSnapshot
-  where
+instance Core.ToQuery RestoreTableFromClusterSnapshot where
   toQuery RestoreTableFromClusterSnapshot' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "RestoreTableFromClusterSnapshot" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "TargetSchemaName" Prelude.=: targetSchemaName,
-        "TargetDatabaseName" Prelude.=: targetDatabaseName,
-        "SourceSchemaName" Prelude.=: sourceSchemaName,
-        "ClusterIdentifier" Prelude.=: clusterIdentifier,
-        "SnapshotIdentifier" Prelude.=: snapshotIdentifier,
-        "SourceDatabaseName" Prelude.=: sourceDatabaseName,
-        "SourceTableName" Prelude.=: sourceTableName,
-        "NewTableName" Prelude.=: newTableName'
+          Core.=: ( "RestoreTableFromClusterSnapshot" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "TargetSchemaName" Core.=: targetSchemaName,
+        "TargetDatabaseName" Core.=: targetDatabaseName,
+        "SourceSchemaName" Core.=: sourceSchemaName,
+        "ClusterIdentifier" Core.=: clusterIdentifier,
+        "SnapshotIdentifier" Core.=: snapshotIdentifier,
+        "SourceDatabaseName" Core.=: sourceDatabaseName,
+        "SourceTableName" Core.=: sourceTableName,
+        "NewTableName" Core.=: newTableName'
       ]
 
 -- | /See:/ 'newRestoreTableFromClusterSnapshotResponse' smart constructor.
 data RestoreTableFromClusterSnapshotResponse = RestoreTableFromClusterSnapshotResponse'
-  { tableRestoreStatus :: Prelude.Maybe TableRestoreStatus,
+  { tableRestoreStatus :: Core.Maybe TableRestoreStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestoreTableFromClusterSnapshotResponse' with all optional fields omitted.
@@ -266,24 +256,24 @@ data RestoreTableFromClusterSnapshotResponse = RestoreTableFromClusterSnapshotRe
 -- 'httpStatus', 'restoreTableFromClusterSnapshotResponse_httpStatus' - The response's http status code.
 newRestoreTableFromClusterSnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RestoreTableFromClusterSnapshotResponse
 newRestoreTableFromClusterSnapshotResponse
   pHttpStatus_ =
     RestoreTableFromClusterSnapshotResponse'
       { tableRestoreStatus =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-restoreTableFromClusterSnapshotResponse_tableRestoreStatus :: Lens.Lens' RestoreTableFromClusterSnapshotResponse (Prelude.Maybe TableRestoreStatus)
+restoreTableFromClusterSnapshotResponse_tableRestoreStatus :: Lens.Lens' RestoreTableFromClusterSnapshotResponse (Core.Maybe TableRestoreStatus)
 restoreTableFromClusterSnapshotResponse_tableRestoreStatus = Lens.lens (\RestoreTableFromClusterSnapshotResponse' {tableRestoreStatus} -> tableRestoreStatus) (\s@RestoreTableFromClusterSnapshotResponse' {} a -> s {tableRestoreStatus = a} :: RestoreTableFromClusterSnapshotResponse)
 
 -- | The response's http status code.
-restoreTableFromClusterSnapshotResponse_httpStatus :: Lens.Lens' RestoreTableFromClusterSnapshotResponse Prelude.Int
+restoreTableFromClusterSnapshotResponse_httpStatus :: Lens.Lens' RestoreTableFromClusterSnapshotResponse Core.Int
 restoreTableFromClusterSnapshotResponse_httpStatus = Lens.lens (\RestoreTableFromClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@RestoreTableFromClusterSnapshotResponse' {} a -> s {httpStatus = a} :: RestoreTableFromClusterSnapshotResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RestoreTableFromClusterSnapshotResponse

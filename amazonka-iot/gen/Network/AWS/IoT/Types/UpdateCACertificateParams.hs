@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.UpdateCACertificateParams where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.CACertificateUpdateAction
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters to define a mitigation action that changes the state of the
 -- CA certificate to inactive.
@@ -33,7 +32,7 @@ data UpdateCACertificateParams = UpdateCACertificateParams'
     -- supported value is @DEACTIVATE@.
     action :: CACertificateUpdateAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCACertificateParams' with all optional fields omitted.
@@ -57,22 +56,22 @@ newUpdateCACertificateParams pAction_ =
 updateCACertificateParams_action :: Lens.Lens' UpdateCACertificateParams CACertificateUpdateAction
 updateCACertificateParams_action = Lens.lens (\UpdateCACertificateParams' {action} -> action) (\s@UpdateCACertificateParams' {} a -> s {action = a} :: UpdateCACertificateParams)
 
-instance Prelude.FromJSON UpdateCACertificateParams where
+instance Core.FromJSON UpdateCACertificateParams where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UpdateCACertificateParams"
       ( \x ->
           UpdateCACertificateParams'
-            Prelude.<$> (x Prelude..: "action")
+            Core.<$> (x Core..: "action")
       )
 
-instance Prelude.Hashable UpdateCACertificateParams
+instance Core.Hashable UpdateCACertificateParams
 
-instance Prelude.NFData UpdateCACertificateParams
+instance Core.NFData UpdateCACertificateParams
 
-instance Prelude.ToJSON UpdateCACertificateParams where
+instance Core.ToJSON UpdateCACertificateParams where
   toJSON UpdateCACertificateParams' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("action" Prelude..= action)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("action" Core..= action)]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes whether S3 data event logs will be automatically enabled for
 -- new members of the organization.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data OrganizationS3LogsConfiguration = OrganizationS3LogsConfiguration'
   { -- | A value that contains information on whether S3 data event logs will be
     -- enabled automatically as a data source for the organization.
-    autoEnable :: Prelude.Bool
+    autoEnable :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OrganizationS3LogsConfiguration' with all optional fields omitted.
@@ -46,7 +45,7 @@ data OrganizationS3LogsConfiguration = OrganizationS3LogsConfiguration'
 -- enabled automatically as a data source for the organization.
 newOrganizationS3LogsConfiguration ::
   -- | 'autoEnable'
-  Prelude.Bool ->
+  Core.Bool ->
   OrganizationS3LogsConfiguration
 newOrganizationS3LogsConfiguration pAutoEnable_ =
   OrganizationS3LogsConfiguration'
@@ -56,23 +55,18 @@ newOrganizationS3LogsConfiguration pAutoEnable_ =
 
 -- | A value that contains information on whether S3 data event logs will be
 -- enabled automatically as a data source for the organization.
-organizationS3LogsConfiguration_autoEnable :: Lens.Lens' OrganizationS3LogsConfiguration Prelude.Bool
+organizationS3LogsConfiguration_autoEnable :: Lens.Lens' OrganizationS3LogsConfiguration Core.Bool
 organizationS3LogsConfiguration_autoEnable = Lens.lens (\OrganizationS3LogsConfiguration' {autoEnable} -> autoEnable) (\s@OrganizationS3LogsConfiguration' {} a -> s {autoEnable = a} :: OrganizationS3LogsConfiguration)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     OrganizationS3LogsConfiguration
 
-instance
-  Prelude.NFData
-    OrganizationS3LogsConfiguration
+instance Core.NFData OrganizationS3LogsConfiguration
 
-instance
-  Prelude.ToJSON
-    OrganizationS3LogsConfiguration
-  where
+instance Core.ToJSON OrganizationS3LogsConfiguration where
   toJSON OrganizationS3LogsConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("autoEnable" Prelude..= autoEnable)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("autoEnable" Core..= autoEnable)]
       )

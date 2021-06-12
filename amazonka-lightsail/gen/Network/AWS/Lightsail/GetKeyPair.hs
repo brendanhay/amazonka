@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.Lightsail.GetKeyPair
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetKeyPair' smart constructor.
 data GetKeyPair = GetKeyPair'
   { -- | The name of the key pair for which you are requesting information.
-    keyPairName :: Prelude.Text
+    keyPairName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetKeyPair' with all optional fields omitted.
@@ -64,68 +63,62 @@ data GetKeyPair = GetKeyPair'
 -- 'keyPairName', 'getKeyPair_keyPairName' - The name of the key pair for which you are requesting information.
 newGetKeyPair ::
   -- | 'keyPairName'
-  Prelude.Text ->
+  Core.Text ->
   GetKeyPair
 newGetKeyPair pKeyPairName_ =
   GetKeyPair' {keyPairName = pKeyPairName_}
 
 -- | The name of the key pair for which you are requesting information.
-getKeyPair_keyPairName :: Lens.Lens' GetKeyPair Prelude.Text
+getKeyPair_keyPairName :: Lens.Lens' GetKeyPair Core.Text
 getKeyPair_keyPairName = Lens.lens (\GetKeyPair' {keyPairName} -> keyPairName) (\s@GetKeyPair' {} a -> s {keyPairName = a} :: GetKeyPair)
 
-instance Prelude.AWSRequest GetKeyPair where
-  type Rs GetKeyPair = GetKeyPairResponse
+instance Core.AWSRequest GetKeyPair where
+  type AWSResponse GetKeyPair = GetKeyPairResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetKeyPairResponse'
-            Prelude.<$> (x Prelude..?> "keyPair")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "keyPair")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetKeyPair
+instance Core.Hashable GetKeyPair
 
-instance Prelude.NFData GetKeyPair
+instance Core.NFData GetKeyPair
 
-instance Prelude.ToHeaders GetKeyPair where
+instance Core.ToHeaders GetKeyPair where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetKeyPair" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Lightsail_20161128.GetKeyPair" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetKeyPair where
+instance Core.ToJSON GetKeyPair where
   toJSON GetKeyPair' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("keyPairName" Prelude..= keyPairName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("keyPairName" Core..= keyPairName)]
       )
 
-instance Prelude.ToPath GetKeyPair where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetKeyPair where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetKeyPair where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetKeyPair where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetKeyPairResponse' smart constructor.
 data GetKeyPairResponse = GetKeyPairResponse'
   { -- | An array of key-value pairs containing information about the key pair.
-    keyPair :: Prelude.Maybe KeyPair,
+    keyPair :: Core.Maybe KeyPair,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetKeyPairResponse' with all optional fields omitted.
@@ -140,20 +133,20 @@ data GetKeyPairResponse = GetKeyPairResponse'
 -- 'httpStatus', 'getKeyPairResponse_httpStatus' - The response's http status code.
 newGetKeyPairResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetKeyPairResponse
 newGetKeyPairResponse pHttpStatus_ =
   GetKeyPairResponse'
-    { keyPair = Prelude.Nothing,
+    { keyPair = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of key-value pairs containing information about the key pair.
-getKeyPairResponse_keyPair :: Lens.Lens' GetKeyPairResponse (Prelude.Maybe KeyPair)
+getKeyPairResponse_keyPair :: Lens.Lens' GetKeyPairResponse (Core.Maybe KeyPair)
 getKeyPairResponse_keyPair = Lens.lens (\GetKeyPairResponse' {keyPair} -> keyPair) (\s@GetKeyPairResponse' {} a -> s {keyPair = a} :: GetKeyPairResponse)
 
 -- | The response's http status code.
-getKeyPairResponse_httpStatus :: Lens.Lens' GetKeyPairResponse Prelude.Int
+getKeyPairResponse_httpStatus :: Lens.Lens' GetKeyPairResponse Core.Int
 getKeyPairResponse_httpStatus = Lens.lens (\GetKeyPairResponse' {httpStatus} -> httpStatus) (\s@GetKeyPairResponse' {} a -> s {httpStatus = a} :: GetKeyPairResponse)
 
-instance Prelude.NFData GetKeyPairResponse
+instance Core.NFData GetKeyPairResponse

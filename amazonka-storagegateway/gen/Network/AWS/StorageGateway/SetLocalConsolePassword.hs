@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.StorageGateway.SetLocalConsolePassword
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -54,11 +53,11 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newSetLocalConsolePassword' smart constructor.
 data SetLocalConsolePassword = SetLocalConsolePassword'
-  { gatewayARN :: Prelude.Text,
+  { gatewayARN :: Core.Text,
     -- | The password you want to set for your VM local console.
-    localConsolePassword :: Prelude.Sensitive Prelude.Text
+    localConsolePassword :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetLocalConsolePassword' with all optional fields omitted.
@@ -73,9 +72,9 @@ data SetLocalConsolePassword = SetLocalConsolePassword'
 -- 'localConsolePassword', 'setLocalConsolePassword_localConsolePassword' - The password you want to set for your VM local console.
 newSetLocalConsolePassword ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'localConsolePassword'
-  Prelude.Text ->
+  Core.Text ->
   SetLocalConsolePassword
 newSetLocalConsolePassword
   pGatewayARN_
@@ -83,74 +82,72 @@ newSetLocalConsolePassword
     SetLocalConsolePassword'
       { gatewayARN = pGatewayARN_,
         localConsolePassword =
-          Prelude._Sensitive Lens.# pLocalConsolePassword_
+          Core._Sensitive Lens.# pLocalConsolePassword_
       }
 
 -- | Undocumented member.
-setLocalConsolePassword_gatewayARN :: Lens.Lens' SetLocalConsolePassword Prelude.Text
+setLocalConsolePassword_gatewayARN :: Lens.Lens' SetLocalConsolePassword Core.Text
 setLocalConsolePassword_gatewayARN = Lens.lens (\SetLocalConsolePassword' {gatewayARN} -> gatewayARN) (\s@SetLocalConsolePassword' {} a -> s {gatewayARN = a} :: SetLocalConsolePassword)
 
 -- | The password you want to set for your VM local console.
-setLocalConsolePassword_localConsolePassword :: Lens.Lens' SetLocalConsolePassword Prelude.Text
-setLocalConsolePassword_localConsolePassword = Lens.lens (\SetLocalConsolePassword' {localConsolePassword} -> localConsolePassword) (\s@SetLocalConsolePassword' {} a -> s {localConsolePassword = a} :: SetLocalConsolePassword) Prelude.. Prelude._Sensitive
+setLocalConsolePassword_localConsolePassword :: Lens.Lens' SetLocalConsolePassword Core.Text
+setLocalConsolePassword_localConsolePassword = Lens.lens (\SetLocalConsolePassword' {localConsolePassword} -> localConsolePassword) (\s@SetLocalConsolePassword' {} a -> s {localConsolePassword = a} :: SetLocalConsolePassword) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest SetLocalConsolePassword where
+instance Core.AWSRequest SetLocalConsolePassword where
   type
-    Rs SetLocalConsolePassword =
+    AWSResponse SetLocalConsolePassword =
       SetLocalConsolePasswordResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SetLocalConsolePasswordResponse'
-            Prelude.<$> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SetLocalConsolePassword
+instance Core.Hashable SetLocalConsolePassword
 
-instance Prelude.NFData SetLocalConsolePassword
+instance Core.NFData SetLocalConsolePassword
 
-instance Prelude.ToHeaders SetLocalConsolePassword where
+instance Core.ToHeaders SetLocalConsolePassword where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.SetLocalConsolePassword" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.SetLocalConsolePassword" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SetLocalConsolePassword where
+instance Core.ToJSON SetLocalConsolePassword where
   toJSON SetLocalConsolePassword' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Prelude..= gatewayARN),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just
               ( "LocalConsolePassword"
-                  Prelude..= localConsolePassword
+                  Core..= localConsolePassword
               )
           ]
       )
 
-instance Prelude.ToPath SetLocalConsolePassword where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetLocalConsolePassword where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetLocalConsolePassword where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SetLocalConsolePassword where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSetLocalConsolePasswordResponse' smart constructor.
 data SetLocalConsolePasswordResponse = SetLocalConsolePasswordResponse'
-  { gatewayARN :: Prelude.Maybe Prelude.Text,
+  { gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetLocalConsolePasswordResponse' with all optional fields omitted.
@@ -165,23 +162,21 @@ data SetLocalConsolePasswordResponse = SetLocalConsolePasswordResponse'
 -- 'httpStatus', 'setLocalConsolePasswordResponse_httpStatus' - The response's http status code.
 newSetLocalConsolePasswordResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SetLocalConsolePasswordResponse
 newSetLocalConsolePasswordResponse pHttpStatus_ =
   SetLocalConsolePasswordResponse'
     { gatewayARN =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-setLocalConsolePasswordResponse_gatewayARN :: Lens.Lens' SetLocalConsolePasswordResponse (Prelude.Maybe Prelude.Text)
+setLocalConsolePasswordResponse_gatewayARN :: Lens.Lens' SetLocalConsolePasswordResponse (Core.Maybe Core.Text)
 setLocalConsolePasswordResponse_gatewayARN = Lens.lens (\SetLocalConsolePasswordResponse' {gatewayARN} -> gatewayARN) (\s@SetLocalConsolePasswordResponse' {} a -> s {gatewayARN = a} :: SetLocalConsolePasswordResponse)
 
 -- | The response's http status code.
-setLocalConsolePasswordResponse_httpStatus :: Lens.Lens' SetLocalConsolePasswordResponse Prelude.Int
+setLocalConsolePasswordResponse_httpStatus :: Lens.Lens' SetLocalConsolePasswordResponse Core.Int
 setLocalConsolePasswordResponse_httpStatus = Lens.lens (\SetLocalConsolePasswordResponse' {httpStatus} -> httpStatus) (\s@SetLocalConsolePasswordResponse' {} a -> s {httpStatus = a} :: SetLocalConsolePasswordResponse)
 
-instance
-  Prelude.NFData
-    SetLocalConsolePasswordResponse
+instance Core.NFData SetLocalConsolePasswordResponse

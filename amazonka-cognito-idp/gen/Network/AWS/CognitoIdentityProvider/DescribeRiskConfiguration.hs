@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,19 +41,19 @@ module Network.AWS.CognitoIdentityProvider.DescribeRiskConfiguration
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeRiskConfiguration' smart constructor.
 data DescribeRiskConfiguration = DescribeRiskConfiguration'
   { -- | The app client ID.
-    clientId :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    clientId :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The user pool ID.
-    userPoolId :: Prelude.Text
+    userPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRiskConfiguration' with all optional fields omitted.
@@ -69,78 +68,75 @@ data DescribeRiskConfiguration = DescribeRiskConfiguration'
 -- 'userPoolId', 'describeRiskConfiguration_userPoolId' - The user pool ID.
 newDescribeRiskConfiguration ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeRiskConfiguration
 newDescribeRiskConfiguration pUserPoolId_ =
   DescribeRiskConfiguration'
-    { clientId =
-        Prelude.Nothing,
+    { clientId = Core.Nothing,
       userPoolId = pUserPoolId_
     }
 
 -- | The app client ID.
-describeRiskConfiguration_clientId :: Lens.Lens' DescribeRiskConfiguration (Prelude.Maybe Prelude.Text)
-describeRiskConfiguration_clientId = Lens.lens (\DescribeRiskConfiguration' {clientId} -> clientId) (\s@DescribeRiskConfiguration' {} a -> s {clientId = a} :: DescribeRiskConfiguration) Prelude.. Lens.mapping Prelude._Sensitive
+describeRiskConfiguration_clientId :: Lens.Lens' DescribeRiskConfiguration (Core.Maybe Core.Text)
+describeRiskConfiguration_clientId = Lens.lens (\DescribeRiskConfiguration' {clientId} -> clientId) (\s@DescribeRiskConfiguration' {} a -> s {clientId = a} :: DescribeRiskConfiguration) Core.. Lens.mapping Core._Sensitive
 
 -- | The user pool ID.
-describeRiskConfiguration_userPoolId :: Lens.Lens' DescribeRiskConfiguration Prelude.Text
+describeRiskConfiguration_userPoolId :: Lens.Lens' DescribeRiskConfiguration Core.Text
 describeRiskConfiguration_userPoolId = Lens.lens (\DescribeRiskConfiguration' {userPoolId} -> userPoolId) (\s@DescribeRiskConfiguration' {} a -> s {userPoolId = a} :: DescribeRiskConfiguration)
 
-instance Prelude.AWSRequest DescribeRiskConfiguration where
+instance Core.AWSRequest DescribeRiskConfiguration where
   type
-    Rs DescribeRiskConfiguration =
+    AWSResponse DescribeRiskConfiguration =
       DescribeRiskConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeRiskConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "RiskConfiguration")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "RiskConfiguration")
       )
 
-instance Prelude.Hashable DescribeRiskConfiguration
+instance Core.Hashable DescribeRiskConfiguration
 
-instance Prelude.NFData DescribeRiskConfiguration
+instance Core.NFData DescribeRiskConfiguration
 
-instance Prelude.ToHeaders DescribeRiskConfiguration where
+instance Core.ToHeaders DescribeRiskConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.DescribeRiskConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.DescribeRiskConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeRiskConfiguration where
+instance Core.ToJSON DescribeRiskConfiguration where
   toJSON DescribeRiskConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ClientId" Prelude..=) Prelude.<$> clientId,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId)
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientId" Core..=) Core.<$> clientId,
+            Core.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
-instance Prelude.ToPath DescribeRiskConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeRiskConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeRiskConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeRiskConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeRiskConfigurationResponse' smart constructor.
 data DescribeRiskConfigurationResponse = DescribeRiskConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The risk configuration.
     riskConfiguration :: RiskConfigurationType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRiskConfigurationResponse' with all optional fields omitted.
@@ -155,7 +151,7 @@ data DescribeRiskConfigurationResponse = DescribeRiskConfigurationResponse'
 -- 'riskConfiguration', 'describeRiskConfigurationResponse_riskConfiguration' - The risk configuration.
 newDescribeRiskConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'riskConfiguration'
   RiskConfigurationType ->
   DescribeRiskConfigurationResponse
@@ -169,7 +165,7 @@ newDescribeRiskConfigurationResponse
       }
 
 -- | The response's http status code.
-describeRiskConfigurationResponse_httpStatus :: Lens.Lens' DescribeRiskConfigurationResponse Prelude.Int
+describeRiskConfigurationResponse_httpStatus :: Lens.Lens' DescribeRiskConfigurationResponse Core.Int
 describeRiskConfigurationResponse_httpStatus = Lens.lens (\DescribeRiskConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeRiskConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeRiskConfigurationResponse)
 
 -- | The risk configuration.
@@ -177,5 +173,5 @@ describeRiskConfigurationResponse_riskConfiguration :: Lens.Lens' DescribeRiskCo
 describeRiskConfigurationResponse_riskConfiguration = Lens.lens (\DescribeRiskConfigurationResponse' {riskConfiguration} -> riskConfiguration) (\s@DescribeRiskConfigurationResponse' {} a -> s {riskConfiguration = a} :: DescribeRiskConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeRiskConfigurationResponse

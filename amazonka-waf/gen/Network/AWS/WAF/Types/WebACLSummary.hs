@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.WebACLSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -41,12 +40,12 @@ data WebACLSummary = WebACLSummary'
     -- UpdateWebACL), and delete a @WebACL@ from AWS WAF (see DeleteWebACL).
     --
     -- @WebACLId@ is returned by CreateWebACL and by ListWebACLs.
-    webACLId :: Prelude.Text,
+    webACLId :: Core.Text,
     -- | A friendly name or description of the WebACL. You can\'t change the name
     -- of a @WebACL@ after you create it.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WebACLSummary' with all optional fields omitted.
@@ -66,9 +65,9 @@ data WebACLSummary = WebACLSummary'
 -- of a @WebACL@ after you create it.
 newWebACLSummary ::
   -- | 'webACLId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   WebACLSummary
 newWebACLSummary pWebACLId_ pName_ =
   WebACLSummary'
@@ -81,24 +80,23 @@ newWebACLSummary pWebACLId_ pName_ =
 -- UpdateWebACL), and delete a @WebACL@ from AWS WAF (see DeleteWebACL).
 --
 -- @WebACLId@ is returned by CreateWebACL and by ListWebACLs.
-webACLSummary_webACLId :: Lens.Lens' WebACLSummary Prelude.Text
+webACLSummary_webACLId :: Lens.Lens' WebACLSummary Core.Text
 webACLSummary_webACLId = Lens.lens (\WebACLSummary' {webACLId} -> webACLId) (\s@WebACLSummary' {} a -> s {webACLId = a} :: WebACLSummary)
 
 -- | A friendly name or description of the WebACL. You can\'t change the name
 -- of a @WebACL@ after you create it.
-webACLSummary_name :: Lens.Lens' WebACLSummary Prelude.Text
+webACLSummary_name :: Lens.Lens' WebACLSummary Core.Text
 webACLSummary_name = Lens.lens (\WebACLSummary' {name} -> name) (\s@WebACLSummary' {} a -> s {name = a} :: WebACLSummary)
 
-instance Prelude.FromJSON WebACLSummary where
+instance Core.FromJSON WebACLSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WebACLSummary"
       ( \x ->
           WebACLSummary'
-            Prelude.<$> (x Prelude..: "WebACLId")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..: "WebACLId") Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable WebACLSummary
+instance Core.Hashable WebACLSummary
 
-instance Prelude.NFData WebACLSummary
+instance Core.NFData WebACLSummary

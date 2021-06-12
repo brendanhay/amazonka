@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule
 
 -- | Information about the gateway\'s automatic tape creation policies,
@@ -33,10 +32,10 @@ data AutomaticTapeCreationPolicyInfo = AutomaticTapeCreationPolicyInfo'
   { -- | An automatic tape creation policy consists of a list of automatic tape
     -- creation rules. This returns the rules that determine when and how to
     -- automatically create new tapes.
-    automaticTapeCreationRules :: Prelude.Maybe (Prelude.NonEmpty AutomaticTapeCreationRule),
-    gatewayARN :: Prelude.Maybe Prelude.Text
+    automaticTapeCreationRules :: Core.Maybe (Core.NonEmpty AutomaticTapeCreationRule),
+    gatewayARN :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutomaticTapeCreationPolicyInfo' with all optional fields omitted.
@@ -56,37 +55,35 @@ newAutomaticTapeCreationPolicyInfo ::
 newAutomaticTapeCreationPolicyInfo =
   AutomaticTapeCreationPolicyInfo'
     { automaticTapeCreationRules =
-        Prelude.Nothing,
-      gatewayARN = Prelude.Nothing
+        Core.Nothing,
+      gatewayARN = Core.Nothing
     }
 
 -- | An automatic tape creation policy consists of a list of automatic tape
 -- creation rules. This returns the rules that determine when and how to
 -- automatically create new tapes.
-automaticTapeCreationPolicyInfo_automaticTapeCreationRules :: Lens.Lens' AutomaticTapeCreationPolicyInfo (Prelude.Maybe (Prelude.NonEmpty AutomaticTapeCreationRule))
-automaticTapeCreationPolicyInfo_automaticTapeCreationRules = Lens.lens (\AutomaticTapeCreationPolicyInfo' {automaticTapeCreationRules} -> automaticTapeCreationRules) (\s@AutomaticTapeCreationPolicyInfo' {} a -> s {automaticTapeCreationRules = a} :: AutomaticTapeCreationPolicyInfo) Prelude.. Lens.mapping Prelude._Coerce
+automaticTapeCreationPolicyInfo_automaticTapeCreationRules :: Lens.Lens' AutomaticTapeCreationPolicyInfo (Core.Maybe (Core.NonEmpty AutomaticTapeCreationRule))
+automaticTapeCreationPolicyInfo_automaticTapeCreationRules = Lens.lens (\AutomaticTapeCreationPolicyInfo' {automaticTapeCreationRules} -> automaticTapeCreationRules) (\s@AutomaticTapeCreationPolicyInfo' {} a -> s {automaticTapeCreationRules = a} :: AutomaticTapeCreationPolicyInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-automaticTapeCreationPolicyInfo_gatewayARN :: Lens.Lens' AutomaticTapeCreationPolicyInfo (Prelude.Maybe Prelude.Text)
+automaticTapeCreationPolicyInfo_gatewayARN :: Lens.Lens' AutomaticTapeCreationPolicyInfo (Core.Maybe Core.Text)
 automaticTapeCreationPolicyInfo_gatewayARN = Lens.lens (\AutomaticTapeCreationPolicyInfo' {gatewayARN} -> gatewayARN) (\s@AutomaticTapeCreationPolicyInfo' {} a -> s {gatewayARN = a} :: AutomaticTapeCreationPolicyInfo)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     AutomaticTapeCreationPolicyInfo
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutomaticTapeCreationPolicyInfo"
       ( \x ->
           AutomaticTapeCreationPolicyInfo'
-            Prelude.<$> (x Prelude..:? "AutomaticTapeCreationRules")
-            Prelude.<*> (x Prelude..:? "GatewayARN")
+            Core.<$> (x Core..:? "AutomaticTapeCreationRules")
+            Core.<*> (x Core..:? "GatewayARN")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AutomaticTapeCreationPolicyInfo
 
-instance
-  Prelude.NFData
-    AutomaticTapeCreationPolicyInfo
+instance Core.NFData AutomaticTapeCreationPolicyInfo

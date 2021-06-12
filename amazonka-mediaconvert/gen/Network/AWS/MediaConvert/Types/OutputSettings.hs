@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.OutputSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.HlsSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specific settings for this type of output.
 --
 -- /See:/ 'newOutputSettings' smart constructor.
 data OutputSettings = OutputSettings'
   { -- | Settings for HLS output groups
-    hlsSettings :: Prelude.Maybe HlsSettings
+    hlsSettings :: Core.Maybe HlsSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputSettings' with all optional fields omitted.
@@ -45,28 +44,27 @@ data OutputSettings = OutputSettings'
 newOutputSettings ::
   OutputSettings
 newOutputSettings =
-  OutputSettings' {hlsSettings = Prelude.Nothing}
+  OutputSettings' {hlsSettings = Core.Nothing}
 
 -- | Settings for HLS output groups
-outputSettings_hlsSettings :: Lens.Lens' OutputSettings (Prelude.Maybe HlsSettings)
+outputSettings_hlsSettings :: Lens.Lens' OutputSettings (Core.Maybe HlsSettings)
 outputSettings_hlsSettings = Lens.lens (\OutputSettings' {hlsSettings} -> hlsSettings) (\s@OutputSettings' {} a -> s {hlsSettings = a} :: OutputSettings)
 
-instance Prelude.FromJSON OutputSettings where
+instance Core.FromJSON OutputSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputSettings"
       ( \x ->
-          OutputSettings'
-            Prelude.<$> (x Prelude..:? "hlsSettings")
+          OutputSettings' Core.<$> (x Core..:? "hlsSettings")
       )
 
-instance Prelude.Hashable OutputSettings
+instance Core.Hashable OutputSettings
 
-instance Prelude.NFData OutputSettings
+instance Core.NFData OutputSettings
 
-instance Prelude.ToJSON OutputSettings where
+instance Core.ToJSON OutputSettings where
   toJSON OutputSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("hlsSettings" Prelude..=) Prelude.<$> hlsSettings]
+    Core.object
+      ( Core.catMaybes
+          [("hlsSettings" Core..=) Core.<$> hlsSettings]
       )

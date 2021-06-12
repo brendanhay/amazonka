@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.HiveJsonSerDe where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The native Hive \/ HCatalog JsonSerDe. Used by Kinesis Data Firehose for
 -- deserializing data, which means converting it from the JSON format in
@@ -39,9 +38,9 @@ data HiveJsonSerDe = HiveJsonSerDe'
     -- You can also use the special value @millis@ to parse timestamps in epoch
     -- milliseconds. If you don\'t specify a format, Kinesis Data Firehose uses
     -- @java.sql.Timestamp::valueOf@ by default.
-    timestampFormats :: Prelude.Maybe [Prelude.Text]
+    timestampFormats :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HiveJsonSerDe' with all optional fields omitted.
@@ -62,7 +61,7 @@ data HiveJsonSerDe = HiveJsonSerDe'
 newHiveJsonSerDe ::
   HiveJsonSerDe
 newHiveJsonSerDe =
-  HiveJsonSerDe' {timestampFormats = Prelude.Nothing}
+  HiveJsonSerDe' {timestampFormats = Core.Nothing}
 
 -- | Indicates how you want Kinesis Data Firehose to parse the date and
 -- timestamps that may be present in your input data JSON. To specify these
@@ -72,29 +71,27 @@ newHiveJsonSerDe =
 -- You can also use the special value @millis@ to parse timestamps in epoch
 -- milliseconds. If you don\'t specify a format, Kinesis Data Firehose uses
 -- @java.sql.Timestamp::valueOf@ by default.
-hiveJsonSerDe_timestampFormats :: Lens.Lens' HiveJsonSerDe (Prelude.Maybe [Prelude.Text])
-hiveJsonSerDe_timestampFormats = Lens.lens (\HiveJsonSerDe' {timestampFormats} -> timestampFormats) (\s@HiveJsonSerDe' {} a -> s {timestampFormats = a} :: HiveJsonSerDe) Prelude.. Lens.mapping Prelude._Coerce
+hiveJsonSerDe_timestampFormats :: Lens.Lens' HiveJsonSerDe (Core.Maybe [Core.Text])
+hiveJsonSerDe_timestampFormats = Lens.lens (\HiveJsonSerDe' {timestampFormats} -> timestampFormats) (\s@HiveJsonSerDe' {} a -> s {timestampFormats = a} :: HiveJsonSerDe) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON HiveJsonSerDe where
+instance Core.FromJSON HiveJsonSerDe where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HiveJsonSerDe"
       ( \x ->
           HiveJsonSerDe'
-            Prelude.<$> ( x Prelude..:? "TimestampFormats"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "TimestampFormats" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable HiveJsonSerDe
+instance Core.Hashable HiveJsonSerDe
 
-instance Prelude.NFData HiveJsonSerDe
+instance Core.NFData HiveJsonSerDe
 
-instance Prelude.ToJSON HiveJsonSerDe where
+instance Core.ToJSON HiveJsonSerDe where
   toJSON HiveJsonSerDe' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TimestampFormats" Prelude..=)
-              Prelude.<$> timestampFormats
+    Core.object
+      ( Core.catMaybes
+          [ ("TimestampFormats" Core..=)
+              Core.<$> timestampFormats
           ]
       )

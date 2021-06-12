@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SageMaker.UpdateCodeRepository
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -56,11 +55,11 @@ data UpdateCodeRepository = UpdateCodeRepository'
     -- format:
     --
     -- @{\"username\": UserName, \"password\": Password}@
-    gitConfig :: Prelude.Maybe GitConfigForUpdate,
+    gitConfig :: Core.Maybe GitConfigForUpdate,
     -- | The name of the Git repository to update.
-    codeRepositoryName :: Prelude.Text
+    codeRepositoryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCodeRepository' with all optional fields omitted.
@@ -81,11 +80,11 @@ data UpdateCodeRepository = UpdateCodeRepository'
 -- 'codeRepositoryName', 'updateCodeRepository_codeRepositoryName' - The name of the Git repository to update.
 newUpdateCodeRepository ::
   -- | 'codeRepositoryName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateCodeRepository
 newUpdateCodeRepository pCodeRepositoryName_ =
   UpdateCodeRepository'
-    { gitConfig = Prelude.Nothing,
+    { gitConfig = Core.Nothing,
       codeRepositoryName = pCodeRepositoryName_
     }
 
@@ -96,71 +95,67 @@ newUpdateCodeRepository pCodeRepositoryName_ =
 -- format:
 --
 -- @{\"username\": UserName, \"password\": Password}@
-updateCodeRepository_gitConfig :: Lens.Lens' UpdateCodeRepository (Prelude.Maybe GitConfigForUpdate)
+updateCodeRepository_gitConfig :: Lens.Lens' UpdateCodeRepository (Core.Maybe GitConfigForUpdate)
 updateCodeRepository_gitConfig = Lens.lens (\UpdateCodeRepository' {gitConfig} -> gitConfig) (\s@UpdateCodeRepository' {} a -> s {gitConfig = a} :: UpdateCodeRepository)
 
 -- | The name of the Git repository to update.
-updateCodeRepository_codeRepositoryName :: Lens.Lens' UpdateCodeRepository Prelude.Text
+updateCodeRepository_codeRepositoryName :: Lens.Lens' UpdateCodeRepository Core.Text
 updateCodeRepository_codeRepositoryName = Lens.lens (\UpdateCodeRepository' {codeRepositoryName} -> codeRepositoryName) (\s@UpdateCodeRepository' {} a -> s {codeRepositoryName = a} :: UpdateCodeRepository)
 
-instance Prelude.AWSRequest UpdateCodeRepository where
+instance Core.AWSRequest UpdateCodeRepository where
   type
-    Rs UpdateCodeRepository =
+    AWSResponse UpdateCodeRepository =
       UpdateCodeRepositoryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateCodeRepositoryResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "CodeRepositoryArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "CodeRepositoryArn")
       )
 
-instance Prelude.Hashable UpdateCodeRepository
+instance Core.Hashable UpdateCodeRepository
 
-instance Prelude.NFData UpdateCodeRepository
+instance Core.NFData UpdateCodeRepository
 
-instance Prelude.ToHeaders UpdateCodeRepository where
+instance Core.ToHeaders UpdateCodeRepository where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.UpdateCodeRepository" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.UpdateCodeRepository" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateCodeRepository where
+instance Core.ToJSON UpdateCodeRepository where
   toJSON UpdateCodeRepository' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("GitConfig" Prelude..=) Prelude.<$> gitConfig,
-            Prelude.Just
-              ( "CodeRepositoryName"
-                  Prelude..= codeRepositoryName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("GitConfig" Core..=) Core.<$> gitConfig,
+            Core.Just
+              ("CodeRepositoryName" Core..= codeRepositoryName)
           ]
       )
 
-instance Prelude.ToPath UpdateCodeRepository where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateCodeRepository where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateCodeRepository where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateCodeRepository where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateCodeRepositoryResponse' smart constructor.
 data UpdateCodeRepositoryResponse = UpdateCodeRepositoryResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The ARN of the Git repository.
-    codeRepositoryArn :: Prelude.Text
+    codeRepositoryArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCodeRepositoryResponse' with all optional fields omitted.
@@ -175,9 +170,9 @@ data UpdateCodeRepositoryResponse = UpdateCodeRepositoryResponse'
 -- 'codeRepositoryArn', 'updateCodeRepositoryResponse_codeRepositoryArn' - The ARN of the Git repository.
 newUpdateCodeRepositoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'codeRepositoryArn'
-  Prelude.Text ->
+  Core.Text ->
   UpdateCodeRepositoryResponse
 newUpdateCodeRepositoryResponse
   pHttpStatus_
@@ -189,11 +184,11 @@ newUpdateCodeRepositoryResponse
       }
 
 -- | The response's http status code.
-updateCodeRepositoryResponse_httpStatus :: Lens.Lens' UpdateCodeRepositoryResponse Prelude.Int
+updateCodeRepositoryResponse_httpStatus :: Lens.Lens' UpdateCodeRepositoryResponse Core.Int
 updateCodeRepositoryResponse_httpStatus = Lens.lens (\UpdateCodeRepositoryResponse' {httpStatus} -> httpStatus) (\s@UpdateCodeRepositoryResponse' {} a -> s {httpStatus = a} :: UpdateCodeRepositoryResponse)
 
 -- | The ARN of the Git repository.
-updateCodeRepositoryResponse_codeRepositoryArn :: Lens.Lens' UpdateCodeRepositoryResponse Prelude.Text
+updateCodeRepositoryResponse_codeRepositoryArn :: Lens.Lens' UpdateCodeRepositoryResponse Core.Text
 updateCodeRepositoryResponse_codeRepositoryArn = Lens.lens (\UpdateCodeRepositoryResponse' {codeRepositoryArn} -> codeRepositoryArn) (\s@UpdateCodeRepositoryResponse' {} a -> s {codeRepositoryArn = a} :: UpdateCodeRepositoryResponse)
 
-instance Prelude.NFData UpdateCodeRepositoryResponse
+instance Core.NFData UpdateCodeRepositoryResponse

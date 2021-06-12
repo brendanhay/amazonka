@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -67,7 +66,7 @@ import Network.AWS.SES.Types
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
   { -- | The identity for which to set bounce and complaint notification
     -- forwarding. Examples: @user\@example.com@, @example.com@.
-    identity :: Prelude.Text,
+    identity :: Core.Text,
     -- | Sets whether Amazon SES will forward bounce and complaint notifications
     -- as email. @true@ specifies that Amazon SES will forward bounce and
     -- complaint notifications as email, in addition to any Amazon SNS topic
@@ -75,9 +74,9 @@ data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
     -- publish bounce and complaint notifications only through Amazon SNS. This
     -- value can only be set to @false@ when Amazon SNS topics are set for both
     -- @Bounce@ and @Complaint@ notification types.
-    forwardingEnabled :: Prelude.Bool
+    forwardingEnabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIdentityFeedbackForwardingEnabled' with all optional fields omitted.
@@ -99,9 +98,9 @@ data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
 -- @Bounce@ and @Complaint@ notification types.
 newSetIdentityFeedbackForwardingEnabled ::
   -- | 'identity'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'forwardingEnabled'
-  Prelude.Bool ->
+  Core.Bool ->
   SetIdentityFeedbackForwardingEnabled
 newSetIdentityFeedbackForwardingEnabled
   pIdentity_
@@ -115,7 +114,7 @@ newSetIdentityFeedbackForwardingEnabled
 
 -- | The identity for which to set bounce and complaint notification
 -- forwarding. Examples: @user\@example.com@, @example.com@.
-setIdentityFeedbackForwardingEnabled_identity :: Lens.Lens' SetIdentityFeedbackForwardingEnabled Prelude.Text
+setIdentityFeedbackForwardingEnabled_identity :: Lens.Lens' SetIdentityFeedbackForwardingEnabled Core.Text
 setIdentityFeedbackForwardingEnabled_identity = Lens.lens (\SetIdentityFeedbackForwardingEnabled' {identity} -> identity) (\s@SetIdentityFeedbackForwardingEnabled' {} a -> s {identity = a} :: SetIdentityFeedbackForwardingEnabled)
 
 -- | Sets whether Amazon SES will forward bounce and complaint notifications
@@ -125,15 +124,15 @@ setIdentityFeedbackForwardingEnabled_identity = Lens.lens (\SetIdentityFeedbackF
 -- publish bounce and complaint notifications only through Amazon SNS. This
 -- value can only be set to @false@ when Amazon SNS topics are set for both
 -- @Bounce@ and @Complaint@ notification types.
-setIdentityFeedbackForwardingEnabled_forwardingEnabled :: Lens.Lens' SetIdentityFeedbackForwardingEnabled Prelude.Bool
+setIdentityFeedbackForwardingEnabled_forwardingEnabled :: Lens.Lens' SetIdentityFeedbackForwardingEnabled Core.Bool
 setIdentityFeedbackForwardingEnabled_forwardingEnabled = Lens.lens (\SetIdentityFeedbackForwardingEnabled' {forwardingEnabled} -> forwardingEnabled) (\s@SetIdentityFeedbackForwardingEnabled' {} a -> s {forwardingEnabled = a} :: SetIdentityFeedbackForwardingEnabled)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     SetIdentityFeedbackForwardingEnabled
   where
   type
-    Rs SetIdentityFeedbackForwardingEnabled =
+    AWSResponse SetIdentityFeedbackForwardingEnabled =
       SetIdentityFeedbackForwardingEnabledResponse
   request = Request.postQuery defaultService
   response =
@@ -141,43 +140,42 @@ instance
       "SetIdentityFeedbackForwardingEnabledResult"
       ( \s h x ->
           SetIdentityFeedbackForwardingEnabledResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     SetIdentityFeedbackForwardingEnabled
 
 instance
-  Prelude.NFData
+  Core.NFData
     SetIdentityFeedbackForwardingEnabled
 
 instance
-  Prelude.ToHeaders
-    SetIdentityFeedbackForwardingEnabled
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     SetIdentityFeedbackForwardingEnabled
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    SetIdentityFeedbackForwardingEnabled
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     SetIdentityFeedbackForwardingEnabled
   where
   toQuery SetIdentityFeedbackForwardingEnabled' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "SetIdentityFeedbackForwardingEnabled" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "Identity" Prelude.=: identity,
-        "ForwardingEnabled" Prelude.=: forwardingEnabled
+          Core.=: ( "SetIdentityFeedbackForwardingEnabled" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Identity" Core.=: identity,
+        "ForwardingEnabled" Core.=: forwardingEnabled
       ]
 
 -- | An empty element returned on a successful request.
@@ -185,9 +183,9 @@ instance
 -- /See:/ 'newSetIdentityFeedbackForwardingEnabledResponse' smart constructor.
 data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIdentityFeedbackForwardingEnabledResponse' with all optional fields omitted.
@@ -200,7 +198,7 @@ data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardin
 -- 'httpStatus', 'setIdentityFeedbackForwardingEnabledResponse_httpStatus' - The response's http status code.
 newSetIdentityFeedbackForwardingEnabledResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SetIdentityFeedbackForwardingEnabledResponse
 newSetIdentityFeedbackForwardingEnabledResponse
   pHttpStatus_ =
@@ -210,9 +208,9 @@ newSetIdentityFeedbackForwardingEnabledResponse
       }
 
 -- | The response's http status code.
-setIdentityFeedbackForwardingEnabledResponse_httpStatus :: Lens.Lens' SetIdentityFeedbackForwardingEnabledResponse Prelude.Int
+setIdentityFeedbackForwardingEnabledResponse_httpStatus :: Lens.Lens' SetIdentityFeedbackForwardingEnabledResponse Core.Int
 setIdentityFeedbackForwardingEnabledResponse_httpStatus = Lens.lens (\SetIdentityFeedbackForwardingEnabledResponse' {httpStatus} -> httpStatus) (\s@SetIdentityFeedbackForwardingEnabledResponse' {} a -> s {httpStatus = a} :: SetIdentityFeedbackForwardingEnabledResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     SetIdentityFeedbackForwardingEnabledResponse

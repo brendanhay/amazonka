@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about a task that failed to start during an execution.
 --
 -- /See:/ 'newTaskStartFailedEventDetails' smart constructor.
 data TaskStartFailedEventDetails = TaskStartFailedEventDetails'
   { -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    cause :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The error code of the failure.
-    error :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    error :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The action of the resource called by a task state.
-    resourceType :: Prelude.Text,
+    resourceType :: Core.Text,
     -- | The service name of the resource in a task state.
-    resource :: Prelude.Text
+    resource :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TaskStartFailedEventDetails' with all optional fields omitted.
@@ -55,49 +54,48 @@ data TaskStartFailedEventDetails = TaskStartFailedEventDetails'
 -- 'resource', 'taskStartFailedEventDetails_resource' - The service name of the resource in a task state.
 newTaskStartFailedEventDetails ::
   -- | 'resourceType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resource'
-  Prelude.Text ->
+  Core.Text ->
   TaskStartFailedEventDetails
 newTaskStartFailedEventDetails
   pResourceType_
   pResource_ =
     TaskStartFailedEventDetails'
-      { cause =
-          Prelude.Nothing,
-        error = Prelude.Nothing,
+      { cause = Core.Nothing,
+        error = Core.Nothing,
         resourceType = pResourceType_,
         resource = pResource_
       }
 
 -- | A more detailed explanation of the cause of the failure.
-taskStartFailedEventDetails_cause :: Lens.Lens' TaskStartFailedEventDetails (Prelude.Maybe Prelude.Text)
-taskStartFailedEventDetails_cause = Lens.lens (\TaskStartFailedEventDetails' {cause} -> cause) (\s@TaskStartFailedEventDetails' {} a -> s {cause = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Prelude._Sensitive
+taskStartFailedEventDetails_cause :: Lens.Lens' TaskStartFailedEventDetails (Core.Maybe Core.Text)
+taskStartFailedEventDetails_cause = Lens.lens (\TaskStartFailedEventDetails' {cause} -> cause) (\s@TaskStartFailedEventDetails' {} a -> s {cause = a} :: TaskStartFailedEventDetails) Core.. Lens.mapping Core._Sensitive
 
 -- | The error code of the failure.
-taskStartFailedEventDetails_error :: Lens.Lens' TaskStartFailedEventDetails (Prelude.Maybe Prelude.Text)
-taskStartFailedEventDetails_error = Lens.lens (\TaskStartFailedEventDetails' {error} -> error) (\s@TaskStartFailedEventDetails' {} a -> s {error = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Prelude._Sensitive
+taskStartFailedEventDetails_error :: Lens.Lens' TaskStartFailedEventDetails (Core.Maybe Core.Text)
+taskStartFailedEventDetails_error = Lens.lens (\TaskStartFailedEventDetails' {error} -> error) (\s@TaskStartFailedEventDetails' {} a -> s {error = a} :: TaskStartFailedEventDetails) Core.. Lens.mapping Core._Sensitive
 
 -- | The action of the resource called by a task state.
-taskStartFailedEventDetails_resourceType :: Lens.Lens' TaskStartFailedEventDetails Prelude.Text
+taskStartFailedEventDetails_resourceType :: Lens.Lens' TaskStartFailedEventDetails Core.Text
 taskStartFailedEventDetails_resourceType = Lens.lens (\TaskStartFailedEventDetails' {resourceType} -> resourceType) (\s@TaskStartFailedEventDetails' {} a -> s {resourceType = a} :: TaskStartFailedEventDetails)
 
 -- | The service name of the resource in a task state.
-taskStartFailedEventDetails_resource :: Lens.Lens' TaskStartFailedEventDetails Prelude.Text
+taskStartFailedEventDetails_resource :: Lens.Lens' TaskStartFailedEventDetails Core.Text
 taskStartFailedEventDetails_resource = Lens.lens (\TaskStartFailedEventDetails' {resource} -> resource) (\s@TaskStartFailedEventDetails' {} a -> s {resource = a} :: TaskStartFailedEventDetails)
 
-instance Prelude.FromJSON TaskStartFailedEventDetails where
+instance Core.FromJSON TaskStartFailedEventDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TaskStartFailedEventDetails"
       ( \x ->
           TaskStartFailedEventDetails'
-            Prelude.<$> (x Prelude..:? "cause")
-            Prelude.<*> (x Prelude..:? "error")
-            Prelude.<*> (x Prelude..: "resourceType")
-            Prelude.<*> (x Prelude..: "resource")
+            Core.<$> (x Core..:? "cause")
+            Core.<*> (x Core..:? "error")
+            Core.<*> (x Core..: "resourceType")
+            Core.<*> (x Core..: "resource")
       )
 
-instance Prelude.Hashable TaskStartFailedEventDetails
+instance Core.Hashable TaskStartFailedEventDetails
 
-instance Prelude.NFData TaskStartFailedEventDetails
+instance Core.NFData TaskStartFailedEventDetails

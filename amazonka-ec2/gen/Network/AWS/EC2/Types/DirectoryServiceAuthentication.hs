@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DirectoryServiceAuthentication where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Active Directory.
 --
 -- /See:/ 'newDirectoryServiceAuthentication' smart constructor.
 data DirectoryServiceAuthentication = DirectoryServiceAuthentication'
   { -- | The ID of the Active Directory used for authentication.
-    directoryId :: Prelude.Maybe Prelude.Text
+    directoryId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DirectoryServiceAuthentication' with all optional fields omitted.
@@ -47,25 +46,18 @@ newDirectoryServiceAuthentication ::
 newDirectoryServiceAuthentication =
   DirectoryServiceAuthentication'
     { directoryId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the Active Directory used for authentication.
-directoryServiceAuthentication_directoryId :: Lens.Lens' DirectoryServiceAuthentication (Prelude.Maybe Prelude.Text)
+directoryServiceAuthentication_directoryId :: Lens.Lens' DirectoryServiceAuthentication (Core.Maybe Core.Text)
 directoryServiceAuthentication_directoryId = Lens.lens (\DirectoryServiceAuthentication' {directoryId} -> directoryId) (\s@DirectoryServiceAuthentication' {} a -> s {directoryId = a} :: DirectoryServiceAuthentication)
 
-instance
-  Prelude.FromXML
-    DirectoryServiceAuthentication
-  where
+instance Core.FromXML DirectoryServiceAuthentication where
   parseXML x =
     DirectoryServiceAuthentication'
-      Prelude.<$> (x Prelude..@? "directoryId")
+      Core.<$> (x Core..@? "directoryId")
 
-instance
-  Prelude.Hashable
-    DirectoryServiceAuthentication
+instance Core.Hashable DirectoryServiceAuthentication
 
-instance
-  Prelude.NFData
-    DirectoryServiceAuthentication
+instance Core.NFData DirectoryServiceAuthentication

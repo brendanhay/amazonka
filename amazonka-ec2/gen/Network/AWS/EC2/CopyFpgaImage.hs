@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.EC2.CopyFpgaImage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,21 +56,21 @@ data CopyFpgaImage = CopyFpgaImage'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The name for the new AFI. The default is the name of the source AFI.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The description for the new AFI.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | The ID of the source AFI.
-    sourceFpgaImageId :: Prelude.Text,
+    sourceFpgaImageId :: Core.Text,
     -- | The Region that contains the source AFI.
-    sourceRegion :: Prelude.Text
+    sourceRegion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopyFpgaImage' with all optional fields omitted.
@@ -99,16 +98,16 @@ data CopyFpgaImage = CopyFpgaImage'
 -- 'sourceRegion', 'copyFpgaImage_sourceRegion' - The Region that contains the source AFI.
 newCopyFpgaImage ::
   -- | 'sourceFpgaImageId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sourceRegion'
-  Prelude.Text ->
+  Core.Text ->
   CopyFpgaImage
 newCopyFpgaImage pSourceFpgaImageId_ pSourceRegion_ =
   CopyFpgaImage'
-    { dryRun = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { dryRun = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      clientToken = Core.Nothing,
       sourceFpgaImageId = pSourceFpgaImageId_,
       sourceRegion = pSourceRegion_
     }
@@ -117,75 +116,76 @@ newCopyFpgaImage pSourceFpgaImageId_ pSourceRegion_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-copyFpgaImage_dryRun :: Lens.Lens' CopyFpgaImage (Prelude.Maybe Prelude.Bool)
+copyFpgaImage_dryRun :: Lens.Lens' CopyFpgaImage (Core.Maybe Core.Bool)
 copyFpgaImage_dryRun = Lens.lens (\CopyFpgaImage' {dryRun} -> dryRun) (\s@CopyFpgaImage' {} a -> s {dryRun = a} :: CopyFpgaImage)
 
 -- | The name for the new AFI. The default is the name of the source AFI.
-copyFpgaImage_name :: Lens.Lens' CopyFpgaImage (Prelude.Maybe Prelude.Text)
+copyFpgaImage_name :: Lens.Lens' CopyFpgaImage (Core.Maybe Core.Text)
 copyFpgaImage_name = Lens.lens (\CopyFpgaImage' {name} -> name) (\s@CopyFpgaImage' {} a -> s {name = a} :: CopyFpgaImage)
 
 -- | The description for the new AFI.
-copyFpgaImage_description :: Lens.Lens' CopyFpgaImage (Prelude.Maybe Prelude.Text)
+copyFpgaImage_description :: Lens.Lens' CopyFpgaImage (Core.Maybe Core.Text)
 copyFpgaImage_description = Lens.lens (\CopyFpgaImage' {description} -> description) (\s@CopyFpgaImage' {} a -> s {description = a} :: CopyFpgaImage)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency>.
-copyFpgaImage_clientToken :: Lens.Lens' CopyFpgaImage (Prelude.Maybe Prelude.Text)
+copyFpgaImage_clientToken :: Lens.Lens' CopyFpgaImage (Core.Maybe Core.Text)
 copyFpgaImage_clientToken = Lens.lens (\CopyFpgaImage' {clientToken} -> clientToken) (\s@CopyFpgaImage' {} a -> s {clientToken = a} :: CopyFpgaImage)
 
 -- | The ID of the source AFI.
-copyFpgaImage_sourceFpgaImageId :: Lens.Lens' CopyFpgaImage Prelude.Text
+copyFpgaImage_sourceFpgaImageId :: Lens.Lens' CopyFpgaImage Core.Text
 copyFpgaImage_sourceFpgaImageId = Lens.lens (\CopyFpgaImage' {sourceFpgaImageId} -> sourceFpgaImageId) (\s@CopyFpgaImage' {} a -> s {sourceFpgaImageId = a} :: CopyFpgaImage)
 
 -- | The Region that contains the source AFI.
-copyFpgaImage_sourceRegion :: Lens.Lens' CopyFpgaImage Prelude.Text
+copyFpgaImage_sourceRegion :: Lens.Lens' CopyFpgaImage Core.Text
 copyFpgaImage_sourceRegion = Lens.lens (\CopyFpgaImage' {sourceRegion} -> sourceRegion) (\s@CopyFpgaImage' {} a -> s {sourceRegion = a} :: CopyFpgaImage)
 
-instance Prelude.AWSRequest CopyFpgaImage where
-  type Rs CopyFpgaImage = CopyFpgaImageResponse
+instance Core.AWSRequest CopyFpgaImage where
+  type
+    AWSResponse CopyFpgaImage =
+      CopyFpgaImageResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CopyFpgaImageResponse'
-            Prelude.<$> (x Prelude..@? "fpgaImageId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "fpgaImageId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CopyFpgaImage
+instance Core.Hashable CopyFpgaImage
 
-instance Prelude.NFData CopyFpgaImage
+instance Core.NFData CopyFpgaImage
 
-instance Prelude.ToHeaders CopyFpgaImage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CopyFpgaImage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CopyFpgaImage where
-  toPath = Prelude.const "/"
+instance Core.ToPath CopyFpgaImage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CopyFpgaImage where
+instance Core.ToQuery CopyFpgaImage where
   toQuery CopyFpgaImage' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CopyFpgaImage" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "Name" Prelude.=: name,
-        "Description" Prelude.=: description,
-        "ClientToken" Prelude.=: clientToken,
-        "SourceFpgaImageId" Prelude.=: sourceFpgaImageId,
-        "SourceRegion" Prelude.=: sourceRegion
+          Core.=: ("CopyFpgaImage" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Name" Core.=: name,
+        "Description" Core.=: description,
+        "ClientToken" Core.=: clientToken,
+        "SourceFpgaImageId" Core.=: sourceFpgaImageId,
+        "SourceRegion" Core.=: sourceRegion
       ]
 
 -- | /See:/ 'newCopyFpgaImageResponse' smart constructor.
 data CopyFpgaImageResponse = CopyFpgaImageResponse'
   { -- | The ID of the new AFI.
-    fpgaImageId :: Prelude.Maybe Prelude.Text,
+    fpgaImageId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopyFpgaImageResponse' with all optional fields omitted.
@@ -200,21 +200,20 @@ data CopyFpgaImageResponse = CopyFpgaImageResponse'
 -- 'httpStatus', 'copyFpgaImageResponse_httpStatus' - The response's http status code.
 newCopyFpgaImageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CopyFpgaImageResponse
 newCopyFpgaImageResponse pHttpStatus_ =
   CopyFpgaImageResponse'
-    { fpgaImageId =
-        Prelude.Nothing,
+    { fpgaImageId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the new AFI.
-copyFpgaImageResponse_fpgaImageId :: Lens.Lens' CopyFpgaImageResponse (Prelude.Maybe Prelude.Text)
+copyFpgaImageResponse_fpgaImageId :: Lens.Lens' CopyFpgaImageResponse (Core.Maybe Core.Text)
 copyFpgaImageResponse_fpgaImageId = Lens.lens (\CopyFpgaImageResponse' {fpgaImageId} -> fpgaImageId) (\s@CopyFpgaImageResponse' {} a -> s {fpgaImageId = a} :: CopyFpgaImageResponse)
 
 -- | The response's http status code.
-copyFpgaImageResponse_httpStatus :: Lens.Lens' CopyFpgaImageResponse Prelude.Int
+copyFpgaImageResponse_httpStatus :: Lens.Lens' CopyFpgaImageResponse Core.Int
 copyFpgaImageResponse_httpStatus = Lens.lens (\CopyFpgaImageResponse' {httpStatus} -> httpStatus) (\s@CopyFpgaImageResponse' {} a -> s {httpStatus = a} :: CopyFpgaImageResponse)
 
-instance Prelude.NFData CopyFpgaImageResponse
+instance Core.NFData CopyFpgaImageResponse

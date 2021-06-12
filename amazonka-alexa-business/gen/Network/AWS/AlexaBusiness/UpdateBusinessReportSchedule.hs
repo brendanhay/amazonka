@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.AlexaBusiness.UpdateBusinessReportSchedule
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,19 +54,19 @@ import qualified Network.AWS.Response as Response
 data UpdateBusinessReportSchedule = UpdateBusinessReportSchedule'
   { -- | The format of the generated report (individual CSV files or zipped files
     -- of individual files).
-    format :: Prelude.Maybe BusinessReportFormat,
+    format :: Core.Maybe BusinessReportFormat,
     -- | The S3 key where the report is delivered.
-    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    s3KeyPrefix :: Core.Maybe Core.Text,
     -- | The recurrence of the reports.
-    recurrence :: Prelude.Maybe BusinessReportRecurrence,
+    recurrence :: Core.Maybe BusinessReportRecurrence,
     -- | The S3 location of the output reports.
-    s3BucketName :: Prelude.Maybe Prelude.Text,
+    s3BucketName :: Core.Maybe Core.Text,
     -- | The name identifier of the schedule.
-    scheduleName :: Prelude.Maybe Prelude.Text,
+    scheduleName :: Core.Maybe Core.Text,
     -- | The ARN of the business report schedule.
-    scheduleArn :: Prelude.Text
+    scheduleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateBusinessReportSchedule' with all optional fields omitted.
@@ -91,108 +90,98 @@ data UpdateBusinessReportSchedule = UpdateBusinessReportSchedule'
 -- 'scheduleArn', 'updateBusinessReportSchedule_scheduleArn' - The ARN of the business report schedule.
 newUpdateBusinessReportSchedule ::
   -- | 'scheduleArn'
-  Prelude.Text ->
+  Core.Text ->
   UpdateBusinessReportSchedule
 newUpdateBusinessReportSchedule pScheduleArn_ =
   UpdateBusinessReportSchedule'
     { format =
-        Prelude.Nothing,
-      s3KeyPrefix = Prelude.Nothing,
-      recurrence = Prelude.Nothing,
-      s3BucketName = Prelude.Nothing,
-      scheduleName = Prelude.Nothing,
+        Core.Nothing,
+      s3KeyPrefix = Core.Nothing,
+      recurrence = Core.Nothing,
+      s3BucketName = Core.Nothing,
+      scheduleName = Core.Nothing,
       scheduleArn = pScheduleArn_
     }
 
 -- | The format of the generated report (individual CSV files or zipped files
 -- of individual files).
-updateBusinessReportSchedule_format :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe BusinessReportFormat)
+updateBusinessReportSchedule_format :: Lens.Lens' UpdateBusinessReportSchedule (Core.Maybe BusinessReportFormat)
 updateBusinessReportSchedule_format = Lens.lens (\UpdateBusinessReportSchedule' {format} -> format) (\s@UpdateBusinessReportSchedule' {} a -> s {format = a} :: UpdateBusinessReportSchedule)
 
 -- | The S3 key where the report is delivered.
-updateBusinessReportSchedule_s3KeyPrefix :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
+updateBusinessReportSchedule_s3KeyPrefix :: Lens.Lens' UpdateBusinessReportSchedule (Core.Maybe Core.Text)
 updateBusinessReportSchedule_s3KeyPrefix = Lens.lens (\UpdateBusinessReportSchedule' {s3KeyPrefix} -> s3KeyPrefix) (\s@UpdateBusinessReportSchedule' {} a -> s {s3KeyPrefix = a} :: UpdateBusinessReportSchedule)
 
 -- | The recurrence of the reports.
-updateBusinessReportSchedule_recurrence :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe BusinessReportRecurrence)
+updateBusinessReportSchedule_recurrence :: Lens.Lens' UpdateBusinessReportSchedule (Core.Maybe BusinessReportRecurrence)
 updateBusinessReportSchedule_recurrence = Lens.lens (\UpdateBusinessReportSchedule' {recurrence} -> recurrence) (\s@UpdateBusinessReportSchedule' {} a -> s {recurrence = a} :: UpdateBusinessReportSchedule)
 
 -- | The S3 location of the output reports.
-updateBusinessReportSchedule_s3BucketName :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
+updateBusinessReportSchedule_s3BucketName :: Lens.Lens' UpdateBusinessReportSchedule (Core.Maybe Core.Text)
 updateBusinessReportSchedule_s3BucketName = Lens.lens (\UpdateBusinessReportSchedule' {s3BucketName} -> s3BucketName) (\s@UpdateBusinessReportSchedule' {} a -> s {s3BucketName = a} :: UpdateBusinessReportSchedule)
 
 -- | The name identifier of the schedule.
-updateBusinessReportSchedule_scheduleName :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
+updateBusinessReportSchedule_scheduleName :: Lens.Lens' UpdateBusinessReportSchedule (Core.Maybe Core.Text)
 updateBusinessReportSchedule_scheduleName = Lens.lens (\UpdateBusinessReportSchedule' {scheduleName} -> scheduleName) (\s@UpdateBusinessReportSchedule' {} a -> s {scheduleName = a} :: UpdateBusinessReportSchedule)
 
 -- | The ARN of the business report schedule.
-updateBusinessReportSchedule_scheduleArn :: Lens.Lens' UpdateBusinessReportSchedule Prelude.Text
+updateBusinessReportSchedule_scheduleArn :: Lens.Lens' UpdateBusinessReportSchedule Core.Text
 updateBusinessReportSchedule_scheduleArn = Lens.lens (\UpdateBusinessReportSchedule' {scheduleArn} -> scheduleArn) (\s@UpdateBusinessReportSchedule' {} a -> s {scheduleArn = a} :: UpdateBusinessReportSchedule)
 
-instance
-  Prelude.AWSRequest
-    UpdateBusinessReportSchedule
-  where
+instance Core.AWSRequest UpdateBusinessReportSchedule where
   type
-    Rs UpdateBusinessReportSchedule =
+    AWSResponse UpdateBusinessReportSchedule =
       UpdateBusinessReportScheduleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateBusinessReportScheduleResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    UpdateBusinessReportSchedule
+instance Core.Hashable UpdateBusinessReportSchedule
 
-instance Prelude.NFData UpdateBusinessReportSchedule
+instance Core.NFData UpdateBusinessReportSchedule
 
-instance
-  Prelude.ToHeaders
-    UpdateBusinessReportSchedule
-  where
+instance Core.ToHeaders UpdateBusinessReportSchedule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.UpdateBusinessReportSchedule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.UpdateBusinessReportSchedule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateBusinessReportSchedule where
+instance Core.ToJSON UpdateBusinessReportSchedule where
   toJSON UpdateBusinessReportSchedule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Format" Prelude..=) Prelude.<$> format,
-            ("S3KeyPrefix" Prelude..=) Prelude.<$> s3KeyPrefix,
-            ("Recurrence" Prelude..=) Prelude.<$> recurrence,
-            ("S3BucketName" Prelude..=) Prelude.<$> s3BucketName,
-            ("ScheduleName" Prelude..=) Prelude.<$> scheduleName,
-            Prelude.Just ("ScheduleArn" Prelude..= scheduleArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("Format" Core..=) Core.<$> format,
+            ("S3KeyPrefix" Core..=) Core.<$> s3KeyPrefix,
+            ("Recurrence" Core..=) Core.<$> recurrence,
+            ("S3BucketName" Core..=) Core.<$> s3BucketName,
+            ("ScheduleName" Core..=) Core.<$> scheduleName,
+            Core.Just ("ScheduleArn" Core..= scheduleArn)
           ]
       )
 
-instance Prelude.ToPath UpdateBusinessReportSchedule where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateBusinessReportSchedule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateBusinessReportSchedule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateBusinessReportSchedule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateBusinessReportScheduleResponse' smart constructor.
 data UpdateBusinessReportScheduleResponse = UpdateBusinessReportScheduleResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateBusinessReportScheduleResponse' with all optional fields omitted.
@@ -205,7 +194,7 @@ data UpdateBusinessReportScheduleResponse = UpdateBusinessReportScheduleResponse
 -- 'httpStatus', 'updateBusinessReportScheduleResponse_httpStatus' - The response's http status code.
 newUpdateBusinessReportScheduleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateBusinessReportScheduleResponse
 newUpdateBusinessReportScheduleResponse pHttpStatus_ =
   UpdateBusinessReportScheduleResponse'
@@ -214,9 +203,9 @@ newUpdateBusinessReportScheduleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateBusinessReportScheduleResponse_httpStatus :: Lens.Lens' UpdateBusinessReportScheduleResponse Prelude.Int
+updateBusinessReportScheduleResponse_httpStatus :: Lens.Lens' UpdateBusinessReportScheduleResponse Core.Int
 updateBusinessReportScheduleResponse_httpStatus = Lens.lens (\UpdateBusinessReportScheduleResponse' {httpStatus} -> httpStatus) (\s@UpdateBusinessReportScheduleResponse' {} a -> s {httpStatus = a} :: UpdateBusinessReportScheduleResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateBusinessReportScheduleResponse

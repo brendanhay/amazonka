@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ImportImageLicenseConfigurationRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The request information of license configurations.
 --
 -- /See:/ 'newImportImageLicenseConfigurationRequest' smart constructor.
 data ImportImageLicenseConfigurationRequest = ImportImageLicenseConfigurationRequest'
   { -- | The ARN of a license configuration.
-    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
+    licenseConfigurationArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportImageLicenseConfigurationRequest' with all optional fields omitted.
@@ -47,27 +46,27 @@ newImportImageLicenseConfigurationRequest ::
 newImportImageLicenseConfigurationRequest =
   ImportImageLicenseConfigurationRequest'
     { licenseConfigurationArn =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ARN of a license configuration.
-importImageLicenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' ImportImageLicenseConfigurationRequest (Prelude.Maybe Prelude.Text)
+importImageLicenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' ImportImageLicenseConfigurationRequest (Core.Maybe Core.Text)
 importImageLicenseConfigurationRequest_licenseConfigurationArn = Lens.lens (\ImportImageLicenseConfigurationRequest' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@ImportImageLicenseConfigurationRequest' {} a -> s {licenseConfigurationArn = a} :: ImportImageLicenseConfigurationRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ImportImageLicenseConfigurationRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     ImportImageLicenseConfigurationRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ImportImageLicenseConfigurationRequest
   where
   toQuery ImportImageLicenseConfigurationRequest' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "LicenseConfigurationArn"
-          Prelude.=: licenseConfigurationArn
+          Core.=: licenseConfigurationArn
       ]

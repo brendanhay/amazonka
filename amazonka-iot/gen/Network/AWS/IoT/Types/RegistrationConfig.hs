@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.RegistrationConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The registration configuration.
 --
 -- /See:/ 'newRegistrationConfig' smart constructor.
 data RegistrationConfig = RegistrationConfig'
   { -- | The ARN of the role.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | The template body.
-    templateBody :: Prelude.Maybe Prelude.Text
+    templateBody :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegistrationConfig' with all optional fields omitted.
@@ -49,38 +48,37 @@ newRegistrationConfig ::
   RegistrationConfig
 newRegistrationConfig =
   RegistrationConfig'
-    { roleArn = Prelude.Nothing,
-      templateBody = Prelude.Nothing
+    { roleArn = Core.Nothing,
+      templateBody = Core.Nothing
     }
 
 -- | The ARN of the role.
-registrationConfig_roleArn :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
+registrationConfig_roleArn :: Lens.Lens' RegistrationConfig (Core.Maybe Core.Text)
 registrationConfig_roleArn = Lens.lens (\RegistrationConfig' {roleArn} -> roleArn) (\s@RegistrationConfig' {} a -> s {roleArn = a} :: RegistrationConfig)
 
 -- | The template body.
-registrationConfig_templateBody :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
+registrationConfig_templateBody :: Lens.Lens' RegistrationConfig (Core.Maybe Core.Text)
 registrationConfig_templateBody = Lens.lens (\RegistrationConfig' {templateBody} -> templateBody) (\s@RegistrationConfig' {} a -> s {templateBody = a} :: RegistrationConfig)
 
-instance Prelude.FromJSON RegistrationConfig where
+instance Core.FromJSON RegistrationConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RegistrationConfig"
       ( \x ->
           RegistrationConfig'
-            Prelude.<$> (x Prelude..:? "roleArn")
-            Prelude.<*> (x Prelude..:? "templateBody")
+            Core.<$> (x Core..:? "roleArn")
+            Core.<*> (x Core..:? "templateBody")
       )
 
-instance Prelude.Hashable RegistrationConfig
+instance Core.Hashable RegistrationConfig
 
-instance Prelude.NFData RegistrationConfig
+instance Core.NFData RegistrationConfig
 
-instance Prelude.ToJSON RegistrationConfig where
+instance Core.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("roleArn" Prelude..=) Prelude.<$> roleArn,
-            ("templateBody" Prelude..=)
-              Prelude.<$> templateBody
+    Core.object
+      ( Core.catMaybes
+          [ ("roleArn" Core..=) Core.<$> roleArn,
+            ("templateBody" Core..=) Core.<$> templateBody
           ]
       )

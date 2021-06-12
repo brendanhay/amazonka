@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.AutoTuneOptionsInput where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.AutoTuneDesiredState
 import Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the Auto-Tune options: the Auto-Tune desired state for the
 -- domain and list of maintenance schedules.
@@ -32,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 data AutoTuneOptionsInput = AutoTuneOptionsInput'
   { -- | Specifies the Auto-Tune desired state. Valid values are ENABLED,
     -- DISABLED.
-    desiredState :: Prelude.Maybe AutoTuneDesiredState,
+    desiredState :: Core.Maybe AutoTuneDesiredState,
     -- | Specifies list of maitenance schedules. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
-    maintenanceSchedules :: Prelude.Maybe [AutoTuneMaintenanceSchedule]
+    maintenanceSchedules :: Core.Maybe [AutoTuneMaintenanceSchedule]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoTuneOptionsInput' with all optional fields omitted.
@@ -58,33 +57,31 @@ newAutoTuneOptionsInput ::
   AutoTuneOptionsInput
 newAutoTuneOptionsInput =
   AutoTuneOptionsInput'
-    { desiredState =
-        Prelude.Nothing,
-      maintenanceSchedules = Prelude.Nothing
+    { desiredState = Core.Nothing,
+      maintenanceSchedules = Core.Nothing
     }
 
 -- | Specifies the Auto-Tune desired state. Valid values are ENABLED,
 -- DISABLED.
-autoTuneOptionsInput_desiredState :: Lens.Lens' AutoTuneOptionsInput (Prelude.Maybe AutoTuneDesiredState)
+autoTuneOptionsInput_desiredState :: Lens.Lens' AutoTuneOptionsInput (Core.Maybe AutoTuneDesiredState)
 autoTuneOptionsInput_desiredState = Lens.lens (\AutoTuneOptionsInput' {desiredState} -> desiredState) (\s@AutoTuneOptionsInput' {} a -> s {desiredState = a} :: AutoTuneOptionsInput)
 
 -- | Specifies list of maitenance schedules. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
-autoTuneOptionsInput_maintenanceSchedules :: Lens.Lens' AutoTuneOptionsInput (Prelude.Maybe [AutoTuneMaintenanceSchedule])
-autoTuneOptionsInput_maintenanceSchedules = Lens.lens (\AutoTuneOptionsInput' {maintenanceSchedules} -> maintenanceSchedules) (\s@AutoTuneOptionsInput' {} a -> s {maintenanceSchedules = a} :: AutoTuneOptionsInput) Prelude.. Lens.mapping Prelude._Coerce
+autoTuneOptionsInput_maintenanceSchedules :: Lens.Lens' AutoTuneOptionsInput (Core.Maybe [AutoTuneMaintenanceSchedule])
+autoTuneOptionsInput_maintenanceSchedules = Lens.lens (\AutoTuneOptionsInput' {maintenanceSchedules} -> maintenanceSchedules) (\s@AutoTuneOptionsInput' {} a -> s {maintenanceSchedules = a} :: AutoTuneOptionsInput) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable AutoTuneOptionsInput
+instance Core.Hashable AutoTuneOptionsInput
 
-instance Prelude.NFData AutoTuneOptionsInput
+instance Core.NFData AutoTuneOptionsInput
 
-instance Prelude.ToJSON AutoTuneOptionsInput where
+instance Core.ToJSON AutoTuneOptionsInput where
   toJSON AutoTuneOptionsInput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DesiredState" Prelude..=)
-              Prelude.<$> desiredState,
-            ("MaintenanceSchedules" Prelude..=)
-              Prelude.<$> maintenanceSchedules
+    Core.object
+      ( Core.catMaybes
+          [ ("DesiredState" Core..=) Core.<$> desiredState,
+            ("MaintenanceSchedules" Core..=)
+              Core.<$> maintenanceSchedules
           ]
       )

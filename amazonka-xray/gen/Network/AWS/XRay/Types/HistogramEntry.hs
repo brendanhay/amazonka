@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.HistogramEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An entry in a histogram for a statistic. A histogram maps the range of
 -- observed values on the X axis, and the prevalence of each value on the Y
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newHistogramEntry' smart constructor.
 data HistogramEntry = HistogramEntry'
   { -- | The value of the entry.
-    value :: Prelude.Maybe Prelude.Double,
+    value :: Core.Maybe Core.Double,
     -- | The prevalence of the entry.
-    count :: Prelude.Maybe Prelude.Int
+    count :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HistogramEntry' with all optional fields omitted.
@@ -51,28 +50,27 @@ newHistogramEntry ::
   HistogramEntry
 newHistogramEntry =
   HistogramEntry'
-    { value = Prelude.Nothing,
-      count = Prelude.Nothing
+    { value = Core.Nothing,
+      count = Core.Nothing
     }
 
 -- | The value of the entry.
-histogramEntry_value :: Lens.Lens' HistogramEntry (Prelude.Maybe Prelude.Double)
+histogramEntry_value :: Lens.Lens' HistogramEntry (Core.Maybe Core.Double)
 histogramEntry_value = Lens.lens (\HistogramEntry' {value} -> value) (\s@HistogramEntry' {} a -> s {value = a} :: HistogramEntry)
 
 -- | The prevalence of the entry.
-histogramEntry_count :: Lens.Lens' HistogramEntry (Prelude.Maybe Prelude.Int)
+histogramEntry_count :: Lens.Lens' HistogramEntry (Core.Maybe Core.Int)
 histogramEntry_count = Lens.lens (\HistogramEntry' {count} -> count) (\s@HistogramEntry' {} a -> s {count = a} :: HistogramEntry)
 
-instance Prelude.FromJSON HistogramEntry where
+instance Core.FromJSON HistogramEntry where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HistogramEntry"
       ( \x ->
           HistogramEntry'
-            Prelude.<$> (x Prelude..:? "Value")
-            Prelude.<*> (x Prelude..:? "Count")
+            Core.<$> (x Core..:? "Value") Core.<*> (x Core..:? "Count")
       )
 
-instance Prelude.Hashable HistogramEntry
+instance Core.Hashable HistogramEntry
 
-instance Prelude.NFData HistogramEntry
+instance Core.NFData HistogramEntry

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53AutoNaming.Types.OperationSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.OperationStatus
 
 -- | A complex type that contains information about an operation that matches
@@ -42,11 +41,11 @@ data OperationSummary = OperationSummary'
     --
     -- -   __FAIL__: The operation failed. For the failure reason, see
     --     @ErrorMessage@.
-    status :: Prelude.Maybe OperationStatus,
+    status :: Core.Maybe OperationStatus,
     -- | The ID for an operation.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OperationSummary' with all optional fields omitted.
@@ -73,8 +72,8 @@ newOperationSummary ::
   OperationSummary
 newOperationSummary =
   OperationSummary'
-    { status = Prelude.Nothing,
-      id = Prelude.Nothing
+    { status = Core.Nothing,
+      id = Core.Nothing
     }
 
 -- | The status of the operation. Values include the following:
@@ -88,23 +87,22 @@ newOperationSummary =
 --
 -- -   __FAIL__: The operation failed. For the failure reason, see
 --     @ErrorMessage@.
-operationSummary_status :: Lens.Lens' OperationSummary (Prelude.Maybe OperationStatus)
+operationSummary_status :: Lens.Lens' OperationSummary (Core.Maybe OperationStatus)
 operationSummary_status = Lens.lens (\OperationSummary' {status} -> status) (\s@OperationSummary' {} a -> s {status = a} :: OperationSummary)
 
 -- | The ID for an operation.
-operationSummary_id :: Lens.Lens' OperationSummary (Prelude.Maybe Prelude.Text)
+operationSummary_id :: Lens.Lens' OperationSummary (Core.Maybe Core.Text)
 operationSummary_id = Lens.lens (\OperationSummary' {id} -> id) (\s@OperationSummary' {} a -> s {id = a} :: OperationSummary)
 
-instance Prelude.FromJSON OperationSummary where
+instance Core.FromJSON OperationSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OperationSummary"
       ( \x ->
           OperationSummary'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "Id")
+            Core.<$> (x Core..:? "Status") Core.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable OperationSummary
+instance Core.Hashable OperationSummary
 
-instance Prelude.NFData OperationSummary
+instance Core.NFData OperationSummary

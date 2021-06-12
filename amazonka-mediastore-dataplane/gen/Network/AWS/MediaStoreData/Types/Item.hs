@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,28 +19,28 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaStoreData.Types.Item where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStoreData.Types.ItemType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A metadata entry for a folder or object.
 --
 -- /See:/ 'newItem' smart constructor.
 data Item = Item'
   { -- | The ETag that represents a unique instance of the item.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The content type of the item.
-    contentType :: Prelude.Maybe Prelude.Text,
+    contentType :: Core.Maybe Core.Text,
     -- | The length of the item in bytes.
-    contentLength :: Prelude.Maybe Prelude.Natural,
+    contentLength :: Core.Maybe Core.Natural,
     -- | The name of the item.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The date and time that the item was last modified.
-    lastModified :: Prelude.Maybe Prelude.POSIX,
+    lastModified :: Core.Maybe Core.POSIX,
     -- | The item type (folder or object).
-    type' :: Prelude.Maybe ItemType
+    type' :: Core.Maybe ItemType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Item' with all optional fields omitted.
@@ -66,52 +65,52 @@ newItem ::
   Item
 newItem =
   Item'
-    { eTag = Prelude.Nothing,
-      contentType = Prelude.Nothing,
-      contentLength = Prelude.Nothing,
-      name = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { eTag = Core.Nothing,
+      contentType = Core.Nothing,
+      contentLength = Core.Nothing,
+      name = Core.Nothing,
+      lastModified = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The ETag that represents a unique instance of the item.
-item_eTag :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
+item_eTag :: Lens.Lens' Item (Core.Maybe Core.Text)
 item_eTag = Lens.lens (\Item' {eTag} -> eTag) (\s@Item' {} a -> s {eTag = a} :: Item)
 
 -- | The content type of the item.
-item_contentType :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
+item_contentType :: Lens.Lens' Item (Core.Maybe Core.Text)
 item_contentType = Lens.lens (\Item' {contentType} -> contentType) (\s@Item' {} a -> s {contentType = a} :: Item)
 
 -- | The length of the item in bytes.
-item_contentLength :: Lens.Lens' Item (Prelude.Maybe Prelude.Natural)
+item_contentLength :: Lens.Lens' Item (Core.Maybe Core.Natural)
 item_contentLength = Lens.lens (\Item' {contentLength} -> contentLength) (\s@Item' {} a -> s {contentLength = a} :: Item)
 
 -- | The name of the item.
-item_name :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
+item_name :: Lens.Lens' Item (Core.Maybe Core.Text)
 item_name = Lens.lens (\Item' {name} -> name) (\s@Item' {} a -> s {name = a} :: Item)
 
 -- | The date and time that the item was last modified.
-item_lastModified :: Lens.Lens' Item (Prelude.Maybe Prelude.UTCTime)
-item_lastModified = Lens.lens (\Item' {lastModified} -> lastModified) (\s@Item' {} a -> s {lastModified = a} :: Item) Prelude.. Lens.mapping Prelude._Time
+item_lastModified :: Lens.Lens' Item (Core.Maybe Core.UTCTime)
+item_lastModified = Lens.lens (\Item' {lastModified} -> lastModified) (\s@Item' {} a -> s {lastModified = a} :: Item) Core.. Lens.mapping Core._Time
 
 -- | The item type (folder or object).
-item_type :: Lens.Lens' Item (Prelude.Maybe ItemType)
+item_type :: Lens.Lens' Item (Core.Maybe ItemType)
 item_type = Lens.lens (\Item' {type'} -> type') (\s@Item' {} a -> s {type' = a} :: Item)
 
-instance Prelude.FromJSON Item where
+instance Core.FromJSON Item where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Item"
       ( \x ->
           Item'
-            Prelude.<$> (x Prelude..:? "ETag")
-            Prelude.<*> (x Prelude..:? "ContentType")
-            Prelude.<*> (x Prelude..:? "ContentLength")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "LastModified")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "ETag")
+            Core.<*> (x Core..:? "ContentType")
+            Core.<*> (x Core..:? "ContentLength")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "LastModified")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Item
+instance Core.Hashable Item
 
-instance Prelude.NFData Item
+instance Core.NFData Item

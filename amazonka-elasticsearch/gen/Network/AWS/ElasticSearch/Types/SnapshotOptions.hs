@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.SnapshotOptions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the time, in UTC format, when the service takes a daily
 -- automated snapshot of the specified Elasticsearch domain. Default value
@@ -32,9 +31,9 @@ data SnapshotOptions = SnapshotOptions'
   { -- | Specifies the time, in UTC format, when the service takes a daily
     -- automated snapshot of the specified Elasticsearch domain. Default value
     -- is @0@ hours.
-    automatedSnapshotStartHour :: Prelude.Maybe Prelude.Int
+    automatedSnapshotStartHour :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SnapshotOptions' with all optional fields omitted.
@@ -52,33 +51,33 @@ newSnapshotOptions ::
 newSnapshotOptions =
   SnapshotOptions'
     { automatedSnapshotStartHour =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies the time, in UTC format, when the service takes a daily
 -- automated snapshot of the specified Elasticsearch domain. Default value
 -- is @0@ hours.
-snapshotOptions_automatedSnapshotStartHour :: Lens.Lens' SnapshotOptions (Prelude.Maybe Prelude.Int)
+snapshotOptions_automatedSnapshotStartHour :: Lens.Lens' SnapshotOptions (Core.Maybe Core.Int)
 snapshotOptions_automatedSnapshotStartHour = Lens.lens (\SnapshotOptions' {automatedSnapshotStartHour} -> automatedSnapshotStartHour) (\s@SnapshotOptions' {} a -> s {automatedSnapshotStartHour = a} :: SnapshotOptions)
 
-instance Prelude.FromJSON SnapshotOptions where
+instance Core.FromJSON SnapshotOptions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SnapshotOptions"
       ( \x ->
           SnapshotOptions'
-            Prelude.<$> (x Prelude..:? "AutomatedSnapshotStartHour")
+            Core.<$> (x Core..:? "AutomatedSnapshotStartHour")
       )
 
-instance Prelude.Hashable SnapshotOptions
+instance Core.Hashable SnapshotOptions
 
-instance Prelude.NFData SnapshotOptions
+instance Core.NFData SnapshotOptions
 
-instance Prelude.ToJSON SnapshotOptions where
+instance Core.ToJSON SnapshotOptions where
   toJSON SnapshotOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AutomatedSnapshotStartHour" Prelude..=)
-              Prelude.<$> automatedSnapshotStartHour
+    Core.object
+      ( Core.catMaybes
+          [ ("AutomatedSnapshotStartHour" Core..=)
+              Core.<$> automatedSnapshotStartHour
           ]
       )

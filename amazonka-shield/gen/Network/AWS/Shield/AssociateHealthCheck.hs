@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.Shield.AssociateHealthCheck
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -59,12 +58,12 @@ import Network.AWS.Shield.Types
 data AssociateHealthCheck = AssociateHealthCheck'
   { -- | The unique identifier (ID) for the Protection object to add the health
     -- check association to.
-    protectionId :: Prelude.Text,
+    protectionId :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the health check to associate with the
     -- protection.
-    healthCheckArn :: Prelude.Text
+    healthCheckArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateHealthCheck' with all optional fields omitted.
@@ -81,9 +80,9 @@ data AssociateHealthCheck = AssociateHealthCheck'
 -- protection.
 newAssociateHealthCheck ::
   -- | 'protectionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'healthCheckArn'
-  Prelude.Text ->
+  Core.Text ->
   AssociateHealthCheck
 newAssociateHealthCheck
   pProtectionId_
@@ -96,68 +95,64 @@ newAssociateHealthCheck
 
 -- | The unique identifier (ID) for the Protection object to add the health
 -- check association to.
-associateHealthCheck_protectionId :: Lens.Lens' AssociateHealthCheck Prelude.Text
+associateHealthCheck_protectionId :: Lens.Lens' AssociateHealthCheck Core.Text
 associateHealthCheck_protectionId = Lens.lens (\AssociateHealthCheck' {protectionId} -> protectionId) (\s@AssociateHealthCheck' {} a -> s {protectionId = a} :: AssociateHealthCheck)
 
 -- | The Amazon Resource Name (ARN) of the health check to associate with the
 -- protection.
-associateHealthCheck_healthCheckArn :: Lens.Lens' AssociateHealthCheck Prelude.Text
+associateHealthCheck_healthCheckArn :: Lens.Lens' AssociateHealthCheck Core.Text
 associateHealthCheck_healthCheckArn = Lens.lens (\AssociateHealthCheck' {healthCheckArn} -> healthCheckArn) (\s@AssociateHealthCheck' {} a -> s {healthCheckArn = a} :: AssociateHealthCheck)
 
-instance Prelude.AWSRequest AssociateHealthCheck where
+instance Core.AWSRequest AssociateHealthCheck where
   type
-    Rs AssociateHealthCheck =
+    AWSResponse AssociateHealthCheck =
       AssociateHealthCheckResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateHealthCheckResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateHealthCheck
+instance Core.Hashable AssociateHealthCheck
 
-instance Prelude.NFData AssociateHealthCheck
+instance Core.NFData AssociateHealthCheck
 
-instance Prelude.ToHeaders AssociateHealthCheck where
+instance Core.ToHeaders AssociateHealthCheck where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.AssociateHealthCheck" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.AssociateHealthCheck" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateHealthCheck where
+instance Core.ToJSON AssociateHealthCheck where
   toJSON AssociateHealthCheck' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ProtectionId" Prelude..= protectionId),
-            Prelude.Just
-              ("HealthCheckArn" Prelude..= healthCheckArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProtectionId" Core..= protectionId),
+            Core.Just ("HealthCheckArn" Core..= healthCheckArn)
           ]
       )
 
-instance Prelude.ToPath AssociateHealthCheck where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateHealthCheck where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateHealthCheck where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateHealthCheck where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateHealthCheckResponse' smart constructor.
 data AssociateHealthCheckResponse = AssociateHealthCheckResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateHealthCheckResponse' with all optional fields omitted.
@@ -170,7 +165,7 @@ data AssociateHealthCheckResponse = AssociateHealthCheckResponse'
 -- 'httpStatus', 'associateHealthCheckResponse_httpStatus' - The response's http status code.
 newAssociateHealthCheckResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateHealthCheckResponse
 newAssociateHealthCheckResponse pHttpStatus_ =
   AssociateHealthCheckResponse'
@@ -179,7 +174,7 @@ newAssociateHealthCheckResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateHealthCheckResponse_httpStatus :: Lens.Lens' AssociateHealthCheckResponse Prelude.Int
+associateHealthCheckResponse_httpStatus :: Lens.Lens' AssociateHealthCheckResponse Core.Int
 associateHealthCheckResponse_httpStatus = Lens.lens (\AssociateHealthCheckResponse' {httpStatus} -> httpStatus) (\s@AssociateHealthCheckResponse' {} a -> s {httpStatus = a} :: AssociateHealthCheckResponse)
 
-instance Prelude.NFData AssociateHealthCheckResponse
+instance Core.NFData AssociateHealthCheckResponse

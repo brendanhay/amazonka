@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3StorageSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data ServiceManagedChannelS3StorageSummary = ServiceManagedChannelS3StorageSummary'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceManagedChannelS3StorageSummary' with all optional fields omitted.
@@ -41,20 +40,20 @@ newServiceManagedChannelS3StorageSummary =
   ServiceManagedChannelS3StorageSummary'
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ServiceManagedChannelS3StorageSummary
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServiceManagedChannelS3StorageSummary"
       ( \x ->
-          Prelude.pure ServiceManagedChannelS3StorageSummary'
+          Core.pure ServiceManagedChannelS3StorageSummary'
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ServiceManagedChannelS3StorageSummary
 
 instance
-  Prelude.NFData
+  Core.NFData
     ServiceManagedChannelS3StorageSummary

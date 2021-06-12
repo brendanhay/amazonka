@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.MonetaryAmount where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.CurrencyCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A number that represents the monetary amount for an offering or
 -- transaction.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMonetaryAmount' smart constructor.
 data MonetaryAmount = MonetaryAmount'
   { -- | The numerical amount of an offering or transaction.
-    amount :: Prelude.Maybe Prelude.Double,
+    amount :: Core.Maybe Core.Double,
     -- | The currency code of a monetary amount. For example, @USD@ means U.S.
     -- dollars.
-    currencyCode :: Prelude.Maybe CurrencyCode
+    currencyCode :: Core.Maybe CurrencyCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MonetaryAmount' with all optional fields omitted.
@@ -53,29 +52,29 @@ newMonetaryAmount ::
   MonetaryAmount
 newMonetaryAmount =
   MonetaryAmount'
-    { amount = Prelude.Nothing,
-      currencyCode = Prelude.Nothing
+    { amount = Core.Nothing,
+      currencyCode = Core.Nothing
     }
 
 -- | The numerical amount of an offering or transaction.
-monetaryAmount_amount :: Lens.Lens' MonetaryAmount (Prelude.Maybe Prelude.Double)
+monetaryAmount_amount :: Lens.Lens' MonetaryAmount (Core.Maybe Core.Double)
 monetaryAmount_amount = Lens.lens (\MonetaryAmount' {amount} -> amount) (\s@MonetaryAmount' {} a -> s {amount = a} :: MonetaryAmount)
 
 -- | The currency code of a monetary amount. For example, @USD@ means U.S.
 -- dollars.
-monetaryAmount_currencyCode :: Lens.Lens' MonetaryAmount (Prelude.Maybe CurrencyCode)
+monetaryAmount_currencyCode :: Lens.Lens' MonetaryAmount (Core.Maybe CurrencyCode)
 monetaryAmount_currencyCode = Lens.lens (\MonetaryAmount' {currencyCode} -> currencyCode) (\s@MonetaryAmount' {} a -> s {currencyCode = a} :: MonetaryAmount)
 
-instance Prelude.FromJSON MonetaryAmount where
+instance Core.FromJSON MonetaryAmount where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MonetaryAmount"
       ( \x ->
           MonetaryAmount'
-            Prelude.<$> (x Prelude..:? "amount")
-            Prelude.<*> (x Prelude..:? "currencyCode")
+            Core.<$> (x Core..:? "amount")
+            Core.<*> (x Core..:? "currencyCode")
       )
 
-instance Prelude.Hashable MonetaryAmount
+instance Core.Hashable MonetaryAmount
 
-instance Prelude.NFData MonetaryAmount
+instance Core.NFData MonetaryAmount

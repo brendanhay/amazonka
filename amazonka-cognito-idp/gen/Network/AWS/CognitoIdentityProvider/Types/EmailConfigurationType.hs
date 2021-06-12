@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.EmailConfigurationType where
 
 import Network.AWS.CognitoIdentityProvider.Types.EmailSendingAccountType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The email configuration type.
 --
@@ -93,14 +92,14 @@ data EmailConfigurationType = EmailConfigurationType'
     --     about the service-linked role that Amazon Cognito creates, see
     --     <https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon Cognito>
     --     in the /Amazon Cognito Developer Guide/.
-    emailSendingAccount :: Prelude.Maybe EmailSendingAccountType,
+    emailSendingAccount :: Core.Maybe EmailSendingAccountType,
     -- | The destination to which the receiver of the email should reply to.
-    replyToEmailAddress :: Prelude.Maybe Prelude.Text,
+    replyToEmailAddress :: Core.Maybe Core.Text,
     -- | Identifies either the sender’s email address or the sender’s name with
     -- their email address. For example, @testuser\@example.com@ or
     -- @Test User \<testuser\@example.com>@. This address will appear before
     -- the body of the email.
-    from :: Prelude.Maybe Prelude.Text,
+    from :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of a verified email address in Amazon
     -- SES. This email address is used in one of the following ways, depending
     -- on the value that you specify for the @EmailSendingAccount@ parameter:
@@ -111,7 +110,7 @@ data EmailConfigurationType = EmailConfigurationType'
     --
     -- -   If you specify @DEVELOPER@, Amazon Cognito emails your users with
     --     this address by calling Amazon SES on your behalf.
-    sourceArn :: Prelude.Maybe Prelude.Text,
+    sourceArn :: Core.Maybe Core.Text,
     -- | The set of configuration rules that can be applied to emails sent using
     -- Amazon SES. A configuration set is applied to an email by including a
     -- reference to the configuration set in the headers of the email. Once
@@ -128,9 +127,9 @@ data EmailConfigurationType = EmailConfigurationType'
     --     SES, you can create groups of IP addresses, called dedicated IP
     --     pools. You can then associate the dedicated IP pools with
     --     configuration sets.
-    configurationSet :: Prelude.Maybe Prelude.Text
+    configurationSet :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EmailConfigurationType' with all optional fields omitted.
@@ -241,11 +240,11 @@ newEmailConfigurationType ::
 newEmailConfigurationType =
   EmailConfigurationType'
     { emailSendingAccount =
-        Prelude.Nothing,
-      replyToEmailAddress = Prelude.Nothing,
-      from = Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
-      configurationSet = Prelude.Nothing
+        Core.Nothing,
+      replyToEmailAddress = Core.Nothing,
+      from = Core.Nothing,
+      sourceArn = Core.Nothing,
+      configurationSet = Core.Nothing
     }
 
 -- | Specifies whether Amazon Cognito emails your users by using its built-in
@@ -309,18 +308,18 @@ newEmailConfigurationType =
 --     about the service-linked role that Amazon Cognito creates, see
 --     <https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon Cognito>
 --     in the /Amazon Cognito Developer Guide/.
-emailConfigurationType_emailSendingAccount :: Lens.Lens' EmailConfigurationType (Prelude.Maybe EmailSendingAccountType)
+emailConfigurationType_emailSendingAccount :: Lens.Lens' EmailConfigurationType (Core.Maybe EmailSendingAccountType)
 emailConfigurationType_emailSendingAccount = Lens.lens (\EmailConfigurationType' {emailSendingAccount} -> emailSendingAccount) (\s@EmailConfigurationType' {} a -> s {emailSendingAccount = a} :: EmailConfigurationType)
 
 -- | The destination to which the receiver of the email should reply to.
-emailConfigurationType_replyToEmailAddress :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
+emailConfigurationType_replyToEmailAddress :: Lens.Lens' EmailConfigurationType (Core.Maybe Core.Text)
 emailConfigurationType_replyToEmailAddress = Lens.lens (\EmailConfigurationType' {replyToEmailAddress} -> replyToEmailAddress) (\s@EmailConfigurationType' {} a -> s {replyToEmailAddress = a} :: EmailConfigurationType)
 
 -- | Identifies either the sender’s email address or the sender’s name with
 -- their email address. For example, @testuser\@example.com@ or
 -- @Test User \<testuser\@example.com>@. This address will appear before
 -- the body of the email.
-emailConfigurationType_from :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
+emailConfigurationType_from :: Lens.Lens' EmailConfigurationType (Core.Maybe Core.Text)
 emailConfigurationType_from = Lens.lens (\EmailConfigurationType' {from} -> from) (\s@EmailConfigurationType' {} a -> s {from = a} :: EmailConfigurationType)
 
 -- | The Amazon Resource Name (ARN) of a verified email address in Amazon
@@ -333,7 +332,7 @@ emailConfigurationType_from = Lens.lens (\EmailConfigurationType' {from} -> from
 --
 -- -   If you specify @DEVELOPER@, Amazon Cognito emails your users with
 --     this address by calling Amazon SES on your behalf.
-emailConfigurationType_sourceArn :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
+emailConfigurationType_sourceArn :: Lens.Lens' EmailConfigurationType (Core.Maybe Core.Text)
 emailConfigurationType_sourceArn = Lens.lens (\EmailConfigurationType' {sourceArn} -> sourceArn) (\s@EmailConfigurationType' {} a -> s {sourceArn = a} :: EmailConfigurationType)
 
 -- | The set of configuration rules that can be applied to emails sent using
@@ -352,37 +351,37 @@ emailConfigurationType_sourceArn = Lens.lens (\EmailConfigurationType' {sourceAr
 --     SES, you can create groups of IP addresses, called dedicated IP
 --     pools. You can then associate the dedicated IP pools with
 --     configuration sets.
-emailConfigurationType_configurationSet :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
+emailConfigurationType_configurationSet :: Lens.Lens' EmailConfigurationType (Core.Maybe Core.Text)
 emailConfigurationType_configurationSet = Lens.lens (\EmailConfigurationType' {configurationSet} -> configurationSet) (\s@EmailConfigurationType' {} a -> s {configurationSet = a} :: EmailConfigurationType)
 
-instance Prelude.FromJSON EmailConfigurationType where
+instance Core.FromJSON EmailConfigurationType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EmailConfigurationType"
       ( \x ->
           EmailConfigurationType'
-            Prelude.<$> (x Prelude..:? "EmailSendingAccount")
-            Prelude.<*> (x Prelude..:? "ReplyToEmailAddress")
-            Prelude.<*> (x Prelude..:? "From")
-            Prelude.<*> (x Prelude..:? "SourceArn")
-            Prelude.<*> (x Prelude..:? "ConfigurationSet")
+            Core.<$> (x Core..:? "EmailSendingAccount")
+            Core.<*> (x Core..:? "ReplyToEmailAddress")
+            Core.<*> (x Core..:? "From")
+            Core.<*> (x Core..:? "SourceArn")
+            Core.<*> (x Core..:? "ConfigurationSet")
       )
 
-instance Prelude.Hashable EmailConfigurationType
+instance Core.Hashable EmailConfigurationType
 
-instance Prelude.NFData EmailConfigurationType
+instance Core.NFData EmailConfigurationType
 
-instance Prelude.ToJSON EmailConfigurationType where
+instance Core.ToJSON EmailConfigurationType where
   toJSON EmailConfigurationType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EmailSendingAccount" Prelude..=)
-              Prelude.<$> emailSendingAccount,
-            ("ReplyToEmailAddress" Prelude..=)
-              Prelude.<$> replyToEmailAddress,
-            ("From" Prelude..=) Prelude.<$> from,
-            ("SourceArn" Prelude..=) Prelude.<$> sourceArn,
-            ("ConfigurationSet" Prelude..=)
-              Prelude.<$> configurationSet
+    Core.object
+      ( Core.catMaybes
+          [ ("EmailSendingAccount" Core..=)
+              Core.<$> emailSendingAccount,
+            ("ReplyToEmailAddress" Core..=)
+              Core.<$> replyToEmailAddress,
+            ("From" Core..=) Core.<$> from,
+            ("SourceArn" Core..=) Core.<$> sourceArn,
+            ("ConfigurationSet" Core..=)
+              Core.<$> configurationSet
           ]
       )

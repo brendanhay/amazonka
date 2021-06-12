@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.OpsItemNotification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A notification about the OpsItem.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data OpsItemNotification = OpsItemNotification'
   { -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
     -- sent when this OpsItem is edited or changed.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OpsItemNotification' with all optional fields omitted.
@@ -46,29 +45,26 @@ data OpsItemNotification = OpsItemNotification'
 newOpsItemNotification ::
   OpsItemNotification
 newOpsItemNotification =
-  OpsItemNotification' {arn = Prelude.Nothing}
+  OpsItemNotification' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
 -- sent when this OpsItem is edited or changed.
-opsItemNotification_arn :: Lens.Lens' OpsItemNotification (Prelude.Maybe Prelude.Text)
+opsItemNotification_arn :: Lens.Lens' OpsItemNotification (Core.Maybe Core.Text)
 opsItemNotification_arn = Lens.lens (\OpsItemNotification' {arn} -> arn) (\s@OpsItemNotification' {} a -> s {arn = a} :: OpsItemNotification)
 
-instance Prelude.FromJSON OpsItemNotification where
+instance Core.FromJSON OpsItemNotification where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OpsItemNotification"
       ( \x ->
-          OpsItemNotification'
-            Prelude.<$> (x Prelude..:? "Arn")
+          OpsItemNotification' Core.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable OpsItemNotification
+instance Core.Hashable OpsItemNotification
 
-instance Prelude.NFData OpsItemNotification
+instance Core.NFData OpsItemNotification
 
-instance Prelude.ToJSON OpsItemNotification where
+instance Core.ToJSON OpsItemNotification where
   toJSON OpsItemNotification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Arn" Prelude..=) Prelude.<$> arn]
-      )
+    Core.object
+      (Core.catMaybes [("Arn" Core..=) Core.<$> arn])

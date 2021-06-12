@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CognitoIdentityProvider.GlobalSignOut
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGlobalSignOut' smart constructor.
 data GlobalSignOut = GlobalSignOut'
   { -- | The access token.
-    accessToken :: Prelude.Sensitive Prelude.Text
+    accessToken :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GlobalSignOut' with all optional fields omitted.
@@ -68,70 +67,68 @@ data GlobalSignOut = GlobalSignOut'
 -- 'accessToken', 'globalSignOut_accessToken' - The access token.
 newGlobalSignOut ::
   -- | 'accessToken'
-  Prelude.Text ->
+  Core.Text ->
   GlobalSignOut
 newGlobalSignOut pAccessToken_ =
   GlobalSignOut'
     { accessToken =
-        Prelude._Sensitive Lens.# pAccessToken_
+        Core._Sensitive Lens.# pAccessToken_
     }
 
 -- | The access token.
-globalSignOut_accessToken :: Lens.Lens' GlobalSignOut Prelude.Text
-globalSignOut_accessToken = Lens.lens (\GlobalSignOut' {accessToken} -> accessToken) (\s@GlobalSignOut' {} a -> s {accessToken = a} :: GlobalSignOut) Prelude.. Prelude._Sensitive
+globalSignOut_accessToken :: Lens.Lens' GlobalSignOut Core.Text
+globalSignOut_accessToken = Lens.lens (\GlobalSignOut' {accessToken} -> accessToken) (\s@GlobalSignOut' {} a -> s {accessToken = a} :: GlobalSignOut) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest GlobalSignOut where
-  type Rs GlobalSignOut = GlobalSignOutResponse
+instance Core.AWSRequest GlobalSignOut where
+  type
+    AWSResponse GlobalSignOut =
+      GlobalSignOutResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           GlobalSignOutResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GlobalSignOut
+instance Core.Hashable GlobalSignOut
 
-instance Prelude.NFData GlobalSignOut
+instance Core.NFData GlobalSignOut
 
-instance Prelude.ToHeaders GlobalSignOut where
+instance Core.ToHeaders GlobalSignOut where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.GlobalSignOut" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.GlobalSignOut" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GlobalSignOut where
+instance Core.ToJSON GlobalSignOut where
   toJSON GlobalSignOut' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AccessToken" Prelude..= accessToken)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AccessToken" Core..= accessToken)]
       )
 
-instance Prelude.ToPath GlobalSignOut where
-  toPath = Prelude.const "/"
+instance Core.ToPath GlobalSignOut where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GlobalSignOut where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GlobalSignOut where
+  toQuery = Core.const Core.mempty
 
 -- | The response to the request to sign out all devices.
 --
 -- /See:/ 'newGlobalSignOutResponse' smart constructor.
 data GlobalSignOutResponse = GlobalSignOutResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GlobalSignOutResponse' with all optional fields omitted.
@@ -144,13 +141,13 @@ data GlobalSignOutResponse = GlobalSignOutResponse'
 -- 'httpStatus', 'globalSignOutResponse_httpStatus' - The response's http status code.
 newGlobalSignOutResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GlobalSignOutResponse
 newGlobalSignOutResponse pHttpStatus_ =
   GlobalSignOutResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-globalSignOutResponse_httpStatus :: Lens.Lens' GlobalSignOutResponse Prelude.Int
+globalSignOutResponse_httpStatus :: Lens.Lens' GlobalSignOutResponse Core.Int
 globalSignOutResponse_httpStatus = Lens.lens (\GlobalSignOutResponse' {httpStatus} -> httpStatus) (\s@GlobalSignOutResponse' {} a -> s {httpStatus = a} :: GlobalSignOutResponse)
 
-instance Prelude.NFData GlobalSignOutResponse
+instance Core.NFData GlobalSignOutResponse

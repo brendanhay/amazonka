@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.EC2.AttachInternetGateway
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +52,13 @@ data AttachInternetGateway = AttachInternetGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the internet gateway.
-    internetGatewayId :: Prelude.Text,
+    internetGatewayId :: Core.Text,
     -- | The ID of the VPC.
-    vpcId :: Prelude.Text
+    vpcId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachInternetGateway' with all optional fields omitted.
@@ -79,13 +78,13 @@ data AttachInternetGateway = AttachInternetGateway'
 -- 'vpcId', 'attachInternetGateway_vpcId' - The ID of the VPC.
 newAttachInternetGateway ::
   -- | 'internetGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   AttachInternetGateway
 newAttachInternetGateway pInternetGatewayId_ pVpcId_ =
   AttachInternetGateway'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       internetGatewayId = pInternetGatewayId_,
       vpcId = pVpcId_
     }
@@ -94,52 +93,51 @@ newAttachInternetGateway pInternetGatewayId_ pVpcId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-attachInternetGateway_dryRun :: Lens.Lens' AttachInternetGateway (Prelude.Maybe Prelude.Bool)
+attachInternetGateway_dryRun :: Lens.Lens' AttachInternetGateway (Core.Maybe Core.Bool)
 attachInternetGateway_dryRun = Lens.lens (\AttachInternetGateway' {dryRun} -> dryRun) (\s@AttachInternetGateway' {} a -> s {dryRun = a} :: AttachInternetGateway)
 
 -- | The ID of the internet gateway.
-attachInternetGateway_internetGatewayId :: Lens.Lens' AttachInternetGateway Prelude.Text
+attachInternetGateway_internetGatewayId :: Lens.Lens' AttachInternetGateway Core.Text
 attachInternetGateway_internetGatewayId = Lens.lens (\AttachInternetGateway' {internetGatewayId} -> internetGatewayId) (\s@AttachInternetGateway' {} a -> s {internetGatewayId = a} :: AttachInternetGateway)
 
 -- | The ID of the VPC.
-attachInternetGateway_vpcId :: Lens.Lens' AttachInternetGateway Prelude.Text
+attachInternetGateway_vpcId :: Lens.Lens' AttachInternetGateway Core.Text
 attachInternetGateway_vpcId = Lens.lens (\AttachInternetGateway' {vpcId} -> vpcId) (\s@AttachInternetGateway' {} a -> s {vpcId = a} :: AttachInternetGateway)
 
-instance Prelude.AWSRequest AttachInternetGateway where
+instance Core.AWSRequest AttachInternetGateway where
   type
-    Rs AttachInternetGateway =
+    AWSResponse AttachInternetGateway =
       AttachInternetGatewayResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull AttachInternetGatewayResponse'
 
-instance Prelude.Hashable AttachInternetGateway
+instance Core.Hashable AttachInternetGateway
 
-instance Prelude.NFData AttachInternetGateway
+instance Core.NFData AttachInternetGateway
 
-instance Prelude.ToHeaders AttachInternetGateway where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AttachInternetGateway where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AttachInternetGateway where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachInternetGateway where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AttachInternetGateway where
+instance Core.ToQuery AttachInternetGateway where
   toQuery AttachInternetGateway' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AttachInternetGateway" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "InternetGatewayId" Prelude.=: internetGatewayId,
-        "VpcId" Prelude.=: vpcId
+          Core.=: ("AttachInternetGateway" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "InternetGatewayId" Core.=: internetGatewayId,
+        "VpcId" Core.=: vpcId
       ]
 
 -- | /See:/ 'newAttachInternetGatewayResponse' smart constructor.
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachInternetGatewayResponse' with all optional fields omitted.
@@ -150,4 +148,4 @@ newAttachInternetGatewayResponse ::
 newAttachInternetGatewayResponse =
   AttachInternetGatewayResponse'
 
-instance Prelude.NFData AttachInternetGatewayResponse
+instance Core.NFData AttachInternetGatewayResponse

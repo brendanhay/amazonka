@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.Redshift.DeleteUsageLimit
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -45,9 +44,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteUsageLimit' smart constructor.
 data DeleteUsageLimit = DeleteUsageLimit'
   { -- | The identifier of the usage limit to delete.
-    usageLimitId :: Prelude.Text
+    usageLimitId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUsageLimit' with all optional fields omitted.
@@ -60,46 +59,47 @@ data DeleteUsageLimit = DeleteUsageLimit'
 -- 'usageLimitId', 'deleteUsageLimit_usageLimitId' - The identifier of the usage limit to delete.
 newDeleteUsageLimit ::
   -- | 'usageLimitId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUsageLimit
 newDeleteUsageLimit pUsageLimitId_ =
   DeleteUsageLimit' {usageLimitId = pUsageLimitId_}
 
 -- | The identifier of the usage limit to delete.
-deleteUsageLimit_usageLimitId :: Lens.Lens' DeleteUsageLimit Prelude.Text
+deleteUsageLimit_usageLimitId :: Lens.Lens' DeleteUsageLimit Core.Text
 deleteUsageLimit_usageLimitId = Lens.lens (\DeleteUsageLimit' {usageLimitId} -> usageLimitId) (\s@DeleteUsageLimit' {} a -> s {usageLimitId = a} :: DeleteUsageLimit)
 
-instance Prelude.AWSRequest DeleteUsageLimit where
-  type Rs DeleteUsageLimit = DeleteUsageLimitResponse
+instance Core.AWSRequest DeleteUsageLimit where
+  type
+    AWSResponse DeleteUsageLimit =
+      DeleteUsageLimitResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteUsageLimitResponse'
 
-instance Prelude.Hashable DeleteUsageLimit
+instance Core.Hashable DeleteUsageLimit
 
-instance Prelude.NFData DeleteUsageLimit
+instance Core.NFData DeleteUsageLimit
 
-instance Prelude.ToHeaders DeleteUsageLimit where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteUsageLimit where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteUsageLimit where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteUsageLimit where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteUsageLimit where
+instance Core.ToQuery DeleteUsageLimit where
   toQuery DeleteUsageLimit' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteUsageLimit" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "UsageLimitId" Prelude.=: usageLimitId
+          Core.=: ("DeleteUsageLimit" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "UsageLimitId" Core.=: usageLimitId
       ]
 
 -- | /See:/ 'newDeleteUsageLimitResponse' smart constructor.
 data DeleteUsageLimitResponse = DeleteUsageLimitResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUsageLimitResponse' with all optional fields omitted.
@@ -110,4 +110,4 @@ newDeleteUsageLimitResponse ::
 newDeleteUsageLimitResponse =
   DeleteUsageLimitResponse'
 
-instance Prelude.NFData DeleteUsageLimitResponse
+instance Core.NFData DeleteUsageLimitResponse

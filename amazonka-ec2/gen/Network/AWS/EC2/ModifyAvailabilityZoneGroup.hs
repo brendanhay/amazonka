@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EC2.ModifyAvailabilityZoneGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,17 +58,17 @@ data ModifyAvailabilityZoneGroup = ModifyAvailabilityZoneGroup'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The name of the Availability Zone group, Local Zone group, or Wavelength
     -- Zone group.
-    groupName :: Prelude.Text,
+    groupName :: Core.Text,
     -- | Indicates whether you are opted in to the Local Zone group or Wavelength
     -- Zone group. The only valid value is @opted-in@. You must contact
     -- <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support>
     -- to opt out of a Local Zone group, or Wavelength Zone group.
     optInStatus :: ModifyAvailabilityZoneOptInStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyAvailabilityZoneGroup' with all optional fields omitted.
@@ -93,7 +92,7 @@ data ModifyAvailabilityZoneGroup = ModifyAvailabilityZoneGroup'
 -- to opt out of a Local Zone group, or Wavelength Zone group.
 newModifyAvailabilityZoneGroup ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'optInStatus'
   ModifyAvailabilityZoneOptInStatus ->
   ModifyAvailabilityZoneGroup
@@ -101,8 +100,7 @@ newModifyAvailabilityZoneGroup
   pGroupName_
   pOptInStatus_ =
     ModifyAvailabilityZoneGroup'
-      { dryRun =
-          Prelude.Nothing,
+      { dryRun = Core.Nothing,
         groupName = pGroupName_,
         optInStatus = pOptInStatus_
       }
@@ -111,12 +109,12 @@ newModifyAvailabilityZoneGroup
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyAvailabilityZoneGroup_dryRun :: Lens.Lens' ModifyAvailabilityZoneGroup (Prelude.Maybe Prelude.Bool)
+modifyAvailabilityZoneGroup_dryRun :: Lens.Lens' ModifyAvailabilityZoneGroup (Core.Maybe Core.Bool)
 modifyAvailabilityZoneGroup_dryRun = Lens.lens (\ModifyAvailabilityZoneGroup' {dryRun} -> dryRun) (\s@ModifyAvailabilityZoneGroup' {} a -> s {dryRun = a} :: ModifyAvailabilityZoneGroup)
 
 -- | The name of the Availability Zone group, Local Zone group, or Wavelength
 -- Zone group.
-modifyAvailabilityZoneGroup_groupName :: Lens.Lens' ModifyAvailabilityZoneGroup Prelude.Text
+modifyAvailabilityZoneGroup_groupName :: Lens.Lens' ModifyAvailabilityZoneGroup Core.Text
 modifyAvailabilityZoneGroup_groupName = Lens.lens (\ModifyAvailabilityZoneGroup' {groupName} -> groupName) (\s@ModifyAvailabilityZoneGroup' {} a -> s {groupName = a} :: ModifyAvailabilityZoneGroup)
 
 -- | Indicates whether you are opted in to the Local Zone group or Wavelength
@@ -126,57 +124,48 @@ modifyAvailabilityZoneGroup_groupName = Lens.lens (\ModifyAvailabilityZoneGroup'
 modifyAvailabilityZoneGroup_optInStatus :: Lens.Lens' ModifyAvailabilityZoneGroup ModifyAvailabilityZoneOptInStatus
 modifyAvailabilityZoneGroup_optInStatus = Lens.lens (\ModifyAvailabilityZoneGroup' {optInStatus} -> optInStatus) (\s@ModifyAvailabilityZoneGroup' {} a -> s {optInStatus = a} :: ModifyAvailabilityZoneGroup)
 
-instance
-  Prelude.AWSRequest
-    ModifyAvailabilityZoneGroup
-  where
+instance Core.AWSRequest ModifyAvailabilityZoneGroup where
   type
-    Rs ModifyAvailabilityZoneGroup =
+    AWSResponse ModifyAvailabilityZoneGroup =
       ModifyAvailabilityZoneGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyAvailabilityZoneGroupResponse'
-            Prelude.<$> (x Prelude..@? "return")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "return")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyAvailabilityZoneGroup
+instance Core.Hashable ModifyAvailabilityZoneGroup
 
-instance Prelude.NFData ModifyAvailabilityZoneGroup
+instance Core.NFData ModifyAvailabilityZoneGroup
 
-instance
-  Prelude.ToHeaders
-    ModifyAvailabilityZoneGroup
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyAvailabilityZoneGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyAvailabilityZoneGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyAvailabilityZoneGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyAvailabilityZoneGroup where
+instance Core.ToQuery ModifyAvailabilityZoneGroup where
   toQuery ModifyAvailabilityZoneGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ModifyAvailabilityZoneGroup" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "GroupName" Prelude.=: groupName,
-        "OptInStatus" Prelude.=: optInStatus
+          Core.=: ("ModifyAvailabilityZoneGroup" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "GroupName" Core.=: groupName,
+        "OptInStatus" Core.=: optInStatus
       ]
 
 -- | /See:/ 'newModifyAvailabilityZoneGroupResponse' smart constructor.
 data ModifyAvailabilityZoneGroupResponse = ModifyAvailabilityZoneGroupResponse'
   { -- | Is @true@ if the request succeeds, and an error otherwise.
-    return' :: Prelude.Maybe Prelude.Bool,
+    return' :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyAvailabilityZoneGroupResponse' with all optional fields omitted.
@@ -191,23 +180,23 @@ data ModifyAvailabilityZoneGroupResponse = ModifyAvailabilityZoneGroupResponse'
 -- 'httpStatus', 'modifyAvailabilityZoneGroupResponse_httpStatus' - The response's http status code.
 newModifyAvailabilityZoneGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyAvailabilityZoneGroupResponse
 newModifyAvailabilityZoneGroupResponse pHttpStatus_ =
   ModifyAvailabilityZoneGroupResponse'
     { return' =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
-modifyAvailabilityZoneGroupResponse_return :: Lens.Lens' ModifyAvailabilityZoneGroupResponse (Prelude.Maybe Prelude.Bool)
+modifyAvailabilityZoneGroupResponse_return :: Lens.Lens' ModifyAvailabilityZoneGroupResponse (Core.Maybe Core.Bool)
 modifyAvailabilityZoneGroupResponse_return = Lens.lens (\ModifyAvailabilityZoneGroupResponse' {return'} -> return') (\s@ModifyAvailabilityZoneGroupResponse' {} a -> s {return' = a} :: ModifyAvailabilityZoneGroupResponse)
 
 -- | The response's http status code.
-modifyAvailabilityZoneGroupResponse_httpStatus :: Lens.Lens' ModifyAvailabilityZoneGroupResponse Prelude.Int
+modifyAvailabilityZoneGroupResponse_httpStatus :: Lens.Lens' ModifyAvailabilityZoneGroupResponse Core.Int
 modifyAvailabilityZoneGroupResponse_httpStatus = Lens.lens (\ModifyAvailabilityZoneGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyAvailabilityZoneGroupResponse' {} a -> s {httpStatus = a} :: ModifyAvailabilityZoneGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyAvailabilityZoneGroupResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -118,9 +117,9 @@ module Network.AWS.ElastiCache.CopySnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -140,17 +139,17 @@ data CopySnapshot = CopySnapshot'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html Exporting a Snapshot>
     -- in the /Amazon ElastiCache User Guide/.
-    targetBucket :: Prelude.Maybe Prelude.Text,
+    targetBucket :: Core.Maybe Core.Text,
     -- | The ID of the KMS key used to encrypt the target snapshot.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The name of an existing snapshot from which to make a copy.
-    sourceSnapshotName :: Prelude.Text,
+    sourceSnapshotName :: Core.Text,
     -- | A name for the snapshot copy. ElastiCache does not permit overwriting a
     -- snapshot, therefore this name must be unique within its context -
     -- ElastiCache or an Amazon S3 bucket if exporting.
-    targetSnapshotName :: Prelude.Text
+    targetSnapshotName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopySnapshot' with all optional fields omitted.
@@ -182,16 +181,16 @@ data CopySnapshot = CopySnapshot'
 -- ElastiCache or an Amazon S3 bucket if exporting.
 newCopySnapshot ::
   -- | 'sourceSnapshotName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetSnapshotName'
-  Prelude.Text ->
+  Core.Text ->
   CopySnapshot
 newCopySnapshot
   pSourceSnapshotName_
   pTargetSnapshotName_ =
     CopySnapshot'
-      { targetBucket = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
+      { targetBucket = Core.Nothing,
+        kmsKeyId = Core.Nothing,
         sourceSnapshotName = pSourceSnapshotName_,
         targetSnapshotName = pTargetSnapshotName_
       }
@@ -208,65 +207,64 @@ newCopySnapshot
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html Exporting a Snapshot>
 -- in the /Amazon ElastiCache User Guide/.
-copySnapshot_targetBucket :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_targetBucket :: Lens.Lens' CopySnapshot (Core.Maybe Core.Text)
 copySnapshot_targetBucket = Lens.lens (\CopySnapshot' {targetBucket} -> targetBucket) (\s@CopySnapshot' {} a -> s {targetBucket = a} :: CopySnapshot)
 
 -- | The ID of the KMS key used to encrypt the target snapshot.
-copySnapshot_kmsKeyId :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_kmsKeyId :: Lens.Lens' CopySnapshot (Core.Maybe Core.Text)
 copySnapshot_kmsKeyId = Lens.lens (\CopySnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopySnapshot' {} a -> s {kmsKeyId = a} :: CopySnapshot)
 
 -- | The name of an existing snapshot from which to make a copy.
-copySnapshot_sourceSnapshotName :: Lens.Lens' CopySnapshot Prelude.Text
+copySnapshot_sourceSnapshotName :: Lens.Lens' CopySnapshot Core.Text
 copySnapshot_sourceSnapshotName = Lens.lens (\CopySnapshot' {sourceSnapshotName} -> sourceSnapshotName) (\s@CopySnapshot' {} a -> s {sourceSnapshotName = a} :: CopySnapshot)
 
 -- | A name for the snapshot copy. ElastiCache does not permit overwriting a
 -- snapshot, therefore this name must be unique within its context -
 -- ElastiCache or an Amazon S3 bucket if exporting.
-copySnapshot_targetSnapshotName :: Lens.Lens' CopySnapshot Prelude.Text
+copySnapshot_targetSnapshotName :: Lens.Lens' CopySnapshot Core.Text
 copySnapshot_targetSnapshotName = Lens.lens (\CopySnapshot' {targetSnapshotName} -> targetSnapshotName) (\s@CopySnapshot' {} a -> s {targetSnapshotName = a} :: CopySnapshot)
 
-instance Prelude.AWSRequest CopySnapshot where
-  type Rs CopySnapshot = CopySnapshotResponse
+instance Core.AWSRequest CopySnapshot where
+  type AWSResponse CopySnapshot = CopySnapshotResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CopySnapshotResult"
       ( \s h x ->
           CopySnapshotResponse'
-            Prelude.<$> (x Prelude..@? "Snapshot")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Snapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CopySnapshot
+instance Core.Hashable CopySnapshot
 
-instance Prelude.NFData CopySnapshot
+instance Core.NFData CopySnapshot
 
-instance Prelude.ToHeaders CopySnapshot where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CopySnapshot where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CopySnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath CopySnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CopySnapshot where
+instance Core.ToQuery CopySnapshot where
   toQuery CopySnapshot' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CopySnapshot" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
-        "TargetBucket" Prelude.=: targetBucket,
-        "KmsKeyId" Prelude.=: kmsKeyId,
-        "SourceSnapshotName" Prelude.=: sourceSnapshotName,
-        "TargetSnapshotName" Prelude.=: targetSnapshotName
+          Core.=: ("CopySnapshot" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "TargetBucket" Core.=: targetBucket,
+        "KmsKeyId" Core.=: kmsKeyId,
+        "SourceSnapshotName" Core.=: sourceSnapshotName,
+        "TargetSnapshotName" Core.=: targetSnapshotName
       ]
 
 -- | /See:/ 'newCopySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
-  { snapshot :: Prelude.Maybe Snapshot,
+  { snapshot :: Core.Maybe Snapshot,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopySnapshotResponse' with all optional fields omitted.
@@ -281,20 +279,20 @@ data CopySnapshotResponse = CopySnapshotResponse'
 -- 'httpStatus', 'copySnapshotResponse_httpStatus' - The response's http status code.
 newCopySnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CopySnapshotResponse
 newCopySnapshotResponse pHttpStatus_ =
   CopySnapshotResponse'
-    { snapshot = Prelude.Nothing,
+    { snapshot = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-copySnapshotResponse_snapshot :: Lens.Lens' CopySnapshotResponse (Prelude.Maybe Snapshot)
+copySnapshotResponse_snapshot :: Lens.Lens' CopySnapshotResponse (Core.Maybe Snapshot)
 copySnapshotResponse_snapshot = Lens.lens (\CopySnapshotResponse' {snapshot} -> snapshot) (\s@CopySnapshotResponse' {} a -> s {snapshot = a} :: CopySnapshotResponse)
 
 -- | The response's http status code.
-copySnapshotResponse_httpStatus :: Lens.Lens' CopySnapshotResponse Prelude.Int
+copySnapshotResponse_httpStatus :: Lens.Lens' CopySnapshotResponse Core.Int
 copySnapshotResponse_httpStatus = Lens.lens (\CopySnapshotResponse' {httpStatus} -> httpStatus) (\s@CopySnapshotResponse' {} a -> s {httpStatus = a} :: CopySnapshotResponse)
 
-instance Prelude.NFData CopySnapshotResponse
+instance Core.NFData CopySnapshotResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.CodePipeline.CreateCustomActionType
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,25 +65,25 @@ data CreateCustomActionType = CreateCustomActionType'
     -- {Config:name}, as long as the configuration property is both required
     -- and not secret. For more information, see
     -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
-    configurationProperties :: Prelude.Maybe [ActionConfigurationProperty],
+    configurationProperties :: Core.Maybe [ActionConfigurationProperty],
     -- | The tags for the custom action.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | URLs that provide users information about this custom action.
-    settings :: Prelude.Maybe ActionTypeSettings,
+    settings :: Core.Maybe ActionTypeSettings,
     -- | The category of the custom action, such as a build action or a test
     -- action.
     category :: ActionCategory,
     -- | The provider of the service used in the custom action, such as AWS
     -- CodeDeploy.
-    provider :: Prelude.Text,
+    provider :: Core.Text,
     -- | The version identifier of the custom action.
-    version :: Prelude.Text,
+    version :: Core.Text,
     -- | The details of the input artifact for the action, such as its commit ID.
     inputArtifactDetails :: ArtifactDetails,
     -- | The details of the output artifact of the action, such as its commit ID.
     outputArtifactDetails :: ArtifactDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCustomActionType' with all optional fields omitted.
@@ -121,9 +120,9 @@ newCreateCustomActionType ::
   -- | 'category'
   ActionCategory ->
   -- | 'provider'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'inputArtifactDetails'
   ArtifactDetails ->
   -- | 'outputArtifactDetails'
@@ -137,9 +136,9 @@ newCreateCustomActionType
   pOutputArtifactDetails_ =
     CreateCustomActionType'
       { configurationProperties =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
-        settings = Prelude.Nothing,
+          Core.Nothing,
+        tags = Core.Nothing,
+        settings = Core.Nothing,
         category = pCategory_,
         provider = pProvider_,
         version = pVersion_,
@@ -154,15 +153,15 @@ newCreateCustomActionType
 -- {Config:name}, as long as the configuration property is both required
 -- and not secret. For more information, see
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
-createCustomActionType_configurationProperties :: Lens.Lens' CreateCustomActionType (Prelude.Maybe [ActionConfigurationProperty])
-createCustomActionType_configurationProperties = Lens.lens (\CreateCustomActionType' {configurationProperties} -> configurationProperties) (\s@CreateCustomActionType' {} a -> s {configurationProperties = a} :: CreateCustomActionType) Prelude.. Lens.mapping Prelude._Coerce
+createCustomActionType_configurationProperties :: Lens.Lens' CreateCustomActionType (Core.Maybe [ActionConfigurationProperty])
+createCustomActionType_configurationProperties = Lens.lens (\CreateCustomActionType' {configurationProperties} -> configurationProperties) (\s@CreateCustomActionType' {} a -> s {configurationProperties = a} :: CreateCustomActionType) Core.. Lens.mapping Lens._Coerce
 
 -- | The tags for the custom action.
-createCustomActionType_tags :: Lens.Lens' CreateCustomActionType (Prelude.Maybe [Tag])
-createCustomActionType_tags = Lens.lens (\CreateCustomActionType' {tags} -> tags) (\s@CreateCustomActionType' {} a -> s {tags = a} :: CreateCustomActionType) Prelude.. Lens.mapping Prelude._Coerce
+createCustomActionType_tags :: Lens.Lens' CreateCustomActionType (Core.Maybe [Tag])
+createCustomActionType_tags = Lens.lens (\CreateCustomActionType' {tags} -> tags) (\s@CreateCustomActionType' {} a -> s {tags = a} :: CreateCustomActionType) Core.. Lens.mapping Lens._Coerce
 
 -- | URLs that provide users information about this custom action.
-createCustomActionType_settings :: Lens.Lens' CreateCustomActionType (Prelude.Maybe ActionTypeSettings)
+createCustomActionType_settings :: Lens.Lens' CreateCustomActionType (Core.Maybe ActionTypeSettings)
 createCustomActionType_settings = Lens.lens (\CreateCustomActionType' {settings} -> settings) (\s@CreateCustomActionType' {} a -> s {settings = a} :: CreateCustomActionType)
 
 -- | The category of the custom action, such as a build action or a test
@@ -172,11 +171,11 @@ createCustomActionType_category = Lens.lens (\CreateCustomActionType' {category}
 
 -- | The provider of the service used in the custom action, such as AWS
 -- CodeDeploy.
-createCustomActionType_provider :: Lens.Lens' CreateCustomActionType Prelude.Text
+createCustomActionType_provider :: Lens.Lens' CreateCustomActionType Core.Text
 createCustomActionType_provider = Lens.lens (\CreateCustomActionType' {provider} -> provider) (\s@CreateCustomActionType' {} a -> s {provider = a} :: CreateCustomActionType)
 
 -- | The version identifier of the custom action.
-createCustomActionType_version :: Lens.Lens' CreateCustomActionType Prelude.Text
+createCustomActionType_version :: Lens.Lens' CreateCustomActionType Core.Text
 createCustomActionType_version = Lens.lens (\CreateCustomActionType' {version} -> version) (\s@CreateCustomActionType' {} a -> s {version = a} :: CreateCustomActionType)
 
 -- | The details of the input artifact for the action, such as its commit ID.
@@ -187,79 +186,77 @@ createCustomActionType_inputArtifactDetails = Lens.lens (\CreateCustomActionType
 createCustomActionType_outputArtifactDetails :: Lens.Lens' CreateCustomActionType ArtifactDetails
 createCustomActionType_outputArtifactDetails = Lens.lens (\CreateCustomActionType' {outputArtifactDetails} -> outputArtifactDetails) (\s@CreateCustomActionType' {} a -> s {outputArtifactDetails = a} :: CreateCustomActionType)
 
-instance Prelude.AWSRequest CreateCustomActionType where
+instance Core.AWSRequest CreateCustomActionType where
   type
-    Rs CreateCustomActionType =
+    AWSResponse CreateCustomActionType =
       CreateCustomActionTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateCustomActionTypeResponse'
-            Prelude.<$> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "actionType")
+            Core.<$> (x Core..?> "tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "actionType")
       )
 
-instance Prelude.Hashable CreateCustomActionType
+instance Core.Hashable CreateCustomActionType
 
-instance Prelude.NFData CreateCustomActionType
+instance Core.NFData CreateCustomActionType
 
-instance Prelude.ToHeaders CreateCustomActionType where
+instance Core.ToHeaders CreateCustomActionType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.CreateCustomActionType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.CreateCustomActionType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCustomActionType where
+instance Core.ToJSON CreateCustomActionType where
   toJSON CreateCustomActionType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("configurationProperties" Prelude..=)
-              Prelude.<$> configurationProperties,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("settings" Prelude..=) Prelude.<$> settings,
-            Prelude.Just ("category" Prelude..= category),
-            Prelude.Just ("provider" Prelude..= provider),
-            Prelude.Just ("version" Prelude..= version),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("configurationProperties" Core..=)
+              Core.<$> configurationProperties,
+            ("tags" Core..=) Core.<$> tags,
+            ("settings" Core..=) Core.<$> settings,
+            Core.Just ("category" Core..= category),
+            Core.Just ("provider" Core..= provider),
+            Core.Just ("version" Core..= version),
+            Core.Just
               ( "inputArtifactDetails"
-                  Prelude..= inputArtifactDetails
+                  Core..= inputArtifactDetails
               ),
-            Prelude.Just
+            Core.Just
               ( "outputArtifactDetails"
-                  Prelude..= outputArtifactDetails
+                  Core..= outputArtifactDetails
               )
           ]
       )
 
-instance Prelude.ToPath CreateCustomActionType where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCustomActionType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCustomActionType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCustomActionType where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @CreateCustomActionType@ operation.
 --
 -- /See:/ 'newCreateCustomActionTypeResponse' smart constructor.
 data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
   { -- | Specifies the tags applied to the custom action.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Returns information about the details of an action type.
     actionType :: ActionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCustomActionTypeResponse' with all optional fields omitted.
@@ -276,7 +273,7 @@ data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
 -- 'actionType', 'createCustomActionTypeResponse_actionType' - Returns information about the details of an action type.
 newCreateCustomActionTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'actionType'
   ActionType ->
   CreateCustomActionTypeResponse
@@ -285,23 +282,21 @@ newCreateCustomActionTypeResponse
   pActionType_ =
     CreateCustomActionTypeResponse'
       { tags =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_,
         actionType = pActionType_
       }
 
 -- | Specifies the tags applied to the custom action.
-createCustomActionTypeResponse_tags :: Lens.Lens' CreateCustomActionTypeResponse (Prelude.Maybe [Tag])
-createCustomActionTypeResponse_tags = Lens.lens (\CreateCustomActionTypeResponse' {tags} -> tags) (\s@CreateCustomActionTypeResponse' {} a -> s {tags = a} :: CreateCustomActionTypeResponse) Prelude.. Lens.mapping Prelude._Coerce
+createCustomActionTypeResponse_tags :: Lens.Lens' CreateCustomActionTypeResponse (Core.Maybe [Tag])
+createCustomActionTypeResponse_tags = Lens.lens (\CreateCustomActionTypeResponse' {tags} -> tags) (\s@CreateCustomActionTypeResponse' {} a -> s {tags = a} :: CreateCustomActionTypeResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createCustomActionTypeResponse_httpStatus :: Lens.Lens' CreateCustomActionTypeResponse Prelude.Int
+createCustomActionTypeResponse_httpStatus :: Lens.Lens' CreateCustomActionTypeResponse Core.Int
 createCustomActionTypeResponse_httpStatus = Lens.lens (\CreateCustomActionTypeResponse' {httpStatus} -> httpStatus) (\s@CreateCustomActionTypeResponse' {} a -> s {httpStatus = a} :: CreateCustomActionTypeResponse)
 
 -- | Returns information about the details of an action type.
 createCustomActionTypeResponse_actionType :: Lens.Lens' CreateCustomActionTypeResponse ActionType
 createCustomActionTypeResponse_actionType = Lens.lens (\CreateCustomActionTypeResponse' {actionType} -> actionType) (\s@CreateCustomActionTypeResponse' {} a -> s {actionType = a} :: CreateCustomActionTypeResponse)
 
-instance
-  Prelude.NFData
-    CreateCustomActionTypeResponse
+instance Core.NFData CreateCustomActionTypeResponse

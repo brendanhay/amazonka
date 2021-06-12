@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.MediaConvert.GetQueue
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetQueue' smart constructor.
 data GetQueue = GetQueue'
   { -- | The name of the queue that you want information about.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetQueue' with all optional fields omitted.
@@ -64,47 +63,45 @@ data GetQueue = GetQueue'
 -- 'name', 'getQueue_name' - The name of the queue that you want information about.
 newGetQueue ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   GetQueue
 newGetQueue pName_ = GetQueue' {name = pName_}
 
 -- | The name of the queue that you want information about.
-getQueue_name :: Lens.Lens' GetQueue Prelude.Text
+getQueue_name :: Lens.Lens' GetQueue Core.Text
 getQueue_name = Lens.lens (\GetQueue' {name} -> name) (\s@GetQueue' {} a -> s {name = a} :: GetQueue)
 
-instance Prelude.AWSRequest GetQueue where
-  type Rs GetQueue = GetQueueResponse
+instance Core.AWSRequest GetQueue where
+  type AWSResponse GetQueue = GetQueueResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetQueueResponse'
-            Prelude.<$> (x Prelude..?> "queue")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "queue")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetQueue
+instance Core.Hashable GetQueue
 
-instance Prelude.NFData GetQueue
+instance Core.NFData GetQueue
 
-instance Prelude.ToHeaders GetQueue where
+instance Core.ToHeaders GetQueue where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetQueue where
+instance Core.ToPath GetQueue where
   toPath GetQueue' {..} =
-    Prelude.mconcat
-      ["/2017-08-29/queues/", Prelude.toBS name]
+    Core.mconcat
+      ["/2017-08-29/queues/", Core.toBS name]
 
-instance Prelude.ToQuery GetQueue where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetQueue where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetQueueResponse' smart constructor.
 data GetQueueResponse = GetQueueResponse'
@@ -113,11 +110,11 @@ data GetQueueResponse = GetQueueResponse'
     -- you don\'t specify a queue, the service sends all jobs through the
     -- default queue. For more information, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
-    queue :: Prelude.Maybe Queue,
+    queue :: Core.Maybe Queue,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetQueueResponse' with all optional fields omitted.
@@ -136,11 +133,11 @@ data GetQueueResponse = GetQueueResponse'
 -- 'httpStatus', 'getQueueResponse_httpStatus' - The response's http status code.
 newGetQueueResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetQueueResponse
 newGetQueueResponse pHttpStatus_ =
   GetQueueResponse'
-    { queue = Prelude.Nothing,
+    { queue = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -149,11 +146,11 @@ newGetQueueResponse pHttpStatus_ =
 -- you don\'t specify a queue, the service sends all jobs through the
 -- default queue. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
-getQueueResponse_queue :: Lens.Lens' GetQueueResponse (Prelude.Maybe Queue)
+getQueueResponse_queue :: Lens.Lens' GetQueueResponse (Core.Maybe Queue)
 getQueueResponse_queue = Lens.lens (\GetQueueResponse' {queue} -> queue) (\s@GetQueueResponse' {} a -> s {queue = a} :: GetQueueResponse)
 
 -- | The response's http status code.
-getQueueResponse_httpStatus :: Lens.Lens' GetQueueResponse Prelude.Int
+getQueueResponse_httpStatus :: Lens.Lens' GetQueueResponse Core.Int
 getQueueResponse_httpStatus = Lens.lens (\GetQueueResponse' {httpStatus} -> httpStatus) (\s@GetQueueResponse' {} a -> s {httpStatus = a} :: GetQueueResponse)
 
-instance Prelude.NFData GetQueueResponse
+instance Core.NFData GetQueueResponse

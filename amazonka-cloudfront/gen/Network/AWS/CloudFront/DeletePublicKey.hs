@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.CloudFront.DeletePublicKey
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +46,11 @@ import qualified Network.AWS.Response as Response
 data DeletePublicKey = DeletePublicKey'
   { -- | The value of the @ETag@ header that you received when retrieving the
     -- public key identity to delete. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Prelude.Maybe Prelude.Text,
+    ifMatch :: Core.Maybe Core.Text,
     -- | The ID of the public key you want to remove from CloudFront.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePublicKey' with all optional fields omitted.
@@ -67,50 +66,49 @@ data DeletePublicKey = DeletePublicKey'
 -- 'id', 'deletePublicKey_id' - The ID of the public key you want to remove from CloudFront.
 newDeletePublicKey ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeletePublicKey
 newDeletePublicKey pId_ =
-  DeletePublicKey'
-    { ifMatch = Prelude.Nothing,
-      id = pId_
-    }
+  DeletePublicKey' {ifMatch = Core.Nothing, id = pId_}
 
 -- | The value of the @ETag@ header that you received when retrieving the
 -- public key identity to delete. For example: @E2QWRUHAPOMQZL@.
-deletePublicKey_ifMatch :: Lens.Lens' DeletePublicKey (Prelude.Maybe Prelude.Text)
+deletePublicKey_ifMatch :: Lens.Lens' DeletePublicKey (Core.Maybe Core.Text)
 deletePublicKey_ifMatch = Lens.lens (\DeletePublicKey' {ifMatch} -> ifMatch) (\s@DeletePublicKey' {} a -> s {ifMatch = a} :: DeletePublicKey)
 
 -- | The ID of the public key you want to remove from CloudFront.
-deletePublicKey_id :: Lens.Lens' DeletePublicKey Prelude.Text
+deletePublicKey_id :: Lens.Lens' DeletePublicKey Core.Text
 deletePublicKey_id = Lens.lens (\DeletePublicKey' {id} -> id) (\s@DeletePublicKey' {} a -> s {id = a} :: DeletePublicKey)
 
-instance Prelude.AWSRequest DeletePublicKey where
-  type Rs DeletePublicKey = DeletePublicKeyResponse
+instance Core.AWSRequest DeletePublicKey where
+  type
+    AWSResponse DeletePublicKey =
+      DeletePublicKeyResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeletePublicKeyResponse'
 
-instance Prelude.Hashable DeletePublicKey
+instance Core.Hashable DeletePublicKey
 
-instance Prelude.NFData DeletePublicKey
+instance Core.NFData DeletePublicKey
 
-instance Prelude.ToHeaders DeletePublicKey where
+instance Core.ToHeaders DeletePublicKey where
   toHeaders DeletePublicKey' {..} =
-    Prelude.mconcat ["If-Match" Prelude.=# ifMatch]
+    Core.mconcat ["If-Match" Core.=# ifMatch]
 
-instance Prelude.ToPath DeletePublicKey where
+instance Core.ToPath DeletePublicKey where
   toPath DeletePublicKey' {..} =
-    Prelude.mconcat
-      ["/2020-05-31/public-key/", Prelude.toBS id]
+    Core.mconcat
+      ["/2020-05-31/public-key/", Core.toBS id]
 
-instance Prelude.ToQuery DeletePublicKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePublicKey where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeletePublicKeyResponse' smart constructor.
 data DeletePublicKeyResponse = DeletePublicKeyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePublicKeyResponse' with all optional fields omitted.
@@ -120,4 +118,4 @@ newDeletePublicKeyResponse ::
   DeletePublicKeyResponse
 newDeletePublicKeyResponse = DeletePublicKeyResponse'
 
-instance Prelude.NFData DeletePublicKeyResponse
+instance Core.NFData DeletePublicKeyResponse

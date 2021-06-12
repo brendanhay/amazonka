@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.InputArtifact where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about an artifact to be worked on, such as a test
 -- or build artifact.
@@ -35,9 +34,9 @@ data InputArtifact = InputArtifact'
     -- be the next action in strict sequence from the action that provided the
     -- output artifact. Actions in parallel can declare different output
     -- artifacts, which are in turn consumed by different following actions.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputArtifact' with all optional fields omitted.
@@ -56,7 +55,7 @@ data InputArtifact = InputArtifact'
 -- artifacts, which are in turn consumed by different following actions.
 newInputArtifact ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   InputArtifact
 newInputArtifact pName_ =
   InputArtifact' {name = pName_}
@@ -68,24 +67,20 @@ newInputArtifact pName_ =
 -- be the next action in strict sequence from the action that provided the
 -- output artifact. Actions in parallel can declare different output
 -- artifacts, which are in turn consumed by different following actions.
-inputArtifact_name :: Lens.Lens' InputArtifact Prelude.Text
+inputArtifact_name :: Lens.Lens' InputArtifact Core.Text
 inputArtifact_name = Lens.lens (\InputArtifact' {name} -> name) (\s@InputArtifact' {} a -> s {name = a} :: InputArtifact)
 
-instance Prelude.FromJSON InputArtifact where
+instance Core.FromJSON InputArtifact where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputArtifact"
-      ( \x ->
-          InputArtifact' Prelude.<$> (x Prelude..: "name")
-      )
+      (\x -> InputArtifact' Core.<$> (x Core..: "name"))
 
-instance Prelude.Hashable InputArtifact
+instance Core.Hashable InputArtifact
 
-instance Prelude.NFData InputArtifact
+instance Core.NFData InputArtifact
 
-instance Prelude.ToJSON InputArtifact where
+instance Core.ToJSON InputArtifact where
   toJSON InputArtifact' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("name" Core..= name)])

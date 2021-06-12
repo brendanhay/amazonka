@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.SnapshotOptionsStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import Network.AWS.ElasticSearch.Types.SnapshotOptions
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of a daily automated snapshot.
 --
@@ -35,7 +34,7 @@ data SnapshotOptionsStatus = SnapshotOptionsStatus'
     -- | Specifies the status of a daily automated snapshot.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SnapshotOptionsStatus' with all optional fields omitted.
@@ -70,16 +69,15 @@ snapshotOptionsStatus_options = Lens.lens (\SnapshotOptionsStatus' {options} -> 
 snapshotOptionsStatus_status :: Lens.Lens' SnapshotOptionsStatus OptionStatus
 snapshotOptionsStatus_status = Lens.lens (\SnapshotOptionsStatus' {status} -> status) (\s@SnapshotOptionsStatus' {} a -> s {status = a} :: SnapshotOptionsStatus)
 
-instance Prelude.FromJSON SnapshotOptionsStatus where
+instance Core.FromJSON SnapshotOptionsStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SnapshotOptionsStatus"
       ( \x ->
           SnapshotOptionsStatus'
-            Prelude.<$> (x Prelude..: "Options")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable SnapshotOptionsStatus
+instance Core.Hashable SnapshotOptionsStatus
 
-instance Prelude.NFData SnapshotOptionsStatus
+instance Core.NFData SnapshotOptionsStatus

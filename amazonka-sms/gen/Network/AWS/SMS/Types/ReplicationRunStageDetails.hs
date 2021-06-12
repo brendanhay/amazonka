@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.ReplicationRunStageDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of the current stage of a replication run.
 --
 -- /See:/ 'newReplicationRunStageDetails' smart constructor.
 data ReplicationRunStageDetails = ReplicationRunStageDetails'
   { -- | The current stage of a replication run.
-    stage :: Prelude.Maybe Prelude.Text,
+    stage :: Core.Maybe Core.Text,
     -- | The progress of the current stage of a replication run.
-    stageProgress :: Prelude.Maybe Prelude.Text
+    stageProgress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicationRunStageDetails' with all optional fields omitted.
@@ -49,29 +48,28 @@ newReplicationRunStageDetails ::
   ReplicationRunStageDetails
 newReplicationRunStageDetails =
   ReplicationRunStageDetails'
-    { stage =
-        Prelude.Nothing,
-      stageProgress = Prelude.Nothing
+    { stage = Core.Nothing,
+      stageProgress = Core.Nothing
     }
 
 -- | The current stage of a replication run.
-replicationRunStageDetails_stage :: Lens.Lens' ReplicationRunStageDetails (Prelude.Maybe Prelude.Text)
+replicationRunStageDetails_stage :: Lens.Lens' ReplicationRunStageDetails (Core.Maybe Core.Text)
 replicationRunStageDetails_stage = Lens.lens (\ReplicationRunStageDetails' {stage} -> stage) (\s@ReplicationRunStageDetails' {} a -> s {stage = a} :: ReplicationRunStageDetails)
 
 -- | The progress of the current stage of a replication run.
-replicationRunStageDetails_stageProgress :: Lens.Lens' ReplicationRunStageDetails (Prelude.Maybe Prelude.Text)
+replicationRunStageDetails_stageProgress :: Lens.Lens' ReplicationRunStageDetails (Core.Maybe Core.Text)
 replicationRunStageDetails_stageProgress = Lens.lens (\ReplicationRunStageDetails' {stageProgress} -> stageProgress) (\s@ReplicationRunStageDetails' {} a -> s {stageProgress = a} :: ReplicationRunStageDetails)
 
-instance Prelude.FromJSON ReplicationRunStageDetails where
+instance Core.FromJSON ReplicationRunStageDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReplicationRunStageDetails"
       ( \x ->
           ReplicationRunStageDetails'
-            Prelude.<$> (x Prelude..:? "stage")
-            Prelude.<*> (x Prelude..:? "stageProgress")
+            Core.<$> (x Core..:? "stage")
+            Core.<*> (x Core..:? "stageProgress")
       )
 
-instance Prelude.Hashable ReplicationRunStageDetails
+instance Core.Hashable ReplicationRunStageDetails
 
-instance Prelude.NFData ReplicationRunStageDetails
+instance Core.NFData ReplicationRunStageDetails

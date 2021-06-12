@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EC2.CancelBundleTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ data CancelBundleTask = CancelBundleTask'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the bundle task.
-    bundleId :: Prelude.Text
+    bundleId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelBundleTask' with all optional fields omitted.
@@ -78,11 +77,11 @@ data CancelBundleTask = CancelBundleTask'
 -- 'bundleId', 'cancelBundleTask_bundleId' - The ID of the bundle task.
 newCancelBundleTask ::
   -- | 'bundleId'
-  Prelude.Text ->
+  Core.Text ->
   CancelBundleTask
 newCancelBundleTask pBundleId_ =
   CancelBundleTask'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       bundleId = pBundleId_
     }
 
@@ -90,43 +89,44 @@ newCancelBundleTask pBundleId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cancelBundleTask_dryRun :: Lens.Lens' CancelBundleTask (Prelude.Maybe Prelude.Bool)
+cancelBundleTask_dryRun :: Lens.Lens' CancelBundleTask (Core.Maybe Core.Bool)
 cancelBundleTask_dryRun = Lens.lens (\CancelBundleTask' {dryRun} -> dryRun) (\s@CancelBundleTask' {} a -> s {dryRun = a} :: CancelBundleTask)
 
 -- | The ID of the bundle task.
-cancelBundleTask_bundleId :: Lens.Lens' CancelBundleTask Prelude.Text
+cancelBundleTask_bundleId :: Lens.Lens' CancelBundleTask Core.Text
 cancelBundleTask_bundleId = Lens.lens (\CancelBundleTask' {bundleId} -> bundleId) (\s@CancelBundleTask' {} a -> s {bundleId = a} :: CancelBundleTask)
 
-instance Prelude.AWSRequest CancelBundleTask where
-  type Rs CancelBundleTask = CancelBundleTaskResponse
+instance Core.AWSRequest CancelBundleTask where
+  type
+    AWSResponse CancelBundleTask =
+      CancelBundleTaskResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CancelBundleTaskResponse'
-            Prelude.<$> (x Prelude..@? "bundleInstanceTask")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "bundleInstanceTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelBundleTask
+instance Core.Hashable CancelBundleTask
 
-instance Prelude.NFData CancelBundleTask
+instance Core.NFData CancelBundleTask
 
-instance Prelude.ToHeaders CancelBundleTask where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CancelBundleTask where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CancelBundleTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelBundleTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelBundleTask where
+instance Core.ToQuery CancelBundleTask where
   toQuery CancelBundleTask' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CancelBundleTask" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "BundleId" Prelude.=: bundleId
+          Core.=: ("CancelBundleTask" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "BundleId" Core.=: bundleId
       ]
 
 -- | Contains the output of CancelBundleTask.
@@ -134,11 +134,11 @@ instance Prelude.ToQuery CancelBundleTask where
 -- /See:/ 'newCancelBundleTaskResponse' smart constructor.
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
   { -- | Information about the bundle task.
-    bundleTask :: Prelude.Maybe BundleTask,
+    bundleTask :: Core.Maybe BundleTask,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelBundleTaskResponse' with all optional fields omitted.
@@ -153,21 +153,21 @@ data CancelBundleTaskResponse = CancelBundleTaskResponse'
 -- 'httpStatus', 'cancelBundleTaskResponse_httpStatus' - The response's http status code.
 newCancelBundleTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelBundleTaskResponse
 newCancelBundleTaskResponse pHttpStatus_ =
   CancelBundleTaskResponse'
     { bundleTask =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the bundle task.
-cancelBundleTaskResponse_bundleTask :: Lens.Lens' CancelBundleTaskResponse (Prelude.Maybe BundleTask)
+cancelBundleTaskResponse_bundleTask :: Lens.Lens' CancelBundleTaskResponse (Core.Maybe BundleTask)
 cancelBundleTaskResponse_bundleTask = Lens.lens (\CancelBundleTaskResponse' {bundleTask} -> bundleTask) (\s@CancelBundleTaskResponse' {} a -> s {bundleTask = a} :: CancelBundleTaskResponse)
 
 -- | The response's http status code.
-cancelBundleTaskResponse_httpStatus :: Lens.Lens' CancelBundleTaskResponse Prelude.Int
+cancelBundleTaskResponse_httpStatus :: Lens.Lens' CancelBundleTaskResponse Core.Int
 cancelBundleTaskResponse_httpStatus = Lens.lens (\CancelBundleTaskResponse' {httpStatus} -> httpStatus) (\s@CancelBundleTaskResponse' {} a -> s {httpStatus = a} :: CancelBundleTaskResponse)
 
-instance Prelude.NFData CancelBundleTaskResponse
+instance Core.NFData CancelBundleTaskResponse

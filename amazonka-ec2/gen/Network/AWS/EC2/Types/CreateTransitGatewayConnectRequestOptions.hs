@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CreateTransitGatewayConnectRequestOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ProtocolValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The options for a Connect attachment.
 --
@@ -32,7 +31,7 @@ data CreateTransitGatewayConnectRequestOptions = CreateTransitGatewayConnectRequ
   { -- | The tunnel protocol.
     protocol :: ProtocolValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGatewayConnectRequestOptions' with all optional fields omitted.
@@ -59,17 +58,17 @@ createTransitGatewayConnectRequestOptions_protocol :: Lens.Lens' CreateTransitGa
 createTransitGatewayConnectRequestOptions_protocol = Lens.lens (\CreateTransitGatewayConnectRequestOptions' {protocol} -> protocol) (\s@CreateTransitGatewayConnectRequestOptions' {} a -> s {protocol = a} :: CreateTransitGatewayConnectRequestOptions)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateTransitGatewayConnectRequestOptions
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateTransitGatewayConnectRequestOptions
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CreateTransitGatewayConnectRequestOptions
   where
   toQuery
     CreateTransitGatewayConnectRequestOptions' {..} =
-      Prelude.mconcat ["Protocol" Prelude.=: protocol]
+      Core.mconcat ["Protocol" Core.=: protocol]

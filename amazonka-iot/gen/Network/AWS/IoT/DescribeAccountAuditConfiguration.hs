@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.IoT.DescribeAccountAuditConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data DescribeAccountAuditConfiguration = DescribeAccountAuditConfiguration'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountAuditConfiguration' with all optional fields omitted.
@@ -63,53 +62,52 @@ newDescribeAccountAuditConfiguration =
   DescribeAccountAuditConfiguration'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeAccountAuditConfiguration
   where
   type
-    Rs DescribeAccountAuditConfiguration =
+    AWSResponse DescribeAccountAuditConfiguration =
       DescribeAccountAuditConfigurationResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountAuditConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "roleArn")
-              Prelude.<*> ( x Prelude..?> "auditCheckConfigurations"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> ( x
-                              Prelude..?> "auditNotificationTargetConfigurations"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "roleArn")
+            Core.<*> ( x Core..?> "auditCheckConfigurations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> ( x Core..?> "auditNotificationTargetConfigurations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeAccountAuditConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAccountAuditConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeAccountAuditConfiguration
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeAccountAuditConfiguration
   where
-  toPath = Prelude.const "/audit/configuration"
+  toPath = Core.const "/audit/configuration"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeAccountAuditConfiguration
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAccountAuditConfigurationResponse' smart constructor.
 data DescribeAccountAuditConfigurationResponse = DescribeAccountAuditConfigurationResponse'
@@ -119,16 +117,16 @@ data DescribeAccountAuditConfigurationResponse = DescribeAccountAuditConfigurati
     --
     -- On the first call to @UpdateAccountAuditConfiguration@, this parameter
     -- is required.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | Which audit checks are enabled and disabled for this account.
-    auditCheckConfigurations :: Prelude.Maybe (Prelude.HashMap Prelude.Text AuditCheckConfiguration),
+    auditCheckConfigurations :: Core.Maybe (Core.HashMap Core.Text AuditCheckConfiguration),
     -- | Information about the targets to which audit notifications are sent for
     -- this account.
-    auditNotificationTargetConfigurations :: Prelude.Maybe (Prelude.HashMap AuditNotificationType AuditNotificationTarget),
+    auditNotificationTargetConfigurations :: Core.Maybe (Core.HashMap AuditNotificationType AuditNotificationTarget),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountAuditConfigurationResponse' with all optional fields omitted.
@@ -153,17 +151,17 @@ data DescribeAccountAuditConfigurationResponse = DescribeAccountAuditConfigurati
 -- 'httpStatus', 'describeAccountAuditConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeAccountAuditConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAccountAuditConfigurationResponse
 newDescribeAccountAuditConfigurationResponse
   pHttpStatus_ =
     DescribeAccountAuditConfigurationResponse'
       { roleArn =
-          Prelude.Nothing,
+          Core.Nothing,
         auditCheckConfigurations =
-          Prelude.Nothing,
+          Core.Nothing,
         auditNotificationTargetConfigurations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -173,22 +171,22 @@ newDescribeAccountAuditConfigurationResponse
 --
 -- On the first call to @UpdateAccountAuditConfiguration@, this parameter
 -- is required.
-describeAccountAuditConfigurationResponse_roleArn :: Lens.Lens' DescribeAccountAuditConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeAccountAuditConfigurationResponse_roleArn :: Lens.Lens' DescribeAccountAuditConfigurationResponse (Core.Maybe Core.Text)
 describeAccountAuditConfigurationResponse_roleArn = Lens.lens (\DescribeAccountAuditConfigurationResponse' {roleArn} -> roleArn) (\s@DescribeAccountAuditConfigurationResponse' {} a -> s {roleArn = a} :: DescribeAccountAuditConfigurationResponse)
 
 -- | Which audit checks are enabled and disabled for this account.
-describeAccountAuditConfigurationResponse_auditCheckConfigurations :: Lens.Lens' DescribeAccountAuditConfigurationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AuditCheckConfiguration))
-describeAccountAuditConfigurationResponse_auditCheckConfigurations = Lens.lens (\DescribeAccountAuditConfigurationResponse' {auditCheckConfigurations} -> auditCheckConfigurations) (\s@DescribeAccountAuditConfigurationResponse' {} a -> s {auditCheckConfigurations = a} :: DescribeAccountAuditConfigurationResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAccountAuditConfigurationResponse_auditCheckConfigurations :: Lens.Lens' DescribeAccountAuditConfigurationResponse (Core.Maybe (Core.HashMap Core.Text AuditCheckConfiguration))
+describeAccountAuditConfigurationResponse_auditCheckConfigurations = Lens.lens (\DescribeAccountAuditConfigurationResponse' {auditCheckConfigurations} -> auditCheckConfigurations) (\s@DescribeAccountAuditConfigurationResponse' {} a -> s {auditCheckConfigurations = a} :: DescribeAccountAuditConfigurationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the targets to which audit notifications are sent for
 -- this account.
-describeAccountAuditConfigurationResponse_auditNotificationTargetConfigurations :: Lens.Lens' DescribeAccountAuditConfigurationResponse (Prelude.Maybe (Prelude.HashMap AuditNotificationType AuditNotificationTarget))
-describeAccountAuditConfigurationResponse_auditNotificationTargetConfigurations = Lens.lens (\DescribeAccountAuditConfigurationResponse' {auditNotificationTargetConfigurations} -> auditNotificationTargetConfigurations) (\s@DescribeAccountAuditConfigurationResponse' {} a -> s {auditNotificationTargetConfigurations = a} :: DescribeAccountAuditConfigurationResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAccountAuditConfigurationResponse_auditNotificationTargetConfigurations :: Lens.Lens' DescribeAccountAuditConfigurationResponse (Core.Maybe (Core.HashMap AuditNotificationType AuditNotificationTarget))
+describeAccountAuditConfigurationResponse_auditNotificationTargetConfigurations = Lens.lens (\DescribeAccountAuditConfigurationResponse' {auditNotificationTargetConfigurations} -> auditNotificationTargetConfigurations) (\s@DescribeAccountAuditConfigurationResponse' {} a -> s {auditNotificationTargetConfigurations = a} :: DescribeAccountAuditConfigurationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAccountAuditConfigurationResponse_httpStatus :: Lens.Lens' DescribeAccountAuditConfigurationResponse Prelude.Int
+describeAccountAuditConfigurationResponse_httpStatus :: Lens.Lens' DescribeAccountAuditConfigurationResponse Core.Int
 describeAccountAuditConfigurationResponse_httpStatus = Lens.lens (\DescribeAccountAuditConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountAuditConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeAccountAuditConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAccountAuditConfigurationResponse

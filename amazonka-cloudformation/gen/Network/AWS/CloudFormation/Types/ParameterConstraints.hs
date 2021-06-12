@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFormation.Types.ParameterConstraints where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A set of criteria that AWS CloudFormation uses to validate parameter
 -- values. Although other constraints might be defined in the stack
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newParameterConstraints' smart constructor.
 data ParameterConstraints = ParameterConstraints'
   { -- | A list of values that are permitted for a parameter.
-    allowedValues :: Prelude.Maybe [Prelude.Text]
+    allowedValues :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterConstraints' with all optional fields omitted.
@@ -46,23 +45,19 @@ data ParameterConstraints = ParameterConstraints'
 newParameterConstraints ::
   ParameterConstraints
 newParameterConstraints =
-  ParameterConstraints'
-    { allowedValues =
-        Prelude.Nothing
-    }
+  ParameterConstraints' {allowedValues = Core.Nothing}
 
 -- | A list of values that are permitted for a parameter.
-parameterConstraints_allowedValues :: Lens.Lens' ParameterConstraints (Prelude.Maybe [Prelude.Text])
-parameterConstraints_allowedValues = Lens.lens (\ParameterConstraints' {allowedValues} -> allowedValues) (\s@ParameterConstraints' {} a -> s {allowedValues = a} :: ParameterConstraints) Prelude.. Lens.mapping Prelude._Coerce
+parameterConstraints_allowedValues :: Lens.Lens' ParameterConstraints (Core.Maybe [Core.Text])
+parameterConstraints_allowedValues = Lens.lens (\ParameterConstraints' {allowedValues} -> allowedValues) (\s@ParameterConstraints' {} a -> s {allowedValues = a} :: ParameterConstraints) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML ParameterConstraints where
+instance Core.FromXML ParameterConstraints where
   parseXML x =
     ParameterConstraints'
-      Prelude.<$> ( x Prelude..@? "AllowedValues"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> ( x Core..@? "AllowedValues" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable ParameterConstraints
+instance Core.Hashable ParameterConstraints
 
-instance Prelude.NFData ParameterConstraints
+instance Core.NFData ParameterConstraints

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.WorkMail.RegisterToWorkMail
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -61,13 +60,13 @@ import Network.AWS.WorkMail.Types
 data RegisterToWorkMail = RegisterToWorkMail'
   { -- | The identifier for the organization under which the user, group, or
     -- resource exists.
-    organizationId :: Prelude.Text,
+    organizationId :: Core.Text,
     -- | The identifier for the user, group, or resource to be updated.
-    entityId :: Prelude.Text,
+    entityId :: Core.Text,
     -- | The email for the user, group, or resource to be updated.
-    email :: Prelude.Text
+    email :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterToWorkMail' with all optional fields omitted.
@@ -85,11 +84,11 @@ data RegisterToWorkMail = RegisterToWorkMail'
 -- 'email', 'registerToWorkMail_email' - The email for the user, group, or resource to be updated.
 newRegisterToWorkMail ::
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'entityId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'email'
-  Prelude.Text ->
+  Core.Text ->
   RegisterToWorkMail
 newRegisterToWorkMail
   pOrganizationId_
@@ -104,71 +103,68 @@ newRegisterToWorkMail
 
 -- | The identifier for the organization under which the user, group, or
 -- resource exists.
-registerToWorkMail_organizationId :: Lens.Lens' RegisterToWorkMail Prelude.Text
+registerToWorkMail_organizationId :: Lens.Lens' RegisterToWorkMail Core.Text
 registerToWorkMail_organizationId = Lens.lens (\RegisterToWorkMail' {organizationId} -> organizationId) (\s@RegisterToWorkMail' {} a -> s {organizationId = a} :: RegisterToWorkMail)
 
 -- | The identifier for the user, group, or resource to be updated.
-registerToWorkMail_entityId :: Lens.Lens' RegisterToWorkMail Prelude.Text
+registerToWorkMail_entityId :: Lens.Lens' RegisterToWorkMail Core.Text
 registerToWorkMail_entityId = Lens.lens (\RegisterToWorkMail' {entityId} -> entityId) (\s@RegisterToWorkMail' {} a -> s {entityId = a} :: RegisterToWorkMail)
 
 -- | The email for the user, group, or resource to be updated.
-registerToWorkMail_email :: Lens.Lens' RegisterToWorkMail Prelude.Text
+registerToWorkMail_email :: Lens.Lens' RegisterToWorkMail Core.Text
 registerToWorkMail_email = Lens.lens (\RegisterToWorkMail' {email} -> email) (\s@RegisterToWorkMail' {} a -> s {email = a} :: RegisterToWorkMail)
 
-instance Prelude.AWSRequest RegisterToWorkMail where
+instance Core.AWSRequest RegisterToWorkMail where
   type
-    Rs RegisterToWorkMail =
+    AWSResponse RegisterToWorkMail =
       RegisterToWorkMailResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RegisterToWorkMailResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterToWorkMail
+instance Core.Hashable RegisterToWorkMail
 
-instance Prelude.NFData RegisterToWorkMail
+instance Core.NFData RegisterToWorkMail
 
-instance Prelude.ToHeaders RegisterToWorkMail where
+instance Core.ToHeaders RegisterToWorkMail where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.RegisterToWorkMail" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkMailService.RegisterToWorkMail" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterToWorkMail where
+instance Core.ToJSON RegisterToWorkMail where
   toJSON RegisterToWorkMail' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("OrganizationId" Prelude..= organizationId),
-            Prelude.Just ("EntityId" Prelude..= entityId),
-            Prelude.Just ("Email" Prelude..= email)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("EntityId" Core..= entityId),
+            Core.Just ("Email" Core..= email)
           ]
       )
 
-instance Prelude.ToPath RegisterToWorkMail where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterToWorkMail where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterToWorkMail where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterToWorkMail where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterToWorkMailResponse' smart constructor.
 data RegisterToWorkMailResponse = RegisterToWorkMailResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterToWorkMailResponse' with all optional fields omitted.
@@ -181,7 +177,7 @@ data RegisterToWorkMailResponse = RegisterToWorkMailResponse'
 -- 'httpStatus', 'registerToWorkMailResponse_httpStatus' - The response's http status code.
 newRegisterToWorkMailResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterToWorkMailResponse
 newRegisterToWorkMailResponse pHttpStatus_ =
   RegisterToWorkMailResponse'
@@ -190,7 +186,7 @@ newRegisterToWorkMailResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-registerToWorkMailResponse_httpStatus :: Lens.Lens' RegisterToWorkMailResponse Prelude.Int
+registerToWorkMailResponse_httpStatus :: Lens.Lens' RegisterToWorkMailResponse Core.Int
 registerToWorkMailResponse_httpStatus = Lens.lens (\RegisterToWorkMailResponse' {httpStatus} -> httpStatus) (\s@RegisterToWorkMailResponse' {} a -> s {httpStatus = a} :: RegisterToWorkMailResponse)
 
-instance Prelude.NFData RegisterToWorkMailResponse
+instance Core.NFData RegisterToWorkMailResponse

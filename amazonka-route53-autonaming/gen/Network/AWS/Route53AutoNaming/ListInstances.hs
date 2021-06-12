@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.Route53AutoNaming.ListInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -61,15 +59,15 @@ data ListInstances = ListInstances'
     -- can submit another @ListInstances@ request to get the next group of
     -- results. Specify the value of @NextToken@ from the previous response in
     -- the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of instances that you want AWS Cloud Map to return in
     -- the response to a @ListInstances@ request. If you don\'t specify a value
     -- for @MaxResults@, AWS Cloud Map returns up to 100 instances.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The ID of the service that you want to list instances for.
-    serviceId :: Prelude.Text
+    serviceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListInstances' with all optional fields omitted.
@@ -93,12 +91,12 @@ data ListInstances = ListInstances'
 -- 'serviceId', 'listInstances_serviceId' - The ID of the service that you want to list instances for.
 newListInstances ::
   -- | 'serviceId'
-  Prelude.Text ->
+  Core.Text ->
   ListInstances
 newListInstances pServiceId_ =
   ListInstances'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       serviceId = pServiceId_
     }
 
@@ -108,86 +106,84 @@ newListInstances pServiceId_ =
 -- can submit another @ListInstances@ request to get the next group of
 -- results. Specify the value of @NextToken@ from the previous response in
 -- the next request.
-listInstances_nextToken :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Text)
+listInstances_nextToken :: Lens.Lens' ListInstances (Core.Maybe Core.Text)
 listInstances_nextToken = Lens.lens (\ListInstances' {nextToken} -> nextToken) (\s@ListInstances' {} a -> s {nextToken = a} :: ListInstances)
 
 -- | The maximum number of instances that you want AWS Cloud Map to return in
 -- the response to a @ListInstances@ request. If you don\'t specify a value
 -- for @MaxResults@, AWS Cloud Map returns up to 100 instances.
-listInstances_maxResults :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Natural)
+listInstances_maxResults :: Lens.Lens' ListInstances (Core.Maybe Core.Natural)
 listInstances_maxResults = Lens.lens (\ListInstances' {maxResults} -> maxResults) (\s@ListInstances' {} a -> s {maxResults = a} :: ListInstances)
 
 -- | The ID of the service that you want to list instances for.
-listInstances_serviceId :: Lens.Lens' ListInstances Prelude.Text
+listInstances_serviceId :: Lens.Lens' ListInstances Core.Text
 listInstances_serviceId = Lens.lens (\ListInstances' {serviceId} -> serviceId) (\s@ListInstances' {} a -> s {serviceId = a} :: ListInstances)
 
-instance Pager.AWSPager ListInstances where
+instance Core.AWSPager ListInstances where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listInstancesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listInstancesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listInstancesResponse_instances Prelude.. Lens._Just
+            Lens.^? listInstancesResponse_instances Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listInstances_nextToken
           Lens..~ rs
-          Lens.^? listInstancesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listInstancesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListInstances where
-  type Rs ListInstances = ListInstancesResponse
+instance Core.AWSRequest ListInstances where
+  type
+    AWSResponse ListInstances =
+      ListInstancesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListInstancesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Instances"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Instances" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListInstances
+instance Core.Hashable ListInstances
 
-instance Prelude.NFData ListInstances
+instance Core.NFData ListInstances
 
-instance Prelude.ToHeaders ListInstances where
+instance Core.ToHeaders ListInstances where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53AutoNaming_v20170314.ListInstances" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53AutoNaming_v20170314.ListInstances" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListInstances where
+instance Core.ToJSON ListInstances where
   toJSON ListInstances' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServiceId" Prelude..= serviceId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("ServiceId" Core..= serviceId)
           ]
       )
 
-instance Prelude.ToPath ListInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListInstances where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListInstances where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
@@ -195,14 +191,14 @@ data ListInstancesResponse = ListInstancesResponse'
     -- can submit another @ListInstances@ request to get the next group of
     -- results. Specify the value of @NextToken@ from the previous response in
     -- the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Summary information about the instances that are associated with the
     -- specified service.
-    instances :: Prelude.Maybe [InstanceSummary],
+    instances :: Core.Maybe [InstanceSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListInstancesResponse' with all optional fields omitted.
@@ -223,12 +219,12 @@ data ListInstancesResponse = ListInstancesResponse'
 -- 'httpStatus', 'listInstancesResponse_httpStatus' - The response's http status code.
 newListInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListInstancesResponse
 newListInstancesResponse pHttpStatus_ =
   ListInstancesResponse'
-    { nextToken = Prelude.Nothing,
-      instances = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      instances = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -236,16 +232,16 @@ newListInstancesResponse pHttpStatus_ =
 -- can submit another @ListInstances@ request to get the next group of
 -- results. Specify the value of @NextToken@ from the previous response in
 -- the next request.
-listInstancesResponse_nextToken :: Lens.Lens' ListInstancesResponse (Prelude.Maybe Prelude.Text)
+listInstancesResponse_nextToken :: Lens.Lens' ListInstancesResponse (Core.Maybe Core.Text)
 listInstancesResponse_nextToken = Lens.lens (\ListInstancesResponse' {nextToken} -> nextToken) (\s@ListInstancesResponse' {} a -> s {nextToken = a} :: ListInstancesResponse)
 
 -- | Summary information about the instances that are associated with the
 -- specified service.
-listInstancesResponse_instances :: Lens.Lens' ListInstancesResponse (Prelude.Maybe [InstanceSummary])
-listInstancesResponse_instances = Lens.lens (\ListInstancesResponse' {instances} -> instances) (\s@ListInstancesResponse' {} a -> s {instances = a} :: ListInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listInstancesResponse_instances :: Lens.Lens' ListInstancesResponse (Core.Maybe [InstanceSummary])
+listInstancesResponse_instances = Lens.lens (\ListInstancesResponse' {instances} -> instances) (\s@ListInstancesResponse' {} a -> s {instances = a} :: ListInstancesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listInstancesResponse_httpStatus :: Lens.Lens' ListInstancesResponse Prelude.Int
+listInstancesResponse_httpStatus :: Lens.Lens' ListInstancesResponse Core.Int
 listInstancesResponse_httpStatus = Lens.lens (\ListInstancesResponse' {httpStatus} -> httpStatus) (\s@ListInstancesResponse' {} a -> s {httpStatus = a} :: ListInstancesResponse)
 
-instance Prelude.NFData ListInstancesResponse
+instance Core.NFData ListInstancesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.GameLift.DeleteGameSessionQueue
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,9 +67,9 @@ data DeleteGameSessionQueue = DeleteGameSessionQueue'
   { -- | A descriptive label that is associated with game session queue. Queue
     -- names must be unique within each Region. You can use either the queue ID
     -- or ARN value.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGameSessionQueue' with all optional fields omitted.
@@ -85,7 +84,7 @@ data DeleteGameSessionQueue = DeleteGameSessionQueue'
 -- or ARN value.
 newDeleteGameSessionQueue ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteGameSessionQueue
 newDeleteGameSessionQueue pName_ =
   DeleteGameSessionQueue' {name = pName_}
@@ -93,59 +92,55 @@ newDeleteGameSessionQueue pName_ =
 -- | A descriptive label that is associated with game session queue. Queue
 -- names must be unique within each Region. You can use either the queue ID
 -- or ARN value.
-deleteGameSessionQueue_name :: Lens.Lens' DeleteGameSessionQueue Prelude.Text
+deleteGameSessionQueue_name :: Lens.Lens' DeleteGameSessionQueue Core.Text
 deleteGameSessionQueue_name = Lens.lens (\DeleteGameSessionQueue' {name} -> name) (\s@DeleteGameSessionQueue' {} a -> s {name = a} :: DeleteGameSessionQueue)
 
-instance Prelude.AWSRequest DeleteGameSessionQueue where
+instance Core.AWSRequest DeleteGameSessionQueue where
   type
-    Rs DeleteGameSessionQueue =
+    AWSResponse DeleteGameSessionQueue =
       DeleteGameSessionQueueResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteGameSessionQueueResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGameSessionQueue
+instance Core.Hashable DeleteGameSessionQueue
 
-instance Prelude.NFData DeleteGameSessionQueue
+instance Core.NFData DeleteGameSessionQueue
 
-instance Prelude.ToHeaders DeleteGameSessionQueue where
+instance Core.ToHeaders DeleteGameSessionQueue where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.DeleteGameSessionQueue" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.DeleteGameSessionQueue" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteGameSessionQueue where
+instance Core.ToJSON DeleteGameSessionQueue where
   toJSON DeleteGameSessionQueue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath DeleteGameSessionQueue where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteGameSessionQueue where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteGameSessionQueue where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteGameSessionQueue where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteGameSessionQueueResponse' smart constructor.
 data DeleteGameSessionQueueResponse = DeleteGameSessionQueueResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGameSessionQueueResponse' with all optional fields omitted.
@@ -158,7 +153,7 @@ data DeleteGameSessionQueueResponse = DeleteGameSessionQueueResponse'
 -- 'httpStatus', 'deleteGameSessionQueueResponse_httpStatus' - The response's http status code.
 newDeleteGameSessionQueueResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteGameSessionQueueResponse
 newDeleteGameSessionQueueResponse pHttpStatus_ =
   DeleteGameSessionQueueResponse'
@@ -167,9 +162,7 @@ newDeleteGameSessionQueueResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteGameSessionQueueResponse_httpStatus :: Lens.Lens' DeleteGameSessionQueueResponse Prelude.Int
+deleteGameSessionQueueResponse_httpStatus :: Lens.Lens' DeleteGameSessionQueueResponse Core.Int
 deleteGameSessionQueueResponse_httpStatus = Lens.lens (\DeleteGameSessionQueueResponse' {httpStatus} -> httpStatus) (\s@DeleteGameSessionQueueResponse' {} a -> s {httpStatus = a} :: DeleteGameSessionQueueResponse)
 
-instance
-  Prelude.NFData
-    DeleteGameSessionQueueResponse
+instance Core.NFData DeleteGameSessionQueueResponse

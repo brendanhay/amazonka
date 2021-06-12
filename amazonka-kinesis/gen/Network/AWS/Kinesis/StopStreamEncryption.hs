@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,16 +56,16 @@ module Network.AWS.Kinesis.StopStreamEncryption
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopStreamEncryption' smart constructor.
 data StopStreamEncryption = StopStreamEncryption'
   { -- | The name of the stream on which to stop encrypting records.
-    streamName :: Prelude.Text,
+    streamName :: Core.Text,
     -- | The encryption type. The only valid value is @KMS@.
     encryptionType :: EncryptionType,
     -- | The GUID for the customer-managed AWS KMS key to use for encryption.
@@ -87,9 +86,9 @@ data StopStreamEncryption = StopStreamEncryption'
     -- -   Alias name example: @alias\/MyAliasName@
     --
     -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
-    keyId :: Prelude.Text
+    keyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopStreamEncryption' with all optional fields omitted.
@@ -123,11 +122,11 @@ data StopStreamEncryption = StopStreamEncryption'
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
 newStopStreamEncryption ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'encryptionType'
   EncryptionType ->
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   StopStreamEncryption
 newStopStreamEncryption
   pStreamName_
@@ -140,7 +139,7 @@ newStopStreamEncryption
       }
 
 -- | The name of the stream on which to stop encrypting records.
-stopStreamEncryption_streamName :: Lens.Lens' StopStreamEncryption Prelude.Text
+stopStreamEncryption_streamName :: Lens.Lens' StopStreamEncryption Core.Text
 stopStreamEncryption_streamName = Lens.lens (\StopStreamEncryption' {streamName} -> streamName) (\s@StopStreamEncryption' {} a -> s {streamName = a} :: StopStreamEncryption)
 
 -- | The encryption type. The only valid value is @KMS@.
@@ -165,58 +164,55 @@ stopStreamEncryption_encryptionType = Lens.lens (\StopStreamEncryption' {encrypt
 -- -   Alias name example: @alias\/MyAliasName@
 --
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
-stopStreamEncryption_keyId :: Lens.Lens' StopStreamEncryption Prelude.Text
+stopStreamEncryption_keyId :: Lens.Lens' StopStreamEncryption Core.Text
 stopStreamEncryption_keyId = Lens.lens (\StopStreamEncryption' {keyId} -> keyId) (\s@StopStreamEncryption' {} a -> s {keyId = a} :: StopStreamEncryption)
 
-instance Prelude.AWSRequest StopStreamEncryption where
+instance Core.AWSRequest StopStreamEncryption where
   type
-    Rs StopStreamEncryption =
+    AWSResponse StopStreamEncryption =
       StopStreamEncryptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull StopStreamEncryptionResponse'
 
-instance Prelude.Hashable StopStreamEncryption
+instance Core.Hashable StopStreamEncryption
 
-instance Prelude.NFData StopStreamEncryption
+instance Core.NFData StopStreamEncryption
 
-instance Prelude.ToHeaders StopStreamEncryption where
+instance Core.ToHeaders StopStreamEncryption where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.StopStreamEncryption" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Kinesis_20131202.StopStreamEncryption" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopStreamEncryption where
+instance Core.ToJSON StopStreamEncryption where
   toJSON StopStreamEncryption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Prelude..= streamName),
-            Prelude.Just
-              ("EncryptionType" Prelude..= encryptionType),
-            Prelude.Just ("KeyId" Prelude..= keyId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("EncryptionType" Core..= encryptionType),
+            Core.Just ("KeyId" Core..= keyId)
           ]
       )
 
-instance Prelude.ToPath StopStreamEncryption where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopStreamEncryption where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopStreamEncryption where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopStreamEncryption where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopStreamEncryptionResponse' smart constructor.
 data StopStreamEncryptionResponse = StopStreamEncryptionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopStreamEncryptionResponse' with all optional fields omitted.
@@ -227,4 +223,4 @@ newStopStreamEncryptionResponse ::
 newStopStreamEncryptionResponse =
   StopStreamEncryptionResponse'
 
-instance Prelude.NFData StopStreamEncryptionResponse
+instance Core.NFData StopStreamEncryptionResponse

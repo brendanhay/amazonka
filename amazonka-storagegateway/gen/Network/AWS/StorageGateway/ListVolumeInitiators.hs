@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.StorageGateway.ListVolumeInitiators
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -55,9 +54,9 @@ import Network.AWS.StorageGateway.Types
 data ListVolumeInitiators = ListVolumeInitiators'
   { -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
     -- operation to return a list of gateway volumes for the gateway.
-    volumeARN :: Prelude.Text
+    volumeARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListVolumeInitiators' with all optional fields omitted.
@@ -71,62 +70,58 @@ data ListVolumeInitiators = ListVolumeInitiators'
 -- operation to return a list of gateway volumes for the gateway.
 newListVolumeInitiators ::
   -- | 'volumeARN'
-  Prelude.Text ->
+  Core.Text ->
   ListVolumeInitiators
 newListVolumeInitiators pVolumeARN_ =
   ListVolumeInitiators' {volumeARN = pVolumeARN_}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes for the gateway.
-listVolumeInitiators_volumeARN :: Lens.Lens' ListVolumeInitiators Prelude.Text
+listVolumeInitiators_volumeARN :: Lens.Lens' ListVolumeInitiators Core.Text
 listVolumeInitiators_volumeARN = Lens.lens (\ListVolumeInitiators' {volumeARN} -> volumeARN) (\s@ListVolumeInitiators' {} a -> s {volumeARN = a} :: ListVolumeInitiators)
 
-instance Prelude.AWSRequest ListVolumeInitiators where
+instance Core.AWSRequest ListVolumeInitiators where
   type
-    Rs ListVolumeInitiators =
+    AWSResponse ListVolumeInitiators =
       ListVolumeInitiatorsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListVolumeInitiatorsResponse'
-            Prelude.<$> ( x Prelude..?> "Initiators"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Initiators" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListVolumeInitiators
+instance Core.Hashable ListVolumeInitiators
 
-instance Prelude.NFData ListVolumeInitiators
+instance Core.NFData ListVolumeInitiators
 
-instance Prelude.ToHeaders ListVolumeInitiators where
+instance Core.ToHeaders ListVolumeInitiators where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.ListVolumeInitiators" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.ListVolumeInitiators" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListVolumeInitiators where
+instance Core.ToJSON ListVolumeInitiators where
   toJSON ListVolumeInitiators' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("VolumeARN" Prelude..= volumeARN)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("VolumeARN" Core..= volumeARN)]
       )
 
-instance Prelude.ToPath ListVolumeInitiators where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListVolumeInitiators where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListVolumeInitiators where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListVolumeInitiators where
+  toQuery = Core.const Core.mempty
 
 -- | ListVolumeInitiatorsOutput
 --
@@ -134,11 +129,11 @@ instance Prelude.ToQuery ListVolumeInitiators where
 data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
   { -- | The host names and port numbers of all iSCSI initiators that are
     -- connected to the gateway.
-    initiators :: Prelude.Maybe [Prelude.Text],
+    initiators :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListVolumeInitiatorsResponse' with all optional fields omitted.
@@ -154,22 +149,22 @@ data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
 -- 'httpStatus', 'listVolumeInitiatorsResponse_httpStatus' - The response's http status code.
 newListVolumeInitiatorsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListVolumeInitiatorsResponse
 newListVolumeInitiatorsResponse pHttpStatus_ =
   ListVolumeInitiatorsResponse'
     { initiators =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The host names and port numbers of all iSCSI initiators that are
 -- connected to the gateway.
-listVolumeInitiatorsResponse_initiators :: Lens.Lens' ListVolumeInitiatorsResponse (Prelude.Maybe [Prelude.Text])
-listVolumeInitiatorsResponse_initiators = Lens.lens (\ListVolumeInitiatorsResponse' {initiators} -> initiators) (\s@ListVolumeInitiatorsResponse' {} a -> s {initiators = a} :: ListVolumeInitiatorsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listVolumeInitiatorsResponse_initiators :: Lens.Lens' ListVolumeInitiatorsResponse (Core.Maybe [Core.Text])
+listVolumeInitiatorsResponse_initiators = Lens.lens (\ListVolumeInitiatorsResponse' {initiators} -> initiators) (\s@ListVolumeInitiatorsResponse' {} a -> s {initiators = a} :: ListVolumeInitiatorsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listVolumeInitiatorsResponse_httpStatus :: Lens.Lens' ListVolumeInitiatorsResponse Prelude.Int
+listVolumeInitiatorsResponse_httpStatus :: Lens.Lens' ListVolumeInitiatorsResponse Core.Int
 listVolumeInitiatorsResponse_httpStatus = Lens.lens (\ListVolumeInitiatorsResponse' {httpStatus} -> httpStatus) (\s@ListVolumeInitiatorsResponse' {} a -> s {httpStatus = a} :: ListVolumeInitiatorsResponse)
 
-instance Prelude.NFData ListVolumeInitiatorsResponse
+instance Core.NFData ListVolumeInitiatorsResponse

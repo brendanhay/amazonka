@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TrialComponentArtifact where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an input or output artifact of a trial component. You specify
 -- @TrialComponentArtifact@ as part of the @InputArtifacts@ and
@@ -38,11 +37,11 @@ data TrialComponentArtifact = TrialComponentArtifact'
     -- concatenated with a slash (\/) character, for example, text\/csv,
     -- image\/jpeg, and s3\/uri. The type specifies the category of the media.
     -- The subtype specifies the kind of data.
-    mediaType :: Prelude.Maybe Prelude.Text,
+    mediaType :: Core.Maybe Core.Text,
     -- | The location of the artifact.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrialComponentArtifact' with all optional fields omitted.
@@ -61,12 +60,11 @@ data TrialComponentArtifact = TrialComponentArtifact'
 -- 'value', 'trialComponentArtifact_value' - The location of the artifact.
 newTrialComponentArtifact ::
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   TrialComponentArtifact
 newTrialComponentArtifact pValue_ =
   TrialComponentArtifact'
-    { mediaType =
-        Prelude.Nothing,
+    { mediaType = Core.Nothing,
       value = pValue_
     }
 
@@ -75,32 +73,32 @@ newTrialComponentArtifact pValue_ =
 -- concatenated with a slash (\/) character, for example, text\/csv,
 -- image\/jpeg, and s3\/uri. The type specifies the category of the media.
 -- The subtype specifies the kind of data.
-trialComponentArtifact_mediaType :: Lens.Lens' TrialComponentArtifact (Prelude.Maybe Prelude.Text)
+trialComponentArtifact_mediaType :: Lens.Lens' TrialComponentArtifact (Core.Maybe Core.Text)
 trialComponentArtifact_mediaType = Lens.lens (\TrialComponentArtifact' {mediaType} -> mediaType) (\s@TrialComponentArtifact' {} a -> s {mediaType = a} :: TrialComponentArtifact)
 
 -- | The location of the artifact.
-trialComponentArtifact_value :: Lens.Lens' TrialComponentArtifact Prelude.Text
+trialComponentArtifact_value :: Lens.Lens' TrialComponentArtifact Core.Text
 trialComponentArtifact_value = Lens.lens (\TrialComponentArtifact' {value} -> value) (\s@TrialComponentArtifact' {} a -> s {value = a} :: TrialComponentArtifact)
 
-instance Prelude.FromJSON TrialComponentArtifact where
+instance Core.FromJSON TrialComponentArtifact where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrialComponentArtifact"
       ( \x ->
           TrialComponentArtifact'
-            Prelude.<$> (x Prelude..:? "MediaType")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..:? "MediaType")
+            Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable TrialComponentArtifact
+instance Core.Hashable TrialComponentArtifact
 
-instance Prelude.NFData TrialComponentArtifact
+instance Core.NFData TrialComponentArtifact
 
-instance Prelude.ToJSON TrialComponentArtifact where
+instance Core.ToJSON TrialComponentArtifact where
   toJSON TrialComponentArtifact' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MediaType" Prelude..=) Prelude.<$> mediaType,
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ ("MediaType" Core..=) Core.<$> mediaType,
+            Core.Just ("Value" Core..= value)
           ]
       )

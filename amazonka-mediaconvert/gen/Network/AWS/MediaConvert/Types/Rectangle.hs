@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.Rectangle where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Use Rectangle to identify a specific area of the video frame.
 --
 -- /See:/ 'newRectangle' smart constructor.
 data Rectangle = Rectangle'
   { -- | Height of rectangle in pixels. Specify only even numbers.
-    height :: Prelude.Maybe Prelude.Natural,
+    height :: Core.Maybe Core.Natural,
     -- | The distance, in pixels, between the rectangle and the top edge of the
     -- video frame. Specify only even numbers.
-    y :: Prelude.Maybe Prelude.Natural,
+    y :: Core.Maybe Core.Natural,
     -- | Width of rectangle in pixels. Specify only even numbers.
-    width :: Prelude.Maybe Prelude.Natural,
+    width :: Core.Maybe Core.Natural,
     -- | The distance, in pixels, between the rectangle and the left edge of the
     -- video frame. Specify only even numbers.
-    x :: Prelude.Maybe Prelude.Natural
+    x :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Rectangle' with all optional fields omitted.
@@ -61,53 +60,53 @@ newRectangle ::
   Rectangle
 newRectangle =
   Rectangle'
-    { height = Prelude.Nothing,
-      y = Prelude.Nothing,
-      width = Prelude.Nothing,
-      x = Prelude.Nothing
+    { height = Core.Nothing,
+      y = Core.Nothing,
+      width = Core.Nothing,
+      x = Core.Nothing
     }
 
 -- | Height of rectangle in pixels. Specify only even numbers.
-rectangle_height :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
+rectangle_height :: Lens.Lens' Rectangle (Core.Maybe Core.Natural)
 rectangle_height = Lens.lens (\Rectangle' {height} -> height) (\s@Rectangle' {} a -> s {height = a} :: Rectangle)
 
 -- | The distance, in pixels, between the rectangle and the top edge of the
 -- video frame. Specify only even numbers.
-rectangle_y :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
+rectangle_y :: Lens.Lens' Rectangle (Core.Maybe Core.Natural)
 rectangle_y = Lens.lens (\Rectangle' {y} -> y) (\s@Rectangle' {} a -> s {y = a} :: Rectangle)
 
 -- | Width of rectangle in pixels. Specify only even numbers.
-rectangle_width :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
+rectangle_width :: Lens.Lens' Rectangle (Core.Maybe Core.Natural)
 rectangle_width = Lens.lens (\Rectangle' {width} -> width) (\s@Rectangle' {} a -> s {width = a} :: Rectangle)
 
 -- | The distance, in pixels, between the rectangle and the left edge of the
 -- video frame. Specify only even numbers.
-rectangle_x :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
+rectangle_x :: Lens.Lens' Rectangle (Core.Maybe Core.Natural)
 rectangle_x = Lens.lens (\Rectangle' {x} -> x) (\s@Rectangle' {} a -> s {x = a} :: Rectangle)
 
-instance Prelude.FromJSON Rectangle where
+instance Core.FromJSON Rectangle where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Rectangle"
       ( \x ->
           Rectangle'
-            Prelude.<$> (x Prelude..:? "height")
-            Prelude.<*> (x Prelude..:? "y")
-            Prelude.<*> (x Prelude..:? "width")
-            Prelude.<*> (x Prelude..:? "x")
+            Core.<$> (x Core..:? "height")
+            Core.<*> (x Core..:? "y")
+            Core.<*> (x Core..:? "width")
+            Core.<*> (x Core..:? "x")
       )
 
-instance Prelude.Hashable Rectangle
+instance Core.Hashable Rectangle
 
-instance Prelude.NFData Rectangle
+instance Core.NFData Rectangle
 
-instance Prelude.ToJSON Rectangle where
+instance Core.ToJSON Rectangle where
   toJSON Rectangle' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("height" Prelude..=) Prelude.<$> height,
-            ("y" Prelude..=) Prelude.<$> y,
-            ("width" Prelude..=) Prelude.<$> width,
-            ("x" Prelude..=) Prelude.<$> x
+    Core.object
+      ( Core.catMaybes
+          [ ("height" Core..=) Core.<$> height,
+            ("y" Core..=) Core.<$> y,
+            ("width" Core..=) Core.<$> width,
+            ("x" Core..=) Core.<$> x
           ]
       )

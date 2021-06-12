@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.CampaignState where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.CampaignStatus
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the status of a campaign.
 --
@@ -35,9 +34,9 @@ data CampaignState = CampaignState'
     -- only if all campaign treatments have a status of COMPLETED. If you
     -- delete the segment that\'s associated with a campaign, the campaign
     -- fails and has a status of DELETED.
-    campaignStatus :: Prelude.Maybe CampaignStatus
+    campaignStatus :: Core.Maybe CampaignStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CampaignState' with all optional fields omitted.
@@ -57,7 +56,7 @@ data CampaignState = CampaignState'
 newCampaignState ::
   CampaignState
 newCampaignState =
-  CampaignState' {campaignStatus = Prelude.Nothing}
+  CampaignState' {campaignStatus = Core.Nothing}
 
 -- | The current status of the campaign, or the current status of a treatment
 -- that belongs to an A\/B test campaign.
@@ -66,18 +65,18 @@ newCampaignState =
 -- only if all campaign treatments have a status of COMPLETED. If you
 -- delete the segment that\'s associated with a campaign, the campaign
 -- fails and has a status of DELETED.
-campaignState_campaignStatus :: Lens.Lens' CampaignState (Prelude.Maybe CampaignStatus)
+campaignState_campaignStatus :: Lens.Lens' CampaignState (Core.Maybe CampaignStatus)
 campaignState_campaignStatus = Lens.lens (\CampaignState' {campaignStatus} -> campaignStatus) (\s@CampaignState' {} a -> s {campaignStatus = a} :: CampaignState)
 
-instance Prelude.FromJSON CampaignState where
+instance Core.FromJSON CampaignState where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CampaignState"
       ( \x ->
           CampaignState'
-            Prelude.<$> (x Prelude..:? "CampaignStatus")
+            Core.<$> (x Core..:? "CampaignStatus")
       )
 
-instance Prelude.Hashable CampaignState
+instance Core.Hashable CampaignState
 
-instance Prelude.NFData CampaignState
+instance Core.NFData CampaignState

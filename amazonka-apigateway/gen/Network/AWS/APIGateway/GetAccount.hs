@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.APIGateway.GetAccount
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data GetAccount = GetAccount'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAccount' with all optional fields omitted.
@@ -62,28 +61,28 @@ newGetAccount ::
   GetAccount
 newGetAccount = GetAccount'
 
-instance Prelude.AWSRequest GetAccount where
-  type Rs GetAccount = Account
+instance Core.AWSRequest GetAccount where
+  type AWSResponse GetAccount = Account
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetAccount
+instance Core.Hashable GetAccount
 
-instance Prelude.NFData GetAccount
+instance Core.NFData GetAccount
 
-instance Prelude.ToHeaders GetAccount where
+instance Core.ToHeaders GetAccount where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetAccount where
-  toPath = Prelude.const "/account"
+instance Core.ToPath GetAccount where
+  toPath = Core.const "/account"
 
-instance Prelude.ToQuery GetAccount where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetAccount where
+  toQuery = Core.const Core.mempty

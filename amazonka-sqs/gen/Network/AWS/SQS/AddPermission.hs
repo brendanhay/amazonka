@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,8 +71,8 @@ module Network.AWS.SQS.AddPermission
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -85,11 +84,11 @@ data AddPermission = AddPermission'
   { -- | The URL of the Amazon SQS queue to which permissions are added.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Prelude.Text,
+    queueUrl :: Core.Text,
     -- | The unique identification of the permission you\'re setting (for
     -- example, @AliceSendMessage@). Maximum 80 characters. Allowed characters
     -- include alphanumeric characters, hyphens (@-@), and underscores (@_@).
-    label :: Prelude.Text,
+    label :: Core.Text,
     -- | The AWS account number of the
     -- <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal>
     -- who is given permission. The principal must have an AWS account, but
@@ -97,7 +96,7 @@ data AddPermission = AddPermission'
     -- locating the AWS account identification, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers>
     -- in the /Amazon Simple Queue Service Developer Guide/.
-    aWSAccountIds :: [Prelude.Text],
+    aWSAccountIds :: [Core.Text],
     -- | The action the client wants to allow for the specified principal. Valid
     -- values: the name of any action or @*@.
     --
@@ -109,9 +108,9 @@ data AddPermission = AddPermission'
     -- for @ActionName.n@ also grants permissions for the corresponding batch
     -- versions of those actions: @SendMessageBatch@, @DeleteMessageBatch@, and
     -- @ChangeMessageVisibilityBatch@.
-    actions :: [Prelude.Text]
+    actions :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddPermission' with all optional fields omitted.
@@ -150,28 +149,28 @@ data AddPermission = AddPermission'
 -- @ChangeMessageVisibilityBatch@.
 newAddPermission ::
   -- | 'queueUrl'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'label'
-  Prelude.Text ->
+  Core.Text ->
   AddPermission
 newAddPermission pQueueUrl_ pLabel_ =
   AddPermission'
     { queueUrl = pQueueUrl_,
       label = pLabel_,
-      aWSAccountIds = Prelude.mempty,
-      actions = Prelude.mempty
+      aWSAccountIds = Core.mempty,
+      actions = Core.mempty
     }
 
 -- | The URL of the Amazon SQS queue to which permissions are added.
 --
 -- Queue URLs and names are case-sensitive.
-addPermission_queueUrl :: Lens.Lens' AddPermission Prelude.Text
+addPermission_queueUrl :: Lens.Lens' AddPermission Core.Text
 addPermission_queueUrl = Lens.lens (\AddPermission' {queueUrl} -> queueUrl) (\s@AddPermission' {} a -> s {queueUrl = a} :: AddPermission)
 
 -- | The unique identification of the permission you\'re setting (for
 -- example, @AliceSendMessage@). Maximum 80 characters. Allowed characters
 -- include alphanumeric characters, hyphens (@-@), and underscores (@_@).
-addPermission_label :: Lens.Lens' AddPermission Prelude.Text
+addPermission_label :: Lens.Lens' AddPermission Core.Text
 addPermission_label = Lens.lens (\AddPermission' {label} -> label) (\s@AddPermission' {} a -> s {label = a} :: AddPermission)
 
 -- | The AWS account number of the
@@ -181,8 +180,8 @@ addPermission_label = Lens.lens (\AddPermission' {label} -> label) (\s@AddPermis
 -- locating the AWS account identification, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers>
 -- in the /Amazon Simple Queue Service Developer Guide/.
-addPermission_aWSAccountIds :: Lens.Lens' AddPermission [Prelude.Text]
-addPermission_aWSAccountIds = Lens.lens (\AddPermission' {aWSAccountIds} -> aWSAccountIds) (\s@AddPermission' {} a -> s {aWSAccountIds = a} :: AddPermission) Prelude.. Prelude._Coerce
+addPermission_aWSAccountIds :: Lens.Lens' AddPermission [Core.Text]
+addPermission_aWSAccountIds = Lens.lens (\AddPermission' {aWSAccountIds} -> aWSAccountIds) (\s@AddPermission' {} a -> s {aWSAccountIds = a} :: AddPermission) Core.. Lens._Coerce
 
 -- | The action the client wants to allow for the specified principal. Valid
 -- values: the name of any action or @*@.
@@ -195,43 +194,44 @@ addPermission_aWSAccountIds = Lens.lens (\AddPermission' {aWSAccountIds} -> aWSA
 -- for @ActionName.n@ also grants permissions for the corresponding batch
 -- versions of those actions: @SendMessageBatch@, @DeleteMessageBatch@, and
 -- @ChangeMessageVisibilityBatch@.
-addPermission_actions :: Lens.Lens' AddPermission [Prelude.Text]
-addPermission_actions = Lens.lens (\AddPermission' {actions} -> actions) (\s@AddPermission' {} a -> s {actions = a} :: AddPermission) Prelude.. Prelude._Coerce
+addPermission_actions :: Lens.Lens' AddPermission [Core.Text]
+addPermission_actions = Lens.lens (\AddPermission' {actions} -> actions) (\s@AddPermission' {} a -> s {actions = a} :: AddPermission) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddPermission where
-  type Rs AddPermission = AddPermissionResponse
+instance Core.AWSRequest AddPermission where
+  type
+    AWSResponse AddPermission =
+      AddPermissionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull AddPermissionResponse'
 
-instance Prelude.Hashable AddPermission
+instance Core.Hashable AddPermission
 
-instance Prelude.NFData AddPermission
+instance Core.NFData AddPermission
 
-instance Prelude.ToHeaders AddPermission where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AddPermission where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AddPermission where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddPermission where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddPermission where
+instance Core.ToQuery AddPermission where
   toQuery AddPermission' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AddPermission" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Prelude.=: queueUrl,
-        "Label" Prelude.=: label,
-        Prelude.toQueryList "AWSAccountId" aWSAccountIds,
-        Prelude.toQueryList "ActionName" actions
+          Core.=: ("AddPermission" :: Core.ByteString),
+        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+        "QueueUrl" Core.=: queueUrl,
+        "Label" Core.=: label,
+        Core.toQueryList "AWSAccountId" aWSAccountIds,
+        Core.toQueryList "ActionName" actions
       ]
 
 -- | /See:/ 'newAddPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddPermissionResponse' with all optional fields omitted.
@@ -241,4 +241,4 @@ newAddPermissionResponse ::
   AddPermissionResponse
 newAddPermissionResponse = AddPermissionResponse'
 
-instance Prelude.NFData AddPermissionResponse
+instance Core.NFData AddPermissionResponse

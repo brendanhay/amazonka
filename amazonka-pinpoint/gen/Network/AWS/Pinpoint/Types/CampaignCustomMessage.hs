@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.CampaignCustomMessage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the contents of a message that\'s sent through a custom
 -- channel to recipients of a campaign.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data CampaignCustomMessage = CampaignCustomMessage'
   { -- | The raw, JSON-formatted string to use as the payload for the message.
     -- The maximum size is 5 KB.
-    data' :: Prelude.Maybe Prelude.Text
+    data' :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CampaignCustomMessage' with all optional fields omitted.
@@ -47,29 +46,26 @@ data CampaignCustomMessage = CampaignCustomMessage'
 newCampaignCustomMessage ::
   CampaignCustomMessage
 newCampaignCustomMessage =
-  CampaignCustomMessage' {data' = Prelude.Nothing}
+  CampaignCustomMessage' {data' = Core.Nothing}
 
 -- | The raw, JSON-formatted string to use as the payload for the message.
 -- The maximum size is 5 KB.
-campaignCustomMessage_data :: Lens.Lens' CampaignCustomMessage (Prelude.Maybe Prelude.Text)
+campaignCustomMessage_data :: Lens.Lens' CampaignCustomMessage (Core.Maybe Core.Text)
 campaignCustomMessage_data = Lens.lens (\CampaignCustomMessage' {data'} -> data') (\s@CampaignCustomMessage' {} a -> s {data' = a} :: CampaignCustomMessage)
 
-instance Prelude.FromJSON CampaignCustomMessage where
+instance Core.FromJSON CampaignCustomMessage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CampaignCustomMessage"
       ( \x ->
-          CampaignCustomMessage'
-            Prelude.<$> (x Prelude..:? "Data")
+          CampaignCustomMessage' Core.<$> (x Core..:? "Data")
       )
 
-instance Prelude.Hashable CampaignCustomMessage
+instance Core.Hashable CampaignCustomMessage
 
-instance Prelude.NFData CampaignCustomMessage
+instance Core.NFData CampaignCustomMessage
 
-instance Prelude.ToJSON CampaignCustomMessage where
+instance Core.ToJSON CampaignCustomMessage where
   toJSON CampaignCustomMessage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Data" Prelude..=) Prelude.<$> data']
-      )
+    Core.object
+      (Core.catMaybes [("Data" Core..=) Core.<$> data'])

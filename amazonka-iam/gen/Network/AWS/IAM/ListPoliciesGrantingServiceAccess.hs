@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -81,9 +80,9 @@ module Network.AWS.IAM.ListPoliciesGrantingServiceAccess
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -93,10 +92,10 @@ data ListPoliciesGrantingServiceAccess = ListPoliciesGrantingServiceAccess'
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The ARN of the IAM identity (user, group, or role) whose policies you
     -- want to list.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | The service namespace for the AWS services whose policies you want to
     -- list.
     --
@@ -108,9 +107,9 @@ data ListPoliciesGrantingServiceAccess = ListPoliciesGrantingServiceAccess'
     -- namespaces, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS service namespaces>
     -- in the /AWS General Reference/.
-    serviceNamespaces :: Prelude.NonEmpty Prelude.Text
+    serviceNamespaces :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPoliciesGrantingServiceAccess' with all optional fields omitted.
@@ -141,19 +140,19 @@ data ListPoliciesGrantingServiceAccess = ListPoliciesGrantingServiceAccess'
 -- in the /AWS General Reference/.
 newListPoliciesGrantingServiceAccess ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serviceNamespaces'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   ListPoliciesGrantingServiceAccess
 newListPoliciesGrantingServiceAccess
   pArn_
   pServiceNamespaces_ =
     ListPoliciesGrantingServiceAccess'
       { marker =
-          Prelude.Nothing,
+          Core.Nothing,
         arn = pArn_,
         serviceNamespaces =
-          Prelude._Coerce
+          Lens._Coerce
             Lens.# pServiceNamespaces_
       }
 
@@ -161,12 +160,12 @@ newListPoliciesGrantingServiceAccess
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listPoliciesGrantingServiceAccess_marker :: Lens.Lens' ListPoliciesGrantingServiceAccess (Prelude.Maybe Prelude.Text)
+listPoliciesGrantingServiceAccess_marker :: Lens.Lens' ListPoliciesGrantingServiceAccess (Core.Maybe Core.Text)
 listPoliciesGrantingServiceAccess_marker = Lens.lens (\ListPoliciesGrantingServiceAccess' {marker} -> marker) (\s@ListPoliciesGrantingServiceAccess' {} a -> s {marker = a} :: ListPoliciesGrantingServiceAccess)
 
 -- | The ARN of the IAM identity (user, group, or role) whose policies you
 -- want to list.
-listPoliciesGrantingServiceAccess_arn :: Lens.Lens' ListPoliciesGrantingServiceAccess Prelude.Text
+listPoliciesGrantingServiceAccess_arn :: Lens.Lens' ListPoliciesGrantingServiceAccess Core.Text
 listPoliciesGrantingServiceAccess_arn = Lens.lens (\ListPoliciesGrantingServiceAccess' {arn} -> arn) (\s@ListPoliciesGrantingServiceAccess' {} a -> s {arn = a} :: ListPoliciesGrantingServiceAccess)
 
 -- | The service namespace for the AWS services whose policies you want to
@@ -180,15 +179,15 @@ listPoliciesGrantingServiceAccess_arn = Lens.lens (\ListPoliciesGrantingServiceA
 -- namespaces, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS service namespaces>
 -- in the /AWS General Reference/.
-listPoliciesGrantingServiceAccess_serviceNamespaces :: Lens.Lens' ListPoliciesGrantingServiceAccess (Prelude.NonEmpty Prelude.Text)
-listPoliciesGrantingServiceAccess_serviceNamespaces = Lens.lens (\ListPoliciesGrantingServiceAccess' {serviceNamespaces} -> serviceNamespaces) (\s@ListPoliciesGrantingServiceAccess' {} a -> s {serviceNamespaces = a} :: ListPoliciesGrantingServiceAccess) Prelude.. Prelude._Coerce
+listPoliciesGrantingServiceAccess_serviceNamespaces :: Lens.Lens' ListPoliciesGrantingServiceAccess (Core.NonEmpty Core.Text)
+listPoliciesGrantingServiceAccess_serviceNamespaces = Lens.lens (\ListPoliciesGrantingServiceAccess' {serviceNamespaces} -> serviceNamespaces) (\s@ListPoliciesGrantingServiceAccess' {} a -> s {serviceNamespaces = a} :: ListPoliciesGrantingServiceAccess) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListPoliciesGrantingServiceAccess
   where
   type
-    Rs ListPoliciesGrantingServiceAccess =
+    AWSResponse ListPoliciesGrantingServiceAccess =
       ListPoliciesGrantingServiceAccessResponse
   request = Request.postQuery defaultService
   response =
@@ -196,51 +195,50 @@ instance
       "ListPoliciesGrantingServiceAccessResult"
       ( \s h x ->
           ListPoliciesGrantingServiceAccessResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-              Prelude.<*> (x Prelude..@? "Marker")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Prelude..@? "PoliciesGrantingServiceAccess"
-                              Prelude..!@ Prelude.mempty
-                              Prelude.>>= Prelude.parseXMLList "member"
-                          )
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "PoliciesGrantingServiceAccess"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListPoliciesGrantingServiceAccess
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListPoliciesGrantingServiceAccess
 
 instance
-  Prelude.ToHeaders
-    ListPoliciesGrantingServiceAccess
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     ListPoliciesGrantingServiceAccess
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    ListPoliciesGrantingServiceAccess
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     ListPoliciesGrantingServiceAccess
   where
   toQuery ListPoliciesGrantingServiceAccess' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ListPoliciesGrantingServiceAccess" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Prelude.=: marker,
-        "Arn" Prelude.=: arn,
+          Core.=: ( "ListPoliciesGrantingServiceAccess" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "Marker" Core.=: marker,
+        "Arn" Core.=: arn,
         "ServiceNamespaces"
-          Prelude.=: Prelude.toQueryList "member" serviceNamespaces
+          Core.=: Core.toQueryList "member" serviceNamespaces
       ]
 
 -- | /See:/ 'newListPoliciesGrantingServiceAccessResponse' smart constructor.
@@ -250,19 +248,19 @@ data ListPoliciesGrantingServiceAccessResponse = ListPoliciesGrantingServiceAcce
     -- using the @Marker@ request parameter to retrieve more items. We
     -- recommend that you check @IsTruncated@ after every call to ensure that
     -- you receive all your results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A @ListPoliciesGrantingServiceAccess@ object that contains details about
     -- the permissions policies attached to the specified identity (user,
     -- group, or role).
     policiesGrantingServiceAccess :: [ListPoliciesGrantingServiceAccessEntry]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPoliciesGrantingServiceAccessResponse' with all optional fields omitted.
@@ -289,17 +287,17 @@ data ListPoliciesGrantingServiceAccessResponse = ListPoliciesGrantingServiceAcce
 -- group, or role).
 newListPoliciesGrantingServiceAccessResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPoliciesGrantingServiceAccessResponse
 newListPoliciesGrantingServiceAccessResponse
   pHttpStatus_ =
     ListPoliciesGrantingServiceAccessResponse'
       { isTruncated =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+          Core.Nothing,
+        marker = Core.Nothing,
         httpStatus = pHttpStatus_,
         policiesGrantingServiceAccess =
-          Prelude.mempty
+          Core.mempty
       }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -307,25 +305,25 @@ newListPoliciesGrantingServiceAccessResponse
 -- using the @Marker@ request parameter to retrieve more items. We
 -- recommend that you check @IsTruncated@ after every call to ensure that
 -- you receive all your results.
-listPoliciesGrantingServiceAccessResponse_isTruncated :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Prelude.Maybe Prelude.Bool)
+listPoliciesGrantingServiceAccessResponse_isTruncated :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Core.Maybe Core.Bool)
 listPoliciesGrantingServiceAccessResponse_isTruncated = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {isTruncated} -> isTruncated) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {isTruncated = a} :: ListPoliciesGrantingServiceAccessResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listPoliciesGrantingServiceAccessResponse_marker :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Prelude.Maybe Prelude.Text)
+listPoliciesGrantingServiceAccessResponse_marker :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Core.Maybe Core.Text)
 listPoliciesGrantingServiceAccessResponse_marker = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {marker} -> marker) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {marker = a} :: ListPoliciesGrantingServiceAccessResponse)
 
 -- | The response's http status code.
-listPoliciesGrantingServiceAccessResponse_httpStatus :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse Prelude.Int
+listPoliciesGrantingServiceAccessResponse_httpStatus :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse Core.Int
 listPoliciesGrantingServiceAccessResponse_httpStatus = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {httpStatus} -> httpStatus) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {httpStatus = a} :: ListPoliciesGrantingServiceAccessResponse)
 
 -- | A @ListPoliciesGrantingServiceAccess@ object that contains details about
 -- the permissions policies attached to the specified identity (user,
 -- group, or role).
 listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse [ListPoliciesGrantingServiceAccessEntry]
-listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {policiesGrantingServiceAccess} -> policiesGrantingServiceAccess) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {policiesGrantingServiceAccess = a} :: ListPoliciesGrantingServiceAccessResponse) Prelude.. Prelude._Coerce
+listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {policiesGrantingServiceAccess} -> policiesGrantingServiceAccess) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {policiesGrantingServiceAccess = a} :: ListPoliciesGrantingServiceAccessResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListPoliciesGrantingServiceAccessResponse

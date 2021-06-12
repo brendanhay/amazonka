@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Rtmp Caption Info Destination Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data RtmpCaptionInfoDestinationSettings = RtmpCaptionInfoDestinationSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RtmpCaptionInfoDestinationSettings' with all optional fields omitted.
@@ -41,27 +40,26 @@ newRtmpCaptionInfoDestinationSettings =
   RtmpCaptionInfoDestinationSettings'
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     RtmpCaptionInfoDestinationSettings
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RtmpCaptionInfoDestinationSettings"
       ( \x ->
-          Prelude.pure RtmpCaptionInfoDestinationSettings'
+          Core.pure RtmpCaptionInfoDestinationSettings'
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RtmpCaptionInfoDestinationSettings
 
 instance
-  Prelude.NFData
+  Core.NFData
     RtmpCaptionInfoDestinationSettings
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     RtmpCaptionInfoDestinationSettings
   where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+  toJSON = Core.const (Core.Object Core.mempty)

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.AlgorithmValidationSpecification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AlgorithmValidationProfile
 
 -- | Specifies configurations for one or more training jobs that Amazon
@@ -30,13 +29,13 @@ import Network.AWS.SageMaker.Types.AlgorithmValidationProfile
 -- /See:/ 'newAlgorithmValidationSpecification' smart constructor.
 data AlgorithmValidationSpecification = AlgorithmValidationSpecification'
   { -- | The IAM roles that Amazon SageMaker uses to run the training jobs.
-    validationRole :: Prelude.Text,
+    validationRole :: Core.Text,
     -- | An array of @AlgorithmValidationProfile@ objects, each of which
     -- specifies a training job and batch transform job that Amazon SageMaker
     -- runs to validate your algorithm.
-    validationProfiles :: Prelude.NonEmpty AlgorithmValidationProfile
+    validationProfiles :: Core.NonEmpty AlgorithmValidationProfile
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AlgorithmValidationSpecification' with all optional fields omitted.
@@ -53,9 +52,9 @@ data AlgorithmValidationSpecification = AlgorithmValidationSpecification'
 -- runs to validate your algorithm.
 newAlgorithmValidationSpecification ::
   -- | 'validationRole'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'validationProfiles'
-  Prelude.NonEmpty AlgorithmValidationProfile ->
+  Core.NonEmpty AlgorithmValidationProfile ->
   AlgorithmValidationSpecification
 newAlgorithmValidationSpecification
   pValidationRole_
@@ -64,53 +63,45 @@ newAlgorithmValidationSpecification
       { validationRole =
           pValidationRole_,
         validationProfiles =
-          Prelude._Coerce
+          Lens._Coerce
             Lens.# pValidationProfiles_
       }
 
 -- | The IAM roles that Amazon SageMaker uses to run the training jobs.
-algorithmValidationSpecification_validationRole :: Lens.Lens' AlgorithmValidationSpecification Prelude.Text
+algorithmValidationSpecification_validationRole :: Lens.Lens' AlgorithmValidationSpecification Core.Text
 algorithmValidationSpecification_validationRole = Lens.lens (\AlgorithmValidationSpecification' {validationRole} -> validationRole) (\s@AlgorithmValidationSpecification' {} a -> s {validationRole = a} :: AlgorithmValidationSpecification)
 
 -- | An array of @AlgorithmValidationProfile@ objects, each of which
 -- specifies a training job and batch transform job that Amazon SageMaker
 -- runs to validate your algorithm.
-algorithmValidationSpecification_validationProfiles :: Lens.Lens' AlgorithmValidationSpecification (Prelude.NonEmpty AlgorithmValidationProfile)
-algorithmValidationSpecification_validationProfiles = Lens.lens (\AlgorithmValidationSpecification' {validationProfiles} -> validationProfiles) (\s@AlgorithmValidationSpecification' {} a -> s {validationProfiles = a} :: AlgorithmValidationSpecification) Prelude.. Prelude._Coerce
+algorithmValidationSpecification_validationProfiles :: Lens.Lens' AlgorithmValidationSpecification (Core.NonEmpty AlgorithmValidationProfile)
+algorithmValidationSpecification_validationProfiles = Lens.lens (\AlgorithmValidationSpecification' {validationProfiles} -> validationProfiles) (\s@AlgorithmValidationSpecification' {} a -> s {validationProfiles = a} :: AlgorithmValidationSpecification) Core.. Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     AlgorithmValidationSpecification
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AlgorithmValidationSpecification"
       ( \x ->
           AlgorithmValidationSpecification'
-            Prelude.<$> (x Prelude..: "ValidationRole")
-            Prelude.<*> (x Prelude..: "ValidationProfiles")
+            Core.<$> (x Core..: "ValidationRole")
+            Core.<*> (x Core..: "ValidationProfiles")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AlgorithmValidationSpecification
 
-instance
-  Prelude.NFData
-    AlgorithmValidationSpecification
+instance Core.NFData AlgorithmValidationSpecification
 
-instance
-  Prelude.ToJSON
-    AlgorithmValidationSpecification
-  where
+instance Core.ToJSON AlgorithmValidationSpecification where
   toJSON AlgorithmValidationSpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ValidationRole" Prelude..= validationRole),
-            Prelude.Just
-              ( "ValidationProfiles"
-                  Prelude..= validationProfiles
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ValidationRole" Core..= validationRole),
+            Core.Just
+              ("ValidationProfiles" Core..= validationProfiles)
           ]
       )

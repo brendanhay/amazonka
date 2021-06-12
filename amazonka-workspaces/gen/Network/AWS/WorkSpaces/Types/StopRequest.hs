@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.StopRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the information used to stop a WorkSpace.
 --
 -- /See:/ 'newStopRequest' smart constructor.
 data StopRequest = StopRequest'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Prelude.Maybe Prelude.Text
+    workspaceId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopRequest' with all optional fields omitted.
@@ -44,19 +43,19 @@ data StopRequest = StopRequest'
 newStopRequest ::
   StopRequest
 newStopRequest =
-  StopRequest' {workspaceId = Prelude.Nothing}
+  StopRequest' {workspaceId = Core.Nothing}
 
 -- | The identifier of the WorkSpace.
-stopRequest_workspaceId :: Lens.Lens' StopRequest (Prelude.Maybe Prelude.Text)
+stopRequest_workspaceId :: Lens.Lens' StopRequest (Core.Maybe Core.Text)
 stopRequest_workspaceId = Lens.lens (\StopRequest' {workspaceId} -> workspaceId) (\s@StopRequest' {} a -> s {workspaceId = a} :: StopRequest)
 
-instance Prelude.Hashable StopRequest
+instance Core.Hashable StopRequest
 
-instance Prelude.NFData StopRequest
+instance Core.NFData StopRequest
 
-instance Prelude.ToJSON StopRequest where
+instance Core.ToJSON StopRequest where
   toJSON StopRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("WorkspaceId" Prelude..=) Prelude.<$> workspaceId]
+    Core.object
+      ( Core.catMaybes
+          [("WorkspaceId" Core..=) Core.<$> workspaceId]
       )

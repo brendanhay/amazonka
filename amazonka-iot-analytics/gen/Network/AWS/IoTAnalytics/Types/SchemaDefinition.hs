@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.SchemaDefinition where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.Column
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information needed to define a schema.
 --
@@ -32,9 +31,9 @@ data SchemaDefinition = SchemaDefinition'
     --
     -- Each schema can have up to 100 columns. Each column can have up to 100
     -- nested types
-    columns :: Prelude.Maybe [Column]
+    columns :: Core.Maybe [Column]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SchemaDefinition' with all optional fields omitted.
@@ -51,31 +50,31 @@ data SchemaDefinition = SchemaDefinition'
 newSchemaDefinition ::
   SchemaDefinition
 newSchemaDefinition =
-  SchemaDefinition' {columns = Prelude.Nothing}
+  SchemaDefinition' {columns = Core.Nothing}
 
 -- | Specifies one or more columns that store your data.
 --
 -- Each schema can have up to 100 columns. Each column can have up to 100
 -- nested types
-schemaDefinition_columns :: Lens.Lens' SchemaDefinition (Prelude.Maybe [Column])
-schemaDefinition_columns = Lens.lens (\SchemaDefinition' {columns} -> columns) (\s@SchemaDefinition' {} a -> s {columns = a} :: SchemaDefinition) Prelude.. Lens.mapping Prelude._Coerce
+schemaDefinition_columns :: Lens.Lens' SchemaDefinition (Core.Maybe [Column])
+schemaDefinition_columns = Lens.lens (\SchemaDefinition' {columns} -> columns) (\s@SchemaDefinition' {} a -> s {columns = a} :: SchemaDefinition) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON SchemaDefinition where
+instance Core.FromJSON SchemaDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SchemaDefinition"
       ( \x ->
           SchemaDefinition'
-            Prelude.<$> (x Prelude..:? "columns" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "columns" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable SchemaDefinition
+instance Core.Hashable SchemaDefinition
 
-instance Prelude.NFData SchemaDefinition
+instance Core.NFData SchemaDefinition
 
-instance Prelude.ToJSON SchemaDefinition where
+instance Core.ToJSON SchemaDefinition where
   toJSON SchemaDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("columns" Prelude..=) Prelude.<$> columns]
+    Core.object
+      ( Core.catMaybes
+          [("columns" Core..=) Core.<$> columns]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -68,8 +67,8 @@ module Network.AWS.SageMaker.CreateExperiment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -78,18 +77,18 @@ import Network.AWS.SageMaker.Types
 data CreateExperiment = CreateExperiment'
   { -- | A list of tags to associate with the experiment. You can use Search API
     -- to search on the tags.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The description of the experiment.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the experiment as displayed. The name doesn\'t need to be
     -- unique. If you don\'t specify @DisplayName@, the value in
     -- @ExperimentName@ is displayed.
-    displayName :: Prelude.Maybe Prelude.Text,
+    displayName :: Core.Maybe Core.Text,
     -- | The name of the experiment. The name must be unique in your AWS account
     -- and is not case-sensitive.
-    experimentName :: Prelude.Text
+    experimentName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateExperiment' with all optional fields omitted.
@@ -112,90 +111,89 @@ data CreateExperiment = CreateExperiment'
 -- and is not case-sensitive.
 newCreateExperiment ::
   -- | 'experimentName'
-  Prelude.Text ->
+  Core.Text ->
   CreateExperiment
 newCreateExperiment pExperimentName_ =
   CreateExperiment'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      displayName = Prelude.Nothing,
+    { tags = Core.Nothing,
+      description = Core.Nothing,
+      displayName = Core.Nothing,
       experimentName = pExperimentName_
     }
 
 -- | A list of tags to associate with the experiment. You can use Search API
 -- to search on the tags.
-createExperiment_tags :: Lens.Lens' CreateExperiment (Prelude.Maybe [Tag])
-createExperiment_tags = Lens.lens (\CreateExperiment' {tags} -> tags) (\s@CreateExperiment' {} a -> s {tags = a} :: CreateExperiment) Prelude.. Lens.mapping Prelude._Coerce
+createExperiment_tags :: Lens.Lens' CreateExperiment (Core.Maybe [Tag])
+createExperiment_tags = Lens.lens (\CreateExperiment' {tags} -> tags) (\s@CreateExperiment' {} a -> s {tags = a} :: CreateExperiment) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of the experiment.
-createExperiment_description :: Lens.Lens' CreateExperiment (Prelude.Maybe Prelude.Text)
+createExperiment_description :: Lens.Lens' CreateExperiment (Core.Maybe Core.Text)
 createExperiment_description = Lens.lens (\CreateExperiment' {description} -> description) (\s@CreateExperiment' {} a -> s {description = a} :: CreateExperiment)
 
 -- | The name of the experiment as displayed. The name doesn\'t need to be
 -- unique. If you don\'t specify @DisplayName@, the value in
 -- @ExperimentName@ is displayed.
-createExperiment_displayName :: Lens.Lens' CreateExperiment (Prelude.Maybe Prelude.Text)
+createExperiment_displayName :: Lens.Lens' CreateExperiment (Core.Maybe Core.Text)
 createExperiment_displayName = Lens.lens (\CreateExperiment' {displayName} -> displayName) (\s@CreateExperiment' {} a -> s {displayName = a} :: CreateExperiment)
 
 -- | The name of the experiment. The name must be unique in your AWS account
 -- and is not case-sensitive.
-createExperiment_experimentName :: Lens.Lens' CreateExperiment Prelude.Text
+createExperiment_experimentName :: Lens.Lens' CreateExperiment Core.Text
 createExperiment_experimentName = Lens.lens (\CreateExperiment' {experimentName} -> experimentName) (\s@CreateExperiment' {} a -> s {experimentName = a} :: CreateExperiment)
 
-instance Prelude.AWSRequest CreateExperiment where
-  type Rs CreateExperiment = CreateExperimentResponse
+instance Core.AWSRequest CreateExperiment where
+  type
+    AWSResponse CreateExperiment =
+      CreateExperimentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateExperimentResponse'
-            Prelude.<$> (x Prelude..?> "ExperimentArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ExperimentArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateExperiment
+instance Core.Hashable CreateExperiment
 
-instance Prelude.NFData CreateExperiment
+instance Core.NFData CreateExperiment
 
-instance Prelude.ToHeaders CreateExperiment where
+instance Core.ToHeaders CreateExperiment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.CreateExperiment" :: Prelude.ByteString),
+              Core.=# ("SageMaker.CreateExperiment" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateExperiment where
+instance Core.ToJSON CreateExperiment where
   toJSON CreateExperiment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("DisplayName" Prelude..=) Prelude.<$> displayName,
-            Prelude.Just
-              ("ExperimentName" Prelude..= experimentName)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            ("DisplayName" Core..=) Core.<$> displayName,
+            Core.Just ("ExperimentName" Core..= experimentName)
           ]
       )
 
-instance Prelude.ToPath CreateExperiment where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateExperiment where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateExperiment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateExperiment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateExperimentResponse' smart constructor.
 data CreateExperimentResponse = CreateExperimentResponse'
   { -- | The Amazon Resource Name (ARN) of the experiment.
-    experimentArn :: Prelude.Maybe Prelude.Text,
+    experimentArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateExperimentResponse' with all optional fields omitted.
@@ -210,21 +208,21 @@ data CreateExperimentResponse = CreateExperimentResponse'
 -- 'httpStatus', 'createExperimentResponse_httpStatus' - The response's http status code.
 newCreateExperimentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateExperimentResponse
 newCreateExperimentResponse pHttpStatus_ =
   CreateExperimentResponse'
     { experimentArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the experiment.
-createExperimentResponse_experimentArn :: Lens.Lens' CreateExperimentResponse (Prelude.Maybe Prelude.Text)
+createExperimentResponse_experimentArn :: Lens.Lens' CreateExperimentResponse (Core.Maybe Core.Text)
 createExperimentResponse_experimentArn = Lens.lens (\CreateExperimentResponse' {experimentArn} -> experimentArn) (\s@CreateExperimentResponse' {} a -> s {experimentArn = a} :: CreateExperimentResponse)
 
 -- | The response's http status code.
-createExperimentResponse_httpStatus :: Lens.Lens' CreateExperimentResponse Prelude.Int
+createExperimentResponse_httpStatus :: Lens.Lens' CreateExperimentResponse Core.Int
 createExperimentResponse_httpStatus = Lens.lens (\CreateExperimentResponse' {httpStatus} -> httpStatus) (\s@CreateExperimentResponse' {} a -> s {httpStatus = a} :: CreateExperimentResponse)
 
-instance Prelude.NFData CreateExperimentResponse
+instance Core.NFData CreateExperimentResponse

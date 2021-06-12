@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.EC2.DeregisterImage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +59,11 @@ data DeregisterImage = DeregisterImage'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the AMI.
-    imageId :: Prelude.Text
+    imageId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterImage' with all optional fields omitted.
@@ -82,11 +81,11 @@ data DeregisterImage = DeregisterImage'
 -- 'imageId', 'deregisterImage_imageId' - The ID of the AMI.
 newDeregisterImage ::
   -- | 'imageId'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterImage
 newDeregisterImage pImageId_ =
   DeregisterImage'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       imageId = pImageId_
     }
 
@@ -94,45 +93,46 @@ newDeregisterImage pImageId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deregisterImage_dryRun :: Lens.Lens' DeregisterImage (Prelude.Maybe Prelude.Bool)
+deregisterImage_dryRun :: Lens.Lens' DeregisterImage (Core.Maybe Core.Bool)
 deregisterImage_dryRun = Lens.lens (\DeregisterImage' {dryRun} -> dryRun) (\s@DeregisterImage' {} a -> s {dryRun = a} :: DeregisterImage)
 
 -- | The ID of the AMI.
-deregisterImage_imageId :: Lens.Lens' DeregisterImage Prelude.Text
+deregisterImage_imageId :: Lens.Lens' DeregisterImage Core.Text
 deregisterImage_imageId = Lens.lens (\DeregisterImage' {imageId} -> imageId) (\s@DeregisterImage' {} a -> s {imageId = a} :: DeregisterImage)
 
-instance Prelude.AWSRequest DeregisterImage where
-  type Rs DeregisterImage = DeregisterImageResponse
+instance Core.AWSRequest DeregisterImage where
+  type
+    AWSResponse DeregisterImage =
+      DeregisterImageResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeregisterImageResponse'
 
-instance Prelude.Hashable DeregisterImage
+instance Core.Hashable DeregisterImage
 
-instance Prelude.NFData DeregisterImage
+instance Core.NFData DeregisterImage
 
-instance Prelude.ToHeaders DeregisterImage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeregisterImage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeregisterImage where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterImage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterImage where
+instance Core.ToQuery DeregisterImage where
   toQuery DeregisterImage' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeregisterImage" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "ImageId" Prelude.=: imageId
+          Core.=: ("DeregisterImage" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "ImageId" Core.=: imageId
       ]
 
 -- | /See:/ 'newDeregisterImageResponse' smart constructor.
 data DeregisterImageResponse = DeregisterImageResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterImageResponse' with all optional fields omitted.
@@ -142,4 +142,4 @@ newDeregisterImageResponse ::
   DeregisterImageResponse
 newDeregisterImageResponse = DeregisterImageResponse'
 
-instance Prelude.NFData DeregisterImageResponse
+instance Core.NFData DeregisterImageResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,19 +21,19 @@ module Network.AWS.CloudDirectory.Types.FacetAttributeUpdate where
 
 import Network.AWS.CloudDirectory.Types.FacetAttribute
 import Network.AWS.CloudDirectory.Types.UpdateActionType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that contains information used to update an attribute.
 --
 -- /See:/ 'newFacetAttributeUpdate' smart constructor.
 data FacetAttributeUpdate = FacetAttributeUpdate'
   { -- | The attribute to update.
-    attribute :: Prelude.Maybe FacetAttribute,
+    attribute :: Core.Maybe FacetAttribute,
     -- | The action to perform when updating the attribute.
-    action :: Prelude.Maybe UpdateActionType
+    action :: Core.Maybe UpdateActionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FacetAttributeUpdate' with all optional fields omitted.
@@ -51,27 +50,27 @@ newFacetAttributeUpdate ::
   FacetAttributeUpdate
 newFacetAttributeUpdate =
   FacetAttributeUpdate'
-    { attribute = Prelude.Nothing,
-      action = Prelude.Nothing
+    { attribute = Core.Nothing,
+      action = Core.Nothing
     }
 
 -- | The attribute to update.
-facetAttributeUpdate_attribute :: Lens.Lens' FacetAttributeUpdate (Prelude.Maybe FacetAttribute)
+facetAttributeUpdate_attribute :: Lens.Lens' FacetAttributeUpdate (Core.Maybe FacetAttribute)
 facetAttributeUpdate_attribute = Lens.lens (\FacetAttributeUpdate' {attribute} -> attribute) (\s@FacetAttributeUpdate' {} a -> s {attribute = a} :: FacetAttributeUpdate)
 
 -- | The action to perform when updating the attribute.
-facetAttributeUpdate_action :: Lens.Lens' FacetAttributeUpdate (Prelude.Maybe UpdateActionType)
+facetAttributeUpdate_action :: Lens.Lens' FacetAttributeUpdate (Core.Maybe UpdateActionType)
 facetAttributeUpdate_action = Lens.lens (\FacetAttributeUpdate' {action} -> action) (\s@FacetAttributeUpdate' {} a -> s {action = a} :: FacetAttributeUpdate)
 
-instance Prelude.Hashable FacetAttributeUpdate
+instance Core.Hashable FacetAttributeUpdate
 
-instance Prelude.NFData FacetAttributeUpdate
+instance Core.NFData FacetAttributeUpdate
 
-instance Prelude.ToJSON FacetAttributeUpdate where
+instance Core.ToJSON FacetAttributeUpdate where
   toJSON FacetAttributeUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Attribute" Prelude..=) Prelude.<$> attribute,
-            ("Action" Prelude..=) Prelude.<$> action
+    Core.object
+      ( Core.catMaybes
+          [ ("Attribute" Core..=) Core.<$> attribute,
+            ("Action" Core..=) Core.<$> action
           ]
       )

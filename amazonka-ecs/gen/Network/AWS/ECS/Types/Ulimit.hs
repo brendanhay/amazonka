@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.Ulimit where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.UlimitName
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The @ulimit@ settings to pass to the container.
 --
@@ -31,11 +30,11 @@ data Ulimit = Ulimit'
   { -- | The @type@ of the @ulimit@.
     name :: UlimitName,
     -- | The soft limit for the ulimit type.
-    softLimit :: Prelude.Int,
+    softLimit :: Core.Int,
     -- | The hard limit for the ulimit type.
-    hardLimit :: Prelude.Int
+    hardLimit :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Ulimit' with all optional fields omitted.
@@ -54,9 +53,9 @@ newUlimit ::
   -- | 'name'
   UlimitName ->
   -- | 'softLimit'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'hardLimit'
-  Prelude.Int ->
+  Core.Int ->
   Ulimit
 newUlimit pName_ pSoftLimit_ pHardLimit_ =
   Ulimit'
@@ -70,34 +69,34 @@ ulimit_name :: Lens.Lens' Ulimit UlimitName
 ulimit_name = Lens.lens (\Ulimit' {name} -> name) (\s@Ulimit' {} a -> s {name = a} :: Ulimit)
 
 -- | The soft limit for the ulimit type.
-ulimit_softLimit :: Lens.Lens' Ulimit Prelude.Int
+ulimit_softLimit :: Lens.Lens' Ulimit Core.Int
 ulimit_softLimit = Lens.lens (\Ulimit' {softLimit} -> softLimit) (\s@Ulimit' {} a -> s {softLimit = a} :: Ulimit)
 
 -- | The hard limit for the ulimit type.
-ulimit_hardLimit :: Lens.Lens' Ulimit Prelude.Int
+ulimit_hardLimit :: Lens.Lens' Ulimit Core.Int
 ulimit_hardLimit = Lens.lens (\Ulimit' {hardLimit} -> hardLimit) (\s@Ulimit' {} a -> s {hardLimit = a} :: Ulimit)
 
-instance Prelude.FromJSON Ulimit where
+instance Core.FromJSON Ulimit where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Ulimit"
       ( \x ->
           Ulimit'
-            Prelude.<$> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "softLimit")
-            Prelude.<*> (x Prelude..: "hardLimit")
+            Core.<$> (x Core..: "name")
+            Core.<*> (x Core..: "softLimit")
+            Core.<*> (x Core..: "hardLimit")
       )
 
-instance Prelude.Hashable Ulimit
+instance Core.Hashable Ulimit
 
-instance Prelude.NFData Ulimit
+instance Core.NFData Ulimit
 
-instance Prelude.ToJSON Ulimit where
+instance Core.ToJSON Ulimit where
   toJSON Ulimit' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("softLimit" Prelude..= softLimit),
-            Prelude.Just ("hardLimit" Prelude..= hardLimit)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("softLimit" Core..= softLimit),
+            Core.Just ("hardLimit" Core..= hardLimit)
           ]
       )

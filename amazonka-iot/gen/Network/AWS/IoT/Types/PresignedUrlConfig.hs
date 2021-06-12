@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.PresignedUrlConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration for pre-signed S3 URLs.
 --
@@ -30,13 +29,13 @@ data PresignedUrlConfig = PresignedUrlConfig'
   { -- | The ARN of an IAM role that grants grants permission to download files
     -- from the S3 bucket where the job data\/updates are stored. The role must
     -- also grant permission for IoT to download the files.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | How long (in seconds) pre-signed URLs are valid. Valid values are 60 -
     -- 3600, the default value is 3600 seconds. Pre-signed URLs are generated
     -- when Jobs receives an MQTT request for the job document.
-    expiresInSec :: Prelude.Maybe Prelude.Natural
+    expiresInSec :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PresignedUrlConfig' with all optional fields omitted.
@@ -57,42 +56,41 @@ newPresignedUrlConfig ::
   PresignedUrlConfig
 newPresignedUrlConfig =
   PresignedUrlConfig'
-    { roleArn = Prelude.Nothing,
-      expiresInSec = Prelude.Nothing
+    { roleArn = Core.Nothing,
+      expiresInSec = Core.Nothing
     }
 
 -- | The ARN of an IAM role that grants grants permission to download files
 -- from the S3 bucket where the job data\/updates are stored. The role must
 -- also grant permission for IoT to download the files.
-presignedUrlConfig_roleArn :: Lens.Lens' PresignedUrlConfig (Prelude.Maybe Prelude.Text)
+presignedUrlConfig_roleArn :: Lens.Lens' PresignedUrlConfig (Core.Maybe Core.Text)
 presignedUrlConfig_roleArn = Lens.lens (\PresignedUrlConfig' {roleArn} -> roleArn) (\s@PresignedUrlConfig' {} a -> s {roleArn = a} :: PresignedUrlConfig)
 
 -- | How long (in seconds) pre-signed URLs are valid. Valid values are 60 -
 -- 3600, the default value is 3600 seconds. Pre-signed URLs are generated
 -- when Jobs receives an MQTT request for the job document.
-presignedUrlConfig_expiresInSec :: Lens.Lens' PresignedUrlConfig (Prelude.Maybe Prelude.Natural)
+presignedUrlConfig_expiresInSec :: Lens.Lens' PresignedUrlConfig (Core.Maybe Core.Natural)
 presignedUrlConfig_expiresInSec = Lens.lens (\PresignedUrlConfig' {expiresInSec} -> expiresInSec) (\s@PresignedUrlConfig' {} a -> s {expiresInSec = a} :: PresignedUrlConfig)
 
-instance Prelude.FromJSON PresignedUrlConfig where
+instance Core.FromJSON PresignedUrlConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PresignedUrlConfig"
       ( \x ->
           PresignedUrlConfig'
-            Prelude.<$> (x Prelude..:? "roleArn")
-            Prelude.<*> (x Prelude..:? "expiresInSec")
+            Core.<$> (x Core..:? "roleArn")
+            Core.<*> (x Core..:? "expiresInSec")
       )
 
-instance Prelude.Hashable PresignedUrlConfig
+instance Core.Hashable PresignedUrlConfig
 
-instance Prelude.NFData PresignedUrlConfig
+instance Core.NFData PresignedUrlConfig
 
-instance Prelude.ToJSON PresignedUrlConfig where
+instance Core.ToJSON PresignedUrlConfig where
   toJSON PresignedUrlConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("roleArn" Prelude..=) Prelude.<$> roleArn,
-            ("expiresInSec" Prelude..=)
-              Prelude.<$> expiresInSec
+    Core.object
+      ( Core.catMaybes
+          [ ("roleArn" Core..=) Core.<$> roleArn,
+            ("expiresInSec" Core..=) Core.<$> expiresInSec
           ]
       )

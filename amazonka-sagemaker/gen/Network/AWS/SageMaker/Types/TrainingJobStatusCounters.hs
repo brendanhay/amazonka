@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TrainingJobStatusCounters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The numbers of training jobs launched by a hyperparameter tuning job,
 -- categorized by status.
@@ -30,23 +29,23 @@ import qualified Network.AWS.Prelude as Prelude
 data TrainingJobStatusCounters = TrainingJobStatusCounters'
   { -- | The number of training jobs launched by a hyperparameter tuning job that
     -- were manually stopped.
-    stopped :: Prelude.Maybe Prelude.Natural,
+    stopped :: Core.Maybe Core.Natural,
     -- | The number of completed training jobs launched by the hyperparameter
     -- tuning job.
-    completed :: Prelude.Maybe Prelude.Natural,
+    completed :: Core.Maybe Core.Natural,
     -- | The number of training jobs that failed and can\'t be retried. A failed
     -- training job can\'t be retried if it failed because a client error
     -- occurred.
-    nonRetryableError :: Prelude.Maybe Prelude.Natural,
+    nonRetryableError :: Core.Maybe Core.Natural,
     -- | The number of in-progress training jobs launched by a hyperparameter
     -- tuning job.
-    inProgress :: Prelude.Maybe Prelude.Natural,
+    inProgress :: Core.Maybe Core.Natural,
     -- | The number of training jobs that failed, but can be retried. A failed
     -- training job can be retried only if it failed because an internal
     -- service error occurred.
-    retryableError :: Prelude.Maybe Prelude.Natural
+    retryableError :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrainingJobStatusCounters' with all optional fields omitted.
@@ -76,54 +75,53 @@ newTrainingJobStatusCounters ::
   TrainingJobStatusCounters
 newTrainingJobStatusCounters =
   TrainingJobStatusCounters'
-    { stopped =
-        Prelude.Nothing,
-      completed = Prelude.Nothing,
-      nonRetryableError = Prelude.Nothing,
-      inProgress = Prelude.Nothing,
-      retryableError = Prelude.Nothing
+    { stopped = Core.Nothing,
+      completed = Core.Nothing,
+      nonRetryableError = Core.Nothing,
+      inProgress = Core.Nothing,
+      retryableError = Core.Nothing
     }
 
 -- | The number of training jobs launched by a hyperparameter tuning job that
 -- were manually stopped.
-trainingJobStatusCounters_stopped :: Lens.Lens' TrainingJobStatusCounters (Prelude.Maybe Prelude.Natural)
+trainingJobStatusCounters_stopped :: Lens.Lens' TrainingJobStatusCounters (Core.Maybe Core.Natural)
 trainingJobStatusCounters_stopped = Lens.lens (\TrainingJobStatusCounters' {stopped} -> stopped) (\s@TrainingJobStatusCounters' {} a -> s {stopped = a} :: TrainingJobStatusCounters)
 
 -- | The number of completed training jobs launched by the hyperparameter
 -- tuning job.
-trainingJobStatusCounters_completed :: Lens.Lens' TrainingJobStatusCounters (Prelude.Maybe Prelude.Natural)
+trainingJobStatusCounters_completed :: Lens.Lens' TrainingJobStatusCounters (Core.Maybe Core.Natural)
 trainingJobStatusCounters_completed = Lens.lens (\TrainingJobStatusCounters' {completed} -> completed) (\s@TrainingJobStatusCounters' {} a -> s {completed = a} :: TrainingJobStatusCounters)
 
 -- | The number of training jobs that failed and can\'t be retried. A failed
 -- training job can\'t be retried if it failed because a client error
 -- occurred.
-trainingJobStatusCounters_nonRetryableError :: Lens.Lens' TrainingJobStatusCounters (Prelude.Maybe Prelude.Natural)
+trainingJobStatusCounters_nonRetryableError :: Lens.Lens' TrainingJobStatusCounters (Core.Maybe Core.Natural)
 trainingJobStatusCounters_nonRetryableError = Lens.lens (\TrainingJobStatusCounters' {nonRetryableError} -> nonRetryableError) (\s@TrainingJobStatusCounters' {} a -> s {nonRetryableError = a} :: TrainingJobStatusCounters)
 
 -- | The number of in-progress training jobs launched by a hyperparameter
 -- tuning job.
-trainingJobStatusCounters_inProgress :: Lens.Lens' TrainingJobStatusCounters (Prelude.Maybe Prelude.Natural)
+trainingJobStatusCounters_inProgress :: Lens.Lens' TrainingJobStatusCounters (Core.Maybe Core.Natural)
 trainingJobStatusCounters_inProgress = Lens.lens (\TrainingJobStatusCounters' {inProgress} -> inProgress) (\s@TrainingJobStatusCounters' {} a -> s {inProgress = a} :: TrainingJobStatusCounters)
 
 -- | The number of training jobs that failed, but can be retried. A failed
 -- training job can be retried only if it failed because an internal
 -- service error occurred.
-trainingJobStatusCounters_retryableError :: Lens.Lens' TrainingJobStatusCounters (Prelude.Maybe Prelude.Natural)
+trainingJobStatusCounters_retryableError :: Lens.Lens' TrainingJobStatusCounters (Core.Maybe Core.Natural)
 trainingJobStatusCounters_retryableError = Lens.lens (\TrainingJobStatusCounters' {retryableError} -> retryableError) (\s@TrainingJobStatusCounters' {} a -> s {retryableError = a} :: TrainingJobStatusCounters)
 
-instance Prelude.FromJSON TrainingJobStatusCounters where
+instance Core.FromJSON TrainingJobStatusCounters where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrainingJobStatusCounters"
       ( \x ->
           TrainingJobStatusCounters'
-            Prelude.<$> (x Prelude..:? "Stopped")
-            Prelude.<*> (x Prelude..:? "Completed")
-            Prelude.<*> (x Prelude..:? "NonRetryableError")
-            Prelude.<*> (x Prelude..:? "InProgress")
-            Prelude.<*> (x Prelude..:? "RetryableError")
+            Core.<$> (x Core..:? "Stopped")
+            Core.<*> (x Core..:? "Completed")
+            Core.<*> (x Core..:? "NonRetryableError")
+            Core.<*> (x Core..:? "InProgress")
+            Core.<*> (x Core..:? "RetryableError")
       )
 
-instance Prelude.Hashable TrainingJobStatusCounters
+instance Core.Hashable TrainingJobStatusCounters
 
-instance Prelude.NFData TrainingJobStatusCounters
+instance Core.NFData TrainingJobStatusCounters

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ReplicationTime where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ReplicationTimeStatus
 import Network.AWS.S3.Types.ReplicationTimeValue
@@ -39,7 +38,7 @@ data ReplicationTime = ReplicationTime'
     -- for all objects and operations on objects.
     time :: ReplicationTimeValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicationTime' with all optional fields omitted.
@@ -71,17 +70,16 @@ replicationTime_status = Lens.lens (\ReplicationTime' {status} -> status) (\s@Re
 replicationTime_time :: Lens.Lens' ReplicationTime ReplicationTimeValue
 replicationTime_time = Lens.lens (\ReplicationTime' {time} -> time) (\s@ReplicationTime' {} a -> s {time = a} :: ReplicationTime)
 
-instance Prelude.FromXML ReplicationTime where
+instance Core.FromXML ReplicationTime where
   parseXML x =
     ReplicationTime'
-      Prelude.<$> (x Prelude..@ "Status")
-      Prelude.<*> (x Prelude..@ "Time")
+      Core.<$> (x Core..@ "Status") Core.<*> (x Core..@ "Time")
 
-instance Prelude.Hashable ReplicationTime
+instance Core.Hashable ReplicationTime
 
-instance Prelude.NFData ReplicationTime
+instance Core.NFData ReplicationTime
 
-instance Prelude.ToXML ReplicationTime where
+instance Core.ToXML ReplicationTime where
   toXML ReplicationTime' {..} =
-    Prelude.mconcat
-      ["Status" Prelude.@= status, "Time" Prelude.@= time]
+    Core.mconcat
+      ["Status" Core.@= status, "Time" Core.@= time]

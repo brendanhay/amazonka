@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ApplicationAutoScaling.Types.Alarm where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a CloudWatch alarm associated with a scaling policy.
 --
 -- /See:/ 'newAlarm' smart constructor.
 data Alarm = Alarm'
   { -- | The name of the alarm.
-    alarmName :: Prelude.Text,
+    alarmName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the alarm.
-    alarmARN :: Prelude.Text
+    alarmARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Alarm' with all optional fields omitted.
@@ -47,9 +46,9 @@ data Alarm = Alarm'
 -- 'alarmARN', 'alarm_alarmARN' - The Amazon Resource Name (ARN) of the alarm.
 newAlarm ::
   -- | 'alarmName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'alarmARN'
-  Prelude.Text ->
+  Core.Text ->
   Alarm
 newAlarm pAlarmName_ pAlarmARN_ =
   Alarm'
@@ -58,23 +57,23 @@ newAlarm pAlarmName_ pAlarmARN_ =
     }
 
 -- | The name of the alarm.
-alarm_alarmName :: Lens.Lens' Alarm Prelude.Text
+alarm_alarmName :: Lens.Lens' Alarm Core.Text
 alarm_alarmName = Lens.lens (\Alarm' {alarmName} -> alarmName) (\s@Alarm' {} a -> s {alarmName = a} :: Alarm)
 
 -- | The Amazon Resource Name (ARN) of the alarm.
-alarm_alarmARN :: Lens.Lens' Alarm Prelude.Text
+alarm_alarmARN :: Lens.Lens' Alarm Core.Text
 alarm_alarmARN = Lens.lens (\Alarm' {alarmARN} -> alarmARN) (\s@Alarm' {} a -> s {alarmARN = a} :: Alarm)
 
-instance Prelude.FromJSON Alarm where
+instance Core.FromJSON Alarm where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Alarm"
       ( \x ->
           Alarm'
-            Prelude.<$> (x Prelude..: "AlarmName")
-            Prelude.<*> (x Prelude..: "AlarmARN")
+            Core.<$> (x Core..: "AlarmName")
+            Core.<*> (x Core..: "AlarmARN")
       )
 
-instance Prelude.Hashable Alarm
+instance Core.Hashable Alarm
 
-instance Prelude.NFData Alarm
+instance Core.NFData Alarm

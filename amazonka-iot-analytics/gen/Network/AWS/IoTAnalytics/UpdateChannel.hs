@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.IoTAnalytics.UpdateChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,16 +48,16 @@ data UpdateChannel = UpdateChannel'
   { -- | How long, in days, message data is kept for the channel. The retention
     -- period cannot be updated if the channel\'s S3 storage is
     -- customer-managed.
-    retentionPeriod :: Prelude.Maybe RetentionPeriod,
+    retentionPeriod :: Core.Maybe RetentionPeriod,
     -- | Where channel data is stored. You can choose one of @serviceManagedS3@
     -- or @customerManagedS3@ storage. If not specified, the default is
     -- @serviceManagedS3@. You cannot change this storage option after the
     -- channel is created.
-    channelStorage :: Prelude.Maybe ChannelStorage,
+    channelStorage :: Core.Maybe ChannelStorage,
     -- | The name of the channel to be updated.
-    channelName :: Prelude.Text
+    channelName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateChannel' with all optional fields omitted.
@@ -80,69 +79,69 @@ data UpdateChannel = UpdateChannel'
 -- 'channelName', 'updateChannel_channelName' - The name of the channel to be updated.
 newUpdateChannel ::
   -- | 'channelName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateChannel
 newUpdateChannel pChannelName_ =
   UpdateChannel'
-    { retentionPeriod = Prelude.Nothing,
-      channelStorage = Prelude.Nothing,
+    { retentionPeriod = Core.Nothing,
+      channelStorage = Core.Nothing,
       channelName = pChannelName_
     }
 
 -- | How long, in days, message data is kept for the channel. The retention
 -- period cannot be updated if the channel\'s S3 storage is
 -- customer-managed.
-updateChannel_retentionPeriod :: Lens.Lens' UpdateChannel (Prelude.Maybe RetentionPeriod)
+updateChannel_retentionPeriod :: Lens.Lens' UpdateChannel (Core.Maybe RetentionPeriod)
 updateChannel_retentionPeriod = Lens.lens (\UpdateChannel' {retentionPeriod} -> retentionPeriod) (\s@UpdateChannel' {} a -> s {retentionPeriod = a} :: UpdateChannel)
 
 -- | Where channel data is stored. You can choose one of @serviceManagedS3@
 -- or @customerManagedS3@ storage. If not specified, the default is
 -- @serviceManagedS3@. You cannot change this storage option after the
 -- channel is created.
-updateChannel_channelStorage :: Lens.Lens' UpdateChannel (Prelude.Maybe ChannelStorage)
+updateChannel_channelStorage :: Lens.Lens' UpdateChannel (Core.Maybe ChannelStorage)
 updateChannel_channelStorage = Lens.lens (\UpdateChannel' {channelStorage} -> channelStorage) (\s@UpdateChannel' {} a -> s {channelStorage = a} :: UpdateChannel)
 
 -- | The name of the channel to be updated.
-updateChannel_channelName :: Lens.Lens' UpdateChannel Prelude.Text
+updateChannel_channelName :: Lens.Lens' UpdateChannel Core.Text
 updateChannel_channelName = Lens.lens (\UpdateChannel' {channelName} -> channelName) (\s@UpdateChannel' {} a -> s {channelName = a} :: UpdateChannel)
 
-instance Prelude.AWSRequest UpdateChannel where
-  type Rs UpdateChannel = UpdateChannelResponse
+instance Core.AWSRequest UpdateChannel where
+  type
+    AWSResponse UpdateChannel =
+      UpdateChannelResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveNull UpdateChannelResponse'
 
-instance Prelude.Hashable UpdateChannel
+instance Core.Hashable UpdateChannel
 
-instance Prelude.NFData UpdateChannel
+instance Core.NFData UpdateChannel
 
-instance Prelude.ToHeaders UpdateChannel where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateChannel where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateChannel where
+instance Core.ToJSON UpdateChannel where
   toJSON UpdateChannel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("retentionPeriod" Prelude..=)
-              Prelude.<$> retentionPeriod,
-            ("channelStorage" Prelude..=)
-              Prelude.<$> channelStorage
+    Core.object
+      ( Core.catMaybes
+          [ ("retentionPeriod" Core..=)
+              Core.<$> retentionPeriod,
+            ("channelStorage" Core..=) Core.<$> channelStorage
           ]
       )
 
-instance Prelude.ToPath UpdateChannel where
+instance Core.ToPath UpdateChannel where
   toPath UpdateChannel' {..} =
-    Prelude.mconcat
-      ["/channels/", Prelude.toBS channelName]
+    Core.mconcat ["/channels/", Core.toBS channelName]
 
-instance Prelude.ToQuery UpdateChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateChannelResponse' smart constructor.
 data UpdateChannelResponse = UpdateChannelResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateChannelResponse' with all optional fields omitted.
@@ -152,4 +151,4 @@ newUpdateChannelResponse ::
   UpdateChannelResponse
 newUpdateChannelResponse = UpdateChannelResponse'
 
-instance Prelude.NFData UpdateChannelResponse
+instance Core.NFData UpdateChannelResponse

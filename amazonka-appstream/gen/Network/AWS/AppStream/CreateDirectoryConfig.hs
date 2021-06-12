@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.AppStream.CreateDirectoryConfig
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,15 +53,15 @@ import qualified Network.AWS.Response as Response
 data CreateDirectoryConfig = CreateDirectoryConfig'
   { -- | The credentials for the service account used by the fleet or image
     -- builder to connect to the directory.
-    serviceAccountCredentials :: Prelude.Maybe ServiceAccountCredentials,
+    serviceAccountCredentials :: Core.Maybe ServiceAccountCredentials,
     -- | The fully qualified name of the directory (for example,
     -- corp.example.com).
-    directoryName :: Prelude.Text,
+    directoryName :: Core.Text,
     -- | The distinguished names of the organizational units for computer
     -- accounts.
-    organizationalUnitDistinguishedNames :: [Prelude.Text]
+    organizationalUnitDistinguishedNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDirectoryConfig' with all optional fields omitted.
@@ -82,93 +81,89 @@ data CreateDirectoryConfig = CreateDirectoryConfig'
 -- accounts.
 newCreateDirectoryConfig ::
   -- | 'directoryName'
-  Prelude.Text ->
+  Core.Text ->
   CreateDirectoryConfig
 newCreateDirectoryConfig pDirectoryName_ =
   CreateDirectoryConfig'
     { serviceAccountCredentials =
-        Prelude.Nothing,
+        Core.Nothing,
       directoryName = pDirectoryName_,
-      organizationalUnitDistinguishedNames =
-        Prelude.mempty
+      organizationalUnitDistinguishedNames = Core.mempty
     }
 
 -- | The credentials for the service account used by the fleet or image
 -- builder to connect to the directory.
-createDirectoryConfig_serviceAccountCredentials :: Lens.Lens' CreateDirectoryConfig (Prelude.Maybe ServiceAccountCredentials)
+createDirectoryConfig_serviceAccountCredentials :: Lens.Lens' CreateDirectoryConfig (Core.Maybe ServiceAccountCredentials)
 createDirectoryConfig_serviceAccountCredentials = Lens.lens (\CreateDirectoryConfig' {serviceAccountCredentials} -> serviceAccountCredentials) (\s@CreateDirectoryConfig' {} a -> s {serviceAccountCredentials = a} :: CreateDirectoryConfig)
 
 -- | The fully qualified name of the directory (for example,
 -- corp.example.com).
-createDirectoryConfig_directoryName :: Lens.Lens' CreateDirectoryConfig Prelude.Text
+createDirectoryConfig_directoryName :: Lens.Lens' CreateDirectoryConfig Core.Text
 createDirectoryConfig_directoryName = Lens.lens (\CreateDirectoryConfig' {directoryName} -> directoryName) (\s@CreateDirectoryConfig' {} a -> s {directoryName = a} :: CreateDirectoryConfig)
 
 -- | The distinguished names of the organizational units for computer
 -- accounts.
-createDirectoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' CreateDirectoryConfig [Prelude.Text]
-createDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\CreateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@CreateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: CreateDirectoryConfig) Prelude.. Prelude._Coerce
+createDirectoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' CreateDirectoryConfig [Core.Text]
+createDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\CreateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@CreateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: CreateDirectoryConfig) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateDirectoryConfig where
+instance Core.AWSRequest CreateDirectoryConfig where
   type
-    Rs CreateDirectoryConfig =
+    AWSResponse CreateDirectoryConfig =
       CreateDirectoryConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateDirectoryConfigResponse'
-            Prelude.<$> (x Prelude..?> "DirectoryConfig")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DirectoryConfig")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDirectoryConfig
+instance Core.Hashable CreateDirectoryConfig
 
-instance Prelude.NFData CreateDirectoryConfig
+instance Core.NFData CreateDirectoryConfig
 
-instance Prelude.ToHeaders CreateDirectoryConfig where
+instance Core.ToHeaders CreateDirectoryConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.CreateDirectoryConfig" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.CreateDirectoryConfig" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateDirectoryConfig where
+instance Core.ToJSON CreateDirectoryConfig where
   toJSON CreateDirectoryConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ServiceAccountCredentials" Prelude..=)
-              Prelude.<$> serviceAccountCredentials,
-            Prelude.Just
-              ("DirectoryName" Prelude..= directoryName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("ServiceAccountCredentials" Core..=)
+              Core.<$> serviceAccountCredentials,
+            Core.Just ("DirectoryName" Core..= directoryName),
+            Core.Just
               ( "OrganizationalUnitDistinguishedNames"
-                  Prelude..= organizationalUnitDistinguishedNames
+                  Core..= organizationalUnitDistinguishedNames
               )
           ]
       )
 
-instance Prelude.ToPath CreateDirectoryConfig where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDirectoryConfig where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDirectoryConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateDirectoryConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateDirectoryConfigResponse' smart constructor.
 data CreateDirectoryConfigResponse = CreateDirectoryConfigResponse'
   { -- | Information about the directory configuration.
-    directoryConfig :: Prelude.Maybe DirectoryConfig,
+    directoryConfig :: Core.Maybe DirectoryConfig,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDirectoryConfigResponse' with all optional fields omitted.
@@ -183,21 +178,21 @@ data CreateDirectoryConfigResponse = CreateDirectoryConfigResponse'
 -- 'httpStatus', 'createDirectoryConfigResponse_httpStatus' - The response's http status code.
 newCreateDirectoryConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDirectoryConfigResponse
 newCreateDirectoryConfigResponse pHttpStatus_ =
   CreateDirectoryConfigResponse'
     { directoryConfig =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the directory configuration.
-createDirectoryConfigResponse_directoryConfig :: Lens.Lens' CreateDirectoryConfigResponse (Prelude.Maybe DirectoryConfig)
+createDirectoryConfigResponse_directoryConfig :: Lens.Lens' CreateDirectoryConfigResponse (Core.Maybe DirectoryConfig)
 createDirectoryConfigResponse_directoryConfig = Lens.lens (\CreateDirectoryConfigResponse' {directoryConfig} -> directoryConfig) (\s@CreateDirectoryConfigResponse' {} a -> s {directoryConfig = a} :: CreateDirectoryConfigResponse)
 
 -- | The response's http status code.
-createDirectoryConfigResponse_httpStatus :: Lens.Lens' CreateDirectoryConfigResponse Prelude.Int
+createDirectoryConfigResponse_httpStatus :: Lens.Lens' CreateDirectoryConfigResponse Core.Int
 createDirectoryConfigResponse_httpStatus = Lens.lens (\CreateDirectoryConfigResponse' {httpStatus} -> httpStatus) (\s@CreateDirectoryConfigResponse' {} a -> s {httpStatus = a} :: CreateDirectoryConfigResponse)
 
-instance Prelude.NFData CreateDirectoryConfigResponse
+instance Core.NFData CreateDirectoryConfigResponse

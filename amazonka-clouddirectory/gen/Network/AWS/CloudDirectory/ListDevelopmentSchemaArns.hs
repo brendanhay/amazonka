@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,20 +45,19 @@ module Network.AWS.CloudDirectory.ListDevelopmentSchemaArns
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDevelopmentSchemaArns' smart constructor.
 data ListDevelopmentSchemaArns = ListDevelopmentSchemaArns'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDevelopmentSchemaArns' with all optional fields omitted.
@@ -77,90 +75,88 @@ newListDevelopmentSchemaArns ::
 newListDevelopmentSchemaArns =
   ListDevelopmentSchemaArns'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The pagination token.
-listDevelopmentSchemaArns_nextToken :: Lens.Lens' ListDevelopmentSchemaArns (Prelude.Maybe Prelude.Text)
+listDevelopmentSchemaArns_nextToken :: Lens.Lens' ListDevelopmentSchemaArns (Core.Maybe Core.Text)
 listDevelopmentSchemaArns_nextToken = Lens.lens (\ListDevelopmentSchemaArns' {nextToken} -> nextToken) (\s@ListDevelopmentSchemaArns' {} a -> s {nextToken = a} :: ListDevelopmentSchemaArns)
 
 -- | The maximum number of results to retrieve.
-listDevelopmentSchemaArns_maxResults :: Lens.Lens' ListDevelopmentSchemaArns (Prelude.Maybe Prelude.Natural)
+listDevelopmentSchemaArns_maxResults :: Lens.Lens' ListDevelopmentSchemaArns (Core.Maybe Core.Natural)
 listDevelopmentSchemaArns_maxResults = Lens.lens (\ListDevelopmentSchemaArns' {maxResults} -> maxResults) (\s@ListDevelopmentSchemaArns' {} a -> s {maxResults = a} :: ListDevelopmentSchemaArns)
 
-instance Pager.AWSPager ListDevelopmentSchemaArns where
+instance Core.AWSPager ListDevelopmentSchemaArns where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listDevelopmentSchemaArnsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listDevelopmentSchemaArnsResponse_schemaArns
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listDevelopmentSchemaArns_nextToken
           Lens..~ rs
           Lens.^? listDevelopmentSchemaArnsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListDevelopmentSchemaArns where
+instance Core.AWSRequest ListDevelopmentSchemaArns where
   type
-    Rs ListDevelopmentSchemaArns =
+    AWSResponse ListDevelopmentSchemaArns =
       ListDevelopmentSchemaArnsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListDevelopmentSchemaArnsResponse'
-            Prelude.<$> ( x Prelude..?> "SchemaArns"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SchemaArns" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListDevelopmentSchemaArns
+instance Core.Hashable ListDevelopmentSchemaArns
 
-instance Prelude.NFData ListDevelopmentSchemaArns
+instance Core.NFData ListDevelopmentSchemaArns
 
-instance Prelude.ToHeaders ListDevelopmentSchemaArns where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListDevelopmentSchemaArns where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON ListDevelopmentSchemaArns where
+instance Core.ToJSON ListDevelopmentSchemaArns where
   toJSON ListDevelopmentSchemaArns' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListDevelopmentSchemaArns where
+instance Core.ToPath ListDevelopmentSchemaArns where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/schema/development"
 
-instance Prelude.ToQuery ListDevelopmentSchemaArns where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListDevelopmentSchemaArns where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListDevelopmentSchemaArnsResponse' smart constructor.
 data ListDevelopmentSchemaArnsResponse = ListDevelopmentSchemaArnsResponse'
   { -- | The ARNs of retrieved development schemas.
-    schemaArns :: Prelude.Maybe [Prelude.Text],
+    schemaArns :: Core.Maybe [Core.Text],
     -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDevelopmentSchemaArnsResponse' with all optional fields omitted.
@@ -177,28 +173,28 @@ data ListDevelopmentSchemaArnsResponse = ListDevelopmentSchemaArnsResponse'
 -- 'httpStatus', 'listDevelopmentSchemaArnsResponse_httpStatus' - The response's http status code.
 newListDevelopmentSchemaArnsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDevelopmentSchemaArnsResponse
 newListDevelopmentSchemaArnsResponse pHttpStatus_ =
   ListDevelopmentSchemaArnsResponse'
     { schemaArns =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARNs of retrieved development schemas.
-listDevelopmentSchemaArnsResponse_schemaArns :: Lens.Lens' ListDevelopmentSchemaArnsResponse (Prelude.Maybe [Prelude.Text])
-listDevelopmentSchemaArnsResponse_schemaArns = Lens.lens (\ListDevelopmentSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListDevelopmentSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListDevelopmentSchemaArnsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listDevelopmentSchemaArnsResponse_schemaArns :: Lens.Lens' ListDevelopmentSchemaArnsResponse (Core.Maybe [Core.Text])
+listDevelopmentSchemaArnsResponse_schemaArns = Lens.lens (\ListDevelopmentSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListDevelopmentSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListDevelopmentSchemaArnsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The pagination token.
-listDevelopmentSchemaArnsResponse_nextToken :: Lens.Lens' ListDevelopmentSchemaArnsResponse (Prelude.Maybe Prelude.Text)
+listDevelopmentSchemaArnsResponse_nextToken :: Lens.Lens' ListDevelopmentSchemaArnsResponse (Core.Maybe Core.Text)
 listDevelopmentSchemaArnsResponse_nextToken = Lens.lens (\ListDevelopmentSchemaArnsResponse' {nextToken} -> nextToken) (\s@ListDevelopmentSchemaArnsResponse' {} a -> s {nextToken = a} :: ListDevelopmentSchemaArnsResponse)
 
 -- | The response's http status code.
-listDevelopmentSchemaArnsResponse_httpStatus :: Lens.Lens' ListDevelopmentSchemaArnsResponse Prelude.Int
+listDevelopmentSchemaArnsResponse_httpStatus :: Lens.Lens' ListDevelopmentSchemaArnsResponse Core.Int
 listDevelopmentSchemaArnsResponse_httpStatus = Lens.lens (\ListDevelopmentSchemaArnsResponse' {httpStatus} -> httpStatus) (\s@ListDevelopmentSchemaArnsResponse' {} a -> s {httpStatus = a} :: ListDevelopmentSchemaArnsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListDevelopmentSchemaArnsResponse

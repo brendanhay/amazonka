@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -80,28 +79,28 @@ module Network.AWS.DirectConnect.CreateInterconnect
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateInterconnect' smart constructor.
 data CreateInterconnect = CreateInterconnect'
   { -- | The name of the service provider associated with the interconnect.
-    providerName :: Prelude.Maybe Prelude.Text,
+    providerName :: Core.Maybe Core.Text,
     -- | The ID of the LAG.
-    lagId :: Prelude.Maybe Prelude.Text,
+    lagId :: Core.Maybe Core.Text,
     -- | The tags to associate with the interconnect.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The name of the interconnect.
-    interconnectName :: Prelude.Text,
+    interconnectName :: Core.Text,
     -- | The port bandwidth, in Gbps. The possible values are 1 and 10.
-    bandwidth :: Prelude.Text,
+    bandwidth :: Core.Text,
     -- | The location of the interconnect.
-    location :: Prelude.Text
+    location :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateInterconnect' with all optional fields omitted.
@@ -124,92 +123,89 @@ data CreateInterconnect = CreateInterconnect'
 -- 'location', 'createInterconnect_location' - The location of the interconnect.
 newCreateInterconnect ::
   -- | 'interconnectName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'bandwidth'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'location'
-  Prelude.Text ->
+  Core.Text ->
   CreateInterconnect
 newCreateInterconnect
   pInterconnectName_
   pBandwidth_
   pLocation_ =
     CreateInterconnect'
-      { providerName = Prelude.Nothing,
-        lagId = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { providerName = Core.Nothing,
+        lagId = Core.Nothing,
+        tags = Core.Nothing,
         interconnectName = pInterconnectName_,
         bandwidth = pBandwidth_,
         location = pLocation_
       }
 
 -- | The name of the service provider associated with the interconnect.
-createInterconnect_providerName :: Lens.Lens' CreateInterconnect (Prelude.Maybe Prelude.Text)
+createInterconnect_providerName :: Lens.Lens' CreateInterconnect (Core.Maybe Core.Text)
 createInterconnect_providerName = Lens.lens (\CreateInterconnect' {providerName} -> providerName) (\s@CreateInterconnect' {} a -> s {providerName = a} :: CreateInterconnect)
 
 -- | The ID of the LAG.
-createInterconnect_lagId :: Lens.Lens' CreateInterconnect (Prelude.Maybe Prelude.Text)
+createInterconnect_lagId :: Lens.Lens' CreateInterconnect (Core.Maybe Core.Text)
 createInterconnect_lagId = Lens.lens (\CreateInterconnect' {lagId} -> lagId) (\s@CreateInterconnect' {} a -> s {lagId = a} :: CreateInterconnect)
 
 -- | The tags to associate with the interconnect.
-createInterconnect_tags :: Lens.Lens' CreateInterconnect (Prelude.Maybe (Prelude.NonEmpty Tag))
-createInterconnect_tags = Lens.lens (\CreateInterconnect' {tags} -> tags) (\s@CreateInterconnect' {} a -> s {tags = a} :: CreateInterconnect) Prelude.. Lens.mapping Prelude._Coerce
+createInterconnect_tags :: Lens.Lens' CreateInterconnect (Core.Maybe (Core.NonEmpty Tag))
+createInterconnect_tags = Lens.lens (\CreateInterconnect' {tags} -> tags) (\s@CreateInterconnect' {} a -> s {tags = a} :: CreateInterconnect) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the interconnect.
-createInterconnect_interconnectName :: Lens.Lens' CreateInterconnect Prelude.Text
+createInterconnect_interconnectName :: Lens.Lens' CreateInterconnect Core.Text
 createInterconnect_interconnectName = Lens.lens (\CreateInterconnect' {interconnectName} -> interconnectName) (\s@CreateInterconnect' {} a -> s {interconnectName = a} :: CreateInterconnect)
 
 -- | The port bandwidth, in Gbps. The possible values are 1 and 10.
-createInterconnect_bandwidth :: Lens.Lens' CreateInterconnect Prelude.Text
+createInterconnect_bandwidth :: Lens.Lens' CreateInterconnect Core.Text
 createInterconnect_bandwidth = Lens.lens (\CreateInterconnect' {bandwidth} -> bandwidth) (\s@CreateInterconnect' {} a -> s {bandwidth = a} :: CreateInterconnect)
 
 -- | The location of the interconnect.
-createInterconnect_location :: Lens.Lens' CreateInterconnect Prelude.Text
+createInterconnect_location :: Lens.Lens' CreateInterconnect Core.Text
 createInterconnect_location = Lens.lens (\CreateInterconnect' {location} -> location) (\s@CreateInterconnect' {} a -> s {location = a} :: CreateInterconnect)
 
-instance Prelude.AWSRequest CreateInterconnect where
-  type Rs CreateInterconnect = Interconnect
+instance Core.AWSRequest CreateInterconnect where
+  type AWSResponse CreateInterconnect = Interconnect
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateInterconnect
+instance Core.Hashable CreateInterconnect
 
-instance Prelude.NFData CreateInterconnect
+instance Core.NFData CreateInterconnect
 
-instance Prelude.ToHeaders CreateInterconnect where
+instance Core.ToHeaders CreateInterconnect where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.CreateInterconnect" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.CreateInterconnect" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateInterconnect where
+instance Core.ToJSON CreateInterconnect where
   toJSON CreateInterconnect' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("providerName" Prelude..=)
-              Prelude.<$> providerName,
-            ("lagId" Prelude..=) Prelude.<$> lagId,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
-              ("interconnectName" Prelude..= interconnectName),
-            Prelude.Just ("bandwidth" Prelude..= bandwidth),
-            Prelude.Just ("location" Prelude..= location)
+    Core.object
+      ( Core.catMaybes
+          [ ("providerName" Core..=) Core.<$> providerName,
+            ("lagId" Core..=) Core.<$> lagId,
+            ("tags" Core..=) Core.<$> tags,
+            Core.Just
+              ("interconnectName" Core..= interconnectName),
+            Core.Just ("bandwidth" Core..= bandwidth),
+            Core.Just ("location" Core..= location)
           ]
       )
 
-instance Prelude.ToPath CreateInterconnect where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateInterconnect where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateInterconnect where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateInterconnect where
+  toQuery = Core.const Core.mempty

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.Scte35DescriptorSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35SegmentationDescriptor
-import qualified Network.AWS.Prelude as Prelude
 
 -- | SCTE-35 Descriptor settings.
 --
@@ -31,7 +30,7 @@ data Scte35DescriptorSettings = Scte35DescriptorSettings'
   { -- | SCTE-35 Segmentation Descriptor.
     segmentationDescriptorScte35DescriptorSettings :: Scte35SegmentationDescriptor
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Scte35DescriptorSettings' with all optional fields omitted.
@@ -57,28 +56,28 @@ newScte35DescriptorSettings
 scte35DescriptorSettings_segmentationDescriptorScte35DescriptorSettings :: Lens.Lens' Scte35DescriptorSettings Scte35SegmentationDescriptor
 scte35DescriptorSettings_segmentationDescriptorScte35DescriptorSettings = Lens.lens (\Scte35DescriptorSettings' {segmentationDescriptorScte35DescriptorSettings} -> segmentationDescriptorScte35DescriptorSettings) (\s@Scte35DescriptorSettings' {} a -> s {segmentationDescriptorScte35DescriptorSettings = a} :: Scte35DescriptorSettings)
 
-instance Prelude.FromJSON Scte35DescriptorSettings where
+instance Core.FromJSON Scte35DescriptorSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Scte35DescriptorSettings"
       ( \x ->
           Scte35DescriptorSettings'
-            Prelude.<$> ( x
-                            Prelude..: "segmentationDescriptorScte35DescriptorSettings"
-                        )
+            Core.<$> ( x
+                         Core..: "segmentationDescriptorScte35DescriptorSettings"
+                     )
       )
 
-instance Prelude.Hashable Scte35DescriptorSettings
+instance Core.Hashable Scte35DescriptorSettings
 
-instance Prelude.NFData Scte35DescriptorSettings
+instance Core.NFData Scte35DescriptorSettings
 
-instance Prelude.ToJSON Scte35DescriptorSettings where
+instance Core.ToJSON Scte35DescriptorSettings where
   toJSON Scte35DescriptorSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "segmentationDescriptorScte35DescriptorSettings"
-                  Prelude..= segmentationDescriptorScte35DescriptorSettings
+                  Core..= segmentationDescriptorScte35DescriptorSettings
               )
           ]
       )

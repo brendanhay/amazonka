@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CloudFormation.DescribeStackSet
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,11 +64,11 @@ data DescribeStackSet = DescribeStackSet'
     --     the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /AWS CloudFormation User Guide/.
-    callAs :: Prelude.Maybe CallAs,
+    callAs :: Core.Maybe CallAs,
     -- | The name or unique ID of the stack set whose description you want.
-    stackSetName :: Prelude.Text
+    stackSetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStackSet' with all optional fields omitted.
@@ -99,11 +98,11 @@ data DescribeStackSet = DescribeStackSet'
 -- 'stackSetName', 'describeStackSet_stackSetName' - The name or unique ID of the stack set whose description you want.
 newDescribeStackSet ::
   -- | 'stackSetName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeStackSet
 newDescribeStackSet pStackSetName_ =
   DescribeStackSet'
-    { callAs = Prelude.Nothing,
+    { callAs = Core.Nothing,
       stackSetName = pStackSetName_
     }
 
@@ -123,54 +122,55 @@ newDescribeStackSet pStackSetName_ =
 --     the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /AWS CloudFormation User Guide/.
-describeStackSet_callAs :: Lens.Lens' DescribeStackSet (Prelude.Maybe CallAs)
+describeStackSet_callAs :: Lens.Lens' DescribeStackSet (Core.Maybe CallAs)
 describeStackSet_callAs = Lens.lens (\DescribeStackSet' {callAs} -> callAs) (\s@DescribeStackSet' {} a -> s {callAs = a} :: DescribeStackSet)
 
 -- | The name or unique ID of the stack set whose description you want.
-describeStackSet_stackSetName :: Lens.Lens' DescribeStackSet Prelude.Text
+describeStackSet_stackSetName :: Lens.Lens' DescribeStackSet Core.Text
 describeStackSet_stackSetName = Lens.lens (\DescribeStackSet' {stackSetName} -> stackSetName) (\s@DescribeStackSet' {} a -> s {stackSetName = a} :: DescribeStackSet)
 
-instance Prelude.AWSRequest DescribeStackSet where
-  type Rs DescribeStackSet = DescribeStackSetResponse
+instance Core.AWSRequest DescribeStackSet where
+  type
+    AWSResponse DescribeStackSet =
+      DescribeStackSetResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DescribeStackSetResult"
       ( \s h x ->
           DescribeStackSetResponse'
-            Prelude.<$> (x Prelude..@? "StackSet")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "StackSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStackSet
+instance Core.Hashable DescribeStackSet
 
-instance Prelude.NFData DescribeStackSet
+instance Core.NFData DescribeStackSet
 
-instance Prelude.ToHeaders DescribeStackSet where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeStackSet where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeStackSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeStackSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeStackSet where
+instance Core.ToQuery DescribeStackSet where
   toQuery DescribeStackSet' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeStackSet" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "CallAs" Prelude.=: callAs,
-        "StackSetName" Prelude.=: stackSetName
+          Core.=: ("DescribeStackSet" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "CallAs" Core.=: callAs,
+        "StackSetName" Core.=: stackSetName
       ]
 
 -- | /See:/ 'newDescribeStackSetResponse' smart constructor.
 data DescribeStackSetResponse = DescribeStackSetResponse'
   { -- | The specified stack set.
-    stackSet :: Prelude.Maybe StackSet,
+    stackSet :: Core.Maybe StackSet,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStackSetResponse' with all optional fields omitted.
@@ -185,21 +185,20 @@ data DescribeStackSetResponse = DescribeStackSetResponse'
 -- 'httpStatus', 'describeStackSetResponse_httpStatus' - The response's http status code.
 newDescribeStackSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeStackSetResponse
 newDescribeStackSetResponse pHttpStatus_ =
   DescribeStackSetResponse'
-    { stackSet =
-        Prelude.Nothing,
+    { stackSet = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The specified stack set.
-describeStackSetResponse_stackSet :: Lens.Lens' DescribeStackSetResponse (Prelude.Maybe StackSet)
+describeStackSetResponse_stackSet :: Lens.Lens' DescribeStackSetResponse (Core.Maybe StackSet)
 describeStackSetResponse_stackSet = Lens.lens (\DescribeStackSetResponse' {stackSet} -> stackSet) (\s@DescribeStackSetResponse' {} a -> s {stackSet = a} :: DescribeStackSetResponse)
 
 -- | The response's http status code.
-describeStackSetResponse_httpStatus :: Lens.Lens' DescribeStackSetResponse Prelude.Int
+describeStackSetResponse_httpStatus :: Lens.Lens' DescribeStackSetResponse Core.Int
 describeStackSetResponse_httpStatus = Lens.lens (\DescribeStackSetResponse' {httpStatus} -> httpStatus) (\s@DescribeStackSetResponse' {} a -> s {httpStatus = a} :: DescribeStackSetResponse)
 
-instance Prelude.NFData DescribeStackSetResponse
+instance Core.NFData DescribeStackSetResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.Route53AutoNaming.GetInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -50,11 +49,11 @@ import Network.AWS.Route53AutoNaming.Types
 -- | /See:/ 'newGetInstance' smart constructor.
 data GetInstance = GetInstance'
   { -- | The ID of the service that the instance is associated with.
-    serviceId :: Prelude.Text,
+    serviceId :: Core.Text,
     -- | The ID of the instance that you want to get information about.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstance' with all optional fields omitted.
@@ -69,9 +68,9 @@ data GetInstance = GetInstance'
 -- 'instanceId', 'getInstance_instanceId' - The ID of the instance that you want to get information about.
 newGetInstance ::
   -- | 'serviceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   GetInstance
 newGetInstance pServiceId_ pInstanceId_ =
   GetInstance'
@@ -80,66 +79,64 @@ newGetInstance pServiceId_ pInstanceId_ =
     }
 
 -- | The ID of the service that the instance is associated with.
-getInstance_serviceId :: Lens.Lens' GetInstance Prelude.Text
+getInstance_serviceId :: Lens.Lens' GetInstance Core.Text
 getInstance_serviceId = Lens.lens (\GetInstance' {serviceId} -> serviceId) (\s@GetInstance' {} a -> s {serviceId = a} :: GetInstance)
 
 -- | The ID of the instance that you want to get information about.
-getInstance_instanceId :: Lens.Lens' GetInstance Prelude.Text
+getInstance_instanceId :: Lens.Lens' GetInstance Core.Text
 getInstance_instanceId = Lens.lens (\GetInstance' {instanceId} -> instanceId) (\s@GetInstance' {} a -> s {instanceId = a} :: GetInstance)
 
-instance Prelude.AWSRequest GetInstance where
-  type Rs GetInstance = GetInstanceResponse
+instance Core.AWSRequest GetInstance where
+  type AWSResponse GetInstance = GetInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetInstanceResponse'
-            Prelude.<$> (x Prelude..?> "Instance")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Instance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetInstance
+instance Core.Hashable GetInstance
 
-instance Prelude.NFData GetInstance
+instance Core.NFData GetInstance
 
-instance Prelude.ToHeaders GetInstance where
+instance Core.ToHeaders GetInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53AutoNaming_v20170314.GetInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53AutoNaming_v20170314.GetInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetInstance where
+instance Core.ToJSON GetInstance where
   toJSON GetInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ServiceId" Prelude..= serviceId),
-            Prelude.Just ("InstanceId" Prelude..= instanceId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ServiceId" Core..= serviceId),
+            Core.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
-instance Prelude.ToPath GetInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetInstanceResponse' smart constructor.
 data GetInstanceResponse = GetInstanceResponse'
   { -- | A complex type that contains information about a specified instance.
-    instance' :: Prelude.Maybe Instance,
+    instance' :: Core.Maybe Instance,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstanceResponse' with all optional fields omitted.
@@ -154,20 +151,20 @@ data GetInstanceResponse = GetInstanceResponse'
 -- 'httpStatus', 'getInstanceResponse_httpStatus' - The response's http status code.
 newGetInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetInstanceResponse
 newGetInstanceResponse pHttpStatus_ =
   GetInstanceResponse'
-    { instance' = Prelude.Nothing,
+    { instance' = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A complex type that contains information about a specified instance.
-getInstanceResponse_instance :: Lens.Lens' GetInstanceResponse (Prelude.Maybe Instance)
+getInstanceResponse_instance :: Lens.Lens' GetInstanceResponse (Core.Maybe Instance)
 getInstanceResponse_instance = Lens.lens (\GetInstanceResponse' {instance'} -> instance') (\s@GetInstanceResponse' {} a -> s {instance' = a} :: GetInstanceResponse)
 
 -- | The response's http status code.
-getInstanceResponse_httpStatus :: Lens.Lens' GetInstanceResponse Prelude.Int
+getInstanceResponse_httpStatus :: Lens.Lens' GetInstanceResponse Core.Int
 getInstanceResponse_httpStatus = Lens.lens (\GetInstanceResponse' {httpStatus} -> httpStatus) (\s@GetInstanceResponse' {} a -> s {httpStatus = a} :: GetInstanceResponse)
 
-instance Prelude.NFData GetInstanceResponse
+instance Core.NFData GetInstanceResponse

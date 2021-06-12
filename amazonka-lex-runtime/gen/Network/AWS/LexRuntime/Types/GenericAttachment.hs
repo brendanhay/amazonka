@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexRuntime.Types.GenericAttachment where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types.Button
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an option rendered to the user when a prompt is shown. It
 -- could be an image, a button, a link, or text.
@@ -30,17 +29,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newGenericAttachment' smart constructor.
 data GenericAttachment = GenericAttachment'
   { -- | The title of the option.
-    title :: Prelude.Maybe Prelude.Text,
+    title :: Core.Maybe Core.Text,
     -- | The list of options to show to the user.
-    buttons :: Prelude.Maybe [Button],
+    buttons :: Core.Maybe [Button],
     -- | The URL of an attachment to the response card.
-    attachmentLinkUrl :: Prelude.Maybe Prelude.Text,
+    attachmentLinkUrl :: Core.Maybe Core.Text,
     -- | The URL of an image that is displayed to the user.
-    imageUrl :: Prelude.Maybe Prelude.Text,
+    imageUrl :: Core.Maybe Core.Text,
     -- | The subtitle shown below the title.
-    subTitle :: Prelude.Maybe Prelude.Text
+    subTitle :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GenericAttachment' with all optional fields omitted.
@@ -63,46 +62,46 @@ newGenericAttachment ::
   GenericAttachment
 newGenericAttachment =
   GenericAttachment'
-    { title = Prelude.Nothing,
-      buttons = Prelude.Nothing,
-      attachmentLinkUrl = Prelude.Nothing,
-      imageUrl = Prelude.Nothing,
-      subTitle = Prelude.Nothing
+    { title = Core.Nothing,
+      buttons = Core.Nothing,
+      attachmentLinkUrl = Core.Nothing,
+      imageUrl = Core.Nothing,
+      subTitle = Core.Nothing
     }
 
 -- | The title of the option.
-genericAttachment_title :: Lens.Lens' GenericAttachment (Prelude.Maybe Prelude.Text)
+genericAttachment_title :: Lens.Lens' GenericAttachment (Core.Maybe Core.Text)
 genericAttachment_title = Lens.lens (\GenericAttachment' {title} -> title) (\s@GenericAttachment' {} a -> s {title = a} :: GenericAttachment)
 
 -- | The list of options to show to the user.
-genericAttachment_buttons :: Lens.Lens' GenericAttachment (Prelude.Maybe [Button])
-genericAttachment_buttons = Lens.lens (\GenericAttachment' {buttons} -> buttons) (\s@GenericAttachment' {} a -> s {buttons = a} :: GenericAttachment) Prelude.. Lens.mapping Prelude._Coerce
+genericAttachment_buttons :: Lens.Lens' GenericAttachment (Core.Maybe [Button])
+genericAttachment_buttons = Lens.lens (\GenericAttachment' {buttons} -> buttons) (\s@GenericAttachment' {} a -> s {buttons = a} :: GenericAttachment) Core.. Lens.mapping Lens._Coerce
 
 -- | The URL of an attachment to the response card.
-genericAttachment_attachmentLinkUrl :: Lens.Lens' GenericAttachment (Prelude.Maybe Prelude.Text)
+genericAttachment_attachmentLinkUrl :: Lens.Lens' GenericAttachment (Core.Maybe Core.Text)
 genericAttachment_attachmentLinkUrl = Lens.lens (\GenericAttachment' {attachmentLinkUrl} -> attachmentLinkUrl) (\s@GenericAttachment' {} a -> s {attachmentLinkUrl = a} :: GenericAttachment)
 
 -- | The URL of an image that is displayed to the user.
-genericAttachment_imageUrl :: Lens.Lens' GenericAttachment (Prelude.Maybe Prelude.Text)
+genericAttachment_imageUrl :: Lens.Lens' GenericAttachment (Core.Maybe Core.Text)
 genericAttachment_imageUrl = Lens.lens (\GenericAttachment' {imageUrl} -> imageUrl) (\s@GenericAttachment' {} a -> s {imageUrl = a} :: GenericAttachment)
 
 -- | The subtitle shown below the title.
-genericAttachment_subTitle :: Lens.Lens' GenericAttachment (Prelude.Maybe Prelude.Text)
+genericAttachment_subTitle :: Lens.Lens' GenericAttachment (Core.Maybe Core.Text)
 genericAttachment_subTitle = Lens.lens (\GenericAttachment' {subTitle} -> subTitle) (\s@GenericAttachment' {} a -> s {subTitle = a} :: GenericAttachment)
 
-instance Prelude.FromJSON GenericAttachment where
+instance Core.FromJSON GenericAttachment where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GenericAttachment"
       ( \x ->
           GenericAttachment'
-            Prelude.<$> (x Prelude..:? "title")
-            Prelude.<*> (x Prelude..:? "buttons" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "attachmentLinkUrl")
-            Prelude.<*> (x Prelude..:? "imageUrl")
-            Prelude.<*> (x Prelude..:? "subTitle")
+            Core.<$> (x Core..:? "title")
+            Core.<*> (x Core..:? "buttons" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "attachmentLinkUrl")
+            Core.<*> (x Core..:? "imageUrl")
+            Core.<*> (x Core..:? "subTitle")
       )
 
-instance Prelude.Hashable GenericAttachment
+instance Core.Hashable GenericAttachment
 
-instance Prelude.NFData GenericAttachment
+instance Core.NFData GenericAttachment

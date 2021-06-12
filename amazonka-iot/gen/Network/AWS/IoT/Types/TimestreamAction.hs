@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.TimestreamAction where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.TimestreamDimension
 import Network.AWS.IoT.Types.TimestreamTimestamp
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Timestream rule action writes attributes (measures) from an MQTT
 -- message into an Amazon Timestream table. For more information, see the
@@ -41,19 +40,19 @@ data TimestreamAction = TimestreamAction'
     --
     -- If omitted, the topic rule action assigns the timestamp, in
     -- milliseconds, at the time it processed the rule.
-    timestamp :: Prelude.Maybe TimestreamTimestamp,
+    timestamp :: Core.Maybe TimestreamTimestamp,
     -- | The ARN of the role that grants permission to write to the Amazon
     -- Timestream database table.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The name of an Amazon Timestream database.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the database table into which to write the measure records.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | Metadata attributes of the time series that are written in each measure
     -- record.
-    dimensions :: Prelude.NonEmpty TimestreamDimension
+    dimensions :: Core.NonEmpty TimestreamDimension
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TimestreamAction' with all optional fields omitted.
@@ -84,13 +83,13 @@ data TimestreamAction = TimestreamAction'
 -- record.
 newTimestreamAction ::
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dimensions'
-  Prelude.NonEmpty TimestreamDimension ->
+  Core.NonEmpty TimestreamDimension ->
   TimestreamAction
 newTimestreamAction
   pRoleArn_
@@ -98,11 +97,11 @@ newTimestreamAction
   pTableName_
   pDimensions_ =
     TimestreamAction'
-      { timestamp = Prelude.Nothing,
+      { timestamp = Core.Nothing,
         roleArn = pRoleArn_,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
-        dimensions = Prelude._Coerce Lens.# pDimensions_
+        dimensions = Lens._Coerce Lens.# pDimensions_
       }
 
 -- | Specifies an application-defined value to replace the default value
@@ -114,53 +113,52 @@ newTimestreamAction
 --
 -- If omitted, the topic rule action assigns the timestamp, in
 -- milliseconds, at the time it processed the rule.
-timestreamAction_timestamp :: Lens.Lens' TimestreamAction (Prelude.Maybe TimestreamTimestamp)
+timestreamAction_timestamp :: Lens.Lens' TimestreamAction (Core.Maybe TimestreamTimestamp)
 timestreamAction_timestamp = Lens.lens (\TimestreamAction' {timestamp} -> timestamp) (\s@TimestreamAction' {} a -> s {timestamp = a} :: TimestreamAction)
 
 -- | The ARN of the role that grants permission to write to the Amazon
 -- Timestream database table.
-timestreamAction_roleArn :: Lens.Lens' TimestreamAction Prelude.Text
+timestreamAction_roleArn :: Lens.Lens' TimestreamAction Core.Text
 timestreamAction_roleArn = Lens.lens (\TimestreamAction' {roleArn} -> roleArn) (\s@TimestreamAction' {} a -> s {roleArn = a} :: TimestreamAction)
 
 -- | The name of an Amazon Timestream database.
-timestreamAction_databaseName :: Lens.Lens' TimestreamAction Prelude.Text
+timestreamAction_databaseName :: Lens.Lens' TimestreamAction Core.Text
 timestreamAction_databaseName = Lens.lens (\TimestreamAction' {databaseName} -> databaseName) (\s@TimestreamAction' {} a -> s {databaseName = a} :: TimestreamAction)
 
 -- | The name of the database table into which to write the measure records.
-timestreamAction_tableName :: Lens.Lens' TimestreamAction Prelude.Text
+timestreamAction_tableName :: Lens.Lens' TimestreamAction Core.Text
 timestreamAction_tableName = Lens.lens (\TimestreamAction' {tableName} -> tableName) (\s@TimestreamAction' {} a -> s {tableName = a} :: TimestreamAction)
 
 -- | Metadata attributes of the time series that are written in each measure
 -- record.
-timestreamAction_dimensions :: Lens.Lens' TimestreamAction (Prelude.NonEmpty TimestreamDimension)
-timestreamAction_dimensions = Lens.lens (\TimestreamAction' {dimensions} -> dimensions) (\s@TimestreamAction' {} a -> s {dimensions = a} :: TimestreamAction) Prelude.. Prelude._Coerce
+timestreamAction_dimensions :: Lens.Lens' TimestreamAction (Core.NonEmpty TimestreamDimension)
+timestreamAction_dimensions = Lens.lens (\TimestreamAction' {dimensions} -> dimensions) (\s@TimestreamAction' {} a -> s {dimensions = a} :: TimestreamAction) Core.. Lens._Coerce
 
-instance Prelude.FromJSON TimestreamAction where
+instance Core.FromJSON TimestreamAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TimestreamAction"
       ( \x ->
           TimestreamAction'
-            Prelude.<$> (x Prelude..:? "timestamp")
-            Prelude.<*> (x Prelude..: "roleArn")
-            Prelude.<*> (x Prelude..: "databaseName")
-            Prelude.<*> (x Prelude..: "tableName")
-            Prelude.<*> (x Prelude..: "dimensions")
+            Core.<$> (x Core..:? "timestamp")
+            Core.<*> (x Core..: "roleArn")
+            Core.<*> (x Core..: "databaseName")
+            Core.<*> (x Core..: "tableName")
+            Core.<*> (x Core..: "dimensions")
       )
 
-instance Prelude.Hashable TimestreamAction
+instance Core.Hashable TimestreamAction
 
-instance Prelude.NFData TimestreamAction
+instance Core.NFData TimestreamAction
 
-instance Prelude.ToJSON TimestreamAction where
+instance Core.ToJSON TimestreamAction where
   toJSON TimestreamAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("timestamp" Prelude..=) Prelude.<$> timestamp,
-            Prelude.Just ("roleArn" Prelude..= roleArn),
-            Prelude.Just
-              ("databaseName" Prelude..= databaseName),
-            Prelude.Just ("tableName" Prelude..= tableName),
-            Prelude.Just ("dimensions" Prelude..= dimensions)
+    Core.object
+      ( Core.catMaybes
+          [ ("timestamp" Core..=) Core.<$> timestamp,
+            Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("databaseName" Core..= databaseName),
+            Core.Just ("tableName" Core..= tableName),
+            Core.Just ("dimensions" Core..= dimensions)
           ]
       )

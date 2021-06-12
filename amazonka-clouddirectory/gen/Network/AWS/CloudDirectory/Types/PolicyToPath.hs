@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudDirectory.Types.PolicyToPath where
 
 import Network.AWS.CloudDirectory.Types.PolicyAttachment
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Used when a regular object exists in a Directory and you want to find
 -- all of the policies that are associated with that object and the parent
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPolicyToPath' smart constructor.
 data PolicyToPath = PolicyToPath'
   { -- | List of policy objects.
-    policies :: Prelude.Maybe [PolicyAttachment],
+    policies :: Core.Maybe [PolicyAttachment],
     -- | The path that is referenced from the root.
-    path :: Prelude.Maybe Prelude.Text
+    path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyToPath' with all optional fields omitted.
@@ -52,28 +51,28 @@ newPolicyToPath ::
   PolicyToPath
 newPolicyToPath =
   PolicyToPath'
-    { policies = Prelude.Nothing,
-      path = Prelude.Nothing
+    { policies = Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | List of policy objects.
-policyToPath_policies :: Lens.Lens' PolicyToPath (Prelude.Maybe [PolicyAttachment])
-policyToPath_policies = Lens.lens (\PolicyToPath' {policies} -> policies) (\s@PolicyToPath' {} a -> s {policies = a} :: PolicyToPath) Prelude.. Lens.mapping Prelude._Coerce
+policyToPath_policies :: Lens.Lens' PolicyToPath (Core.Maybe [PolicyAttachment])
+policyToPath_policies = Lens.lens (\PolicyToPath' {policies} -> policies) (\s@PolicyToPath' {} a -> s {policies = a} :: PolicyToPath) Core.. Lens.mapping Lens._Coerce
 
 -- | The path that is referenced from the root.
-policyToPath_path :: Lens.Lens' PolicyToPath (Prelude.Maybe Prelude.Text)
+policyToPath_path :: Lens.Lens' PolicyToPath (Core.Maybe Core.Text)
 policyToPath_path = Lens.lens (\PolicyToPath' {path} -> path) (\s@PolicyToPath' {} a -> s {path = a} :: PolicyToPath)
 
-instance Prelude.FromJSON PolicyToPath where
+instance Core.FromJSON PolicyToPath where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PolicyToPath"
       ( \x ->
           PolicyToPath'
-            Prelude.<$> (x Prelude..:? "Policies" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Path")
+            Core.<$> (x Core..:? "Policies" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Path")
       )
 
-instance Prelude.Hashable PolicyToPath
+instance Core.Hashable PolicyToPath
 
-instance Prelude.NFData PolicyToPath
+instance Core.NFData PolicyToPath

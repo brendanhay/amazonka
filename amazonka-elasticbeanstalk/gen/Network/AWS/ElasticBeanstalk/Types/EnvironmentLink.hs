@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentLink where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A link to another environment, defined in the environment\'s manifest.
 -- Links provide connection information in system properties that can be
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEnvironmentLink' smart constructor.
 data EnvironmentLink = EnvironmentLink'
   { -- | The name of the linked environment (the dependency).
-    environmentName :: Prelude.Maybe Prelude.Text,
+    environmentName :: Core.Maybe Core.Text,
     -- | The name of the link.
-    linkName :: Prelude.Maybe Prelude.Text
+    linkName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnvironmentLink' with all optional fields omitted.
@@ -53,24 +52,24 @@ newEnvironmentLink ::
   EnvironmentLink
 newEnvironmentLink =
   EnvironmentLink'
-    { environmentName = Prelude.Nothing,
-      linkName = Prelude.Nothing
+    { environmentName = Core.Nothing,
+      linkName = Core.Nothing
     }
 
 -- | The name of the linked environment (the dependency).
-environmentLink_environmentName :: Lens.Lens' EnvironmentLink (Prelude.Maybe Prelude.Text)
+environmentLink_environmentName :: Lens.Lens' EnvironmentLink (Core.Maybe Core.Text)
 environmentLink_environmentName = Lens.lens (\EnvironmentLink' {environmentName} -> environmentName) (\s@EnvironmentLink' {} a -> s {environmentName = a} :: EnvironmentLink)
 
 -- | The name of the link.
-environmentLink_linkName :: Lens.Lens' EnvironmentLink (Prelude.Maybe Prelude.Text)
+environmentLink_linkName :: Lens.Lens' EnvironmentLink (Core.Maybe Core.Text)
 environmentLink_linkName = Lens.lens (\EnvironmentLink' {linkName} -> linkName) (\s@EnvironmentLink' {} a -> s {linkName = a} :: EnvironmentLink)
 
-instance Prelude.FromXML EnvironmentLink where
+instance Core.FromXML EnvironmentLink where
   parseXML x =
     EnvironmentLink'
-      Prelude.<$> (x Prelude..@? "EnvironmentName")
-      Prelude.<*> (x Prelude..@? "LinkName")
+      Core.<$> (x Core..@? "EnvironmentName")
+      Core.<*> (x Core..@? "LinkName")
 
-instance Prelude.Hashable EnvironmentLink
+instance Core.Hashable EnvironmentLink
 
-instance Prelude.NFData EnvironmentLink
+instance Core.NFData EnvironmentLink

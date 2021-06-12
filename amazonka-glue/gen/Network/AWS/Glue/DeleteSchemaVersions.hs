@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,9 @@ module Network.AWS.Glue.DeleteSchemaVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,9 +74,9 @@ data DeleteSchemaVersions = DeleteSchemaVersions'
     -- -   a single version number, 5
     --
     -- -   a range, 5-8 : deletes versions 5, 6, 7, 8
-    versions :: Prelude.Text
+    versions :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSchemaVersions' with all optional fields omitted.
@@ -99,7 +98,7 @@ newDeleteSchemaVersions ::
   -- | 'schemaId'
   SchemaId ->
   -- | 'versions'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSchemaVersions
 newDeleteSchemaVersions pSchemaId_ pVersions_ =
   DeleteSchemaVersions'
@@ -117,67 +116,63 @@ deleteSchemaVersions_schemaId = Lens.lens (\DeleteSchemaVersions' {schemaId} -> 
 -- -   a single version number, 5
 --
 -- -   a range, 5-8 : deletes versions 5, 6, 7, 8
-deleteSchemaVersions_versions :: Lens.Lens' DeleteSchemaVersions Prelude.Text
+deleteSchemaVersions_versions :: Lens.Lens' DeleteSchemaVersions Core.Text
 deleteSchemaVersions_versions = Lens.lens (\DeleteSchemaVersions' {versions} -> versions) (\s@DeleteSchemaVersions' {} a -> s {versions = a} :: DeleteSchemaVersions)
 
-instance Prelude.AWSRequest DeleteSchemaVersions where
+instance Core.AWSRequest DeleteSchemaVersions where
   type
-    Rs DeleteSchemaVersions =
+    AWSResponse DeleteSchemaVersions =
       DeleteSchemaVersionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteSchemaVersionsResponse'
-            Prelude.<$> ( x Prelude..?> "SchemaVersionErrors"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "SchemaVersionErrors"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSchemaVersions
+instance Core.Hashable DeleteSchemaVersions
 
-instance Prelude.NFData DeleteSchemaVersions
+instance Core.NFData DeleteSchemaVersions
 
-instance Prelude.ToHeaders DeleteSchemaVersions where
+instance Core.ToHeaders DeleteSchemaVersions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.DeleteSchemaVersions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSGlue.DeleteSchemaVersions" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteSchemaVersions where
+instance Core.ToJSON DeleteSchemaVersions where
   toJSON DeleteSchemaVersions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaId" Prelude..= schemaId),
-            Prelude.Just ("Versions" Prelude..= versions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaId" Core..= schemaId),
+            Core.Just ("Versions" Core..= versions)
           ]
       )
 
-instance Prelude.ToPath DeleteSchemaVersions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSchemaVersions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSchemaVersions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteSchemaVersions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteSchemaVersionsResponse' smart constructor.
 data DeleteSchemaVersionsResponse = DeleteSchemaVersionsResponse'
   { -- | A list of @SchemaVersionErrorItem@ objects, each containing an error and
     -- schema version.
-    schemaVersionErrors :: Prelude.Maybe [SchemaVersionErrorItem],
+    schemaVersionErrors :: Core.Maybe [SchemaVersionErrorItem],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSchemaVersionsResponse' with all optional fields omitted.
@@ -193,22 +188,22 @@ data DeleteSchemaVersionsResponse = DeleteSchemaVersionsResponse'
 -- 'httpStatus', 'deleteSchemaVersionsResponse_httpStatus' - The response's http status code.
 newDeleteSchemaVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteSchemaVersionsResponse
 newDeleteSchemaVersionsResponse pHttpStatus_ =
   DeleteSchemaVersionsResponse'
     { schemaVersionErrors =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of @SchemaVersionErrorItem@ objects, each containing an error and
 -- schema version.
-deleteSchemaVersionsResponse_schemaVersionErrors :: Lens.Lens' DeleteSchemaVersionsResponse (Prelude.Maybe [SchemaVersionErrorItem])
-deleteSchemaVersionsResponse_schemaVersionErrors = Lens.lens (\DeleteSchemaVersionsResponse' {schemaVersionErrors} -> schemaVersionErrors) (\s@DeleteSchemaVersionsResponse' {} a -> s {schemaVersionErrors = a} :: DeleteSchemaVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteSchemaVersionsResponse_schemaVersionErrors :: Lens.Lens' DeleteSchemaVersionsResponse (Core.Maybe [SchemaVersionErrorItem])
+deleteSchemaVersionsResponse_schemaVersionErrors = Lens.lens (\DeleteSchemaVersionsResponse' {schemaVersionErrors} -> schemaVersionErrors) (\s@DeleteSchemaVersionsResponse' {} a -> s {schemaVersionErrors = a} :: DeleteSchemaVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteSchemaVersionsResponse_httpStatus :: Lens.Lens' DeleteSchemaVersionsResponse Prelude.Int
+deleteSchemaVersionsResponse_httpStatus :: Lens.Lens' DeleteSchemaVersionsResponse Core.Int
 deleteSchemaVersionsResponse_httpStatus = Lens.lens (\DeleteSchemaVersionsResponse' {httpStatus} -> httpStatus) (\s@DeleteSchemaVersionsResponse' {} a -> s {httpStatus = a} :: DeleteSchemaVersionsResponse)
 
-instance Prelude.NFData DeleteSchemaVersionsResponse
+instance Core.NFData DeleteSchemaVersionsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,18 +48,18 @@ module Network.AWS.EC2.EnableVpcClassicLinkDnsSupport
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newEnableVpcClassicLinkDnsSupport' smart constructor.
 data EnableVpcClassicLinkDnsSupport = EnableVpcClassicLinkDnsSupport'
   { -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableVpcClassicLinkDnsSupport' with all optional fields omitted.
@@ -76,72 +75,61 @@ newEnableVpcClassicLinkDnsSupport ::
 newEnableVpcClassicLinkDnsSupport =
   EnableVpcClassicLinkDnsSupport'
     { vpcId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the VPC.
-enableVpcClassicLinkDnsSupport_vpcId :: Lens.Lens' EnableVpcClassicLinkDnsSupport (Prelude.Maybe Prelude.Text)
+enableVpcClassicLinkDnsSupport_vpcId :: Lens.Lens' EnableVpcClassicLinkDnsSupport (Core.Maybe Core.Text)
 enableVpcClassicLinkDnsSupport_vpcId = Lens.lens (\EnableVpcClassicLinkDnsSupport' {vpcId} -> vpcId) (\s@EnableVpcClassicLinkDnsSupport' {} a -> s {vpcId = a} :: EnableVpcClassicLinkDnsSupport)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     EnableVpcClassicLinkDnsSupport
   where
   type
-    Rs EnableVpcClassicLinkDnsSupport =
+    AWSResponse EnableVpcClassicLinkDnsSupport =
       EnableVpcClassicLinkDnsSupportResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           EnableVpcClassicLinkDnsSupportResponse'
-            Prelude.<$> (x Prelude..@? "return")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "return")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    EnableVpcClassicLinkDnsSupport
+instance Core.Hashable EnableVpcClassicLinkDnsSupport
+
+instance Core.NFData EnableVpcClassicLinkDnsSupport
 
 instance
-  Prelude.NFData
-    EnableVpcClassicLinkDnsSupport
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     EnableVpcClassicLinkDnsSupport
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    EnableVpcClassicLinkDnsSupport
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableVpcClassicLinkDnsSupport where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    EnableVpcClassicLinkDnsSupport
-  where
+instance Core.ToQuery EnableVpcClassicLinkDnsSupport where
   toQuery EnableVpcClassicLinkDnsSupport' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "EnableVpcClassicLinkDnsSupport" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "VpcId" Prelude.=: vpcId
+          Core.=: ( "EnableVpcClassicLinkDnsSupport" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "VpcId" Core.=: vpcId
       ]
 
 -- | /See:/ 'newEnableVpcClassicLinkDnsSupportResponse' smart constructor.
 data EnableVpcClassicLinkDnsSupportResponse = EnableVpcClassicLinkDnsSupportResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Prelude.Maybe Prelude.Bool,
+    return' :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableVpcClassicLinkDnsSupportResponse' with all optional fields omitted.
@@ -156,24 +144,24 @@ data EnableVpcClassicLinkDnsSupportResponse = EnableVpcClassicLinkDnsSupportResp
 -- 'httpStatus', 'enableVpcClassicLinkDnsSupportResponse_httpStatus' - The response's http status code.
 newEnableVpcClassicLinkDnsSupportResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   EnableVpcClassicLinkDnsSupportResponse
 newEnableVpcClassicLinkDnsSupportResponse
   pHttpStatus_ =
     EnableVpcClassicLinkDnsSupportResponse'
       { return' =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-enableVpcClassicLinkDnsSupportResponse_return :: Lens.Lens' EnableVpcClassicLinkDnsSupportResponse (Prelude.Maybe Prelude.Bool)
+enableVpcClassicLinkDnsSupportResponse_return :: Lens.Lens' EnableVpcClassicLinkDnsSupportResponse (Core.Maybe Core.Bool)
 enableVpcClassicLinkDnsSupportResponse_return = Lens.lens (\EnableVpcClassicLinkDnsSupportResponse' {return'} -> return') (\s@EnableVpcClassicLinkDnsSupportResponse' {} a -> s {return' = a} :: EnableVpcClassicLinkDnsSupportResponse)
 
 -- | The response's http status code.
-enableVpcClassicLinkDnsSupportResponse_httpStatus :: Lens.Lens' EnableVpcClassicLinkDnsSupportResponse Prelude.Int
+enableVpcClassicLinkDnsSupportResponse_httpStatus :: Lens.Lens' EnableVpcClassicLinkDnsSupportResponse Core.Int
 enableVpcClassicLinkDnsSupportResponse_httpStatus = Lens.lens (\EnableVpcClassicLinkDnsSupportResponse' {httpStatus} -> httpStatus) (\s@EnableVpcClassicLinkDnsSupportResponse' {} a -> s {httpStatus = a} :: EnableVpcClassicLinkDnsSupportResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableVpcClassicLinkDnsSupportResponse

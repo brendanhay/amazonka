@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.WirelessConnection where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configures the wireless connection on an AWS Snowcone device.
 --
 -- /See:/ 'newWirelessConnection' smart constructor.
 data WirelessConnection = WirelessConnection'
   { -- | Enables the Wi-Fi adapter on an AWS Snowcone device.
-    isWifiEnabled :: Prelude.Maybe Prelude.Bool
+    isWifiEnabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WirelessConnection' with all optional fields omitted.
@@ -44,33 +43,28 @@ data WirelessConnection = WirelessConnection'
 newWirelessConnection ::
   WirelessConnection
 newWirelessConnection =
-  WirelessConnection'
-    { isWifiEnabled =
-        Prelude.Nothing
-    }
+  WirelessConnection' {isWifiEnabled = Core.Nothing}
 
 -- | Enables the Wi-Fi adapter on an AWS Snowcone device.
-wirelessConnection_isWifiEnabled :: Lens.Lens' WirelessConnection (Prelude.Maybe Prelude.Bool)
+wirelessConnection_isWifiEnabled :: Lens.Lens' WirelessConnection (Core.Maybe Core.Bool)
 wirelessConnection_isWifiEnabled = Lens.lens (\WirelessConnection' {isWifiEnabled} -> isWifiEnabled) (\s@WirelessConnection' {} a -> s {isWifiEnabled = a} :: WirelessConnection)
 
-instance Prelude.FromJSON WirelessConnection where
+instance Core.FromJSON WirelessConnection where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WirelessConnection"
       ( \x ->
           WirelessConnection'
-            Prelude.<$> (x Prelude..:? "IsWifiEnabled")
+            Core.<$> (x Core..:? "IsWifiEnabled")
       )
 
-instance Prelude.Hashable WirelessConnection
+instance Core.Hashable WirelessConnection
 
-instance Prelude.NFData WirelessConnection
+instance Core.NFData WirelessConnection
 
-instance Prelude.ToJSON WirelessConnection where
+instance Core.ToJSON WirelessConnection where
   toJSON WirelessConnection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IsWifiEnabled" Prelude..=)
-              Prelude.<$> isWifiEnabled
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("IsWifiEnabled" Core..=) Core.<$> isWifiEnabled]
       )

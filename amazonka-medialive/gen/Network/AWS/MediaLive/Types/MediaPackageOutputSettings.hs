@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.MediaPackageOutputSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Media Package Output Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data MediaPackageOutputSettings = MediaPackageOutputSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MediaPackageOutputSettings' with all optional fields omitted.
@@ -40,16 +39,15 @@ newMediaPackageOutputSettings ::
 newMediaPackageOutputSettings =
   MediaPackageOutputSettings'
 
-instance Prelude.FromJSON MediaPackageOutputSettings where
+instance Core.FromJSON MediaPackageOutputSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MediaPackageOutputSettings"
-      (\x -> Prelude.pure MediaPackageOutputSettings')
+      (\x -> Core.pure MediaPackageOutputSettings')
 
-instance Prelude.Hashable MediaPackageOutputSettings
+instance Core.Hashable MediaPackageOutputSettings
 
-instance Prelude.NFData MediaPackageOutputSettings
+instance Core.NFData MediaPackageOutputSettings
 
-instance Prelude.ToJSON MediaPackageOutputSettings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON MediaPackageOutputSettings where
+  toJSON = Core.const (Core.Object Core.mempty)

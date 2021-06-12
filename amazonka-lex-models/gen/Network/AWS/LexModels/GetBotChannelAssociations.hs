@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,10 +49,9 @@ module Network.AWS.LexModels.GetBotChannelAssociations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,23 +61,23 @@ data GetBotChannelAssociations = GetBotChannelAssociations'
     -- response to this call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of associations, specify
     -- the pagination token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Substring to match in channel association names. An association will be
     -- returned if any part of its name matches the substring. For example,
     -- \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To return all bot
     -- channel associations, use a hyphen (\"-\") as the @nameContains@
     -- parameter.
-    nameContains :: Prelude.Maybe Prelude.Text,
+    nameContains :: Core.Maybe Core.Text,
     -- | The maximum number of associations to return in the response. The
     -- default is 50.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The name of the Amazon Lex bot in the association.
-    botName :: Prelude.Text,
+    botName :: Core.Text,
     -- | An alias pointing to the specific version of the Amazon Lex bot to which
     -- this association is being made.
-    botAlias :: Prelude.Text
+    botAlias :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBotChannelAssociations' with all optional fields omitted.
@@ -109,16 +107,16 @@ data GetBotChannelAssociations = GetBotChannelAssociations'
 -- this association is being made.
 newGetBotChannelAssociations ::
   -- | 'botName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'botAlias'
-  Prelude.Text ->
+  Core.Text ->
   GetBotChannelAssociations
 newGetBotChannelAssociations pBotName_ pBotAlias_ =
   GetBotChannelAssociations'
     { nextToken =
-        Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+        Core.Nothing,
+      nameContains = Core.Nothing,
+      maxResults = Core.Nothing,
       botName = pBotName_,
       botAlias = pBotAlias_
     }
@@ -127,7 +125,7 @@ newGetBotChannelAssociations pBotName_ pBotAlias_ =
 -- response to this call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of associations, specify
 -- the pagination token in the next request.
-getBotChannelAssociations_nextToken :: Lens.Lens' GetBotChannelAssociations (Prelude.Maybe Prelude.Text)
+getBotChannelAssociations_nextToken :: Lens.Lens' GetBotChannelAssociations (Core.Maybe Core.Text)
 getBotChannelAssociations_nextToken = Lens.lens (\GetBotChannelAssociations' {nextToken} -> nextToken) (\s@GetBotChannelAssociations' {} a -> s {nextToken = a} :: GetBotChannelAssociations)
 
 -- | Substring to match in channel association names. An association will be
@@ -135,92 +133,90 @@ getBotChannelAssociations_nextToken = Lens.lens (\GetBotChannelAssociations' {ne
 -- \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To return all bot
 -- channel associations, use a hyphen (\"-\") as the @nameContains@
 -- parameter.
-getBotChannelAssociations_nameContains :: Lens.Lens' GetBotChannelAssociations (Prelude.Maybe Prelude.Text)
+getBotChannelAssociations_nameContains :: Lens.Lens' GetBotChannelAssociations (Core.Maybe Core.Text)
 getBotChannelAssociations_nameContains = Lens.lens (\GetBotChannelAssociations' {nameContains} -> nameContains) (\s@GetBotChannelAssociations' {} a -> s {nameContains = a} :: GetBotChannelAssociations)
 
 -- | The maximum number of associations to return in the response. The
 -- default is 50.
-getBotChannelAssociations_maxResults :: Lens.Lens' GetBotChannelAssociations (Prelude.Maybe Prelude.Natural)
+getBotChannelAssociations_maxResults :: Lens.Lens' GetBotChannelAssociations (Core.Maybe Core.Natural)
 getBotChannelAssociations_maxResults = Lens.lens (\GetBotChannelAssociations' {maxResults} -> maxResults) (\s@GetBotChannelAssociations' {} a -> s {maxResults = a} :: GetBotChannelAssociations)
 
 -- | The name of the Amazon Lex bot in the association.
-getBotChannelAssociations_botName :: Lens.Lens' GetBotChannelAssociations Prelude.Text
+getBotChannelAssociations_botName :: Lens.Lens' GetBotChannelAssociations Core.Text
 getBotChannelAssociations_botName = Lens.lens (\GetBotChannelAssociations' {botName} -> botName) (\s@GetBotChannelAssociations' {} a -> s {botName = a} :: GetBotChannelAssociations)
 
 -- | An alias pointing to the specific version of the Amazon Lex bot to which
 -- this association is being made.
-getBotChannelAssociations_botAlias :: Lens.Lens' GetBotChannelAssociations Prelude.Text
+getBotChannelAssociations_botAlias :: Lens.Lens' GetBotChannelAssociations Core.Text
 getBotChannelAssociations_botAlias = Lens.lens (\GetBotChannelAssociations' {botAlias} -> botAlias) (\s@GetBotChannelAssociations' {} a -> s {botAlias = a} :: GetBotChannelAssociations)
 
-instance Pager.AWSPager GetBotChannelAssociations where
+instance Core.AWSPager GetBotChannelAssociations where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getBotChannelAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getBotChannelAssociationsResponse_botChannelAssociations
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getBotChannelAssociations_nextToken
           Lens..~ rs
           Lens.^? getBotChannelAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest GetBotChannelAssociations where
+instance Core.AWSRequest GetBotChannelAssociations where
   type
-    Rs GetBotChannelAssociations =
+    AWSResponse GetBotChannelAssociations =
       GetBotChannelAssociationsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetBotChannelAssociationsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "botChannelAssociations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> ( x Core..?> "botChannelAssociations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetBotChannelAssociations
+instance Core.Hashable GetBotChannelAssociations
 
-instance Prelude.NFData GetBotChannelAssociations
+instance Core.NFData GetBotChannelAssociations
 
-instance Prelude.ToHeaders GetBotChannelAssociations where
+instance Core.ToHeaders GetBotChannelAssociations where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetBotChannelAssociations where
+instance Core.ToPath GetBotChannelAssociations where
   toPath GetBotChannelAssociations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/bots/",
-        Prelude.toBS botName,
+        Core.toBS botName,
         "/aliases/",
-        Prelude.toBS botAlias,
+        Core.toBS botAlias,
         "/channels/"
       ]
 
-instance Prelude.ToQuery GetBotChannelAssociations where
+instance Core.ToQuery GetBotChannelAssociations where
   toQuery GetBotChannelAssociations' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "nameContains" Prelude.=: nameContains,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "nameContains" Core.=: nameContains,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newGetBotChannelAssociationsResponse' smart constructor.
@@ -229,14 +225,14 @@ data GetBotChannelAssociationsResponse = GetBotChannelAssociationsResponse'
     -- response to this call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of associations, specify
     -- the pagination token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of objects, one for each association, that provides information
     -- about the Amazon Lex bot and its association with the channel.
-    botChannelAssociations :: Prelude.Maybe [BotChannelAssociation],
+    botChannelAssociations :: Core.Maybe [BotChannelAssociation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBotChannelAssociationsResponse' with all optional fields omitted.
@@ -257,13 +253,13 @@ data GetBotChannelAssociationsResponse = GetBotChannelAssociationsResponse'
 -- 'httpStatus', 'getBotChannelAssociationsResponse_httpStatus' - The response's http status code.
 newGetBotChannelAssociationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBotChannelAssociationsResponse
 newGetBotChannelAssociationsResponse pHttpStatus_ =
   GetBotChannelAssociationsResponse'
     { nextToken =
-        Prelude.Nothing,
-      botChannelAssociations = Prelude.Nothing,
+        Core.Nothing,
+      botChannelAssociations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -271,18 +267,18 @@ newGetBotChannelAssociationsResponse pHttpStatus_ =
 -- response to this call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of associations, specify
 -- the pagination token in the next request.
-getBotChannelAssociationsResponse_nextToken :: Lens.Lens' GetBotChannelAssociationsResponse (Prelude.Maybe Prelude.Text)
+getBotChannelAssociationsResponse_nextToken :: Lens.Lens' GetBotChannelAssociationsResponse (Core.Maybe Core.Text)
 getBotChannelAssociationsResponse_nextToken = Lens.lens (\GetBotChannelAssociationsResponse' {nextToken} -> nextToken) (\s@GetBotChannelAssociationsResponse' {} a -> s {nextToken = a} :: GetBotChannelAssociationsResponse)
 
 -- | An array of objects, one for each association, that provides information
 -- about the Amazon Lex bot and its association with the channel.
-getBotChannelAssociationsResponse_botChannelAssociations :: Lens.Lens' GetBotChannelAssociationsResponse (Prelude.Maybe [BotChannelAssociation])
-getBotChannelAssociationsResponse_botChannelAssociations = Lens.lens (\GetBotChannelAssociationsResponse' {botChannelAssociations} -> botChannelAssociations) (\s@GetBotChannelAssociationsResponse' {} a -> s {botChannelAssociations = a} :: GetBotChannelAssociationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getBotChannelAssociationsResponse_botChannelAssociations :: Lens.Lens' GetBotChannelAssociationsResponse (Core.Maybe [BotChannelAssociation])
+getBotChannelAssociationsResponse_botChannelAssociations = Lens.lens (\GetBotChannelAssociationsResponse' {botChannelAssociations} -> botChannelAssociations) (\s@GetBotChannelAssociationsResponse' {} a -> s {botChannelAssociations = a} :: GetBotChannelAssociationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getBotChannelAssociationsResponse_httpStatus :: Lens.Lens' GetBotChannelAssociationsResponse Prelude.Int
+getBotChannelAssociationsResponse_httpStatus :: Lens.Lens' GetBotChannelAssociationsResponse Core.Int
 getBotChannelAssociationsResponse_httpStatus = Lens.lens (\GetBotChannelAssociationsResponse' {httpStatus} -> httpStatus) (\s@GetBotChannelAssociationsResponse' {} a -> s {httpStatus = a} :: GetBotChannelAssociationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetBotChannelAssociationsResponse

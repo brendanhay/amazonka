@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AwsJobAbortConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AwsJobAbortCriteria
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The criteria that determine when and how a job abort takes place.
 --
 -- /See:/ 'newAwsJobAbortConfig' smart constructor.
 data AwsJobAbortConfig = AwsJobAbortConfig'
   { -- | The list of criteria that determine when and how to abort the job.
-    abortCriteriaList :: Prelude.NonEmpty AwsJobAbortCriteria
+    abortCriteriaList :: Core.NonEmpty AwsJobAbortCriteria
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AwsJobAbortConfig' with all optional fields omitted.
@@ -44,27 +43,27 @@ data AwsJobAbortConfig = AwsJobAbortConfig'
 -- 'abortCriteriaList', 'awsJobAbortConfig_abortCriteriaList' - The list of criteria that determine when and how to abort the job.
 newAwsJobAbortConfig ::
   -- | 'abortCriteriaList'
-  Prelude.NonEmpty AwsJobAbortCriteria ->
+  Core.NonEmpty AwsJobAbortCriteria ->
   AwsJobAbortConfig
 newAwsJobAbortConfig pAbortCriteriaList_ =
   AwsJobAbortConfig'
     { abortCriteriaList =
-        Prelude._Coerce Lens.# pAbortCriteriaList_
+        Lens._Coerce Lens.# pAbortCriteriaList_
     }
 
 -- | The list of criteria that determine when and how to abort the job.
-awsJobAbortConfig_abortCriteriaList :: Lens.Lens' AwsJobAbortConfig (Prelude.NonEmpty AwsJobAbortCriteria)
-awsJobAbortConfig_abortCriteriaList = Lens.lens (\AwsJobAbortConfig' {abortCriteriaList} -> abortCriteriaList) (\s@AwsJobAbortConfig' {} a -> s {abortCriteriaList = a} :: AwsJobAbortConfig) Prelude.. Prelude._Coerce
+awsJobAbortConfig_abortCriteriaList :: Lens.Lens' AwsJobAbortConfig (Core.NonEmpty AwsJobAbortCriteria)
+awsJobAbortConfig_abortCriteriaList = Lens.lens (\AwsJobAbortConfig' {abortCriteriaList} -> abortCriteriaList) (\s@AwsJobAbortConfig' {} a -> s {abortCriteriaList = a} :: AwsJobAbortConfig) Core.. Lens._Coerce
 
-instance Prelude.Hashable AwsJobAbortConfig
+instance Core.Hashable AwsJobAbortConfig
 
-instance Prelude.NFData AwsJobAbortConfig
+instance Core.NFData AwsJobAbortConfig
 
-instance Prelude.ToJSON AwsJobAbortConfig where
+instance Core.ToJSON AwsJobAbortConfig where
   toJSON AwsJobAbortConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("abortCriteriaList" Prelude..= abortCriteriaList)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("abortCriteriaList" Core..= abortCriteriaList)
           ]
       )

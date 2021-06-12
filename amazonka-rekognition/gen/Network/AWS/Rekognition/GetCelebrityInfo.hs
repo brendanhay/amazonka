@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.Rekognition.GetCelebrityInfo
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,9 +60,9 @@ data GetCelebrityInfo = GetCelebrityInfo'
   { -- | The ID for the celebrity. You get the celebrity ID from a call to the
     -- RecognizeCelebrities operation, which recognizes celebrities in an
     -- image.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCelebrityInfo' with all optional fields omitted.
@@ -78,7 +77,7 @@ data GetCelebrityInfo = GetCelebrityInfo'
 -- image.
 newGetCelebrityInfo ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   GetCelebrityInfo
 newGetCelebrityInfo pId_ =
   GetCelebrityInfo' {id = pId_}
@@ -86,63 +85,61 @@ newGetCelebrityInfo pId_ =
 -- | The ID for the celebrity. You get the celebrity ID from a call to the
 -- RecognizeCelebrities operation, which recognizes celebrities in an
 -- image.
-getCelebrityInfo_id :: Lens.Lens' GetCelebrityInfo Prelude.Text
+getCelebrityInfo_id :: Lens.Lens' GetCelebrityInfo Core.Text
 getCelebrityInfo_id = Lens.lens (\GetCelebrityInfo' {id} -> id) (\s@GetCelebrityInfo' {} a -> s {id = a} :: GetCelebrityInfo)
 
-instance Prelude.AWSRequest GetCelebrityInfo where
-  type Rs GetCelebrityInfo = GetCelebrityInfoResponse
+instance Core.AWSRequest GetCelebrityInfo where
+  type
+    AWSResponse GetCelebrityInfo =
+      GetCelebrityInfoResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCelebrityInfoResponse'
-            Prelude.<$> (x Prelude..?> "Urls" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Urls" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetCelebrityInfo
+instance Core.Hashable GetCelebrityInfo
 
-instance Prelude.NFData GetCelebrityInfo
+instance Core.NFData GetCelebrityInfo
 
-instance Prelude.ToHeaders GetCelebrityInfo where
+instance Core.ToHeaders GetCelebrityInfo where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.GetCelebrityInfo" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.GetCelebrityInfo" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetCelebrityInfo where
+instance Core.ToJSON GetCelebrityInfo where
   toJSON GetCelebrityInfo' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Id" Prelude..= id)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Id" Core..= id)])
 
-instance Prelude.ToPath GetCelebrityInfo where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetCelebrityInfo where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetCelebrityInfo where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCelebrityInfo where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCelebrityInfoResponse' smart constructor.
 data GetCelebrityInfoResponse = GetCelebrityInfoResponse'
   { -- | An array of URLs pointing to additional celebrity information.
-    urls :: Prelude.Maybe [Prelude.Text],
+    urls :: Core.Maybe [Core.Text],
     -- | The name of the celebrity.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCelebrityInfoResponse' with all optional fields omitted.
@@ -159,25 +156,25 @@ data GetCelebrityInfoResponse = GetCelebrityInfoResponse'
 -- 'httpStatus', 'getCelebrityInfoResponse_httpStatus' - The response's http status code.
 newGetCelebrityInfoResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCelebrityInfoResponse
 newGetCelebrityInfoResponse pHttpStatus_ =
   GetCelebrityInfoResponse'
-    { urls = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { urls = Core.Nothing,
+      name = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of URLs pointing to additional celebrity information.
-getCelebrityInfoResponse_urls :: Lens.Lens' GetCelebrityInfoResponse (Prelude.Maybe [Prelude.Text])
-getCelebrityInfoResponse_urls = Lens.lens (\GetCelebrityInfoResponse' {urls} -> urls) (\s@GetCelebrityInfoResponse' {} a -> s {urls = a} :: GetCelebrityInfoResponse) Prelude.. Lens.mapping Prelude._Coerce
+getCelebrityInfoResponse_urls :: Lens.Lens' GetCelebrityInfoResponse (Core.Maybe [Core.Text])
+getCelebrityInfoResponse_urls = Lens.lens (\GetCelebrityInfoResponse' {urls} -> urls) (\s@GetCelebrityInfoResponse' {} a -> s {urls = a} :: GetCelebrityInfoResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the celebrity.
-getCelebrityInfoResponse_name :: Lens.Lens' GetCelebrityInfoResponse (Prelude.Maybe Prelude.Text)
+getCelebrityInfoResponse_name :: Lens.Lens' GetCelebrityInfoResponse (Core.Maybe Core.Text)
 getCelebrityInfoResponse_name = Lens.lens (\GetCelebrityInfoResponse' {name} -> name) (\s@GetCelebrityInfoResponse' {} a -> s {name = a} :: GetCelebrityInfoResponse)
 
 -- | The response's http status code.
-getCelebrityInfoResponse_httpStatus :: Lens.Lens' GetCelebrityInfoResponse Prelude.Int
+getCelebrityInfoResponse_httpStatus :: Lens.Lens' GetCelebrityInfoResponse Core.Int
 getCelebrityInfoResponse_httpStatus = Lens.lens (\GetCelebrityInfoResponse' {httpStatus} -> httpStatus) (\s@GetCelebrityInfoResponse' {} a -> s {httpStatus = a} :: GetCelebrityInfoResponse)
 
-instance Prelude.NFData GetCelebrityInfoResponse
+instance Core.NFData GetCelebrityInfoResponse

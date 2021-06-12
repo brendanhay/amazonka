@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.IAM.EnableMFADevice
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +54,7 @@ data EnableMFADevice = EnableMFADevice'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The serial number that uniquely identifies the MFA device. For virtual
     -- MFA devices, the serial number is the device ARN.
     --
@@ -63,7 +62,7 @@ data EnableMFADevice = EnableMFADevice'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@:\/-
-    serialNumber :: Prelude.Text,
+    serialNumber :: Core.Text,
     -- | An authentication code emitted by the device.
     --
     -- The format for this parameter is a string of six digits.
@@ -75,7 +74,7 @@ data EnableMFADevice = EnableMFADevice'
     -- passwords (TOTP) expire after a short period of time. If this happens,
     -- you can
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device>.
-    authenticationCode1 :: Prelude.Text,
+    authenticationCode1 :: Core.Text,
     -- | A subsequent authentication code emitted by the device.
     --
     -- The format for this parameter is a string of six digits.
@@ -87,9 +86,9 @@ data EnableMFADevice = EnableMFADevice'
     -- passwords (TOTP) expire after a short period of time. If this happens,
     -- you can
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device>.
-    authenticationCode2 :: Prelude.Text
+    authenticationCode2 :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableMFADevice' with all optional fields omitted.
@@ -139,13 +138,13 @@ data EnableMFADevice = EnableMFADevice'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device>.
 newEnableMFADevice ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serialNumber'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'authenticationCode1'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'authenticationCode2'
-  Prelude.Text ->
+  Core.Text ->
   EnableMFADevice
 newEnableMFADevice
   pUserName_
@@ -165,7 +164,7 @@ newEnableMFADevice
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-enableMFADevice_userName :: Lens.Lens' EnableMFADevice Prelude.Text
+enableMFADevice_userName :: Lens.Lens' EnableMFADevice Core.Text
 enableMFADevice_userName = Lens.lens (\EnableMFADevice' {userName} -> userName) (\s@EnableMFADevice' {} a -> s {userName = a} :: EnableMFADevice)
 
 -- | The serial number that uniquely identifies the MFA device. For virtual
@@ -175,7 +174,7 @@ enableMFADevice_userName = Lens.lens (\EnableMFADevice' {userName} -> userName) 
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@:\/-
-enableMFADevice_serialNumber :: Lens.Lens' EnableMFADevice Prelude.Text
+enableMFADevice_serialNumber :: Lens.Lens' EnableMFADevice Core.Text
 enableMFADevice_serialNumber = Lens.lens (\EnableMFADevice' {serialNumber} -> serialNumber) (\s@EnableMFADevice' {} a -> s {serialNumber = a} :: EnableMFADevice)
 
 -- | An authentication code emitted by the device.
@@ -189,7 +188,7 @@ enableMFADevice_serialNumber = Lens.lens (\EnableMFADevice' {serialNumber} -> se
 -- passwords (TOTP) expire after a short period of time. If this happens,
 -- you can
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device>.
-enableMFADevice_authenticationCode1 :: Lens.Lens' EnableMFADevice Prelude.Text
+enableMFADevice_authenticationCode1 :: Lens.Lens' EnableMFADevice Core.Text
 enableMFADevice_authenticationCode1 = Lens.lens (\EnableMFADevice' {authenticationCode1} -> authenticationCode1) (\s@EnableMFADevice' {} a -> s {authenticationCode1 = a} :: EnableMFADevice)
 
 -- | A subsequent authentication code emitted by the device.
@@ -203,43 +202,44 @@ enableMFADevice_authenticationCode1 = Lens.lens (\EnableMFADevice' {authenticati
 -- passwords (TOTP) expire after a short period of time. If this happens,
 -- you can
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device>.
-enableMFADevice_authenticationCode2 :: Lens.Lens' EnableMFADevice Prelude.Text
+enableMFADevice_authenticationCode2 :: Lens.Lens' EnableMFADevice Core.Text
 enableMFADevice_authenticationCode2 = Lens.lens (\EnableMFADevice' {authenticationCode2} -> authenticationCode2) (\s@EnableMFADevice' {} a -> s {authenticationCode2 = a} :: EnableMFADevice)
 
-instance Prelude.AWSRequest EnableMFADevice where
-  type Rs EnableMFADevice = EnableMFADeviceResponse
+instance Core.AWSRequest EnableMFADevice where
+  type
+    AWSResponse EnableMFADevice =
+      EnableMFADeviceResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull EnableMFADeviceResponse'
 
-instance Prelude.Hashable EnableMFADevice
+instance Core.Hashable EnableMFADevice
 
-instance Prelude.NFData EnableMFADevice
+instance Core.NFData EnableMFADevice
 
-instance Prelude.ToHeaders EnableMFADevice where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders EnableMFADevice where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath EnableMFADevice where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableMFADevice where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableMFADevice where
+instance Core.ToQuery EnableMFADevice where
   toQuery EnableMFADevice' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("EnableMFADevice" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "SerialNumber" Prelude.=: serialNumber,
-        "AuthenticationCode1" Prelude.=: authenticationCode1,
-        "AuthenticationCode2" Prelude.=: authenticationCode2
+          Core.=: ("EnableMFADevice" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "SerialNumber" Core.=: serialNumber,
+        "AuthenticationCode1" Core.=: authenticationCode1,
+        "AuthenticationCode2" Core.=: authenticationCode2
       ]
 
 -- | /See:/ 'newEnableMFADeviceResponse' smart constructor.
 data EnableMFADeviceResponse = EnableMFADeviceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableMFADeviceResponse' with all optional fields omitted.
@@ -249,4 +249,4 @@ newEnableMFADeviceResponse ::
   EnableMFADeviceResponse
 newEnableMFADeviceResponse = EnableMFADeviceResponse'
 
-instance Prelude.NFData EnableMFADeviceResponse
+instance Core.NFData EnableMFADeviceResponse

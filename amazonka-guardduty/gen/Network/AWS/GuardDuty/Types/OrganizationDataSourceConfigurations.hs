@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains information on which data sources will be
 -- configured to be automatically enabled for new members within the
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 data OrganizationDataSourceConfigurations = OrganizationDataSourceConfigurations'
   { -- | Describes whether S3 data event logs are enabled for new members of the
     -- organization.
-    s3Logs :: Prelude.Maybe OrganizationS3LogsConfiguration
+    s3Logs :: Core.Maybe OrganizationS3LogsConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OrganizationDataSourceConfigurations' with all optional fields omitted.
@@ -51,28 +50,26 @@ newOrganizationDataSourceConfigurations ::
 newOrganizationDataSourceConfigurations =
   OrganizationDataSourceConfigurations'
     { s3Logs =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Describes whether S3 data event logs are enabled for new members of the
 -- organization.
-organizationDataSourceConfigurations_s3Logs :: Lens.Lens' OrganizationDataSourceConfigurations (Prelude.Maybe OrganizationS3LogsConfiguration)
+organizationDataSourceConfigurations_s3Logs :: Lens.Lens' OrganizationDataSourceConfigurations (Core.Maybe OrganizationS3LogsConfiguration)
 organizationDataSourceConfigurations_s3Logs = Lens.lens (\OrganizationDataSourceConfigurations' {s3Logs} -> s3Logs) (\s@OrganizationDataSourceConfigurations' {} a -> s {s3Logs = a} :: OrganizationDataSourceConfigurations)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     OrganizationDataSourceConfigurations
 
 instance
-  Prelude.NFData
+  Core.NFData
     OrganizationDataSourceConfigurations
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     OrganizationDataSourceConfigurations
   where
   toJSON OrganizationDataSourceConfigurations' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("s3Logs" Prelude..=) Prelude.<$> s3Logs]
-      )
+    Core.object
+      (Core.catMaybes [("s3Logs" Core..=) Core.<$> s3Logs])

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,8 +54,8 @@ module Network.AWS.StorageGateway.ActivateGateway
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -83,18 +82,18 @@ data ActivateGateway = ActivateGateway'
     -- This field is optional.
     --
     -- Valid Values: @IBM-ULT3580-TD5@
-    tapeDriveType :: Prelude.Maybe Prelude.Text,
+    tapeDriveType :: Core.Maybe Core.Text,
     -- | A value that defines the type of gateway to activate. The type specified
     -- is critical to all later functions of the gateway and cannot be changed
     -- after activation. The default value is @CACHED@.
     --
     -- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@
-    gatewayType :: Prelude.Maybe Prelude.Text,
+    gatewayType :: Core.Maybe Core.Text,
     -- | The value that indicates the type of medium changer to use for tape
     -- gateway. This field is optional.
     --
     -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-    mediumChangerType :: Prelude.Maybe Prelude.Text,
+    mediumChangerType :: Core.Maybe Core.Text,
     -- | A list of up to 50 tags that you can assign to the gateway. Each tag is
     -- a key-value pair.
     --
@@ -102,7 +101,7 @@ data ActivateGateway = ActivateGateway'
     -- can be represented in UTF-8 format, and the following special
     -- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
     -- characters, and the maximum length for a tag\'s value is 256 characters.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Your gateway activation key. You can obtain the activation key by
     -- sending an HTTP GET request with redirects enabled to the gateway IP
     -- address (port 80). The redirect URL returned in the response provides
@@ -115,16 +114,16 @@ data ActivateGateway = ActivateGateway'
     -- For more information, see
     -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key>
     -- in the /AWS Storage Gateway User Guide/.
-    activationKey :: Prelude.Text,
+    activationKey :: Core.Text,
     -- | The name you configured for your gateway.
-    gatewayName :: Prelude.Text,
+    gatewayName :: Core.Text,
     -- | A value that indicates the time zone you want to set for the gateway.
     -- The time zone is of the format \"GMT-hr:mm\" or \"GMT+hr:mm\". For
     -- example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00
     -- indicates the time is 2 hours ahead of GMT. The time zone is used, for
     -- example, for scheduling snapshots and your gateway\'s maintenance
     -- schedule.
-    gatewayTimezone :: Prelude.Text,
+    gatewayTimezone :: Core.Text,
     -- | A value that indicates the AWS Region where you want to store your data.
     -- The gateway AWS Region specified must be the same AWS Region as the AWS
     -- Region in your @Host@ header in the request. For more information about
@@ -135,9 +134,9 @@ data ActivateGateway = ActivateGateway'
     -- Valid Values: See
     -- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
     -- in the /AWS General Reference/.
-    gatewayRegion :: Prelude.Text
+    gatewayRegion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActivateGateway' with all optional fields omitted.
@@ -205,13 +204,13 @@ data ActivateGateway = ActivateGateway'
 -- in the /AWS General Reference/.
 newActivateGateway ::
   -- | 'activationKey'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'gatewayName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'gatewayTimezone'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'gatewayRegion'
-  Prelude.Text ->
+  Core.Text ->
   ActivateGateway
 newActivateGateway
   pActivationKey_
@@ -219,10 +218,10 @@ newActivateGateway
   pGatewayTimezone_
   pGatewayRegion_ =
     ActivateGateway'
-      { tapeDriveType = Prelude.Nothing,
-        gatewayType = Prelude.Nothing,
-        mediumChangerType = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tapeDriveType = Core.Nothing,
+        gatewayType = Core.Nothing,
+        mediumChangerType = Core.Nothing,
+        tags = Core.Nothing,
         activationKey = pActivationKey_,
         gatewayName = pGatewayName_,
         gatewayTimezone = pGatewayTimezone_,
@@ -233,7 +232,7 @@ newActivateGateway
 -- This field is optional.
 --
 -- Valid Values: @IBM-ULT3580-TD5@
-activateGateway_tapeDriveType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
+activateGateway_tapeDriveType :: Lens.Lens' ActivateGateway (Core.Maybe Core.Text)
 activateGateway_tapeDriveType = Lens.lens (\ActivateGateway' {tapeDriveType} -> tapeDriveType) (\s@ActivateGateway' {} a -> s {tapeDriveType = a} :: ActivateGateway)
 
 -- | A value that defines the type of gateway to activate. The type specified
@@ -241,14 +240,14 @@ activateGateway_tapeDriveType = Lens.lens (\ActivateGateway' {tapeDriveType} -> 
 -- after activation. The default value is @CACHED@.
 --
 -- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@
-activateGateway_gatewayType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
+activateGateway_gatewayType :: Lens.Lens' ActivateGateway (Core.Maybe Core.Text)
 activateGateway_gatewayType = Lens.lens (\ActivateGateway' {gatewayType} -> gatewayType) (\s@ActivateGateway' {} a -> s {gatewayType = a} :: ActivateGateway)
 
 -- | The value that indicates the type of medium changer to use for tape
 -- gateway. This field is optional.
 --
 -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-activateGateway_mediumChangerType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
+activateGateway_mediumChangerType :: Lens.Lens' ActivateGateway (Core.Maybe Core.Text)
 activateGateway_mediumChangerType = Lens.lens (\ActivateGateway' {mediumChangerType} -> mediumChangerType) (\s@ActivateGateway' {} a -> s {mediumChangerType = a} :: ActivateGateway)
 
 -- | A list of up to 50 tags that you can assign to the gateway. Each tag is
@@ -258,8 +257,8 @@ activateGateway_mediumChangerType = Lens.lens (\ActivateGateway' {mediumChangerT
 -- can be represented in UTF-8 format, and the following special
 -- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
 -- characters, and the maximum length for a tag\'s value is 256 characters.
-activateGateway_tags :: Lens.Lens' ActivateGateway (Prelude.Maybe [Tag])
-activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@ActivateGateway' {} a -> s {tags = a} :: ActivateGateway) Prelude.. Lens.mapping Prelude._Coerce
+activateGateway_tags :: Lens.Lens' ActivateGateway (Core.Maybe [Tag])
+activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@ActivateGateway' {} a -> s {tags = a} :: ActivateGateway) Core.. Lens.mapping Lens._Coerce
 
 -- | Your gateway activation key. You can obtain the activation key by
 -- sending an HTTP GET request with redirects enabled to the gateway IP
@@ -273,11 +272,11 @@ activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@Activate
 -- For more information, see
 -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key>
 -- in the /AWS Storage Gateway User Guide/.
-activateGateway_activationKey :: Lens.Lens' ActivateGateway Prelude.Text
+activateGateway_activationKey :: Lens.Lens' ActivateGateway Core.Text
 activateGateway_activationKey = Lens.lens (\ActivateGateway' {activationKey} -> activationKey) (\s@ActivateGateway' {} a -> s {activationKey = a} :: ActivateGateway)
 
 -- | The name you configured for your gateway.
-activateGateway_gatewayName :: Lens.Lens' ActivateGateway Prelude.Text
+activateGateway_gatewayName :: Lens.Lens' ActivateGateway Core.Text
 activateGateway_gatewayName = Lens.lens (\ActivateGateway' {gatewayName} -> gatewayName) (\s@ActivateGateway' {} a -> s {gatewayName = a} :: ActivateGateway)
 
 -- | A value that indicates the time zone you want to set for the gateway.
@@ -286,7 +285,7 @@ activateGateway_gatewayName = Lens.lens (\ActivateGateway' {gatewayName} -> gate
 -- indicates the time is 2 hours ahead of GMT. The time zone is used, for
 -- example, for scheduling snapshots and your gateway\'s maintenance
 -- schedule.
-activateGateway_gatewayTimezone :: Lens.Lens' ActivateGateway Prelude.Text
+activateGateway_gatewayTimezone :: Lens.Lens' ActivateGateway Core.Text
 activateGateway_gatewayTimezone = Lens.lens (\ActivateGateway' {gatewayTimezone} -> gatewayTimezone) (\s@ActivateGateway' {} a -> s {gatewayTimezone = a} :: ActivateGateway)
 
 -- | A value that indicates the AWS Region where you want to store your data.
@@ -299,64 +298,61 @@ activateGateway_gatewayTimezone = Lens.lens (\ActivateGateway' {gatewayTimezone}
 -- Valid Values: See
 -- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
 -- in the /AWS General Reference/.
-activateGateway_gatewayRegion :: Lens.Lens' ActivateGateway Prelude.Text
+activateGateway_gatewayRegion :: Lens.Lens' ActivateGateway Core.Text
 activateGateway_gatewayRegion = Lens.lens (\ActivateGateway' {gatewayRegion} -> gatewayRegion) (\s@ActivateGateway' {} a -> s {gatewayRegion = a} :: ActivateGateway)
 
-instance Prelude.AWSRequest ActivateGateway where
-  type Rs ActivateGateway = ActivateGatewayResponse
+instance Core.AWSRequest ActivateGateway where
+  type
+    AWSResponse ActivateGateway =
+      ActivateGatewayResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ActivateGatewayResponse'
-            Prelude.<$> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ActivateGateway
+instance Core.Hashable ActivateGateway
 
-instance Prelude.NFData ActivateGateway
+instance Core.NFData ActivateGateway
 
-instance Prelude.ToHeaders ActivateGateway where
+instance Core.ToHeaders ActivateGateway where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.ActivateGateway" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.ActivateGateway" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ActivateGateway where
+instance Core.ToJSON ActivateGateway where
   toJSON ActivateGateway' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TapeDriveType" Prelude..=)
-              Prelude.<$> tapeDriveType,
-            ("GatewayType" Prelude..=) Prelude.<$> gatewayType,
-            ("MediumChangerType" Prelude..=)
-              Prelude.<$> mediumChangerType,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
-              ("ActivationKey" Prelude..= activationKey),
-            Prelude.Just ("GatewayName" Prelude..= gatewayName),
-            Prelude.Just
-              ("GatewayTimezone" Prelude..= gatewayTimezone),
-            Prelude.Just
-              ("GatewayRegion" Prelude..= gatewayRegion)
+    Core.object
+      ( Core.catMaybes
+          [ ("TapeDriveType" Core..=) Core.<$> tapeDriveType,
+            ("GatewayType" Core..=) Core.<$> gatewayType,
+            ("MediumChangerType" Core..=)
+              Core.<$> mediumChangerType,
+            ("Tags" Core..=) Core.<$> tags,
+            Core.Just ("ActivationKey" Core..= activationKey),
+            Core.Just ("GatewayName" Core..= gatewayName),
+            Core.Just
+              ("GatewayTimezone" Core..= gatewayTimezone),
+            Core.Just ("GatewayRegion" Core..= gatewayRegion)
           ]
       )
 
-instance Prelude.ToPath ActivateGateway where
-  toPath = Prelude.const "/"
+instance Core.ToPath ActivateGateway where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ActivateGateway where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ActivateGateway where
+  toQuery = Core.const Core.mempty
 
 -- | AWS Storage Gateway returns the Amazon Resource Name (ARN) of the
 -- activated gateway. It is a string made of information such as your
@@ -369,11 +365,11 @@ instance Prelude.ToQuery ActivateGateway where
 --
 -- /See:/ 'newActivateGatewayResponse' smart constructor.
 data ActivateGatewayResponse = ActivateGatewayResponse'
-  { gatewayARN :: Prelude.Maybe Prelude.Text,
+  { gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActivateGatewayResponse' with all optional fields omitted.
@@ -388,21 +384,20 @@ data ActivateGatewayResponse = ActivateGatewayResponse'
 -- 'httpStatus', 'activateGatewayResponse_httpStatus' - The response's http status code.
 newActivateGatewayResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ActivateGatewayResponse
 newActivateGatewayResponse pHttpStatus_ =
   ActivateGatewayResponse'
-    { gatewayARN =
-        Prelude.Nothing,
+    { gatewayARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-activateGatewayResponse_gatewayARN :: Lens.Lens' ActivateGatewayResponse (Prelude.Maybe Prelude.Text)
+activateGatewayResponse_gatewayARN :: Lens.Lens' ActivateGatewayResponse (Core.Maybe Core.Text)
 activateGatewayResponse_gatewayARN = Lens.lens (\ActivateGatewayResponse' {gatewayARN} -> gatewayARN) (\s@ActivateGatewayResponse' {} a -> s {gatewayARN = a} :: ActivateGatewayResponse)
 
 -- | The response's http status code.
-activateGatewayResponse_httpStatus :: Lens.Lens' ActivateGatewayResponse Prelude.Int
+activateGatewayResponse_httpStatus :: Lens.Lens' ActivateGatewayResponse Core.Int
 activateGatewayResponse_httpStatus = Lens.lens (\ActivateGatewayResponse' {httpStatus} -> httpStatus) (\s@ActivateGatewayResponse' {} a -> s {httpStatus = a} :: ActivateGatewayResponse)
 
-instance Prelude.NFData ActivateGatewayResponse
+instance Core.NFData ActivateGatewayResponse

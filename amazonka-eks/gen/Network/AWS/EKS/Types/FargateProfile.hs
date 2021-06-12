@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,44 +19,44 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.FargateProfile where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.FargateProfileSelector
 import Network.AWS.EKS.Types.FargateProfileStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an AWS Fargate profile.
 --
 -- /See:/ 'newFargateProfile' smart constructor.
 data FargateProfile = FargateProfile'
   { -- | The current status of the Fargate profile.
-    status :: Prelude.Maybe FargateProfileStatus,
+    status :: Core.Maybe FargateProfileStatus,
     -- | The name of the Fargate profile.
-    fargateProfileName :: Prelude.Maybe Prelude.Text,
+    fargateProfileName :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the pod execution role to use for pods
     -- that match the selectors in the Fargate profile. For more information,
     -- see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html Pod Execution Role>
     -- in the /Amazon EKS User Guide/.
-    podExecutionRoleArn :: Prelude.Maybe Prelude.Text,
+    podExecutionRoleArn :: Core.Maybe Core.Text,
     -- | The Unix epoch timestamp in seconds for when the Fargate profile was
     -- created.
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | The full Amazon Resource Name (ARN) of the Fargate profile.
-    fargateProfileArn :: Prelude.Maybe Prelude.Text,
+    fargateProfileArn :: Core.Maybe Core.Text,
     -- | The metadata applied to the Fargate profile to assist with
     -- categorization and organization. Each tag consists of a key and an
     -- optional value, both of which you define. Fargate profile tags do not
     -- propagate to any other resources associated with the Fargate profile,
     -- such as the pods that are scheduled with it.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The selectors to match for pods to use this Fargate profile.
-    selectors :: Prelude.Maybe [FargateProfileSelector],
+    selectors :: Core.Maybe [FargateProfileSelector],
     -- | The IDs of subnets to launch pods into.
-    subnets :: Prelude.Maybe [Prelude.Text],
+    subnets :: Core.Maybe [Core.Text],
     -- | The name of the Amazon EKS cluster that the Fargate profile belongs to.
-    clusterName :: Prelude.Maybe Prelude.Text
+    clusterName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FargateProfile' with all optional fields omitted.
@@ -97,23 +96,23 @@ newFargateProfile ::
   FargateProfile
 newFargateProfile =
   FargateProfile'
-    { status = Prelude.Nothing,
-      fargateProfileName = Prelude.Nothing,
-      podExecutionRoleArn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      fargateProfileArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      selectors = Prelude.Nothing,
-      subnets = Prelude.Nothing,
-      clusterName = Prelude.Nothing
+    { status = Core.Nothing,
+      fargateProfileName = Core.Nothing,
+      podExecutionRoleArn = Core.Nothing,
+      createdAt = Core.Nothing,
+      fargateProfileArn = Core.Nothing,
+      tags = Core.Nothing,
+      selectors = Core.Nothing,
+      subnets = Core.Nothing,
+      clusterName = Core.Nothing
     }
 
 -- | The current status of the Fargate profile.
-fargateProfile_status :: Lens.Lens' FargateProfile (Prelude.Maybe FargateProfileStatus)
+fargateProfile_status :: Lens.Lens' FargateProfile (Core.Maybe FargateProfileStatus)
 fargateProfile_status = Lens.lens (\FargateProfile' {status} -> status) (\s@FargateProfile' {} a -> s {status = a} :: FargateProfile)
 
 -- | The name of the Fargate profile.
-fargateProfile_fargateProfileName :: Lens.Lens' FargateProfile (Prelude.Maybe Prelude.Text)
+fargateProfile_fargateProfileName :: Lens.Lens' FargateProfile (Core.Maybe Core.Text)
 fargateProfile_fargateProfileName = Lens.lens (\FargateProfile' {fargateProfileName} -> fargateProfileName) (\s@FargateProfile' {} a -> s {fargateProfileName = a} :: FargateProfile)
 
 -- | The Amazon Resource Name (ARN) of the pod execution role to use for pods
@@ -121,16 +120,16 @@ fargateProfile_fargateProfileName = Lens.lens (\FargateProfile' {fargateProfileN
 -- see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html Pod Execution Role>
 -- in the /Amazon EKS User Guide/.
-fargateProfile_podExecutionRoleArn :: Lens.Lens' FargateProfile (Prelude.Maybe Prelude.Text)
+fargateProfile_podExecutionRoleArn :: Lens.Lens' FargateProfile (Core.Maybe Core.Text)
 fargateProfile_podExecutionRoleArn = Lens.lens (\FargateProfile' {podExecutionRoleArn} -> podExecutionRoleArn) (\s@FargateProfile' {} a -> s {podExecutionRoleArn = a} :: FargateProfile)
 
 -- | The Unix epoch timestamp in seconds for when the Fargate profile was
 -- created.
-fargateProfile_createdAt :: Lens.Lens' FargateProfile (Prelude.Maybe Prelude.UTCTime)
-fargateProfile_createdAt = Lens.lens (\FargateProfile' {createdAt} -> createdAt) (\s@FargateProfile' {} a -> s {createdAt = a} :: FargateProfile) Prelude.. Lens.mapping Prelude._Time
+fargateProfile_createdAt :: Lens.Lens' FargateProfile (Core.Maybe Core.UTCTime)
+fargateProfile_createdAt = Lens.lens (\FargateProfile' {createdAt} -> createdAt) (\s@FargateProfile' {} a -> s {createdAt = a} :: FargateProfile) Core.. Lens.mapping Core._Time
 
 -- | The full Amazon Resource Name (ARN) of the Fargate profile.
-fargateProfile_fargateProfileArn :: Lens.Lens' FargateProfile (Prelude.Maybe Prelude.Text)
+fargateProfile_fargateProfileArn :: Lens.Lens' FargateProfile (Core.Maybe Core.Text)
 fargateProfile_fargateProfileArn = Lens.lens (\FargateProfile' {fargateProfileArn} -> fargateProfileArn) (\s@FargateProfile' {} a -> s {fargateProfileArn = a} :: FargateProfile)
 
 -- | The metadata applied to the Fargate profile to assist with
@@ -138,40 +137,38 @@ fargateProfile_fargateProfileArn = Lens.lens (\FargateProfile' {fargateProfileAr
 -- optional value, both of which you define. Fargate profile tags do not
 -- propagate to any other resources associated with the Fargate profile,
 -- such as the pods that are scheduled with it.
-fargateProfile_tags :: Lens.Lens' FargateProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-fargateProfile_tags = Lens.lens (\FargateProfile' {tags} -> tags) (\s@FargateProfile' {} a -> s {tags = a} :: FargateProfile) Prelude.. Lens.mapping Prelude._Coerce
+fargateProfile_tags :: Lens.Lens' FargateProfile (Core.Maybe (Core.HashMap Core.Text Core.Text))
+fargateProfile_tags = Lens.lens (\FargateProfile' {tags} -> tags) (\s@FargateProfile' {} a -> s {tags = a} :: FargateProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | The selectors to match for pods to use this Fargate profile.
-fargateProfile_selectors :: Lens.Lens' FargateProfile (Prelude.Maybe [FargateProfileSelector])
-fargateProfile_selectors = Lens.lens (\FargateProfile' {selectors} -> selectors) (\s@FargateProfile' {} a -> s {selectors = a} :: FargateProfile) Prelude.. Lens.mapping Prelude._Coerce
+fargateProfile_selectors :: Lens.Lens' FargateProfile (Core.Maybe [FargateProfileSelector])
+fargateProfile_selectors = Lens.lens (\FargateProfile' {selectors} -> selectors) (\s@FargateProfile' {} a -> s {selectors = a} :: FargateProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | The IDs of subnets to launch pods into.
-fargateProfile_subnets :: Lens.Lens' FargateProfile (Prelude.Maybe [Prelude.Text])
-fargateProfile_subnets = Lens.lens (\FargateProfile' {subnets} -> subnets) (\s@FargateProfile' {} a -> s {subnets = a} :: FargateProfile) Prelude.. Lens.mapping Prelude._Coerce
+fargateProfile_subnets :: Lens.Lens' FargateProfile (Core.Maybe [Core.Text])
+fargateProfile_subnets = Lens.lens (\FargateProfile' {subnets} -> subnets) (\s@FargateProfile' {} a -> s {subnets = a} :: FargateProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the Amazon EKS cluster that the Fargate profile belongs to.
-fargateProfile_clusterName :: Lens.Lens' FargateProfile (Prelude.Maybe Prelude.Text)
+fargateProfile_clusterName :: Lens.Lens' FargateProfile (Core.Maybe Core.Text)
 fargateProfile_clusterName = Lens.lens (\FargateProfile' {clusterName} -> clusterName) (\s@FargateProfile' {} a -> s {clusterName = a} :: FargateProfile)
 
-instance Prelude.FromJSON FargateProfile where
+instance Core.FromJSON FargateProfile where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FargateProfile"
       ( \x ->
           FargateProfile'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "fargateProfileName")
-            Prelude.<*> (x Prelude..:? "podExecutionRoleArn")
-            Prelude.<*> (x Prelude..:? "createdAt")
-            Prelude.<*> (x Prelude..:? "fargateProfileArn")
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> ( x Prelude..:? "selectors"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "subnets" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "clusterName")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "fargateProfileName")
+            Core.<*> (x Core..:? "podExecutionRoleArn")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "fargateProfileArn")
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "selectors" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "subnets" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "clusterName")
       )
 
-instance Prelude.Hashable FargateProfile
+instance Core.Hashable FargateProfile
 
-instance Prelude.NFData FargateProfile
+instance Core.NFData FargateProfile

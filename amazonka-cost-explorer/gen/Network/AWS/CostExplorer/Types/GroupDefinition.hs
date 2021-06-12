@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.GroupDefinition where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.GroupDefinitionType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a group when you specify a group by criteria or in the
 -- response to a query with a specific grouping.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newGroupDefinition' smart constructor.
 data GroupDefinition = GroupDefinition'
   { -- | The string that represents a key for a specified group.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The string that represents the type of group.
-    type' :: Prelude.Maybe GroupDefinitionType
+    type' :: Core.Maybe GroupDefinitionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GroupDefinition' with all optional fields omitted.
@@ -51,37 +50,36 @@ newGroupDefinition ::
   GroupDefinition
 newGroupDefinition =
   GroupDefinition'
-    { key = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { key = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The string that represents a key for a specified group.
-groupDefinition_key :: Lens.Lens' GroupDefinition (Prelude.Maybe Prelude.Text)
+groupDefinition_key :: Lens.Lens' GroupDefinition (Core.Maybe Core.Text)
 groupDefinition_key = Lens.lens (\GroupDefinition' {key} -> key) (\s@GroupDefinition' {} a -> s {key = a} :: GroupDefinition)
 
 -- | The string that represents the type of group.
-groupDefinition_type :: Lens.Lens' GroupDefinition (Prelude.Maybe GroupDefinitionType)
+groupDefinition_type :: Lens.Lens' GroupDefinition (Core.Maybe GroupDefinitionType)
 groupDefinition_type = Lens.lens (\GroupDefinition' {type'} -> type') (\s@GroupDefinition' {} a -> s {type' = a} :: GroupDefinition)
 
-instance Prelude.FromJSON GroupDefinition where
+instance Core.FromJSON GroupDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GroupDefinition"
       ( \x ->
           GroupDefinition'
-            Prelude.<$> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable GroupDefinition
+instance Core.Hashable GroupDefinition
 
-instance Prelude.NFData GroupDefinition
+instance Core.NFData GroupDefinition
 
-instance Prelude.ToJSON GroupDefinition where
+instance Core.ToJSON GroupDefinition where
   toJSON GroupDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Type" Prelude..=) Prelude.<$> type'
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Type" Core..=) Core.<$> type'
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.AlexaBusiness.Types.Content where
 import Network.AWS.AlexaBusiness.Types.Audio
 import Network.AWS.AlexaBusiness.Types.Ssml
 import Network.AWS.AlexaBusiness.Types.TextMessage
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The content definition. This can contain only one text, SSML, or audio
 -- list object.
@@ -32,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newContent' smart constructor.
 data Content = Content'
   { -- | The list of text messages.
-    textList :: Prelude.Maybe [TextMessage],
+    textList :: Core.Maybe [TextMessage],
     -- | The list of SSML messages.
-    ssmlList :: Prelude.Maybe [Ssml],
+    ssmlList :: Core.Maybe [Ssml],
     -- | The list of audio messages.
-    audioList :: Prelude.Maybe [Audio]
+    audioList :: Core.Maybe [Audio]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Content' with all optional fields omitted.
@@ -57,33 +56,33 @@ newContent ::
   Content
 newContent =
   Content'
-    { textList = Prelude.Nothing,
-      ssmlList = Prelude.Nothing,
-      audioList = Prelude.Nothing
+    { textList = Core.Nothing,
+      ssmlList = Core.Nothing,
+      audioList = Core.Nothing
     }
 
 -- | The list of text messages.
-content_textList :: Lens.Lens' Content (Prelude.Maybe [TextMessage])
-content_textList = Lens.lens (\Content' {textList} -> textList) (\s@Content' {} a -> s {textList = a} :: Content) Prelude.. Lens.mapping Prelude._Coerce
+content_textList :: Lens.Lens' Content (Core.Maybe [TextMessage])
+content_textList = Lens.lens (\Content' {textList} -> textList) (\s@Content' {} a -> s {textList = a} :: Content) Core.. Lens.mapping Lens._Coerce
 
 -- | The list of SSML messages.
-content_ssmlList :: Lens.Lens' Content (Prelude.Maybe [Ssml])
-content_ssmlList = Lens.lens (\Content' {ssmlList} -> ssmlList) (\s@Content' {} a -> s {ssmlList = a} :: Content) Prelude.. Lens.mapping Prelude._Coerce
+content_ssmlList :: Lens.Lens' Content (Core.Maybe [Ssml])
+content_ssmlList = Lens.lens (\Content' {ssmlList} -> ssmlList) (\s@Content' {} a -> s {ssmlList = a} :: Content) Core.. Lens.mapping Lens._Coerce
 
 -- | The list of audio messages.
-content_audioList :: Lens.Lens' Content (Prelude.Maybe [Audio])
-content_audioList = Lens.lens (\Content' {audioList} -> audioList) (\s@Content' {} a -> s {audioList = a} :: Content) Prelude.. Lens.mapping Prelude._Coerce
+content_audioList :: Lens.Lens' Content (Core.Maybe [Audio])
+content_audioList = Lens.lens (\Content' {audioList} -> audioList) (\s@Content' {} a -> s {audioList = a} :: Content) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable Content
+instance Core.Hashable Content
 
-instance Prelude.NFData Content
+instance Core.NFData Content
 
-instance Prelude.ToJSON Content where
+instance Core.ToJSON Content where
   toJSON Content' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TextList" Prelude..=) Prelude.<$> textList,
-            ("SsmlList" Prelude..=) Prelude.<$> ssmlList,
-            ("AudioList" Prelude..=) Prelude.<$> audioList
+    Core.object
+      ( Core.catMaybes
+          [ ("TextList" Core..=) Core.<$> textList,
+            ("SsmlList" Core..=) Core.<$> ssmlList,
+            ("AudioList" Core..=) Core.<$> audioList
           ]
       )

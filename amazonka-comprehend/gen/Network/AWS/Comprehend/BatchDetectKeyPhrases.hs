@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.Comprehend.BatchDetectKeyPhrases
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +52,13 @@ data BatchDetectKeyPhrases = BatchDetectKeyPhrases'
   { -- | A list containing the text of the input documents. The list can contain
     -- a maximum of 25 documents. Each document must contain fewer that 5,000
     -- bytes of UTF-8 encoded characters.
-    textList :: Prelude.Sensitive [Prelude.Sensitive Prelude.Text],
+    textList :: Core.Sensitive [Core.Sensitive Core.Text],
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
     -- same language.
     languageCode :: LanguageCode
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDetectKeyPhrases' with all optional fields omitted.
@@ -82,15 +81,15 @@ newBatchDetectKeyPhrases ::
   BatchDetectKeyPhrases
 newBatchDetectKeyPhrases pLanguageCode_ =
   BatchDetectKeyPhrases'
-    { textList = Prelude.mempty,
+    { textList = Core.mempty,
       languageCode = pLanguageCode_
     }
 
 -- | A list containing the text of the input documents. The list can contain
 -- a maximum of 25 documents. Each document must contain fewer that 5,000
 -- bytes of UTF-8 encoded characters.
-batchDetectKeyPhrases_textList :: Lens.Lens' BatchDetectKeyPhrases [Prelude.Text]
-batchDetectKeyPhrases_textList = Lens.lens (\BatchDetectKeyPhrases' {textList} -> textList) (\s@BatchDetectKeyPhrases' {} a -> s {textList = a} :: BatchDetectKeyPhrases) Prelude.. Prelude._Sensitive Prelude.. Prelude._Coerce
+batchDetectKeyPhrases_textList :: Lens.Lens' BatchDetectKeyPhrases [Core.Text]
+batchDetectKeyPhrases_textList = Lens.lens (\BatchDetectKeyPhrases' {textList} -> textList) (\s@BatchDetectKeyPhrases' {} a -> s {textList = a} :: BatchDetectKeyPhrases) Core.. Core._Sensitive Core.. Lens._Coerce
 
 -- | The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -98,63 +97,56 @@ batchDetectKeyPhrases_textList = Lens.lens (\BatchDetectKeyPhrases' {textList} -
 batchDetectKeyPhrases_languageCode :: Lens.Lens' BatchDetectKeyPhrases LanguageCode
 batchDetectKeyPhrases_languageCode = Lens.lens (\BatchDetectKeyPhrases' {languageCode} -> languageCode) (\s@BatchDetectKeyPhrases' {} a -> s {languageCode = a} :: BatchDetectKeyPhrases)
 
-instance Prelude.AWSRequest BatchDetectKeyPhrases where
+instance Core.AWSRequest BatchDetectKeyPhrases where
   type
-    Rs BatchDetectKeyPhrases =
+    AWSResponse BatchDetectKeyPhrases =
       BatchDetectKeyPhrasesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchDetectKeyPhrasesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "ResultList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "ErrorList"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "ResultList" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "ErrorList" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable BatchDetectKeyPhrases
+instance Core.Hashable BatchDetectKeyPhrases
 
-instance Prelude.NFData BatchDetectKeyPhrases
+instance Core.NFData BatchDetectKeyPhrases
 
-instance Prelude.ToHeaders BatchDetectKeyPhrases where
+instance Core.ToHeaders BatchDetectKeyPhrases where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.BatchDetectKeyPhrases" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.BatchDetectKeyPhrases" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchDetectKeyPhrases where
+instance Core.ToJSON BatchDetectKeyPhrases where
   toJSON BatchDetectKeyPhrases' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("TextList" Prelude..= textList),
-            Prelude.Just
-              ("LanguageCode" Prelude..= languageCode)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TextList" Core..= textList),
+            Core.Just ("LanguageCode" Core..= languageCode)
           ]
       )
 
-instance Prelude.ToPath BatchDetectKeyPhrases where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchDetectKeyPhrases where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchDetectKeyPhrases where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchDetectKeyPhrases where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchDetectKeyPhrasesResponse' smart constructor.
 data BatchDetectKeyPhrasesResponse = BatchDetectKeyPhrasesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of objects containing the results of the operation. The results
     -- are sorted in ascending order by the @Index@ field and match the order
     -- of the documents in the input list. If all of the documents contain an
@@ -166,7 +158,7 @@ data BatchDetectKeyPhrasesResponse = BatchDetectKeyPhrasesResponse'
     -- the batch, the @ErrorList@ is empty.
     errorList :: [BatchItemError]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDetectKeyPhrasesResponse' with all optional fields omitted.
@@ -189,18 +181,18 @@ data BatchDetectKeyPhrasesResponse = BatchDetectKeyPhrasesResponse'
 -- the batch, the @ErrorList@ is empty.
 newBatchDetectKeyPhrasesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchDetectKeyPhrasesResponse
 newBatchDetectKeyPhrasesResponse pHttpStatus_ =
   BatchDetectKeyPhrasesResponse'
     { httpStatus =
         pHttpStatus_,
-      resultList = Prelude.mempty,
-      errorList = Prelude.mempty
+      resultList = Core.mempty,
+      errorList = Core.mempty
     }
 
 -- | The response's http status code.
-batchDetectKeyPhrasesResponse_httpStatus :: Lens.Lens' BatchDetectKeyPhrasesResponse Prelude.Int
+batchDetectKeyPhrasesResponse_httpStatus :: Lens.Lens' BatchDetectKeyPhrasesResponse Core.Int
 batchDetectKeyPhrasesResponse_httpStatus = Lens.lens (\BatchDetectKeyPhrasesResponse' {httpStatus} -> httpStatus) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {httpStatus = a} :: BatchDetectKeyPhrasesResponse)
 
 -- | A list of objects containing the results of the operation. The results
@@ -208,13 +200,13 @@ batchDetectKeyPhrasesResponse_httpStatus = Lens.lens (\BatchDetectKeyPhrasesResp
 -- of the documents in the input list. If all of the documents contain an
 -- error, the @ResultList@ is empty.
 batchDetectKeyPhrasesResponse_resultList :: Lens.Lens' BatchDetectKeyPhrasesResponse [BatchDetectKeyPhrasesItemResult]
-batchDetectKeyPhrasesResponse_resultList = Lens.lens (\BatchDetectKeyPhrasesResponse' {resultList} -> resultList) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {resultList = a} :: BatchDetectKeyPhrasesResponse) Prelude.. Prelude._Coerce
+batchDetectKeyPhrasesResponse_resultList = Lens.lens (\BatchDetectKeyPhrasesResponse' {resultList} -> resultList) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {resultList = a} :: BatchDetectKeyPhrasesResponse) Core.. Lens._Coerce
 
 -- | A list containing one object for each document that contained an error.
 -- The results are sorted in ascending order by the @Index@ field and match
 -- the order of the documents in the input list. If there are no errors in
 -- the batch, the @ErrorList@ is empty.
 batchDetectKeyPhrasesResponse_errorList :: Lens.Lens' BatchDetectKeyPhrasesResponse [BatchItemError]
-batchDetectKeyPhrasesResponse_errorList = Lens.lens (\BatchDetectKeyPhrasesResponse' {errorList} -> errorList) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {errorList = a} :: BatchDetectKeyPhrasesResponse) Prelude.. Prelude._Coerce
+batchDetectKeyPhrasesResponse_errorList = Lens.lens (\BatchDetectKeyPhrasesResponse' {errorList} -> errorList) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {errorList = a} :: BatchDetectKeyPhrasesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData BatchDetectKeyPhrasesResponse
+instance Core.NFData BatchDetectKeyPhrasesResponse

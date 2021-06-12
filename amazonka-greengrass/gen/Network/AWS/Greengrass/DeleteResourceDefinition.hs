@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.Greengrass.DeleteResourceDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteResourceDefinition' smart constructor.
 data DeleteResourceDefinition = DeleteResourceDefinition'
   { -- | The ID of the resource definition.
-    resourceDefinitionId :: Prelude.Text
+    resourceDefinitionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceDefinition' with all optional fields omitted.
@@ -63,7 +62,7 @@ data DeleteResourceDefinition = DeleteResourceDefinition'
 -- 'resourceDefinitionId', 'deleteResourceDefinition_resourceDefinitionId' - The ID of the resource definition.
 newDeleteResourceDefinition ::
   -- | 'resourceDefinitionId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteResourceDefinition
 newDeleteResourceDefinition pResourceDefinitionId_ =
   DeleteResourceDefinition'
@@ -72,52 +71,50 @@ newDeleteResourceDefinition pResourceDefinitionId_ =
     }
 
 -- | The ID of the resource definition.
-deleteResourceDefinition_resourceDefinitionId :: Lens.Lens' DeleteResourceDefinition Prelude.Text
+deleteResourceDefinition_resourceDefinitionId :: Lens.Lens' DeleteResourceDefinition Core.Text
 deleteResourceDefinition_resourceDefinitionId = Lens.lens (\DeleteResourceDefinition' {resourceDefinitionId} -> resourceDefinitionId) (\s@DeleteResourceDefinition' {} a -> s {resourceDefinitionId = a} :: DeleteResourceDefinition)
 
-instance Prelude.AWSRequest DeleteResourceDefinition where
+instance Core.AWSRequest DeleteResourceDefinition where
   type
-    Rs DeleteResourceDefinition =
+    AWSResponse DeleteResourceDefinition =
       DeleteResourceDefinitionResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteResourceDefinitionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResourceDefinition
+instance Core.Hashable DeleteResourceDefinition
 
-instance Prelude.NFData DeleteResourceDefinition
+instance Core.NFData DeleteResourceDefinition
 
-instance Prelude.ToHeaders DeleteResourceDefinition where
+instance Core.ToHeaders DeleteResourceDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteResourceDefinition where
+instance Core.ToPath DeleteResourceDefinition where
   toPath DeleteResourceDefinition' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/definition/resources/",
-        Prelude.toBS resourceDefinitionId
+        Core.toBS resourceDefinitionId
       ]
 
-instance Prelude.ToQuery DeleteResourceDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteResourceDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteResourceDefinitionResponse' smart constructor.
 data DeleteResourceDefinitionResponse = DeleteResourceDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceDefinitionResponse' with all optional fields omitted.
@@ -130,7 +127,7 @@ data DeleteResourceDefinitionResponse = DeleteResourceDefinitionResponse'
 -- 'httpStatus', 'deleteResourceDefinitionResponse_httpStatus' - The response's http status code.
 newDeleteResourceDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteResourceDefinitionResponse
 newDeleteResourceDefinitionResponse pHttpStatus_ =
   DeleteResourceDefinitionResponse'
@@ -139,9 +136,7 @@ newDeleteResourceDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteResourceDefinitionResponse_httpStatus :: Lens.Lens' DeleteResourceDefinitionResponse Prelude.Int
+deleteResourceDefinitionResponse_httpStatus :: Lens.Lens' DeleteResourceDefinitionResponse Core.Int
 deleteResourceDefinitionResponse_httpStatus = Lens.lens (\DeleteResourceDefinitionResponse' {httpStatus} -> httpStatus) (\s@DeleteResourceDefinitionResponse' {} a -> s {httpStatus = a} :: DeleteResourceDefinitionResponse)
 
-instance
-  Prelude.NFData
-    DeleteResourceDefinitionResponse
+instance Core.NFData DeleteResourceDefinitionResponse

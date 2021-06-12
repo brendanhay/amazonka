@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.EnclaveOptionsRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether the instance is enabled for AWS Nitro Enclaves. For
 -- more information, see
@@ -33,9 +32,9 @@ import qualified Network.AWS.Prelude as Prelude
 data EnclaveOptionsRequest = EnclaveOptionsRequest'
   { -- | To enable the instance for AWS Nitro Enclaves, set this parameter to
     -- @true@.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnclaveOptionsRequest' with all optional fields omitted.
@@ -50,17 +49,17 @@ data EnclaveOptionsRequest = EnclaveOptionsRequest'
 newEnclaveOptionsRequest ::
   EnclaveOptionsRequest
 newEnclaveOptionsRequest =
-  EnclaveOptionsRequest' {enabled = Prelude.Nothing}
+  EnclaveOptionsRequest' {enabled = Core.Nothing}
 
 -- | To enable the instance for AWS Nitro Enclaves, set this parameter to
 -- @true@.
-enclaveOptionsRequest_enabled :: Lens.Lens' EnclaveOptionsRequest (Prelude.Maybe Prelude.Bool)
+enclaveOptionsRequest_enabled :: Lens.Lens' EnclaveOptionsRequest (Core.Maybe Core.Bool)
 enclaveOptionsRequest_enabled = Lens.lens (\EnclaveOptionsRequest' {enabled} -> enabled) (\s@EnclaveOptionsRequest' {} a -> s {enabled = a} :: EnclaveOptionsRequest)
 
-instance Prelude.Hashable EnclaveOptionsRequest
+instance Core.Hashable EnclaveOptionsRequest
 
-instance Prelude.NFData EnclaveOptionsRequest
+instance Core.NFData EnclaveOptionsRequest
 
-instance Prelude.ToQuery EnclaveOptionsRequest where
+instance Core.ToQuery EnclaveOptionsRequest where
   toQuery EnclaveOptionsRequest' {..} =
-    Prelude.mconcat ["Enabled" Prelude.=: enabled]
+    Core.mconcat ["Enabled" Core.=: enabled]

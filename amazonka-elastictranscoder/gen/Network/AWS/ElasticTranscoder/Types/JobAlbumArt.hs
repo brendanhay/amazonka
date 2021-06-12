@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Types.JobAlbumArt where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.Artwork
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The .jpg or .png file associated with an audio file.
 --
@@ -31,7 +30,7 @@ data JobAlbumArt = JobAlbumArt'
   { -- | The file to be used as album art. There can be multiple artworks
     -- associated with an audio file, to a maximum of 20. Valid formats are
     -- @.jpg@ and @.png@
-    artwork :: Prelude.Maybe [Artwork],
+    artwork :: Core.Maybe [Artwork],
     -- | A policy that determines how Elastic Transcoder handles the existence of
     -- multiple album artwork files.
     --
@@ -47,9 +46,9 @@ data JobAlbumArt = JobAlbumArt'
     --     Transcoder uses that artwork for the output. If the original input
     --     does not contain artwork, Elastic Transcoder uses the specified
     --     album art file.
-    mergePolicy :: Prelude.Maybe Prelude.Text
+    mergePolicy :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobAlbumArt' with all optional fields omitted.
@@ -82,15 +81,15 @@ newJobAlbumArt ::
   JobAlbumArt
 newJobAlbumArt =
   JobAlbumArt'
-    { artwork = Prelude.Nothing,
-      mergePolicy = Prelude.Nothing
+    { artwork = Core.Nothing,
+      mergePolicy = Core.Nothing
     }
 
 -- | The file to be used as album art. There can be multiple artworks
 -- associated with an audio file, to a maximum of 20. Valid formats are
 -- @.jpg@ and @.png@
-jobAlbumArt_artwork :: Lens.Lens' JobAlbumArt (Prelude.Maybe [Artwork])
-jobAlbumArt_artwork = Lens.lens (\JobAlbumArt' {artwork} -> artwork) (\s@JobAlbumArt' {} a -> s {artwork = a} :: JobAlbumArt) Prelude.. Lens.mapping Prelude._Coerce
+jobAlbumArt_artwork :: Lens.Lens' JobAlbumArt (Core.Maybe [Artwork])
+jobAlbumArt_artwork = Lens.lens (\JobAlbumArt' {artwork} -> artwork) (\s@JobAlbumArt' {} a -> s {artwork = a} :: JobAlbumArt) Core.. Lens.mapping Lens._Coerce
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
 -- multiple album artwork files.
@@ -107,28 +106,28 @@ jobAlbumArt_artwork = Lens.lens (\JobAlbumArt' {artwork} -> artwork) (\s@JobAlbu
 --     Transcoder uses that artwork for the output. If the original input
 --     does not contain artwork, Elastic Transcoder uses the specified
 --     album art file.
-jobAlbumArt_mergePolicy :: Lens.Lens' JobAlbumArt (Prelude.Maybe Prelude.Text)
+jobAlbumArt_mergePolicy :: Lens.Lens' JobAlbumArt (Core.Maybe Core.Text)
 jobAlbumArt_mergePolicy = Lens.lens (\JobAlbumArt' {mergePolicy} -> mergePolicy) (\s@JobAlbumArt' {} a -> s {mergePolicy = a} :: JobAlbumArt)
 
-instance Prelude.FromJSON JobAlbumArt where
+instance Core.FromJSON JobAlbumArt where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobAlbumArt"
       ( \x ->
           JobAlbumArt'
-            Prelude.<$> (x Prelude..:? "Artwork" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "MergePolicy")
+            Core.<$> (x Core..:? "Artwork" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "MergePolicy")
       )
 
-instance Prelude.Hashable JobAlbumArt
+instance Core.Hashable JobAlbumArt
 
-instance Prelude.NFData JobAlbumArt
+instance Core.NFData JobAlbumArt
 
-instance Prelude.ToJSON JobAlbumArt where
+instance Core.ToJSON JobAlbumArt where
   toJSON JobAlbumArt' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Artwork" Prelude..=) Prelude.<$> artwork,
-            ("MergePolicy" Prelude..=) Prelude.<$> mergePolicy
+    Core.object
+      ( Core.catMaybes
+          [ ("Artwork" Core..=) Core.<$> artwork,
+            ("MergePolicy" Core..=) Core.<$> mergePolicy
           ]
       )

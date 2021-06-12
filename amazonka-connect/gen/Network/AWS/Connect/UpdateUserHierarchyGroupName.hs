@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,21 +38,21 @@ module Network.AWS.Connect.UpdateUserHierarchyGroupName
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateUserHierarchyGroupName' smart constructor.
 data UpdateUserHierarchyGroupName = UpdateUserHierarchyGroupName'
   { -- | The name of the hierarchy group. Must not be more than 100 characters.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The identifier of the hierarchy group.
-    hierarchyGroupId :: Prelude.Text,
+    hierarchyGroupId :: Core.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUserHierarchyGroupName' with all optional fields omitted.
@@ -70,11 +69,11 @@ data UpdateUserHierarchyGroupName = UpdateUserHierarchyGroupName'
 -- 'instanceId', 'updateUserHierarchyGroupName_instanceId' - The identifier of the Amazon Connect instance.
 newUpdateUserHierarchyGroupName ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'hierarchyGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateUserHierarchyGroupName
 newUpdateUserHierarchyGroupName
   pName_
@@ -87,74 +86,62 @@ newUpdateUserHierarchyGroupName
       }
 
 -- | The name of the hierarchy group. Must not be more than 100 characters.
-updateUserHierarchyGroupName_name :: Lens.Lens' UpdateUserHierarchyGroupName Prelude.Text
+updateUserHierarchyGroupName_name :: Lens.Lens' UpdateUserHierarchyGroupName Core.Text
 updateUserHierarchyGroupName_name = Lens.lens (\UpdateUserHierarchyGroupName' {name} -> name) (\s@UpdateUserHierarchyGroupName' {} a -> s {name = a} :: UpdateUserHierarchyGroupName)
 
 -- | The identifier of the hierarchy group.
-updateUserHierarchyGroupName_hierarchyGroupId :: Lens.Lens' UpdateUserHierarchyGroupName Prelude.Text
+updateUserHierarchyGroupName_hierarchyGroupId :: Lens.Lens' UpdateUserHierarchyGroupName Core.Text
 updateUserHierarchyGroupName_hierarchyGroupId = Lens.lens (\UpdateUserHierarchyGroupName' {hierarchyGroupId} -> hierarchyGroupId) (\s@UpdateUserHierarchyGroupName' {} a -> s {hierarchyGroupId = a} :: UpdateUserHierarchyGroupName)
 
 -- | The identifier of the Amazon Connect instance.
-updateUserHierarchyGroupName_instanceId :: Lens.Lens' UpdateUserHierarchyGroupName Prelude.Text
+updateUserHierarchyGroupName_instanceId :: Lens.Lens' UpdateUserHierarchyGroupName Core.Text
 updateUserHierarchyGroupName_instanceId = Lens.lens (\UpdateUserHierarchyGroupName' {instanceId} -> instanceId) (\s@UpdateUserHierarchyGroupName' {} a -> s {instanceId = a} :: UpdateUserHierarchyGroupName)
 
-instance
-  Prelude.AWSRequest
-    UpdateUserHierarchyGroupName
-  where
+instance Core.AWSRequest UpdateUserHierarchyGroupName where
   type
-    Rs UpdateUserHierarchyGroupName =
+    AWSResponse UpdateUserHierarchyGroupName =
       UpdateUserHierarchyGroupNameResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UpdateUserHierarchyGroupNameResponse'
 
-instance
-  Prelude.Hashable
-    UpdateUserHierarchyGroupName
+instance Core.Hashable UpdateUserHierarchyGroupName
 
-instance Prelude.NFData UpdateUserHierarchyGroupName
+instance Core.NFData UpdateUserHierarchyGroupName
 
-instance
-  Prelude.ToHeaders
-    UpdateUserHierarchyGroupName
-  where
+instance Core.ToHeaders UpdateUserHierarchyGroupName where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateUserHierarchyGroupName where
+instance Core.ToJSON UpdateUserHierarchyGroupName where
   toJSON UpdateUserHierarchyGroupName' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath UpdateUserHierarchyGroupName where
+instance Core.ToPath UpdateUserHierarchyGroupName where
   toPath UpdateUserHierarchyGroupName' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/user-hierarchy-groups/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS hierarchyGroupId,
+        Core.toBS hierarchyGroupId,
         "/name"
       ]
 
-instance Prelude.ToQuery UpdateUserHierarchyGroupName where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateUserHierarchyGroupName where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateUserHierarchyGroupNameResponse' smart constructor.
 data UpdateUserHierarchyGroupNameResponse = UpdateUserHierarchyGroupNameResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUserHierarchyGroupNameResponse' with all optional fields omitted.
@@ -166,5 +153,5 @@ newUpdateUserHierarchyGroupNameResponse =
   UpdateUserHierarchyGroupNameResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateUserHierarchyGroupNameResponse

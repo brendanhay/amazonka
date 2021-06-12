@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.GuardDuty.DisassociateFromMasterAccount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateFromMasterAccount' smart constructor.
 data DisassociateFromMasterAccount = DisassociateFromMasterAccount'
   { -- | The unique ID of the detector of the GuardDuty member account.
-    detectorId :: Prelude.Text
+    detectorId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateFromMasterAccount' with all optional fields omitted.
@@ -64,7 +63,7 @@ data DisassociateFromMasterAccount = DisassociateFromMasterAccount'
 -- 'detectorId', 'disassociateFromMasterAccount_detectorId' - The unique ID of the detector of the GuardDuty member account.
 newDisassociateFromMasterAccount ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateFromMasterAccount
 newDisassociateFromMasterAccount pDetectorId_ =
   DisassociateFromMasterAccount'
@@ -73,68 +72,57 @@ newDisassociateFromMasterAccount pDetectorId_ =
     }
 
 -- | The unique ID of the detector of the GuardDuty member account.
-disassociateFromMasterAccount_detectorId :: Lens.Lens' DisassociateFromMasterAccount Prelude.Text
+disassociateFromMasterAccount_detectorId :: Lens.Lens' DisassociateFromMasterAccount Core.Text
 disassociateFromMasterAccount_detectorId = Lens.lens (\DisassociateFromMasterAccount' {detectorId} -> detectorId) (\s@DisassociateFromMasterAccount' {} a -> s {detectorId = a} :: DisassociateFromMasterAccount)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateFromMasterAccount
   where
   type
-    Rs DisassociateFromMasterAccount =
+    AWSResponse DisassociateFromMasterAccount =
       DisassociateFromMasterAccountResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateFromMasterAccountResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DisassociateFromMasterAccount
+instance Core.Hashable DisassociateFromMasterAccount
 
-instance Prelude.NFData DisassociateFromMasterAccount
+instance Core.NFData DisassociateFromMasterAccount
 
-instance
-  Prelude.ToHeaders
-    DisassociateFromMasterAccount
-  where
+instance Core.ToHeaders DisassociateFromMasterAccount where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisassociateFromMasterAccount where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DisassociateFromMasterAccount where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DisassociateFromMasterAccount where
+instance Core.ToPath DisassociateFromMasterAccount where
   toPath DisassociateFromMasterAccount' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/detector/",
-        Prelude.toBS detectorId,
+        Core.toBS detectorId,
         "/master/disassociate"
       ]
 
-instance
-  Prelude.ToQuery
-    DisassociateFromMasterAccount
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateFromMasterAccount where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateFromMasterAccountResponse' smart constructor.
 data DisassociateFromMasterAccountResponse = DisassociateFromMasterAccountResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateFromMasterAccountResponse' with all optional fields omitted.
@@ -147,7 +135,7 @@ data DisassociateFromMasterAccountResponse = DisassociateFromMasterAccountRespon
 -- 'httpStatus', 'disassociateFromMasterAccountResponse_httpStatus' - The response's http status code.
 newDisassociateFromMasterAccountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateFromMasterAccountResponse
 newDisassociateFromMasterAccountResponse pHttpStatus_ =
   DisassociateFromMasterAccountResponse'
@@ -156,9 +144,9 @@ newDisassociateFromMasterAccountResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateFromMasterAccountResponse_httpStatus :: Lens.Lens' DisassociateFromMasterAccountResponse Prelude.Int
+disassociateFromMasterAccountResponse_httpStatus :: Lens.Lens' DisassociateFromMasterAccountResponse Core.Int
 disassociateFromMasterAccountResponse_httpStatus = Lens.lens (\DisassociateFromMasterAccountResponse' {httpStatus} -> httpStatus) (\s@DisassociateFromMasterAccountResponse' {} a -> s {httpStatus = a} :: DisassociateFromMasterAccountResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateFromMasterAccountResponse

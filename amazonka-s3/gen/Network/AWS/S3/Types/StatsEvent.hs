@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.StatsEvent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Stats
 
@@ -30,9 +29,9 @@ import Network.AWS.S3.Types.Stats
 -- /See:/ 'newStatsEvent' smart constructor.
 data StatsEvent = StatsEvent'
   { -- | The Stats event details.
-    details :: Prelude.Maybe Stats
+    details :: Core.Maybe Stats
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StatsEvent' with all optional fields omitted.
@@ -45,17 +44,16 @@ data StatsEvent = StatsEvent'
 -- 'details', 'statsEvent_details' - The Stats event details.
 newStatsEvent ::
   StatsEvent
-newStatsEvent =
-  StatsEvent' {details = Prelude.Nothing}
+newStatsEvent = StatsEvent' {details = Core.Nothing}
 
 -- | The Stats event details.
-statsEvent_details :: Lens.Lens' StatsEvent (Prelude.Maybe Stats)
+statsEvent_details :: Lens.Lens' StatsEvent (Core.Maybe Stats)
 statsEvent_details = Lens.lens (\StatsEvent' {details} -> details) (\s@StatsEvent' {} a -> s {details = a} :: StatsEvent)
 
-instance Prelude.FromXML StatsEvent where
+instance Core.FromXML StatsEvent where
   parseXML x =
-    StatsEvent' Prelude.<$> (x Prelude..@? "Details")
+    StatsEvent' Core.<$> (x Core..@? "Details")
 
-instance Prelude.Hashable StatsEvent
+instance Core.Hashable StatsEvent
 
-instance Prelude.NFData StatsEvent
+instance Core.NFData StatsEvent

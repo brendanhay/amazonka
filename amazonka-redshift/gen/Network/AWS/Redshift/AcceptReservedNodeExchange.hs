@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.Redshift.AcceptReservedNodeExchange
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -53,13 +52,13 @@ import qualified Network.AWS.Response as Response
 data AcceptReservedNodeExchange = AcceptReservedNodeExchange'
   { -- | A string representing the node identifier of the DC1 Reserved Node to be
     -- exchanged.
-    reservedNodeId :: Prelude.Text,
+    reservedNodeId :: Core.Text,
     -- | The unique identifier of the DC2 Reserved Node offering to be used for
     -- the exchange. You can obtain the value for the parameter by calling
     -- GetReservedNodeExchangeOfferings
-    targetReservedNodeOfferingId :: Prelude.Text
+    targetReservedNodeOfferingId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptReservedNodeExchange' with all optional fields omitted.
@@ -77,9 +76,9 @@ data AcceptReservedNodeExchange = AcceptReservedNodeExchange'
 -- GetReservedNodeExchangeOfferings
 newAcceptReservedNodeExchange ::
   -- | 'reservedNodeId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetReservedNodeOfferingId'
-  Prelude.Text ->
+  Core.Text ->
   AcceptReservedNodeExchange
 newAcceptReservedNodeExchange
   pReservedNodeId_
@@ -93,21 +92,18 @@ newAcceptReservedNodeExchange
 
 -- | A string representing the node identifier of the DC1 Reserved Node to be
 -- exchanged.
-acceptReservedNodeExchange_reservedNodeId :: Lens.Lens' AcceptReservedNodeExchange Prelude.Text
+acceptReservedNodeExchange_reservedNodeId :: Lens.Lens' AcceptReservedNodeExchange Core.Text
 acceptReservedNodeExchange_reservedNodeId = Lens.lens (\AcceptReservedNodeExchange' {reservedNodeId} -> reservedNodeId) (\s@AcceptReservedNodeExchange' {} a -> s {reservedNodeId = a} :: AcceptReservedNodeExchange)
 
 -- | The unique identifier of the DC2 Reserved Node offering to be used for
 -- the exchange. You can obtain the value for the parameter by calling
 -- GetReservedNodeExchangeOfferings
-acceptReservedNodeExchange_targetReservedNodeOfferingId :: Lens.Lens' AcceptReservedNodeExchange Prelude.Text
+acceptReservedNodeExchange_targetReservedNodeOfferingId :: Lens.Lens' AcceptReservedNodeExchange Core.Text
 acceptReservedNodeExchange_targetReservedNodeOfferingId = Lens.lens (\AcceptReservedNodeExchange' {targetReservedNodeOfferingId} -> targetReservedNodeOfferingId) (\s@AcceptReservedNodeExchange' {} a -> s {targetReservedNodeOfferingId = a} :: AcceptReservedNodeExchange)
 
-instance
-  Prelude.AWSRequest
-    AcceptReservedNodeExchange
-  where
+instance Core.AWSRequest AcceptReservedNodeExchange where
   type
-    Rs AcceptReservedNodeExchange =
+    AWSResponse AcceptReservedNodeExchange =
       AcceptReservedNodeExchangeResponse
   request = Request.postQuery defaultService
   response =
@@ -115,39 +111,38 @@ instance
       "AcceptReservedNodeExchangeResult"
       ( \s h x ->
           AcceptReservedNodeExchangeResponse'
-            Prelude.<$> (x Prelude..@? "ExchangedReservedNode")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ExchangedReservedNode")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptReservedNodeExchange
+instance Core.Hashable AcceptReservedNodeExchange
 
-instance Prelude.NFData AcceptReservedNodeExchange
+instance Core.NFData AcceptReservedNodeExchange
 
-instance Prelude.ToHeaders AcceptReservedNodeExchange where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AcceptReservedNodeExchange where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AcceptReservedNodeExchange where
-  toPath = Prelude.const "/"
+instance Core.ToPath AcceptReservedNodeExchange where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AcceptReservedNodeExchange where
+instance Core.ToQuery AcceptReservedNodeExchange where
   toQuery AcceptReservedNodeExchange' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AcceptReservedNodeExchange" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ReservedNodeId" Prelude.=: reservedNodeId,
+          Core.=: ("AcceptReservedNodeExchange" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ReservedNodeId" Core.=: reservedNodeId,
         "TargetReservedNodeOfferingId"
-          Prelude.=: targetReservedNodeOfferingId
+          Core.=: targetReservedNodeOfferingId
       ]
 
 -- | /See:/ 'newAcceptReservedNodeExchangeResponse' smart constructor.
 data AcceptReservedNodeExchangeResponse = AcceptReservedNodeExchangeResponse'
-  { exchangedReservedNode :: Prelude.Maybe ReservedNode,
+  { exchangedReservedNode :: Core.Maybe ReservedNode,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptReservedNodeExchangeResponse' with all optional fields omitted.
@@ -162,23 +157,23 @@ data AcceptReservedNodeExchangeResponse = AcceptReservedNodeExchangeResponse'
 -- 'httpStatus', 'acceptReservedNodeExchangeResponse_httpStatus' - The response's http status code.
 newAcceptReservedNodeExchangeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AcceptReservedNodeExchangeResponse
 newAcceptReservedNodeExchangeResponse pHttpStatus_ =
   AcceptReservedNodeExchangeResponse'
     { exchangedReservedNode =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- |
-acceptReservedNodeExchangeResponse_exchangedReservedNode :: Lens.Lens' AcceptReservedNodeExchangeResponse (Prelude.Maybe ReservedNode)
+acceptReservedNodeExchangeResponse_exchangedReservedNode :: Lens.Lens' AcceptReservedNodeExchangeResponse (Core.Maybe ReservedNode)
 acceptReservedNodeExchangeResponse_exchangedReservedNode = Lens.lens (\AcceptReservedNodeExchangeResponse' {exchangedReservedNode} -> exchangedReservedNode) (\s@AcceptReservedNodeExchangeResponse' {} a -> s {exchangedReservedNode = a} :: AcceptReservedNodeExchangeResponse)
 
 -- | The response's http status code.
-acceptReservedNodeExchangeResponse_httpStatus :: Lens.Lens' AcceptReservedNodeExchangeResponse Prelude.Int
+acceptReservedNodeExchangeResponse_httpStatus :: Lens.Lens' AcceptReservedNodeExchangeResponse Core.Int
 acceptReservedNodeExchangeResponse_httpStatus = Lens.lens (\AcceptReservedNodeExchangeResponse' {httpStatus} -> httpStatus) (\s@AcceptReservedNodeExchangeResponse' {} a -> s {httpStatus = a} :: AcceptReservedNodeExchangeResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AcceptReservedNodeExchangeResponse

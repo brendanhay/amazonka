@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.SendDataPoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents sending statistics data. Each @SendDataPoint@ contains
 -- statistics for a 15-minute period of sending activity.
@@ -29,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSendDataPoint' smart constructor.
 data SendDataPoint = SendDataPoint'
   { -- | Number of emails that have bounced.
-    bounces :: Prelude.Maybe Prelude.Integer,
+    bounces :: Core.Maybe Core.Integer,
     -- | Number of unwanted emails that were rejected by recipients.
-    complaints :: Prelude.Maybe Prelude.Integer,
+    complaints :: Core.Maybe Core.Integer,
     -- | Number of emails rejected by Amazon SES.
-    rejects :: Prelude.Maybe Prelude.Integer,
+    rejects :: Core.Maybe Core.Integer,
     -- | Time of the data point.
-    timestamp :: Prelude.Maybe Prelude.ISO8601,
+    timestamp :: Core.Maybe Core.ISO8601,
     -- | Number of emails that have been sent.
-    deliveryAttempts :: Prelude.Maybe Prelude.Integer
+    deliveryAttempts :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendDataPoint' with all optional fields omitted.
@@ -62,42 +61,42 @@ newSendDataPoint ::
   SendDataPoint
 newSendDataPoint =
   SendDataPoint'
-    { bounces = Prelude.Nothing,
-      complaints = Prelude.Nothing,
-      rejects = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      deliveryAttempts = Prelude.Nothing
+    { bounces = Core.Nothing,
+      complaints = Core.Nothing,
+      rejects = Core.Nothing,
+      timestamp = Core.Nothing,
+      deliveryAttempts = Core.Nothing
     }
 
 -- | Number of emails that have bounced.
-sendDataPoint_bounces :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
+sendDataPoint_bounces :: Lens.Lens' SendDataPoint (Core.Maybe Core.Integer)
 sendDataPoint_bounces = Lens.lens (\SendDataPoint' {bounces} -> bounces) (\s@SendDataPoint' {} a -> s {bounces = a} :: SendDataPoint)
 
 -- | Number of unwanted emails that were rejected by recipients.
-sendDataPoint_complaints :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
+sendDataPoint_complaints :: Lens.Lens' SendDataPoint (Core.Maybe Core.Integer)
 sendDataPoint_complaints = Lens.lens (\SendDataPoint' {complaints} -> complaints) (\s@SendDataPoint' {} a -> s {complaints = a} :: SendDataPoint)
 
 -- | Number of emails rejected by Amazon SES.
-sendDataPoint_rejects :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
+sendDataPoint_rejects :: Lens.Lens' SendDataPoint (Core.Maybe Core.Integer)
 sendDataPoint_rejects = Lens.lens (\SendDataPoint' {rejects} -> rejects) (\s@SendDataPoint' {} a -> s {rejects = a} :: SendDataPoint)
 
 -- | Time of the data point.
-sendDataPoint_timestamp :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.UTCTime)
-sendDataPoint_timestamp = Lens.lens (\SendDataPoint' {timestamp} -> timestamp) (\s@SendDataPoint' {} a -> s {timestamp = a} :: SendDataPoint) Prelude.. Lens.mapping Prelude._Time
+sendDataPoint_timestamp :: Lens.Lens' SendDataPoint (Core.Maybe Core.UTCTime)
+sendDataPoint_timestamp = Lens.lens (\SendDataPoint' {timestamp} -> timestamp) (\s@SendDataPoint' {} a -> s {timestamp = a} :: SendDataPoint) Core.. Lens.mapping Core._Time
 
 -- | Number of emails that have been sent.
-sendDataPoint_deliveryAttempts :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
+sendDataPoint_deliveryAttempts :: Lens.Lens' SendDataPoint (Core.Maybe Core.Integer)
 sendDataPoint_deliveryAttempts = Lens.lens (\SendDataPoint' {deliveryAttempts} -> deliveryAttempts) (\s@SendDataPoint' {} a -> s {deliveryAttempts = a} :: SendDataPoint)
 
-instance Prelude.FromXML SendDataPoint where
+instance Core.FromXML SendDataPoint where
   parseXML x =
     SendDataPoint'
-      Prelude.<$> (x Prelude..@? "Bounces")
-      Prelude.<*> (x Prelude..@? "Complaints")
-      Prelude.<*> (x Prelude..@? "Rejects")
-      Prelude.<*> (x Prelude..@? "Timestamp")
-      Prelude.<*> (x Prelude..@? "DeliveryAttempts")
+      Core.<$> (x Core..@? "Bounces")
+      Core.<*> (x Core..@? "Complaints")
+      Core.<*> (x Core..@? "Rejects")
+      Core.<*> (x Core..@? "Timestamp")
+      Core.<*> (x Core..@? "DeliveryAttempts")
 
-instance Prelude.Hashable SendDataPoint
+instance Core.Hashable SendDataPoint
 
-instance Prelude.NFData SendDataPoint
+instance Core.NFData SendDataPoint

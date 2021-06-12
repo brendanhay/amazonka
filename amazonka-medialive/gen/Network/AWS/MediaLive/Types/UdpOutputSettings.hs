@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.UdpOutputSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FecOutputSettings
 import Network.AWS.MediaLive.Types.OutputLocationRef
 import Network.AWS.MediaLive.Types.UdpContainerSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Udp Output Settings
 --
@@ -35,17 +34,17 @@ data UdpOutputSettings = UdpOutputSettings'
     -- maintaining a constant, low-jitter UDP\/RTP output while accommodating
     -- clock recovery, input switching, input disruptions, picture reordering,
     -- etc.
-    bufferMsec :: Prelude.Maybe Prelude.Natural,
+    bufferMsec :: Core.Maybe Core.Natural,
     -- | Settings for enabling and adjusting Forward Error Correction on UDP
     -- outputs.
-    fecOutputSettings :: Prelude.Maybe FecOutputSettings,
+    fecOutputSettings :: Core.Maybe FecOutputSettings,
     -- | Destination address and port number for RTP or UDP packets. Can be
     -- unicast or multicast RTP or UDP (eg. rtp:\/\/239.10.10.10:5001 or
     -- udp:\/\/10.100.100.100:5002).
     destination :: OutputLocationRef,
     containerSettings :: UdpContainerSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UdpOutputSettings' with all optional fields omitted.
@@ -79,8 +78,8 @@ newUdpOutputSettings
   pDestination_
   pContainerSettings_ =
     UdpOutputSettings'
-      { bufferMsec = Prelude.Nothing,
-        fecOutputSettings = Prelude.Nothing,
+      { bufferMsec = Core.Nothing,
+        fecOutputSettings = Core.Nothing,
         destination = pDestination_,
         containerSettings = pContainerSettings_
       }
@@ -90,12 +89,12 @@ newUdpOutputSettings
 -- maintaining a constant, low-jitter UDP\/RTP output while accommodating
 -- clock recovery, input switching, input disruptions, picture reordering,
 -- etc.
-udpOutputSettings_bufferMsec :: Lens.Lens' UdpOutputSettings (Prelude.Maybe Prelude.Natural)
+udpOutputSettings_bufferMsec :: Lens.Lens' UdpOutputSettings (Core.Maybe Core.Natural)
 udpOutputSettings_bufferMsec = Lens.lens (\UdpOutputSettings' {bufferMsec} -> bufferMsec) (\s@UdpOutputSettings' {} a -> s {bufferMsec = a} :: UdpOutputSettings)
 
 -- | Settings for enabling and adjusting Forward Error Correction on UDP
 -- outputs.
-udpOutputSettings_fecOutputSettings :: Lens.Lens' UdpOutputSettings (Prelude.Maybe FecOutputSettings)
+udpOutputSettings_fecOutputSettings :: Lens.Lens' UdpOutputSettings (Core.Maybe FecOutputSettings)
 udpOutputSettings_fecOutputSettings = Lens.lens (\UdpOutputSettings' {fecOutputSettings} -> fecOutputSettings) (\s@UdpOutputSettings' {} a -> s {fecOutputSettings = a} :: UdpOutputSettings)
 
 -- | Destination address and port number for RTP or UDP packets. Can be
@@ -108,31 +107,31 @@ udpOutputSettings_destination = Lens.lens (\UdpOutputSettings' {destination} -> 
 udpOutputSettings_containerSettings :: Lens.Lens' UdpOutputSettings UdpContainerSettings
 udpOutputSettings_containerSettings = Lens.lens (\UdpOutputSettings' {containerSettings} -> containerSettings) (\s@UdpOutputSettings' {} a -> s {containerSettings = a} :: UdpOutputSettings)
 
-instance Prelude.FromJSON UdpOutputSettings where
+instance Core.FromJSON UdpOutputSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UdpOutputSettings"
       ( \x ->
           UdpOutputSettings'
-            Prelude.<$> (x Prelude..:? "bufferMsec")
-            Prelude.<*> (x Prelude..:? "fecOutputSettings")
-            Prelude.<*> (x Prelude..: "destination")
-            Prelude.<*> (x Prelude..: "containerSettings")
+            Core.<$> (x Core..:? "bufferMsec")
+            Core.<*> (x Core..:? "fecOutputSettings")
+            Core.<*> (x Core..: "destination")
+            Core.<*> (x Core..: "containerSettings")
       )
 
-instance Prelude.Hashable UdpOutputSettings
+instance Core.Hashable UdpOutputSettings
 
-instance Prelude.NFData UdpOutputSettings
+instance Core.NFData UdpOutputSettings
 
-instance Prelude.ToJSON UdpOutputSettings where
+instance Core.ToJSON UdpOutputSettings where
   toJSON UdpOutputSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("bufferMsec" Prelude..=) Prelude.<$> bufferMsec,
-            ("fecOutputSettings" Prelude..=)
-              Prelude.<$> fecOutputSettings,
-            Prelude.Just ("destination" Prelude..= destination),
-            Prelude.Just
-              ("containerSettings" Prelude..= containerSettings)
+    Core.object
+      ( Core.catMaybes
+          [ ("bufferMsec" Core..=) Core.<$> bufferMsec,
+            ("fecOutputSettings" Core..=)
+              Core.<$> fecOutputSettings,
+            Core.Just ("destination" Core..= destination),
+            Core.Just
+              ("containerSettings" Core..= containerSettings)
           ]
       )

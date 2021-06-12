@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchDeleteObjectResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a DeleteObject response operation.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data BatchDeleteObjectResponse = BatchDeleteObjectResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteObjectResponse' with all optional fields omitted.
@@ -40,12 +39,12 @@ newBatchDeleteObjectResponse ::
 newBatchDeleteObjectResponse =
   BatchDeleteObjectResponse'
 
-instance Prelude.FromJSON BatchDeleteObjectResponse where
+instance Core.FromJSON BatchDeleteObjectResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchDeleteObjectResponse"
-      (\x -> Prelude.pure BatchDeleteObjectResponse')
+      (\x -> Core.pure BatchDeleteObjectResponse')
 
-instance Prelude.Hashable BatchDeleteObjectResponse
+instance Core.Hashable BatchDeleteObjectResponse
 
-instance Prelude.NFData BatchDeleteObjectResponse
+instance Core.NFData BatchDeleteObjectResponse

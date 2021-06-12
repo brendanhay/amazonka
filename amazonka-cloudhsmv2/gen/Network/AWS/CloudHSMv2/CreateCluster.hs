@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CloudHSMv2.CreateCluster
 where
 
 import Network.AWS.CloudHSMv2.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,14 +54,14 @@ data CreateCluster = CreateCluster'
   { -- | The identifier (ID) of the cluster backup to restore. Use this value to
     -- restore the cluster from a backup instead of creating a new cluster. To
     -- find the backup ID, use DescribeBackups.
-    sourceBackupId :: Prelude.Maybe Prelude.Text,
+    sourceBackupId :: Core.Maybe Core.Text,
     -- | Tags to apply to the CloudHSM cluster during creation.
-    tagList :: Prelude.Maybe [Tag],
+    tagList :: Core.Maybe [Tag],
     -- | A policy that defines how the service retains backups.
-    backupRetentionPolicy :: Prelude.Maybe BackupRetentionPolicy,
+    backupRetentionPolicy :: Core.Maybe BackupRetentionPolicy,
     -- | The type of HSM to use in the cluster. Currently the only allowed value
     -- is @hsm1.medium@.
-    hsmType :: Prelude.Text,
+    hsmType :: Core.Text,
     -- | The identifiers (IDs) of the subnets where you are creating the cluster.
     -- You must specify at least one subnet. If you specify multiple subnets,
     -- they must meet the following criteria:
@@ -70,9 +69,9 @@ data CreateCluster = CreateCluster'
     -- -   All subnets must be in the same virtual private cloud (VPC).
     --
     -- -   You can specify only one subnet per Availability Zone.
-    subnetIds :: Prelude.NonEmpty Prelude.Text
+    subnetIds :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCluster' with all optional fields omitted.
@@ -102,36 +101,36 @@ data CreateCluster = CreateCluster'
 -- -   You can specify only one subnet per Availability Zone.
 newCreateCluster ::
   -- | 'hsmType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'subnetIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   CreateCluster
 newCreateCluster pHsmType_ pSubnetIds_ =
   CreateCluster'
-    { sourceBackupId = Prelude.Nothing,
-      tagList = Prelude.Nothing,
-      backupRetentionPolicy = Prelude.Nothing,
+    { sourceBackupId = Core.Nothing,
+      tagList = Core.Nothing,
+      backupRetentionPolicy = Core.Nothing,
       hsmType = pHsmType_,
-      subnetIds = Prelude._Coerce Lens.# pSubnetIds_
+      subnetIds = Lens._Coerce Lens.# pSubnetIds_
     }
 
 -- | The identifier (ID) of the cluster backup to restore. Use this value to
 -- restore the cluster from a backup instead of creating a new cluster. To
 -- find the backup ID, use DescribeBackups.
-createCluster_sourceBackupId :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_sourceBackupId :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
 createCluster_sourceBackupId = Lens.lens (\CreateCluster' {sourceBackupId} -> sourceBackupId) (\s@CreateCluster' {} a -> s {sourceBackupId = a} :: CreateCluster)
 
 -- | Tags to apply to the CloudHSM cluster during creation.
-createCluster_tagList :: Lens.Lens' CreateCluster (Prelude.Maybe [Tag])
-createCluster_tagList = Lens.lens (\CreateCluster' {tagList} -> tagList) (\s@CreateCluster' {} a -> s {tagList = a} :: CreateCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCluster_tagList :: Lens.Lens' CreateCluster (Core.Maybe [Tag])
+createCluster_tagList = Lens.lens (\CreateCluster' {tagList} -> tagList) (\s@CreateCluster' {} a -> s {tagList = a} :: CreateCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | A policy that defines how the service retains backups.
-createCluster_backupRetentionPolicy :: Lens.Lens' CreateCluster (Prelude.Maybe BackupRetentionPolicy)
+createCluster_backupRetentionPolicy :: Lens.Lens' CreateCluster (Core.Maybe BackupRetentionPolicy)
 createCluster_backupRetentionPolicy = Lens.lens (\CreateCluster' {backupRetentionPolicy} -> backupRetentionPolicy) (\s@CreateCluster' {} a -> s {backupRetentionPolicy = a} :: CreateCluster)
 
 -- | The type of HSM to use in the cluster. Currently the only allowed value
 -- is @hsm1.medium@.
-createCluster_hsmType :: Lens.Lens' CreateCluster Prelude.Text
+createCluster_hsmType :: Lens.Lens' CreateCluster Core.Text
 createCluster_hsmType = Lens.lens (\CreateCluster' {hsmType} -> hsmType) (\s@CreateCluster' {} a -> s {hsmType = a} :: CreateCluster)
 
 -- | The identifiers (IDs) of the subnets where you are creating the cluster.
@@ -141,67 +140,64 @@ createCluster_hsmType = Lens.lens (\CreateCluster' {hsmType} -> hsmType) (\s@Cre
 -- -   All subnets must be in the same virtual private cloud (VPC).
 --
 -- -   You can specify only one subnet per Availability Zone.
-createCluster_subnetIds :: Lens.Lens' CreateCluster (Prelude.NonEmpty Prelude.Text)
-createCluster_subnetIds = Lens.lens (\CreateCluster' {subnetIds} -> subnetIds) (\s@CreateCluster' {} a -> s {subnetIds = a} :: CreateCluster) Prelude.. Prelude._Coerce
+createCluster_subnetIds :: Lens.Lens' CreateCluster (Core.NonEmpty Core.Text)
+createCluster_subnetIds = Lens.lens (\CreateCluster' {subnetIds} -> subnetIds) (\s@CreateCluster' {} a -> s {subnetIds = a} :: CreateCluster) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateCluster where
-  type Rs CreateCluster = CreateClusterResponse
+instance Core.AWSRequest CreateCluster where
+  type
+    AWSResponse CreateCluster =
+      CreateClusterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Prelude.<$> (x Prelude..?> "Cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCluster
+instance Core.Hashable CreateCluster
 
-instance Prelude.NFData CreateCluster
+instance Core.NFData CreateCluster
 
-instance Prelude.ToHeaders CreateCluster where
+instance Core.ToHeaders CreateCluster where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "BaldrApiService.CreateCluster" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("BaldrApiService.CreateCluster" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCluster where
+instance Core.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SourceBackupId" Prelude..=)
-              Prelude.<$> sourceBackupId,
-            ("TagList" Prelude..=) Prelude.<$> tagList,
-            ("BackupRetentionPolicy" Prelude..=)
-              Prelude.<$> backupRetentionPolicy,
-            Prelude.Just ("HsmType" Prelude..= hsmType),
-            Prelude.Just ("SubnetIds" Prelude..= subnetIds)
+    Core.object
+      ( Core.catMaybes
+          [ ("SourceBackupId" Core..=) Core.<$> sourceBackupId,
+            ("TagList" Core..=) Core.<$> tagList,
+            ("BackupRetentionPolicy" Core..=)
+              Core.<$> backupRetentionPolicy,
+            Core.Just ("HsmType" Core..= hsmType),
+            Core.Just ("SubnetIds" Core..= subnetIds)
           ]
       )
 
-instance Prelude.ToPath CreateCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCluster where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCluster where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
   { -- | Information about the cluster that was created.
-    cluster :: Prelude.Maybe Cluster,
+    cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateClusterResponse' with all optional fields omitted.
@@ -216,20 +212,20 @@ data CreateClusterResponse = CreateClusterResponse'
 -- 'httpStatus', 'createClusterResponse_httpStatus' - The response's http status code.
 newCreateClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateClusterResponse
 newCreateClusterResponse pHttpStatus_ =
   CreateClusterResponse'
-    { cluster = Prelude.Nothing,
+    { cluster = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the cluster that was created.
-createClusterResponse_cluster :: Lens.Lens' CreateClusterResponse (Prelude.Maybe Cluster)
+createClusterResponse_cluster :: Lens.Lens' CreateClusterResponse (Core.Maybe Cluster)
 createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> cluster) (\s@CreateClusterResponse' {} a -> s {cluster = a} :: CreateClusterResponse)
 
 -- | The response's http status code.
-createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
+createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Core.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Prelude.NFData CreateClusterResponse
+instance Core.NFData CreateClusterResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.AudioPidSelection where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Audio Pid Selection
 --
 -- /See:/ 'newAudioPidSelection' smart constructor.
 data AudioPidSelection = AudioPidSelection'
   { -- | Selects a specific PID from within a source.
-    pid :: Prelude.Natural
+    pid :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AudioPidSelection' with all optional fields omitted.
@@ -43,30 +42,28 @@ data AudioPidSelection = AudioPidSelection'
 -- 'pid', 'audioPidSelection_pid' - Selects a specific PID from within a source.
 newAudioPidSelection ::
   -- | 'pid'
-  Prelude.Natural ->
+  Core.Natural ->
   AudioPidSelection
 newAudioPidSelection pPid_ =
   AudioPidSelection' {pid = pPid_}
 
 -- | Selects a specific PID from within a source.
-audioPidSelection_pid :: Lens.Lens' AudioPidSelection Prelude.Natural
+audioPidSelection_pid :: Lens.Lens' AudioPidSelection Core.Natural
 audioPidSelection_pid = Lens.lens (\AudioPidSelection' {pid} -> pid) (\s@AudioPidSelection' {} a -> s {pid = a} :: AudioPidSelection)
 
-instance Prelude.FromJSON AudioPidSelection where
+instance Core.FromJSON AudioPidSelection where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AudioPidSelection"
       ( \x ->
-          AudioPidSelection' Prelude.<$> (x Prelude..: "pid")
+          AudioPidSelection' Core.<$> (x Core..: "pid")
       )
 
-instance Prelude.Hashable AudioPidSelection
+instance Core.Hashable AudioPidSelection
 
-instance Prelude.NFData AudioPidSelection
+instance Core.NFData AudioPidSelection
 
-instance Prelude.ToJSON AudioPidSelection where
+instance Core.ToJSON AudioPidSelection where
   toJSON AudioPidSelection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("pid" Prelude..= pid)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("pid" Core..= pid)])

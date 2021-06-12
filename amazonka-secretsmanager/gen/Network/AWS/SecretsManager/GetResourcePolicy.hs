@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,8 +59,8 @@ module Network.AWS.SecretsManager.GetResourcePolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -90,9 +89,9 @@ data GetResourcePolicy = GetResourcePolicy'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Prelude.Text
+    secretId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetResourcePolicy' with all optional fields omitted.
@@ -126,7 +125,7 @@ data GetResourcePolicy = GetResourcePolicy'
 -- /AccessDeniedException/ error, depending on your permissions.
 newGetResourcePolicy ::
   -- | 'secretId'
-  Prelude.Text ->
+  Core.Text ->
   GetResourcePolicy
 newGetResourcePolicy pSecretId_ =
   GetResourcePolicy' {secretId = pSecretId_}
@@ -153,58 +152,58 @@ newGetResourcePolicy pSecretId_ =
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-getResourcePolicy_secretId :: Lens.Lens' GetResourcePolicy Prelude.Text
+getResourcePolicy_secretId :: Lens.Lens' GetResourcePolicy Core.Text
 getResourcePolicy_secretId = Lens.lens (\GetResourcePolicy' {secretId} -> secretId) (\s@GetResourcePolicy' {} a -> s {secretId = a} :: GetResourcePolicy)
 
-instance Prelude.AWSRequest GetResourcePolicy where
-  type Rs GetResourcePolicy = GetResourcePolicyResponse
+instance Core.AWSRequest GetResourcePolicy where
+  type
+    AWSResponse GetResourcePolicy =
+      GetResourcePolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetResourcePolicyResponse'
-            Prelude.<$> (x Prelude..?> "ARN")
-            Prelude.<*> (x Prelude..?> "ResourcePolicy")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ARN")
+            Core.<*> (x Core..?> "ResourcePolicy")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourcePolicy
+instance Core.Hashable GetResourcePolicy
 
-instance Prelude.NFData GetResourcePolicy
+instance Core.NFData GetResourcePolicy
 
-instance Prelude.ToHeaders GetResourcePolicy where
+instance Core.ToHeaders GetResourcePolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.GetResourcePolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "secretsmanager.GetResourcePolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetResourcePolicy where
+instance Core.ToJSON GetResourcePolicy where
   toJSON GetResourcePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("SecretId" Prelude..= secretId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SecretId" Core..= secretId)]
       )
 
-instance Prelude.ToPath GetResourcePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetResourcePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetResourcePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetResourcePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetResourcePolicyResponse' smart constructor.
 data GetResourcePolicyResponse = GetResourcePolicyResponse'
   { -- | The ARN of the secret that the resource-based policy was retrieved for.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | A JSON-formatted string that describes the permissions that are
     -- associated with the attached secret. These permissions are combined with
     -- any permissions that are associated with the user or role that attempts
@@ -212,14 +211,14 @@ data GetResourcePolicyResponse = GetResourcePolicyResponse'
     -- the secret and what actions they can perform. For more information, see
     -- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager>
     -- in the /AWS Secrets Manager User Guide/.
-    resourcePolicy :: Prelude.Maybe Prelude.Text,
+    resourcePolicy :: Core.Maybe Core.Text,
     -- | The friendly name of the secret that the resource-based policy was
     -- retrieved for.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetResourcePolicyResponse' with all optional fields omitted.
@@ -245,18 +244,18 @@ data GetResourcePolicyResponse = GetResourcePolicyResponse'
 -- 'httpStatus', 'getResourcePolicyResponse_httpStatus' - The response's http status code.
 newGetResourcePolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetResourcePolicyResponse
 newGetResourcePolicyResponse pHttpStatus_ =
   GetResourcePolicyResponse'
-    { arn = Prelude.Nothing,
-      resourcePolicy = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { arn = Core.Nothing,
+      resourcePolicy = Core.Nothing,
+      name = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the secret that the resource-based policy was retrieved for.
-getResourcePolicyResponse_arn :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+getResourcePolicyResponse_arn :: Lens.Lens' GetResourcePolicyResponse (Core.Maybe Core.Text)
 getResourcePolicyResponse_arn = Lens.lens (\GetResourcePolicyResponse' {arn} -> arn) (\s@GetResourcePolicyResponse' {} a -> s {arn = a} :: GetResourcePolicyResponse)
 
 -- | A JSON-formatted string that describes the permissions that are
@@ -266,16 +265,16 @@ getResourcePolicyResponse_arn = Lens.lens (\GetResourcePolicyResponse' {arn} -> 
 -- the secret and what actions they can perform. For more information, see
 -- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager>
 -- in the /AWS Secrets Manager User Guide/.
-getResourcePolicyResponse_resourcePolicy :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+getResourcePolicyResponse_resourcePolicy :: Lens.Lens' GetResourcePolicyResponse (Core.Maybe Core.Text)
 getResourcePolicyResponse_resourcePolicy = Lens.lens (\GetResourcePolicyResponse' {resourcePolicy} -> resourcePolicy) (\s@GetResourcePolicyResponse' {} a -> s {resourcePolicy = a} :: GetResourcePolicyResponse)
 
 -- | The friendly name of the secret that the resource-based policy was
 -- retrieved for.
-getResourcePolicyResponse_name :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+getResourcePolicyResponse_name :: Lens.Lens' GetResourcePolicyResponse (Core.Maybe Core.Text)
 getResourcePolicyResponse_name = Lens.lens (\GetResourcePolicyResponse' {name} -> name) (\s@GetResourcePolicyResponse' {} a -> s {name = a} :: GetResourcePolicyResponse)
 
 -- | The response's http status code.
-getResourcePolicyResponse_httpStatus :: Lens.Lens' GetResourcePolicyResponse Prelude.Int
+getResourcePolicyResponse_httpStatus :: Lens.Lens' GetResourcePolicyResponse Core.Int
 getResourcePolicyResponse_httpStatus = Lens.lens (\GetResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@GetResourcePolicyResponse' {} a -> s {httpStatus = a} :: GetResourcePolicyResponse)
 
-instance Prelude.NFData GetResourcePolicyResponse
+instance Core.NFData GetResourcePolicyResponse

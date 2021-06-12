@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryRule where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | When dataset contents are created, they are delivered to destination
 -- specified here.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDatasetContentDeliveryRule' smart constructor.
 data DatasetContentDeliveryRule = DatasetContentDeliveryRule'
   { -- | The name of the dataset content delivery rules entry.
-    entryName :: Prelude.Maybe Prelude.Text,
+    entryName :: Core.Maybe Core.Text,
     -- | The destination to which dataset contents are delivered.
     destination :: DatasetContentDeliveryDestination
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DatasetContentDeliveryRule' with all optional fields omitted.
@@ -54,37 +53,37 @@ newDatasetContentDeliveryRule ::
 newDatasetContentDeliveryRule pDestination_ =
   DatasetContentDeliveryRule'
     { entryName =
-        Prelude.Nothing,
+        Core.Nothing,
       destination = pDestination_
     }
 
 -- | The name of the dataset content delivery rules entry.
-datasetContentDeliveryRule_entryName :: Lens.Lens' DatasetContentDeliveryRule (Prelude.Maybe Prelude.Text)
+datasetContentDeliveryRule_entryName :: Lens.Lens' DatasetContentDeliveryRule (Core.Maybe Core.Text)
 datasetContentDeliveryRule_entryName = Lens.lens (\DatasetContentDeliveryRule' {entryName} -> entryName) (\s@DatasetContentDeliveryRule' {} a -> s {entryName = a} :: DatasetContentDeliveryRule)
 
 -- | The destination to which dataset contents are delivered.
 datasetContentDeliveryRule_destination :: Lens.Lens' DatasetContentDeliveryRule DatasetContentDeliveryDestination
 datasetContentDeliveryRule_destination = Lens.lens (\DatasetContentDeliveryRule' {destination} -> destination) (\s@DatasetContentDeliveryRule' {} a -> s {destination = a} :: DatasetContentDeliveryRule)
 
-instance Prelude.FromJSON DatasetContentDeliveryRule where
+instance Core.FromJSON DatasetContentDeliveryRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DatasetContentDeliveryRule"
       ( \x ->
           DatasetContentDeliveryRule'
-            Prelude.<$> (x Prelude..:? "entryName")
-            Prelude.<*> (x Prelude..: "destination")
+            Core.<$> (x Core..:? "entryName")
+            Core.<*> (x Core..: "destination")
       )
 
-instance Prelude.Hashable DatasetContentDeliveryRule
+instance Core.Hashable DatasetContentDeliveryRule
 
-instance Prelude.NFData DatasetContentDeliveryRule
+instance Core.NFData DatasetContentDeliveryRule
 
-instance Prelude.ToJSON DatasetContentDeliveryRule where
+instance Core.ToJSON DatasetContentDeliveryRule where
   toJSON DatasetContentDeliveryRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("entryName" Prelude..=) Prelude.<$> entryName,
-            Prelude.Just ("destination" Prelude..= destination)
+    Core.object
+      ( Core.catMaybes
+          [ ("entryName" Core..=) Core.<$> entryName,
+            Core.Just ("destination" Core..= destination)
           ]
       )

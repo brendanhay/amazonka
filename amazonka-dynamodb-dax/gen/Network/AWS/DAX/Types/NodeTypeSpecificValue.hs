@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DAX.Types.NodeTypeSpecificValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a parameter value that is applicable to a particular node
 -- type.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newNodeTypeSpecificValue' smart constructor.
 data NodeTypeSpecificValue = NodeTypeSpecificValue'
   { -- | The parameter value for this node type.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | A node type to which the parameter value applies.
-    nodeType :: Prelude.Maybe Prelude.Text
+    nodeType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NodeTypeSpecificValue' with all optional fields omitted.
@@ -50,28 +49,28 @@ newNodeTypeSpecificValue ::
   NodeTypeSpecificValue
 newNodeTypeSpecificValue =
   NodeTypeSpecificValue'
-    { value = Prelude.Nothing,
-      nodeType = Prelude.Nothing
+    { value = Core.Nothing,
+      nodeType = Core.Nothing
     }
 
 -- | The parameter value for this node type.
-nodeTypeSpecificValue_value :: Lens.Lens' NodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
+nodeTypeSpecificValue_value :: Lens.Lens' NodeTypeSpecificValue (Core.Maybe Core.Text)
 nodeTypeSpecificValue_value = Lens.lens (\NodeTypeSpecificValue' {value} -> value) (\s@NodeTypeSpecificValue' {} a -> s {value = a} :: NodeTypeSpecificValue)
 
 -- | A node type to which the parameter value applies.
-nodeTypeSpecificValue_nodeType :: Lens.Lens' NodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
+nodeTypeSpecificValue_nodeType :: Lens.Lens' NodeTypeSpecificValue (Core.Maybe Core.Text)
 nodeTypeSpecificValue_nodeType = Lens.lens (\NodeTypeSpecificValue' {nodeType} -> nodeType) (\s@NodeTypeSpecificValue' {} a -> s {nodeType = a} :: NodeTypeSpecificValue)
 
-instance Prelude.FromJSON NodeTypeSpecificValue where
+instance Core.FromJSON NodeTypeSpecificValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NodeTypeSpecificValue"
       ( \x ->
           NodeTypeSpecificValue'
-            Prelude.<$> (x Prelude..:? "Value")
-            Prelude.<*> (x Prelude..:? "NodeType")
+            Core.<$> (x Core..:? "Value")
+            Core.<*> (x Core..:? "NodeType")
       )
 
-instance Prelude.Hashable NodeTypeSpecificValue
+instance Core.Hashable NodeTypeSpecificValue
 
-instance Prelude.NFData NodeTypeSpecificValue
+instance Core.NFData NodeTypeSpecificValue

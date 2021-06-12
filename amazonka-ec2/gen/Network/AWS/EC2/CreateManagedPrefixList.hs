@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,42 +50,42 @@ module Network.AWS.EC2.CreateManagedPrefixList
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateManagedPrefixList' smart constructor.
 data CreateManagedPrefixList = CreateManagedPrefixList'
   { -- | The tags to apply to the prefix list during creation.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Unique, case-sensitive identifier you provide to ensure the idempotency
     -- of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     --
     -- Constraints: Up to 255 UTF-8 characters in length.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | One or more entries for the prefix list.
-    entries :: Prelude.Maybe [AddPrefixListEntry],
+    entries :: Core.Maybe [AddPrefixListEntry],
     -- | A name for the prefix list.
     --
     -- Constraints: Up to 255 characters in length. The name cannot start with
     -- @com.amazonaws@.
-    prefixListName :: Prelude.Text,
+    prefixListName :: Core.Text,
     -- | The maximum number of entries for the prefix list.
-    maxEntries :: Prelude.Int,
+    maxEntries :: Core.Int,
     -- | The IP address type.
     --
     -- Valid Values: @IPv4@ | @IPv6@
-    addressFamily :: Prelude.Text
+    addressFamily :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateManagedPrefixList' with all optional fields omitted.
@@ -123,11 +122,11 @@ data CreateManagedPrefixList = CreateManagedPrefixList'
 -- Valid Values: @IPv4@ | @IPv6@
 newCreateManagedPrefixList ::
   -- | 'prefixListName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'maxEntries'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'addressFamily'
-  Prelude.Text ->
+  Core.Text ->
   CreateManagedPrefixList
 newCreateManagedPrefixList
   pPrefixListName_
@@ -135,24 +134,24 @@ newCreateManagedPrefixList
   pAddressFamily_ =
     CreateManagedPrefixList'
       { tagSpecifications =
-          Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
-        entries = Prelude.Nothing,
+          Core.Nothing,
+        dryRun = Core.Nothing,
+        clientToken = Core.Nothing,
+        entries = Core.Nothing,
         prefixListName = pPrefixListName_,
         maxEntries = pMaxEntries_,
         addressFamily = pAddressFamily_
       }
 
 -- | The tags to apply to the prefix list during creation.
-createManagedPrefixList_tagSpecifications :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe [TagSpecification])
-createManagedPrefixList_tagSpecifications = Lens.lens (\CreateManagedPrefixList' {tagSpecifications} -> tagSpecifications) (\s@CreateManagedPrefixList' {} a -> s {tagSpecifications = a} :: CreateManagedPrefixList) Prelude.. Lens.mapping Prelude._Coerce
+createManagedPrefixList_tagSpecifications :: Lens.Lens' CreateManagedPrefixList (Core.Maybe [TagSpecification])
+createManagedPrefixList_tagSpecifications = Lens.lens (\CreateManagedPrefixList' {tagSpecifications} -> tagSpecifications) (\s@CreateManagedPrefixList' {} a -> s {tagSpecifications = a} :: CreateManagedPrefixList) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createManagedPrefixList_dryRun :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe Prelude.Bool)
+createManagedPrefixList_dryRun :: Lens.Lens' CreateManagedPrefixList (Core.Maybe Core.Bool)
 createManagedPrefixList_dryRun = Lens.lens (\CreateManagedPrefixList' {dryRun} -> dryRun) (\s@CreateManagedPrefixList' {} a -> s {dryRun = a} :: CreateManagedPrefixList)
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -160,81 +159,80 @@ createManagedPrefixList_dryRun = Lens.lens (\CreateManagedPrefixList' {dryRun} -
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- Constraints: Up to 255 UTF-8 characters in length.
-createManagedPrefixList_clientToken :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe Prelude.Text)
+createManagedPrefixList_clientToken :: Lens.Lens' CreateManagedPrefixList (Core.Maybe Core.Text)
 createManagedPrefixList_clientToken = Lens.lens (\CreateManagedPrefixList' {clientToken} -> clientToken) (\s@CreateManagedPrefixList' {} a -> s {clientToken = a} :: CreateManagedPrefixList)
 
 -- | One or more entries for the prefix list.
-createManagedPrefixList_entries :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe [AddPrefixListEntry])
-createManagedPrefixList_entries = Lens.lens (\CreateManagedPrefixList' {entries} -> entries) (\s@CreateManagedPrefixList' {} a -> s {entries = a} :: CreateManagedPrefixList) Prelude.. Lens.mapping Prelude._Coerce
+createManagedPrefixList_entries :: Lens.Lens' CreateManagedPrefixList (Core.Maybe [AddPrefixListEntry])
+createManagedPrefixList_entries = Lens.lens (\CreateManagedPrefixList' {entries} -> entries) (\s@CreateManagedPrefixList' {} a -> s {entries = a} :: CreateManagedPrefixList) Core.. Lens.mapping Lens._Coerce
 
 -- | A name for the prefix list.
 --
 -- Constraints: Up to 255 characters in length. The name cannot start with
 -- @com.amazonaws@.
-createManagedPrefixList_prefixListName :: Lens.Lens' CreateManagedPrefixList Prelude.Text
+createManagedPrefixList_prefixListName :: Lens.Lens' CreateManagedPrefixList Core.Text
 createManagedPrefixList_prefixListName = Lens.lens (\CreateManagedPrefixList' {prefixListName} -> prefixListName) (\s@CreateManagedPrefixList' {} a -> s {prefixListName = a} :: CreateManagedPrefixList)
 
 -- | The maximum number of entries for the prefix list.
-createManagedPrefixList_maxEntries :: Lens.Lens' CreateManagedPrefixList Prelude.Int
+createManagedPrefixList_maxEntries :: Lens.Lens' CreateManagedPrefixList Core.Int
 createManagedPrefixList_maxEntries = Lens.lens (\CreateManagedPrefixList' {maxEntries} -> maxEntries) (\s@CreateManagedPrefixList' {} a -> s {maxEntries = a} :: CreateManagedPrefixList)
 
 -- | The IP address type.
 --
 -- Valid Values: @IPv4@ | @IPv6@
-createManagedPrefixList_addressFamily :: Lens.Lens' CreateManagedPrefixList Prelude.Text
+createManagedPrefixList_addressFamily :: Lens.Lens' CreateManagedPrefixList Core.Text
 createManagedPrefixList_addressFamily = Lens.lens (\CreateManagedPrefixList' {addressFamily} -> addressFamily) (\s@CreateManagedPrefixList' {} a -> s {addressFamily = a} :: CreateManagedPrefixList)
 
-instance Prelude.AWSRequest CreateManagedPrefixList where
+instance Core.AWSRequest CreateManagedPrefixList where
   type
-    Rs CreateManagedPrefixList =
+    AWSResponse CreateManagedPrefixList =
       CreateManagedPrefixListResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateManagedPrefixListResponse'
-            Prelude.<$> (x Prelude..@? "prefixList")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "prefixList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateManagedPrefixList
+instance Core.Hashable CreateManagedPrefixList
 
-instance Prelude.NFData CreateManagedPrefixList
+instance Core.NFData CreateManagedPrefixList
 
-instance Prelude.ToHeaders CreateManagedPrefixList where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateManagedPrefixList where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateManagedPrefixList where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateManagedPrefixList where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateManagedPrefixList where
+instance Core.ToQuery CreateManagedPrefixList where
   toQuery CreateManagedPrefixList' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateManagedPrefixList" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CreateManagedPrefixList" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "ClientToken" Prelude.=: clientToken,
-        Prelude.toQuery
-          (Prelude.toQueryList "Entry" Prelude.<$> entries),
-        "PrefixListName" Prelude.=: prefixListName,
-        "MaxEntries" Prelude.=: maxEntries,
-        "AddressFamily" Prelude.=: addressFamily
+        "DryRun" Core.=: dryRun,
+        "ClientToken" Core.=: clientToken,
+        Core.toQuery
+          (Core.toQueryList "Entry" Core.<$> entries),
+        "PrefixListName" Core.=: prefixListName,
+        "MaxEntries" Core.=: maxEntries,
+        "AddressFamily" Core.=: addressFamily
       ]
 
 -- | /See:/ 'newCreateManagedPrefixListResponse' smart constructor.
 data CreateManagedPrefixListResponse = CreateManagedPrefixListResponse'
   { -- | Information about the prefix list.
-    prefixList :: Prelude.Maybe ManagedPrefixList,
+    prefixList :: Core.Maybe ManagedPrefixList,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateManagedPrefixListResponse' with all optional fields omitted.
@@ -249,23 +247,21 @@ data CreateManagedPrefixListResponse = CreateManagedPrefixListResponse'
 -- 'httpStatus', 'createManagedPrefixListResponse_httpStatus' - The response's http status code.
 newCreateManagedPrefixListResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateManagedPrefixListResponse
 newCreateManagedPrefixListResponse pHttpStatus_ =
   CreateManagedPrefixListResponse'
     { prefixList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the prefix list.
-createManagedPrefixListResponse_prefixList :: Lens.Lens' CreateManagedPrefixListResponse (Prelude.Maybe ManagedPrefixList)
+createManagedPrefixListResponse_prefixList :: Lens.Lens' CreateManagedPrefixListResponse (Core.Maybe ManagedPrefixList)
 createManagedPrefixListResponse_prefixList = Lens.lens (\CreateManagedPrefixListResponse' {prefixList} -> prefixList) (\s@CreateManagedPrefixListResponse' {} a -> s {prefixList = a} :: CreateManagedPrefixListResponse)
 
 -- | The response's http status code.
-createManagedPrefixListResponse_httpStatus :: Lens.Lens' CreateManagedPrefixListResponse Prelude.Int
+createManagedPrefixListResponse_httpStatus :: Lens.Lens' CreateManagedPrefixListResponse Core.Int
 createManagedPrefixListResponse_httpStatus = Lens.lens (\CreateManagedPrefixListResponse' {httpStatus} -> httpStatus) (\s@CreateManagedPrefixListResponse' {} a -> s {httpStatus = a} :: CreateManagedPrefixListResponse)
 
-instance
-  Prelude.NFData
-    CreateManagedPrefixListResponse
+instance Core.NFData CreateManagedPrefixListResponse

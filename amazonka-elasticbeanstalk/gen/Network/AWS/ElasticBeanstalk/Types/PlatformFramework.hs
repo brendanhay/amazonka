@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.PlatformFramework where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A framework supported by the platform.
 --
 -- /See:/ 'newPlatformFramework' smart constructor.
 data PlatformFramework = PlatformFramework'
   { -- | The version of the framework.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the framework.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlatformFramework' with all optional fields omitted.
@@ -49,24 +48,23 @@ newPlatformFramework ::
   PlatformFramework
 newPlatformFramework =
   PlatformFramework'
-    { version = Prelude.Nothing,
-      name = Prelude.Nothing
+    { version = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The version of the framework.
-platformFramework_version :: Lens.Lens' PlatformFramework (Prelude.Maybe Prelude.Text)
+platformFramework_version :: Lens.Lens' PlatformFramework (Core.Maybe Core.Text)
 platformFramework_version = Lens.lens (\PlatformFramework' {version} -> version) (\s@PlatformFramework' {} a -> s {version = a} :: PlatformFramework)
 
 -- | The name of the framework.
-platformFramework_name :: Lens.Lens' PlatformFramework (Prelude.Maybe Prelude.Text)
+platformFramework_name :: Lens.Lens' PlatformFramework (Core.Maybe Core.Text)
 platformFramework_name = Lens.lens (\PlatformFramework' {name} -> name) (\s@PlatformFramework' {} a -> s {name = a} :: PlatformFramework)
 
-instance Prelude.FromXML PlatformFramework where
+instance Core.FromXML PlatformFramework where
   parseXML x =
     PlatformFramework'
-      Prelude.<$> (x Prelude..@? "Version")
-      Prelude.<*> (x Prelude..@? "Name")
+      Core.<$> (x Core..@? "Version") Core.<*> (x Core..@? "Name")
 
-instance Prelude.Hashable PlatformFramework
+instance Core.Hashable PlatformFramework
 
-instance Prelude.NFData PlatformFramework
+instance Core.NFData PlatformFramework

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -61,11 +60,11 @@ data DeleteChapCredentials = DeleteChapCredentials'
   { -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
     -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
     -- for specified VolumeARN.
-    targetARN :: Prelude.Text,
+    targetARN :: Core.Text,
     -- | The iSCSI initiator that connects to the target.
-    initiatorName :: Prelude.Text
+    initiatorName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteChapCredentials' with all optional fields omitted.
@@ -82,9 +81,9 @@ data DeleteChapCredentials = DeleteChapCredentials'
 -- 'initiatorName', 'deleteChapCredentials_initiatorName' - The iSCSI initiator that connects to the target.
 newDeleteChapCredentials ::
   -- | 'targetARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'initiatorName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteChapCredentials
 newDeleteChapCredentials pTargetARN_ pInitiatorName_ =
   DeleteChapCredentials'
@@ -95,74 +94,71 @@ newDeleteChapCredentials pTargetARN_ pInitiatorName_ =
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-deleteChapCredentials_targetARN :: Lens.Lens' DeleteChapCredentials Prelude.Text
+deleteChapCredentials_targetARN :: Lens.Lens' DeleteChapCredentials Core.Text
 deleteChapCredentials_targetARN = Lens.lens (\DeleteChapCredentials' {targetARN} -> targetARN) (\s@DeleteChapCredentials' {} a -> s {targetARN = a} :: DeleteChapCredentials)
 
 -- | The iSCSI initiator that connects to the target.
-deleteChapCredentials_initiatorName :: Lens.Lens' DeleteChapCredentials Prelude.Text
+deleteChapCredentials_initiatorName :: Lens.Lens' DeleteChapCredentials Core.Text
 deleteChapCredentials_initiatorName = Lens.lens (\DeleteChapCredentials' {initiatorName} -> initiatorName) (\s@DeleteChapCredentials' {} a -> s {initiatorName = a} :: DeleteChapCredentials)
 
-instance Prelude.AWSRequest DeleteChapCredentials where
+instance Core.AWSRequest DeleteChapCredentials where
   type
-    Rs DeleteChapCredentials =
+    AWSResponse DeleteChapCredentials =
       DeleteChapCredentialsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteChapCredentialsResponse'
-            Prelude.<$> (x Prelude..?> "InitiatorName")
-            Prelude.<*> (x Prelude..?> "TargetARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "InitiatorName")
+            Core.<*> (x Core..?> "TargetARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteChapCredentials
+instance Core.Hashable DeleteChapCredentials
 
-instance Prelude.NFData DeleteChapCredentials
+instance Core.NFData DeleteChapCredentials
 
-instance Prelude.ToHeaders DeleteChapCredentials where
+instance Core.ToHeaders DeleteChapCredentials where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.DeleteChapCredentials" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.DeleteChapCredentials" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteChapCredentials where
+instance Core.ToJSON DeleteChapCredentials where
   toJSON DeleteChapCredentials' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("TargetARN" Prelude..= targetARN),
-            Prelude.Just
-              ("InitiatorName" Prelude..= initiatorName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TargetARN" Core..= targetARN),
+            Core.Just ("InitiatorName" Core..= initiatorName)
           ]
       )
 
-instance Prelude.ToPath DeleteChapCredentials where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteChapCredentials where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteChapCredentials where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteChapCredentials where
+  toQuery = Core.const Core.mempty
 
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'newDeleteChapCredentialsResponse' smart constructor.
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
   { -- | The iSCSI initiator that connects to the target.
-    initiatorName :: Prelude.Maybe Prelude.Text,
+    initiatorName :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the target.
-    targetARN :: Prelude.Maybe Prelude.Text,
+    targetARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteChapCredentialsResponse' with all optional fields omitted.
@@ -179,26 +175,26 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
 -- 'httpStatus', 'deleteChapCredentialsResponse_httpStatus' - The response's http status code.
 newDeleteChapCredentialsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteChapCredentialsResponse
 newDeleteChapCredentialsResponse pHttpStatus_ =
   DeleteChapCredentialsResponse'
     { initiatorName =
-        Prelude.Nothing,
-      targetARN = Prelude.Nothing,
+        Core.Nothing,
+      targetARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The iSCSI initiator that connects to the target.
-deleteChapCredentialsResponse_initiatorName :: Lens.Lens' DeleteChapCredentialsResponse (Prelude.Maybe Prelude.Text)
+deleteChapCredentialsResponse_initiatorName :: Lens.Lens' DeleteChapCredentialsResponse (Core.Maybe Core.Text)
 deleteChapCredentialsResponse_initiatorName = Lens.lens (\DeleteChapCredentialsResponse' {initiatorName} -> initiatorName) (\s@DeleteChapCredentialsResponse' {} a -> s {initiatorName = a} :: DeleteChapCredentialsResponse)
 
 -- | The Amazon Resource Name (ARN) of the target.
-deleteChapCredentialsResponse_targetARN :: Lens.Lens' DeleteChapCredentialsResponse (Prelude.Maybe Prelude.Text)
+deleteChapCredentialsResponse_targetARN :: Lens.Lens' DeleteChapCredentialsResponse (Core.Maybe Core.Text)
 deleteChapCredentialsResponse_targetARN = Lens.lens (\DeleteChapCredentialsResponse' {targetARN} -> targetARN) (\s@DeleteChapCredentialsResponse' {} a -> s {targetARN = a} :: DeleteChapCredentialsResponse)
 
 -- | The response's http status code.
-deleteChapCredentialsResponse_httpStatus :: Lens.Lens' DeleteChapCredentialsResponse Prelude.Int
+deleteChapCredentialsResponse_httpStatus :: Lens.Lens' DeleteChapCredentialsResponse Core.Int
 deleteChapCredentialsResponse_httpStatus = Lens.lens (\DeleteChapCredentialsResponse' {httpStatus} -> httpStatus) (\s@DeleteChapCredentialsResponse' {} a -> s {httpStatus = a} :: DeleteChapCredentialsResponse)
 
-instance Prelude.NFData DeleteChapCredentialsResponse
+instance Core.NFData DeleteChapCredentialsResponse

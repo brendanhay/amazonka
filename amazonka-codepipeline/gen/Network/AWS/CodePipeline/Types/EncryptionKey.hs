@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodePipeline.Types.EncryptionKey where
 
 import Network.AWS.CodePipeline.Types.EncryptionKeyType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the key used to encrypt data in the
 -- artifact store, such as an AWS Key Management Service (AWS KMS) key.
@@ -35,13 +34,13 @@ data EncryptionKey = EncryptionKey'
     -- Aliases are recognized only in the account that created the customer
     -- master key (CMK). For cross-account actions, you can only use the key ID
     -- or key ARN to identify the key.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The type of encryption key, such as an AWS Key Management Service (AWS
     -- KMS) key. When creating or updating a pipeline, the value must be set to
     -- \'KMS\'.
     type' :: EncryptionKeyType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionKey' with all optional fields omitted.
@@ -63,7 +62,7 @@ data EncryptionKey = EncryptionKey'
 -- \'KMS\'.
 newEncryptionKey ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   EncryptionKeyType ->
   EncryptionKey
@@ -76,7 +75,7 @@ newEncryptionKey pId_ pType_ =
 -- Aliases are recognized only in the account that created the customer
 -- master key (CMK). For cross-account actions, you can only use the key ID
 -- or key ARN to identify the key.
-encryptionKey_id :: Lens.Lens' EncryptionKey Prelude.Text
+encryptionKey_id :: Lens.Lens' EncryptionKey Core.Text
 encryptionKey_id = Lens.lens (\EncryptionKey' {id} -> id) (\s@EncryptionKey' {} a -> s {id = a} :: EncryptionKey)
 
 -- | The type of encryption key, such as an AWS Key Management Service (AWS
@@ -85,25 +84,24 @@ encryptionKey_id = Lens.lens (\EncryptionKey' {id} -> id) (\s@EncryptionKey' {} 
 encryptionKey_type :: Lens.Lens' EncryptionKey EncryptionKeyType
 encryptionKey_type = Lens.lens (\EncryptionKey' {type'} -> type') (\s@EncryptionKey' {} a -> s {type' = a} :: EncryptionKey)
 
-instance Prelude.FromJSON EncryptionKey where
+instance Core.FromJSON EncryptionKey where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EncryptionKey"
       ( \x ->
           EncryptionKey'
-            Prelude.<$> (x Prelude..: "id")
-            Prelude.<*> (x Prelude..: "type")
+            Core.<$> (x Core..: "id") Core.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable EncryptionKey
+instance Core.Hashable EncryptionKey
 
-instance Prelude.NFData EncryptionKey
+instance Core.NFData EncryptionKey
 
-instance Prelude.ToJSON EncryptionKey where
+instance Core.ToJSON EncryptionKey where
   toJSON EncryptionKey' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("id" Prelude..= id),
-            Prelude.Just ("type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("id" Core..= id),
+            Core.Just ("type" Core..= type')
           ]
       )

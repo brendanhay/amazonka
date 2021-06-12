@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53AutoNaming.Types.DnsConfigChange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.DnsRecord
 
 -- | A complex type that contains information about changes to the Route 53
@@ -33,7 +32,7 @@ data DnsConfigChange = DnsConfigChange'
     -- that you want AWS Cloud Map to create when you register an instance.
     dnsRecords :: [DnsRecord]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DnsConfigChange' with all optional fields omitted.
@@ -48,20 +47,20 @@ data DnsConfigChange = DnsConfigChange'
 newDnsConfigChange ::
   DnsConfigChange
 newDnsConfigChange =
-  DnsConfigChange' {dnsRecords = Prelude.mempty}
+  DnsConfigChange' {dnsRecords = Core.mempty}
 
 -- | An array that contains one @DnsRecord@ object for each Route 53 record
 -- that you want AWS Cloud Map to create when you register an instance.
 dnsConfigChange_dnsRecords :: Lens.Lens' DnsConfigChange [DnsRecord]
-dnsConfigChange_dnsRecords = Lens.lens (\DnsConfigChange' {dnsRecords} -> dnsRecords) (\s@DnsConfigChange' {} a -> s {dnsRecords = a} :: DnsConfigChange) Prelude.. Prelude._Coerce
+dnsConfigChange_dnsRecords = Lens.lens (\DnsConfigChange' {dnsRecords} -> dnsRecords) (\s@DnsConfigChange' {} a -> s {dnsRecords = a} :: DnsConfigChange) Core.. Lens._Coerce
 
-instance Prelude.Hashable DnsConfigChange
+instance Core.Hashable DnsConfigChange
 
-instance Prelude.NFData DnsConfigChange
+instance Core.NFData DnsConfigChange
 
-instance Prelude.ToJSON DnsConfigChange where
+instance Core.ToJSON DnsConfigChange where
   toJSON DnsConfigChange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("DnsRecords" Prelude..= dnsRecords)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DnsRecords" Core..= dnsRecords)]
       )

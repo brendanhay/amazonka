@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.AutoScalingGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An Auto Scaling group that is associated with an Amazon EKS managed node
 -- group.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data AutoScalingGroup = AutoScalingGroup'
   { -- | The name of the Auto Scaling group associated with an Amazon EKS managed
     -- node group.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoScalingGroup' with all optional fields omitted.
@@ -47,21 +46,21 @@ data AutoScalingGroup = AutoScalingGroup'
 newAutoScalingGroup ::
   AutoScalingGroup
 newAutoScalingGroup =
-  AutoScalingGroup' {name = Prelude.Nothing}
+  AutoScalingGroup' {name = Core.Nothing}
 
 -- | The name of the Auto Scaling group associated with an Amazon EKS managed
 -- node group.
-autoScalingGroup_name :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Text)
+autoScalingGroup_name :: Lens.Lens' AutoScalingGroup (Core.Maybe Core.Text)
 autoScalingGroup_name = Lens.lens (\AutoScalingGroup' {name} -> name) (\s@AutoScalingGroup' {} a -> s {name = a} :: AutoScalingGroup)
 
-instance Prelude.FromJSON AutoScalingGroup where
+instance Core.FromJSON AutoScalingGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoScalingGroup"
       ( \x ->
-          AutoScalingGroup' Prelude.<$> (x Prelude..:? "name")
+          AutoScalingGroup' Core.<$> (x Core..:? "name")
       )
 
-instance Prelude.Hashable AutoScalingGroup
+instance Core.Hashable AutoScalingGroup
 
-instance Prelude.NFData AutoScalingGroup
+instance Core.NFData AutoScalingGroup

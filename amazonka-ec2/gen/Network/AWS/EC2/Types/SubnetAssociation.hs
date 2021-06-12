@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SubnetAssociation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.TransitGatewayMulitcastDomainAssociationState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the subnet association with the transit gateway multicast
 -- domain.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSubnetAssociation' smart constructor.
 data SubnetAssociation = SubnetAssociation'
   { -- | The state of the subnet association.
-    state :: Prelude.Maybe TransitGatewayMulitcastDomainAssociationState,
+    state :: Core.Maybe TransitGatewayMulitcastDomainAssociationState,
     -- | The ID of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text
+    subnetId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubnetAssociation' with all optional fields omitted.
@@ -52,24 +51,23 @@ newSubnetAssociation ::
   SubnetAssociation
 newSubnetAssociation =
   SubnetAssociation'
-    { state = Prelude.Nothing,
-      subnetId = Prelude.Nothing
+    { state = Core.Nothing,
+      subnetId = Core.Nothing
     }
 
 -- | The state of the subnet association.
-subnetAssociation_state :: Lens.Lens' SubnetAssociation (Prelude.Maybe TransitGatewayMulitcastDomainAssociationState)
+subnetAssociation_state :: Lens.Lens' SubnetAssociation (Core.Maybe TransitGatewayMulitcastDomainAssociationState)
 subnetAssociation_state = Lens.lens (\SubnetAssociation' {state} -> state) (\s@SubnetAssociation' {} a -> s {state = a} :: SubnetAssociation)
 
 -- | The ID of the subnet.
-subnetAssociation_subnetId :: Lens.Lens' SubnetAssociation (Prelude.Maybe Prelude.Text)
+subnetAssociation_subnetId :: Lens.Lens' SubnetAssociation (Core.Maybe Core.Text)
 subnetAssociation_subnetId = Lens.lens (\SubnetAssociation' {subnetId} -> subnetId) (\s@SubnetAssociation' {} a -> s {subnetId = a} :: SubnetAssociation)
 
-instance Prelude.FromXML SubnetAssociation where
+instance Core.FromXML SubnetAssociation where
   parseXML x =
     SubnetAssociation'
-      Prelude.<$> (x Prelude..@? "state")
-      Prelude.<*> (x Prelude..@? "subnetId")
+      Core.<$> (x Core..@? "state") Core.<*> (x Core..@? "subnetId")
 
-instance Prelude.Hashable SubnetAssociation
+instance Core.Hashable SubnetAssociation
 
-instance Prelude.NFData SubnetAssociation
+instance Core.NFData SubnetAssociation

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.BackendServerDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the configuration of an EC2 instance.
 --
 -- /See:/ 'newBackendServerDescription' smart constructor.
 data BackendServerDescription = BackendServerDescription'
   { -- | The port on which the EC2 instance is listening.
-    instancePort :: Prelude.Maybe Prelude.Natural,
+    instancePort :: Core.Maybe Core.Natural,
     -- | The names of the policies enabled for the EC2 instance.
-    policyNames :: Prelude.Maybe [Prelude.Text]
+    policyNames :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BackendServerDescription' with all optional fields omitted.
@@ -51,27 +50,26 @@ newBackendServerDescription ::
 newBackendServerDescription =
   BackendServerDescription'
     { instancePort =
-        Prelude.Nothing,
-      policyNames = Prelude.Nothing
+        Core.Nothing,
+      policyNames = Core.Nothing
     }
 
 -- | The port on which the EC2 instance is listening.
-backendServerDescription_instancePort :: Lens.Lens' BackendServerDescription (Prelude.Maybe Prelude.Natural)
+backendServerDescription_instancePort :: Lens.Lens' BackendServerDescription (Core.Maybe Core.Natural)
 backendServerDescription_instancePort = Lens.lens (\BackendServerDescription' {instancePort} -> instancePort) (\s@BackendServerDescription' {} a -> s {instancePort = a} :: BackendServerDescription)
 
 -- | The names of the policies enabled for the EC2 instance.
-backendServerDescription_policyNames :: Lens.Lens' BackendServerDescription (Prelude.Maybe [Prelude.Text])
-backendServerDescription_policyNames = Lens.lens (\BackendServerDescription' {policyNames} -> policyNames) (\s@BackendServerDescription' {} a -> s {policyNames = a} :: BackendServerDescription) Prelude.. Lens.mapping Prelude._Coerce
+backendServerDescription_policyNames :: Lens.Lens' BackendServerDescription (Core.Maybe [Core.Text])
+backendServerDescription_policyNames = Lens.lens (\BackendServerDescription' {policyNames} -> policyNames) (\s@BackendServerDescription' {} a -> s {policyNames = a} :: BackendServerDescription) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML BackendServerDescription where
+instance Core.FromXML BackendServerDescription where
   parseXML x =
     BackendServerDescription'
-      Prelude.<$> (x Prelude..@? "InstancePort")
-      Prelude.<*> ( x Prelude..@? "PolicyNames"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> (x Core..@? "InstancePort")
+      Core.<*> ( x Core..@? "PolicyNames" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable BackendServerDescription
+instance Core.Hashable BackendServerDescription
 
-instance Prelude.NFData BackendServerDescription
+instance Core.NFData BackendServerDescription

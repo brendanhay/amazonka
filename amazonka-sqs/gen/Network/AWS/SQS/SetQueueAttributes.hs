@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.SQS.SetQueueAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -67,7 +66,7 @@ data SetQueueAttributes = SetQueueAttributes'
   { -- | The URL of the Amazon SQS queue whose attributes are set.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Prelude.Text,
+    queueUrl :: Core.Text,
     -- | A map of attributes to set.
     --
     -- The following lists the names, descriptions, and values of the special
@@ -226,9 +225,9 @@ data SetQueueAttributes = SetQueueAttributes'
     -- For more information about high throughput for FIFO queues, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html Preview: High throughput for FIFO queues>
     -- in the /Amazon Simple Queue Service Developer Guide/.
-    attributes :: Prelude.HashMap QueueAttributeName Prelude.Text
+    attributes :: Core.HashMap QueueAttributeName Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetQueueAttributes' with all optional fields omitted.
@@ -402,18 +401,18 @@ data SetQueueAttributes = SetQueueAttributes'
 -- in the /Amazon Simple Queue Service Developer Guide/.
 newSetQueueAttributes ::
   -- | 'queueUrl'
-  Prelude.Text ->
+  Core.Text ->
   SetQueueAttributes
 newSetQueueAttributes pQueueUrl_ =
   SetQueueAttributes'
     { queueUrl = pQueueUrl_,
-      attributes = Prelude.mempty
+      attributes = Core.mempty
     }
 
 -- | The URL of the Amazon SQS queue whose attributes are set.
 --
 -- Queue URLs and names are case-sensitive.
-setQueueAttributes_queueUrl :: Lens.Lens' SetQueueAttributes Prelude.Text
+setQueueAttributes_queueUrl :: Lens.Lens' SetQueueAttributes Core.Text
 setQueueAttributes_queueUrl = Lens.lens (\SetQueueAttributes' {queueUrl} -> queueUrl) (\s@SetQueueAttributes' {} a -> s {queueUrl = a} :: SetQueueAttributes)
 
 -- | A map of attributes to set.
@@ -574,36 +573,35 @@ setQueueAttributes_queueUrl = Lens.lens (\SetQueueAttributes' {queueUrl} -> queu
 -- For more information about high throughput for FIFO queues, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html Preview: High throughput for FIFO queues>
 -- in the /Amazon Simple Queue Service Developer Guide/.
-setQueueAttributes_attributes :: Lens.Lens' SetQueueAttributes (Prelude.HashMap QueueAttributeName Prelude.Text)
-setQueueAttributes_attributes = Lens.lens (\SetQueueAttributes' {attributes} -> attributes) (\s@SetQueueAttributes' {} a -> s {attributes = a} :: SetQueueAttributes) Prelude.. Prelude._Coerce
+setQueueAttributes_attributes :: Lens.Lens' SetQueueAttributes (Core.HashMap QueueAttributeName Core.Text)
+setQueueAttributes_attributes = Lens.lens (\SetQueueAttributes' {attributes} -> attributes) (\s@SetQueueAttributes' {} a -> s {attributes = a} :: SetQueueAttributes) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest SetQueueAttributes where
+instance Core.AWSRequest SetQueueAttributes where
   type
-    Rs SetQueueAttributes =
+    AWSResponse SetQueueAttributes =
       SetQueueAttributesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull SetQueueAttributesResponse'
 
-instance Prelude.Hashable SetQueueAttributes
+instance Core.Hashable SetQueueAttributes
 
-instance Prelude.NFData SetQueueAttributes
+instance Core.NFData SetQueueAttributes
 
-instance Prelude.ToHeaders SetQueueAttributes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetQueueAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SetQueueAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetQueueAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetQueueAttributes where
+instance Core.ToQuery SetQueueAttributes where
   toQuery SetQueueAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SetQueueAttributes" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Prelude.=: queueUrl,
-        Prelude.toQueryMap
+          Core.=: ("SetQueueAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+        "QueueUrl" Core.=: queueUrl,
+        Core.toQueryMap
           "Attribute"
           "Name"
           "Value"
@@ -614,7 +612,7 @@ instance Prelude.ToQuery SetQueueAttributes where
 data SetQueueAttributesResponse = SetQueueAttributesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetQueueAttributesResponse' with all optional fields omitted.
@@ -625,4 +623,4 @@ newSetQueueAttributesResponse ::
 newSetQueueAttributesResponse =
   SetQueueAttributesResponse'
 
-instance Prelude.NFData SetQueueAttributesResponse
+instance Core.NFData SetQueueAttributesResponse

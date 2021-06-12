@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,20 +54,20 @@ module Network.AWS.AutoScaling.AttachLoadBalancers
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAttachLoadBalancers' smart constructor.
 data AttachLoadBalancers = AttachLoadBalancers'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text,
+    autoScalingGroupName :: Core.Text,
     -- | The names of the load balancers. You can specify up to 10 load
     -- balancers.
-    loadBalancerNames :: [Prelude.Text]
+    loadBalancerNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachLoadBalancers' with all optional fields omitted.
@@ -84,27 +83,27 @@ data AttachLoadBalancers = AttachLoadBalancers'
 -- balancers.
 newAttachLoadBalancers ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   AttachLoadBalancers
 newAttachLoadBalancers pAutoScalingGroupName_ =
   AttachLoadBalancers'
     { autoScalingGroupName =
         pAutoScalingGroupName_,
-      loadBalancerNames = Prelude.mempty
+      loadBalancerNames = Core.mempty
     }
 
 -- | The name of the Auto Scaling group.
-attachLoadBalancers_autoScalingGroupName :: Lens.Lens' AttachLoadBalancers Prelude.Text
+attachLoadBalancers_autoScalingGroupName :: Lens.Lens' AttachLoadBalancers Core.Text
 attachLoadBalancers_autoScalingGroupName = Lens.lens (\AttachLoadBalancers' {autoScalingGroupName} -> autoScalingGroupName) (\s@AttachLoadBalancers' {} a -> s {autoScalingGroupName = a} :: AttachLoadBalancers)
 
 -- | The names of the load balancers. You can specify up to 10 load
 -- balancers.
-attachLoadBalancers_loadBalancerNames :: Lens.Lens' AttachLoadBalancers [Prelude.Text]
-attachLoadBalancers_loadBalancerNames = Lens.lens (\AttachLoadBalancers' {loadBalancerNames} -> loadBalancerNames) (\s@AttachLoadBalancers' {} a -> s {loadBalancerNames = a} :: AttachLoadBalancers) Prelude.. Prelude._Coerce
+attachLoadBalancers_loadBalancerNames :: Lens.Lens' AttachLoadBalancers [Core.Text]
+attachLoadBalancers_loadBalancerNames = Lens.lens (\AttachLoadBalancers' {loadBalancerNames} -> loadBalancerNames) (\s@AttachLoadBalancers' {} a -> s {loadBalancerNames = a} :: AttachLoadBalancers) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AttachLoadBalancers where
+instance Core.AWSRequest AttachLoadBalancers where
   type
-    Rs AttachLoadBalancers =
+    AWSResponse AttachLoadBalancers =
       AttachLoadBalancersResponse
   request = Request.postQuery defaultService
   response =
@@ -112,38 +111,36 @@ instance Prelude.AWSRequest AttachLoadBalancers where
       "AttachLoadBalancersResult"
       ( \s h x ->
           AttachLoadBalancersResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AttachLoadBalancers
+instance Core.Hashable AttachLoadBalancers
 
-instance Prelude.NFData AttachLoadBalancers
+instance Core.NFData AttachLoadBalancers
 
-instance Prelude.ToHeaders AttachLoadBalancers where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AttachLoadBalancers where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AttachLoadBalancers where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachLoadBalancers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AttachLoadBalancers where
+instance Core.ToQuery AttachLoadBalancers where
   toQuery AttachLoadBalancers' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AttachLoadBalancers" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName,
+          Core.=: ("AttachLoadBalancers" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
         "LoadBalancerNames"
-          Prelude.=: Prelude.toQueryList "member" loadBalancerNames
+          Core.=: Core.toQueryList "member" loadBalancerNames
       ]
 
 -- | /See:/ 'newAttachLoadBalancersResponse' smart constructor.
 data AttachLoadBalancersResponse = AttachLoadBalancersResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachLoadBalancersResponse' with all optional fields omitted.
@@ -156,7 +153,7 @@ data AttachLoadBalancersResponse = AttachLoadBalancersResponse'
 -- 'httpStatus', 'attachLoadBalancersResponse_httpStatus' - The response's http status code.
 newAttachLoadBalancersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AttachLoadBalancersResponse
 newAttachLoadBalancersResponse pHttpStatus_ =
   AttachLoadBalancersResponse'
@@ -165,7 +162,7 @@ newAttachLoadBalancersResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-attachLoadBalancersResponse_httpStatus :: Lens.Lens' AttachLoadBalancersResponse Prelude.Int
+attachLoadBalancersResponse_httpStatus :: Lens.Lens' AttachLoadBalancersResponse Core.Int
 attachLoadBalancersResponse_httpStatus = Lens.lens (\AttachLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@AttachLoadBalancersResponse' {} a -> s {httpStatus = a} :: AttachLoadBalancersResponse)
 
-instance Prelude.NFData AttachLoadBalancersResponse
+instance Core.NFData AttachLoadBalancersResponse

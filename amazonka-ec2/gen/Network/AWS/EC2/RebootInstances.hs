@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EC2.RebootInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,11 +58,11 @@ data RebootInstances = RebootInstances'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The instance IDs.
-    instanceIds :: [Prelude.Text]
+    instanceIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootInstances' with all optional fields omitted.
@@ -83,53 +82,54 @@ newRebootInstances ::
   RebootInstances
 newRebootInstances =
   RebootInstances'
-    { dryRun = Prelude.Nothing,
-      instanceIds = Prelude.mempty
+    { dryRun = Core.Nothing,
+      instanceIds = Core.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rebootInstances_dryRun :: Lens.Lens' RebootInstances (Prelude.Maybe Prelude.Bool)
+rebootInstances_dryRun :: Lens.Lens' RebootInstances (Core.Maybe Core.Bool)
 rebootInstances_dryRun = Lens.lens (\RebootInstances' {dryRun} -> dryRun) (\s@RebootInstances' {} a -> s {dryRun = a} :: RebootInstances)
 
 -- | The instance IDs.
-rebootInstances_instanceIds :: Lens.Lens' RebootInstances [Prelude.Text]
-rebootInstances_instanceIds = Lens.lens (\RebootInstances' {instanceIds} -> instanceIds) (\s@RebootInstances' {} a -> s {instanceIds = a} :: RebootInstances) Prelude.. Prelude._Coerce
+rebootInstances_instanceIds :: Lens.Lens' RebootInstances [Core.Text]
+rebootInstances_instanceIds = Lens.lens (\RebootInstances' {instanceIds} -> instanceIds) (\s@RebootInstances' {} a -> s {instanceIds = a} :: RebootInstances) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest RebootInstances where
-  type Rs RebootInstances = RebootInstancesResponse
+instance Core.AWSRequest RebootInstances where
+  type
+    AWSResponse RebootInstances =
+      RebootInstancesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull RebootInstancesResponse'
 
-instance Prelude.Hashable RebootInstances
+instance Core.Hashable RebootInstances
 
-instance Prelude.NFData RebootInstances
+instance Core.NFData RebootInstances
 
-instance Prelude.ToHeaders RebootInstances where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RebootInstances where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RebootInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath RebootInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RebootInstances where
+instance Core.ToQuery RebootInstances where
   toQuery RebootInstances' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RebootInstances" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQueryList "InstanceId" instanceIds
+          Core.=: ("RebootInstances" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQueryList "InstanceId" instanceIds
       ]
 
 -- | /See:/ 'newRebootInstancesResponse' smart constructor.
 data RebootInstancesResponse = RebootInstancesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootInstancesResponse' with all optional fields omitted.
@@ -139,4 +139,4 @@ newRebootInstancesResponse ::
   RebootInstancesResponse
 newRebootInstancesResponse = RebootInstancesResponse'
 
-instance Prelude.NFData RebootInstancesResponse
+instance Core.NFData RebootInstancesResponse

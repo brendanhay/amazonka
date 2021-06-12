@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,29 +19,29 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.MonitoringAppSpecification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Container image configuration object for the monitoring job.
 --
 -- /See:/ 'newMonitoringAppSpecification' smart constructor.
 data MonitoringAppSpecification = MonitoringAppSpecification'
   { -- | An array of arguments for the container used to run the monitoring job.
-    containerArguments :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    containerArguments :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | Specifies the entrypoint for a container used to run the monitoring job.
-    containerEntrypoint :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    containerEntrypoint :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | An Amazon S3 URI to a script that is called after analysis has been
     -- performed. Applicable only for the built-in (first party) containers.
-    postAnalyticsProcessorSourceUri :: Prelude.Maybe Prelude.Text,
+    postAnalyticsProcessorSourceUri :: Core.Maybe Core.Text,
     -- | An Amazon S3 URI to a script that is called per row prior to running
     -- analysis. It can base64 decode the payload and convert it into a flatted
     -- json so that the built-in container can use the converted data.
     -- Applicable only for the built-in (first party) containers.
-    recordPreprocessorSourceUri :: Prelude.Maybe Prelude.Text,
+    recordPreprocessorSourceUri :: Core.Maybe Core.Text,
     -- | The container image to be run by the monitoring job.
-    imageUri :: Prelude.Text
+    imageUri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MonitoringAppSpecification' with all optional fields omitted.
@@ -67,72 +66,71 @@ data MonitoringAppSpecification = MonitoringAppSpecification'
 -- 'imageUri', 'monitoringAppSpecification_imageUri' - The container image to be run by the monitoring job.
 newMonitoringAppSpecification ::
   -- | 'imageUri'
-  Prelude.Text ->
+  Core.Text ->
   MonitoringAppSpecification
 newMonitoringAppSpecification pImageUri_ =
   MonitoringAppSpecification'
     { containerArguments =
-        Prelude.Nothing,
-      containerEntrypoint = Prelude.Nothing,
-      postAnalyticsProcessorSourceUri =
-        Prelude.Nothing,
-      recordPreprocessorSourceUri = Prelude.Nothing,
+        Core.Nothing,
+      containerEntrypoint = Core.Nothing,
+      postAnalyticsProcessorSourceUri = Core.Nothing,
+      recordPreprocessorSourceUri = Core.Nothing,
       imageUri = pImageUri_
     }
 
 -- | An array of arguments for the container used to run the monitoring job.
-monitoringAppSpecification_containerArguments :: Lens.Lens' MonitoringAppSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-monitoringAppSpecification_containerArguments = Lens.lens (\MonitoringAppSpecification' {containerArguments} -> containerArguments) (\s@MonitoringAppSpecification' {} a -> s {containerArguments = a} :: MonitoringAppSpecification) Prelude.. Lens.mapping Prelude._Coerce
+monitoringAppSpecification_containerArguments :: Lens.Lens' MonitoringAppSpecification (Core.Maybe (Core.NonEmpty Core.Text))
+monitoringAppSpecification_containerArguments = Lens.lens (\MonitoringAppSpecification' {containerArguments} -> containerArguments) (\s@MonitoringAppSpecification' {} a -> s {containerArguments = a} :: MonitoringAppSpecification) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the entrypoint for a container used to run the monitoring job.
-monitoringAppSpecification_containerEntrypoint :: Lens.Lens' MonitoringAppSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-monitoringAppSpecification_containerEntrypoint = Lens.lens (\MonitoringAppSpecification' {containerEntrypoint} -> containerEntrypoint) (\s@MonitoringAppSpecification' {} a -> s {containerEntrypoint = a} :: MonitoringAppSpecification) Prelude.. Lens.mapping Prelude._Coerce
+monitoringAppSpecification_containerEntrypoint :: Lens.Lens' MonitoringAppSpecification (Core.Maybe (Core.NonEmpty Core.Text))
+monitoringAppSpecification_containerEntrypoint = Lens.lens (\MonitoringAppSpecification' {containerEntrypoint} -> containerEntrypoint) (\s@MonitoringAppSpecification' {} a -> s {containerEntrypoint = a} :: MonitoringAppSpecification) Core.. Lens.mapping Lens._Coerce
 
 -- | An Amazon S3 URI to a script that is called after analysis has been
 -- performed. Applicable only for the built-in (first party) containers.
-monitoringAppSpecification_postAnalyticsProcessorSourceUri :: Lens.Lens' MonitoringAppSpecification (Prelude.Maybe Prelude.Text)
+monitoringAppSpecification_postAnalyticsProcessorSourceUri :: Lens.Lens' MonitoringAppSpecification (Core.Maybe Core.Text)
 monitoringAppSpecification_postAnalyticsProcessorSourceUri = Lens.lens (\MonitoringAppSpecification' {postAnalyticsProcessorSourceUri} -> postAnalyticsProcessorSourceUri) (\s@MonitoringAppSpecification' {} a -> s {postAnalyticsProcessorSourceUri = a} :: MonitoringAppSpecification)
 
 -- | An Amazon S3 URI to a script that is called per row prior to running
 -- analysis. It can base64 decode the payload and convert it into a flatted
 -- json so that the built-in container can use the converted data.
 -- Applicable only for the built-in (first party) containers.
-monitoringAppSpecification_recordPreprocessorSourceUri :: Lens.Lens' MonitoringAppSpecification (Prelude.Maybe Prelude.Text)
+monitoringAppSpecification_recordPreprocessorSourceUri :: Lens.Lens' MonitoringAppSpecification (Core.Maybe Core.Text)
 monitoringAppSpecification_recordPreprocessorSourceUri = Lens.lens (\MonitoringAppSpecification' {recordPreprocessorSourceUri} -> recordPreprocessorSourceUri) (\s@MonitoringAppSpecification' {} a -> s {recordPreprocessorSourceUri = a} :: MonitoringAppSpecification)
 
 -- | The container image to be run by the monitoring job.
-monitoringAppSpecification_imageUri :: Lens.Lens' MonitoringAppSpecification Prelude.Text
+monitoringAppSpecification_imageUri :: Lens.Lens' MonitoringAppSpecification Core.Text
 monitoringAppSpecification_imageUri = Lens.lens (\MonitoringAppSpecification' {imageUri} -> imageUri) (\s@MonitoringAppSpecification' {} a -> s {imageUri = a} :: MonitoringAppSpecification)
 
-instance Prelude.FromJSON MonitoringAppSpecification where
+instance Core.FromJSON MonitoringAppSpecification where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MonitoringAppSpecification"
       ( \x ->
           MonitoringAppSpecification'
-            Prelude.<$> (x Prelude..:? "ContainerArguments")
-            Prelude.<*> (x Prelude..:? "ContainerEntrypoint")
-            Prelude.<*> (x Prelude..:? "PostAnalyticsProcessorSourceUri")
-            Prelude.<*> (x Prelude..:? "RecordPreprocessorSourceUri")
-            Prelude.<*> (x Prelude..: "ImageUri")
+            Core.<$> (x Core..:? "ContainerArguments")
+            Core.<*> (x Core..:? "ContainerEntrypoint")
+            Core.<*> (x Core..:? "PostAnalyticsProcessorSourceUri")
+            Core.<*> (x Core..:? "RecordPreprocessorSourceUri")
+            Core.<*> (x Core..: "ImageUri")
       )
 
-instance Prelude.Hashable MonitoringAppSpecification
+instance Core.Hashable MonitoringAppSpecification
 
-instance Prelude.NFData MonitoringAppSpecification
+instance Core.NFData MonitoringAppSpecification
 
-instance Prelude.ToJSON MonitoringAppSpecification where
+instance Core.ToJSON MonitoringAppSpecification where
   toJSON MonitoringAppSpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ContainerArguments" Prelude..=)
-              Prelude.<$> containerArguments,
-            ("ContainerEntrypoint" Prelude..=)
-              Prelude.<$> containerEntrypoint,
-            ("PostAnalyticsProcessorSourceUri" Prelude..=)
-              Prelude.<$> postAnalyticsProcessorSourceUri,
-            ("RecordPreprocessorSourceUri" Prelude..=)
-              Prelude.<$> recordPreprocessorSourceUri,
-            Prelude.Just ("ImageUri" Prelude..= imageUri)
+    Core.object
+      ( Core.catMaybes
+          [ ("ContainerArguments" Core..=)
+              Core.<$> containerArguments,
+            ("ContainerEntrypoint" Core..=)
+              Core.<$> containerEntrypoint,
+            ("PostAnalyticsProcessorSourceUri" Core..=)
+              Core.<$> postAnalyticsProcessorSourceUri,
+            ("RecordPreprocessorSourceUri" Core..=)
+              Core.<$> recordPreprocessorSourceUri,
+            Core.Just ("ImageUri" Core..= imageUri)
           ]
       )

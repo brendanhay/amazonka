@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.ActionExecutionResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Execution result information, such as the external execution ID.
 --
 -- /See:/ 'newActionExecutionResult' smart constructor.
 data ActionExecutionResult = ActionExecutionResult'
   { -- | The action provider\'s external ID for the action execution.
-    externalExecutionId :: Prelude.Maybe Prelude.Text,
+    externalExecutionId :: Core.Maybe Core.Text,
     -- | The deepest external link to the external resource (for example, a
     -- repository URL or deployment endpoint) that is used when running the
     -- action.
-    externalExecutionUrl :: Prelude.Maybe Prelude.Text,
+    externalExecutionUrl :: Core.Maybe Core.Text,
     -- | The action provider\'s summary for the action execution.
-    externalExecutionSummary :: Prelude.Maybe Prelude.Text
+    externalExecutionSummary :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionExecutionResult' with all optional fields omitted.
@@ -58,36 +57,36 @@ newActionExecutionResult ::
 newActionExecutionResult =
   ActionExecutionResult'
     { externalExecutionId =
-        Prelude.Nothing,
-      externalExecutionUrl = Prelude.Nothing,
-      externalExecutionSummary = Prelude.Nothing
+        Core.Nothing,
+      externalExecutionUrl = Core.Nothing,
+      externalExecutionSummary = Core.Nothing
     }
 
 -- | The action provider\'s external ID for the action execution.
-actionExecutionResult_externalExecutionId :: Lens.Lens' ActionExecutionResult (Prelude.Maybe Prelude.Text)
+actionExecutionResult_externalExecutionId :: Lens.Lens' ActionExecutionResult (Core.Maybe Core.Text)
 actionExecutionResult_externalExecutionId = Lens.lens (\ActionExecutionResult' {externalExecutionId} -> externalExecutionId) (\s@ActionExecutionResult' {} a -> s {externalExecutionId = a} :: ActionExecutionResult)
 
 -- | The deepest external link to the external resource (for example, a
 -- repository URL or deployment endpoint) that is used when running the
 -- action.
-actionExecutionResult_externalExecutionUrl :: Lens.Lens' ActionExecutionResult (Prelude.Maybe Prelude.Text)
+actionExecutionResult_externalExecutionUrl :: Lens.Lens' ActionExecutionResult (Core.Maybe Core.Text)
 actionExecutionResult_externalExecutionUrl = Lens.lens (\ActionExecutionResult' {externalExecutionUrl} -> externalExecutionUrl) (\s@ActionExecutionResult' {} a -> s {externalExecutionUrl = a} :: ActionExecutionResult)
 
 -- | The action provider\'s summary for the action execution.
-actionExecutionResult_externalExecutionSummary :: Lens.Lens' ActionExecutionResult (Prelude.Maybe Prelude.Text)
+actionExecutionResult_externalExecutionSummary :: Lens.Lens' ActionExecutionResult (Core.Maybe Core.Text)
 actionExecutionResult_externalExecutionSummary = Lens.lens (\ActionExecutionResult' {externalExecutionSummary} -> externalExecutionSummary) (\s@ActionExecutionResult' {} a -> s {externalExecutionSummary = a} :: ActionExecutionResult)
 
-instance Prelude.FromJSON ActionExecutionResult where
+instance Core.FromJSON ActionExecutionResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionExecutionResult"
       ( \x ->
           ActionExecutionResult'
-            Prelude.<$> (x Prelude..:? "externalExecutionId")
-            Prelude.<*> (x Prelude..:? "externalExecutionUrl")
-            Prelude.<*> (x Prelude..:? "externalExecutionSummary")
+            Core.<$> (x Core..:? "externalExecutionId")
+            Core.<*> (x Core..:? "externalExecutionUrl")
+            Core.<*> (x Core..:? "externalExecutionSummary")
       )
 
-instance Prelude.Hashable ActionExecutionResult
+instance Core.Hashable ActionExecutionResult
 
-instance Prelude.NFData ActionExecutionResult
+instance Core.NFData ActionExecutionResult

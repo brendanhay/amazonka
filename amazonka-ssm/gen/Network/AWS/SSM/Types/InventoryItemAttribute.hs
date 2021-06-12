@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.InventoryItemAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.InventoryAttributeDataType
 
 -- | Attributes are the entries within the inventory item content. It
@@ -30,11 +29,11 @@ import Network.AWS.SSM.Types.InventoryAttributeDataType
 -- /See:/ 'newInventoryItemAttribute' smart constructor.
 data InventoryItemAttribute = InventoryItemAttribute'
   { -- | Name of the inventory item attribute.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The data type of the inventory item attribute.
     dataType :: InventoryAttributeDataType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InventoryItemAttribute' with all optional fields omitted.
@@ -49,7 +48,7 @@ data InventoryItemAttribute = InventoryItemAttribute'
 -- 'dataType', 'inventoryItemAttribute_dataType' - The data type of the inventory item attribute.
 newInventoryItemAttribute ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dataType'
   InventoryAttributeDataType ->
   InventoryItemAttribute
@@ -60,23 +59,22 @@ newInventoryItemAttribute pName_ pDataType_ =
     }
 
 -- | Name of the inventory item attribute.
-inventoryItemAttribute_name :: Lens.Lens' InventoryItemAttribute Prelude.Text
+inventoryItemAttribute_name :: Lens.Lens' InventoryItemAttribute Core.Text
 inventoryItemAttribute_name = Lens.lens (\InventoryItemAttribute' {name} -> name) (\s@InventoryItemAttribute' {} a -> s {name = a} :: InventoryItemAttribute)
 
 -- | The data type of the inventory item attribute.
 inventoryItemAttribute_dataType :: Lens.Lens' InventoryItemAttribute InventoryAttributeDataType
 inventoryItemAttribute_dataType = Lens.lens (\InventoryItemAttribute' {dataType} -> dataType) (\s@InventoryItemAttribute' {} a -> s {dataType = a} :: InventoryItemAttribute)
 
-instance Prelude.FromJSON InventoryItemAttribute where
+instance Core.FromJSON InventoryItemAttribute where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InventoryItemAttribute"
       ( \x ->
           InventoryItemAttribute'
-            Prelude.<$> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "DataType")
+            Core.<$> (x Core..: "Name") Core.<*> (x Core..: "DataType")
       )
 
-instance Prelude.Hashable InventoryItemAttribute
+instance Core.Hashable InventoryItemAttribute
 
-instance Prelude.NFData InventoryItemAttribute
+instance Core.NFData InventoryItemAttribute

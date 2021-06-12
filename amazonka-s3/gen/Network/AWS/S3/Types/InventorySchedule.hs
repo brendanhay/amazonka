@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.InventorySchedule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.InventoryFrequency
 
@@ -32,7 +31,7 @@ data InventorySchedule = InventorySchedule'
   { -- | Specifies how frequently inventory results are produced.
     frequency :: InventoryFrequency
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InventorySchedule' with all optional fields omitted.
@@ -54,15 +53,14 @@ newInventorySchedule pFrequency_ =
 inventorySchedule_frequency :: Lens.Lens' InventorySchedule InventoryFrequency
 inventorySchedule_frequency = Lens.lens (\InventorySchedule' {frequency} -> frequency) (\s@InventorySchedule' {} a -> s {frequency = a} :: InventorySchedule)
 
-instance Prelude.FromXML InventorySchedule where
+instance Core.FromXML InventorySchedule where
   parseXML x =
-    InventorySchedule'
-      Prelude.<$> (x Prelude..@ "Frequency")
+    InventorySchedule' Core.<$> (x Core..@ "Frequency")
 
-instance Prelude.Hashable InventorySchedule
+instance Core.Hashable InventorySchedule
 
-instance Prelude.NFData InventorySchedule
+instance Core.NFData InventorySchedule
 
-instance Prelude.ToXML InventorySchedule where
+instance Core.ToXML InventorySchedule where
   toXML InventorySchedule' {..} =
-    Prelude.mconcat ["Frequency" Prelude.@= frequency]
+    Core.mconcat ["Frequency" Core.@= frequency]

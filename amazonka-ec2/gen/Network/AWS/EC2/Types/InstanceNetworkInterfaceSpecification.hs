@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceNetworkInterfaceSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceIpv6Address
 import Network.AWS.EC2.Types.PrivateIpAddressSpecification
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a network interface.
 --
@@ -32,18 +31,18 @@ import qualified Network.AWS.Prelude as Prelude
 data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'
   { -- | The IDs of the security groups for the network interface. Applies only
     -- if creating a network interface when launching an instance.
-    groups :: Prelude.Maybe [Prelude.Text],
+    groups :: Core.Maybe [Core.Text],
     -- | One or more private IPv4 addresses to assign to the network interface.
     -- Only one private IPv4 address can be designated as primary. You cannot
     -- specify this option if you\'re launching more than one instance in a
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>
     -- request.
-    privateIpAddresses :: Prelude.Maybe [PrivateIpAddressSpecification],
+    privateIpAddresses :: Core.Maybe [PrivateIpAddressSpecification],
     -- | One or more IPv6 addresses to assign to the network interface. You
     -- cannot specify this option and the option to assign a number of IPv6
     -- addresses in the same request. You cannot specify this option if you\'ve
     -- specified a minimum number of instances to launch.
-    ipv6Addresses :: Prelude.Maybe [InstanceIpv6Address],
+    ipv6Addresses :: Core.Maybe [InstanceIpv6Address],
     -- | The type of network interface.
     --
     -- To create an Elastic Fabric Adapter (EFA), specify @efa@. For more
@@ -55,14 +54,14 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     -- parameter.
     --
     -- Valid values: @interface@ | @efa@
-    interfaceType :: Prelude.Maybe Prelude.Text,
+    interfaceType :: Core.Maybe Core.Text,
     -- | Indicates whether to assign a public IPv4 address to an instance you
     -- launch in a VPC. The public IP address can only be assigned to a network
     -- interface for eth0, and can only be assigned to a new network interface,
     -- not an existing one. You cannot specify more than one network interface
     -- in the request. If launching into a default subnet, the default value is
     -- @true@.
-    associatePublicIpAddress :: Prelude.Maybe Prelude.Bool,
+    associatePublicIpAddress :: Core.Maybe Core.Bool,
     -- | Indicates whether to assign a carrier IP address to the network
     -- interface.
     --
@@ -70,53 +69,53 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     -- in a subnet in a Wavelength Zone. For more information about carrier IP
     -- addresses, see Carrier IP addresses in the AWS Wavelength Developer
     -- Guide.
-    associateCarrierIpAddress :: Prelude.Maybe Prelude.Bool,
+    associateCarrierIpAddress :: Core.Maybe Core.Bool,
     -- | A number of IPv6 addresses to assign to the network interface. Amazon
     -- EC2 chooses the IPv6 addresses from the range of the subnet. You cannot
     -- specify this option and the option to assign specific IPv6 addresses in
     -- the same request. You can specify this option if you\'ve specified a
     -- minimum number of instances to launch.
-    ipv6AddressCount :: Prelude.Maybe Prelude.Int,
+    ipv6AddressCount :: Core.Maybe Core.Int,
     -- | The index of the network card. Some instance types support multiple
     -- network cards. The primary network interface must be assigned to network
     -- card index 0. The default is network card index 0.
-    networkCardIndex :: Prelude.Maybe Prelude.Int,
+    networkCardIndex :: Core.Maybe Core.Int,
     -- | If set to @true@, the interface is deleted when the instance is
     -- terminated. You can specify @true@ only if creating a new network
     -- interface when launching an instance.
-    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
+    deleteOnTermination :: Core.Maybe Core.Bool,
     -- | The ID of the network interface.
     --
     -- If you are creating a Spot Fleet, omit this parameter because you can’t
     -- specify a network interface ID in a launch specification.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    networkInterfaceId :: Core.Maybe Core.Text,
     -- | The ID of the subnet associated with the network interface. Applies only
     -- if creating a network interface when launching an instance.
-    subnetId :: Prelude.Maybe Prelude.Text,
+    subnetId :: Core.Maybe Core.Text,
     -- | The description of the network interface. Applies only if creating a
     -- network interface when launching an instance.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The position of the network interface in the attachment order. A primary
     -- network interface has a device index of 0.
     --
     -- If you specify a network interface when launching an instance, you must
     -- specify the device index.
-    deviceIndex :: Prelude.Maybe Prelude.Int,
+    deviceIndex :: Core.Maybe Core.Int,
     -- | The number of secondary private IPv4 addresses. You can\'t specify this
     -- option and specify more than one private IP address using the private IP
     -- addresses option. You cannot specify this option if you\'re launching
     -- more than one instance in a
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>
     -- request.
-    secondaryPrivateIpAddressCount :: Prelude.Maybe Prelude.Int,
+    secondaryPrivateIpAddressCount :: Core.Maybe Core.Int,
     -- | The private IPv4 address of the network interface. Applies only if
     -- creating a network interface when launching an instance. You cannot
     -- specify this option if you\'re launching more than one instance in a
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>
     -- request.
-    privateIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceNetworkInterfaceSpecification' with all optional fields omitted.
@@ -215,46 +214,45 @@ newInstanceNetworkInterfaceSpecification ::
 newInstanceNetworkInterfaceSpecification =
   InstanceNetworkInterfaceSpecification'
     { groups =
-        Prelude.Nothing,
-      privateIpAddresses = Prelude.Nothing,
-      ipv6Addresses = Prelude.Nothing,
-      interfaceType = Prelude.Nothing,
+        Core.Nothing,
+      privateIpAddresses = Core.Nothing,
+      ipv6Addresses = Core.Nothing,
+      interfaceType = Core.Nothing,
       associatePublicIpAddress =
-        Prelude.Nothing,
+        Core.Nothing,
       associateCarrierIpAddress =
-        Prelude.Nothing,
-      ipv6AddressCount = Prelude.Nothing,
-      networkCardIndex = Prelude.Nothing,
-      deleteOnTermination =
-        Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      deviceIndex = Prelude.Nothing,
+        Core.Nothing,
+      ipv6AddressCount = Core.Nothing,
+      networkCardIndex = Core.Nothing,
+      deleteOnTermination = Core.Nothing,
+      networkInterfaceId = Core.Nothing,
+      subnetId = Core.Nothing,
+      description = Core.Nothing,
+      deviceIndex = Core.Nothing,
       secondaryPrivateIpAddressCount =
-        Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing
+        Core.Nothing,
+      privateIpAddress = Core.Nothing
     }
 
 -- | The IDs of the security groups for the network interface. Applies only
 -- if creating a network interface when launching an instance.
-instanceNetworkInterfaceSpecification_groups :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe [Prelude.Text])
-instanceNetworkInterfaceSpecification_groups = Lens.lens (\InstanceNetworkInterfaceSpecification' {groups} -> groups) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {groups = a} :: InstanceNetworkInterfaceSpecification) Prelude.. Lens.mapping Prelude._Coerce
+instanceNetworkInterfaceSpecification_groups :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe [Core.Text])
+instanceNetworkInterfaceSpecification_groups = Lens.lens (\InstanceNetworkInterfaceSpecification' {groups} -> groups) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {groups = a} :: InstanceNetworkInterfaceSpecification) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more private IPv4 addresses to assign to the network interface.
 -- Only one private IPv4 address can be designated as primary. You cannot
 -- specify this option if you\'re launching more than one instance in a
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>
 -- request.
-instanceNetworkInterfaceSpecification_privateIpAddresses :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe [PrivateIpAddressSpecification])
-instanceNetworkInterfaceSpecification_privateIpAddresses = Lens.lens (\InstanceNetworkInterfaceSpecification' {privateIpAddresses} -> privateIpAddresses) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {privateIpAddresses = a} :: InstanceNetworkInterfaceSpecification) Prelude.. Lens.mapping Prelude._Coerce
+instanceNetworkInterfaceSpecification_privateIpAddresses :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe [PrivateIpAddressSpecification])
+instanceNetworkInterfaceSpecification_privateIpAddresses = Lens.lens (\InstanceNetworkInterfaceSpecification' {privateIpAddresses} -> privateIpAddresses) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {privateIpAddresses = a} :: InstanceNetworkInterfaceSpecification) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more IPv6 addresses to assign to the network interface. You
 -- cannot specify this option and the option to assign a number of IPv6
 -- addresses in the same request. You cannot specify this option if you\'ve
 -- specified a minimum number of instances to launch.
-instanceNetworkInterfaceSpecification_ipv6Addresses :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe [InstanceIpv6Address])
-instanceNetworkInterfaceSpecification_ipv6Addresses = Lens.lens (\InstanceNetworkInterfaceSpecification' {ipv6Addresses} -> ipv6Addresses) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {ipv6Addresses = a} :: InstanceNetworkInterfaceSpecification) Prelude.. Lens.mapping Prelude._Coerce
+instanceNetworkInterfaceSpecification_ipv6Addresses :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe [InstanceIpv6Address])
+instanceNetworkInterfaceSpecification_ipv6Addresses = Lens.lens (\InstanceNetworkInterfaceSpecification' {ipv6Addresses} -> ipv6Addresses) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {ipv6Addresses = a} :: InstanceNetworkInterfaceSpecification) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of network interface.
 --
@@ -267,7 +265,7 @@ instanceNetworkInterfaceSpecification_ipv6Addresses = Lens.lens (\InstanceNetwor
 -- parameter.
 --
 -- Valid values: @interface@ | @efa@
-instanceNetworkInterfaceSpecification_interfaceType :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Text)
+instanceNetworkInterfaceSpecification_interfaceType :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Text)
 instanceNetworkInterfaceSpecification_interfaceType = Lens.lens (\InstanceNetworkInterfaceSpecification' {interfaceType} -> interfaceType) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {interfaceType = a} :: InstanceNetworkInterfaceSpecification)
 
 -- | Indicates whether to assign a public IPv4 address to an instance you
@@ -276,7 +274,7 @@ instanceNetworkInterfaceSpecification_interfaceType = Lens.lens (\InstanceNetwor
 -- not an existing one. You cannot specify more than one network interface
 -- in the request. If launching into a default subnet, the default value is
 -- @true@.
-instanceNetworkInterfaceSpecification_associatePublicIpAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Bool)
+instanceNetworkInterfaceSpecification_associatePublicIpAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Bool)
 instanceNetworkInterfaceSpecification_associatePublicIpAddress = Lens.lens (\InstanceNetworkInterfaceSpecification' {associatePublicIpAddress} -> associatePublicIpAddress) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {associatePublicIpAddress = a} :: InstanceNetworkInterfaceSpecification)
 
 -- | Indicates whether to assign a carrier IP address to the network
@@ -286,7 +284,7 @@ instanceNetworkInterfaceSpecification_associatePublicIpAddress = Lens.lens (\Ins
 -- in a subnet in a Wavelength Zone. For more information about carrier IP
 -- addresses, see Carrier IP addresses in the AWS Wavelength Developer
 -- Guide.
-instanceNetworkInterfaceSpecification_associateCarrierIpAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Bool)
+instanceNetworkInterfaceSpecification_associateCarrierIpAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Bool)
 instanceNetworkInterfaceSpecification_associateCarrierIpAddress = Lens.lens (\InstanceNetworkInterfaceSpecification' {associateCarrierIpAddress} -> associateCarrierIpAddress) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {associateCarrierIpAddress = a} :: InstanceNetworkInterfaceSpecification)
 
 -- | A number of IPv6 addresses to assign to the network interface. Amazon
@@ -294,36 +292,36 @@ instanceNetworkInterfaceSpecification_associateCarrierIpAddress = Lens.lens (\In
 -- specify this option and the option to assign specific IPv6 addresses in
 -- the same request. You can specify this option if you\'ve specified a
 -- minimum number of instances to launch.
-instanceNetworkInterfaceSpecification_ipv6AddressCount :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Int)
+instanceNetworkInterfaceSpecification_ipv6AddressCount :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
 instanceNetworkInterfaceSpecification_ipv6AddressCount = Lens.lens (\InstanceNetworkInterfaceSpecification' {ipv6AddressCount} -> ipv6AddressCount) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {ipv6AddressCount = a} :: InstanceNetworkInterfaceSpecification)
 
 -- | The index of the network card. Some instance types support multiple
 -- network cards. The primary network interface must be assigned to network
 -- card index 0. The default is network card index 0.
-instanceNetworkInterfaceSpecification_networkCardIndex :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Int)
+instanceNetworkInterfaceSpecification_networkCardIndex :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
 instanceNetworkInterfaceSpecification_networkCardIndex = Lens.lens (\InstanceNetworkInterfaceSpecification' {networkCardIndex} -> networkCardIndex) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {networkCardIndex = a} :: InstanceNetworkInterfaceSpecification)
 
 -- | If set to @true@, the interface is deleted when the instance is
 -- terminated. You can specify @true@ only if creating a new network
 -- interface when launching an instance.
-instanceNetworkInterfaceSpecification_deleteOnTermination :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Bool)
+instanceNetworkInterfaceSpecification_deleteOnTermination :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Bool)
 instanceNetworkInterfaceSpecification_deleteOnTermination = Lens.lens (\InstanceNetworkInterfaceSpecification' {deleteOnTermination} -> deleteOnTermination) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {deleteOnTermination = a} :: InstanceNetworkInterfaceSpecification)
 
 -- | The ID of the network interface.
 --
 -- If you are creating a Spot Fleet, omit this parameter because you can’t
 -- specify a network interface ID in a launch specification.
-instanceNetworkInterfaceSpecification_networkInterfaceId :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Text)
+instanceNetworkInterfaceSpecification_networkInterfaceId :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Text)
 instanceNetworkInterfaceSpecification_networkInterfaceId = Lens.lens (\InstanceNetworkInterfaceSpecification' {networkInterfaceId} -> networkInterfaceId) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {networkInterfaceId = a} :: InstanceNetworkInterfaceSpecification)
 
 -- | The ID of the subnet associated with the network interface. Applies only
 -- if creating a network interface when launching an instance.
-instanceNetworkInterfaceSpecification_subnetId :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Text)
+instanceNetworkInterfaceSpecification_subnetId :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Text)
 instanceNetworkInterfaceSpecification_subnetId = Lens.lens (\InstanceNetworkInterfaceSpecification' {subnetId} -> subnetId) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {subnetId = a} :: InstanceNetworkInterfaceSpecification)
 
 -- | The description of the network interface. Applies only if creating a
 -- network interface when launching an instance.
-instanceNetworkInterfaceSpecification_description :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Text)
+instanceNetworkInterfaceSpecification_description :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Text)
 instanceNetworkInterfaceSpecification_description = Lens.lens (\InstanceNetworkInterfaceSpecification' {description} -> description) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {description = a} :: InstanceNetworkInterfaceSpecification)
 
 -- | The position of the network interface in the attachment order. A primary
@@ -331,7 +329,7 @@ instanceNetworkInterfaceSpecification_description = Lens.lens (\InstanceNetworkI
 --
 -- If you specify a network interface when launching an instance, you must
 -- specify the device index.
-instanceNetworkInterfaceSpecification_deviceIndex :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Int)
+instanceNetworkInterfaceSpecification_deviceIndex :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
 instanceNetworkInterfaceSpecification_deviceIndex = Lens.lens (\InstanceNetworkInterfaceSpecification' {deviceIndex} -> deviceIndex) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {deviceIndex = a} :: InstanceNetworkInterfaceSpecification)
 
 -- | The number of secondary private IPv4 addresses. You can\'t specify this
@@ -340,7 +338,7 @@ instanceNetworkInterfaceSpecification_deviceIndex = Lens.lens (\InstanceNetworkI
 -- more than one instance in a
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>
 -- request.
-instanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Int)
+instanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
 instanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount = Lens.lens (\InstanceNetworkInterfaceSpecification' {secondaryPrivateIpAddressCount} -> secondaryPrivateIpAddressCount) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {secondaryPrivateIpAddressCount = a} :: InstanceNetworkInterfaceSpecification)
 
 -- | The private IPv4 address of the network interface. Applies only if
@@ -348,79 +346,75 @@ instanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount = Lens.lens
 -- specify this option if you\'re launching more than one instance in a
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>
 -- request.
-instanceNetworkInterfaceSpecification_privateIpAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Text)
+instanceNetworkInterfaceSpecification_privateIpAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Text)
 instanceNetworkInterfaceSpecification_privateIpAddress = Lens.lens (\InstanceNetworkInterfaceSpecification' {privateIpAddress} -> privateIpAddress) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {privateIpAddress = a} :: InstanceNetworkInterfaceSpecification)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     InstanceNetworkInterfaceSpecification
   where
   parseXML x =
     InstanceNetworkInterfaceSpecification'
-      Prelude.<$> ( x Prelude..@? "SecurityGroupId"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "SecurityGroupId")
-                  )
-      Prelude.<*> ( x Prelude..@? "privateIpAddressesSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Prelude..@? "ipv6AddressesSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "InterfaceType")
-      Prelude.<*> (x Prelude..@? "associatePublicIpAddress")
-      Prelude.<*> (x Prelude..@? "AssociateCarrierIpAddress")
-      Prelude.<*> (x Prelude..@? "ipv6AddressCount")
-      Prelude.<*> (x Prelude..@? "NetworkCardIndex")
-      Prelude.<*> (x Prelude..@? "deleteOnTermination")
-      Prelude.<*> (x Prelude..@? "networkInterfaceId")
-      Prelude.<*> (x Prelude..@? "subnetId")
-      Prelude.<*> (x Prelude..@? "description")
-      Prelude.<*> (x Prelude..@? "deviceIndex")
-      Prelude.<*> (x Prelude..@? "secondaryPrivateIpAddressCount")
-      Prelude.<*> (x Prelude..@? "privateIpAddress")
+      Core.<$> ( x Core..@? "SecurityGroupId" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "SecurityGroupId")
+               )
+      Core.<*> ( x Core..@? "privateIpAddressesSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> ( x Core..@? "ipv6AddressesSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "InterfaceType")
+      Core.<*> (x Core..@? "associatePublicIpAddress")
+      Core.<*> (x Core..@? "AssociateCarrierIpAddress")
+      Core.<*> (x Core..@? "ipv6AddressCount")
+      Core.<*> (x Core..@? "NetworkCardIndex")
+      Core.<*> (x Core..@? "deleteOnTermination")
+      Core.<*> (x Core..@? "networkInterfaceId")
+      Core.<*> (x Core..@? "subnetId")
+      Core.<*> (x Core..@? "description")
+      Core.<*> (x Core..@? "deviceIndex")
+      Core.<*> (x Core..@? "secondaryPrivateIpAddressCount")
+      Core.<*> (x Core..@? "privateIpAddress")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     InstanceNetworkInterfaceSpecification
 
 instance
-  Prelude.NFData
+  Core.NFData
     InstanceNetworkInterfaceSpecification
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     InstanceNetworkInterfaceSpecification
   where
   toQuery InstanceNetworkInterfaceSpecification' {..} =
-    Prelude.mconcat
-      [ Prelude.toQuery
-          ( Prelude.toQueryList "SecurityGroupId"
-              Prelude.<$> groups
+    Core.mconcat
+      [ Core.toQuery
+          (Core.toQueryList "SecurityGroupId" Core.<$> groups),
+        Core.toQuery
+          ( Core.toQueryList "PrivateIpAddresses"
+              Core.<$> privateIpAddresses
           ),
-        Prelude.toQuery
-          ( Prelude.toQueryList "PrivateIpAddresses"
-              Prelude.<$> privateIpAddresses
+        Core.toQuery
+          ( Core.toQueryList "Ipv6Addresses"
+              Core.<$> ipv6Addresses
           ),
-        Prelude.toQuery
-          ( Prelude.toQueryList "Ipv6Addresses"
-              Prelude.<$> ipv6Addresses
-          ),
-        "InterfaceType" Prelude.=: interfaceType,
+        "InterfaceType" Core.=: interfaceType,
         "AssociatePublicIpAddress"
-          Prelude.=: associatePublicIpAddress,
+          Core.=: associatePublicIpAddress,
         "AssociateCarrierIpAddress"
-          Prelude.=: associateCarrierIpAddress,
-        "Ipv6AddressCount" Prelude.=: ipv6AddressCount,
-        "NetworkCardIndex" Prelude.=: networkCardIndex,
-        "DeleteOnTermination" Prelude.=: deleteOnTermination,
-        "NetworkInterfaceId" Prelude.=: networkInterfaceId,
-        "SubnetId" Prelude.=: subnetId,
-        "Description" Prelude.=: description,
-        "DeviceIndex" Prelude.=: deviceIndex,
+          Core.=: associateCarrierIpAddress,
+        "Ipv6AddressCount" Core.=: ipv6AddressCount,
+        "NetworkCardIndex" Core.=: networkCardIndex,
+        "DeleteOnTermination" Core.=: deleteOnTermination,
+        "NetworkInterfaceId" Core.=: networkInterfaceId,
+        "SubnetId" Core.=: subnetId,
+        "Description" Core.=: description,
+        "DeviceIndex" Core.=: deviceIndex,
         "SecondaryPrivateIpAddressCount"
-          Prelude.=: secondaryPrivateIpAddressCount,
-        "PrivateIpAddress" Prelude.=: privateIpAddress
+          Core.=: secondaryPrivateIpAddressCount,
+        "PrivateIpAddress" Core.=: privateIpAddress
       ]

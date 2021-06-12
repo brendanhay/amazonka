@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.GlobalNodeGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates the slot configuration and global identifier for a slice
 -- group.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newGlobalNodeGroup' smart constructor.
 data GlobalNodeGroup = GlobalNodeGroup'
   { -- | The name of the global node group
-    globalNodeGroupId :: Prelude.Maybe Prelude.Text,
+    globalNodeGroupId :: Core.Maybe Core.Text,
     -- | The keyspace for this node group
-    slots :: Prelude.Maybe Prelude.Text
+    slots :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GlobalNodeGroup' with all optional fields omitted.
@@ -50,25 +49,24 @@ newGlobalNodeGroup ::
   GlobalNodeGroup
 newGlobalNodeGroup =
   GlobalNodeGroup'
-    { globalNodeGroupId =
-        Prelude.Nothing,
-      slots = Prelude.Nothing
+    { globalNodeGroupId = Core.Nothing,
+      slots = Core.Nothing
     }
 
 -- | The name of the global node group
-globalNodeGroup_globalNodeGroupId :: Lens.Lens' GlobalNodeGroup (Prelude.Maybe Prelude.Text)
+globalNodeGroup_globalNodeGroupId :: Lens.Lens' GlobalNodeGroup (Core.Maybe Core.Text)
 globalNodeGroup_globalNodeGroupId = Lens.lens (\GlobalNodeGroup' {globalNodeGroupId} -> globalNodeGroupId) (\s@GlobalNodeGroup' {} a -> s {globalNodeGroupId = a} :: GlobalNodeGroup)
 
 -- | The keyspace for this node group
-globalNodeGroup_slots :: Lens.Lens' GlobalNodeGroup (Prelude.Maybe Prelude.Text)
+globalNodeGroup_slots :: Lens.Lens' GlobalNodeGroup (Core.Maybe Core.Text)
 globalNodeGroup_slots = Lens.lens (\GlobalNodeGroup' {slots} -> slots) (\s@GlobalNodeGroup' {} a -> s {slots = a} :: GlobalNodeGroup)
 
-instance Prelude.FromXML GlobalNodeGroup where
+instance Core.FromXML GlobalNodeGroup where
   parseXML x =
     GlobalNodeGroup'
-      Prelude.<$> (x Prelude..@? "GlobalNodeGroupId")
-      Prelude.<*> (x Prelude..@? "Slots")
+      Core.<$> (x Core..@? "GlobalNodeGroupId")
+      Core.<*> (x Core..@? "Slots")
 
-instance Prelude.Hashable GlobalNodeGroup
+instance Core.Hashable GlobalNodeGroup
 
-instance Prelude.NFData GlobalNodeGroup
+instance Core.NFData GlobalNodeGroup

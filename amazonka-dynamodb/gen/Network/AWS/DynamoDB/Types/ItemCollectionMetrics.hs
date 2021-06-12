@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ItemCollectionMetrics where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. @ItemCollectionMetrics@ is only returned if the request asked
@@ -33,7 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 data ItemCollectionMetrics = ItemCollectionMetrics'
   { -- | The partition key value of the item collection. This value is the same
     -- as the partition key value of the item.
-    itemCollectionKey :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    itemCollectionKey :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
     -- | An estimate of item collection size, in gigabytes. This value is a
     -- two-element array containing a lower bound and an upper bound for the
     -- estimate. The estimate includes the size of all the items in the table,
@@ -43,9 +42,9 @@ data ItemCollectionMetrics = ItemCollectionMetrics'
     --
     -- The estimate is subject to change over time; therefore, do not rely on
     -- the precision or accuracy of the estimate.
-    sizeEstimateRangeGB :: Prelude.Maybe [Prelude.Double]
+    sizeEstimateRangeGB :: Core.Maybe [Core.Double]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ItemCollectionMetrics' with all optional fields omitted.
@@ -72,14 +71,14 @@ newItemCollectionMetrics ::
 newItemCollectionMetrics =
   ItemCollectionMetrics'
     { itemCollectionKey =
-        Prelude.Nothing,
-      sizeEstimateRangeGB = Prelude.Nothing
+        Core.Nothing,
+      sizeEstimateRangeGB = Core.Nothing
     }
 
 -- | The partition key value of the item collection. This value is the same
 -- as the partition key value of the item.
-itemCollectionMetrics_itemCollectionKey :: Lens.Lens' ItemCollectionMetrics (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-itemCollectionMetrics_itemCollectionKey = Lens.lens (\ItemCollectionMetrics' {itemCollectionKey} -> itemCollectionKey) (\s@ItemCollectionMetrics' {} a -> s {itemCollectionKey = a} :: ItemCollectionMetrics) Prelude.. Lens.mapping Prelude._Coerce
+itemCollectionMetrics_itemCollectionKey :: Lens.Lens' ItemCollectionMetrics (Core.Maybe (Core.HashMap Core.Text AttributeValue))
+itemCollectionMetrics_itemCollectionKey = Lens.lens (\ItemCollectionMetrics' {itemCollectionKey} -> itemCollectionKey) (\s@ItemCollectionMetrics' {} a -> s {itemCollectionKey = a} :: ItemCollectionMetrics) Core.. Lens.mapping Lens._Coerce
 
 -- | An estimate of item collection size, in gigabytes. This value is a
 -- two-element array containing a lower bound and an upper bound for the
@@ -90,23 +89,21 @@ itemCollectionMetrics_itemCollectionKey = Lens.lens (\ItemCollectionMetrics' {it
 --
 -- The estimate is subject to change over time; therefore, do not rely on
 -- the precision or accuracy of the estimate.
-itemCollectionMetrics_sizeEstimateRangeGB :: Lens.Lens' ItemCollectionMetrics (Prelude.Maybe [Prelude.Double])
-itemCollectionMetrics_sizeEstimateRangeGB = Lens.lens (\ItemCollectionMetrics' {sizeEstimateRangeGB} -> sizeEstimateRangeGB) (\s@ItemCollectionMetrics' {} a -> s {sizeEstimateRangeGB = a} :: ItemCollectionMetrics) Prelude.. Lens.mapping Prelude._Coerce
+itemCollectionMetrics_sizeEstimateRangeGB :: Lens.Lens' ItemCollectionMetrics (Core.Maybe [Core.Double])
+itemCollectionMetrics_sizeEstimateRangeGB = Lens.lens (\ItemCollectionMetrics' {sizeEstimateRangeGB} -> sizeEstimateRangeGB) (\s@ItemCollectionMetrics' {} a -> s {sizeEstimateRangeGB = a} :: ItemCollectionMetrics) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ItemCollectionMetrics where
+instance Core.FromJSON ItemCollectionMetrics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ItemCollectionMetrics"
       ( \x ->
           ItemCollectionMetrics'
-            Prelude.<$> ( x Prelude..:? "ItemCollectionKey"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "SizeEstimateRangeGB"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ItemCollectionKey" Core..!= Core.mempty)
+            Core.<*> ( x Core..:? "SizeEstimateRangeGB"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable ItemCollectionMetrics
+instance Core.Hashable ItemCollectionMetrics
 
-instance Prelude.NFData ItemCollectionMetrics
+instance Core.NFData ItemCollectionMetrics

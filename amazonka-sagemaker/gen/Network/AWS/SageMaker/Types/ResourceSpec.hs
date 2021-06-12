@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ResourceSpec where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AppInstanceType
 
 -- | Specifies the ARN\'s of a SageMaker image and SageMaker image version,
@@ -30,13 +29,13 @@ import Network.AWS.SageMaker.Types.AppInstanceType
 -- /See:/ 'newResourceSpec' smart constructor.
 data ResourceSpec = ResourceSpec'
   { -- | The instance type that the image version runs on.
-    instanceType :: Prelude.Maybe AppInstanceType,
+    instanceType :: Core.Maybe AppInstanceType,
     -- | The ARN of the SageMaker image that the image version belongs to.
-    sageMakerImageArn :: Prelude.Maybe Prelude.Text,
+    sageMakerImageArn :: Core.Maybe Core.Text,
     -- | The ARN of the image version created on the instance.
-    sageMakerImageVersionArn :: Prelude.Maybe Prelude.Text
+    sageMakerImageVersionArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceSpec' with all optional fields omitted.
@@ -55,47 +54,46 @@ newResourceSpec ::
   ResourceSpec
 newResourceSpec =
   ResourceSpec'
-    { instanceType = Prelude.Nothing,
-      sageMakerImageArn = Prelude.Nothing,
-      sageMakerImageVersionArn = Prelude.Nothing
+    { instanceType = Core.Nothing,
+      sageMakerImageArn = Core.Nothing,
+      sageMakerImageVersionArn = Core.Nothing
     }
 
 -- | The instance type that the image version runs on.
-resourceSpec_instanceType :: Lens.Lens' ResourceSpec (Prelude.Maybe AppInstanceType)
+resourceSpec_instanceType :: Lens.Lens' ResourceSpec (Core.Maybe AppInstanceType)
 resourceSpec_instanceType = Lens.lens (\ResourceSpec' {instanceType} -> instanceType) (\s@ResourceSpec' {} a -> s {instanceType = a} :: ResourceSpec)
 
 -- | The ARN of the SageMaker image that the image version belongs to.
-resourceSpec_sageMakerImageArn :: Lens.Lens' ResourceSpec (Prelude.Maybe Prelude.Text)
+resourceSpec_sageMakerImageArn :: Lens.Lens' ResourceSpec (Core.Maybe Core.Text)
 resourceSpec_sageMakerImageArn = Lens.lens (\ResourceSpec' {sageMakerImageArn} -> sageMakerImageArn) (\s@ResourceSpec' {} a -> s {sageMakerImageArn = a} :: ResourceSpec)
 
 -- | The ARN of the image version created on the instance.
-resourceSpec_sageMakerImageVersionArn :: Lens.Lens' ResourceSpec (Prelude.Maybe Prelude.Text)
+resourceSpec_sageMakerImageVersionArn :: Lens.Lens' ResourceSpec (Core.Maybe Core.Text)
 resourceSpec_sageMakerImageVersionArn = Lens.lens (\ResourceSpec' {sageMakerImageVersionArn} -> sageMakerImageVersionArn) (\s@ResourceSpec' {} a -> s {sageMakerImageVersionArn = a} :: ResourceSpec)
 
-instance Prelude.FromJSON ResourceSpec where
+instance Core.FromJSON ResourceSpec where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceSpec"
       ( \x ->
           ResourceSpec'
-            Prelude.<$> (x Prelude..:? "InstanceType")
-            Prelude.<*> (x Prelude..:? "SageMakerImageArn")
-            Prelude.<*> (x Prelude..:? "SageMakerImageVersionArn")
+            Core.<$> (x Core..:? "InstanceType")
+            Core.<*> (x Core..:? "SageMakerImageArn")
+            Core.<*> (x Core..:? "SageMakerImageVersionArn")
       )
 
-instance Prelude.Hashable ResourceSpec
+instance Core.Hashable ResourceSpec
 
-instance Prelude.NFData ResourceSpec
+instance Core.NFData ResourceSpec
 
-instance Prelude.ToJSON ResourceSpec where
+instance Core.ToJSON ResourceSpec where
   toJSON ResourceSpec' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InstanceType" Prelude..=)
-              Prelude.<$> instanceType,
-            ("SageMakerImageArn" Prelude..=)
-              Prelude.<$> sageMakerImageArn,
-            ("SageMakerImageVersionArn" Prelude..=)
-              Prelude.<$> sageMakerImageVersionArn
+    Core.object
+      ( Core.catMaybes
+          [ ("InstanceType" Core..=) Core.<$> instanceType,
+            ("SageMakerImageArn" Core..=)
+              Core.<$> sageMakerImageArn,
+            ("SageMakerImageVersionArn" Core..=)
+              Core.<$> sageMakerImageVersionArn
           ]
       )

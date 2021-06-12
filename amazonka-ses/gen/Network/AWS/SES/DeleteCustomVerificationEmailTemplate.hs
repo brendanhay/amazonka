@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SES.DeleteCustomVerificationEmailTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -55,9 +54,9 @@ import Network.AWS.SES.Types
 data DeleteCustomVerificationEmailTemplate = DeleteCustomVerificationEmailTemplate'
   { -- | The name of the custom verification email template that you want to
     -- delete.
-    templateName :: Prelude.Text
+    templateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomVerificationEmailTemplate' with all optional fields omitted.
@@ -71,7 +70,7 @@ data DeleteCustomVerificationEmailTemplate = DeleteCustomVerificationEmailTempla
 -- delete.
 newDeleteCustomVerificationEmailTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCustomVerificationEmailTemplate
 newDeleteCustomVerificationEmailTemplate
   pTemplateName_ =
@@ -82,15 +81,16 @@ newDeleteCustomVerificationEmailTemplate
 
 -- | The name of the custom verification email template that you want to
 -- delete.
-deleteCustomVerificationEmailTemplate_templateName :: Lens.Lens' DeleteCustomVerificationEmailTemplate Prelude.Text
+deleteCustomVerificationEmailTemplate_templateName :: Lens.Lens' DeleteCustomVerificationEmailTemplate Core.Text
 deleteCustomVerificationEmailTemplate_templateName = Lens.lens (\DeleteCustomVerificationEmailTemplate' {templateName} -> templateName) (\s@DeleteCustomVerificationEmailTemplate' {} a -> s {templateName = a} :: DeleteCustomVerificationEmailTemplate)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteCustomVerificationEmailTemplate
   where
   type
-    Rs DeleteCustomVerificationEmailTemplate =
+    AWSResponse
+      DeleteCustomVerificationEmailTemplate =
       DeleteCustomVerificationEmailTemplateResponse
   request = Request.postQuery defaultService
   response =
@@ -98,45 +98,44 @@ instance
       DeleteCustomVerificationEmailTemplateResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteCustomVerificationEmailTemplate
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteCustomVerificationEmailTemplate
 
 instance
-  Prelude.ToHeaders
-    DeleteCustomVerificationEmailTemplate
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DeleteCustomVerificationEmailTemplate
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DeleteCustomVerificationEmailTemplate
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DeleteCustomVerificationEmailTemplate
   where
   toQuery DeleteCustomVerificationEmailTemplate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteCustomVerificationEmailTemplate" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Prelude.=: templateName
+          Core.=: ( "DeleteCustomVerificationEmailTemplate" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "TemplateName" Core.=: templateName
       ]
 
 -- | /See:/ 'newDeleteCustomVerificationEmailTemplateResponse' smart constructor.
 data DeleteCustomVerificationEmailTemplateResponse = DeleteCustomVerificationEmailTemplateResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomVerificationEmailTemplateResponse' with all optional fields omitted.
@@ -148,5 +147,5 @@ newDeleteCustomVerificationEmailTemplateResponse =
   DeleteCustomVerificationEmailTemplateResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteCustomVerificationEmailTemplateResponse

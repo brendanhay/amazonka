@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.CognitoIdentityProvider.InitiateAuth
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -113,14 +112,14 @@ data InitiateAuth = InitiateAuth'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Contextual data such as the user\'s device fingerprint, IP address, or
     -- location used for evaluating the risk of an unexpected event by Amazon
     -- Cognito advanced security.
-    userContextData :: Prelude.Maybe UserContextDataType,
+    userContextData :: Core.Maybe UserContextDataType,
     -- | The Amazon Pinpoint analytics metadata for collecting metrics for
     -- @InitiateAuth@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    analyticsMetadata :: Core.Maybe AnalyticsMetadataType,
     -- | The authentication parameters. These are inputs corresponding to the
     -- @AuthFlow@ that you are invoking. The required values depend on the
     -- value of @AuthFlow@:
@@ -137,7 +136,7 @@ data InitiateAuth = InitiateAuth'
     --     client is configured with client secret), @DEVICE_KEY@. To start the
     --     authentication flow with password verification, include
     --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
-    authParameters :: Prelude.Maybe (Prelude.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    authParameters :: Core.Maybe (Core.Sensitive (Core.HashMap Core.Text Core.Text)),
     -- | The authentication flow for this call to execute. The API action will
     -- depend on this value. For example:
     --
@@ -174,9 +173,9 @@ data InitiateAuth = InitiateAuth'
     -- @ADMIN_NO_SRP_AUTH@ is not a valid value.
     authFlow :: AuthFlowType,
     -- | The app client ID.
-    clientId :: Prelude.Sensitive Prelude.Text
+    clientId :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InitiateAuth' with all optional fields omitted.
@@ -306,16 +305,16 @@ newInitiateAuth ::
   -- | 'authFlow'
   AuthFlowType ->
   -- | 'clientId'
-  Prelude.Text ->
+  Core.Text ->
   InitiateAuth
 newInitiateAuth pAuthFlow_ pClientId_ =
   InitiateAuth'
-    { clientMetadata = Prelude.Nothing,
-      userContextData = Prelude.Nothing,
-      analyticsMetadata = Prelude.Nothing,
-      authParameters = Prelude.Nothing,
+    { clientMetadata = Core.Nothing,
+      userContextData = Core.Nothing,
+      analyticsMetadata = Core.Nothing,
+      authParameters = Core.Nothing,
       authFlow = pAuthFlow_,
-      clientId = Prelude._Sensitive Lens.# pClientId_
+      clientId = Core._Sensitive Lens.# pClientId_
     }
 
 -- | A map of custom key-value pairs that you can provide as input for
@@ -373,18 +372,18 @@ newInitiateAuth pAuthFlow_ pClientId_ =
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-initiateAuth_clientMetadata :: Lens.Lens' InitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-initiateAuth_clientMetadata = Lens.lens (\InitiateAuth' {clientMetadata} -> clientMetadata) (\s@InitiateAuth' {} a -> s {clientMetadata = a} :: InitiateAuth) Prelude.. Lens.mapping Prelude._Coerce
+initiateAuth_clientMetadata :: Lens.Lens' InitiateAuth (Core.Maybe (Core.HashMap Core.Text Core.Text))
+initiateAuth_clientMetadata = Lens.lens (\InitiateAuth' {clientMetadata} -> clientMetadata) (\s@InitiateAuth' {} a -> s {clientMetadata = a} :: InitiateAuth) Core.. Lens.mapping Lens._Coerce
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
-initiateAuth_userContextData :: Lens.Lens' InitiateAuth (Prelude.Maybe UserContextDataType)
+initiateAuth_userContextData :: Lens.Lens' InitiateAuth (Core.Maybe UserContextDataType)
 initiateAuth_userContextData = Lens.lens (\InitiateAuth' {userContextData} -> userContextData) (\s@InitiateAuth' {} a -> s {userContextData = a} :: InitiateAuth)
 
 -- | The Amazon Pinpoint analytics metadata for collecting metrics for
 -- @InitiateAuth@ calls.
-initiateAuth_analyticsMetadata :: Lens.Lens' InitiateAuth (Prelude.Maybe AnalyticsMetadataType)
+initiateAuth_analyticsMetadata :: Lens.Lens' InitiateAuth (Core.Maybe AnalyticsMetadataType)
 initiateAuth_analyticsMetadata = Lens.lens (\InitiateAuth' {analyticsMetadata} -> analyticsMetadata) (\s@InitiateAuth' {} a -> s {analyticsMetadata = a} :: InitiateAuth)
 
 -- | The authentication parameters. These are inputs corresponding to the
@@ -403,8 +402,8 @@ initiateAuth_analyticsMetadata = Lens.lens (\InitiateAuth' {analyticsMetadata} -
 --     client is configured with client secret), @DEVICE_KEY@. To start the
 --     authentication flow with password verification, include
 --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
-initiateAuth_authParameters :: Lens.Lens' InitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-initiateAuth_authParameters = Lens.lens (\InitiateAuth' {authParameters} -> authParameters) (\s@InitiateAuth' {} a -> s {authParameters = a} :: InitiateAuth) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Coerce)
+initiateAuth_authParameters :: Lens.Lens' InitiateAuth (Core.Maybe (Core.HashMap Core.Text Core.Text))
+initiateAuth_authParameters = Lens.lens (\InitiateAuth' {authParameters} -> authParameters) (\s@InitiateAuth' {} a -> s {authParameters = a} :: InitiateAuth) Core.. Lens.mapping (Core._Sensitive Core.. Lens._Coerce)
 
 -- | The authentication flow for this call to execute. The API action will
 -- depend on this value. For example:
@@ -444,66 +443,61 @@ initiateAuth_authFlow :: Lens.Lens' InitiateAuth AuthFlowType
 initiateAuth_authFlow = Lens.lens (\InitiateAuth' {authFlow} -> authFlow) (\s@InitiateAuth' {} a -> s {authFlow = a} :: InitiateAuth)
 
 -- | The app client ID.
-initiateAuth_clientId :: Lens.Lens' InitiateAuth Prelude.Text
-initiateAuth_clientId = Lens.lens (\InitiateAuth' {clientId} -> clientId) (\s@InitiateAuth' {} a -> s {clientId = a} :: InitiateAuth) Prelude.. Prelude._Sensitive
+initiateAuth_clientId :: Lens.Lens' InitiateAuth Core.Text
+initiateAuth_clientId = Lens.lens (\InitiateAuth' {clientId} -> clientId) (\s@InitiateAuth' {} a -> s {clientId = a} :: InitiateAuth) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest InitiateAuth where
-  type Rs InitiateAuth = InitiateAuthResponse
+instance Core.AWSRequest InitiateAuth where
+  type AWSResponse InitiateAuth = InitiateAuthResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           InitiateAuthResponse'
-            Prelude.<$> (x Prelude..?> "AuthenticationResult")
-            Prelude.<*> (x Prelude..?> "ChallengeName")
-            Prelude.<*> ( x Prelude..?> "ChallengeParameters"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "Session")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "AuthenticationResult")
+            Core.<*> (x Core..?> "ChallengeName")
+            Core.<*> ( x Core..?> "ChallengeParameters"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "Session")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable InitiateAuth
+instance Core.Hashable InitiateAuth
 
-instance Prelude.NFData InitiateAuth
+instance Core.NFData InitiateAuth
 
-instance Prelude.ToHeaders InitiateAuth where
+instance Core.ToHeaders InitiateAuth where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.InitiateAuth" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.InitiateAuth" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON InitiateAuth where
+instance Core.ToJSON InitiateAuth where
   toJSON InitiateAuth' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ClientMetadata" Prelude..=)
-              Prelude.<$> clientMetadata,
-            ("UserContextData" Prelude..=)
-              Prelude.<$> userContextData,
-            ("AnalyticsMetadata" Prelude..=)
-              Prelude.<$> analyticsMetadata,
-            ("AuthParameters" Prelude..=)
-              Prelude.<$> authParameters,
-            Prelude.Just ("AuthFlow" Prelude..= authFlow),
-            Prelude.Just ("ClientId" Prelude..= clientId)
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
+            ("UserContextData" Core..=) Core.<$> userContextData,
+            ("AnalyticsMetadata" Core..=)
+              Core.<$> analyticsMetadata,
+            ("AuthParameters" Core..=) Core.<$> authParameters,
+            Core.Just ("AuthFlow" Core..= authFlow),
+            Core.Just ("ClientId" Core..= clientId)
           ]
       )
 
-instance Prelude.ToPath InitiateAuth where
-  toPath = Prelude.const "/"
+instance Core.ToPath InitiateAuth where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery InitiateAuth where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery InitiateAuth where
+  toQuery = Core.const Core.mempty
 
 -- | Initiates the authentication response.
 --
@@ -513,7 +507,7 @@ data InitiateAuthResponse = InitiateAuthResponse'
     -- caller does not need to pass another challenge. If the caller does need
     -- to pass another challenge before it gets tokens, @ChallengeName@,
     -- @ChallengeParameters@, and @Session@ are returned.
-    authenticationResult :: Prelude.Maybe AuthenticationResultType,
+    authenticationResult :: Core.Maybe AuthenticationResultType,
     -- | The name of the challenge which you are responding to with this call.
     -- This is returned to you in the @AdminInitiateAuth@ response if you need
     -- to pass another challenge.
@@ -542,23 +536,23 @@ data InitiateAuthResponse = InitiateAuthResponse'
     -- -   @NEW_PASSWORD_REQUIRED@: For users which are required to change
     --     their passwords after successful first login. This challenge should
     --     be passed with @NEW_PASSWORD@ and any other required attributes.
-    challengeName :: Prelude.Maybe ChallengeNameType,
+    challengeName :: Core.Maybe ChallengeNameType,
     -- | The challenge parameters. These are returned to you in the
     -- @InitiateAuth@ response if you need to pass another challenge. The
     -- responses in this parameter should be used to compute inputs to the next
     -- call (@RespondToAuthChallenge@).
     --
     -- All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
-    challengeParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    challengeParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The session which should be passed both ways in challenge-response calls
     -- to the service. If the caller needs to go through another challenge,
     -- they return a session with other challenge parameters. This session
     -- should be passed as it is to the next @RespondToAuthChallenge@ API call.
-    session :: Prelude.Maybe Prelude.Text,
+    session :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InitiateAuthResponse' with all optional fields omitted.
@@ -617,15 +611,15 @@ data InitiateAuthResponse = InitiateAuthResponse'
 -- 'httpStatus', 'initiateAuthResponse_httpStatus' - The response's http status code.
 newInitiateAuthResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   InitiateAuthResponse
 newInitiateAuthResponse pHttpStatus_ =
   InitiateAuthResponse'
     { authenticationResult =
-        Prelude.Nothing,
-      challengeName = Prelude.Nothing,
-      challengeParameters = Prelude.Nothing,
-      session = Prelude.Nothing,
+        Core.Nothing,
+      challengeName = Core.Nothing,
+      challengeParameters = Core.Nothing,
+      session = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -633,7 +627,7 @@ newInitiateAuthResponse pHttpStatus_ =
 -- caller does not need to pass another challenge. If the caller does need
 -- to pass another challenge before it gets tokens, @ChallengeName@,
 -- @ChallengeParameters@, and @Session@ are returned.
-initiateAuthResponse_authenticationResult :: Lens.Lens' InitiateAuthResponse (Prelude.Maybe AuthenticationResultType)
+initiateAuthResponse_authenticationResult :: Lens.Lens' InitiateAuthResponse (Core.Maybe AuthenticationResultType)
 initiateAuthResponse_authenticationResult = Lens.lens (\InitiateAuthResponse' {authenticationResult} -> authenticationResult) (\s@InitiateAuthResponse' {} a -> s {authenticationResult = a} :: InitiateAuthResponse)
 
 -- | The name of the challenge which you are responding to with this call.
@@ -664,7 +658,7 @@ initiateAuthResponse_authenticationResult = Lens.lens (\InitiateAuthResponse' {a
 -- -   @NEW_PASSWORD_REQUIRED@: For users which are required to change
 --     their passwords after successful first login. This challenge should
 --     be passed with @NEW_PASSWORD@ and any other required attributes.
-initiateAuthResponse_challengeName :: Lens.Lens' InitiateAuthResponse (Prelude.Maybe ChallengeNameType)
+initiateAuthResponse_challengeName :: Lens.Lens' InitiateAuthResponse (Core.Maybe ChallengeNameType)
 initiateAuthResponse_challengeName = Lens.lens (\InitiateAuthResponse' {challengeName} -> challengeName) (\s@InitiateAuthResponse' {} a -> s {challengeName = a} :: InitiateAuthResponse)
 
 -- | The challenge parameters. These are returned to you in the
@@ -673,18 +667,18 @@ initiateAuthResponse_challengeName = Lens.lens (\InitiateAuthResponse' {challeng
 -- call (@RespondToAuthChallenge@).
 --
 -- All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
-initiateAuthResponse_challengeParameters :: Lens.Lens' InitiateAuthResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-initiateAuthResponse_challengeParameters = Lens.lens (\InitiateAuthResponse' {challengeParameters} -> challengeParameters) (\s@InitiateAuthResponse' {} a -> s {challengeParameters = a} :: InitiateAuthResponse) Prelude.. Lens.mapping Prelude._Coerce
+initiateAuthResponse_challengeParameters :: Lens.Lens' InitiateAuthResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+initiateAuthResponse_challengeParameters = Lens.lens (\InitiateAuthResponse' {challengeParameters} -> challengeParameters) (\s@InitiateAuthResponse' {} a -> s {challengeParameters = a} :: InitiateAuthResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The session which should be passed both ways in challenge-response calls
 -- to the service. If the caller needs to go through another challenge,
 -- they return a session with other challenge parameters. This session
 -- should be passed as it is to the next @RespondToAuthChallenge@ API call.
-initiateAuthResponse_session :: Lens.Lens' InitiateAuthResponse (Prelude.Maybe Prelude.Text)
+initiateAuthResponse_session :: Lens.Lens' InitiateAuthResponse (Core.Maybe Core.Text)
 initiateAuthResponse_session = Lens.lens (\InitiateAuthResponse' {session} -> session) (\s@InitiateAuthResponse' {} a -> s {session = a} :: InitiateAuthResponse)
 
 -- | The response's http status code.
-initiateAuthResponse_httpStatus :: Lens.Lens' InitiateAuthResponse Prelude.Int
+initiateAuthResponse_httpStatus :: Lens.Lens' InitiateAuthResponse Core.Int
 initiateAuthResponse_httpStatus = Lens.lens (\InitiateAuthResponse' {httpStatus} -> httpStatus) (\s@InitiateAuthResponse' {} a -> s {httpStatus = a} :: InitiateAuthResponse)
 
-instance Prelude.NFData InitiateAuthResponse
+instance Core.NFData InitiateAuthResponse

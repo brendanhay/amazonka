@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Kinesis.Types.StreamDescriptionSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.EncryptionType
 import Network.AWS.Kinesis.Types.EnhancedMetrics
 import Network.AWS.Kinesis.Types.StreamStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output for DescribeStreamSummary
 --
@@ -35,9 +34,9 @@ data StreamDescriptionSummary = StreamDescriptionSummary'
     -- -   @KMS@
     --
     -- -   @NONE@
-    encryptionType :: Prelude.Maybe EncryptionType,
+    encryptionType :: Core.Maybe EncryptionType,
     -- | The number of enhanced fan-out consumers registered with the stream.
-    consumerCount :: Prelude.Maybe Prelude.Natural,
+    consumerCount :: Core.Maybe Core.Natural,
     -- | The GUID for the customer-managed AWS KMS key to use for encryption.
     -- This value can be a globally unique identifier, a fully specified ARN to
     -- either an alias or a key, or an alias name prefixed by \"alias\/\".You
@@ -56,11 +55,11 @@ data StreamDescriptionSummary = StreamDescriptionSummary'
     -- -   Alias name example: @alias\/MyAliasName@
     --
     -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
-    keyId :: Prelude.Maybe Prelude.Text,
+    keyId :: Core.Maybe Core.Text,
     -- | The name of the stream being described.
-    streamName :: Prelude.Text,
+    streamName :: Core.Text,
     -- | The Amazon Resource Name (ARN) for the stream being described.
-    streamARN :: Prelude.Text,
+    streamARN :: Core.Text,
     -- | The current status of the stream being described. The stream status is
     -- one of the following states:
     --
@@ -80,15 +79,15 @@ data StreamDescriptionSummary = StreamDescriptionSummary'
     --     @UPDATING@ state.
     streamStatus :: StreamStatus,
     -- | The current retention period, in hours.
-    retentionPeriodHours :: Prelude.Int,
+    retentionPeriodHours :: Core.Int,
     -- | The approximate time that the stream was created.
-    streamCreationTimestamp :: Prelude.POSIX,
+    streamCreationTimestamp :: Core.POSIX,
     -- | Represents the current enhanced monitoring settings of the stream.
     enhancedMonitoring :: [EnhancedMetrics],
     -- | The number of open shards in the stream.
-    openShardCount :: Prelude.Natural
+    openShardCount :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StreamDescriptionSummary' with all optional fields omitted.
@@ -156,17 +155,17 @@ data StreamDescriptionSummary = StreamDescriptionSummary'
 -- 'openShardCount', 'streamDescriptionSummary_openShardCount' - The number of open shards in the stream.
 newStreamDescriptionSummary ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'streamARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'streamStatus'
   StreamStatus ->
   -- | 'retentionPeriodHours'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'streamCreationTimestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'openShardCount'
-  Prelude.Natural ->
+  Core.Natural ->
   StreamDescriptionSummary
 newStreamDescriptionSummary
   pStreamName_
@@ -177,16 +176,16 @@ newStreamDescriptionSummary
   pOpenShardCount_ =
     StreamDescriptionSummary'
       { encryptionType =
-          Prelude.Nothing,
-        consumerCount = Prelude.Nothing,
-        keyId = Prelude.Nothing,
+          Core.Nothing,
+        consumerCount = Core.Nothing,
+        keyId = Core.Nothing,
         streamName = pStreamName_,
         streamARN = pStreamARN_,
         streamStatus = pStreamStatus_,
         retentionPeriodHours = pRetentionPeriodHours_,
         streamCreationTimestamp =
-          Prelude._Time Lens.# pStreamCreationTimestamp_,
-        enhancedMonitoring = Prelude.mempty,
+          Core._Time Lens.# pStreamCreationTimestamp_,
+        enhancedMonitoring = Core.mempty,
         openShardCount = pOpenShardCount_
       }
 
@@ -195,11 +194,11 @@ newStreamDescriptionSummary
 -- -   @KMS@
 --
 -- -   @NONE@
-streamDescriptionSummary_encryptionType :: Lens.Lens' StreamDescriptionSummary (Prelude.Maybe EncryptionType)
+streamDescriptionSummary_encryptionType :: Lens.Lens' StreamDescriptionSummary (Core.Maybe EncryptionType)
 streamDescriptionSummary_encryptionType = Lens.lens (\StreamDescriptionSummary' {encryptionType} -> encryptionType) (\s@StreamDescriptionSummary' {} a -> s {encryptionType = a} :: StreamDescriptionSummary)
 
 -- | The number of enhanced fan-out consumers registered with the stream.
-streamDescriptionSummary_consumerCount :: Lens.Lens' StreamDescriptionSummary (Prelude.Maybe Prelude.Natural)
+streamDescriptionSummary_consumerCount :: Lens.Lens' StreamDescriptionSummary (Core.Maybe Core.Natural)
 streamDescriptionSummary_consumerCount = Lens.lens (\StreamDescriptionSummary' {consumerCount} -> consumerCount) (\s@StreamDescriptionSummary' {} a -> s {consumerCount = a} :: StreamDescriptionSummary)
 
 -- | The GUID for the customer-managed AWS KMS key to use for encryption.
@@ -220,15 +219,15 @@ streamDescriptionSummary_consumerCount = Lens.lens (\StreamDescriptionSummary' {
 -- -   Alias name example: @alias\/MyAliasName@
 --
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
-streamDescriptionSummary_keyId :: Lens.Lens' StreamDescriptionSummary (Prelude.Maybe Prelude.Text)
+streamDescriptionSummary_keyId :: Lens.Lens' StreamDescriptionSummary (Core.Maybe Core.Text)
 streamDescriptionSummary_keyId = Lens.lens (\StreamDescriptionSummary' {keyId} -> keyId) (\s@StreamDescriptionSummary' {} a -> s {keyId = a} :: StreamDescriptionSummary)
 
 -- | The name of the stream being described.
-streamDescriptionSummary_streamName :: Lens.Lens' StreamDescriptionSummary Prelude.Text
+streamDescriptionSummary_streamName :: Lens.Lens' StreamDescriptionSummary Core.Text
 streamDescriptionSummary_streamName = Lens.lens (\StreamDescriptionSummary' {streamName} -> streamName) (\s@StreamDescriptionSummary' {} a -> s {streamName = a} :: StreamDescriptionSummary)
 
 -- | The Amazon Resource Name (ARN) for the stream being described.
-streamDescriptionSummary_streamARN :: Lens.Lens' StreamDescriptionSummary Prelude.Text
+streamDescriptionSummary_streamARN :: Lens.Lens' StreamDescriptionSummary Core.Text
 streamDescriptionSummary_streamARN = Lens.lens (\StreamDescriptionSummary' {streamARN} -> streamARN) (\s@StreamDescriptionSummary' {} a -> s {streamARN = a} :: StreamDescriptionSummary)
 
 -- | The current status of the stream being described. The stream status is
@@ -252,41 +251,41 @@ streamDescriptionSummary_streamStatus :: Lens.Lens' StreamDescriptionSummary Str
 streamDescriptionSummary_streamStatus = Lens.lens (\StreamDescriptionSummary' {streamStatus} -> streamStatus) (\s@StreamDescriptionSummary' {} a -> s {streamStatus = a} :: StreamDescriptionSummary)
 
 -- | The current retention period, in hours.
-streamDescriptionSummary_retentionPeriodHours :: Lens.Lens' StreamDescriptionSummary Prelude.Int
+streamDescriptionSummary_retentionPeriodHours :: Lens.Lens' StreamDescriptionSummary Core.Int
 streamDescriptionSummary_retentionPeriodHours = Lens.lens (\StreamDescriptionSummary' {retentionPeriodHours} -> retentionPeriodHours) (\s@StreamDescriptionSummary' {} a -> s {retentionPeriodHours = a} :: StreamDescriptionSummary)
 
 -- | The approximate time that the stream was created.
-streamDescriptionSummary_streamCreationTimestamp :: Lens.Lens' StreamDescriptionSummary Prelude.UTCTime
-streamDescriptionSummary_streamCreationTimestamp = Lens.lens (\StreamDescriptionSummary' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@StreamDescriptionSummary' {} a -> s {streamCreationTimestamp = a} :: StreamDescriptionSummary) Prelude.. Prelude._Time
+streamDescriptionSummary_streamCreationTimestamp :: Lens.Lens' StreamDescriptionSummary Core.UTCTime
+streamDescriptionSummary_streamCreationTimestamp = Lens.lens (\StreamDescriptionSummary' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@StreamDescriptionSummary' {} a -> s {streamCreationTimestamp = a} :: StreamDescriptionSummary) Core.. Core._Time
 
 -- | Represents the current enhanced monitoring settings of the stream.
 streamDescriptionSummary_enhancedMonitoring :: Lens.Lens' StreamDescriptionSummary [EnhancedMetrics]
-streamDescriptionSummary_enhancedMonitoring = Lens.lens (\StreamDescriptionSummary' {enhancedMonitoring} -> enhancedMonitoring) (\s@StreamDescriptionSummary' {} a -> s {enhancedMonitoring = a} :: StreamDescriptionSummary) Prelude.. Prelude._Coerce
+streamDescriptionSummary_enhancedMonitoring = Lens.lens (\StreamDescriptionSummary' {enhancedMonitoring} -> enhancedMonitoring) (\s@StreamDescriptionSummary' {} a -> s {enhancedMonitoring = a} :: StreamDescriptionSummary) Core.. Lens._Coerce
 
 -- | The number of open shards in the stream.
-streamDescriptionSummary_openShardCount :: Lens.Lens' StreamDescriptionSummary Prelude.Natural
+streamDescriptionSummary_openShardCount :: Lens.Lens' StreamDescriptionSummary Core.Natural
 streamDescriptionSummary_openShardCount = Lens.lens (\StreamDescriptionSummary' {openShardCount} -> openShardCount) (\s@StreamDescriptionSummary' {} a -> s {openShardCount = a} :: StreamDescriptionSummary)
 
-instance Prelude.FromJSON StreamDescriptionSummary where
+instance Core.FromJSON StreamDescriptionSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StreamDescriptionSummary"
       ( \x ->
           StreamDescriptionSummary'
-            Prelude.<$> (x Prelude..:? "EncryptionType")
-            Prelude.<*> (x Prelude..:? "ConsumerCount")
-            Prelude.<*> (x Prelude..:? "KeyId")
-            Prelude.<*> (x Prelude..: "StreamName")
-            Prelude.<*> (x Prelude..: "StreamARN")
-            Prelude.<*> (x Prelude..: "StreamStatus")
-            Prelude.<*> (x Prelude..: "RetentionPeriodHours")
-            Prelude.<*> (x Prelude..: "StreamCreationTimestamp")
-            Prelude.<*> ( x Prelude..:? "EnhancedMonitoring"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "OpenShardCount")
+            Core.<$> (x Core..:? "EncryptionType")
+            Core.<*> (x Core..:? "ConsumerCount")
+            Core.<*> (x Core..:? "KeyId")
+            Core.<*> (x Core..: "StreamName")
+            Core.<*> (x Core..: "StreamARN")
+            Core.<*> (x Core..: "StreamStatus")
+            Core.<*> (x Core..: "RetentionPeriodHours")
+            Core.<*> (x Core..: "StreamCreationTimestamp")
+            Core.<*> ( x Core..:? "EnhancedMonitoring"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..: "OpenShardCount")
       )
 
-instance Prelude.Hashable StreamDescriptionSummary
+instance Core.Hashable StreamDescriptionSummary
 
-instance Prelude.NFData StreamDescriptionSummary
+instance Core.NFData StreamDescriptionSummary

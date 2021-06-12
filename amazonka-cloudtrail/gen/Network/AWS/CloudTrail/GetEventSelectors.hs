@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,8 +57,8 @@ module Network.AWS.CloudTrail.GetEventSelectors
 where
 
 import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,9 +82,9 @@ data GetEventSelectors = GetEventSelectors'
     -- If you specify a trail ARN, it must be in the format:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-    trailName :: Prelude.Text
+    trailName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEventSelectors' with all optional fields omitted.
@@ -115,7 +114,7 @@ data GetEventSelectors = GetEventSelectors'
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newGetEventSelectors ::
   -- | 'trailName'
-  Prelude.Text ->
+  Core.Text ->
   GetEventSelectors
 newGetEventSelectors pTrailName_ =
   GetEventSelectors' {trailName = pTrailName_}
@@ -138,70 +137,68 @@ newGetEventSelectors pTrailName_ =
 -- If you specify a trail ARN, it must be in the format:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-getEventSelectors_trailName :: Lens.Lens' GetEventSelectors Prelude.Text
+getEventSelectors_trailName :: Lens.Lens' GetEventSelectors Core.Text
 getEventSelectors_trailName = Lens.lens (\GetEventSelectors' {trailName} -> trailName) (\s@GetEventSelectors' {} a -> s {trailName = a} :: GetEventSelectors)
 
-instance Prelude.AWSRequest GetEventSelectors where
-  type Rs GetEventSelectors = GetEventSelectorsResponse
+instance Core.AWSRequest GetEventSelectors where
+  type
+    AWSResponse GetEventSelectors =
+      GetEventSelectorsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetEventSelectorsResponse'
-            Prelude.<$> (x Prelude..?> "TrailARN")
-            Prelude.<*> ( x Prelude..?> "EventSelectors"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "AdvancedEventSelectors"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TrailARN")
+            Core.<*> (x Core..?> "EventSelectors" Core..!@ Core.mempty)
+            Core.<*> ( x Core..?> "AdvancedEventSelectors"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetEventSelectors
+instance Core.Hashable GetEventSelectors
 
-instance Prelude.NFData GetEventSelectors
+instance Core.NFData GetEventSelectors
 
-instance Prelude.ToHeaders GetEventSelectors where
+instance Core.ToHeaders GetEventSelectors where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetEventSelectors" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetEventSelectors" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetEventSelectors where
+instance Core.ToJSON GetEventSelectors where
   toJSON GetEventSelectors' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TrailName" Prelude..= trailName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TrailName" Core..= trailName)]
       )
 
-instance Prelude.ToPath GetEventSelectors where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetEventSelectors where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetEventSelectors where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetEventSelectors where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetEventSelectorsResponse' smart constructor.
 data GetEventSelectorsResponse = GetEventSelectorsResponse'
   { -- | The specified trail ARN that has the event selectors.
-    trailARN :: Prelude.Maybe Prelude.Text,
+    trailARN :: Core.Maybe Core.Text,
     -- | The event selectors that are configured for the trail.
-    eventSelectors :: Prelude.Maybe [EventSelector],
+    eventSelectors :: Core.Maybe [EventSelector],
     -- | The advanced event selectors that are configured for the trail.
-    advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
+    advancedEventSelectors :: Core.Maybe [AdvancedEventSelector],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEventSelectorsResponse' with all optional fields omitted.
@@ -220,31 +217,30 @@ data GetEventSelectorsResponse = GetEventSelectorsResponse'
 -- 'httpStatus', 'getEventSelectorsResponse_httpStatus' - The response's http status code.
 newGetEventSelectorsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetEventSelectorsResponse
 newGetEventSelectorsResponse pHttpStatus_ =
   GetEventSelectorsResponse'
-    { trailARN =
-        Prelude.Nothing,
-      eventSelectors = Prelude.Nothing,
-      advancedEventSelectors = Prelude.Nothing,
+    { trailARN = Core.Nothing,
+      eventSelectors = Core.Nothing,
+      advancedEventSelectors = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The specified trail ARN that has the event selectors.
-getEventSelectorsResponse_trailARN :: Lens.Lens' GetEventSelectorsResponse (Prelude.Maybe Prelude.Text)
+getEventSelectorsResponse_trailARN :: Lens.Lens' GetEventSelectorsResponse (Core.Maybe Core.Text)
 getEventSelectorsResponse_trailARN = Lens.lens (\GetEventSelectorsResponse' {trailARN} -> trailARN) (\s@GetEventSelectorsResponse' {} a -> s {trailARN = a} :: GetEventSelectorsResponse)
 
 -- | The event selectors that are configured for the trail.
-getEventSelectorsResponse_eventSelectors :: Lens.Lens' GetEventSelectorsResponse (Prelude.Maybe [EventSelector])
-getEventSelectorsResponse_eventSelectors = Lens.lens (\GetEventSelectorsResponse' {eventSelectors} -> eventSelectors) (\s@GetEventSelectorsResponse' {} a -> s {eventSelectors = a} :: GetEventSelectorsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getEventSelectorsResponse_eventSelectors :: Lens.Lens' GetEventSelectorsResponse (Core.Maybe [EventSelector])
+getEventSelectorsResponse_eventSelectors = Lens.lens (\GetEventSelectorsResponse' {eventSelectors} -> eventSelectors) (\s@GetEventSelectorsResponse' {} a -> s {eventSelectors = a} :: GetEventSelectorsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The advanced event selectors that are configured for the trail.
-getEventSelectorsResponse_advancedEventSelectors :: Lens.Lens' GetEventSelectorsResponse (Prelude.Maybe [AdvancedEventSelector])
-getEventSelectorsResponse_advancedEventSelectors = Lens.lens (\GetEventSelectorsResponse' {advancedEventSelectors} -> advancedEventSelectors) (\s@GetEventSelectorsResponse' {} a -> s {advancedEventSelectors = a} :: GetEventSelectorsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getEventSelectorsResponse_advancedEventSelectors :: Lens.Lens' GetEventSelectorsResponse (Core.Maybe [AdvancedEventSelector])
+getEventSelectorsResponse_advancedEventSelectors = Lens.lens (\GetEventSelectorsResponse' {advancedEventSelectors} -> advancedEventSelectors) (\s@GetEventSelectorsResponse' {} a -> s {advancedEventSelectors = a} :: GetEventSelectorsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getEventSelectorsResponse_httpStatus :: Lens.Lens' GetEventSelectorsResponse Prelude.Int
+getEventSelectorsResponse_httpStatus :: Lens.Lens' GetEventSelectorsResponse Core.Int
 getEventSelectorsResponse_httpStatus = Lens.lens (\GetEventSelectorsResponse' {httpStatus} -> httpStatus) (\s@GetEventSelectorsResponse' {} a -> s {httpStatus = a} :: GetEventSelectorsResponse)
 
-instance Prelude.NFData GetEventSelectorsResponse
+instance Core.NFData GetEventSelectorsResponse

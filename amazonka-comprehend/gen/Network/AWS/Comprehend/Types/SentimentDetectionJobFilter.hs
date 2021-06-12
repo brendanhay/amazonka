@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Comprehend.Types.SentimentDetectionJobFilter where
 
 import Network.AWS.Comprehend.Types.JobStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information for filtering a list of dominant language detection
 -- jobs. For more information, see the operation.
@@ -31,19 +30,19 @@ import qualified Network.AWS.Prelude as Prelude
 data SentimentDetectionJobFilter = SentimentDetectionJobFilter'
   { -- | Filters the list of jobs based on job status. Returns only jobs with the
     -- specified status.
-    jobStatus :: Prelude.Maybe JobStatus,
+    jobStatus :: Core.Maybe JobStatus,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted before the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
-    submitTimeBefore :: Prelude.Maybe Prelude.POSIX,
+    submitTimeBefore :: Core.Maybe Core.POSIX,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted after the specified time.
     -- Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Prelude.Maybe Prelude.POSIX,
+    submitTimeAfter :: Core.Maybe Core.POSIX,
     -- | Filters on the name of the job.
-    jobName :: Prelude.Maybe Prelude.Text
+    jobName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SentimentDetectionJobFilter' with all optional fields omitted.
@@ -70,46 +69,45 @@ newSentimentDetectionJobFilter ::
 newSentimentDetectionJobFilter =
   SentimentDetectionJobFilter'
     { jobStatus =
-        Prelude.Nothing,
-      submitTimeBefore = Prelude.Nothing,
-      submitTimeAfter = Prelude.Nothing,
-      jobName = Prelude.Nothing
+        Core.Nothing,
+      submitTimeBefore = Core.Nothing,
+      submitTimeAfter = Core.Nothing,
+      jobName = Core.Nothing
     }
 
 -- | Filters the list of jobs based on job status. Returns only jobs with the
 -- specified status.
-sentimentDetectionJobFilter_jobStatus :: Lens.Lens' SentimentDetectionJobFilter (Prelude.Maybe JobStatus)
+sentimentDetectionJobFilter_jobStatus :: Lens.Lens' SentimentDetectionJobFilter (Core.Maybe JobStatus)
 sentimentDetectionJobFilter_jobStatus = Lens.lens (\SentimentDetectionJobFilter' {jobStatus} -> jobStatus) (\s@SentimentDetectionJobFilter' {} a -> s {jobStatus = a} :: SentimentDetectionJobFilter)
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted before the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
-sentimentDetectionJobFilter_submitTimeBefore :: Lens.Lens' SentimentDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-sentimentDetectionJobFilter_submitTimeBefore = Lens.lens (\SentimentDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@SentimentDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: SentimentDetectionJobFilter) Prelude.. Lens.mapping Prelude._Time
+sentimentDetectionJobFilter_submitTimeBefore :: Lens.Lens' SentimentDetectionJobFilter (Core.Maybe Core.UTCTime)
+sentimentDetectionJobFilter_submitTimeBefore = Lens.lens (\SentimentDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@SentimentDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: SentimentDetectionJobFilter) Core.. Lens.mapping Core._Time
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted after the specified time.
 -- Jobs are returned in descending order, newest to oldest.
-sentimentDetectionJobFilter_submitTimeAfter :: Lens.Lens' SentimentDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-sentimentDetectionJobFilter_submitTimeAfter = Lens.lens (\SentimentDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@SentimentDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: SentimentDetectionJobFilter) Prelude.. Lens.mapping Prelude._Time
+sentimentDetectionJobFilter_submitTimeAfter :: Lens.Lens' SentimentDetectionJobFilter (Core.Maybe Core.UTCTime)
+sentimentDetectionJobFilter_submitTimeAfter = Lens.lens (\SentimentDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@SentimentDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: SentimentDetectionJobFilter) Core.. Lens.mapping Core._Time
 
 -- | Filters on the name of the job.
-sentimentDetectionJobFilter_jobName :: Lens.Lens' SentimentDetectionJobFilter (Prelude.Maybe Prelude.Text)
+sentimentDetectionJobFilter_jobName :: Lens.Lens' SentimentDetectionJobFilter (Core.Maybe Core.Text)
 sentimentDetectionJobFilter_jobName = Lens.lens (\SentimentDetectionJobFilter' {jobName} -> jobName) (\s@SentimentDetectionJobFilter' {} a -> s {jobName = a} :: SentimentDetectionJobFilter)
 
-instance Prelude.Hashable SentimentDetectionJobFilter
+instance Core.Hashable SentimentDetectionJobFilter
 
-instance Prelude.NFData SentimentDetectionJobFilter
+instance Core.NFData SentimentDetectionJobFilter
 
-instance Prelude.ToJSON SentimentDetectionJobFilter where
+instance Core.ToJSON SentimentDetectionJobFilter where
   toJSON SentimentDetectionJobFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("JobStatus" Prelude..=) Prelude.<$> jobStatus,
-            ("SubmitTimeBefore" Prelude..=)
-              Prelude.<$> submitTimeBefore,
-            ("SubmitTimeAfter" Prelude..=)
-              Prelude.<$> submitTimeAfter,
-            ("JobName" Prelude..=) Prelude.<$> jobName
+    Core.object
+      ( Core.catMaybes
+          [ ("JobStatus" Core..=) Core.<$> jobStatus,
+            ("SubmitTimeBefore" Core..=)
+              Core.<$> submitTimeBefore,
+            ("SubmitTimeAfter" Core..=) Core.<$> submitTimeAfter,
+            ("JobName" Core..=) Core.<$> jobName
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.RDS.CreateDBClusterEndpoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -67,22 +66,22 @@ data CreateDBClusterEndpoint = CreateDBClusterEndpoint'
   { -- | List of DB instance identifiers that aren\'t part of the custom endpoint
     -- group. All other eligible instances are reachable through the custom
     -- endpoint. Only relevant if the list of static members is empty.
-    excludedMembers :: Prelude.Maybe [Prelude.Text],
+    excludedMembers :: Core.Maybe [Core.Text],
     -- | The tags to be assigned to the Amazon RDS resource.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | List of DB instance identifiers that are part of the custom endpoint
     -- group.
-    staticMembers :: Prelude.Maybe [Prelude.Text],
+    staticMembers :: Core.Maybe [Core.Text],
     -- | The DB cluster identifier of the DB cluster associated with the
     -- endpoint. This parameter is stored as a lowercase string.
-    dbClusterIdentifier :: Prelude.Text,
+    dbClusterIdentifier :: Core.Text,
     -- | The identifier to use for the new endpoint. This parameter is stored as
     -- a lowercase string.
-    dbClusterEndpointIdentifier :: Prelude.Text,
+    dbClusterEndpointIdentifier :: Core.Text,
     -- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
-    endpointType :: Prelude.Text
+    endpointType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDBClusterEndpoint' with all optional fields omitted.
@@ -110,11 +109,11 @@ data CreateDBClusterEndpoint = CreateDBClusterEndpoint'
 -- 'endpointType', 'createDBClusterEndpoint_endpointType' - The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
 newCreateDBClusterEndpoint ::
   -- | 'dbClusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dbClusterEndpointIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'endpointType'
-  Prelude.Text ->
+  Core.Text ->
   CreateDBClusterEndpoint
 newCreateDBClusterEndpoint
   pDBClusterIdentifier_
@@ -122,9 +121,9 @@ newCreateDBClusterEndpoint
   pEndpointType_ =
     CreateDBClusterEndpoint'
       { excludedMembers =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
-        staticMembers = Prelude.Nothing,
+          Core.Nothing,
+        tags = Core.Nothing,
+        staticMembers = Core.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_,
         dbClusterEndpointIdentifier =
           pDBClusterEndpointIdentifier_,
@@ -134,72 +133,68 @@ newCreateDBClusterEndpoint
 -- | List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
 -- endpoint. Only relevant if the list of static members is empty.
-createDBClusterEndpoint_excludedMembers :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
-createDBClusterEndpoint_excludedMembers = Lens.lens (\CreateDBClusterEndpoint' {excludedMembers} -> excludedMembers) (\s@CreateDBClusterEndpoint' {} a -> s {excludedMembers = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Prelude._Coerce
+createDBClusterEndpoint_excludedMembers :: Lens.Lens' CreateDBClusterEndpoint (Core.Maybe [Core.Text])
+createDBClusterEndpoint_excludedMembers = Lens.lens (\CreateDBClusterEndpoint' {excludedMembers} -> excludedMembers) (\s@CreateDBClusterEndpoint' {} a -> s {excludedMembers = a} :: CreateDBClusterEndpoint) Core.. Lens.mapping Lens._Coerce
 
 -- | The tags to be assigned to the Amazon RDS resource.
-createDBClusterEndpoint_tags :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Tag])
-createDBClusterEndpoint_tags = Lens.lens (\CreateDBClusterEndpoint' {tags} -> tags) (\s@CreateDBClusterEndpoint' {} a -> s {tags = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Prelude._Coerce
+createDBClusterEndpoint_tags :: Lens.Lens' CreateDBClusterEndpoint (Core.Maybe [Tag])
+createDBClusterEndpoint_tags = Lens.lens (\CreateDBClusterEndpoint' {tags} -> tags) (\s@CreateDBClusterEndpoint' {} a -> s {tags = a} :: CreateDBClusterEndpoint) Core.. Lens.mapping Lens._Coerce
 
 -- | List of DB instance identifiers that are part of the custom endpoint
 -- group.
-createDBClusterEndpoint_staticMembers :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
-createDBClusterEndpoint_staticMembers = Lens.lens (\CreateDBClusterEndpoint' {staticMembers} -> staticMembers) (\s@CreateDBClusterEndpoint' {} a -> s {staticMembers = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Prelude._Coerce
+createDBClusterEndpoint_staticMembers :: Lens.Lens' CreateDBClusterEndpoint (Core.Maybe [Core.Text])
+createDBClusterEndpoint_staticMembers = Lens.lens (\CreateDBClusterEndpoint' {staticMembers} -> staticMembers) (\s@CreateDBClusterEndpoint' {} a -> s {staticMembers = a} :: CreateDBClusterEndpoint) Core.. Lens.mapping Lens._Coerce
 
 -- | The DB cluster identifier of the DB cluster associated with the
 -- endpoint. This parameter is stored as a lowercase string.
-createDBClusterEndpoint_dbClusterIdentifier :: Lens.Lens' CreateDBClusterEndpoint Prelude.Text
+createDBClusterEndpoint_dbClusterIdentifier :: Lens.Lens' CreateDBClusterEndpoint Core.Text
 createDBClusterEndpoint_dbClusterIdentifier = Lens.lens (\CreateDBClusterEndpoint' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@CreateDBClusterEndpoint' {} a -> s {dbClusterIdentifier = a} :: CreateDBClusterEndpoint)
 
 -- | The identifier to use for the new endpoint. This parameter is stored as
 -- a lowercase string.
-createDBClusterEndpoint_dbClusterEndpointIdentifier :: Lens.Lens' CreateDBClusterEndpoint Prelude.Text
+createDBClusterEndpoint_dbClusterEndpointIdentifier :: Lens.Lens' CreateDBClusterEndpoint Core.Text
 createDBClusterEndpoint_dbClusterEndpointIdentifier = Lens.lens (\CreateDBClusterEndpoint' {dbClusterEndpointIdentifier} -> dbClusterEndpointIdentifier) (\s@CreateDBClusterEndpoint' {} a -> s {dbClusterEndpointIdentifier = a} :: CreateDBClusterEndpoint)
 
 -- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
-createDBClusterEndpoint_endpointType :: Lens.Lens' CreateDBClusterEndpoint Prelude.Text
+createDBClusterEndpoint_endpointType :: Lens.Lens' CreateDBClusterEndpoint Core.Text
 createDBClusterEndpoint_endpointType = Lens.lens (\CreateDBClusterEndpoint' {endpointType} -> endpointType) (\s@CreateDBClusterEndpoint' {} a -> s {endpointType = a} :: CreateDBClusterEndpoint)
 
-instance Prelude.AWSRequest CreateDBClusterEndpoint where
-  type Rs CreateDBClusterEndpoint = DBClusterEndpoint
+instance Core.AWSRequest CreateDBClusterEndpoint where
+  type
+    AWSResponse CreateDBClusterEndpoint =
+      DBClusterEndpoint
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateDBClusterEndpointResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateDBClusterEndpoint
+instance Core.Hashable CreateDBClusterEndpoint
 
-instance Prelude.NFData CreateDBClusterEndpoint
+instance Core.NFData CreateDBClusterEndpoint
 
-instance Prelude.ToHeaders CreateDBClusterEndpoint where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateDBClusterEndpoint where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateDBClusterEndpoint where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDBClusterEndpoint where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDBClusterEndpoint where
+instance Core.ToQuery CreateDBClusterEndpoint where
   toQuery CreateDBClusterEndpoint' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateDBClusterEndpoint" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("CreateDBClusterEndpoint" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "ExcludedMembers"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> excludedMembers
-            ),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> excludedMembers),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Tag" Prelude.<$> tags),
+          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
         "StaticMembers"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> staticMembers
-            ),
-        "DBClusterIdentifier" Prelude.=: dbClusterIdentifier,
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> staticMembers),
+        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
         "DBClusterEndpointIdentifier"
-          Prelude.=: dbClusterEndpointIdentifier,
-        "EndpointType" Prelude.=: endpointType
+          Core.=: dbClusterEndpointIdentifier,
+        "EndpointType" Core.=: endpointType
       ]

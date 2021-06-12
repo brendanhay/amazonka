@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.Greengrass.DeleteCoreDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteCoreDefinition' smart constructor.
 data DeleteCoreDefinition = DeleteCoreDefinition'
   { -- | The ID of the core definition.
-    coreDefinitionId :: Prelude.Text
+    coreDefinitionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCoreDefinition' with all optional fields omitted.
@@ -63,7 +62,7 @@ data DeleteCoreDefinition = DeleteCoreDefinition'
 -- 'coreDefinitionId', 'deleteCoreDefinition_coreDefinitionId' - The ID of the core definition.
 newDeleteCoreDefinition ::
   -- | 'coreDefinitionId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCoreDefinition
 newDeleteCoreDefinition pCoreDefinitionId_ =
   DeleteCoreDefinition'
@@ -72,52 +71,50 @@ newDeleteCoreDefinition pCoreDefinitionId_ =
     }
 
 -- | The ID of the core definition.
-deleteCoreDefinition_coreDefinitionId :: Lens.Lens' DeleteCoreDefinition Prelude.Text
+deleteCoreDefinition_coreDefinitionId :: Lens.Lens' DeleteCoreDefinition Core.Text
 deleteCoreDefinition_coreDefinitionId = Lens.lens (\DeleteCoreDefinition' {coreDefinitionId} -> coreDefinitionId) (\s@DeleteCoreDefinition' {} a -> s {coreDefinitionId = a} :: DeleteCoreDefinition)
 
-instance Prelude.AWSRequest DeleteCoreDefinition where
+instance Core.AWSRequest DeleteCoreDefinition where
   type
-    Rs DeleteCoreDefinition =
+    AWSResponse DeleteCoreDefinition =
       DeleteCoreDefinitionResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCoreDefinitionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCoreDefinition
+instance Core.Hashable DeleteCoreDefinition
 
-instance Prelude.NFData DeleteCoreDefinition
+instance Core.NFData DeleteCoreDefinition
 
-instance Prelude.ToHeaders DeleteCoreDefinition where
+instance Core.ToHeaders DeleteCoreDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteCoreDefinition where
+instance Core.ToPath DeleteCoreDefinition where
   toPath DeleteCoreDefinition' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/definition/cores/",
-        Prelude.toBS coreDefinitionId
+        Core.toBS coreDefinitionId
       ]
 
-instance Prelude.ToQuery DeleteCoreDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteCoreDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteCoreDefinitionResponse' smart constructor.
 data DeleteCoreDefinitionResponse = DeleteCoreDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCoreDefinitionResponse' with all optional fields omitted.
@@ -130,7 +127,7 @@ data DeleteCoreDefinitionResponse = DeleteCoreDefinitionResponse'
 -- 'httpStatus', 'deleteCoreDefinitionResponse_httpStatus' - The response's http status code.
 newDeleteCoreDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteCoreDefinitionResponse
 newDeleteCoreDefinitionResponse pHttpStatus_ =
   DeleteCoreDefinitionResponse'
@@ -139,7 +136,7 @@ newDeleteCoreDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteCoreDefinitionResponse_httpStatus :: Lens.Lens' DeleteCoreDefinitionResponse Prelude.Int
+deleteCoreDefinitionResponse_httpStatus :: Lens.Lens' DeleteCoreDefinitionResponse Core.Int
 deleteCoreDefinitionResponse_httpStatus = Lens.lens (\DeleteCoreDefinitionResponse' {httpStatus} -> httpStatus) (\s@DeleteCoreDefinitionResponse' {} a -> s {httpStatus = a} :: DeleteCoreDefinitionResponse)
 
-instance Prelude.NFData DeleteCoreDefinitionResponse
+instance Core.NFData DeleteCoreDefinitionResponse

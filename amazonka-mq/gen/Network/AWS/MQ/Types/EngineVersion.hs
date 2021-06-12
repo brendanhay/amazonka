@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MQ.Types.EngineVersion where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Id of the engine version.
 --
 -- /See:/ 'newEngineVersion' smart constructor.
 data EngineVersion = EngineVersion'
   { -- | Id for the version.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EngineVersion' with all optional fields omitted.
@@ -44,20 +43,18 @@ data EngineVersion = EngineVersion'
 newEngineVersion ::
   EngineVersion
 newEngineVersion =
-  EngineVersion' {name = Prelude.Nothing}
+  EngineVersion' {name = Core.Nothing}
 
 -- | Id for the version.
-engineVersion_name :: Lens.Lens' EngineVersion (Prelude.Maybe Prelude.Text)
+engineVersion_name :: Lens.Lens' EngineVersion (Core.Maybe Core.Text)
 engineVersion_name = Lens.lens (\EngineVersion' {name} -> name) (\s@EngineVersion' {} a -> s {name = a} :: EngineVersion)
 
-instance Prelude.FromJSON EngineVersion where
+instance Core.FromJSON EngineVersion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EngineVersion"
-      ( \x ->
-          EngineVersion' Prelude.<$> (x Prelude..:? "name")
-      )
+      (\x -> EngineVersion' Core.<$> (x Core..:? "name"))
 
-instance Prelude.Hashable EngineVersion
+instance Core.Hashable EngineVersion
 
-instance Prelude.NFData EngineVersion
+instance Core.NFData EngineVersion

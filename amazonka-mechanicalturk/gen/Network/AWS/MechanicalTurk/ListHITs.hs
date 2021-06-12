@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,20 +46,19 @@ module Network.AWS.MechanicalTurk.ListHITs
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListHITs' smart constructor.
 data ListHITs = ListHITs'
   { -- | Pagination token
-    nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Core.Maybe Core.Text,
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListHITs' with all optional fields omitted.
@@ -77,96 +75,92 @@ newListHITs ::
   ListHITs
 newListHITs =
   ListHITs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | Pagination token
-listHITs_nextToken :: Lens.Lens' ListHITs (Prelude.Maybe Prelude.Text)
+listHITs_nextToken :: Lens.Lens' ListHITs (Core.Maybe Core.Text)
 listHITs_nextToken = Lens.lens (\ListHITs' {nextToken} -> nextToken) (\s@ListHITs' {} a -> s {nextToken = a} :: ListHITs)
 
 -- | Undocumented member.
-listHITs_maxResults :: Lens.Lens' ListHITs (Prelude.Maybe Prelude.Natural)
+listHITs_maxResults :: Lens.Lens' ListHITs (Core.Maybe Core.Natural)
 listHITs_maxResults = Lens.lens (\ListHITs' {maxResults} -> maxResults) (\s@ListHITs' {} a -> s {maxResults = a} :: ListHITs)
 
-instance Pager.AWSPager ListHITs where
+instance Core.AWSPager ListHITs where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listHITsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listHITsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
-        ( rs
-            Lens.^? listHITsResponse_hITs Prelude.. Lens._Just
-        ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.stop
+        (rs Lens.^? listHITsResponse_hITs Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listHITs_nextToken
           Lens..~ rs
-          Lens.^? listHITsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listHITsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListHITs where
-  type Rs ListHITs = ListHITsResponse
+instance Core.AWSRequest ListHITs where
+  type AWSResponse ListHITs = ListHITsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListHITsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "HITs" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "NumResults")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "HITs" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NumResults")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListHITs
+instance Core.Hashable ListHITs
 
-instance Prelude.NFData ListHITs
+instance Core.NFData ListHITs
 
-instance Prelude.ToHeaders ListHITs where
+instance Core.ToHeaders ListHITs where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.ListHITs" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.ListHITs" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListHITs where
+instance Core.ToJSON ListHITs where
   toJSON ListHITs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListHITs where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListHITs where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListHITs where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListHITs where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListHITsResponse' smart constructor.
 data ListHITsResponse = ListHITsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
     -- | The list of HIT elements returned by the query.
-    hITs :: Prelude.Maybe [HIT],
+    hITs :: Core.Maybe [HIT],
     -- | The number of HITs on this page in the filtered results list, equivalent
     -- to the number of HITs being returned by this call.
-    numResults :: Prelude.Maybe Prelude.Int,
+    numResults :: Core.Maybe Core.Int,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListHITsResponse' with all optional fields omitted.
@@ -186,31 +180,31 @@ data ListHITsResponse = ListHITsResponse'
 -- 'httpStatus', 'listHITsResponse_httpStatus' - The response's http status code.
 newListHITsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListHITsResponse
 newListHITsResponse pHttpStatus_ =
   ListHITsResponse'
-    { nextToken = Prelude.Nothing,
-      hITs = Prelude.Nothing,
-      numResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      hITs = Core.Nothing,
+      numResults = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listHITsResponse_nextToken :: Lens.Lens' ListHITsResponse (Prelude.Maybe Prelude.Text)
+listHITsResponse_nextToken :: Lens.Lens' ListHITsResponse (Core.Maybe Core.Text)
 listHITsResponse_nextToken = Lens.lens (\ListHITsResponse' {nextToken} -> nextToken) (\s@ListHITsResponse' {} a -> s {nextToken = a} :: ListHITsResponse)
 
 -- | The list of HIT elements returned by the query.
-listHITsResponse_hITs :: Lens.Lens' ListHITsResponse (Prelude.Maybe [HIT])
-listHITsResponse_hITs = Lens.lens (\ListHITsResponse' {hITs} -> hITs) (\s@ListHITsResponse' {} a -> s {hITs = a} :: ListHITsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listHITsResponse_hITs :: Lens.Lens' ListHITsResponse (Core.Maybe [HIT])
+listHITsResponse_hITs = Lens.lens (\ListHITsResponse' {hITs} -> hITs) (\s@ListHITsResponse' {} a -> s {hITs = a} :: ListHITsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of HITs on this page in the filtered results list, equivalent
 -- to the number of HITs being returned by this call.
-listHITsResponse_numResults :: Lens.Lens' ListHITsResponse (Prelude.Maybe Prelude.Int)
+listHITsResponse_numResults :: Lens.Lens' ListHITsResponse (Core.Maybe Core.Int)
 listHITsResponse_numResults = Lens.lens (\ListHITsResponse' {numResults} -> numResults) (\s@ListHITsResponse' {} a -> s {numResults = a} :: ListHITsResponse)
 
 -- | The response's http status code.
-listHITsResponse_httpStatus :: Lens.Lens' ListHITsResponse Prelude.Int
+listHITsResponse_httpStatus :: Lens.Lens' ListHITsResponse Core.Int
 listHITsResponse_httpStatus = Lens.lens (\ListHITsResponse' {httpStatus} -> httpStatus) (\s@ListHITsResponse' {} a -> s {httpStatus = a} :: ListHITsResponse)
 
-instance Prelude.NFData ListHITsResponse
+instance Core.NFData ListHITsResponse

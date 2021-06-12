@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Lightsail.GetDistributions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +55,7 @@ data GetDistributions = GetDistributions'
     -- To get a page token, perform an initial @GetDistributions@ request. If
     -- your results are paginated, the response will return a next page token
     -- that you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text,
+    pageToken :: Core.Maybe Core.Text,
     -- | The name of the distribution for which to return information.
     --
     -- Use the @GetDistributions@ action to get a list of distribution names
@@ -64,9 +63,9 @@ data GetDistributions = GetDistributions'
     --
     -- When omitted, the response includes all of your distributions in the AWS
     -- Region where the request is made.
-    distributionName :: Prelude.Maybe Prelude.Text
+    distributionName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDistributions' with all optional fields omitted.
@@ -93,8 +92,8 @@ newGetDistributions ::
   GetDistributions
 newGetDistributions =
   GetDistributions'
-    { pageToken = Prelude.Nothing,
-      distributionName = Prelude.Nothing
+    { pageToken = Core.Nothing,
+      distributionName = Core.Nothing
     }
 
 -- | The token to advance to the next page of results from your request.
@@ -102,7 +101,7 @@ newGetDistributions =
 -- To get a page token, perform an initial @GetDistributions@ request. If
 -- your results are paginated, the response will return a next page token
 -- that you can specify as the page token in a subsequent request.
-getDistributions_pageToken :: Lens.Lens' GetDistributions (Prelude.Maybe Prelude.Text)
+getDistributions_pageToken :: Lens.Lens' GetDistributions (Core.Maybe Core.Text)
 getDistributions_pageToken = Lens.lens (\GetDistributions' {pageToken} -> pageToken) (\s@GetDistributions' {} a -> s {pageToken = a} :: GetDistributions)
 
 -- | The name of the distribution for which to return information.
@@ -112,62 +111,60 @@ getDistributions_pageToken = Lens.lens (\GetDistributions' {pageToken} -> pageTo
 --
 -- When omitted, the response includes all of your distributions in the AWS
 -- Region where the request is made.
-getDistributions_distributionName :: Lens.Lens' GetDistributions (Prelude.Maybe Prelude.Text)
+getDistributions_distributionName :: Lens.Lens' GetDistributions (Core.Maybe Core.Text)
 getDistributions_distributionName = Lens.lens (\GetDistributions' {distributionName} -> distributionName) (\s@GetDistributions' {} a -> s {distributionName = a} :: GetDistributions)
 
-instance Prelude.AWSRequest GetDistributions where
-  type Rs GetDistributions = GetDistributionsResponse
+instance Core.AWSRequest GetDistributions where
+  type
+    AWSResponse GetDistributions =
+      GetDistributionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDistributionsResponse'
-            Prelude.<$> ( x Prelude..?> "distributions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "nextPageToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "distributions" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDistributions
+instance Core.Hashable GetDistributions
 
-instance Prelude.NFData GetDistributions
+instance Core.NFData GetDistributions
 
-instance Prelude.ToHeaders GetDistributions where
+instance Core.ToHeaders GetDistributions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetDistributions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetDistributions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetDistributions where
+instance Core.ToJSON GetDistributions where
   toJSON GetDistributions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("pageToken" Prelude..=) Prelude.<$> pageToken,
-            ("distributionName" Prelude..=)
-              Prelude.<$> distributionName
+    Core.object
+      ( Core.catMaybes
+          [ ("pageToken" Core..=) Core.<$> pageToken,
+            ("distributionName" Core..=)
+              Core.<$> distributionName
           ]
       )
 
-instance Prelude.ToPath GetDistributions where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetDistributions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetDistributions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDistributions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDistributionsResponse' smart constructor.
 data GetDistributionsResponse = GetDistributionsResponse'
   { -- | An array of objects that describe your distributions.
-    distributions :: Prelude.Maybe [LightsailDistribution],
+    distributions :: Core.Maybe [LightsailDistribution],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
@@ -175,11 +172,11 @@ data GetDistributionsResponse = GetDistributionsResponse'
     --
     -- To get the next page of results, perform another @GetDistributions@
     -- request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDistributionsResponse' with all optional fields omitted.
@@ -202,19 +199,19 @@ data GetDistributionsResponse = GetDistributionsResponse'
 -- 'httpStatus', 'getDistributionsResponse_httpStatus' - The response's http status code.
 newGetDistributionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDistributionsResponse
 newGetDistributionsResponse pHttpStatus_ =
   GetDistributionsResponse'
     { distributions =
-        Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+        Core.Nothing,
+      nextPageToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe your distributions.
-getDistributionsResponse_distributions :: Lens.Lens' GetDistributionsResponse (Prelude.Maybe [LightsailDistribution])
-getDistributionsResponse_distributions = Lens.lens (\GetDistributionsResponse' {distributions} -> distributions) (\s@GetDistributionsResponse' {} a -> s {distributions = a} :: GetDistributionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getDistributionsResponse_distributions :: Lens.Lens' GetDistributionsResponse (Core.Maybe [LightsailDistribution])
+getDistributionsResponse_distributions = Lens.lens (\GetDistributionsResponse' {distributions} -> distributions) (\s@GetDistributionsResponse' {} a -> s {distributions = a} :: GetDistributionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -223,11 +220,11 @@ getDistributionsResponse_distributions = Lens.lens (\GetDistributionsResponse' {
 --
 -- To get the next page of results, perform another @GetDistributions@
 -- request and specify the next page token using the @pageToken@ parameter.
-getDistributionsResponse_nextPageToken :: Lens.Lens' GetDistributionsResponse (Prelude.Maybe Prelude.Text)
+getDistributionsResponse_nextPageToken :: Lens.Lens' GetDistributionsResponse (Core.Maybe Core.Text)
 getDistributionsResponse_nextPageToken = Lens.lens (\GetDistributionsResponse' {nextPageToken} -> nextPageToken) (\s@GetDistributionsResponse' {} a -> s {nextPageToken = a} :: GetDistributionsResponse)
 
 -- | The response's http status code.
-getDistributionsResponse_httpStatus :: Lens.Lens' GetDistributionsResponse Prelude.Int
+getDistributionsResponse_httpStatus :: Lens.Lens' GetDistributionsResponse Core.Int
 getDistributionsResponse_httpStatus = Lens.lens (\GetDistributionsResponse' {httpStatus} -> httpStatus) (\s@GetDistributionsResponse' {} a -> s {httpStatus = a} :: GetDistributionsResponse)
 
-instance Prelude.NFData GetDistributionsResponse
+instance Core.NFData GetDistributionsResponse

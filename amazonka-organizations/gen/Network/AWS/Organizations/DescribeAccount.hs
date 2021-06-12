@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.Organizations.DescribeAccount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ data DescribeAccount = DescribeAccount'
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
     -- string requires exactly 12 digits.
-    accountId :: Prelude.Text
+    accountId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccount' with all optional fields omitted.
@@ -79,7 +78,7 @@ data DescribeAccount = DescribeAccount'
 -- string requires exactly 12 digits.
 newDescribeAccount ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeAccount
 newDescribeAccount pAccountId_ =
   DescribeAccount' {accountId = pAccountId_}
@@ -90,60 +89,60 @@ newDescribeAccount pAccountId_ =
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.
-describeAccount_accountId :: Lens.Lens' DescribeAccount Prelude.Text
+describeAccount_accountId :: Lens.Lens' DescribeAccount Core.Text
 describeAccount_accountId = Lens.lens (\DescribeAccount' {accountId} -> accountId) (\s@DescribeAccount' {} a -> s {accountId = a} :: DescribeAccount)
 
-instance Prelude.AWSRequest DescribeAccount where
-  type Rs DescribeAccount = DescribeAccountResponse
+instance Core.AWSRequest DescribeAccount where
+  type
+    AWSResponse DescribeAccount =
+      DescribeAccountResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountResponse'
-            Prelude.<$> (x Prelude..?> "Account")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Account")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccount
+instance Core.Hashable DescribeAccount
 
-instance Prelude.NFData DescribeAccount
+instance Core.NFData DescribeAccount
 
-instance Prelude.ToHeaders DescribeAccount where
+instance Core.ToHeaders DescribeAccount where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.DescribeAccount" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.DescribeAccount" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeAccount where
+instance Core.ToJSON DescribeAccount where
   toJSON DescribeAccount' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("AccountId" Prelude..= accountId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AccountId" Core..= accountId)]
       )
 
-instance Prelude.ToPath DescribeAccount where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAccount where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAccount where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAccount where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAccountResponse' smart constructor.
 data DescribeAccountResponse = DescribeAccountResponse'
   { -- | A structure that contains information about the requested account.
-    account :: Prelude.Maybe Account,
+    account :: Core.Maybe Account,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountResponse' with all optional fields omitted.
@@ -158,20 +157,20 @@ data DescribeAccountResponse = DescribeAccountResponse'
 -- 'httpStatus', 'describeAccountResponse_httpStatus' - The response's http status code.
 newDescribeAccountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAccountResponse
 newDescribeAccountResponse pHttpStatus_ =
   DescribeAccountResponse'
-    { account = Prelude.Nothing,
+    { account = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains information about the requested account.
-describeAccountResponse_account :: Lens.Lens' DescribeAccountResponse (Prelude.Maybe Account)
+describeAccountResponse_account :: Lens.Lens' DescribeAccountResponse (Core.Maybe Account)
 describeAccountResponse_account = Lens.lens (\DescribeAccountResponse' {account} -> account) (\s@DescribeAccountResponse' {} a -> s {account = a} :: DescribeAccountResponse)
 
 -- | The response's http status code.
-describeAccountResponse_httpStatus :: Lens.Lens' DescribeAccountResponse Prelude.Int
+describeAccountResponse_httpStatus :: Lens.Lens' DescribeAccountResponse Core.Int
 describeAccountResponse_httpStatus = Lens.lens (\DescribeAccountResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountResponse' {} a -> s {httpStatus = a} :: DescribeAccountResponse)
 
-instance Prelude.NFData DescribeAccountResponse
+instance Core.NFData DescribeAccountResponse

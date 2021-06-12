@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.EncryptionConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.KMSEncryptionConfig
 import Network.AWS.Firehose.Types.NoEncryptionConfig
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the encryption for a destination in Amazon S3.
 --
 -- /See:/ 'newEncryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
   { -- | The encryption key.
-    kmsEncryptionConfig :: Prelude.Maybe KMSEncryptionConfig,
+    kmsEncryptionConfig :: Core.Maybe KMSEncryptionConfig,
     -- | Specifically override existing encryption information to ensure that no
     -- encryption is used.
-    noEncryptionConfig :: Prelude.Maybe NoEncryptionConfig
+    noEncryptionConfig :: Core.Maybe NoEncryptionConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionConfiguration' with all optional fields omitted.
@@ -54,40 +53,40 @@ newEncryptionConfiguration ::
 newEncryptionConfiguration =
   EncryptionConfiguration'
     { kmsEncryptionConfig =
-        Prelude.Nothing,
-      noEncryptionConfig = Prelude.Nothing
+        Core.Nothing,
+      noEncryptionConfig = Core.Nothing
     }
 
 -- | The encryption key.
-encryptionConfiguration_kmsEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe KMSEncryptionConfig)
+encryptionConfiguration_kmsEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Core.Maybe KMSEncryptionConfig)
 encryptionConfiguration_kmsEncryptionConfig = Lens.lens (\EncryptionConfiguration' {kmsEncryptionConfig} -> kmsEncryptionConfig) (\s@EncryptionConfiguration' {} a -> s {kmsEncryptionConfig = a} :: EncryptionConfiguration)
 
 -- | Specifically override existing encryption information to ensure that no
 -- encryption is used.
-encryptionConfiguration_noEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe NoEncryptionConfig)
+encryptionConfiguration_noEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Core.Maybe NoEncryptionConfig)
 encryptionConfiguration_noEncryptionConfig = Lens.lens (\EncryptionConfiguration' {noEncryptionConfig} -> noEncryptionConfig) (\s@EncryptionConfiguration' {} a -> s {noEncryptionConfig = a} :: EncryptionConfiguration)
 
-instance Prelude.FromJSON EncryptionConfiguration where
+instance Core.FromJSON EncryptionConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Prelude.<$> (x Prelude..:? "KMSEncryptionConfig")
-            Prelude.<*> (x Prelude..:? "NoEncryptionConfig")
+            Core.<$> (x Core..:? "KMSEncryptionConfig")
+            Core.<*> (x Core..:? "NoEncryptionConfig")
       )
 
-instance Prelude.Hashable EncryptionConfiguration
+instance Core.Hashable EncryptionConfiguration
 
-instance Prelude.NFData EncryptionConfiguration
+instance Core.NFData EncryptionConfiguration
 
-instance Prelude.ToJSON EncryptionConfiguration where
+instance Core.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KMSEncryptionConfig" Prelude..=)
-              Prelude.<$> kmsEncryptionConfig,
-            ("NoEncryptionConfig" Prelude..=)
-              Prelude.<$> noEncryptionConfig
+    Core.object
+      ( Core.catMaybes
+          [ ("KMSEncryptionConfig" Core..=)
+              Core.<$> kmsEncryptionConfig,
+            ("NoEncryptionConfig" Core..=)
+              Core.<$> noEncryptionConfig
           ]
       )

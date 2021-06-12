@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.Limit where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an Elastic Load Balancing resource limit for your AWS
 -- account.
@@ -65,11 +64,11 @@ data Limit = Limit'
     -- -   targets-per-availability-zone-per-network-load-balancer
     --
     -- -   targets-per-network-load-balancer
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The maximum value of the limit.
-    max :: Prelude.Maybe Prelude.Text
+    max :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Limit' with all optional fields omitted.
@@ -121,10 +120,7 @@ data Limit = Limit'
 newLimit ::
   Limit
 newLimit =
-  Limit'
-    { name = Prelude.Nothing,
-      max = Prelude.Nothing
-    }
+  Limit' {name = Core.Nothing, max = Core.Nothing}
 
 -- | The name of the limit. The possible values are:
 --
@@ -163,19 +159,18 @@ newLimit =
 -- -   targets-per-availability-zone-per-network-load-balancer
 --
 -- -   targets-per-network-load-balancer
-limit_name :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
+limit_name :: Lens.Lens' Limit (Core.Maybe Core.Text)
 limit_name = Lens.lens (\Limit' {name} -> name) (\s@Limit' {} a -> s {name = a} :: Limit)
 
 -- | The maximum value of the limit.
-limit_max :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
+limit_max :: Lens.Lens' Limit (Core.Maybe Core.Text)
 limit_max = Lens.lens (\Limit' {max} -> max) (\s@Limit' {} a -> s {max = a} :: Limit)
 
-instance Prelude.FromXML Limit where
+instance Core.FromXML Limit where
   parseXML x =
     Limit'
-      Prelude.<$> (x Prelude..@? "Name")
-      Prelude.<*> (x Prelude..@? "Max")
+      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Max")
 
-instance Prelude.Hashable Limit
+instance Core.Hashable Limit
 
-instance Prelude.NFData Limit
+instance Core.NFData Limit

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.LogTarget where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.LogTargetType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A log target.
 --
 -- /See:/ 'newLogTarget' smart constructor.
 data LogTarget = LogTarget'
   { -- | The target name.
-    targetName :: Prelude.Maybe Prelude.Text,
+    targetName :: Core.Maybe Core.Text,
     -- | The target type.
     targetType :: LogTargetType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LogTarget' with all optional fields omitted.
@@ -52,37 +51,37 @@ newLogTarget ::
   LogTarget
 newLogTarget pTargetType_ =
   LogTarget'
-    { targetName = Prelude.Nothing,
+    { targetName = Core.Nothing,
       targetType = pTargetType_
     }
 
 -- | The target name.
-logTarget_targetName :: Lens.Lens' LogTarget (Prelude.Maybe Prelude.Text)
+logTarget_targetName :: Lens.Lens' LogTarget (Core.Maybe Core.Text)
 logTarget_targetName = Lens.lens (\LogTarget' {targetName} -> targetName) (\s@LogTarget' {} a -> s {targetName = a} :: LogTarget)
 
 -- | The target type.
 logTarget_targetType :: Lens.Lens' LogTarget LogTargetType
 logTarget_targetType = Lens.lens (\LogTarget' {targetType} -> targetType) (\s@LogTarget' {} a -> s {targetType = a} :: LogTarget)
 
-instance Prelude.FromJSON LogTarget where
+instance Core.FromJSON LogTarget where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LogTarget"
       ( \x ->
           LogTarget'
-            Prelude.<$> (x Prelude..:? "targetName")
-            Prelude.<*> (x Prelude..: "targetType")
+            Core.<$> (x Core..:? "targetName")
+            Core.<*> (x Core..: "targetType")
       )
 
-instance Prelude.Hashable LogTarget
+instance Core.Hashable LogTarget
 
-instance Prelude.NFData LogTarget
+instance Core.NFData LogTarget
 
-instance Prelude.ToJSON LogTarget where
+instance Core.ToJSON LogTarget where
   toJSON LogTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("targetName" Prelude..=) Prelude.<$> targetName,
-            Prelude.Just ("targetType" Prelude..= targetType)
+    Core.object
+      ( Core.catMaybes
+          [ ("targetName" Core..=) Core.<$> targetName,
+            Core.Just ("targetType" Core..= targetType)
           ]
       )

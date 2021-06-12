@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | When updating application input configuration, provides information
 -- about an Amazon Kinesis Firehose delivery stream as the streaming
@@ -31,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 data KinesisFirehoseInputUpdate = KinesisFirehoseInputUpdate'
   { -- | Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery
     -- stream to read.
-    resourceARNUpdate :: Prelude.Maybe Prelude.Text,
+    resourceARNUpdate :: Core.Maybe Core.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
     -- the stream on your behalf. You need to grant the necessary permissions
     -- to this role.
-    roleARNUpdate :: Prelude.Maybe Prelude.Text
+    roleARNUpdate :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KinesisFirehoseInputUpdate' with all optional fields omitted.
@@ -58,32 +57,31 @@ newKinesisFirehoseInputUpdate ::
 newKinesisFirehoseInputUpdate =
   KinesisFirehoseInputUpdate'
     { resourceARNUpdate =
-        Prelude.Nothing,
-      roleARNUpdate = Prelude.Nothing
+        Core.Nothing,
+      roleARNUpdate = Core.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery
 -- stream to read.
-kinesisFirehoseInputUpdate_resourceARNUpdate :: Lens.Lens' KinesisFirehoseInputUpdate (Prelude.Maybe Prelude.Text)
+kinesisFirehoseInputUpdate_resourceARNUpdate :: Lens.Lens' KinesisFirehoseInputUpdate (Core.Maybe Core.Text)
 kinesisFirehoseInputUpdate_resourceARNUpdate = Lens.lens (\KinesisFirehoseInputUpdate' {resourceARNUpdate} -> resourceARNUpdate) (\s@KinesisFirehoseInputUpdate' {} a -> s {resourceARNUpdate = a} :: KinesisFirehoseInputUpdate)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
 -- the stream on your behalf. You need to grant the necessary permissions
 -- to this role.
-kinesisFirehoseInputUpdate_roleARNUpdate :: Lens.Lens' KinesisFirehoseInputUpdate (Prelude.Maybe Prelude.Text)
+kinesisFirehoseInputUpdate_roleARNUpdate :: Lens.Lens' KinesisFirehoseInputUpdate (Core.Maybe Core.Text)
 kinesisFirehoseInputUpdate_roleARNUpdate = Lens.lens (\KinesisFirehoseInputUpdate' {roleARNUpdate} -> roleARNUpdate) (\s@KinesisFirehoseInputUpdate' {} a -> s {roleARNUpdate = a} :: KinesisFirehoseInputUpdate)
 
-instance Prelude.Hashable KinesisFirehoseInputUpdate
+instance Core.Hashable KinesisFirehoseInputUpdate
 
-instance Prelude.NFData KinesisFirehoseInputUpdate
+instance Core.NFData KinesisFirehoseInputUpdate
 
-instance Prelude.ToJSON KinesisFirehoseInputUpdate where
+instance Core.ToJSON KinesisFirehoseInputUpdate where
   toJSON KinesisFirehoseInputUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResourceARNUpdate" Prelude..=)
-              Prelude.<$> resourceARNUpdate,
-            ("RoleARNUpdate" Prelude..=)
-              Prelude.<$> roleARNUpdate
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceARNUpdate" Core..=)
+              Core.<$> resourceARNUpdate,
+            ("RoleARNUpdate" Core..=) Core.<$> roleARNUpdate
           ]
       )

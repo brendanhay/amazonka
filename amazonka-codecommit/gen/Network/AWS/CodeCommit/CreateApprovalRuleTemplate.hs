@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CodeCommit.CreateApprovalRuleTemplate
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +57,11 @@ data CreateApprovalRuleTemplate = CreateApprovalRuleTemplate'
   { -- | The description of the approval rule template. Consider providing a
     -- description that explains what this template does and when it might be
     -- appropriate to associate it with repositories.
-    approvalRuleTemplateDescription :: Prelude.Maybe Prelude.Text,
+    approvalRuleTemplateDescription :: Core.Maybe Core.Text,
     -- | The name of the approval rule template. Provide descriptive names,
     -- because this name is applied to the approval rules created automatically
     -- in associated repositories.
-    approvalRuleTemplateName :: Prelude.Text,
+    approvalRuleTemplateName :: Core.Text,
     -- | The content of the approval rule that is created on pull requests in
     -- associated repositories. If you specify one or more destination
     -- references (branches), approval rules are created in an associated
@@ -98,9 +97,9 @@ data CreateApprovalRuleTemplate = CreateApprovalRuleTemplate'
     -- For more information about IAM ARNs, wildcards, and formats, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
     -- in the /IAM User Guide/.
-    approvalRuleTemplateContent :: Prelude.Text
+    approvalRuleTemplateContent :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApprovalRuleTemplate' with all optional fields omitted.
@@ -155,16 +154,16 @@ data CreateApprovalRuleTemplate = CreateApprovalRuleTemplate'
 -- in the /IAM User Guide/.
 newCreateApprovalRuleTemplate ::
   -- | 'approvalRuleTemplateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'approvalRuleTemplateContent'
-  Prelude.Text ->
+  Core.Text ->
   CreateApprovalRuleTemplate
 newCreateApprovalRuleTemplate
   pApprovalRuleTemplateName_
   pApprovalRuleTemplateContent_ =
     CreateApprovalRuleTemplate'
       { approvalRuleTemplateDescription =
-          Prelude.Nothing,
+          Core.Nothing,
         approvalRuleTemplateName =
           pApprovalRuleTemplateName_,
         approvalRuleTemplateContent =
@@ -174,13 +173,13 @@ newCreateApprovalRuleTemplate
 -- | The description of the approval rule template. Consider providing a
 -- description that explains what this template does and when it might be
 -- appropriate to associate it with repositories.
-createApprovalRuleTemplate_approvalRuleTemplateDescription :: Lens.Lens' CreateApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
+createApprovalRuleTemplate_approvalRuleTemplateDescription :: Lens.Lens' CreateApprovalRuleTemplate (Core.Maybe Core.Text)
 createApprovalRuleTemplate_approvalRuleTemplateDescription = Lens.lens (\CreateApprovalRuleTemplate' {approvalRuleTemplateDescription} -> approvalRuleTemplateDescription) (\s@CreateApprovalRuleTemplate' {} a -> s {approvalRuleTemplateDescription = a} :: CreateApprovalRuleTemplate)
 
 -- | The name of the approval rule template. Provide descriptive names,
 -- because this name is applied to the approval rules created automatically
 -- in associated repositories.
-createApprovalRuleTemplate_approvalRuleTemplateName :: Lens.Lens' CreateApprovalRuleTemplate Prelude.Text
+createApprovalRuleTemplate_approvalRuleTemplateName :: Lens.Lens' CreateApprovalRuleTemplate Core.Text
 createApprovalRuleTemplate_approvalRuleTemplateName = Lens.lens (\CreateApprovalRuleTemplate' {approvalRuleTemplateName} -> approvalRuleTemplateName) (\s@CreateApprovalRuleTemplate' {} a -> s {approvalRuleTemplateName = a} :: CreateApprovalRuleTemplate)
 
 -- | The content of the approval rule that is created on pull requests in
@@ -218,75 +217,70 @@ createApprovalRuleTemplate_approvalRuleTemplateName = Lens.lens (\CreateApproval
 -- For more information about IAM ARNs, wildcards, and formats, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
 -- in the /IAM User Guide/.
-createApprovalRuleTemplate_approvalRuleTemplateContent :: Lens.Lens' CreateApprovalRuleTemplate Prelude.Text
+createApprovalRuleTemplate_approvalRuleTemplateContent :: Lens.Lens' CreateApprovalRuleTemplate Core.Text
 createApprovalRuleTemplate_approvalRuleTemplateContent = Lens.lens (\CreateApprovalRuleTemplate' {approvalRuleTemplateContent} -> approvalRuleTemplateContent) (\s@CreateApprovalRuleTemplate' {} a -> s {approvalRuleTemplateContent = a} :: CreateApprovalRuleTemplate)
 
-instance
-  Prelude.AWSRequest
-    CreateApprovalRuleTemplate
-  where
+instance Core.AWSRequest CreateApprovalRuleTemplate where
   type
-    Rs CreateApprovalRuleTemplate =
+    AWSResponse CreateApprovalRuleTemplate =
       CreateApprovalRuleTemplateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateApprovalRuleTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "approvalRuleTemplate")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "approvalRuleTemplate")
       )
 
-instance Prelude.Hashable CreateApprovalRuleTemplate
+instance Core.Hashable CreateApprovalRuleTemplate
 
-instance Prelude.NFData CreateApprovalRuleTemplate
+instance Core.NFData CreateApprovalRuleTemplate
 
-instance Prelude.ToHeaders CreateApprovalRuleTemplate where
+instance Core.ToHeaders CreateApprovalRuleTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.CreateApprovalRuleTemplate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.CreateApprovalRuleTemplate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateApprovalRuleTemplate where
+instance Core.ToJSON CreateApprovalRuleTemplate where
   toJSON CreateApprovalRuleTemplate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("approvalRuleTemplateDescription" Prelude..=)
-              Prelude.<$> approvalRuleTemplateDescription,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("approvalRuleTemplateDescription" Core..=)
+              Core.<$> approvalRuleTemplateDescription,
+            Core.Just
               ( "approvalRuleTemplateName"
-                  Prelude..= approvalRuleTemplateName
+                  Core..= approvalRuleTemplateName
               ),
-            Prelude.Just
+            Core.Just
               ( "approvalRuleTemplateContent"
-                  Prelude..= approvalRuleTemplateContent
+                  Core..= approvalRuleTemplateContent
               )
           ]
       )
 
-instance Prelude.ToPath CreateApprovalRuleTemplate where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateApprovalRuleTemplate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateApprovalRuleTemplate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateApprovalRuleTemplate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateApprovalRuleTemplateResponse' smart constructor.
 data CreateApprovalRuleTemplateResponse = CreateApprovalRuleTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The content and structure of the created approval rule template.
     approvalRuleTemplate :: ApprovalRuleTemplate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApprovalRuleTemplateResponse' with all optional fields omitted.
@@ -301,7 +295,7 @@ data CreateApprovalRuleTemplateResponse = CreateApprovalRuleTemplateResponse'
 -- 'approvalRuleTemplate', 'createApprovalRuleTemplateResponse_approvalRuleTemplate' - The content and structure of the created approval rule template.
 newCreateApprovalRuleTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'approvalRuleTemplate'
   ApprovalRuleTemplate ->
   CreateApprovalRuleTemplateResponse
@@ -316,7 +310,7 @@ newCreateApprovalRuleTemplateResponse
       }
 
 -- | The response's http status code.
-createApprovalRuleTemplateResponse_httpStatus :: Lens.Lens' CreateApprovalRuleTemplateResponse Prelude.Int
+createApprovalRuleTemplateResponse_httpStatus :: Lens.Lens' CreateApprovalRuleTemplateResponse Core.Int
 createApprovalRuleTemplateResponse_httpStatus = Lens.lens (\CreateApprovalRuleTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateApprovalRuleTemplateResponse' {} a -> s {httpStatus = a} :: CreateApprovalRuleTemplateResponse)
 
 -- | The content and structure of the created approval rule template.
@@ -324,5 +318,5 @@ createApprovalRuleTemplateResponse_approvalRuleTemplate :: Lens.Lens' CreateAppr
 createApprovalRuleTemplateResponse_approvalRuleTemplate = Lens.lens (\CreateApprovalRuleTemplateResponse' {approvalRuleTemplate} -> approvalRuleTemplate) (\s@CreateApprovalRuleTemplateResponse' {} a -> s {approvalRuleTemplate = a} :: CreateApprovalRuleTemplateResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateApprovalRuleTemplateResponse

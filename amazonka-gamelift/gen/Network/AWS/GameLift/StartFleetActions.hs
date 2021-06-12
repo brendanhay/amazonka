@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -67,9 +66,9 @@ module Network.AWS.GameLift.StartFleetActions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,11 +76,11 @@ import qualified Network.AWS.Response as Response
 data StartFleetActions = StartFleetActions'
   { -- | A unique identifier for a fleet to start actions on. You can use either
     -- the fleet ID or ARN value.
-    fleetId :: Prelude.Text,
+    fleetId :: Core.Text,
     -- | List of actions to restart on the fleet.
-    actions :: Prelude.NonEmpty FleetAction
+    actions :: Core.NonEmpty FleetAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartFleetActions' with all optional fields omitted.
@@ -97,73 +96,73 @@ data StartFleetActions = StartFleetActions'
 -- 'actions', 'startFleetActions_actions' - List of actions to restart on the fleet.
 newStartFleetActions ::
   -- | 'fleetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'actions'
-  Prelude.NonEmpty FleetAction ->
+  Core.NonEmpty FleetAction ->
   StartFleetActions
 newStartFleetActions pFleetId_ pActions_ =
   StartFleetActions'
     { fleetId = pFleetId_,
-      actions = Prelude._Coerce Lens.# pActions_
+      actions = Lens._Coerce Lens.# pActions_
     }
 
 -- | A unique identifier for a fleet to start actions on. You can use either
 -- the fleet ID or ARN value.
-startFleetActions_fleetId :: Lens.Lens' StartFleetActions Prelude.Text
+startFleetActions_fleetId :: Lens.Lens' StartFleetActions Core.Text
 startFleetActions_fleetId = Lens.lens (\StartFleetActions' {fleetId} -> fleetId) (\s@StartFleetActions' {} a -> s {fleetId = a} :: StartFleetActions)
 
 -- | List of actions to restart on the fleet.
-startFleetActions_actions :: Lens.Lens' StartFleetActions (Prelude.NonEmpty FleetAction)
-startFleetActions_actions = Lens.lens (\StartFleetActions' {actions} -> actions) (\s@StartFleetActions' {} a -> s {actions = a} :: StartFleetActions) Prelude.. Prelude._Coerce
+startFleetActions_actions :: Lens.Lens' StartFleetActions (Core.NonEmpty FleetAction)
+startFleetActions_actions = Lens.lens (\StartFleetActions' {actions} -> actions) (\s@StartFleetActions' {} a -> s {actions = a} :: StartFleetActions) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest StartFleetActions where
-  type Rs StartFleetActions = StartFleetActionsResponse
+instance Core.AWSRequest StartFleetActions where
+  type
+    AWSResponse StartFleetActions =
+      StartFleetActionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartFleetActionsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartFleetActions
+instance Core.Hashable StartFleetActions
 
-instance Prelude.NFData StartFleetActions
+instance Core.NFData StartFleetActions
 
-instance Prelude.ToHeaders StartFleetActions where
+instance Core.ToHeaders StartFleetActions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.StartFleetActions" :: Prelude.ByteString),
+              Core.=# ("GameLift.StartFleetActions" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartFleetActions where
+instance Core.ToJSON StartFleetActions where
   toJSON StartFleetActions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("FleetId" Prelude..= fleetId),
-            Prelude.Just ("Actions" Prelude..= actions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FleetId" Core..= fleetId),
+            Core.Just ("Actions" Core..= actions)
           ]
       )
 
-instance Prelude.ToPath StartFleetActions where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartFleetActions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartFleetActions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartFleetActions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartFleetActionsResponse' smart constructor.
 data StartFleetActionsResponse = StartFleetActionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartFleetActionsResponse' with all optional fields omitted.
@@ -176,7 +175,7 @@ data StartFleetActionsResponse = StartFleetActionsResponse'
 -- 'httpStatus', 'startFleetActionsResponse_httpStatus' - The response's http status code.
 newStartFleetActionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartFleetActionsResponse
 newStartFleetActionsResponse pHttpStatus_ =
   StartFleetActionsResponse'
@@ -185,7 +184,7 @@ newStartFleetActionsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startFleetActionsResponse_httpStatus :: Lens.Lens' StartFleetActionsResponse Prelude.Int
+startFleetActionsResponse_httpStatus :: Lens.Lens' StartFleetActionsResponse Core.Int
 startFleetActionsResponse_httpStatus = Lens.lens (\StartFleetActionsResponse' {httpStatus} -> httpStatus) (\s@StartFleetActionsResponse' {} a -> s {httpStatus = a} :: StartFleetActionsResponse)
 
-instance Prelude.NFData StartFleetActionsResponse
+instance Core.NFData StartFleetActionsResponse

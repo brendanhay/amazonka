@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -106,8 +105,8 @@ module Network.AWS.WAFRegional.UpdateIPSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -116,9 +115,9 @@ import Network.AWS.WAFRegional.Types
 data UpdateIPSet = UpdateIPSet'
   { -- | The @IPSetId@ of the IPSet that you want to update. @IPSetId@ is
     -- returned by CreateIPSet and by ListIPSets.
-    iPSetId :: Prelude.Text,
+    iPSetId :: Core.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Prelude.Text,
+    changeToken :: Core.Text,
     -- | An array of @IPSetUpdate@ objects that you want to insert into or delete
     -- from an IPSet. For more information, see the applicable data types:
     --
@@ -127,9 +126,9 @@ data UpdateIPSet = UpdateIPSet'
     -- -   IPSetDescriptor: Contains @Type@ and @Value@
     --
     -- You can insert a maximum of 1000 addresses in a single request.
-    updates :: Prelude.NonEmpty IPSetUpdate
+    updates :: Core.NonEmpty IPSetUpdate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateIPSet' with all optional fields omitted.
@@ -154,26 +153,26 @@ data UpdateIPSet = UpdateIPSet'
 -- You can insert a maximum of 1000 addresses in a single request.
 newUpdateIPSet ::
   -- | 'iPSetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'updates'
-  Prelude.NonEmpty IPSetUpdate ->
+  Core.NonEmpty IPSetUpdate ->
   UpdateIPSet
 newUpdateIPSet pIPSetId_ pChangeToken_ pUpdates_ =
   UpdateIPSet'
     { iPSetId = pIPSetId_,
       changeToken = pChangeToken_,
-      updates = Prelude._Coerce Lens.# pUpdates_
+      updates = Lens._Coerce Lens.# pUpdates_
     }
 
 -- | The @IPSetId@ of the IPSet that you want to update. @IPSetId@ is
 -- returned by CreateIPSet and by ListIPSets.
-updateIPSet_iPSetId :: Lens.Lens' UpdateIPSet Prelude.Text
+updateIPSet_iPSetId :: Lens.Lens' UpdateIPSet Core.Text
 updateIPSet_iPSetId = Lens.lens (\UpdateIPSet' {iPSetId} -> iPSetId) (\s@UpdateIPSet' {} a -> s {iPSetId = a} :: UpdateIPSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateIPSet_changeToken :: Lens.Lens' UpdateIPSet Prelude.Text
+updateIPSet_changeToken :: Lens.Lens' UpdateIPSet Core.Text
 updateIPSet_changeToken = Lens.lens (\UpdateIPSet' {changeToken} -> changeToken) (\s@UpdateIPSet' {} a -> s {changeToken = a} :: UpdateIPSet)
 
 -- | An array of @IPSetUpdate@ objects that you want to insert into or delete
@@ -184,65 +183,63 @@ updateIPSet_changeToken = Lens.lens (\UpdateIPSet' {changeToken} -> changeToken)
 -- -   IPSetDescriptor: Contains @Type@ and @Value@
 --
 -- You can insert a maximum of 1000 addresses in a single request.
-updateIPSet_updates :: Lens.Lens' UpdateIPSet (Prelude.NonEmpty IPSetUpdate)
-updateIPSet_updates = Lens.lens (\UpdateIPSet' {updates} -> updates) (\s@UpdateIPSet' {} a -> s {updates = a} :: UpdateIPSet) Prelude.. Prelude._Coerce
+updateIPSet_updates :: Lens.Lens' UpdateIPSet (Core.NonEmpty IPSetUpdate)
+updateIPSet_updates = Lens.lens (\UpdateIPSet' {updates} -> updates) (\s@UpdateIPSet' {} a -> s {updates = a} :: UpdateIPSet) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UpdateIPSet where
-  type Rs UpdateIPSet = UpdateIPSetResponse
+instance Core.AWSRequest UpdateIPSet where
+  type AWSResponse UpdateIPSet = UpdateIPSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateIPSetResponse'
-            Prelude.<$> (x Prelude..?> "ChangeToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateIPSet
+instance Core.Hashable UpdateIPSet
 
-instance Prelude.NFData UpdateIPSet
+instance Core.NFData UpdateIPSet
 
-instance Prelude.ToHeaders UpdateIPSet where
+instance Core.ToHeaders UpdateIPSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.UpdateIPSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.UpdateIPSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateIPSet where
+instance Core.ToJSON UpdateIPSet where
   toJSON UpdateIPSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("IPSetId" Prelude..= iPSetId),
-            Prelude.Just ("ChangeToken" Prelude..= changeToken),
-            Prelude.Just ("Updates" Prelude..= updates)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("IPSetId" Core..= iPSetId),
+            Core.Just ("ChangeToken" Core..= changeToken),
+            Core.Just ("Updates" Core..= updates)
           ]
       )
 
-instance Prelude.ToPath UpdateIPSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateIPSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateIPSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateIPSet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateIPSetResponse' smart constructor.
 data UpdateIPSetResponse = UpdateIPSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateIPSet@ request. You
     -- can also use this value to query the status of the request. For more
     -- information, see GetChangeTokenStatus.
-    changeToken :: Prelude.Maybe Prelude.Text,
+    changeToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateIPSetResponse' with all optional fields omitted.
@@ -259,22 +256,22 @@ data UpdateIPSetResponse = UpdateIPSetResponse'
 -- 'httpStatus', 'updateIPSetResponse_httpStatus' - The response's http status code.
 newUpdateIPSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateIPSetResponse
 newUpdateIPSetResponse pHttpStatus_ =
   UpdateIPSetResponse'
-    { changeToken = Prelude.Nothing,
+    { changeToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateIPSet@ request. You
 -- can also use this value to query the status of the request. For more
 -- information, see GetChangeTokenStatus.
-updateIPSetResponse_changeToken :: Lens.Lens' UpdateIPSetResponse (Prelude.Maybe Prelude.Text)
+updateIPSetResponse_changeToken :: Lens.Lens' UpdateIPSetResponse (Core.Maybe Core.Text)
 updateIPSetResponse_changeToken = Lens.lens (\UpdateIPSetResponse' {changeToken} -> changeToken) (\s@UpdateIPSetResponse' {} a -> s {changeToken = a} :: UpdateIPSetResponse)
 
 -- | The response's http status code.
-updateIPSetResponse_httpStatus :: Lens.Lens' UpdateIPSetResponse Prelude.Int
+updateIPSetResponse_httpStatus :: Lens.Lens' UpdateIPSetResponse Core.Int
 updateIPSetResponse_httpStatus = Lens.lens (\UpdateIPSetResponse' {httpStatus} -> httpStatus) (\s@UpdateIPSetResponse' {} a -> s {httpStatus = a} :: UpdateIPSetResponse)
 
-instance Prelude.NFData UpdateIPSetResponse
+instance Core.NFData UpdateIPSetResponse

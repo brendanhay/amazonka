@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.SMS.StopAppReplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -49,9 +48,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newStopAppReplication' smart constructor.
 data StopAppReplication = StopAppReplication'
   { -- | The ID of the application.
-    appId :: Prelude.Maybe Prelude.Text
+    appId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopAppReplication' with all optional fields omitted.
@@ -65,62 +64,58 @@ data StopAppReplication = StopAppReplication'
 newStopAppReplication ::
   StopAppReplication
 newStopAppReplication =
-  StopAppReplication' {appId = Prelude.Nothing}
+  StopAppReplication' {appId = Core.Nothing}
 
 -- | The ID of the application.
-stopAppReplication_appId :: Lens.Lens' StopAppReplication (Prelude.Maybe Prelude.Text)
+stopAppReplication_appId :: Lens.Lens' StopAppReplication (Core.Maybe Core.Text)
 stopAppReplication_appId = Lens.lens (\StopAppReplication' {appId} -> appId) (\s@StopAppReplication' {} a -> s {appId = a} :: StopAppReplication)
 
-instance Prelude.AWSRequest StopAppReplication where
+instance Core.AWSRequest StopAppReplication where
   type
-    Rs StopAppReplication =
+    AWSResponse StopAppReplication =
       StopAppReplicationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopAppReplicationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopAppReplication
+instance Core.Hashable StopAppReplication
 
-instance Prelude.NFData StopAppReplication
+instance Core.NFData StopAppReplication
 
-instance Prelude.ToHeaders StopAppReplication where
+instance Core.ToHeaders StopAppReplication where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.StopAppReplication" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.StopAppReplication" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopAppReplication where
+instance Core.ToJSON StopAppReplication where
   toJSON StopAppReplication' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("appId" Prelude..=) Prelude.<$> appId]
-      )
+    Core.object
+      (Core.catMaybes [("appId" Core..=) Core.<$> appId])
 
-instance Prelude.ToPath StopAppReplication where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopAppReplication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopAppReplication where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopAppReplication where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopAppReplicationResponse' smart constructor.
 data StopAppReplicationResponse = StopAppReplicationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopAppReplicationResponse' with all optional fields omitted.
@@ -133,7 +128,7 @@ data StopAppReplicationResponse = StopAppReplicationResponse'
 -- 'httpStatus', 'stopAppReplicationResponse_httpStatus' - The response's http status code.
 newStopAppReplicationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopAppReplicationResponse
 newStopAppReplicationResponse pHttpStatus_ =
   StopAppReplicationResponse'
@@ -142,7 +137,7 @@ newStopAppReplicationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopAppReplicationResponse_httpStatus :: Lens.Lens' StopAppReplicationResponse Prelude.Int
+stopAppReplicationResponse_httpStatus :: Lens.Lens' StopAppReplicationResponse Core.Int
 stopAppReplicationResponse_httpStatus = Lens.lens (\StopAppReplicationResponse' {httpStatus} -> httpStatus) (\s@StopAppReplicationResponse' {} a -> s {httpStatus = a} :: StopAppReplicationResponse)
 
-instance Prelude.NFData StopAppReplicationResponse
+instance Core.NFData StopAppReplicationResponse

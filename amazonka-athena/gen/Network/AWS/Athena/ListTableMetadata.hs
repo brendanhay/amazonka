@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,8 @@ module Network.AWS.Athena.ListTableMetadata
 where
 
 import Network.AWS.Athena.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,19 +59,19 @@ data ListTableMetadata = ListTableMetadata'
     -- pagination if a previous request was truncated. To obtain the next set
     -- of pages, pass in the NextToken from the response object of the previous
     -- page call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Specifies the maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | A regex filter that pattern-matches table names. If no expression is
     -- supplied, metadata for all tables are listed.
-    expression :: Prelude.Maybe Prelude.Text,
+    expression :: Core.Maybe Core.Text,
     -- | The name of the data catalog for which table metadata should be
     -- returned.
-    catalogName :: Prelude.Text,
+    catalogName :: Core.Text,
     -- | The name of the database for which table metadata should be returned.
-    databaseName :: Prelude.Text
+    databaseName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTableMetadata' with all optional fields omitted.
@@ -99,15 +97,15 @@ data ListTableMetadata = ListTableMetadata'
 -- 'databaseName', 'listTableMetadata_databaseName' - The name of the database for which table metadata should be returned.
 newListTableMetadata ::
   -- | 'catalogName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   ListTableMetadata
 newListTableMetadata pCatalogName_ pDatabaseName_ =
   ListTableMetadata'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      expression = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      expression = Core.Nothing,
       catalogName = pCatalogName_,
       databaseName = pDatabaseName_
     }
@@ -116,100 +114,96 @@ newListTableMetadata pCatalogName_ pDatabaseName_ =
 -- pagination if a previous request was truncated. To obtain the next set
 -- of pages, pass in the NextToken from the response object of the previous
 -- page call.
-listTableMetadata_nextToken :: Lens.Lens' ListTableMetadata (Prelude.Maybe Prelude.Text)
+listTableMetadata_nextToken :: Lens.Lens' ListTableMetadata (Core.Maybe Core.Text)
 listTableMetadata_nextToken = Lens.lens (\ListTableMetadata' {nextToken} -> nextToken) (\s@ListTableMetadata' {} a -> s {nextToken = a} :: ListTableMetadata)
 
 -- | Specifies the maximum number of results to return.
-listTableMetadata_maxResults :: Lens.Lens' ListTableMetadata (Prelude.Maybe Prelude.Natural)
+listTableMetadata_maxResults :: Lens.Lens' ListTableMetadata (Core.Maybe Core.Natural)
 listTableMetadata_maxResults = Lens.lens (\ListTableMetadata' {maxResults} -> maxResults) (\s@ListTableMetadata' {} a -> s {maxResults = a} :: ListTableMetadata)
 
 -- | A regex filter that pattern-matches table names. If no expression is
 -- supplied, metadata for all tables are listed.
-listTableMetadata_expression :: Lens.Lens' ListTableMetadata (Prelude.Maybe Prelude.Text)
+listTableMetadata_expression :: Lens.Lens' ListTableMetadata (Core.Maybe Core.Text)
 listTableMetadata_expression = Lens.lens (\ListTableMetadata' {expression} -> expression) (\s@ListTableMetadata' {} a -> s {expression = a} :: ListTableMetadata)
 
 -- | The name of the data catalog for which table metadata should be
 -- returned.
-listTableMetadata_catalogName :: Lens.Lens' ListTableMetadata Prelude.Text
+listTableMetadata_catalogName :: Lens.Lens' ListTableMetadata Core.Text
 listTableMetadata_catalogName = Lens.lens (\ListTableMetadata' {catalogName} -> catalogName) (\s@ListTableMetadata' {} a -> s {catalogName = a} :: ListTableMetadata)
 
 -- | The name of the database for which table metadata should be returned.
-listTableMetadata_databaseName :: Lens.Lens' ListTableMetadata Prelude.Text
+listTableMetadata_databaseName :: Lens.Lens' ListTableMetadata Core.Text
 listTableMetadata_databaseName = Lens.lens (\ListTableMetadata' {databaseName} -> databaseName) (\s@ListTableMetadata' {} a -> s {databaseName = a} :: ListTableMetadata)
 
-instance Pager.AWSPager ListTableMetadata where
+instance Core.AWSPager ListTableMetadata where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listTableMetadataResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listTableMetadataResponse_tableMetadataList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTableMetadata_nextToken
           Lens..~ rs
-          Lens.^? listTableMetadataResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listTableMetadataResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTableMetadata where
-  type Rs ListTableMetadata = ListTableMetadataResponse
+instance Core.AWSRequest ListTableMetadata where
+  type
+    AWSResponse ListTableMetadata =
+      ListTableMetadataResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTableMetadataResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "TableMetadataList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "TableMetadataList" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTableMetadata
+instance Core.Hashable ListTableMetadata
 
-instance Prelude.NFData ListTableMetadata
+instance Core.NFData ListTableMetadata
 
-instance Prelude.ToHeaders ListTableMetadata where
+instance Core.ToHeaders ListTableMetadata where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonAthena.ListTableMetadata" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonAthena.ListTableMetadata" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTableMetadata where
+instance Core.ToJSON ListTableMetadata where
   toJSON ListTableMetadata' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Expression" Prelude..=) Prelude.<$> expression,
-            Prelude.Just ("CatalogName" Prelude..= catalogName),
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Expression" Core..=) Core.<$> expression,
+            Core.Just ("CatalogName" Core..= catalogName),
+            Core.Just ("DatabaseName" Core..= databaseName)
           ]
       )
 
-instance Prelude.ToPath ListTableMetadata where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTableMetadata where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTableMetadata where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTableMetadata where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTableMetadataResponse' smart constructor.
 data ListTableMetadataResponse = ListTableMetadataResponse'
@@ -217,13 +211,13 @@ data ListTableMetadataResponse = ListTableMetadataResponse'
     -- pagination if a previous request was truncated. To obtain the next set
     -- of pages, pass in the NextToken from the response object of the previous
     -- page call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of table metadata.
-    tableMetadataList :: Prelude.Maybe [TableMetadata],
+    tableMetadataList :: Core.Maybe [TableMetadata],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTableMetadataResponse' with all optional fields omitted.
@@ -243,13 +237,13 @@ data ListTableMetadataResponse = ListTableMetadataResponse'
 -- 'httpStatus', 'listTableMetadataResponse_httpStatus' - The response's http status code.
 newListTableMetadataResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTableMetadataResponse
 newListTableMetadataResponse pHttpStatus_ =
   ListTableMetadataResponse'
     { nextToken =
-        Prelude.Nothing,
-      tableMetadataList = Prelude.Nothing,
+        Core.Nothing,
+      tableMetadataList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -257,15 +251,15 @@ newListTableMetadataResponse pHttpStatus_ =
 -- pagination if a previous request was truncated. To obtain the next set
 -- of pages, pass in the NextToken from the response object of the previous
 -- page call.
-listTableMetadataResponse_nextToken :: Lens.Lens' ListTableMetadataResponse (Prelude.Maybe Prelude.Text)
+listTableMetadataResponse_nextToken :: Lens.Lens' ListTableMetadataResponse (Core.Maybe Core.Text)
 listTableMetadataResponse_nextToken = Lens.lens (\ListTableMetadataResponse' {nextToken} -> nextToken) (\s@ListTableMetadataResponse' {} a -> s {nextToken = a} :: ListTableMetadataResponse)
 
 -- | A list of table metadata.
-listTableMetadataResponse_tableMetadataList :: Lens.Lens' ListTableMetadataResponse (Prelude.Maybe [TableMetadata])
-listTableMetadataResponse_tableMetadataList = Lens.lens (\ListTableMetadataResponse' {tableMetadataList} -> tableMetadataList) (\s@ListTableMetadataResponse' {} a -> s {tableMetadataList = a} :: ListTableMetadataResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTableMetadataResponse_tableMetadataList :: Lens.Lens' ListTableMetadataResponse (Core.Maybe [TableMetadata])
+listTableMetadataResponse_tableMetadataList = Lens.lens (\ListTableMetadataResponse' {tableMetadataList} -> tableMetadataList) (\s@ListTableMetadataResponse' {} a -> s {tableMetadataList = a} :: ListTableMetadataResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTableMetadataResponse_httpStatus :: Lens.Lens' ListTableMetadataResponse Prelude.Int
+listTableMetadataResponse_httpStatus :: Lens.Lens' ListTableMetadataResponse Core.Int
 listTableMetadataResponse_httpStatus = Lens.lens (\ListTableMetadataResponse' {httpStatus} -> httpStatus) (\s@ListTableMetadataResponse' {} a -> s {httpStatus = a} :: ListTableMetadataResponse)
 
-instance Prelude.NFData ListTableMetadataResponse
+instance Core.NFData ListTableMetadataResponse

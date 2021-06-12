@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.ErrorDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about an error.
 --
 -- /See:/ 'newErrorDetail' smart constructor.
 data ErrorDetail = ErrorDetail'
   { -- | A message describing the error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The code associated with this error.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ErrorDetail' with all optional fields omitted.
@@ -49,28 +48,28 @@ newErrorDetail ::
   ErrorDetail
 newErrorDetail =
   ErrorDetail'
-    { errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | A message describing the error.
-errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
+errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Core.Maybe Core.Text)
 errorDetail_errorMessage = Lens.lens (\ErrorDetail' {errorMessage} -> errorMessage) (\s@ErrorDetail' {} a -> s {errorMessage = a} :: ErrorDetail)
 
 -- | The code associated with this error.
-errorDetail_errorCode :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
+errorDetail_errorCode :: Lens.Lens' ErrorDetail (Core.Maybe Core.Text)
 errorDetail_errorCode = Lens.lens (\ErrorDetail' {errorCode} -> errorCode) (\s@ErrorDetail' {} a -> s {errorCode = a} :: ErrorDetail)
 
-instance Prelude.FromJSON ErrorDetail where
+instance Core.FromJSON ErrorDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ErrorDetail"
       ( \x ->
           ErrorDetail'
-            Prelude.<$> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable ErrorDetail
+instance Core.Hashable ErrorDetail
 
-instance Prelude.NFData ErrorDetail
+instance Core.NFData ErrorDetail

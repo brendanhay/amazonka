@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.Group where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.InsightsConfiguration
 
 -- | Details and metadata for a group.
@@ -29,7 +28,7 @@ import Network.AWS.XRay.Types.InsightsConfiguration
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
   { -- | The unique case-sensitive name of the group.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The structure containing configurations related to insights.
     --
     -- -   The InsightsEnabled boolean can be set to true to enable insights
@@ -37,14 +36,14 @@ data Group = Group'
     --
     -- -   The NotifcationsEnabled boolean can be set to true to enable
     --     insights notifications through Amazon EventBridge for the group.
-    insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
+    insightsConfiguration :: Core.Maybe InsightsConfiguration,
     -- | The filter expression defining the parameters to include traces.
-    filterExpression :: Prelude.Maybe Prelude.Text,
+    filterExpression :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the group generated based on the
     -- GroupName.
-    groupARN :: Prelude.Maybe Prelude.Text
+    groupARN :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Group' with all optional fields omitted.
@@ -72,14 +71,14 @@ newGroup ::
   Group
 newGroup =
   Group'
-    { groupName = Prelude.Nothing,
-      insightsConfiguration = Prelude.Nothing,
-      filterExpression = Prelude.Nothing,
-      groupARN = Prelude.Nothing
+    { groupName = Core.Nothing,
+      insightsConfiguration = Core.Nothing,
+      filterExpression = Core.Nothing,
+      groupARN = Core.Nothing
     }
 
 -- | The unique case-sensitive name of the group.
-group_groupName :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_groupName :: Lens.Lens' Group (Core.Maybe Core.Text)
 group_groupName = Lens.lens (\Group' {groupName} -> groupName) (\s@Group' {} a -> s {groupName = a} :: Group)
 
 -- | The structure containing configurations related to insights.
@@ -89,30 +88,30 @@ group_groupName = Lens.lens (\Group' {groupName} -> groupName) (\s@Group' {} a -
 --
 -- -   The NotifcationsEnabled boolean can be set to true to enable
 --     insights notifications through Amazon EventBridge for the group.
-group_insightsConfiguration :: Lens.Lens' Group (Prelude.Maybe InsightsConfiguration)
+group_insightsConfiguration :: Lens.Lens' Group (Core.Maybe InsightsConfiguration)
 group_insightsConfiguration = Lens.lens (\Group' {insightsConfiguration} -> insightsConfiguration) (\s@Group' {} a -> s {insightsConfiguration = a} :: Group)
 
 -- | The filter expression defining the parameters to include traces.
-group_filterExpression :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_filterExpression :: Lens.Lens' Group (Core.Maybe Core.Text)
 group_filterExpression = Lens.lens (\Group' {filterExpression} -> filterExpression) (\s@Group' {} a -> s {filterExpression = a} :: Group)
 
 -- | The Amazon Resource Name (ARN) of the group generated based on the
 -- GroupName.
-group_groupARN :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_groupARN :: Lens.Lens' Group (Core.Maybe Core.Text)
 group_groupARN = Lens.lens (\Group' {groupARN} -> groupARN) (\s@Group' {} a -> s {groupARN = a} :: Group)
 
-instance Prelude.FromJSON Group where
+instance Core.FromJSON Group where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Prelude..:? "GroupName")
-            Prelude.<*> (x Prelude..:? "InsightsConfiguration")
-            Prelude.<*> (x Prelude..:? "FilterExpression")
-            Prelude.<*> (x Prelude..:? "GroupARN")
+            Core.<$> (x Core..:? "GroupName")
+            Core.<*> (x Core..:? "InsightsConfiguration")
+            Core.<*> (x Core..:? "FilterExpression")
+            Core.<*> (x Core..:? "GroupARN")
       )
 
-instance Prelude.Hashable Group
+instance Core.Hashable Group
 
-instance Prelude.NFData Group
+instance Core.NFData Group

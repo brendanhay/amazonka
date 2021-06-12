@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelPackageContainerDefinition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Docker container for the model package.
 --
@@ -29,18 +28,18 @@ import qualified Network.AWS.Prelude as Prelude
 data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
   { -- | An MD5 hash of the training algorithm that identifies the Docker image
     -- used for training.
-    imageDigest :: Prelude.Maybe Prelude.Text,
+    imageDigest :: Core.Maybe Core.Text,
     -- | The Amazon S3 path where the model artifacts, which result from model
     -- training, are stored. This path must point to a single @gzip@ compressed
     -- tar archive (@.tar.gz@ suffix).
     --
     -- The model artifacts must be in an S3 bucket that is in the same region
     -- as the model package.
-    modelDataUrl :: Prelude.Maybe Prelude.Text,
+    modelDataUrl :: Core.Maybe Core.Text,
     -- | The DNS host name for the Docker container.
-    containerHostname :: Prelude.Maybe Prelude.Text,
+    containerHostname :: Core.Maybe Core.Text,
     -- | The AWS Marketplace product ID of the model package.
-    productId :: Prelude.Maybe Prelude.Text,
+    productId :: Core.Maybe Core.Text,
     -- | The Amazon EC2 Container Registry (Amazon ECR) path where inference code
     -- is stored.
     --
@@ -50,9 +49,9 @@ data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
     -- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
     -- path formats. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
-    image :: Prelude.Text
+    image :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelPackageContainerDefinition' with all optional fields omitted.
@@ -87,21 +86,21 @@ data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
 newModelPackageContainerDefinition ::
   -- | 'image'
-  Prelude.Text ->
+  Core.Text ->
   ModelPackageContainerDefinition
 newModelPackageContainerDefinition pImage_ =
   ModelPackageContainerDefinition'
     { imageDigest =
-        Prelude.Nothing,
-      modelDataUrl = Prelude.Nothing,
-      containerHostname = Prelude.Nothing,
-      productId = Prelude.Nothing,
+        Core.Nothing,
+      modelDataUrl = Core.Nothing,
+      containerHostname = Core.Nothing,
+      productId = Core.Nothing,
       image = pImage_
     }
 
 -- | An MD5 hash of the training algorithm that identifies the Docker image
 -- used for training.
-modelPackageContainerDefinition_imageDigest :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_imageDigest :: Lens.Lens' ModelPackageContainerDefinition (Core.Maybe Core.Text)
 modelPackageContainerDefinition_imageDigest = Lens.lens (\ModelPackageContainerDefinition' {imageDigest} -> imageDigest) (\s@ModelPackageContainerDefinition' {} a -> s {imageDigest = a} :: ModelPackageContainerDefinition)
 
 -- | The Amazon S3 path where the model artifacts, which result from model
@@ -110,15 +109,15 @@ modelPackageContainerDefinition_imageDigest = Lens.lens (\ModelPackageContainerD
 --
 -- The model artifacts must be in an S3 bucket that is in the same region
 -- as the model package.
-modelPackageContainerDefinition_modelDataUrl :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_modelDataUrl :: Lens.Lens' ModelPackageContainerDefinition (Core.Maybe Core.Text)
 modelPackageContainerDefinition_modelDataUrl = Lens.lens (\ModelPackageContainerDefinition' {modelDataUrl} -> modelDataUrl) (\s@ModelPackageContainerDefinition' {} a -> s {modelDataUrl = a} :: ModelPackageContainerDefinition)
 
 -- | The DNS host name for the Docker container.
-modelPackageContainerDefinition_containerHostname :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_containerHostname :: Lens.Lens' ModelPackageContainerDefinition (Core.Maybe Core.Text)
 modelPackageContainerDefinition_containerHostname = Lens.lens (\ModelPackageContainerDefinition' {containerHostname} -> containerHostname) (\s@ModelPackageContainerDefinition' {} a -> s {containerHostname = a} :: ModelPackageContainerDefinition)
 
 -- | The AWS Marketplace product ID of the model package.
-modelPackageContainerDefinition_productId :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_productId :: Lens.Lens' ModelPackageContainerDefinition (Core.Maybe Core.Text)
 modelPackageContainerDefinition_productId = Lens.lens (\ModelPackageContainerDefinition' {productId} -> productId) (\s@ModelPackageContainerDefinition' {} a -> s {productId = a} :: ModelPackageContainerDefinition)
 
 -- | The Amazon EC2 Container Registry (Amazon ECR) path where inference code
@@ -130,45 +129,40 @@ modelPackageContainerDefinition_productId = Lens.lens (\ModelPackageContainerDef
 -- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
 -- path formats. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
-modelPackageContainerDefinition_image :: Lens.Lens' ModelPackageContainerDefinition Prelude.Text
+modelPackageContainerDefinition_image :: Lens.Lens' ModelPackageContainerDefinition Core.Text
 modelPackageContainerDefinition_image = Lens.lens (\ModelPackageContainerDefinition' {image} -> image) (\s@ModelPackageContainerDefinition' {} a -> s {image = a} :: ModelPackageContainerDefinition)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ModelPackageContainerDefinition
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelPackageContainerDefinition"
       ( \x ->
           ModelPackageContainerDefinition'
-            Prelude.<$> (x Prelude..:? "ImageDigest")
-            Prelude.<*> (x Prelude..:? "ModelDataUrl")
-            Prelude.<*> (x Prelude..:? "ContainerHostname")
-            Prelude.<*> (x Prelude..:? "ProductId")
-            Prelude.<*> (x Prelude..: "Image")
+            Core.<$> (x Core..:? "ImageDigest")
+            Core.<*> (x Core..:? "ModelDataUrl")
+            Core.<*> (x Core..:? "ContainerHostname")
+            Core.<*> (x Core..:? "ProductId")
+            Core.<*> (x Core..: "Image")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ModelPackageContainerDefinition
 
-instance
-  Prelude.NFData
-    ModelPackageContainerDefinition
+instance Core.NFData ModelPackageContainerDefinition
 
-instance
-  Prelude.ToJSON
-    ModelPackageContainerDefinition
-  where
+instance Core.ToJSON ModelPackageContainerDefinition where
   toJSON ModelPackageContainerDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ImageDigest" Prelude..=) Prelude.<$> imageDigest,
-            ("ModelDataUrl" Prelude..=) Prelude.<$> modelDataUrl,
-            ("ContainerHostname" Prelude..=)
-              Prelude.<$> containerHostname,
-            ("ProductId" Prelude..=) Prelude.<$> productId,
-            Prelude.Just ("Image" Prelude..= image)
+    Core.object
+      ( Core.catMaybes
+          [ ("ImageDigest" Core..=) Core.<$> imageDigest,
+            ("ModelDataUrl" Core..=) Core.<$> modelDataUrl,
+            ("ContainerHostname" Core..=)
+              Core.<$> containerHostname,
+            ("ProductId" Core..=) Core.<$> productId,
+            Core.Just ("Image" Core..= image)
           ]
       )

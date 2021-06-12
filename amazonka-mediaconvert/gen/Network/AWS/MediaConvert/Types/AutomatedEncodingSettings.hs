@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.AutomatedEncodingSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AutomatedAbrSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Use automated encoding to have MediaConvert choose your encoding
 -- settings for you, based on characteristics of your input video.
@@ -33,9 +32,9 @@ data AutomatedEncodingSettings = AutomatedEncodingSettings'
     -- package for you automatically, based on characteristics of your input
     -- video. This feature optimizes video quality while minimizing the overall
     -- size of your ABR package.
-    abrSettings :: Prelude.Maybe AutomatedAbrSettings
+    abrSettings :: Core.Maybe AutomatedAbrSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutomatedEncodingSettings' with all optional fields omitted.
@@ -54,32 +53,32 @@ newAutomatedEncodingSettings ::
 newAutomatedEncodingSettings =
   AutomatedEncodingSettings'
     { abrSettings =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Use automated ABR to have MediaConvert set up the renditions in your ABR
 -- package for you automatically, based on characteristics of your input
 -- video. This feature optimizes video quality while minimizing the overall
 -- size of your ABR package.
-automatedEncodingSettings_abrSettings :: Lens.Lens' AutomatedEncodingSettings (Prelude.Maybe AutomatedAbrSettings)
+automatedEncodingSettings_abrSettings :: Lens.Lens' AutomatedEncodingSettings (Core.Maybe AutomatedAbrSettings)
 automatedEncodingSettings_abrSettings = Lens.lens (\AutomatedEncodingSettings' {abrSettings} -> abrSettings) (\s@AutomatedEncodingSettings' {} a -> s {abrSettings = a} :: AutomatedEncodingSettings)
 
-instance Prelude.FromJSON AutomatedEncodingSettings where
+instance Core.FromJSON AutomatedEncodingSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutomatedEncodingSettings"
       ( \x ->
           AutomatedEncodingSettings'
-            Prelude.<$> (x Prelude..:? "abrSettings")
+            Core.<$> (x Core..:? "abrSettings")
       )
 
-instance Prelude.Hashable AutomatedEncodingSettings
+instance Core.Hashable AutomatedEncodingSettings
 
-instance Prelude.NFData AutomatedEncodingSettings
+instance Core.NFData AutomatedEncodingSettings
 
-instance Prelude.ToJSON AutomatedEncodingSettings where
+instance Core.ToJSON AutomatedEncodingSettings where
   toJSON AutomatedEncodingSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("abrSettings" Prelude..=) Prelude.<$> abrSettings]
+    Core.object
+      ( Core.catMaybes
+          [("abrSettings" Core..=) Core.<$> abrSettings]
       )

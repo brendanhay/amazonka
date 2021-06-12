@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.Ebs where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes information used to set up an Amazon EBS volume specified in a
 -- block device mapping.
@@ -55,14 +54,14 @@ data Ebs = Ebs'
     -- in the /Amazon EC2 User Guide for Linux Instances/ and
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/key-policy-requirements-EBS-encryption.html Required CMK key policy for use with encrypted volumes>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    encrypted :: Prelude.Maybe Prelude.Bool,
+    encrypted :: Core.Maybe Core.Bool,
     -- | Indicates whether the volume is deleted on instance termination. For
     -- Amazon EC2 Auto Scaling, the default value is @true@.
-    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
+    deleteOnTermination :: Core.Maybe Core.Bool,
     -- | The snapshot ID of the volume to use.
     --
     -- You must specify either a @VolumeSize@ or a @SnapshotId@.
-    snapshotId :: Prelude.Maybe Prelude.Text,
+    snapshotId :: Core.Maybe Core.Text,
     -- | The volume type, which can be @standard@ for Magnetic, @io1@ for
     -- Provisioned IOPS SSD, @gp2@ for General Purpose SSD, @st1@ for
     -- Throughput Optimized HDD, or @sc1@ for Cold HDD. For more information,
@@ -71,7 +70,7 @@ data Ebs = Ebs'
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     --
     -- Valid Values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@
-    volumeType :: Prelude.Maybe Prelude.Text,
+    volumeType :: Core.Maybe Core.Text,
     -- | The volume size, in Gibibytes (GiB).
     --
     -- This can be a number from 1-1,024 for @standard@, 4-16,384 for @io1@,
@@ -85,7 +84,7 @@ data Ebs = Ebs'
     -- You must specify either a @VolumeSize@ or a @SnapshotId@. If you specify
     -- both @SnapshotId@ and @VolumeSize@, the volume size must be equal or
     -- greater than the size of the snapshot.
-    volumeSize :: Prelude.Maybe Prelude.Natural,
+    volumeSize :: Core.Maybe Core.Natural,
     -- | The number of I\/O operations per second (IOPS) to provision for the
     -- volume. The maximum ratio of IOPS to volume size (in GiB) is 50:1. For
     -- more information, see
@@ -94,9 +93,9 @@ data Ebs = Ebs'
     --
     -- Required when the volume type is @io1@. (Not used with @standard@,
     -- @gp2@, @st1@, or @sc1@ volumes.)
-    iops :: Prelude.Maybe Prelude.Natural
+    iops :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Ebs' with all optional fields omitted.
@@ -176,12 +175,12 @@ newEbs ::
   Ebs
 newEbs =
   Ebs'
-    { encrypted = Prelude.Nothing,
-      deleteOnTermination = Prelude.Nothing,
-      snapshotId = Prelude.Nothing,
-      volumeType = Prelude.Nothing,
-      volumeSize = Prelude.Nothing,
-      iops = Prelude.Nothing
+    { encrypted = Core.Nothing,
+      deleteOnTermination = Core.Nothing,
+      snapshotId = Core.Nothing,
+      volumeType = Core.Nothing,
+      volumeSize = Core.Nothing,
+      iops = Core.Nothing
     }
 
 -- | Specifies whether the volume should be encrypted. Encrypted EBS volumes
@@ -211,18 +210,18 @@ newEbs =
 -- in the /Amazon EC2 User Guide for Linux Instances/ and
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/key-policy-requirements-EBS-encryption.html Required CMK key policy for use with encrypted volumes>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-ebs_encrypted :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Bool)
+ebs_encrypted :: Lens.Lens' Ebs (Core.Maybe Core.Bool)
 ebs_encrypted = Lens.lens (\Ebs' {encrypted} -> encrypted) (\s@Ebs' {} a -> s {encrypted = a} :: Ebs)
 
 -- | Indicates whether the volume is deleted on instance termination. For
 -- Amazon EC2 Auto Scaling, the default value is @true@.
-ebs_deleteOnTermination :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Bool)
+ebs_deleteOnTermination :: Lens.Lens' Ebs (Core.Maybe Core.Bool)
 ebs_deleteOnTermination = Lens.lens (\Ebs' {deleteOnTermination} -> deleteOnTermination) (\s@Ebs' {} a -> s {deleteOnTermination = a} :: Ebs)
 
 -- | The snapshot ID of the volume to use.
 --
 -- You must specify either a @VolumeSize@ or a @SnapshotId@.
-ebs_snapshotId :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Text)
+ebs_snapshotId :: Lens.Lens' Ebs (Core.Maybe Core.Text)
 ebs_snapshotId = Lens.lens (\Ebs' {snapshotId} -> snapshotId) (\s@Ebs' {} a -> s {snapshotId = a} :: Ebs)
 
 -- | The volume type, which can be @standard@ for Magnetic, @io1@ for
@@ -233,7 +232,7 @@ ebs_snapshotId = Lens.lens (\Ebs' {snapshotId} -> snapshotId) (\s@Ebs' {} a -> s
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- Valid Values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@
-ebs_volumeType :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Text)
+ebs_volumeType :: Lens.Lens' Ebs (Core.Maybe Core.Text)
 ebs_volumeType = Lens.lens (\Ebs' {volumeType} -> volumeType) (\s@Ebs' {} a -> s {volumeType = a} :: Ebs)
 
 -- | The volume size, in Gibibytes (GiB).
@@ -249,7 +248,7 @@ ebs_volumeType = Lens.lens (\Ebs' {volumeType} -> volumeType) (\s@Ebs' {} a -> s
 -- You must specify either a @VolumeSize@ or a @SnapshotId@. If you specify
 -- both @SnapshotId@ and @VolumeSize@, the volume size must be equal or
 -- greater than the size of the snapshot.
-ebs_volumeSize :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Natural)
+ebs_volumeSize :: Lens.Lens' Ebs (Core.Maybe Core.Natural)
 ebs_volumeSize = Lens.lens (\Ebs' {volumeSize} -> volumeSize) (\s@Ebs' {} a -> s {volumeSize = a} :: Ebs)
 
 -- | The number of I\/O operations per second (IOPS) to provision for the
@@ -260,30 +259,30 @@ ebs_volumeSize = Lens.lens (\Ebs' {volumeSize} -> volumeSize) (\s@Ebs' {} a -> s
 --
 -- Required when the volume type is @io1@. (Not used with @standard@,
 -- @gp2@, @st1@, or @sc1@ volumes.)
-ebs_iops :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Natural)
+ebs_iops :: Lens.Lens' Ebs (Core.Maybe Core.Natural)
 ebs_iops = Lens.lens (\Ebs' {iops} -> iops) (\s@Ebs' {} a -> s {iops = a} :: Ebs)
 
-instance Prelude.FromXML Ebs where
+instance Core.FromXML Ebs where
   parseXML x =
     Ebs'
-      Prelude.<$> (x Prelude..@? "Encrypted")
-      Prelude.<*> (x Prelude..@? "DeleteOnTermination")
-      Prelude.<*> (x Prelude..@? "SnapshotId")
-      Prelude.<*> (x Prelude..@? "VolumeType")
-      Prelude.<*> (x Prelude..@? "VolumeSize")
-      Prelude.<*> (x Prelude..@? "Iops")
+      Core.<$> (x Core..@? "Encrypted")
+      Core.<*> (x Core..@? "DeleteOnTermination")
+      Core.<*> (x Core..@? "SnapshotId")
+      Core.<*> (x Core..@? "VolumeType")
+      Core.<*> (x Core..@? "VolumeSize")
+      Core.<*> (x Core..@? "Iops")
 
-instance Prelude.Hashable Ebs
+instance Core.Hashable Ebs
 
-instance Prelude.NFData Ebs
+instance Core.NFData Ebs
 
-instance Prelude.ToQuery Ebs where
+instance Core.ToQuery Ebs where
   toQuery Ebs' {..} =
-    Prelude.mconcat
-      [ "Encrypted" Prelude.=: encrypted,
-        "DeleteOnTermination" Prelude.=: deleteOnTermination,
-        "SnapshotId" Prelude.=: snapshotId,
-        "VolumeType" Prelude.=: volumeType,
-        "VolumeSize" Prelude.=: volumeSize,
-        "Iops" Prelude.=: iops
+    Core.mconcat
+      [ "Encrypted" Core.=: encrypted,
+        "DeleteOnTermination" Core.=: deleteOnTermination,
+        "SnapshotId" Core.=: snapshotId,
+        "VolumeType" Core.=: volumeType,
+        "VolumeSize" Core.=: volumeSize,
+        "Iops" Core.=: iops
       ]

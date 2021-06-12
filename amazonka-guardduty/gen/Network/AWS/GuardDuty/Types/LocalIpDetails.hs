@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.LocalIpDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the local IP address of the connection.
 --
 -- /See:/ 'newLocalIpDetails' smart constructor.
 data LocalIpDetails = LocalIpDetails'
   { -- | The IPv4 local address of the connection.
-    ipAddressV4 :: Prelude.Maybe Prelude.Text
+    ipAddressV4 :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LocalIpDetails' with all optional fields omitted.
@@ -44,21 +43,20 @@ data LocalIpDetails = LocalIpDetails'
 newLocalIpDetails ::
   LocalIpDetails
 newLocalIpDetails =
-  LocalIpDetails' {ipAddressV4 = Prelude.Nothing}
+  LocalIpDetails' {ipAddressV4 = Core.Nothing}
 
 -- | The IPv4 local address of the connection.
-localIpDetails_ipAddressV4 :: Lens.Lens' LocalIpDetails (Prelude.Maybe Prelude.Text)
+localIpDetails_ipAddressV4 :: Lens.Lens' LocalIpDetails (Core.Maybe Core.Text)
 localIpDetails_ipAddressV4 = Lens.lens (\LocalIpDetails' {ipAddressV4} -> ipAddressV4) (\s@LocalIpDetails' {} a -> s {ipAddressV4 = a} :: LocalIpDetails)
 
-instance Prelude.FromJSON LocalIpDetails where
+instance Core.FromJSON LocalIpDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LocalIpDetails"
       ( \x ->
-          LocalIpDetails'
-            Prelude.<$> (x Prelude..:? "ipAddressV4")
+          LocalIpDetails' Core.<$> (x Core..:? "ipAddressV4")
       )
 
-instance Prelude.Hashable LocalIpDetails
+instance Core.Hashable LocalIpDetails
 
-instance Prelude.NFData LocalIpDetails
+instance Core.NFData LocalIpDetails

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AppSync.Types.CachingConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The caching configuration for a resolver that has caching enabled.
 --
@@ -30,14 +29,14 @@ data CachingConfig = CachingConfig'
   { -- | The TTL in seconds for a resolver that has caching enabled.
     --
     -- Valid values are between 1 and 3600 seconds.
-    ttl :: Prelude.Maybe Prelude.Integer,
+    ttl :: Core.Maybe Core.Integer,
     -- | The caching keys for a resolver that has caching enabled.
     --
     -- Valid values are entries from the @$context.arguments@,
     -- @$context.source@, and @$context.identity@ maps.
-    cachingKeys :: Prelude.Maybe [Prelude.Text]
+    cachingKeys :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CachingConfig' with all optional fields omitted.
@@ -59,44 +58,42 @@ newCachingConfig ::
   CachingConfig
 newCachingConfig =
   CachingConfig'
-    { ttl = Prelude.Nothing,
-      cachingKeys = Prelude.Nothing
+    { ttl = Core.Nothing,
+      cachingKeys = Core.Nothing
     }
 
 -- | The TTL in seconds for a resolver that has caching enabled.
 --
 -- Valid values are between 1 and 3600 seconds.
-cachingConfig_ttl :: Lens.Lens' CachingConfig (Prelude.Maybe Prelude.Integer)
+cachingConfig_ttl :: Lens.Lens' CachingConfig (Core.Maybe Core.Integer)
 cachingConfig_ttl = Lens.lens (\CachingConfig' {ttl} -> ttl) (\s@CachingConfig' {} a -> s {ttl = a} :: CachingConfig)
 
 -- | The caching keys for a resolver that has caching enabled.
 --
 -- Valid values are entries from the @$context.arguments@,
 -- @$context.source@, and @$context.identity@ maps.
-cachingConfig_cachingKeys :: Lens.Lens' CachingConfig (Prelude.Maybe [Prelude.Text])
-cachingConfig_cachingKeys = Lens.lens (\CachingConfig' {cachingKeys} -> cachingKeys) (\s@CachingConfig' {} a -> s {cachingKeys = a} :: CachingConfig) Prelude.. Lens.mapping Prelude._Coerce
+cachingConfig_cachingKeys :: Lens.Lens' CachingConfig (Core.Maybe [Core.Text])
+cachingConfig_cachingKeys = Lens.lens (\CachingConfig' {cachingKeys} -> cachingKeys) (\s@CachingConfig' {} a -> s {cachingKeys = a} :: CachingConfig) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON CachingConfig where
+instance Core.FromJSON CachingConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CachingConfig"
       ( \x ->
           CachingConfig'
-            Prelude.<$> (x Prelude..:? "ttl")
-            Prelude.<*> ( x Prelude..:? "cachingKeys"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ttl")
+            Core.<*> (x Core..:? "cachingKeys" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable CachingConfig
+instance Core.Hashable CachingConfig
 
-instance Prelude.NFData CachingConfig
+instance Core.NFData CachingConfig
 
-instance Prelude.ToJSON CachingConfig where
+instance Core.ToJSON CachingConfig where
   toJSON CachingConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ttl" Prelude..=) Prelude.<$> ttl,
-            ("cachingKeys" Prelude..=) Prelude.<$> cachingKeys
+    Core.object
+      ( Core.catMaybes
+          [ ("ttl" Core..=) Core.<$> ttl,
+            ("cachingKeys" Core..=) Core.<$> cachingKeys
           ]
       )

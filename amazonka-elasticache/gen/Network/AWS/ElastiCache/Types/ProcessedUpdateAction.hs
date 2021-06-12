@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.ProcessedUpdateAction where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.UpdateActionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Update action that has been processed for the corresponding apply\/stop
 -- request
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newProcessedUpdateAction' smart constructor.
 data ProcessedUpdateAction = ProcessedUpdateAction'
   { -- | The ID of the replication group
-    replicationGroupId :: Prelude.Maybe Prelude.Text,
+    replicationGroupId :: Core.Maybe Core.Text,
     -- | The status of the update action on the Redis cluster
-    updateActionStatus :: Prelude.Maybe UpdateActionStatus,
+    updateActionStatus :: Core.Maybe UpdateActionStatus,
     -- | The ID of the cache cluster
-    cacheClusterId :: Prelude.Maybe Prelude.Text,
+    cacheClusterId :: Core.Maybe Core.Text,
     -- | The unique ID of the service update
-    serviceUpdateName :: Prelude.Maybe Prelude.Text
+    serviceUpdateName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProcessedUpdateAction' with all optional fields omitted.
@@ -60,36 +59,36 @@ newProcessedUpdateAction ::
 newProcessedUpdateAction =
   ProcessedUpdateAction'
     { replicationGroupId =
-        Prelude.Nothing,
-      updateActionStatus = Prelude.Nothing,
-      cacheClusterId = Prelude.Nothing,
-      serviceUpdateName = Prelude.Nothing
+        Core.Nothing,
+      updateActionStatus = Core.Nothing,
+      cacheClusterId = Core.Nothing,
+      serviceUpdateName = Core.Nothing
     }
 
 -- | The ID of the replication group
-processedUpdateAction_replicationGroupId :: Lens.Lens' ProcessedUpdateAction (Prelude.Maybe Prelude.Text)
+processedUpdateAction_replicationGroupId :: Lens.Lens' ProcessedUpdateAction (Core.Maybe Core.Text)
 processedUpdateAction_replicationGroupId = Lens.lens (\ProcessedUpdateAction' {replicationGroupId} -> replicationGroupId) (\s@ProcessedUpdateAction' {} a -> s {replicationGroupId = a} :: ProcessedUpdateAction)
 
 -- | The status of the update action on the Redis cluster
-processedUpdateAction_updateActionStatus :: Lens.Lens' ProcessedUpdateAction (Prelude.Maybe UpdateActionStatus)
+processedUpdateAction_updateActionStatus :: Lens.Lens' ProcessedUpdateAction (Core.Maybe UpdateActionStatus)
 processedUpdateAction_updateActionStatus = Lens.lens (\ProcessedUpdateAction' {updateActionStatus} -> updateActionStatus) (\s@ProcessedUpdateAction' {} a -> s {updateActionStatus = a} :: ProcessedUpdateAction)
 
 -- | The ID of the cache cluster
-processedUpdateAction_cacheClusterId :: Lens.Lens' ProcessedUpdateAction (Prelude.Maybe Prelude.Text)
+processedUpdateAction_cacheClusterId :: Lens.Lens' ProcessedUpdateAction (Core.Maybe Core.Text)
 processedUpdateAction_cacheClusterId = Lens.lens (\ProcessedUpdateAction' {cacheClusterId} -> cacheClusterId) (\s@ProcessedUpdateAction' {} a -> s {cacheClusterId = a} :: ProcessedUpdateAction)
 
 -- | The unique ID of the service update
-processedUpdateAction_serviceUpdateName :: Lens.Lens' ProcessedUpdateAction (Prelude.Maybe Prelude.Text)
+processedUpdateAction_serviceUpdateName :: Lens.Lens' ProcessedUpdateAction (Core.Maybe Core.Text)
 processedUpdateAction_serviceUpdateName = Lens.lens (\ProcessedUpdateAction' {serviceUpdateName} -> serviceUpdateName) (\s@ProcessedUpdateAction' {} a -> s {serviceUpdateName = a} :: ProcessedUpdateAction)
 
-instance Prelude.FromXML ProcessedUpdateAction where
+instance Core.FromXML ProcessedUpdateAction where
   parseXML x =
     ProcessedUpdateAction'
-      Prelude.<$> (x Prelude..@? "ReplicationGroupId")
-      Prelude.<*> (x Prelude..@? "UpdateActionStatus")
-      Prelude.<*> (x Prelude..@? "CacheClusterId")
-      Prelude.<*> (x Prelude..@? "ServiceUpdateName")
+      Core.<$> (x Core..@? "ReplicationGroupId")
+      Core.<*> (x Core..@? "UpdateActionStatus")
+      Core.<*> (x Core..@? "CacheClusterId")
+      Core.<*> (x Core..@? "ServiceUpdateName")
 
-instance Prelude.Hashable ProcessedUpdateAction
+instance Core.Hashable ProcessedUpdateAction
 
-instance Prelude.NFData ProcessedUpdateAction
+instance Core.NFData ProcessedUpdateAction

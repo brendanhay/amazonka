@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.UniqueProblem where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.Problem
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A collection of one or more problems, grouped by their result.
 --
 -- /See:/ 'newUniqueProblem' smart constructor.
 data UniqueProblem = UniqueProblem'
   { -- | A message about the unique problems\' result.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | Information about the problems.
-    problems :: Prelude.Maybe [Problem]
+    problems :: Core.Maybe [Problem]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UniqueProblem' with all optional fields omitted.
@@ -50,30 +49,28 @@ newUniqueProblem ::
   UniqueProblem
 newUniqueProblem =
   UniqueProblem'
-    { message = Prelude.Nothing,
-      problems = Prelude.Nothing
+    { message = Core.Nothing,
+      problems = Core.Nothing
     }
 
 -- | A message about the unique problems\' result.
-uniqueProblem_message :: Lens.Lens' UniqueProblem (Prelude.Maybe Prelude.Text)
+uniqueProblem_message :: Lens.Lens' UniqueProblem (Core.Maybe Core.Text)
 uniqueProblem_message = Lens.lens (\UniqueProblem' {message} -> message) (\s@UniqueProblem' {} a -> s {message = a} :: UniqueProblem)
 
 -- | Information about the problems.
-uniqueProblem_problems :: Lens.Lens' UniqueProblem (Prelude.Maybe [Problem])
-uniqueProblem_problems = Lens.lens (\UniqueProblem' {problems} -> problems) (\s@UniqueProblem' {} a -> s {problems = a} :: UniqueProblem) Prelude.. Lens.mapping Prelude._Coerce
+uniqueProblem_problems :: Lens.Lens' UniqueProblem (Core.Maybe [Problem])
+uniqueProblem_problems = Lens.lens (\UniqueProblem' {problems} -> problems) (\s@UniqueProblem' {} a -> s {problems = a} :: UniqueProblem) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON UniqueProblem where
+instance Core.FromJSON UniqueProblem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UniqueProblem"
       ( \x ->
           UniqueProblem'
-            Prelude.<$> (x Prelude..:? "message")
-            Prelude.<*> ( x Prelude..:? "problems"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "message")
+            Core.<*> (x Core..:? "problems" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable UniqueProblem
+instance Core.Hashable UniqueProblem
 
-instance Prelude.NFData UniqueProblem
+instance Core.NFData UniqueProblem

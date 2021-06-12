@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.AccelerationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AccelerationMode
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Accelerated transcoding can significantly speed up jobs with long,
 -- visually complex content.
@@ -33,7 +32,7 @@ data AccelerationSettings = AccelerationSettings'
     -- accelerated transcoding.
     mode :: AccelerationMode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccelerationSettings' with all optional fields omitted.
@@ -57,22 +56,19 @@ newAccelerationSettings pMode_ =
 accelerationSettings_mode :: Lens.Lens' AccelerationSettings AccelerationMode
 accelerationSettings_mode = Lens.lens (\AccelerationSettings' {mode} -> mode) (\s@AccelerationSettings' {} a -> s {mode = a} :: AccelerationSettings)
 
-instance Prelude.FromJSON AccelerationSettings where
+instance Core.FromJSON AccelerationSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AccelerationSettings"
       ( \x ->
-          AccelerationSettings'
-            Prelude.<$> (x Prelude..: "mode")
+          AccelerationSettings' Core.<$> (x Core..: "mode")
       )
 
-instance Prelude.Hashable AccelerationSettings
+instance Core.Hashable AccelerationSettings
 
-instance Prelude.NFData AccelerationSettings
+instance Core.NFData AccelerationSettings
 
-instance Prelude.ToJSON AccelerationSettings where
+instance Core.ToJSON AccelerationSettings where
   toJSON AccelerationSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("mode" Prelude..= mode)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("mode" Core..= mode)])

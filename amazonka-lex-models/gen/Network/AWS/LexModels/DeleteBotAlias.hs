@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,20 +44,20 @@ module Network.AWS.LexModels.DeleteBotAlias
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteBotAlias' smart constructor.
 data DeleteBotAlias = DeleteBotAlias'
   { -- | The name of the alias to delete. The name is case sensitive.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The name of the bot that the alias points to.
-    botName :: Prelude.Text
+    botName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBotAlias' with all optional fields omitted.
@@ -73,59 +72,59 @@ data DeleteBotAlias = DeleteBotAlias'
 -- 'botName', 'deleteBotAlias_botName' - The name of the bot that the alias points to.
 newDeleteBotAlias ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'botName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBotAlias
 newDeleteBotAlias pName_ pBotName_ =
   DeleteBotAlias' {name = pName_, botName = pBotName_}
 
 -- | The name of the alias to delete. The name is case sensitive.
-deleteBotAlias_name :: Lens.Lens' DeleteBotAlias Prelude.Text
+deleteBotAlias_name :: Lens.Lens' DeleteBotAlias Core.Text
 deleteBotAlias_name = Lens.lens (\DeleteBotAlias' {name} -> name) (\s@DeleteBotAlias' {} a -> s {name = a} :: DeleteBotAlias)
 
 -- | The name of the bot that the alias points to.
-deleteBotAlias_botName :: Lens.Lens' DeleteBotAlias Prelude.Text
+deleteBotAlias_botName :: Lens.Lens' DeleteBotAlias Core.Text
 deleteBotAlias_botName = Lens.lens (\DeleteBotAlias' {botName} -> botName) (\s@DeleteBotAlias' {} a -> s {botName = a} :: DeleteBotAlias)
 
-instance Prelude.AWSRequest DeleteBotAlias where
-  type Rs DeleteBotAlias = DeleteBotAliasResponse
+instance Core.AWSRequest DeleteBotAlias where
+  type
+    AWSResponse DeleteBotAlias =
+      DeleteBotAliasResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteBotAliasResponse'
 
-instance Prelude.Hashable DeleteBotAlias
+instance Core.Hashable DeleteBotAlias
 
-instance Prelude.NFData DeleteBotAlias
+instance Core.NFData DeleteBotAlias
 
-instance Prelude.ToHeaders DeleteBotAlias where
+instance Core.ToHeaders DeleteBotAlias where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteBotAlias where
+instance Core.ToPath DeleteBotAlias where
   toPath DeleteBotAlias' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/bots/",
-        Prelude.toBS botName,
+        Core.toBS botName,
         "/aliases/",
-        Prelude.toBS name
+        Core.toBS name
       ]
 
-instance Prelude.ToQuery DeleteBotAlias where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteBotAlias where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteBotAliasResponse' smart constructor.
 data DeleteBotAliasResponse = DeleteBotAliasResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBotAliasResponse' with all optional fields omitted.
@@ -135,4 +134,4 @@ newDeleteBotAliasResponse ::
   DeleteBotAliasResponse
 newDeleteBotAliasResponse = DeleteBotAliasResponse'
 
-instance Prelude.NFData DeleteBotAliasResponse
+instance Core.NFData DeleteBotAliasResponse

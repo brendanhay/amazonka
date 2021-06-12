@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Athena.UpdateWorkGroup
 where
 
 import Network.AWS.Athena.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +52,15 @@ import qualified Network.AWS.Response as Response
 data UpdateWorkGroup = UpdateWorkGroup'
   { -- | The workgroup configuration that will be updated for the given
     -- workgroup.
-    configurationUpdates :: Prelude.Maybe WorkGroupConfigurationUpdates,
+    configurationUpdates :: Core.Maybe WorkGroupConfigurationUpdates,
     -- | The workgroup state that will be updated for the given workgroup.
-    state :: Prelude.Maybe WorkGroupState,
+    state :: Core.Maybe WorkGroupState,
     -- | The workgroup description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The specified workgroup that will be updated.
-    workGroup :: Prelude.Text
+    workGroup :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateWorkGroup' with all optional fields omitted.
@@ -81,87 +80,85 @@ data UpdateWorkGroup = UpdateWorkGroup'
 -- 'workGroup', 'updateWorkGroup_workGroup' - The specified workgroup that will be updated.
 newUpdateWorkGroup ::
   -- | 'workGroup'
-  Prelude.Text ->
+  Core.Text ->
   UpdateWorkGroup
 newUpdateWorkGroup pWorkGroup_ =
   UpdateWorkGroup'
     { configurationUpdates =
-        Prelude.Nothing,
-      state = Prelude.Nothing,
-      description = Prelude.Nothing,
+        Core.Nothing,
+      state = Core.Nothing,
+      description = Core.Nothing,
       workGroup = pWorkGroup_
     }
 
 -- | The workgroup configuration that will be updated for the given
 -- workgroup.
-updateWorkGroup_configurationUpdates :: Lens.Lens' UpdateWorkGroup (Prelude.Maybe WorkGroupConfigurationUpdates)
+updateWorkGroup_configurationUpdates :: Lens.Lens' UpdateWorkGroup (Core.Maybe WorkGroupConfigurationUpdates)
 updateWorkGroup_configurationUpdates = Lens.lens (\UpdateWorkGroup' {configurationUpdates} -> configurationUpdates) (\s@UpdateWorkGroup' {} a -> s {configurationUpdates = a} :: UpdateWorkGroup)
 
 -- | The workgroup state that will be updated for the given workgroup.
-updateWorkGroup_state :: Lens.Lens' UpdateWorkGroup (Prelude.Maybe WorkGroupState)
+updateWorkGroup_state :: Lens.Lens' UpdateWorkGroup (Core.Maybe WorkGroupState)
 updateWorkGroup_state = Lens.lens (\UpdateWorkGroup' {state} -> state) (\s@UpdateWorkGroup' {} a -> s {state = a} :: UpdateWorkGroup)
 
 -- | The workgroup description.
-updateWorkGroup_description :: Lens.Lens' UpdateWorkGroup (Prelude.Maybe Prelude.Text)
+updateWorkGroup_description :: Lens.Lens' UpdateWorkGroup (Core.Maybe Core.Text)
 updateWorkGroup_description = Lens.lens (\UpdateWorkGroup' {description} -> description) (\s@UpdateWorkGroup' {} a -> s {description = a} :: UpdateWorkGroup)
 
 -- | The specified workgroup that will be updated.
-updateWorkGroup_workGroup :: Lens.Lens' UpdateWorkGroup Prelude.Text
+updateWorkGroup_workGroup :: Lens.Lens' UpdateWorkGroup Core.Text
 updateWorkGroup_workGroup = Lens.lens (\UpdateWorkGroup' {workGroup} -> workGroup) (\s@UpdateWorkGroup' {} a -> s {workGroup = a} :: UpdateWorkGroup)
 
-instance Prelude.AWSRequest UpdateWorkGroup where
-  type Rs UpdateWorkGroup = UpdateWorkGroupResponse
+instance Core.AWSRequest UpdateWorkGroup where
+  type
+    AWSResponse UpdateWorkGroup =
+      UpdateWorkGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateWorkGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateWorkGroup
+instance Core.Hashable UpdateWorkGroup
 
-instance Prelude.NFData UpdateWorkGroup
+instance Core.NFData UpdateWorkGroup
 
-instance Prelude.ToHeaders UpdateWorkGroup where
+instance Core.ToHeaders UpdateWorkGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonAthena.UpdateWorkGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonAthena.UpdateWorkGroup" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateWorkGroup where
+instance Core.ToJSON UpdateWorkGroup where
   toJSON UpdateWorkGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ConfigurationUpdates" Prelude..=)
-              Prelude.<$> configurationUpdates,
-            ("State" Prelude..=) Prelude.<$> state,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("WorkGroup" Prelude..= workGroup)
+    Core.object
+      ( Core.catMaybes
+          [ ("ConfigurationUpdates" Core..=)
+              Core.<$> configurationUpdates,
+            ("State" Core..=) Core.<$> state,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("WorkGroup" Core..= workGroup)
           ]
       )
 
-instance Prelude.ToPath UpdateWorkGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateWorkGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateWorkGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateWorkGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateWorkGroupResponse' smart constructor.
 data UpdateWorkGroupResponse = UpdateWorkGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateWorkGroupResponse' with all optional fields omitted.
@@ -174,13 +171,13 @@ data UpdateWorkGroupResponse = UpdateWorkGroupResponse'
 -- 'httpStatus', 'updateWorkGroupResponse_httpStatus' - The response's http status code.
 newUpdateWorkGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateWorkGroupResponse
 newUpdateWorkGroupResponse pHttpStatus_ =
   UpdateWorkGroupResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateWorkGroupResponse_httpStatus :: Lens.Lens' UpdateWorkGroupResponse Prelude.Int
+updateWorkGroupResponse_httpStatus :: Lens.Lens' UpdateWorkGroupResponse Core.Int
 updateWorkGroupResponse_httpStatus = Lens.lens (\UpdateWorkGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateWorkGroupResponse' {} a -> s {httpStatus = a} :: UpdateWorkGroupResponse)
 
-instance Prelude.NFData UpdateWorkGroupResponse
+instance Core.NFData UpdateWorkGroupResponse

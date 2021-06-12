@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TrafficMirrorPortRange where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Traffic Mirror port range.
 --
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data TrafficMirrorPortRange = TrafficMirrorPortRange'
   { -- | The start of the Traffic Mirror port range. This applies to the TCP and
     -- UDP protocols.
-    fromPort :: Prelude.Maybe Prelude.Int,
+    fromPort :: Core.Maybe Core.Int,
     -- | The end of the Traffic Mirror port range. This applies to the TCP and
     -- UDP protocols.
-    toPort :: Prelude.Maybe Prelude.Int
+    toPort :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrafficMirrorPortRange' with all optional fields omitted.
@@ -54,26 +53,26 @@ newTrafficMirrorPortRange ::
   TrafficMirrorPortRange
 newTrafficMirrorPortRange =
   TrafficMirrorPortRange'
-    { fromPort = Prelude.Nothing,
-      toPort = Prelude.Nothing
+    { fromPort = Core.Nothing,
+      toPort = Core.Nothing
     }
 
 -- | The start of the Traffic Mirror port range. This applies to the TCP and
 -- UDP protocols.
-trafficMirrorPortRange_fromPort :: Lens.Lens' TrafficMirrorPortRange (Prelude.Maybe Prelude.Int)
+trafficMirrorPortRange_fromPort :: Lens.Lens' TrafficMirrorPortRange (Core.Maybe Core.Int)
 trafficMirrorPortRange_fromPort = Lens.lens (\TrafficMirrorPortRange' {fromPort} -> fromPort) (\s@TrafficMirrorPortRange' {} a -> s {fromPort = a} :: TrafficMirrorPortRange)
 
 -- | The end of the Traffic Mirror port range. This applies to the TCP and
 -- UDP protocols.
-trafficMirrorPortRange_toPort :: Lens.Lens' TrafficMirrorPortRange (Prelude.Maybe Prelude.Int)
+trafficMirrorPortRange_toPort :: Lens.Lens' TrafficMirrorPortRange (Core.Maybe Core.Int)
 trafficMirrorPortRange_toPort = Lens.lens (\TrafficMirrorPortRange' {toPort} -> toPort) (\s@TrafficMirrorPortRange' {} a -> s {toPort = a} :: TrafficMirrorPortRange)
 
-instance Prelude.FromXML TrafficMirrorPortRange where
+instance Core.FromXML TrafficMirrorPortRange where
   parseXML x =
     TrafficMirrorPortRange'
-      Prelude.<$> (x Prelude..@? "fromPort")
-      Prelude.<*> (x Prelude..@? "toPort")
+      Core.<$> (x Core..@? "fromPort")
+      Core.<*> (x Core..@? "toPort")
 
-instance Prelude.Hashable TrafficMirrorPortRange
+instance Core.Hashable TrafficMirrorPortRange
 
-instance Prelude.NFData TrafficMirrorPortRange
+instance Core.NFData TrafficMirrorPortRange

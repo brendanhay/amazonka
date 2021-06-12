@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,18 +41,18 @@ module Network.AWS.OpsWorks.StartStack
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartStack' smart constructor.
 data StartStack = StartStack'
   { -- | The stack ID.
-    stackId :: Prelude.Text
+    stackId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartStack' with all optional fields omitted.
@@ -66,57 +65,53 @@ data StartStack = StartStack'
 -- 'stackId', 'startStack_stackId' - The stack ID.
 newStartStack ::
   -- | 'stackId'
-  Prelude.Text ->
+  Core.Text ->
   StartStack
 newStartStack pStackId_ =
   StartStack' {stackId = pStackId_}
 
 -- | The stack ID.
-startStack_stackId :: Lens.Lens' StartStack Prelude.Text
+startStack_stackId :: Lens.Lens' StartStack Core.Text
 startStack_stackId = Lens.lens (\StartStack' {stackId} -> stackId) (\s@StartStack' {} a -> s {stackId = a} :: StartStack)
 
-instance Prelude.AWSRequest StartStack where
-  type Rs StartStack = StartStackResponse
+instance Core.AWSRequest StartStack where
+  type AWSResponse StartStack = StartStackResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull StartStackResponse'
 
-instance Prelude.Hashable StartStack
+instance Core.Hashable StartStack
 
-instance Prelude.NFData StartStack
+instance Core.NFData StartStack
 
-instance Prelude.ToHeaders StartStack where
+instance Core.ToHeaders StartStack where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.StartStack" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("OpsWorks_20130218.StartStack" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartStack where
+instance Core.ToJSON StartStack where
   toJSON StartStack' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("StackId" Prelude..= stackId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("StackId" Core..= stackId)]
       )
 
-instance Prelude.ToPath StartStack where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartStack where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartStack where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartStack where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartStackResponse' smart constructor.
 data StartStackResponse = StartStackResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartStackResponse' with all optional fields omitted.
@@ -126,4 +121,4 @@ newStartStackResponse ::
   StartStackResponse
 newStartStackResponse = StartStackResponse'
 
-instance Prelude.NFData StartStackResponse
+instance Core.NFData StartStackResponse

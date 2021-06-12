@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DeltaTime where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to limit data to that which has arrived since the last execution of
 -- the action.
@@ -37,13 +36,13 @@ data DeltaTime = DeltaTime'
     -- timeframe. Otherwise, missed message data would be excluded from
     -- processing during the next timeframe too, because its timestamp places
     -- it within the previous timeframe.
-    offsetSeconds :: Prelude.Int,
+    offsetSeconds :: Core.Int,
     -- | An expression by which the time of the message data might be determined.
     -- This can be the name of a timestamp field or a SQL expression that is
     -- used to derive the time the message data was generated.
-    timeExpression :: Prelude.Text
+    timeExpression :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeltaTime' with all optional fields omitted.
@@ -68,9 +67,9 @@ data DeltaTime = DeltaTime'
 -- used to derive the time the message data was generated.
 newDeltaTime ::
   -- | 'offsetSeconds'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'timeExpression'
-  Prelude.Text ->
+  Core.Text ->
   DeltaTime
 newDeltaTime pOffsetSeconds_ pTimeExpression_ =
   DeltaTime'
@@ -87,36 +86,34 @@ newDeltaTime pOffsetSeconds_ pTimeExpression_ =
 -- timeframe. Otherwise, missed message data would be excluded from
 -- processing during the next timeframe too, because its timestamp places
 -- it within the previous timeframe.
-deltaTime_offsetSeconds :: Lens.Lens' DeltaTime Prelude.Int
+deltaTime_offsetSeconds :: Lens.Lens' DeltaTime Core.Int
 deltaTime_offsetSeconds = Lens.lens (\DeltaTime' {offsetSeconds} -> offsetSeconds) (\s@DeltaTime' {} a -> s {offsetSeconds = a} :: DeltaTime)
 
 -- | An expression by which the time of the message data might be determined.
 -- This can be the name of a timestamp field or a SQL expression that is
 -- used to derive the time the message data was generated.
-deltaTime_timeExpression :: Lens.Lens' DeltaTime Prelude.Text
+deltaTime_timeExpression :: Lens.Lens' DeltaTime Core.Text
 deltaTime_timeExpression = Lens.lens (\DeltaTime' {timeExpression} -> timeExpression) (\s@DeltaTime' {} a -> s {timeExpression = a} :: DeltaTime)
 
-instance Prelude.FromJSON DeltaTime where
+instance Core.FromJSON DeltaTime where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeltaTime"
       ( \x ->
           DeltaTime'
-            Prelude.<$> (x Prelude..: "offsetSeconds")
-            Prelude.<*> (x Prelude..: "timeExpression")
+            Core.<$> (x Core..: "offsetSeconds")
+            Core.<*> (x Core..: "timeExpression")
       )
 
-instance Prelude.Hashable DeltaTime
+instance Core.Hashable DeltaTime
 
-instance Prelude.NFData DeltaTime
+instance Core.NFData DeltaTime
 
-instance Prelude.ToJSON DeltaTime where
+instance Core.ToJSON DeltaTime where
   toJSON DeltaTime' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("offsetSeconds" Prelude..= offsetSeconds),
-            Prelude.Just
-              ("timeExpression" Prelude..= timeExpression)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("offsetSeconds" Core..= offsetSeconds),
+            Core.Just ("timeExpression" Core..= timeExpression)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ResourceGroups.Types.QueryError where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroups.Types.QueryErrorCode
 
 -- | A two-part error structure that can occur in @ListGroupResources@ or
@@ -39,12 +38,12 @@ data QueryError = QueryError'
     -- For @CLOUDFORMATION_STACK_INACTIVE@, the message typically states that
     -- the CloudFormation stack has a status that is not (or no longer) active,
     -- such as @CREATE_FAILED@.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and
     -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
-    errorCode :: Prelude.Maybe QueryErrorCode
+    errorCode :: Core.Maybe QueryErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryError' with all optional fields omitted.
@@ -66,8 +65,8 @@ newQueryError ::
   QueryError
 newQueryError =
   QueryError'
-    { message = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { message = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | A message that explains the @ErrorCode@ value. Messages might state that
@@ -75,24 +74,24 @@ newQueryError =
 -- For @CLOUDFORMATION_STACK_INACTIVE@, the message typically states that
 -- the CloudFormation stack has a status that is not (or no longer) active,
 -- such as @CREATE_FAILED@.
-queryError_message :: Lens.Lens' QueryError (Prelude.Maybe Prelude.Text)
+queryError_message :: Lens.Lens' QueryError (Core.Maybe Core.Text)
 queryError_message = Lens.lens (\QueryError' {message} -> message) (\s@QueryError' {} a -> s {message = a} :: QueryError)
 
 -- | Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and
 -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
-queryError_errorCode :: Lens.Lens' QueryError (Prelude.Maybe QueryErrorCode)
+queryError_errorCode :: Lens.Lens' QueryError (Core.Maybe QueryErrorCode)
 queryError_errorCode = Lens.lens (\QueryError' {errorCode} -> errorCode) (\s@QueryError' {} a -> s {errorCode = a} :: QueryError)
 
-instance Prelude.FromJSON QueryError where
+instance Core.FromJSON QueryError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "QueryError"
       ( \x ->
           QueryError'
-            Prelude.<$> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "Message")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable QueryError
+instance Core.Hashable QueryError
 
-instance Prelude.NFData QueryError
+instance Core.NFData QueryError

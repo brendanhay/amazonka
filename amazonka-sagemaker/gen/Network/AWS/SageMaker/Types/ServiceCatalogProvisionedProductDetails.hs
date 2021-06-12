@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ServiceCatalogProvisionedProductDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of a provisioned service catalog product. For information about
 -- service catalog, see
@@ -53,11 +52,11 @@ data ServiceCatalogProvisionedProductDetails = ServiceCatalogProvisionedProductD
     --     been created. After reviewing the list of resources to be created,
     --     execute the plan. Wait for an AVAILABLE status before performing
     --     operations.
-    provisionedProductStatusMessage :: Prelude.Maybe Prelude.Text,
+    provisionedProductStatusMessage :: Core.Maybe Core.Text,
     -- | The ID of the provisioned product.
-    provisionedProductId :: Prelude.Maybe Prelude.Text
+    provisionedProductId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceCatalogProvisionedProductDetails' with all optional fields omitted.
@@ -98,9 +97,9 @@ newServiceCatalogProvisionedProductDetails ::
 newServiceCatalogProvisionedProductDetails =
   ServiceCatalogProvisionedProductDetails'
     { provisionedProductStatusMessage =
-        Prelude.Nothing,
+        Core.Nothing,
       provisionedProductId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The current status of the product.
@@ -127,30 +126,30 @@ newServiceCatalogProvisionedProductDetails =
 --     been created. After reviewing the list of resources to be created,
 --     execute the plan. Wait for an AVAILABLE status before performing
 --     operations.
-serviceCatalogProvisionedProductDetails_provisionedProductStatusMessage :: Lens.Lens' ServiceCatalogProvisionedProductDetails (Prelude.Maybe Prelude.Text)
+serviceCatalogProvisionedProductDetails_provisionedProductStatusMessage :: Lens.Lens' ServiceCatalogProvisionedProductDetails (Core.Maybe Core.Text)
 serviceCatalogProvisionedProductDetails_provisionedProductStatusMessage = Lens.lens (\ServiceCatalogProvisionedProductDetails' {provisionedProductStatusMessage} -> provisionedProductStatusMessage) (\s@ServiceCatalogProvisionedProductDetails' {} a -> s {provisionedProductStatusMessage = a} :: ServiceCatalogProvisionedProductDetails)
 
 -- | The ID of the provisioned product.
-serviceCatalogProvisionedProductDetails_provisionedProductId :: Lens.Lens' ServiceCatalogProvisionedProductDetails (Prelude.Maybe Prelude.Text)
+serviceCatalogProvisionedProductDetails_provisionedProductId :: Lens.Lens' ServiceCatalogProvisionedProductDetails (Core.Maybe Core.Text)
 serviceCatalogProvisionedProductDetails_provisionedProductId = Lens.lens (\ServiceCatalogProvisionedProductDetails' {provisionedProductId} -> provisionedProductId) (\s@ServiceCatalogProvisionedProductDetails' {} a -> s {provisionedProductId = a} :: ServiceCatalogProvisionedProductDetails)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ServiceCatalogProvisionedProductDetails
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServiceCatalogProvisionedProductDetails"
       ( \x ->
           ServiceCatalogProvisionedProductDetails'
-            Prelude.<$> (x Prelude..:? "ProvisionedProductStatusMessage")
-            Prelude.<*> (x Prelude..:? "ProvisionedProductId")
+            Core.<$> (x Core..:? "ProvisionedProductStatusMessage")
+            Core.<*> (x Core..:? "ProvisionedProductId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ServiceCatalogProvisionedProductDetails
 
 instance
-  Prelude.NFData
+  Core.NFData
     ServiceCatalogProvisionedProductDetails

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,15 +20,15 @@
 module Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse where
 
 import Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newBatchListObjectParentsResponse' smart constructor.
 data BatchListObjectParentsResponse = BatchListObjectParentsResponse'
-  { parentLinks :: Prelude.Maybe [ObjectIdentifierAndLinkNameTuple],
-    nextToken :: Prelude.Maybe Prelude.Text
+  { parentLinks :: Core.Maybe [ObjectIdentifierAndLinkNameTuple],
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchListObjectParentsResponse' with all optional fields omitted.
@@ -47,37 +46,28 @@ newBatchListObjectParentsResponse ::
 newBatchListObjectParentsResponse =
   BatchListObjectParentsResponse'
     { parentLinks =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing
+        Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Undocumented member.
-batchListObjectParentsResponse_parentLinks :: Lens.Lens' BatchListObjectParentsResponse (Prelude.Maybe [ObjectIdentifierAndLinkNameTuple])
-batchListObjectParentsResponse_parentLinks = Lens.lens (\BatchListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@BatchListObjectParentsResponse' {} a -> s {parentLinks = a} :: BatchListObjectParentsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchListObjectParentsResponse_parentLinks :: Lens.Lens' BatchListObjectParentsResponse (Core.Maybe [ObjectIdentifierAndLinkNameTuple])
+batchListObjectParentsResponse_parentLinks = Lens.lens (\BatchListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@BatchListObjectParentsResponse' {} a -> s {parentLinks = a} :: BatchListObjectParentsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-batchListObjectParentsResponse_nextToken :: Lens.Lens' BatchListObjectParentsResponse (Prelude.Maybe Prelude.Text)
+batchListObjectParentsResponse_nextToken :: Lens.Lens' BatchListObjectParentsResponse (Core.Maybe Core.Text)
 batchListObjectParentsResponse_nextToken = Lens.lens (\BatchListObjectParentsResponse' {nextToken} -> nextToken) (\s@BatchListObjectParentsResponse' {} a -> s {nextToken = a} :: BatchListObjectParentsResponse)
 
-instance
-  Prelude.FromJSON
-    BatchListObjectParentsResponse
-  where
+instance Core.FromJSON BatchListObjectParentsResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchListObjectParentsResponse"
       ( \x ->
           BatchListObjectParentsResponse'
-            Prelude.<$> ( x Prelude..:? "ParentLinks"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "NextToken")
+            Core.<$> (x Core..:? "ParentLinks" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
       )
 
-instance
-  Prelude.Hashable
-    BatchListObjectParentsResponse
+instance Core.Hashable BatchListObjectParentsResponse
 
-instance
-  Prelude.NFData
-    BatchListObjectParentsResponse
+instance Core.NFData BatchListObjectParentsResponse

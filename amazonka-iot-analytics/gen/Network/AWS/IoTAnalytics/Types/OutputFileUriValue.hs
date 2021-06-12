@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.OutputFileUriValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The value of the variable as a structure that specifies an output file
 -- URI.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data OutputFileUriValue = OutputFileUriValue'
   { -- | The URI of the location where dataset contents are stored, usually the
     -- URI of a file in an S3 bucket.
-    fileName :: Prelude.Text
+    fileName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputFileUriValue' with all optional fields omitted.
@@ -46,32 +45,31 @@ data OutputFileUriValue = OutputFileUriValue'
 -- URI of a file in an S3 bucket.
 newOutputFileUriValue ::
   -- | 'fileName'
-  Prelude.Text ->
+  Core.Text ->
   OutputFileUriValue
 newOutputFileUriValue pFileName_ =
   OutputFileUriValue' {fileName = pFileName_}
 
 -- | The URI of the location where dataset contents are stored, usually the
 -- URI of a file in an S3 bucket.
-outputFileUriValue_fileName :: Lens.Lens' OutputFileUriValue Prelude.Text
+outputFileUriValue_fileName :: Lens.Lens' OutputFileUriValue Core.Text
 outputFileUriValue_fileName = Lens.lens (\OutputFileUriValue' {fileName} -> fileName) (\s@OutputFileUriValue' {} a -> s {fileName = a} :: OutputFileUriValue)
 
-instance Prelude.FromJSON OutputFileUriValue where
+instance Core.FromJSON OutputFileUriValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputFileUriValue"
       ( \x ->
-          OutputFileUriValue'
-            Prelude.<$> (x Prelude..: "fileName")
+          OutputFileUriValue' Core.<$> (x Core..: "fileName")
       )
 
-instance Prelude.Hashable OutputFileUriValue
+instance Core.Hashable OutputFileUriValue
 
-instance Prelude.NFData OutputFileUriValue
+instance Core.NFData OutputFileUriValue
 
-instance Prelude.ToJSON OutputFileUriValue where
+instance Core.ToJSON OutputFileUriValue where
   toJSON OutputFileUriValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("fileName" Prelude..= fileName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("fileName" Core..= fileName)]
       )

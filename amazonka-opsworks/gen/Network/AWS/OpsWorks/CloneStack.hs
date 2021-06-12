@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,9 +68,9 @@ module Network.AWS.OpsWorks.CloneStack
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -109,7 +108,7 @@ data CloneStack = CloneStack'
     --
     -- You can specify a different Linux operating system for the cloned stack,
     -- but you cannot change from Linux to Windows or Windows to Linux.
-    defaultOs :: Prelude.Maybe Prelude.Text,
+    defaultOs :: Core.Maybe Core.Text,
     -- | Whether to associate the AWS OpsWorks Stacks built-in security groups
     -- with the stack\'s layers.
     --
@@ -133,20 +132,20 @@ data CloneStack = CloneStack'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    useOpsworksSecurityGroups :: Prelude.Maybe Prelude.Bool,
+    useOpsworksSecurityGroups :: Core.Maybe Core.Bool,
     -- | Contains the information required to retrieve an app or cookbook from a
     -- repository. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
     -- or
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
-    customCookbooksSource :: Prelude.Maybe Source,
+    customCookbooksSource :: Core.Maybe Source,
     -- | The cloned stack\'s default Availability Zone, which must be in the
     -- specified region. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
     -- If you also specify a value for @DefaultSubnetId@, the subnet must be in
     -- the same zone. For more information, see the @VpcId@ parameter
     -- description.
-    defaultAvailabilityZone :: Prelude.Maybe Prelude.Text,
+    defaultAvailabilityZone :: Core.Maybe Core.Text,
     -- | The default AWS OpsWorks Stacks agent version. You have the following
     -- options:
     --
@@ -166,9 +165,9 @@ data CloneStack = CloneStack'
     --
     -- You can also specify an agent version when you create or update an
     -- instance, which overrides the stack\'s default setting.
-    agentVersion :: Prelude.Maybe Prelude.Text,
+    agentVersion :: Core.Maybe Core.Text,
     -- | Whether to clone the source stack\'s permissions.
-    clonePermissions :: Prelude.Maybe Prelude.Bool,
+    clonePermissions :: Core.Maybe Core.Bool,
     -- | A string that contains user-defined, custom JSON. It is used to override
     -- the corresponding default stack configuration JSON values. The string
     -- should be in the following format:
@@ -177,24 +176,24 @@ data CloneStack = CloneStack'
     --
     -- For more information about custom JSON, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
-    customJson :: Prelude.Maybe Prelude.Text,
+    customJson :: Core.Maybe Core.Text,
     -- | The default root device type. This value is used by default for all
     -- instances in the cloned stack, but you can override it when you create
     -- an instance. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-    defaultRootDeviceType :: Prelude.Maybe RootDeviceType,
+    defaultRootDeviceType :: Core.Maybe RootDeviceType,
     -- | A list of stack attributes and values as key\/value pairs to be added to
     -- the cloned stack.
-    attributes :: Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)),
+    attributes :: Core.Maybe (Core.HashMap StackAttributesKeys (Core.Maybe Core.Text)),
     -- | The cloned stack name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A list of source stack app IDs to be included in the cloned stack.
-    cloneAppIds :: Prelude.Maybe [Prelude.Text],
+    cloneAppIds :: Core.Maybe [Core.Text],
     -- | The Amazon Resource Name (ARN) of an IAM profile that is the default
     -- profile for all of the stack\'s EC2 instances. For more information
     -- about IAM ARNs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-    defaultInstanceProfileArn :: Prelude.Maybe Prelude.Text,
+    defaultInstanceProfileArn :: Core.Maybe Core.Text,
     -- | The stack\'s host name theme, with spaces are replaced by underscores.
     -- The theme is used to generate host names for the stack\'s instances. By
     -- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
@@ -225,7 +224,7 @@ data CloneStack = CloneStack'
     --
     -- To obtain a generated host name, call @GetHostNameSuggestion@, which
     -- returns a host name based on the current theme.
-    hostnameTheme :: Prelude.Maybe Prelude.Text,
+    hostnameTheme :: Core.Maybe Core.Text,
     -- | A default Amazon EC2 key pair name. The default value is none. If you
     -- specify a key pair name, AWS OpsWorks installs the public key on the
     -- instance and you can use the private key with an SSH client to log in to
@@ -236,16 +235,16 @@ data CloneStack = CloneStack'
     -- You can override this setting by specifying a different key pair, or no
     -- key pair, when you
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
-    defaultSshKeyName :: Prelude.Maybe Prelude.Text,
+    defaultSshKeyName :: Core.Maybe Core.Text,
     -- | The configuration manager. When you clone a stack we recommend that you
     -- use the configuration manager to specify the Chef version: 12, 11.10, or
     -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
     -- Linux stacks is currently 12.
-    configurationManager :: Prelude.Maybe StackConfigurationManager,
+    configurationManager :: Core.Maybe StackConfigurationManager,
     -- | The cloned stack AWS region, such as \"ap-northeast-2\". For more
     -- information about AWS regions, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-    region :: Prelude.Maybe Prelude.Text,
+    region :: Core.Maybe Core.Text,
     -- | The ID of the VPC that the cloned stack is to be launched into. It must
     -- be in the specified region. All instances are launched into this VPC,
     -- and you cannot change the ID later.
@@ -274,23 +273,23 @@ data CloneStack = CloneStack'
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
     -- For more information about default VPC and EC2 Classic, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-    vpcId :: Prelude.Maybe Prelude.Text,
+    vpcId :: Core.Maybe Core.Text,
     -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
     -- and the Berkshelf version on Chef 11.10 stacks. For more information,
     -- see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    chefConfiguration :: Prelude.Maybe ChefConfiguration,
+    chefConfiguration :: Core.Maybe ChefConfiguration,
     -- | The stack\'s default VPC subnet ID. This parameter is required if you
     -- specify a value for the @VpcId@ parameter. All instances are launched
     -- into this subnet unless you specify otherwise when you create the
     -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
     -- subnet must be in that zone. For information on default values and when
     -- this parameter is required, see the @VpcId@ parameter description.
-    defaultSubnetId :: Prelude.Maybe Prelude.Text,
+    defaultSubnetId :: Core.Maybe Core.Text,
     -- | Whether to use custom cookbooks.
-    useCustomCookbooks :: Prelude.Maybe Prelude.Bool,
+    useCustomCookbooks :: Core.Maybe Core.Bool,
     -- | The source stack ID.
-    sourceStackId :: Prelude.Text,
+    sourceStackId :: Core.Text,
     -- | The stack AWS Identity and Access Management (IAM) role, which allows
     -- AWS OpsWorks Stacks to work with AWS resources on your behalf. You must
     -- set this parameter to the Amazon Resource Name (ARN) for an existing IAM
@@ -303,9 +302,9 @@ data CloneStack = CloneStack'
     -- You must set this parameter to a valid service role ARN or the action
     -- will fail; there is no default value. You can specify the source
     -- stack\'s service role ARN, if you prefer, but you must do so explicitly.
-    serviceRoleArn :: Prelude.Text
+    serviceRoleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloneStack' with all optional fields omitted.
@@ -543,32 +542,32 @@ data CloneStack = CloneStack'
 -- stack\'s service role ARN, if you prefer, but you must do so explicitly.
 newCloneStack ::
   -- | 'sourceStackId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serviceRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   CloneStack
 newCloneStack pSourceStackId_ pServiceRoleArn_ =
   CloneStack'
-    { defaultOs = Prelude.Nothing,
-      useOpsworksSecurityGroups = Prelude.Nothing,
-      customCookbooksSource = Prelude.Nothing,
-      defaultAvailabilityZone = Prelude.Nothing,
-      agentVersion = Prelude.Nothing,
-      clonePermissions = Prelude.Nothing,
-      customJson = Prelude.Nothing,
-      defaultRootDeviceType = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      name = Prelude.Nothing,
-      cloneAppIds = Prelude.Nothing,
-      defaultInstanceProfileArn = Prelude.Nothing,
-      hostnameTheme = Prelude.Nothing,
-      defaultSshKeyName = Prelude.Nothing,
-      configurationManager = Prelude.Nothing,
-      region = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      chefConfiguration = Prelude.Nothing,
-      defaultSubnetId = Prelude.Nothing,
-      useCustomCookbooks = Prelude.Nothing,
+    { defaultOs = Core.Nothing,
+      useOpsworksSecurityGroups = Core.Nothing,
+      customCookbooksSource = Core.Nothing,
+      defaultAvailabilityZone = Core.Nothing,
+      agentVersion = Core.Nothing,
+      clonePermissions = Core.Nothing,
+      customJson = Core.Nothing,
+      defaultRootDeviceType = Core.Nothing,
+      attributes = Core.Nothing,
+      name = Core.Nothing,
+      cloneAppIds = Core.Nothing,
+      defaultInstanceProfileArn = Core.Nothing,
+      hostnameTheme = Core.Nothing,
+      defaultSshKeyName = Core.Nothing,
+      configurationManager = Core.Nothing,
+      region = Core.Nothing,
+      vpcId = Core.Nothing,
+      chefConfiguration = Core.Nothing,
+      defaultSubnetId = Core.Nothing,
+      useCustomCookbooks = Core.Nothing,
       sourceStackId = pSourceStackId_,
       serviceRoleArn = pServiceRoleArn_
     }
@@ -605,7 +604,7 @@ newCloneStack pSourceStackId_ pServiceRoleArn_ =
 --
 -- You can specify a different Linux operating system for the cloned stack,
 -- but you cannot change from Linux to Windows or Windows to Linux.
-cloneStack_defaultOs :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_defaultOs :: Lens.Lens' CloneStack (Core.Maybe Core.Text)
 cloneStack_defaultOs = Lens.lens (\CloneStack' {defaultOs} -> defaultOs) (\s@CloneStack' {} a -> s {defaultOs = a} :: CloneStack)
 
 -- | Whether to associate the AWS OpsWorks Stacks built-in security groups
@@ -631,7 +630,7 @@ cloneStack_defaultOs = Lens.lens (\CloneStack' {defaultOs} -> defaultOs) (\s@Clo
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-cloneStack_useOpsworksSecurityGroups :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Bool)
+cloneStack_useOpsworksSecurityGroups :: Lens.Lens' CloneStack (Core.Maybe Core.Bool)
 cloneStack_useOpsworksSecurityGroups = Lens.lens (\CloneStack' {useOpsworksSecurityGroups} -> useOpsworksSecurityGroups) (\s@CloneStack' {} a -> s {useOpsworksSecurityGroups = a} :: CloneStack)
 
 -- | Contains the information required to retrieve an app or cookbook from a
@@ -639,7 +638,7 @@ cloneStack_useOpsworksSecurityGroups = Lens.lens (\CloneStack' {useOpsworksSecur
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
 -- or
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
-cloneStack_customCookbooksSource :: Lens.Lens' CloneStack (Prelude.Maybe Source)
+cloneStack_customCookbooksSource :: Lens.Lens' CloneStack (Core.Maybe Source)
 cloneStack_customCookbooksSource = Lens.lens (\CloneStack' {customCookbooksSource} -> customCookbooksSource) (\s@CloneStack' {} a -> s {customCookbooksSource = a} :: CloneStack)
 
 -- | The cloned stack\'s default Availability Zone, which must be in the
@@ -648,7 +647,7 @@ cloneStack_customCookbooksSource = Lens.lens (\CloneStack' {customCookbooksSourc
 -- If you also specify a value for @DefaultSubnetId@, the subnet must be in
 -- the same zone. For more information, see the @VpcId@ parameter
 -- description.
-cloneStack_defaultAvailabilityZone :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_defaultAvailabilityZone :: Lens.Lens' CloneStack (Core.Maybe Core.Text)
 cloneStack_defaultAvailabilityZone = Lens.lens (\CloneStack' {defaultAvailabilityZone} -> defaultAvailabilityZone) (\s@CloneStack' {} a -> s {defaultAvailabilityZone = a} :: CloneStack)
 
 -- | The default AWS OpsWorks Stacks agent version. You have the following
@@ -670,11 +669,11 @@ cloneStack_defaultAvailabilityZone = Lens.lens (\CloneStack' {defaultAvailabilit
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
-cloneStack_agentVersion :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_agentVersion :: Lens.Lens' CloneStack (Core.Maybe Core.Text)
 cloneStack_agentVersion = Lens.lens (\CloneStack' {agentVersion} -> agentVersion) (\s@CloneStack' {} a -> s {agentVersion = a} :: CloneStack)
 
 -- | Whether to clone the source stack\'s permissions.
-cloneStack_clonePermissions :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Bool)
+cloneStack_clonePermissions :: Lens.Lens' CloneStack (Core.Maybe Core.Bool)
 cloneStack_clonePermissions = Lens.lens (\CloneStack' {clonePermissions} -> clonePermissions) (\s@CloneStack' {} a -> s {clonePermissions = a} :: CloneStack)
 
 -- | A string that contains user-defined, custom JSON. It is used to override
@@ -685,34 +684,34 @@ cloneStack_clonePermissions = Lens.lens (\CloneStack' {clonePermissions} -> clon
 --
 -- For more information about custom JSON, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
-cloneStack_customJson :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_customJson :: Lens.Lens' CloneStack (Core.Maybe Core.Text)
 cloneStack_customJson = Lens.lens (\CloneStack' {customJson} -> customJson) (\s@CloneStack' {} a -> s {customJson = a} :: CloneStack)
 
 -- | The default root device type. This value is used by default for all
 -- instances in the cloned stack, but you can override it when you create
 -- an instance. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-cloneStack_defaultRootDeviceType :: Lens.Lens' CloneStack (Prelude.Maybe RootDeviceType)
+cloneStack_defaultRootDeviceType :: Lens.Lens' CloneStack (Core.Maybe RootDeviceType)
 cloneStack_defaultRootDeviceType = Lens.lens (\CloneStack' {defaultRootDeviceType} -> defaultRootDeviceType) (\s@CloneStack' {} a -> s {defaultRootDeviceType = a} :: CloneStack)
 
 -- | A list of stack attributes and values as key\/value pairs to be added to
 -- the cloned stack.
-cloneStack_attributes :: Lens.Lens' CloneStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
-cloneStack_attributes = Lens.lens (\CloneStack' {attributes} -> attributes) (\s@CloneStack' {} a -> s {attributes = a} :: CloneStack) Prelude.. Lens.mapping Prelude._Coerce
+cloneStack_attributes :: Lens.Lens' CloneStack (Core.Maybe (Core.HashMap StackAttributesKeys (Core.Maybe Core.Text)))
+cloneStack_attributes = Lens.lens (\CloneStack' {attributes} -> attributes) (\s@CloneStack' {} a -> s {attributes = a} :: CloneStack) Core.. Lens.mapping Lens._Coerce
 
 -- | The cloned stack name.
-cloneStack_name :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_name :: Lens.Lens' CloneStack (Core.Maybe Core.Text)
 cloneStack_name = Lens.lens (\CloneStack' {name} -> name) (\s@CloneStack' {} a -> s {name = a} :: CloneStack)
 
 -- | A list of source stack app IDs to be included in the cloned stack.
-cloneStack_cloneAppIds :: Lens.Lens' CloneStack (Prelude.Maybe [Prelude.Text])
-cloneStack_cloneAppIds = Lens.lens (\CloneStack' {cloneAppIds} -> cloneAppIds) (\s@CloneStack' {} a -> s {cloneAppIds = a} :: CloneStack) Prelude.. Lens.mapping Prelude._Coerce
+cloneStack_cloneAppIds :: Lens.Lens' CloneStack (Core.Maybe [Core.Text])
+cloneStack_cloneAppIds = Lens.lens (\CloneStack' {cloneAppIds} -> cloneAppIds) (\s@CloneStack' {} a -> s {cloneAppIds = a} :: CloneStack) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of an IAM profile that is the default
 -- profile for all of the stack\'s EC2 instances. For more information
 -- about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-cloneStack_defaultInstanceProfileArn :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_defaultInstanceProfileArn :: Lens.Lens' CloneStack (Core.Maybe Core.Text)
 cloneStack_defaultInstanceProfileArn = Lens.lens (\CloneStack' {defaultInstanceProfileArn} -> defaultInstanceProfileArn) (\s@CloneStack' {} a -> s {defaultInstanceProfileArn = a} :: CloneStack)
 
 -- | The stack\'s host name theme, with spaces are replaced by underscores.
@@ -745,7 +744,7 @@ cloneStack_defaultInstanceProfileArn = Lens.lens (\CloneStack' {defaultInstanceP
 --
 -- To obtain a generated host name, call @GetHostNameSuggestion@, which
 -- returns a host name based on the current theme.
-cloneStack_hostnameTheme :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_hostnameTheme :: Lens.Lens' CloneStack (Core.Maybe Core.Text)
 cloneStack_hostnameTheme = Lens.lens (\CloneStack' {hostnameTheme} -> hostnameTheme) (\s@CloneStack' {} a -> s {hostnameTheme = a} :: CloneStack)
 
 -- | A default Amazon EC2 key pair name. The default value is none. If you
@@ -758,20 +757,20 @@ cloneStack_hostnameTheme = Lens.lens (\CloneStack' {hostnameTheme} -> hostnameTh
 -- You can override this setting by specifying a different key pair, or no
 -- key pair, when you
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
-cloneStack_defaultSshKeyName :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_defaultSshKeyName :: Lens.Lens' CloneStack (Core.Maybe Core.Text)
 cloneStack_defaultSshKeyName = Lens.lens (\CloneStack' {defaultSshKeyName} -> defaultSshKeyName) (\s@CloneStack' {} a -> s {defaultSshKeyName = a} :: CloneStack)
 
 -- | The configuration manager. When you clone a stack we recommend that you
 -- use the configuration manager to specify the Chef version: 12, 11.10, or
 -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
 -- Linux stacks is currently 12.
-cloneStack_configurationManager :: Lens.Lens' CloneStack (Prelude.Maybe StackConfigurationManager)
+cloneStack_configurationManager :: Lens.Lens' CloneStack (Core.Maybe StackConfigurationManager)
 cloneStack_configurationManager = Lens.lens (\CloneStack' {configurationManager} -> configurationManager) (\s@CloneStack' {} a -> s {configurationManager = a} :: CloneStack)
 
 -- | The cloned stack AWS region, such as \"ap-northeast-2\". For more
 -- information about AWS regions, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-cloneStack_region :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_region :: Lens.Lens' CloneStack (Core.Maybe Core.Text)
 cloneStack_region = Lens.lens (\CloneStack' {region} -> region) (\s@CloneStack' {} a -> s {region = a} :: CloneStack)
 
 -- | The ID of the VPC that the cloned stack is to be launched into. It must
@@ -802,14 +801,14 @@ cloneStack_region = Lens.lens (\CloneStack' {region} -> region) (\s@CloneStack' 
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
 -- For more information about default VPC and EC2 Classic, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-cloneStack_vpcId :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_vpcId :: Lens.Lens' CloneStack (Core.Maybe Core.Text)
 cloneStack_vpcId = Lens.lens (\CloneStack' {vpcId} -> vpcId) (\s@CloneStack' {} a -> s {vpcId = a} :: CloneStack)
 
 -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
 -- and the Berkshelf version on Chef 11.10 stacks. For more information,
 -- see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-cloneStack_chefConfiguration :: Lens.Lens' CloneStack (Prelude.Maybe ChefConfiguration)
+cloneStack_chefConfiguration :: Lens.Lens' CloneStack (Core.Maybe ChefConfiguration)
 cloneStack_chefConfiguration = Lens.lens (\CloneStack' {chefConfiguration} -> chefConfiguration) (\s@CloneStack' {} a -> s {chefConfiguration = a} :: CloneStack)
 
 -- | The stack\'s default VPC subnet ID. This parameter is required if you
@@ -818,15 +817,15 @@ cloneStack_chefConfiguration = Lens.lens (\CloneStack' {chefConfiguration} -> ch
 -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
 -- subnet must be in that zone. For information on default values and when
 -- this parameter is required, see the @VpcId@ parameter description.
-cloneStack_defaultSubnetId :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_defaultSubnetId :: Lens.Lens' CloneStack (Core.Maybe Core.Text)
 cloneStack_defaultSubnetId = Lens.lens (\CloneStack' {defaultSubnetId} -> defaultSubnetId) (\s@CloneStack' {} a -> s {defaultSubnetId = a} :: CloneStack)
 
 -- | Whether to use custom cookbooks.
-cloneStack_useCustomCookbooks :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Bool)
+cloneStack_useCustomCookbooks :: Lens.Lens' CloneStack (Core.Maybe Core.Bool)
 cloneStack_useCustomCookbooks = Lens.lens (\CloneStack' {useCustomCookbooks} -> useCustomCookbooks) (\s@CloneStack' {} a -> s {useCustomCookbooks = a} :: CloneStack)
 
 -- | The source stack ID.
-cloneStack_sourceStackId :: Lens.Lens' CloneStack Prelude.Text
+cloneStack_sourceStackId :: Lens.Lens' CloneStack Core.Text
 cloneStack_sourceStackId = Lens.lens (\CloneStack' {sourceStackId} -> sourceStackId) (\s@CloneStack' {} a -> s {sourceStackId = a} :: CloneStack)
 
 -- | The stack AWS Identity and Access Management (IAM) role, which allows
@@ -841,98 +840,90 @@ cloneStack_sourceStackId = Lens.lens (\CloneStack' {sourceStackId} -> sourceStac
 -- You must set this parameter to a valid service role ARN or the action
 -- will fail; there is no default value. You can specify the source
 -- stack\'s service role ARN, if you prefer, but you must do so explicitly.
-cloneStack_serviceRoleArn :: Lens.Lens' CloneStack Prelude.Text
+cloneStack_serviceRoleArn :: Lens.Lens' CloneStack Core.Text
 cloneStack_serviceRoleArn = Lens.lens (\CloneStack' {serviceRoleArn} -> serviceRoleArn) (\s@CloneStack' {} a -> s {serviceRoleArn = a} :: CloneStack)
 
-instance Prelude.AWSRequest CloneStack where
-  type Rs CloneStack = CloneStackResponse
+instance Core.AWSRequest CloneStack where
+  type AWSResponse CloneStack = CloneStackResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CloneStackResponse'
-            Prelude.<$> (x Prelude..?> "StackId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StackId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CloneStack
+instance Core.Hashable CloneStack
 
-instance Prelude.NFData CloneStack
+instance Core.NFData CloneStack
 
-instance Prelude.ToHeaders CloneStack where
+instance Core.ToHeaders CloneStack where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.CloneStack" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("OpsWorks_20130218.CloneStack" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CloneStack where
+instance Core.ToJSON CloneStack where
   toJSON CloneStack' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DefaultOs" Prelude..=) Prelude.<$> defaultOs,
-            ("UseOpsworksSecurityGroups" Prelude..=)
-              Prelude.<$> useOpsworksSecurityGroups,
-            ("CustomCookbooksSource" Prelude..=)
-              Prelude.<$> customCookbooksSource,
-            ("DefaultAvailabilityZone" Prelude..=)
-              Prelude.<$> defaultAvailabilityZone,
-            ("AgentVersion" Prelude..=) Prelude.<$> agentVersion,
-            ("ClonePermissions" Prelude..=)
-              Prelude.<$> clonePermissions,
-            ("CustomJson" Prelude..=) Prelude.<$> customJson,
-            ("DefaultRootDeviceType" Prelude..=)
-              Prelude.<$> defaultRootDeviceType,
-            ("Attributes" Prelude..=) Prelude.<$> attributes,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("CloneAppIds" Prelude..=) Prelude.<$> cloneAppIds,
-            ("DefaultInstanceProfileArn" Prelude..=)
-              Prelude.<$> defaultInstanceProfileArn,
-            ("HostnameTheme" Prelude..=)
-              Prelude.<$> hostnameTheme,
-            ("DefaultSshKeyName" Prelude..=)
-              Prelude.<$> defaultSshKeyName,
-            ("ConfigurationManager" Prelude..=)
-              Prelude.<$> configurationManager,
-            ("Region" Prelude..=) Prelude.<$> region,
-            ("VpcId" Prelude..=) Prelude.<$> vpcId,
-            ("ChefConfiguration" Prelude..=)
-              Prelude.<$> chefConfiguration,
-            ("DefaultSubnetId" Prelude..=)
-              Prelude.<$> defaultSubnetId,
-            ("UseCustomCookbooks" Prelude..=)
-              Prelude.<$> useCustomCookbooks,
-            Prelude.Just
-              ("SourceStackId" Prelude..= sourceStackId),
-            Prelude.Just
-              ("ServiceRoleArn" Prelude..= serviceRoleArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("DefaultOs" Core..=) Core.<$> defaultOs,
+            ("UseOpsworksSecurityGroups" Core..=)
+              Core.<$> useOpsworksSecurityGroups,
+            ("CustomCookbooksSource" Core..=)
+              Core.<$> customCookbooksSource,
+            ("DefaultAvailabilityZone" Core..=)
+              Core.<$> defaultAvailabilityZone,
+            ("AgentVersion" Core..=) Core.<$> agentVersion,
+            ("ClonePermissions" Core..=)
+              Core.<$> clonePermissions,
+            ("CustomJson" Core..=) Core.<$> customJson,
+            ("DefaultRootDeviceType" Core..=)
+              Core.<$> defaultRootDeviceType,
+            ("Attributes" Core..=) Core.<$> attributes,
+            ("Name" Core..=) Core.<$> name,
+            ("CloneAppIds" Core..=) Core.<$> cloneAppIds,
+            ("DefaultInstanceProfileArn" Core..=)
+              Core.<$> defaultInstanceProfileArn,
+            ("HostnameTheme" Core..=) Core.<$> hostnameTheme,
+            ("DefaultSshKeyName" Core..=)
+              Core.<$> defaultSshKeyName,
+            ("ConfigurationManager" Core..=)
+              Core.<$> configurationManager,
+            ("Region" Core..=) Core.<$> region,
+            ("VpcId" Core..=) Core.<$> vpcId,
+            ("ChefConfiguration" Core..=)
+              Core.<$> chefConfiguration,
+            ("DefaultSubnetId" Core..=) Core.<$> defaultSubnetId,
+            ("UseCustomCookbooks" Core..=)
+              Core.<$> useCustomCookbooks,
+            Core.Just ("SourceStackId" Core..= sourceStackId),
+            Core.Just ("ServiceRoleArn" Core..= serviceRoleArn)
           ]
       )
 
-instance Prelude.ToPath CloneStack where
-  toPath = Prelude.const "/"
+instance Core.ToPath CloneStack where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CloneStack where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CloneStack where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @CloneStack@ request.
 --
 -- /See:/ 'newCloneStackResponse' smart constructor.
 data CloneStackResponse = CloneStackResponse'
   { -- | The cloned stack ID.
-    stackId :: Prelude.Maybe Prelude.Text,
+    stackId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloneStackResponse' with all optional fields omitted.
@@ -947,20 +938,20 @@ data CloneStackResponse = CloneStackResponse'
 -- 'httpStatus', 'cloneStackResponse_httpStatus' - The response's http status code.
 newCloneStackResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CloneStackResponse
 newCloneStackResponse pHttpStatus_ =
   CloneStackResponse'
-    { stackId = Prelude.Nothing,
+    { stackId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The cloned stack ID.
-cloneStackResponse_stackId :: Lens.Lens' CloneStackResponse (Prelude.Maybe Prelude.Text)
+cloneStackResponse_stackId :: Lens.Lens' CloneStackResponse (Core.Maybe Core.Text)
 cloneStackResponse_stackId = Lens.lens (\CloneStackResponse' {stackId} -> stackId) (\s@CloneStackResponse' {} a -> s {stackId = a} :: CloneStackResponse)
 
 -- | The response's http status code.
-cloneStackResponse_httpStatus :: Lens.Lens' CloneStackResponse Prelude.Int
+cloneStackResponse_httpStatus :: Lens.Lens' CloneStackResponse Core.Int
 cloneStackResponse_httpStatus = Lens.lens (\CloneStackResponse' {httpStatus} -> httpStatus) (\s@CloneStackResponse' {} a -> s {httpStatus = a} :: CloneStackResponse)
 
-instance Prelude.NFData CloneStackResponse
+instance Core.NFData CloneStackResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,17 +41,17 @@ module Network.AWS.Cloud9.DescribeEnvironmentStatus
 where
 
 import Network.AWS.Cloud9.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeEnvironmentStatus' smart constructor.
 data DescribeEnvironmentStatus = DescribeEnvironmentStatus'
   { -- | The ID of the environment to get status information about.
-    environmentId :: Prelude.Text
+    environmentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEnvironmentStatus' with all optional fields omitted.
@@ -65,7 +64,7 @@ data DescribeEnvironmentStatus = DescribeEnvironmentStatus'
 -- 'environmentId', 'describeEnvironmentStatus_environmentId' - The ID of the environment to get status information about.
 newDescribeEnvironmentStatus ::
   -- | 'environmentId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeEnvironmentStatus
 newDescribeEnvironmentStatus pEnvironmentId_ =
   DescribeEnvironmentStatus'
@@ -74,56 +73,52 @@ newDescribeEnvironmentStatus pEnvironmentId_ =
     }
 
 -- | The ID of the environment to get status information about.
-describeEnvironmentStatus_environmentId :: Lens.Lens' DescribeEnvironmentStatus Prelude.Text
+describeEnvironmentStatus_environmentId :: Lens.Lens' DescribeEnvironmentStatus Core.Text
 describeEnvironmentStatus_environmentId = Lens.lens (\DescribeEnvironmentStatus' {environmentId} -> environmentId) (\s@DescribeEnvironmentStatus' {} a -> s {environmentId = a} :: DescribeEnvironmentStatus)
 
-instance Prelude.AWSRequest DescribeEnvironmentStatus where
+instance Core.AWSRequest DescribeEnvironmentStatus where
   type
-    Rs DescribeEnvironmentStatus =
+    AWSResponse DescribeEnvironmentStatus =
       DescribeEnvironmentStatusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEnvironmentStatusResponse'
-            Prelude.<$> (x Prelude..?> "status")
-            Prelude.<*> (x Prelude..?> "message")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "status")
+            Core.<*> (x Core..?> "message")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEnvironmentStatus
+instance Core.Hashable DescribeEnvironmentStatus
 
-instance Prelude.NFData DescribeEnvironmentStatus
+instance Core.NFData DescribeEnvironmentStatus
 
-instance Prelude.ToHeaders DescribeEnvironmentStatus where
+instance Core.ToHeaders DescribeEnvironmentStatus where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeEnvironmentStatus where
+instance Core.ToJSON DescribeEnvironmentStatus where
   toJSON DescribeEnvironmentStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("environmentId" Prelude..= environmentId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("environmentId" Core..= environmentId)]
       )
 
-instance Prelude.ToPath DescribeEnvironmentStatus where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEnvironmentStatus where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEnvironmentStatus where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEnvironmentStatus where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEnvironmentStatusResponse' smart constructor.
 data DescribeEnvironmentStatusResponse = DescribeEnvironmentStatusResponse'
@@ -142,13 +137,13 @@ data DescribeEnvironmentStatusResponse = DescribeEnvironmentStatusResponse'
     -- -   @stopped@: The environment is stopped.
     --
     -- -   @stopping@: The environment is stopping.
-    status :: Prelude.Maybe EnvironmentStatus,
+    status :: Core.Maybe EnvironmentStatus,
     -- | Any informational message about the status of the environment.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEnvironmentStatusResponse' with all optional fields omitted.
@@ -179,13 +174,13 @@ data DescribeEnvironmentStatusResponse = DescribeEnvironmentStatusResponse'
 -- 'httpStatus', 'describeEnvironmentStatusResponse_httpStatus' - The response's http status code.
 newDescribeEnvironmentStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEnvironmentStatusResponse
 newDescribeEnvironmentStatusResponse pHttpStatus_ =
   DescribeEnvironmentStatusResponse'
     { status =
-        Prelude.Nothing,
-      message = Prelude.Nothing,
+        Core.Nothing,
+      message = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -204,17 +199,17 @@ newDescribeEnvironmentStatusResponse pHttpStatus_ =
 -- -   @stopped@: The environment is stopped.
 --
 -- -   @stopping@: The environment is stopping.
-describeEnvironmentStatusResponse_status :: Lens.Lens' DescribeEnvironmentStatusResponse (Prelude.Maybe EnvironmentStatus)
+describeEnvironmentStatusResponse_status :: Lens.Lens' DescribeEnvironmentStatusResponse (Core.Maybe EnvironmentStatus)
 describeEnvironmentStatusResponse_status = Lens.lens (\DescribeEnvironmentStatusResponse' {status} -> status) (\s@DescribeEnvironmentStatusResponse' {} a -> s {status = a} :: DescribeEnvironmentStatusResponse)
 
 -- | Any informational message about the status of the environment.
-describeEnvironmentStatusResponse_message :: Lens.Lens' DescribeEnvironmentStatusResponse (Prelude.Maybe Prelude.Text)
+describeEnvironmentStatusResponse_message :: Lens.Lens' DescribeEnvironmentStatusResponse (Core.Maybe Core.Text)
 describeEnvironmentStatusResponse_message = Lens.lens (\DescribeEnvironmentStatusResponse' {message} -> message) (\s@DescribeEnvironmentStatusResponse' {} a -> s {message = a} :: DescribeEnvironmentStatusResponse)
 
 -- | The response's http status code.
-describeEnvironmentStatusResponse_httpStatus :: Lens.Lens' DescribeEnvironmentStatusResponse Prelude.Int
+describeEnvironmentStatusResponse_httpStatus :: Lens.Lens' DescribeEnvironmentStatusResponse Core.Int
 describeEnvironmentStatusResponse_httpStatus = Lens.lens (\DescribeEnvironmentStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeEnvironmentStatusResponse' {} a -> s {httpStatus = a} :: DescribeEnvironmentStatusResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeEnvironmentStatusResponse

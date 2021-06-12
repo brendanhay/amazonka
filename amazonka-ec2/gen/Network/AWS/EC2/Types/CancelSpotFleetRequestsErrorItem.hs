@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CancelSpotFleetRequestsErrorItem where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CancelSpotFleetRequestsError
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Spot Fleet request that was not successfully canceled.
 --
 -- /See:/ 'newCancelSpotFleetRequestsErrorItem' smart constructor.
 data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
   { -- | The error.
-    error :: Prelude.Maybe CancelSpotFleetRequestsError,
+    error :: Core.Maybe CancelSpotFleetRequestsError,
     -- | The ID of the Spot Fleet request.
-    spotFleetRequestId :: Prelude.Maybe Prelude.Text
+    spotFleetRequestId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelSpotFleetRequestsErrorItem' with all optional fields omitted.
@@ -52,31 +51,29 @@ newCancelSpotFleetRequestsErrorItem ::
 newCancelSpotFleetRequestsErrorItem =
   CancelSpotFleetRequestsErrorItem'
     { error =
-        Prelude.Nothing,
-      spotFleetRequestId = Prelude.Nothing
+        Core.Nothing,
+      spotFleetRequestId = Core.Nothing
     }
 
 -- | The error.
-cancelSpotFleetRequestsErrorItem_error :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Prelude.Maybe CancelSpotFleetRequestsError)
+cancelSpotFleetRequestsErrorItem_error :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Core.Maybe CancelSpotFleetRequestsError)
 cancelSpotFleetRequestsErrorItem_error = Lens.lens (\CancelSpotFleetRequestsErrorItem' {error} -> error) (\s@CancelSpotFleetRequestsErrorItem' {} a -> s {error = a} :: CancelSpotFleetRequestsErrorItem)
 
 -- | The ID of the Spot Fleet request.
-cancelSpotFleetRequestsErrorItem_spotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Prelude.Maybe Prelude.Text)
+cancelSpotFleetRequestsErrorItem_spotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Core.Maybe Core.Text)
 cancelSpotFleetRequestsErrorItem_spotFleetRequestId = Lens.lens (\CancelSpotFleetRequestsErrorItem' {spotFleetRequestId} -> spotFleetRequestId) (\s@CancelSpotFleetRequestsErrorItem' {} a -> s {spotFleetRequestId = a} :: CancelSpotFleetRequestsErrorItem)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     CancelSpotFleetRequestsErrorItem
   where
   parseXML x =
     CancelSpotFleetRequestsErrorItem'
-      Prelude.<$> (x Prelude..@? "error")
-      Prelude.<*> (x Prelude..@? "spotFleetRequestId")
+      Core.<$> (x Core..@? "error")
+      Core.<*> (x Core..@? "spotFleetRequestId")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CancelSpotFleetRequestsErrorItem
 
-instance
-  Prelude.NFData
-    CancelSpotFleetRequestsErrorItem
+instance Core.NFData CancelSpotFleetRequestsErrorItem

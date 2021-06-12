@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53Domains.Types.DomainTransferability where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53Domains.Types.Transferable
 
 -- | A complex type that contains information about whether the specified
@@ -29,9 +28,9 @@ import Network.AWS.Route53Domains.Types.Transferable
 --
 -- /See:/ 'newDomainTransferability' smart constructor.
 data DomainTransferability = DomainTransferability'
-  { transferable :: Prelude.Maybe Transferable
+  { transferable :: Core.Maybe Transferable
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DomainTransferability' with all optional fields omitted.
@@ -45,24 +44,21 @@ data DomainTransferability = DomainTransferability'
 newDomainTransferability ::
   DomainTransferability
 newDomainTransferability =
-  DomainTransferability'
-    { transferable =
-        Prelude.Nothing
-    }
+  DomainTransferability' {transferable = Core.Nothing}
 
 -- | Undocumented member.
-domainTransferability_transferable :: Lens.Lens' DomainTransferability (Prelude.Maybe Transferable)
+domainTransferability_transferable :: Lens.Lens' DomainTransferability (Core.Maybe Transferable)
 domainTransferability_transferable = Lens.lens (\DomainTransferability' {transferable} -> transferable) (\s@DomainTransferability' {} a -> s {transferable = a} :: DomainTransferability)
 
-instance Prelude.FromJSON DomainTransferability where
+instance Core.FromJSON DomainTransferability where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DomainTransferability"
       ( \x ->
           DomainTransferability'
-            Prelude.<$> (x Prelude..:? "Transferable")
+            Core.<$> (x Core..:? "Transferable")
       )
 
-instance Prelude.Hashable DomainTransferability
+instance Core.Hashable DomainTransferability
 
-instance Prelude.NFData DomainTransferability
+instance Core.NFData DomainTransferability

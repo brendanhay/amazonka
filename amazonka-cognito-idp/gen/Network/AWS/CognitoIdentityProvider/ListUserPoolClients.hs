@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.CognitoIdentityProvider.ListUserPoolClients
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,15 +57,15 @@ data ListUserPoolClients = ListUserPoolClients'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results you want the request to return when
     -- listing the user pool clients.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The user pool ID for the user pool where you want to list user pool
     -- clients.
-    userPoolId :: Prelude.Text
+    userPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUserPoolClients' with all optional fields omitted.
@@ -88,118 +86,114 @@ data ListUserPoolClients = ListUserPoolClients'
 -- clients.
 newListUserPoolClients ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   ListUserPoolClients
 newListUserPoolClients pUserPoolId_ =
   ListUserPoolClients'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       userPoolId = pUserPoolId_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listUserPoolClients_nextToken :: Lens.Lens' ListUserPoolClients (Prelude.Maybe Prelude.Text)
+listUserPoolClients_nextToken :: Lens.Lens' ListUserPoolClients (Core.Maybe Core.Text)
 listUserPoolClients_nextToken = Lens.lens (\ListUserPoolClients' {nextToken} -> nextToken) (\s@ListUserPoolClients' {} a -> s {nextToken = a} :: ListUserPoolClients)
 
 -- | The maximum number of results you want the request to return when
 -- listing the user pool clients.
-listUserPoolClients_maxResults :: Lens.Lens' ListUserPoolClients (Prelude.Maybe Prelude.Natural)
+listUserPoolClients_maxResults :: Lens.Lens' ListUserPoolClients (Core.Maybe Core.Natural)
 listUserPoolClients_maxResults = Lens.lens (\ListUserPoolClients' {maxResults} -> maxResults) (\s@ListUserPoolClients' {} a -> s {maxResults = a} :: ListUserPoolClients)
 
 -- | The user pool ID for the user pool where you want to list user pool
 -- clients.
-listUserPoolClients_userPoolId :: Lens.Lens' ListUserPoolClients Prelude.Text
+listUserPoolClients_userPoolId :: Lens.Lens' ListUserPoolClients Core.Text
 listUserPoolClients_userPoolId = Lens.lens (\ListUserPoolClients' {userPoolId} -> userPoolId) (\s@ListUserPoolClients' {} a -> s {userPoolId = a} :: ListUserPoolClients)
 
-instance Pager.AWSPager ListUserPoolClients where
+instance Core.AWSPager ListUserPoolClients where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listUserPoolClientsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listUserPoolClientsResponse_userPoolClients
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listUserPoolClients_nextToken
           Lens..~ rs
           Lens.^? listUserPoolClientsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListUserPoolClients where
+instance Core.AWSRequest ListUserPoolClients where
   type
-    Rs ListUserPoolClients =
+    AWSResponse ListUserPoolClients =
       ListUserPoolClientsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListUserPoolClientsResponse'
-            Prelude.<$> ( x Prelude..?> "UserPoolClients"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UserPoolClients" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListUserPoolClients
+instance Core.Hashable ListUserPoolClients
 
-instance Prelude.NFData ListUserPoolClients
+instance Core.NFData ListUserPoolClients
 
-instance Prelude.ToHeaders ListUserPoolClients where
+instance Core.ToHeaders ListUserPoolClients where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.ListUserPoolClients" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.ListUserPoolClients" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListUserPoolClients where
+instance Core.ToJSON ListUserPoolClients where
   toJSON ListUserPoolClients' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
-instance Prelude.ToPath ListUserPoolClients where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListUserPoolClients where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListUserPoolClients where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListUserPoolClients where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response from the server that lists user pool clients.
 --
 -- /See:/ 'newListUserPoolClientsResponse' smart constructor.
 data ListUserPoolClientsResponse = ListUserPoolClientsResponse'
   { -- | The user pool clients in the response that lists user pool clients.
-    userPoolClients :: Prelude.Maybe [UserPoolClientDescription],
+    userPoolClients :: Core.Maybe [UserPoolClientDescription],
     -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUserPoolClientsResponse' with all optional fields omitted.
@@ -218,28 +212,28 @@ data ListUserPoolClientsResponse = ListUserPoolClientsResponse'
 -- 'httpStatus', 'listUserPoolClientsResponse_httpStatus' - The response's http status code.
 newListUserPoolClientsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListUserPoolClientsResponse
 newListUserPoolClientsResponse pHttpStatus_ =
   ListUserPoolClientsResponse'
     { userPoolClients =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The user pool clients in the response that lists user pool clients.
-listUserPoolClientsResponse_userPoolClients :: Lens.Lens' ListUserPoolClientsResponse (Prelude.Maybe [UserPoolClientDescription])
-listUserPoolClientsResponse_userPoolClients = Lens.lens (\ListUserPoolClientsResponse' {userPoolClients} -> userPoolClients) (\s@ListUserPoolClientsResponse' {} a -> s {userPoolClients = a} :: ListUserPoolClientsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listUserPoolClientsResponse_userPoolClients :: Lens.Lens' ListUserPoolClientsResponse (Core.Maybe [UserPoolClientDescription])
+listUserPoolClientsResponse_userPoolClients = Lens.lens (\ListUserPoolClientsResponse' {userPoolClients} -> userPoolClients) (\s@ListUserPoolClientsResponse' {} a -> s {userPoolClients = a} :: ListUserPoolClientsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listUserPoolClientsResponse_nextToken :: Lens.Lens' ListUserPoolClientsResponse (Prelude.Maybe Prelude.Text)
+listUserPoolClientsResponse_nextToken :: Lens.Lens' ListUserPoolClientsResponse (Core.Maybe Core.Text)
 listUserPoolClientsResponse_nextToken = Lens.lens (\ListUserPoolClientsResponse' {nextToken} -> nextToken) (\s@ListUserPoolClientsResponse' {} a -> s {nextToken = a} :: ListUserPoolClientsResponse)
 
 -- | The response's http status code.
-listUserPoolClientsResponse_httpStatus :: Lens.Lens' ListUserPoolClientsResponse Prelude.Int
+listUserPoolClientsResponse_httpStatus :: Lens.Lens' ListUserPoolClientsResponse Core.Int
 listUserPoolClientsResponse_httpStatus = Lens.lens (\ListUserPoolClientsResponse' {httpStatus} -> httpStatus) (\s@ListUserPoolClientsResponse' {} a -> s {httpStatus = a} :: ListUserPoolClientsResponse)
 
-instance Prelude.NFData ListUserPoolClientsResponse
+instance Core.NFData ListUserPoolClientsResponse

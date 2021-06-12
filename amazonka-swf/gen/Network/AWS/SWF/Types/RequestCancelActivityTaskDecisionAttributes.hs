@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.RequestCancelActivityTaskDecisionAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @RequestCancelActivityTask@ decision.
 --
@@ -48,9 +47,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRequestCancelActivityTaskDecisionAttributes' smart constructor.
 data RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskDecisionAttributes'
   { -- | The @activityId@ of the activity task to be canceled.
-    activityId :: Prelude.Text
+    activityId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RequestCancelActivityTaskDecisionAttributes' with all optional fields omitted.
@@ -63,7 +62,7 @@ data RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskDeci
 -- 'activityId', 'requestCancelActivityTaskDecisionAttributes_activityId' - The @activityId@ of the activity task to be canceled.
 newRequestCancelActivityTaskDecisionAttributes ::
   -- | 'activityId'
-  Prelude.Text ->
+  Core.Text ->
   RequestCancelActivityTaskDecisionAttributes
 newRequestCancelActivityTaskDecisionAttributes
   pActivityId_ =
@@ -73,24 +72,24 @@ newRequestCancelActivityTaskDecisionAttributes
       }
 
 -- | The @activityId@ of the activity task to be canceled.
-requestCancelActivityTaskDecisionAttributes_activityId :: Lens.Lens' RequestCancelActivityTaskDecisionAttributes Prelude.Text
+requestCancelActivityTaskDecisionAttributes_activityId :: Lens.Lens' RequestCancelActivityTaskDecisionAttributes Core.Text
 requestCancelActivityTaskDecisionAttributes_activityId = Lens.lens (\RequestCancelActivityTaskDecisionAttributes' {activityId} -> activityId) (\s@RequestCancelActivityTaskDecisionAttributes' {} a -> s {activityId = a} :: RequestCancelActivityTaskDecisionAttributes)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RequestCancelActivityTaskDecisionAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     RequestCancelActivityTaskDecisionAttributes
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     RequestCancelActivityTaskDecisionAttributes
   where
   toJSON
     RequestCancelActivityTaskDecisionAttributes' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [Prelude.Just ("activityId" Prelude..= activityId)]
+      Core.object
+        ( Core.catMaybes
+            [Core.Just ("activityId" Core..= activityId)]
         )

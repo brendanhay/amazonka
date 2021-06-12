@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.APIGateway.PutMethodResponse
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,7 +58,7 @@ data PutMethodResponse = PutMethodResponse'
   { -- | Specifies the Model resources used for the response\'s content type.
     -- Response models are represented as a key\/value map, with a content type
     -- as the key and a Model name as the value.
-    responseModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    responseModels :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A key-value map specifying required or optional response parameters that
     -- API Gateway can send back to the caller. A key defines a method response
     -- header name and the associated value is a Boolean flag indicating
@@ -73,17 +72,17 @@ data PutMethodResponse = PutMethodResponse'
     -- or a JSON expression from the back-end response payload in the form of
     -- @integration.response.body.{JSON-expression}@, where @JSON-expression@
     -- is a valid JSON expression without the @$@ prefix.)
-    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool),
+    responseParameters :: Core.Maybe (Core.HashMap Core.Text Core.Bool),
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The Resource identifier for the Method resource.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | [Required] The HTTP verb of the Method resource.
-    httpMethod :: Prelude.Text,
+    httpMethod :: Core.Text,
     -- | [Required] The method response\'s status code.
-    statusCode :: Prelude.Text
+    statusCode :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutMethodResponse' with all optional fields omitted.
@@ -120,13 +119,13 @@ data PutMethodResponse = PutMethodResponse'
 -- 'statusCode', 'putMethodResponse_statusCode' - [Required] The method response\'s status code.
 newPutMethodResponse ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'httpMethod'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'statusCode'
-  Prelude.Text ->
+  Core.Text ->
   PutMethodResponse
 newPutMethodResponse
   pRestApiId_
@@ -134,9 +133,8 @@ newPutMethodResponse
   pHttpMethod_
   pStatusCode_ =
     PutMethodResponse'
-      { responseModels =
-          Prelude.Nothing,
-        responseParameters = Prelude.Nothing,
+      { responseModels = Core.Nothing,
+        responseParameters = Core.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_,
@@ -146,8 +144,8 @@ newPutMethodResponse
 -- | Specifies the Model resources used for the response\'s content type.
 -- Response models are represented as a key\/value map, with a content type
 -- as the key and a Model name as the value.
-putMethodResponse_responseModels :: Lens.Lens' PutMethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putMethodResponse_responseModels = Lens.lens (\PutMethodResponse' {responseModels} -> responseModels) (\s@PutMethodResponse' {} a -> s {responseModels = a} :: PutMethodResponse) Prelude.. Lens.mapping Prelude._Coerce
+putMethodResponse_responseModels :: Lens.Lens' PutMethodResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+putMethodResponse_responseModels = Lens.lens (\PutMethodResponse' {responseModels} -> responseModels) (\s@PutMethodResponse' {} a -> s {responseModels = a} :: PutMethodResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A key-value map specifying required or optional response parameters that
 -- API Gateway can send back to the caller. A key defines a method response
@@ -162,68 +160,67 @@ putMethodResponse_responseModels = Lens.lens (\PutMethodResponse' {responseModel
 -- or a JSON expression from the back-end response payload in the form of
 -- @integration.response.body.{JSON-expression}@, where @JSON-expression@
 -- is a valid JSON expression without the @$@ prefix.)
-putMethodResponse_responseParameters :: Lens.Lens' PutMethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool))
-putMethodResponse_responseParameters = Lens.lens (\PutMethodResponse' {responseParameters} -> responseParameters) (\s@PutMethodResponse' {} a -> s {responseParameters = a} :: PutMethodResponse) Prelude.. Lens.mapping Prelude._Coerce
+putMethodResponse_responseParameters :: Lens.Lens' PutMethodResponse (Core.Maybe (Core.HashMap Core.Text Core.Bool))
+putMethodResponse_responseParameters = Lens.lens (\PutMethodResponse' {responseParameters} -> responseParameters) (\s@PutMethodResponse' {} a -> s {responseParameters = a} :: PutMethodResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-putMethodResponse_restApiId :: Lens.Lens' PutMethodResponse Prelude.Text
+putMethodResponse_restApiId :: Lens.Lens' PutMethodResponse Core.Text
 putMethodResponse_restApiId = Lens.lens (\PutMethodResponse' {restApiId} -> restApiId) (\s@PutMethodResponse' {} a -> s {restApiId = a} :: PutMethodResponse)
 
 -- | [Required] The Resource identifier for the Method resource.
-putMethodResponse_resourceId :: Lens.Lens' PutMethodResponse Prelude.Text
+putMethodResponse_resourceId :: Lens.Lens' PutMethodResponse Core.Text
 putMethodResponse_resourceId = Lens.lens (\PutMethodResponse' {resourceId} -> resourceId) (\s@PutMethodResponse' {} a -> s {resourceId = a} :: PutMethodResponse)
 
 -- | [Required] The HTTP verb of the Method resource.
-putMethodResponse_httpMethod :: Lens.Lens' PutMethodResponse Prelude.Text
+putMethodResponse_httpMethod :: Lens.Lens' PutMethodResponse Core.Text
 putMethodResponse_httpMethod = Lens.lens (\PutMethodResponse' {httpMethod} -> httpMethod) (\s@PutMethodResponse' {} a -> s {httpMethod = a} :: PutMethodResponse)
 
 -- | [Required] The method response\'s status code.
-putMethodResponse_statusCode :: Lens.Lens' PutMethodResponse Prelude.Text
+putMethodResponse_statusCode :: Lens.Lens' PutMethodResponse Core.Text
 putMethodResponse_statusCode = Lens.lens (\PutMethodResponse' {statusCode} -> statusCode) (\s@PutMethodResponse' {} a -> s {statusCode = a} :: PutMethodResponse)
 
-instance Prelude.AWSRequest PutMethodResponse where
-  type Rs PutMethodResponse = MethodResponse
+instance Core.AWSRequest PutMethodResponse where
+  type AWSResponse PutMethodResponse = MethodResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutMethodResponse
+instance Core.Hashable PutMethodResponse
 
-instance Prelude.NFData PutMethodResponse
+instance Core.NFData PutMethodResponse
 
-instance Prelude.ToHeaders PutMethodResponse where
+instance Core.ToHeaders PutMethodResponse where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutMethodResponse where
+instance Core.ToJSON PutMethodResponse where
   toJSON PutMethodResponse' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("responseModels" Prelude..=)
-              Prelude.<$> responseModels,
-            ("responseParameters" Prelude..=)
-              Prelude.<$> responseParameters
+    Core.object
+      ( Core.catMaybes
+          [ ("responseModels" Core..=) Core.<$> responseModels,
+            ("responseParameters" Core..=)
+              Core.<$> responseParameters
           ]
       )
 
-instance Prelude.ToPath PutMethodResponse where
+instance Core.ToPath PutMethodResponse where
   toPath PutMethodResponse' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/resources/",
-        Prelude.toBS resourceId,
+        Core.toBS resourceId,
         "/methods/",
-        Prelude.toBS httpMethod,
+        Core.toBS httpMethod,
         "/responses/",
-        Prelude.toBS statusCode
+        Core.toBS statusCode
       ]
 
-instance Prelude.ToQuery PutMethodResponse where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutMethodResponse where
+  toQuery = Core.const Core.mempty

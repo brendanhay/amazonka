@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.MachineLearningDetectionConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ConfidenceLevel
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration of an ML Detect Security Profile.
 --
@@ -32,7 +31,7 @@ data MachineLearningDetectionConfig = MachineLearningDetectionConfig'
     -- @Medium@, or @High@.
     confidenceLevel :: ConfidenceLevel
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MachineLearningDetectionConfig' with all optional fields omitted.
@@ -59,34 +58,24 @@ newMachineLearningDetectionConfig pConfidenceLevel_ =
 machineLearningDetectionConfig_confidenceLevel :: Lens.Lens' MachineLearningDetectionConfig ConfidenceLevel
 machineLearningDetectionConfig_confidenceLevel = Lens.lens (\MachineLearningDetectionConfig' {confidenceLevel} -> confidenceLevel) (\s@MachineLearningDetectionConfig' {} a -> s {confidenceLevel = a} :: MachineLearningDetectionConfig)
 
-instance
-  Prelude.FromJSON
-    MachineLearningDetectionConfig
-  where
+instance Core.FromJSON MachineLearningDetectionConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MachineLearningDetectionConfig"
       ( \x ->
           MachineLearningDetectionConfig'
-            Prelude.<$> (x Prelude..: "confidenceLevel")
+            Core.<$> (x Core..: "confidenceLevel")
       )
 
-instance
-  Prelude.Hashable
-    MachineLearningDetectionConfig
+instance Core.Hashable MachineLearningDetectionConfig
 
-instance
-  Prelude.NFData
-    MachineLearningDetectionConfig
+instance Core.NFData MachineLearningDetectionConfig
 
-instance
-  Prelude.ToJSON
-    MachineLearningDetectionConfig
-  where
+instance Core.ToJSON MachineLearningDetectionConfig where
   toJSON MachineLearningDetectionConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("confidenceLevel" Prelude..= confidenceLevel)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("confidenceLevel" Core..= confidenceLevel)
           ]
       )

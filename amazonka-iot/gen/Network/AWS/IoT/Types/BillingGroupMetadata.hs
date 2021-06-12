@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.BillingGroupMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Additional information about the billing group.
 --
 -- /See:/ 'newBillingGroupMetadata' smart constructor.
 data BillingGroupMetadata = BillingGroupMetadata'
   { -- | The date the billing group was created.
-    creationDate :: Prelude.Maybe Prelude.POSIX
+    creationDate :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BillingGroupMetadata' with all optional fields omitted.
@@ -44,24 +43,21 @@ data BillingGroupMetadata = BillingGroupMetadata'
 newBillingGroupMetadata ::
   BillingGroupMetadata
 newBillingGroupMetadata =
-  BillingGroupMetadata'
-    { creationDate =
-        Prelude.Nothing
-    }
+  BillingGroupMetadata' {creationDate = Core.Nothing}
 
 -- | The date the billing group was created.
-billingGroupMetadata_creationDate :: Lens.Lens' BillingGroupMetadata (Prelude.Maybe Prelude.UTCTime)
-billingGroupMetadata_creationDate = Lens.lens (\BillingGroupMetadata' {creationDate} -> creationDate) (\s@BillingGroupMetadata' {} a -> s {creationDate = a} :: BillingGroupMetadata) Prelude.. Lens.mapping Prelude._Time
+billingGroupMetadata_creationDate :: Lens.Lens' BillingGroupMetadata (Core.Maybe Core.UTCTime)
+billingGroupMetadata_creationDate = Lens.lens (\BillingGroupMetadata' {creationDate} -> creationDate) (\s@BillingGroupMetadata' {} a -> s {creationDate = a} :: BillingGroupMetadata) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON BillingGroupMetadata where
+instance Core.FromJSON BillingGroupMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BillingGroupMetadata"
       ( \x ->
           BillingGroupMetadata'
-            Prelude.<$> (x Prelude..:? "creationDate")
+            Core.<$> (x Core..:? "creationDate")
       )
 
-instance Prelude.Hashable BillingGroupMetadata
+instance Core.Hashable BillingGroupMetadata
 
-instance Prelude.NFData BillingGroupMetadata
+instance Core.NFData BillingGroupMetadata

@@ -367,8 +367,8 @@ module Network.AWS.StepFunctions.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.StepFunctions.Types.ActivityFailedEventDetails
 import Network.AWS.StepFunctions.Types.ActivityListItem
@@ -419,82 +419,79 @@ import Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails
 import Network.AWS.StepFunctions.Types.TracingConfiguration
 
 -- | API version @2016-11-23@ of the Amazon Step Functions SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev =
-        "StepFunctions",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "states",
-      Prelude._svcSigningName = "states",
-      Prelude._svcVersion = "2016-11-23",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "StepFunctions",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "StepFunctions",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "states",
+      Core._serviceSigningName = "states",
+      Core._serviceVersion = "2016-11-23",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "StepFunctions",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The maximum number of running executions has been reached. Running
 -- executions must end or be stopped before a new execution can be started.
-_ExecutionLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ExecutionLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ExecutionLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ExecutionLimitExceeded"
 
@@ -502,171 +499,169 @@ _ExecutionLimitExceeded =
 -- @input@).
 --
 -- Executions with the same @name@ and @input@ are considered idempotent.
-_ExecutionAlreadyExists :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ExecutionAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ExecutionAlreadyExists =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ExecutionAlreadyExists"
 
 -- |
-_StateMachineTypeNotSupported :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_StateMachineTypeNotSupported :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _StateMachineTypeNotSupported =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "StateMachineTypeNotSupported"
 
 -- | The specified execution does not exist.
-_ExecutionDoesNotExist :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ExecutionDoesNotExist :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ExecutionDoesNotExist =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ExecutionDoesNotExist"
 
 -- | The provided name is invalid.
-_InvalidName :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidName :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidName =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidName"
 
 -- | The provided JSON output data is invalid.
-_InvalidOutput :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidOutput :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidOutput =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidOutput"
 
 -- | The maximum number of activities has been reached. Existing activities
 -- must be deleted before a new activity can be created.
-_ActivityLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ActivityLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ActivityLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ActivityLimitExceeded"
 
 -- | The provided JSON input data is invalid.
-_InvalidExecutionInput :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidExecutionInput :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidExecutionInput =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidExecutionInput"
 
 -- |
-_InvalidLoggingConfiguration :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidLoggingConfiguration :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidLoggingConfiguration =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidLoggingConfiguration"
 
 -- | Prism for TaskTimedOut' errors.
-_TaskTimedOut :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TaskTimedOut :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TaskTimedOut =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TaskTimedOut"
 
 -- | The maximum number of state machines has been reached. Existing state
 -- machines must be deleted before a new state machine can be created.
-_StateMachineLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_StateMachineLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _StateMachineLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "StateMachineLimitExceeded"
 
 -- | The provided Amazon Resource Name (ARN) is invalid.
-_InvalidArn :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidArn :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidArn =
-  Prelude._MatchServiceError
-    defaultService
-    "InvalidArn"
+  Core._MatchServiceError defaultService "InvalidArn"
 
 -- | The provided Amazon States Language definition is invalid.
-_InvalidDefinition :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidDefinition :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidDefinition =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidDefinition"
 
 -- | Request is missing a required parameter. This error occurs if both
 -- @definition@ and @roleArn@ are not specified.
-_MissingRequiredParameter :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MissingRequiredParameter :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MissingRequiredParameter =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MissingRequiredParameter"
 
 -- | A state machine with the same name but a different definition or role
 -- ARN already exists.
-_StateMachineAlreadyExists :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_StateMachineAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _StateMachineAlreadyExists =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "StateMachineAlreadyExists"
 
 -- | Could not find the referenced resource. Only state machine and activity
 -- ARNs are supported.
-_ResourceNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFound"
 
 -- | The specified state machine does not exist.
-_StateMachineDoesNotExist :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_StateMachineDoesNotExist :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _StateMachineDoesNotExist =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "StateMachineDoesNotExist"
 
 -- | Prism for TaskDoesNotExist' errors.
-_TaskDoesNotExist :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TaskDoesNotExist :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TaskDoesNotExist =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TaskDoesNotExist"
 
 -- | The specified state machine is being deleted.
-_StateMachineDeleting :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_StateMachineDeleting :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _StateMachineDeleting =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "StateMachineDeleting"
 
 -- | The specified activity does not exist.
-_ActivityDoesNotExist :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ActivityDoesNotExist :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ActivityDoesNotExist =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ActivityDoesNotExist"
 
 -- | You\'ve exceeded the number of tags allowed for a resource. See the
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html Limits Topic>
 -- in the AWS Step Functions Developer Guide.
-_TooManyTags :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTags :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyTags =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyTags"
 
 -- | The maximum number of workers concurrently polling for activity tasks
 -- has been reached.
-_ActivityWorkerLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ActivityWorkerLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ActivityWorkerLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ActivityWorkerLimitExceeded"
 
 -- | Your @tracingConfiguration@ key does not match, or @enabled@ has not
 -- been set to @true@ or @false@.
-_InvalidTracingConfiguration :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTracingConfiguration :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidTracingConfiguration =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidTracingConfiguration"
 
 -- | The provided token is invalid.
-_InvalidToken :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidToken :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidToken =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidToken"

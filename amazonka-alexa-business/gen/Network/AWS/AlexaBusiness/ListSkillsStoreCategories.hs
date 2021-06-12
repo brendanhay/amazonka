@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,20 +44,19 @@ module Network.AWS.AlexaBusiness.ListSkillsStoreCategories
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListSkillsStoreCategories' smart constructor.
 data ListSkillsStoreCategories = ListSkillsStoreCategories'
   { -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of categories returned, per paginated calls.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSkillsStoreCategories' with all optional fields omitted.
@@ -76,100 +74,96 @@ newListSkillsStoreCategories ::
 newListSkillsStoreCategories =
   ListSkillsStoreCategories'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The tokens used for pagination.
-listSkillsStoreCategories_nextToken :: Lens.Lens' ListSkillsStoreCategories (Prelude.Maybe Prelude.Text)
+listSkillsStoreCategories_nextToken :: Lens.Lens' ListSkillsStoreCategories (Core.Maybe Core.Text)
 listSkillsStoreCategories_nextToken = Lens.lens (\ListSkillsStoreCategories' {nextToken} -> nextToken) (\s@ListSkillsStoreCategories' {} a -> s {nextToken = a} :: ListSkillsStoreCategories)
 
 -- | The maximum number of categories returned, per paginated calls.
-listSkillsStoreCategories_maxResults :: Lens.Lens' ListSkillsStoreCategories (Prelude.Maybe Prelude.Natural)
+listSkillsStoreCategories_maxResults :: Lens.Lens' ListSkillsStoreCategories (Core.Maybe Core.Natural)
 listSkillsStoreCategories_maxResults = Lens.lens (\ListSkillsStoreCategories' {maxResults} -> maxResults) (\s@ListSkillsStoreCategories' {} a -> s {maxResults = a} :: ListSkillsStoreCategories)
 
-instance Pager.AWSPager ListSkillsStoreCategories where
+instance Core.AWSPager ListSkillsStoreCategories where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listSkillsStoreCategoriesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listSkillsStoreCategoriesResponse_categoryList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listSkillsStoreCategories_nextToken
           Lens..~ rs
           Lens.^? listSkillsStoreCategoriesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListSkillsStoreCategories where
+instance Core.AWSRequest ListSkillsStoreCategories where
   type
-    Rs ListSkillsStoreCategories =
+    AWSResponse ListSkillsStoreCategories =
       ListSkillsStoreCategoriesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListSkillsStoreCategoriesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "CategoryList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "CategoryList" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListSkillsStoreCategories
+instance Core.Hashable ListSkillsStoreCategories
 
-instance Prelude.NFData ListSkillsStoreCategories
+instance Core.NFData ListSkillsStoreCategories
 
-instance Prelude.ToHeaders ListSkillsStoreCategories where
+instance Core.ToHeaders ListSkillsStoreCategories where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.ListSkillsStoreCategories" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.ListSkillsStoreCategories" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListSkillsStoreCategories where
+instance Core.ToJSON ListSkillsStoreCategories where
   toJSON ListSkillsStoreCategories' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListSkillsStoreCategories where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListSkillsStoreCategories where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListSkillsStoreCategories where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListSkillsStoreCategories where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListSkillsStoreCategoriesResponse' smart constructor.
 data ListSkillsStoreCategoriesResponse = ListSkillsStoreCategoriesResponse'
   { -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of categories.
-    categoryList :: Prelude.Maybe [Category],
+    categoryList :: Core.Maybe [Category],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSkillsStoreCategoriesResponse' with all optional fields omitted.
@@ -186,28 +180,28 @@ data ListSkillsStoreCategoriesResponse = ListSkillsStoreCategoriesResponse'
 -- 'httpStatus', 'listSkillsStoreCategoriesResponse_httpStatus' - The response's http status code.
 newListSkillsStoreCategoriesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSkillsStoreCategoriesResponse
 newListSkillsStoreCategoriesResponse pHttpStatus_ =
   ListSkillsStoreCategoriesResponse'
     { nextToken =
-        Prelude.Nothing,
-      categoryList = Prelude.Nothing,
+        Core.Nothing,
+      categoryList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The tokens used for pagination.
-listSkillsStoreCategoriesResponse_nextToken :: Lens.Lens' ListSkillsStoreCategoriesResponse (Prelude.Maybe Prelude.Text)
+listSkillsStoreCategoriesResponse_nextToken :: Lens.Lens' ListSkillsStoreCategoriesResponse (Core.Maybe Core.Text)
 listSkillsStoreCategoriesResponse_nextToken = Lens.lens (\ListSkillsStoreCategoriesResponse' {nextToken} -> nextToken) (\s@ListSkillsStoreCategoriesResponse' {} a -> s {nextToken = a} :: ListSkillsStoreCategoriesResponse)
 
 -- | The list of categories.
-listSkillsStoreCategoriesResponse_categoryList :: Lens.Lens' ListSkillsStoreCategoriesResponse (Prelude.Maybe [Category])
-listSkillsStoreCategoriesResponse_categoryList = Lens.lens (\ListSkillsStoreCategoriesResponse' {categoryList} -> categoryList) (\s@ListSkillsStoreCategoriesResponse' {} a -> s {categoryList = a} :: ListSkillsStoreCategoriesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listSkillsStoreCategoriesResponse_categoryList :: Lens.Lens' ListSkillsStoreCategoriesResponse (Core.Maybe [Category])
+listSkillsStoreCategoriesResponse_categoryList = Lens.lens (\ListSkillsStoreCategoriesResponse' {categoryList} -> categoryList) (\s@ListSkillsStoreCategoriesResponse' {} a -> s {categoryList = a} :: ListSkillsStoreCategoriesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listSkillsStoreCategoriesResponse_httpStatus :: Lens.Lens' ListSkillsStoreCategoriesResponse Prelude.Int
+listSkillsStoreCategoriesResponse_httpStatus :: Lens.Lens' ListSkillsStoreCategoriesResponse Core.Int
 listSkillsStoreCategoriesResponse_httpStatus = Lens.lens (\ListSkillsStoreCategoriesResponse' {httpStatus} -> httpStatus) (\s@ListSkillsStoreCategoriesResponse' {} a -> s {httpStatus = a} :: ListSkillsStoreCategoriesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListSkillsStoreCategoriesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.EnvironmentVariable where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an app\'s environment variable.
 --
@@ -31,18 +30,18 @@ data EnvironmentVariable = EnvironmentVariable'
     -- DescribeApps action. To conceal an environment variable\'s value, set
     -- @Secure@ to @true@. @DescribeApps@ then returns @*****FILTERED*****@
     -- instead of the actual value. The default value for @Secure@ is @false@.
-    secure :: Prelude.Maybe Prelude.Bool,
+    secure :: Core.Maybe Core.Bool,
     -- | (Required) The environment variable\'s name, which can consist of up to
     -- 64 characters and must be specified. The name can contain upper- and
     -- lowercase letters, numbers, and underscores (_), but it must start with
     -- a letter or underscore.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | (Optional) The environment variable\'s value, which can be left empty.
     -- If you specify a value, it can contain up to 256 characters, which must
     -- all be printable.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnvironmentVariable' with all optional fields omitted.
@@ -67,13 +66,13 @@ data EnvironmentVariable = EnvironmentVariable'
 -- all be printable.
 newEnvironmentVariable ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   EnvironmentVariable
 newEnvironmentVariable pKey_ pValue_ =
   EnvironmentVariable'
-    { secure = Prelude.Nothing,
+    { secure = Core.Nothing,
       key = pKey_,
       value = pValue_
     }
@@ -82,43 +81,43 @@ newEnvironmentVariable pKey_ pValue_ =
 -- DescribeApps action. To conceal an environment variable\'s value, set
 -- @Secure@ to @true@. @DescribeApps@ then returns @*****FILTERED*****@
 -- instead of the actual value. The default value for @Secure@ is @false@.
-environmentVariable_secure :: Lens.Lens' EnvironmentVariable (Prelude.Maybe Prelude.Bool)
+environmentVariable_secure :: Lens.Lens' EnvironmentVariable (Core.Maybe Core.Bool)
 environmentVariable_secure = Lens.lens (\EnvironmentVariable' {secure} -> secure) (\s@EnvironmentVariable' {} a -> s {secure = a} :: EnvironmentVariable)
 
 -- | (Required) The environment variable\'s name, which can consist of up to
 -- 64 characters and must be specified. The name can contain upper- and
 -- lowercase letters, numbers, and underscores (_), but it must start with
 -- a letter or underscore.
-environmentVariable_key :: Lens.Lens' EnvironmentVariable Prelude.Text
+environmentVariable_key :: Lens.Lens' EnvironmentVariable Core.Text
 environmentVariable_key = Lens.lens (\EnvironmentVariable' {key} -> key) (\s@EnvironmentVariable' {} a -> s {key = a} :: EnvironmentVariable)
 
 -- | (Optional) The environment variable\'s value, which can be left empty.
 -- If you specify a value, it can contain up to 256 characters, which must
 -- all be printable.
-environmentVariable_value :: Lens.Lens' EnvironmentVariable Prelude.Text
+environmentVariable_value :: Lens.Lens' EnvironmentVariable Core.Text
 environmentVariable_value = Lens.lens (\EnvironmentVariable' {value} -> value) (\s@EnvironmentVariable' {} a -> s {value = a} :: EnvironmentVariable)
 
-instance Prelude.FromJSON EnvironmentVariable where
+instance Core.FromJSON EnvironmentVariable where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EnvironmentVariable"
       ( \x ->
           EnvironmentVariable'
-            Prelude.<$> (x Prelude..:? "Secure")
-            Prelude.<*> (x Prelude..: "Key")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..:? "Secure")
+            Core.<*> (x Core..: "Key")
+            Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable EnvironmentVariable
+instance Core.Hashable EnvironmentVariable
 
-instance Prelude.NFData EnvironmentVariable
+instance Core.NFData EnvironmentVariable
 
-instance Prelude.ToJSON EnvironmentVariable where
+instance Core.ToJSON EnvironmentVariable where
   toJSON EnvironmentVariable' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Secure" Prelude..=) Prelude.<$> secure,
-            Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ ("Secure" Core..=) Core.<$> secure,
+            Core.Just ("Key" Core..= key),
+            Core.Just ("Value" Core..= value)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.Cloud9.ListEnvironments
 where
 
 import Network.AWS.Cloud9.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,11 +57,11 @@ data ListEnvironments = ListEnvironments'
     -- operation again, adding the next token to the call. To get all of the
     -- items in the list, keep calling this operation with each subsequent next
     -- token that is returned, until no more next tokens are returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of environments to get identifiers for.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListEnvironments' with all optional fields omitted.
@@ -85,8 +83,8 @@ newListEnvironments ::
   ListEnvironments
 newListEnvironments =
   ListEnvironments'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | During a previous call, if there are more than 25 items in the list,
@@ -95,82 +93,78 @@ newListEnvironments =
 -- operation again, adding the next token to the call. To get all of the
 -- items in the list, keep calling this operation with each subsequent next
 -- token that is returned, until no more next tokens are returned.
-listEnvironments_nextToken :: Lens.Lens' ListEnvironments (Prelude.Maybe Prelude.Text)
+listEnvironments_nextToken :: Lens.Lens' ListEnvironments (Core.Maybe Core.Text)
 listEnvironments_nextToken = Lens.lens (\ListEnvironments' {nextToken} -> nextToken) (\s@ListEnvironments' {} a -> s {nextToken = a} :: ListEnvironments)
 
 -- | The maximum number of environments to get identifiers for.
-listEnvironments_maxResults :: Lens.Lens' ListEnvironments (Prelude.Maybe Prelude.Natural)
+listEnvironments_maxResults :: Lens.Lens' ListEnvironments (Core.Maybe Core.Natural)
 listEnvironments_maxResults = Lens.lens (\ListEnvironments' {maxResults} -> maxResults) (\s@ListEnvironments' {} a -> s {maxResults = a} :: ListEnvironments)
 
-instance Pager.AWSPager ListEnvironments where
+instance Core.AWSPager ListEnvironments where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listEnvironmentsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listEnvironmentsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listEnvironmentsResponse_environmentIds
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listEnvironments_nextToken
           Lens..~ rs
-          Lens.^? listEnvironmentsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listEnvironmentsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListEnvironments where
-  type Rs ListEnvironments = ListEnvironmentsResponse
+instance Core.AWSRequest ListEnvironments where
+  type
+    AWSResponse ListEnvironments =
+      ListEnvironmentsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListEnvironmentsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "environmentIds"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "environmentIds" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListEnvironments
+instance Core.Hashable ListEnvironments
 
-instance Prelude.NFData ListEnvironments
+instance Core.NFData ListEnvironments
 
-instance Prelude.ToHeaders ListEnvironments where
+instance Core.ToHeaders ListEnvironments where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCloud9WorkspaceManagementService.ListEnvironments" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCloud9WorkspaceManagementService.ListEnvironments" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListEnvironments where
+instance Core.ToJSON ListEnvironments where
   toJSON ListEnvironments' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListEnvironments where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListEnvironments where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListEnvironments where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListEnvironments where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListEnvironmentsResponse' smart constructor.
 data ListEnvironmentsResponse = ListEnvironmentsResponse'
@@ -178,13 +172,13 @@ data ListEnvironmentsResponse = ListEnvironmentsResponse'
     -- returned, along with a unique string called a /next token/. To get the
     -- next batch of items in the list, call this operation again, adding the
     -- next token to the call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of environment identifiers.
-    environmentIds :: Prelude.Maybe [Prelude.Text],
+    environmentIds :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListEnvironmentsResponse' with all optional fields omitted.
@@ -204,13 +198,12 @@ data ListEnvironmentsResponse = ListEnvironmentsResponse'
 -- 'httpStatus', 'listEnvironmentsResponse_httpStatus' - The response's http status code.
 newListEnvironmentsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListEnvironmentsResponse
 newListEnvironmentsResponse pHttpStatus_ =
   ListEnvironmentsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      environmentIds = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      environmentIds = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -218,15 +211,15 @@ newListEnvironmentsResponse pHttpStatus_ =
 -- returned, along with a unique string called a /next token/. To get the
 -- next batch of items in the list, call this operation again, adding the
 -- next token to the call.
-listEnvironmentsResponse_nextToken :: Lens.Lens' ListEnvironmentsResponse (Prelude.Maybe Prelude.Text)
+listEnvironmentsResponse_nextToken :: Lens.Lens' ListEnvironmentsResponse (Core.Maybe Core.Text)
 listEnvironmentsResponse_nextToken = Lens.lens (\ListEnvironmentsResponse' {nextToken} -> nextToken) (\s@ListEnvironmentsResponse' {} a -> s {nextToken = a} :: ListEnvironmentsResponse)
 
 -- | The list of environment identifiers.
-listEnvironmentsResponse_environmentIds :: Lens.Lens' ListEnvironmentsResponse (Prelude.Maybe [Prelude.Text])
-listEnvironmentsResponse_environmentIds = Lens.lens (\ListEnvironmentsResponse' {environmentIds} -> environmentIds) (\s@ListEnvironmentsResponse' {} a -> s {environmentIds = a} :: ListEnvironmentsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listEnvironmentsResponse_environmentIds :: Lens.Lens' ListEnvironmentsResponse (Core.Maybe [Core.Text])
+listEnvironmentsResponse_environmentIds = Lens.lens (\ListEnvironmentsResponse' {environmentIds} -> environmentIds) (\s@ListEnvironmentsResponse' {} a -> s {environmentIds = a} :: ListEnvironmentsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listEnvironmentsResponse_httpStatus :: Lens.Lens' ListEnvironmentsResponse Prelude.Int
+listEnvironmentsResponse_httpStatus :: Lens.Lens' ListEnvironmentsResponse Core.Int
 listEnvironmentsResponse_httpStatus = Lens.lens (\ListEnvironmentsResponse' {httpStatus} -> httpStatus) (\s@ListEnvironmentsResponse' {} a -> s {httpStatus = a} :: ListEnvironmentsResponse)
 
-instance Prelude.NFData ListEnvironmentsResponse
+instance Core.NFData ListEnvironmentsResponse

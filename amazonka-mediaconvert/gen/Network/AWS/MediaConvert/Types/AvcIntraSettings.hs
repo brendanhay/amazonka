@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.AvcIntraSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AvcIntraClass
 import Network.AWS.MediaConvert.Types.AvcIntraFramerateControl
@@ -29,7 +29,6 @@ import Network.AWS.MediaConvert.Types.AvcIntraScanTypeConversionMode
 import Network.AWS.MediaConvert.Types.AvcIntraSlowPal
 import Network.AWS.MediaConvert.Types.AvcIntraTelecine
 import Network.AWS.MediaConvert.Types.AvcIntraUhdSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Required when you set your output video codec to AVC-Intra. For more
 -- information about the AVC-I settings, see the relevant specification.
@@ -53,14 +52,14 @@ data AvcIntraSettings = AvcIntraSettings'
     -- the same polarity as the source. If the source is progressive, the
     -- output will be interlaced with top field bottom field first, depending
     -- on which of the Follow options you choose.
-    interlaceMode :: Prelude.Maybe AvcIntraInterlaceMode,
+    interlaceMode :: Core.Maybe AvcIntraInterlaceMode,
     -- | When you do frame rate conversion from 23.976 frames per second (fps) to
     -- 29.97 fps, and your output scan type is interlaced, you can optionally
     -- enable hard telecine (HARD) to create a smoother picture. When you keep
     -- the default value, None (NONE), MediaConvert does a standard frame rate
     -- conversion to 29.97 without doing anything with the field polarity to
     -- create a smoother picture.
-    telecine :: Prelude.Maybe AvcIntraTelecine,
+    telecine :: Core.Maybe AvcIntraTelecine,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
     -- 23.976 fps. Use FramerateNumerator to specify the numerator of this
@@ -68,7 +67,7 @@ data AvcIntraSettings = AvcIntraSettings'
     -- FramerateNumerator. When you use the console for transcode jobs that use
     -- frame rate conversion, provide the value as a decimal number for
     -- Framerate. In this example, specify 23.976.
-    framerateNumerator :: Prelude.Maybe Prelude.Natural,
+    framerateNumerator :: Core.Maybe Core.Natural,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
     -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
@@ -76,13 +75,13 @@ data AvcIntraSettings = AvcIntraSettings'
     -- FramerateDenominator. When you use the console for transcode jobs that
     -- use frame rate conversion, provide the value as a decimal number for
     -- Framerate. In this example, specify 23.976.
-    framerateDenominator :: Prelude.Maybe Prelude.Natural,
+    framerateDenominator :: Core.Maybe Core.Natural,
     -- | Specify the AVC-Intra class of your output. The AVC-Intra class
     -- selection determines the output video bit rate depending on the frame
     -- rate of the output. Outputs with higher class values have higher
     -- bitrates and improved image quality. Note that for Class 4K\/2K,
     -- MediaConvert supports only 4:2:2 chroma subsampling.
-    avcIntraClass :: Prelude.Maybe AvcIntraClass,
+    avcIntraClass :: Core.Maybe AvcIntraClass,
     -- | Use this setting for interlaced outputs, when your output frame rate is
     -- half of your input frame rate. In this situation, choose Optimized
     -- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced
@@ -98,7 +97,7 @@ data AvcIntraSettings = AvcIntraSettings'
     -- optimized interlacing for hard telecine outputs. You must also set
     -- Interlace mode (interlaceMode) to a value other than Progressive
     -- (PROGRESSIVE).
-    scanTypeConversionMode :: Prelude.Maybe AvcIntraScanTypeConversionMode,
+    scanTypeConversionMode :: Core.Maybe AvcIntraScanTypeConversionMode,
     -- | If you are using the console, use the Framerate setting to specify the
     -- frame rate for this output. If you want to keep the same frame rate as
     -- the input video, choose Follow source. If you want to do frame rate
@@ -112,11 +111,11 @@ data AvcIntraSettings = AvcIntraSettings'
     -- from the input. Choose SPECIFIED if you want the service to use the
     -- frame rate you specify in the settings FramerateNumerator and
     -- FramerateDenominator.
-    framerateControl :: Prelude.Maybe AvcIntraFramerateControl,
+    framerateControl :: Core.Maybe AvcIntraFramerateControl,
     -- | Optional when you set AVC-Intra class (avcIntraClass) to Class 4K\/2K
     -- (CLASS_4K_2K). When you set AVC-Intra class to a different value, this
     -- object isn\'t allowed.
-    avcIntraUhdSettings :: Prelude.Maybe AvcIntraUhdSettings,
+    avcIntraUhdSettings :: Core.Maybe AvcIntraUhdSettings,
     -- | Choose the method that you want MediaConvert to use when increasing or
     -- decreasing the frame rate. We recommend using drop duplicate
     -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
@@ -128,7 +127,7 @@ data AvcIntraSettings = AvcIntraSettings'
     -- motion-compensated interpolation. FrameFormer chooses the best
     -- conversion method frame by frame. Note that using FrameFormer increases
     -- the transcoding time and incurs a significant add-on cost.
-    framerateConversionAlgorithm :: Prelude.Maybe AvcIntraFramerateConversionAlgorithm,
+    framerateConversionAlgorithm :: Core.Maybe AvcIntraFramerateConversionAlgorithm,
     -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
     -- per second (fps). Enable slow PAL to create a 25 fps output. When you
     -- enable slow PAL, MediaConvert relabels the video frames to 25 fps and
@@ -137,9 +136,9 @@ data AvcIntraSettings = AvcIntraSettings'
     -- Required settings: You must also set Framerate to 25. In your JSON job
     -- specification, set (framerateControl) to (SPECIFIED),
     -- (framerateNumerator) to 25 and (framerateDenominator) to 1.
-    slowPal :: Prelude.Maybe AvcIntraSlowPal
+    slowPal :: Core.Maybe AvcIntraSlowPal
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AvcIntraSettings' with all optional fields omitted.
@@ -250,16 +249,16 @@ newAvcIntraSettings ::
   AvcIntraSettings
 newAvcIntraSettings =
   AvcIntraSettings'
-    { interlaceMode = Prelude.Nothing,
-      telecine = Prelude.Nothing,
-      framerateNumerator = Prelude.Nothing,
-      framerateDenominator = Prelude.Nothing,
-      avcIntraClass = Prelude.Nothing,
-      scanTypeConversionMode = Prelude.Nothing,
-      framerateControl = Prelude.Nothing,
-      avcIntraUhdSettings = Prelude.Nothing,
-      framerateConversionAlgorithm = Prelude.Nothing,
-      slowPal = Prelude.Nothing
+    { interlaceMode = Core.Nothing,
+      telecine = Core.Nothing,
+      framerateNumerator = Core.Nothing,
+      framerateDenominator = Core.Nothing,
+      avcIntraClass = Core.Nothing,
+      scanTypeConversionMode = Core.Nothing,
+      framerateControl = Core.Nothing,
+      avcIntraUhdSettings = Core.Nothing,
+      framerateConversionAlgorithm = Core.Nothing,
+      slowPal = Core.Nothing
     }
 
 -- | Choose the scan line type for the output. Keep the default value,
@@ -275,7 +274,7 @@ newAvcIntraSettings =
 -- the same polarity as the source. If the source is progressive, the
 -- output will be interlaced with top field bottom field first, depending
 -- on which of the Follow options you choose.
-avcIntraSettings_interlaceMode :: Lens.Lens' AvcIntraSettings (Prelude.Maybe AvcIntraInterlaceMode)
+avcIntraSettings_interlaceMode :: Lens.Lens' AvcIntraSettings (Core.Maybe AvcIntraInterlaceMode)
 avcIntraSettings_interlaceMode = Lens.lens (\AvcIntraSettings' {interlaceMode} -> interlaceMode) (\s@AvcIntraSettings' {} a -> s {interlaceMode = a} :: AvcIntraSettings)
 
 -- | When you do frame rate conversion from 23.976 frames per second (fps) to
@@ -284,7 +283,7 @@ avcIntraSettings_interlaceMode = Lens.lens (\AvcIntraSettings' {interlaceMode} -
 -- the default value, None (NONE), MediaConvert does a standard frame rate
 -- conversion to 29.97 without doing anything with the field polarity to
 -- create a smoother picture.
-avcIntraSettings_telecine :: Lens.Lens' AvcIntraSettings (Prelude.Maybe AvcIntraTelecine)
+avcIntraSettings_telecine :: Lens.Lens' AvcIntraSettings (Core.Maybe AvcIntraTelecine)
 avcIntraSettings_telecine = Lens.lens (\AvcIntraSettings' {telecine} -> telecine) (\s@AvcIntraSettings' {} a -> s {telecine = a} :: AvcIntraSettings)
 
 -- | When you use the API for transcode jobs that use frame rate conversion,
@@ -294,7 +293,7 @@ avcIntraSettings_telecine = Lens.lens (\AvcIntraSettings' {telecine} -> telecine
 -- FramerateNumerator. When you use the console for transcode jobs that use
 -- frame rate conversion, provide the value as a decimal number for
 -- Framerate. In this example, specify 23.976.
-avcIntraSettings_framerateNumerator :: Lens.Lens' AvcIntraSettings (Prelude.Maybe Prelude.Natural)
+avcIntraSettings_framerateNumerator :: Lens.Lens' AvcIntraSettings (Core.Maybe Core.Natural)
 avcIntraSettings_framerateNumerator = Lens.lens (\AvcIntraSettings' {framerateNumerator} -> framerateNumerator) (\s@AvcIntraSettings' {} a -> s {framerateNumerator = a} :: AvcIntraSettings)
 
 -- | When you use the API for transcode jobs that use frame rate conversion,
@@ -304,7 +303,7 @@ avcIntraSettings_framerateNumerator = Lens.lens (\AvcIntraSettings' {framerateNu
 -- FramerateDenominator. When you use the console for transcode jobs that
 -- use frame rate conversion, provide the value as a decimal number for
 -- Framerate. In this example, specify 23.976.
-avcIntraSettings_framerateDenominator :: Lens.Lens' AvcIntraSettings (Prelude.Maybe Prelude.Natural)
+avcIntraSettings_framerateDenominator :: Lens.Lens' AvcIntraSettings (Core.Maybe Core.Natural)
 avcIntraSettings_framerateDenominator = Lens.lens (\AvcIntraSettings' {framerateDenominator} -> framerateDenominator) (\s@AvcIntraSettings' {} a -> s {framerateDenominator = a} :: AvcIntraSettings)
 
 -- | Specify the AVC-Intra class of your output. The AVC-Intra class
@@ -312,7 +311,7 @@ avcIntraSettings_framerateDenominator = Lens.lens (\AvcIntraSettings' {framerate
 -- rate of the output. Outputs with higher class values have higher
 -- bitrates and improved image quality. Note that for Class 4K\/2K,
 -- MediaConvert supports only 4:2:2 chroma subsampling.
-avcIntraSettings_avcIntraClass :: Lens.Lens' AvcIntraSettings (Prelude.Maybe AvcIntraClass)
+avcIntraSettings_avcIntraClass :: Lens.Lens' AvcIntraSettings (Core.Maybe AvcIntraClass)
 avcIntraSettings_avcIntraClass = Lens.lens (\AvcIntraSettings' {avcIntraClass} -> avcIntraClass) (\s@AvcIntraSettings' {} a -> s {avcIntraClass = a} :: AvcIntraSettings)
 
 -- | Use this setting for interlaced outputs, when your output frame rate is
@@ -330,7 +329,7 @@ avcIntraSettings_avcIntraClass = Lens.lens (\AvcIntraSettings' {avcIntraClass} -
 -- optimized interlacing for hard telecine outputs. You must also set
 -- Interlace mode (interlaceMode) to a value other than Progressive
 -- (PROGRESSIVE).
-avcIntraSettings_scanTypeConversionMode :: Lens.Lens' AvcIntraSettings (Prelude.Maybe AvcIntraScanTypeConversionMode)
+avcIntraSettings_scanTypeConversionMode :: Lens.Lens' AvcIntraSettings (Core.Maybe AvcIntraScanTypeConversionMode)
 avcIntraSettings_scanTypeConversionMode = Lens.lens (\AvcIntraSettings' {scanTypeConversionMode} -> scanTypeConversionMode) (\s@AvcIntraSettings' {} a -> s {scanTypeConversionMode = a} :: AvcIntraSettings)
 
 -- | If you are using the console, use the Framerate setting to specify the
@@ -346,13 +345,13 @@ avcIntraSettings_scanTypeConversionMode = Lens.lens (\AvcIntraSettings' {scanTyp
 -- from the input. Choose SPECIFIED if you want the service to use the
 -- frame rate you specify in the settings FramerateNumerator and
 -- FramerateDenominator.
-avcIntraSettings_framerateControl :: Lens.Lens' AvcIntraSettings (Prelude.Maybe AvcIntraFramerateControl)
+avcIntraSettings_framerateControl :: Lens.Lens' AvcIntraSettings (Core.Maybe AvcIntraFramerateControl)
 avcIntraSettings_framerateControl = Lens.lens (\AvcIntraSettings' {framerateControl} -> framerateControl) (\s@AvcIntraSettings' {} a -> s {framerateControl = a} :: AvcIntraSettings)
 
 -- | Optional when you set AVC-Intra class (avcIntraClass) to Class 4K\/2K
 -- (CLASS_4K_2K). When you set AVC-Intra class to a different value, this
 -- object isn\'t allowed.
-avcIntraSettings_avcIntraUhdSettings :: Lens.Lens' AvcIntraSettings (Prelude.Maybe AvcIntraUhdSettings)
+avcIntraSettings_avcIntraUhdSettings :: Lens.Lens' AvcIntraSettings (Core.Maybe AvcIntraUhdSettings)
 avcIntraSettings_avcIntraUhdSettings = Lens.lens (\AvcIntraSettings' {avcIntraUhdSettings} -> avcIntraUhdSettings) (\s@AvcIntraSettings' {} a -> s {avcIntraUhdSettings = a} :: AvcIntraSettings)
 
 -- | Choose the method that you want MediaConvert to use when increasing or
@@ -366,7 +365,7 @@ avcIntraSettings_avcIntraUhdSettings = Lens.lens (\AvcIntraSettings' {avcIntraUh
 -- motion-compensated interpolation. FrameFormer chooses the best
 -- conversion method frame by frame. Note that using FrameFormer increases
 -- the transcoding time and incurs a significant add-on cost.
-avcIntraSettings_framerateConversionAlgorithm :: Lens.Lens' AvcIntraSettings (Prelude.Maybe AvcIntraFramerateConversionAlgorithm)
+avcIntraSettings_framerateConversionAlgorithm :: Lens.Lens' AvcIntraSettings (Core.Maybe AvcIntraFramerateConversionAlgorithm)
 avcIntraSettings_framerateConversionAlgorithm = Lens.lens (\AvcIntraSettings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@AvcIntraSettings' {} a -> s {framerateConversionAlgorithm = a} :: AvcIntraSettings)
 
 -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
@@ -377,52 +376,50 @@ avcIntraSettings_framerateConversionAlgorithm = Lens.lens (\AvcIntraSettings' {f
 -- Required settings: You must also set Framerate to 25. In your JSON job
 -- specification, set (framerateControl) to (SPECIFIED),
 -- (framerateNumerator) to 25 and (framerateDenominator) to 1.
-avcIntraSettings_slowPal :: Lens.Lens' AvcIntraSettings (Prelude.Maybe AvcIntraSlowPal)
+avcIntraSettings_slowPal :: Lens.Lens' AvcIntraSettings (Core.Maybe AvcIntraSlowPal)
 avcIntraSettings_slowPal = Lens.lens (\AvcIntraSettings' {slowPal} -> slowPal) (\s@AvcIntraSettings' {} a -> s {slowPal = a} :: AvcIntraSettings)
 
-instance Prelude.FromJSON AvcIntraSettings where
+instance Core.FromJSON AvcIntraSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AvcIntraSettings"
       ( \x ->
           AvcIntraSettings'
-            Prelude.<$> (x Prelude..:? "interlaceMode")
-            Prelude.<*> (x Prelude..:? "telecine")
-            Prelude.<*> (x Prelude..:? "framerateNumerator")
-            Prelude.<*> (x Prelude..:? "framerateDenominator")
-            Prelude.<*> (x Prelude..:? "avcIntraClass")
-            Prelude.<*> (x Prelude..:? "scanTypeConversionMode")
-            Prelude.<*> (x Prelude..:? "framerateControl")
-            Prelude.<*> (x Prelude..:? "avcIntraUhdSettings")
-            Prelude.<*> (x Prelude..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Prelude..:? "slowPal")
+            Core.<$> (x Core..:? "interlaceMode")
+            Core.<*> (x Core..:? "telecine")
+            Core.<*> (x Core..:? "framerateNumerator")
+            Core.<*> (x Core..:? "framerateDenominator")
+            Core.<*> (x Core..:? "avcIntraClass")
+            Core.<*> (x Core..:? "scanTypeConversionMode")
+            Core.<*> (x Core..:? "framerateControl")
+            Core.<*> (x Core..:? "avcIntraUhdSettings")
+            Core.<*> (x Core..:? "framerateConversionAlgorithm")
+            Core.<*> (x Core..:? "slowPal")
       )
 
-instance Prelude.Hashable AvcIntraSettings
+instance Core.Hashable AvcIntraSettings
 
-instance Prelude.NFData AvcIntraSettings
+instance Core.NFData AvcIntraSettings
 
-instance Prelude.ToJSON AvcIntraSettings where
+instance Core.ToJSON AvcIntraSettings where
   toJSON AvcIntraSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("interlaceMode" Prelude..=)
-              Prelude.<$> interlaceMode,
-            ("telecine" Prelude..=) Prelude.<$> telecine,
-            ("framerateNumerator" Prelude..=)
-              Prelude.<$> framerateNumerator,
-            ("framerateDenominator" Prelude..=)
-              Prelude.<$> framerateDenominator,
-            ("avcIntraClass" Prelude..=)
-              Prelude.<$> avcIntraClass,
-            ("scanTypeConversionMode" Prelude..=)
-              Prelude.<$> scanTypeConversionMode,
-            ("framerateControl" Prelude..=)
-              Prelude.<$> framerateControl,
-            ("avcIntraUhdSettings" Prelude..=)
-              Prelude.<$> avcIntraUhdSettings,
-            ("framerateConversionAlgorithm" Prelude..=)
-              Prelude.<$> framerateConversionAlgorithm,
-            ("slowPal" Prelude..=) Prelude.<$> slowPal
+    Core.object
+      ( Core.catMaybes
+          [ ("interlaceMode" Core..=) Core.<$> interlaceMode,
+            ("telecine" Core..=) Core.<$> telecine,
+            ("framerateNumerator" Core..=)
+              Core.<$> framerateNumerator,
+            ("framerateDenominator" Core..=)
+              Core.<$> framerateDenominator,
+            ("avcIntraClass" Core..=) Core.<$> avcIntraClass,
+            ("scanTypeConversionMode" Core..=)
+              Core.<$> scanTypeConversionMode,
+            ("framerateControl" Core..=)
+              Core.<$> framerateControl,
+            ("avcIntraUhdSettings" Core..=)
+              Core.<$> avcIntraUhdSettings,
+            ("framerateConversionAlgorithm" Core..=)
+              Core.<$> framerateConversionAlgorithm,
+            ("slowPal" Core..=) Core.<$> slowPal
           ]
       )

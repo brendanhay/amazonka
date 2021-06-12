@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.NetworkProfile where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.NetworkProfileType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An array of settings that describes characteristics of a network
 -- profile.
@@ -31,38 +30,38 @@ import qualified Network.AWS.Prelude as Prelude
 data NetworkProfile = NetworkProfile'
   { -- | Time variation in the delay of received packets in milliseconds as an
     -- integer from 0 to 2000.
-    uplinkJitterMs :: Prelude.Maybe Prelude.Integer,
+    uplinkJitterMs :: Core.Maybe Core.Integer,
     -- | Delay time for all packets to destination in milliseconds as an integer
     -- from 0 to 2000.
-    downlinkDelayMs :: Prelude.Maybe Prelude.Integer,
+    downlinkDelayMs :: Core.Maybe Core.Integer,
     -- | The data throughput rate in bits per second, as an integer from 0 to
     -- 104857600.
-    downlinkBandwidthBits :: Prelude.Maybe Prelude.Integer,
+    downlinkBandwidthBits :: Core.Maybe Core.Integer,
     -- | Time variation in the delay of received packets in milliseconds as an
     -- integer from 0 to 2000.
-    downlinkJitterMs :: Prelude.Maybe Prelude.Integer,
+    downlinkJitterMs :: Core.Maybe Core.Integer,
     -- | Proportion of transmitted packets that fail to arrive from 0 to 100
     -- percent.
-    uplinkLossPercent :: Prelude.Maybe Prelude.Natural,
+    uplinkLossPercent :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) of the network profile.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | Proportion of received packets that fail to arrive from 0 to 100
     -- percent.
-    downlinkLossPercent :: Prelude.Maybe Prelude.Natural,
+    downlinkLossPercent :: Core.Maybe Core.Natural,
     -- | The name of the network profile.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The description of the network profile.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Delay time for all packets to destination in milliseconds as an integer
     -- from 0 to 2000.
-    uplinkDelayMs :: Prelude.Maybe Prelude.Integer,
+    uplinkDelayMs :: Core.Maybe Core.Integer,
     -- | The data throughput rate in bits per second, as an integer from 0 to
     -- 104857600.
-    uplinkBandwidthBits :: Prelude.Maybe Prelude.Integer,
+    uplinkBandwidthBits :: Core.Maybe Core.Integer,
     -- | The type of network profile. Valid values are listed here.
-    type' :: Prelude.Maybe NetworkProfileType
+    type' :: Core.Maybe NetworkProfileType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkProfile' with all optional fields omitted.
@@ -107,96 +106,96 @@ newNetworkProfile ::
   NetworkProfile
 newNetworkProfile =
   NetworkProfile'
-    { uplinkJitterMs = Prelude.Nothing,
-      downlinkDelayMs = Prelude.Nothing,
-      downlinkBandwidthBits = Prelude.Nothing,
-      downlinkJitterMs = Prelude.Nothing,
-      uplinkLossPercent = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      downlinkLossPercent = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      uplinkDelayMs = Prelude.Nothing,
-      uplinkBandwidthBits = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { uplinkJitterMs = Core.Nothing,
+      downlinkDelayMs = Core.Nothing,
+      downlinkBandwidthBits = Core.Nothing,
+      downlinkJitterMs = Core.Nothing,
+      uplinkLossPercent = Core.Nothing,
+      arn = Core.Nothing,
+      downlinkLossPercent = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      uplinkDelayMs = Core.Nothing,
+      uplinkBandwidthBits = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | Time variation in the delay of received packets in milliseconds as an
 -- integer from 0 to 2000.
-networkProfile_uplinkJitterMs :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Integer)
+networkProfile_uplinkJitterMs :: Lens.Lens' NetworkProfile (Core.Maybe Core.Integer)
 networkProfile_uplinkJitterMs = Lens.lens (\NetworkProfile' {uplinkJitterMs} -> uplinkJitterMs) (\s@NetworkProfile' {} a -> s {uplinkJitterMs = a} :: NetworkProfile)
 
 -- | Delay time for all packets to destination in milliseconds as an integer
 -- from 0 to 2000.
-networkProfile_downlinkDelayMs :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Integer)
+networkProfile_downlinkDelayMs :: Lens.Lens' NetworkProfile (Core.Maybe Core.Integer)
 networkProfile_downlinkDelayMs = Lens.lens (\NetworkProfile' {downlinkDelayMs} -> downlinkDelayMs) (\s@NetworkProfile' {} a -> s {downlinkDelayMs = a} :: NetworkProfile)
 
 -- | The data throughput rate in bits per second, as an integer from 0 to
 -- 104857600.
-networkProfile_downlinkBandwidthBits :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Integer)
+networkProfile_downlinkBandwidthBits :: Lens.Lens' NetworkProfile (Core.Maybe Core.Integer)
 networkProfile_downlinkBandwidthBits = Lens.lens (\NetworkProfile' {downlinkBandwidthBits} -> downlinkBandwidthBits) (\s@NetworkProfile' {} a -> s {downlinkBandwidthBits = a} :: NetworkProfile)
 
 -- | Time variation in the delay of received packets in milliseconds as an
 -- integer from 0 to 2000.
-networkProfile_downlinkJitterMs :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Integer)
+networkProfile_downlinkJitterMs :: Lens.Lens' NetworkProfile (Core.Maybe Core.Integer)
 networkProfile_downlinkJitterMs = Lens.lens (\NetworkProfile' {downlinkJitterMs} -> downlinkJitterMs) (\s@NetworkProfile' {} a -> s {downlinkJitterMs = a} :: NetworkProfile)
 
 -- | Proportion of transmitted packets that fail to arrive from 0 to 100
 -- percent.
-networkProfile_uplinkLossPercent :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Natural)
+networkProfile_uplinkLossPercent :: Lens.Lens' NetworkProfile (Core.Maybe Core.Natural)
 networkProfile_uplinkLossPercent = Lens.lens (\NetworkProfile' {uplinkLossPercent} -> uplinkLossPercent) (\s@NetworkProfile' {} a -> s {uplinkLossPercent = a} :: NetworkProfile)
 
 -- | The Amazon Resource Name (ARN) of the network profile.
-networkProfile_arn :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Text)
+networkProfile_arn :: Lens.Lens' NetworkProfile (Core.Maybe Core.Text)
 networkProfile_arn = Lens.lens (\NetworkProfile' {arn} -> arn) (\s@NetworkProfile' {} a -> s {arn = a} :: NetworkProfile)
 
 -- | Proportion of received packets that fail to arrive from 0 to 100
 -- percent.
-networkProfile_downlinkLossPercent :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Natural)
+networkProfile_downlinkLossPercent :: Lens.Lens' NetworkProfile (Core.Maybe Core.Natural)
 networkProfile_downlinkLossPercent = Lens.lens (\NetworkProfile' {downlinkLossPercent} -> downlinkLossPercent) (\s@NetworkProfile' {} a -> s {downlinkLossPercent = a} :: NetworkProfile)
 
 -- | The name of the network profile.
-networkProfile_name :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Text)
+networkProfile_name :: Lens.Lens' NetworkProfile (Core.Maybe Core.Text)
 networkProfile_name = Lens.lens (\NetworkProfile' {name} -> name) (\s@NetworkProfile' {} a -> s {name = a} :: NetworkProfile)
 
 -- | The description of the network profile.
-networkProfile_description :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Text)
+networkProfile_description :: Lens.Lens' NetworkProfile (Core.Maybe Core.Text)
 networkProfile_description = Lens.lens (\NetworkProfile' {description} -> description) (\s@NetworkProfile' {} a -> s {description = a} :: NetworkProfile)
 
 -- | Delay time for all packets to destination in milliseconds as an integer
 -- from 0 to 2000.
-networkProfile_uplinkDelayMs :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Integer)
+networkProfile_uplinkDelayMs :: Lens.Lens' NetworkProfile (Core.Maybe Core.Integer)
 networkProfile_uplinkDelayMs = Lens.lens (\NetworkProfile' {uplinkDelayMs} -> uplinkDelayMs) (\s@NetworkProfile' {} a -> s {uplinkDelayMs = a} :: NetworkProfile)
 
 -- | The data throughput rate in bits per second, as an integer from 0 to
 -- 104857600.
-networkProfile_uplinkBandwidthBits :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Integer)
+networkProfile_uplinkBandwidthBits :: Lens.Lens' NetworkProfile (Core.Maybe Core.Integer)
 networkProfile_uplinkBandwidthBits = Lens.lens (\NetworkProfile' {uplinkBandwidthBits} -> uplinkBandwidthBits) (\s@NetworkProfile' {} a -> s {uplinkBandwidthBits = a} :: NetworkProfile)
 
 -- | The type of network profile. Valid values are listed here.
-networkProfile_type :: Lens.Lens' NetworkProfile (Prelude.Maybe NetworkProfileType)
+networkProfile_type :: Lens.Lens' NetworkProfile (Core.Maybe NetworkProfileType)
 networkProfile_type = Lens.lens (\NetworkProfile' {type'} -> type') (\s@NetworkProfile' {} a -> s {type' = a} :: NetworkProfile)
 
-instance Prelude.FromJSON NetworkProfile where
+instance Core.FromJSON NetworkProfile where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NetworkProfile"
       ( \x ->
           NetworkProfile'
-            Prelude.<$> (x Prelude..:? "uplinkJitterMs")
-            Prelude.<*> (x Prelude..:? "downlinkDelayMs")
-            Prelude.<*> (x Prelude..:? "downlinkBandwidthBits")
-            Prelude.<*> (x Prelude..:? "downlinkJitterMs")
-            Prelude.<*> (x Prelude..:? "uplinkLossPercent")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "downlinkLossPercent")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..:? "uplinkDelayMs")
-            Prelude.<*> (x Prelude..:? "uplinkBandwidthBits")
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "uplinkJitterMs")
+            Core.<*> (x Core..:? "downlinkDelayMs")
+            Core.<*> (x Core..:? "downlinkBandwidthBits")
+            Core.<*> (x Core..:? "downlinkJitterMs")
+            Core.<*> (x Core..:? "uplinkLossPercent")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "downlinkLossPercent")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "uplinkDelayMs")
+            Core.<*> (x Core..:? "uplinkBandwidthBits")
+            Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable NetworkProfile
+instance Core.Hashable NetworkProfile
 
-instance Prelude.NFData NetworkProfile
+instance Core.NFData NetworkProfile

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.Route53AutoNaming.UpdateInstanceCustomHealthStatus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -58,13 +57,13 @@ import Network.AWS.Route53AutoNaming.Types
 data UpdateInstanceCustomHealthStatus = UpdateInstanceCustomHealthStatus'
   { -- | The ID of the service that includes the configuration for the custom
     -- health check that you want to change the status for.
-    serviceId :: Prelude.Text,
+    serviceId :: Core.Text,
     -- | The ID of the instance that you want to change the health status for.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The new status of the instance, @HEALTHY@ or @UNHEALTHY@.
     status :: CustomHealthStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateInstanceCustomHealthStatus' with all optional fields omitted.
@@ -82,9 +81,9 @@ data UpdateInstanceCustomHealthStatus = UpdateInstanceCustomHealthStatus'
 -- 'status', 'updateInstanceCustomHealthStatus_status' - The new status of the instance, @HEALTHY@ or @UNHEALTHY@.
 newUpdateInstanceCustomHealthStatus ::
   -- | 'serviceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   CustomHealthStatus ->
   UpdateInstanceCustomHealthStatus
@@ -101,11 +100,11 @@ newUpdateInstanceCustomHealthStatus
 
 -- | The ID of the service that includes the configuration for the custom
 -- health check that you want to change the status for.
-updateInstanceCustomHealthStatus_serviceId :: Lens.Lens' UpdateInstanceCustomHealthStatus Prelude.Text
+updateInstanceCustomHealthStatus_serviceId :: Lens.Lens' UpdateInstanceCustomHealthStatus Core.Text
 updateInstanceCustomHealthStatus_serviceId = Lens.lens (\UpdateInstanceCustomHealthStatus' {serviceId} -> serviceId) (\s@UpdateInstanceCustomHealthStatus' {} a -> s {serviceId = a} :: UpdateInstanceCustomHealthStatus)
 
 -- | The ID of the instance that you want to change the health status for.
-updateInstanceCustomHealthStatus_instanceId :: Lens.Lens' UpdateInstanceCustomHealthStatus Prelude.Text
+updateInstanceCustomHealthStatus_instanceId :: Lens.Lens' UpdateInstanceCustomHealthStatus Core.Text
 updateInstanceCustomHealthStatus_instanceId = Lens.lens (\UpdateInstanceCustomHealthStatus' {instanceId} -> instanceId) (\s@UpdateInstanceCustomHealthStatus' {} a -> s {instanceId = a} :: UpdateInstanceCustomHealthStatus)
 
 -- | The new status of the instance, @HEALTHY@ or @UNHEALTHY@.
@@ -113,11 +112,11 @@ updateInstanceCustomHealthStatus_status :: Lens.Lens' UpdateInstanceCustomHealth
 updateInstanceCustomHealthStatus_status = Lens.lens (\UpdateInstanceCustomHealthStatus' {status} -> status) (\s@UpdateInstanceCustomHealthStatus' {} a -> s {status = a} :: UpdateInstanceCustomHealthStatus)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateInstanceCustomHealthStatus
   where
   type
-    Rs UpdateInstanceCustomHealthStatus =
+    AWSResponse UpdateInstanceCustomHealthStatus =
       UpdateInstanceCustomHealthStatusResponse
   request = Request.postJSON defaultService
   response =
@@ -125,61 +124,51 @@ instance
       UpdateInstanceCustomHealthStatusResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateInstanceCustomHealthStatus
 
-instance
-  Prelude.NFData
-    UpdateInstanceCustomHealthStatus
+instance Core.NFData UpdateInstanceCustomHealthStatus
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateInstanceCustomHealthStatus
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    UpdateInstanceCustomHealthStatus
-  where
+instance Core.ToJSON UpdateInstanceCustomHealthStatus where
   toJSON UpdateInstanceCustomHealthStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ServiceId" Prelude..= serviceId),
-            Prelude.Just ("InstanceId" Prelude..= instanceId),
-            Prelude.Just ("Status" Prelude..= status)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ServiceId" Core..= serviceId),
+            Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("Status" Core..= status)
           ]
       )
 
-instance
-  Prelude.ToPath
-    UpdateInstanceCustomHealthStatus
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateInstanceCustomHealthStatus where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     UpdateInstanceCustomHealthStatus
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateInstanceCustomHealthStatusResponse' smart constructor.
 data UpdateInstanceCustomHealthStatusResponse = UpdateInstanceCustomHealthStatusResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateInstanceCustomHealthStatusResponse' with all optional fields omitted.
@@ -191,5 +180,5 @@ newUpdateInstanceCustomHealthStatusResponse =
   UpdateInstanceCustomHealthStatusResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateInstanceCustomHealthStatusResponse

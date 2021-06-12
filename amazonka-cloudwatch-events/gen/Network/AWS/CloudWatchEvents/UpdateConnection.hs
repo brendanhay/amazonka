@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,23 +47,23 @@ module Network.AWS.CloudWatchEvents.UpdateConnection
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateConnection' smart constructor.
 data UpdateConnection = UpdateConnection'
   { -- | The type of authorization to use for the connection.
-    authorizationType :: Prelude.Maybe ConnectionAuthorizationType,
+    authorizationType :: Core.Maybe ConnectionAuthorizationType,
     -- | A description for the connection.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The authorization parameters to use for the connection.
-    authParameters :: Prelude.Maybe UpdateConnectionAuthRequestParameters,
+    authParameters :: Core.Maybe UpdateConnectionAuthRequestParameters,
     -- | The name of the connection to update.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConnection' with all optional fields omitted.
@@ -83,100 +82,98 @@ data UpdateConnection = UpdateConnection'
 -- 'name', 'updateConnection_name' - The name of the connection to update.
 newUpdateConnection ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   UpdateConnection
 newUpdateConnection pName_ =
   UpdateConnection'
-    { authorizationType =
-        Prelude.Nothing,
-      description = Prelude.Nothing,
-      authParameters = Prelude.Nothing,
+    { authorizationType = Core.Nothing,
+      description = Core.Nothing,
+      authParameters = Core.Nothing,
       name = pName_
     }
 
 -- | The type of authorization to use for the connection.
-updateConnection_authorizationType :: Lens.Lens' UpdateConnection (Prelude.Maybe ConnectionAuthorizationType)
+updateConnection_authorizationType :: Lens.Lens' UpdateConnection (Core.Maybe ConnectionAuthorizationType)
 updateConnection_authorizationType = Lens.lens (\UpdateConnection' {authorizationType} -> authorizationType) (\s@UpdateConnection' {} a -> s {authorizationType = a} :: UpdateConnection)
 
 -- | A description for the connection.
-updateConnection_description :: Lens.Lens' UpdateConnection (Prelude.Maybe Prelude.Text)
+updateConnection_description :: Lens.Lens' UpdateConnection (Core.Maybe Core.Text)
 updateConnection_description = Lens.lens (\UpdateConnection' {description} -> description) (\s@UpdateConnection' {} a -> s {description = a} :: UpdateConnection)
 
 -- | The authorization parameters to use for the connection.
-updateConnection_authParameters :: Lens.Lens' UpdateConnection (Prelude.Maybe UpdateConnectionAuthRequestParameters)
+updateConnection_authParameters :: Lens.Lens' UpdateConnection (Core.Maybe UpdateConnectionAuthRequestParameters)
 updateConnection_authParameters = Lens.lens (\UpdateConnection' {authParameters} -> authParameters) (\s@UpdateConnection' {} a -> s {authParameters = a} :: UpdateConnection)
 
 -- | The name of the connection to update.
-updateConnection_name :: Lens.Lens' UpdateConnection Prelude.Text
+updateConnection_name :: Lens.Lens' UpdateConnection Core.Text
 updateConnection_name = Lens.lens (\UpdateConnection' {name} -> name) (\s@UpdateConnection' {} a -> s {name = a} :: UpdateConnection)
 
-instance Prelude.AWSRequest UpdateConnection where
-  type Rs UpdateConnection = UpdateConnectionResponse
+instance Core.AWSRequest UpdateConnection where
+  type
+    AWSResponse UpdateConnection =
+      UpdateConnectionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateConnectionResponse'
-            Prelude.<$> (x Prelude..?> "CreationTime")
-            Prelude.<*> (x Prelude..?> "ConnectionState")
-            Prelude.<*> (x Prelude..?> "ConnectionArn")
-            Prelude.<*> (x Prelude..?> "LastModifiedTime")
-            Prelude.<*> (x Prelude..?> "LastAuthorizedTime")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CreationTime")
+            Core.<*> (x Core..?> "ConnectionState")
+            Core.<*> (x Core..?> "ConnectionArn")
+            Core.<*> (x Core..?> "LastModifiedTime")
+            Core.<*> (x Core..?> "LastAuthorizedTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConnection
+instance Core.Hashable UpdateConnection
 
-instance Prelude.NFData UpdateConnection
+instance Core.NFData UpdateConnection
 
-instance Prelude.ToHeaders UpdateConnection where
+instance Core.ToHeaders UpdateConnection where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSEvents.UpdateConnection" :: Prelude.ByteString),
+              Core.=# ("AWSEvents.UpdateConnection" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateConnection where
+instance Core.ToJSON UpdateConnection where
   toJSON UpdateConnection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AuthorizationType" Prelude..=)
-              Prelude.<$> authorizationType,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("AuthParameters" Prelude..=)
-              Prelude.<$> authParameters,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("AuthorizationType" Core..=)
+              Core.<$> authorizationType,
+            ("Description" Core..=) Core.<$> description,
+            ("AuthParameters" Core..=) Core.<$> authParameters,
+            Core.Just ("Name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath UpdateConnection where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateConnection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateConnection where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateConnection where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateConnectionResponse' smart constructor.
 data UpdateConnectionResponse = UpdateConnectionResponse'
   { -- | A time stamp for the time that the connection was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The state of the connection that was updated.
-    connectionState :: Prelude.Maybe ConnectionState,
+    connectionState :: Core.Maybe ConnectionState,
     -- | The ARN of the connection that was updated.
-    connectionArn :: Prelude.Maybe Prelude.Text,
+    connectionArn :: Core.Maybe Core.Text,
     -- | A time stamp for the time that the connection was last modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | A time stamp for the time that the connection was last authorized.
-    lastAuthorizedTime :: Prelude.Maybe Prelude.POSIX,
+    lastAuthorizedTime :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConnectionResponse' with all optional fields omitted.
@@ -199,41 +196,41 @@ data UpdateConnectionResponse = UpdateConnectionResponse'
 -- 'httpStatus', 'updateConnectionResponse_httpStatus' - The response's http status code.
 newUpdateConnectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateConnectionResponse
 newUpdateConnectionResponse pHttpStatus_ =
   UpdateConnectionResponse'
     { creationTime =
-        Prelude.Nothing,
-      connectionState = Prelude.Nothing,
-      connectionArn = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      lastAuthorizedTime = Prelude.Nothing,
+        Core.Nothing,
+      connectionState = Core.Nothing,
+      connectionArn = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      lastAuthorizedTime = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A time stamp for the time that the connection was created.
-updateConnectionResponse_creationTime :: Lens.Lens' UpdateConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-updateConnectionResponse_creationTime = Lens.lens (\UpdateConnectionResponse' {creationTime} -> creationTime) (\s@UpdateConnectionResponse' {} a -> s {creationTime = a} :: UpdateConnectionResponse) Prelude.. Lens.mapping Prelude._Time
+updateConnectionResponse_creationTime :: Lens.Lens' UpdateConnectionResponse (Core.Maybe Core.UTCTime)
+updateConnectionResponse_creationTime = Lens.lens (\UpdateConnectionResponse' {creationTime} -> creationTime) (\s@UpdateConnectionResponse' {} a -> s {creationTime = a} :: UpdateConnectionResponse) Core.. Lens.mapping Core._Time
 
 -- | The state of the connection that was updated.
-updateConnectionResponse_connectionState :: Lens.Lens' UpdateConnectionResponse (Prelude.Maybe ConnectionState)
+updateConnectionResponse_connectionState :: Lens.Lens' UpdateConnectionResponse (Core.Maybe ConnectionState)
 updateConnectionResponse_connectionState = Lens.lens (\UpdateConnectionResponse' {connectionState} -> connectionState) (\s@UpdateConnectionResponse' {} a -> s {connectionState = a} :: UpdateConnectionResponse)
 
 -- | The ARN of the connection that was updated.
-updateConnectionResponse_connectionArn :: Lens.Lens' UpdateConnectionResponse (Prelude.Maybe Prelude.Text)
+updateConnectionResponse_connectionArn :: Lens.Lens' UpdateConnectionResponse (Core.Maybe Core.Text)
 updateConnectionResponse_connectionArn = Lens.lens (\UpdateConnectionResponse' {connectionArn} -> connectionArn) (\s@UpdateConnectionResponse' {} a -> s {connectionArn = a} :: UpdateConnectionResponse)
 
 -- | A time stamp for the time that the connection was last modified.
-updateConnectionResponse_lastModifiedTime :: Lens.Lens' UpdateConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-updateConnectionResponse_lastModifiedTime = Lens.lens (\UpdateConnectionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateConnectionResponse' {} a -> s {lastModifiedTime = a} :: UpdateConnectionResponse) Prelude.. Lens.mapping Prelude._Time
+updateConnectionResponse_lastModifiedTime :: Lens.Lens' UpdateConnectionResponse (Core.Maybe Core.UTCTime)
+updateConnectionResponse_lastModifiedTime = Lens.lens (\UpdateConnectionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateConnectionResponse' {} a -> s {lastModifiedTime = a} :: UpdateConnectionResponse) Core.. Lens.mapping Core._Time
 
 -- | A time stamp for the time that the connection was last authorized.
-updateConnectionResponse_lastAuthorizedTime :: Lens.Lens' UpdateConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-updateConnectionResponse_lastAuthorizedTime = Lens.lens (\UpdateConnectionResponse' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@UpdateConnectionResponse' {} a -> s {lastAuthorizedTime = a} :: UpdateConnectionResponse) Prelude.. Lens.mapping Prelude._Time
+updateConnectionResponse_lastAuthorizedTime :: Lens.Lens' UpdateConnectionResponse (Core.Maybe Core.UTCTime)
+updateConnectionResponse_lastAuthorizedTime = Lens.lens (\UpdateConnectionResponse' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@UpdateConnectionResponse' {} a -> s {lastAuthorizedTime = a} :: UpdateConnectionResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-updateConnectionResponse_httpStatus :: Lens.Lens' UpdateConnectionResponse Prelude.Int
+updateConnectionResponse_httpStatus :: Lens.Lens' UpdateConnectionResponse Core.Int
 updateConnectionResponse_httpStatus = Lens.lens (\UpdateConnectionResponse' {httpStatus} -> httpStatus) (\s@UpdateConnectionResponse' {} a -> s {httpStatus = a} :: UpdateConnectionResponse)
 
-instance Prelude.NFData UpdateConnectionResponse
+instance Core.NFData UpdateConnectionResponse

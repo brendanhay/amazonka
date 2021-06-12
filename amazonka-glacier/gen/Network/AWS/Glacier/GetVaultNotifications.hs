@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,9 +59,9 @@ module Network.AWS.Glacier.GetVaultNotifications
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,11 +75,11 @@ data GetVaultNotifications = GetVaultNotifications'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetVaultNotifications' with all optional fields omitted.
@@ -99,9 +98,9 @@ data GetVaultNotifications = GetVaultNotifications'
 -- 'vaultName', 'getVaultNotifications_vaultName' - The name of the vault.
 newGetVaultNotifications ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   GetVaultNotifications
 newGetVaultNotifications pAccountId_ pVaultName_ =
   GetVaultNotifications'
@@ -114,58 +113,58 @@ newGetVaultNotifications pAccountId_ pVaultName_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-getVaultNotifications_accountId :: Lens.Lens' GetVaultNotifications Prelude.Text
+getVaultNotifications_accountId :: Lens.Lens' GetVaultNotifications Core.Text
 getVaultNotifications_accountId = Lens.lens (\GetVaultNotifications' {accountId} -> accountId) (\s@GetVaultNotifications' {} a -> s {accountId = a} :: GetVaultNotifications)
 
 -- | The name of the vault.
-getVaultNotifications_vaultName :: Lens.Lens' GetVaultNotifications Prelude.Text
+getVaultNotifications_vaultName :: Lens.Lens' GetVaultNotifications Core.Text
 getVaultNotifications_vaultName = Lens.lens (\GetVaultNotifications' {vaultName} -> vaultName) (\s@GetVaultNotifications' {} a -> s {vaultName = a} :: GetVaultNotifications)
 
-instance Prelude.AWSRequest GetVaultNotifications where
+instance Core.AWSRequest GetVaultNotifications where
   type
-    Rs GetVaultNotifications =
+    AWSResponse GetVaultNotifications =
       GetVaultNotificationsResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.get defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetVaultNotificationsResponse'
-            Prelude.<$> (Prelude.eitherParseJSON x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetVaultNotifications
+instance Core.Hashable GetVaultNotifications
 
-instance Prelude.NFData GetVaultNotifications
+instance Core.NFData GetVaultNotifications
 
-instance Prelude.ToHeaders GetVaultNotifications where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetVaultNotifications where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetVaultNotifications where
+instance Core.ToPath GetVaultNotifications where
   toPath GetVaultNotifications' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/notification-configuration"
       ]
 
-instance Prelude.ToQuery GetVaultNotifications where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetVaultNotifications where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'newGetVaultNotificationsResponse' smart constructor.
 data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
   { -- | Returns the notification configuration set on the vault.
-    vaultNotificationConfig :: Prelude.Maybe VaultNotificationConfig,
+    vaultNotificationConfig :: Core.Maybe VaultNotificationConfig,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetVaultNotificationsResponse' with all optional fields omitted.
@@ -180,21 +179,21 @@ data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
 -- 'httpStatus', 'getVaultNotificationsResponse_httpStatus' - The response's http status code.
 newGetVaultNotificationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetVaultNotificationsResponse
 newGetVaultNotificationsResponse pHttpStatus_ =
   GetVaultNotificationsResponse'
     { vaultNotificationConfig =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns the notification configuration set on the vault.
-getVaultNotificationsResponse_vaultNotificationConfig :: Lens.Lens' GetVaultNotificationsResponse (Prelude.Maybe VaultNotificationConfig)
+getVaultNotificationsResponse_vaultNotificationConfig :: Lens.Lens' GetVaultNotificationsResponse (Core.Maybe VaultNotificationConfig)
 getVaultNotificationsResponse_vaultNotificationConfig = Lens.lens (\GetVaultNotificationsResponse' {vaultNotificationConfig} -> vaultNotificationConfig) (\s@GetVaultNotificationsResponse' {} a -> s {vaultNotificationConfig = a} :: GetVaultNotificationsResponse)
 
 -- | The response's http status code.
-getVaultNotificationsResponse_httpStatus :: Lens.Lens' GetVaultNotificationsResponse Prelude.Int
+getVaultNotificationsResponse_httpStatus :: Lens.Lens' GetVaultNotificationsResponse Core.Int
 getVaultNotificationsResponse_httpStatus = Lens.lens (\GetVaultNotificationsResponse' {httpStatus} -> httpStatus) (\s@GetVaultNotificationsResponse' {} a -> s {httpStatus = a} :: GetVaultNotificationsResponse)
 
-instance Prelude.NFData GetVaultNotificationsResponse
+instance Core.NFData GetVaultNotificationsResponse

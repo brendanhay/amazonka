@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,10 +47,9 @@ module Network.AWS.FMS.ListMemberAccounts
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,14 +62,14 @@ data ListMemberAccounts = ListMemberAccounts'
     -- @ListMemberAccountsRequest@ requests, specify the value of @NextToken@
     -- from the previous response to get information about another batch of
     -- member account IDs.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Specifies the number of member account IDs that you want AWS Firewall
     -- Manager to return for this request. If you have more IDs than the number
     -- that you specify for @MaxResults@, the response includes a @NextToken@
     -- value that you can use to get another batch of member account IDs.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMemberAccounts' with all optional fields omitted.
@@ -97,8 +95,8 @@ newListMemberAccounts ::
   ListMemberAccounts
 newListMemberAccounts =
   ListMemberAccounts'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | If you specify a value for @MaxResults@ and you have more account IDs
@@ -108,87 +106,83 @@ newListMemberAccounts =
 -- @ListMemberAccountsRequest@ requests, specify the value of @NextToken@
 -- from the previous response to get information about another batch of
 -- member account IDs.
-listMemberAccounts_nextToken :: Lens.Lens' ListMemberAccounts (Prelude.Maybe Prelude.Text)
+listMemberAccounts_nextToken :: Lens.Lens' ListMemberAccounts (Core.Maybe Core.Text)
 listMemberAccounts_nextToken = Lens.lens (\ListMemberAccounts' {nextToken} -> nextToken) (\s@ListMemberAccounts' {} a -> s {nextToken = a} :: ListMemberAccounts)
 
 -- | Specifies the number of member account IDs that you want AWS Firewall
 -- Manager to return for this request. If you have more IDs than the number
 -- that you specify for @MaxResults@, the response includes a @NextToken@
 -- value that you can use to get another batch of member account IDs.
-listMemberAccounts_maxResults :: Lens.Lens' ListMemberAccounts (Prelude.Maybe Prelude.Natural)
+listMemberAccounts_maxResults :: Lens.Lens' ListMemberAccounts (Core.Maybe Core.Natural)
 listMemberAccounts_maxResults = Lens.lens (\ListMemberAccounts' {maxResults} -> maxResults) (\s@ListMemberAccounts' {} a -> s {maxResults = a} :: ListMemberAccounts)
 
-instance Pager.AWSPager ListMemberAccounts where
+instance Core.AWSPager ListMemberAccounts where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listMemberAccountsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listMemberAccountsResponse_memberAccounts
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listMemberAccounts_nextToken
           Lens..~ rs
           Lens.^? listMemberAccountsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListMemberAccounts where
+instance Core.AWSRequest ListMemberAccounts where
   type
-    Rs ListMemberAccounts =
+    AWSResponse ListMemberAccounts =
       ListMemberAccountsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListMemberAccountsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "MemberAccounts"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "MemberAccounts" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListMemberAccounts
+instance Core.Hashable ListMemberAccounts
 
-instance Prelude.NFData ListMemberAccounts
+instance Core.NFData ListMemberAccounts
 
-instance Prelude.ToHeaders ListMemberAccounts where
+instance Core.ToHeaders ListMemberAccounts where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSFMS_20180101.ListMemberAccounts" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSFMS_20180101.ListMemberAccounts" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListMemberAccounts where
+instance Core.ToJSON ListMemberAccounts where
   toJSON ListMemberAccounts' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListMemberAccounts where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListMemberAccounts where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListMemberAccounts where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListMemberAccounts where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListMemberAccountsResponse' smart constructor.
 data ListMemberAccountsResponse = ListMemberAccountsResponse'
@@ -197,13 +191,13 @@ data ListMemberAccountsResponse = ListMemberAccountsResponse'
     -- value. To list more IDs, submit another @ListMemberAccounts@ request,
     -- and specify the @NextToken@ value from the response in the @NextToken@
     -- value in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of account IDs.
-    memberAccounts :: Prelude.Maybe [Prelude.Text],
+    memberAccounts :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMemberAccountsResponse' with all optional fields omitted.
@@ -224,13 +218,13 @@ data ListMemberAccountsResponse = ListMemberAccountsResponse'
 -- 'httpStatus', 'listMemberAccountsResponse_httpStatus' - The response's http status code.
 newListMemberAccountsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListMemberAccountsResponse
 newListMemberAccountsResponse pHttpStatus_ =
   ListMemberAccountsResponse'
     { nextToken =
-        Prelude.Nothing,
-      memberAccounts = Prelude.Nothing,
+        Core.Nothing,
+      memberAccounts = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -239,15 +233,15 @@ newListMemberAccountsResponse pHttpStatus_ =
 -- value. To list more IDs, submit another @ListMemberAccounts@ request,
 -- and specify the @NextToken@ value from the response in the @NextToken@
 -- value in the next request.
-listMemberAccountsResponse_nextToken :: Lens.Lens' ListMemberAccountsResponse (Prelude.Maybe Prelude.Text)
+listMemberAccountsResponse_nextToken :: Lens.Lens' ListMemberAccountsResponse (Core.Maybe Core.Text)
 listMemberAccountsResponse_nextToken = Lens.lens (\ListMemberAccountsResponse' {nextToken} -> nextToken) (\s@ListMemberAccountsResponse' {} a -> s {nextToken = a} :: ListMemberAccountsResponse)
 
 -- | An array of account IDs.
-listMemberAccountsResponse_memberAccounts :: Lens.Lens' ListMemberAccountsResponse (Prelude.Maybe [Prelude.Text])
-listMemberAccountsResponse_memberAccounts = Lens.lens (\ListMemberAccountsResponse' {memberAccounts} -> memberAccounts) (\s@ListMemberAccountsResponse' {} a -> s {memberAccounts = a} :: ListMemberAccountsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listMemberAccountsResponse_memberAccounts :: Lens.Lens' ListMemberAccountsResponse (Core.Maybe [Core.Text])
+listMemberAccountsResponse_memberAccounts = Lens.lens (\ListMemberAccountsResponse' {memberAccounts} -> memberAccounts) (\s@ListMemberAccountsResponse' {} a -> s {memberAccounts = a} :: ListMemberAccountsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listMemberAccountsResponse_httpStatus :: Lens.Lens' ListMemberAccountsResponse Prelude.Int
+listMemberAccountsResponse_httpStatus :: Lens.Lens' ListMemberAccountsResponse Core.Int
 listMemberAccountsResponse_httpStatus = Lens.lens (\ListMemberAccountsResponse' {httpStatus} -> httpStatus) (\s@ListMemberAccountsResponse' {} a -> s {httpStatus = a} :: ListMemberAccountsResponse)
 
-instance Prelude.NFData ListMemberAccountsResponse
+instance Core.NFData ListMemberAccountsResponse

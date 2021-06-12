@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.S3ArtifactLocation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The location of the S3 bucket that contains a revision.
 --
 -- /See:/ 'newS3ArtifactLocation' smart constructor.
 data S3ArtifactLocation = S3ArtifactLocation'
   { -- | The name of the S3 bucket.
-    bucketName :: Prelude.Text,
+    bucketName :: Core.Text,
     -- | The key of the object in the S3 bucket, which uniquely identifies the
     -- object in the bucket.
-    objectKey :: Prelude.Text
+    objectKey :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3ArtifactLocation' with all optional fields omitted.
@@ -49,9 +48,9 @@ data S3ArtifactLocation = S3ArtifactLocation'
 -- object in the bucket.
 newS3ArtifactLocation ::
   -- | 'bucketName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'objectKey'
-  Prelude.Text ->
+  Core.Text ->
   S3ArtifactLocation
 newS3ArtifactLocation pBucketName_ pObjectKey_ =
   S3ArtifactLocation'
@@ -60,24 +59,24 @@ newS3ArtifactLocation pBucketName_ pObjectKey_ =
     }
 
 -- | The name of the S3 bucket.
-s3ArtifactLocation_bucketName :: Lens.Lens' S3ArtifactLocation Prelude.Text
+s3ArtifactLocation_bucketName :: Lens.Lens' S3ArtifactLocation Core.Text
 s3ArtifactLocation_bucketName = Lens.lens (\S3ArtifactLocation' {bucketName} -> bucketName) (\s@S3ArtifactLocation' {} a -> s {bucketName = a} :: S3ArtifactLocation)
 
 -- | The key of the object in the S3 bucket, which uniquely identifies the
 -- object in the bucket.
-s3ArtifactLocation_objectKey :: Lens.Lens' S3ArtifactLocation Prelude.Text
+s3ArtifactLocation_objectKey :: Lens.Lens' S3ArtifactLocation Core.Text
 s3ArtifactLocation_objectKey = Lens.lens (\S3ArtifactLocation' {objectKey} -> objectKey) (\s@S3ArtifactLocation' {} a -> s {objectKey = a} :: S3ArtifactLocation)
 
-instance Prelude.FromJSON S3ArtifactLocation where
+instance Core.FromJSON S3ArtifactLocation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "S3ArtifactLocation"
       ( \x ->
           S3ArtifactLocation'
-            Prelude.<$> (x Prelude..: "bucketName")
-            Prelude.<*> (x Prelude..: "objectKey")
+            Core.<$> (x Core..: "bucketName")
+            Core.<*> (x Core..: "objectKey")
       )
 
-instance Prelude.Hashable S3ArtifactLocation
+instance Core.Hashable S3ArtifactLocation
 
-instance Prelude.NFData S3ArtifactLocation
+instance Core.NFData S3ArtifactLocation

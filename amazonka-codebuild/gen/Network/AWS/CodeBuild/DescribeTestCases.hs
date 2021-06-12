@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,8 @@ module Network.AWS.CodeBuild.DescribeTestCases
 where
 
 import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,17 +60,17 @@ data DescribeTestCases = DescribeTestCases'
     -- token to the call. To get all of the items in the list, keep calling
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of paginated test cases returned per response. Use
     -- @nextToken@ to iterate pages in the list of returned @TestCase@ objects.
     -- The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | A @TestCaseFilter@ object used to filter the returned reports.
-    filter' :: Prelude.Maybe TestCaseFilter,
+    filter' :: Core.Maybe TestCaseFilter,
     -- | The ARN of the report for which test cases are returned.
-    reportArn :: Prelude.Text
+    reportArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTestCases' with all optional fields omitted.
@@ -99,13 +97,13 @@ data DescribeTestCases = DescribeTestCases'
 -- 'reportArn', 'describeTestCases_reportArn' - The ARN of the report for which test cases are returned.
 newDescribeTestCases ::
   -- | 'reportArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeTestCases
 newDescribeTestCases pReportArn_ =
   DescribeTestCases'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filter' = Core.Nothing,
       reportArn = pReportArn_
     }
 
@@ -116,94 +114,91 @@ newDescribeTestCases pReportArn_ =
 -- token to the call. To get all of the items in the list, keep calling
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
-describeTestCases_nextToken :: Lens.Lens' DescribeTestCases (Prelude.Maybe Prelude.Text)
+describeTestCases_nextToken :: Lens.Lens' DescribeTestCases (Core.Maybe Core.Text)
 describeTestCases_nextToken = Lens.lens (\DescribeTestCases' {nextToken} -> nextToken) (\s@DescribeTestCases' {} a -> s {nextToken = a} :: DescribeTestCases)
 
 -- | The maximum number of paginated test cases returned per response. Use
 -- @nextToken@ to iterate pages in the list of returned @TestCase@ objects.
 -- The default value is 100.
-describeTestCases_maxResults :: Lens.Lens' DescribeTestCases (Prelude.Maybe Prelude.Natural)
+describeTestCases_maxResults :: Lens.Lens' DescribeTestCases (Core.Maybe Core.Natural)
 describeTestCases_maxResults = Lens.lens (\DescribeTestCases' {maxResults} -> maxResults) (\s@DescribeTestCases' {} a -> s {maxResults = a} :: DescribeTestCases)
 
 -- | A @TestCaseFilter@ object used to filter the returned reports.
-describeTestCases_filter :: Lens.Lens' DescribeTestCases (Prelude.Maybe TestCaseFilter)
+describeTestCases_filter :: Lens.Lens' DescribeTestCases (Core.Maybe TestCaseFilter)
 describeTestCases_filter = Lens.lens (\DescribeTestCases' {filter'} -> filter') (\s@DescribeTestCases' {} a -> s {filter' = a} :: DescribeTestCases)
 
 -- | The ARN of the report for which test cases are returned.
-describeTestCases_reportArn :: Lens.Lens' DescribeTestCases Prelude.Text
+describeTestCases_reportArn :: Lens.Lens' DescribeTestCases Core.Text
 describeTestCases_reportArn = Lens.lens (\DescribeTestCases' {reportArn} -> reportArn) (\s@DescribeTestCases' {} a -> s {reportArn = a} :: DescribeTestCases)
 
-instance Pager.AWSPager DescribeTestCases where
+instance Core.AWSPager DescribeTestCases where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeTestCasesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeTestCasesResponse_testCases
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeTestCases_nextToken
           Lens..~ rs
-          Lens.^? describeTestCasesResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? describeTestCasesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeTestCases where
-  type Rs DescribeTestCases = DescribeTestCasesResponse
+instance Core.AWSRequest DescribeTestCases where
+  type
+    AWSResponse DescribeTestCases =
+      DescribeTestCasesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTestCasesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "testCases"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "testCases" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTestCases
+instance Core.Hashable DescribeTestCases
 
-instance Prelude.NFData DescribeTestCases
+instance Core.NFData DescribeTestCases
 
-instance Prelude.ToHeaders DescribeTestCases where
+instance Core.ToHeaders DescribeTestCases where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeBuild_20161006.DescribeTestCases" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeBuild_20161006.DescribeTestCases" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTestCases where
+instance Core.ToJSON DescribeTestCases where
   toJSON DescribeTestCases' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("filter" Prelude..=) Prelude.<$> filter',
-            Prelude.Just ("reportArn" Prelude..= reportArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("filter" Core..=) Core.<$> filter',
+            Core.Just ("reportArn" Core..= reportArn)
           ]
       )
 
-instance Prelude.ToPath DescribeTestCases where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTestCases where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTestCases where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTestCases where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeTestCasesResponse' smart constructor.
 data DescribeTestCasesResponse = DescribeTestCasesResponse'
@@ -214,13 +209,13 @@ data DescribeTestCasesResponse = DescribeTestCasesResponse'
     -- token to the call. To get all of the items in the list, keep calling
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The returned list of test cases.
-    testCases :: Prelude.Maybe [TestCase],
+    testCases :: Core.Maybe [TestCase],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTestCasesResponse' with all optional fields omitted.
@@ -243,13 +238,13 @@ data DescribeTestCasesResponse = DescribeTestCasesResponse'
 -- 'httpStatus', 'describeTestCasesResponse_httpStatus' - The response's http status code.
 newDescribeTestCasesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTestCasesResponse
 newDescribeTestCasesResponse pHttpStatus_ =
   DescribeTestCasesResponse'
     { nextToken =
-        Prelude.Nothing,
-      testCases = Prelude.Nothing,
+        Core.Nothing,
+      testCases = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -260,15 +255,15 @@ newDescribeTestCasesResponse pHttpStatus_ =
 -- token to the call. To get all of the items in the list, keep calling
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
-describeTestCasesResponse_nextToken :: Lens.Lens' DescribeTestCasesResponse (Prelude.Maybe Prelude.Text)
+describeTestCasesResponse_nextToken :: Lens.Lens' DescribeTestCasesResponse (Core.Maybe Core.Text)
 describeTestCasesResponse_nextToken = Lens.lens (\DescribeTestCasesResponse' {nextToken} -> nextToken) (\s@DescribeTestCasesResponse' {} a -> s {nextToken = a} :: DescribeTestCasesResponse)
 
 -- | The returned list of test cases.
-describeTestCasesResponse_testCases :: Lens.Lens' DescribeTestCasesResponse (Prelude.Maybe [TestCase])
-describeTestCasesResponse_testCases = Lens.lens (\DescribeTestCasesResponse' {testCases} -> testCases) (\s@DescribeTestCasesResponse' {} a -> s {testCases = a} :: DescribeTestCasesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTestCasesResponse_testCases :: Lens.Lens' DescribeTestCasesResponse (Core.Maybe [TestCase])
+describeTestCasesResponse_testCases = Lens.lens (\DescribeTestCasesResponse' {testCases} -> testCases) (\s@DescribeTestCasesResponse' {} a -> s {testCases = a} :: DescribeTestCasesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTestCasesResponse_httpStatus :: Lens.Lens' DescribeTestCasesResponse Prelude.Int
+describeTestCasesResponse_httpStatus :: Lens.Lens' DescribeTestCasesResponse Core.Int
 describeTestCasesResponse_httpStatus = Lens.lens (\DescribeTestCasesResponse' {httpStatus} -> httpStatus) (\s@DescribeTestCasesResponse' {} a -> s {httpStatus = a} :: DescribeTestCasesResponse)
 
-instance Prelude.NFData DescribeTestCasesResponse
+instance Core.NFData DescribeTestCasesResponse

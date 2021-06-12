@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,22 +40,22 @@ module Network.AWS.Discovery.UpdateApplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
   { -- | New name of the application to be updated.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | New description of the application to be updated.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Configuration ID of the application to be updated.
-    configurationId :: Prelude.Text
+    configurationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateApplication' with all optional fields omitted.
@@ -73,79 +72,79 @@ data UpdateApplication = UpdateApplication'
 -- 'configurationId', 'updateApplication_configurationId' - Configuration ID of the application to be updated.
 newUpdateApplication ::
   -- | 'configurationId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateApplication
 newUpdateApplication pConfigurationId_ =
   UpdateApplication'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { name = Core.Nothing,
+      description = Core.Nothing,
       configurationId = pConfigurationId_
     }
 
 -- | New name of the application to be updated.
-updateApplication_name :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_name :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
 updateApplication_name = Lens.lens (\UpdateApplication' {name} -> name) (\s@UpdateApplication' {} a -> s {name = a} :: UpdateApplication)
 
 -- | New description of the application to be updated.
-updateApplication_description :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_description :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
 updateApplication_description = Lens.lens (\UpdateApplication' {description} -> description) (\s@UpdateApplication' {} a -> s {description = a} :: UpdateApplication)
 
 -- | Configuration ID of the application to be updated.
-updateApplication_configurationId :: Lens.Lens' UpdateApplication Prelude.Text
+updateApplication_configurationId :: Lens.Lens' UpdateApplication Core.Text
 updateApplication_configurationId = Lens.lens (\UpdateApplication' {configurationId} -> configurationId) (\s@UpdateApplication' {} a -> s {configurationId = a} :: UpdateApplication)
 
-instance Prelude.AWSRequest UpdateApplication where
-  type Rs UpdateApplication = UpdateApplicationResponse
+instance Core.AWSRequest UpdateApplication where
+  type
+    AWSResponse UpdateApplication =
+      UpdateApplicationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateApplicationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateApplication
+instance Core.Hashable UpdateApplication
 
-instance Prelude.NFData UpdateApplication
+instance Core.NFData UpdateApplication
 
-instance Prelude.ToHeaders UpdateApplication where
+instance Core.ToHeaders UpdateApplication where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSPoseidonService_V2015_11_01.UpdateApplication" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSPoseidonService_V2015_11_01.UpdateApplication" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateApplication where
+instance Core.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("name" Prelude..=) Prelude.<$> name,
-            ("description" Prelude..=) Prelude.<$> description,
-            Prelude.Just
-              ("configurationId" Prelude..= configurationId)
+    Core.object
+      ( Core.catMaybes
+          [ ("name" Core..=) Core.<$> name,
+            ("description" Core..=) Core.<$> description,
+            Core.Just
+              ("configurationId" Core..= configurationId)
           ]
       )
 
-instance Prelude.ToPath UpdateApplication where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateApplication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateApplication where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateApplication where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateApplicationResponse' smart constructor.
 data UpdateApplicationResponse = UpdateApplicationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateApplicationResponse' with all optional fields omitted.
@@ -158,7 +157,7 @@ data UpdateApplicationResponse = UpdateApplicationResponse'
 -- 'httpStatus', 'updateApplicationResponse_httpStatus' - The response's http status code.
 newUpdateApplicationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateApplicationResponse
 newUpdateApplicationResponse pHttpStatus_ =
   UpdateApplicationResponse'
@@ -167,7 +166,7 @@ newUpdateApplicationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateApplicationResponse_httpStatus :: Lens.Lens' UpdateApplicationResponse Prelude.Int
+updateApplicationResponse_httpStatus :: Lens.Lens' UpdateApplicationResponse Core.Int
 updateApplicationResponse_httpStatus = Lens.lens (\UpdateApplicationResponse' {httpStatus} -> httpStatus) (\s@UpdateApplicationResponse' {} a -> s {httpStatus = a} :: UpdateApplicationResponse)
 
-instance Prelude.NFData UpdateApplicationResponse
+instance Core.NFData UpdateApplicationResponse

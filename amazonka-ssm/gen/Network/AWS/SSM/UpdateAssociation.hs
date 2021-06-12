@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,8 +64,8 @@ module Network.AWS.SSM.UpdateAssociation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -88,22 +87,22 @@ data UpdateAssociation = UpdateAssociation'
     -- as well. If you need to ensure that there won\'t be more than max-errors
     -- failed executions, set MaxConcurrency to 1 so that executions proceed
     -- one at a time.
-    maxErrors :: Prelude.Maybe Prelude.Text,
+    maxErrors :: Core.Maybe Core.Text,
     -- | The severity level to assign to the association.
-    complianceSeverity :: Prelude.Maybe AssociationComplianceSeverity,
+    complianceSeverity :: Core.Maybe AssociationComplianceSeverity,
     -- | Specify the target for the association. This target is required for
     -- associations that use an Automation document and target resources by
     -- using rate controls.
-    automationTargetParameterName :: Prelude.Maybe Prelude.Text,
+    automationTargetParameterName :: Core.Maybe Core.Text,
     -- | The targets of the association.
-    targets :: Prelude.Maybe [Target],
+    targets :: Core.Maybe [Target],
     -- | A location is a combination of AWS Regions and AWS accounts where you
     -- want to run the association. Use this action to update an association in
     -- multiple Regions and multiple accounts.
-    targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
+    targetLocations :: Core.Maybe (Core.NonEmpty TargetLocation),
     -- | The cron expression used to schedule the association that you want to
     -- update.
-    scheduleExpression :: Prelude.Maybe Prelude.Text,
+    scheduleExpression :: Core.Maybe Core.Text,
     -- | The name of the SSM document that contains the configuration information
     -- for the instance. You can specify Command or Automation documents.
     --
@@ -122,7 +121,7 @@ data UpdateAssociation = UpdateAssociation'
     -- For AWS-predefined documents and SSM documents you created in your
     -- account, you only need to specify the document name. For example,
     -- @AWS-ApplyPatchBaseline@ or @My-Document@.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The maximum number of targets allowed to run the association at the same
     -- time. You can specify a number, for example 10, or a percentage of the
     -- target set, for example 10%. The default value is 100%, which means all
@@ -133,22 +132,22 @@ data UpdateAssociation = UpdateAssociation'
     -- is allowed to run. During the next association interval, the new
     -- instance will process its association within the limit specified for
     -- MaxConcurrency.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
+    maxConcurrency :: Core.Maybe Core.Text,
     -- | The name of the association that you want to update.
-    associationName :: Prelude.Maybe Prelude.Text,
+    associationName :: Core.Maybe Core.Text,
     -- | This parameter is provided for concurrency control purposes. You must
     -- specify the latest association version in the service. If you want to
     -- ensure that this request succeeds, either specify @$LATEST@, or omit
     -- this parameter.
-    associationVersion :: Prelude.Maybe Prelude.Text,
+    associationVersion :: Core.Maybe Core.Text,
     -- | The document version you want update for the association.
-    documentVersion :: Prelude.Maybe Prelude.Text,
+    documentVersion :: Core.Maybe Core.Text,
     -- | The parameters you want to update for the association. If you create a
     -- parameter using Parameter Store, you can reference the parameter using
     -- {{ssm:parameter-name}}
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    parameters :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | An S3 bucket where you want to store the results of this request.
-    outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
+    outputLocation :: Core.Maybe InstanceAssociationOutputLocation,
     -- | By default, when you update an association, the system runs it
     -- immediately after it is updated and then according to the schedule you
     -- specified. Specify this option if you don\'t want an association to run
@@ -160,7 +159,7 @@ data UpdateAssociation = UpdateAssociation'
     -- parameter when you update the association from the command line. This
     -- parameter forces the association to run immediately after updating it
     -- and according to the interval specified.
-    applyOnlyAtCronInterval :: Prelude.Maybe Prelude.Bool,
+    applyOnlyAtCronInterval :: Core.Maybe Core.Bool,
     -- | The mode for generating association compliance. You can specify @AUTO@
     -- or @MANUAL@. In @AUTO@ mode, the system uses the status of the
     -- association execution to determine the compliance status. If the
@@ -174,11 +173,11 @@ data UpdateAssociation = UpdateAssociation'
     -- PutComplianceItems API action.
     --
     -- By default, all associations use @AUTO@ mode.
-    syncCompliance :: Prelude.Maybe AssociationSyncCompliance,
+    syncCompliance :: Core.Maybe AssociationSyncCompliance,
     -- | The ID of the association you want to update.
-    associationId :: Prelude.Text
+    associationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAssociation' with all optional fields omitted.
@@ -293,25 +292,25 @@ data UpdateAssociation = UpdateAssociation'
 -- 'associationId', 'updateAssociation_associationId' - The ID of the association you want to update.
 newUpdateAssociation ::
   -- | 'associationId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateAssociation
 newUpdateAssociation pAssociationId_ =
   UpdateAssociation'
-    { maxErrors = Prelude.Nothing,
-      complianceSeverity = Prelude.Nothing,
-      automationTargetParameterName = Prelude.Nothing,
-      targets = Prelude.Nothing,
-      targetLocations = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing,
-      name = Prelude.Nothing,
-      maxConcurrency = Prelude.Nothing,
-      associationName = Prelude.Nothing,
-      associationVersion = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      outputLocation = Prelude.Nothing,
-      applyOnlyAtCronInterval = Prelude.Nothing,
-      syncCompliance = Prelude.Nothing,
+    { maxErrors = Core.Nothing,
+      complianceSeverity = Core.Nothing,
+      automationTargetParameterName = Core.Nothing,
+      targets = Core.Nothing,
+      targetLocations = Core.Nothing,
+      scheduleExpression = Core.Nothing,
+      name = Core.Nothing,
+      maxConcurrency = Core.Nothing,
+      associationName = Core.Nothing,
+      associationVersion = Core.Nothing,
+      documentVersion = Core.Nothing,
+      parameters = Core.Nothing,
+      outputLocation = Core.Nothing,
+      applyOnlyAtCronInterval = Core.Nothing,
+      syncCompliance = Core.Nothing,
       associationId = pAssociationId_
     }
 
@@ -330,32 +329,32 @@ newUpdateAssociation pAssociationId_ =
 -- as well. If you need to ensure that there won\'t be more than max-errors
 -- failed executions, set MaxConcurrency to 1 so that executions proceed
 -- one at a time.
-updateAssociation_maxErrors :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
+updateAssociation_maxErrors :: Lens.Lens' UpdateAssociation (Core.Maybe Core.Text)
 updateAssociation_maxErrors = Lens.lens (\UpdateAssociation' {maxErrors} -> maxErrors) (\s@UpdateAssociation' {} a -> s {maxErrors = a} :: UpdateAssociation)
 
 -- | The severity level to assign to the association.
-updateAssociation_complianceSeverity :: Lens.Lens' UpdateAssociation (Prelude.Maybe AssociationComplianceSeverity)
+updateAssociation_complianceSeverity :: Lens.Lens' UpdateAssociation (Core.Maybe AssociationComplianceSeverity)
 updateAssociation_complianceSeverity = Lens.lens (\UpdateAssociation' {complianceSeverity} -> complianceSeverity) (\s@UpdateAssociation' {} a -> s {complianceSeverity = a} :: UpdateAssociation)
 
 -- | Specify the target for the association. This target is required for
 -- associations that use an Automation document and target resources by
 -- using rate controls.
-updateAssociation_automationTargetParameterName :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
+updateAssociation_automationTargetParameterName :: Lens.Lens' UpdateAssociation (Core.Maybe Core.Text)
 updateAssociation_automationTargetParameterName = Lens.lens (\UpdateAssociation' {automationTargetParameterName} -> automationTargetParameterName) (\s@UpdateAssociation' {} a -> s {automationTargetParameterName = a} :: UpdateAssociation)
 
 -- | The targets of the association.
-updateAssociation_targets :: Lens.Lens' UpdateAssociation (Prelude.Maybe [Target])
-updateAssociation_targets = Lens.lens (\UpdateAssociation' {targets} -> targets) (\s@UpdateAssociation' {} a -> s {targets = a} :: UpdateAssociation) Prelude.. Lens.mapping Prelude._Coerce
+updateAssociation_targets :: Lens.Lens' UpdateAssociation (Core.Maybe [Target])
+updateAssociation_targets = Lens.lens (\UpdateAssociation' {targets} -> targets) (\s@UpdateAssociation' {} a -> s {targets = a} :: UpdateAssociation) Core.. Lens.mapping Lens._Coerce
 
 -- | A location is a combination of AWS Regions and AWS accounts where you
 -- want to run the association. Use this action to update an association in
 -- multiple Regions and multiple accounts.
-updateAssociation_targetLocations :: Lens.Lens' UpdateAssociation (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
-updateAssociation_targetLocations = Lens.lens (\UpdateAssociation' {targetLocations} -> targetLocations) (\s@UpdateAssociation' {} a -> s {targetLocations = a} :: UpdateAssociation) Prelude.. Lens.mapping Prelude._Coerce
+updateAssociation_targetLocations :: Lens.Lens' UpdateAssociation (Core.Maybe (Core.NonEmpty TargetLocation))
+updateAssociation_targetLocations = Lens.lens (\UpdateAssociation' {targetLocations} -> targetLocations) (\s@UpdateAssociation' {} a -> s {targetLocations = a} :: UpdateAssociation) Core.. Lens.mapping Lens._Coerce
 
 -- | The cron expression used to schedule the association that you want to
 -- update.
-updateAssociation_scheduleExpression :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
+updateAssociation_scheduleExpression :: Lens.Lens' UpdateAssociation (Core.Maybe Core.Text)
 updateAssociation_scheduleExpression = Lens.lens (\UpdateAssociation' {scheduleExpression} -> scheduleExpression) (\s@UpdateAssociation' {} a -> s {scheduleExpression = a} :: UpdateAssociation)
 
 -- | The name of the SSM document that contains the configuration information
@@ -376,7 +375,7 @@ updateAssociation_scheduleExpression = Lens.lens (\UpdateAssociation' {scheduleE
 -- For AWS-predefined documents and SSM documents you created in your
 -- account, you only need to specify the document name. For example,
 -- @AWS-ApplyPatchBaseline@ or @My-Document@.
-updateAssociation_name :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
+updateAssociation_name :: Lens.Lens' UpdateAssociation (Core.Maybe Core.Text)
 updateAssociation_name = Lens.lens (\UpdateAssociation' {name} -> name) (\s@UpdateAssociation' {} a -> s {name = a} :: UpdateAssociation)
 
 -- | The maximum number of targets allowed to run the association at the same
@@ -389,32 +388,32 @@ updateAssociation_name = Lens.lens (\UpdateAssociation' {name} -> name) (\s@Upda
 -- is allowed to run. During the next association interval, the new
 -- instance will process its association within the limit specified for
 -- MaxConcurrency.
-updateAssociation_maxConcurrency :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
+updateAssociation_maxConcurrency :: Lens.Lens' UpdateAssociation (Core.Maybe Core.Text)
 updateAssociation_maxConcurrency = Lens.lens (\UpdateAssociation' {maxConcurrency} -> maxConcurrency) (\s@UpdateAssociation' {} a -> s {maxConcurrency = a} :: UpdateAssociation)
 
 -- | The name of the association that you want to update.
-updateAssociation_associationName :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
+updateAssociation_associationName :: Lens.Lens' UpdateAssociation (Core.Maybe Core.Text)
 updateAssociation_associationName = Lens.lens (\UpdateAssociation' {associationName} -> associationName) (\s@UpdateAssociation' {} a -> s {associationName = a} :: UpdateAssociation)
 
 -- | This parameter is provided for concurrency control purposes. You must
 -- specify the latest association version in the service. If you want to
 -- ensure that this request succeeds, either specify @$LATEST@, or omit
 -- this parameter.
-updateAssociation_associationVersion :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
+updateAssociation_associationVersion :: Lens.Lens' UpdateAssociation (Core.Maybe Core.Text)
 updateAssociation_associationVersion = Lens.lens (\UpdateAssociation' {associationVersion} -> associationVersion) (\s@UpdateAssociation' {} a -> s {associationVersion = a} :: UpdateAssociation)
 
 -- | The document version you want update for the association.
-updateAssociation_documentVersion :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
+updateAssociation_documentVersion :: Lens.Lens' UpdateAssociation (Core.Maybe Core.Text)
 updateAssociation_documentVersion = Lens.lens (\UpdateAssociation' {documentVersion} -> documentVersion) (\s@UpdateAssociation' {} a -> s {documentVersion = a} :: UpdateAssociation)
 
 -- | The parameters you want to update for the association. If you create a
 -- parameter using Parameter Store, you can reference the parameter using
 -- {{ssm:parameter-name}}
-updateAssociation_parameters :: Lens.Lens' UpdateAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-updateAssociation_parameters = Lens.lens (\UpdateAssociation' {parameters} -> parameters) (\s@UpdateAssociation' {} a -> s {parameters = a} :: UpdateAssociation) Prelude.. Lens.mapping Prelude._Coerce
+updateAssociation_parameters :: Lens.Lens' UpdateAssociation (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+updateAssociation_parameters = Lens.lens (\UpdateAssociation' {parameters} -> parameters) (\s@UpdateAssociation' {} a -> s {parameters = a} :: UpdateAssociation) Core.. Lens.mapping Lens._Coerce
 
 -- | An S3 bucket where you want to store the results of this request.
-updateAssociation_outputLocation :: Lens.Lens' UpdateAssociation (Prelude.Maybe InstanceAssociationOutputLocation)
+updateAssociation_outputLocation :: Lens.Lens' UpdateAssociation (Core.Maybe InstanceAssociationOutputLocation)
 updateAssociation_outputLocation = Lens.lens (\UpdateAssociation' {outputLocation} -> outputLocation) (\s@UpdateAssociation' {} a -> s {outputLocation = a} :: UpdateAssociation)
 
 -- | By default, when you update an association, the system runs it
@@ -428,7 +427,7 @@ updateAssociation_outputLocation = Lens.lens (\UpdateAssociation' {outputLocatio
 -- parameter when you update the association from the command line. This
 -- parameter forces the association to run immediately after updating it
 -- and according to the interval specified.
-updateAssociation_applyOnlyAtCronInterval :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Bool)
+updateAssociation_applyOnlyAtCronInterval :: Lens.Lens' UpdateAssociation (Core.Maybe Core.Bool)
 updateAssociation_applyOnlyAtCronInterval = Lens.lens (\UpdateAssociation' {applyOnlyAtCronInterval} -> applyOnlyAtCronInterval) (\s@UpdateAssociation' {} a -> s {applyOnlyAtCronInterval = a} :: UpdateAssociation)
 
 -- | The mode for generating association compliance. You can specify @AUTO@
@@ -444,92 +443,83 @@ updateAssociation_applyOnlyAtCronInterval = Lens.lens (\UpdateAssociation' {appl
 -- PutComplianceItems API action.
 --
 -- By default, all associations use @AUTO@ mode.
-updateAssociation_syncCompliance :: Lens.Lens' UpdateAssociation (Prelude.Maybe AssociationSyncCompliance)
+updateAssociation_syncCompliance :: Lens.Lens' UpdateAssociation (Core.Maybe AssociationSyncCompliance)
 updateAssociation_syncCompliance = Lens.lens (\UpdateAssociation' {syncCompliance} -> syncCompliance) (\s@UpdateAssociation' {} a -> s {syncCompliance = a} :: UpdateAssociation)
 
 -- | The ID of the association you want to update.
-updateAssociation_associationId :: Lens.Lens' UpdateAssociation Prelude.Text
+updateAssociation_associationId :: Lens.Lens' UpdateAssociation Core.Text
 updateAssociation_associationId = Lens.lens (\UpdateAssociation' {associationId} -> associationId) (\s@UpdateAssociation' {} a -> s {associationId = a} :: UpdateAssociation)
 
-instance Prelude.AWSRequest UpdateAssociation where
-  type Rs UpdateAssociation = UpdateAssociationResponse
+instance Core.AWSRequest UpdateAssociation where
+  type
+    AWSResponse UpdateAssociation =
+      UpdateAssociationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateAssociationResponse'
-            Prelude.<$> (x Prelude..?> "AssociationDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "AssociationDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAssociation
+instance Core.Hashable UpdateAssociation
 
-instance Prelude.NFData UpdateAssociation
+instance Core.NFData UpdateAssociation
 
-instance Prelude.ToHeaders UpdateAssociation where
+instance Core.ToHeaders UpdateAssociation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.UpdateAssociation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonSSM.UpdateAssociation" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateAssociation where
+instance Core.ToJSON UpdateAssociation where
   toJSON UpdateAssociation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaxErrors" Prelude..=) Prelude.<$> maxErrors,
-            ("ComplianceSeverity" Prelude..=)
-              Prelude.<$> complianceSeverity,
-            ("AutomationTargetParameterName" Prelude..=)
-              Prelude.<$> automationTargetParameterName,
-            ("Targets" Prelude..=) Prelude.<$> targets,
-            ("TargetLocations" Prelude..=)
-              Prelude.<$> targetLocations,
-            ("ScheduleExpression" Prelude..=)
-              Prelude.<$> scheduleExpression,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("MaxConcurrency" Prelude..=)
-              Prelude.<$> maxConcurrency,
-            ("AssociationName" Prelude..=)
-              Prelude.<$> associationName,
-            ("AssociationVersion" Prelude..=)
-              Prelude.<$> associationVersion,
-            ("DocumentVersion" Prelude..=)
-              Prelude.<$> documentVersion,
-            ("Parameters" Prelude..=) Prelude.<$> parameters,
-            ("OutputLocation" Prelude..=)
-              Prelude.<$> outputLocation,
-            ("ApplyOnlyAtCronInterval" Prelude..=)
-              Prelude.<$> applyOnlyAtCronInterval,
-            ("SyncCompliance" Prelude..=)
-              Prelude.<$> syncCompliance,
-            Prelude.Just
-              ("AssociationId" Prelude..= associationId)
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxErrors" Core..=) Core.<$> maxErrors,
+            ("ComplianceSeverity" Core..=)
+              Core.<$> complianceSeverity,
+            ("AutomationTargetParameterName" Core..=)
+              Core.<$> automationTargetParameterName,
+            ("Targets" Core..=) Core.<$> targets,
+            ("TargetLocations" Core..=) Core.<$> targetLocations,
+            ("ScheduleExpression" Core..=)
+              Core.<$> scheduleExpression,
+            ("Name" Core..=) Core.<$> name,
+            ("MaxConcurrency" Core..=) Core.<$> maxConcurrency,
+            ("AssociationName" Core..=) Core.<$> associationName,
+            ("AssociationVersion" Core..=)
+              Core.<$> associationVersion,
+            ("DocumentVersion" Core..=) Core.<$> documentVersion,
+            ("Parameters" Core..=) Core.<$> parameters,
+            ("OutputLocation" Core..=) Core.<$> outputLocation,
+            ("ApplyOnlyAtCronInterval" Core..=)
+              Core.<$> applyOnlyAtCronInterval,
+            ("SyncCompliance" Core..=) Core.<$> syncCompliance,
+            Core.Just ("AssociationId" Core..= associationId)
           ]
       )
 
-instance Prelude.ToPath UpdateAssociation where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateAssociation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateAssociation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateAssociation where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateAssociationResponse' smart constructor.
 data UpdateAssociationResponse = UpdateAssociationResponse'
   { -- | The description of the association that was updated.
-    associationDescription :: Prelude.Maybe AssociationDescription,
+    associationDescription :: Core.Maybe AssociationDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAssociationResponse' with all optional fields omitted.
@@ -544,21 +534,21 @@ data UpdateAssociationResponse = UpdateAssociationResponse'
 -- 'httpStatus', 'updateAssociationResponse_httpStatus' - The response's http status code.
 newUpdateAssociationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateAssociationResponse
 newUpdateAssociationResponse pHttpStatus_ =
   UpdateAssociationResponse'
     { associationDescription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The description of the association that was updated.
-updateAssociationResponse_associationDescription :: Lens.Lens' UpdateAssociationResponse (Prelude.Maybe AssociationDescription)
+updateAssociationResponse_associationDescription :: Lens.Lens' UpdateAssociationResponse (Core.Maybe AssociationDescription)
 updateAssociationResponse_associationDescription = Lens.lens (\UpdateAssociationResponse' {associationDescription} -> associationDescription) (\s@UpdateAssociationResponse' {} a -> s {associationDescription = a} :: UpdateAssociationResponse)
 
 -- | The response's http status code.
-updateAssociationResponse_httpStatus :: Lens.Lens' UpdateAssociationResponse Prelude.Int
+updateAssociationResponse_httpStatus :: Lens.Lens' UpdateAssociationResponse Core.Int
 updateAssociationResponse_httpStatus = Lens.lens (\UpdateAssociationResponse' {httpStatus} -> httpStatus) (\s@UpdateAssociationResponse' {} a -> s {httpStatus = a} :: UpdateAssociationResponse)
 
-instance Prelude.NFData UpdateAssociationResponse
+instance Core.NFData UpdateAssociationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -68,9 +67,9 @@ module Network.AWS.EC2.CreateReservedInstancesListing
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,19 +81,19 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing'
     -- your listings. This helps avoid duplicate listings. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Prelude.Text,
+    clientToken :: Core.Text,
     -- | The number of instances that are a part of a Reserved Instance account
     -- to be listed in the Reserved Instance Marketplace. This number should be
     -- less than or equal to the instance count associated with the Reserved
     -- Instance ID specified in this call.
-    instanceCount :: Prelude.Int,
+    instanceCount :: Core.Int,
     -- | A list specifying the price of the Standard Reserved Instance for each
     -- month remaining in the Reserved Instance term.
     priceSchedules :: [PriceScheduleSpecification],
     -- | The ID of the active Standard Reserved Instance.
-    reservedInstancesId :: Prelude.Text
+    reservedInstancesId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateReservedInstancesListing' with all optional fields omitted.
@@ -120,11 +119,11 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing'
 -- 'reservedInstancesId', 'createReservedInstancesListing_reservedInstancesId' - The ID of the active Standard Reserved Instance.
 newCreateReservedInstancesListing ::
   -- | 'clientToken'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceCount'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'reservedInstancesId'
-  Prelude.Text ->
+  Core.Text ->
   CreateReservedInstancesListing
 newCreateReservedInstancesListing
   pClientToken_
@@ -134,7 +133,7 @@ newCreateReservedInstancesListing
       { clientToken =
           pClientToken_,
         instanceCount = pInstanceCount_,
-        priceSchedules = Prelude.mempty,
+        priceSchedules = Core.mempty,
         reservedInstancesId = pReservedInstancesId_
       }
 
@@ -142,80 +141,69 @@ newCreateReservedInstancesListing
 -- your listings. This helps avoid duplicate listings. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-createReservedInstancesListing_clientToken :: Lens.Lens' CreateReservedInstancesListing Prelude.Text
+createReservedInstancesListing_clientToken :: Lens.Lens' CreateReservedInstancesListing Core.Text
 createReservedInstancesListing_clientToken = Lens.lens (\CreateReservedInstancesListing' {clientToken} -> clientToken) (\s@CreateReservedInstancesListing' {} a -> s {clientToken = a} :: CreateReservedInstancesListing)
 
 -- | The number of instances that are a part of a Reserved Instance account
 -- to be listed in the Reserved Instance Marketplace. This number should be
 -- less than or equal to the instance count associated with the Reserved
 -- Instance ID specified in this call.
-createReservedInstancesListing_instanceCount :: Lens.Lens' CreateReservedInstancesListing Prelude.Int
+createReservedInstancesListing_instanceCount :: Lens.Lens' CreateReservedInstancesListing Core.Int
 createReservedInstancesListing_instanceCount = Lens.lens (\CreateReservedInstancesListing' {instanceCount} -> instanceCount) (\s@CreateReservedInstancesListing' {} a -> s {instanceCount = a} :: CreateReservedInstancesListing)
 
 -- | A list specifying the price of the Standard Reserved Instance for each
 -- month remaining in the Reserved Instance term.
 createReservedInstancesListing_priceSchedules :: Lens.Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
-createReservedInstancesListing_priceSchedules = Lens.lens (\CreateReservedInstancesListing' {priceSchedules} -> priceSchedules) (\s@CreateReservedInstancesListing' {} a -> s {priceSchedules = a} :: CreateReservedInstancesListing) Prelude.. Prelude._Coerce
+createReservedInstancesListing_priceSchedules = Lens.lens (\CreateReservedInstancesListing' {priceSchedules} -> priceSchedules) (\s@CreateReservedInstancesListing' {} a -> s {priceSchedules = a} :: CreateReservedInstancesListing) Core.. Lens._Coerce
 
 -- | The ID of the active Standard Reserved Instance.
-createReservedInstancesListing_reservedInstancesId :: Lens.Lens' CreateReservedInstancesListing Prelude.Text
+createReservedInstancesListing_reservedInstancesId :: Lens.Lens' CreateReservedInstancesListing Core.Text
 createReservedInstancesListing_reservedInstancesId = Lens.lens (\CreateReservedInstancesListing' {reservedInstancesId} -> reservedInstancesId) (\s@CreateReservedInstancesListing' {} a -> s {reservedInstancesId = a} :: CreateReservedInstancesListing)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateReservedInstancesListing
   where
   type
-    Rs CreateReservedInstancesListing =
+    AWSResponse CreateReservedInstancesListing =
       CreateReservedInstancesListingResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateReservedInstancesListingResponse'
-            Prelude.<$> ( x Prelude..@? "reservedInstancesListingsSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "reservedInstancesListingsSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    CreateReservedInstancesListing
+instance Core.Hashable CreateReservedInstancesListing
+
+instance Core.NFData CreateReservedInstancesListing
 
 instance
-  Prelude.NFData
-    CreateReservedInstancesListing
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     CreateReservedInstancesListing
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    CreateReservedInstancesListing
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateReservedInstancesListing where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    CreateReservedInstancesListing
-  where
+instance Core.ToQuery CreateReservedInstancesListing where
   toQuery CreateReservedInstancesListing' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "CreateReservedInstancesListing" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Prelude.=: clientToken,
-        "InstanceCount" Prelude.=: instanceCount,
-        Prelude.toQueryList "PriceSchedules" priceSchedules,
-        "ReservedInstancesId" Prelude.=: reservedInstancesId
+          Core.=: ( "CreateReservedInstancesListing" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "ClientToken" Core.=: clientToken,
+        "InstanceCount" Core.=: instanceCount,
+        Core.toQueryList "PriceSchedules" priceSchedules,
+        "ReservedInstancesId" Core.=: reservedInstancesId
       ]
 
 -- | Contains the output of CreateReservedInstancesListing.
@@ -223,11 +211,11 @@ instance
 -- /See:/ 'newCreateReservedInstancesListingResponse' smart constructor.
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
   { -- | Information about the Standard Reserved Instance listing.
-    reservedInstancesListings :: Prelude.Maybe [ReservedInstancesListing],
+    reservedInstancesListings :: Core.Maybe [ReservedInstancesListing],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateReservedInstancesListingResponse' with all optional fields omitted.
@@ -242,24 +230,24 @@ data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResp
 -- 'httpStatus', 'createReservedInstancesListingResponse_httpStatus' - The response's http status code.
 newCreateReservedInstancesListingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateReservedInstancesListingResponse
 newCreateReservedInstancesListingResponse
   pHttpStatus_ =
     CreateReservedInstancesListingResponse'
       { reservedInstancesListings =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the Standard Reserved Instance listing.
-createReservedInstancesListingResponse_reservedInstancesListings :: Lens.Lens' CreateReservedInstancesListingResponse (Prelude.Maybe [ReservedInstancesListing])
-createReservedInstancesListingResponse_reservedInstancesListings = Lens.lens (\CreateReservedInstancesListingResponse' {reservedInstancesListings} -> reservedInstancesListings) (\s@CreateReservedInstancesListingResponse' {} a -> s {reservedInstancesListings = a} :: CreateReservedInstancesListingResponse) Prelude.. Lens.mapping Prelude._Coerce
+createReservedInstancesListingResponse_reservedInstancesListings :: Lens.Lens' CreateReservedInstancesListingResponse (Core.Maybe [ReservedInstancesListing])
+createReservedInstancesListingResponse_reservedInstancesListings = Lens.lens (\CreateReservedInstancesListingResponse' {reservedInstancesListings} -> reservedInstancesListings) (\s@CreateReservedInstancesListingResponse' {} a -> s {reservedInstancesListings = a} :: CreateReservedInstancesListingResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createReservedInstancesListingResponse_httpStatus :: Lens.Lens' CreateReservedInstancesListingResponse Prelude.Int
+createReservedInstancesListingResponse_httpStatus :: Lens.Lens' CreateReservedInstancesListingResponse Core.Int
 createReservedInstancesListingResponse_httpStatus = Lens.lens (\CreateReservedInstancesListingResponse' {httpStatus} -> httpStatus) (\s@CreateReservedInstancesListingResponse' {} a -> s {httpStatus = a} :: CreateReservedInstancesListingResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateReservedInstancesListingResponse

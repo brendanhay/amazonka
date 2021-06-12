@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.ReprocessingSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.ReprocessingStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about pipeline reprocessing.
 --
 -- /See:/ 'newReprocessingSummary' smart constructor.
 data ReprocessingSummary = ReprocessingSummary'
   { -- | The status of the pipeline reprocessing.
-    status :: Prelude.Maybe ReprocessingStatus,
+    status :: Core.Maybe ReprocessingStatus,
     -- | The time the pipeline reprocessing was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The @reprocessingId@ returned by @StartPipelineReprocessing@.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReprocessingSummary' with all optional fields omitted.
@@ -54,34 +53,34 @@ newReprocessingSummary ::
   ReprocessingSummary
 newReprocessingSummary =
   ReprocessingSummary'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      id = Prelude.Nothing
+    { status = Core.Nothing,
+      creationTime = Core.Nothing,
+      id = Core.Nothing
     }
 
 -- | The status of the pipeline reprocessing.
-reprocessingSummary_status :: Lens.Lens' ReprocessingSummary (Prelude.Maybe ReprocessingStatus)
+reprocessingSummary_status :: Lens.Lens' ReprocessingSummary (Core.Maybe ReprocessingStatus)
 reprocessingSummary_status = Lens.lens (\ReprocessingSummary' {status} -> status) (\s@ReprocessingSummary' {} a -> s {status = a} :: ReprocessingSummary)
 
 -- | The time the pipeline reprocessing was created.
-reprocessingSummary_creationTime :: Lens.Lens' ReprocessingSummary (Prelude.Maybe Prelude.UTCTime)
-reprocessingSummary_creationTime = Lens.lens (\ReprocessingSummary' {creationTime} -> creationTime) (\s@ReprocessingSummary' {} a -> s {creationTime = a} :: ReprocessingSummary) Prelude.. Lens.mapping Prelude._Time
+reprocessingSummary_creationTime :: Lens.Lens' ReprocessingSummary (Core.Maybe Core.UTCTime)
+reprocessingSummary_creationTime = Lens.lens (\ReprocessingSummary' {creationTime} -> creationTime) (\s@ReprocessingSummary' {} a -> s {creationTime = a} :: ReprocessingSummary) Core.. Lens.mapping Core._Time
 
 -- | The @reprocessingId@ returned by @StartPipelineReprocessing@.
-reprocessingSummary_id :: Lens.Lens' ReprocessingSummary (Prelude.Maybe Prelude.Text)
+reprocessingSummary_id :: Lens.Lens' ReprocessingSummary (Core.Maybe Core.Text)
 reprocessingSummary_id = Lens.lens (\ReprocessingSummary' {id} -> id) (\s@ReprocessingSummary' {} a -> s {id = a} :: ReprocessingSummary)
 
-instance Prelude.FromJSON ReprocessingSummary where
+instance Core.FromJSON ReprocessingSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReprocessingSummary"
       ( \x ->
           ReprocessingSummary'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "creationTime")
-            Prelude.<*> (x Prelude..:? "id")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "creationTime")
+            Core.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable ReprocessingSummary
+instance Core.Hashable ReprocessingSummary
 
-instance Prelude.NFData ReprocessingSummary
+instance Core.NFData ReprocessingSummary

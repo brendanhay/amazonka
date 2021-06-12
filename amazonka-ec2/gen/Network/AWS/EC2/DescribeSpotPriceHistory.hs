@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,10 +58,9 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,29 +69,29 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeSpotPriceHistory' smart constructor.
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
   { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return in a single call. Specify a
     -- value between 1 and 1000. The default value is 1000. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The date and time, up to the past 90 days, from which to start
     -- retrieving the price history data, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    startTime :: Prelude.Maybe Prelude.ISO8601,
+    startTime :: Core.Maybe Core.ISO8601,
     -- | The date and time, up to the current date, from which to stop retrieving
     -- the price history data, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    endTime :: Prelude.Maybe Prelude.ISO8601,
+    endTime :: Core.Maybe Core.ISO8601,
     -- | Filters the results by the specified Availability Zone.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | Filters the results by the specified basic product descriptions.
-    productDescriptions :: Prelude.Maybe [Prelude.Text],
+    productDescriptions :: Core.Maybe [Core.Text],
     -- | One or more filters.
     --
     -- -   @availability-zone@ - The Availability Zone for which prices should
@@ -114,11 +112,11 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
     --     format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). You can use
     --     wildcards (* and ?). Greater than or less than comparison is not
     --     supported.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | Filters the results by the specified instance types.
-    instanceTypes :: Prelude.Maybe [InstanceType]
+    instanceTypes :: Core.Maybe [InstanceType]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSpotPriceHistory' with all optional fields omitted.
@@ -178,55 +176,54 @@ newDescribeSpotPriceHistory ::
   DescribeSpotPriceHistory
 newDescribeSpotPriceHistory =
   DescribeSpotPriceHistory'
-    { nextToken =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      productDescriptions = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      instanceTypes = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      productDescriptions = Core.Nothing,
+      filters = Core.Nothing,
+      instanceTypes = Core.Nothing
     }
 
 -- | The token for the next set of results.
-describeSpotPriceHistory_nextToken :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Text)
+describeSpotPriceHistory_nextToken :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Core.Text)
 describeSpotPriceHistory_nextToken = Lens.lens (\DescribeSpotPriceHistory' {nextToken} -> nextToken) (\s@DescribeSpotPriceHistory' {} a -> s {nextToken = a} :: DescribeSpotPriceHistory)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeSpotPriceHistory_dryRun :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Bool)
+describeSpotPriceHistory_dryRun :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Core.Bool)
 describeSpotPriceHistory_dryRun = Lens.lens (\DescribeSpotPriceHistory' {dryRun} -> dryRun) (\s@DescribeSpotPriceHistory' {} a -> s {dryRun = a} :: DescribeSpotPriceHistory)
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
-describeSpotPriceHistory_maxResults :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Int)
+describeSpotPriceHistory_maxResults :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Core.Int)
 describeSpotPriceHistory_maxResults = Lens.lens (\DescribeSpotPriceHistory' {maxResults} -> maxResults) (\s@DescribeSpotPriceHistory' {} a -> s {maxResults = a} :: DescribeSpotPriceHistory)
 
 -- | The date and time, up to the past 90 days, from which to start
 -- retrieving the price history data, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-describeSpotPriceHistory_startTime :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.UTCTime)
-describeSpotPriceHistory_startTime = Lens.lens (\DescribeSpotPriceHistory' {startTime} -> startTime) (\s@DescribeSpotPriceHistory' {} a -> s {startTime = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Prelude._Time
+describeSpotPriceHistory_startTime :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Core.UTCTime)
+describeSpotPriceHistory_startTime = Lens.lens (\DescribeSpotPriceHistory' {startTime} -> startTime) (\s@DescribeSpotPriceHistory' {} a -> s {startTime = a} :: DescribeSpotPriceHistory) Core.. Lens.mapping Core._Time
 
 -- | The date and time, up to the current date, from which to stop retrieving
 -- the price history data, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-describeSpotPriceHistory_endTime :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.UTCTime)
-describeSpotPriceHistory_endTime = Lens.lens (\DescribeSpotPriceHistory' {endTime} -> endTime) (\s@DescribeSpotPriceHistory' {} a -> s {endTime = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Prelude._Time
+describeSpotPriceHistory_endTime :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Core.UTCTime)
+describeSpotPriceHistory_endTime = Lens.lens (\DescribeSpotPriceHistory' {endTime} -> endTime) (\s@DescribeSpotPriceHistory' {} a -> s {endTime = a} :: DescribeSpotPriceHistory) Core.. Lens.mapping Core._Time
 
 -- | Filters the results by the specified Availability Zone.
-describeSpotPriceHistory_availabilityZone :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Text)
+describeSpotPriceHistory_availabilityZone :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Core.Text)
 describeSpotPriceHistory_availabilityZone = Lens.lens (\DescribeSpotPriceHistory' {availabilityZone} -> availabilityZone) (\s@DescribeSpotPriceHistory' {} a -> s {availabilityZone = a} :: DescribeSpotPriceHistory)
 
 -- | Filters the results by the specified basic product descriptions.
-describeSpotPriceHistory_productDescriptions :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [Prelude.Text])
-describeSpotPriceHistory_productDescriptions = Lens.lens (\DescribeSpotPriceHistory' {productDescriptions} -> productDescriptions) (\s@DescribeSpotPriceHistory' {} a -> s {productDescriptions = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Prelude._Coerce
+describeSpotPriceHistory_productDescriptions :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe [Core.Text])
+describeSpotPriceHistory_productDescriptions = Lens.lens (\DescribeSpotPriceHistory' {productDescriptions} -> productDescriptions) (\s@DescribeSpotPriceHistory' {} a -> s {productDescriptions = a} :: DescribeSpotPriceHistory) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -248,84 +245,83 @@ describeSpotPriceHistory_productDescriptions = Lens.lens (\DescribeSpotPriceHist
 --     format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). You can use
 --     wildcards (* and ?). Greater than or less than comparison is not
 --     supported.
-describeSpotPriceHistory_filters :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [Filter])
-describeSpotPriceHistory_filters = Lens.lens (\DescribeSpotPriceHistory' {filters} -> filters) (\s@DescribeSpotPriceHistory' {} a -> s {filters = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Prelude._Coerce
+describeSpotPriceHistory_filters :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe [Filter])
+describeSpotPriceHistory_filters = Lens.lens (\DescribeSpotPriceHistory' {filters} -> filters) (\s@DescribeSpotPriceHistory' {} a -> s {filters = a} :: DescribeSpotPriceHistory) Core.. Lens.mapping Lens._Coerce
 
 -- | Filters the results by the specified instance types.
-describeSpotPriceHistory_instanceTypes :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [InstanceType])
-describeSpotPriceHistory_instanceTypes = Lens.lens (\DescribeSpotPriceHistory' {instanceTypes} -> instanceTypes) (\s@DescribeSpotPriceHistory' {} a -> s {instanceTypes = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Prelude._Coerce
+describeSpotPriceHistory_instanceTypes :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe [InstanceType])
+describeSpotPriceHistory_instanceTypes = Lens.lens (\DescribeSpotPriceHistory' {instanceTypes} -> instanceTypes) (\s@DescribeSpotPriceHistory' {} a -> s {instanceTypes = a} :: DescribeSpotPriceHistory) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeSpotPriceHistory where
+instance Core.AWSPager DescribeSpotPriceHistory where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeSpotPriceHistoryResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeSpotPriceHistoryResponse_spotPriceHistory
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeSpotPriceHistory_nextToken
           Lens..~ rs
           Lens.^? describeSpotPriceHistoryResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeSpotPriceHistory where
+instance Core.AWSRequest DescribeSpotPriceHistory where
   type
-    Rs DescribeSpotPriceHistory =
+    AWSResponse DescribeSpotPriceHistory =
       DescribeSpotPriceHistoryResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeSpotPriceHistoryResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "spotPriceHistorySet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "spotPriceHistorySet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSpotPriceHistory
+instance Core.Hashable DescribeSpotPriceHistory
 
-instance Prelude.NFData DescribeSpotPriceHistory
+instance Core.NFData DescribeSpotPriceHistory
 
-instance Prelude.ToHeaders DescribeSpotPriceHistory where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeSpotPriceHistory where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeSpotPriceHistory where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSpotPriceHistory where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeSpotPriceHistory where
+instance Core.ToQuery DescribeSpotPriceHistory where
   toQuery DescribeSpotPriceHistory' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeSpotPriceHistory" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        "StartTime" Prelude.=: startTime,
-        "EndTime" Prelude.=: endTime,
-        "AvailabilityZone" Prelude.=: availabilityZone,
-        Prelude.toQuery
-          ( Prelude.toQueryList "ProductDescription"
-              Prelude.<$> productDescriptions
+          Core.=: ("DescribeSpotPriceHistory" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        "StartTime" Core.=: startTime,
+        "EndTime" Core.=: endTime,
+        "AvailabilityZone" Core.=: availabilityZone,
+        Core.toQuery
+          ( Core.toQueryList "ProductDescription"
+              Core.<$> productDescriptions
           ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        Prelude.toQuery
-          ( Prelude.toQueryList "InstanceType"
-              Prelude.<$> instanceTypes
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters),
+        Core.toQuery
+          ( Core.toQueryList "InstanceType"
+              Core.<$> instanceTypes
           )
       ]
 
@@ -335,13 +331,13 @@ instance Prelude.ToQuery DescribeSpotPriceHistory where
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
   { -- | The token required to retrieve the next set of results. This value is
     -- null or an empty string when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The historical Spot prices.
-    spotPriceHistory :: Prelude.Maybe [SpotPrice],
+    spotPriceHistory :: Core.Maybe [SpotPrice],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSpotPriceHistoryResponse' with all optional fields omitted.
@@ -359,29 +355,27 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
 -- 'httpStatus', 'describeSpotPriceHistoryResponse_httpStatus' - The response's http status code.
 newDescribeSpotPriceHistoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSpotPriceHistoryResponse
 newDescribeSpotPriceHistoryResponse pHttpStatus_ =
   DescribeSpotPriceHistoryResponse'
     { nextToken =
-        Prelude.Nothing,
-      spotPriceHistory = Prelude.Nothing,
+        Core.Nothing,
+      spotPriceHistory = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token required to retrieve the next set of results. This value is
 -- null or an empty string when there are no more results to return.
-describeSpotPriceHistoryResponse_nextToken :: Lens.Lens' DescribeSpotPriceHistoryResponse (Prelude.Maybe Prelude.Text)
+describeSpotPriceHistoryResponse_nextToken :: Lens.Lens' DescribeSpotPriceHistoryResponse (Core.Maybe Core.Text)
 describeSpotPriceHistoryResponse_nextToken = Lens.lens (\DescribeSpotPriceHistoryResponse' {nextToken} -> nextToken) (\s@DescribeSpotPriceHistoryResponse' {} a -> s {nextToken = a} :: DescribeSpotPriceHistoryResponse)
 
 -- | The historical Spot prices.
-describeSpotPriceHistoryResponse_spotPriceHistory :: Lens.Lens' DescribeSpotPriceHistoryResponse (Prelude.Maybe [SpotPrice])
-describeSpotPriceHistoryResponse_spotPriceHistory = Lens.lens (\DescribeSpotPriceHistoryResponse' {spotPriceHistory} -> spotPriceHistory) (\s@DescribeSpotPriceHistoryResponse' {} a -> s {spotPriceHistory = a} :: DescribeSpotPriceHistoryResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeSpotPriceHistoryResponse_spotPriceHistory :: Lens.Lens' DescribeSpotPriceHistoryResponse (Core.Maybe [SpotPrice])
+describeSpotPriceHistoryResponse_spotPriceHistory = Lens.lens (\DescribeSpotPriceHistoryResponse' {spotPriceHistory} -> spotPriceHistory) (\s@DescribeSpotPriceHistoryResponse' {} a -> s {spotPriceHistory = a} :: DescribeSpotPriceHistoryResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSpotPriceHistoryResponse_httpStatus :: Lens.Lens' DescribeSpotPriceHistoryResponse Prelude.Int
+describeSpotPriceHistoryResponse_httpStatus :: Lens.Lens' DescribeSpotPriceHistoryResponse Core.Int
 describeSpotPriceHistoryResponse_httpStatus = Lens.lens (\DescribeSpotPriceHistoryResponse' {httpStatus} -> httpStatus) (\s@DescribeSpotPriceHistoryResponse' {} a -> s {httpStatus = a} :: DescribeSpotPriceHistoryResponse)
 
-instance
-  Prelude.NFData
-    DescribeSpotPriceHistoryResponse
+instance Core.NFData DescribeSpotPriceHistoryResponse

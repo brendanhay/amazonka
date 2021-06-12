@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TrainingJobStepMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata for a training job step.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data TrainingJobStepMetadata = TrainingJobStepMetadata'
   { -- | The Amazon Resource Name (ARN) of the training job that was run by this
     -- step execution.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrainingJobStepMetadata' with all optional fields omitted.
@@ -46,22 +45,21 @@ data TrainingJobStepMetadata = TrainingJobStepMetadata'
 newTrainingJobStepMetadata ::
   TrainingJobStepMetadata
 newTrainingJobStepMetadata =
-  TrainingJobStepMetadata' {arn = Prelude.Nothing}
+  TrainingJobStepMetadata' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the training job that was run by this
 -- step execution.
-trainingJobStepMetadata_arn :: Lens.Lens' TrainingJobStepMetadata (Prelude.Maybe Prelude.Text)
+trainingJobStepMetadata_arn :: Lens.Lens' TrainingJobStepMetadata (Core.Maybe Core.Text)
 trainingJobStepMetadata_arn = Lens.lens (\TrainingJobStepMetadata' {arn} -> arn) (\s@TrainingJobStepMetadata' {} a -> s {arn = a} :: TrainingJobStepMetadata)
 
-instance Prelude.FromJSON TrainingJobStepMetadata where
+instance Core.FromJSON TrainingJobStepMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrainingJobStepMetadata"
       ( \x ->
-          TrainingJobStepMetadata'
-            Prelude.<$> (x Prelude..:? "Arn")
+          TrainingJobStepMetadata' Core.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable TrainingJobStepMetadata
+instance Core.Hashable TrainingJobStepMetadata
 
-instance Prelude.NFData TrainingJobStepMetadata
+instance Core.NFData TrainingJobStepMetadata

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.Greengrass.GetConnectorDefinitionVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,18 +59,18 @@ import qualified Network.AWS.Response as Response
 data GetConnectorDefinitionVersion = GetConnectorDefinitionVersion'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The ID of the connector definition.
-    connectorDefinitionId :: Prelude.Text,
+    connectorDefinitionId :: Core.Text,
     -- | The ID of the connector definition version. This value maps to the
     -- \'\'Version\'\' property of the corresponding \'\'VersionInformation\'\'
     -- object, which is returned by \'\'ListConnectorDefinitionVersions\'\'
     -- requests. If the version is the last one that was associated with a
     -- connector definition, the value also maps to the \'\'LatestVersion\'\'
     -- property of the corresponding \'\'DefinitionInformation\'\' object.
-    connectorDefinitionVersionId :: Prelude.Text
+    connectorDefinitionVersionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetConnectorDefinitionVersion' with all optional fields omitted.
@@ -94,16 +93,16 @@ data GetConnectorDefinitionVersion = GetConnectorDefinitionVersion'
 -- property of the corresponding \'\'DefinitionInformation\'\' object.
 newGetConnectorDefinitionVersion ::
   -- | 'connectorDefinitionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'connectorDefinitionVersionId'
-  Prelude.Text ->
+  Core.Text ->
   GetConnectorDefinitionVersion
 newGetConnectorDefinitionVersion
   pConnectorDefinitionId_
   pConnectorDefinitionVersionId_ =
     GetConnectorDefinitionVersion'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         connectorDefinitionId =
           pConnectorDefinitionId_,
         connectorDefinitionVersionId =
@@ -112,11 +111,11 @@ newGetConnectorDefinitionVersion
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-getConnectorDefinitionVersion_nextToken :: Lens.Lens' GetConnectorDefinitionVersion (Prelude.Maybe Prelude.Text)
+getConnectorDefinitionVersion_nextToken :: Lens.Lens' GetConnectorDefinitionVersion (Core.Maybe Core.Text)
 getConnectorDefinitionVersion_nextToken = Lens.lens (\GetConnectorDefinitionVersion' {nextToken} -> nextToken) (\s@GetConnectorDefinitionVersion' {} a -> s {nextToken = a} :: GetConnectorDefinitionVersion)
 
 -- | The ID of the connector definition.
-getConnectorDefinitionVersion_connectorDefinitionId :: Lens.Lens' GetConnectorDefinitionVersion Prelude.Text
+getConnectorDefinitionVersion_connectorDefinitionId :: Lens.Lens' GetConnectorDefinitionVersion Core.Text
 getConnectorDefinitionVersion_connectorDefinitionId = Lens.lens (\GetConnectorDefinitionVersion' {connectorDefinitionId} -> connectorDefinitionId) (\s@GetConnectorDefinitionVersion' {} a -> s {connectorDefinitionId = a} :: GetConnectorDefinitionVersion)
 
 -- | The ID of the connector definition version. This value maps to the
@@ -125,86 +124,76 @@ getConnectorDefinitionVersion_connectorDefinitionId = Lens.lens (\GetConnectorDe
 -- requests. If the version is the last one that was associated with a
 -- connector definition, the value also maps to the \'\'LatestVersion\'\'
 -- property of the corresponding \'\'DefinitionInformation\'\' object.
-getConnectorDefinitionVersion_connectorDefinitionVersionId :: Lens.Lens' GetConnectorDefinitionVersion Prelude.Text
+getConnectorDefinitionVersion_connectorDefinitionVersionId :: Lens.Lens' GetConnectorDefinitionVersion Core.Text
 getConnectorDefinitionVersion_connectorDefinitionVersionId = Lens.lens (\GetConnectorDefinitionVersion' {connectorDefinitionVersionId} -> connectorDefinitionVersionId) (\s@GetConnectorDefinitionVersion' {} a -> s {connectorDefinitionVersionId = a} :: GetConnectorDefinitionVersion)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetConnectorDefinitionVersion
   where
   type
-    Rs GetConnectorDefinitionVersion =
+    AWSResponse GetConnectorDefinitionVersion =
       GetConnectorDefinitionVersionResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetConnectorDefinitionVersionResponse'
-            Prelude.<$> (x Prelude..?> "CreationTimestamp")
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Arn")
-            Prelude.<*> (x Prelude..?> "Id")
-            Prelude.<*> (x Prelude..?> "Version")
-            Prelude.<*> (x Prelude..?> "Definition")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CreationTimestamp")
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Arn")
+            Core.<*> (x Core..?> "Id")
+            Core.<*> (x Core..?> "Version")
+            Core.<*> (x Core..?> "Definition")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    GetConnectorDefinitionVersion
+instance Core.Hashable GetConnectorDefinitionVersion
 
-instance Prelude.NFData GetConnectorDefinitionVersion
+instance Core.NFData GetConnectorDefinitionVersion
 
-instance
-  Prelude.ToHeaders
-    GetConnectorDefinitionVersion
-  where
+instance Core.ToHeaders GetConnectorDefinitionVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetConnectorDefinitionVersion where
+instance Core.ToPath GetConnectorDefinitionVersion where
   toPath GetConnectorDefinitionVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/definition/connectors/",
-        Prelude.toBS connectorDefinitionId,
+        Core.toBS connectorDefinitionId,
         "/versions/",
-        Prelude.toBS connectorDefinitionVersionId
+        Core.toBS connectorDefinitionVersionId
       ]
 
-instance
-  Prelude.ToQuery
-    GetConnectorDefinitionVersion
-  where
+instance Core.ToQuery GetConnectorDefinitionVersion where
   toQuery GetConnectorDefinitionVersion' {..} =
-    Prelude.mconcat ["NextToken" Prelude.=: nextToken]
+    Core.mconcat ["NextToken" Core.=: nextToken]
 
 -- | /See:/ 'newGetConnectorDefinitionVersionResponse' smart constructor.
 data GetConnectorDefinitionVersionResponse = GetConnectorDefinitionVersionResponse'
   { -- | The time, in milliseconds since the epoch, when the connector definition
     -- version was created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    creationTimestamp :: Core.Maybe Core.Text,
     -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The ARN of the connector definition version.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The ID of the connector definition version.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The version of the connector definition version.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | Information about the connector definition version.
-    definition :: Prelude.Maybe ConnectorDefinitionVersion,
+    definition :: Core.Maybe ConnectorDefinitionVersion,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetConnectorDefinitionVersionResponse' with all optional fields omitted.
@@ -231,50 +220,50 @@ data GetConnectorDefinitionVersionResponse = GetConnectorDefinitionVersionRespon
 -- 'httpStatus', 'getConnectorDefinitionVersionResponse_httpStatus' - The response's http status code.
 newGetConnectorDefinitionVersionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetConnectorDefinitionVersionResponse
 newGetConnectorDefinitionVersionResponse pHttpStatus_ =
   GetConnectorDefinitionVersionResponse'
     { creationTimestamp =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      version = Prelude.Nothing,
-      definition = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      version = Core.Nothing,
+      definition = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time, in milliseconds since the epoch, when the connector definition
 -- version was created.
-getConnectorDefinitionVersionResponse_creationTimestamp :: Lens.Lens' GetConnectorDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+getConnectorDefinitionVersionResponse_creationTimestamp :: Lens.Lens' GetConnectorDefinitionVersionResponse (Core.Maybe Core.Text)
 getConnectorDefinitionVersionResponse_creationTimestamp = Lens.lens (\GetConnectorDefinitionVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@GetConnectorDefinitionVersionResponse' {} a -> s {creationTimestamp = a} :: GetConnectorDefinitionVersionResponse)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-getConnectorDefinitionVersionResponse_nextToken :: Lens.Lens' GetConnectorDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+getConnectorDefinitionVersionResponse_nextToken :: Lens.Lens' GetConnectorDefinitionVersionResponse (Core.Maybe Core.Text)
 getConnectorDefinitionVersionResponse_nextToken = Lens.lens (\GetConnectorDefinitionVersionResponse' {nextToken} -> nextToken) (\s@GetConnectorDefinitionVersionResponse' {} a -> s {nextToken = a} :: GetConnectorDefinitionVersionResponse)
 
 -- | The ARN of the connector definition version.
-getConnectorDefinitionVersionResponse_arn :: Lens.Lens' GetConnectorDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+getConnectorDefinitionVersionResponse_arn :: Lens.Lens' GetConnectorDefinitionVersionResponse (Core.Maybe Core.Text)
 getConnectorDefinitionVersionResponse_arn = Lens.lens (\GetConnectorDefinitionVersionResponse' {arn} -> arn) (\s@GetConnectorDefinitionVersionResponse' {} a -> s {arn = a} :: GetConnectorDefinitionVersionResponse)
 
 -- | The ID of the connector definition version.
-getConnectorDefinitionVersionResponse_id :: Lens.Lens' GetConnectorDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+getConnectorDefinitionVersionResponse_id :: Lens.Lens' GetConnectorDefinitionVersionResponse (Core.Maybe Core.Text)
 getConnectorDefinitionVersionResponse_id = Lens.lens (\GetConnectorDefinitionVersionResponse' {id} -> id) (\s@GetConnectorDefinitionVersionResponse' {} a -> s {id = a} :: GetConnectorDefinitionVersionResponse)
 
 -- | The version of the connector definition version.
-getConnectorDefinitionVersionResponse_version :: Lens.Lens' GetConnectorDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+getConnectorDefinitionVersionResponse_version :: Lens.Lens' GetConnectorDefinitionVersionResponse (Core.Maybe Core.Text)
 getConnectorDefinitionVersionResponse_version = Lens.lens (\GetConnectorDefinitionVersionResponse' {version} -> version) (\s@GetConnectorDefinitionVersionResponse' {} a -> s {version = a} :: GetConnectorDefinitionVersionResponse)
 
 -- | Information about the connector definition version.
-getConnectorDefinitionVersionResponse_definition :: Lens.Lens' GetConnectorDefinitionVersionResponse (Prelude.Maybe ConnectorDefinitionVersion)
+getConnectorDefinitionVersionResponse_definition :: Lens.Lens' GetConnectorDefinitionVersionResponse (Core.Maybe ConnectorDefinitionVersion)
 getConnectorDefinitionVersionResponse_definition = Lens.lens (\GetConnectorDefinitionVersionResponse' {definition} -> definition) (\s@GetConnectorDefinitionVersionResponse' {} a -> s {definition = a} :: GetConnectorDefinitionVersionResponse)
 
 -- | The response's http status code.
-getConnectorDefinitionVersionResponse_httpStatus :: Lens.Lens' GetConnectorDefinitionVersionResponse Prelude.Int
+getConnectorDefinitionVersionResponse_httpStatus :: Lens.Lens' GetConnectorDefinitionVersionResponse Core.Int
 getConnectorDefinitionVersionResponse_httpStatus = Lens.lens (\GetConnectorDefinitionVersionResponse' {httpStatus} -> httpStatus) (\s@GetConnectorDefinitionVersionResponse' {} a -> s {httpStatus = a} :: GetConnectorDefinitionVersionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetConnectorDefinitionVersionResponse

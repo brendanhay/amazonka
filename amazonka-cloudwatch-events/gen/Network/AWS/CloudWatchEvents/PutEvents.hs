@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudWatchEvents.PutEvents
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ data PutEvents = PutEvents'
   { -- | The entry that defines an event in your system. You can specify several
     -- parameters for the entry such as the source and type of the event,
     -- resources associated with the event, and so on.
-    entries :: Prelude.NonEmpty PutEventsRequestEntry
+    entries :: Core.NonEmpty PutEventsRequestEntry
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutEvents' with all optional fields omitted.
@@ -70,75 +69,70 @@ data PutEvents = PutEvents'
 -- resources associated with the event, and so on.
 newPutEvents ::
   -- | 'entries'
-  Prelude.NonEmpty PutEventsRequestEntry ->
+  Core.NonEmpty PutEventsRequestEntry ->
   PutEvents
 newPutEvents pEntries_ =
-  PutEvents'
-    { entries =
-        Prelude._Coerce Lens.# pEntries_
-    }
+  PutEvents' {entries = Lens._Coerce Lens.# pEntries_}
 
 -- | The entry that defines an event in your system. You can specify several
 -- parameters for the entry such as the source and type of the event,
 -- resources associated with the event, and so on.
-putEvents_entries :: Lens.Lens' PutEvents (Prelude.NonEmpty PutEventsRequestEntry)
-putEvents_entries = Lens.lens (\PutEvents' {entries} -> entries) (\s@PutEvents' {} a -> s {entries = a} :: PutEvents) Prelude.. Prelude._Coerce
+putEvents_entries :: Lens.Lens' PutEvents (Core.NonEmpty PutEventsRequestEntry)
+putEvents_entries = Lens.lens (\PutEvents' {entries} -> entries) (\s@PutEvents' {} a -> s {entries = a} :: PutEvents) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest PutEvents where
-  type Rs PutEvents = PutEventsResponse
+instance Core.AWSRequest PutEvents where
+  type AWSResponse PutEvents = PutEventsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutEventsResponse'
-            Prelude.<$> (x Prelude..?> "FailedEntryCount")
-            Prelude.<*> (x Prelude..?> "Entries" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FailedEntryCount")
+            Core.<*> (x Core..?> "Entries" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutEvents
+instance Core.Hashable PutEvents
 
-instance Prelude.NFData PutEvents
+instance Core.NFData PutEvents
 
-instance Prelude.ToHeaders PutEvents where
+instance Core.ToHeaders PutEvents where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSEvents.PutEvents" :: Prelude.ByteString),
+              Core.=# ("AWSEvents.PutEvents" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutEvents where
+instance Core.ToJSON PutEvents where
   toJSON PutEvents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Entries" Prelude..= entries)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Entries" Core..= entries)]
       )
 
-instance Prelude.ToPath PutEvents where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutEvents where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutEvents where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutEvents where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutEventsResponse' smart constructor.
 data PutEventsResponse = PutEventsResponse'
   { -- | The number of failed entries.
-    failedEntryCount :: Prelude.Maybe Prelude.Int,
+    failedEntryCount :: Core.Maybe Core.Int,
     -- | The successfully and unsuccessfully ingested events results. If the
     -- ingestion was successful, the entry has the event ID in it. Otherwise,
     -- you can use the error code and error message to identify the problem
     -- with the entry.
-    entries :: Prelude.Maybe [PutEventsResultEntry],
+    entries :: Core.Maybe [PutEventsResultEntry],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutEventsResponse' with all optional fields omitted.
@@ -158,29 +152,28 @@ data PutEventsResponse = PutEventsResponse'
 -- 'httpStatus', 'putEventsResponse_httpStatus' - The response's http status code.
 newPutEventsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutEventsResponse
 newPutEventsResponse pHttpStatus_ =
   PutEventsResponse'
-    { failedEntryCount =
-        Prelude.Nothing,
-      entries = Prelude.Nothing,
+    { failedEntryCount = Core.Nothing,
+      entries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The number of failed entries.
-putEventsResponse_failedEntryCount :: Lens.Lens' PutEventsResponse (Prelude.Maybe Prelude.Int)
+putEventsResponse_failedEntryCount :: Lens.Lens' PutEventsResponse (Core.Maybe Core.Int)
 putEventsResponse_failedEntryCount = Lens.lens (\PutEventsResponse' {failedEntryCount} -> failedEntryCount) (\s@PutEventsResponse' {} a -> s {failedEntryCount = a} :: PutEventsResponse)
 
 -- | The successfully and unsuccessfully ingested events results. If the
 -- ingestion was successful, the entry has the event ID in it. Otherwise,
 -- you can use the error code and error message to identify the problem
 -- with the entry.
-putEventsResponse_entries :: Lens.Lens' PutEventsResponse (Prelude.Maybe [PutEventsResultEntry])
-putEventsResponse_entries = Lens.lens (\PutEventsResponse' {entries} -> entries) (\s@PutEventsResponse' {} a -> s {entries = a} :: PutEventsResponse) Prelude.. Lens.mapping Prelude._Coerce
+putEventsResponse_entries :: Lens.Lens' PutEventsResponse (Core.Maybe [PutEventsResultEntry])
+putEventsResponse_entries = Lens.lens (\PutEventsResponse' {entries} -> entries) (\s@PutEventsResponse' {} a -> s {entries = a} :: PutEventsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putEventsResponse_httpStatus :: Lens.Lens' PutEventsResponse Prelude.Int
+putEventsResponse_httpStatus :: Lens.Lens' PutEventsResponse Core.Int
 putEventsResponse_httpStatus = Lens.lens (\PutEventsResponse' {httpStatus} -> httpStatus) (\s@PutEventsResponse' {} a -> s {httpStatus = a} :: PutEventsResponse)
 
-instance Prelude.NFData PutEventsResponse
+instance Core.NFData PutEventsResponse

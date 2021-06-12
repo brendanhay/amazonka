@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.AccessLevelFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey
 
 -- | The access level to use to filter results.
@@ -36,12 +35,12 @@ data AccessLevelFilter = AccessLevelFilter'
     --     user.
     --
     -- -   @User@ - Filter results based on the specified user.
-    key :: Prelude.Maybe AccessLevelFilterKey,
+    key :: Core.Maybe AccessLevelFilterKey,
     -- | The user to which the access level applies. The only supported value is
     -- @Self@.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccessLevelFilter' with all optional fields omitted.
@@ -66,8 +65,8 @@ newAccessLevelFilter ::
   AccessLevelFilter
 newAccessLevelFilter =
   AccessLevelFilter'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { key = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The access level.
@@ -78,23 +77,23 @@ newAccessLevelFilter =
 --     user.
 --
 -- -   @User@ - Filter results based on the specified user.
-accessLevelFilter_key :: Lens.Lens' AccessLevelFilter (Prelude.Maybe AccessLevelFilterKey)
+accessLevelFilter_key :: Lens.Lens' AccessLevelFilter (Core.Maybe AccessLevelFilterKey)
 accessLevelFilter_key = Lens.lens (\AccessLevelFilter' {key} -> key) (\s@AccessLevelFilter' {} a -> s {key = a} :: AccessLevelFilter)
 
 -- | The user to which the access level applies. The only supported value is
 -- @Self@.
-accessLevelFilter_value :: Lens.Lens' AccessLevelFilter (Prelude.Maybe Prelude.Text)
+accessLevelFilter_value :: Lens.Lens' AccessLevelFilter (Core.Maybe Core.Text)
 accessLevelFilter_value = Lens.lens (\AccessLevelFilter' {value} -> value) (\s@AccessLevelFilter' {} a -> s {value = a} :: AccessLevelFilter)
 
-instance Prelude.Hashable AccessLevelFilter
+instance Core.Hashable AccessLevelFilter
 
-instance Prelude.NFData AccessLevelFilter
+instance Core.NFData AccessLevelFilter
 
-instance Prelude.ToJSON AccessLevelFilter where
+instance Core.ToJSON AccessLevelFilter where
   toJSON AccessLevelFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Value" Prelude..=) Prelude.<$> value
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Value" Core..=) Core.<$> value
           ]
       )

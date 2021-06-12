@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ReplicaUpdate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.CreateReplicaAction
 import Network.AWS.DynamoDB.Types.DeleteReplicaAction
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents one of the following:
 --
@@ -37,11 +36,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ReplicaUpdate = ReplicaUpdate'
   { -- | The parameters required for creating a replica on an existing global
     -- table.
-    create :: Prelude.Maybe CreateReplicaAction,
+    create :: Core.Maybe CreateReplicaAction,
     -- | The name of the existing replica to be removed.
-    delete' :: Prelude.Maybe DeleteReplicaAction
+    delete' :: Core.Maybe DeleteReplicaAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicaUpdate' with all optional fields omitted.
@@ -59,28 +58,28 @@ newReplicaUpdate ::
   ReplicaUpdate
 newReplicaUpdate =
   ReplicaUpdate'
-    { create = Prelude.Nothing,
-      delete' = Prelude.Nothing
+    { create = Core.Nothing,
+      delete' = Core.Nothing
     }
 
 -- | The parameters required for creating a replica on an existing global
 -- table.
-replicaUpdate_create :: Lens.Lens' ReplicaUpdate (Prelude.Maybe CreateReplicaAction)
+replicaUpdate_create :: Lens.Lens' ReplicaUpdate (Core.Maybe CreateReplicaAction)
 replicaUpdate_create = Lens.lens (\ReplicaUpdate' {create} -> create) (\s@ReplicaUpdate' {} a -> s {create = a} :: ReplicaUpdate)
 
 -- | The name of the existing replica to be removed.
-replicaUpdate_delete :: Lens.Lens' ReplicaUpdate (Prelude.Maybe DeleteReplicaAction)
+replicaUpdate_delete :: Lens.Lens' ReplicaUpdate (Core.Maybe DeleteReplicaAction)
 replicaUpdate_delete = Lens.lens (\ReplicaUpdate' {delete'} -> delete') (\s@ReplicaUpdate' {} a -> s {delete' = a} :: ReplicaUpdate)
 
-instance Prelude.Hashable ReplicaUpdate
+instance Core.Hashable ReplicaUpdate
 
-instance Prelude.NFData ReplicaUpdate
+instance Core.NFData ReplicaUpdate
 
-instance Prelude.ToJSON ReplicaUpdate where
+instance Core.ToJSON ReplicaUpdate where
   toJSON ReplicaUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Create" Prelude..=) Prelude.<$> create,
-            ("Delete" Prelude..=) Prelude.<$> delete'
+    Core.object
+      ( Core.catMaybes
+          [ ("Create" Core..=) Core.<$> create,
+            ("Delete" Core..=) Core.<$> delete'
           ]
       )

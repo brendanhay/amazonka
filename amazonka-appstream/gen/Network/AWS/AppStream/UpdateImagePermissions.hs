@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,22 +41,22 @@ module Network.AWS.AppStream.UpdateImagePermissions
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateImagePermissions' smart constructor.
 data UpdateImagePermissions = UpdateImagePermissions'
   { -- | The name of the private image.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The 12-digit identifier of the AWS account for which you want add or
     -- update image permissions.
-    sharedAccountId :: Prelude.Text,
+    sharedAccountId :: Core.Text,
     -- | The permissions for the image.
     imagePermissions :: ImagePermissions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateImagePermissions' with all optional fields omitted.
@@ -75,9 +74,9 @@ data UpdateImagePermissions = UpdateImagePermissions'
 -- 'imagePermissions', 'updateImagePermissions_imagePermissions' - The permissions for the image.
 newUpdateImagePermissions ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sharedAccountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'imagePermissions'
   ImagePermissions ->
   UpdateImagePermissions
@@ -92,73 +91,71 @@ newUpdateImagePermissions
       }
 
 -- | The name of the private image.
-updateImagePermissions_name :: Lens.Lens' UpdateImagePermissions Prelude.Text
+updateImagePermissions_name :: Lens.Lens' UpdateImagePermissions Core.Text
 updateImagePermissions_name = Lens.lens (\UpdateImagePermissions' {name} -> name) (\s@UpdateImagePermissions' {} a -> s {name = a} :: UpdateImagePermissions)
 
 -- | The 12-digit identifier of the AWS account for which you want add or
 -- update image permissions.
-updateImagePermissions_sharedAccountId :: Lens.Lens' UpdateImagePermissions Prelude.Text
+updateImagePermissions_sharedAccountId :: Lens.Lens' UpdateImagePermissions Core.Text
 updateImagePermissions_sharedAccountId = Lens.lens (\UpdateImagePermissions' {sharedAccountId} -> sharedAccountId) (\s@UpdateImagePermissions' {} a -> s {sharedAccountId = a} :: UpdateImagePermissions)
 
 -- | The permissions for the image.
 updateImagePermissions_imagePermissions :: Lens.Lens' UpdateImagePermissions ImagePermissions
 updateImagePermissions_imagePermissions = Lens.lens (\UpdateImagePermissions' {imagePermissions} -> imagePermissions) (\s@UpdateImagePermissions' {} a -> s {imagePermissions = a} :: UpdateImagePermissions)
 
-instance Prelude.AWSRequest UpdateImagePermissions where
+instance Core.AWSRequest UpdateImagePermissions where
   type
-    Rs UpdateImagePermissions =
+    AWSResponse UpdateImagePermissions =
       UpdateImagePermissionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateImagePermissionsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateImagePermissions
+instance Core.Hashable UpdateImagePermissions
 
-instance Prelude.NFData UpdateImagePermissions
+instance Core.NFData UpdateImagePermissions
 
-instance Prelude.ToHeaders UpdateImagePermissions where
+instance Core.ToHeaders UpdateImagePermissions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.UpdateImagePermissions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.UpdateImagePermissions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateImagePermissions where
+instance Core.ToJSON UpdateImagePermissions where
   toJSON UpdateImagePermissions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just
-              ("SharedAccountId" Prelude..= sharedAccountId),
-            Prelude.Just
-              ("ImagePermissions" Prelude..= imagePermissions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just
+              ("SharedAccountId" Core..= sharedAccountId),
+            Core.Just
+              ("ImagePermissions" Core..= imagePermissions)
           ]
       )
 
-instance Prelude.ToPath UpdateImagePermissions where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateImagePermissions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateImagePermissions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateImagePermissions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateImagePermissionsResponse' smart constructor.
 data UpdateImagePermissionsResponse = UpdateImagePermissionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateImagePermissionsResponse' with all optional fields omitted.
@@ -171,7 +168,7 @@ data UpdateImagePermissionsResponse = UpdateImagePermissionsResponse'
 -- 'httpStatus', 'updateImagePermissionsResponse_httpStatus' - The response's http status code.
 newUpdateImagePermissionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateImagePermissionsResponse
 newUpdateImagePermissionsResponse pHttpStatus_ =
   UpdateImagePermissionsResponse'
@@ -180,9 +177,7 @@ newUpdateImagePermissionsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateImagePermissionsResponse_httpStatus :: Lens.Lens' UpdateImagePermissionsResponse Prelude.Int
+updateImagePermissionsResponse_httpStatus :: Lens.Lens' UpdateImagePermissionsResponse Core.Int
 updateImagePermissionsResponse_httpStatus = Lens.lens (\UpdateImagePermissionsResponse' {httpStatus} -> httpStatus) (\s@UpdateImagePermissionsResponse' {} a -> s {httpStatus = a} :: UpdateImagePermissionsResponse)
 
-instance
-  Prelude.NFData
-    UpdateImagePermissionsResponse
+instance Core.NFData UpdateImagePermissionsResponse

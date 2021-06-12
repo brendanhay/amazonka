@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.EC2.CreateDefaultSubnet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +56,11 @@ data CreateDefaultSubnet = CreateDefaultSubnet'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The Availability Zone in which to create the default subnet.
-    availabilityZone :: Prelude.Text
+    availabilityZone :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDefaultSubnet' with all optional fields omitted.
@@ -79,11 +78,11 @@ data CreateDefaultSubnet = CreateDefaultSubnet'
 -- 'availabilityZone', 'createDefaultSubnet_availabilityZone' - The Availability Zone in which to create the default subnet.
 newCreateDefaultSubnet ::
   -- | 'availabilityZone'
-  Prelude.Text ->
+  Core.Text ->
   CreateDefaultSubnet
 newCreateDefaultSubnet pAvailabilityZone_ =
   CreateDefaultSubnet'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       availabilityZone = pAvailabilityZone_
     }
 
@@ -91,55 +90,54 @@ newCreateDefaultSubnet pAvailabilityZone_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createDefaultSubnet_dryRun :: Lens.Lens' CreateDefaultSubnet (Prelude.Maybe Prelude.Bool)
+createDefaultSubnet_dryRun :: Lens.Lens' CreateDefaultSubnet (Core.Maybe Core.Bool)
 createDefaultSubnet_dryRun = Lens.lens (\CreateDefaultSubnet' {dryRun} -> dryRun) (\s@CreateDefaultSubnet' {} a -> s {dryRun = a} :: CreateDefaultSubnet)
 
 -- | The Availability Zone in which to create the default subnet.
-createDefaultSubnet_availabilityZone :: Lens.Lens' CreateDefaultSubnet Prelude.Text
+createDefaultSubnet_availabilityZone :: Lens.Lens' CreateDefaultSubnet Core.Text
 createDefaultSubnet_availabilityZone = Lens.lens (\CreateDefaultSubnet' {availabilityZone} -> availabilityZone) (\s@CreateDefaultSubnet' {} a -> s {availabilityZone = a} :: CreateDefaultSubnet)
 
-instance Prelude.AWSRequest CreateDefaultSubnet where
+instance Core.AWSRequest CreateDefaultSubnet where
   type
-    Rs CreateDefaultSubnet =
+    AWSResponse CreateDefaultSubnet =
       CreateDefaultSubnetResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateDefaultSubnetResponse'
-            Prelude.<$> (x Prelude..@? "subnet")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "subnet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDefaultSubnet
+instance Core.Hashable CreateDefaultSubnet
 
-instance Prelude.NFData CreateDefaultSubnet
+instance Core.NFData CreateDefaultSubnet
 
-instance Prelude.ToHeaders CreateDefaultSubnet where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateDefaultSubnet where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateDefaultSubnet where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDefaultSubnet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDefaultSubnet where
+instance Core.ToQuery CreateDefaultSubnet where
   toQuery CreateDefaultSubnet' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateDefaultSubnet" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "AvailabilityZone" Prelude.=: availabilityZone
+          Core.=: ("CreateDefaultSubnet" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "AvailabilityZone" Core.=: availabilityZone
       ]
 
 -- | /See:/ 'newCreateDefaultSubnetResponse' smart constructor.
 data CreateDefaultSubnetResponse = CreateDefaultSubnetResponse'
   { -- | Information about the subnet.
-    subnet :: Prelude.Maybe Subnet,
+    subnet :: Core.Maybe Subnet,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDefaultSubnetResponse' with all optional fields omitted.
@@ -154,21 +152,20 @@ data CreateDefaultSubnetResponse = CreateDefaultSubnetResponse'
 -- 'httpStatus', 'createDefaultSubnetResponse_httpStatus' - The response's http status code.
 newCreateDefaultSubnetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDefaultSubnetResponse
 newCreateDefaultSubnetResponse pHttpStatus_ =
   CreateDefaultSubnetResponse'
-    { subnet =
-        Prelude.Nothing,
+    { subnet = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the subnet.
-createDefaultSubnetResponse_subnet :: Lens.Lens' CreateDefaultSubnetResponse (Prelude.Maybe Subnet)
+createDefaultSubnetResponse_subnet :: Lens.Lens' CreateDefaultSubnetResponse (Core.Maybe Subnet)
 createDefaultSubnetResponse_subnet = Lens.lens (\CreateDefaultSubnetResponse' {subnet} -> subnet) (\s@CreateDefaultSubnetResponse' {} a -> s {subnet = a} :: CreateDefaultSubnetResponse)
 
 -- | The response's http status code.
-createDefaultSubnetResponse_httpStatus :: Lens.Lens' CreateDefaultSubnetResponse Prelude.Int
+createDefaultSubnetResponse_httpStatus :: Lens.Lens' CreateDefaultSubnetResponse Core.Int
 createDefaultSubnetResponse_httpStatus = Lens.lens (\CreateDefaultSubnetResponse' {httpStatus} -> httpStatus) (\s@CreateDefaultSubnetResponse' {} a -> s {httpStatus = a} :: CreateDefaultSubnetResponse)
 
-instance Prelude.NFData CreateDefaultSubnetResponse
+instance Core.NFData CreateDefaultSubnetResponse

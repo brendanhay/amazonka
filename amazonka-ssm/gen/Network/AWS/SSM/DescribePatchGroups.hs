@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.SSM.DescribePatchGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,9 +54,9 @@ import Network.AWS.SSM.Types
 data DescribePatchGroups = DescribePatchGroups'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of patch groups to return (per page).
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more filters. Use a filter to return a more specific list of
     -- results.
     --
@@ -77,9 +75,9 @@ data DescribePatchGroups = DescribePatchGroups'
     --     -   @--filters Key=NAME_PREFIX,Values=MyPatchGroup*@
     --
     --     -   @--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2@
-    filters :: Prelude.Maybe [PatchOrchestratorFilter]
+    filters :: Core.Maybe [PatchOrchestratorFilter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePatchGroups' with all optional fields omitted.
@@ -116,18 +114,18 @@ newDescribePatchGroups ::
   DescribePatchGroups
 newDescribePatchGroups =
   DescribePatchGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describePatchGroups_nextToken :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Text)
+describePatchGroups_nextToken :: Lens.Lens' DescribePatchGroups (Core.Maybe Core.Text)
 describePatchGroups_nextToken = Lens.lens (\DescribePatchGroups' {nextToken} -> nextToken) (\s@DescribePatchGroups' {} a -> s {nextToken = a} :: DescribePatchGroups)
 
 -- | The maximum number of patch groups to return (per page).
-describePatchGroups_maxResults :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Natural)
+describePatchGroups_maxResults :: Lens.Lens' DescribePatchGroups (Core.Maybe Core.Natural)
 describePatchGroups_maxResults = Lens.lens (\DescribePatchGroups' {maxResults} -> maxResults) (\s@DescribePatchGroups' {} a -> s {maxResults = a} :: DescribePatchGroups)
 
 -- | One or more filters. Use a filter to return a more specific list of
@@ -148,79 +146,75 @@ describePatchGroups_maxResults = Lens.lens (\DescribePatchGroups' {maxResults} -
 --     -   @--filters Key=NAME_PREFIX,Values=MyPatchGroup*@
 --
 --     -   @--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2@
-describePatchGroups_filters :: Lens.Lens' DescribePatchGroups (Prelude.Maybe [PatchOrchestratorFilter])
-describePatchGroups_filters = Lens.lens (\DescribePatchGroups' {filters} -> filters) (\s@DescribePatchGroups' {} a -> s {filters = a} :: DescribePatchGroups) Prelude.. Lens.mapping Prelude._Coerce
+describePatchGroups_filters :: Lens.Lens' DescribePatchGroups (Core.Maybe [PatchOrchestratorFilter])
+describePatchGroups_filters = Lens.lens (\DescribePatchGroups' {filters} -> filters) (\s@DescribePatchGroups' {} a -> s {filters = a} :: DescribePatchGroups) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribePatchGroups where
+instance Core.AWSPager DescribePatchGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describePatchGroupsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describePatchGroupsResponse_mappings
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describePatchGroups_nextToken
           Lens..~ rs
           Lens.^? describePatchGroupsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribePatchGroups where
+instance Core.AWSRequest DescribePatchGroups where
   type
-    Rs DescribePatchGroups =
+    AWSResponse DescribePatchGroups =
       DescribePatchGroupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribePatchGroupsResponse'
-            Prelude.<$> (x Prelude..?> "Mappings" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Mappings" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePatchGroups
+instance Core.Hashable DescribePatchGroups
 
-instance Prelude.NFData DescribePatchGroups
+instance Core.NFData DescribePatchGroups
 
-instance Prelude.ToHeaders DescribePatchGroups where
+instance Core.ToHeaders DescribePatchGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DescribePatchGroups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonSSM.DescribePatchGroups" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribePatchGroups where
+instance Core.ToJSON DescribePatchGroups where
   toJSON DescribePatchGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters
           ]
       )
 
-instance Prelude.ToPath DescribePatchGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribePatchGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribePatchGroups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribePatchGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribePatchGroupsResponse' smart constructor.
 data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
@@ -230,14 +224,14 @@ data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
     -- ^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)
     --
     -- PatchBaselineIdentity: A PatchBaselineIdentity element.
-    mappings :: Prelude.Maybe [PatchGroupPatchBaselineMapping],
+    mappings :: Core.Maybe [PatchGroupPatchBaselineMapping],
     -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePatchGroupsResponse' with all optional fields omitted.
@@ -260,13 +254,13 @@ data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
 -- 'httpStatus', 'describePatchGroupsResponse_httpStatus' - The response's http status code.
 newDescribePatchGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribePatchGroupsResponse
 newDescribePatchGroupsResponse pHttpStatus_ =
   DescribePatchGroupsResponse'
     { mappings =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -276,16 +270,16 @@ newDescribePatchGroupsResponse pHttpStatus_ =
 -- ^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)
 --
 -- PatchBaselineIdentity: A PatchBaselineIdentity element.
-describePatchGroupsResponse_mappings :: Lens.Lens' DescribePatchGroupsResponse (Prelude.Maybe [PatchGroupPatchBaselineMapping])
-describePatchGroupsResponse_mappings = Lens.lens (\DescribePatchGroupsResponse' {mappings} -> mappings) (\s@DescribePatchGroupsResponse' {} a -> s {mappings = a} :: DescribePatchGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describePatchGroupsResponse_mappings :: Lens.Lens' DescribePatchGroupsResponse (Core.Maybe [PatchGroupPatchBaselineMapping])
+describePatchGroupsResponse_mappings = Lens.lens (\DescribePatchGroupsResponse' {mappings} -> mappings) (\s@DescribePatchGroupsResponse' {} a -> s {mappings = a} :: DescribePatchGroupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-describePatchGroupsResponse_nextToken :: Lens.Lens' DescribePatchGroupsResponse (Prelude.Maybe Prelude.Text)
+describePatchGroupsResponse_nextToken :: Lens.Lens' DescribePatchGroupsResponse (Core.Maybe Core.Text)
 describePatchGroupsResponse_nextToken = Lens.lens (\DescribePatchGroupsResponse' {nextToken} -> nextToken) (\s@DescribePatchGroupsResponse' {} a -> s {nextToken = a} :: DescribePatchGroupsResponse)
 
 -- | The response's http status code.
-describePatchGroupsResponse_httpStatus :: Lens.Lens' DescribePatchGroupsResponse Prelude.Int
+describePatchGroupsResponse_httpStatus :: Lens.Lens' DescribePatchGroupsResponse Core.Int
 describePatchGroupsResponse_httpStatus = Lens.lens (\DescribePatchGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribePatchGroupsResponse' {} a -> s {httpStatus = a} :: DescribePatchGroupsResponse)
 
-instance Prelude.NFData DescribePatchGroupsResponse
+instance Core.NFData DescribePatchGroupsResponse

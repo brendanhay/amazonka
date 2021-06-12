@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.MechanicalTurk.SendBonus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,20 +65,20 @@ data SendBonus = SendBonus'
     -- succeeded on the server. If the bonus already exists in the system from
     -- a previous call using the same UniqueRequestToken, subsequent calls will
     -- return an error with a message containing the request ID.
-    uniqueRequestToken :: Prelude.Maybe Prelude.Text,
+    uniqueRequestToken :: Core.Maybe Core.Text,
     -- | The ID of the Worker being paid the bonus.
-    workerId :: Prelude.Text,
+    workerId :: Core.Text,
     -- | The Bonus amount is a US Dollar amount specified using a string (for
     -- example, \"5\" represents $5.00 USD and \"101.42\" represents $101.42
     -- USD). Do not include currency symbols or currency codes.
-    bonusAmount :: Prelude.Text,
+    bonusAmount :: Core.Text,
     -- | The ID of the assignment for which this bonus is paid.
-    assignmentId :: Prelude.Text,
+    assignmentId :: Core.Text,
     -- | A message that explains the reason for the bonus payment. The Worker
     -- receiving the bonus can see this message.
-    reason :: Prelude.Text
+    reason :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendBonus' with all optional fields omitted.
@@ -108,13 +107,13 @@ data SendBonus = SendBonus'
 -- receiving the bonus can see this message.
 newSendBonus ::
   -- | 'workerId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'bonusAmount'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'assignmentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'reason'
-  Prelude.Text ->
+  Core.Text ->
   SendBonus
 newSendBonus
   pWorkerId_
@@ -122,7 +121,7 @@ newSendBonus
   pAssignmentId_
   pReason_ =
     SendBonus'
-      { uniqueRequestToken = Prelude.Nothing,
+      { uniqueRequestToken = Core.Nothing,
         workerId = pWorkerId_,
         bonusAmount = pBonusAmount_,
         assignmentId = pAssignmentId_,
@@ -135,83 +134,80 @@ newSendBonus
 -- succeeded on the server. If the bonus already exists in the system from
 -- a previous call using the same UniqueRequestToken, subsequent calls will
 -- return an error with a message containing the request ID.
-sendBonus_uniqueRequestToken :: Lens.Lens' SendBonus (Prelude.Maybe Prelude.Text)
+sendBonus_uniqueRequestToken :: Lens.Lens' SendBonus (Core.Maybe Core.Text)
 sendBonus_uniqueRequestToken = Lens.lens (\SendBonus' {uniqueRequestToken} -> uniqueRequestToken) (\s@SendBonus' {} a -> s {uniqueRequestToken = a} :: SendBonus)
 
 -- | The ID of the Worker being paid the bonus.
-sendBonus_workerId :: Lens.Lens' SendBonus Prelude.Text
+sendBonus_workerId :: Lens.Lens' SendBonus Core.Text
 sendBonus_workerId = Lens.lens (\SendBonus' {workerId} -> workerId) (\s@SendBonus' {} a -> s {workerId = a} :: SendBonus)
 
 -- | The Bonus amount is a US Dollar amount specified using a string (for
 -- example, \"5\" represents $5.00 USD and \"101.42\" represents $101.42
 -- USD). Do not include currency symbols or currency codes.
-sendBonus_bonusAmount :: Lens.Lens' SendBonus Prelude.Text
+sendBonus_bonusAmount :: Lens.Lens' SendBonus Core.Text
 sendBonus_bonusAmount = Lens.lens (\SendBonus' {bonusAmount} -> bonusAmount) (\s@SendBonus' {} a -> s {bonusAmount = a} :: SendBonus)
 
 -- | The ID of the assignment for which this bonus is paid.
-sendBonus_assignmentId :: Lens.Lens' SendBonus Prelude.Text
+sendBonus_assignmentId :: Lens.Lens' SendBonus Core.Text
 sendBonus_assignmentId = Lens.lens (\SendBonus' {assignmentId} -> assignmentId) (\s@SendBonus' {} a -> s {assignmentId = a} :: SendBonus)
 
 -- | A message that explains the reason for the bonus payment. The Worker
 -- receiving the bonus can see this message.
-sendBonus_reason :: Lens.Lens' SendBonus Prelude.Text
+sendBonus_reason :: Lens.Lens' SendBonus Core.Text
 sendBonus_reason = Lens.lens (\SendBonus' {reason} -> reason) (\s@SendBonus' {} a -> s {reason = a} :: SendBonus)
 
-instance Prelude.AWSRequest SendBonus where
-  type Rs SendBonus = SendBonusResponse
+instance Core.AWSRequest SendBonus where
+  type AWSResponse SendBonus = SendBonusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           SendBonusResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SendBonus
+instance Core.Hashable SendBonus
 
-instance Prelude.NFData SendBonus
+instance Core.NFData SendBonus
 
-instance Prelude.ToHeaders SendBonus where
+instance Core.ToHeaders SendBonus where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.SendBonus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.SendBonus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SendBonus where
+instance Core.ToJSON SendBonus where
   toJSON SendBonus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("UniqueRequestToken" Prelude..=)
-              Prelude.<$> uniqueRequestToken,
-            Prelude.Just ("WorkerId" Prelude..= workerId),
-            Prelude.Just ("BonusAmount" Prelude..= bonusAmount),
-            Prelude.Just
-              ("AssignmentId" Prelude..= assignmentId),
-            Prelude.Just ("Reason" Prelude..= reason)
+    Core.object
+      ( Core.catMaybes
+          [ ("UniqueRequestToken" Core..=)
+              Core.<$> uniqueRequestToken,
+            Core.Just ("WorkerId" Core..= workerId),
+            Core.Just ("BonusAmount" Core..= bonusAmount),
+            Core.Just ("AssignmentId" Core..= assignmentId),
+            Core.Just ("Reason" Core..= reason)
           ]
       )
 
-instance Prelude.ToPath SendBonus where
-  toPath = Prelude.const "/"
+instance Core.ToPath SendBonus where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SendBonus where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SendBonus where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSendBonusResponse' smart constructor.
 data SendBonusResponse = SendBonusResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendBonusResponse' with all optional fields omitted.
@@ -224,13 +220,13 @@ data SendBonusResponse = SendBonusResponse'
 -- 'httpStatus', 'sendBonusResponse_httpStatus' - The response's http status code.
 newSendBonusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SendBonusResponse
 newSendBonusResponse pHttpStatus_ =
   SendBonusResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-sendBonusResponse_httpStatus :: Lens.Lens' SendBonusResponse Prelude.Int
+sendBonusResponse_httpStatus :: Lens.Lens' SendBonusResponse Core.Int
 sendBonusResponse_httpStatus = Lens.lens (\SendBonusResponse' {httpStatus} -> httpStatus) (\s@SendBonusResponse' {} a -> s {httpStatus = a} :: SendBonusResponse)
 
-instance Prelude.NFData SendBonusResponse
+instance Core.NFData SendBonusResponse

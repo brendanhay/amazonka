@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,17 +38,17 @@ module Network.AWS.CloudWatchEvents.ActivateEventSource
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newActivateEventSource' smart constructor.
 data ActivateEventSource = ActivateEventSource'
   { -- | The name of the partner event source to activate.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActivateEventSource' with all optional fields omitted.
@@ -62,60 +61,54 @@ data ActivateEventSource = ActivateEventSource'
 -- 'name', 'activateEventSource_name' - The name of the partner event source to activate.
 newActivateEventSource ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   ActivateEventSource
 newActivateEventSource pName_ =
   ActivateEventSource' {name = pName_}
 
 -- | The name of the partner event source to activate.
-activateEventSource_name :: Lens.Lens' ActivateEventSource Prelude.Text
+activateEventSource_name :: Lens.Lens' ActivateEventSource Core.Text
 activateEventSource_name = Lens.lens (\ActivateEventSource' {name} -> name) (\s@ActivateEventSource' {} a -> s {name = a} :: ActivateEventSource)
 
-instance Prelude.AWSRequest ActivateEventSource where
+instance Core.AWSRequest ActivateEventSource where
   type
-    Rs ActivateEventSource =
+    AWSResponse ActivateEventSource =
       ActivateEventSourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull ActivateEventSourceResponse'
 
-instance Prelude.Hashable ActivateEventSource
+instance Core.Hashable ActivateEventSource
 
-instance Prelude.NFData ActivateEventSource
+instance Core.NFData ActivateEventSource
 
-instance Prelude.ToHeaders ActivateEventSource where
+instance Core.ToHeaders ActivateEventSource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSEvents.ActivateEventSource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSEvents.ActivateEventSource" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ActivateEventSource where
+instance Core.ToJSON ActivateEventSource where
   toJSON ActivateEventSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath ActivateEventSource where
-  toPath = Prelude.const "/"
+instance Core.ToPath ActivateEventSource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ActivateEventSource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ActivateEventSource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newActivateEventSourceResponse' smart constructor.
 data ActivateEventSourceResponse = ActivateEventSourceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActivateEventSourceResponse' with all optional fields omitted.
@@ -126,4 +119,4 @@ newActivateEventSourceResponse ::
 newActivateEventSourceResponse =
   ActivateEventSourceResponse'
 
-instance Prelude.NFData ActivateEventSourceResponse
+instance Core.NFData ActivateEventSourceResponse

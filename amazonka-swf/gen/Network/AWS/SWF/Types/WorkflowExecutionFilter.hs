@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.WorkflowExecutionFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to filter the workflow executions in visibility APIs by their
 -- @workflowId@.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newWorkflowExecutionFilter' smart constructor.
 data WorkflowExecutionFilter = WorkflowExecutionFilter'
   { -- | The workflowId to pass of match the criteria of this filter.
-    workflowId :: Prelude.Text
+    workflowId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionFilter' with all optional fields omitted.
@@ -44,22 +43,22 @@ data WorkflowExecutionFilter = WorkflowExecutionFilter'
 -- 'workflowId', 'workflowExecutionFilter_workflowId' - The workflowId to pass of match the criteria of this filter.
 newWorkflowExecutionFilter ::
   -- | 'workflowId'
-  Prelude.Text ->
+  Core.Text ->
   WorkflowExecutionFilter
 newWorkflowExecutionFilter pWorkflowId_ =
   WorkflowExecutionFilter' {workflowId = pWorkflowId_}
 
 -- | The workflowId to pass of match the criteria of this filter.
-workflowExecutionFilter_workflowId :: Lens.Lens' WorkflowExecutionFilter Prelude.Text
+workflowExecutionFilter_workflowId :: Lens.Lens' WorkflowExecutionFilter Core.Text
 workflowExecutionFilter_workflowId = Lens.lens (\WorkflowExecutionFilter' {workflowId} -> workflowId) (\s@WorkflowExecutionFilter' {} a -> s {workflowId = a} :: WorkflowExecutionFilter)
 
-instance Prelude.Hashable WorkflowExecutionFilter
+instance Core.Hashable WorkflowExecutionFilter
 
-instance Prelude.NFData WorkflowExecutionFilter
+instance Core.NFData WorkflowExecutionFilter
 
-instance Prelude.ToJSON WorkflowExecutionFilter where
+instance Core.ToJSON WorkflowExecutionFilter where
   toJSON WorkflowExecutionFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("workflowId" Prelude..= workflowId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("workflowId" Core..= workflowId)]
       )

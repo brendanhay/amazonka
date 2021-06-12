@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.SES.DeleteReceiptRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -59,11 +58,11 @@ import Network.AWS.SES.Types
 data DeleteReceiptRule = DeleteReceiptRule'
   { -- | The name of the receipt rule set that contains the receipt rule to
     -- delete.
-    ruleSetName :: Prelude.Text,
+    ruleSetName :: Core.Text,
     -- | The name of the receipt rule to delete.
-    ruleName :: Prelude.Text
+    ruleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReceiptRule' with all optional fields omitted.
@@ -79,9 +78,9 @@ data DeleteReceiptRule = DeleteReceiptRule'
 -- 'ruleName', 'deleteReceiptRule_ruleName' - The name of the receipt rule to delete.
 newDeleteReceiptRule ::
   -- | 'ruleSetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ruleName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteReceiptRule
 newDeleteReceiptRule pRuleSetName_ pRuleName_ =
   DeleteReceiptRule'
@@ -91,43 +90,44 @@ newDeleteReceiptRule pRuleSetName_ pRuleName_ =
 
 -- | The name of the receipt rule set that contains the receipt rule to
 -- delete.
-deleteReceiptRule_ruleSetName :: Lens.Lens' DeleteReceiptRule Prelude.Text
+deleteReceiptRule_ruleSetName :: Lens.Lens' DeleteReceiptRule Core.Text
 deleteReceiptRule_ruleSetName = Lens.lens (\DeleteReceiptRule' {ruleSetName} -> ruleSetName) (\s@DeleteReceiptRule' {} a -> s {ruleSetName = a} :: DeleteReceiptRule)
 
 -- | The name of the receipt rule to delete.
-deleteReceiptRule_ruleName :: Lens.Lens' DeleteReceiptRule Prelude.Text
+deleteReceiptRule_ruleName :: Lens.Lens' DeleteReceiptRule Core.Text
 deleteReceiptRule_ruleName = Lens.lens (\DeleteReceiptRule' {ruleName} -> ruleName) (\s@DeleteReceiptRule' {} a -> s {ruleName = a} :: DeleteReceiptRule)
 
-instance Prelude.AWSRequest DeleteReceiptRule where
-  type Rs DeleteReceiptRule = DeleteReceiptRuleResponse
+instance Core.AWSRequest DeleteReceiptRule where
+  type
+    AWSResponse DeleteReceiptRule =
+      DeleteReceiptRuleResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteReceiptRuleResult"
       ( \s h x ->
           DeleteReceiptRuleResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReceiptRule
+instance Core.Hashable DeleteReceiptRule
 
-instance Prelude.NFData DeleteReceiptRule
+instance Core.NFData DeleteReceiptRule
 
-instance Prelude.ToHeaders DeleteReceiptRule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteReceiptRule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteReceiptRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteReceiptRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteReceiptRule where
+instance Core.ToQuery DeleteReceiptRule where
   toQuery DeleteReceiptRule' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteReceiptRule" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "RuleSetName" Prelude.=: ruleSetName,
-        "RuleName" Prelude.=: ruleName
+          Core.=: ("DeleteReceiptRule" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "RuleSetName" Core.=: ruleSetName,
+        "RuleName" Core.=: ruleName
       ]
 
 -- | An empty element returned on a successful request.
@@ -135,9 +135,9 @@ instance Prelude.ToQuery DeleteReceiptRule where
 -- /See:/ 'newDeleteReceiptRuleResponse' smart constructor.
 data DeleteReceiptRuleResponse = DeleteReceiptRuleResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReceiptRuleResponse' with all optional fields omitted.
@@ -150,7 +150,7 @@ data DeleteReceiptRuleResponse = DeleteReceiptRuleResponse'
 -- 'httpStatus', 'deleteReceiptRuleResponse_httpStatus' - The response's http status code.
 newDeleteReceiptRuleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteReceiptRuleResponse
 newDeleteReceiptRuleResponse pHttpStatus_ =
   DeleteReceiptRuleResponse'
@@ -159,7 +159,7 @@ newDeleteReceiptRuleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteReceiptRuleResponse_httpStatus :: Lens.Lens' DeleteReceiptRuleResponse Prelude.Int
+deleteReceiptRuleResponse_httpStatus :: Lens.Lens' DeleteReceiptRuleResponse Core.Int
 deleteReceiptRuleResponse_httpStatus = Lens.lens (\DeleteReceiptRuleResponse' {httpStatus} -> httpStatus) (\s@DeleteReceiptRuleResponse' {} a -> s {httpStatus = a} :: DeleteReceiptRuleResponse)
 
-instance Prelude.NFData DeleteReceiptRuleResponse
+instance Core.NFData DeleteReceiptRuleResponse

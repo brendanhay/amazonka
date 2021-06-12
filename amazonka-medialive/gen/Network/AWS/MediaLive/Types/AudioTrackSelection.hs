@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.AudioTrackSelection where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioTrack
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Audio Track Selection
 --
@@ -31,7 +30,7 @@ data AudioTrackSelection = AudioTrackSelection'
   { -- | Selects one or more unique audio tracks from within a source.
     tracks :: [AudioTrack]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AudioTrackSelection' with all optional fields omitted.
@@ -45,28 +44,28 @@ data AudioTrackSelection = AudioTrackSelection'
 newAudioTrackSelection ::
   AudioTrackSelection
 newAudioTrackSelection =
-  AudioTrackSelection' {tracks = Prelude.mempty}
+  AudioTrackSelection' {tracks = Core.mempty}
 
 -- | Selects one or more unique audio tracks from within a source.
 audioTrackSelection_tracks :: Lens.Lens' AudioTrackSelection [AudioTrack]
-audioTrackSelection_tracks = Lens.lens (\AudioTrackSelection' {tracks} -> tracks) (\s@AudioTrackSelection' {} a -> s {tracks = a} :: AudioTrackSelection) Prelude.. Prelude._Coerce
+audioTrackSelection_tracks = Lens.lens (\AudioTrackSelection' {tracks} -> tracks) (\s@AudioTrackSelection' {} a -> s {tracks = a} :: AudioTrackSelection) Core.. Lens._Coerce
 
-instance Prelude.FromJSON AudioTrackSelection where
+instance Core.FromJSON AudioTrackSelection where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AudioTrackSelection"
       ( \x ->
           AudioTrackSelection'
-            Prelude.<$> (x Prelude..:? "tracks" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "tracks" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AudioTrackSelection
+instance Core.Hashable AudioTrackSelection
 
-instance Prelude.NFData AudioTrackSelection
+instance Core.NFData AudioTrackSelection
 
-instance Prelude.ToJSON AudioTrackSelection where
+instance Core.ToJSON AudioTrackSelection where
   toJSON AudioTrackSelection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("tracks" Prelude..= tracks)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("tracks" Core..= tracks)]
       )

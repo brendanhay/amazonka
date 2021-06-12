@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,9 @@ module Network.AWS.ECS.CreateCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -89,7 +88,7 @@ data CreateCluster = CreateCluster'
     -- If a default capacity provider strategy is not defined for a cluster
     -- during creation, it can be defined later with the
     -- PutClusterCapacityProviders API operation.
-    defaultCapacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
+    defaultCapacityProviderStrategy :: Core.Maybe [CapacityProviderStrategyItem],
     -- | The metadata that you apply to the cluster to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define.
@@ -118,7 +117,7 @@ data CreateCluster = CreateCluster'
     --     use. You cannot edit or delete tag keys or values with this prefix.
     --     Tags with this prefix do not count against your tags per resource
     --     limit.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The short name of one or more capacity providers to associate with the
     -- cluster.
     --
@@ -135,18 +134,18 @@ data CreateCluster = CreateCluster'
     -- The PutClusterCapacityProviders API operation is used to update the list
     -- of available capacity providers for a cluster after the cluster is
     -- created.
-    capacityProviders :: Prelude.Maybe [Prelude.Text],
+    capacityProviders :: Core.Maybe [Core.Text],
     -- | The name of your cluster. If you do not specify a name for your cluster,
     -- you create a cluster named @default@. Up to 255 letters (uppercase and
     -- lowercase), numbers, and hyphens are allowed.
-    clusterName :: Prelude.Maybe Prelude.Text,
+    clusterName :: Core.Maybe Core.Text,
     -- | The setting to use when creating a cluster. This parameter is used to
     -- enable CloudWatch Container Insights for a cluster. If this value is
     -- specified, it will override the @containerInsights@ value set with
     -- PutAccountSetting or PutAccountSettingDefault.
-    settings :: Prelude.Maybe [ClusterSetting]
+    settings :: Core.Maybe [ClusterSetting]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCluster' with all optional fields omitted.
@@ -241,11 +240,11 @@ newCreateCluster ::
 newCreateCluster =
   CreateCluster'
     { defaultCapacityProviderStrategy =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
-      capacityProviders = Prelude.Nothing,
-      clusterName = Prelude.Nothing,
-      settings = Prelude.Nothing
+        Core.Nothing,
+      tags = Core.Nothing,
+      capacityProviders = Core.Nothing,
+      clusterName = Core.Nothing,
+      settings = Core.Nothing
     }
 
 -- | The capacity provider strategy to use by default for the cluster.
@@ -273,8 +272,8 @@ newCreateCluster =
 -- If a default capacity provider strategy is not defined for a cluster
 -- during creation, it can be defined later with the
 -- PutClusterCapacityProviders API operation.
-createCluster_defaultCapacityProviderStrategy :: Lens.Lens' CreateCluster (Prelude.Maybe [CapacityProviderStrategyItem])
-createCluster_defaultCapacityProviderStrategy = Lens.lens (\CreateCluster' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@CreateCluster' {} a -> s {defaultCapacityProviderStrategy = a} :: CreateCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCluster_defaultCapacityProviderStrategy :: Lens.Lens' CreateCluster (Core.Maybe [CapacityProviderStrategyItem])
+createCluster_defaultCapacityProviderStrategy = Lens.lens (\CreateCluster' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@CreateCluster' {} a -> s {defaultCapacityProviderStrategy = a} :: CreateCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The metadata that you apply to the cluster to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
@@ -304,8 +303,8 @@ createCluster_defaultCapacityProviderStrategy = Lens.lens (\CreateCluster' {defa
 --     use. You cannot edit or delete tag keys or values with this prefix.
 --     Tags with this prefix do not count against your tags per resource
 --     limit.
-createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe [Tag])
-createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCluster_tags :: Lens.Lens' CreateCluster (Core.Maybe [Tag])
+createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The short name of one or more capacity providers to associate with the
 -- cluster.
@@ -323,80 +322,80 @@ createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluste
 -- The PutClusterCapacityProviders API operation is used to update the list
 -- of available capacity providers for a cluster after the cluster is
 -- created.
-createCluster_capacityProviders :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
-createCluster_capacityProviders = Lens.lens (\CreateCluster' {capacityProviders} -> capacityProviders) (\s@CreateCluster' {} a -> s {capacityProviders = a} :: CreateCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCluster_capacityProviders :: Lens.Lens' CreateCluster (Core.Maybe [Core.Text])
+createCluster_capacityProviders = Lens.lens (\CreateCluster' {capacityProviders} -> capacityProviders) (\s@CreateCluster' {} a -> s {capacityProviders = a} :: CreateCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of your cluster. If you do not specify a name for your cluster,
 -- you create a cluster named @default@. Up to 255 letters (uppercase and
 -- lowercase), numbers, and hyphens are allowed.
-createCluster_clusterName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_clusterName :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
 createCluster_clusterName = Lens.lens (\CreateCluster' {clusterName} -> clusterName) (\s@CreateCluster' {} a -> s {clusterName = a} :: CreateCluster)
 
 -- | The setting to use when creating a cluster. This parameter is used to
 -- enable CloudWatch Container Insights for a cluster. If this value is
 -- specified, it will override the @containerInsights@ value set with
 -- PutAccountSetting or PutAccountSettingDefault.
-createCluster_settings :: Lens.Lens' CreateCluster (Prelude.Maybe [ClusterSetting])
-createCluster_settings = Lens.lens (\CreateCluster' {settings} -> settings) (\s@CreateCluster' {} a -> s {settings = a} :: CreateCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCluster_settings :: Lens.Lens' CreateCluster (Core.Maybe [ClusterSetting])
+createCluster_settings = Lens.lens (\CreateCluster' {settings} -> settings) (\s@CreateCluster' {} a -> s {settings = a} :: CreateCluster) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest CreateCluster where
-  type Rs CreateCluster = CreateClusterResponse
+instance Core.AWSRequest CreateCluster where
+  type
+    AWSResponse CreateCluster =
+      CreateClusterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Prelude.<$> (x Prelude..?> "cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCluster
+instance Core.Hashable CreateCluster
 
-instance Prelude.NFData CreateCluster
+instance Core.NFData CreateCluster
 
-instance Prelude.ToHeaders CreateCluster where
+instance Core.ToHeaders CreateCluster where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.CreateCluster" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.CreateCluster" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCluster where
+instance Core.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("defaultCapacityProviderStrategy" Prelude..=)
-              Prelude.<$> defaultCapacityProviderStrategy,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("capacityProviders" Prelude..=)
-              Prelude.<$> capacityProviders,
-            ("clusterName" Prelude..=) Prelude.<$> clusterName,
-            ("settings" Prelude..=) Prelude.<$> settings
+    Core.object
+      ( Core.catMaybes
+          [ ("defaultCapacityProviderStrategy" Core..=)
+              Core.<$> defaultCapacityProviderStrategy,
+            ("tags" Core..=) Core.<$> tags,
+            ("capacityProviders" Core..=)
+              Core.<$> capacityProviders,
+            ("clusterName" Core..=) Core.<$> clusterName,
+            ("settings" Core..=) Core.<$> settings
           ]
       )
 
-instance Prelude.ToPath CreateCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCluster where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCluster where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
   { -- | The full description of your new cluster.
-    cluster :: Prelude.Maybe Cluster,
+    cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateClusterResponse' with all optional fields omitted.
@@ -411,20 +410,20 @@ data CreateClusterResponse = CreateClusterResponse'
 -- 'httpStatus', 'createClusterResponse_httpStatus' - The response's http status code.
 newCreateClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateClusterResponse
 newCreateClusterResponse pHttpStatus_ =
   CreateClusterResponse'
-    { cluster = Prelude.Nothing,
+    { cluster = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of your new cluster.
-createClusterResponse_cluster :: Lens.Lens' CreateClusterResponse (Prelude.Maybe Cluster)
+createClusterResponse_cluster :: Lens.Lens' CreateClusterResponse (Core.Maybe Cluster)
 createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> cluster) (\s@CreateClusterResponse' {} a -> s {cluster = a} :: CreateClusterResponse)
 
 -- | The response's http status code.
-createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
+createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Core.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Prelude.NFData CreateClusterResponse
+instance Core.NFData CreateClusterResponse

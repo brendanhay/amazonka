@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.Volume where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.DockerVolumeConfiguration
 import Network.AWS.ECS.Types.EFSVolumeConfiguration
 import Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration
 import Network.AWS.ECS.Types.HostVolumeProperties
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A data volume used in a task definition. For tasks that use the Amazon
 -- Elastic File System (Amazon EFS), specify an @efsVolumeConfiguration@.
@@ -41,18 +40,18 @@ data Volume = Volume'
   { -- | The name of the volume. Up to 255 letters (uppercase and lowercase),
     -- numbers, and hyphens are allowed. This name is referenced in the
     -- @sourceVolume@ parameter of container definition @mountPoints@.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | This parameter is specified when you are using Docker volumes. Docker
     -- volumes are only supported when you are using the EC2 launch type.
     -- Windows containers only support the use of the @local@ driver. To use
     -- bind mounts, specify the @host@ parameter instead.
-    dockerVolumeConfiguration :: Prelude.Maybe DockerVolumeConfiguration,
+    dockerVolumeConfiguration :: Core.Maybe DockerVolumeConfiguration,
     -- | This parameter is specified when you are using Amazon FSx for Windows
     -- File Server file system for task storage.
-    fsxWindowsFileServerVolumeConfiguration :: Prelude.Maybe FSxWindowsFileServerVolumeConfiguration,
+    fsxWindowsFileServerVolumeConfiguration :: Core.Maybe FSxWindowsFileServerVolumeConfiguration,
     -- | This parameter is specified when you are using an Amazon Elastic File
     -- System file system for task storage.
-    efsVolumeConfiguration :: Prelude.Maybe EFSVolumeConfiguration,
+    efsVolumeConfiguration :: Core.Maybe EFSVolumeConfiguration,
     -- | This parameter is specified when you are using bind mount host volumes.
     -- The contents of the @host@ parameter determine whether your bind mount
     -- host volume persists on the host container instance and where it is
@@ -65,9 +64,9 @@ data Volume = Volume'
     -- different drive, and mount point cannot be across drives. For example,
     -- you can mount @C:\\my\\path:C:\\my\\path@ and @D:\\:D:\\@, but not
     -- @D:\\my\\path:C:\\my\\path@ or @D:\\:C:\\my\\path@.
-    host :: Prelude.Maybe HostVolumeProperties
+    host :: Core.Maybe HostVolumeProperties
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Volume' with all optional fields omitted.
@@ -108,35 +107,35 @@ newVolume ::
   Volume
 newVolume =
   Volume'
-    { name = Prelude.Nothing,
-      dockerVolumeConfiguration = Prelude.Nothing,
+    { name = Core.Nothing,
+      dockerVolumeConfiguration = Core.Nothing,
       fsxWindowsFileServerVolumeConfiguration =
-        Prelude.Nothing,
-      efsVolumeConfiguration = Prelude.Nothing,
-      host = Prelude.Nothing
+        Core.Nothing,
+      efsVolumeConfiguration = Core.Nothing,
+      host = Core.Nothing
     }
 
 -- | The name of the volume. Up to 255 letters (uppercase and lowercase),
 -- numbers, and hyphens are allowed. This name is referenced in the
 -- @sourceVolume@ parameter of container definition @mountPoints@.
-volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
+volume_name :: Lens.Lens' Volume (Core.Maybe Core.Text)
 volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
 
 -- | This parameter is specified when you are using Docker volumes. Docker
 -- volumes are only supported when you are using the EC2 launch type.
 -- Windows containers only support the use of the @local@ driver. To use
 -- bind mounts, specify the @host@ parameter instead.
-volume_dockerVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe DockerVolumeConfiguration)
+volume_dockerVolumeConfiguration :: Lens.Lens' Volume (Core.Maybe DockerVolumeConfiguration)
 volume_dockerVolumeConfiguration = Lens.lens (\Volume' {dockerVolumeConfiguration} -> dockerVolumeConfiguration) (\s@Volume' {} a -> s {dockerVolumeConfiguration = a} :: Volume)
 
 -- | This parameter is specified when you are using Amazon FSx for Windows
 -- File Server file system for task storage.
-volume_fsxWindowsFileServerVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe FSxWindowsFileServerVolumeConfiguration)
+volume_fsxWindowsFileServerVolumeConfiguration :: Lens.Lens' Volume (Core.Maybe FSxWindowsFileServerVolumeConfiguration)
 volume_fsxWindowsFileServerVolumeConfiguration = Lens.lens (\Volume' {fsxWindowsFileServerVolumeConfiguration} -> fsxWindowsFileServerVolumeConfiguration) (\s@Volume' {} a -> s {fsxWindowsFileServerVolumeConfiguration = a} :: Volume)
 
 -- | This parameter is specified when you are using an Amazon Elastic File
 -- System file system for task storage.
-volume_efsVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe EFSVolumeConfiguration)
+volume_efsVolumeConfiguration :: Lens.Lens' Volume (Core.Maybe EFSVolumeConfiguration)
 volume_efsVolumeConfiguration = Lens.lens (\Volume' {efsVolumeConfiguration} -> efsVolumeConfiguration) (\s@Volume' {} a -> s {efsVolumeConfiguration = a} :: Volume)
 
 -- | This parameter is specified when you are using bind mount host volumes.
@@ -151,41 +150,39 @@ volume_efsVolumeConfiguration = Lens.lens (\Volume' {efsVolumeConfiguration} -> 
 -- different drive, and mount point cannot be across drives. For example,
 -- you can mount @C:\\my\\path:C:\\my\\path@ and @D:\\:D:\\@, but not
 -- @D:\\my\\path:C:\\my\\path@ or @D:\\:C:\\my\\path@.
-volume_host :: Lens.Lens' Volume (Prelude.Maybe HostVolumeProperties)
+volume_host :: Lens.Lens' Volume (Core.Maybe HostVolumeProperties)
 volume_host = Lens.lens (\Volume' {host} -> host) (\s@Volume' {} a -> s {host = a} :: Volume)
 
-instance Prelude.FromJSON Volume where
+instance Core.FromJSON Volume where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Volume"
       ( \x ->
           Volume'
-            Prelude.<$> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "dockerVolumeConfiguration")
-            Prelude.<*> ( x
-                            Prelude..:? "fsxWindowsFileServerVolumeConfiguration"
-                        )
-            Prelude.<*> (x Prelude..:? "efsVolumeConfiguration")
-            Prelude.<*> (x Prelude..:? "host")
+            Core.<$> (x Core..:? "name")
+            Core.<*> (x Core..:? "dockerVolumeConfiguration")
+            Core.<*> ( x
+                         Core..:? "fsxWindowsFileServerVolumeConfiguration"
+                     )
+            Core.<*> (x Core..:? "efsVolumeConfiguration")
+            Core.<*> (x Core..:? "host")
       )
 
-instance Prelude.Hashable Volume
+instance Core.Hashable Volume
 
-instance Prelude.NFData Volume
+instance Core.NFData Volume
 
-instance Prelude.ToJSON Volume where
+instance Core.ToJSON Volume where
   toJSON Volume' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("name" Prelude..=) Prelude.<$> name,
-            ("dockerVolumeConfiguration" Prelude..=)
-              Prelude.<$> dockerVolumeConfiguration,
-            ( "fsxWindowsFileServerVolumeConfiguration"
-                Prelude..=
-            )
-              Prelude.<$> fsxWindowsFileServerVolumeConfiguration,
-            ("efsVolumeConfiguration" Prelude..=)
-              Prelude.<$> efsVolumeConfiguration,
-            ("host" Prelude..=) Prelude.<$> host
+    Core.object
+      ( Core.catMaybes
+          [ ("name" Core..=) Core.<$> name,
+            ("dockerVolumeConfiguration" Core..=)
+              Core.<$> dockerVolumeConfiguration,
+            ("fsxWindowsFileServerVolumeConfiguration" Core..=)
+              Core.<$> fsxWindowsFileServerVolumeConfiguration,
+            ("efsVolumeConfiguration" Core..=)
+              Core.<$> efsVolumeConfiguration,
+            ("host" Core..=) Core.<$> host
           ]
       )

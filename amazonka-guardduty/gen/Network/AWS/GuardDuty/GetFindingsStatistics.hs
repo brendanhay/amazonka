@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,23 +42,23 @@ module Network.AWS.GuardDuty.GetFindingsStatistics
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetFindingsStatistics' smart constructor.
 data GetFindingsStatistics = GetFindingsStatistics'
   { -- | Represents the criteria that is used for querying findings.
-    findingCriteria :: Prelude.Maybe FindingCriteria,
+    findingCriteria :: Core.Maybe FindingCriteria,
     -- | The ID of the detector that specifies the GuardDuty service whose
     -- findings\' statistics you want to retrieve.
-    detectorId :: Prelude.Text,
+    detectorId :: Core.Text,
     -- | The types of finding statistics to retrieve.
     findingStatisticTypes :: [FindingStatisticType]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetFindingsStatistics' with all optional fields omitted.
@@ -77,89 +76,87 @@ data GetFindingsStatistics = GetFindingsStatistics'
 -- 'findingStatisticTypes', 'getFindingsStatistics_findingStatisticTypes' - The types of finding statistics to retrieve.
 newGetFindingsStatistics ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   GetFindingsStatistics
 newGetFindingsStatistics pDetectorId_ =
   GetFindingsStatistics'
     { findingCriteria =
-        Prelude.Nothing,
+        Core.Nothing,
       detectorId = pDetectorId_,
-      findingStatisticTypes = Prelude.mempty
+      findingStatisticTypes = Core.mempty
     }
 
 -- | Represents the criteria that is used for querying findings.
-getFindingsStatistics_findingCriteria :: Lens.Lens' GetFindingsStatistics (Prelude.Maybe FindingCriteria)
+getFindingsStatistics_findingCriteria :: Lens.Lens' GetFindingsStatistics (Core.Maybe FindingCriteria)
 getFindingsStatistics_findingCriteria = Lens.lens (\GetFindingsStatistics' {findingCriteria} -> findingCriteria) (\s@GetFindingsStatistics' {} a -> s {findingCriteria = a} :: GetFindingsStatistics)
 
 -- | The ID of the detector that specifies the GuardDuty service whose
 -- findings\' statistics you want to retrieve.
-getFindingsStatistics_detectorId :: Lens.Lens' GetFindingsStatistics Prelude.Text
+getFindingsStatistics_detectorId :: Lens.Lens' GetFindingsStatistics Core.Text
 getFindingsStatistics_detectorId = Lens.lens (\GetFindingsStatistics' {detectorId} -> detectorId) (\s@GetFindingsStatistics' {} a -> s {detectorId = a} :: GetFindingsStatistics)
 
 -- | The types of finding statistics to retrieve.
 getFindingsStatistics_findingStatisticTypes :: Lens.Lens' GetFindingsStatistics [FindingStatisticType]
-getFindingsStatistics_findingStatisticTypes = Lens.lens (\GetFindingsStatistics' {findingStatisticTypes} -> findingStatisticTypes) (\s@GetFindingsStatistics' {} a -> s {findingStatisticTypes = a} :: GetFindingsStatistics) Prelude.. Prelude._Coerce
+getFindingsStatistics_findingStatisticTypes = Lens.lens (\GetFindingsStatistics' {findingStatisticTypes} -> findingStatisticTypes) (\s@GetFindingsStatistics' {} a -> s {findingStatisticTypes = a} :: GetFindingsStatistics) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest GetFindingsStatistics where
+instance Core.AWSRequest GetFindingsStatistics where
   type
-    Rs GetFindingsStatistics =
+    AWSResponse GetFindingsStatistics =
       GetFindingsStatisticsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetFindingsStatisticsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "findingStatistics")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "findingStatistics")
       )
 
-instance Prelude.Hashable GetFindingsStatistics
+instance Core.Hashable GetFindingsStatistics
 
-instance Prelude.NFData GetFindingsStatistics
+instance Core.NFData GetFindingsStatistics
 
-instance Prelude.ToHeaders GetFindingsStatistics where
+instance Core.ToHeaders GetFindingsStatistics where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetFindingsStatistics where
+instance Core.ToJSON GetFindingsStatistics where
   toJSON GetFindingsStatistics' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("findingCriteria" Prelude..=)
-              Prelude.<$> findingCriteria,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("findingCriteria" Core..=)
+              Core.<$> findingCriteria,
+            Core.Just
               ( "findingStatisticTypes"
-                  Prelude..= findingStatisticTypes
+                  Core..= findingStatisticTypes
               )
           ]
       )
 
-instance Prelude.ToPath GetFindingsStatistics where
+instance Core.ToPath GetFindingsStatistics where
   toPath GetFindingsStatistics' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/detector/",
-        Prelude.toBS detectorId,
+        Core.toBS detectorId,
         "/findings/statistics"
       ]
 
-instance Prelude.ToQuery GetFindingsStatistics where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetFindingsStatistics where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetFindingsStatisticsResponse' smart constructor.
 data GetFindingsStatisticsResponse = GetFindingsStatisticsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The finding statistics object.
     findingStatistics :: FindingStatistics
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetFindingsStatisticsResponse' with all optional fields omitted.
@@ -174,7 +171,7 @@ data GetFindingsStatisticsResponse = GetFindingsStatisticsResponse'
 -- 'findingStatistics', 'getFindingsStatisticsResponse_findingStatistics' - The finding statistics object.
 newGetFindingsStatisticsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'findingStatistics'
   FindingStatistics ->
   GetFindingsStatisticsResponse
@@ -188,11 +185,11 @@ newGetFindingsStatisticsResponse
       }
 
 -- | The response's http status code.
-getFindingsStatisticsResponse_httpStatus :: Lens.Lens' GetFindingsStatisticsResponse Prelude.Int
+getFindingsStatisticsResponse_httpStatus :: Lens.Lens' GetFindingsStatisticsResponse Core.Int
 getFindingsStatisticsResponse_httpStatus = Lens.lens (\GetFindingsStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetFindingsStatisticsResponse' {} a -> s {httpStatus = a} :: GetFindingsStatisticsResponse)
 
 -- | The finding statistics object.
 getFindingsStatisticsResponse_findingStatistics :: Lens.Lens' GetFindingsStatisticsResponse FindingStatistics
 getFindingsStatisticsResponse_findingStatistics = Lens.lens (\GetFindingsStatisticsResponse' {findingStatistics} -> findingStatistics) (\s@GetFindingsStatisticsResponse' {} a -> s {findingStatistics = a} :: GetFindingsStatisticsResponse)
 
-instance Prelude.NFData GetFindingsStatisticsResponse
+instance Core.NFData GetFindingsStatisticsResponse

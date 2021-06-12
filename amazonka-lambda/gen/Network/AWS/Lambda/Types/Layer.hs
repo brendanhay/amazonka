@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.Layer where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer>.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLayer' smart constructor.
 data Layer = Layer'
   { -- | The Amazon Resource Name (ARN) for a signing profile version.
-    signingProfileVersionArn :: Prelude.Maybe Prelude.Text,
+    signingProfileVersionArn :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the function layer.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of a signing job.
-    signingJobArn :: Prelude.Maybe Prelude.Text,
+    signingJobArn :: Core.Maybe Core.Text,
     -- | The size of the layer archive in bytes.
-    codeSize :: Prelude.Maybe Prelude.Integer
+    codeSize :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Layer' with all optional fields omitted.
@@ -58,40 +57,40 @@ newLayer ::
   Layer
 newLayer =
   Layer'
-    { signingProfileVersionArn = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      signingJobArn = Prelude.Nothing,
-      codeSize = Prelude.Nothing
+    { signingProfileVersionArn = Core.Nothing,
+      arn = Core.Nothing,
+      signingJobArn = Core.Nothing,
+      codeSize = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for a signing profile version.
-layer_signingProfileVersionArn :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
+layer_signingProfileVersionArn :: Lens.Lens' Layer (Core.Maybe Core.Text)
 layer_signingProfileVersionArn = Lens.lens (\Layer' {signingProfileVersionArn} -> signingProfileVersionArn) (\s@Layer' {} a -> s {signingProfileVersionArn = a} :: Layer)
 
 -- | The Amazon Resource Name (ARN) of the function layer.
-layer_arn :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
+layer_arn :: Lens.Lens' Layer (Core.Maybe Core.Text)
 layer_arn = Lens.lens (\Layer' {arn} -> arn) (\s@Layer' {} a -> s {arn = a} :: Layer)
 
 -- | The Amazon Resource Name (ARN) of a signing job.
-layer_signingJobArn :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
+layer_signingJobArn :: Lens.Lens' Layer (Core.Maybe Core.Text)
 layer_signingJobArn = Lens.lens (\Layer' {signingJobArn} -> signingJobArn) (\s@Layer' {} a -> s {signingJobArn = a} :: Layer)
 
 -- | The size of the layer archive in bytes.
-layer_codeSize :: Lens.Lens' Layer (Prelude.Maybe Prelude.Integer)
+layer_codeSize :: Lens.Lens' Layer (Core.Maybe Core.Integer)
 layer_codeSize = Lens.lens (\Layer' {codeSize} -> codeSize) (\s@Layer' {} a -> s {codeSize = a} :: Layer)
 
-instance Prelude.FromJSON Layer where
+instance Core.FromJSON Layer where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Layer"
       ( \x ->
           Layer'
-            Prelude.<$> (x Prelude..:? "SigningProfileVersionArn")
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "SigningJobArn")
-            Prelude.<*> (x Prelude..:? "CodeSize")
+            Core.<$> (x Core..:? "SigningProfileVersionArn")
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "SigningJobArn")
+            Core.<*> (x Core..:? "CodeSize")
       )
 
-instance Prelude.Hashable Layer
+instance Core.Hashable Layer
 
-instance Prelude.NFData Layer
+instance Core.NFData Layer

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Comprehend.Types.PiiOutputDataConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides configuration parameters for the output of PII entity detection
 -- jobs.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data PiiOutputDataConfig = PiiOutputDataConfig'
   { -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt the output results from an analysis job.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | When you use the @PiiOutputDataConfig@ object with asynchronous
     -- operations, you specify the Amazon S3 location where you want to write
     -- the output data.
-    s3Uri :: Prelude.Text
+    s3Uri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PiiOutputDataConfig' with all optional fields omitted.
@@ -54,35 +53,34 @@ data PiiOutputDataConfig = PiiOutputDataConfig'
 -- the output data.
 newPiiOutputDataConfig ::
   -- | 's3Uri'
-  Prelude.Text ->
+  Core.Text ->
   PiiOutputDataConfig
 newPiiOutputDataConfig pS3Uri_ =
   PiiOutputDataConfig'
-    { kmsKeyId = Prelude.Nothing,
+    { kmsKeyId = Core.Nothing,
       s3Uri = pS3Uri_
     }
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt the output results from an analysis job.
-piiOutputDataConfig_kmsKeyId :: Lens.Lens' PiiOutputDataConfig (Prelude.Maybe Prelude.Text)
+piiOutputDataConfig_kmsKeyId :: Lens.Lens' PiiOutputDataConfig (Core.Maybe Core.Text)
 piiOutputDataConfig_kmsKeyId = Lens.lens (\PiiOutputDataConfig' {kmsKeyId} -> kmsKeyId) (\s@PiiOutputDataConfig' {} a -> s {kmsKeyId = a} :: PiiOutputDataConfig)
 
 -- | When you use the @PiiOutputDataConfig@ object with asynchronous
 -- operations, you specify the Amazon S3 location where you want to write
 -- the output data.
-piiOutputDataConfig_s3Uri :: Lens.Lens' PiiOutputDataConfig Prelude.Text
+piiOutputDataConfig_s3Uri :: Lens.Lens' PiiOutputDataConfig Core.Text
 piiOutputDataConfig_s3Uri = Lens.lens (\PiiOutputDataConfig' {s3Uri} -> s3Uri) (\s@PiiOutputDataConfig' {} a -> s {s3Uri = a} :: PiiOutputDataConfig)
 
-instance Prelude.FromJSON PiiOutputDataConfig where
+instance Core.FromJSON PiiOutputDataConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PiiOutputDataConfig"
       ( \x ->
           PiiOutputDataConfig'
-            Prelude.<$> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..: "S3Uri")
+            Core.<$> (x Core..:? "KmsKeyId") Core.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable PiiOutputDataConfig
+instance Core.Hashable PiiOutputDataConfig
 
-instance Prelude.NFData PiiOutputDataConfig
+instance Core.NFData PiiOutputDataConfig

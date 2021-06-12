@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CertificateManagerPCA.Types.CsrExtensions where
 
 import Network.AWS.CertificateManagerPCA.Types.AccessDescription
 import Network.AWS.CertificateManagerPCA.Types.KeyUsage
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the certificate extensions to be added to the certificate
 -- signing request (CSR).
@@ -35,12 +34,12 @@ data CsrExtensions = CsrExtensions'
     -- information, see
     -- <https://tools.ietf.org/html/rfc5280#section-4.2.2.2 Subject Information Access>
     -- in RFC 5280.
-    subjectInformationAccess :: Prelude.Maybe [AccessDescription],
+    subjectInformationAccess :: Core.Maybe [AccessDescription],
     -- | Indicates the purpose of the certificate and of the key contained in the
     -- certificate.
-    keyUsage :: Prelude.Maybe KeyUsage
+    keyUsage :: Core.Maybe KeyUsage
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CsrExtensions' with all optional fields omitted.
@@ -63,8 +62,8 @@ newCsrExtensions ::
 newCsrExtensions =
   CsrExtensions'
     { subjectInformationAccess =
-        Prelude.Nothing,
-      keyUsage = Prelude.Nothing
+        Core.Nothing,
+      keyUsage = Core.Nothing
     }
 
 -- | For CA certificates, provides a path to additional information
@@ -72,36 +71,36 @@ newCsrExtensions =
 -- information, see
 -- <https://tools.ietf.org/html/rfc5280#section-4.2.2.2 Subject Information Access>
 -- in RFC 5280.
-csrExtensions_subjectInformationAccess :: Lens.Lens' CsrExtensions (Prelude.Maybe [AccessDescription])
-csrExtensions_subjectInformationAccess = Lens.lens (\CsrExtensions' {subjectInformationAccess} -> subjectInformationAccess) (\s@CsrExtensions' {} a -> s {subjectInformationAccess = a} :: CsrExtensions) Prelude.. Lens.mapping Prelude._Coerce
+csrExtensions_subjectInformationAccess :: Lens.Lens' CsrExtensions (Core.Maybe [AccessDescription])
+csrExtensions_subjectInformationAccess = Lens.lens (\CsrExtensions' {subjectInformationAccess} -> subjectInformationAccess) (\s@CsrExtensions' {} a -> s {subjectInformationAccess = a} :: CsrExtensions) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates the purpose of the certificate and of the key contained in the
 -- certificate.
-csrExtensions_keyUsage :: Lens.Lens' CsrExtensions (Prelude.Maybe KeyUsage)
+csrExtensions_keyUsage :: Lens.Lens' CsrExtensions (Core.Maybe KeyUsage)
 csrExtensions_keyUsage = Lens.lens (\CsrExtensions' {keyUsage} -> keyUsage) (\s@CsrExtensions' {} a -> s {keyUsage = a} :: CsrExtensions)
 
-instance Prelude.FromJSON CsrExtensions where
+instance Core.FromJSON CsrExtensions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CsrExtensions"
       ( \x ->
           CsrExtensions'
-            Prelude.<$> ( x Prelude..:? "SubjectInformationAccess"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "KeyUsage")
+            Core.<$> ( x Core..:? "SubjectInformationAccess"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "KeyUsage")
       )
 
-instance Prelude.Hashable CsrExtensions
+instance Core.Hashable CsrExtensions
 
-instance Prelude.NFData CsrExtensions
+instance Core.NFData CsrExtensions
 
-instance Prelude.ToJSON CsrExtensions where
+instance Core.ToJSON CsrExtensions where
   toJSON CsrExtensions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SubjectInformationAccess" Prelude..=)
-              Prelude.<$> subjectInformationAccess,
-            ("KeyUsage" Prelude..=) Prelude.<$> keyUsage
+    Core.object
+      ( Core.catMaybes
+          [ ("SubjectInformationAccess" Core..=)
+              Core.<$> subjectInformationAccess,
+            ("KeyUsage" Core..=) Core.<$> keyUsage
           ]
       )

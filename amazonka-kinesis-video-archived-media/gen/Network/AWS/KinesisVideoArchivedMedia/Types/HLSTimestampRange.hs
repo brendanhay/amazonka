@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The start and end of the timestamp range for the requested media.
 --
@@ -49,7 +48,7 @@ data HLSTimestampRange = HLSTimestampRange'
     -- This value is inclusive. The @EndTimestamp@ is compared to the
     -- (starting) timestamp of the fragment. Fragments that start before the
     -- @EndTimestamp@ value and continue past it are included in the session.
-    endTimestamp :: Prelude.Maybe Prelude.POSIX,
+    endTimestamp :: Core.Maybe Core.POSIX,
     -- | The start of the timestamp range for the requested media.
     --
     -- If the @HLSTimestampRange@ value is specified, the @StartTimestamp@
@@ -59,9 +58,9 @@ data HLSTimestampRange = HLSTimestampRange'
     -- @StartTimestamp@ and continue past it are included in the session. If
     -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
     -- be later than the stream head.
-    startTimestamp :: Prelude.Maybe Prelude.POSIX
+    startTimestamp :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HLSTimestampRange' with all optional fields omitted.
@@ -100,8 +99,8 @@ newHLSTimestampRange ::
   HLSTimestampRange
 newHLSTimestampRange =
   HLSTimestampRange'
-    { endTimestamp = Prelude.Nothing,
-      startTimestamp = Prelude.Nothing
+    { endTimestamp = Core.Nothing,
+      startTimestamp = Core.Nothing
     }
 
 -- | The end of the timestamp range for the requested media. This value must
@@ -119,8 +118,8 @@ newHLSTimestampRange =
 -- This value is inclusive. The @EndTimestamp@ is compared to the
 -- (starting) timestamp of the fragment. Fragments that start before the
 -- @EndTimestamp@ value and continue past it are included in the session.
-hLSTimestampRange_endTimestamp :: Lens.Lens' HLSTimestampRange (Prelude.Maybe Prelude.UTCTime)
-hLSTimestampRange_endTimestamp = Lens.lens (\HLSTimestampRange' {endTimestamp} -> endTimestamp) (\s@HLSTimestampRange' {} a -> s {endTimestamp = a} :: HLSTimestampRange) Prelude.. Lens.mapping Prelude._Time
+hLSTimestampRange_endTimestamp :: Lens.Lens' HLSTimestampRange (Core.Maybe Core.UTCTime)
+hLSTimestampRange_endTimestamp = Lens.lens (\HLSTimestampRange' {endTimestamp} -> endTimestamp) (\s@HLSTimestampRange' {} a -> s {endTimestamp = a} :: HLSTimestampRange) Core.. Lens.mapping Core._Time
 
 -- | The start of the timestamp range for the requested media.
 --
@@ -131,20 +130,18 @@ hLSTimestampRange_endTimestamp = Lens.lens (\HLSTimestampRange' {endTimestamp} -
 -- @StartTimestamp@ and continue past it are included in the session. If
 -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
 -- be later than the stream head.
-hLSTimestampRange_startTimestamp :: Lens.Lens' HLSTimestampRange (Prelude.Maybe Prelude.UTCTime)
-hLSTimestampRange_startTimestamp = Lens.lens (\HLSTimestampRange' {startTimestamp} -> startTimestamp) (\s@HLSTimestampRange' {} a -> s {startTimestamp = a} :: HLSTimestampRange) Prelude.. Lens.mapping Prelude._Time
+hLSTimestampRange_startTimestamp :: Lens.Lens' HLSTimestampRange (Core.Maybe Core.UTCTime)
+hLSTimestampRange_startTimestamp = Lens.lens (\HLSTimestampRange' {startTimestamp} -> startTimestamp) (\s@HLSTimestampRange' {} a -> s {startTimestamp = a} :: HLSTimestampRange) Core.. Lens.mapping Core._Time
 
-instance Prelude.Hashable HLSTimestampRange
+instance Core.Hashable HLSTimestampRange
 
-instance Prelude.NFData HLSTimestampRange
+instance Core.NFData HLSTimestampRange
 
-instance Prelude.ToJSON HLSTimestampRange where
+instance Core.ToJSON HLSTimestampRange where
   toJSON HLSTimestampRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EndTimestamp" Prelude..=)
-              Prelude.<$> endTimestamp,
-            ("StartTimestamp" Prelude..=)
-              Prelude.<$> startTimestamp
+    Core.object
+      ( Core.catMaybes
+          [ ("EndTimestamp" Core..=) Core.<$> endTimestamp,
+            ("StartTimestamp" Core..=) Core.<$> startTimestamp
           ]
       )

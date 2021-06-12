@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,24 +48,24 @@ module Network.AWS.Glue.GetMLTransforms
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetMLTransforms' smart constructor.
 data GetMLTransforms = GetMLTransforms'
   { -- | A paginated token to offset the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The filter transformation criteria.
-    filter' :: Prelude.Maybe TransformFilterCriteria,
+    filter' :: Core.Maybe TransformFilterCriteria,
     -- | The sorting criteria.
-    sort :: Prelude.Maybe TransformSortCriteria
+    sort :: Core.Maybe TransformSortCriteria
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMLTransforms' with all optional fields omitted.
@@ -87,86 +86,84 @@ newGetMLTransforms ::
   GetMLTransforms
 newGetMLTransforms =
   GetMLTransforms'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      sort = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filter' = Core.Nothing,
+      sort = Core.Nothing
     }
 
 -- | A paginated token to offset the results.
-getMLTransforms_nextToken :: Lens.Lens' GetMLTransforms (Prelude.Maybe Prelude.Text)
+getMLTransforms_nextToken :: Lens.Lens' GetMLTransforms (Core.Maybe Core.Text)
 getMLTransforms_nextToken = Lens.lens (\GetMLTransforms' {nextToken} -> nextToken) (\s@GetMLTransforms' {} a -> s {nextToken = a} :: GetMLTransforms)
 
 -- | The maximum number of results to return.
-getMLTransforms_maxResults :: Lens.Lens' GetMLTransforms (Prelude.Maybe Prelude.Natural)
+getMLTransforms_maxResults :: Lens.Lens' GetMLTransforms (Core.Maybe Core.Natural)
 getMLTransforms_maxResults = Lens.lens (\GetMLTransforms' {maxResults} -> maxResults) (\s@GetMLTransforms' {} a -> s {maxResults = a} :: GetMLTransforms)
 
 -- | The filter transformation criteria.
-getMLTransforms_filter :: Lens.Lens' GetMLTransforms (Prelude.Maybe TransformFilterCriteria)
+getMLTransforms_filter :: Lens.Lens' GetMLTransforms (Core.Maybe TransformFilterCriteria)
 getMLTransforms_filter = Lens.lens (\GetMLTransforms' {filter'} -> filter') (\s@GetMLTransforms' {} a -> s {filter' = a} :: GetMLTransforms)
 
 -- | The sorting criteria.
-getMLTransforms_sort :: Lens.Lens' GetMLTransforms (Prelude.Maybe TransformSortCriteria)
+getMLTransforms_sort :: Lens.Lens' GetMLTransforms (Core.Maybe TransformSortCriteria)
 getMLTransforms_sort = Lens.lens (\GetMLTransforms' {sort} -> sort) (\s@GetMLTransforms' {} a -> s {sort = a} :: GetMLTransforms)
 
-instance Prelude.AWSRequest GetMLTransforms where
-  type Rs GetMLTransforms = GetMLTransformsResponse
+instance Core.AWSRequest GetMLTransforms where
+  type
+    AWSResponse GetMLTransforms =
+      GetMLTransformsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetMLTransformsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "Transforms"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "Transforms" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable GetMLTransforms
+instance Core.Hashable GetMLTransforms
 
-instance Prelude.NFData GetMLTransforms
+instance Core.NFData GetMLTransforms
 
-instance Prelude.ToHeaders GetMLTransforms where
+instance Core.ToHeaders GetMLTransforms where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.GetMLTransforms" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.GetMLTransforms" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetMLTransforms where
+instance Core.ToJSON GetMLTransforms where
   toJSON GetMLTransforms' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filter" Prelude..=) Prelude.<$> filter',
-            ("Sort" Prelude..=) Prelude.<$> sort
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filter" Core..=) Core.<$> filter',
+            ("Sort" Core..=) Core.<$> sort
           ]
       )
 
-instance Prelude.ToPath GetMLTransforms where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetMLTransforms where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetMLTransforms where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetMLTransforms where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetMLTransformsResponse' smart constructor.
 data GetMLTransformsResponse = GetMLTransformsResponse'
   { -- | A pagination token, if more results are available.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of machine learning transforms.
     transforms :: [MLTransform]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMLTransformsResponse' with all optional fields omitted.
@@ -183,26 +180,25 @@ data GetMLTransformsResponse = GetMLTransformsResponse'
 -- 'transforms', 'getMLTransformsResponse_transforms' - A list of machine learning transforms.
 newGetMLTransformsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetMLTransformsResponse
 newGetMLTransformsResponse pHttpStatus_ =
   GetMLTransformsResponse'
-    { nextToken =
-        Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      transforms = Prelude.mempty
+      transforms = Core.mempty
     }
 
 -- | A pagination token, if more results are available.
-getMLTransformsResponse_nextToken :: Lens.Lens' GetMLTransformsResponse (Prelude.Maybe Prelude.Text)
+getMLTransformsResponse_nextToken :: Lens.Lens' GetMLTransformsResponse (Core.Maybe Core.Text)
 getMLTransformsResponse_nextToken = Lens.lens (\GetMLTransformsResponse' {nextToken} -> nextToken) (\s@GetMLTransformsResponse' {} a -> s {nextToken = a} :: GetMLTransformsResponse)
 
 -- | The response's http status code.
-getMLTransformsResponse_httpStatus :: Lens.Lens' GetMLTransformsResponse Prelude.Int
+getMLTransformsResponse_httpStatus :: Lens.Lens' GetMLTransformsResponse Core.Int
 getMLTransformsResponse_httpStatus = Lens.lens (\GetMLTransformsResponse' {httpStatus} -> httpStatus) (\s@GetMLTransformsResponse' {} a -> s {httpStatus = a} :: GetMLTransformsResponse)
 
 -- | A list of machine learning transforms.
 getMLTransformsResponse_transforms :: Lens.Lens' GetMLTransformsResponse [MLTransform]
-getMLTransformsResponse_transforms = Lens.lens (\GetMLTransformsResponse' {transforms} -> transforms) (\s@GetMLTransformsResponse' {} a -> s {transforms = a} :: GetMLTransformsResponse) Prelude.. Prelude._Coerce
+getMLTransformsResponse_transforms = Lens.lens (\GetMLTransformsResponse' {transforms} -> transforms) (\s@GetMLTransformsResponse' {} a -> s {transforms = a} :: GetMLTransformsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData GetMLTransformsResponse
+instance Core.NFData GetMLTransformsResponse

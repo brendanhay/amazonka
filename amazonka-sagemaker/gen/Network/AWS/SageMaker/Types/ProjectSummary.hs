@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ProjectSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ProjectStatus
 
 -- | Information about a project.
@@ -29,19 +28,19 @@ import Network.AWS.SageMaker.Types.ProjectStatus
 -- /See:/ 'newProjectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
   { -- | The description of the project.
-    projectDescription :: Prelude.Maybe Prelude.Text,
+    projectDescription :: Core.Maybe Core.Text,
     -- | The name of the project.
-    projectName :: Prelude.Text,
+    projectName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the project.
-    projectArn :: Prelude.Text,
+    projectArn :: Core.Text,
     -- | The ID of the project.
-    projectId :: Prelude.Text,
+    projectId :: Core.Text,
     -- | The time that the project was created.
-    creationTime :: Prelude.POSIX,
+    creationTime :: Core.POSIX,
     -- | The status of the project.
     projectStatus :: ProjectStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProjectSummary' with all optional fields omitted.
@@ -64,13 +63,13 @@ data ProjectSummary = ProjectSummary'
 -- 'projectStatus', 'projectSummary_projectStatus' - The status of the project.
 newProjectSummary ::
   -- | 'projectName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'projectArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'projectId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'projectStatus'
   ProjectStatus ->
   ProjectSummary
@@ -81,53 +80,52 @@ newProjectSummary
   pCreationTime_
   pProjectStatus_ =
     ProjectSummary'
-      { projectDescription =
-          Prelude.Nothing,
+      { projectDescription = Core.Nothing,
         projectName = pProjectName_,
         projectArn = pProjectArn_,
         projectId = pProjectId_,
-        creationTime = Prelude._Time Lens.# pCreationTime_,
+        creationTime = Core._Time Lens.# pCreationTime_,
         projectStatus = pProjectStatus_
       }
 
 -- | The description of the project.
-projectSummary_projectDescription :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
+projectSummary_projectDescription :: Lens.Lens' ProjectSummary (Core.Maybe Core.Text)
 projectSummary_projectDescription = Lens.lens (\ProjectSummary' {projectDescription} -> projectDescription) (\s@ProjectSummary' {} a -> s {projectDescription = a} :: ProjectSummary)
 
 -- | The name of the project.
-projectSummary_projectName :: Lens.Lens' ProjectSummary Prelude.Text
+projectSummary_projectName :: Lens.Lens' ProjectSummary Core.Text
 projectSummary_projectName = Lens.lens (\ProjectSummary' {projectName} -> projectName) (\s@ProjectSummary' {} a -> s {projectName = a} :: ProjectSummary)
 
 -- | The Amazon Resource Name (ARN) of the project.
-projectSummary_projectArn :: Lens.Lens' ProjectSummary Prelude.Text
+projectSummary_projectArn :: Lens.Lens' ProjectSummary Core.Text
 projectSummary_projectArn = Lens.lens (\ProjectSummary' {projectArn} -> projectArn) (\s@ProjectSummary' {} a -> s {projectArn = a} :: ProjectSummary)
 
 -- | The ID of the project.
-projectSummary_projectId :: Lens.Lens' ProjectSummary Prelude.Text
+projectSummary_projectId :: Lens.Lens' ProjectSummary Core.Text
 projectSummary_projectId = Lens.lens (\ProjectSummary' {projectId} -> projectId) (\s@ProjectSummary' {} a -> s {projectId = a} :: ProjectSummary)
 
 -- | The time that the project was created.
-projectSummary_creationTime :: Lens.Lens' ProjectSummary Prelude.UTCTime
-projectSummary_creationTime = Lens.lens (\ProjectSummary' {creationTime} -> creationTime) (\s@ProjectSummary' {} a -> s {creationTime = a} :: ProjectSummary) Prelude.. Prelude._Time
+projectSummary_creationTime :: Lens.Lens' ProjectSummary Core.UTCTime
+projectSummary_creationTime = Lens.lens (\ProjectSummary' {creationTime} -> creationTime) (\s@ProjectSummary' {} a -> s {creationTime = a} :: ProjectSummary) Core.. Core._Time
 
 -- | The status of the project.
 projectSummary_projectStatus :: Lens.Lens' ProjectSummary ProjectStatus
 projectSummary_projectStatus = Lens.lens (\ProjectSummary' {projectStatus} -> projectStatus) (\s@ProjectSummary' {} a -> s {projectStatus = a} :: ProjectSummary)
 
-instance Prelude.FromJSON ProjectSummary where
+instance Core.FromJSON ProjectSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Prelude..:? "ProjectDescription")
-            Prelude.<*> (x Prelude..: "ProjectName")
-            Prelude.<*> (x Prelude..: "ProjectArn")
-            Prelude.<*> (x Prelude..: "ProjectId")
-            Prelude.<*> (x Prelude..: "CreationTime")
-            Prelude.<*> (x Prelude..: "ProjectStatus")
+            Core.<$> (x Core..:? "ProjectDescription")
+            Core.<*> (x Core..: "ProjectName")
+            Core.<*> (x Core..: "ProjectArn")
+            Core.<*> (x Core..: "ProjectId")
+            Core.<*> (x Core..: "CreationTime")
+            Core.<*> (x Core..: "ProjectStatus")
       )
 
-instance Prelude.Hashable ProjectSummary
+instance Core.Hashable ProjectSummary
 
-instance Prelude.NFData ProjectSummary
+instance Core.NFData ProjectSummary

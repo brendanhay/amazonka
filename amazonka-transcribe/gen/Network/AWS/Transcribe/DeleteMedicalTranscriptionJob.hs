@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.Transcribe.DeleteMedicalTranscriptionJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -47,9 +46,9 @@ import Network.AWS.Transcribe.Types
 data DeleteMedicalTranscriptionJob = DeleteMedicalTranscriptionJob'
   { -- | The name you provide to the @DeleteMedicalTranscriptionJob@ object to
     -- delete a transcription job.
-    medicalTranscriptionJobName :: Prelude.Text
+    medicalTranscriptionJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMedicalTranscriptionJob' with all optional fields omitted.
@@ -63,7 +62,7 @@ data DeleteMedicalTranscriptionJob = DeleteMedicalTranscriptionJob'
 -- delete a transcription job.
 newDeleteMedicalTranscriptionJob ::
   -- | 'medicalTranscriptionJobName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteMedicalTranscriptionJob
 newDeleteMedicalTranscriptionJob
   pMedicalTranscriptionJobName_ =
@@ -74,70 +73,60 @@ newDeleteMedicalTranscriptionJob
 
 -- | The name you provide to the @DeleteMedicalTranscriptionJob@ object to
 -- delete a transcription job.
-deleteMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' DeleteMedicalTranscriptionJob Prelude.Text
+deleteMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' DeleteMedicalTranscriptionJob Core.Text
 deleteMedicalTranscriptionJob_medicalTranscriptionJobName = Lens.lens (\DeleteMedicalTranscriptionJob' {medicalTranscriptionJobName} -> medicalTranscriptionJobName) (\s@DeleteMedicalTranscriptionJob' {} a -> s {medicalTranscriptionJobName = a} :: DeleteMedicalTranscriptionJob)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteMedicalTranscriptionJob
   where
   type
-    Rs DeleteMedicalTranscriptionJob =
+    AWSResponse DeleteMedicalTranscriptionJob =
       DeleteMedicalTranscriptionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteMedicalTranscriptionJobResponse'
 
-instance
-  Prelude.Hashable
-    DeleteMedicalTranscriptionJob
+instance Core.Hashable DeleteMedicalTranscriptionJob
 
-instance Prelude.NFData DeleteMedicalTranscriptionJob
+instance Core.NFData DeleteMedicalTranscriptionJob
 
-instance
-  Prelude.ToHeaders
-    DeleteMedicalTranscriptionJob
-  where
+instance Core.ToHeaders DeleteMedicalTranscriptionJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Transcribe.DeleteMedicalTranscriptionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Transcribe.DeleteMedicalTranscriptionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteMedicalTranscriptionJob where
+instance Core.ToJSON DeleteMedicalTranscriptionJob where
   toJSON DeleteMedicalTranscriptionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "MedicalTranscriptionJobName"
-                  Prelude..= medicalTranscriptionJobName
+                  Core..= medicalTranscriptionJobName
               )
           ]
       )
 
-instance Prelude.ToPath DeleteMedicalTranscriptionJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteMedicalTranscriptionJob where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteMedicalTranscriptionJob
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteMedicalTranscriptionJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteMedicalTranscriptionJobResponse' smart constructor.
 data DeleteMedicalTranscriptionJobResponse = DeleteMedicalTranscriptionJobResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMedicalTranscriptionJobResponse' with all optional fields omitted.
@@ -149,5 +138,5 @@ newDeleteMedicalTranscriptionJobResponse =
   DeleteMedicalTranscriptionJobResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteMedicalTranscriptionJobResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,9 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,18 +71,18 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings'
     -- Beanstalk returns an @InvalidParameterCombination@ error. If you do not
     -- specify either, AWS Elastic Beanstalk returns a
     -- @MissingRequiredParameter@ error.
-    templateName :: Prelude.Maybe Prelude.Text,
+    templateName :: Core.Maybe Core.Text,
     -- | The name of the environment to describe.
     --
     -- Condition: You must specify either this or a TemplateName, but not both.
     -- If you specify both, AWS Elastic Beanstalk returns an
     -- @InvalidParameterCombination@ error. If you do not specify either, AWS
     -- Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentName :: Prelude.Maybe Prelude.Text,
+    environmentName :: Core.Maybe Core.Text,
     -- | The application for the environment or configuration template.
-    applicationName :: Prelude.Text
+    applicationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeConfigurationSettings' with all optional fields omitted.
@@ -111,13 +110,13 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings'
 -- 'applicationName', 'describeConfigurationSettings_applicationName' - The application for the environment or configuration template.
 newDescribeConfigurationSettings ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeConfigurationSettings
 newDescribeConfigurationSettings pApplicationName_ =
   DescribeConfigurationSettings'
     { templateName =
-        Prelude.Nothing,
-      environmentName = Prelude.Nothing,
+        Core.Nothing,
+      environmentName = Core.Nothing,
       applicationName = pApplicationName_
     }
 
@@ -128,7 +127,7 @@ newDescribeConfigurationSettings pApplicationName_ =
 -- Beanstalk returns an @InvalidParameterCombination@ error. If you do not
 -- specify either, AWS Elastic Beanstalk returns a
 -- @MissingRequiredParameter@ error.
-describeConfigurationSettings_templateName :: Lens.Lens' DescribeConfigurationSettings (Prelude.Maybe Prelude.Text)
+describeConfigurationSettings_templateName :: Lens.Lens' DescribeConfigurationSettings (Core.Maybe Core.Text)
 describeConfigurationSettings_templateName = Lens.lens (\DescribeConfigurationSettings' {templateName} -> templateName) (\s@DescribeConfigurationSettings' {} a -> s {templateName = a} :: DescribeConfigurationSettings)
 
 -- | The name of the environment to describe.
@@ -137,19 +136,19 @@ describeConfigurationSettings_templateName = Lens.lens (\DescribeConfigurationSe
 -- If you specify both, AWS Elastic Beanstalk returns an
 -- @InvalidParameterCombination@ error. If you do not specify either, AWS
 -- Elastic Beanstalk returns @MissingRequiredParameter@ error.
-describeConfigurationSettings_environmentName :: Lens.Lens' DescribeConfigurationSettings (Prelude.Maybe Prelude.Text)
+describeConfigurationSettings_environmentName :: Lens.Lens' DescribeConfigurationSettings (Core.Maybe Core.Text)
 describeConfigurationSettings_environmentName = Lens.lens (\DescribeConfigurationSettings' {environmentName} -> environmentName) (\s@DescribeConfigurationSettings' {} a -> s {environmentName = a} :: DescribeConfigurationSettings)
 
 -- | The application for the environment or configuration template.
-describeConfigurationSettings_applicationName :: Lens.Lens' DescribeConfigurationSettings Prelude.Text
+describeConfigurationSettings_applicationName :: Lens.Lens' DescribeConfigurationSettings Core.Text
 describeConfigurationSettings_applicationName = Lens.lens (\DescribeConfigurationSettings' {applicationName} -> applicationName) (\s@DescribeConfigurationSettings' {} a -> s {applicationName = a} :: DescribeConfigurationSettings)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeConfigurationSettings
   where
   type
-    Rs DescribeConfigurationSettings =
+    AWSResponse DescribeConfigurationSettings =
       DescribeConfigurationSettingsResponse
   request = Request.postQuery defaultService
   response =
@@ -157,43 +156,32 @@ instance
       "DescribeConfigurationSettingsResult"
       ( \s h x ->
           DescribeConfigurationSettingsResponse'
-            Prelude.<$> ( x Prelude..@? "ConfigurationSettings"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "ConfigurationSettings"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeConfigurationSettings
+instance Core.Hashable DescribeConfigurationSettings
 
-instance Prelude.NFData DescribeConfigurationSettings
+instance Core.NFData DescribeConfigurationSettings
 
-instance
-  Prelude.ToHeaders
-    DescribeConfigurationSettings
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeConfigurationSettings where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeConfigurationSettings where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeConfigurationSettings where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeConfigurationSettings
-  where
+instance Core.ToQuery DescribeConfigurationSettings where
   toQuery DescribeConfigurationSettings' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeConfigurationSettings" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Prelude.=: templateName,
-        "EnvironmentName" Prelude.=: environmentName,
-        "ApplicationName" Prelude.=: applicationName
+          Core.=: ("DescribeConfigurationSettings" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "TemplateName" Core.=: templateName,
+        "EnvironmentName" Core.=: environmentName,
+        "ApplicationName" Core.=: applicationName
       ]
 
 -- | The results from a request to change the configuration settings of an
@@ -202,11 +190,11 @@ instance
 -- /See:/ 'newDescribeConfigurationSettingsResponse' smart constructor.
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
   { -- | A list of ConfigurationSettingsDescription.
-    configurationSettings :: Prelude.Maybe [ConfigurationSettingsDescription],
+    configurationSettings :: Core.Maybe [ConfigurationSettingsDescription],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeConfigurationSettingsResponse' with all optional fields omitted.
@@ -221,23 +209,23 @@ data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsRespon
 -- 'httpStatus', 'describeConfigurationSettingsResponse_httpStatus' - The response's http status code.
 newDescribeConfigurationSettingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeConfigurationSettingsResponse
 newDescribeConfigurationSettingsResponse pHttpStatus_ =
   DescribeConfigurationSettingsResponse'
     { configurationSettings =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of ConfigurationSettingsDescription.
-describeConfigurationSettingsResponse_configurationSettings :: Lens.Lens' DescribeConfigurationSettingsResponse (Prelude.Maybe [ConfigurationSettingsDescription])
-describeConfigurationSettingsResponse_configurationSettings = Lens.lens (\DescribeConfigurationSettingsResponse' {configurationSettings} -> configurationSettings) (\s@DescribeConfigurationSettingsResponse' {} a -> s {configurationSettings = a} :: DescribeConfigurationSettingsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeConfigurationSettingsResponse_configurationSettings :: Lens.Lens' DescribeConfigurationSettingsResponse (Core.Maybe [ConfigurationSettingsDescription])
+describeConfigurationSettingsResponse_configurationSettings = Lens.lens (\DescribeConfigurationSettingsResponse' {configurationSettings} -> configurationSettings) (\s@DescribeConfigurationSettingsResponse' {} a -> s {configurationSettings = a} :: DescribeConfigurationSettingsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeConfigurationSettingsResponse_httpStatus :: Lens.Lens' DescribeConfigurationSettingsResponse Prelude.Int
+describeConfigurationSettingsResponse_httpStatus :: Lens.Lens' DescribeConfigurationSettingsResponse Core.Int
 describeConfigurationSettingsResponse_httpStatus = Lens.lens (\DescribeConfigurationSettingsResponse' {httpStatus} -> httpStatus) (\s@DescribeConfigurationSettingsResponse' {} a -> s {httpStatus = a} :: DescribeConfigurationSettingsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeConfigurationSettingsResponse

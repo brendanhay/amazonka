@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ErrorDocument where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | The error information.
@@ -36,7 +35,7 @@ data ErrorDocument = ErrorDocument'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
     key :: ObjectKey
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ErrorDocument' with all optional fields omitted.
@@ -67,14 +66,14 @@ newErrorDocument pKey_ = ErrorDocument' {key = pKey_}
 errorDocument_key :: Lens.Lens' ErrorDocument ObjectKey
 errorDocument_key = Lens.lens (\ErrorDocument' {key} -> key) (\s@ErrorDocument' {} a -> s {key = a} :: ErrorDocument)
 
-instance Prelude.FromXML ErrorDocument where
+instance Core.FromXML ErrorDocument where
   parseXML x =
-    ErrorDocument' Prelude.<$> (x Prelude..@ "Key")
+    ErrorDocument' Core.<$> (x Core..@ "Key")
 
-instance Prelude.Hashable ErrorDocument
+instance Core.Hashable ErrorDocument
 
-instance Prelude.NFData ErrorDocument
+instance Core.NFData ErrorDocument
 
-instance Prelude.ToXML ErrorDocument where
+instance Core.ToXML ErrorDocument where
   toXML ErrorDocument' {..} =
-    Prelude.mconcat ["Key" Prelude.@= key]
+    Core.mconcat ["Key" Core.@= key]

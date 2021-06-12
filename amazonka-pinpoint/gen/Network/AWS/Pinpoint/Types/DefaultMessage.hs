@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.DefaultMessage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the default message for all channels.
 --
 -- /See:/ 'newDefaultMessage' smart constructor.
 data DefaultMessage = DefaultMessage'
   { -- | The default body of the message.
-    body :: Prelude.Maybe Prelude.Text,
+    body :: Core.Maybe Core.Text,
     -- | The default message variables to use in the message. You can override
     -- these default variables with individual address variables.
-    substitutions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text])
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DefaultMessage' with all optional fields omitted.
@@ -51,29 +50,28 @@ newDefaultMessage ::
   DefaultMessage
 newDefaultMessage =
   DefaultMessage'
-    { body = Prelude.Nothing,
-      substitutions = Prelude.Nothing
+    { body = Core.Nothing,
+      substitutions = Core.Nothing
     }
 
 -- | The default body of the message.
-defaultMessage_body :: Lens.Lens' DefaultMessage (Prelude.Maybe Prelude.Text)
+defaultMessage_body :: Lens.Lens' DefaultMessage (Core.Maybe Core.Text)
 defaultMessage_body = Lens.lens (\DefaultMessage' {body} -> body) (\s@DefaultMessage' {} a -> s {body = a} :: DefaultMessage)
 
 -- | The default message variables to use in the message. You can override
 -- these default variables with individual address variables.
-defaultMessage_substitutions :: Lens.Lens' DefaultMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-defaultMessage_substitutions = Lens.lens (\DefaultMessage' {substitutions} -> substitutions) (\s@DefaultMessage' {} a -> s {substitutions = a} :: DefaultMessage) Prelude.. Lens.mapping Prelude._Coerce
+defaultMessage_substitutions :: Lens.Lens' DefaultMessage (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+defaultMessage_substitutions = Lens.lens (\DefaultMessage' {substitutions} -> substitutions) (\s@DefaultMessage' {} a -> s {substitutions = a} :: DefaultMessage) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable DefaultMessage
+instance Core.Hashable DefaultMessage
 
-instance Prelude.NFData DefaultMessage
+instance Core.NFData DefaultMessage
 
-instance Prelude.ToJSON DefaultMessage where
+instance Core.ToJSON DefaultMessage where
   toJSON DefaultMessage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Body" Prelude..=) Prelude.<$> body,
-            ("Substitutions" Prelude..=)
-              Prelude.<$> substitutions
+    Core.object
+      ( Core.catMaybes
+          [ ("Body" Core..=) Core.<$> body,
+            ("Substitutions" Core..=) Core.<$> substitutions
           ]
       )

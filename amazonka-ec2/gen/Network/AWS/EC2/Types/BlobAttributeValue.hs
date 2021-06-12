@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,15 +19,15 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.BlobAttributeValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newBlobAttributeValue' smart constructor.
 data BlobAttributeValue = BlobAttributeValue'
-  { value :: Prelude.Maybe Prelude.Base64
+  { value :: Core.Maybe Core.Base64
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BlobAttributeValue' with all optional fields omitted.
@@ -46,20 +45,20 @@ data BlobAttributeValue = BlobAttributeValue'
 newBlobAttributeValue ::
   BlobAttributeValue
 newBlobAttributeValue =
-  BlobAttributeValue' {value = Prelude.Nothing}
+  BlobAttributeValue' {value = Core.Nothing}
 
 -- | Undocumented member.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-blobAttributeValue_value :: Lens.Lens' BlobAttributeValue (Prelude.Maybe Prelude.ByteString)
-blobAttributeValue_value = Lens.lens (\BlobAttributeValue' {value} -> value) (\s@BlobAttributeValue' {} a -> s {value = a} :: BlobAttributeValue) Prelude.. Lens.mapping Prelude._Base64
+blobAttributeValue_value :: Lens.Lens' BlobAttributeValue (Core.Maybe Core.ByteString)
+blobAttributeValue_value = Lens.lens (\BlobAttributeValue' {value} -> value) (\s@BlobAttributeValue' {} a -> s {value = a} :: BlobAttributeValue) Core.. Lens.mapping Core._Base64
 
-instance Prelude.Hashable BlobAttributeValue
+instance Core.Hashable BlobAttributeValue
 
-instance Prelude.NFData BlobAttributeValue
+instance Core.NFData BlobAttributeValue
 
-instance Prelude.ToQuery BlobAttributeValue where
+instance Core.ToQuery BlobAttributeValue where
   toQuery BlobAttributeValue' {..} =
-    Prelude.mconcat ["Value" Prelude.=: value]
+    Core.mconcat ["Value" Core.=: value]

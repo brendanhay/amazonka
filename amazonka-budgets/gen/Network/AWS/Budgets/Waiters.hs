@@ -17,6 +17,5 @@ module Network.AWS.Budgets.Waiters where
 
 import Network.AWS.Budgets.Lens
 import Network.AWS.Budgets.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter

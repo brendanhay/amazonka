@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchLogs.Types.LogStream where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a log stream, which is a sequence of log events from a single
 -- emitter of logs.
@@ -29,34 +28,34 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLogStream' smart constructor.
 data LogStream = LogStream'
   { -- | The name of the log stream.
-    logStreamName :: Prelude.Maybe Prelude.Text,
+    logStreamName :: Core.Maybe Core.Text,
     -- | The creation time of the stream, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC.
-    creationTime :: Prelude.Maybe Prelude.Natural,
+    creationTime :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) of the log stream.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The number of bytes stored.
     --
     -- __Important:__ On June 17, 2019, this parameter was deprecated for log
     -- streams, and is always reported as zero. This change applies only to log
     -- streams. The @storedBytes@ parameter for log groups is not affected.
-    storedBytes :: Prelude.Maybe Prelude.Natural,
+    storedBytes :: Core.Maybe Core.Natural,
     -- | The sequence token.
-    uploadSequenceToken :: Prelude.Maybe Prelude.Text,
+    uploadSequenceToken :: Core.Maybe Core.Text,
     -- | The time of the first event, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC.
-    firstEventTimestamp :: Prelude.Maybe Prelude.Natural,
+    firstEventTimestamp :: Core.Maybe Core.Natural,
     -- | The time of the most recent log event in the log stream in CloudWatch
     -- Logs. This number is expressed as the number of milliseconds after Jan
     -- 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual
     -- consistency basis. It typically updates in less than an hour from
     -- ingestion, but in rare situations might take longer.
-    lastEventTimestamp :: Prelude.Maybe Prelude.Natural,
+    lastEventTimestamp :: Core.Maybe Core.Natural,
     -- | The ingestion time, expressed as the number of milliseconds after Jan 1,
     -- 1970 00:00:00 UTC.
-    lastIngestionTime :: Prelude.Maybe Prelude.Natural
+    lastIngestionTime :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LogStream' with all optional fields omitted.
@@ -96,27 +95,27 @@ newLogStream ::
   LogStream
 newLogStream =
   LogStream'
-    { logStreamName = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      storedBytes = Prelude.Nothing,
-      uploadSequenceToken = Prelude.Nothing,
-      firstEventTimestamp = Prelude.Nothing,
-      lastEventTimestamp = Prelude.Nothing,
-      lastIngestionTime = Prelude.Nothing
+    { logStreamName = Core.Nothing,
+      creationTime = Core.Nothing,
+      arn = Core.Nothing,
+      storedBytes = Core.Nothing,
+      uploadSequenceToken = Core.Nothing,
+      firstEventTimestamp = Core.Nothing,
+      lastEventTimestamp = Core.Nothing,
+      lastIngestionTime = Core.Nothing
     }
 
 -- | The name of the log stream.
-logStream_logStreamName :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Text)
+logStream_logStreamName :: Lens.Lens' LogStream (Core.Maybe Core.Text)
 logStream_logStreamName = Lens.lens (\LogStream' {logStreamName} -> logStreamName) (\s@LogStream' {} a -> s {logStreamName = a} :: LogStream)
 
 -- | The creation time of the stream, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
-logStream_creationTime :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natural)
+logStream_creationTime :: Lens.Lens' LogStream (Core.Maybe Core.Natural)
 logStream_creationTime = Lens.lens (\LogStream' {creationTime} -> creationTime) (\s@LogStream' {} a -> s {creationTime = a} :: LogStream)
 
 -- | The Amazon Resource Name (ARN) of the log stream.
-logStream_arn :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Text)
+logStream_arn :: Lens.Lens' LogStream (Core.Maybe Core.Text)
 logStream_arn = Lens.lens (\LogStream' {arn} -> arn) (\s@LogStream' {} a -> s {arn = a} :: LogStream)
 
 -- | The number of bytes stored.
@@ -124,16 +123,16 @@ logStream_arn = Lens.lens (\LogStream' {arn} -> arn) (\s@LogStream' {} a -> s {a
 -- __Important:__ On June 17, 2019, this parameter was deprecated for log
 -- streams, and is always reported as zero. This change applies only to log
 -- streams. The @storedBytes@ parameter for log groups is not affected.
-logStream_storedBytes :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natural)
+logStream_storedBytes :: Lens.Lens' LogStream (Core.Maybe Core.Natural)
 logStream_storedBytes = Lens.lens (\LogStream' {storedBytes} -> storedBytes) (\s@LogStream' {} a -> s {storedBytes = a} :: LogStream)
 
 -- | The sequence token.
-logStream_uploadSequenceToken :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Text)
+logStream_uploadSequenceToken :: Lens.Lens' LogStream (Core.Maybe Core.Text)
 logStream_uploadSequenceToken = Lens.lens (\LogStream' {uploadSequenceToken} -> uploadSequenceToken) (\s@LogStream' {} a -> s {uploadSequenceToken = a} :: LogStream)
 
 -- | The time of the first event, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
-logStream_firstEventTimestamp :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natural)
+logStream_firstEventTimestamp :: Lens.Lens' LogStream (Core.Maybe Core.Natural)
 logStream_firstEventTimestamp = Lens.lens (\LogStream' {firstEventTimestamp} -> firstEventTimestamp) (\s@LogStream' {} a -> s {firstEventTimestamp = a} :: LogStream)
 
 -- | The time of the most recent log event in the log stream in CloudWatch
@@ -141,30 +140,30 @@ logStream_firstEventTimestamp = Lens.lens (\LogStream' {firstEventTimestamp} -> 
 -- 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual
 -- consistency basis. It typically updates in less than an hour from
 -- ingestion, but in rare situations might take longer.
-logStream_lastEventTimestamp :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natural)
+logStream_lastEventTimestamp :: Lens.Lens' LogStream (Core.Maybe Core.Natural)
 logStream_lastEventTimestamp = Lens.lens (\LogStream' {lastEventTimestamp} -> lastEventTimestamp) (\s@LogStream' {} a -> s {lastEventTimestamp = a} :: LogStream)
 
 -- | The ingestion time, expressed as the number of milliseconds after Jan 1,
 -- 1970 00:00:00 UTC.
-logStream_lastIngestionTime :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natural)
+logStream_lastIngestionTime :: Lens.Lens' LogStream (Core.Maybe Core.Natural)
 logStream_lastIngestionTime = Lens.lens (\LogStream' {lastIngestionTime} -> lastIngestionTime) (\s@LogStream' {} a -> s {lastIngestionTime = a} :: LogStream)
 
-instance Prelude.FromJSON LogStream where
+instance Core.FromJSON LogStream where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LogStream"
       ( \x ->
           LogStream'
-            Prelude.<$> (x Prelude..:? "logStreamName")
-            Prelude.<*> (x Prelude..:? "creationTime")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "storedBytes")
-            Prelude.<*> (x Prelude..:? "uploadSequenceToken")
-            Prelude.<*> (x Prelude..:? "firstEventTimestamp")
-            Prelude.<*> (x Prelude..:? "lastEventTimestamp")
-            Prelude.<*> (x Prelude..:? "lastIngestionTime")
+            Core.<$> (x Core..:? "logStreamName")
+            Core.<*> (x Core..:? "creationTime")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "storedBytes")
+            Core.<*> (x Core..:? "uploadSequenceToken")
+            Core.<*> (x Core..:? "firstEventTimestamp")
+            Core.<*> (x Core..:? "lastEventTimestamp")
+            Core.<*> (x Core..:? "lastIngestionTime")
       )
 
-instance Prelude.Hashable LogStream
+instance Core.Hashable LogStream
 
-instance Prelude.NFData LogStream
+instance Core.NFData LogStream

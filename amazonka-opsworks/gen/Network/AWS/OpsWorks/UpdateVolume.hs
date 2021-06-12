@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,22 +45,22 @@ module Network.AWS.OpsWorks.UpdateVolume
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateVolume' smart constructor.
 data UpdateVolume = UpdateVolume'
   { -- | The new name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The new mount point.
-    mountPoint :: Prelude.Maybe Prelude.Text,
+    mountPoint :: Core.Maybe Core.Text,
     -- | The volume ID.
-    volumeId :: Prelude.Text
+    volumeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateVolume' with all optional fields omitted.
@@ -78,72 +77,70 @@ data UpdateVolume = UpdateVolume'
 -- 'volumeId', 'updateVolume_volumeId' - The volume ID.
 newUpdateVolume ::
   -- | 'volumeId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateVolume
 newUpdateVolume pVolumeId_ =
   UpdateVolume'
-    { name = Prelude.Nothing,
-      mountPoint = Prelude.Nothing,
+    { name = Core.Nothing,
+      mountPoint = Core.Nothing,
       volumeId = pVolumeId_
     }
 
 -- | The new name.
-updateVolume_name :: Lens.Lens' UpdateVolume (Prelude.Maybe Prelude.Text)
+updateVolume_name :: Lens.Lens' UpdateVolume (Core.Maybe Core.Text)
 updateVolume_name = Lens.lens (\UpdateVolume' {name} -> name) (\s@UpdateVolume' {} a -> s {name = a} :: UpdateVolume)
 
 -- | The new mount point.
-updateVolume_mountPoint :: Lens.Lens' UpdateVolume (Prelude.Maybe Prelude.Text)
+updateVolume_mountPoint :: Lens.Lens' UpdateVolume (Core.Maybe Core.Text)
 updateVolume_mountPoint = Lens.lens (\UpdateVolume' {mountPoint} -> mountPoint) (\s@UpdateVolume' {} a -> s {mountPoint = a} :: UpdateVolume)
 
 -- | The volume ID.
-updateVolume_volumeId :: Lens.Lens' UpdateVolume Prelude.Text
+updateVolume_volumeId :: Lens.Lens' UpdateVolume Core.Text
 updateVolume_volumeId = Lens.lens (\UpdateVolume' {volumeId} -> volumeId) (\s@UpdateVolume' {} a -> s {volumeId = a} :: UpdateVolume)
 
-instance Prelude.AWSRequest UpdateVolume where
-  type Rs UpdateVolume = UpdateVolumeResponse
+instance Core.AWSRequest UpdateVolume where
+  type AWSResponse UpdateVolume = UpdateVolumeResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull UpdateVolumeResponse'
 
-instance Prelude.Hashable UpdateVolume
+instance Core.Hashable UpdateVolume
 
-instance Prelude.NFData UpdateVolume
+instance Core.NFData UpdateVolume
 
-instance Prelude.ToHeaders UpdateVolume where
+instance Core.ToHeaders UpdateVolume where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.UpdateVolume" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.UpdateVolume" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateVolume where
+instance Core.ToJSON UpdateVolume where
   toJSON UpdateVolume' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Name" Prelude..=) Prelude.<$> name,
-            ("MountPoint" Prelude..=) Prelude.<$> mountPoint,
-            Prelude.Just ("VolumeId" Prelude..= volumeId)
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("MountPoint" Core..=) Core.<$> mountPoint,
+            Core.Just ("VolumeId" Core..= volumeId)
           ]
       )
 
-instance Prelude.ToPath UpdateVolume where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateVolume where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateVolume where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateVolume where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateVolumeResponse' smart constructor.
 data UpdateVolumeResponse = UpdateVolumeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateVolumeResponse' with all optional fields omitted.
@@ -153,4 +150,4 @@ newUpdateVolumeResponse ::
   UpdateVolumeResponse
 newUpdateVolumeResponse = UpdateVolumeResponse'
 
-instance Prelude.NFData UpdateVolumeResponse
+instance Core.NFData UpdateVolumeResponse

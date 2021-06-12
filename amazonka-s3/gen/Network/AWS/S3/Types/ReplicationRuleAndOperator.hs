@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ReplicationRuleAndOperator where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tag
 
@@ -41,11 +40,11 @@ import Network.AWS.S3.Types.Tag
 data ReplicationRuleAndOperator = ReplicationRuleAndOperator'
   { -- | An object key name prefix that identifies the subset of objects to which
     -- the rule applies.
-    prefix :: Prelude.Maybe Prelude.Text,
+    prefix :: Core.Maybe Core.Text,
     -- | An array of tags containing key and value pairs.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicationRuleAndOperator' with all optional fields omitted.
@@ -63,37 +62,35 @@ newReplicationRuleAndOperator ::
   ReplicationRuleAndOperator
 newReplicationRuleAndOperator =
   ReplicationRuleAndOperator'
-    { prefix =
-        Prelude.Nothing,
-      tags = Prelude.Nothing
+    { prefix = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | An object key name prefix that identifies the subset of objects to which
 -- the rule applies.
-replicationRuleAndOperator_prefix :: Lens.Lens' ReplicationRuleAndOperator (Prelude.Maybe Prelude.Text)
+replicationRuleAndOperator_prefix :: Lens.Lens' ReplicationRuleAndOperator (Core.Maybe Core.Text)
 replicationRuleAndOperator_prefix = Lens.lens (\ReplicationRuleAndOperator' {prefix} -> prefix) (\s@ReplicationRuleAndOperator' {} a -> s {prefix = a} :: ReplicationRuleAndOperator)
 
 -- | An array of tags containing key and value pairs.
-replicationRuleAndOperator_tags :: Lens.Lens' ReplicationRuleAndOperator (Prelude.Maybe [Tag])
-replicationRuleAndOperator_tags = Lens.lens (\ReplicationRuleAndOperator' {tags} -> tags) (\s@ReplicationRuleAndOperator' {} a -> s {tags = a} :: ReplicationRuleAndOperator) Prelude.. Lens.mapping Prelude._Coerce
+replicationRuleAndOperator_tags :: Lens.Lens' ReplicationRuleAndOperator (Core.Maybe [Tag])
+replicationRuleAndOperator_tags = Lens.lens (\ReplicationRuleAndOperator' {tags} -> tags) (\s@ReplicationRuleAndOperator' {} a -> s {tags = a} :: ReplicationRuleAndOperator) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML ReplicationRuleAndOperator where
+instance Core.FromXML ReplicationRuleAndOperator where
   parseXML x =
     ReplicationRuleAndOperator'
-      Prelude.<$> (x Prelude..@? "Prefix")
-      Prelude.<*> ( x Prelude..@? "Tag" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "Tag")
-                  )
+      Core.<$> (x Core..@? "Prefix")
+      Core.<*> ( x Core..@? "Tag" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "Tag")
+               )
 
-instance Prelude.Hashable ReplicationRuleAndOperator
+instance Core.Hashable ReplicationRuleAndOperator
 
-instance Prelude.NFData ReplicationRuleAndOperator
+instance Core.NFData ReplicationRuleAndOperator
 
-instance Prelude.ToXML ReplicationRuleAndOperator where
+instance Core.ToXML ReplicationRuleAndOperator where
   toXML ReplicationRuleAndOperator' {..} =
-    Prelude.mconcat
-      [ "Prefix" Prelude.@= prefix,
+    Core.mconcat
+      [ "Prefix" Core.@= prefix,
         "Tag"
-          Prelude.@= Prelude.toXML
-            (Prelude.toXMLList "Tag" Prelude.<$> tags)
+          Core.@= Core.toXML (Core.toXMLList "Tag" Core.<$> tags)
       ]

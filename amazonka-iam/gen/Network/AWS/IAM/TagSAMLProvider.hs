@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -68,9 +67,9 @@ module Network.AWS.IAM.TagSAMLProvider
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,12 +82,12 @@ data TagSAMLProvider = TagSAMLProvider'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    sAMLProviderArn :: Prelude.Text,
+    sAMLProviderArn :: Core.Text,
     -- | The list of tags that you want to attach to the SAML identity provider
     -- in IAM. Each tag consists of a key name and an associated value.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagSAMLProvider' with all optional fields omitted.
@@ -110,13 +109,13 @@ data TagSAMLProvider = TagSAMLProvider'
 -- in IAM. Each tag consists of a key name and an associated value.
 newTagSAMLProvider ::
   -- | 'sAMLProviderArn'
-  Prelude.Text ->
+  Core.Text ->
   TagSAMLProvider
 newTagSAMLProvider pSAMLProviderArn_ =
   TagSAMLProvider'
     { sAMLProviderArn =
         pSAMLProviderArn_,
-      tags = Prelude.mempty
+      tags = Core.mempty
     }
 
 -- | The ARN of the SAML identity provider in IAM to which you want to add
@@ -126,46 +125,47 @@ newTagSAMLProvider pSAMLProviderArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-tagSAMLProvider_sAMLProviderArn :: Lens.Lens' TagSAMLProvider Prelude.Text
+tagSAMLProvider_sAMLProviderArn :: Lens.Lens' TagSAMLProvider Core.Text
 tagSAMLProvider_sAMLProviderArn = Lens.lens (\TagSAMLProvider' {sAMLProviderArn} -> sAMLProviderArn) (\s@TagSAMLProvider' {} a -> s {sAMLProviderArn = a} :: TagSAMLProvider)
 
 -- | The list of tags that you want to attach to the SAML identity provider
 -- in IAM. Each tag consists of a key name and an associated value.
 tagSAMLProvider_tags :: Lens.Lens' TagSAMLProvider [Tag]
-tagSAMLProvider_tags = Lens.lens (\TagSAMLProvider' {tags} -> tags) (\s@TagSAMLProvider' {} a -> s {tags = a} :: TagSAMLProvider) Prelude.. Prelude._Coerce
+tagSAMLProvider_tags = Lens.lens (\TagSAMLProvider' {tags} -> tags) (\s@TagSAMLProvider' {} a -> s {tags = a} :: TagSAMLProvider) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagSAMLProvider where
-  type Rs TagSAMLProvider = TagSAMLProviderResponse
+instance Core.AWSRequest TagSAMLProvider where
+  type
+    AWSResponse TagSAMLProvider =
+      TagSAMLProviderResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull TagSAMLProviderResponse'
 
-instance Prelude.Hashable TagSAMLProvider
+instance Core.Hashable TagSAMLProvider
 
-instance Prelude.NFData TagSAMLProvider
+instance Core.NFData TagSAMLProvider
 
-instance Prelude.ToHeaders TagSAMLProvider where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders TagSAMLProvider where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath TagSAMLProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagSAMLProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagSAMLProvider where
+instance Core.ToQuery TagSAMLProvider where
   toQuery TagSAMLProvider' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("TagSAMLProvider" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "SAMLProviderArn" Prelude.=: sAMLProviderArn,
-        "Tags" Prelude.=: Prelude.toQueryList "member" tags
+          Core.=: ("TagSAMLProvider" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "SAMLProviderArn" Core.=: sAMLProviderArn,
+        "Tags" Core.=: Core.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newTagSAMLProviderResponse' smart constructor.
 data TagSAMLProviderResponse = TagSAMLProviderResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagSAMLProviderResponse' with all optional fields omitted.
@@ -175,4 +175,4 @@ newTagSAMLProviderResponse ::
   TagSAMLProviderResponse
 newTagSAMLProviderResponse = TagSAMLProviderResponse'
 
-instance Prelude.NFData TagSAMLProviderResponse
+instance Core.NFData TagSAMLProviderResponse

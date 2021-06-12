@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
 where
 
 import Network.AWS.ApplicationAutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,7 +59,7 @@ data DeleteScheduledAction = DeleteScheduledAction'
     -- @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace,
     -- | The name of the scheduled action.
-    scheduledActionName :: Prelude.Text,
+    scheduledActionName :: Core.Text,
     -- | The identifier of the resource associated with the scheduled action.
     -- This string consists of the resource type and unique identifier.
     --
@@ -121,7 +120,7 @@ data DeleteScheduledAction = DeleteScheduledAction'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
     --
@@ -180,7 +179,7 @@ data DeleteScheduledAction = DeleteScheduledAction'
     --     GiB) for brokers in an Amazon MSK cluster.
     scalableDimension :: ScalableDimension
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteScheduledAction' with all optional fields omitted.
@@ -317,9 +316,9 @@ newDeleteScheduledAction ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'scheduledActionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   DeleteScheduledAction
@@ -343,7 +342,7 @@ deleteScheduledAction_serviceNamespace :: Lens.Lens' DeleteScheduledAction Servi
 deleteScheduledAction_serviceNamespace = Lens.lens (\DeleteScheduledAction' {serviceNamespace} -> serviceNamespace) (\s@DeleteScheduledAction' {} a -> s {serviceNamespace = a} :: DeleteScheduledAction)
 
 -- | The name of the scheduled action.
-deleteScheduledAction_scheduledActionName :: Lens.Lens' DeleteScheduledAction Prelude.Text
+deleteScheduledAction_scheduledActionName :: Lens.Lens' DeleteScheduledAction Core.Text
 deleteScheduledAction_scheduledActionName = Lens.lens (\DeleteScheduledAction' {scheduledActionName} -> scheduledActionName) (\s@DeleteScheduledAction' {} a -> s {scheduledActionName = a} :: DeleteScheduledAction)
 
 -- | The identifier of the resource associated with the scheduled action.
@@ -406,7 +405,7 @@ deleteScheduledAction_scheduledActionName = Lens.lens (\DeleteScheduledAction' {
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-deleteScheduledAction_resourceId :: Lens.Lens' DeleteScheduledAction Prelude.Text
+deleteScheduledAction_resourceId :: Lens.Lens' DeleteScheduledAction Core.Text
 deleteScheduledAction_resourceId = Lens.lens (\DeleteScheduledAction' {resourceId} -> resourceId) (\s@DeleteScheduledAction' {} a -> s {resourceId = a} :: DeleteScheduledAction)
 
 -- | The scalable dimension. This string consists of the service namespace,
@@ -468,65 +467,61 @@ deleteScheduledAction_resourceId = Lens.lens (\DeleteScheduledAction' {resourceI
 deleteScheduledAction_scalableDimension :: Lens.Lens' DeleteScheduledAction ScalableDimension
 deleteScheduledAction_scalableDimension = Lens.lens (\DeleteScheduledAction' {scalableDimension} -> scalableDimension) (\s@DeleteScheduledAction' {} a -> s {scalableDimension = a} :: DeleteScheduledAction)
 
-instance Prelude.AWSRequest DeleteScheduledAction where
+instance Core.AWSRequest DeleteScheduledAction where
   type
-    Rs DeleteScheduledAction =
+    AWSResponse DeleteScheduledAction =
       DeleteScheduledActionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteScheduledActionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteScheduledAction
+instance Core.Hashable DeleteScheduledAction
 
-instance Prelude.NFData DeleteScheduledAction
+instance Core.NFData DeleteScheduledAction
 
-instance Prelude.ToHeaders DeleteScheduledAction where
+instance Core.ToHeaders DeleteScheduledAction where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AnyScaleFrontendService.DeleteScheduledAction" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AnyScaleFrontendService.DeleteScheduledAction" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteScheduledAction where
+instance Core.ToJSON DeleteScheduledAction where
   toJSON DeleteScheduledAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ServiceNamespace" Prelude..= serviceNamespace),
-            Prelude.Just
-              ( "ScheduledActionName"
-                  Prelude..= scheduledActionName
-              ),
-            Prelude.Just ("ResourceId" Prelude..= resourceId),
-            Prelude.Just
-              ("ScalableDimension" Prelude..= scalableDimension)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ServiceNamespace" Core..= serviceNamespace),
+            Core.Just
+              ("ScheduledActionName" Core..= scheduledActionName),
+            Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just
+              ("ScalableDimension" Core..= scalableDimension)
           ]
       )
 
-instance Prelude.ToPath DeleteScheduledAction where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteScheduledAction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteScheduledAction where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteScheduledAction where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteScheduledActionResponse' smart constructor.
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteScheduledActionResponse' with all optional fields omitted.
@@ -539,7 +534,7 @@ data DeleteScheduledActionResponse = DeleteScheduledActionResponse'
 -- 'httpStatus', 'deleteScheduledActionResponse_httpStatus' - The response's http status code.
 newDeleteScheduledActionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteScheduledActionResponse
 newDeleteScheduledActionResponse pHttpStatus_ =
   DeleteScheduledActionResponse'
@@ -548,7 +543,7 @@ newDeleteScheduledActionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteScheduledActionResponse_httpStatus :: Lens.Lens' DeleteScheduledActionResponse Prelude.Int
+deleteScheduledActionResponse_httpStatus :: Lens.Lens' DeleteScheduledActionResponse Core.Int
 deleteScheduledActionResponse_httpStatus = Lens.lens (\DeleteScheduledActionResponse' {httpStatus} -> httpStatus) (\s@DeleteScheduledActionResponse' {} a -> s {httpStatus = a} :: DeleteScheduledActionResponse)
 
-instance Prelude.NFData DeleteScheduledActionResponse
+instance Core.NFData DeleteScheduledActionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SES.DeleteTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -54,9 +53,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newDeleteTemplate' smart constructor.
 data DeleteTemplate = DeleteTemplate'
   { -- | The name of the template to be deleted.
-    templateName :: Prelude.Text
+    templateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTemplate' with all optional fields omitted.
@@ -69,52 +68,53 @@ data DeleteTemplate = DeleteTemplate'
 -- 'templateName', 'deleteTemplate_templateName' - The name of the template to be deleted.
 newDeleteTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTemplate
 newDeleteTemplate pTemplateName_ =
   DeleteTemplate' {templateName = pTemplateName_}
 
 -- | The name of the template to be deleted.
-deleteTemplate_templateName :: Lens.Lens' DeleteTemplate Prelude.Text
+deleteTemplate_templateName :: Lens.Lens' DeleteTemplate Core.Text
 deleteTemplate_templateName = Lens.lens (\DeleteTemplate' {templateName} -> templateName) (\s@DeleteTemplate' {} a -> s {templateName = a} :: DeleteTemplate)
 
-instance Prelude.AWSRequest DeleteTemplate where
-  type Rs DeleteTemplate = DeleteTemplateResponse
+instance Core.AWSRequest DeleteTemplate where
+  type
+    AWSResponse DeleteTemplate =
+      DeleteTemplateResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteTemplateResult"
       ( \s h x ->
           DeleteTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTemplate
+instance Core.Hashable DeleteTemplate
 
-instance Prelude.NFData DeleteTemplate
+instance Core.NFData DeleteTemplate
 
-instance Prelude.ToHeaders DeleteTemplate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteTemplate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteTemplate where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTemplate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTemplate where
+instance Core.ToQuery DeleteTemplate where
   toQuery DeleteTemplate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteTemplate" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Prelude.=: templateName
+          Core.=: ("DeleteTemplate" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "TemplateName" Core.=: templateName
       ]
 
 -- | /See:/ 'newDeleteTemplateResponse' smart constructor.
 data DeleteTemplateResponse = DeleteTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTemplateResponse' with all optional fields omitted.
@@ -127,13 +127,13 @@ data DeleteTemplateResponse = DeleteTemplateResponse'
 -- 'httpStatus', 'deleteTemplateResponse_httpStatus' - The response's http status code.
 newDeleteTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTemplateResponse
 newDeleteTemplateResponse pHttpStatus_ =
   DeleteTemplateResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteTemplateResponse_httpStatus :: Lens.Lens' DeleteTemplateResponse Prelude.Int
+deleteTemplateResponse_httpStatus :: Lens.Lens' DeleteTemplateResponse Core.Int
 deleteTemplateResponse_httpStatus = Lens.lens (\DeleteTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteTemplateResponse' {} a -> s {httpStatus = a} :: DeleteTemplateResponse)
 
-instance Prelude.NFData DeleteTemplateResponse
+instance Core.NFData DeleteTemplateResponse

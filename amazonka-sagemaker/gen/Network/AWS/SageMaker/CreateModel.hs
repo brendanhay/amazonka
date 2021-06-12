@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -78,8 +77,8 @@ module Network.AWS.SageMaker.CreateModel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -93,26 +92,26 @@ data CreateModel = CreateModel'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
     -- and
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud>.
-    vpcConfig :: Prelude.Maybe VpcConfig,
+    vpcConfig :: Core.Maybe VpcConfig,
     -- | The location of the primary docker image containing inference code,
     -- associated artifacts, and custom environment map that the inference code
     -- uses when the model is deployed for predictions.
-    primaryContainer :: Prelude.Maybe ContainerDefinition,
+    primaryContainer :: Core.Maybe ContainerDefinition,
     -- | Isolates the model container. No inbound or outbound network calls can
     -- be made to or from the model container.
-    enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
+    enableNetworkIsolation :: Core.Maybe Core.Bool,
     -- | Specifies the containers in the inference pipeline.
-    containers :: Prelude.Maybe [ContainerDefinition],
+    containers :: Core.Maybe [ContainerDefinition],
     -- | An array of key-value pairs. You can use tags to categorize your AWS
     -- resources in different ways, for example, by purpose, owner, or
     -- environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Specifies details of how containers in a multi-container endpoint are
     -- called.
-    inferenceExecutionConfig :: Prelude.Maybe InferenceExecutionConfig,
+    inferenceExecutionConfig :: Core.Maybe InferenceExecutionConfig,
     -- | The name of the new model.
-    modelName :: Prelude.Text,
+    modelName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can
     -- assume to access model artifacts and docker image for deployment on ML
     -- compute instances or for batch transform jobs. Deploying on ML compute
@@ -121,9 +120,9 @@ data CreateModel = CreateModel'
     --
     -- To be able to pass this role to Amazon SageMaker, the caller of this API
     -- must have the @iam:PassRole@ permission.
-    executionRoleArn :: Prelude.Text
+    executionRoleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateModel' with all optional fields omitted.
@@ -170,18 +169,18 @@ data CreateModel = CreateModel'
 -- must have the @iam:PassRole@ permission.
 newCreateModel ::
   -- | 'modelName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'executionRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateModel
 newCreateModel pModelName_ pExecutionRoleArn_ =
   CreateModel'
-    { vpcConfig = Prelude.Nothing,
-      primaryContainer = Prelude.Nothing,
-      enableNetworkIsolation = Prelude.Nothing,
-      containers = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      inferenceExecutionConfig = Prelude.Nothing,
+    { vpcConfig = Core.Nothing,
+      primaryContainer = Core.Nothing,
+      enableNetworkIsolation = Core.Nothing,
+      containers = Core.Nothing,
+      tags = Core.Nothing,
+      inferenceExecutionConfig = Core.Nothing,
       modelName = pModelName_,
       executionRoleArn = pExecutionRoleArn_
     }
@@ -193,38 +192,38 @@ newCreateModel pModelName_ pExecutionRoleArn_ =
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
 -- and
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud>.
-createModel_vpcConfig :: Lens.Lens' CreateModel (Prelude.Maybe VpcConfig)
+createModel_vpcConfig :: Lens.Lens' CreateModel (Core.Maybe VpcConfig)
 createModel_vpcConfig = Lens.lens (\CreateModel' {vpcConfig} -> vpcConfig) (\s@CreateModel' {} a -> s {vpcConfig = a} :: CreateModel)
 
 -- | The location of the primary docker image containing inference code,
 -- associated artifacts, and custom environment map that the inference code
 -- uses when the model is deployed for predictions.
-createModel_primaryContainer :: Lens.Lens' CreateModel (Prelude.Maybe ContainerDefinition)
+createModel_primaryContainer :: Lens.Lens' CreateModel (Core.Maybe ContainerDefinition)
 createModel_primaryContainer = Lens.lens (\CreateModel' {primaryContainer} -> primaryContainer) (\s@CreateModel' {} a -> s {primaryContainer = a} :: CreateModel)
 
 -- | Isolates the model container. No inbound or outbound network calls can
 -- be made to or from the model container.
-createModel_enableNetworkIsolation :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Bool)
+createModel_enableNetworkIsolation :: Lens.Lens' CreateModel (Core.Maybe Core.Bool)
 createModel_enableNetworkIsolation = Lens.lens (\CreateModel' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@CreateModel' {} a -> s {enableNetworkIsolation = a} :: CreateModel)
 
 -- | Specifies the containers in the inference pipeline.
-createModel_containers :: Lens.Lens' CreateModel (Prelude.Maybe [ContainerDefinition])
-createModel_containers = Lens.lens (\CreateModel' {containers} -> containers) (\s@CreateModel' {} a -> s {containers = a} :: CreateModel) Prelude.. Lens.mapping Prelude._Coerce
+createModel_containers :: Lens.Lens' CreateModel (Core.Maybe [ContainerDefinition])
+createModel_containers = Lens.lens (\CreateModel' {containers} -> containers) (\s@CreateModel' {} a -> s {containers = a} :: CreateModel) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of key-value pairs. You can use tags to categorize your AWS
 -- resources in different ways, for example, by purpose, owner, or
 -- environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-createModel_tags :: Lens.Lens' CreateModel (Prelude.Maybe [Tag])
-createModel_tags = Lens.lens (\CreateModel' {tags} -> tags) (\s@CreateModel' {} a -> s {tags = a} :: CreateModel) Prelude.. Lens.mapping Prelude._Coerce
+createModel_tags :: Lens.Lens' CreateModel (Core.Maybe [Tag])
+createModel_tags = Lens.lens (\CreateModel' {tags} -> tags) (\s@CreateModel' {} a -> s {tags = a} :: CreateModel) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies details of how containers in a multi-container endpoint are
 -- called.
-createModel_inferenceExecutionConfig :: Lens.Lens' CreateModel (Prelude.Maybe InferenceExecutionConfig)
+createModel_inferenceExecutionConfig :: Lens.Lens' CreateModel (Core.Maybe InferenceExecutionConfig)
 createModel_inferenceExecutionConfig = Lens.lens (\CreateModel' {inferenceExecutionConfig} -> inferenceExecutionConfig) (\s@CreateModel' {} a -> s {inferenceExecutionConfig = a} :: CreateModel)
 
 -- | The name of the new model.
-createModel_modelName :: Lens.Lens' CreateModel Prelude.Text
+createModel_modelName :: Lens.Lens' CreateModel Core.Text
 createModel_modelName = Lens.lens (\CreateModel' {modelName} -> modelName) (\s@CreateModel' {} a -> s {modelName = a} :: CreateModel)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can
@@ -235,70 +234,68 @@ createModel_modelName = Lens.lens (\CreateModel' {modelName} -> modelName) (\s@C
 --
 -- To be able to pass this role to Amazon SageMaker, the caller of this API
 -- must have the @iam:PassRole@ permission.
-createModel_executionRoleArn :: Lens.Lens' CreateModel Prelude.Text
+createModel_executionRoleArn :: Lens.Lens' CreateModel Core.Text
 createModel_executionRoleArn = Lens.lens (\CreateModel' {executionRoleArn} -> executionRoleArn) (\s@CreateModel' {} a -> s {executionRoleArn = a} :: CreateModel)
 
-instance Prelude.AWSRequest CreateModel where
-  type Rs CreateModel = CreateModelResponse
+instance Core.AWSRequest CreateModel where
+  type AWSResponse CreateModel = CreateModelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateModelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "ModelArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "ModelArn")
       )
 
-instance Prelude.Hashable CreateModel
+instance Core.Hashable CreateModel
 
-instance Prelude.NFData CreateModel
+instance Core.NFData CreateModel
 
-instance Prelude.ToHeaders CreateModel where
+instance Core.ToHeaders CreateModel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.CreateModel" :: Prelude.ByteString),
+              Core.=# ("SageMaker.CreateModel" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateModel where
+instance Core.ToJSON CreateModel where
   toJSON CreateModel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VpcConfig" Prelude..=) Prelude.<$> vpcConfig,
-            ("PrimaryContainer" Prelude..=)
-              Prelude.<$> primaryContainer,
-            ("EnableNetworkIsolation" Prelude..=)
-              Prelude.<$> enableNetworkIsolation,
-            ("Containers" Prelude..=) Prelude.<$> containers,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("InferenceExecutionConfig" Prelude..=)
-              Prelude.<$> inferenceExecutionConfig,
-            Prelude.Just ("ModelName" Prelude..= modelName),
-            Prelude.Just
-              ("ExecutionRoleArn" Prelude..= executionRoleArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("VpcConfig" Core..=) Core.<$> vpcConfig,
+            ("PrimaryContainer" Core..=)
+              Core.<$> primaryContainer,
+            ("EnableNetworkIsolation" Core..=)
+              Core.<$> enableNetworkIsolation,
+            ("Containers" Core..=) Core.<$> containers,
+            ("Tags" Core..=) Core.<$> tags,
+            ("InferenceExecutionConfig" Core..=)
+              Core.<$> inferenceExecutionConfig,
+            Core.Just ("ModelName" Core..= modelName),
+            Core.Just
+              ("ExecutionRoleArn" Core..= executionRoleArn)
           ]
       )
 
-instance Prelude.ToPath CreateModel where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateModel where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateModel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateModel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateModelResponse' smart constructor.
 data CreateModelResponse = CreateModelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The ARN of the model created in Amazon SageMaker.
-    modelArn :: Prelude.Text
+    modelArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateModelResponse' with all optional fields omitted.
@@ -313,9 +310,9 @@ data CreateModelResponse = CreateModelResponse'
 -- 'modelArn', 'createModelResponse_modelArn' - The ARN of the model created in Amazon SageMaker.
 newCreateModelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'modelArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateModelResponse
 newCreateModelResponse pHttpStatus_ pModelArn_ =
   CreateModelResponse'
@@ -324,11 +321,11 @@ newCreateModelResponse pHttpStatus_ pModelArn_ =
     }
 
 -- | The response's http status code.
-createModelResponse_httpStatus :: Lens.Lens' CreateModelResponse Prelude.Int
+createModelResponse_httpStatus :: Lens.Lens' CreateModelResponse Core.Int
 createModelResponse_httpStatus = Lens.lens (\CreateModelResponse' {httpStatus} -> httpStatus) (\s@CreateModelResponse' {} a -> s {httpStatus = a} :: CreateModelResponse)
 
 -- | The ARN of the model created in Amazon SageMaker.
-createModelResponse_modelArn :: Lens.Lens' CreateModelResponse Prelude.Text
+createModelResponse_modelArn :: Lens.Lens' CreateModelResponse Core.Text
 createModelResponse_modelArn = Lens.lens (\CreateModelResponse' {modelArn} -> modelArn) (\s@CreateModelResponse' {} a -> s {modelArn = a} :: CreateModelResponse)
 
-instance Prelude.NFData CreateModelResponse
+instance Core.NFData CreateModelResponse

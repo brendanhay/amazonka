@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,21 +47,21 @@ module Network.AWS.StorageGateway.AddCache
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newAddCache' smart constructor.
 data AddCache = AddCache'
-  { gatewayARN :: Prelude.Text,
+  { gatewayARN :: Core.Text,
     -- | An array of strings that identify disks that are to be configured as
     -- working storage. Each string has a minimum length of 1 and maximum
     -- length of 300. You can get the disk IDs from the ListLocalDisks API.
-    diskIds :: [Prelude.Text]
+    diskIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddCache' with all optional fields omitted.
@@ -79,76 +78,74 @@ data AddCache = AddCache'
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
 newAddCache ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   AddCache
 newAddCache pGatewayARN_ =
   AddCache'
     { gatewayARN = pGatewayARN_,
-      diskIds = Prelude.mempty
+      diskIds = Core.mempty
     }
 
 -- | Undocumented member.
-addCache_gatewayARN :: Lens.Lens' AddCache Prelude.Text
+addCache_gatewayARN :: Lens.Lens' AddCache Core.Text
 addCache_gatewayARN = Lens.lens (\AddCache' {gatewayARN} -> gatewayARN) (\s@AddCache' {} a -> s {gatewayARN = a} :: AddCache)
 
 -- | An array of strings that identify disks that are to be configured as
 -- working storage. Each string has a minimum length of 1 and maximum
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
-addCache_diskIds :: Lens.Lens' AddCache [Prelude.Text]
-addCache_diskIds = Lens.lens (\AddCache' {diskIds} -> diskIds) (\s@AddCache' {} a -> s {diskIds = a} :: AddCache) Prelude.. Prelude._Coerce
+addCache_diskIds :: Lens.Lens' AddCache [Core.Text]
+addCache_diskIds = Lens.lens (\AddCache' {diskIds} -> diskIds) (\s@AddCache' {} a -> s {diskIds = a} :: AddCache) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddCache where
-  type Rs AddCache = AddCacheResponse
+instance Core.AWSRequest AddCache where
+  type AWSResponse AddCache = AddCacheResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AddCacheResponse'
-            Prelude.<$> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AddCache
+instance Core.Hashable AddCache
 
-instance Prelude.NFData AddCache
+instance Core.NFData AddCache
 
-instance Prelude.ToHeaders AddCache where
+instance Core.ToHeaders AddCache where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.AddCache" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.AddCache" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AddCache where
+instance Core.ToJSON AddCache where
   toJSON AddCache' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Prelude..= gatewayARN),
-            Prelude.Just ("DiskIds" Prelude..= diskIds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("DiskIds" Core..= diskIds)
           ]
       )
 
-instance Prelude.ToPath AddCache where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddCache where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddCache where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AddCache where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAddCacheResponse' smart constructor.
 data AddCacheResponse = AddCacheResponse'
-  { gatewayARN :: Prelude.Maybe Prelude.Text,
+  { gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddCacheResponse' with all optional fields omitted.
@@ -163,20 +160,20 @@ data AddCacheResponse = AddCacheResponse'
 -- 'httpStatus', 'addCacheResponse_httpStatus' - The response's http status code.
 newAddCacheResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AddCacheResponse
 newAddCacheResponse pHttpStatus_ =
   AddCacheResponse'
-    { gatewayARN = Prelude.Nothing,
+    { gatewayARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-addCacheResponse_gatewayARN :: Lens.Lens' AddCacheResponse (Prelude.Maybe Prelude.Text)
+addCacheResponse_gatewayARN :: Lens.Lens' AddCacheResponse (Core.Maybe Core.Text)
 addCacheResponse_gatewayARN = Lens.lens (\AddCacheResponse' {gatewayARN} -> gatewayARN) (\s@AddCacheResponse' {} a -> s {gatewayARN = a} :: AddCacheResponse)
 
 -- | The response's http status code.
-addCacheResponse_httpStatus :: Lens.Lens' AddCacheResponse Prelude.Int
+addCacheResponse_httpStatus :: Lens.Lens' AddCacheResponse Core.Int
 addCacheResponse_httpStatus = Lens.lens (\AddCacheResponse' {httpStatus} -> httpStatus) (\s@AddCacheResponse' {} a -> s {httpStatus = a} :: AddCacheResponse)
 
-instance Prelude.NFData AddCacheResponse
+instance Core.NFData AddCacheResponse

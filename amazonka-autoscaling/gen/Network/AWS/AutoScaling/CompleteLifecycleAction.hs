@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -70,29 +69,29 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCompleteLifecycleAction' smart constructor.
 data CompleteLifecycleAction = CompleteLifecycleAction'
   { -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | A universally unique identifier (UUID) that identifies a specific
     -- lifecycle action associated with an instance. Amazon EC2 Auto Scaling
     -- sends this token to the notification target you specified when you
     -- created the lifecycle hook.
-    lifecycleActionToken :: Prelude.Maybe Prelude.Text,
+    lifecycleActionToken :: Core.Maybe Core.Text,
     -- | The name of the lifecycle hook.
-    lifecycleHookName :: Prelude.Text,
+    lifecycleHookName :: Core.Text,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text,
+    autoScalingGroupName :: Core.Text,
     -- | The action for the group to take. This parameter can be either
     -- @CONTINUE@ or @ABANDON@.
-    lifecycleActionResult :: Prelude.Text
+    lifecycleActionResult :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CompleteLifecycleAction' with all optional fields omitted.
@@ -117,52 +116,51 @@ data CompleteLifecycleAction = CompleteLifecycleAction'
 -- @CONTINUE@ or @ABANDON@.
 newCompleteLifecycleAction ::
   -- | 'lifecycleHookName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lifecycleActionResult'
-  Prelude.Text ->
+  Core.Text ->
   CompleteLifecycleAction
 newCompleteLifecycleAction
   pLifecycleHookName_
   pAutoScalingGroupName_
   pLifecycleActionResult_ =
     CompleteLifecycleAction'
-      { instanceId =
-          Prelude.Nothing,
-        lifecycleActionToken = Prelude.Nothing,
+      { instanceId = Core.Nothing,
+        lifecycleActionToken = Core.Nothing,
         lifecycleHookName = pLifecycleHookName_,
         autoScalingGroupName = pAutoScalingGroupName_,
         lifecycleActionResult = pLifecycleActionResult_
       }
 
 -- | The ID of the instance.
-completeLifecycleAction_instanceId :: Lens.Lens' CompleteLifecycleAction (Prelude.Maybe Prelude.Text)
+completeLifecycleAction_instanceId :: Lens.Lens' CompleteLifecycleAction (Core.Maybe Core.Text)
 completeLifecycleAction_instanceId = Lens.lens (\CompleteLifecycleAction' {instanceId} -> instanceId) (\s@CompleteLifecycleAction' {} a -> s {instanceId = a} :: CompleteLifecycleAction)
 
 -- | A universally unique identifier (UUID) that identifies a specific
 -- lifecycle action associated with an instance. Amazon EC2 Auto Scaling
 -- sends this token to the notification target you specified when you
 -- created the lifecycle hook.
-completeLifecycleAction_lifecycleActionToken :: Lens.Lens' CompleteLifecycleAction (Prelude.Maybe Prelude.Text)
+completeLifecycleAction_lifecycleActionToken :: Lens.Lens' CompleteLifecycleAction (Core.Maybe Core.Text)
 completeLifecycleAction_lifecycleActionToken = Lens.lens (\CompleteLifecycleAction' {lifecycleActionToken} -> lifecycleActionToken) (\s@CompleteLifecycleAction' {} a -> s {lifecycleActionToken = a} :: CompleteLifecycleAction)
 
 -- | The name of the lifecycle hook.
-completeLifecycleAction_lifecycleHookName :: Lens.Lens' CompleteLifecycleAction Prelude.Text
+completeLifecycleAction_lifecycleHookName :: Lens.Lens' CompleteLifecycleAction Core.Text
 completeLifecycleAction_lifecycleHookName = Lens.lens (\CompleteLifecycleAction' {lifecycleHookName} -> lifecycleHookName) (\s@CompleteLifecycleAction' {} a -> s {lifecycleHookName = a} :: CompleteLifecycleAction)
 
 -- | The name of the Auto Scaling group.
-completeLifecycleAction_autoScalingGroupName :: Lens.Lens' CompleteLifecycleAction Prelude.Text
+completeLifecycleAction_autoScalingGroupName :: Lens.Lens' CompleteLifecycleAction Core.Text
 completeLifecycleAction_autoScalingGroupName = Lens.lens (\CompleteLifecycleAction' {autoScalingGroupName} -> autoScalingGroupName) (\s@CompleteLifecycleAction' {} a -> s {autoScalingGroupName = a} :: CompleteLifecycleAction)
 
 -- | The action for the group to take. This parameter can be either
 -- @CONTINUE@ or @ABANDON@.
-completeLifecycleAction_lifecycleActionResult :: Lens.Lens' CompleteLifecycleAction Prelude.Text
+completeLifecycleAction_lifecycleActionResult :: Lens.Lens' CompleteLifecycleAction Core.Text
 completeLifecycleAction_lifecycleActionResult = Lens.lens (\CompleteLifecycleAction' {lifecycleActionResult} -> lifecycleActionResult) (\s@CompleteLifecycleAction' {} a -> s {lifecycleActionResult = a} :: CompleteLifecycleAction)
 
-instance Prelude.AWSRequest CompleteLifecycleAction where
+instance Core.AWSRequest CompleteLifecycleAction where
   type
-    Rs CompleteLifecycleAction =
+    AWSResponse CompleteLifecycleAction =
       CompleteLifecycleActionResponse
   request = Request.postQuery defaultService
   response =
@@ -170,42 +168,39 @@ instance Prelude.AWSRequest CompleteLifecycleAction where
       "CompleteLifecycleActionResult"
       ( \s h x ->
           CompleteLifecycleActionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CompleteLifecycleAction
+instance Core.Hashable CompleteLifecycleAction
 
-instance Prelude.NFData CompleteLifecycleAction
+instance Core.NFData CompleteLifecycleAction
 
-instance Prelude.ToHeaders CompleteLifecycleAction where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CompleteLifecycleAction where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CompleteLifecycleAction where
-  toPath = Prelude.const "/"
+instance Core.ToPath CompleteLifecycleAction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CompleteLifecycleAction where
+instance Core.ToQuery CompleteLifecycleAction where
   toQuery CompleteLifecycleAction' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CompleteLifecycleAction" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "InstanceId" Prelude.=: instanceId,
-        "LifecycleActionToken"
-          Prelude.=: lifecycleActionToken,
-        "LifecycleHookName" Prelude.=: lifecycleHookName,
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName,
+          Core.=: ("CompleteLifecycleAction" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "InstanceId" Core.=: instanceId,
+        "LifecycleActionToken" Core.=: lifecycleActionToken,
+        "LifecycleHookName" Core.=: lifecycleHookName,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
         "LifecycleActionResult"
-          Prelude.=: lifecycleActionResult
+          Core.=: lifecycleActionResult
       ]
 
 -- | /See:/ 'newCompleteLifecycleActionResponse' smart constructor.
 data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CompleteLifecycleActionResponse' with all optional fields omitted.
@@ -218,7 +213,7 @@ data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
 -- 'httpStatus', 'completeLifecycleActionResponse_httpStatus' - The response's http status code.
 newCompleteLifecycleActionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CompleteLifecycleActionResponse
 newCompleteLifecycleActionResponse pHttpStatus_ =
   CompleteLifecycleActionResponse'
@@ -227,9 +222,7 @@ newCompleteLifecycleActionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-completeLifecycleActionResponse_httpStatus :: Lens.Lens' CompleteLifecycleActionResponse Prelude.Int
+completeLifecycleActionResponse_httpStatus :: Lens.Lens' CompleteLifecycleActionResponse Core.Int
 completeLifecycleActionResponse_httpStatus = Lens.lens (\CompleteLifecycleActionResponse' {httpStatus} -> httpStatus) (\s@CompleteLifecycleActionResponse' {} a -> s {httpStatus = a} :: CompleteLifecycleActionResponse)
 
-instance
-  Prelude.NFData
-    CompleteLifecycleActionResponse
+instance Core.NFData CompleteLifecycleActionResponse

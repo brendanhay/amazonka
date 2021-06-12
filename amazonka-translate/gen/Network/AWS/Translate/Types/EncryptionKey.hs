@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Translate.Types.EncryptionKey where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Translate.Types.EncryptionKeyType
 
 -- | The encryption key used to encrypt this object.
@@ -33,9 +32,9 @@ data EncryptionKey = EncryptionKey'
     type' :: EncryptionKeyType,
     -- | The Amazon Resource Name (ARN) of the encryption key being used to
     -- encrypt the custom terminology.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionKey' with all optional fields omitted.
@@ -54,7 +53,7 @@ newEncryptionKey ::
   -- | 'type''
   EncryptionKeyType ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   EncryptionKey
 newEncryptionKey pType_ pId_ =
   EncryptionKey' {type' = pType_, id = pId_}
@@ -66,28 +65,27 @@ encryptionKey_type = Lens.lens (\EncryptionKey' {type'} -> type') (\s@Encryption
 
 -- | The Amazon Resource Name (ARN) of the encryption key being used to
 -- encrypt the custom terminology.
-encryptionKey_id :: Lens.Lens' EncryptionKey Prelude.Text
+encryptionKey_id :: Lens.Lens' EncryptionKey Core.Text
 encryptionKey_id = Lens.lens (\EncryptionKey' {id} -> id) (\s@EncryptionKey' {} a -> s {id = a} :: EncryptionKey)
 
-instance Prelude.FromJSON EncryptionKey where
+instance Core.FromJSON EncryptionKey where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EncryptionKey"
       ( \x ->
           EncryptionKey'
-            Prelude.<$> (x Prelude..: "Type")
-            Prelude.<*> (x Prelude..: "Id")
+            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable EncryptionKey
+instance Core.Hashable EncryptionKey
 
-instance Prelude.NFData EncryptionKey
+instance Core.NFData EncryptionKey
 
-instance Prelude.ToJSON EncryptionKey where
+instance Core.ToJSON EncryptionKey where
   toJSON EncryptionKey' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Prelude..= type'),
-            Prelude.Just ("Id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            Core.Just ("Id" Core..= id)
           ]
       )

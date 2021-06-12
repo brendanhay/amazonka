@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -94,8 +93,8 @@ module Network.AWS.S3.PutBucketNotificationConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -105,12 +104,12 @@ data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the bucket.
     bucket :: BucketName,
     notificationConfiguration :: NotificationConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketNotificationConfiguration' with all optional fields omitted.
@@ -138,7 +137,7 @@ newPutBucketNotificationConfiguration
   pNotificationConfiguration_ =
     PutBucketNotificationConfiguration'
       { expectedBucketOwner =
-          Prelude.Nothing,
+          Core.Nothing,
         bucket = pBucket_,
         notificationConfiguration =
           pNotificationConfiguration_
@@ -147,7 +146,7 @@ newPutBucketNotificationConfiguration
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketNotificationConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketNotificationConfiguration (Prelude.Maybe Prelude.Text)
+putBucketNotificationConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketNotificationConfiguration (Core.Maybe Core.Text)
 putBucketNotificationConfiguration_expectedBucketOwner = Lens.lens (\PutBucketNotificationConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketNotificationConfiguration' {} a -> s {expectedBucketOwner = a} :: PutBucketNotificationConfiguration)
 
 -- | The name of the bucket.
@@ -159,11 +158,11 @@ putBucketNotificationConfiguration_notificationConfiguration :: Lens.Lens' PutBu
 putBucketNotificationConfiguration_notificationConfiguration = Lens.lens (\PutBucketNotificationConfiguration' {notificationConfiguration} -> notificationConfiguration) (\s@PutBucketNotificationConfiguration' {} a -> s {notificationConfiguration = a} :: PutBucketNotificationConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PutBucketNotificationConfiguration
   where
   type
-    Rs PutBucketNotificationConfiguration =
+    AWSResponse PutBucketNotificationConfiguration =
       PutBucketNotificationConfigurationResponse
   request = Request.putXML defaultService
   response =
@@ -171,51 +170,50 @@ instance
       PutBucketNotificationConfigurationResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PutBucketNotificationConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutBucketNotificationConfiguration
 
 instance
-  Prelude.ToElement
+  Core.ToElement
     PutBucketNotificationConfiguration
   where
   toElement PutBucketNotificationConfiguration' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}NotificationConfiguration"
       notificationConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     PutBucketNotificationConfiguration
   where
   toHeaders PutBucketNotificationConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     PutBucketNotificationConfiguration
   where
   toPath PutBucketNotificationConfiguration' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     PutBucketNotificationConfiguration
   where
-  toQuery =
-    Prelude.const (Prelude.mconcat ["notification"])
+  toQuery = Core.const (Core.mconcat ["notification"])
 
 -- | /See:/ 'newPutBucketNotificationConfigurationResponse' smart constructor.
 data PutBucketNotificationConfigurationResponse = PutBucketNotificationConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketNotificationConfigurationResponse' with all optional fields omitted.
@@ -227,5 +225,5 @@ newPutBucketNotificationConfigurationResponse =
   PutBucketNotificationConfigurationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutBucketNotificationConfigurationResponse

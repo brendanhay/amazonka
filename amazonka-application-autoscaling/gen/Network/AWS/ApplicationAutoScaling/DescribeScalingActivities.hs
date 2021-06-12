@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,8 @@ module Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
 where
 
 import Network.AWS.ApplicationAutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -119,9 +117,9 @@ data DescribeScalingActivities = DescribeScalingActivities'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of scalable targets. This value can be between 1 and
     -- 50. The default value is 50.
     --
@@ -130,7 +128,7 @@ data DescribeScalingActivities = DescribeScalingActivities'
     -- of results, include the @NextToken@ value in a subsequent call. If this
     -- parameter is not used, the operation returns up to 50 results and a
     -- @NextToken@ value, if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property. If you specify a scalable
     -- dimension, you must also specify a resource ID.
@@ -188,13 +186,13 @@ data DescribeScalingActivities = DescribeScalingActivities'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
-    scalableDimension :: Prelude.Maybe ScalableDimension,
+    scalableDimension :: Core.Maybe ScalableDimension,
     -- | The namespace of the AWS service that provides the resource. For a
     -- resource provided by your own application or service, use
     -- @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingActivities' with all optional fields omitted.
@@ -344,10 +342,10 @@ newDescribeScalingActivities ::
 newDescribeScalingActivities pServiceNamespace_ =
   DescribeScalingActivities'
     { resourceId =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      scalableDimension = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      scalableDimension = Core.Nothing,
       serviceNamespace = pServiceNamespace_
     }
 
@@ -411,11 +409,11 @@ newDescribeScalingActivities pServiceNamespace_ =
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-describeScalingActivities_resourceId :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Text)
+describeScalingActivities_resourceId :: Lens.Lens' DescribeScalingActivities (Core.Maybe Core.Text)
 describeScalingActivities_resourceId = Lens.lens (\DescribeScalingActivities' {resourceId} -> resourceId) (\s@DescribeScalingActivities' {} a -> s {resourceId = a} :: DescribeScalingActivities)
 
 -- | The token for the next set of results.
-describeScalingActivities_nextToken :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Text)
+describeScalingActivities_nextToken :: Lens.Lens' DescribeScalingActivities (Core.Maybe Core.Text)
 describeScalingActivities_nextToken = Lens.lens (\DescribeScalingActivities' {nextToken} -> nextToken) (\s@DescribeScalingActivities' {} a -> s {nextToken = a} :: DescribeScalingActivities)
 
 -- | The maximum number of scalable targets. This value can be between 1 and
@@ -426,7 +424,7 @@ describeScalingActivities_nextToken = Lens.lens (\DescribeScalingActivities' {ne
 -- of results, include the @NextToken@ value in a subsequent call. If this
 -- parameter is not used, the operation returns up to 50 results and a
 -- @NextToken@ value, if applicable.
-describeScalingActivities_maxResults :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Int)
+describeScalingActivities_maxResults :: Lens.Lens' DescribeScalingActivities (Core.Maybe Core.Int)
 describeScalingActivities_maxResults = Lens.lens (\DescribeScalingActivities' {maxResults} -> maxResults) (\s@DescribeScalingActivities' {} a -> s {maxResults = a} :: DescribeScalingActivities)
 
 -- | The scalable dimension. This string consists of the service namespace,
@@ -486,7 +484,7 @@ describeScalingActivities_maxResults = Lens.lens (\DescribeScalingActivities' {m
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
-describeScalingActivities_scalableDimension :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe ScalableDimension)
+describeScalingActivities_scalableDimension :: Lens.Lens' DescribeScalingActivities (Core.Maybe ScalableDimension)
 describeScalingActivities_scalableDimension = Lens.lens (\DescribeScalingActivities' {scalableDimension} -> scalableDimension) (\s@DescribeScalingActivities' {} a -> s {scalableDimension = a} :: DescribeScalingActivities)
 
 -- | The namespace of the AWS service that provides the resource. For a
@@ -495,94 +493,90 @@ describeScalingActivities_scalableDimension = Lens.lens (\DescribeScalingActivit
 describeScalingActivities_serviceNamespace :: Lens.Lens' DescribeScalingActivities ServiceNamespace
 describeScalingActivities_serviceNamespace = Lens.lens (\DescribeScalingActivities' {serviceNamespace} -> serviceNamespace) (\s@DescribeScalingActivities' {} a -> s {serviceNamespace = a} :: DescribeScalingActivities)
 
-instance Pager.AWSPager DescribeScalingActivities where
+instance Core.AWSPager DescribeScalingActivities where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeScalingActivitiesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeScalingActivitiesResponse_scalingActivities
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeScalingActivities_nextToken
           Lens..~ rs
           Lens.^? describeScalingActivitiesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeScalingActivities where
+instance Core.AWSRequest DescribeScalingActivities where
   type
-    Rs DescribeScalingActivities =
+    AWSResponse DescribeScalingActivities =
       DescribeScalingActivitiesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeScalingActivitiesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ScalingActivities"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "ScalingActivities" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScalingActivities
+instance Core.Hashable DescribeScalingActivities
 
-instance Prelude.NFData DescribeScalingActivities
+instance Core.NFData DescribeScalingActivities
 
-instance Prelude.ToHeaders DescribeScalingActivities where
+instance Core.ToHeaders DescribeScalingActivities where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AnyScaleFrontendService.DescribeScalingActivities" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AnyScaleFrontendService.DescribeScalingActivities" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeScalingActivities where
+instance Core.ToJSON DescribeScalingActivities where
   toJSON DescribeScalingActivities' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResourceId" Prelude..=) Prelude.<$> resourceId,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("ScalableDimension" Prelude..=)
-              Prelude.<$> scalableDimension,
-            Prelude.Just
-              ("ServiceNamespace" Prelude..= serviceNamespace)
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceId" Core..=) Core.<$> resourceId,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("ScalableDimension" Core..=)
+              Core.<$> scalableDimension,
+            Core.Just
+              ("ServiceNamespace" Core..= serviceNamespace)
           ]
       )
 
-instance Prelude.ToPath DescribeScalingActivities where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeScalingActivities where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeScalingActivities where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeScalingActivities where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeScalingActivitiesResponse' smart constructor.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
   { -- | The token required to get the next set of results. This value is @null@
     -- if there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of scaling activity objects.
-    scalingActivities :: Prelude.Maybe [ScalingActivity],
+    scalingActivities :: Core.Maybe [ScalingActivity],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingActivitiesResponse' with all optional fields omitted.
@@ -600,29 +594,29 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
 -- 'httpStatus', 'describeScalingActivitiesResponse_httpStatus' - The response's http status code.
 newDescribeScalingActivitiesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeScalingActivitiesResponse
 newDescribeScalingActivitiesResponse pHttpStatus_ =
   DescribeScalingActivitiesResponse'
     { nextToken =
-        Prelude.Nothing,
-      scalingActivities = Prelude.Nothing,
+        Core.Nothing,
+      scalingActivities = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token required to get the next set of results. This value is @null@
 -- if there are no more results to return.
-describeScalingActivitiesResponse_nextToken :: Lens.Lens' DescribeScalingActivitiesResponse (Prelude.Maybe Prelude.Text)
+describeScalingActivitiesResponse_nextToken :: Lens.Lens' DescribeScalingActivitiesResponse (Core.Maybe Core.Text)
 describeScalingActivitiesResponse_nextToken = Lens.lens (\DescribeScalingActivitiesResponse' {nextToken} -> nextToken) (\s@DescribeScalingActivitiesResponse' {} a -> s {nextToken = a} :: DescribeScalingActivitiesResponse)
 
 -- | A list of scaling activity objects.
-describeScalingActivitiesResponse_scalingActivities :: Lens.Lens' DescribeScalingActivitiesResponse (Prelude.Maybe [ScalingActivity])
-describeScalingActivitiesResponse_scalingActivities = Lens.lens (\DescribeScalingActivitiesResponse' {scalingActivities} -> scalingActivities) (\s@DescribeScalingActivitiesResponse' {} a -> s {scalingActivities = a} :: DescribeScalingActivitiesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeScalingActivitiesResponse_scalingActivities :: Lens.Lens' DescribeScalingActivitiesResponse (Core.Maybe [ScalingActivity])
+describeScalingActivitiesResponse_scalingActivities = Lens.lens (\DescribeScalingActivitiesResponse' {scalingActivities} -> scalingActivities) (\s@DescribeScalingActivitiesResponse' {} a -> s {scalingActivities = a} :: DescribeScalingActivitiesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeScalingActivitiesResponse_httpStatus :: Lens.Lens' DescribeScalingActivitiesResponse Prelude.Int
+describeScalingActivitiesResponse_httpStatus :: Lens.Lens' DescribeScalingActivitiesResponse Core.Int
 describeScalingActivitiesResponse_httpStatus = Lens.lens (\DescribeScalingActivitiesResponse' {httpStatus} -> httpStatus) (\s@DescribeScalingActivitiesResponse' {} a -> s {httpStatus = a} :: DescribeScalingActivitiesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeScalingActivitiesResponse

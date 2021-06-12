@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodePipeline.Types.ActionTypeId where
 
 import Network.AWS.CodePipeline.Types.ActionCategory
 import Network.AWS.CodePipeline.Types.ActionOwner
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about an action type.
 --
@@ -55,11 +54,11 @@ data ActionTypeId = ActionTypeId'
     -- Deploy category type might have a provider of AWS CodeDeploy, which
     -- would be specified as CodeDeploy. For more information, see
     -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline>.
-    provider :: Prelude.Text,
+    provider :: Core.Text,
     -- | A string that describes the action version.
-    version :: Prelude.Text
+    version :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionTypeId' with all optional fields omitted.
@@ -103,9 +102,9 @@ newActionTypeId ::
   -- | 'owner'
   ActionOwner ->
   -- | 'provider'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   ActionTypeId
 newActionTypeId
   pCategory_
@@ -149,36 +148,36 @@ actionTypeId_owner = Lens.lens (\ActionTypeId' {owner} -> owner) (\s@ActionTypeI
 -- Deploy category type might have a provider of AWS CodeDeploy, which
 -- would be specified as CodeDeploy. For more information, see
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline>.
-actionTypeId_provider :: Lens.Lens' ActionTypeId Prelude.Text
+actionTypeId_provider :: Lens.Lens' ActionTypeId Core.Text
 actionTypeId_provider = Lens.lens (\ActionTypeId' {provider} -> provider) (\s@ActionTypeId' {} a -> s {provider = a} :: ActionTypeId)
 
 -- | A string that describes the action version.
-actionTypeId_version :: Lens.Lens' ActionTypeId Prelude.Text
+actionTypeId_version :: Lens.Lens' ActionTypeId Core.Text
 actionTypeId_version = Lens.lens (\ActionTypeId' {version} -> version) (\s@ActionTypeId' {} a -> s {version = a} :: ActionTypeId)
 
-instance Prelude.FromJSON ActionTypeId where
+instance Core.FromJSON ActionTypeId where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionTypeId"
       ( \x ->
           ActionTypeId'
-            Prelude.<$> (x Prelude..: "category")
-            Prelude.<*> (x Prelude..: "owner")
-            Prelude.<*> (x Prelude..: "provider")
-            Prelude.<*> (x Prelude..: "version")
+            Core.<$> (x Core..: "category")
+            Core.<*> (x Core..: "owner")
+            Core.<*> (x Core..: "provider")
+            Core.<*> (x Core..: "version")
       )
 
-instance Prelude.Hashable ActionTypeId
+instance Core.Hashable ActionTypeId
 
-instance Prelude.NFData ActionTypeId
+instance Core.NFData ActionTypeId
 
-instance Prelude.ToJSON ActionTypeId where
+instance Core.ToJSON ActionTypeId where
   toJSON ActionTypeId' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("category" Prelude..= category),
-            Prelude.Just ("owner" Prelude..= owner),
-            Prelude.Just ("provider" Prelude..= provider),
-            Prelude.Just ("version" Prelude..= version)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("category" Core..= category),
+            Core.Just ("owner" Core..= owner),
+            Core.Just ("provider" Core..= provider),
+            Core.Just ("version" Core..= version)
           ]
       )

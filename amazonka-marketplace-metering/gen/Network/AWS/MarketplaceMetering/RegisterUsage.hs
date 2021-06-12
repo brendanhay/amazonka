@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -78,9 +77,9 @@ module Network.AWS.MarketplaceMetering.RegisterUsage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceMetering.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -88,15 +87,15 @@ import qualified Network.AWS.Response as Response
 data RegisterUsage = RegisterUsage'
   { -- | (Optional) To scope down the registration to a specific running software
     -- instance and guard against replay attacks.
-    nonce :: Prelude.Maybe Prelude.Text,
+    nonce :: Core.Maybe Core.Text,
     -- | Product code is used to uniquely identify a product in AWS Marketplace.
     -- The product code should be the same as the one used during the
     -- publishing of a new product.
-    productCode :: Prelude.Text,
+    productCode :: Core.Text,
     -- | Public Key Version provided by AWS Marketplace
-    publicKeyVersion :: Prelude.Natural
+    publicKeyVersion :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterUsage' with all optional fields omitted.
@@ -116,90 +115,90 @@ data RegisterUsage = RegisterUsage'
 -- 'publicKeyVersion', 'registerUsage_publicKeyVersion' - Public Key Version provided by AWS Marketplace
 newRegisterUsage ::
   -- | 'productCode'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'publicKeyVersion'
-  Prelude.Natural ->
+  Core.Natural ->
   RegisterUsage
 newRegisterUsage pProductCode_ pPublicKeyVersion_ =
   RegisterUsage'
-    { nonce = Prelude.Nothing,
+    { nonce = Core.Nothing,
       productCode = pProductCode_,
       publicKeyVersion = pPublicKeyVersion_
     }
 
 -- | (Optional) To scope down the registration to a specific running software
 -- instance and guard against replay attacks.
-registerUsage_nonce :: Lens.Lens' RegisterUsage (Prelude.Maybe Prelude.Text)
+registerUsage_nonce :: Lens.Lens' RegisterUsage (Core.Maybe Core.Text)
 registerUsage_nonce = Lens.lens (\RegisterUsage' {nonce} -> nonce) (\s@RegisterUsage' {} a -> s {nonce = a} :: RegisterUsage)
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace.
 -- The product code should be the same as the one used during the
 -- publishing of a new product.
-registerUsage_productCode :: Lens.Lens' RegisterUsage Prelude.Text
+registerUsage_productCode :: Lens.Lens' RegisterUsage Core.Text
 registerUsage_productCode = Lens.lens (\RegisterUsage' {productCode} -> productCode) (\s@RegisterUsage' {} a -> s {productCode = a} :: RegisterUsage)
 
 -- | Public Key Version provided by AWS Marketplace
-registerUsage_publicKeyVersion :: Lens.Lens' RegisterUsage Prelude.Natural
+registerUsage_publicKeyVersion :: Lens.Lens' RegisterUsage Core.Natural
 registerUsage_publicKeyVersion = Lens.lens (\RegisterUsage' {publicKeyVersion} -> publicKeyVersion) (\s@RegisterUsage' {} a -> s {publicKeyVersion = a} :: RegisterUsage)
 
-instance Prelude.AWSRequest RegisterUsage where
-  type Rs RegisterUsage = RegisterUsageResponse
+instance Core.AWSRequest RegisterUsage where
+  type
+    AWSResponse RegisterUsage =
+      RegisterUsageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RegisterUsageResponse'
-            Prelude.<$> (x Prelude..?> "Signature")
-            Prelude.<*> (x Prelude..?> "PublicKeyRotationTimestamp")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Signature")
+            Core.<*> (x Core..?> "PublicKeyRotationTimestamp")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterUsage
+instance Core.Hashable RegisterUsage
 
-instance Prelude.NFData RegisterUsage
+instance Core.NFData RegisterUsage
 
-instance Prelude.ToHeaders RegisterUsage where
+instance Core.ToHeaders RegisterUsage where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSMPMeteringService.RegisterUsage" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSMPMeteringService.RegisterUsage" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterUsage where
+instance Core.ToJSON RegisterUsage where
   toJSON RegisterUsage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Nonce" Prelude..=) Prelude.<$> nonce,
-            Prelude.Just ("ProductCode" Prelude..= productCode),
-            Prelude.Just
-              ("PublicKeyVersion" Prelude..= publicKeyVersion)
+    Core.object
+      ( Core.catMaybes
+          [ ("Nonce" Core..=) Core.<$> nonce,
+            Core.Just ("ProductCode" Core..= productCode),
+            Core.Just
+              ("PublicKeyVersion" Core..= publicKeyVersion)
           ]
       )
 
-instance Prelude.ToPath RegisterUsage where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterUsage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterUsage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterUsage where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterUsageResponse' smart constructor.
 data RegisterUsageResponse = RegisterUsageResponse'
   { -- | JWT Token
-    signature :: Prelude.Maybe Prelude.Text,
+    signature :: Core.Maybe Core.Text,
     -- | (Optional) Only included when public key version has expired
-    publicKeyRotationTimestamp :: Prelude.Maybe Prelude.POSIX,
+    publicKeyRotationTimestamp :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterUsageResponse' with all optional fields omitted.
@@ -216,25 +215,25 @@ data RegisterUsageResponse = RegisterUsageResponse'
 -- 'httpStatus', 'registerUsageResponse_httpStatus' - The response's http status code.
 newRegisterUsageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterUsageResponse
 newRegisterUsageResponse pHttpStatus_ =
   RegisterUsageResponse'
-    { signature = Prelude.Nothing,
-      publicKeyRotationTimestamp = Prelude.Nothing,
+    { signature = Core.Nothing,
+      publicKeyRotationTimestamp = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | JWT Token
-registerUsageResponse_signature :: Lens.Lens' RegisterUsageResponse (Prelude.Maybe Prelude.Text)
+registerUsageResponse_signature :: Lens.Lens' RegisterUsageResponse (Core.Maybe Core.Text)
 registerUsageResponse_signature = Lens.lens (\RegisterUsageResponse' {signature} -> signature) (\s@RegisterUsageResponse' {} a -> s {signature = a} :: RegisterUsageResponse)
 
 -- | (Optional) Only included when public key version has expired
-registerUsageResponse_publicKeyRotationTimestamp :: Lens.Lens' RegisterUsageResponse (Prelude.Maybe Prelude.UTCTime)
-registerUsageResponse_publicKeyRotationTimestamp = Lens.lens (\RegisterUsageResponse' {publicKeyRotationTimestamp} -> publicKeyRotationTimestamp) (\s@RegisterUsageResponse' {} a -> s {publicKeyRotationTimestamp = a} :: RegisterUsageResponse) Prelude.. Lens.mapping Prelude._Time
+registerUsageResponse_publicKeyRotationTimestamp :: Lens.Lens' RegisterUsageResponse (Core.Maybe Core.UTCTime)
+registerUsageResponse_publicKeyRotationTimestamp = Lens.lens (\RegisterUsageResponse' {publicKeyRotationTimestamp} -> publicKeyRotationTimestamp) (\s@RegisterUsageResponse' {} a -> s {publicKeyRotationTimestamp = a} :: RegisterUsageResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-registerUsageResponse_httpStatus :: Lens.Lens' RegisterUsageResponse Prelude.Int
+registerUsageResponse_httpStatus :: Lens.Lens' RegisterUsageResponse Core.Int
 registerUsageResponse_httpStatus = Lens.lens (\RegisterUsageResponse' {httpStatus} -> httpStatus) (\s@RegisterUsageResponse' {} a -> s {httpStatus = a} :: RegisterUsageResponse)
 
-instance Prelude.NFData RegisterUsageResponse
+instance Core.NFData RegisterUsageResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.Transcribe.ListMedicalTranscriptionJobs
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -58,20 +57,20 @@ data ListMedicalTranscriptionJobs = ListMedicalTranscriptionJobs'
     -- specified status. Jobs are ordered by creation date, with the newest
     -- jobs returned first. If you don\'t specify a status, Amazon Transcribe
     -- Medical returns all transcription jobs ordered by creation date.
-    status :: Prelude.Maybe TranscriptionJobStatus,
+    status :: Core.Maybe TranscriptionJobStatus,
     -- | If you a receive a truncated result in the previous request of
     -- @ListMedicalTranscriptionJobs@, include @NextToken@ to fetch the next
     -- set of jobs.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of medical transcription jobs to return in the
     -- response. IF there are fewer results in the list, this response contains
     -- only the actual results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | When specified, the jobs returned in the list are limited to jobs whose
     -- name contains the specified string.
-    jobNameContains :: Prelude.Maybe Prelude.Text
+    jobNameContains :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMedicalTranscriptionJobs' with all optional fields omitted.
@@ -101,116 +100,106 @@ newListMedicalTranscriptionJobs ::
 newListMedicalTranscriptionJobs =
   ListMedicalTranscriptionJobs'
     { status =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      jobNameContains = Prelude.Nothing
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      jobNameContains = Core.Nothing
     }
 
 -- | When specified, returns only medical transcription jobs with the
 -- specified status. Jobs are ordered by creation date, with the newest
 -- jobs returned first. If you don\'t specify a status, Amazon Transcribe
 -- Medical returns all transcription jobs ordered by creation date.
-listMedicalTranscriptionJobs_status :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe TranscriptionJobStatus)
+listMedicalTranscriptionJobs_status :: Lens.Lens' ListMedicalTranscriptionJobs (Core.Maybe TranscriptionJobStatus)
 listMedicalTranscriptionJobs_status = Lens.lens (\ListMedicalTranscriptionJobs' {status} -> status) (\s@ListMedicalTranscriptionJobs' {} a -> s {status = a} :: ListMedicalTranscriptionJobs)
 
 -- | If you a receive a truncated result in the previous request of
 -- @ListMedicalTranscriptionJobs@, include @NextToken@ to fetch the next
 -- set of jobs.
-listMedicalTranscriptionJobs_nextToken :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Text)
+listMedicalTranscriptionJobs_nextToken :: Lens.Lens' ListMedicalTranscriptionJobs (Core.Maybe Core.Text)
 listMedicalTranscriptionJobs_nextToken = Lens.lens (\ListMedicalTranscriptionJobs' {nextToken} -> nextToken) (\s@ListMedicalTranscriptionJobs' {} a -> s {nextToken = a} :: ListMedicalTranscriptionJobs)
 
 -- | The maximum number of medical transcription jobs to return in the
 -- response. IF there are fewer results in the list, this response contains
 -- only the actual results.
-listMedicalTranscriptionJobs_maxResults :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Natural)
+listMedicalTranscriptionJobs_maxResults :: Lens.Lens' ListMedicalTranscriptionJobs (Core.Maybe Core.Natural)
 listMedicalTranscriptionJobs_maxResults = Lens.lens (\ListMedicalTranscriptionJobs' {maxResults} -> maxResults) (\s@ListMedicalTranscriptionJobs' {} a -> s {maxResults = a} :: ListMedicalTranscriptionJobs)
 
 -- | When specified, the jobs returned in the list are limited to jobs whose
 -- name contains the specified string.
-listMedicalTranscriptionJobs_jobNameContains :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Text)
+listMedicalTranscriptionJobs_jobNameContains :: Lens.Lens' ListMedicalTranscriptionJobs (Core.Maybe Core.Text)
 listMedicalTranscriptionJobs_jobNameContains = Lens.lens (\ListMedicalTranscriptionJobs' {jobNameContains} -> jobNameContains) (\s@ListMedicalTranscriptionJobs' {} a -> s {jobNameContains = a} :: ListMedicalTranscriptionJobs)
 
-instance
-  Prelude.AWSRequest
-    ListMedicalTranscriptionJobs
-  where
+instance Core.AWSRequest ListMedicalTranscriptionJobs where
   type
-    Rs ListMedicalTranscriptionJobs =
+    AWSResponse ListMedicalTranscriptionJobs =
       ListMedicalTranscriptionJobsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListMedicalTranscriptionJobsResponse'
-            Prelude.<$> (x Prelude..?> "Status")
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "MedicalTranscriptionJobSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Status")
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "MedicalTranscriptionJobSummaries"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ListMedicalTranscriptionJobs
+instance Core.Hashable ListMedicalTranscriptionJobs
 
-instance Prelude.NFData ListMedicalTranscriptionJobs
+instance Core.NFData ListMedicalTranscriptionJobs
 
-instance
-  Prelude.ToHeaders
-    ListMedicalTranscriptionJobs
-  where
+instance Core.ToHeaders ListMedicalTranscriptionJobs where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Transcribe.ListMedicalTranscriptionJobs" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Transcribe.ListMedicalTranscriptionJobs" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListMedicalTranscriptionJobs where
+instance Core.ToJSON ListMedicalTranscriptionJobs where
   toJSON ListMedicalTranscriptionJobs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Status" Prelude..=) Prelude.<$> status,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("JobNameContains" Prelude..=)
-              Prelude.<$> jobNameContains
+    Core.object
+      ( Core.catMaybes
+          [ ("Status" Core..=) Core.<$> status,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("JobNameContains" Core..=)
+              Core.<$> jobNameContains
           ]
       )
 
-instance Prelude.ToPath ListMedicalTranscriptionJobs where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListMedicalTranscriptionJobs where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListMedicalTranscriptionJobs where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListMedicalTranscriptionJobs where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListMedicalTranscriptionJobsResponse' smart constructor.
 data ListMedicalTranscriptionJobsResponse = ListMedicalTranscriptionJobsResponse'
   { -- | The requested status of the medical transcription jobs returned.
-    status :: Prelude.Maybe TranscriptionJobStatus,
+    status :: Core.Maybe TranscriptionJobStatus,
     -- | The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a
     -- time. The maximum size of the page is set by the @MaxResults@ parameter.
     -- If the number of jobs exceeds what can fit on a page, Amazon Transcribe
     -- Medical returns the @NextPage@ token. Include the token in the next
     -- request to the @ListMedicalTranscriptionJobs@ operation to return in the
     -- next page of jobs.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of objects containing summary information for a transcription
     -- job.
-    medicalTranscriptionJobSummaries :: Prelude.Maybe [MedicalTranscriptionJobSummary],
+    medicalTranscriptionJobSummaries :: Core.Maybe [MedicalTranscriptionJobSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMedicalTranscriptionJobsResponse' with all optional fields omitted.
@@ -235,20 +224,20 @@ data ListMedicalTranscriptionJobsResponse = ListMedicalTranscriptionJobsResponse
 -- 'httpStatus', 'listMedicalTranscriptionJobsResponse_httpStatus' - The response's http status code.
 newListMedicalTranscriptionJobsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListMedicalTranscriptionJobsResponse
 newListMedicalTranscriptionJobsResponse pHttpStatus_ =
   ListMedicalTranscriptionJobsResponse'
     { status =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       medicalTranscriptionJobSummaries =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested status of the medical transcription jobs returned.
-listMedicalTranscriptionJobsResponse_status :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Prelude.Maybe TranscriptionJobStatus)
+listMedicalTranscriptionJobsResponse_status :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Core.Maybe TranscriptionJobStatus)
 listMedicalTranscriptionJobsResponse_status = Lens.lens (\ListMedicalTranscriptionJobsResponse' {status} -> status) (\s@ListMedicalTranscriptionJobsResponse' {} a -> s {status = a} :: ListMedicalTranscriptionJobsResponse)
 
 -- | The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a
@@ -257,18 +246,18 @@ listMedicalTranscriptionJobsResponse_status = Lens.lens (\ListMedicalTranscripti
 -- Medical returns the @NextPage@ token. Include the token in the next
 -- request to the @ListMedicalTranscriptionJobs@ operation to return in the
 -- next page of jobs.
-listMedicalTranscriptionJobsResponse_nextToken :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Prelude.Maybe Prelude.Text)
+listMedicalTranscriptionJobsResponse_nextToken :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Core.Maybe Core.Text)
 listMedicalTranscriptionJobsResponse_nextToken = Lens.lens (\ListMedicalTranscriptionJobsResponse' {nextToken} -> nextToken) (\s@ListMedicalTranscriptionJobsResponse' {} a -> s {nextToken = a} :: ListMedicalTranscriptionJobsResponse)
 
 -- | A list of objects containing summary information for a transcription
 -- job.
-listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Prelude.Maybe [MedicalTranscriptionJobSummary])
-listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries = Lens.lens (\ListMedicalTranscriptionJobsResponse' {medicalTranscriptionJobSummaries} -> medicalTranscriptionJobSummaries) (\s@ListMedicalTranscriptionJobsResponse' {} a -> s {medicalTranscriptionJobSummaries = a} :: ListMedicalTranscriptionJobsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Core.Maybe [MedicalTranscriptionJobSummary])
+listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries = Lens.lens (\ListMedicalTranscriptionJobsResponse' {medicalTranscriptionJobSummaries} -> medicalTranscriptionJobSummaries) (\s@ListMedicalTranscriptionJobsResponse' {} a -> s {medicalTranscriptionJobSummaries = a} :: ListMedicalTranscriptionJobsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listMedicalTranscriptionJobsResponse_httpStatus :: Lens.Lens' ListMedicalTranscriptionJobsResponse Prelude.Int
+listMedicalTranscriptionJobsResponse_httpStatus :: Lens.Lens' ListMedicalTranscriptionJobsResponse Core.Int
 listMedicalTranscriptionJobsResponse_httpStatus = Lens.lens (\ListMedicalTranscriptionJobsResponse' {httpStatus} -> httpStatus) (\s@ListMedicalTranscriptionJobsResponse' {} a -> s {httpStatus = a} :: ListMedicalTranscriptionJobsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListMedicalTranscriptionJobsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.APIGateway.ImportApiKeys
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,16 +55,16 @@ import qualified Network.AWS.Response as Response
 data ImportApiKeys = ImportApiKeys'
   { -- | A query parameter to indicate whether to rollback ApiKey importation
     -- (@true@) or not (@false@) when error is encountered.
-    failOnWarnings :: Prelude.Maybe Prelude.Bool,
+    failOnWarnings :: Core.Maybe Core.Bool,
     -- | The payload of the POST request to import API keys. For the payload
     -- format, see
     -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format>.
-    body :: Prelude.ByteString,
+    body :: Core.ByteString,
     -- | A query parameter to specify the input format to imported API keys.
     -- Currently, only the @csv@ format is supported.
     format :: ApiKeysFormat
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportApiKeys' with all optional fields omitted.
@@ -86,26 +85,26 @@ data ImportApiKeys = ImportApiKeys'
 -- Currently, only the @csv@ format is supported.
 newImportApiKeys ::
   -- | 'body'
-  Prelude.ByteString ->
+  Core.ByteString ->
   -- | 'format'
   ApiKeysFormat ->
   ImportApiKeys
 newImportApiKeys pBody_ pFormat_ =
   ImportApiKeys'
-    { failOnWarnings = Prelude.Nothing,
+    { failOnWarnings = Core.Nothing,
       body = pBody_,
       format = pFormat_
     }
 
 -- | A query parameter to indicate whether to rollback ApiKey importation
 -- (@true@) or not (@false@) when error is encountered.
-importApiKeys_failOnWarnings :: Lens.Lens' ImportApiKeys (Prelude.Maybe Prelude.Bool)
+importApiKeys_failOnWarnings :: Lens.Lens' ImportApiKeys (Core.Maybe Core.Bool)
 importApiKeys_failOnWarnings = Lens.lens (\ImportApiKeys' {failOnWarnings} -> failOnWarnings) (\s@ImportApiKeys' {} a -> s {failOnWarnings = a} :: ImportApiKeys)
 
 -- | The payload of the POST request to import API keys. For the payload
 -- format, see
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format>.
-importApiKeys_body :: Lens.Lens' ImportApiKeys Prelude.ByteString
+importApiKeys_body :: Lens.Lens' ImportApiKeys Core.ByteString
 importApiKeys_body = Lens.lens (\ImportApiKeys' {body} -> body) (\s@ImportApiKeys' {} a -> s {body = a} :: ImportApiKeys)
 
 -- | A query parameter to specify the input format to imported API keys.
@@ -113,42 +112,44 @@ importApiKeys_body = Lens.lens (\ImportApiKeys' {body} -> body) (\s@ImportApiKey
 importApiKeys_format :: Lens.Lens' ImportApiKeys ApiKeysFormat
 importApiKeys_format = Lens.lens (\ImportApiKeys' {format} -> format) (\s@ImportApiKeys' {} a -> s {format = a} :: ImportApiKeys)
 
-instance Prelude.AWSRequest ImportApiKeys where
-  type Rs ImportApiKeys = ImportApiKeysResponse
+instance Core.AWSRequest ImportApiKeys where
+  type
+    AWSResponse ImportApiKeys =
+      ImportApiKeysResponse
   request = Request.postBody defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ImportApiKeysResponse'
-            Prelude.<$> (x Prelude..?> "warnings" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "ids" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "warnings" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "ids" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ImportApiKeys
+instance Core.Hashable ImportApiKeys
 
-instance Prelude.NFData ImportApiKeys
+instance Core.NFData ImportApiKeys
 
-instance Prelude.ToBody ImportApiKeys where
-  toBody ImportApiKeys' {..} = Prelude.toBody body
+instance Core.ToBody ImportApiKeys where
+  toBody ImportApiKeys' {..} = Core.toBody body
 
-instance Prelude.ToHeaders ImportApiKeys where
+instance Core.ToHeaders ImportApiKeys where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ImportApiKeys where
-  toPath = Prelude.const "/apikeys"
+instance Core.ToPath ImportApiKeys where
+  toPath = Core.const "/apikeys"
 
-instance Prelude.ToQuery ImportApiKeys where
+instance Core.ToQuery ImportApiKeys where
   toQuery ImportApiKeys' {..} =
-    Prelude.mconcat
-      [ "failonwarnings" Prelude.=: failOnWarnings,
-        "format" Prelude.=: format,
+    Core.mconcat
+      [ "failonwarnings" Core.=: failOnWarnings,
+        "format" Core.=: format,
         "mode=import"
       ]
 
@@ -157,13 +158,13 @@ instance Prelude.ToQuery ImportApiKeys where
 -- /See:/ 'newImportApiKeysResponse' smart constructor.
 data ImportApiKeysResponse = ImportApiKeysResponse'
   { -- | A list of warning messages.
-    warnings :: Prelude.Maybe [Prelude.Text],
+    warnings :: Core.Maybe [Core.Text],
     -- | A list of all the ApiKey identifiers.
-    ids :: Prelude.Maybe [Prelude.Text],
+    ids :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportApiKeysResponse' with all optional fields omitted.
@@ -180,25 +181,25 @@ data ImportApiKeysResponse = ImportApiKeysResponse'
 -- 'httpStatus', 'importApiKeysResponse_httpStatus' - The response's http status code.
 newImportApiKeysResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ImportApiKeysResponse
 newImportApiKeysResponse pHttpStatus_ =
   ImportApiKeysResponse'
-    { warnings = Prelude.Nothing,
-      ids = Prelude.Nothing,
+    { warnings = Core.Nothing,
+      ids = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of warning messages.
-importApiKeysResponse_warnings :: Lens.Lens' ImportApiKeysResponse (Prelude.Maybe [Prelude.Text])
-importApiKeysResponse_warnings = Lens.lens (\ImportApiKeysResponse' {warnings} -> warnings) (\s@ImportApiKeysResponse' {} a -> s {warnings = a} :: ImportApiKeysResponse) Prelude.. Lens.mapping Prelude._Coerce
+importApiKeysResponse_warnings :: Lens.Lens' ImportApiKeysResponse (Core.Maybe [Core.Text])
+importApiKeysResponse_warnings = Lens.lens (\ImportApiKeysResponse' {warnings} -> warnings) (\s@ImportApiKeysResponse' {} a -> s {warnings = a} :: ImportApiKeysResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of all the ApiKey identifiers.
-importApiKeysResponse_ids :: Lens.Lens' ImportApiKeysResponse (Prelude.Maybe [Prelude.Text])
-importApiKeysResponse_ids = Lens.lens (\ImportApiKeysResponse' {ids} -> ids) (\s@ImportApiKeysResponse' {} a -> s {ids = a} :: ImportApiKeysResponse) Prelude.. Lens.mapping Prelude._Coerce
+importApiKeysResponse_ids :: Lens.Lens' ImportApiKeysResponse (Core.Maybe [Core.Text])
+importApiKeysResponse_ids = Lens.lens (\ImportApiKeysResponse' {ids} -> ids) (\s@ImportApiKeysResponse' {} a -> s {ids = a} :: ImportApiKeysResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-importApiKeysResponse_httpStatus :: Lens.Lens' ImportApiKeysResponse Prelude.Int
+importApiKeysResponse_httpStatus :: Lens.Lens' ImportApiKeysResponse Core.Int
 importApiKeysResponse_httpStatus = Lens.lens (\ImportApiKeysResponse' {httpStatus} -> httpStatus) (\s@ImportApiKeysResponse' {} a -> s {httpStatus = a} :: ImportApiKeysResponse)
 
-instance Prelude.NFData ImportApiKeysResponse
+instance Core.NFData ImportApiKeysResponse

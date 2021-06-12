@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,10 +46,9 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,12 +57,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeCacheSecurityGroups' smart constructor.
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
   { -- | The name of the cache security group to return details for.
-    cacheSecurityGroupName :: Prelude.Maybe Prelude.Text,
+    cacheSecurityGroupName :: Core.Maybe Core.Text,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -72,9 +70,9 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCacheSecurityGroups' with all optional fields omitted.
@@ -103,20 +101,20 @@ newDescribeCacheSecurityGroups ::
 newDescribeCacheSecurityGroups =
   DescribeCacheSecurityGroups'
     { cacheSecurityGroupName =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The name of the cache security group to return details for.
-describeCacheSecurityGroups_cacheSecurityGroupName :: Lens.Lens' DescribeCacheSecurityGroups (Prelude.Maybe Prelude.Text)
+describeCacheSecurityGroups_cacheSecurityGroupName :: Lens.Lens' DescribeCacheSecurityGroups (Core.Maybe Core.Text)
 describeCacheSecurityGroups_cacheSecurityGroupName = Lens.lens (\DescribeCacheSecurityGroups' {cacheSecurityGroupName} -> cacheSecurityGroupName) (\s@DescribeCacheSecurityGroups' {} a -> s {cacheSecurityGroupName = a} :: DescribeCacheSecurityGroups)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-describeCacheSecurityGroups_marker :: Lens.Lens' DescribeCacheSecurityGroups (Prelude.Maybe Prelude.Text)
+describeCacheSecurityGroups_marker :: Lens.Lens' DescribeCacheSecurityGroups (Core.Maybe Core.Text)
 describeCacheSecurityGroups_marker = Lens.lens (\DescribeCacheSecurityGroups' {marker} -> marker) (\s@DescribeCacheSecurityGroups' {} a -> s {marker = a} :: DescribeCacheSecurityGroups)
 
 -- | The maximum number of records to include in the response. If more
@@ -126,37 +124,34 @@ describeCacheSecurityGroups_marker = Lens.lens (\DescribeCacheSecurityGroups' {m
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-describeCacheSecurityGroups_maxRecords :: Lens.Lens' DescribeCacheSecurityGroups (Prelude.Maybe Prelude.Int)
+describeCacheSecurityGroups_maxRecords :: Lens.Lens' DescribeCacheSecurityGroups (Core.Maybe Core.Int)
 describeCacheSecurityGroups_maxRecords = Lens.lens (\DescribeCacheSecurityGroups' {maxRecords} -> maxRecords) (\s@DescribeCacheSecurityGroups' {} a -> s {maxRecords = a} :: DescribeCacheSecurityGroups)
 
-instance Pager.AWSPager DescribeCacheSecurityGroups where
+instance Core.AWSPager DescribeCacheSecurityGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeCacheSecurityGroupsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeCacheSecurityGroupsResponse_cacheSecurityGroups
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeCacheSecurityGroups_marker
           Lens..~ rs
           Lens.^? describeCacheSecurityGroupsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeCacheSecurityGroups
-  where
+instance Core.AWSRequest DescribeCacheSecurityGroups where
   type
-    Rs DescribeCacheSecurityGroups =
+    AWSResponse DescribeCacheSecurityGroups =
       DescribeCacheSecurityGroupsResponse
   request = Request.postQuery defaultService
   response =
@@ -164,41 +159,34 @@ instance
       "DescribeCacheSecurityGroupsResult"
       ( \s h x ->
           DescribeCacheSecurityGroupsResponse'
-            Prelude.<$> ( x Prelude..@? "CacheSecurityGroups"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "CacheSecurityGroup")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "CacheSecurityGroups"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "CacheSecurityGroup")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCacheSecurityGroups
+instance Core.Hashable DescribeCacheSecurityGroups
 
-instance Prelude.NFData DescribeCacheSecurityGroups
+instance Core.NFData DescribeCacheSecurityGroups
 
-instance
-  Prelude.ToHeaders
-    DescribeCacheSecurityGroups
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeCacheSecurityGroups where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeCacheSecurityGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeCacheSecurityGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeCacheSecurityGroups where
+instance Core.ToQuery DescribeCacheSecurityGroups where
   toQuery DescribeCacheSecurityGroups' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeCacheSecurityGroups" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+          Core.=: ("DescribeCacheSecurityGroups" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
         "CacheSecurityGroupName"
-          Prelude.=: cacheSecurityGroupName,
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: cacheSecurityGroupName,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Represents the output of a @DescribeCacheSecurityGroups@ operation.
@@ -207,13 +195,13 @@ instance Prelude.ToQuery DescribeCacheSecurityGroups where
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
   { -- | A list of cache security groups. Each element in the list contains
     -- detailed information about one group.
-    cacheSecurityGroups :: Prelude.Maybe [CacheSecurityGroup],
+    cacheSecurityGroups :: Core.Maybe [CacheSecurityGroup],
     -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCacheSecurityGroupsResponse' with all optional fields omitted.
@@ -231,29 +219,29 @@ data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
 -- 'httpStatus', 'describeCacheSecurityGroupsResponse_httpStatus' - The response's http status code.
 newDescribeCacheSecurityGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeCacheSecurityGroupsResponse
 newDescribeCacheSecurityGroupsResponse pHttpStatus_ =
   DescribeCacheSecurityGroupsResponse'
     { cacheSecurityGroups =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of cache security groups. Each element in the list contains
 -- detailed information about one group.
-describeCacheSecurityGroupsResponse_cacheSecurityGroups :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Prelude.Maybe [CacheSecurityGroup])
-describeCacheSecurityGroupsResponse_cacheSecurityGroups = Lens.lens (\DescribeCacheSecurityGroupsResponse' {cacheSecurityGroups} -> cacheSecurityGroups) (\s@DescribeCacheSecurityGroupsResponse' {} a -> s {cacheSecurityGroups = a} :: DescribeCacheSecurityGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeCacheSecurityGroupsResponse_cacheSecurityGroups :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Core.Maybe [CacheSecurityGroup])
+describeCacheSecurityGroupsResponse_cacheSecurityGroups = Lens.lens (\DescribeCacheSecurityGroupsResponse' {cacheSecurityGroups} -> cacheSecurityGroups) (\s@DescribeCacheSecurityGroupsResponse' {} a -> s {cacheSecurityGroups = a} :: DescribeCacheSecurityGroupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeCacheSecurityGroupsResponse_marker :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Prelude.Maybe Prelude.Text)
+describeCacheSecurityGroupsResponse_marker :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Core.Maybe Core.Text)
 describeCacheSecurityGroupsResponse_marker = Lens.lens (\DescribeCacheSecurityGroupsResponse' {marker} -> marker) (\s@DescribeCacheSecurityGroupsResponse' {} a -> s {marker = a} :: DescribeCacheSecurityGroupsResponse)
 
 -- | The response's http status code.
-describeCacheSecurityGroupsResponse_httpStatus :: Lens.Lens' DescribeCacheSecurityGroupsResponse Prelude.Int
+describeCacheSecurityGroupsResponse_httpStatus :: Lens.Lens' DescribeCacheSecurityGroupsResponse Core.Int
 describeCacheSecurityGroupsResponse_httpStatus = Lens.lens (\DescribeCacheSecurityGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeCacheSecurityGroupsResponse' {} a -> s {httpStatus = a} :: DescribeCacheSecurityGroupsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeCacheSecurityGroupsResponse

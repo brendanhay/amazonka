@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.LateDataRule where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.LateDataRuleConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that contains the name and configuration information of a
 -- late data rule.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLateDataRule' smart constructor.
 data LateDataRule = LateDataRule'
   { -- | The name of the late data rule.
-    ruleName :: Prelude.Maybe Prelude.Text,
+    ruleName :: Core.Maybe Core.Text,
     -- | The information needed to configure the late data rule.
     ruleConfiguration :: LateDataRuleConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LateDataRule' with all optional fields omitted.
@@ -53,38 +52,38 @@ newLateDataRule ::
   LateDataRule
 newLateDataRule pRuleConfiguration_ =
   LateDataRule'
-    { ruleName = Prelude.Nothing,
+    { ruleName = Core.Nothing,
       ruleConfiguration = pRuleConfiguration_
     }
 
 -- | The name of the late data rule.
-lateDataRule_ruleName :: Lens.Lens' LateDataRule (Prelude.Maybe Prelude.Text)
+lateDataRule_ruleName :: Lens.Lens' LateDataRule (Core.Maybe Core.Text)
 lateDataRule_ruleName = Lens.lens (\LateDataRule' {ruleName} -> ruleName) (\s@LateDataRule' {} a -> s {ruleName = a} :: LateDataRule)
 
 -- | The information needed to configure the late data rule.
 lateDataRule_ruleConfiguration :: Lens.Lens' LateDataRule LateDataRuleConfiguration
 lateDataRule_ruleConfiguration = Lens.lens (\LateDataRule' {ruleConfiguration} -> ruleConfiguration) (\s@LateDataRule' {} a -> s {ruleConfiguration = a} :: LateDataRule)
 
-instance Prelude.FromJSON LateDataRule where
+instance Core.FromJSON LateDataRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LateDataRule"
       ( \x ->
           LateDataRule'
-            Prelude.<$> (x Prelude..:? "ruleName")
-            Prelude.<*> (x Prelude..: "ruleConfiguration")
+            Core.<$> (x Core..:? "ruleName")
+            Core.<*> (x Core..: "ruleConfiguration")
       )
 
-instance Prelude.Hashable LateDataRule
+instance Core.Hashable LateDataRule
 
-instance Prelude.NFData LateDataRule
+instance Core.NFData LateDataRule
 
-instance Prelude.ToJSON LateDataRule where
+instance Core.ToJSON LateDataRule where
   toJSON LateDataRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ruleName" Prelude..=) Prelude.<$> ruleName,
-            Prelude.Just
-              ("ruleConfiguration" Prelude..= ruleConfiguration)
+    Core.object
+      ( Core.catMaybes
+          [ ("ruleName" Core..=) Core.<$> ruleName,
+            Core.Just
+              ("ruleConfiguration" Core..= ruleConfiguration)
           ]
       )

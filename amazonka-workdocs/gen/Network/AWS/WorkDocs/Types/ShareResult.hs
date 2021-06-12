@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types.ShareResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.RoleType
 import Network.AWS.WorkDocs.Types.ShareStatusType
 
@@ -30,19 +29,19 @@ import Network.AWS.WorkDocs.Types.ShareStatusType
 -- /See:/ 'newShareResult' smart constructor.
 data ShareResult = ShareResult'
   { -- | The status message.
-    statusMessage :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    statusMessage :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The status.
-    status :: Prelude.Maybe ShareStatusType,
+    status :: Core.Maybe ShareStatusType,
     -- | The ID of the invited user.
-    inviteePrincipalId :: Prelude.Maybe Prelude.Text,
+    inviteePrincipalId :: Core.Maybe Core.Text,
     -- | The ID of the resource that was shared.
-    shareId :: Prelude.Maybe Prelude.Text,
+    shareId :: Core.Maybe Core.Text,
     -- | The ID of the principal.
-    principalId :: Prelude.Maybe Prelude.Text,
+    principalId :: Core.Maybe Core.Text,
     -- | The role.
-    role' :: Prelude.Maybe RoleType
+    role' :: Core.Maybe RoleType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ShareResult' with all optional fields omitted.
@@ -67,52 +66,52 @@ newShareResult ::
   ShareResult
 newShareResult =
   ShareResult'
-    { statusMessage = Prelude.Nothing,
-      status = Prelude.Nothing,
-      inviteePrincipalId = Prelude.Nothing,
-      shareId = Prelude.Nothing,
-      principalId = Prelude.Nothing,
-      role' = Prelude.Nothing
+    { statusMessage = Core.Nothing,
+      status = Core.Nothing,
+      inviteePrincipalId = Core.Nothing,
+      shareId = Core.Nothing,
+      principalId = Core.Nothing,
+      role' = Core.Nothing
     }
 
 -- | The status message.
-shareResult_statusMessage :: Lens.Lens' ShareResult (Prelude.Maybe Prelude.Text)
-shareResult_statusMessage = Lens.lens (\ShareResult' {statusMessage} -> statusMessage) (\s@ShareResult' {} a -> s {statusMessage = a} :: ShareResult) Prelude.. Lens.mapping Prelude._Sensitive
+shareResult_statusMessage :: Lens.Lens' ShareResult (Core.Maybe Core.Text)
+shareResult_statusMessage = Lens.lens (\ShareResult' {statusMessage} -> statusMessage) (\s@ShareResult' {} a -> s {statusMessage = a} :: ShareResult) Core.. Lens.mapping Core._Sensitive
 
 -- | The status.
-shareResult_status :: Lens.Lens' ShareResult (Prelude.Maybe ShareStatusType)
+shareResult_status :: Lens.Lens' ShareResult (Core.Maybe ShareStatusType)
 shareResult_status = Lens.lens (\ShareResult' {status} -> status) (\s@ShareResult' {} a -> s {status = a} :: ShareResult)
 
 -- | The ID of the invited user.
-shareResult_inviteePrincipalId :: Lens.Lens' ShareResult (Prelude.Maybe Prelude.Text)
+shareResult_inviteePrincipalId :: Lens.Lens' ShareResult (Core.Maybe Core.Text)
 shareResult_inviteePrincipalId = Lens.lens (\ShareResult' {inviteePrincipalId} -> inviteePrincipalId) (\s@ShareResult' {} a -> s {inviteePrincipalId = a} :: ShareResult)
 
 -- | The ID of the resource that was shared.
-shareResult_shareId :: Lens.Lens' ShareResult (Prelude.Maybe Prelude.Text)
+shareResult_shareId :: Lens.Lens' ShareResult (Core.Maybe Core.Text)
 shareResult_shareId = Lens.lens (\ShareResult' {shareId} -> shareId) (\s@ShareResult' {} a -> s {shareId = a} :: ShareResult)
 
 -- | The ID of the principal.
-shareResult_principalId :: Lens.Lens' ShareResult (Prelude.Maybe Prelude.Text)
+shareResult_principalId :: Lens.Lens' ShareResult (Core.Maybe Core.Text)
 shareResult_principalId = Lens.lens (\ShareResult' {principalId} -> principalId) (\s@ShareResult' {} a -> s {principalId = a} :: ShareResult)
 
 -- | The role.
-shareResult_role :: Lens.Lens' ShareResult (Prelude.Maybe RoleType)
+shareResult_role :: Lens.Lens' ShareResult (Core.Maybe RoleType)
 shareResult_role = Lens.lens (\ShareResult' {role'} -> role') (\s@ShareResult' {} a -> s {role' = a} :: ShareResult)
 
-instance Prelude.FromJSON ShareResult where
+instance Core.FromJSON ShareResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ShareResult"
       ( \x ->
           ShareResult'
-            Prelude.<$> (x Prelude..:? "StatusMessage")
-            Prelude.<*> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "InviteePrincipalId")
-            Prelude.<*> (x Prelude..:? "ShareId")
-            Prelude.<*> (x Prelude..:? "PrincipalId")
-            Prelude.<*> (x Prelude..:? "Role")
+            Core.<$> (x Core..:? "StatusMessage")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "InviteePrincipalId")
+            Core.<*> (x Core..:? "ShareId")
+            Core.<*> (x Core..:? "PrincipalId")
+            Core.<*> (x Core..:? "Role")
       )
 
-instance Prelude.Hashable ShareResult
+instance Core.Hashable ShareResult
 
-instance Prelude.NFData ShareResult
+instance Core.NFData ShareResult

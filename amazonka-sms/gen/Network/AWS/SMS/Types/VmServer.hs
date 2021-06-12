@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.VmServer where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.VmManagerType
 import Network.AWS.SMS.Types.VmServerAddress
 
@@ -30,17 +29,17 @@ import Network.AWS.SMS.Types.VmServerAddress
 -- /See:/ 'newVmServer' smart constructor.
 data VmServer = VmServer'
   { -- | The VM folder path in the vCenter Server virtual machine inventory tree.
-    vmPath :: Prelude.Maybe Prelude.Text,
+    vmPath :: Core.Maybe Core.Text,
     -- | The name of the VM manager.
-    vmManagerName :: Prelude.Maybe Prelude.Text,
+    vmManagerName :: Core.Maybe Core.Text,
     -- | The name of the VM.
-    vmName :: Prelude.Maybe Prelude.Text,
+    vmName :: Core.Maybe Core.Text,
     -- | The VM server location.
-    vmServerAddress :: Prelude.Maybe VmServerAddress,
+    vmServerAddress :: Core.Maybe VmServerAddress,
     -- | The type of VM management product.
-    vmManagerType :: Prelude.Maybe VmManagerType
+    vmManagerType :: Core.Maybe VmManagerType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VmServer' with all optional fields omitted.
@@ -63,61 +62,58 @@ newVmServer ::
   VmServer
 newVmServer =
   VmServer'
-    { vmPath = Prelude.Nothing,
-      vmManagerName = Prelude.Nothing,
-      vmName = Prelude.Nothing,
-      vmServerAddress = Prelude.Nothing,
-      vmManagerType = Prelude.Nothing
+    { vmPath = Core.Nothing,
+      vmManagerName = Core.Nothing,
+      vmName = Core.Nothing,
+      vmServerAddress = Core.Nothing,
+      vmManagerType = Core.Nothing
     }
 
 -- | The VM folder path in the vCenter Server virtual machine inventory tree.
-vmServer_vmPath :: Lens.Lens' VmServer (Prelude.Maybe Prelude.Text)
+vmServer_vmPath :: Lens.Lens' VmServer (Core.Maybe Core.Text)
 vmServer_vmPath = Lens.lens (\VmServer' {vmPath} -> vmPath) (\s@VmServer' {} a -> s {vmPath = a} :: VmServer)
 
 -- | The name of the VM manager.
-vmServer_vmManagerName :: Lens.Lens' VmServer (Prelude.Maybe Prelude.Text)
+vmServer_vmManagerName :: Lens.Lens' VmServer (Core.Maybe Core.Text)
 vmServer_vmManagerName = Lens.lens (\VmServer' {vmManagerName} -> vmManagerName) (\s@VmServer' {} a -> s {vmManagerName = a} :: VmServer)
 
 -- | The name of the VM.
-vmServer_vmName :: Lens.Lens' VmServer (Prelude.Maybe Prelude.Text)
+vmServer_vmName :: Lens.Lens' VmServer (Core.Maybe Core.Text)
 vmServer_vmName = Lens.lens (\VmServer' {vmName} -> vmName) (\s@VmServer' {} a -> s {vmName = a} :: VmServer)
 
 -- | The VM server location.
-vmServer_vmServerAddress :: Lens.Lens' VmServer (Prelude.Maybe VmServerAddress)
+vmServer_vmServerAddress :: Lens.Lens' VmServer (Core.Maybe VmServerAddress)
 vmServer_vmServerAddress = Lens.lens (\VmServer' {vmServerAddress} -> vmServerAddress) (\s@VmServer' {} a -> s {vmServerAddress = a} :: VmServer)
 
 -- | The type of VM management product.
-vmServer_vmManagerType :: Lens.Lens' VmServer (Prelude.Maybe VmManagerType)
+vmServer_vmManagerType :: Lens.Lens' VmServer (Core.Maybe VmManagerType)
 vmServer_vmManagerType = Lens.lens (\VmServer' {vmManagerType} -> vmManagerType) (\s@VmServer' {} a -> s {vmManagerType = a} :: VmServer)
 
-instance Prelude.FromJSON VmServer where
+instance Core.FromJSON VmServer where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VmServer"
       ( \x ->
           VmServer'
-            Prelude.<$> (x Prelude..:? "vmPath")
-            Prelude.<*> (x Prelude..:? "vmManagerName")
-            Prelude.<*> (x Prelude..:? "vmName")
-            Prelude.<*> (x Prelude..:? "vmServerAddress")
-            Prelude.<*> (x Prelude..:? "vmManagerType")
+            Core.<$> (x Core..:? "vmPath")
+            Core.<*> (x Core..:? "vmManagerName")
+            Core.<*> (x Core..:? "vmName")
+            Core.<*> (x Core..:? "vmServerAddress")
+            Core.<*> (x Core..:? "vmManagerType")
       )
 
-instance Prelude.Hashable VmServer
+instance Core.Hashable VmServer
 
-instance Prelude.NFData VmServer
+instance Core.NFData VmServer
 
-instance Prelude.ToJSON VmServer where
+instance Core.ToJSON VmServer where
   toJSON VmServer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("vmPath" Prelude..=) Prelude.<$> vmPath,
-            ("vmManagerName" Prelude..=)
-              Prelude.<$> vmManagerName,
-            ("vmName" Prelude..=) Prelude.<$> vmName,
-            ("vmServerAddress" Prelude..=)
-              Prelude.<$> vmServerAddress,
-            ("vmManagerType" Prelude..=)
-              Prelude.<$> vmManagerType
+    Core.object
+      ( Core.catMaybes
+          [ ("vmPath" Core..=) Core.<$> vmPath,
+            ("vmManagerName" Core..=) Core.<$> vmManagerName,
+            ("vmName" Core..=) Core.<$> vmName,
+            ("vmServerAddress" Core..=) Core.<$> vmServerAddress,
+            ("vmManagerType" Core..=) Core.<$> vmManagerType
           ]
       )

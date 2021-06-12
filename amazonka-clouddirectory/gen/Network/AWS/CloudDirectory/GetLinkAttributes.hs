@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CloudDirectory.GetLinkAttributes
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,17 +52,17 @@ import qualified Network.AWS.Response as Response
 data GetLinkAttributes = GetLinkAttributes'
   { -- | The consistency level at which to retrieve the attributes on a typed
     -- link.
-    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
+    consistencyLevel :: Core.Maybe ConsistencyLevel,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where the typed link resides. For more information, see arns or
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
-    directoryArn :: Prelude.Text,
+    directoryArn :: Core.Text,
     -- | Allows a typed link specifier to be accepted as input.
     typedLinkSpecifier :: TypedLinkSpecifier,
     -- | A list of attribute names whose values will be retrieved.
-    attributeNames :: [Prelude.Text]
+    attributeNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLinkAttributes' with all optional fields omitted.
@@ -85,7 +84,7 @@ data GetLinkAttributes = GetLinkAttributes'
 -- 'attributeNames', 'getLinkAttributes_attributeNames' - A list of attribute names whose values will be retrieved.
 newGetLinkAttributes ::
   -- | 'directoryArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'typedLinkSpecifier'
   TypedLinkSpecifier ->
   GetLinkAttributes
@@ -93,22 +92,21 @@ newGetLinkAttributes
   pDirectoryArn_
   pTypedLinkSpecifier_ =
     GetLinkAttributes'
-      { consistencyLevel =
-          Prelude.Nothing,
+      { consistencyLevel = Core.Nothing,
         directoryArn = pDirectoryArn_,
         typedLinkSpecifier = pTypedLinkSpecifier_,
-        attributeNames = Prelude.mempty
+        attributeNames = Core.mempty
       }
 
 -- | The consistency level at which to retrieve the attributes on a typed
 -- link.
-getLinkAttributes_consistencyLevel :: Lens.Lens' GetLinkAttributes (Prelude.Maybe ConsistencyLevel)
+getLinkAttributes_consistencyLevel :: Lens.Lens' GetLinkAttributes (Core.Maybe ConsistencyLevel)
 getLinkAttributes_consistencyLevel = Lens.lens (\GetLinkAttributes' {consistencyLevel} -> consistencyLevel) (\s@GetLinkAttributes' {} a -> s {consistencyLevel = a} :: GetLinkAttributes)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where the typed link resides. For more information, see arns or
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
-getLinkAttributes_directoryArn :: Lens.Lens' GetLinkAttributes Prelude.Text
+getLinkAttributes_directoryArn :: Lens.Lens' GetLinkAttributes Core.Text
 getLinkAttributes_directoryArn = Lens.lens (\GetLinkAttributes' {directoryArn} -> directoryArn) (\s@GetLinkAttributes' {} a -> s {directoryArn = a} :: GetLinkAttributes)
 
 -- | Allows a typed link specifier to be accepted as input.
@@ -116,60 +114,59 @@ getLinkAttributes_typedLinkSpecifier :: Lens.Lens' GetLinkAttributes TypedLinkSp
 getLinkAttributes_typedLinkSpecifier = Lens.lens (\GetLinkAttributes' {typedLinkSpecifier} -> typedLinkSpecifier) (\s@GetLinkAttributes' {} a -> s {typedLinkSpecifier = a} :: GetLinkAttributes)
 
 -- | A list of attribute names whose values will be retrieved.
-getLinkAttributes_attributeNames :: Lens.Lens' GetLinkAttributes [Prelude.Text]
-getLinkAttributes_attributeNames = Lens.lens (\GetLinkAttributes' {attributeNames} -> attributeNames) (\s@GetLinkAttributes' {} a -> s {attributeNames = a} :: GetLinkAttributes) Prelude.. Prelude._Coerce
+getLinkAttributes_attributeNames :: Lens.Lens' GetLinkAttributes [Core.Text]
+getLinkAttributes_attributeNames = Lens.lens (\GetLinkAttributes' {attributeNames} -> attributeNames) (\s@GetLinkAttributes' {} a -> s {attributeNames = a} :: GetLinkAttributes) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest GetLinkAttributes where
-  type Rs GetLinkAttributes = GetLinkAttributesResponse
+instance Core.AWSRequest GetLinkAttributes where
+  type
+    AWSResponse GetLinkAttributes =
+      GetLinkAttributesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetLinkAttributesResponse'
-            Prelude.<$> ( x Prelude..?> "Attributes"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Attributes" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetLinkAttributes
+instance Core.Hashable GetLinkAttributes
 
-instance Prelude.NFData GetLinkAttributes
+instance Core.NFData GetLinkAttributes
 
-instance Prelude.ToHeaders GetLinkAttributes where
+instance Core.ToHeaders GetLinkAttributes where
   toHeaders GetLinkAttributes' {..} =
-    Prelude.mconcat
-      ["x-amz-data-partition" Prelude.=# directoryArn]
+    Core.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance Prelude.ToJSON GetLinkAttributes where
+instance Core.ToJSON GetLinkAttributes where
   toJSON GetLinkAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ConsistencyLevel" Prelude..=)
-              Prelude.<$> consistencyLevel,
-            Prelude.Just
-              ("TypedLinkSpecifier" Prelude..= typedLinkSpecifier),
-            Prelude.Just
-              ("AttributeNames" Prelude..= attributeNames)
+    Core.object
+      ( Core.catMaybes
+          [ ("ConsistencyLevel" Core..=)
+              Core.<$> consistencyLevel,
+            Core.Just
+              ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
+            Core.Just ("AttributeNames" Core..= attributeNames)
           ]
       )
 
-instance Prelude.ToPath GetLinkAttributes where
+instance Core.ToPath GetLinkAttributes where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/typedlink/attributes/get"
 
-instance Prelude.ToQuery GetLinkAttributes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetLinkAttributes where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetLinkAttributesResponse' smart constructor.
 data GetLinkAttributesResponse = GetLinkAttributesResponse'
   { -- | The attributes that are associated with the typed link.
-    attributes :: Prelude.Maybe [AttributeKeyAndValue],
+    attributes :: Core.Maybe [AttributeKeyAndValue],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLinkAttributesResponse' with all optional fields omitted.
@@ -184,21 +181,21 @@ data GetLinkAttributesResponse = GetLinkAttributesResponse'
 -- 'httpStatus', 'getLinkAttributesResponse_httpStatus' - The response's http status code.
 newGetLinkAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetLinkAttributesResponse
 newGetLinkAttributesResponse pHttpStatus_ =
   GetLinkAttributesResponse'
     { attributes =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The attributes that are associated with the typed link.
-getLinkAttributesResponse_attributes :: Lens.Lens' GetLinkAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
-getLinkAttributesResponse_attributes = Lens.lens (\GetLinkAttributesResponse' {attributes} -> attributes) (\s@GetLinkAttributesResponse' {} a -> s {attributes = a} :: GetLinkAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getLinkAttributesResponse_attributes :: Lens.Lens' GetLinkAttributesResponse (Core.Maybe [AttributeKeyAndValue])
+getLinkAttributesResponse_attributes = Lens.lens (\GetLinkAttributesResponse' {attributes} -> attributes) (\s@GetLinkAttributesResponse' {} a -> s {attributes = a} :: GetLinkAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getLinkAttributesResponse_httpStatus :: Lens.Lens' GetLinkAttributesResponse Prelude.Int
+getLinkAttributesResponse_httpStatus :: Lens.Lens' GetLinkAttributesResponse Core.Int
 getLinkAttributesResponse_httpStatus = Lens.lens (\GetLinkAttributesResponse' {httpStatus} -> httpStatus) (\s@GetLinkAttributesResponse' {} a -> s {httpStatus = a} :: GetLinkAttributesResponse)
 
-instance Prelude.NFData GetLinkAttributesResponse
+instance Core.NFData GetLinkAttributesResponse

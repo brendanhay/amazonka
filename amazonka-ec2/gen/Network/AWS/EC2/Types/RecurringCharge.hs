@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.RecurringCharge where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.RecurringChargeFrequency
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a recurring charge.
 --
 -- /See:/ 'newRecurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
   { -- | The amount of the recurring charge.
-    amount :: Prelude.Maybe Prelude.Double,
+    amount :: Core.Maybe Core.Double,
     -- | The frequency of the recurring charge.
-    frequency :: Prelude.Maybe RecurringChargeFrequency
+    frequency :: Core.Maybe RecurringChargeFrequency
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecurringCharge' with all optional fields omitted.
@@ -51,24 +50,24 @@ newRecurringCharge ::
   RecurringCharge
 newRecurringCharge =
   RecurringCharge'
-    { amount = Prelude.Nothing,
-      frequency = Prelude.Nothing
+    { amount = Core.Nothing,
+      frequency = Core.Nothing
     }
 
 -- | The amount of the recurring charge.
-recurringCharge_amount :: Lens.Lens' RecurringCharge (Prelude.Maybe Prelude.Double)
+recurringCharge_amount :: Lens.Lens' RecurringCharge (Core.Maybe Core.Double)
 recurringCharge_amount = Lens.lens (\RecurringCharge' {amount} -> amount) (\s@RecurringCharge' {} a -> s {amount = a} :: RecurringCharge)
 
 -- | The frequency of the recurring charge.
-recurringCharge_frequency :: Lens.Lens' RecurringCharge (Prelude.Maybe RecurringChargeFrequency)
+recurringCharge_frequency :: Lens.Lens' RecurringCharge (Core.Maybe RecurringChargeFrequency)
 recurringCharge_frequency = Lens.lens (\RecurringCharge' {frequency} -> frequency) (\s@RecurringCharge' {} a -> s {frequency = a} :: RecurringCharge)
 
-instance Prelude.FromXML RecurringCharge where
+instance Core.FromXML RecurringCharge where
   parseXML x =
     RecurringCharge'
-      Prelude.<$> (x Prelude..@? "amount")
-      Prelude.<*> (x Prelude..@? "frequency")
+      Core.<$> (x Core..@? "amount")
+      Core.<*> (x Core..@? "frequency")
 
-instance Prelude.Hashable RecurringCharge
+instance Core.Hashable RecurringCharge
 
-instance Prelude.NFData RecurringCharge
+instance Core.NFData RecurringCharge

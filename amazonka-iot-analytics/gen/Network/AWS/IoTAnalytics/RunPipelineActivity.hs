@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.IoTAnalytics.RunPipelineActivity
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ data RunPipelineActivity = RunPipelineActivity'
     -- seconds or less) can be used.
     pipelineActivity :: PipelineActivity,
     -- | The sample message payloads on which the pipeline activity is run.
-    payloads :: Prelude.NonEmpty Prelude.Base64
+    payloads :: Core.NonEmpty Core.Base64
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RunPipelineActivity' with all optional fields omitted.
@@ -83,13 +82,13 @@ newRunPipelineActivity ::
   -- | 'pipelineActivity'
   PipelineActivity ->
   -- | 'payloads'
-  Prelude.NonEmpty Prelude.ByteString ->
+  Core.NonEmpty Core.ByteString ->
   RunPipelineActivity
 newRunPipelineActivity pPipelineActivity_ pPayloads_ =
   RunPipelineActivity'
     { pipelineActivity =
         pPipelineActivity_,
-      payloads = Prelude._Coerce Lens.# pPayloads_
+      payloads = Lens._Coerce Lens.# pPayloads_
     }
 
 -- | The pipeline activity that is run. This must not be a channel activity
@@ -102,58 +101,58 @@ runPipelineActivity_pipelineActivity :: Lens.Lens' RunPipelineActivity PipelineA
 runPipelineActivity_pipelineActivity = Lens.lens (\RunPipelineActivity' {pipelineActivity} -> pipelineActivity) (\s@RunPipelineActivity' {} a -> s {pipelineActivity = a} :: RunPipelineActivity)
 
 -- | The sample message payloads on which the pipeline activity is run.
-runPipelineActivity_payloads :: Lens.Lens' RunPipelineActivity (Prelude.NonEmpty Prelude.ByteString)
-runPipelineActivity_payloads = Lens.lens (\RunPipelineActivity' {payloads} -> payloads) (\s@RunPipelineActivity' {} a -> s {payloads = a} :: RunPipelineActivity) Prelude.. Prelude._Coerce
+runPipelineActivity_payloads :: Lens.Lens' RunPipelineActivity (Core.NonEmpty Core.ByteString)
+runPipelineActivity_payloads = Lens.lens (\RunPipelineActivity' {payloads} -> payloads) (\s@RunPipelineActivity' {} a -> s {payloads = a} :: RunPipelineActivity) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest RunPipelineActivity where
+instance Core.AWSRequest RunPipelineActivity where
   type
-    Rs RunPipelineActivity =
+    AWSResponse RunPipelineActivity =
       RunPipelineActivityResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RunPipelineActivityResponse'
-            Prelude.<$> (x Prelude..?> "logResult")
-            Prelude.<*> (x Prelude..?> "payloads")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "logResult")
+            Core.<*> (x Core..?> "payloads")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RunPipelineActivity
+instance Core.Hashable RunPipelineActivity
 
-instance Prelude.NFData RunPipelineActivity
+instance Core.NFData RunPipelineActivity
 
-instance Prelude.ToHeaders RunPipelineActivity where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RunPipelineActivity where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON RunPipelineActivity where
+instance Core.ToJSON RunPipelineActivity where
   toJSON RunPipelineActivity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("pipelineActivity" Prelude..= pipelineActivity),
-            Prelude.Just ("payloads" Prelude..= payloads)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("pipelineActivity" Core..= pipelineActivity),
+            Core.Just ("payloads" Core..= payloads)
           ]
       )
 
-instance Prelude.ToPath RunPipelineActivity where
-  toPath = Prelude.const "/pipelineactivities/run"
+instance Core.ToPath RunPipelineActivity where
+  toPath = Core.const "/pipelineactivities/run"
 
-instance Prelude.ToQuery RunPipelineActivity where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RunPipelineActivity where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRunPipelineActivityResponse' smart constructor.
 data RunPipelineActivityResponse = RunPipelineActivityResponse'
   { -- | In case the pipeline activity fails, the log message that is generated.
-    logResult :: Prelude.Maybe Prelude.Text,
+    logResult :: Core.Maybe Core.Text,
     -- | The enriched or transformed sample message payloads as base64-encoded
     -- strings. (The results of running the pipeline activity on each input
     -- sample message payload, encoded in base64.)
-    payloads :: Prelude.Maybe (Prelude.NonEmpty Prelude.Base64),
+    payloads :: Core.Maybe (Core.NonEmpty Core.Base64),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RunPipelineActivityResponse' with all optional fields omitted.
@@ -172,28 +171,28 @@ data RunPipelineActivityResponse = RunPipelineActivityResponse'
 -- 'httpStatus', 'runPipelineActivityResponse_httpStatus' - The response's http status code.
 newRunPipelineActivityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RunPipelineActivityResponse
 newRunPipelineActivityResponse pHttpStatus_ =
   RunPipelineActivityResponse'
     { logResult =
-        Prelude.Nothing,
-      payloads = Prelude.Nothing,
+        Core.Nothing,
+      payloads = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | In case the pipeline activity fails, the log message that is generated.
-runPipelineActivityResponse_logResult :: Lens.Lens' RunPipelineActivityResponse (Prelude.Maybe Prelude.Text)
+runPipelineActivityResponse_logResult :: Lens.Lens' RunPipelineActivityResponse (Core.Maybe Core.Text)
 runPipelineActivityResponse_logResult = Lens.lens (\RunPipelineActivityResponse' {logResult} -> logResult) (\s@RunPipelineActivityResponse' {} a -> s {logResult = a} :: RunPipelineActivityResponse)
 
 -- | The enriched or transformed sample message payloads as base64-encoded
 -- strings. (The results of running the pipeline activity on each input
 -- sample message payload, encoded in base64.)
-runPipelineActivityResponse_payloads :: Lens.Lens' RunPipelineActivityResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.ByteString))
-runPipelineActivityResponse_payloads = Lens.lens (\RunPipelineActivityResponse' {payloads} -> payloads) (\s@RunPipelineActivityResponse' {} a -> s {payloads = a} :: RunPipelineActivityResponse) Prelude.. Lens.mapping Prelude._Coerce
+runPipelineActivityResponse_payloads :: Lens.Lens' RunPipelineActivityResponse (Core.Maybe (Core.NonEmpty Core.ByteString))
+runPipelineActivityResponse_payloads = Lens.lens (\RunPipelineActivityResponse' {payloads} -> payloads) (\s@RunPipelineActivityResponse' {} a -> s {payloads = a} :: RunPipelineActivityResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-runPipelineActivityResponse_httpStatus :: Lens.Lens' RunPipelineActivityResponse Prelude.Int
+runPipelineActivityResponse_httpStatus :: Lens.Lens' RunPipelineActivityResponse Core.Int
 runPipelineActivityResponse_httpStatus = Lens.lens (\RunPipelineActivityResponse' {httpStatus} -> httpStatus) (\s@RunPipelineActivityResponse' {} a -> s {httpStatus = a} :: RunPipelineActivityResponse)
 
-instance Prelude.NFData RunPipelineActivityResponse
+instance Core.NFData RunPipelineActivityResponse

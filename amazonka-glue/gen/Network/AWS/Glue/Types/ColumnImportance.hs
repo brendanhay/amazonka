@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.ColumnImportance where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure containing the column name and column importance score for a
 -- column.
@@ -33,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newColumnImportance' smart constructor.
 data ColumnImportance = ColumnImportance'
   { -- | The column importance score for the column, as a decimal.
-    importance :: Prelude.Maybe Prelude.Double,
+    importance :: Core.Maybe Core.Double,
     -- | The name of a column.
-    columnName :: Prelude.Maybe Prelude.Text
+    columnName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ColumnImportance' with all optional fields omitted.
@@ -54,28 +53,28 @@ newColumnImportance ::
   ColumnImportance
 newColumnImportance =
   ColumnImportance'
-    { importance = Prelude.Nothing,
-      columnName = Prelude.Nothing
+    { importance = Core.Nothing,
+      columnName = Core.Nothing
     }
 
 -- | The column importance score for the column, as a decimal.
-columnImportance_importance :: Lens.Lens' ColumnImportance (Prelude.Maybe Prelude.Double)
+columnImportance_importance :: Lens.Lens' ColumnImportance (Core.Maybe Core.Double)
 columnImportance_importance = Lens.lens (\ColumnImportance' {importance} -> importance) (\s@ColumnImportance' {} a -> s {importance = a} :: ColumnImportance)
 
 -- | The name of a column.
-columnImportance_columnName :: Lens.Lens' ColumnImportance (Prelude.Maybe Prelude.Text)
+columnImportance_columnName :: Lens.Lens' ColumnImportance (Core.Maybe Core.Text)
 columnImportance_columnName = Lens.lens (\ColumnImportance' {columnName} -> columnName) (\s@ColumnImportance' {} a -> s {columnName = a} :: ColumnImportance)
 
-instance Prelude.FromJSON ColumnImportance where
+instance Core.FromJSON ColumnImportance where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ColumnImportance"
       ( \x ->
           ColumnImportance'
-            Prelude.<$> (x Prelude..:? "Importance")
-            Prelude.<*> (x Prelude..:? "ColumnName")
+            Core.<$> (x Core..:? "Importance")
+            Core.<*> (x Core..:? "ColumnName")
       )
 
-instance Prelude.Hashable ColumnImportance
+instance Core.Hashable ColumnImportance
 
-instance Prelude.NFData ColumnImportance
+instance Core.NFData ColumnImportance

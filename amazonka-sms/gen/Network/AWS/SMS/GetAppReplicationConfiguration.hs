@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SMS.GetAppReplicationConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -50,9 +49,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newGetAppReplicationConfiguration' smart constructor.
 data GetAppReplicationConfiguration = GetAppReplicationConfiguration'
   { -- | The ID of the application.
-    appId :: Prelude.Maybe Prelude.Text
+    appId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAppReplicationConfiguration' with all optional fields omitted.
@@ -68,88 +67,71 @@ newGetAppReplicationConfiguration ::
 newGetAppReplicationConfiguration =
   GetAppReplicationConfiguration'
     { appId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the application.
-getAppReplicationConfiguration_appId :: Lens.Lens' GetAppReplicationConfiguration (Prelude.Maybe Prelude.Text)
+getAppReplicationConfiguration_appId :: Lens.Lens' GetAppReplicationConfiguration (Core.Maybe Core.Text)
 getAppReplicationConfiguration_appId = Lens.lens (\GetAppReplicationConfiguration' {appId} -> appId) (\s@GetAppReplicationConfiguration' {} a -> s {appId = a} :: GetAppReplicationConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetAppReplicationConfiguration
   where
   type
-    Rs GetAppReplicationConfiguration =
+    AWSResponse GetAppReplicationConfiguration =
       GetAppReplicationConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAppReplicationConfigurationResponse'
-            Prelude.<$> ( x Prelude..?> "serverGroupReplicationConfigurations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "serverGroupReplicationConfigurations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    GetAppReplicationConfiguration
+instance Core.Hashable GetAppReplicationConfiguration
+
+instance Core.NFData GetAppReplicationConfiguration
 
 instance
-  Prelude.NFData
-    GetAppReplicationConfiguration
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetAppReplicationConfiguration
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    GetAppReplicationConfiguration
-  where
+instance Core.ToJSON GetAppReplicationConfiguration where
   toJSON GetAppReplicationConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("appId" Prelude..=) Prelude.<$> appId]
-      )
+    Core.object
+      (Core.catMaybes [("appId" Core..=) Core.<$> appId])
 
-instance
-  Prelude.ToPath
-    GetAppReplicationConfiguration
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetAppReplicationConfiguration where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    GetAppReplicationConfiguration
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetAppReplicationConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetAppReplicationConfigurationResponse' smart constructor.
 data GetAppReplicationConfigurationResponse = GetAppReplicationConfigurationResponse'
   { -- | The replication configurations associated with server groups in this
     -- application.
-    serverGroupReplicationConfigurations :: Prelude.Maybe [ServerGroupReplicationConfiguration],
+    serverGroupReplicationConfigurations :: Core.Maybe [ServerGroupReplicationConfiguration],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAppReplicationConfigurationResponse' with all optional fields omitted.
@@ -165,25 +147,25 @@ data GetAppReplicationConfigurationResponse = GetAppReplicationConfigurationResp
 -- 'httpStatus', 'getAppReplicationConfigurationResponse_httpStatus' - The response's http status code.
 newGetAppReplicationConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetAppReplicationConfigurationResponse
 newGetAppReplicationConfigurationResponse
   pHttpStatus_ =
     GetAppReplicationConfigurationResponse'
       { serverGroupReplicationConfigurations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The replication configurations associated with server groups in this
 -- application.
-getAppReplicationConfigurationResponse_serverGroupReplicationConfigurations :: Lens.Lens' GetAppReplicationConfigurationResponse (Prelude.Maybe [ServerGroupReplicationConfiguration])
-getAppReplicationConfigurationResponse_serverGroupReplicationConfigurations = Lens.lens (\GetAppReplicationConfigurationResponse' {serverGroupReplicationConfigurations} -> serverGroupReplicationConfigurations) (\s@GetAppReplicationConfigurationResponse' {} a -> s {serverGroupReplicationConfigurations = a} :: GetAppReplicationConfigurationResponse) Prelude.. Lens.mapping Prelude._Coerce
+getAppReplicationConfigurationResponse_serverGroupReplicationConfigurations :: Lens.Lens' GetAppReplicationConfigurationResponse (Core.Maybe [ServerGroupReplicationConfiguration])
+getAppReplicationConfigurationResponse_serverGroupReplicationConfigurations = Lens.lens (\GetAppReplicationConfigurationResponse' {serverGroupReplicationConfigurations} -> serverGroupReplicationConfigurations) (\s@GetAppReplicationConfigurationResponse' {} a -> s {serverGroupReplicationConfigurations = a} :: GetAppReplicationConfigurationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getAppReplicationConfigurationResponse_httpStatus :: Lens.Lens' GetAppReplicationConfigurationResponse Prelude.Int
+getAppReplicationConfigurationResponse_httpStatus :: Lens.Lens' GetAppReplicationConfigurationResponse Core.Int
 getAppReplicationConfigurationResponse_httpStatus = Lens.lens (\GetAppReplicationConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetAppReplicationConfigurationResponse' {} a -> s {httpStatus = a} :: GetAppReplicationConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetAppReplicationConfigurationResponse

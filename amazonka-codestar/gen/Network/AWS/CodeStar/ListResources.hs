@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.CodeStar.ListResources
 where
 
 import Network.AWS.CodeStar.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,14 +54,14 @@ import qualified Network.AWS.Response as Response
 data ListResources = ListResources'
   { -- | The continuation token for the next set of results, if the results
     -- cannot be returned in one response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum amount of data that can be contained in a single set of
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The ID of the project.
-    projectId :: Prelude.Text
+    projectId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListResources' with all optional fields omitted.
@@ -82,108 +80,106 @@ data ListResources = ListResources'
 -- 'projectId', 'listResources_projectId' - The ID of the project.
 newListResources ::
   -- | 'projectId'
-  Prelude.Text ->
+  Core.Text ->
   ListResources
 newListResources pProjectId_ =
   ListResources'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       projectId = pProjectId_
     }
 
 -- | The continuation token for the next set of results, if the results
 -- cannot be returned in one response.
-listResources_nextToken :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
+listResources_nextToken :: Lens.Lens' ListResources (Core.Maybe Core.Text)
 listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (\s@ListResources' {} a -> s {nextToken = a} :: ListResources)
 
 -- | The maximum amount of data that can be contained in a single set of
 -- results.
-listResources_maxResults :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Natural)
+listResources_maxResults :: Lens.Lens' ListResources (Core.Maybe Core.Natural)
 listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults) (\s@ListResources' {} a -> s {maxResults = a} :: ListResources)
 
 -- | The ID of the project.
-listResources_projectId :: Lens.Lens' ListResources Prelude.Text
+listResources_projectId :: Lens.Lens' ListResources Core.Text
 listResources_projectId = Lens.lens (\ListResources' {projectId} -> projectId) (\s@ListResources' {} a -> s {projectId = a} :: ListResources)
 
-instance Pager.AWSPager ListResources where
+instance Core.AWSPager ListResources where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listResourcesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listResourcesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listResourcesResponse_resources Prelude.. Lens._Just
+            Lens.^? listResourcesResponse_resources Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listResources_nextToken
           Lens..~ rs
-          Lens.^? listResourcesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listResourcesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListResources where
-  type Rs ListResources = ListResourcesResponse
+instance Core.AWSRequest ListResources where
+  type
+    AWSResponse ListResources =
+      ListResourcesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListResourcesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "resources"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "resources" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListResources
+instance Core.Hashable ListResources
 
-instance Prelude.NFData ListResources
+instance Core.NFData ListResources
 
-instance Prelude.ToHeaders ListResources where
+instance Core.ToHeaders ListResources where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeStar_20170419.ListResources" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeStar_20170419.ListResources" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListResources where
+instance Core.ToJSON ListResources where
   toJSON ListResources' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("projectId" Prelude..= projectId)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("projectId" Core..= projectId)
           ]
       )
 
-instance Prelude.ToPath ListResources where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListResources where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListResources where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListResources where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListResourcesResponse' smart constructor.
 data ListResourcesResponse = ListResourcesResponse'
   { -- | The continuation token to use when requesting the next set of results,
     -- if there are more results to be returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of resources associated with the project.
-    resources :: Prelude.Maybe [Resource],
+    resources :: Core.Maybe [Resource],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListResourcesResponse' with all optional fields omitted.
@@ -201,26 +197,26 @@ data ListResourcesResponse = ListResourcesResponse'
 -- 'httpStatus', 'listResourcesResponse_httpStatus' - The response's http status code.
 newListResourcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListResourcesResponse
 newListResourcesResponse pHttpStatus_ =
   ListResourcesResponse'
-    { nextToken = Prelude.Nothing,
-      resources = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      resources = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The continuation token to use when requesting the next set of results,
 -- if there are more results to be returned.
-listResourcesResponse_nextToken :: Lens.Lens' ListResourcesResponse (Prelude.Maybe Prelude.Text)
+listResourcesResponse_nextToken :: Lens.Lens' ListResourcesResponse (Core.Maybe Core.Text)
 listResourcesResponse_nextToken = Lens.lens (\ListResourcesResponse' {nextToken} -> nextToken) (\s@ListResourcesResponse' {} a -> s {nextToken = a} :: ListResourcesResponse)
 
 -- | An array of resources associated with the project.
-listResourcesResponse_resources :: Lens.Lens' ListResourcesResponse (Prelude.Maybe [Resource])
-listResourcesResponse_resources = Lens.lens (\ListResourcesResponse' {resources} -> resources) (\s@ListResourcesResponse' {} a -> s {resources = a} :: ListResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listResourcesResponse_resources :: Lens.Lens' ListResourcesResponse (Core.Maybe [Resource])
+listResourcesResponse_resources = Lens.lens (\ListResourcesResponse' {resources} -> resources) (\s@ListResourcesResponse' {} a -> s {resources = a} :: ListResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listResourcesResponse_httpStatus :: Lens.Lens' ListResourcesResponse Prelude.Int
+listResourcesResponse_httpStatus :: Lens.Lens' ListResourcesResponse Core.Int
 listResourcesResponse_httpStatus = Lens.lens (\ListResourcesResponse' {httpStatus} -> httpStatus) (\s@ListResourcesResponse' {} a -> s {httpStatus = a} :: ListResourcesResponse)
 
-instance Prelude.NFData ListResourcesResponse
+instance Core.NFData ListResourcesResponse

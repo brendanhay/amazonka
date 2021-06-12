@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.Sample where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.SampleType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a sample of performance data.
 --
 -- /See:/ 'newSample' smart constructor.
 data Sample = Sample'
   { -- | The sample\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The presigned Amazon S3 URL that can be used with a GET request to
     -- download the sample\'s file.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Core.Maybe Core.Text,
     -- | The sample\'s type.
     --
     -- Must be one of the following values:
@@ -76,9 +75,9 @@ data Sample = Sample'
     --
     -- -   TX_RATE: The total number of bytes per second (TCP and UDP) that are
     --     received, by app process.
-    type' :: Prelude.Maybe SampleType
+    type' :: Core.Maybe SampleType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Sample' with all optional fields omitted.
@@ -140,18 +139,18 @@ newSample ::
   Sample
 newSample =
   Sample'
-    { arn = Prelude.Nothing,
-      url = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { arn = Core.Nothing,
+      url = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The sample\'s ARN.
-sample_arn :: Lens.Lens' Sample (Prelude.Maybe Prelude.Text)
+sample_arn :: Lens.Lens' Sample (Core.Maybe Core.Text)
 sample_arn = Lens.lens (\Sample' {arn} -> arn) (\s@Sample' {} a -> s {arn = a} :: Sample)
 
 -- | The presigned Amazon S3 URL that can be used with a GET request to
 -- download the sample\'s file.
-sample_url :: Lens.Lens' Sample (Prelude.Maybe Prelude.Text)
+sample_url :: Lens.Lens' Sample (Core.Maybe Core.Text)
 sample_url = Lens.lens (\Sample' {url} -> url) (\s@Sample' {} a -> s {url = a} :: Sample)
 
 -- | The sample\'s type.
@@ -197,20 +196,20 @@ sample_url = Lens.lens (\Sample' {url} -> url) (\s@Sample' {} a -> s {url = a} :
 --
 -- -   TX_RATE: The total number of bytes per second (TCP and UDP) that are
 --     received, by app process.
-sample_type :: Lens.Lens' Sample (Prelude.Maybe SampleType)
+sample_type :: Lens.Lens' Sample (Core.Maybe SampleType)
 sample_type = Lens.lens (\Sample' {type'} -> type') (\s@Sample' {} a -> s {type' = a} :: Sample)
 
-instance Prelude.FromJSON Sample where
+instance Core.FromJSON Sample where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Sample"
       ( \x ->
           Sample'
-            Prelude.<$> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "url")
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "url")
+            Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable Sample
+instance Core.Hashable Sample
 
-instance Prelude.NFData Sample
+instance Core.NFData Sample

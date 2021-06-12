@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CodeCommit.DisassociateApprovalRuleTemplateFromRepository
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ import qualified Network.AWS.Response as Response
 data DisassociateApprovalRuleTemplateFromRepository = DisassociateApprovalRuleTemplateFromRepository'
   { -- | The name of the approval rule template to disassociate from a specified
     -- repository.
-    approvalRuleTemplateName :: Prelude.Text,
+    approvalRuleTemplateName :: Core.Text,
     -- | The name of the repository you want to disassociate from the template.
-    repositoryName :: Prelude.Text
+    repositoryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateApprovalRuleTemplateFromRepository' with all optional fields omitted.
@@ -71,9 +70,9 @@ data DisassociateApprovalRuleTemplateFromRepository = DisassociateApprovalRuleTe
 -- 'repositoryName', 'disassociateApprovalRuleTemplateFromRepository_repositoryName' - The name of the repository you want to disassociate from the template.
 newDisassociateApprovalRuleTemplateFromRepository ::
   -- | 'approvalRuleTemplateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateApprovalRuleTemplateFromRepository
 newDisassociateApprovalRuleTemplateFromRepository
   pApprovalRuleTemplateName_
@@ -87,19 +86,19 @@ newDisassociateApprovalRuleTemplateFromRepository
 
 -- | The name of the approval rule template to disassociate from a specified
 -- repository.
-disassociateApprovalRuleTemplateFromRepository_approvalRuleTemplateName :: Lens.Lens' DisassociateApprovalRuleTemplateFromRepository Prelude.Text
+disassociateApprovalRuleTemplateFromRepository_approvalRuleTemplateName :: Lens.Lens' DisassociateApprovalRuleTemplateFromRepository Core.Text
 disassociateApprovalRuleTemplateFromRepository_approvalRuleTemplateName = Lens.lens (\DisassociateApprovalRuleTemplateFromRepository' {approvalRuleTemplateName} -> approvalRuleTemplateName) (\s@DisassociateApprovalRuleTemplateFromRepository' {} a -> s {approvalRuleTemplateName = a} :: DisassociateApprovalRuleTemplateFromRepository)
 
 -- | The name of the repository you want to disassociate from the template.
-disassociateApprovalRuleTemplateFromRepository_repositoryName :: Lens.Lens' DisassociateApprovalRuleTemplateFromRepository Prelude.Text
+disassociateApprovalRuleTemplateFromRepository_repositoryName :: Lens.Lens' DisassociateApprovalRuleTemplateFromRepository Core.Text
 disassociateApprovalRuleTemplateFromRepository_repositoryName = Lens.lens (\DisassociateApprovalRuleTemplateFromRepository' {repositoryName} -> repositoryName) (\s@DisassociateApprovalRuleTemplateFromRepository' {} a -> s {repositoryName = a} :: DisassociateApprovalRuleTemplateFromRepository)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateApprovalRuleTemplateFromRepository
   where
   type
-    Rs
+    AWSResponse
       DisassociateApprovalRuleTemplateFromRepository =
       DisassociateApprovalRuleTemplateFromRepositoryResponse
   request = Request.postJSON defaultService
@@ -108,65 +107,62 @@ instance
       DisassociateApprovalRuleTemplateFromRepositoryResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisassociateApprovalRuleTemplateFromRepository
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateApprovalRuleTemplateFromRepository
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisassociateApprovalRuleTemplateFromRepository
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.DisassociateApprovalRuleTemplateFromRepository" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.DisassociateApprovalRuleTemplateFromRepository" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DisassociateApprovalRuleTemplateFromRepository
   where
   toJSON
     DisassociateApprovalRuleTemplateFromRepository' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ Prelude.Just
+      Core.object
+        ( Core.catMaybes
+            [ Core.Just
                 ( "approvalRuleTemplateName"
-                    Prelude..= approvalRuleTemplateName
+                    Core..= approvalRuleTemplateName
                 ),
-              Prelude.Just
-                ("repositoryName" Prelude..= repositoryName)
+              Core.Just ("repositoryName" Core..= repositoryName)
             ]
         )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DisassociateApprovalRuleTemplateFromRepository
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DisassociateApprovalRuleTemplateFromRepository
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateApprovalRuleTemplateFromRepositoryResponse' smart constructor.
 data DisassociateApprovalRuleTemplateFromRepositoryResponse = DisassociateApprovalRuleTemplateFromRepositoryResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateApprovalRuleTemplateFromRepositoryResponse' with all optional fields omitted.
@@ -178,5 +174,5 @@ newDisassociateApprovalRuleTemplateFromRepositoryResponse =
   DisassociateApprovalRuleTemplateFromRepositoryResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateApprovalRuleTemplateFromRepositoryResponse

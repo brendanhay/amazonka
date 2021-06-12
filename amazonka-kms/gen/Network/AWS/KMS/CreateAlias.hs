@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -87,9 +86,9 @@ module Network.AWS.KMS.CreateAlias
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -103,7 +102,7 @@ data CreateAlias = CreateAlias'
     -- dashes (-). The alias name cannot begin with @alias\/aws\/@. The
     -- @alias\/aws\/@ prefix is reserved for
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk AWS managed CMKs>.
-    aliasName :: Prelude.Text,
+    aliasName :: Core.Text,
     -- | Associates the alias with the specified
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk customer managed CMK>.
     -- The CMK must be in the same AWS Region.
@@ -125,9 +124,9 @@ data CreateAlias = CreateAlias'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    targetKeyId :: Prelude.Text
+    targetKeyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAlias' with all optional fields omitted.
@@ -169,9 +168,9 @@ data CreateAlias = CreateAlias'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newCreateAlias ::
   -- | 'aliasName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetKeyId'
-  Prelude.Text ->
+  Core.Text ->
   CreateAlias
 newCreateAlias pAliasName_ pTargetKeyId_ =
   CreateAlias'
@@ -187,7 +186,7 @@ newCreateAlias pAliasName_ pTargetKeyId_ =
 -- dashes (-). The alias name cannot begin with @alias\/aws\/@. The
 -- @alias\/aws\/@ prefix is reserved for
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk AWS managed CMKs>.
-createAlias_aliasName :: Lens.Lens' CreateAlias Prelude.Text
+createAlias_aliasName :: Lens.Lens' CreateAlias Core.Text
 createAlias_aliasName = Lens.lens (\CreateAlias' {aliasName} -> aliasName) (\s@CreateAlias' {} a -> s {aliasName = a} :: CreateAlias)
 
 -- | Associates the alias with the specified
@@ -211,51 +210,49 @@ createAlias_aliasName = Lens.lens (\CreateAlias' {aliasName} -> aliasName) (\s@C
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-createAlias_targetKeyId :: Lens.Lens' CreateAlias Prelude.Text
+createAlias_targetKeyId :: Lens.Lens' CreateAlias Core.Text
 createAlias_targetKeyId = Lens.lens (\CreateAlias' {targetKeyId} -> targetKeyId) (\s@CreateAlias' {} a -> s {targetKeyId = a} :: CreateAlias)
 
-instance Prelude.AWSRequest CreateAlias where
-  type Rs CreateAlias = CreateAliasResponse
+instance Core.AWSRequest CreateAlias where
+  type AWSResponse CreateAlias = CreateAliasResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull CreateAliasResponse'
 
-instance Prelude.Hashable CreateAlias
+instance Core.Hashable CreateAlias
 
-instance Prelude.NFData CreateAlias
+instance Core.NFData CreateAlias
 
-instance Prelude.ToHeaders CreateAlias where
+instance Core.ToHeaders CreateAlias where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("TrentService.CreateAlias" :: Prelude.ByteString),
+              Core.=# ("TrentService.CreateAlias" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateAlias where
+instance Core.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AliasName" Prelude..= aliasName),
-            Prelude.Just ("TargetKeyId" Prelude..= targetKeyId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AliasName" Core..= aliasName),
+            Core.Just ("TargetKeyId" Core..= targetKeyId)
           ]
       )
 
-instance Prelude.ToPath CreateAlias where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateAlias where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateAlias where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateAlias where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAliasResponse' with all optional fields omitted.
@@ -265,4 +262,4 @@ newCreateAliasResponse ::
   CreateAliasResponse
 newCreateAliasResponse = CreateAliasResponse'
 
-instance Prelude.NFData CreateAliasResponse
+instance Core.NFData CreateAliasResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.RDS.CreateDBSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -53,7 +52,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateDBSnapshot' smart constructor.
 data CreateDBSnapshot = CreateDBSnapshot'
-  { tags :: Prelude.Maybe [Tag],
+  { tags :: Core.Maybe [Tag],
     -- | The identifier for the DB snapshot.
     --
     -- Constraints:
@@ -67,16 +66,16 @@ data CreateDBSnapshot = CreateDBSnapshot'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     --
     -- Example: @my-snapshot-id@
-    dbSnapshotIdentifier :: Prelude.Text,
+    dbSnapshotIdentifier :: Core.Text,
     -- | The identifier of the DB instance that you want to create the snapshot
     -- of.
     --
     -- Constraints:
     --
     -- -   Must match the identifier of an existing DBInstance.
-    dbInstanceIdentifier :: Prelude.Text
+    dbInstanceIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDBSnapshot' with all optional fields omitted.
@@ -110,22 +109,22 @@ data CreateDBSnapshot = CreateDBSnapshot'
 -- -   Must match the identifier of an existing DBInstance.
 newCreateDBSnapshot ::
   -- | 'dbSnapshotIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dbInstanceIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   CreateDBSnapshot
 newCreateDBSnapshot
   pDBSnapshotIdentifier_
   pDBInstanceIdentifier_ =
     CreateDBSnapshot'
-      { tags = Prelude.Nothing,
+      { tags = Core.Nothing,
         dbSnapshotIdentifier = pDBSnapshotIdentifier_,
         dbInstanceIdentifier = pDBInstanceIdentifier_
       }
 
 -- | Undocumented member.
-createDBSnapshot_tags :: Lens.Lens' CreateDBSnapshot (Prelude.Maybe [Tag])
-createDBSnapshot_tags = Lens.lens (\CreateDBSnapshot' {tags} -> tags) (\s@CreateDBSnapshot' {} a -> s {tags = a} :: CreateDBSnapshot) Prelude.. Lens.mapping Prelude._Coerce
+createDBSnapshot_tags :: Lens.Lens' CreateDBSnapshot (Core.Maybe [Tag])
+createDBSnapshot_tags = Lens.lens (\CreateDBSnapshot' {tags} -> tags) (\s@CreateDBSnapshot' {} a -> s {tags = a} :: CreateDBSnapshot) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifier for the DB snapshot.
 --
@@ -140,7 +139,7 @@ createDBSnapshot_tags = Lens.lens (\CreateDBSnapshot' {tags} -> tags) (\s@Create
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-snapshot-id@
-createDBSnapshot_dbSnapshotIdentifier :: Lens.Lens' CreateDBSnapshot Prelude.Text
+createDBSnapshot_dbSnapshotIdentifier :: Lens.Lens' CreateDBSnapshot Core.Text
 createDBSnapshot_dbSnapshotIdentifier = Lens.lens (\CreateDBSnapshot' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@CreateDBSnapshot' {} a -> s {dbSnapshotIdentifier = a} :: CreateDBSnapshot)
 
 -- | The identifier of the DB instance that you want to create the snapshot
@@ -149,54 +148,52 @@ createDBSnapshot_dbSnapshotIdentifier = Lens.lens (\CreateDBSnapshot' {dbSnapsho
 -- Constraints:
 --
 -- -   Must match the identifier of an existing DBInstance.
-createDBSnapshot_dbInstanceIdentifier :: Lens.Lens' CreateDBSnapshot Prelude.Text
+createDBSnapshot_dbInstanceIdentifier :: Lens.Lens' CreateDBSnapshot Core.Text
 createDBSnapshot_dbInstanceIdentifier = Lens.lens (\CreateDBSnapshot' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@CreateDBSnapshot' {} a -> s {dbInstanceIdentifier = a} :: CreateDBSnapshot)
 
-instance Prelude.AWSRequest CreateDBSnapshot where
-  type Rs CreateDBSnapshot = CreateDBSnapshotResponse
+instance Core.AWSRequest CreateDBSnapshot where
+  type
+    AWSResponse CreateDBSnapshot =
+      CreateDBSnapshotResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateDBSnapshotResult"
       ( \s h x ->
           CreateDBSnapshotResponse'
-            Prelude.<$> (x Prelude..@? "DBSnapshot")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DBSnapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBSnapshot
+instance Core.Hashable CreateDBSnapshot
 
-instance Prelude.NFData CreateDBSnapshot
+instance Core.NFData CreateDBSnapshot
 
-instance Prelude.ToHeaders CreateDBSnapshot where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateDBSnapshot where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateDBSnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDBSnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDBSnapshot where
+instance Core.ToQuery CreateDBSnapshot where
   toQuery CreateDBSnapshot' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateDBSnapshot" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("CreateDBSnapshot" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Tag" Prelude.<$> tags),
-        "DBSnapshotIdentifier"
-          Prelude.=: dbSnapshotIdentifier,
-        "DBInstanceIdentifier"
-          Prelude.=: dbInstanceIdentifier
+          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier,
+        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newCreateDBSnapshotResponse' smart constructor.
 data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
-  { dbSnapshot :: Prelude.Maybe DBSnapshot,
+  { dbSnapshot :: Core.Maybe DBSnapshot,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDBSnapshotResponse' with all optional fields omitted.
@@ -211,21 +208,21 @@ data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
 -- 'httpStatus', 'createDBSnapshotResponse_httpStatus' - The response's http status code.
 newCreateDBSnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDBSnapshotResponse
 newCreateDBSnapshotResponse pHttpStatus_ =
   CreateDBSnapshotResponse'
     { dbSnapshot =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createDBSnapshotResponse_dbSnapshot :: Lens.Lens' CreateDBSnapshotResponse (Prelude.Maybe DBSnapshot)
+createDBSnapshotResponse_dbSnapshot :: Lens.Lens' CreateDBSnapshotResponse (Core.Maybe DBSnapshot)
 createDBSnapshotResponse_dbSnapshot = Lens.lens (\CreateDBSnapshotResponse' {dbSnapshot} -> dbSnapshot) (\s@CreateDBSnapshotResponse' {} a -> s {dbSnapshot = a} :: CreateDBSnapshotResponse)
 
 -- | The response's http status code.
-createDBSnapshotResponse_httpStatus :: Lens.Lens' CreateDBSnapshotResponse Prelude.Int
+createDBSnapshotResponse_httpStatus :: Lens.Lens' CreateDBSnapshotResponse Core.Int
 createDBSnapshotResponse_httpStatus = Lens.lens (\CreateDBSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateDBSnapshotResponse' {} a -> s {httpStatus = a} :: CreateDBSnapshotResponse)
 
-instance Prelude.NFData CreateDBSnapshotResponse
+instance Core.NFData CreateDBSnapshotResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.MultiplexOutputDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.MultiplexMediaConnectOutputDestinationSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Multiplex output destination settings
 --
 -- /See:/ 'newMultiplexOutputDestination' smart constructor.
 data MultiplexOutputDestination = MultiplexOutputDestination'
   { -- | Multiplex MediaConnect output destination settings.
-    mediaConnectSettings :: Prelude.Maybe MultiplexMediaConnectOutputDestinationSettings
+    mediaConnectSettings :: Core.Maybe MultiplexMediaConnectOutputDestinationSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MultiplexOutputDestination' with all optional fields omitted.
@@ -47,22 +46,22 @@ newMultiplexOutputDestination ::
 newMultiplexOutputDestination =
   MultiplexOutputDestination'
     { mediaConnectSettings =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Multiplex MediaConnect output destination settings.
-multiplexOutputDestination_mediaConnectSettings :: Lens.Lens' MultiplexOutputDestination (Prelude.Maybe MultiplexMediaConnectOutputDestinationSettings)
+multiplexOutputDestination_mediaConnectSettings :: Lens.Lens' MultiplexOutputDestination (Core.Maybe MultiplexMediaConnectOutputDestinationSettings)
 multiplexOutputDestination_mediaConnectSettings = Lens.lens (\MultiplexOutputDestination' {mediaConnectSettings} -> mediaConnectSettings) (\s@MultiplexOutputDestination' {} a -> s {mediaConnectSettings = a} :: MultiplexOutputDestination)
 
-instance Prelude.FromJSON MultiplexOutputDestination where
+instance Core.FromJSON MultiplexOutputDestination where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MultiplexOutputDestination"
       ( \x ->
           MultiplexOutputDestination'
-            Prelude.<$> (x Prelude..:? "mediaConnectSettings")
+            Core.<$> (x Core..:? "mediaConnectSettings")
       )
 
-instance Prelude.Hashable MultiplexOutputDestination
+instance Core.Hashable MultiplexOutputDestination
 
-instance Prelude.NFData MultiplexOutputDestination
+instance Core.NFData MultiplexOutputDestination

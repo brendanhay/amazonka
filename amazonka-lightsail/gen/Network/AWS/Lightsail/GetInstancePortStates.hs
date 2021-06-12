@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,18 +41,18 @@ module Network.AWS.Lightsail.GetInstancePortStates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetInstancePortStates' smart constructor.
 data GetInstancePortStates = GetInstancePortStates'
   { -- | The name of the instance for which to return firewall port states.
-    instanceName :: Prelude.Text
+    instanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstancePortStates' with all optional fields omitted.
@@ -66,7 +65,7 @@ data GetInstancePortStates = GetInstancePortStates'
 -- 'instanceName', 'getInstancePortStates_instanceName' - The name of the instance for which to return firewall port states.
 newGetInstancePortStates ::
   -- | 'instanceName'
-  Prelude.Text ->
+  Core.Text ->
   GetInstancePortStates
 newGetInstancePortStates pInstanceName_ =
   GetInstancePortStates'
@@ -75,67 +74,61 @@ newGetInstancePortStates pInstanceName_ =
     }
 
 -- | The name of the instance for which to return firewall port states.
-getInstancePortStates_instanceName :: Lens.Lens' GetInstancePortStates Prelude.Text
+getInstancePortStates_instanceName :: Lens.Lens' GetInstancePortStates Core.Text
 getInstancePortStates_instanceName = Lens.lens (\GetInstancePortStates' {instanceName} -> instanceName) (\s@GetInstancePortStates' {} a -> s {instanceName = a} :: GetInstancePortStates)
 
-instance Prelude.AWSRequest GetInstancePortStates where
+instance Core.AWSRequest GetInstancePortStates where
   type
-    Rs GetInstancePortStates =
+    AWSResponse GetInstancePortStates =
       GetInstancePortStatesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetInstancePortStatesResponse'
-            Prelude.<$> ( x Prelude..?> "portStates"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "portStates" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetInstancePortStates
+instance Core.Hashable GetInstancePortStates
 
-instance Prelude.NFData GetInstancePortStates
+instance Core.NFData GetInstancePortStates
 
-instance Prelude.ToHeaders GetInstancePortStates where
+instance Core.ToHeaders GetInstancePortStates where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetInstancePortStates" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetInstancePortStates" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetInstancePortStates where
+instance Core.ToJSON GetInstancePortStates where
   toJSON GetInstancePortStates' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("instanceName" Prelude..= instanceName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("instanceName" Core..= instanceName)]
       )
 
-instance Prelude.ToPath GetInstancePortStates where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetInstancePortStates where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetInstancePortStates where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetInstancePortStates where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetInstancePortStatesResponse' smart constructor.
 data GetInstancePortStatesResponse = GetInstancePortStatesResponse'
   { -- | An array of objects that describe the firewall port states for the
     -- specified instance.
-    portStates :: Prelude.Maybe [InstancePortState],
+    portStates :: Core.Maybe [InstancePortState],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstancePortStatesResponse' with all optional fields omitted.
@@ -151,22 +144,22 @@ data GetInstancePortStatesResponse = GetInstancePortStatesResponse'
 -- 'httpStatus', 'getInstancePortStatesResponse_httpStatus' - The response's http status code.
 newGetInstancePortStatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetInstancePortStatesResponse
 newGetInstancePortStatesResponse pHttpStatus_ =
   GetInstancePortStatesResponse'
     { portStates =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the firewall port states for the
 -- specified instance.
-getInstancePortStatesResponse_portStates :: Lens.Lens' GetInstancePortStatesResponse (Prelude.Maybe [InstancePortState])
-getInstancePortStatesResponse_portStates = Lens.lens (\GetInstancePortStatesResponse' {portStates} -> portStates) (\s@GetInstancePortStatesResponse' {} a -> s {portStates = a} :: GetInstancePortStatesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getInstancePortStatesResponse_portStates :: Lens.Lens' GetInstancePortStatesResponse (Core.Maybe [InstancePortState])
+getInstancePortStatesResponse_portStates = Lens.lens (\GetInstancePortStatesResponse' {portStates} -> portStates) (\s@GetInstancePortStatesResponse' {} a -> s {portStates = a} :: GetInstancePortStatesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getInstancePortStatesResponse_httpStatus :: Lens.Lens' GetInstancePortStatesResponse Prelude.Int
+getInstancePortStatesResponse_httpStatus :: Lens.Lens' GetInstancePortStatesResponse Core.Int
 getInstancePortStatesResponse_httpStatus = Lens.lens (\GetInstancePortStatesResponse' {httpStatus} -> httpStatus) (\s@GetInstancePortStatesResponse' {} a -> s {httpStatus = a} :: GetInstancePortStatesResponse)
 
-instance Prelude.NFData GetInstancePortStatesResponse
+instance Core.NFData GetInstancePortStatesResponse

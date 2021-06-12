@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.LabelingJobS3DataSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon S3 location of the input data objects.
 --
@@ -45,9 +44,9 @@ data LabelingJobS3DataSource = LabelingJobS3DataSource'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-input-data-input-manifest.html Use an Input Manifest File>
     -- in the Amazon SageMaker Developer Guide to learn how to create an input
     -- manifest file.
-    manifestS3Uri :: Prelude.Text
+    manifestS3Uri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LabelingJobS3DataSource' with all optional fields omitted.
@@ -77,7 +76,7 @@ data LabelingJobS3DataSource = LabelingJobS3DataSource'
 -- manifest file.
 newLabelingJobS3DataSource ::
   -- | 'manifestS3Uri'
-  Prelude.Text ->
+  Core.Text ->
   LabelingJobS3DataSource
 newLabelingJobS3DataSource pManifestS3Uri_ =
   LabelingJobS3DataSource'
@@ -103,27 +102,25 @@ newLabelingJobS3DataSource pManifestS3Uri_ =
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-input-data-input-manifest.html Use an Input Manifest File>
 -- in the Amazon SageMaker Developer Guide to learn how to create an input
 -- manifest file.
-labelingJobS3DataSource_manifestS3Uri :: Lens.Lens' LabelingJobS3DataSource Prelude.Text
+labelingJobS3DataSource_manifestS3Uri :: Lens.Lens' LabelingJobS3DataSource Core.Text
 labelingJobS3DataSource_manifestS3Uri = Lens.lens (\LabelingJobS3DataSource' {manifestS3Uri} -> manifestS3Uri) (\s@LabelingJobS3DataSource' {} a -> s {manifestS3Uri = a} :: LabelingJobS3DataSource)
 
-instance Prelude.FromJSON LabelingJobS3DataSource where
+instance Core.FromJSON LabelingJobS3DataSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LabelingJobS3DataSource"
       ( \x ->
           LabelingJobS3DataSource'
-            Prelude.<$> (x Prelude..: "ManifestS3Uri")
+            Core.<$> (x Core..: "ManifestS3Uri")
       )
 
-instance Prelude.Hashable LabelingJobS3DataSource
+instance Core.Hashable LabelingJobS3DataSource
 
-instance Prelude.NFData LabelingJobS3DataSource
+instance Core.NFData LabelingJobS3DataSource
 
-instance Prelude.ToJSON LabelingJobS3DataSource where
+instance Core.ToJSON LabelingJobS3DataSource where
   toJSON LabelingJobS3DataSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ManifestS3Uri" Prelude..= manifestS3Uri)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ManifestS3Uri" Core..= manifestS3Uri)]
       )

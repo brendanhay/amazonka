@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.Comprehend.DescribeDocumentClassifier
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data DescribeDocumentClassifier = DescribeDocumentClassifier'
   { -- | The Amazon Resource Name (ARN) that identifies the document classifier.
     -- The operation returns this identifier in its response.
-    documentClassifierArn :: Prelude.Text
+    documentClassifierArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDocumentClassifier' with all optional fields omitted.
@@ -66,7 +65,7 @@ data DescribeDocumentClassifier = DescribeDocumentClassifier'
 -- The operation returns this identifier in its response.
 newDescribeDocumentClassifier ::
   -- | 'documentClassifierArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeDocumentClassifier
 newDescribeDocumentClassifier pDocumentClassifierArn_ =
   DescribeDocumentClassifier'
@@ -76,70 +75,65 @@ newDescribeDocumentClassifier pDocumentClassifierArn_ =
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier.
 -- The operation returns this identifier in its response.
-describeDocumentClassifier_documentClassifierArn :: Lens.Lens' DescribeDocumentClassifier Prelude.Text
+describeDocumentClassifier_documentClassifierArn :: Lens.Lens' DescribeDocumentClassifier Core.Text
 describeDocumentClassifier_documentClassifierArn = Lens.lens (\DescribeDocumentClassifier' {documentClassifierArn} -> documentClassifierArn) (\s@DescribeDocumentClassifier' {} a -> s {documentClassifierArn = a} :: DescribeDocumentClassifier)
 
-instance
-  Prelude.AWSRequest
-    DescribeDocumentClassifier
-  where
+instance Core.AWSRequest DescribeDocumentClassifier where
   type
-    Rs DescribeDocumentClassifier =
+    AWSResponse DescribeDocumentClassifier =
       DescribeDocumentClassifierResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeDocumentClassifierResponse'
-            Prelude.<$> (x Prelude..?> "DocumentClassifierProperties")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DocumentClassifierProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDocumentClassifier
+instance Core.Hashable DescribeDocumentClassifier
 
-instance Prelude.NFData DescribeDocumentClassifier
+instance Core.NFData DescribeDocumentClassifier
 
-instance Prelude.ToHeaders DescribeDocumentClassifier where
+instance Core.ToHeaders DescribeDocumentClassifier where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.DescribeDocumentClassifier" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.DescribeDocumentClassifier" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeDocumentClassifier where
+instance Core.ToJSON DescribeDocumentClassifier where
   toJSON DescribeDocumentClassifier' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "DocumentClassifierArn"
-                  Prelude..= documentClassifierArn
+                  Core..= documentClassifierArn
               )
           ]
       )
 
-instance Prelude.ToPath DescribeDocumentClassifier where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeDocumentClassifier where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeDocumentClassifier where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeDocumentClassifier where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeDocumentClassifierResponse' smart constructor.
 data DescribeDocumentClassifierResponse = DescribeDocumentClassifierResponse'
   { -- | An object that contains the properties associated with a document
     -- classifier.
-    documentClassifierProperties :: Prelude.Maybe DocumentClassifierProperties,
+    documentClassifierProperties :: Core.Maybe DocumentClassifierProperties,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDocumentClassifierResponse' with all optional fields omitted.
@@ -155,24 +149,24 @@ data DescribeDocumentClassifierResponse = DescribeDocumentClassifierResponse'
 -- 'httpStatus', 'describeDocumentClassifierResponse_httpStatus' - The response's http status code.
 newDescribeDocumentClassifierResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeDocumentClassifierResponse
 newDescribeDocumentClassifierResponse pHttpStatus_ =
   DescribeDocumentClassifierResponse'
     { documentClassifierProperties =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains the properties associated with a document
 -- classifier.
-describeDocumentClassifierResponse_documentClassifierProperties :: Lens.Lens' DescribeDocumentClassifierResponse (Prelude.Maybe DocumentClassifierProperties)
+describeDocumentClassifierResponse_documentClassifierProperties :: Lens.Lens' DescribeDocumentClassifierResponse (Core.Maybe DocumentClassifierProperties)
 describeDocumentClassifierResponse_documentClassifierProperties = Lens.lens (\DescribeDocumentClassifierResponse' {documentClassifierProperties} -> documentClassifierProperties) (\s@DescribeDocumentClassifierResponse' {} a -> s {documentClassifierProperties = a} :: DescribeDocumentClassifierResponse)
 
 -- | The response's http status code.
-describeDocumentClassifierResponse_httpStatus :: Lens.Lens' DescribeDocumentClassifierResponse Prelude.Int
+describeDocumentClassifierResponse_httpStatus :: Lens.Lens' DescribeDocumentClassifierResponse Core.Int
 describeDocumentClassifierResponse_httpStatus = Lens.lens (\DescribeDocumentClassifierResponse' {httpStatus} -> httpStatus) (\s@DescribeDocumentClassifierResponse' {} a -> s {httpStatus = a} :: DescribeDocumentClassifierResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeDocumentClassifierResponse

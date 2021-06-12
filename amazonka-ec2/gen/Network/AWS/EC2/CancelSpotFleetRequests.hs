@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,9 @@ module Network.AWS.EC2.CancelSpotFleetRequests
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,14 +64,14 @@ data CancelSpotFleetRequests = CancelSpotFleetRequests'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The IDs of the Spot Fleet requests.
-    spotFleetRequestIds :: [Prelude.Text],
+    spotFleetRequestIds :: [Core.Text],
     -- | Indicates whether to terminate instances for a Spot Fleet request if it
     -- is canceled successfully.
-    terminateInstances :: Prelude.Bool
+    terminateInstances :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelSpotFleetRequests' with all optional fields omitted.
@@ -93,12 +92,12 @@ data CancelSpotFleetRequests = CancelSpotFleetRequests'
 -- is canceled successfully.
 newCancelSpotFleetRequests ::
   -- | 'terminateInstances'
-  Prelude.Bool ->
+  Core.Bool ->
   CancelSpotFleetRequests
 newCancelSpotFleetRequests pTerminateInstances_ =
   CancelSpotFleetRequests'
-    { dryRun = Prelude.Nothing,
-      spotFleetRequestIds = Prelude.mempty,
+    { dryRun = Core.Nothing,
+      spotFleetRequestIds = Core.mempty,
       terminateInstances = pTerminateInstances_
     }
 
@@ -106,60 +105,59 @@ newCancelSpotFleetRequests pTerminateInstances_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cancelSpotFleetRequests_dryRun :: Lens.Lens' CancelSpotFleetRequests (Prelude.Maybe Prelude.Bool)
+cancelSpotFleetRequests_dryRun :: Lens.Lens' CancelSpotFleetRequests (Core.Maybe Core.Bool)
 cancelSpotFleetRequests_dryRun = Lens.lens (\CancelSpotFleetRequests' {dryRun} -> dryRun) (\s@CancelSpotFleetRequests' {} a -> s {dryRun = a} :: CancelSpotFleetRequests)
 
 -- | The IDs of the Spot Fleet requests.
-cancelSpotFleetRequests_spotFleetRequestIds :: Lens.Lens' CancelSpotFleetRequests [Prelude.Text]
-cancelSpotFleetRequests_spotFleetRequestIds = Lens.lens (\CancelSpotFleetRequests' {spotFleetRequestIds} -> spotFleetRequestIds) (\s@CancelSpotFleetRequests' {} a -> s {spotFleetRequestIds = a} :: CancelSpotFleetRequests) Prelude.. Prelude._Coerce
+cancelSpotFleetRequests_spotFleetRequestIds :: Lens.Lens' CancelSpotFleetRequests [Core.Text]
+cancelSpotFleetRequests_spotFleetRequestIds = Lens.lens (\CancelSpotFleetRequests' {spotFleetRequestIds} -> spotFleetRequestIds) (\s@CancelSpotFleetRequests' {} a -> s {spotFleetRequestIds = a} :: CancelSpotFleetRequests) Core.. Lens._Coerce
 
 -- | Indicates whether to terminate instances for a Spot Fleet request if it
 -- is canceled successfully.
-cancelSpotFleetRequests_terminateInstances :: Lens.Lens' CancelSpotFleetRequests Prelude.Bool
+cancelSpotFleetRequests_terminateInstances :: Lens.Lens' CancelSpotFleetRequests Core.Bool
 cancelSpotFleetRequests_terminateInstances = Lens.lens (\CancelSpotFleetRequests' {terminateInstances} -> terminateInstances) (\s@CancelSpotFleetRequests' {} a -> s {terminateInstances = a} :: CancelSpotFleetRequests)
 
-instance Prelude.AWSRequest CancelSpotFleetRequests where
+instance Core.AWSRequest CancelSpotFleetRequests where
   type
-    Rs CancelSpotFleetRequests =
+    AWSResponse CancelSpotFleetRequests =
       CancelSpotFleetRequestsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CancelSpotFleetRequestsResponse'
-            Prelude.<$> ( x Prelude..@? "unsuccessfulFleetRequestSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> ( x Prelude..@? "successfulFleetRequestSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "unsuccessfulFleetRequestSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> ( x Core..@? "successfulFleetRequestSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelSpotFleetRequests
+instance Core.Hashable CancelSpotFleetRequests
 
-instance Prelude.NFData CancelSpotFleetRequests
+instance Core.NFData CancelSpotFleetRequests
 
-instance Prelude.ToHeaders CancelSpotFleetRequests where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CancelSpotFleetRequests where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CancelSpotFleetRequests where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelSpotFleetRequests where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelSpotFleetRequests where
+instance Core.ToQuery CancelSpotFleetRequests where
   toQuery CancelSpotFleetRequests' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CancelSpotFleetRequests" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQueryList
+          Core.=: ("CancelSpotFleetRequests" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQueryList
           "SpotFleetRequestId"
           spotFleetRequestIds,
-        "TerminateInstances" Prelude.=: terminateInstances
+        "TerminateInstances" Core.=: terminateInstances
       ]
 
 -- | Contains the output of CancelSpotFleetRequests.
@@ -168,14 +166,14 @@ instance Prelude.ToQuery CancelSpotFleetRequests where
 data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
   { -- | Information about the Spot Fleet requests that are not successfully
     -- canceled.
-    unsuccessfulFleetRequests :: Prelude.Maybe [CancelSpotFleetRequestsErrorItem],
+    unsuccessfulFleetRequests :: Core.Maybe [CancelSpotFleetRequestsErrorItem],
     -- | Information about the Spot Fleet requests that are successfully
     -- canceled.
-    successfulFleetRequests :: Prelude.Maybe [CancelSpotFleetRequestsSuccessItem],
+    successfulFleetRequests :: Core.Maybe [CancelSpotFleetRequestsSuccessItem],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelSpotFleetRequestsResponse' with all optional fields omitted.
@@ -194,30 +192,28 @@ data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
 -- 'httpStatus', 'cancelSpotFleetRequestsResponse_httpStatus' - The response's http status code.
 newCancelSpotFleetRequestsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelSpotFleetRequestsResponse
 newCancelSpotFleetRequestsResponse pHttpStatus_ =
   CancelSpotFleetRequestsResponse'
     { unsuccessfulFleetRequests =
-        Prelude.Nothing,
-      successfulFleetRequests = Prelude.Nothing,
+        Core.Nothing,
+      successfulFleetRequests = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the Spot Fleet requests that are not successfully
 -- canceled.
-cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests :: Lens.Lens' CancelSpotFleetRequestsResponse (Prelude.Maybe [CancelSpotFleetRequestsErrorItem])
-cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests = Lens.lens (\CancelSpotFleetRequestsResponse' {unsuccessfulFleetRequests} -> unsuccessfulFleetRequests) (\s@CancelSpotFleetRequestsResponse' {} a -> s {unsuccessfulFleetRequests = a} :: CancelSpotFleetRequestsResponse) Prelude.. Lens.mapping Prelude._Coerce
+cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests :: Lens.Lens' CancelSpotFleetRequestsResponse (Core.Maybe [CancelSpotFleetRequestsErrorItem])
+cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests = Lens.lens (\CancelSpotFleetRequestsResponse' {unsuccessfulFleetRequests} -> unsuccessfulFleetRequests) (\s@CancelSpotFleetRequestsResponse' {} a -> s {unsuccessfulFleetRequests = a} :: CancelSpotFleetRequestsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the Spot Fleet requests that are successfully
 -- canceled.
-cancelSpotFleetRequestsResponse_successfulFleetRequests :: Lens.Lens' CancelSpotFleetRequestsResponse (Prelude.Maybe [CancelSpotFleetRequestsSuccessItem])
-cancelSpotFleetRequestsResponse_successfulFleetRequests = Lens.lens (\CancelSpotFleetRequestsResponse' {successfulFleetRequests} -> successfulFleetRequests) (\s@CancelSpotFleetRequestsResponse' {} a -> s {successfulFleetRequests = a} :: CancelSpotFleetRequestsResponse) Prelude.. Lens.mapping Prelude._Coerce
+cancelSpotFleetRequestsResponse_successfulFleetRequests :: Lens.Lens' CancelSpotFleetRequestsResponse (Core.Maybe [CancelSpotFleetRequestsSuccessItem])
+cancelSpotFleetRequestsResponse_successfulFleetRequests = Lens.lens (\CancelSpotFleetRequestsResponse' {successfulFleetRequests} -> successfulFleetRequests) (\s@CancelSpotFleetRequestsResponse' {} a -> s {successfulFleetRequests = a} :: CancelSpotFleetRequestsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-cancelSpotFleetRequestsResponse_httpStatus :: Lens.Lens' CancelSpotFleetRequestsResponse Prelude.Int
+cancelSpotFleetRequestsResponse_httpStatus :: Lens.Lens' CancelSpotFleetRequestsResponse Core.Int
 cancelSpotFleetRequestsResponse_httpStatus = Lens.lens (\CancelSpotFleetRequestsResponse' {httpStatus} -> httpStatus) (\s@CancelSpotFleetRequestsResponse' {} a -> s {httpStatus = a} :: CancelSpotFleetRequestsResponse)
 
-instance
-  Prelude.NFData
-    CancelSpotFleetRequestsResponse
+instance Core.NFData CancelSpotFleetRequestsResponse

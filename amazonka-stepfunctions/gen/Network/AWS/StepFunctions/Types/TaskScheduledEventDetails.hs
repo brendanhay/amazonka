@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,29 +19,29 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.TaskScheduledEventDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about a task scheduled during an execution.
 --
 -- /See:/ 'newTaskScheduledEventDetails' smart constructor.
 data TaskScheduledEventDetails = TaskScheduledEventDetails'
   { -- | The maximum allowed duration between two heartbeats for the task.
-    heartbeatInSeconds :: Prelude.Maybe Prelude.Integer,
+    heartbeatInSeconds :: Core.Maybe Core.Integer,
     -- | The maximum allowed duration of the task.
-    timeoutInSeconds :: Prelude.Maybe Prelude.Integer,
+    timeoutInSeconds :: Core.Maybe Core.Integer,
     -- | The action of the resource called by a task state.
-    resourceType :: Prelude.Text,
+    resourceType :: Core.Text,
     -- | The service name of the resource in a task state.
-    resource :: Prelude.Text,
+    resource :: Core.Text,
     -- | The region of the scheduled task
-    region :: Prelude.Text,
+    region :: Core.Text,
     -- | The JSON data passed to the resource referenced in a task state. Length
     -- constraints apply to the payload size, and are expressed as bytes in
     -- UTF-8 encoding.
-    parameters :: Prelude.Sensitive Prelude.Text
+    parameters :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TaskScheduledEventDetails' with all optional fields omitted.
@@ -67,13 +66,13 @@ data TaskScheduledEventDetails = TaskScheduledEventDetails'
 -- UTF-8 encoding.
 newTaskScheduledEventDetails ::
   -- | 'resourceType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resource'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'region'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'parameters'
-  Prelude.Text ->
+  Core.Text ->
   TaskScheduledEventDetails
 newTaskScheduledEventDetails
   pResourceType_
@@ -82,55 +81,54 @@ newTaskScheduledEventDetails
   pParameters_ =
     TaskScheduledEventDetails'
       { heartbeatInSeconds =
-          Prelude.Nothing,
-        timeoutInSeconds = Prelude.Nothing,
+          Core.Nothing,
+        timeoutInSeconds = Core.Nothing,
         resourceType = pResourceType_,
         resource = pResource_,
         region = pRegion_,
-        parameters =
-          Prelude._Sensitive Lens.# pParameters_
+        parameters = Core._Sensitive Lens.# pParameters_
       }
 
 -- | The maximum allowed duration between two heartbeats for the task.
-taskScheduledEventDetails_heartbeatInSeconds :: Lens.Lens' TaskScheduledEventDetails (Prelude.Maybe Prelude.Integer)
+taskScheduledEventDetails_heartbeatInSeconds :: Lens.Lens' TaskScheduledEventDetails (Core.Maybe Core.Integer)
 taskScheduledEventDetails_heartbeatInSeconds = Lens.lens (\TaskScheduledEventDetails' {heartbeatInSeconds} -> heartbeatInSeconds) (\s@TaskScheduledEventDetails' {} a -> s {heartbeatInSeconds = a} :: TaskScheduledEventDetails)
 
 -- | The maximum allowed duration of the task.
-taskScheduledEventDetails_timeoutInSeconds :: Lens.Lens' TaskScheduledEventDetails (Prelude.Maybe Prelude.Integer)
+taskScheduledEventDetails_timeoutInSeconds :: Lens.Lens' TaskScheduledEventDetails (Core.Maybe Core.Integer)
 taskScheduledEventDetails_timeoutInSeconds = Lens.lens (\TaskScheduledEventDetails' {timeoutInSeconds} -> timeoutInSeconds) (\s@TaskScheduledEventDetails' {} a -> s {timeoutInSeconds = a} :: TaskScheduledEventDetails)
 
 -- | The action of the resource called by a task state.
-taskScheduledEventDetails_resourceType :: Lens.Lens' TaskScheduledEventDetails Prelude.Text
+taskScheduledEventDetails_resourceType :: Lens.Lens' TaskScheduledEventDetails Core.Text
 taskScheduledEventDetails_resourceType = Lens.lens (\TaskScheduledEventDetails' {resourceType} -> resourceType) (\s@TaskScheduledEventDetails' {} a -> s {resourceType = a} :: TaskScheduledEventDetails)
 
 -- | The service name of the resource in a task state.
-taskScheduledEventDetails_resource :: Lens.Lens' TaskScheduledEventDetails Prelude.Text
+taskScheduledEventDetails_resource :: Lens.Lens' TaskScheduledEventDetails Core.Text
 taskScheduledEventDetails_resource = Lens.lens (\TaskScheduledEventDetails' {resource} -> resource) (\s@TaskScheduledEventDetails' {} a -> s {resource = a} :: TaskScheduledEventDetails)
 
 -- | The region of the scheduled task
-taskScheduledEventDetails_region :: Lens.Lens' TaskScheduledEventDetails Prelude.Text
+taskScheduledEventDetails_region :: Lens.Lens' TaskScheduledEventDetails Core.Text
 taskScheduledEventDetails_region = Lens.lens (\TaskScheduledEventDetails' {region} -> region) (\s@TaskScheduledEventDetails' {} a -> s {region = a} :: TaskScheduledEventDetails)
 
 -- | The JSON data passed to the resource referenced in a task state. Length
 -- constraints apply to the payload size, and are expressed as bytes in
 -- UTF-8 encoding.
-taskScheduledEventDetails_parameters :: Lens.Lens' TaskScheduledEventDetails Prelude.Text
-taskScheduledEventDetails_parameters = Lens.lens (\TaskScheduledEventDetails' {parameters} -> parameters) (\s@TaskScheduledEventDetails' {} a -> s {parameters = a} :: TaskScheduledEventDetails) Prelude.. Prelude._Sensitive
+taskScheduledEventDetails_parameters :: Lens.Lens' TaskScheduledEventDetails Core.Text
+taskScheduledEventDetails_parameters = Lens.lens (\TaskScheduledEventDetails' {parameters} -> parameters) (\s@TaskScheduledEventDetails' {} a -> s {parameters = a} :: TaskScheduledEventDetails) Core.. Core._Sensitive
 
-instance Prelude.FromJSON TaskScheduledEventDetails where
+instance Core.FromJSON TaskScheduledEventDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TaskScheduledEventDetails"
       ( \x ->
           TaskScheduledEventDetails'
-            Prelude.<$> (x Prelude..:? "heartbeatInSeconds")
-            Prelude.<*> (x Prelude..:? "timeoutInSeconds")
-            Prelude.<*> (x Prelude..: "resourceType")
-            Prelude.<*> (x Prelude..: "resource")
-            Prelude.<*> (x Prelude..: "region")
-            Prelude.<*> (x Prelude..: "parameters")
+            Core.<$> (x Core..:? "heartbeatInSeconds")
+            Core.<*> (x Core..:? "timeoutInSeconds")
+            Core.<*> (x Core..: "resourceType")
+            Core.<*> (x Core..: "resource")
+            Core.<*> (x Core..: "region")
+            Core.<*> (x Core..: "parameters")
       )
 
-instance Prelude.Hashable TaskScheduledEventDetails
+instance Core.Hashable TaskScheduledEventDetails
 
-instance Prelude.NFData TaskScheduledEventDetails
+instance Core.NFData TaskScheduledEventDetails

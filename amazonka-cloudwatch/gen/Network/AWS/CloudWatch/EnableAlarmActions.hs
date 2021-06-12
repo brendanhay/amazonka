@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,17 +36,17 @@ module Network.AWS.CloudWatch.EnableAlarmActions
 where
 
 import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newEnableAlarmActions' smart constructor.
 data EnableAlarmActions = EnableAlarmActions'
   { -- | The names of the alarms.
-    alarmNames :: [Prelude.Text]
+    alarmNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableAlarmActions' with all optional fields omitted.
@@ -61,46 +60,45 @@ data EnableAlarmActions = EnableAlarmActions'
 newEnableAlarmActions ::
   EnableAlarmActions
 newEnableAlarmActions =
-  EnableAlarmActions' {alarmNames = Prelude.mempty}
+  EnableAlarmActions' {alarmNames = Core.mempty}
 
 -- | The names of the alarms.
-enableAlarmActions_alarmNames :: Lens.Lens' EnableAlarmActions [Prelude.Text]
-enableAlarmActions_alarmNames = Lens.lens (\EnableAlarmActions' {alarmNames} -> alarmNames) (\s@EnableAlarmActions' {} a -> s {alarmNames = a} :: EnableAlarmActions) Prelude.. Prelude._Coerce
+enableAlarmActions_alarmNames :: Lens.Lens' EnableAlarmActions [Core.Text]
+enableAlarmActions_alarmNames = Lens.lens (\EnableAlarmActions' {alarmNames} -> alarmNames) (\s@EnableAlarmActions' {} a -> s {alarmNames = a} :: EnableAlarmActions) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest EnableAlarmActions where
+instance Core.AWSRequest EnableAlarmActions where
   type
-    Rs EnableAlarmActions =
+    AWSResponse EnableAlarmActions =
       EnableAlarmActionsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull EnableAlarmActionsResponse'
 
-instance Prelude.Hashable EnableAlarmActions
+instance Core.Hashable EnableAlarmActions
 
-instance Prelude.NFData EnableAlarmActions
+instance Core.NFData EnableAlarmActions
 
-instance Prelude.ToHeaders EnableAlarmActions where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders EnableAlarmActions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath EnableAlarmActions where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableAlarmActions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableAlarmActions where
+instance Core.ToQuery EnableAlarmActions where
   toQuery EnableAlarmActions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("EnableAlarmActions" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-08-01" :: Prelude.ByteString),
+          Core.=: ("EnableAlarmActions" :: Core.ByteString),
+        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
         "AlarmNames"
-          Prelude.=: Prelude.toQueryList "member" alarmNames
+          Core.=: Core.toQueryList "member" alarmNames
       ]
 
 -- | /See:/ 'newEnableAlarmActionsResponse' smart constructor.
 data EnableAlarmActionsResponse = EnableAlarmActionsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableAlarmActionsResponse' with all optional fields omitted.
@@ -111,4 +109,4 @@ newEnableAlarmActionsResponse ::
 newEnableAlarmActionsResponse =
   EnableAlarmActionsResponse'
 
-instance Prelude.NFData EnableAlarmActionsResponse
+instance Core.NFData EnableAlarmActionsResponse

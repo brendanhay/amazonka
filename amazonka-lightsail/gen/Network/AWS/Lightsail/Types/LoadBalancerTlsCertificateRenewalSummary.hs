@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateRenewalSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationOption
 import Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateRenewalStatus
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the status of Lightsail\'s managed renewal
 -- for the certificate.
@@ -58,7 +57,7 @@ data LoadBalancerTlsCertificateRenewalSummary = LoadBalancerTlsCertificateRenewa
     -- certificate, as it pertains to Lightsail\'s managed renewal. This is
     -- different from the initial validation that occurs as a result of the
     -- RequestCertificate request.
-    domainValidationOptions :: Prelude.Maybe [LoadBalancerTlsCertificateDomainValidationOption],
+    domainValidationOptions :: Core.Maybe [LoadBalancerTlsCertificateDomainValidationOption],
     -- | The renewal status of the certificate.
     --
     -- The following renewal status are possible:
@@ -82,9 +81,9 @@ data LoadBalancerTlsCertificateRenewalSummary = LoadBalancerTlsCertificateRenewa
     --     the certificate expired, and Lightsail did not renew the
     --     certificate. You can request a new certificate using the
     --     @CreateCertificate@ action.
-    renewalStatus :: Prelude.Maybe LoadBalancerTlsCertificateRenewalStatus
+    renewalStatus :: Core.Maybe LoadBalancerTlsCertificateRenewalStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerTlsCertificateRenewalSummary' with all optional fields omitted.
@@ -127,16 +126,16 @@ newLoadBalancerTlsCertificateRenewalSummary ::
 newLoadBalancerTlsCertificateRenewalSummary =
   LoadBalancerTlsCertificateRenewalSummary'
     { domainValidationOptions =
-        Prelude.Nothing,
-      renewalStatus = Prelude.Nothing
+        Core.Nothing,
+      renewalStatus = Core.Nothing
     }
 
 -- | Contains information about the validation of each domain name in the
 -- certificate, as it pertains to Lightsail\'s managed renewal. This is
 -- different from the initial validation that occurs as a result of the
 -- RequestCertificate request.
-loadBalancerTlsCertificateRenewalSummary_domainValidationOptions :: Lens.Lens' LoadBalancerTlsCertificateRenewalSummary (Prelude.Maybe [LoadBalancerTlsCertificateDomainValidationOption])
-loadBalancerTlsCertificateRenewalSummary_domainValidationOptions = Lens.lens (\LoadBalancerTlsCertificateRenewalSummary' {domainValidationOptions} -> domainValidationOptions) (\s@LoadBalancerTlsCertificateRenewalSummary' {} a -> s {domainValidationOptions = a} :: LoadBalancerTlsCertificateRenewalSummary) Prelude.. Lens.mapping Prelude._Coerce
+loadBalancerTlsCertificateRenewalSummary_domainValidationOptions :: Lens.Lens' LoadBalancerTlsCertificateRenewalSummary (Core.Maybe [LoadBalancerTlsCertificateDomainValidationOption])
+loadBalancerTlsCertificateRenewalSummary_domainValidationOptions = Lens.lens (\LoadBalancerTlsCertificateRenewalSummary' {domainValidationOptions} -> domainValidationOptions) (\s@LoadBalancerTlsCertificateRenewalSummary' {} a -> s {domainValidationOptions = a} :: LoadBalancerTlsCertificateRenewalSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | The renewal status of the certificate.
 --
@@ -161,28 +160,28 @@ loadBalancerTlsCertificateRenewalSummary_domainValidationOptions = Lens.lens (\L
 --     the certificate expired, and Lightsail did not renew the
 --     certificate. You can request a new certificate using the
 --     @CreateCertificate@ action.
-loadBalancerTlsCertificateRenewalSummary_renewalStatus :: Lens.Lens' LoadBalancerTlsCertificateRenewalSummary (Prelude.Maybe LoadBalancerTlsCertificateRenewalStatus)
+loadBalancerTlsCertificateRenewalSummary_renewalStatus :: Lens.Lens' LoadBalancerTlsCertificateRenewalSummary (Core.Maybe LoadBalancerTlsCertificateRenewalStatus)
 loadBalancerTlsCertificateRenewalSummary_renewalStatus = Lens.lens (\LoadBalancerTlsCertificateRenewalSummary' {renewalStatus} -> renewalStatus) (\s@LoadBalancerTlsCertificateRenewalSummary' {} a -> s {renewalStatus = a} :: LoadBalancerTlsCertificateRenewalSummary)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     LoadBalancerTlsCertificateRenewalSummary
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LoadBalancerTlsCertificateRenewalSummary"
       ( \x ->
           LoadBalancerTlsCertificateRenewalSummary'
-            Prelude.<$> ( x Prelude..:? "domainValidationOptions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "renewalStatus")
+            Core.<$> ( x Core..:? "domainValidationOptions"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "renewalStatus")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LoadBalancerTlsCertificateRenewalSummary
 
 instance
-  Prelude.NFData
+  Core.NFData
     LoadBalancerTlsCertificateRenewalSummary

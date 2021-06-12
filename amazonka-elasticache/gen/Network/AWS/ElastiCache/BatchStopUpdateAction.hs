@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,22 +43,22 @@ module Network.AWS.ElastiCache.BatchStopUpdateAction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchStopUpdateAction' smart constructor.
 data BatchStopUpdateAction = BatchStopUpdateAction'
   { -- | The cache cluster IDs
-    cacheClusterIds :: Prelude.Maybe [Prelude.Text],
+    cacheClusterIds :: Core.Maybe [Core.Text],
     -- | The replication group IDs
-    replicationGroupIds :: Prelude.Maybe [Prelude.Text],
+    replicationGroupIds :: Core.Maybe [Core.Text],
     -- | The unique ID of the service update
-    serviceUpdateName :: Prelude.Text
+    serviceUpdateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchStopUpdateAction' with all optional fields omitted.
@@ -76,64 +75,61 @@ data BatchStopUpdateAction = BatchStopUpdateAction'
 -- 'serviceUpdateName', 'batchStopUpdateAction_serviceUpdateName' - The unique ID of the service update
 newBatchStopUpdateAction ::
   -- | 'serviceUpdateName'
-  Prelude.Text ->
+  Core.Text ->
   BatchStopUpdateAction
 newBatchStopUpdateAction pServiceUpdateName_ =
   BatchStopUpdateAction'
     { cacheClusterIds =
-        Prelude.Nothing,
-      replicationGroupIds = Prelude.Nothing,
+        Core.Nothing,
+      replicationGroupIds = Core.Nothing,
       serviceUpdateName = pServiceUpdateName_
     }
 
 -- | The cache cluster IDs
-batchStopUpdateAction_cacheClusterIds :: Lens.Lens' BatchStopUpdateAction (Prelude.Maybe [Prelude.Text])
-batchStopUpdateAction_cacheClusterIds = Lens.lens (\BatchStopUpdateAction' {cacheClusterIds} -> cacheClusterIds) (\s@BatchStopUpdateAction' {} a -> s {cacheClusterIds = a} :: BatchStopUpdateAction) Prelude.. Lens.mapping Prelude._Coerce
+batchStopUpdateAction_cacheClusterIds :: Lens.Lens' BatchStopUpdateAction (Core.Maybe [Core.Text])
+batchStopUpdateAction_cacheClusterIds = Lens.lens (\BatchStopUpdateAction' {cacheClusterIds} -> cacheClusterIds) (\s@BatchStopUpdateAction' {} a -> s {cacheClusterIds = a} :: BatchStopUpdateAction) Core.. Lens.mapping Lens._Coerce
 
 -- | The replication group IDs
-batchStopUpdateAction_replicationGroupIds :: Lens.Lens' BatchStopUpdateAction (Prelude.Maybe [Prelude.Text])
-batchStopUpdateAction_replicationGroupIds = Lens.lens (\BatchStopUpdateAction' {replicationGroupIds} -> replicationGroupIds) (\s@BatchStopUpdateAction' {} a -> s {replicationGroupIds = a} :: BatchStopUpdateAction) Prelude.. Lens.mapping Prelude._Coerce
+batchStopUpdateAction_replicationGroupIds :: Lens.Lens' BatchStopUpdateAction (Core.Maybe [Core.Text])
+batchStopUpdateAction_replicationGroupIds = Lens.lens (\BatchStopUpdateAction' {replicationGroupIds} -> replicationGroupIds) (\s@BatchStopUpdateAction' {} a -> s {replicationGroupIds = a} :: BatchStopUpdateAction) Core.. Lens.mapping Lens._Coerce
 
 -- | The unique ID of the service update
-batchStopUpdateAction_serviceUpdateName :: Lens.Lens' BatchStopUpdateAction Prelude.Text
+batchStopUpdateAction_serviceUpdateName :: Lens.Lens' BatchStopUpdateAction Core.Text
 batchStopUpdateAction_serviceUpdateName = Lens.lens (\BatchStopUpdateAction' {serviceUpdateName} -> serviceUpdateName) (\s@BatchStopUpdateAction' {} a -> s {serviceUpdateName = a} :: BatchStopUpdateAction)
 
-instance Prelude.AWSRequest BatchStopUpdateAction where
+instance Core.AWSRequest BatchStopUpdateAction where
   type
-    Rs BatchStopUpdateAction =
+    AWSResponse BatchStopUpdateAction =
       UpdateActionResultsMessage
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "BatchStopUpdateActionResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable BatchStopUpdateAction
+instance Core.Hashable BatchStopUpdateAction
 
-instance Prelude.NFData BatchStopUpdateAction
+instance Core.NFData BatchStopUpdateAction
 
-instance Prelude.ToHeaders BatchStopUpdateAction where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders BatchStopUpdateAction where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath BatchStopUpdateAction where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchStopUpdateAction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchStopUpdateAction where
+instance Core.ToQuery BatchStopUpdateAction where
   toQuery BatchStopUpdateAction' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("BatchStopUpdateAction" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+          Core.=: ("BatchStopUpdateAction" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
         "CacheClusterIds"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> cacheClusterIds
-            ),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> cacheClusterIds),
         "ReplicationGroupIds"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> replicationGroupIds
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> replicationGroupIds
             ),
-        "ServiceUpdateName" Prelude.=: serviceUpdateName
+        "ServiceUpdateName" Core.=: serviceUpdateName
       ]

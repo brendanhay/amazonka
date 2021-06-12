@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ValidationError where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an error found in a behavior specification.
 --
 -- /See:/ 'newValidationError' smart constructor.
 data ValidationError = ValidationError'
   { -- | The description of an error found in the behaviors.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorMessage :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValidationError' with all optional fields omitted.
@@ -44,21 +43,21 @@ data ValidationError = ValidationError'
 newValidationError ::
   ValidationError
 newValidationError =
-  ValidationError' {errorMessage = Prelude.Nothing}
+  ValidationError' {errorMessage = Core.Nothing}
 
 -- | The description of an error found in the behaviors.
-validationError_errorMessage :: Lens.Lens' ValidationError (Prelude.Maybe Prelude.Text)
+validationError_errorMessage :: Lens.Lens' ValidationError (Core.Maybe Core.Text)
 validationError_errorMessage = Lens.lens (\ValidationError' {errorMessage} -> errorMessage) (\s@ValidationError' {} a -> s {errorMessage = a} :: ValidationError)
 
-instance Prelude.FromJSON ValidationError where
+instance Core.FromJSON ValidationError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ValidationError"
       ( \x ->
           ValidationError'
-            Prelude.<$> (x Prelude..:? "errorMessage")
+            Core.<$> (x Core..:? "errorMessage")
       )
 
-instance Prelude.Hashable ValidationError
+instance Core.Hashable ValidationError
 
-instance Prelude.NFData ValidationError
+instance Core.NFData ValidationError

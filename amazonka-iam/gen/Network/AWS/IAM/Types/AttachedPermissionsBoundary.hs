@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.AttachedPermissionsBoundary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.PermissionsBoundaryAttachmentType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an attached permissions boundary.
 --
@@ -37,13 +36,13 @@ import qualified Network.AWS.Prelude as Prelude
 data AttachedPermissionsBoundary = AttachedPermissionsBoundary'
   { -- | The ARN of the policy used to set the permissions boundary for the user
     -- or role.
-    permissionsBoundaryArn :: Prelude.Maybe Prelude.Text,
+    permissionsBoundaryArn :: Core.Maybe Core.Text,
     -- | The permissions boundary usage type that indicates what type of IAM
     -- resource is used as the permissions boundary for an entity. This data
     -- type can only have a value of @Policy@.
-    permissionsBoundaryType :: Prelude.Maybe PermissionsBoundaryAttachmentType
+    permissionsBoundaryType :: Core.Maybe PermissionsBoundaryAttachmentType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachedPermissionsBoundary' with all optional fields omitted.
@@ -64,27 +63,27 @@ newAttachedPermissionsBoundary ::
 newAttachedPermissionsBoundary =
   AttachedPermissionsBoundary'
     { permissionsBoundaryArn =
-        Prelude.Nothing,
-      permissionsBoundaryType = Prelude.Nothing
+        Core.Nothing,
+      permissionsBoundaryType = Core.Nothing
     }
 
 -- | The ARN of the policy used to set the permissions boundary for the user
 -- or role.
-attachedPermissionsBoundary_permissionsBoundaryArn :: Lens.Lens' AttachedPermissionsBoundary (Prelude.Maybe Prelude.Text)
+attachedPermissionsBoundary_permissionsBoundaryArn :: Lens.Lens' AttachedPermissionsBoundary (Core.Maybe Core.Text)
 attachedPermissionsBoundary_permissionsBoundaryArn = Lens.lens (\AttachedPermissionsBoundary' {permissionsBoundaryArn} -> permissionsBoundaryArn) (\s@AttachedPermissionsBoundary' {} a -> s {permissionsBoundaryArn = a} :: AttachedPermissionsBoundary)
 
 -- | The permissions boundary usage type that indicates what type of IAM
 -- resource is used as the permissions boundary for an entity. This data
 -- type can only have a value of @Policy@.
-attachedPermissionsBoundary_permissionsBoundaryType :: Lens.Lens' AttachedPermissionsBoundary (Prelude.Maybe PermissionsBoundaryAttachmentType)
+attachedPermissionsBoundary_permissionsBoundaryType :: Lens.Lens' AttachedPermissionsBoundary (Core.Maybe PermissionsBoundaryAttachmentType)
 attachedPermissionsBoundary_permissionsBoundaryType = Lens.lens (\AttachedPermissionsBoundary' {permissionsBoundaryType} -> permissionsBoundaryType) (\s@AttachedPermissionsBoundary' {} a -> s {permissionsBoundaryType = a} :: AttachedPermissionsBoundary)
 
-instance Prelude.FromXML AttachedPermissionsBoundary where
+instance Core.FromXML AttachedPermissionsBoundary where
   parseXML x =
     AttachedPermissionsBoundary'
-      Prelude.<$> (x Prelude..@? "PermissionsBoundaryArn")
-      Prelude.<*> (x Prelude..@? "PermissionsBoundaryType")
+      Core.<$> (x Core..@? "PermissionsBoundaryArn")
+      Core.<*> (x Core..@? "PermissionsBoundaryType")
 
-instance Prelude.Hashable AttachedPermissionsBoundary
+instance Core.Hashable AttachedPermissionsBoundary
 
-instance Prelude.NFData AttachedPermissionsBoundary
+instance Core.NFData AttachedPermissionsBoundary

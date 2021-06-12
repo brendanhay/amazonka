@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,20 +20,20 @@
 module Network.AWS.CloudDirectory.Types.BatchListObjectParentPathsResponse where
 
 import Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a ListObjectParentPaths response operation.
 --
 -- /See:/ 'newBatchListObjectParentPathsResponse' smart constructor.
 data BatchListObjectParentPathsResponse = BatchListObjectParentPathsResponse'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Returns the path to the @ObjectIdentifiers@ that are associated with the
     -- directory.
-    pathToObjectIdentifiersList :: Prelude.Maybe [PathToObjectIdentifiers]
+    pathToObjectIdentifiersList :: Core.Maybe [PathToObjectIdentifiers]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchListObjectParentPathsResponse' with all optional fields omitted.
@@ -53,39 +52,39 @@ newBatchListObjectParentPathsResponse ::
 newBatchListObjectParentPathsResponse =
   BatchListObjectParentPathsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       pathToObjectIdentifiersList =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The pagination token.
-batchListObjectParentPathsResponse_nextToken :: Lens.Lens' BatchListObjectParentPathsResponse (Prelude.Maybe Prelude.Text)
+batchListObjectParentPathsResponse_nextToken :: Lens.Lens' BatchListObjectParentPathsResponse (Core.Maybe Core.Text)
 batchListObjectParentPathsResponse_nextToken = Lens.lens (\BatchListObjectParentPathsResponse' {nextToken} -> nextToken) (\s@BatchListObjectParentPathsResponse' {} a -> s {nextToken = a} :: BatchListObjectParentPathsResponse)
 
 -- | Returns the path to the @ObjectIdentifiers@ that are associated with the
 -- directory.
-batchListObjectParentPathsResponse_pathToObjectIdentifiersList :: Lens.Lens' BatchListObjectParentPathsResponse (Prelude.Maybe [PathToObjectIdentifiers])
-batchListObjectParentPathsResponse_pathToObjectIdentifiersList = Lens.lens (\BatchListObjectParentPathsResponse' {pathToObjectIdentifiersList} -> pathToObjectIdentifiersList) (\s@BatchListObjectParentPathsResponse' {} a -> s {pathToObjectIdentifiersList = a} :: BatchListObjectParentPathsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchListObjectParentPathsResponse_pathToObjectIdentifiersList :: Lens.Lens' BatchListObjectParentPathsResponse (Core.Maybe [PathToObjectIdentifiers])
+batchListObjectParentPathsResponse_pathToObjectIdentifiersList = Lens.lens (\BatchListObjectParentPathsResponse' {pathToObjectIdentifiersList} -> pathToObjectIdentifiersList) (\s@BatchListObjectParentPathsResponse' {} a -> s {pathToObjectIdentifiersList = a} :: BatchListObjectParentPathsResponse) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     BatchListObjectParentPathsResponse
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchListObjectParentPathsResponse"
       ( \x ->
           BatchListObjectParentPathsResponse'
-            Prelude.<$> (x Prelude..:? "NextToken")
-            Prelude.<*> ( x Prelude..:? "PathToObjectIdentifiersList"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> ( x Core..:? "PathToObjectIdentifiersList"
+                         Core..!= Core.mempty
+                     )
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchListObjectParentPathsResponse
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchListObjectParentPathsResponse

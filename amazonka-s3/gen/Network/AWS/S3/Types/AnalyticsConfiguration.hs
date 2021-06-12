@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.AnalyticsConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AnalyticsFilter
 import Network.AWS.S3.Types.StorageClassAnalysis
@@ -35,14 +34,14 @@ data AnalyticsConfiguration = AnalyticsConfiguration'
     -- have exactly one prefix, one tag, or one conjunction
     -- (AnalyticsAndOperator). If no filter is provided, all objects will be
     -- considered in any analysis.
-    filter' :: Prelude.Maybe AnalyticsFilter,
+    filter' :: Core.Maybe AnalyticsFilter,
     -- | The ID that identifies the analytics configuration.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | Contains data related to access patterns to be collected and made
     -- available to analyze the tradeoffs between different storage classes.
     storageClassAnalysis :: StorageClassAnalysis
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnalyticsConfiguration' with all optional fields omitted.
@@ -63,13 +62,13 @@ data AnalyticsConfiguration = AnalyticsConfiguration'
 -- available to analyze the tradeoffs between different storage classes.
 newAnalyticsConfiguration ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'storageClassAnalysis'
   StorageClassAnalysis ->
   AnalyticsConfiguration
 newAnalyticsConfiguration pId_ pStorageClassAnalysis_ =
   AnalyticsConfiguration'
-    { filter' = Prelude.Nothing,
+    { filter' = Core.Nothing,
       id = pId_,
       storageClassAnalysis = pStorageClassAnalysis_
     }
@@ -78,11 +77,11 @@ newAnalyticsConfiguration pId_ pStorageClassAnalysis_ =
 -- have exactly one prefix, one tag, or one conjunction
 -- (AnalyticsAndOperator). If no filter is provided, all objects will be
 -- considered in any analysis.
-analyticsConfiguration_filter :: Lens.Lens' AnalyticsConfiguration (Prelude.Maybe AnalyticsFilter)
+analyticsConfiguration_filter :: Lens.Lens' AnalyticsConfiguration (Core.Maybe AnalyticsFilter)
 analyticsConfiguration_filter = Lens.lens (\AnalyticsConfiguration' {filter'} -> filter') (\s@AnalyticsConfiguration' {} a -> s {filter' = a} :: AnalyticsConfiguration)
 
 -- | The ID that identifies the analytics configuration.
-analyticsConfiguration_id :: Lens.Lens' AnalyticsConfiguration Prelude.Text
+analyticsConfiguration_id :: Lens.Lens' AnalyticsConfiguration Core.Text
 analyticsConfiguration_id = Lens.lens (\AnalyticsConfiguration' {id} -> id) (\s@AnalyticsConfiguration' {} a -> s {id = a} :: AnalyticsConfiguration)
 
 -- | Contains data related to access patterns to be collected and made
@@ -90,22 +89,21 @@ analyticsConfiguration_id = Lens.lens (\AnalyticsConfiguration' {id} -> id) (\s@
 analyticsConfiguration_storageClassAnalysis :: Lens.Lens' AnalyticsConfiguration StorageClassAnalysis
 analyticsConfiguration_storageClassAnalysis = Lens.lens (\AnalyticsConfiguration' {storageClassAnalysis} -> storageClassAnalysis) (\s@AnalyticsConfiguration' {} a -> s {storageClassAnalysis = a} :: AnalyticsConfiguration)
 
-instance Prelude.FromXML AnalyticsConfiguration where
+instance Core.FromXML AnalyticsConfiguration where
   parseXML x =
     AnalyticsConfiguration'
-      Prelude.<$> (x Prelude..@? "Filter")
-      Prelude.<*> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "StorageClassAnalysis")
+      Core.<$> (x Core..@? "Filter")
+      Core.<*> (x Core..@ "Id")
+      Core.<*> (x Core..@ "StorageClassAnalysis")
 
-instance Prelude.Hashable AnalyticsConfiguration
+instance Core.Hashable AnalyticsConfiguration
 
-instance Prelude.NFData AnalyticsConfiguration
+instance Core.NFData AnalyticsConfiguration
 
-instance Prelude.ToXML AnalyticsConfiguration where
+instance Core.ToXML AnalyticsConfiguration where
   toXML AnalyticsConfiguration' {..} =
-    Prelude.mconcat
-      [ "Filter" Prelude.@= filter',
-        "Id" Prelude.@= id,
-        "StorageClassAnalysis"
-          Prelude.@= storageClassAnalysis
+    Core.mconcat
+      [ "Filter" Core.@= filter',
+        "Id" Core.@= id,
+        "StorageClassAnalysis" Core.@= storageClassAnalysis
       ]

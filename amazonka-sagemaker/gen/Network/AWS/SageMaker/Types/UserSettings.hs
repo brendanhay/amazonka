@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.UserSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.JupyterServerAppSettings
 import Network.AWS.SageMaker.Types.KernelGatewayAppSettings
 import Network.AWS.SageMaker.Types.SharingSettings
@@ -39,9 +38,9 @@ import Network.AWS.SageMaker.Types.TensorBoardAppSettings
 -- /See:/ 'newUserSettings' smart constructor.
 data UserSettings = UserSettings'
   { -- | The kernel gateway app settings.
-    kernelGatewayAppSettings :: Prelude.Maybe KernelGatewayAppSettings,
+    kernelGatewayAppSettings :: Core.Maybe KernelGatewayAppSettings,
     -- | The TensorBoard app settings.
-    tensorBoardAppSettings :: Prelude.Maybe TensorBoardAppSettings,
+    tensorBoardAppSettings :: Core.Maybe TensorBoardAppSettings,
     -- | The security groups for the Amazon Virtual Private Cloud (VPC) that
     -- Studio uses for communication.
     --
@@ -54,15 +53,15 @@ data UserSettings = UserSettings'
     -- Amazon SageMaker adds a security group to allow NFS traffic from
     -- SageMaker Studio. Therefore, the number of security groups that you can
     -- specify is one less than the maximum number shown.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
+    securityGroups :: Core.Maybe [Core.Text],
     -- | The Jupyter server\'s app settings.
-    jupyterServerAppSettings :: Prelude.Maybe JupyterServerAppSettings,
+    jupyterServerAppSettings :: Core.Maybe JupyterServerAppSettings,
     -- | The execution role for the user.
-    executionRole :: Prelude.Maybe Prelude.Text,
+    executionRole :: Core.Maybe Core.Text,
     -- | The sharing settings.
-    sharingSettings :: Prelude.Maybe SharingSettings
+    sharingSettings :: Core.Maybe SharingSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserSettings' with all optional fields omitted.
@@ -99,20 +98,20 @@ newUserSettings ::
 newUserSettings =
   UserSettings'
     { kernelGatewayAppSettings =
-        Prelude.Nothing,
-      tensorBoardAppSettings = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      jupyterServerAppSettings = Prelude.Nothing,
-      executionRole = Prelude.Nothing,
-      sharingSettings = Prelude.Nothing
+        Core.Nothing,
+      tensorBoardAppSettings = Core.Nothing,
+      securityGroups = Core.Nothing,
+      jupyterServerAppSettings = Core.Nothing,
+      executionRole = Core.Nothing,
+      sharingSettings = Core.Nothing
     }
 
 -- | The kernel gateway app settings.
-userSettings_kernelGatewayAppSettings :: Lens.Lens' UserSettings (Prelude.Maybe KernelGatewayAppSettings)
+userSettings_kernelGatewayAppSettings :: Lens.Lens' UserSettings (Core.Maybe KernelGatewayAppSettings)
 userSettings_kernelGatewayAppSettings = Lens.lens (\UserSettings' {kernelGatewayAppSettings} -> kernelGatewayAppSettings) (\s@UserSettings' {} a -> s {kernelGatewayAppSettings = a} :: UserSettings)
 
 -- | The TensorBoard app settings.
-userSettings_tensorBoardAppSettings :: Lens.Lens' UserSettings (Prelude.Maybe TensorBoardAppSettings)
+userSettings_tensorBoardAppSettings :: Lens.Lens' UserSettings (Core.Maybe TensorBoardAppSettings)
 userSettings_tensorBoardAppSettings = Lens.lens (\UserSettings' {tensorBoardAppSettings} -> tensorBoardAppSettings) (\s@UserSettings' {} a -> s {tensorBoardAppSettings = a} :: UserSettings)
 
 -- | The security groups for the Amazon Virtual Private Cloud (VPC) that
@@ -127,56 +126,52 @@ userSettings_tensorBoardAppSettings = Lens.lens (\UserSettings' {tensorBoardAppS
 -- Amazon SageMaker adds a security group to allow NFS traffic from
 -- SageMaker Studio. Therefore, the number of security groups that you can
 -- specify is one less than the maximum number shown.
-userSettings_securityGroups :: Lens.Lens' UserSettings (Prelude.Maybe [Prelude.Text])
-userSettings_securityGroups = Lens.lens (\UserSettings' {securityGroups} -> securityGroups) (\s@UserSettings' {} a -> s {securityGroups = a} :: UserSettings) Prelude.. Lens.mapping Prelude._Coerce
+userSettings_securityGroups :: Lens.Lens' UserSettings (Core.Maybe [Core.Text])
+userSettings_securityGroups = Lens.lens (\UserSettings' {securityGroups} -> securityGroups) (\s@UserSettings' {} a -> s {securityGroups = a} :: UserSettings) Core.. Lens.mapping Lens._Coerce
 
 -- | The Jupyter server\'s app settings.
-userSettings_jupyterServerAppSettings :: Lens.Lens' UserSettings (Prelude.Maybe JupyterServerAppSettings)
+userSettings_jupyterServerAppSettings :: Lens.Lens' UserSettings (Core.Maybe JupyterServerAppSettings)
 userSettings_jupyterServerAppSettings = Lens.lens (\UserSettings' {jupyterServerAppSettings} -> jupyterServerAppSettings) (\s@UserSettings' {} a -> s {jupyterServerAppSettings = a} :: UserSettings)
 
 -- | The execution role for the user.
-userSettings_executionRole :: Lens.Lens' UserSettings (Prelude.Maybe Prelude.Text)
+userSettings_executionRole :: Lens.Lens' UserSettings (Core.Maybe Core.Text)
 userSettings_executionRole = Lens.lens (\UserSettings' {executionRole} -> executionRole) (\s@UserSettings' {} a -> s {executionRole = a} :: UserSettings)
 
 -- | The sharing settings.
-userSettings_sharingSettings :: Lens.Lens' UserSettings (Prelude.Maybe SharingSettings)
+userSettings_sharingSettings :: Lens.Lens' UserSettings (Core.Maybe SharingSettings)
 userSettings_sharingSettings = Lens.lens (\UserSettings' {sharingSettings} -> sharingSettings) (\s@UserSettings' {} a -> s {sharingSettings = a} :: UserSettings)
 
-instance Prelude.FromJSON UserSettings where
+instance Core.FromJSON UserSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserSettings"
       ( \x ->
           UserSettings'
-            Prelude.<$> (x Prelude..:? "KernelGatewayAppSettings")
-            Prelude.<*> (x Prelude..:? "TensorBoardAppSettings")
-            Prelude.<*> ( x Prelude..:? "SecurityGroups"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "JupyterServerAppSettings")
-            Prelude.<*> (x Prelude..:? "ExecutionRole")
-            Prelude.<*> (x Prelude..:? "SharingSettings")
+            Core.<$> (x Core..:? "KernelGatewayAppSettings")
+            Core.<*> (x Core..:? "TensorBoardAppSettings")
+            Core.<*> (x Core..:? "SecurityGroups" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "JupyterServerAppSettings")
+            Core.<*> (x Core..:? "ExecutionRole")
+            Core.<*> (x Core..:? "SharingSettings")
       )
 
-instance Prelude.Hashable UserSettings
+instance Core.Hashable UserSettings
 
-instance Prelude.NFData UserSettings
+instance Core.NFData UserSettings
 
-instance Prelude.ToJSON UserSettings where
+instance Core.ToJSON UserSettings where
   toJSON UserSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KernelGatewayAppSettings" Prelude..=)
-              Prelude.<$> kernelGatewayAppSettings,
-            ("TensorBoardAppSettings" Prelude..=)
-              Prelude.<$> tensorBoardAppSettings,
-            ("SecurityGroups" Prelude..=)
-              Prelude.<$> securityGroups,
-            ("JupyterServerAppSettings" Prelude..=)
-              Prelude.<$> jupyterServerAppSettings,
-            ("ExecutionRole" Prelude..=)
-              Prelude.<$> executionRole,
-            ("SharingSettings" Prelude..=)
-              Prelude.<$> sharingSettings
+    Core.object
+      ( Core.catMaybes
+          [ ("KernelGatewayAppSettings" Core..=)
+              Core.<$> kernelGatewayAppSettings,
+            ("TensorBoardAppSettings" Core..=)
+              Core.<$> tensorBoardAppSettings,
+            ("SecurityGroups" Core..=) Core.<$> securityGroups,
+            ("JupyterServerAppSettings" Core..=)
+              Core.<$> jupyterServerAppSettings,
+            ("ExecutionRole" Core..=) Core.<$> executionRole,
+            ("SharingSettings" Core..=)
+              Core.<$> sharingSettings
           ]
       )

@@ -62,10 +62,10 @@ library
     Network.AWS.STS.Types.Tag
     Network.AWS.STS.Waiters
 
-  reexported-modules: Network.AWS.Prelude
+  reexported-modules: Network.AWS
   build-depends:
-    , amazonka-core  >=1.6.1 && <1.6.2
-    , base           >=4.13  && <5
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-sts-test
   type:             exitcode-stdio-1.0
@@ -83,7 +83,7 @@ test-suite amazonka-sts-test
     Test.AWS.STS.Internal
 
   build-depends:
-    , amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka              >=1.6.1 && <1.6.2
     , amazonka-sts
     , amazonka-test         >=1.6.1 && <1.6.2
     , base

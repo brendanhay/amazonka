@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.Organizations.DeregisterDelegatedAdministrator
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +61,7 @@ import qualified Network.AWS.Response as Response
 data DeregisterDelegatedAdministrator = DeregisterDelegatedAdministrator'
   { -- | The account ID number of the member account in the organization that you
     -- want to deregister as a delegated administrator.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The service principal name of an AWS service for which the account is a
     -- delegated administrator.
     --
@@ -70,9 +69,9 @@ data DeregisterDelegatedAdministrator = DeregisterDelegatedAdministrator'
     -- AWS service from the member account. If the specified service is the
     -- only service for which the member account is a delegated administrator,
     -- the operation also revokes Organizations read action permissions.
-    servicePrincipal :: Prelude.Text
+    servicePrincipal :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterDelegatedAdministrator' with all optional fields omitted.
@@ -94,9 +93,9 @@ data DeregisterDelegatedAdministrator = DeregisterDelegatedAdministrator'
 -- the operation also revokes Organizations read action permissions.
 newDeregisterDelegatedAdministrator ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'servicePrincipal'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterDelegatedAdministrator
 newDeregisterDelegatedAdministrator
   pAccountId_
@@ -109,7 +108,7 @@ newDeregisterDelegatedAdministrator
 
 -- | The account ID number of the member account in the organization that you
 -- want to deregister as a delegated administrator.
-deregisterDelegatedAdministrator_accountId :: Lens.Lens' DeregisterDelegatedAdministrator Prelude.Text
+deregisterDelegatedAdministrator_accountId :: Lens.Lens' DeregisterDelegatedAdministrator Core.Text
 deregisterDelegatedAdministrator_accountId = Lens.lens (\DeregisterDelegatedAdministrator' {accountId} -> accountId) (\s@DeregisterDelegatedAdministrator' {} a -> s {accountId = a} :: DeregisterDelegatedAdministrator)
 
 -- | The service principal name of an AWS service for which the account is a
@@ -119,15 +118,15 @@ deregisterDelegatedAdministrator_accountId = Lens.lens (\DeregisterDelegatedAdmi
 -- AWS service from the member account. If the specified service is the
 -- only service for which the member account is a delegated administrator,
 -- the operation also revokes Organizations read action permissions.
-deregisterDelegatedAdministrator_servicePrincipal :: Lens.Lens' DeregisterDelegatedAdministrator Prelude.Text
+deregisterDelegatedAdministrator_servicePrincipal :: Lens.Lens' DeregisterDelegatedAdministrator Core.Text
 deregisterDelegatedAdministrator_servicePrincipal = Lens.lens (\DeregisterDelegatedAdministrator' {servicePrincipal} -> servicePrincipal) (\s@DeregisterDelegatedAdministrator' {} a -> s {servicePrincipal = a} :: DeregisterDelegatedAdministrator)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeregisterDelegatedAdministrator
   where
   type
-    Rs DeregisterDelegatedAdministrator =
+    AWSResponse DeregisterDelegatedAdministrator =
       DeregisterDelegatedAdministratorResponse
   request = Request.postJSON defaultService
   response =
@@ -135,61 +134,51 @@ instance
       DeregisterDelegatedAdministratorResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeregisterDelegatedAdministrator
 
-instance
-  Prelude.NFData
-    DeregisterDelegatedAdministrator
+instance Core.NFData DeregisterDelegatedAdministrator
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeregisterDelegatedAdministrator
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.DeregisterDelegatedAdministrator" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.DeregisterDelegatedAdministrator" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DeregisterDelegatedAdministrator
-  where
+instance Core.ToJSON DeregisterDelegatedAdministrator where
   toJSON DeregisterDelegatedAdministrator' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Prelude..= accountId),
-            Prelude.Just
-              ("ServicePrincipal" Prelude..= servicePrincipal)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just
+              ("ServicePrincipal" Core..= servicePrincipal)
           ]
       )
 
-instance
-  Prelude.ToPath
-    DeregisterDelegatedAdministrator
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterDelegatedAdministrator where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeregisterDelegatedAdministrator
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterDelegatedAdministratorResponse' smart constructor.
 data DeregisterDelegatedAdministratorResponse = DeregisterDelegatedAdministratorResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterDelegatedAdministratorResponse' with all optional fields omitted.
@@ -201,5 +190,5 @@ newDeregisterDelegatedAdministratorResponse =
   DeregisterDelegatedAdministratorResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeregisterDelegatedAdministratorResponse

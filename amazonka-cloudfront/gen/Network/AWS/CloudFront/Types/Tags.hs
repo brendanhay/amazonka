@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.CloudFront.Types.Tags where
 
 import Network.AWS.CloudFront.Types.Tag
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains zero or more @Tag@ elements.
 --
 -- /See:/ 'newTags' smart constructor.
 data Tags = Tags'
   { -- | A complex type that contains @Tag@ elements.
-    items :: Prelude.Maybe [Tag]
+    items :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tags' with all optional fields omitted.
@@ -44,27 +43,26 @@ data Tags = Tags'
 -- 'items', 'tags_items' - A complex type that contains @Tag@ elements.
 newTags ::
   Tags
-newTags = Tags' {items = Prelude.Nothing}
+newTags = Tags' {items = Core.Nothing}
 
 -- | A complex type that contains @Tag@ elements.
-tags_items :: Lens.Lens' Tags (Prelude.Maybe [Tag])
-tags_items = Lens.lens (\Tags' {items} -> items) (\s@Tags' {} a -> s {items = a} :: Tags) Prelude.. Lens.mapping Prelude._Coerce
+tags_items :: Lens.Lens' Tags (Core.Maybe [Tag])
+tags_items = Lens.lens (\Tags' {items} -> items) (\s@Tags' {} a -> s {items = a} :: Tags) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML Tags where
+instance Core.FromXML Tags where
   parseXML x =
     Tags'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "Tag")
-                  )
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "Tag")
+               )
 
-instance Prelude.Hashable Tags
+instance Core.Hashable Tags
 
-instance Prelude.NFData Tags
+instance Core.NFData Tags
 
-instance Prelude.ToXML Tags where
+instance Core.ToXML Tags where
   toXML Tags' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            (Prelude.toXMLList "Tag" Prelude.<$> items)
+          Core.@= Core.toXML (Core.toXMLList "Tag" Core.<$> items)
       ]

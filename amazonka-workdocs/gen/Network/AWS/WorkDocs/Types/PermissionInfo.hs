@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types.PermissionInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.RolePermissionType
 import Network.AWS.WorkDocs.Types.RoleType
 
@@ -30,11 +29,11 @@ import Network.AWS.WorkDocs.Types.RoleType
 -- /See:/ 'newPermissionInfo' smart constructor.
 data PermissionInfo = PermissionInfo'
   { -- | The role of the user.
-    role' :: Prelude.Maybe RoleType,
+    role' :: Core.Maybe RoleType,
     -- | The type of permissions.
-    type' :: Prelude.Maybe RolePermissionType
+    type' :: Core.Maybe RolePermissionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PermissionInfo' with all optional fields omitted.
@@ -51,28 +50,27 @@ newPermissionInfo ::
   PermissionInfo
 newPermissionInfo =
   PermissionInfo'
-    { role' = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { role' = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The role of the user.
-permissionInfo_role :: Lens.Lens' PermissionInfo (Prelude.Maybe RoleType)
+permissionInfo_role :: Lens.Lens' PermissionInfo (Core.Maybe RoleType)
 permissionInfo_role = Lens.lens (\PermissionInfo' {role'} -> role') (\s@PermissionInfo' {} a -> s {role' = a} :: PermissionInfo)
 
 -- | The type of permissions.
-permissionInfo_type :: Lens.Lens' PermissionInfo (Prelude.Maybe RolePermissionType)
+permissionInfo_type :: Lens.Lens' PermissionInfo (Core.Maybe RolePermissionType)
 permissionInfo_type = Lens.lens (\PermissionInfo' {type'} -> type') (\s@PermissionInfo' {} a -> s {type' = a} :: PermissionInfo)
 
-instance Prelude.FromJSON PermissionInfo where
+instance Core.FromJSON PermissionInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PermissionInfo"
       ( \x ->
           PermissionInfo'
-            Prelude.<$> (x Prelude..:? "Role")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Role") Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable PermissionInfo
+instance Core.Hashable PermissionInfo
 
-instance Prelude.NFData PermissionInfo
+instance Core.NFData PermissionInfo

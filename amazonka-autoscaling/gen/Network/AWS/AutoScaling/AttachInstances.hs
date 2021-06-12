@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,19 +51,19 @@ module Network.AWS.AutoScaling.AttachInstances
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAttachInstances' smart constructor.
 data AttachInstances = AttachInstances'
   { -- | The IDs of the instances. You can specify up to 20 instances.
-    instanceIds :: Prelude.Maybe [Prelude.Text],
+    instanceIds :: Core.Maybe [Core.Text],
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text
+    autoScalingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachInstances' with all optional fields omitted.
@@ -79,59 +78,57 @@ data AttachInstances = AttachInstances'
 -- 'autoScalingGroupName', 'attachInstances_autoScalingGroupName' - The name of the Auto Scaling group.
 newAttachInstances ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   AttachInstances
 newAttachInstances pAutoScalingGroupName_ =
   AttachInstances'
-    { instanceIds = Prelude.Nothing,
+    { instanceIds = Core.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The IDs of the instances. You can specify up to 20 instances.
-attachInstances_instanceIds :: Lens.Lens' AttachInstances (Prelude.Maybe [Prelude.Text])
-attachInstances_instanceIds = Lens.lens (\AttachInstances' {instanceIds} -> instanceIds) (\s@AttachInstances' {} a -> s {instanceIds = a} :: AttachInstances) Prelude.. Lens.mapping Prelude._Coerce
+attachInstances_instanceIds :: Lens.Lens' AttachInstances (Core.Maybe [Core.Text])
+attachInstances_instanceIds = Lens.lens (\AttachInstances' {instanceIds} -> instanceIds) (\s@AttachInstances' {} a -> s {instanceIds = a} :: AttachInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the Auto Scaling group.
-attachInstances_autoScalingGroupName :: Lens.Lens' AttachInstances Prelude.Text
+attachInstances_autoScalingGroupName :: Lens.Lens' AttachInstances Core.Text
 attachInstances_autoScalingGroupName = Lens.lens (\AttachInstances' {autoScalingGroupName} -> autoScalingGroupName) (\s@AttachInstances' {} a -> s {autoScalingGroupName = a} :: AttachInstances)
 
-instance Prelude.AWSRequest AttachInstances where
-  type Rs AttachInstances = AttachInstancesResponse
+instance Core.AWSRequest AttachInstances where
+  type
+    AWSResponse AttachInstances =
+      AttachInstancesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull AttachInstancesResponse'
 
-instance Prelude.Hashable AttachInstances
+instance Core.Hashable AttachInstances
 
-instance Prelude.NFData AttachInstances
+instance Core.NFData AttachInstances
 
-instance Prelude.ToHeaders AttachInstances where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AttachInstances where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AttachInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AttachInstances where
+instance Core.ToQuery AttachInstances where
   toQuery AttachInstances' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AttachInstances" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
+          Core.=: ("AttachInstances" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
         "InstanceIds"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> instanceIds
-            ),
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> instanceIds),
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newAttachInstancesResponse' smart constructor.
 data AttachInstancesResponse = AttachInstancesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachInstancesResponse' with all optional fields omitted.
@@ -141,4 +138,4 @@ newAttachInstancesResponse ::
   AttachInstancesResponse
 newAttachInstancesResponse = AttachInstancesResponse'
 
-instance Prelude.NFData AttachInstancesResponse
+instance Core.NFData AttachInstancesResponse

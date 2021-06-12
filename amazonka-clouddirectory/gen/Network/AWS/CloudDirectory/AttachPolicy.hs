@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudDirectory.AttachPolicy
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,14 +51,14 @@ import qualified Network.AWS.Response as Response
 data AttachPolicy = AttachPolicy'
   { -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where both objects reside. For more information, see arns.
-    directoryArn :: Prelude.Text,
+    directoryArn :: Core.Text,
     -- | The reference that is associated with the policy object.
     policyReference :: ObjectReference,
     -- | The reference that identifies the object to which the policy will be
     -- attached.
     objectReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachPolicy' with all optional fields omitted.
@@ -78,7 +77,7 @@ data AttachPolicy = AttachPolicy'
 -- attached.
 newAttachPolicy ::
   -- | 'directoryArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyReference'
   ObjectReference ->
   -- | 'objectReference'
@@ -96,7 +95,7 @@ newAttachPolicy
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where both objects reside. For more information, see arns.
-attachPolicy_directoryArn :: Lens.Lens' AttachPolicy Prelude.Text
+attachPolicy_directoryArn :: Lens.Lens' AttachPolicy Core.Text
 attachPolicy_directoryArn = Lens.lens (\AttachPolicy' {directoryArn} -> directoryArn) (\s@AttachPolicy' {} a -> s {directoryArn = a} :: AttachPolicy)
 
 -- | The reference that is associated with the policy object.
@@ -108,50 +107,50 @@ attachPolicy_policyReference = Lens.lens (\AttachPolicy' {policyReference} -> po
 attachPolicy_objectReference :: Lens.Lens' AttachPolicy ObjectReference
 attachPolicy_objectReference = Lens.lens (\AttachPolicy' {objectReference} -> objectReference) (\s@AttachPolicy' {} a -> s {objectReference = a} :: AttachPolicy)
 
-instance Prelude.AWSRequest AttachPolicy where
-  type Rs AttachPolicy = AttachPolicyResponse
+instance Core.AWSRequest AttachPolicy where
+  type AWSResponse AttachPolicy = AttachPolicyResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AttachPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AttachPolicy
+instance Core.Hashable AttachPolicy
 
-instance Prelude.NFData AttachPolicy
+instance Core.NFData AttachPolicy
 
-instance Prelude.ToHeaders AttachPolicy where
+instance Core.ToHeaders AttachPolicy where
   toHeaders AttachPolicy' {..} =
-    Prelude.mconcat
-      ["x-amz-data-partition" Prelude.=# directoryArn]
+    Core.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance Prelude.ToJSON AttachPolicy where
+instance Core.ToJSON AttachPolicy where
   toJSON AttachPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("PolicyReference" Prelude..= policyReference),
-            Prelude.Just
-              ("ObjectReference" Prelude..= objectReference)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("PolicyReference" Core..= policyReference),
+            Core.Just
+              ("ObjectReference" Core..= objectReference)
           ]
       )
 
-instance Prelude.ToPath AttachPolicy where
+instance Core.ToPath AttachPolicy where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/policy/attach"
 
-instance Prelude.ToQuery AttachPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AttachPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAttachPolicyResponse' smart constructor.
 data AttachPolicyResponse = AttachPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachPolicyResponse' with all optional fields omitted.
@@ -164,13 +163,13 @@ data AttachPolicyResponse = AttachPolicyResponse'
 -- 'httpStatus', 'attachPolicyResponse_httpStatus' - The response's http status code.
 newAttachPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AttachPolicyResponse
 newAttachPolicyResponse pHttpStatus_ =
   AttachPolicyResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-attachPolicyResponse_httpStatus :: Lens.Lens' AttachPolicyResponse Prelude.Int
+attachPolicyResponse_httpStatus :: Lens.Lens' AttachPolicyResponse Core.Int
 attachPolicyResponse_httpStatus = Lens.lens (\AttachPolicyResponse' {httpStatus} -> httpStatus) (\s@AttachPolicyResponse' {} a -> s {httpStatus = a} :: AttachPolicyResponse)
 
-instance Prelude.NFData AttachPolicyResponse
+instance Core.NFData AttachPolicyResponse

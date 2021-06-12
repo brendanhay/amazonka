@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ByoipCidr where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ByoipCidrState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an address range that is provisioned for use with your
 -- AWS resources through bring your own IP addresses (BYOIP).
@@ -32,15 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 data ByoipCidr = ByoipCidr'
   { -- | Upon success, contains the ID of the address pool. Otherwise, contains
     -- an error message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+    statusMessage :: Core.Maybe Core.Text,
     -- | The state of the address pool.
-    state :: Prelude.Maybe ByoipCidrState,
+    state :: Core.Maybe ByoipCidrState,
     -- | The address range, in CIDR notation.
-    cidr :: Prelude.Maybe Prelude.Text,
+    cidr :: Core.Maybe Core.Text,
     -- | The description of the address range.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ByoipCidr' with all optional fields omitted.
@@ -62,37 +61,37 @@ newByoipCidr ::
   ByoipCidr
 newByoipCidr =
   ByoipCidr'
-    { statusMessage = Prelude.Nothing,
-      state = Prelude.Nothing,
-      cidr = Prelude.Nothing,
-      description = Prelude.Nothing
+    { statusMessage = Core.Nothing,
+      state = Core.Nothing,
+      cidr = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | Upon success, contains the ID of the address pool. Otherwise, contains
 -- an error message.
-byoipCidr_statusMessage :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
+byoipCidr_statusMessage :: Lens.Lens' ByoipCidr (Core.Maybe Core.Text)
 byoipCidr_statusMessage = Lens.lens (\ByoipCidr' {statusMessage} -> statusMessage) (\s@ByoipCidr' {} a -> s {statusMessage = a} :: ByoipCidr)
 
 -- | The state of the address pool.
-byoipCidr_state :: Lens.Lens' ByoipCidr (Prelude.Maybe ByoipCidrState)
+byoipCidr_state :: Lens.Lens' ByoipCidr (Core.Maybe ByoipCidrState)
 byoipCidr_state = Lens.lens (\ByoipCidr' {state} -> state) (\s@ByoipCidr' {} a -> s {state = a} :: ByoipCidr)
 
 -- | The address range, in CIDR notation.
-byoipCidr_cidr :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
+byoipCidr_cidr :: Lens.Lens' ByoipCidr (Core.Maybe Core.Text)
 byoipCidr_cidr = Lens.lens (\ByoipCidr' {cidr} -> cidr) (\s@ByoipCidr' {} a -> s {cidr = a} :: ByoipCidr)
 
 -- | The description of the address range.
-byoipCidr_description :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
+byoipCidr_description :: Lens.Lens' ByoipCidr (Core.Maybe Core.Text)
 byoipCidr_description = Lens.lens (\ByoipCidr' {description} -> description) (\s@ByoipCidr' {} a -> s {description = a} :: ByoipCidr)
 
-instance Prelude.FromXML ByoipCidr where
+instance Core.FromXML ByoipCidr where
   parseXML x =
     ByoipCidr'
-      Prelude.<$> (x Prelude..@? "statusMessage")
-      Prelude.<*> (x Prelude..@? "state")
-      Prelude.<*> (x Prelude..@? "cidr")
-      Prelude.<*> (x Prelude..@? "description")
+      Core.<$> (x Core..@? "statusMessage")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "cidr")
+      Core.<*> (x Core..@? "description")
 
-instance Prelude.Hashable ByoipCidr
+instance Core.Hashable ByoipCidr
 
-instance Prelude.NFData ByoipCidr
+instance Core.NFData ByoipCidr

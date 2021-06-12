@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,23 +44,22 @@ module Network.AWS.IoT.ListOTAUpdates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListOTAUpdates' smart constructor.
 data ListOTAUpdates = ListOTAUpdates'
   { -- | The OTA update job status.
-    otaUpdateStatus :: Prelude.Maybe OTAUpdateStatus,
+    otaUpdateStatus :: Core.Maybe OTAUpdateStatus,
     -- | A token used to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOTAUpdates' with all optional fields omitted.
@@ -80,86 +78,84 @@ newListOTAUpdates ::
   ListOTAUpdates
 newListOTAUpdates =
   ListOTAUpdates'
-    { otaUpdateStatus = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { otaUpdateStatus = Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The OTA update job status.
-listOTAUpdates_otaUpdateStatus :: Lens.Lens' ListOTAUpdates (Prelude.Maybe OTAUpdateStatus)
+listOTAUpdates_otaUpdateStatus :: Lens.Lens' ListOTAUpdates (Core.Maybe OTAUpdateStatus)
 listOTAUpdates_otaUpdateStatus = Lens.lens (\ListOTAUpdates' {otaUpdateStatus} -> otaUpdateStatus) (\s@ListOTAUpdates' {} a -> s {otaUpdateStatus = a} :: ListOTAUpdates)
 
 -- | A token used to retrieve the next set of results.
-listOTAUpdates_nextToken :: Lens.Lens' ListOTAUpdates (Prelude.Maybe Prelude.Text)
+listOTAUpdates_nextToken :: Lens.Lens' ListOTAUpdates (Core.Maybe Core.Text)
 listOTAUpdates_nextToken = Lens.lens (\ListOTAUpdates' {nextToken} -> nextToken) (\s@ListOTAUpdates' {} a -> s {nextToken = a} :: ListOTAUpdates)
 
 -- | The maximum number of results to return at one time.
-listOTAUpdates_maxResults :: Lens.Lens' ListOTAUpdates (Prelude.Maybe Prelude.Natural)
+listOTAUpdates_maxResults :: Lens.Lens' ListOTAUpdates (Core.Maybe Core.Natural)
 listOTAUpdates_maxResults = Lens.lens (\ListOTAUpdates' {maxResults} -> maxResults) (\s@ListOTAUpdates' {} a -> s {maxResults = a} :: ListOTAUpdates)
 
-instance Pager.AWSPager ListOTAUpdates where
+instance Core.AWSPager ListOTAUpdates where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listOTAUpdatesResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listOTAUpdatesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listOTAUpdatesResponse_otaUpdates
-              Prelude.. Lens._Just
+            Lens.^? listOTAUpdatesResponse_otaUpdates Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listOTAUpdates_nextToken
           Lens..~ rs
-          Lens.^? listOTAUpdatesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listOTAUpdatesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListOTAUpdates where
-  type Rs ListOTAUpdates = ListOTAUpdatesResponse
+instance Core.AWSRequest ListOTAUpdates where
+  type
+    AWSResponse ListOTAUpdates =
+      ListOTAUpdatesResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListOTAUpdatesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "otaUpdates"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "otaUpdates" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListOTAUpdates
+instance Core.Hashable ListOTAUpdates
 
-instance Prelude.NFData ListOTAUpdates
+instance Core.NFData ListOTAUpdates
 
-instance Prelude.ToHeaders ListOTAUpdates where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListOTAUpdates where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListOTAUpdates where
-  toPath = Prelude.const "/otaUpdates"
+instance Core.ToPath ListOTAUpdates where
+  toPath = Core.const "/otaUpdates"
 
-instance Prelude.ToQuery ListOTAUpdates where
+instance Core.ToQuery ListOTAUpdates where
   toQuery ListOTAUpdates' {..} =
-    Prelude.mconcat
-      [ "otaUpdateStatus" Prelude.=: otaUpdateStatus,
-        "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "otaUpdateStatus" Core.=: otaUpdateStatus,
+        "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListOTAUpdatesResponse' smart constructor.
 data ListOTAUpdatesResponse = ListOTAUpdatesResponse'
   { -- | A token to use to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of OTA update jobs.
-    otaUpdates :: Prelude.Maybe [OTAUpdateSummary],
+    otaUpdates :: Core.Maybe [OTAUpdateSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOTAUpdatesResponse' with all optional fields omitted.
@@ -176,26 +172,25 @@ data ListOTAUpdatesResponse = ListOTAUpdatesResponse'
 -- 'httpStatus', 'listOTAUpdatesResponse_httpStatus' - The response's http status code.
 newListOTAUpdatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListOTAUpdatesResponse
 newListOTAUpdatesResponse pHttpStatus_ =
   ListOTAUpdatesResponse'
-    { nextToken =
-        Prelude.Nothing,
-      otaUpdates = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      otaUpdates = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token to use to get the next set of results.
-listOTAUpdatesResponse_nextToken :: Lens.Lens' ListOTAUpdatesResponse (Prelude.Maybe Prelude.Text)
+listOTAUpdatesResponse_nextToken :: Lens.Lens' ListOTAUpdatesResponse (Core.Maybe Core.Text)
 listOTAUpdatesResponse_nextToken = Lens.lens (\ListOTAUpdatesResponse' {nextToken} -> nextToken) (\s@ListOTAUpdatesResponse' {} a -> s {nextToken = a} :: ListOTAUpdatesResponse)
 
 -- | A list of OTA update jobs.
-listOTAUpdatesResponse_otaUpdates :: Lens.Lens' ListOTAUpdatesResponse (Prelude.Maybe [OTAUpdateSummary])
-listOTAUpdatesResponse_otaUpdates = Lens.lens (\ListOTAUpdatesResponse' {otaUpdates} -> otaUpdates) (\s@ListOTAUpdatesResponse' {} a -> s {otaUpdates = a} :: ListOTAUpdatesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listOTAUpdatesResponse_otaUpdates :: Lens.Lens' ListOTAUpdatesResponse (Core.Maybe [OTAUpdateSummary])
+listOTAUpdatesResponse_otaUpdates = Lens.lens (\ListOTAUpdatesResponse' {otaUpdates} -> otaUpdates) (\s@ListOTAUpdatesResponse' {} a -> s {otaUpdates = a} :: ListOTAUpdatesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listOTAUpdatesResponse_httpStatus :: Lens.Lens' ListOTAUpdatesResponse Prelude.Int
+listOTAUpdatesResponse_httpStatus :: Lens.Lens' ListOTAUpdatesResponse Core.Int
 listOTAUpdatesResponse_httpStatus = Lens.lens (\ListOTAUpdatesResponse' {httpStatus} -> httpStatus) (\s@ListOTAUpdatesResponse' {} a -> s {httpStatus = a} :: ListOTAUpdatesResponse)
 
-instance Prelude.NFData ListOTAUpdatesResponse
+instance Core.NFData ListOTAUpdatesResponse

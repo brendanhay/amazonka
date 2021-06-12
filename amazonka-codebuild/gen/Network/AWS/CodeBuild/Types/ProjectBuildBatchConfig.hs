@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeBuild.Types.ProjectBuildBatchConfig where
 
 import Network.AWS.CodeBuild.Types.BatchRestrictions
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains configuration information about a batch build project.
 --
@@ -30,17 +29,17 @@ import qualified Network.AWS.Prelude as Prelude
 data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
   { -- | Specifies if the build artifacts for the batch build should be combined
     -- into a single artifact location.
-    combineArtifacts :: Prelude.Maybe Prelude.Bool,
+    combineArtifacts :: Core.Maybe Core.Bool,
     -- | Specifies the service role ARN for the batch build project.
-    serviceRole :: Prelude.Maybe Prelude.Text,
+    serviceRole :: Core.Maybe Core.Text,
     -- | Specifies the maximum amount of time, in minutes, that the batch build
     -- must be completed in.
-    timeoutInMins :: Prelude.Maybe Prelude.Int,
+    timeoutInMins :: Core.Maybe Core.Int,
     -- | A @BatchRestrictions@ object that specifies the restrictions for the
     -- batch build.
-    restrictions :: Prelude.Maybe BatchRestrictions
+    restrictions :: Core.Maybe BatchRestrictions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProjectBuildBatchConfig' with all optional fields omitted.
@@ -65,57 +64,55 @@ newProjectBuildBatchConfig ::
 newProjectBuildBatchConfig =
   ProjectBuildBatchConfig'
     { combineArtifacts =
-        Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
-      timeoutInMins = Prelude.Nothing,
-      restrictions = Prelude.Nothing
+        Core.Nothing,
+      serviceRole = Core.Nothing,
+      timeoutInMins = Core.Nothing,
+      restrictions = Core.Nothing
     }
 
 -- | Specifies if the build artifacts for the batch build should be combined
 -- into a single artifact location.
-projectBuildBatchConfig_combineArtifacts :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Bool)
+projectBuildBatchConfig_combineArtifacts :: Lens.Lens' ProjectBuildBatchConfig (Core.Maybe Core.Bool)
 projectBuildBatchConfig_combineArtifacts = Lens.lens (\ProjectBuildBatchConfig' {combineArtifacts} -> combineArtifacts) (\s@ProjectBuildBatchConfig' {} a -> s {combineArtifacts = a} :: ProjectBuildBatchConfig)
 
 -- | Specifies the service role ARN for the batch build project.
-projectBuildBatchConfig_serviceRole :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Text)
+projectBuildBatchConfig_serviceRole :: Lens.Lens' ProjectBuildBatchConfig (Core.Maybe Core.Text)
 projectBuildBatchConfig_serviceRole = Lens.lens (\ProjectBuildBatchConfig' {serviceRole} -> serviceRole) (\s@ProjectBuildBatchConfig' {} a -> s {serviceRole = a} :: ProjectBuildBatchConfig)
 
 -- | Specifies the maximum amount of time, in minutes, that the batch build
 -- must be completed in.
-projectBuildBatchConfig_timeoutInMins :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Int)
+projectBuildBatchConfig_timeoutInMins :: Lens.Lens' ProjectBuildBatchConfig (Core.Maybe Core.Int)
 projectBuildBatchConfig_timeoutInMins = Lens.lens (\ProjectBuildBatchConfig' {timeoutInMins} -> timeoutInMins) (\s@ProjectBuildBatchConfig' {} a -> s {timeoutInMins = a} :: ProjectBuildBatchConfig)
 
 -- | A @BatchRestrictions@ object that specifies the restrictions for the
 -- batch build.
-projectBuildBatchConfig_restrictions :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe BatchRestrictions)
+projectBuildBatchConfig_restrictions :: Lens.Lens' ProjectBuildBatchConfig (Core.Maybe BatchRestrictions)
 projectBuildBatchConfig_restrictions = Lens.lens (\ProjectBuildBatchConfig' {restrictions} -> restrictions) (\s@ProjectBuildBatchConfig' {} a -> s {restrictions = a} :: ProjectBuildBatchConfig)
 
-instance Prelude.FromJSON ProjectBuildBatchConfig where
+instance Core.FromJSON ProjectBuildBatchConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProjectBuildBatchConfig"
       ( \x ->
           ProjectBuildBatchConfig'
-            Prelude.<$> (x Prelude..:? "combineArtifacts")
-            Prelude.<*> (x Prelude..:? "serviceRole")
-            Prelude.<*> (x Prelude..:? "timeoutInMins")
-            Prelude.<*> (x Prelude..:? "restrictions")
+            Core.<$> (x Core..:? "combineArtifacts")
+            Core.<*> (x Core..:? "serviceRole")
+            Core.<*> (x Core..:? "timeoutInMins")
+            Core.<*> (x Core..:? "restrictions")
       )
 
-instance Prelude.Hashable ProjectBuildBatchConfig
+instance Core.Hashable ProjectBuildBatchConfig
 
-instance Prelude.NFData ProjectBuildBatchConfig
+instance Core.NFData ProjectBuildBatchConfig
 
-instance Prelude.ToJSON ProjectBuildBatchConfig where
+instance Core.ToJSON ProjectBuildBatchConfig where
   toJSON ProjectBuildBatchConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("combineArtifacts" Prelude..=)
-              Prelude.<$> combineArtifacts,
-            ("serviceRole" Prelude..=) Prelude.<$> serviceRole,
-            ("timeoutInMins" Prelude..=)
-              Prelude.<$> timeoutInMins,
-            ("restrictions" Prelude..=)
-              Prelude.<$> restrictions
+    Core.object
+      ( Core.catMaybes
+          [ ("combineArtifacts" Core..=)
+              Core.<$> combineArtifacts,
+            ("serviceRole" Core..=) Core.<$> serviceRole,
+            ("timeoutInMins" Core..=) Core.<$> timeoutInMins,
+            ("restrictions" Core..=) Core.<$> restrictions
           ]
       )

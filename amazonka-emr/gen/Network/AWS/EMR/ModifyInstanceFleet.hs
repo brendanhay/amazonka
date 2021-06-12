@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,20 +41,20 @@ module Network.AWS.EMR.ModifyInstanceFleet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyInstanceFleet' smart constructor.
 data ModifyInstanceFleet = ModifyInstanceFleet'
   { -- | The unique identifier of the cluster.
-    clusterId :: Prelude.Text,
+    clusterId :: Core.Text,
     -- | The unique identifier of the instance fleet.
     instanceFleet :: InstanceFleetModifyConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyInstanceFleet' with all optional fields omitted.
@@ -70,7 +69,7 @@ data ModifyInstanceFleet = ModifyInstanceFleet'
 -- 'instanceFleet', 'modifyInstanceFleet_instanceFleet' - The unique identifier of the instance fleet.
 newModifyInstanceFleet ::
   -- | 'clusterId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceFleet'
   InstanceFleetModifyConfig ->
   ModifyInstanceFleet
@@ -81,61 +80,58 @@ newModifyInstanceFleet pClusterId_ pInstanceFleet_ =
     }
 
 -- | The unique identifier of the cluster.
-modifyInstanceFleet_clusterId :: Lens.Lens' ModifyInstanceFleet Prelude.Text
+modifyInstanceFleet_clusterId :: Lens.Lens' ModifyInstanceFleet Core.Text
 modifyInstanceFleet_clusterId = Lens.lens (\ModifyInstanceFleet' {clusterId} -> clusterId) (\s@ModifyInstanceFleet' {} a -> s {clusterId = a} :: ModifyInstanceFleet)
 
 -- | The unique identifier of the instance fleet.
 modifyInstanceFleet_instanceFleet :: Lens.Lens' ModifyInstanceFleet InstanceFleetModifyConfig
 modifyInstanceFleet_instanceFleet = Lens.lens (\ModifyInstanceFleet' {instanceFleet} -> instanceFleet) (\s@ModifyInstanceFleet' {} a -> s {instanceFleet = a} :: ModifyInstanceFleet)
 
-instance Prelude.AWSRequest ModifyInstanceFleet where
+instance Core.AWSRequest ModifyInstanceFleet where
   type
-    Rs ModifyInstanceFleet =
+    AWSResponse ModifyInstanceFleet =
       ModifyInstanceFleetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull ModifyInstanceFleetResponse'
 
-instance Prelude.Hashable ModifyInstanceFleet
+instance Core.Hashable ModifyInstanceFleet
 
-instance Prelude.NFData ModifyInstanceFleet
+instance Core.NFData ModifyInstanceFleet
 
-instance Prelude.ToHeaders ModifyInstanceFleet where
+instance Core.ToHeaders ModifyInstanceFleet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.ModifyInstanceFleet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.ModifyInstanceFleet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ModifyInstanceFleet where
+instance Core.ToJSON ModifyInstanceFleet where
   toJSON ModifyInstanceFleet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ClusterId" Prelude..= clusterId),
-            Prelude.Just
-              ("InstanceFleet" Prelude..= instanceFleet)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            Core.Just ("InstanceFleet" Core..= instanceFleet)
           ]
       )
 
-instance Prelude.ToPath ModifyInstanceFleet where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyInstanceFleet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyInstanceFleet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ModifyInstanceFleet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newModifyInstanceFleetResponse' smart constructor.
 data ModifyInstanceFleetResponse = ModifyInstanceFleetResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyInstanceFleetResponse' with all optional fields omitted.
@@ -146,4 +142,4 @@ newModifyInstanceFleetResponse ::
 newModifyInstanceFleetResponse =
   ModifyInstanceFleetResponse'
 
-instance Prelude.NFData ModifyInstanceFleetResponse
+instance Core.NFData ModifyInstanceFleetResponse

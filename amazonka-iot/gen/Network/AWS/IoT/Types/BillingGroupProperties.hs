@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.BillingGroupProperties where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The properties of a billing group.
 --
 -- /See:/ 'newBillingGroupProperties' smart constructor.
 data BillingGroupProperties = BillingGroupProperties'
   { -- | The description of the billing group.
-    billingGroupDescription :: Prelude.Maybe Prelude.Text
+    billingGroupDescription :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BillingGroupProperties' with all optional fields omitted.
@@ -46,31 +45,31 @@ newBillingGroupProperties ::
 newBillingGroupProperties =
   BillingGroupProperties'
     { billingGroupDescription =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The description of the billing group.
-billingGroupProperties_billingGroupDescription :: Lens.Lens' BillingGroupProperties (Prelude.Maybe Prelude.Text)
+billingGroupProperties_billingGroupDescription :: Lens.Lens' BillingGroupProperties (Core.Maybe Core.Text)
 billingGroupProperties_billingGroupDescription = Lens.lens (\BillingGroupProperties' {billingGroupDescription} -> billingGroupDescription) (\s@BillingGroupProperties' {} a -> s {billingGroupDescription = a} :: BillingGroupProperties)
 
-instance Prelude.FromJSON BillingGroupProperties where
+instance Core.FromJSON BillingGroupProperties where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BillingGroupProperties"
       ( \x ->
           BillingGroupProperties'
-            Prelude.<$> (x Prelude..:? "billingGroupDescription")
+            Core.<$> (x Core..:? "billingGroupDescription")
       )
 
-instance Prelude.Hashable BillingGroupProperties
+instance Core.Hashable BillingGroupProperties
 
-instance Prelude.NFData BillingGroupProperties
+instance Core.NFData BillingGroupProperties
 
-instance Prelude.ToJSON BillingGroupProperties where
+instance Core.ToJSON BillingGroupProperties where
   toJSON BillingGroupProperties' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("billingGroupDescription" Prelude..=)
-              Prelude.<$> billingGroupDescription
+    Core.object
+      ( Core.catMaybes
+          [ ("billingGroupDescription" Core..=)
+              Core.<$> billingGroupDescription
           ]
       )

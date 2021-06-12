@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.GameLift.UpdateAlias
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,17 +69,17 @@ import qualified Network.AWS.Response as Response
 data UpdateAlias = UpdateAlias'
   { -- | The routing configuration, including routing type and fleet target, for
     -- the alias.
-    routingStrategy :: Prelude.Maybe RoutingStrategy,
+    routingStrategy :: Core.Maybe RoutingStrategy,
     -- | A descriptive label that is associated with an alias. Alias names do not
     -- need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A human-readable description of the alias.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | A unique identifier for the alias that you want to update. You can use
     -- either the alias ID or ARN value.
-    aliasId :: Prelude.Text
+    aliasId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAlias' with all optional fields omitted.
@@ -102,91 +101,89 @@ data UpdateAlias = UpdateAlias'
 -- either the alias ID or ARN value.
 newUpdateAlias ::
   -- | 'aliasId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateAlias
 newUpdateAlias pAliasId_ =
   UpdateAlias'
-    { routingStrategy = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { routingStrategy = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
       aliasId = pAliasId_
     }
 
 -- | The routing configuration, including routing type and fleet target, for
 -- the alias.
-updateAlias_routingStrategy :: Lens.Lens' UpdateAlias (Prelude.Maybe RoutingStrategy)
+updateAlias_routingStrategy :: Lens.Lens' UpdateAlias (Core.Maybe RoutingStrategy)
 updateAlias_routingStrategy = Lens.lens (\UpdateAlias' {routingStrategy} -> routingStrategy) (\s@UpdateAlias' {} a -> s {routingStrategy = a} :: UpdateAlias)
 
 -- | A descriptive label that is associated with an alias. Alias names do not
 -- need to be unique.
-updateAlias_name :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
+updateAlias_name :: Lens.Lens' UpdateAlias (Core.Maybe Core.Text)
 updateAlias_name = Lens.lens (\UpdateAlias' {name} -> name) (\s@UpdateAlias' {} a -> s {name = a} :: UpdateAlias)
 
 -- | A human-readable description of the alias.
-updateAlias_description :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
+updateAlias_description :: Lens.Lens' UpdateAlias (Core.Maybe Core.Text)
 updateAlias_description = Lens.lens (\UpdateAlias' {description} -> description) (\s@UpdateAlias' {} a -> s {description = a} :: UpdateAlias)
 
 -- | A unique identifier for the alias that you want to update. You can use
 -- either the alias ID or ARN value.
-updateAlias_aliasId :: Lens.Lens' UpdateAlias Prelude.Text
+updateAlias_aliasId :: Lens.Lens' UpdateAlias Core.Text
 updateAlias_aliasId = Lens.lens (\UpdateAlias' {aliasId} -> aliasId) (\s@UpdateAlias' {} a -> s {aliasId = a} :: UpdateAlias)
 
-instance Prelude.AWSRequest UpdateAlias where
-  type Rs UpdateAlias = UpdateAliasResponse
+instance Core.AWSRequest UpdateAlias where
+  type AWSResponse UpdateAlias = UpdateAliasResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateAliasResponse'
-            Prelude.<$> (x Prelude..?> "Alias")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Alias")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAlias
+instance Core.Hashable UpdateAlias
 
-instance Prelude.NFData UpdateAlias
+instance Core.NFData UpdateAlias
 
-instance Prelude.ToHeaders UpdateAlias where
+instance Core.ToHeaders UpdateAlias where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.UpdateAlias" :: Prelude.ByteString),
+              Core.=# ("GameLift.UpdateAlias" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateAlias where
+instance Core.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RoutingStrategy" Prelude..=)
-              Prelude.<$> routingStrategy,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("AliasId" Prelude..= aliasId)
+    Core.object
+      ( Core.catMaybes
+          [ ("RoutingStrategy" Core..=)
+              Core.<$> routingStrategy,
+            ("Name" Core..=) Core.<$> name,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("AliasId" Core..= aliasId)
           ]
       )
 
-instance Prelude.ToPath UpdateAlias where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateAlias where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateAlias where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateAlias where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newUpdateAliasResponse' smart constructor.
 data UpdateAliasResponse = UpdateAliasResponse'
   { -- | The updated alias resource.
-    alias :: Prelude.Maybe Alias,
+    alias :: Core.Maybe Alias,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAliasResponse' with all optional fields omitted.
@@ -201,20 +198,20 @@ data UpdateAliasResponse = UpdateAliasResponse'
 -- 'httpStatus', 'updateAliasResponse_httpStatus' - The response's http status code.
 newUpdateAliasResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateAliasResponse
 newUpdateAliasResponse pHttpStatus_ =
   UpdateAliasResponse'
-    { alias = Prelude.Nothing,
+    { alias = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The updated alias resource.
-updateAliasResponse_alias :: Lens.Lens' UpdateAliasResponse (Prelude.Maybe Alias)
+updateAliasResponse_alias :: Lens.Lens' UpdateAliasResponse (Core.Maybe Alias)
 updateAliasResponse_alias = Lens.lens (\UpdateAliasResponse' {alias} -> alias) (\s@UpdateAliasResponse' {} a -> s {alias = a} :: UpdateAliasResponse)
 
 -- | The response's http status code.
-updateAliasResponse_httpStatus :: Lens.Lens' UpdateAliasResponse Prelude.Int
+updateAliasResponse_httpStatus :: Lens.Lens' UpdateAliasResponse Core.Int
 updateAliasResponse_httpStatus = Lens.lens (\UpdateAliasResponse' {httpStatus} -> httpStatus) (\s@UpdateAliasResponse' {} a -> s {httpStatus = a} :: UpdateAliasResponse)
 
-instance Prelude.NFData UpdateAliasResponse
+instance Core.NFData UpdateAliasResponse

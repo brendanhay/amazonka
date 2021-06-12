@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TagDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ResourceType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a tag.
 --
 -- /See:/ 'newTagDescription' smart constructor.
 data TagDescription = TagDescription'
   { -- | The ID of the resource.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | The resource type.
     resourceType :: ResourceType,
     -- | The tag key.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | The tag value.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagDescription' with all optional fields omitted.
@@ -57,13 +56,13 @@ data TagDescription = TagDescription'
 -- 'value', 'tagDescription_value' - The tag value.
 newTagDescription ::
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceType'
   ResourceType ->
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   TagDescription
 newTagDescription
   pResourceId_
@@ -78,7 +77,7 @@ newTagDescription
       }
 
 -- | The ID of the resource.
-tagDescription_resourceId :: Lens.Lens' TagDescription Prelude.Text
+tagDescription_resourceId :: Lens.Lens' TagDescription Core.Text
 tagDescription_resourceId = Lens.lens (\TagDescription' {resourceId} -> resourceId) (\s@TagDescription' {} a -> s {resourceId = a} :: TagDescription)
 
 -- | The resource type.
@@ -86,21 +85,21 @@ tagDescription_resourceType :: Lens.Lens' TagDescription ResourceType
 tagDescription_resourceType = Lens.lens (\TagDescription' {resourceType} -> resourceType) (\s@TagDescription' {} a -> s {resourceType = a} :: TagDescription)
 
 -- | The tag key.
-tagDescription_key :: Lens.Lens' TagDescription Prelude.Text
+tagDescription_key :: Lens.Lens' TagDescription Core.Text
 tagDescription_key = Lens.lens (\TagDescription' {key} -> key) (\s@TagDescription' {} a -> s {key = a} :: TagDescription)
 
 -- | The tag value.
-tagDescription_value :: Lens.Lens' TagDescription Prelude.Text
+tagDescription_value :: Lens.Lens' TagDescription Core.Text
 tagDescription_value = Lens.lens (\TagDescription' {value} -> value) (\s@TagDescription' {} a -> s {value = a} :: TagDescription)
 
-instance Prelude.FromXML TagDescription where
+instance Core.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      Prelude.<$> (x Prelude..@ "resourceId")
-      Prelude.<*> (x Prelude..@ "resourceType")
-      Prelude.<*> (x Prelude..@ "key")
-      Prelude.<*> (x Prelude..@ "value")
+      Core.<$> (x Core..@ "resourceId")
+      Core.<*> (x Core..@ "resourceType")
+      Core.<*> (x Core..@ "key")
+      Core.<*> (x Core..@ "value")
 
-instance Prelude.Hashable TagDescription
+instance Core.Hashable TagDescription
 
-instance Prelude.NFData TagDescription
+instance Core.NFData TagDescription

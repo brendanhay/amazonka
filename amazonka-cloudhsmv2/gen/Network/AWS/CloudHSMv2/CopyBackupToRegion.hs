@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudHSMv2.CopyBackupToRegion
 where
 
 import Network.AWS.CloudHSMv2.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +53,13 @@ data CopyBackupToRegion = CopyBackupToRegion'
     -- tags, only these tags will be applied to the destination backup. If you
     -- do not specify tags, the service copies tags from the source backup to
     -- the destination backup.
-    tagList :: Prelude.Maybe [Tag],
+    tagList :: Core.Maybe [Tag],
     -- | The AWS region that will contain your copied CloudHSM cluster backup.
-    destinationRegion :: Prelude.Text,
+    destinationRegion :: Core.Text,
     -- | The ID of the backup that will be copied to the destination region.
-    backupId :: Prelude.Text
+    backupId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopyBackupToRegion' with all optional fields omitted.
@@ -80,13 +79,13 @@ data CopyBackupToRegion = CopyBackupToRegion'
 -- 'backupId', 'copyBackupToRegion_backupId' - The ID of the backup that will be copied to the destination region.
 newCopyBackupToRegion ::
   -- | 'destinationRegion'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'backupId'
-  Prelude.Text ->
+  Core.Text ->
   CopyBackupToRegion
 newCopyBackupToRegion pDestinationRegion_ pBackupId_ =
   CopyBackupToRegion'
-    { tagList = Prelude.Nothing,
+    { tagList = Core.Nothing,
       destinationRegion = pDestinationRegion_,
       backupId = pBackupId_
     }
@@ -95,65 +94,63 @@ newCopyBackupToRegion pDestinationRegion_ pBackupId_ =
 -- tags, only these tags will be applied to the destination backup. If you
 -- do not specify tags, the service copies tags from the source backup to
 -- the destination backup.
-copyBackupToRegion_tagList :: Lens.Lens' CopyBackupToRegion (Prelude.Maybe [Tag])
-copyBackupToRegion_tagList = Lens.lens (\CopyBackupToRegion' {tagList} -> tagList) (\s@CopyBackupToRegion' {} a -> s {tagList = a} :: CopyBackupToRegion) Prelude.. Lens.mapping Prelude._Coerce
+copyBackupToRegion_tagList :: Lens.Lens' CopyBackupToRegion (Core.Maybe [Tag])
+copyBackupToRegion_tagList = Lens.lens (\CopyBackupToRegion' {tagList} -> tagList) (\s@CopyBackupToRegion' {} a -> s {tagList = a} :: CopyBackupToRegion) Core.. Lens.mapping Lens._Coerce
 
 -- | The AWS region that will contain your copied CloudHSM cluster backup.
-copyBackupToRegion_destinationRegion :: Lens.Lens' CopyBackupToRegion Prelude.Text
+copyBackupToRegion_destinationRegion :: Lens.Lens' CopyBackupToRegion Core.Text
 copyBackupToRegion_destinationRegion = Lens.lens (\CopyBackupToRegion' {destinationRegion} -> destinationRegion) (\s@CopyBackupToRegion' {} a -> s {destinationRegion = a} :: CopyBackupToRegion)
 
 -- | The ID of the backup that will be copied to the destination region.
-copyBackupToRegion_backupId :: Lens.Lens' CopyBackupToRegion Prelude.Text
+copyBackupToRegion_backupId :: Lens.Lens' CopyBackupToRegion Core.Text
 copyBackupToRegion_backupId = Lens.lens (\CopyBackupToRegion' {backupId} -> backupId) (\s@CopyBackupToRegion' {} a -> s {backupId = a} :: CopyBackupToRegion)
 
-instance Prelude.AWSRequest CopyBackupToRegion where
+instance Core.AWSRequest CopyBackupToRegion where
   type
-    Rs CopyBackupToRegion =
+    AWSResponse CopyBackupToRegion =
       CopyBackupToRegionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CopyBackupToRegionResponse'
-            Prelude.<$> (x Prelude..?> "DestinationBackup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DestinationBackup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CopyBackupToRegion
+instance Core.Hashable CopyBackupToRegion
 
-instance Prelude.NFData CopyBackupToRegion
+instance Core.NFData CopyBackupToRegion
 
-instance Prelude.ToHeaders CopyBackupToRegion where
+instance Core.ToHeaders CopyBackupToRegion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "BaldrApiService.CopyBackupToRegion" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "BaldrApiService.CopyBackupToRegion" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CopyBackupToRegion where
+instance Core.ToJSON CopyBackupToRegion where
   toJSON CopyBackupToRegion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TagList" Prelude..=) Prelude.<$> tagList,
-            Prelude.Just
-              ("DestinationRegion" Prelude..= destinationRegion),
-            Prelude.Just ("BackupId" Prelude..= backupId)
+    Core.object
+      ( Core.catMaybes
+          [ ("TagList" Core..=) Core.<$> tagList,
+            Core.Just
+              ("DestinationRegion" Core..= destinationRegion),
+            Core.Just ("BackupId" Core..= backupId)
           ]
       )
 
-instance Prelude.ToPath CopyBackupToRegion where
-  toPath = Prelude.const "/"
+instance Core.ToPath CopyBackupToRegion where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CopyBackupToRegion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CopyBackupToRegion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCopyBackupToRegionResponse' smart constructor.
 data CopyBackupToRegionResponse = CopyBackupToRegionResponse'
@@ -165,11 +162,11 @@ data CopyBackupToRegionResponse = CopyBackupToRegionResponse'
     -- You will need to use the @sourceBackupID@ returned in this operation to
     -- use the DescribeBackups operation on the backup that will be copied to
     -- the destination region.
-    destinationBackup :: Prelude.Maybe DestinationBackup,
+    destinationBackup :: Core.Maybe DestinationBackup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopyBackupToRegionResponse' with all optional fields omitted.
@@ -191,12 +188,12 @@ data CopyBackupToRegionResponse = CopyBackupToRegionResponse'
 -- 'httpStatus', 'copyBackupToRegionResponse_httpStatus' - The response's http status code.
 newCopyBackupToRegionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CopyBackupToRegionResponse
 newCopyBackupToRegionResponse pHttpStatus_ =
   CopyBackupToRegionResponse'
     { destinationBackup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -208,11 +205,11 @@ newCopyBackupToRegionResponse pHttpStatus_ =
 -- You will need to use the @sourceBackupID@ returned in this operation to
 -- use the DescribeBackups operation on the backup that will be copied to
 -- the destination region.
-copyBackupToRegionResponse_destinationBackup :: Lens.Lens' CopyBackupToRegionResponse (Prelude.Maybe DestinationBackup)
+copyBackupToRegionResponse_destinationBackup :: Lens.Lens' CopyBackupToRegionResponse (Core.Maybe DestinationBackup)
 copyBackupToRegionResponse_destinationBackup = Lens.lens (\CopyBackupToRegionResponse' {destinationBackup} -> destinationBackup) (\s@CopyBackupToRegionResponse' {} a -> s {destinationBackup = a} :: CopyBackupToRegionResponse)
 
 -- | The response's http status code.
-copyBackupToRegionResponse_httpStatus :: Lens.Lens' CopyBackupToRegionResponse Prelude.Int
+copyBackupToRegionResponse_httpStatus :: Lens.Lens' CopyBackupToRegionResponse Core.Int
 copyBackupToRegionResponse_httpStatus = Lens.lens (\CopyBackupToRegionResponse' {httpStatus} -> httpStatus) (\s@CopyBackupToRegionResponse' {} a -> s {httpStatus = a} :: CopyBackupToRegionResponse)
 
-instance Prelude.NFData CopyBackupToRegionResponse
+instance Core.NFData CopyBackupToRegionResponse

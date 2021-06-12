@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.Rekognition.DeleteCollection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -54,9 +53,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteCollection' smart constructor.
 data DeleteCollection = DeleteCollection'
   { -- | ID of the collection to delete.
-    collectionId :: Prelude.Text
+    collectionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCollection' with all optional fields omitted.
@@ -69,68 +68,66 @@ data DeleteCollection = DeleteCollection'
 -- 'collectionId', 'deleteCollection_collectionId' - ID of the collection to delete.
 newDeleteCollection ::
   -- | 'collectionId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCollection
 newDeleteCollection pCollectionId_ =
   DeleteCollection' {collectionId = pCollectionId_}
 
 -- | ID of the collection to delete.
-deleteCollection_collectionId :: Lens.Lens' DeleteCollection Prelude.Text
+deleteCollection_collectionId :: Lens.Lens' DeleteCollection Core.Text
 deleteCollection_collectionId = Lens.lens (\DeleteCollection' {collectionId} -> collectionId) (\s@DeleteCollection' {} a -> s {collectionId = a} :: DeleteCollection)
 
-instance Prelude.AWSRequest DeleteCollection where
-  type Rs DeleteCollection = DeleteCollectionResponse
+instance Core.AWSRequest DeleteCollection where
+  type
+    AWSResponse DeleteCollection =
+      DeleteCollectionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteCollectionResponse'
-            Prelude.<$> (x Prelude..?> "StatusCode")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StatusCode")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCollection
+instance Core.Hashable DeleteCollection
 
-instance Prelude.NFData DeleteCollection
+instance Core.NFData DeleteCollection
 
-instance Prelude.ToHeaders DeleteCollection where
+instance Core.ToHeaders DeleteCollection where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.DeleteCollection" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.DeleteCollection" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteCollection where
+instance Core.ToJSON DeleteCollection where
   toJSON DeleteCollection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CollectionId" Prelude..= collectionId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CollectionId" Core..= collectionId)]
       )
 
-instance Prelude.ToPath DeleteCollection where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteCollection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteCollection where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteCollection where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteCollectionResponse' smart constructor.
 data DeleteCollectionResponse = DeleteCollectionResponse'
   { -- | HTTP status code that indicates the result of the operation.
-    statusCode :: Prelude.Maybe Prelude.Natural,
+    statusCode :: Core.Maybe Core.Natural,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCollectionResponse' with all optional fields omitted.
@@ -145,21 +142,21 @@ data DeleteCollectionResponse = DeleteCollectionResponse'
 -- 'httpStatus', 'deleteCollectionResponse_httpStatus' - The response's http status code.
 newDeleteCollectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteCollectionResponse
 newDeleteCollectionResponse pHttpStatus_ =
   DeleteCollectionResponse'
     { statusCode =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | HTTP status code that indicates the result of the operation.
-deleteCollectionResponse_statusCode :: Lens.Lens' DeleteCollectionResponse (Prelude.Maybe Prelude.Natural)
+deleteCollectionResponse_statusCode :: Lens.Lens' DeleteCollectionResponse (Core.Maybe Core.Natural)
 deleteCollectionResponse_statusCode = Lens.lens (\DeleteCollectionResponse' {statusCode} -> statusCode) (\s@DeleteCollectionResponse' {} a -> s {statusCode = a} :: DeleteCollectionResponse)
 
 -- | The response's http status code.
-deleteCollectionResponse_httpStatus :: Lens.Lens' DeleteCollectionResponse Prelude.Int
+deleteCollectionResponse_httpStatus :: Lens.Lens' DeleteCollectionResponse Core.Int
 deleteCollectionResponse_httpStatus = Lens.lens (\DeleteCollectionResponse' {httpStatus} -> httpStatus) (\s@DeleteCollectionResponse' {} a -> s {httpStatus = a} :: DeleteCollectionResponse)
 
-instance Prelude.NFData DeleteCollectionResponse
+instance Core.NFData DeleteCollectionResponse

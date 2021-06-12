@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PriceScheduleSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CurrencyCodeValues
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the price for a Reserved Instance.
 --
@@ -31,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 data PriceScheduleSpecification = PriceScheduleSpecification'
   { -- | The currency for transacting the Reserved Instance resale. At this time,
     -- the only supported currency is @USD@.
-    currencyCode :: Prelude.Maybe CurrencyCodeValues,
+    currencyCode :: Core.Maybe CurrencyCodeValues,
     -- | The number of months remaining in the reservation. For example, 2 is the
     -- second to the last month before the capacity reservation expires.
-    term :: Prelude.Maybe Prelude.Integer,
+    term :: Core.Maybe Core.Integer,
     -- | The fixed price for the term.
-    price :: Prelude.Maybe Prelude.Double
+    price :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PriceScheduleSpecification' with all optional fields omitted.
@@ -60,33 +59,33 @@ newPriceScheduleSpecification ::
 newPriceScheduleSpecification =
   PriceScheduleSpecification'
     { currencyCode =
-        Prelude.Nothing,
-      term = Prelude.Nothing,
-      price = Prelude.Nothing
+        Core.Nothing,
+      term = Core.Nothing,
+      price = Core.Nothing
     }
 
 -- | The currency for transacting the Reserved Instance resale. At this time,
 -- the only supported currency is @USD@.
-priceScheduleSpecification_currencyCode :: Lens.Lens' PriceScheduleSpecification (Prelude.Maybe CurrencyCodeValues)
+priceScheduleSpecification_currencyCode :: Lens.Lens' PriceScheduleSpecification (Core.Maybe CurrencyCodeValues)
 priceScheduleSpecification_currencyCode = Lens.lens (\PriceScheduleSpecification' {currencyCode} -> currencyCode) (\s@PriceScheduleSpecification' {} a -> s {currencyCode = a} :: PriceScheduleSpecification)
 
 -- | The number of months remaining in the reservation. For example, 2 is the
 -- second to the last month before the capacity reservation expires.
-priceScheduleSpecification_term :: Lens.Lens' PriceScheduleSpecification (Prelude.Maybe Prelude.Integer)
+priceScheduleSpecification_term :: Lens.Lens' PriceScheduleSpecification (Core.Maybe Core.Integer)
 priceScheduleSpecification_term = Lens.lens (\PriceScheduleSpecification' {term} -> term) (\s@PriceScheduleSpecification' {} a -> s {term = a} :: PriceScheduleSpecification)
 
 -- | The fixed price for the term.
-priceScheduleSpecification_price :: Lens.Lens' PriceScheduleSpecification (Prelude.Maybe Prelude.Double)
+priceScheduleSpecification_price :: Lens.Lens' PriceScheduleSpecification (Core.Maybe Core.Double)
 priceScheduleSpecification_price = Lens.lens (\PriceScheduleSpecification' {price} -> price) (\s@PriceScheduleSpecification' {} a -> s {price = a} :: PriceScheduleSpecification)
 
-instance Prelude.Hashable PriceScheduleSpecification
+instance Core.Hashable PriceScheduleSpecification
 
-instance Prelude.NFData PriceScheduleSpecification
+instance Core.NFData PriceScheduleSpecification
 
-instance Prelude.ToQuery PriceScheduleSpecification where
+instance Core.ToQuery PriceScheduleSpecification where
   toQuery PriceScheduleSpecification' {..} =
-    Prelude.mconcat
-      [ "CurrencyCode" Prelude.=: currencyCode,
-        "Term" Prelude.=: term,
-        "Price" Prelude.=: price
+    Core.mconcat
+      [ "CurrencyCode" Core.=: currencyCode,
+        "Term" Core.=: term,
+        "Price" Core.=: price
       ]

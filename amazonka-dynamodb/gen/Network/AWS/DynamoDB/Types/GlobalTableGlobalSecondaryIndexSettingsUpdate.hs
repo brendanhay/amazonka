@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the settings of a global secondary index for a global table
 -- that will be modified.
@@ -31,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 data GlobalTableGlobalSecondaryIndexSettingsUpdate = GlobalTableGlobalSecondaryIndexSettingsUpdate'
   { -- | Auto scaling settings for managing a global secondary index\'s write
     -- capacity units.
-    provisionedWriteCapacityAutoScalingSettingsUpdate :: Prelude.Maybe AutoScalingSettingsUpdate,
+    provisionedWriteCapacityAutoScalingSettingsUpdate :: Core.Maybe AutoScalingSettingsUpdate,
     -- | The maximum number of writes consumed per second before DynamoDB returns
     -- a @ThrottlingException.@
-    provisionedWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
+    provisionedWriteCapacityUnits :: Core.Maybe Core.Natural,
     -- | The name of the global secondary index. The name must be unique among
     -- all other indexes on this table.
-    indexName :: Prelude.Text
+    indexName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GlobalTableGlobalSecondaryIndexSettingsUpdate' with all optional fields omitted.
@@ -59,55 +58,55 @@ data GlobalTableGlobalSecondaryIndexSettingsUpdate = GlobalTableGlobalSecondaryI
 -- all other indexes on this table.
 newGlobalTableGlobalSecondaryIndexSettingsUpdate ::
   -- | 'indexName'
-  Prelude.Text ->
+  Core.Text ->
   GlobalTableGlobalSecondaryIndexSettingsUpdate
 newGlobalTableGlobalSecondaryIndexSettingsUpdate
   pIndexName_ =
     GlobalTableGlobalSecondaryIndexSettingsUpdate'
       { provisionedWriteCapacityAutoScalingSettingsUpdate =
-          Prelude.Nothing,
+          Core.Nothing,
         provisionedWriteCapacityUnits =
-          Prelude.Nothing,
+          Core.Nothing,
         indexName = pIndexName_
       }
 
 -- | Auto scaling settings for managing a global secondary index\'s write
 -- capacity units.
-globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityAutoScalingSettingsUpdate :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Prelude.Maybe AutoScalingSettingsUpdate)
+globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityAutoScalingSettingsUpdate :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Core.Maybe AutoScalingSettingsUpdate)
 globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityAutoScalingSettingsUpdate = Lens.lens (\GlobalTableGlobalSecondaryIndexSettingsUpdate' {provisionedWriteCapacityAutoScalingSettingsUpdate} -> provisionedWriteCapacityAutoScalingSettingsUpdate) (\s@GlobalTableGlobalSecondaryIndexSettingsUpdate' {} a -> s {provisionedWriteCapacityAutoScalingSettingsUpdate = a} :: GlobalTableGlobalSecondaryIndexSettingsUpdate)
 
 -- | The maximum number of writes consumed per second before DynamoDB returns
 -- a @ThrottlingException.@
-globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityUnits :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Prelude.Maybe Prelude.Natural)
+globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityUnits :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Core.Maybe Core.Natural)
 globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityUnits = Lens.lens (\GlobalTableGlobalSecondaryIndexSettingsUpdate' {provisionedWriteCapacityUnits} -> provisionedWriteCapacityUnits) (\s@GlobalTableGlobalSecondaryIndexSettingsUpdate' {} a -> s {provisionedWriteCapacityUnits = a} :: GlobalTableGlobalSecondaryIndexSettingsUpdate)
 
 -- | The name of the global secondary index. The name must be unique among
 -- all other indexes on this table.
-globalTableGlobalSecondaryIndexSettingsUpdate_indexName :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate Prelude.Text
+globalTableGlobalSecondaryIndexSettingsUpdate_indexName :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate Core.Text
 globalTableGlobalSecondaryIndexSettingsUpdate_indexName = Lens.lens (\GlobalTableGlobalSecondaryIndexSettingsUpdate' {indexName} -> indexName) (\s@GlobalTableGlobalSecondaryIndexSettingsUpdate' {} a -> s {indexName = a} :: GlobalTableGlobalSecondaryIndexSettingsUpdate)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GlobalTableGlobalSecondaryIndexSettingsUpdate
 
 instance
-  Prelude.NFData
+  Core.NFData
     GlobalTableGlobalSecondaryIndexSettingsUpdate
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     GlobalTableGlobalSecondaryIndexSettingsUpdate
   where
   toJSON
     GlobalTableGlobalSecondaryIndexSettingsUpdate' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
+      Core.object
+        ( Core.catMaybes
             [ ( "ProvisionedWriteCapacityAutoScalingSettingsUpdate"
-                  Prelude..=
+                  Core..=
               )
-                Prelude.<$> provisionedWriteCapacityAutoScalingSettingsUpdate,
-              ("ProvisionedWriteCapacityUnits" Prelude..=)
-                Prelude.<$> provisionedWriteCapacityUnits,
-              Prelude.Just ("IndexName" Prelude..= indexName)
+                Core.<$> provisionedWriteCapacityAutoScalingSettingsUpdate,
+              ("ProvisionedWriteCapacityUnits" Core..=)
+                Core.<$> provisionedWriteCapacityUnits,
+              Core.Just ("IndexName" Core..= indexName)
             ]
         )

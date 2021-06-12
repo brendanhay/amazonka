@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,10 +43,9 @@ module Network.AWS.DeviceFarm.ListTests
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +56,11 @@ data ListTests = ListTests'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The test suite\'s Amazon Resource Name (ARN).
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTests' with all optional fields omitted.
@@ -79,88 +77,81 @@ data ListTests = ListTests'
 -- 'arn', 'listTests_arn' - The test suite\'s Amazon Resource Name (ARN).
 newListTests ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   ListTests
 newListTests pArn_ =
-  ListTests'
-    { nextToken = Prelude.Nothing,
-      arn = pArn_
-    }
+  ListTests' {nextToken = Core.Nothing, arn = pArn_}
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listTests_nextToken :: Lens.Lens' ListTests (Prelude.Maybe Prelude.Text)
+listTests_nextToken :: Lens.Lens' ListTests (Core.Maybe Core.Text)
 listTests_nextToken = Lens.lens (\ListTests' {nextToken} -> nextToken) (\s@ListTests' {} a -> s {nextToken = a} :: ListTests)
 
 -- | The test suite\'s Amazon Resource Name (ARN).
-listTests_arn :: Lens.Lens' ListTests Prelude.Text
+listTests_arn :: Lens.Lens' ListTests Core.Text
 listTests_arn = Lens.lens (\ListTests' {arn} -> arn) (\s@ListTests' {} a -> s {arn = a} :: ListTests)
 
-instance Pager.AWSPager ListTests where
+instance Core.AWSPager ListTests where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listTestsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTestsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listTestsResponse_tests Prelude.. Lens._Just
+            Lens.^? listTestsResponse_tests Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTests_nextToken
           Lens..~ rs
-          Lens.^? listTestsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTestsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTests where
-  type Rs ListTests = ListTestsResponse
+instance Core.AWSRequest ListTests where
+  type AWSResponse ListTests = ListTestsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTestsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "tests" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "tests" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTests
+instance Core.Hashable ListTests
 
-instance Prelude.NFData ListTests
+instance Core.NFData ListTests
 
-instance Prelude.ToHeaders ListTests where
+instance Core.ToHeaders ListTests where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.ListTests" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("DeviceFarm_20150623.ListTests" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTests where
+instance Core.ToJSON ListTests where
   toJSON ListTests' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            Prelude.Just ("arn" Prelude..= arn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            Core.Just ("arn" Core..= arn)
           ]
       )
 
-instance Prelude.ToPath ListTests where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTests where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTests where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTests where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the result of a list tests request.
 --
@@ -169,13 +160,13 @@ data ListTestsResponse = ListTestsResponse'
   { -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the tests.
-    tests :: Prelude.Maybe [Test],
+    tests :: Core.Maybe [Test],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTestsResponse' with all optional fields omitted.
@@ -194,27 +185,27 @@ data ListTestsResponse = ListTestsResponse'
 -- 'httpStatus', 'listTestsResponse_httpStatus' - The response's http status code.
 newListTestsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTestsResponse
 newListTestsResponse pHttpStatus_ =
   ListTestsResponse'
-    { nextToken = Prelude.Nothing,
-      tests = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      tests = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
-listTestsResponse_nextToken :: Lens.Lens' ListTestsResponse (Prelude.Maybe Prelude.Text)
+listTestsResponse_nextToken :: Lens.Lens' ListTestsResponse (Core.Maybe Core.Text)
 listTestsResponse_nextToken = Lens.lens (\ListTestsResponse' {nextToken} -> nextToken) (\s@ListTestsResponse' {} a -> s {nextToken = a} :: ListTestsResponse)
 
 -- | Information about the tests.
-listTestsResponse_tests :: Lens.Lens' ListTestsResponse (Prelude.Maybe [Test])
-listTestsResponse_tests = Lens.lens (\ListTestsResponse' {tests} -> tests) (\s@ListTestsResponse' {} a -> s {tests = a} :: ListTestsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTestsResponse_tests :: Lens.Lens' ListTestsResponse (Core.Maybe [Test])
+listTestsResponse_tests = Lens.lens (\ListTestsResponse' {tests} -> tests) (\s@ListTestsResponse' {} a -> s {tests = a} :: ListTestsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTestsResponse_httpStatus :: Lens.Lens' ListTestsResponse Prelude.Int
+listTestsResponse_httpStatus :: Lens.Lens' ListTestsResponse Core.Int
 listTestsResponse_httpStatus = Lens.lens (\ListTestsResponse' {httpStatus} -> httpStatus) (\s@ListTestsResponse' {} a -> s {httpStatus = a} :: ListTestsResponse)
 
-instance Prelude.NFData ListTestsResponse
+instance Core.NFData ListTestsResponse

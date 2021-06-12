@@ -589,6 +589,7 @@ module Network.AWS.ElasticBeanstalk.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.ActionHistoryStatus
 import Network.AWS.ElasticBeanstalk.Types.ActionStatus
 import Network.AWS.ElasticBeanstalk.Types.ActionType
@@ -667,89 +668,86 @@ import Network.AWS.ElasticBeanstalk.Types.Trigger
 import Network.AWS.ElasticBeanstalk.Types.ValidationMessage
 import Network.AWS.ElasticBeanstalk.Types.ValidationSeverity
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2010-12-01@ of the Amazon Elastic Beanstalk SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev =
+  Core.Service
+    { Core._serviceAbbrev =
         "ElasticBeanstalk",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "elasticbeanstalk",
-      Prelude._svcSigningName = "elasticbeanstalk",
-      Prelude._svcVersion = "2010-12-01",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseXMLError "ElasticBeanstalk",
-      Prelude._svcRetry = retry
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "elasticbeanstalk",
+      Core._serviceSigningName = "elasticbeanstalk",
+      Core._serviceVersion = "2010-12-01",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseXMLError "ElasticBeanstalk",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | You have exceeded the maximum number of allowed platforms associated
 -- with the account.
-_TooManyPlatformsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyPlatformsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyPlatformsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyPlatformsException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The number of tags in the resource would exceed the number of tags that
 -- each resource can have.
@@ -757,134 +755,134 @@ _TooManyPlatformsException =
 -- To calculate this, the operation considers both the number of tags the
 -- resource already has and the tags this operation would add if it
 -- succeeded.
-_TooManyTagsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyTagsException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified account has reached its limit of applications.
-_TooManyApplicationsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyApplicationsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyApplicationsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyApplicationsException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The type of the specified Amazon Resource Name (ARN) isn\'t supported
 -- for this operation.
-_ResourceTypeNotSupportedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceTypeNotSupportedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceTypeNotSupportedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceTypeNotSupportedException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified account has reached its limit of environments.
-_TooManyEnvironmentsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyEnvironmentsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyEnvironmentsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyEnvironmentsException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified account does not have sufficient privileges for one or
 -- more AWS services.
-_InsufficientPrivilegesException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InsufficientPrivilegesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InsufficientPrivilegesException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InsufficientPrivilegesException"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | The specified account has reached its limit of configuration templates.
-_TooManyConfigurationTemplatesException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyConfigurationTemplatesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyConfigurationTemplatesException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyConfigurationTemplatesException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Unable to perform the specified operation because another operation that
 -- effects an element in this activity is already in progress.
-_OperationInProgressException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OperationInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OperationInProgressException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OperationInProgressFailure"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified account has reached its limit of Amazon S3 buckets.
-_TooManyBucketsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyBucketsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyBucketsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyBucketsException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified account does not have a subscription to Amazon S3.
-_S3SubscriptionRequiredException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_S3SubscriptionRequiredException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _S3SubscriptionRequiredException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "S3SubscriptionRequiredException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Unable to delete the Amazon S3 source bundle associated with the
 -- application version. The application version was deleted successfully.
-_SourceBundleDeletionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SourceBundleDeletionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SourceBundleDeletionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SourceBundleDeletionFailure"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | One or more input parameters is not valid. Please correct the input
 -- parameters and try the operation again.
-_InvalidRequestException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidRequestException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidRequestException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A generic service exception has occurred.
-_ElasticBeanstalkServiceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ElasticBeanstalkServiceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ElasticBeanstalkServiceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ElasticBeanstalkServiceException"
 
 -- | A resource doesn\'t exist for the specified Amazon Resource Name (ARN).
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | AWS CodeBuild is not available in the specified region.
-_CodeBuildNotInServiceRegionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CodeBuildNotInServiceRegionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CodeBuildNotInServiceRegionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CodeBuildNotInServiceRegionException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You cannot delete the platform version because there are still
 -- environments running on it.
-_PlatformVersionStillReferencedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PlatformVersionStillReferencedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PlatformVersionStillReferencedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PlatformVersionStillReferencedException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified account has reached its limit of application versions.
-_TooManyApplicationVersionsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyApplicationVersionsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyApplicationVersionsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyApplicationVersionsException"
 
@@ -896,17 +894,17 @@ _TooManyApplicationVersionsException =
 -- -   PDX\/us-west-2
 --
 -- -   DUB\/eu-west-1
-_S3LocationNotInServiceRegionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_S3LocationNotInServiceRegionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _S3LocationNotInServiceRegionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "S3LocationNotInServiceRegionException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Cannot modify the managed action in its current state.
-_ManagedActionInvalidStateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ManagedActionInvalidStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ManagedActionInvalidStateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ManagedActionInvalidStateException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400

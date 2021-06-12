@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,8 @@ module Network.AWS.SageMaker.ListWorkforces
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -59,18 +57,18 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListWorkforces' smart constructor.
 data ListWorkforces = ListWorkforces'
   { -- | Sort workforces in ascending or descending order.
-    sortOrder :: Prelude.Maybe SortOrder,
+    sortOrder :: Core.Maybe SortOrder,
     -- | A token to resume pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A filter you can use to search for workforces using part of the
     -- workforce name.
-    nameContains :: Prelude.Maybe Prelude.Text,
+    nameContains :: Core.Maybe Core.Text,
     -- | The maximum number of workforces returned in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Sort workforces using the workforce name or creation date.
-    sortBy :: Prelude.Maybe ListWorkforcesSortByOptions
+    sortBy :: Core.Maybe ListWorkforcesSortByOptions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListWorkforces' with all optional fields omitted.
@@ -94,111 +92,108 @@ newListWorkforces ::
   ListWorkforces
 newListWorkforces =
   ListWorkforces'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing
+    { sortOrder = Core.Nothing,
+      nextToken = Core.Nothing,
+      nameContains = Core.Nothing,
+      maxResults = Core.Nothing,
+      sortBy = Core.Nothing
     }
 
 -- | Sort workforces in ascending or descending order.
-listWorkforces_sortOrder :: Lens.Lens' ListWorkforces (Prelude.Maybe SortOrder)
+listWorkforces_sortOrder :: Lens.Lens' ListWorkforces (Core.Maybe SortOrder)
 listWorkforces_sortOrder = Lens.lens (\ListWorkforces' {sortOrder} -> sortOrder) (\s@ListWorkforces' {} a -> s {sortOrder = a} :: ListWorkforces)
 
 -- | A token to resume pagination.
-listWorkforces_nextToken :: Lens.Lens' ListWorkforces (Prelude.Maybe Prelude.Text)
+listWorkforces_nextToken :: Lens.Lens' ListWorkforces (Core.Maybe Core.Text)
 listWorkforces_nextToken = Lens.lens (\ListWorkforces' {nextToken} -> nextToken) (\s@ListWorkforces' {} a -> s {nextToken = a} :: ListWorkforces)
 
 -- | A filter you can use to search for workforces using part of the
 -- workforce name.
-listWorkforces_nameContains :: Lens.Lens' ListWorkforces (Prelude.Maybe Prelude.Text)
+listWorkforces_nameContains :: Lens.Lens' ListWorkforces (Core.Maybe Core.Text)
 listWorkforces_nameContains = Lens.lens (\ListWorkforces' {nameContains} -> nameContains) (\s@ListWorkforces' {} a -> s {nameContains = a} :: ListWorkforces)
 
 -- | The maximum number of workforces returned in the response.
-listWorkforces_maxResults :: Lens.Lens' ListWorkforces (Prelude.Maybe Prelude.Natural)
+listWorkforces_maxResults :: Lens.Lens' ListWorkforces (Core.Maybe Core.Natural)
 listWorkforces_maxResults = Lens.lens (\ListWorkforces' {maxResults} -> maxResults) (\s@ListWorkforces' {} a -> s {maxResults = a} :: ListWorkforces)
 
 -- | Sort workforces using the workforce name or creation date.
-listWorkforces_sortBy :: Lens.Lens' ListWorkforces (Prelude.Maybe ListWorkforcesSortByOptions)
+listWorkforces_sortBy :: Lens.Lens' ListWorkforces (Core.Maybe ListWorkforcesSortByOptions)
 listWorkforces_sortBy = Lens.lens (\ListWorkforces' {sortBy} -> sortBy) (\s@ListWorkforces' {} a -> s {sortBy = a} :: ListWorkforces)
 
-instance Pager.AWSPager ListWorkforces where
+instance Core.AWSPager ListWorkforces where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listWorkforcesResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listWorkforcesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. listWorkforcesResponse_workforces) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listWorkforces_nextToken
           Lens..~ rs
-          Lens.^? listWorkforcesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listWorkforcesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListWorkforces where
-  type Rs ListWorkforces = ListWorkforcesResponse
+instance Core.AWSRequest ListWorkforces where
+  type
+    AWSResponse ListWorkforces =
+      ListWorkforcesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListWorkforcesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "Workforces"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "Workforces" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListWorkforces
+instance Core.Hashable ListWorkforces
 
-instance Prelude.NFData ListWorkforces
+instance Core.NFData ListWorkforces
 
-instance Prelude.ToHeaders ListWorkforces where
+instance Core.ToHeaders ListWorkforces where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.ListWorkforces" :: Prelude.ByteString),
+              Core.=# ("SageMaker.ListWorkforces" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListWorkforces where
+instance Core.ToJSON ListWorkforces where
   toJSON ListWorkforces' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SortOrder" Prelude..=) Prelude.<$> sortOrder,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("NameContains" Prelude..=) Prelude.<$> nameContains,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("SortBy" Prelude..=) Prelude.<$> sortBy
+    Core.object
+      ( Core.catMaybes
+          [ ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("SortBy" Core..=) Core.<$> sortBy
           ]
       )
 
-instance Prelude.ToPath ListWorkforces where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListWorkforces where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListWorkforces where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListWorkforces where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListWorkforcesResponse' smart constructor.
 data ListWorkforcesResponse = ListWorkforcesResponse'
   { -- | A token to resume pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list containing information about your workforce.
     workforces :: [Workforce]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListWorkforcesResponse' with all optional fields omitted.
@@ -215,26 +210,25 @@ data ListWorkforcesResponse = ListWorkforcesResponse'
 -- 'workforces', 'listWorkforcesResponse_workforces' - A list containing information about your workforce.
 newListWorkforcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListWorkforcesResponse
 newListWorkforcesResponse pHttpStatus_ =
   ListWorkforcesResponse'
-    { nextToken =
-        Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      workforces = Prelude.mempty
+      workforces = Core.mempty
     }
 
 -- | A token to resume pagination.
-listWorkforcesResponse_nextToken :: Lens.Lens' ListWorkforcesResponse (Prelude.Maybe Prelude.Text)
+listWorkforcesResponse_nextToken :: Lens.Lens' ListWorkforcesResponse (Core.Maybe Core.Text)
 listWorkforcesResponse_nextToken = Lens.lens (\ListWorkforcesResponse' {nextToken} -> nextToken) (\s@ListWorkforcesResponse' {} a -> s {nextToken = a} :: ListWorkforcesResponse)
 
 -- | The response's http status code.
-listWorkforcesResponse_httpStatus :: Lens.Lens' ListWorkforcesResponse Prelude.Int
+listWorkforcesResponse_httpStatus :: Lens.Lens' ListWorkforcesResponse Core.Int
 listWorkforcesResponse_httpStatus = Lens.lens (\ListWorkforcesResponse' {httpStatus} -> httpStatus) (\s@ListWorkforcesResponse' {} a -> s {httpStatus = a} :: ListWorkforcesResponse)
 
 -- | A list containing information about your workforce.
 listWorkforcesResponse_workforces :: Lens.Lens' ListWorkforcesResponse [Workforce]
-listWorkforcesResponse_workforces = Lens.lens (\ListWorkforcesResponse' {workforces} -> workforces) (\s@ListWorkforcesResponse' {} a -> s {workforces = a} :: ListWorkforcesResponse) Prelude.. Prelude._Coerce
+listWorkforcesResponse_workforces = Lens.lens (\ListWorkforcesResponse' {workforces} -> workforces) (\s@ListWorkforcesResponse' {} a -> s {workforces = a} :: ListWorkforcesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListWorkforcesResponse
+instance Core.NFData ListWorkforcesResponse

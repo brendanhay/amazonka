@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.LambdaAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action to invoke a Lambda function.
 --
 -- /See:/ 'newLambdaAction' smart constructor.
 data LambdaAction = LambdaAction'
   { -- | The ARN of the Lambda function.
-    functionArn :: Prelude.Text
+    functionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LambdaAction' with all optional fields omitted.
@@ -43,33 +42,30 @@ data LambdaAction = LambdaAction'
 -- 'functionArn', 'lambdaAction_functionArn' - The ARN of the Lambda function.
 newLambdaAction ::
   -- | 'functionArn'
-  Prelude.Text ->
+  Core.Text ->
   LambdaAction
 newLambdaAction pFunctionArn_ =
   LambdaAction' {functionArn = pFunctionArn_}
 
 -- | The ARN of the Lambda function.
-lambdaAction_functionArn :: Lens.Lens' LambdaAction Prelude.Text
+lambdaAction_functionArn :: Lens.Lens' LambdaAction Core.Text
 lambdaAction_functionArn = Lens.lens (\LambdaAction' {functionArn} -> functionArn) (\s@LambdaAction' {} a -> s {functionArn = a} :: LambdaAction)
 
-instance Prelude.FromJSON LambdaAction where
+instance Core.FromJSON LambdaAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LambdaAction"
       ( \x ->
-          LambdaAction'
-            Prelude.<$> (x Prelude..: "functionArn")
+          LambdaAction' Core.<$> (x Core..: "functionArn")
       )
 
-instance Prelude.Hashable LambdaAction
+instance Core.Hashable LambdaAction
 
-instance Prelude.NFData LambdaAction
+instance Core.NFData LambdaAction
 
-instance Prelude.ToJSON LambdaAction where
+instance Core.ToJSON LambdaAction where
   toJSON LambdaAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("functionArn" Prelude..= functionArn)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("functionArn" Core..= functionArn)]
       )

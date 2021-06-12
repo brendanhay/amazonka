@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.SageMaker.StopProcessingJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,9 +44,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopProcessingJob' smart constructor.
 data StopProcessingJob = StopProcessingJob'
   { -- | The name of the processing job to stop.
-    processingJobName :: Prelude.Text
+    processingJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopProcessingJob' with all optional fields omitted.
@@ -60,7 +59,7 @@ data StopProcessingJob = StopProcessingJob'
 -- 'processingJobName', 'stopProcessingJob_processingJobName' - The name of the processing job to stop.
 newStopProcessingJob ::
   -- | 'processingJobName'
-  Prelude.Text ->
+  Core.Text ->
   StopProcessingJob
 newStopProcessingJob pProcessingJobName_ =
   StopProcessingJob'
@@ -69,54 +68,52 @@ newStopProcessingJob pProcessingJobName_ =
     }
 
 -- | The name of the processing job to stop.
-stopProcessingJob_processingJobName :: Lens.Lens' StopProcessingJob Prelude.Text
+stopProcessingJob_processingJobName :: Lens.Lens' StopProcessingJob Core.Text
 stopProcessingJob_processingJobName = Lens.lens (\StopProcessingJob' {processingJobName} -> processingJobName) (\s@StopProcessingJob' {} a -> s {processingJobName = a} :: StopProcessingJob)
 
-instance Prelude.AWSRequest StopProcessingJob where
-  type Rs StopProcessingJob = StopProcessingJobResponse
+instance Core.AWSRequest StopProcessingJob where
+  type
+    AWSResponse StopProcessingJob =
+      StopProcessingJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull StopProcessingJobResponse'
 
-instance Prelude.Hashable StopProcessingJob
+instance Core.Hashable StopProcessingJob
 
-instance Prelude.NFData StopProcessingJob
+instance Core.NFData StopProcessingJob
 
-instance Prelude.ToHeaders StopProcessingJob where
+instance Core.ToHeaders StopProcessingJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.StopProcessingJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.StopProcessingJob" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopProcessingJob where
+instance Core.ToJSON StopProcessingJob where
   toJSON StopProcessingJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ProcessingJobName" Prelude..= processingJobName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ProcessingJobName" Core..= processingJobName)
           ]
       )
 
-instance Prelude.ToPath StopProcessingJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopProcessingJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopProcessingJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopProcessingJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopProcessingJobResponse' smart constructor.
 data StopProcessingJobResponse = StopProcessingJobResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopProcessingJobResponse' with all optional fields omitted.
@@ -127,4 +124,4 @@ newStopProcessingJobResponse ::
 newStopProcessingJobResponse =
   StopProcessingJobResponse'
 
-instance Prelude.NFData StopProcessingJobResponse
+instance Core.NFData StopProcessingJobResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.Mpeg2FilterSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.TemporalFilterSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Mpeg2 Filter Settings
 --
 -- /See:/ 'newMpeg2FilterSettings' smart constructor.
 data Mpeg2FilterSettings = Mpeg2FilterSettings'
-  { temporalFilterSettings :: Prelude.Maybe TemporalFilterSettings
+  { temporalFilterSettings :: Core.Maybe TemporalFilterSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Mpeg2FilterSettings' with all optional fields omitted.
@@ -46,31 +45,31 @@ newMpeg2FilterSettings ::
 newMpeg2FilterSettings =
   Mpeg2FilterSettings'
     { temporalFilterSettings =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Undocumented member.
-mpeg2FilterSettings_temporalFilterSettings :: Lens.Lens' Mpeg2FilterSettings (Prelude.Maybe TemporalFilterSettings)
+mpeg2FilterSettings_temporalFilterSettings :: Lens.Lens' Mpeg2FilterSettings (Core.Maybe TemporalFilterSettings)
 mpeg2FilterSettings_temporalFilterSettings = Lens.lens (\Mpeg2FilterSettings' {temporalFilterSettings} -> temporalFilterSettings) (\s@Mpeg2FilterSettings' {} a -> s {temporalFilterSettings = a} :: Mpeg2FilterSettings)
 
-instance Prelude.FromJSON Mpeg2FilterSettings where
+instance Core.FromJSON Mpeg2FilterSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Mpeg2FilterSettings"
       ( \x ->
           Mpeg2FilterSettings'
-            Prelude.<$> (x Prelude..:? "temporalFilterSettings")
+            Core.<$> (x Core..:? "temporalFilterSettings")
       )
 
-instance Prelude.Hashable Mpeg2FilterSettings
+instance Core.Hashable Mpeg2FilterSettings
 
-instance Prelude.NFData Mpeg2FilterSettings
+instance Core.NFData Mpeg2FilterSettings
 
-instance Prelude.ToJSON Mpeg2FilterSettings where
+instance Core.ToJSON Mpeg2FilterSettings where
   toJSON Mpeg2FilterSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("temporalFilterSettings" Prelude..=)
-              Prelude.<$> temporalFilterSettings
+    Core.object
+      ( Core.catMaybes
+          [ ("temporalFilterSettings" Core..=)
+              Core.<$> temporalFilterSettings
           ]
       )

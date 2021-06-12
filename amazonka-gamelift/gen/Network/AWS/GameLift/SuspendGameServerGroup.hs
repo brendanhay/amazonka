@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -82,9 +81,9 @@ module Network.AWS.GameLift.SuspendGameServerGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -92,11 +91,11 @@ import qualified Network.AWS.Response as Response
 data SuspendGameServerGroup = SuspendGameServerGroup'
   { -- | A unique identifier for the game server group. Use either the
     -- GameServerGroup name or ARN value.
-    gameServerGroupName :: Prelude.Text,
+    gameServerGroupName :: Core.Text,
     -- | The activity to suspend for this game server group.
-    suspendActions :: Prelude.NonEmpty GameServerGroupAction
+    suspendActions :: Core.NonEmpty GameServerGroupAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuspendGameServerGroup' with all optional fields omitted.
@@ -112,9 +111,9 @@ data SuspendGameServerGroup = SuspendGameServerGroup'
 -- 'suspendActions', 'suspendGameServerGroup_suspendActions' - The activity to suspend for this game server group.
 newSuspendGameServerGroup ::
   -- | 'gameServerGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'suspendActions'
-  Prelude.NonEmpty GameServerGroupAction ->
+  Core.NonEmpty GameServerGroupAction ->
   SuspendGameServerGroup
 newSuspendGameServerGroup
   pGameServerGroupName_
@@ -123,78 +122,73 @@ newSuspendGameServerGroup
       { gameServerGroupName =
           pGameServerGroupName_,
         suspendActions =
-          Prelude._Coerce Lens.# pSuspendActions_
+          Lens._Coerce Lens.# pSuspendActions_
       }
 
 -- | A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
-suspendGameServerGroup_gameServerGroupName :: Lens.Lens' SuspendGameServerGroup Prelude.Text
+suspendGameServerGroup_gameServerGroupName :: Lens.Lens' SuspendGameServerGroup Core.Text
 suspendGameServerGroup_gameServerGroupName = Lens.lens (\SuspendGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@SuspendGameServerGroup' {} a -> s {gameServerGroupName = a} :: SuspendGameServerGroup)
 
 -- | The activity to suspend for this game server group.
-suspendGameServerGroup_suspendActions :: Lens.Lens' SuspendGameServerGroup (Prelude.NonEmpty GameServerGroupAction)
-suspendGameServerGroup_suspendActions = Lens.lens (\SuspendGameServerGroup' {suspendActions} -> suspendActions) (\s@SuspendGameServerGroup' {} a -> s {suspendActions = a} :: SuspendGameServerGroup) Prelude.. Prelude._Coerce
+suspendGameServerGroup_suspendActions :: Lens.Lens' SuspendGameServerGroup (Core.NonEmpty GameServerGroupAction)
+suspendGameServerGroup_suspendActions = Lens.lens (\SuspendGameServerGroup' {suspendActions} -> suspendActions) (\s@SuspendGameServerGroup' {} a -> s {suspendActions = a} :: SuspendGameServerGroup) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest SuspendGameServerGroup where
+instance Core.AWSRequest SuspendGameServerGroup where
   type
-    Rs SuspendGameServerGroup =
+    AWSResponse SuspendGameServerGroup =
       SuspendGameServerGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SuspendGameServerGroupResponse'
-            Prelude.<$> (x Prelude..?> "GameServerGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GameServerGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SuspendGameServerGroup
+instance Core.Hashable SuspendGameServerGroup
 
-instance Prelude.NFData SuspendGameServerGroup
+instance Core.NFData SuspendGameServerGroup
 
-instance Prelude.ToHeaders SuspendGameServerGroup where
+instance Core.ToHeaders SuspendGameServerGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.SuspendGameServerGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.SuspendGameServerGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SuspendGameServerGroup where
+instance Core.ToJSON SuspendGameServerGroup where
   toJSON SuspendGameServerGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "GameServerGroupName"
-                  Prelude..= gameServerGroupName
-              ),
-            Prelude.Just
-              ("SuspendActions" Prelude..= suspendActions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("GameServerGroupName" Core..= gameServerGroupName),
+            Core.Just ("SuspendActions" Core..= suspendActions)
           ]
       )
 
-instance Prelude.ToPath SuspendGameServerGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath SuspendGameServerGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SuspendGameServerGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SuspendGameServerGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSuspendGameServerGroupResponse' smart constructor.
 data SuspendGameServerGroupResponse = SuspendGameServerGroupResponse'
   { -- | An object that describes the game server group resource, with the
     -- @SuspendedActions@ property updated to reflect the suspended activity.
-    gameServerGroup :: Prelude.Maybe GameServerGroup,
+    gameServerGroup :: Core.Maybe GameServerGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuspendGameServerGroupResponse' with all optional fields omitted.
@@ -210,24 +204,22 @@ data SuspendGameServerGroupResponse = SuspendGameServerGroupResponse'
 -- 'httpStatus', 'suspendGameServerGroupResponse_httpStatus' - The response's http status code.
 newSuspendGameServerGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SuspendGameServerGroupResponse
 newSuspendGameServerGroupResponse pHttpStatus_ =
   SuspendGameServerGroupResponse'
     { gameServerGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes the game server group resource, with the
 -- @SuspendedActions@ property updated to reflect the suspended activity.
-suspendGameServerGroupResponse_gameServerGroup :: Lens.Lens' SuspendGameServerGroupResponse (Prelude.Maybe GameServerGroup)
+suspendGameServerGroupResponse_gameServerGroup :: Lens.Lens' SuspendGameServerGroupResponse (Core.Maybe GameServerGroup)
 suspendGameServerGroupResponse_gameServerGroup = Lens.lens (\SuspendGameServerGroupResponse' {gameServerGroup} -> gameServerGroup) (\s@SuspendGameServerGroupResponse' {} a -> s {gameServerGroup = a} :: SuspendGameServerGroupResponse)
 
 -- | The response's http status code.
-suspendGameServerGroupResponse_httpStatus :: Lens.Lens' SuspendGameServerGroupResponse Prelude.Int
+suspendGameServerGroupResponse_httpStatus :: Lens.Lens' SuspendGameServerGroupResponse Core.Int
 suspendGameServerGroupResponse_httpStatus = Lens.lens (\SuspendGameServerGroupResponse' {httpStatus} -> httpStatus) (\s@SuspendGameServerGroupResponse' {} a -> s {httpStatus = a} :: SuspendGameServerGroupResponse)
 
-instance
-  Prelude.NFData
-    SuspendGameServerGroupResponse
+instance Core.NFData SuspendGameServerGroupResponse

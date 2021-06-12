@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SageMaker.StopTransformJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -51,9 +50,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopTransformJob' smart constructor.
 data StopTransformJob = StopTransformJob'
   { -- | The name of the transform job to stop.
-    transformJobName :: Prelude.Text
+    transformJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopTransformJob' with all optional fields omitted.
@@ -66,7 +65,7 @@ data StopTransformJob = StopTransformJob'
 -- 'transformJobName', 'stopTransformJob_transformJobName' - The name of the transform job to stop.
 newStopTransformJob ::
   -- | 'transformJobName'
-  Prelude.Text ->
+  Core.Text ->
   StopTransformJob
 newStopTransformJob pTransformJobName_ =
   StopTransformJob'
@@ -75,52 +74,52 @@ newStopTransformJob pTransformJobName_ =
     }
 
 -- | The name of the transform job to stop.
-stopTransformJob_transformJobName :: Lens.Lens' StopTransformJob Prelude.Text
+stopTransformJob_transformJobName :: Lens.Lens' StopTransformJob Core.Text
 stopTransformJob_transformJobName = Lens.lens (\StopTransformJob' {transformJobName} -> transformJobName) (\s@StopTransformJob' {} a -> s {transformJobName = a} :: StopTransformJob)
 
-instance Prelude.AWSRequest StopTransformJob where
-  type Rs StopTransformJob = StopTransformJobResponse
+instance Core.AWSRequest StopTransformJob where
+  type
+    AWSResponse StopTransformJob =
+      StopTransformJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull StopTransformJobResponse'
 
-instance Prelude.Hashable StopTransformJob
+instance Core.Hashable StopTransformJob
 
-instance Prelude.NFData StopTransformJob
+instance Core.NFData StopTransformJob
 
-instance Prelude.ToHeaders StopTransformJob where
+instance Core.ToHeaders StopTransformJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.StopTransformJob" :: Prelude.ByteString),
+              Core.=# ("SageMaker.StopTransformJob" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopTransformJob where
+instance Core.ToJSON StopTransformJob where
   toJSON StopTransformJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("TransformJobName" Prelude..= transformJobName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("TransformJobName" Core..= transformJobName)
           ]
       )
 
-instance Prelude.ToPath StopTransformJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopTransformJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopTransformJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopTransformJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopTransformJobResponse' smart constructor.
 data StopTransformJobResponse = StopTransformJobResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopTransformJobResponse' with all optional fields omitted.
@@ -131,4 +130,4 @@ newStopTransformJobResponse ::
 newStopTransformJobResponse =
   StopTransformJobResponse'
 
-instance Prelude.NFData StopTransformJobResponse
+instance Core.NFData StopTransformJobResponse

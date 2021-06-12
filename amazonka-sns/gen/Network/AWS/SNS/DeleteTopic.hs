@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.SNS.DeleteTopic
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -48,9 +47,9 @@ import Network.AWS.SNS.Types
 -- | /See:/ 'newDeleteTopic' smart constructor.
 data DeleteTopic = DeleteTopic'
   { -- | The ARN of the topic you want to delete.
-    topicArn :: Prelude.Text
+    topicArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTopic' with all optional fields omitted.
@@ -63,45 +62,43 @@ data DeleteTopic = DeleteTopic'
 -- 'topicArn', 'deleteTopic_topicArn' - The ARN of the topic you want to delete.
 newDeleteTopic ::
   -- | 'topicArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTopic
 newDeleteTopic pTopicArn_ =
   DeleteTopic' {topicArn = pTopicArn_}
 
 -- | The ARN of the topic you want to delete.
-deleteTopic_topicArn :: Lens.Lens' DeleteTopic Prelude.Text
+deleteTopic_topicArn :: Lens.Lens' DeleteTopic Core.Text
 deleteTopic_topicArn = Lens.lens (\DeleteTopic' {topicArn} -> topicArn) (\s@DeleteTopic' {} a -> s {topicArn = a} :: DeleteTopic)
 
-instance Prelude.AWSRequest DeleteTopic where
-  type Rs DeleteTopic = DeleteTopicResponse
+instance Core.AWSRequest DeleteTopic where
+  type AWSResponse DeleteTopic = DeleteTopicResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteTopicResponse'
 
-instance Prelude.Hashable DeleteTopic
+instance Core.Hashable DeleteTopic
 
-instance Prelude.NFData DeleteTopic
+instance Core.NFData DeleteTopic
 
-instance Prelude.ToHeaders DeleteTopic where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteTopic where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteTopic where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTopic where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTopic where
+instance Core.ToQuery DeleteTopic where
   toQuery DeleteTopic' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("DeleteTopic" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "TopicArn" Prelude.=: topicArn
+    Core.mconcat
+      [ "Action" Core.=: ("DeleteTopic" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "TopicArn" Core.=: topicArn
       ]
 
 -- | /See:/ 'newDeleteTopicResponse' smart constructor.
 data DeleteTopicResponse = DeleteTopicResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTopicResponse' with all optional fields omitted.
@@ -111,4 +108,4 @@ newDeleteTopicResponse ::
   DeleteTopicResponse
 newDeleteTopicResponse = DeleteTopicResponse'
 
-instance Prelude.NFData DeleteTopicResponse
+instance Core.NFData DeleteTopicResponse

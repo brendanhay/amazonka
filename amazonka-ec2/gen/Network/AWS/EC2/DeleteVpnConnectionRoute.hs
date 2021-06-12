@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.EC2.DeleteVpnConnectionRoute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteVpnConnectionRoute' smart constructor.
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute'
   { -- | The CIDR block associated with the local subnet of the customer network.
-    destinationCidrBlock :: Prelude.Text,
+    destinationCidrBlock :: Core.Text,
     -- | The ID of the VPN connection.
-    vpnConnectionId :: Prelude.Text
+    vpnConnectionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpnConnectionRoute' with all optional fields omitted.
@@ -70,9 +69,9 @@ data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute'
 -- 'vpnConnectionId', 'deleteVpnConnectionRoute_vpnConnectionId' - The ID of the VPN connection.
 newDeleteVpnConnectionRoute ::
   -- | 'destinationCidrBlock'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vpnConnectionId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVpnConnectionRoute
 newDeleteVpnConnectionRoute
   pDestinationCidrBlock_
@@ -84,49 +83,47 @@ newDeleteVpnConnectionRoute
       }
 
 -- | The CIDR block associated with the local subnet of the customer network.
-deleteVpnConnectionRoute_destinationCidrBlock :: Lens.Lens' DeleteVpnConnectionRoute Prelude.Text
+deleteVpnConnectionRoute_destinationCidrBlock :: Lens.Lens' DeleteVpnConnectionRoute Core.Text
 deleteVpnConnectionRoute_destinationCidrBlock = Lens.lens (\DeleteVpnConnectionRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@DeleteVpnConnectionRoute' {} a -> s {destinationCidrBlock = a} :: DeleteVpnConnectionRoute)
 
 -- | The ID of the VPN connection.
-deleteVpnConnectionRoute_vpnConnectionId :: Lens.Lens' DeleteVpnConnectionRoute Prelude.Text
+deleteVpnConnectionRoute_vpnConnectionId :: Lens.Lens' DeleteVpnConnectionRoute Core.Text
 deleteVpnConnectionRoute_vpnConnectionId = Lens.lens (\DeleteVpnConnectionRoute' {vpnConnectionId} -> vpnConnectionId) (\s@DeleteVpnConnectionRoute' {} a -> s {vpnConnectionId = a} :: DeleteVpnConnectionRoute)
 
-instance Prelude.AWSRequest DeleteVpnConnectionRoute where
+instance Core.AWSRequest DeleteVpnConnectionRoute where
   type
-    Rs DeleteVpnConnectionRoute =
+    AWSResponse DeleteVpnConnectionRoute =
       DeleteVpnConnectionRouteResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteVpnConnectionRouteResponse'
 
-instance Prelude.Hashable DeleteVpnConnectionRoute
+instance Core.Hashable DeleteVpnConnectionRoute
 
-instance Prelude.NFData DeleteVpnConnectionRoute
+instance Core.NFData DeleteVpnConnectionRoute
 
-instance Prelude.ToHeaders DeleteVpnConnectionRoute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteVpnConnectionRoute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteVpnConnectionRoute where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteVpnConnectionRoute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteVpnConnectionRoute where
+instance Core.ToQuery DeleteVpnConnectionRoute where
   toQuery DeleteVpnConnectionRoute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteVpnConnectionRoute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DestinationCidrBlock"
-          Prelude.=: destinationCidrBlock,
-        "VpnConnectionId" Prelude.=: vpnConnectionId
+          Core.=: ("DeleteVpnConnectionRoute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DestinationCidrBlock" Core.=: destinationCidrBlock,
+        "VpnConnectionId" Core.=: vpnConnectionId
       ]
 
 -- | /See:/ 'newDeleteVpnConnectionRouteResponse' smart constructor.
 data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpnConnectionRouteResponse' with all optional fields omitted.
@@ -137,6 +134,4 @@ newDeleteVpnConnectionRouteResponse ::
 newDeleteVpnConnectionRouteResponse =
   DeleteVpnConnectionRouteResponse'
 
-instance
-  Prelude.NFData
-    DeleteVpnConnectionRouteResponse
+instance Core.NFData DeleteVpnConnectionRouteResponse

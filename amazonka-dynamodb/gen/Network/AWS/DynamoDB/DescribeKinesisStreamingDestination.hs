@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,18 +40,18 @@ module Network.AWS.DynamoDB.DescribeKinesisStreamingDestination
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeKinesisStreamingDestination' smart constructor.
 data DescribeKinesisStreamingDestination = DescribeKinesisStreamingDestination'
   { -- | The name of the table being described.
-    tableName :: Prelude.Text
+    tableName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeKinesisStreamingDestination' with all optional fields omitted.
@@ -65,7 +64,7 @@ data DescribeKinesisStreamingDestination = DescribeKinesisStreamingDestination'
 -- 'tableName', 'describeKinesisStreamingDestination_tableName' - The name of the table being described.
 newDescribeKinesisStreamingDestination ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeKinesisStreamingDestination
 newDescribeKinesisStreamingDestination pTableName_ =
   DescribeKinesisStreamingDestination'
@@ -74,86 +73,84 @@ newDescribeKinesisStreamingDestination pTableName_ =
     }
 
 -- | The name of the table being described.
-describeKinesisStreamingDestination_tableName :: Lens.Lens' DescribeKinesisStreamingDestination Prelude.Text
+describeKinesisStreamingDestination_tableName :: Lens.Lens' DescribeKinesisStreamingDestination Core.Text
 describeKinesisStreamingDestination_tableName = Lens.lens (\DescribeKinesisStreamingDestination' {tableName} -> tableName) (\s@DescribeKinesisStreamingDestination' {} a -> s {tableName = a} :: DescribeKinesisStreamingDestination)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeKinesisStreamingDestination
   where
   type
-    Rs DescribeKinesisStreamingDestination =
+    AWSResponse DescribeKinesisStreamingDestination =
       DescribeKinesisStreamingDestinationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeKinesisStreamingDestinationResponse'
-            Prelude.<$> (x Prelude..?> "TableName")
-              Prelude.<*> ( x Prelude..?> "KinesisDataStreamDestinations"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TableName")
+            Core.<*> ( x Core..?> "KinesisDataStreamDestinations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeKinesisStreamingDestination
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeKinesisStreamingDestination
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeKinesisStreamingDestination
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.DescribeKinesisStreamingDestination" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DynamoDB_20120810.DescribeKinesisStreamingDestination" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeKinesisStreamingDestination
   where
   toJSON DescribeKinesisStreamingDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TableName" Prelude..= tableName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TableName" Core..= tableName)]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeKinesisStreamingDestination
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeKinesisStreamingDestination
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeKinesisStreamingDestinationResponse' smart constructor.
 data DescribeKinesisStreamingDestinationResponse = DescribeKinesisStreamingDestinationResponse'
   { -- | The name of the table being described.
-    tableName :: Prelude.Maybe Prelude.Text,
+    tableName :: Core.Maybe Core.Text,
     -- | The list of replica structures for the table being described.
-    kinesisDataStreamDestinations :: Prelude.Maybe [KinesisDataStreamDestination],
+    kinesisDataStreamDestinations :: Core.Maybe [KinesisDataStreamDestination],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeKinesisStreamingDestinationResponse' with all optional fields omitted.
@@ -170,30 +167,30 @@ data DescribeKinesisStreamingDestinationResponse = DescribeKinesisStreamingDesti
 -- 'httpStatus', 'describeKinesisStreamingDestinationResponse_httpStatus' - The response's http status code.
 newDescribeKinesisStreamingDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeKinesisStreamingDestinationResponse
 newDescribeKinesisStreamingDestinationResponse
   pHttpStatus_ =
     DescribeKinesisStreamingDestinationResponse'
       { tableName =
-          Prelude.Nothing,
+          Core.Nothing,
         kinesisDataStreamDestinations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The name of the table being described.
-describeKinesisStreamingDestinationResponse_tableName :: Lens.Lens' DescribeKinesisStreamingDestinationResponse (Prelude.Maybe Prelude.Text)
+describeKinesisStreamingDestinationResponse_tableName :: Lens.Lens' DescribeKinesisStreamingDestinationResponse (Core.Maybe Core.Text)
 describeKinesisStreamingDestinationResponse_tableName = Lens.lens (\DescribeKinesisStreamingDestinationResponse' {tableName} -> tableName) (\s@DescribeKinesisStreamingDestinationResponse' {} a -> s {tableName = a} :: DescribeKinesisStreamingDestinationResponse)
 
 -- | The list of replica structures for the table being described.
-describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations :: Lens.Lens' DescribeKinesisStreamingDestinationResponse (Prelude.Maybe [KinesisDataStreamDestination])
-describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations = Lens.lens (\DescribeKinesisStreamingDestinationResponse' {kinesisDataStreamDestinations} -> kinesisDataStreamDestinations) (\s@DescribeKinesisStreamingDestinationResponse' {} a -> s {kinesisDataStreamDestinations = a} :: DescribeKinesisStreamingDestinationResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations :: Lens.Lens' DescribeKinesisStreamingDestinationResponse (Core.Maybe [KinesisDataStreamDestination])
+describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations = Lens.lens (\DescribeKinesisStreamingDestinationResponse' {kinesisDataStreamDestinations} -> kinesisDataStreamDestinations) (\s@DescribeKinesisStreamingDestinationResponse' {} a -> s {kinesisDataStreamDestinations = a} :: DescribeKinesisStreamingDestinationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeKinesisStreamingDestinationResponse_httpStatus :: Lens.Lens' DescribeKinesisStreamingDestinationResponse Prelude.Int
+describeKinesisStreamingDestinationResponse_httpStatus :: Lens.Lens' DescribeKinesisStreamingDestinationResponse Core.Int
 describeKinesisStreamingDestinationResponse_httpStatus = Lens.lens (\DescribeKinesisStreamingDestinationResponse' {httpStatus} -> httpStatus) (\s@DescribeKinesisStreamingDestinationResponse' {} a -> s {httpStatus = a} :: DescribeKinesisStreamingDestinationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeKinesisStreamingDestinationResponse

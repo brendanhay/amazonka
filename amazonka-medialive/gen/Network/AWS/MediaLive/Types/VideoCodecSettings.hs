@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.VideoCodecSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FrameCaptureSettings
 import Network.AWS.MediaLive.Types.H264Settings
 import Network.AWS.MediaLive.Types.H265Settings
 import Network.AWS.MediaLive.Types.Mpeg2Settings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Video Codec Settings
 --
 -- /See:/ 'newVideoCodecSettings' smart constructor.
 data VideoCodecSettings = VideoCodecSettings'
-  { frameCaptureSettings :: Prelude.Maybe FrameCaptureSettings,
-    mpeg2Settings :: Prelude.Maybe Mpeg2Settings,
-    h264Settings :: Prelude.Maybe H264Settings,
-    h265Settings :: Prelude.Maybe H265Settings
+  { frameCaptureSettings :: Core.Maybe FrameCaptureSettings,
+    mpeg2Settings :: Core.Maybe Mpeg2Settings,
+    h264Settings :: Core.Maybe H264Settings,
+    h265Settings :: Core.Maybe H265Settings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VideoCodecSettings' with all optional fields omitted.
@@ -58,54 +57,52 @@ newVideoCodecSettings ::
 newVideoCodecSettings =
   VideoCodecSettings'
     { frameCaptureSettings =
-        Prelude.Nothing,
-      mpeg2Settings = Prelude.Nothing,
-      h264Settings = Prelude.Nothing,
-      h265Settings = Prelude.Nothing
+        Core.Nothing,
+      mpeg2Settings = Core.Nothing,
+      h264Settings = Core.Nothing,
+      h265Settings = Core.Nothing
     }
 
 -- | Undocumented member.
-videoCodecSettings_frameCaptureSettings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe FrameCaptureSettings)
+videoCodecSettings_frameCaptureSettings :: Lens.Lens' VideoCodecSettings (Core.Maybe FrameCaptureSettings)
 videoCodecSettings_frameCaptureSettings = Lens.lens (\VideoCodecSettings' {frameCaptureSettings} -> frameCaptureSettings) (\s@VideoCodecSettings' {} a -> s {frameCaptureSettings = a} :: VideoCodecSettings)
 
 -- | Undocumented member.
-videoCodecSettings_mpeg2Settings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe Mpeg2Settings)
+videoCodecSettings_mpeg2Settings :: Lens.Lens' VideoCodecSettings (Core.Maybe Mpeg2Settings)
 videoCodecSettings_mpeg2Settings = Lens.lens (\VideoCodecSettings' {mpeg2Settings} -> mpeg2Settings) (\s@VideoCodecSettings' {} a -> s {mpeg2Settings = a} :: VideoCodecSettings)
 
 -- | Undocumented member.
-videoCodecSettings_h264Settings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe H264Settings)
+videoCodecSettings_h264Settings :: Lens.Lens' VideoCodecSettings (Core.Maybe H264Settings)
 videoCodecSettings_h264Settings = Lens.lens (\VideoCodecSettings' {h264Settings} -> h264Settings) (\s@VideoCodecSettings' {} a -> s {h264Settings = a} :: VideoCodecSettings)
 
 -- | Undocumented member.
-videoCodecSettings_h265Settings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe H265Settings)
+videoCodecSettings_h265Settings :: Lens.Lens' VideoCodecSettings (Core.Maybe H265Settings)
 videoCodecSettings_h265Settings = Lens.lens (\VideoCodecSettings' {h265Settings} -> h265Settings) (\s@VideoCodecSettings' {} a -> s {h265Settings = a} :: VideoCodecSettings)
 
-instance Prelude.FromJSON VideoCodecSettings where
+instance Core.FromJSON VideoCodecSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VideoCodecSettings"
       ( \x ->
           VideoCodecSettings'
-            Prelude.<$> (x Prelude..:? "frameCaptureSettings")
-            Prelude.<*> (x Prelude..:? "mpeg2Settings")
-            Prelude.<*> (x Prelude..:? "h264Settings")
-            Prelude.<*> (x Prelude..:? "h265Settings")
+            Core.<$> (x Core..:? "frameCaptureSettings")
+            Core.<*> (x Core..:? "mpeg2Settings")
+            Core.<*> (x Core..:? "h264Settings")
+            Core.<*> (x Core..:? "h265Settings")
       )
 
-instance Prelude.Hashable VideoCodecSettings
+instance Core.Hashable VideoCodecSettings
 
-instance Prelude.NFData VideoCodecSettings
+instance Core.NFData VideoCodecSettings
 
-instance Prelude.ToJSON VideoCodecSettings where
+instance Core.ToJSON VideoCodecSettings where
   toJSON VideoCodecSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("frameCaptureSettings" Prelude..=)
-              Prelude.<$> frameCaptureSettings,
-            ("mpeg2Settings" Prelude..=)
-              Prelude.<$> mpeg2Settings,
-            ("h264Settings" Prelude..=) Prelude.<$> h264Settings,
-            ("h265Settings" Prelude..=)
-              Prelude.<$> h265Settings
+    Core.object
+      ( Core.catMaybes
+          [ ("frameCaptureSettings" Core..=)
+              Core.<$> frameCaptureSettings,
+            ("mpeg2Settings" Core..=) Core.<$> mpeg2Settings,
+            ("h264Settings" Core..=) Core.<$> h264Settings,
+            ("h265Settings" Core..=) Core.<$> h265Settings
           ]
       )

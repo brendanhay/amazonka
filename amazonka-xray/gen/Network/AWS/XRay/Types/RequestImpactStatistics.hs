@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.RequestImpactStatistics where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Statistics that describe how the incident has impacted a service.
 --
 -- /See:/ 'newRequestImpactStatistics' smart constructor.
 data RequestImpactStatistics = RequestImpactStatistics'
   { -- | The number of successful requests.
-    okCount :: Prelude.Maybe Prelude.Integer,
+    okCount :: Core.Maybe Core.Integer,
     -- | The number of requests that have resulted in a fault,
-    faultCount :: Prelude.Maybe Prelude.Integer,
+    faultCount :: Core.Maybe Core.Integer,
     -- | The total number of requests to the service.
-    totalCount :: Prelude.Maybe Prelude.Integer
+    totalCount :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RequestImpactStatistics' with all optional fields omitted.
@@ -53,34 +52,34 @@ newRequestImpactStatistics ::
   RequestImpactStatistics
 newRequestImpactStatistics =
   RequestImpactStatistics'
-    { okCount = Prelude.Nothing,
-      faultCount = Prelude.Nothing,
-      totalCount = Prelude.Nothing
+    { okCount = Core.Nothing,
+      faultCount = Core.Nothing,
+      totalCount = Core.Nothing
     }
 
 -- | The number of successful requests.
-requestImpactStatistics_okCount :: Lens.Lens' RequestImpactStatistics (Prelude.Maybe Prelude.Integer)
+requestImpactStatistics_okCount :: Lens.Lens' RequestImpactStatistics (Core.Maybe Core.Integer)
 requestImpactStatistics_okCount = Lens.lens (\RequestImpactStatistics' {okCount} -> okCount) (\s@RequestImpactStatistics' {} a -> s {okCount = a} :: RequestImpactStatistics)
 
 -- | The number of requests that have resulted in a fault,
-requestImpactStatistics_faultCount :: Lens.Lens' RequestImpactStatistics (Prelude.Maybe Prelude.Integer)
+requestImpactStatistics_faultCount :: Lens.Lens' RequestImpactStatistics (Core.Maybe Core.Integer)
 requestImpactStatistics_faultCount = Lens.lens (\RequestImpactStatistics' {faultCount} -> faultCount) (\s@RequestImpactStatistics' {} a -> s {faultCount = a} :: RequestImpactStatistics)
 
 -- | The total number of requests to the service.
-requestImpactStatistics_totalCount :: Lens.Lens' RequestImpactStatistics (Prelude.Maybe Prelude.Integer)
+requestImpactStatistics_totalCount :: Lens.Lens' RequestImpactStatistics (Core.Maybe Core.Integer)
 requestImpactStatistics_totalCount = Lens.lens (\RequestImpactStatistics' {totalCount} -> totalCount) (\s@RequestImpactStatistics' {} a -> s {totalCount = a} :: RequestImpactStatistics)
 
-instance Prelude.FromJSON RequestImpactStatistics where
+instance Core.FromJSON RequestImpactStatistics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RequestImpactStatistics"
       ( \x ->
           RequestImpactStatistics'
-            Prelude.<$> (x Prelude..:? "OkCount")
-            Prelude.<*> (x Prelude..:? "FaultCount")
-            Prelude.<*> (x Prelude..:? "TotalCount")
+            Core.<$> (x Core..:? "OkCount")
+            Core.<*> (x Core..:? "FaultCount")
+            Core.<*> (x Core..:? "TotalCount")
       )
 
-instance Prelude.Hashable RequestImpactStatistics
+instance Core.Hashable RequestImpactStatistics
 
-instance Prelude.NFData RequestImpactStatistics
+instance Core.NFData RequestImpactStatistics

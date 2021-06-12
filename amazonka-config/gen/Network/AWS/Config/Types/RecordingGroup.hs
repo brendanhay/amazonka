@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.RecordingGroup where
 
 import Network.AWS.Config.Types.ResourceType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the types of AWS resource for which AWS Config records
 -- configuration changes.
@@ -70,7 +69,7 @@ data RecordingGroup = RecordingGroup'
     --
     -- If you set this option to @true@, you cannot enumerate a list of
     -- @resourceTypes@.
-    allSupported :: Prelude.Maybe Prelude.Bool,
+    allSupported :: Core.Maybe Core.Bool,
     -- | A comma-separated list that specifies the types of AWS resources for
     -- which AWS Config records configuration changes (for example,
     -- @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@).
@@ -85,7 +84,7 @@ data RecordingGroup = RecordingGroup'
     -- For a list of valid @resourceTypes@ values, see the __resourceType
     -- Value__ column in
     -- <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types>.
-    resourceTypes :: Prelude.Maybe [ResourceType],
+    resourceTypes :: Core.Maybe [ResourceType],
     -- | Specifies whether AWS Config includes all supported types of global
     -- resources (for example, IAM resources) with the resources that it
     -- records.
@@ -100,9 +99,9 @@ data RecordingGroup = RecordingGroup'
     -- The configuration details for any global resource are the same in all
     -- regions. To prevent duplicate configuration items, you should consider
     -- customizing AWS Config in only one region to record global resources.
-    includeGlobalResourceTypes :: Prelude.Maybe Prelude.Bool
+    includeGlobalResourceTypes :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecordingGroup' with all optional fields omitted.
@@ -155,9 +154,9 @@ newRecordingGroup ::
   RecordingGroup
 newRecordingGroup =
   RecordingGroup'
-    { allSupported = Prelude.Nothing,
-      resourceTypes = Prelude.Nothing,
-      includeGlobalResourceTypes = Prelude.Nothing
+    { allSupported = Core.Nothing,
+      resourceTypes = Core.Nothing,
+      includeGlobalResourceTypes = Core.Nothing
     }
 
 -- | Specifies whether AWS Config records configuration changes for every
@@ -169,7 +168,7 @@ newRecordingGroup =
 --
 -- If you set this option to @true@, you cannot enumerate a list of
 -- @resourceTypes@.
-recordingGroup_allSupported :: Lens.Lens' RecordingGroup (Prelude.Maybe Prelude.Bool)
+recordingGroup_allSupported :: Lens.Lens' RecordingGroup (Core.Maybe Core.Bool)
 recordingGroup_allSupported = Lens.lens (\RecordingGroup' {allSupported} -> allSupported) (\s@RecordingGroup' {} a -> s {allSupported = a} :: RecordingGroup)
 
 -- | A comma-separated list that specifies the types of AWS resources for
@@ -186,8 +185,8 @@ recordingGroup_allSupported = Lens.lens (\RecordingGroup' {allSupported} -> allS
 -- For a list of valid @resourceTypes@ values, see the __resourceType
 -- Value__ column in
 -- <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types>.
-recordingGroup_resourceTypes :: Lens.Lens' RecordingGroup (Prelude.Maybe [ResourceType])
-recordingGroup_resourceTypes = Lens.lens (\RecordingGroup' {resourceTypes} -> resourceTypes) (\s@RecordingGroup' {} a -> s {resourceTypes = a} :: RecordingGroup) Prelude.. Lens.mapping Prelude._Coerce
+recordingGroup_resourceTypes :: Lens.Lens' RecordingGroup (Core.Maybe [ResourceType])
+recordingGroup_resourceTypes = Lens.lens (\RecordingGroup' {resourceTypes} -> resourceTypes) (\s@RecordingGroup' {} a -> s {resourceTypes = a} :: RecordingGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether AWS Config includes all supported types of global
 -- resources (for example, IAM resources) with the resources that it
@@ -203,35 +202,31 @@ recordingGroup_resourceTypes = Lens.lens (\RecordingGroup' {resourceTypes} -> re
 -- The configuration details for any global resource are the same in all
 -- regions. To prevent duplicate configuration items, you should consider
 -- customizing AWS Config in only one region to record global resources.
-recordingGroup_includeGlobalResourceTypes :: Lens.Lens' RecordingGroup (Prelude.Maybe Prelude.Bool)
+recordingGroup_includeGlobalResourceTypes :: Lens.Lens' RecordingGroup (Core.Maybe Core.Bool)
 recordingGroup_includeGlobalResourceTypes = Lens.lens (\RecordingGroup' {includeGlobalResourceTypes} -> includeGlobalResourceTypes) (\s@RecordingGroup' {} a -> s {includeGlobalResourceTypes = a} :: RecordingGroup)
 
-instance Prelude.FromJSON RecordingGroup where
+instance Core.FromJSON RecordingGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RecordingGroup"
       ( \x ->
           RecordingGroup'
-            Prelude.<$> (x Prelude..:? "allSupported")
-            Prelude.<*> ( x Prelude..:? "resourceTypes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "includeGlobalResourceTypes")
+            Core.<$> (x Core..:? "allSupported")
+            Core.<*> (x Core..:? "resourceTypes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "includeGlobalResourceTypes")
       )
 
-instance Prelude.Hashable RecordingGroup
+instance Core.Hashable RecordingGroup
 
-instance Prelude.NFData RecordingGroup
+instance Core.NFData RecordingGroup
 
-instance Prelude.ToJSON RecordingGroup where
+instance Core.ToJSON RecordingGroup where
   toJSON RecordingGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("allSupported" Prelude..=)
-              Prelude.<$> allSupported,
-            ("resourceTypes" Prelude..=)
-              Prelude.<$> resourceTypes,
-            ("includeGlobalResourceTypes" Prelude..=)
-              Prelude.<$> includeGlobalResourceTypes
+    Core.object
+      ( Core.catMaybes
+          [ ("allSupported" Core..=) Core.<$> allSupported,
+            ("resourceTypes" Core..=) Core.<$> resourceTypes,
+            ("includeGlobalResourceTypes" Core..=)
+              Core.<$> includeGlobalResourceTypes
           ]
       )

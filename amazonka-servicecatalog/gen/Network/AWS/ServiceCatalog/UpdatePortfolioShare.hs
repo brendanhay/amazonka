@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,8 +60,8 @@ module Network.AWS.ServiceCatalog.UpdatePortfolioShare
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -72,11 +71,11 @@ data UpdatePortfolioShare = UpdatePortfolioShare'
   { -- | A flag to enable or disable TagOptions sharing for the portfolio share.
     -- If this field is not provided, the current state of TagOptions sharing
     -- on the portfolio share will not be modified.
-    shareTagOptions :: Prelude.Maybe Prelude.Bool,
+    shareTagOptions :: Core.Maybe Core.Bool,
     -- | The AWS Account Id of the recipient account. This field is required when
     -- updating an external account to account type share.
-    accountId :: Prelude.Maybe Prelude.Text,
-    organizationNode :: Prelude.Maybe OrganizationNode,
+    accountId :: Core.Maybe Core.Text,
+    organizationNode :: Core.Maybe OrganizationNode,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -84,12 +83,12 @@ data UpdatePortfolioShare = UpdatePortfolioShare'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The unique identifier of the portfolio for which the share will be
     -- updated.
-    portfolioId :: Prelude.Text
+    portfolioId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePortfolioShare' with all optional fields omitted.
@@ -120,31 +119,31 @@ data UpdatePortfolioShare = UpdatePortfolioShare'
 -- updated.
 newUpdatePortfolioShare ::
   -- | 'portfolioId'
-  Prelude.Text ->
+  Core.Text ->
   UpdatePortfolioShare
 newUpdatePortfolioShare pPortfolioId_ =
   UpdatePortfolioShare'
     { shareTagOptions =
-        Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      organizationNode = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+        Core.Nothing,
+      accountId = Core.Nothing,
+      organizationNode = Core.Nothing,
+      acceptLanguage = Core.Nothing,
       portfolioId = pPortfolioId_
     }
 
 -- | A flag to enable or disable TagOptions sharing for the portfolio share.
 -- If this field is not provided, the current state of TagOptions sharing
 -- on the portfolio share will not be modified.
-updatePortfolioShare_shareTagOptions :: Lens.Lens' UpdatePortfolioShare (Prelude.Maybe Prelude.Bool)
+updatePortfolioShare_shareTagOptions :: Lens.Lens' UpdatePortfolioShare (Core.Maybe Core.Bool)
 updatePortfolioShare_shareTagOptions = Lens.lens (\UpdatePortfolioShare' {shareTagOptions} -> shareTagOptions) (\s@UpdatePortfolioShare' {} a -> s {shareTagOptions = a} :: UpdatePortfolioShare)
 
 -- | The AWS Account Id of the recipient account. This field is required when
 -- updating an external account to account type share.
-updatePortfolioShare_accountId :: Lens.Lens' UpdatePortfolioShare (Prelude.Maybe Prelude.Text)
+updatePortfolioShare_accountId :: Lens.Lens' UpdatePortfolioShare (Core.Maybe Core.Text)
 updatePortfolioShare_accountId = Lens.lens (\UpdatePortfolioShare' {accountId} -> accountId) (\s@UpdatePortfolioShare' {} a -> s {accountId = a} :: UpdatePortfolioShare)
 
 -- | Undocumented member.
-updatePortfolioShare_organizationNode :: Lens.Lens' UpdatePortfolioShare (Prelude.Maybe OrganizationNode)
+updatePortfolioShare_organizationNode :: Lens.Lens' UpdatePortfolioShare (Core.Maybe OrganizationNode)
 updatePortfolioShare_organizationNode = Lens.lens (\UpdatePortfolioShare' {organizationNode} -> organizationNode) (\s@UpdatePortfolioShare' {} a -> s {organizationNode = a} :: UpdatePortfolioShare)
 
 -- | The language code.
@@ -154,80 +153,77 @@ updatePortfolioShare_organizationNode = Lens.lens (\UpdatePortfolioShare' {organ
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-updatePortfolioShare_acceptLanguage :: Lens.Lens' UpdatePortfolioShare (Prelude.Maybe Prelude.Text)
+updatePortfolioShare_acceptLanguage :: Lens.Lens' UpdatePortfolioShare (Core.Maybe Core.Text)
 updatePortfolioShare_acceptLanguage = Lens.lens (\UpdatePortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@UpdatePortfolioShare' {} a -> s {acceptLanguage = a} :: UpdatePortfolioShare)
 
 -- | The unique identifier of the portfolio for which the share will be
 -- updated.
-updatePortfolioShare_portfolioId :: Lens.Lens' UpdatePortfolioShare Prelude.Text
+updatePortfolioShare_portfolioId :: Lens.Lens' UpdatePortfolioShare Core.Text
 updatePortfolioShare_portfolioId = Lens.lens (\UpdatePortfolioShare' {portfolioId} -> portfolioId) (\s@UpdatePortfolioShare' {} a -> s {portfolioId = a} :: UpdatePortfolioShare)
 
-instance Prelude.AWSRequest UpdatePortfolioShare where
+instance Core.AWSRequest UpdatePortfolioShare where
   type
-    Rs UpdatePortfolioShare =
+    AWSResponse UpdatePortfolioShare =
       UpdatePortfolioShareResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdatePortfolioShareResponse'
-            Prelude.<$> (x Prelude..?> "Status")
-            Prelude.<*> (x Prelude..?> "PortfolioShareToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Status")
+            Core.<*> (x Core..?> "PortfolioShareToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePortfolioShare
+instance Core.Hashable UpdatePortfolioShare
 
-instance Prelude.NFData UpdatePortfolioShare
+instance Core.NFData UpdatePortfolioShare
 
-instance Prelude.ToHeaders UpdatePortfolioShare where
+instance Core.ToHeaders UpdatePortfolioShare where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.UpdatePortfolioShare" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.UpdatePortfolioShare" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdatePortfolioShare where
+instance Core.ToJSON UpdatePortfolioShare where
   toJSON UpdatePortfolioShare' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ShareTagOptions" Prelude..=)
-              Prelude.<$> shareTagOptions,
-            ("AccountId" Prelude..=) Prelude.<$> accountId,
-            ("OrganizationNode" Prelude..=)
-              Prelude.<$> organizationNode,
-            ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Prelude..= portfolioId)
+    Core.object
+      ( Core.catMaybes
+          [ ("ShareTagOptions" Core..=)
+              Core.<$> shareTagOptions,
+            ("AccountId" Core..=) Core.<$> accountId,
+            ("OrganizationNode" Core..=)
+              Core.<$> organizationNode,
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("PortfolioId" Core..= portfolioId)
           ]
       )
 
-instance Prelude.ToPath UpdatePortfolioShare where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdatePortfolioShare where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdatePortfolioShare where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdatePortfolioShare where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdatePortfolioShareResponse' smart constructor.
 data UpdatePortfolioShareResponse = UpdatePortfolioShareResponse'
   { -- | The status of @UpdatePortfolioShare@ operation. You can also obtain the
     -- operation status using @DescribePortfolioShareStatus@ API.
-    status :: Prelude.Maybe ShareStatus,
+    status :: Core.Maybe ShareStatus,
     -- | The token that tracks the status of the @UpdatePortfolioShare@ operation
     -- for external account to account or organizational type sharing.
-    portfolioShareToken :: Prelude.Maybe Prelude.Text,
+    portfolioShareToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePortfolioShareResponse' with all optional fields omitted.
@@ -246,28 +242,28 @@ data UpdatePortfolioShareResponse = UpdatePortfolioShareResponse'
 -- 'httpStatus', 'updatePortfolioShareResponse_httpStatus' - The response's http status code.
 newUpdatePortfolioShareResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdatePortfolioShareResponse
 newUpdatePortfolioShareResponse pHttpStatus_ =
   UpdatePortfolioShareResponse'
     { status =
-        Prelude.Nothing,
-      portfolioShareToken = Prelude.Nothing,
+        Core.Nothing,
+      portfolioShareToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of @UpdatePortfolioShare@ operation. You can also obtain the
 -- operation status using @DescribePortfolioShareStatus@ API.
-updatePortfolioShareResponse_status :: Lens.Lens' UpdatePortfolioShareResponse (Prelude.Maybe ShareStatus)
+updatePortfolioShareResponse_status :: Lens.Lens' UpdatePortfolioShareResponse (Core.Maybe ShareStatus)
 updatePortfolioShareResponse_status = Lens.lens (\UpdatePortfolioShareResponse' {status} -> status) (\s@UpdatePortfolioShareResponse' {} a -> s {status = a} :: UpdatePortfolioShareResponse)
 
 -- | The token that tracks the status of the @UpdatePortfolioShare@ operation
 -- for external account to account or organizational type sharing.
-updatePortfolioShareResponse_portfolioShareToken :: Lens.Lens' UpdatePortfolioShareResponse (Prelude.Maybe Prelude.Text)
+updatePortfolioShareResponse_portfolioShareToken :: Lens.Lens' UpdatePortfolioShareResponse (Core.Maybe Core.Text)
 updatePortfolioShareResponse_portfolioShareToken = Lens.lens (\UpdatePortfolioShareResponse' {portfolioShareToken} -> portfolioShareToken) (\s@UpdatePortfolioShareResponse' {} a -> s {portfolioShareToken = a} :: UpdatePortfolioShareResponse)
 
 -- | The response's http status code.
-updatePortfolioShareResponse_httpStatus :: Lens.Lens' UpdatePortfolioShareResponse Prelude.Int
+updatePortfolioShareResponse_httpStatus :: Lens.Lens' UpdatePortfolioShareResponse Core.Int
 updatePortfolioShareResponse_httpStatus = Lens.lens (\UpdatePortfolioShareResponse' {httpStatus} -> httpStatus) (\s@UpdatePortfolioShareResponse' {} a -> s {httpStatus = a} :: UpdatePortfolioShareResponse)
 
-instance Prelude.NFData UpdatePortfolioShareResponse
+instance Core.NFData UpdatePortfolioShareResponse

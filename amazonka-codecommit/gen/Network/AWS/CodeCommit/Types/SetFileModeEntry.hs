@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.CodeCommit.Types.SetFileModeEntry where
 
 import Network.AWS.CodeCommit.Types.FileModeTypeEnum
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the file mode changes.
 --
 -- /See:/ 'newSetFileModeEntry' smart constructor.
 data SetFileModeEntry = SetFileModeEntry'
   { -- | The full path to the file, including the name of the file.
-    filePath :: Prelude.Text,
+    filePath :: Core.Text,
     -- | The file mode for the file.
     fileMode :: FileModeTypeEnum
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetFileModeEntry' with all optional fields omitted.
@@ -48,7 +47,7 @@ data SetFileModeEntry = SetFileModeEntry'
 -- 'fileMode', 'setFileModeEntry_fileMode' - The file mode for the file.
 newSetFileModeEntry ::
   -- | 'filePath'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'fileMode'
   FileModeTypeEnum ->
   SetFileModeEntry
@@ -59,22 +58,22 @@ newSetFileModeEntry pFilePath_ pFileMode_ =
     }
 
 -- | The full path to the file, including the name of the file.
-setFileModeEntry_filePath :: Lens.Lens' SetFileModeEntry Prelude.Text
+setFileModeEntry_filePath :: Lens.Lens' SetFileModeEntry Core.Text
 setFileModeEntry_filePath = Lens.lens (\SetFileModeEntry' {filePath} -> filePath) (\s@SetFileModeEntry' {} a -> s {filePath = a} :: SetFileModeEntry)
 
 -- | The file mode for the file.
 setFileModeEntry_fileMode :: Lens.Lens' SetFileModeEntry FileModeTypeEnum
 setFileModeEntry_fileMode = Lens.lens (\SetFileModeEntry' {fileMode} -> fileMode) (\s@SetFileModeEntry' {} a -> s {fileMode = a} :: SetFileModeEntry)
 
-instance Prelude.Hashable SetFileModeEntry
+instance Core.Hashable SetFileModeEntry
 
-instance Prelude.NFData SetFileModeEntry
+instance Core.NFData SetFileModeEntry
 
-instance Prelude.ToJSON SetFileModeEntry where
+instance Core.ToJSON SetFileModeEntry where
   toJSON SetFileModeEntry' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("filePath" Prelude..= filePath),
-            Prelude.Just ("fileMode" Prelude..= fileMode)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("filePath" Core..= filePath),
+            Core.Just ("fileMode" Core..= fileMode)
           ]
       )

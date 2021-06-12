@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,9 +61,8 @@ module Network.AWS.Redshift.DescribeClusters
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -79,19 +77,19 @@ data DescribeClusters = DescribeClusters'
     -- @environment@. If you specify both of these tag keys in the request,
     -- Amazon Redshift returns a response with the clusters that have either or
     -- both of these tag keys associated with them.
-    tagKeys :: Prelude.Maybe [Prelude.Text],
+    tagKeys :: Core.Maybe [Core.Text],
     -- | The unique identifier of a cluster whose properties you are requesting.
     -- This parameter is case sensitive.
     --
     -- The default is that all clusters defined for an account are returned.
-    clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    clusterIdentifier :: Core.Maybe Core.Text,
     -- | A tag value or values for which you want to return all matching clusters
     -- that are associated with the specified tag value or values. For example,
     -- suppose that you have clusters that are tagged with values called
     -- @admin@ and @test@. If you specify both of these tag values in the
     -- request, Amazon Redshift returns a response with the clusters that have
     -- either or both of these tag values associated with them.
-    tagValues :: Prelude.Maybe [Prelude.Text],
+    tagValues :: Core.Maybe [Core.Text],
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeClusters request
     -- exceed the value specified in @MaxRecords@, AWS returns a value in the
@@ -101,7 +99,7 @@ data DescribeClusters = DescribeClusters'
     --
     -- Constraints: You can specify either the __ClusterIdentifier__ parameter
     -- or the __Marker__ parameter, but not both.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -111,9 +109,9 @@ data DescribeClusters = DescribeClusters'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeClusters' with all optional fields omitted.
@@ -165,11 +163,11 @@ newDescribeClusters ::
   DescribeClusters
 newDescribeClusters =
   DescribeClusters'
-    { tagKeys = Prelude.Nothing,
-      clusterIdentifier = Prelude.Nothing,
-      tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+    { tagKeys = Core.Nothing,
+      clusterIdentifier = Core.Nothing,
+      tagValues = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | A tag key or keys for which you want to return all matching clusters
@@ -178,14 +176,14 @@ newDescribeClusters =
 -- @environment@. If you specify both of these tag keys in the request,
 -- Amazon Redshift returns a response with the clusters that have either or
 -- both of these tag keys associated with them.
-describeClusters_tagKeys :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
-describeClusters_tagKeys = Lens.lens (\DescribeClusters' {tagKeys} -> tagKeys) (\s@DescribeClusters' {} a -> s {tagKeys = a} :: DescribeClusters) Prelude.. Lens.mapping Prelude._Coerce
+describeClusters_tagKeys :: Lens.Lens' DescribeClusters (Core.Maybe [Core.Text])
+describeClusters_tagKeys = Lens.lens (\DescribeClusters' {tagKeys} -> tagKeys) (\s@DescribeClusters' {} a -> s {tagKeys = a} :: DescribeClusters) Core.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier of a cluster whose properties you are requesting.
 -- This parameter is case sensitive.
 --
 -- The default is that all clusters defined for an account are returned.
-describeClusters_clusterIdentifier :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Text)
+describeClusters_clusterIdentifier :: Lens.Lens' DescribeClusters (Core.Maybe Core.Text)
 describeClusters_clusterIdentifier = Lens.lens (\DescribeClusters' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeClusters' {} a -> s {clusterIdentifier = a} :: DescribeClusters)
 
 -- | A tag value or values for which you want to return all matching clusters
@@ -194,8 +192,8 @@ describeClusters_clusterIdentifier = Lens.lens (\DescribeClusters' {clusterIdent
 -- @admin@ and @test@. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with the clusters that have
 -- either or both of these tag values associated with them.
-describeClusters_tagValues :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
-describeClusters_tagValues = Lens.lens (\DescribeClusters' {tagValues} -> tagValues) (\s@DescribeClusters' {} a -> s {tagValues = a} :: DescribeClusters) Prelude.. Lens.mapping Prelude._Coerce
+describeClusters_tagValues :: Lens.Lens' DescribeClusters (Core.Maybe [Core.Text])
+describeClusters_tagValues = Lens.lens (\DescribeClusters' {tagValues} -> tagValues) (\s@DescribeClusters' {} a -> s {tagValues = a} :: DescribeClusters) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusters request
@@ -206,7 +204,7 @@ describeClusters_tagValues = Lens.lens (\DescribeClusters' {tagValues} -> tagVal
 --
 -- Constraints: You can specify either the __ClusterIdentifier__ parameter
 -- or the __Marker__ parameter, but not both.
-describeClusters_marker :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Text)
+describeClusters_marker :: Lens.Lens' DescribeClusters (Core.Maybe Core.Text)
 describeClusters_marker = Lens.lens (\DescribeClusters' {marker} -> marker) (\s@DescribeClusters' {} a -> s {marker = a} :: DescribeClusters)
 
 -- | The maximum number of response records to return in each call. If the
@@ -218,72 +216,70 @@ describeClusters_marker = Lens.lens (\DescribeClusters' {marker} -> marker) (\s@
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-describeClusters_maxRecords :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Int)
+describeClusters_maxRecords :: Lens.Lens' DescribeClusters (Core.Maybe Core.Int)
 describeClusters_maxRecords = Lens.lens (\DescribeClusters' {maxRecords} -> maxRecords) (\s@DescribeClusters' {} a -> s {maxRecords = a} :: DescribeClusters)
 
-instance Pager.AWSPager DescribeClusters where
+instance Core.AWSPager DescribeClusters where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeClustersResponse_marker Prelude.. Lens._Just
+            Lens.^? describeClustersResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeClustersResponse_clusters
-              Prelude.. Lens._Just
+            Lens.^? describeClustersResponse_clusters Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeClusters_marker
           Lens..~ rs
-          Lens.^? describeClustersResponse_marker Prelude.. Lens._Just
+          Lens.^? describeClustersResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeClusters where
-  type Rs DescribeClusters = DescribeClustersResponse
+instance Core.AWSRequest DescribeClusters where
+  type
+    AWSResponse DescribeClusters =
+      DescribeClustersResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DescribeClustersResult"
       ( \s h x ->
           DescribeClustersResponse'
-            Prelude.<$> ( x Prelude..@? "Clusters" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "Cluster")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Clusters" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "Cluster")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClusters
+instance Core.Hashable DescribeClusters
 
-instance Prelude.NFData DescribeClusters
+instance Core.NFData DescribeClusters
 
-instance Prelude.ToHeaders DescribeClusters where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeClusters where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeClusters where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeClusters where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeClusters where
+instance Core.ToQuery DescribeClusters where
   toQuery DescribeClusters' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeClusters" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+          Core.=: ("DescribeClusters" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
         "TagKeys"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "ClusterIdentifier" Prelude.=: clusterIdentifier,
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagKey" Core.<$> tagKeys),
+        "ClusterIdentifier" Core.=: clusterIdentifier,
         "TagValues"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "TagValue"
-                Prelude.<$> tagValues
-            ),
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Core.<$> tagValues),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Contains the output from the DescribeClusters action.
@@ -291,18 +287,18 @@ instance Prelude.ToQuery DescribeClusters where
 -- /See:/ 'newDescribeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
   { -- | A list of @Cluster@ objects, where each object describes one cluster.
-    clusters :: Prelude.Maybe [Cluster],
+    clusters :: Core.Maybe [Cluster],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
     -- @Marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeClustersResponse' with all optional fields omitted.
@@ -324,19 +320,18 @@ data DescribeClustersResponse = DescribeClustersResponse'
 -- 'httpStatus', 'describeClustersResponse_httpStatus' - The response's http status code.
 newDescribeClustersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeClustersResponse
 newDescribeClustersResponse pHttpStatus_ =
   DescribeClustersResponse'
-    { clusters =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { clusters = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of @Cluster@ objects, where each object describes one cluster.
-describeClustersResponse_clusters :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe [Cluster])
-describeClustersResponse_clusters = Lens.lens (\DescribeClustersResponse' {clusters} -> clusters) (\s@DescribeClustersResponse' {} a -> s {clusters = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeClustersResponse_clusters :: Lens.Lens' DescribeClustersResponse (Core.Maybe [Cluster])
+describeClustersResponse_clusters = Lens.lens (\DescribeClustersResponse' {clusters} -> clusters) (\s@DescribeClustersResponse' {} a -> s {clusters = a} :: DescribeClustersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -344,11 +339,11 @@ describeClustersResponse_clusters = Lens.lens (\DescribeClustersResponse' {clust
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-describeClustersResponse_marker :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe Prelude.Text)
+describeClustersResponse_marker :: Lens.Lens' DescribeClustersResponse (Core.Maybe Core.Text)
 describeClustersResponse_marker = Lens.lens (\DescribeClustersResponse' {marker} -> marker) (\s@DescribeClustersResponse' {} a -> s {marker = a} :: DescribeClustersResponse)
 
 -- | The response's http status code.
-describeClustersResponse_httpStatus :: Lens.Lens' DescribeClustersResponse Prelude.Int
+describeClustersResponse_httpStatus :: Lens.Lens' DescribeClustersResponse Core.Int
 describeClustersResponse_httpStatus = Lens.lens (\DescribeClustersResponse' {httpStatus} -> httpStatus) (\s@DescribeClustersResponse' {} a -> s {httpStatus = a} :: DescribeClustersResponse)
 
-instance Prelude.NFData DescribeClustersResponse
+instance Core.NFData DescribeClustersResponse

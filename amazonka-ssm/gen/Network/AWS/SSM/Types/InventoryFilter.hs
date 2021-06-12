@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.InventoryFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.InventoryQueryOperatorType
 
 -- | One or more filters. Use a filter to return a more specific list of
@@ -35,15 +34,15 @@ data InventoryFilter = InventoryFilter'
     -- see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-aggregate.html Aggregating inventory data>
     -- in the /AWS Systems Manager User Guide/.
-    type' :: Prelude.Maybe InventoryQueryOperatorType,
+    type' :: Core.Maybe InventoryQueryOperatorType,
     -- | The name of the filter key.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | Inventory filter values. Example: inventory filter where instance IDs
     -- are specified as values Key=AWS:InstanceInformation.InstanceId,Values=
     -- i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
-    values :: Prelude.NonEmpty Prelude.Text
+    values :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InventoryFilter' with all optional fields omitted.
@@ -67,15 +66,15 @@ data InventoryFilter = InventoryFilter'
 -- i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
 newInventoryFilter ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'values'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   InventoryFilter
 newInventoryFilter pKey_ pValues_ =
   InventoryFilter'
-    { type' = Prelude.Nothing,
+    { type' = Core.Nothing,
       key = pKey_,
-      values = Prelude._Coerce Lens.# pValues_
+      values = Lens._Coerce Lens.# pValues_
     }
 
 -- | The type of filter.
@@ -84,29 +83,29 @@ newInventoryFilter pKey_ pValues_ =
 -- see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-aggregate.html Aggregating inventory data>
 -- in the /AWS Systems Manager User Guide/.
-inventoryFilter_type :: Lens.Lens' InventoryFilter (Prelude.Maybe InventoryQueryOperatorType)
+inventoryFilter_type :: Lens.Lens' InventoryFilter (Core.Maybe InventoryQueryOperatorType)
 inventoryFilter_type = Lens.lens (\InventoryFilter' {type'} -> type') (\s@InventoryFilter' {} a -> s {type' = a} :: InventoryFilter)
 
 -- | The name of the filter key.
-inventoryFilter_key :: Lens.Lens' InventoryFilter Prelude.Text
+inventoryFilter_key :: Lens.Lens' InventoryFilter Core.Text
 inventoryFilter_key = Lens.lens (\InventoryFilter' {key} -> key) (\s@InventoryFilter' {} a -> s {key = a} :: InventoryFilter)
 
 -- | Inventory filter values. Example: inventory filter where instance IDs
 -- are specified as values Key=AWS:InstanceInformation.InstanceId,Values=
 -- i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
-inventoryFilter_values :: Lens.Lens' InventoryFilter (Prelude.NonEmpty Prelude.Text)
-inventoryFilter_values = Lens.lens (\InventoryFilter' {values} -> values) (\s@InventoryFilter' {} a -> s {values = a} :: InventoryFilter) Prelude.. Prelude._Coerce
+inventoryFilter_values :: Lens.Lens' InventoryFilter (Core.NonEmpty Core.Text)
+inventoryFilter_values = Lens.lens (\InventoryFilter' {values} -> values) (\s@InventoryFilter' {} a -> s {values = a} :: InventoryFilter) Core.. Lens._Coerce
 
-instance Prelude.Hashable InventoryFilter
+instance Core.Hashable InventoryFilter
 
-instance Prelude.NFData InventoryFilter
+instance Core.NFData InventoryFilter
 
-instance Prelude.ToJSON InventoryFilter where
+instance Core.ToJSON InventoryFilter where
   toJSON InventoryFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Type" Prelude..=) Prelude.<$> type',
-            Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ ("Type" Core..=) Core.<$> type',
+            Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values)
           ]
       )

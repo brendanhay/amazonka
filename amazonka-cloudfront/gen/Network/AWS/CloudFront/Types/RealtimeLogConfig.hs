@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,22 +20,22 @@
 module Network.AWS.CloudFront.Types.RealtimeLogConfig where
 
 import Network.AWS.CloudFront.Types.EndPoint
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A real-time log configuration.
 --
 -- /See:/ 'newRealtimeLogConfig' smart constructor.
 data RealtimeLogConfig = RealtimeLogConfig'
   { -- | The Amazon Resource Name (ARN) of this real-time log configuration.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | The unique name of this real-time log configuration.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The sampling rate for this real-time log configuration. The sampling
     -- rate determines the percentage of viewer requests that are represented
     -- in the real-time log data. The sampling rate is an integer between 1 and
     -- 100, inclusive.
-    samplingRate :: Prelude.Integer,
+    samplingRate :: Core.Integer,
     -- | Contains information about the Amazon Kinesis data stream where you are
     -- sending real-time log data for this real-time log configuration.
     endPoints :: [EndPoint],
@@ -47,9 +46,9 @@ data RealtimeLogConfig = RealtimeLogConfig'
     -- For more information about fields, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields>
     -- in the /Amazon CloudFront Developer Guide/.
-    fields :: [Prelude.Text]
+    fields :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RealtimeLogConfig' with all optional fields omitted.
@@ -80,40 +79,40 @@ data RealtimeLogConfig = RealtimeLogConfig'
 -- in the /Amazon CloudFront Developer Guide/.
 newRealtimeLogConfig ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'samplingRate'
-  Prelude.Integer ->
+  Core.Integer ->
   RealtimeLogConfig
 newRealtimeLogConfig pARN_ pName_ pSamplingRate_ =
   RealtimeLogConfig'
     { arn = pARN_,
       name = pName_,
       samplingRate = pSamplingRate_,
-      endPoints = Prelude.mempty,
-      fields = Prelude.mempty
+      endPoints = Core.mempty,
+      fields = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of this real-time log configuration.
-realtimeLogConfig_arn :: Lens.Lens' RealtimeLogConfig Prelude.Text
+realtimeLogConfig_arn :: Lens.Lens' RealtimeLogConfig Core.Text
 realtimeLogConfig_arn = Lens.lens (\RealtimeLogConfig' {arn} -> arn) (\s@RealtimeLogConfig' {} a -> s {arn = a} :: RealtimeLogConfig)
 
 -- | The unique name of this real-time log configuration.
-realtimeLogConfig_name :: Lens.Lens' RealtimeLogConfig Prelude.Text
+realtimeLogConfig_name :: Lens.Lens' RealtimeLogConfig Core.Text
 realtimeLogConfig_name = Lens.lens (\RealtimeLogConfig' {name} -> name) (\s@RealtimeLogConfig' {} a -> s {name = a} :: RealtimeLogConfig)
 
 -- | The sampling rate for this real-time log configuration. The sampling
 -- rate determines the percentage of viewer requests that are represented
 -- in the real-time log data. The sampling rate is an integer between 1 and
 -- 100, inclusive.
-realtimeLogConfig_samplingRate :: Lens.Lens' RealtimeLogConfig Prelude.Integer
+realtimeLogConfig_samplingRate :: Lens.Lens' RealtimeLogConfig Core.Integer
 realtimeLogConfig_samplingRate = Lens.lens (\RealtimeLogConfig' {samplingRate} -> samplingRate) (\s@RealtimeLogConfig' {} a -> s {samplingRate = a} :: RealtimeLogConfig)
 
 -- | Contains information about the Amazon Kinesis data stream where you are
 -- sending real-time log data for this real-time log configuration.
 realtimeLogConfig_endPoints :: Lens.Lens' RealtimeLogConfig [EndPoint]
-realtimeLogConfig_endPoints = Lens.lens (\RealtimeLogConfig' {endPoints} -> endPoints) (\s@RealtimeLogConfig' {} a -> s {endPoints = a} :: RealtimeLogConfig) Prelude.. Prelude._Coerce
+realtimeLogConfig_endPoints = Lens.lens (\RealtimeLogConfig' {endPoints} -> endPoints) (\s@RealtimeLogConfig' {} a -> s {endPoints = a} :: RealtimeLogConfig) Core.. Lens._Coerce
 
 -- | A list of fields that are included in each real-time log record. In an
 -- API response, the fields are provided in the same order in which they
@@ -122,22 +121,22 @@ realtimeLogConfig_endPoints = Lens.lens (\RealtimeLogConfig' {endPoints} -> endP
 -- For more information about fields, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields>
 -- in the /Amazon CloudFront Developer Guide/.
-realtimeLogConfig_fields :: Lens.Lens' RealtimeLogConfig [Prelude.Text]
-realtimeLogConfig_fields = Lens.lens (\RealtimeLogConfig' {fields} -> fields) (\s@RealtimeLogConfig' {} a -> s {fields = a} :: RealtimeLogConfig) Prelude.. Prelude._Coerce
+realtimeLogConfig_fields :: Lens.Lens' RealtimeLogConfig [Core.Text]
+realtimeLogConfig_fields = Lens.lens (\RealtimeLogConfig' {fields} -> fields) (\s@RealtimeLogConfig' {} a -> s {fields = a} :: RealtimeLogConfig) Core.. Lens._Coerce
 
-instance Prelude.FromXML RealtimeLogConfig where
+instance Core.FromXML RealtimeLogConfig where
   parseXML x =
     RealtimeLogConfig'
-      Prelude.<$> (x Prelude..@ "ARN")
-      Prelude.<*> (x Prelude..@ "Name")
-      Prelude.<*> (x Prelude..@ "SamplingRate")
-      Prelude.<*> ( x Prelude..@? "EndPoints" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.parseXMLList "member"
-                  )
-      Prelude.<*> ( x Prelude..@? "Fields" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.parseXMLList "Field"
-                  )
+      Core.<$> (x Core..@ "ARN")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (x Core..@ "SamplingRate")
+      Core.<*> ( x Core..@? "EndPoints" Core..!@ Core.mempty
+                   Core.>>= Core.parseXMLList "member"
+               )
+      Core.<*> ( x Core..@? "Fields" Core..!@ Core.mempty
+                   Core.>>= Core.parseXMLList "Field"
+               )
 
-instance Prelude.Hashable RealtimeLogConfig
+instance Core.Hashable RealtimeLogConfig
 
-instance Prelude.NFData RealtimeLogConfig
+instance Core.NFData RealtimeLogConfig

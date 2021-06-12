@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StorageGateway.Types.VolumeInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a storage volume object.
 --
@@ -34,35 +33,35 @@ data VolumeInfo = VolumeInfo'
     --
     -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
     -- hyphens (-).
-    volumeARN :: Prelude.Maybe Prelude.Text,
+    volumeARN :: Core.Maybe Core.Text,
     -- | The unique identifier assigned to the volume. This ID becomes part of
     -- the volume Amazon Resource Name (ARN), which you use as input for other
     -- operations.
     --
     -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
     -- hyphens (-).
-    volumeId :: Prelude.Maybe Prelude.Text,
+    volumeId :: Core.Maybe Core.Text,
     -- | The size of the volume in bytes.
     --
     -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
     -- hyphens (-).
-    volumeSizeInBytes :: Prelude.Maybe Prelude.Integer,
+    volumeSizeInBytes :: Core.Maybe Core.Integer,
     -- | One of the VolumeType enumeration values describing the type of the
     -- volume.
-    volumeType :: Prelude.Maybe Prelude.Text,
-    gatewayARN :: Prelude.Maybe Prelude.Text,
+    volumeType :: Core.Maybe Core.Text,
+    gatewayARN :: Core.Maybe Core.Text,
     -- | One of the VolumeStatus values that indicates the state of the storage
     -- volume.
-    volumeAttachmentStatus :: Prelude.Maybe Prelude.Text,
+    volumeAttachmentStatus :: Core.Maybe Core.Text,
     -- | The unique identifier assigned to your gateway during activation. This
     -- ID becomes part of the gateway Amazon Resource Name (ARN), which you use
     -- as input for other operations.
     --
     -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
     -- hyphens (-).
-    gatewayId :: Prelude.Maybe Prelude.Text
+    gatewayId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VolumeInfo' with all optional fields omitted.
@@ -110,13 +109,13 @@ newVolumeInfo ::
   VolumeInfo
 newVolumeInfo =
   VolumeInfo'
-    { volumeARN = Prelude.Nothing,
-      volumeId = Prelude.Nothing,
-      volumeSizeInBytes = Prelude.Nothing,
-      volumeType = Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
-      volumeAttachmentStatus = Prelude.Nothing,
-      gatewayId = Prelude.Nothing
+    { volumeARN = Core.Nothing,
+      volumeId = Core.Nothing,
+      volumeSizeInBytes = Core.Nothing,
+      volumeType = Core.Nothing,
+      gatewayARN = Core.Nothing,
+      volumeAttachmentStatus = Core.Nothing,
+      gatewayId = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the storage volume. For example, the
@@ -126,7 +125,7 @@ newVolumeInfo =
 --
 -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
 -- hyphens (-).
-volumeInfo_volumeARN :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Text)
+volumeInfo_volumeARN :: Lens.Lens' VolumeInfo (Core.Maybe Core.Text)
 volumeInfo_volumeARN = Lens.lens (\VolumeInfo' {volumeARN} -> volumeARN) (\s@VolumeInfo' {} a -> s {volumeARN = a} :: VolumeInfo)
 
 -- | The unique identifier assigned to the volume. This ID becomes part of
@@ -135,28 +134,28 @@ volumeInfo_volumeARN = Lens.lens (\VolumeInfo' {volumeARN} -> volumeARN) (\s@Vol
 --
 -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
 -- hyphens (-).
-volumeInfo_volumeId :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Text)
+volumeInfo_volumeId :: Lens.Lens' VolumeInfo (Core.Maybe Core.Text)
 volumeInfo_volumeId = Lens.lens (\VolumeInfo' {volumeId} -> volumeId) (\s@VolumeInfo' {} a -> s {volumeId = a} :: VolumeInfo)
 
 -- | The size of the volume in bytes.
 --
 -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
 -- hyphens (-).
-volumeInfo_volumeSizeInBytes :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Integer)
+volumeInfo_volumeSizeInBytes :: Lens.Lens' VolumeInfo (Core.Maybe Core.Integer)
 volumeInfo_volumeSizeInBytes = Lens.lens (\VolumeInfo' {volumeSizeInBytes} -> volumeSizeInBytes) (\s@VolumeInfo' {} a -> s {volumeSizeInBytes = a} :: VolumeInfo)
 
 -- | One of the VolumeType enumeration values describing the type of the
 -- volume.
-volumeInfo_volumeType :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Text)
+volumeInfo_volumeType :: Lens.Lens' VolumeInfo (Core.Maybe Core.Text)
 volumeInfo_volumeType = Lens.lens (\VolumeInfo' {volumeType} -> volumeType) (\s@VolumeInfo' {} a -> s {volumeType = a} :: VolumeInfo)
 
 -- | Undocumented member.
-volumeInfo_gatewayARN :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Text)
+volumeInfo_gatewayARN :: Lens.Lens' VolumeInfo (Core.Maybe Core.Text)
 volumeInfo_gatewayARN = Lens.lens (\VolumeInfo' {gatewayARN} -> gatewayARN) (\s@VolumeInfo' {} a -> s {gatewayARN = a} :: VolumeInfo)
 
 -- | One of the VolumeStatus values that indicates the state of the storage
 -- volume.
-volumeInfo_volumeAttachmentStatus :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Text)
+volumeInfo_volumeAttachmentStatus :: Lens.Lens' VolumeInfo (Core.Maybe Core.Text)
 volumeInfo_volumeAttachmentStatus = Lens.lens (\VolumeInfo' {volumeAttachmentStatus} -> volumeAttachmentStatus) (\s@VolumeInfo' {} a -> s {volumeAttachmentStatus = a} :: VolumeInfo)
 
 -- | The unique identifier assigned to your gateway during activation. This
@@ -165,24 +164,24 @@ volumeInfo_volumeAttachmentStatus = Lens.lens (\VolumeInfo' {volumeAttachmentSta
 --
 -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
 -- hyphens (-).
-volumeInfo_gatewayId :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Text)
+volumeInfo_gatewayId :: Lens.Lens' VolumeInfo (Core.Maybe Core.Text)
 volumeInfo_gatewayId = Lens.lens (\VolumeInfo' {gatewayId} -> gatewayId) (\s@VolumeInfo' {} a -> s {gatewayId = a} :: VolumeInfo)
 
-instance Prelude.FromJSON VolumeInfo where
+instance Core.FromJSON VolumeInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VolumeInfo"
       ( \x ->
           VolumeInfo'
-            Prelude.<$> (x Prelude..:? "VolumeARN")
-            Prelude.<*> (x Prelude..:? "VolumeId")
-            Prelude.<*> (x Prelude..:? "VolumeSizeInBytes")
-            Prelude.<*> (x Prelude..:? "VolumeType")
-            Prelude.<*> (x Prelude..:? "GatewayARN")
-            Prelude.<*> (x Prelude..:? "VolumeAttachmentStatus")
-            Prelude.<*> (x Prelude..:? "GatewayId")
+            Core.<$> (x Core..:? "VolumeARN")
+            Core.<*> (x Core..:? "VolumeId")
+            Core.<*> (x Core..:? "VolumeSizeInBytes")
+            Core.<*> (x Core..:? "VolumeType")
+            Core.<*> (x Core..:? "GatewayARN")
+            Core.<*> (x Core..:? "VolumeAttachmentStatus")
+            Core.<*> (x Core..:? "GatewayId")
       )
 
-instance Prelude.Hashable VolumeInfo
+instance Core.Hashable VolumeInfo
 
-instance Prelude.NFData VolumeInfo
+instance Core.NFData VolumeInfo

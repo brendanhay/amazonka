@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.DeviceFarm.DeleteVPCEConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data DeleteVPCEConfiguration = DeleteVPCEConfiguration'
   { -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you
     -- want to delete.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVPCEConfiguration' with all optional fields omitted.
@@ -66,66 +65,62 @@ data DeleteVPCEConfiguration = DeleteVPCEConfiguration'
 -- want to delete.
 newDeleteVPCEConfiguration ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVPCEConfiguration
 newDeleteVPCEConfiguration pArn_ =
   DeleteVPCEConfiguration' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you
 -- want to delete.
-deleteVPCEConfiguration_arn :: Lens.Lens' DeleteVPCEConfiguration Prelude.Text
+deleteVPCEConfiguration_arn :: Lens.Lens' DeleteVPCEConfiguration Core.Text
 deleteVPCEConfiguration_arn = Lens.lens (\DeleteVPCEConfiguration' {arn} -> arn) (\s@DeleteVPCEConfiguration' {} a -> s {arn = a} :: DeleteVPCEConfiguration)
 
-instance Prelude.AWSRequest DeleteVPCEConfiguration where
+instance Core.AWSRequest DeleteVPCEConfiguration where
   type
-    Rs DeleteVPCEConfiguration =
+    AWSResponse DeleteVPCEConfiguration =
       DeleteVPCEConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteVPCEConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVPCEConfiguration
+instance Core.Hashable DeleteVPCEConfiguration
 
-instance Prelude.NFData DeleteVPCEConfiguration
+instance Core.NFData DeleteVPCEConfiguration
 
-instance Prelude.ToHeaders DeleteVPCEConfiguration where
+instance Core.ToHeaders DeleteVPCEConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.DeleteVPCEConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.DeleteVPCEConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteVPCEConfiguration where
+instance Core.ToJSON DeleteVPCEConfiguration where
   toJSON DeleteVPCEConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("arn" Prelude..= arn)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
 
-instance Prelude.ToPath DeleteVPCEConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteVPCEConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteVPCEConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteVPCEConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteVPCEConfigurationResponse' smart constructor.
 data DeleteVPCEConfigurationResponse = DeleteVPCEConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVPCEConfigurationResponse' with all optional fields omitted.
@@ -138,7 +133,7 @@ data DeleteVPCEConfigurationResponse = DeleteVPCEConfigurationResponse'
 -- 'httpStatus', 'deleteVPCEConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteVPCEConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteVPCEConfigurationResponse
 newDeleteVPCEConfigurationResponse pHttpStatus_ =
   DeleteVPCEConfigurationResponse'
@@ -147,9 +142,7 @@ newDeleteVPCEConfigurationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteVPCEConfigurationResponse_httpStatus :: Lens.Lens' DeleteVPCEConfigurationResponse Prelude.Int
+deleteVPCEConfigurationResponse_httpStatus :: Lens.Lens' DeleteVPCEConfigurationResponse Core.Int
 deleteVPCEConfigurationResponse_httpStatus = Lens.lens (\DeleteVPCEConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteVPCEConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteVPCEConfigurationResponse)
 
-instance
-  Prelude.NFData
-    DeleteVPCEConfigurationResponse
+instance Core.NFData DeleteVPCEConfigurationResponse

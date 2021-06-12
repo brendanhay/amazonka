@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types.SmartHomeAppliance where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A smart home appliance that can connect to a central system. Any
 -- domestic device can be a smart appliance.
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSmartHomeAppliance' smart constructor.
 data SmartHomeAppliance = SmartHomeAppliance'
   { -- | The friendly name of the smart home appliance.
-    friendlyName :: Prelude.Maybe Prelude.Text,
+    friendlyName :: Core.Maybe Core.Text,
     -- | The description of the smart home appliance.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the manufacturer of the smart home appliance.
-    manufacturerName :: Prelude.Maybe Prelude.Text
+    manufacturerName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SmartHomeAppliance' with all optional fields omitted.
@@ -54,34 +53,34 @@ newSmartHomeAppliance ::
   SmartHomeAppliance
 newSmartHomeAppliance =
   SmartHomeAppliance'
-    { friendlyName = Prelude.Nothing,
-      description = Prelude.Nothing,
-      manufacturerName = Prelude.Nothing
+    { friendlyName = Core.Nothing,
+      description = Core.Nothing,
+      manufacturerName = Core.Nothing
     }
 
 -- | The friendly name of the smart home appliance.
-smartHomeAppliance_friendlyName :: Lens.Lens' SmartHomeAppliance (Prelude.Maybe Prelude.Text)
+smartHomeAppliance_friendlyName :: Lens.Lens' SmartHomeAppliance (Core.Maybe Core.Text)
 smartHomeAppliance_friendlyName = Lens.lens (\SmartHomeAppliance' {friendlyName} -> friendlyName) (\s@SmartHomeAppliance' {} a -> s {friendlyName = a} :: SmartHomeAppliance)
 
 -- | The description of the smart home appliance.
-smartHomeAppliance_description :: Lens.Lens' SmartHomeAppliance (Prelude.Maybe Prelude.Text)
+smartHomeAppliance_description :: Lens.Lens' SmartHomeAppliance (Core.Maybe Core.Text)
 smartHomeAppliance_description = Lens.lens (\SmartHomeAppliance' {description} -> description) (\s@SmartHomeAppliance' {} a -> s {description = a} :: SmartHomeAppliance)
 
 -- | The name of the manufacturer of the smart home appliance.
-smartHomeAppliance_manufacturerName :: Lens.Lens' SmartHomeAppliance (Prelude.Maybe Prelude.Text)
+smartHomeAppliance_manufacturerName :: Lens.Lens' SmartHomeAppliance (Core.Maybe Core.Text)
 smartHomeAppliance_manufacturerName = Lens.lens (\SmartHomeAppliance' {manufacturerName} -> manufacturerName) (\s@SmartHomeAppliance' {} a -> s {manufacturerName = a} :: SmartHomeAppliance)
 
-instance Prelude.FromJSON SmartHomeAppliance where
+instance Core.FromJSON SmartHomeAppliance where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SmartHomeAppliance"
       ( \x ->
           SmartHomeAppliance'
-            Prelude.<$> (x Prelude..:? "FriendlyName")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "ManufacturerName")
+            Core.<$> (x Core..:? "FriendlyName")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "ManufacturerName")
       )
 
-instance Prelude.Hashable SmartHomeAppliance
+instance Core.Hashable SmartHomeAppliance
 
-instance Prelude.NFData SmartHomeAppliance
+instance Core.NFData SmartHomeAppliance

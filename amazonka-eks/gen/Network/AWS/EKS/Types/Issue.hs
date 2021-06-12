@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,16 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.Issue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.NodegroupIssueCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an issue with an Amazon EKS resource.
 --
 -- /See:/ 'newIssue' smart constructor.
 data Issue = Issue'
   { -- | The error message associated with the issue.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | A brief description of the error.
     --
     -- -   __AccessDenied__: Amazon EKS or one or more of your managed nodes is
@@ -96,11 +95,11 @@ data Issue = Issue'
     --     are insufficient
     --     <https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html node IAM role>
     --     permissions or lack of outbound internet access for the nodes.
-    code :: Prelude.Maybe NodegroupIssueCode,
+    code :: Core.Maybe NodegroupIssueCode,
     -- | The AWS resources that are afflicted by this issue.
-    resourceIds :: Prelude.Maybe [Prelude.Text]
+    resourceIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Issue' with all optional fields omitted.
@@ -184,13 +183,13 @@ newIssue ::
   Issue
 newIssue =
   Issue'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing,
-      resourceIds = Prelude.Nothing
+    { message = Core.Nothing,
+      code = Core.Nothing,
+      resourceIds = Core.Nothing
     }
 
 -- | The error message associated with the issue.
-issue_message :: Lens.Lens' Issue (Prelude.Maybe Prelude.Text)
+issue_message :: Lens.Lens' Issue (Core.Maybe Core.Text)
 issue_message = Lens.lens (\Issue' {message} -> message) (\s@Issue' {} a -> s {message = a} :: Issue)
 
 -- | A brief description of the error.
@@ -259,26 +258,24 @@ issue_message = Lens.lens (\Issue' {message} -> message) (\s@Issue' {} a -> s {m
 --     are insufficient
 --     <https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html node IAM role>
 --     permissions or lack of outbound internet access for the nodes.
-issue_code :: Lens.Lens' Issue (Prelude.Maybe NodegroupIssueCode)
+issue_code :: Lens.Lens' Issue (Core.Maybe NodegroupIssueCode)
 issue_code = Lens.lens (\Issue' {code} -> code) (\s@Issue' {} a -> s {code = a} :: Issue)
 
 -- | The AWS resources that are afflicted by this issue.
-issue_resourceIds :: Lens.Lens' Issue (Prelude.Maybe [Prelude.Text])
-issue_resourceIds = Lens.lens (\Issue' {resourceIds} -> resourceIds) (\s@Issue' {} a -> s {resourceIds = a} :: Issue) Prelude.. Lens.mapping Prelude._Coerce
+issue_resourceIds :: Lens.Lens' Issue (Core.Maybe [Core.Text])
+issue_resourceIds = Lens.lens (\Issue' {resourceIds} -> resourceIds) (\s@Issue' {} a -> s {resourceIds = a} :: Issue) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Issue where
+instance Core.FromJSON Issue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Issue"
       ( \x ->
           Issue'
-            Prelude.<$> (x Prelude..:? "message")
-            Prelude.<*> (x Prelude..:? "code")
-            Prelude.<*> ( x Prelude..:? "resourceIds"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "message")
+            Core.<*> (x Core..:? "code")
+            Core.<*> (x Core..:? "resourceIds" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Issue
+instance Core.Hashable Issue
 
-instance Prelude.NFData Issue
+instance Core.NFData Issue

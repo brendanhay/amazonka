@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.SAMLOptionsOutput where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.SAMLIdp
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the SAML application configured for the domain.
 --
 -- /See:/ 'newSAMLOptionsOutput' smart constructor.
 data SAMLOptionsOutput = SAMLOptionsOutput'
   { -- | The key used for matching the SAML Roles attribute.
-    rolesKey :: Prelude.Maybe Prelude.Text,
+    rolesKey :: Core.Maybe Core.Text,
     -- | The duration, in minutes, after which a user session becomes inactive.
-    sessionTimeoutMinutes :: Prelude.Maybe Prelude.Int,
+    sessionTimeoutMinutes :: Core.Maybe Core.Int,
     -- | Describes the SAML Identity Provider\'s information.
-    idp :: Prelude.Maybe SAMLIdp,
+    idp :: Core.Maybe SAMLIdp,
     -- | True if SAML is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The key used for matching the SAML Subject attribute.
-    subjectKey :: Prelude.Maybe Prelude.Text
+    subjectKey :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SAMLOptionsOutput' with all optional fields omitted.
@@ -62,46 +61,46 @@ newSAMLOptionsOutput ::
   SAMLOptionsOutput
 newSAMLOptionsOutput =
   SAMLOptionsOutput'
-    { rolesKey = Prelude.Nothing,
-      sessionTimeoutMinutes = Prelude.Nothing,
-      idp = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      subjectKey = Prelude.Nothing
+    { rolesKey = Core.Nothing,
+      sessionTimeoutMinutes = Core.Nothing,
+      idp = Core.Nothing,
+      enabled = Core.Nothing,
+      subjectKey = Core.Nothing
     }
 
 -- | The key used for matching the SAML Roles attribute.
-sAMLOptionsOutput_rolesKey :: Lens.Lens' SAMLOptionsOutput (Prelude.Maybe Prelude.Text)
+sAMLOptionsOutput_rolesKey :: Lens.Lens' SAMLOptionsOutput (Core.Maybe Core.Text)
 sAMLOptionsOutput_rolesKey = Lens.lens (\SAMLOptionsOutput' {rolesKey} -> rolesKey) (\s@SAMLOptionsOutput' {} a -> s {rolesKey = a} :: SAMLOptionsOutput)
 
 -- | The duration, in minutes, after which a user session becomes inactive.
-sAMLOptionsOutput_sessionTimeoutMinutes :: Lens.Lens' SAMLOptionsOutput (Prelude.Maybe Prelude.Int)
+sAMLOptionsOutput_sessionTimeoutMinutes :: Lens.Lens' SAMLOptionsOutput (Core.Maybe Core.Int)
 sAMLOptionsOutput_sessionTimeoutMinutes = Lens.lens (\SAMLOptionsOutput' {sessionTimeoutMinutes} -> sessionTimeoutMinutes) (\s@SAMLOptionsOutput' {} a -> s {sessionTimeoutMinutes = a} :: SAMLOptionsOutput)
 
 -- | Describes the SAML Identity Provider\'s information.
-sAMLOptionsOutput_idp :: Lens.Lens' SAMLOptionsOutput (Prelude.Maybe SAMLIdp)
+sAMLOptionsOutput_idp :: Lens.Lens' SAMLOptionsOutput (Core.Maybe SAMLIdp)
 sAMLOptionsOutput_idp = Lens.lens (\SAMLOptionsOutput' {idp} -> idp) (\s@SAMLOptionsOutput' {} a -> s {idp = a} :: SAMLOptionsOutput)
 
 -- | True if SAML is enabled.
-sAMLOptionsOutput_enabled :: Lens.Lens' SAMLOptionsOutput (Prelude.Maybe Prelude.Bool)
+sAMLOptionsOutput_enabled :: Lens.Lens' SAMLOptionsOutput (Core.Maybe Core.Bool)
 sAMLOptionsOutput_enabled = Lens.lens (\SAMLOptionsOutput' {enabled} -> enabled) (\s@SAMLOptionsOutput' {} a -> s {enabled = a} :: SAMLOptionsOutput)
 
 -- | The key used for matching the SAML Subject attribute.
-sAMLOptionsOutput_subjectKey :: Lens.Lens' SAMLOptionsOutput (Prelude.Maybe Prelude.Text)
+sAMLOptionsOutput_subjectKey :: Lens.Lens' SAMLOptionsOutput (Core.Maybe Core.Text)
 sAMLOptionsOutput_subjectKey = Lens.lens (\SAMLOptionsOutput' {subjectKey} -> subjectKey) (\s@SAMLOptionsOutput' {} a -> s {subjectKey = a} :: SAMLOptionsOutput)
 
-instance Prelude.FromJSON SAMLOptionsOutput where
+instance Core.FromJSON SAMLOptionsOutput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SAMLOptionsOutput"
       ( \x ->
           SAMLOptionsOutput'
-            Prelude.<$> (x Prelude..:? "RolesKey")
-            Prelude.<*> (x Prelude..:? "SessionTimeoutMinutes")
-            Prelude.<*> (x Prelude..:? "Idp")
-            Prelude.<*> (x Prelude..:? "Enabled")
-            Prelude.<*> (x Prelude..:? "SubjectKey")
+            Core.<$> (x Core..:? "RolesKey")
+            Core.<*> (x Core..:? "SessionTimeoutMinutes")
+            Core.<*> (x Core..:? "Idp")
+            Core.<*> (x Core..:? "Enabled")
+            Core.<*> (x Core..:? "SubjectKey")
       )
 
-instance Prelude.Hashable SAMLOptionsOutput
+instance Core.Hashable SAMLOptionsOutput
 
-instance Prelude.NFData SAMLOptionsOutput
+instance Core.NFData SAMLOptionsOutput

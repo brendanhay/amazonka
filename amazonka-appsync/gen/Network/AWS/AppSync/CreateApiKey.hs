@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,24 +43,24 @@ module Network.AWS.AppSync.CreateApiKey
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateApiKey' smart constructor.
 data CreateApiKey = CreateApiKey'
   { -- | A description of the purpose of the API key.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The time from creation time after which the API key expires. The date is
     -- represented as seconds since the epoch, rounded down to the nearest
     -- hour. The default value for this parameter is 7 days from creation time.
     -- For more information, see .
-    expires :: Prelude.Maybe Prelude.Integer,
+    expires :: Core.Maybe Core.Integer,
     -- | The ID for your GraphQL API.
-    apiId :: Prelude.Text
+    apiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApiKey' with all optional fields omitted.
@@ -81,81 +80,79 @@ data CreateApiKey = CreateApiKey'
 -- 'apiId', 'createApiKey_apiId' - The ID for your GraphQL API.
 newCreateApiKey ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   CreateApiKey
 newCreateApiKey pApiId_ =
   CreateApiKey'
-    { description = Prelude.Nothing,
-      expires = Prelude.Nothing,
+    { description = Core.Nothing,
+      expires = Core.Nothing,
       apiId = pApiId_
     }
 
 -- | A description of the purpose of the API key.
-createApiKey_description :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
+createApiKey_description :: Lens.Lens' CreateApiKey (Core.Maybe Core.Text)
 createApiKey_description = Lens.lens (\CreateApiKey' {description} -> description) (\s@CreateApiKey' {} a -> s {description = a} :: CreateApiKey)
 
 -- | The time from creation time after which the API key expires. The date is
 -- represented as seconds since the epoch, rounded down to the nearest
 -- hour. The default value for this parameter is 7 days from creation time.
 -- For more information, see .
-createApiKey_expires :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Integer)
+createApiKey_expires :: Lens.Lens' CreateApiKey (Core.Maybe Core.Integer)
 createApiKey_expires = Lens.lens (\CreateApiKey' {expires} -> expires) (\s@CreateApiKey' {} a -> s {expires = a} :: CreateApiKey)
 
 -- | The ID for your GraphQL API.
-createApiKey_apiId :: Lens.Lens' CreateApiKey Prelude.Text
+createApiKey_apiId :: Lens.Lens' CreateApiKey Core.Text
 createApiKey_apiId = Lens.lens (\CreateApiKey' {apiId} -> apiId) (\s@CreateApiKey' {} a -> s {apiId = a} :: CreateApiKey)
 
-instance Prelude.AWSRequest CreateApiKey where
-  type Rs CreateApiKey = CreateApiKeyResponse
+instance Core.AWSRequest CreateApiKey where
+  type AWSResponse CreateApiKey = CreateApiKeyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateApiKeyResponse'
-            Prelude.<$> (x Prelude..?> "apiKey")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "apiKey")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApiKey
+instance Core.Hashable CreateApiKey
 
-instance Prelude.NFData CreateApiKey
+instance Core.NFData CreateApiKey
 
-instance Prelude.ToHeaders CreateApiKey where
+instance Core.ToHeaders CreateApiKey where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateApiKey where
+instance Core.ToJSON CreateApiKey where
   toJSON CreateApiKey' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("description" Prelude..=) Prelude.<$> description,
-            ("expires" Prelude..=) Prelude.<$> expires
+    Core.object
+      ( Core.catMaybes
+          [ ("description" Core..=) Core.<$> description,
+            ("expires" Core..=) Core.<$> expires
           ]
       )
 
-instance Prelude.ToPath CreateApiKey where
+instance Core.ToPath CreateApiKey where
   toPath CreateApiKey' {..} =
-    Prelude.mconcat
-      ["/v1/apis/", Prelude.toBS apiId, "/apikeys"]
+    Core.mconcat
+      ["/v1/apis/", Core.toBS apiId, "/apikeys"]
 
-instance Prelude.ToQuery CreateApiKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateApiKey where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateApiKeyResponse' smart constructor.
 data CreateApiKeyResponse = CreateApiKeyResponse'
   { -- | The API key.
-    apiKey :: Prelude.Maybe ApiKey,
+    apiKey :: Core.Maybe ApiKey,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApiKeyResponse' with all optional fields omitted.
@@ -170,20 +167,20 @@ data CreateApiKeyResponse = CreateApiKeyResponse'
 -- 'httpStatus', 'createApiKeyResponse_httpStatus' - The response's http status code.
 newCreateApiKeyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateApiKeyResponse
 newCreateApiKeyResponse pHttpStatus_ =
   CreateApiKeyResponse'
-    { apiKey = Prelude.Nothing,
+    { apiKey = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The API key.
-createApiKeyResponse_apiKey :: Lens.Lens' CreateApiKeyResponse (Prelude.Maybe ApiKey)
+createApiKeyResponse_apiKey :: Lens.Lens' CreateApiKeyResponse (Core.Maybe ApiKey)
 createApiKeyResponse_apiKey = Lens.lens (\CreateApiKeyResponse' {apiKey} -> apiKey) (\s@CreateApiKeyResponse' {} a -> s {apiKey = a} :: CreateApiKeyResponse)
 
 -- | The response's http status code.
-createApiKeyResponse_httpStatus :: Lens.Lens' CreateApiKeyResponse Prelude.Int
+createApiKeyResponse_httpStatus :: Lens.Lens' CreateApiKeyResponse Core.Int
 createApiKeyResponse_httpStatus = Lens.lens (\CreateApiKeyResponse' {httpStatus} -> httpStatus) (\s@CreateApiKeyResponse' {} a -> s {httpStatus = a} :: CreateApiKeyResponse)
 
-instance Prelude.NFData CreateApiKeyResponse
+instance Core.NFData CreateApiKeyResponse

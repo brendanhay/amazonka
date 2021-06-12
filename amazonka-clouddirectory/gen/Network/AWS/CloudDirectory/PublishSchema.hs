@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CloudDirectory.PublishSchema
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,19 +53,19 @@ import qualified Network.AWS.Response as Response
 data PublishSchema = PublishSchema'
   { -- | The new name under which the schema will be published. If this is not
     -- provided, the development schema is considered.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The minor version under which the schema will be published. This
     -- parameter is recommended. Schemas have both a major and minor version
     -- associated with them.
-    minorVersion :: Prelude.Maybe Prelude.Text,
+    minorVersion :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) that is associated with the development
     -- schema. For more information, see arns.
-    developmentSchemaArn :: Prelude.Text,
+    developmentSchemaArn :: Core.Text,
     -- | The major version under which the schema will be published. Schemas have
     -- both a major and minor version associated with them.
-    version :: Prelude.Text
+    version :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PublishSchema' with all optional fields omitted.
@@ -90,88 +89,88 @@ data PublishSchema = PublishSchema'
 -- both a major and minor version associated with them.
 newPublishSchema ::
   -- | 'developmentSchemaArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   PublishSchema
 newPublishSchema pDevelopmentSchemaArn_ pVersion_ =
   PublishSchema'
-    { name = Prelude.Nothing,
-      minorVersion = Prelude.Nothing,
+    { name = Core.Nothing,
+      minorVersion = Core.Nothing,
       developmentSchemaArn = pDevelopmentSchemaArn_,
       version = pVersion_
     }
 
 -- | The new name under which the schema will be published. If this is not
 -- provided, the development schema is considered.
-publishSchema_name :: Lens.Lens' PublishSchema (Prelude.Maybe Prelude.Text)
+publishSchema_name :: Lens.Lens' PublishSchema (Core.Maybe Core.Text)
 publishSchema_name = Lens.lens (\PublishSchema' {name} -> name) (\s@PublishSchema' {} a -> s {name = a} :: PublishSchema)
 
 -- | The minor version under which the schema will be published. This
 -- parameter is recommended. Schemas have both a major and minor version
 -- associated with them.
-publishSchema_minorVersion :: Lens.Lens' PublishSchema (Prelude.Maybe Prelude.Text)
+publishSchema_minorVersion :: Lens.Lens' PublishSchema (Core.Maybe Core.Text)
 publishSchema_minorVersion = Lens.lens (\PublishSchema' {minorVersion} -> minorVersion) (\s@PublishSchema' {} a -> s {minorVersion = a} :: PublishSchema)
 
 -- | The Amazon Resource Name (ARN) that is associated with the development
 -- schema. For more information, see arns.
-publishSchema_developmentSchemaArn :: Lens.Lens' PublishSchema Prelude.Text
+publishSchema_developmentSchemaArn :: Lens.Lens' PublishSchema Core.Text
 publishSchema_developmentSchemaArn = Lens.lens (\PublishSchema' {developmentSchemaArn} -> developmentSchemaArn) (\s@PublishSchema' {} a -> s {developmentSchemaArn = a} :: PublishSchema)
 
 -- | The major version under which the schema will be published. Schemas have
 -- both a major and minor version associated with them.
-publishSchema_version :: Lens.Lens' PublishSchema Prelude.Text
+publishSchema_version :: Lens.Lens' PublishSchema Core.Text
 publishSchema_version = Lens.lens (\PublishSchema' {version} -> version) (\s@PublishSchema' {} a -> s {version = a} :: PublishSchema)
 
-instance Prelude.AWSRequest PublishSchema where
-  type Rs PublishSchema = PublishSchemaResponse
+instance Core.AWSRequest PublishSchema where
+  type
+    AWSResponse PublishSchema =
+      PublishSchemaResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PublishSchemaResponse'
-            Prelude.<$> (x Prelude..?> "PublishedSchemaArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "PublishedSchemaArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PublishSchema
+instance Core.Hashable PublishSchema
 
-instance Prelude.NFData PublishSchema
+instance Core.NFData PublishSchema
 
-instance Prelude.ToHeaders PublishSchema where
+instance Core.ToHeaders PublishSchema where
   toHeaders PublishSchema' {..} =
-    Prelude.mconcat
-      [ "x-amz-data-partition"
-          Prelude.=# developmentSchemaArn
-      ]
+    Core.mconcat
+      ["x-amz-data-partition" Core.=# developmentSchemaArn]
 
-instance Prelude.ToJSON PublishSchema where
+instance Core.ToJSON PublishSchema where
   toJSON PublishSchema' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Name" Prelude..=) Prelude.<$> name,
-            ("MinorVersion" Prelude..=) Prelude.<$> minorVersion,
-            Prelude.Just ("Version" Prelude..= version)
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("MinorVersion" Core..=) Core.<$> minorVersion,
+            Core.Just ("Version" Core..= version)
           ]
       )
 
-instance Prelude.ToPath PublishSchema where
+instance Core.ToPath PublishSchema where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/schema/publish"
 
-instance Prelude.ToQuery PublishSchema where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PublishSchema where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPublishSchemaResponse' smart constructor.
 data PublishSchemaResponse = PublishSchemaResponse'
   { -- | The ARN that is associated with the published schema. For more
     -- information, see arns.
-    publishedSchemaArn :: Prelude.Maybe Prelude.Text,
+    publishedSchemaArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PublishSchemaResponse' with all optional fields omitted.
@@ -187,22 +186,22 @@ data PublishSchemaResponse = PublishSchemaResponse'
 -- 'httpStatus', 'publishSchemaResponse_httpStatus' - The response's http status code.
 newPublishSchemaResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PublishSchemaResponse
 newPublishSchemaResponse pHttpStatus_ =
   PublishSchemaResponse'
     { publishedSchemaArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN that is associated with the published schema. For more
 -- information, see arns.
-publishSchemaResponse_publishedSchemaArn :: Lens.Lens' PublishSchemaResponse (Prelude.Maybe Prelude.Text)
+publishSchemaResponse_publishedSchemaArn :: Lens.Lens' PublishSchemaResponse (Core.Maybe Core.Text)
 publishSchemaResponse_publishedSchemaArn = Lens.lens (\PublishSchemaResponse' {publishedSchemaArn} -> publishedSchemaArn) (\s@PublishSchemaResponse' {} a -> s {publishedSchemaArn = a} :: PublishSchemaResponse)
 
 -- | The response's http status code.
-publishSchemaResponse_httpStatus :: Lens.Lens' PublishSchemaResponse Prelude.Int
+publishSchemaResponse_httpStatus :: Lens.Lens' PublishSchemaResponse Core.Int
 publishSchemaResponse_httpStatus = Lens.lens (\PublishSchemaResponse' {httpStatus} -> httpStatus) (\s@PublishSchemaResponse' {} a -> s {httpStatus = a} :: PublishSchemaResponse)
 
-instance Prelude.NFData PublishSchemaResponse
+instance Core.NFData PublishSchemaResponse

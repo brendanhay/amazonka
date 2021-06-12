@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,13 +19,13 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.Ac3Settings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.Ac3BitstreamMode
 import Network.AWS.MediaConvert.Types.Ac3CodingMode
 import Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
 import Network.AWS.MediaConvert.Types.Ac3LfeFilter
 import Network.AWS.MediaConvert.Types.Ac3MetadataControl
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
 -- to the value AC3.
@@ -35,31 +34,31 @@ import qualified Network.AWS.Prelude as Prelude
 data Ac3Settings = Ac3Settings'
   { -- | Sets the dialnorm for the output. If blank and input audio is Dolby
     -- Digital, dialnorm will be passed through.
-    dialnorm :: Prelude.Maybe Prelude.Natural,
+    dialnorm :: Core.Maybe Core.Natural,
     -- | Dolby Digital coding mode. Determines number of channels.
-    codingMode :: Prelude.Maybe Ac3CodingMode,
+    codingMode :: Core.Maybe Ac3CodingMode,
     -- | Applies a 120Hz lowpass filter to the LFE channel prior to encoding.
     -- Only valid with 3_2_LFE coding mode.
-    lfeFilter :: Prelude.Maybe Ac3LfeFilter,
+    lfeFilter :: Core.Maybe Ac3LfeFilter,
     -- | If set to FILM_STANDARD, adds dynamic range compression signaling to the
     -- output bitstream as defined in the Dolby Digital specification.
-    dynamicRangeCompressionProfile :: Prelude.Maybe Ac3DynamicRangeCompressionProfile,
+    dynamicRangeCompressionProfile :: Core.Maybe Ac3DynamicRangeCompressionProfile,
     -- | This value is always 48000. It represents the sample rate in Hz.
-    sampleRate :: Prelude.Maybe Prelude.Natural,
+    sampleRate :: Core.Maybe Core.Natural,
     -- | Specify the bitstream mode for the AC-3 stream that the encoder emits.
     -- For more information about the AC3 bitstream mode, see ATSC A\/52-2012
     -- (Annex E).
-    bitstreamMode :: Prelude.Maybe Ac3BitstreamMode,
+    bitstreamMode :: Core.Maybe Ac3BitstreamMode,
     -- | Specify the average bitrate in bits per second. Valid bitrates depend on
     -- the coding mode.
-    bitrate :: Prelude.Maybe Prelude.Natural,
+    bitrate :: Core.Maybe Core.Natural,
     -- | When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD,
     -- DD+, or DolbyE decoder that supplied this audio data. If audio was not
     -- supplied from one of these streams, then the static metadata settings
     -- will be used.
-    metadataControl :: Prelude.Maybe Ac3MetadataControl
+    metadataControl :: Core.Maybe Ac3MetadataControl
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Ac3Settings' with all optional fields omitted.
@@ -97,91 +96,90 @@ newAc3Settings ::
   Ac3Settings
 newAc3Settings =
   Ac3Settings'
-    { dialnorm = Prelude.Nothing,
-      codingMode = Prelude.Nothing,
-      lfeFilter = Prelude.Nothing,
-      dynamicRangeCompressionProfile = Prelude.Nothing,
-      sampleRate = Prelude.Nothing,
-      bitstreamMode = Prelude.Nothing,
-      bitrate = Prelude.Nothing,
-      metadataControl = Prelude.Nothing
+    { dialnorm = Core.Nothing,
+      codingMode = Core.Nothing,
+      lfeFilter = Core.Nothing,
+      dynamicRangeCompressionProfile = Core.Nothing,
+      sampleRate = Core.Nothing,
+      bitstreamMode = Core.Nothing,
+      bitrate = Core.Nothing,
+      metadataControl = Core.Nothing
     }
 
 -- | Sets the dialnorm for the output. If blank and input audio is Dolby
 -- Digital, dialnorm will be passed through.
-ac3Settings_dialnorm :: Lens.Lens' Ac3Settings (Prelude.Maybe Prelude.Natural)
+ac3Settings_dialnorm :: Lens.Lens' Ac3Settings (Core.Maybe Core.Natural)
 ac3Settings_dialnorm = Lens.lens (\Ac3Settings' {dialnorm} -> dialnorm) (\s@Ac3Settings' {} a -> s {dialnorm = a} :: Ac3Settings)
 
 -- | Dolby Digital coding mode. Determines number of channels.
-ac3Settings_codingMode :: Lens.Lens' Ac3Settings (Prelude.Maybe Ac3CodingMode)
+ac3Settings_codingMode :: Lens.Lens' Ac3Settings (Core.Maybe Ac3CodingMode)
 ac3Settings_codingMode = Lens.lens (\Ac3Settings' {codingMode} -> codingMode) (\s@Ac3Settings' {} a -> s {codingMode = a} :: Ac3Settings)
 
 -- | Applies a 120Hz lowpass filter to the LFE channel prior to encoding.
 -- Only valid with 3_2_LFE coding mode.
-ac3Settings_lfeFilter :: Lens.Lens' Ac3Settings (Prelude.Maybe Ac3LfeFilter)
+ac3Settings_lfeFilter :: Lens.Lens' Ac3Settings (Core.Maybe Ac3LfeFilter)
 ac3Settings_lfeFilter = Lens.lens (\Ac3Settings' {lfeFilter} -> lfeFilter) (\s@Ac3Settings' {} a -> s {lfeFilter = a} :: Ac3Settings)
 
 -- | If set to FILM_STANDARD, adds dynamic range compression signaling to the
 -- output bitstream as defined in the Dolby Digital specification.
-ac3Settings_dynamicRangeCompressionProfile :: Lens.Lens' Ac3Settings (Prelude.Maybe Ac3DynamicRangeCompressionProfile)
+ac3Settings_dynamicRangeCompressionProfile :: Lens.Lens' Ac3Settings (Core.Maybe Ac3DynamicRangeCompressionProfile)
 ac3Settings_dynamicRangeCompressionProfile = Lens.lens (\Ac3Settings' {dynamicRangeCompressionProfile} -> dynamicRangeCompressionProfile) (\s@Ac3Settings' {} a -> s {dynamicRangeCompressionProfile = a} :: Ac3Settings)
 
 -- | This value is always 48000. It represents the sample rate in Hz.
-ac3Settings_sampleRate :: Lens.Lens' Ac3Settings (Prelude.Maybe Prelude.Natural)
+ac3Settings_sampleRate :: Lens.Lens' Ac3Settings (Core.Maybe Core.Natural)
 ac3Settings_sampleRate = Lens.lens (\Ac3Settings' {sampleRate} -> sampleRate) (\s@Ac3Settings' {} a -> s {sampleRate = a} :: Ac3Settings)
 
 -- | Specify the bitstream mode for the AC-3 stream that the encoder emits.
 -- For more information about the AC3 bitstream mode, see ATSC A\/52-2012
 -- (Annex E).
-ac3Settings_bitstreamMode :: Lens.Lens' Ac3Settings (Prelude.Maybe Ac3BitstreamMode)
+ac3Settings_bitstreamMode :: Lens.Lens' Ac3Settings (Core.Maybe Ac3BitstreamMode)
 ac3Settings_bitstreamMode = Lens.lens (\Ac3Settings' {bitstreamMode} -> bitstreamMode) (\s@Ac3Settings' {} a -> s {bitstreamMode = a} :: Ac3Settings)
 
 -- | Specify the average bitrate in bits per second. Valid bitrates depend on
 -- the coding mode.
-ac3Settings_bitrate :: Lens.Lens' Ac3Settings (Prelude.Maybe Prelude.Natural)
+ac3Settings_bitrate :: Lens.Lens' Ac3Settings (Core.Maybe Core.Natural)
 ac3Settings_bitrate = Lens.lens (\Ac3Settings' {bitrate} -> bitrate) (\s@Ac3Settings' {} a -> s {bitrate = a} :: Ac3Settings)
 
 -- | When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD,
 -- DD+, or DolbyE decoder that supplied this audio data. If audio was not
 -- supplied from one of these streams, then the static metadata settings
 -- will be used.
-ac3Settings_metadataControl :: Lens.Lens' Ac3Settings (Prelude.Maybe Ac3MetadataControl)
+ac3Settings_metadataControl :: Lens.Lens' Ac3Settings (Core.Maybe Ac3MetadataControl)
 ac3Settings_metadataControl = Lens.lens (\Ac3Settings' {metadataControl} -> metadataControl) (\s@Ac3Settings' {} a -> s {metadataControl = a} :: Ac3Settings)
 
-instance Prelude.FromJSON Ac3Settings where
+instance Core.FromJSON Ac3Settings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Ac3Settings"
       ( \x ->
           Ac3Settings'
-            Prelude.<$> (x Prelude..:? "dialnorm")
-            Prelude.<*> (x Prelude..:? "codingMode")
-            Prelude.<*> (x Prelude..:? "lfeFilter")
-            Prelude.<*> (x Prelude..:? "dynamicRangeCompressionProfile")
-            Prelude.<*> (x Prelude..:? "sampleRate")
-            Prelude.<*> (x Prelude..:? "bitstreamMode")
-            Prelude.<*> (x Prelude..:? "bitrate")
-            Prelude.<*> (x Prelude..:? "metadataControl")
+            Core.<$> (x Core..:? "dialnorm")
+            Core.<*> (x Core..:? "codingMode")
+            Core.<*> (x Core..:? "lfeFilter")
+            Core.<*> (x Core..:? "dynamicRangeCompressionProfile")
+            Core.<*> (x Core..:? "sampleRate")
+            Core.<*> (x Core..:? "bitstreamMode")
+            Core.<*> (x Core..:? "bitrate")
+            Core.<*> (x Core..:? "metadataControl")
       )
 
-instance Prelude.Hashable Ac3Settings
+instance Core.Hashable Ac3Settings
 
-instance Prelude.NFData Ac3Settings
+instance Core.NFData Ac3Settings
 
-instance Prelude.ToJSON Ac3Settings where
+instance Core.ToJSON Ac3Settings where
   toJSON Ac3Settings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("dialnorm" Prelude..=) Prelude.<$> dialnorm,
-            ("codingMode" Prelude..=) Prelude.<$> codingMode,
-            ("lfeFilter" Prelude..=) Prelude.<$> lfeFilter,
-            ("dynamicRangeCompressionProfile" Prelude..=)
-              Prelude.<$> dynamicRangeCompressionProfile,
-            ("sampleRate" Prelude..=) Prelude.<$> sampleRate,
-            ("bitstreamMode" Prelude..=)
-              Prelude.<$> bitstreamMode,
-            ("bitrate" Prelude..=) Prelude.<$> bitrate,
-            ("metadataControl" Prelude..=)
-              Prelude.<$> metadataControl
+    Core.object
+      ( Core.catMaybes
+          [ ("dialnorm" Core..=) Core.<$> dialnorm,
+            ("codingMode" Core..=) Core.<$> codingMode,
+            ("lfeFilter" Core..=) Core.<$> lfeFilter,
+            ("dynamicRangeCompressionProfile" Core..=)
+              Core.<$> dynamicRangeCompressionProfile,
+            ("sampleRate" Core..=) Core.<$> sampleRate,
+            ("bitstreamMode" Core..=) Core.<$> bitstreamMode,
+            ("bitrate" Core..=) Core.<$> bitrate,
+            ("metadataControl" Core..=)
+              Core.<$> metadataControl
           ]
       )

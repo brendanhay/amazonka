@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,19 +44,19 @@ module Network.AWS.Connect.DescribeContactFlow
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeContactFlow' smart constructor.
 data DescribeContactFlow = DescribeContactFlow'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier of the contact flow.
-    contactFlowId :: Prelude.Text
+    contactFlowId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeContactFlow' with all optional fields omitted.
@@ -72,9 +71,9 @@ data DescribeContactFlow = DescribeContactFlow'
 -- 'contactFlowId', 'describeContactFlow_contactFlowId' - The identifier of the contact flow.
 newDescribeContactFlow ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'contactFlowId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeContactFlow
 newDescribeContactFlow pInstanceId_ pContactFlowId_ =
   DescribeContactFlow'
@@ -83,61 +82,59 @@ newDescribeContactFlow pInstanceId_ pContactFlowId_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-describeContactFlow_instanceId :: Lens.Lens' DescribeContactFlow Prelude.Text
+describeContactFlow_instanceId :: Lens.Lens' DescribeContactFlow Core.Text
 describeContactFlow_instanceId = Lens.lens (\DescribeContactFlow' {instanceId} -> instanceId) (\s@DescribeContactFlow' {} a -> s {instanceId = a} :: DescribeContactFlow)
 
 -- | The identifier of the contact flow.
-describeContactFlow_contactFlowId :: Lens.Lens' DescribeContactFlow Prelude.Text
+describeContactFlow_contactFlowId :: Lens.Lens' DescribeContactFlow Core.Text
 describeContactFlow_contactFlowId = Lens.lens (\DescribeContactFlow' {contactFlowId} -> contactFlowId) (\s@DescribeContactFlow' {} a -> s {contactFlowId = a} :: DescribeContactFlow)
 
-instance Prelude.AWSRequest DescribeContactFlow where
+instance Core.AWSRequest DescribeContactFlow where
   type
-    Rs DescribeContactFlow =
+    AWSResponse DescribeContactFlow =
       DescribeContactFlowResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeContactFlowResponse'
-            Prelude.<$> (x Prelude..?> "ContactFlow")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ContactFlow")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeContactFlow
+instance Core.Hashable DescribeContactFlow
 
-instance Prelude.NFData DescribeContactFlow
+instance Core.NFData DescribeContactFlow
 
-instance Prelude.ToHeaders DescribeContactFlow where
+instance Core.ToHeaders DescribeContactFlow where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeContactFlow where
+instance Core.ToPath DescribeContactFlow where
   toPath DescribeContactFlow' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/contact-flows/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS contactFlowId
+        Core.toBS contactFlowId
       ]
 
-instance Prelude.ToQuery DescribeContactFlow where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeContactFlow where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeContactFlowResponse' smart constructor.
 data DescribeContactFlowResponse = DescribeContactFlowResponse'
   { -- | Information about the contact flow.
-    contactFlow :: Prelude.Maybe ContactFlow,
+    contactFlow :: Core.Maybe ContactFlow,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeContactFlowResponse' with all optional fields omitted.
@@ -152,21 +149,21 @@ data DescribeContactFlowResponse = DescribeContactFlowResponse'
 -- 'httpStatus', 'describeContactFlowResponse_httpStatus' - The response's http status code.
 newDescribeContactFlowResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeContactFlowResponse
 newDescribeContactFlowResponse pHttpStatus_ =
   DescribeContactFlowResponse'
     { contactFlow =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the contact flow.
-describeContactFlowResponse_contactFlow :: Lens.Lens' DescribeContactFlowResponse (Prelude.Maybe ContactFlow)
+describeContactFlowResponse_contactFlow :: Lens.Lens' DescribeContactFlowResponse (Core.Maybe ContactFlow)
 describeContactFlowResponse_contactFlow = Lens.lens (\DescribeContactFlowResponse' {contactFlow} -> contactFlow) (\s@DescribeContactFlowResponse' {} a -> s {contactFlow = a} :: DescribeContactFlowResponse)
 
 -- | The response's http status code.
-describeContactFlowResponse_httpStatus :: Lens.Lens' DescribeContactFlowResponse Prelude.Int
+describeContactFlowResponse_httpStatus :: Lens.Lens' DescribeContactFlowResponse Core.Int
 describeContactFlowResponse_httpStatus = Lens.lens (\DescribeContactFlowResponse' {httpStatus} -> httpStatus) (\s@DescribeContactFlowResponse' {} a -> s {httpStatus = a} :: DescribeContactFlowResponse)
 
-instance Prelude.NFData DescribeContactFlowResponse
+instance Core.NFData DescribeContactFlowResponse

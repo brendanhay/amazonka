@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.DataQualityJobInput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.EndpointInput
 
 -- | The input for the data quality monitoring job. Currently endpoints are
@@ -31,7 +30,7 @@ import Network.AWS.SageMaker.Types.EndpointInput
 data DataQualityJobInput = DataQualityJobInput'
   { endpointInput :: EndpointInput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DataQualityJobInput' with all optional fields omitted.
@@ -56,24 +55,22 @@ newDataQualityJobInput pEndpointInput_ =
 dataQualityJobInput_endpointInput :: Lens.Lens' DataQualityJobInput EndpointInput
 dataQualityJobInput_endpointInput = Lens.lens (\DataQualityJobInput' {endpointInput} -> endpointInput) (\s@DataQualityJobInput' {} a -> s {endpointInput = a} :: DataQualityJobInput)
 
-instance Prelude.FromJSON DataQualityJobInput where
+instance Core.FromJSON DataQualityJobInput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DataQualityJobInput"
       ( \x ->
           DataQualityJobInput'
-            Prelude.<$> (x Prelude..: "EndpointInput")
+            Core.<$> (x Core..: "EndpointInput")
       )
 
-instance Prelude.Hashable DataQualityJobInput
+instance Core.Hashable DataQualityJobInput
 
-instance Prelude.NFData DataQualityJobInput
+instance Core.NFData DataQualityJobInput
 
-instance Prelude.ToJSON DataQualityJobInput where
+instance Core.ToJSON DataQualityJobInput where
   toJSON DataQualityJobInput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointInput" Prelude..= endpointInput)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EndpointInput" Core..= endpointInput)]
       )

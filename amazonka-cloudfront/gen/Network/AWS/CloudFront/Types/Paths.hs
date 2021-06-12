@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.Paths where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains information about the objects that you want
 -- to invalidate. For more information, see
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data Paths = Paths'
   { -- | A complex type that contains a list of the paths that you want to
     -- invalidate.
-    items :: Prelude.Maybe [Prelude.Text],
+    items :: Core.Maybe [Core.Text],
     -- | The number of invalidation paths specified for the objects that you want
     -- to invalidate.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Paths' with all optional fields omitted.
@@ -54,41 +53,37 @@ data Paths = Paths'
 -- to invalidate.
 newPaths ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   Paths
 newPaths pQuantity_ =
-  Paths'
-    { items = Prelude.Nothing,
-      quantity = pQuantity_
-    }
+  Paths' {items = Core.Nothing, quantity = pQuantity_}
 
 -- | A complex type that contains a list of the paths that you want to
 -- invalidate.
-paths_items :: Lens.Lens' Paths (Prelude.Maybe [Prelude.Text])
-paths_items = Lens.lens (\Paths' {items} -> items) (\s@Paths' {} a -> s {items = a} :: Paths) Prelude.. Lens.mapping Prelude._Coerce
+paths_items :: Lens.Lens' Paths (Core.Maybe [Core.Text])
+paths_items = Lens.lens (\Paths' {items} -> items) (\s@Paths' {} a -> s {items = a} :: Paths) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of invalidation paths specified for the objects that you want
 -- to invalidate.
-paths_quantity :: Lens.Lens' Paths Prelude.Int
+paths_quantity :: Lens.Lens' Paths Core.Int
 paths_quantity = Lens.lens (\Paths' {quantity} -> quantity) (\s@Paths' {} a -> s {quantity = a} :: Paths)
 
-instance Prelude.FromXML Paths where
+instance Core.FromXML Paths where
   parseXML x =
     Paths'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "Path")
-                  )
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "Path")
+               )
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable Paths
+instance Core.Hashable Paths
 
-instance Prelude.NFData Paths
+instance Core.NFData Paths
 
-instance Prelude.ToXML Paths where
+instance Core.ToXML Paths where
   toXML Paths' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            (Prelude.toXMLList "Path" Prelude.<$> items),
-        "Quantity" Prelude.@= quantity
+          Core.@= Core.toXML (Core.toXMLList "Path" Core.<$> items),
+        "Quantity" Core.@= quantity
       ]

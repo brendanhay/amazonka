@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,18 +45,18 @@ module Network.AWS.Lightsail.DeleteAlarm
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAlarm' smart constructor.
 data DeleteAlarm = DeleteAlarm'
   { -- | The name of the alarm to delete.
-    alarmName :: Prelude.Text
+    alarmName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAlarm' with all optional fields omitted.
@@ -70,70 +69,66 @@ data DeleteAlarm = DeleteAlarm'
 -- 'alarmName', 'deleteAlarm_alarmName' - The name of the alarm to delete.
 newDeleteAlarm ::
   -- | 'alarmName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAlarm
 newDeleteAlarm pAlarmName_ =
   DeleteAlarm' {alarmName = pAlarmName_}
 
 -- | The name of the alarm to delete.
-deleteAlarm_alarmName :: Lens.Lens' DeleteAlarm Prelude.Text
+deleteAlarm_alarmName :: Lens.Lens' DeleteAlarm Core.Text
 deleteAlarm_alarmName = Lens.lens (\DeleteAlarm' {alarmName} -> alarmName) (\s@DeleteAlarm' {} a -> s {alarmName = a} :: DeleteAlarm)
 
-instance Prelude.AWSRequest DeleteAlarm where
-  type Rs DeleteAlarm = DeleteAlarmResponse
+instance Core.AWSRequest DeleteAlarm where
+  type AWSResponse DeleteAlarm = DeleteAlarmResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteAlarmResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAlarm
+instance Core.Hashable DeleteAlarm
 
-instance Prelude.NFData DeleteAlarm
+instance Core.NFData DeleteAlarm
 
-instance Prelude.ToHeaders DeleteAlarm where
+instance Core.ToHeaders DeleteAlarm where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.DeleteAlarm" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.DeleteAlarm" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteAlarm where
+instance Core.ToJSON DeleteAlarm where
   toJSON DeleteAlarm' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("alarmName" Prelude..= alarmName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("alarmName" Core..= alarmName)]
       )
 
-instance Prelude.ToPath DeleteAlarm where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAlarm where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAlarm where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAlarm where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAlarmResponse' smart constructor.
 data DeleteAlarmResponse = DeleteAlarmResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAlarmResponse' with all optional fields omitted.
@@ -150,22 +145,22 @@ data DeleteAlarmResponse = DeleteAlarmResponse'
 -- 'httpStatus', 'deleteAlarmResponse_httpStatus' - The response's http status code.
 newDeleteAlarmResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteAlarmResponse
 newDeleteAlarmResponse pHttpStatus_ =
   DeleteAlarmResponse'
-    { operations = Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteAlarmResponse_operations :: Lens.Lens' DeleteAlarmResponse (Prelude.Maybe [Operation])
-deleteAlarmResponse_operations = Lens.lens (\DeleteAlarmResponse' {operations} -> operations) (\s@DeleteAlarmResponse' {} a -> s {operations = a} :: DeleteAlarmResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteAlarmResponse_operations :: Lens.Lens' DeleteAlarmResponse (Core.Maybe [Operation])
+deleteAlarmResponse_operations = Lens.lens (\DeleteAlarmResponse' {operations} -> operations) (\s@DeleteAlarmResponse' {} a -> s {operations = a} :: DeleteAlarmResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteAlarmResponse_httpStatus :: Lens.Lens' DeleteAlarmResponse Prelude.Int
+deleteAlarmResponse_httpStatus :: Lens.Lens' DeleteAlarmResponse Core.Int
 deleteAlarmResponse_httpStatus = Lens.lens (\DeleteAlarmResponse' {httpStatus} -> httpStatus) (\s@DeleteAlarmResponse' {} a -> s {httpStatus = a} :: DeleteAlarmResponse)
 
-instance Prelude.NFData DeleteAlarmResponse
+instance Core.NFData DeleteAlarmResponse

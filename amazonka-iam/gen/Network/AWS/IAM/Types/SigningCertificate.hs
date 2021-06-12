@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.SigningCertificate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.StatusType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an X.509 signing certificate.
 --
@@ -32,18 +31,18 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSigningCertificate' smart constructor.
 data SigningCertificate = SigningCertificate'
   { -- | The date when the signing certificate was uploaded.
-    uploadDate :: Prelude.Maybe Prelude.ISO8601,
+    uploadDate :: Core.Maybe Core.ISO8601,
     -- | The name of the user the signing certificate is associated with.
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The ID for the signing certificate.
-    certificateId :: Prelude.Text,
+    certificateId :: Core.Text,
     -- | The contents of the signing certificate.
-    certificateBody :: Prelude.Text,
+    certificateBody :: Core.Text,
     -- | The status of the signing certificate. @Active@ means that the key is
     -- valid for API calls, while @Inactive@ means it is not.
     status :: StatusType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SigningCertificate' with all optional fields omitted.
@@ -65,11 +64,11 @@ data SigningCertificate = SigningCertificate'
 -- valid for API calls, while @Inactive@ means it is not.
 newSigningCertificate ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'certificateId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'certificateBody'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   StatusType ->
   SigningCertificate
@@ -79,7 +78,7 @@ newSigningCertificate
   pCertificateBody_
   pStatus_ =
     SigningCertificate'
-      { uploadDate = Prelude.Nothing,
+      { uploadDate = Core.Nothing,
         userName = pUserName_,
         certificateId = pCertificateId_,
         certificateBody = pCertificateBody_,
@@ -87,19 +86,19 @@ newSigningCertificate
       }
 
 -- | The date when the signing certificate was uploaded.
-signingCertificate_uploadDate :: Lens.Lens' SigningCertificate (Prelude.Maybe Prelude.UTCTime)
-signingCertificate_uploadDate = Lens.lens (\SigningCertificate' {uploadDate} -> uploadDate) (\s@SigningCertificate' {} a -> s {uploadDate = a} :: SigningCertificate) Prelude.. Lens.mapping Prelude._Time
+signingCertificate_uploadDate :: Lens.Lens' SigningCertificate (Core.Maybe Core.UTCTime)
+signingCertificate_uploadDate = Lens.lens (\SigningCertificate' {uploadDate} -> uploadDate) (\s@SigningCertificate' {} a -> s {uploadDate = a} :: SigningCertificate) Core.. Lens.mapping Core._Time
 
 -- | The name of the user the signing certificate is associated with.
-signingCertificate_userName :: Lens.Lens' SigningCertificate Prelude.Text
+signingCertificate_userName :: Lens.Lens' SigningCertificate Core.Text
 signingCertificate_userName = Lens.lens (\SigningCertificate' {userName} -> userName) (\s@SigningCertificate' {} a -> s {userName = a} :: SigningCertificate)
 
 -- | The ID for the signing certificate.
-signingCertificate_certificateId :: Lens.Lens' SigningCertificate Prelude.Text
+signingCertificate_certificateId :: Lens.Lens' SigningCertificate Core.Text
 signingCertificate_certificateId = Lens.lens (\SigningCertificate' {certificateId} -> certificateId) (\s@SigningCertificate' {} a -> s {certificateId = a} :: SigningCertificate)
 
 -- | The contents of the signing certificate.
-signingCertificate_certificateBody :: Lens.Lens' SigningCertificate Prelude.Text
+signingCertificate_certificateBody :: Lens.Lens' SigningCertificate Core.Text
 signingCertificate_certificateBody = Lens.lens (\SigningCertificate' {certificateBody} -> certificateBody) (\s@SigningCertificate' {} a -> s {certificateBody = a} :: SigningCertificate)
 
 -- | The status of the signing certificate. @Active@ means that the key is
@@ -107,15 +106,15 @@ signingCertificate_certificateBody = Lens.lens (\SigningCertificate' {certificat
 signingCertificate_status :: Lens.Lens' SigningCertificate StatusType
 signingCertificate_status = Lens.lens (\SigningCertificate' {status} -> status) (\s@SigningCertificate' {} a -> s {status = a} :: SigningCertificate)
 
-instance Prelude.FromXML SigningCertificate where
+instance Core.FromXML SigningCertificate where
   parseXML x =
     SigningCertificate'
-      Prelude.<$> (x Prelude..@? "UploadDate")
-      Prelude.<*> (x Prelude..@ "UserName")
-      Prelude.<*> (x Prelude..@ "CertificateId")
-      Prelude.<*> (x Prelude..@ "CertificateBody")
-      Prelude.<*> (x Prelude..@ "Status")
+      Core.<$> (x Core..@? "UploadDate")
+      Core.<*> (x Core..@ "UserName")
+      Core.<*> (x Core..@ "CertificateId")
+      Core.<*> (x Core..@ "CertificateBody")
+      Core.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable SigningCertificate
+instance Core.Hashable SigningCertificate
 
-instance Prelude.NFData SigningCertificate
+instance Core.NFData SigningCertificate

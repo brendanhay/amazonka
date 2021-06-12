@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,19 +40,19 @@ module Network.AWS.AlexaBusiness.DisassociateSkillFromSkillGroup
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateSkillFromSkillGroup' smart constructor.
 data DisassociateSkillFromSkillGroup = DisassociateSkillFromSkillGroup'
   { -- | The unique identifier of a skill. Required.
-    skillGroupArn :: Prelude.Maybe Prelude.Text,
+    skillGroupArn :: Core.Maybe Core.Text,
     -- | The ARN of a skill group to associate to a skill.
-    skillId :: Prelude.Text
+    skillId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateSkillFromSkillGroup' with all optional fields omitted.
@@ -68,95 +67,81 @@ data DisassociateSkillFromSkillGroup = DisassociateSkillFromSkillGroup'
 -- 'skillId', 'disassociateSkillFromSkillGroup_skillId' - The ARN of a skill group to associate to a skill.
 newDisassociateSkillFromSkillGroup ::
   -- | 'skillId'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateSkillFromSkillGroup
 newDisassociateSkillFromSkillGroup pSkillId_ =
   DisassociateSkillFromSkillGroup'
     { skillGroupArn =
-        Prelude.Nothing,
+        Core.Nothing,
       skillId = pSkillId_
     }
 
 -- | The unique identifier of a skill. Required.
-disassociateSkillFromSkillGroup_skillGroupArn :: Lens.Lens' DisassociateSkillFromSkillGroup (Prelude.Maybe Prelude.Text)
+disassociateSkillFromSkillGroup_skillGroupArn :: Lens.Lens' DisassociateSkillFromSkillGroup (Core.Maybe Core.Text)
 disassociateSkillFromSkillGroup_skillGroupArn = Lens.lens (\DisassociateSkillFromSkillGroup' {skillGroupArn} -> skillGroupArn) (\s@DisassociateSkillFromSkillGroup' {} a -> s {skillGroupArn = a} :: DisassociateSkillFromSkillGroup)
 
 -- | The ARN of a skill group to associate to a skill.
-disassociateSkillFromSkillGroup_skillId :: Lens.Lens' DisassociateSkillFromSkillGroup Prelude.Text
+disassociateSkillFromSkillGroup_skillId :: Lens.Lens' DisassociateSkillFromSkillGroup Core.Text
 disassociateSkillFromSkillGroup_skillId = Lens.lens (\DisassociateSkillFromSkillGroup' {skillId} -> skillId) (\s@DisassociateSkillFromSkillGroup' {} a -> s {skillId = a} :: DisassociateSkillFromSkillGroup)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateSkillFromSkillGroup
   where
   type
-    Rs DisassociateSkillFromSkillGroup =
+    AWSResponse DisassociateSkillFromSkillGroup =
       DisassociateSkillFromSkillGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateSkillFromSkillGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisassociateSkillFromSkillGroup
 
-instance
-  Prelude.NFData
-    DisassociateSkillFromSkillGroup
+instance Core.NFData DisassociateSkillFromSkillGroup
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisassociateSkillFromSkillGroup
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.DisassociateSkillFromSkillGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.DisassociateSkillFromSkillGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DisassociateSkillFromSkillGroup
-  where
+instance Core.ToJSON DisassociateSkillFromSkillGroup where
   toJSON DisassociateSkillFromSkillGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SkillGroupArn" Prelude..=)
-              Prelude.<$> skillGroupArn,
-            Prelude.Just ("SkillId" Prelude..= skillId)
+    Core.object
+      ( Core.catMaybes
+          [ ("SkillGroupArn" Core..=) Core.<$> skillGroupArn,
+            Core.Just ("SkillId" Core..= skillId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    DisassociateSkillFromSkillGroup
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateSkillFromSkillGroup where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DisassociateSkillFromSkillGroup
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateSkillFromSkillGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateSkillFromSkillGroupResponse' smart constructor.
 data DisassociateSkillFromSkillGroupResponse = DisassociateSkillFromSkillGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateSkillFromSkillGroupResponse' with all optional fields omitted.
@@ -169,7 +154,7 @@ data DisassociateSkillFromSkillGroupResponse = DisassociateSkillFromSkillGroupRe
 -- 'httpStatus', 'disassociateSkillFromSkillGroupResponse_httpStatus' - The response's http status code.
 newDisassociateSkillFromSkillGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateSkillFromSkillGroupResponse
 newDisassociateSkillFromSkillGroupResponse
   pHttpStatus_ =
@@ -179,9 +164,9 @@ newDisassociateSkillFromSkillGroupResponse
       }
 
 -- | The response's http status code.
-disassociateSkillFromSkillGroupResponse_httpStatus :: Lens.Lens' DisassociateSkillFromSkillGroupResponse Prelude.Int
+disassociateSkillFromSkillGroupResponse_httpStatus :: Lens.Lens' DisassociateSkillFromSkillGroupResponse Core.Int
 disassociateSkillFromSkillGroupResponse_httpStatus = Lens.lens (\DisassociateSkillFromSkillGroupResponse' {httpStatus} -> httpStatus) (\s@DisassociateSkillFromSkillGroupResponse' {} a -> s {httpStatus = a} :: DisassociateSkillFromSkillGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateSkillFromSkillGroupResponse

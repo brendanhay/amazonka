@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.KeyPairInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a key pair.
 --
@@ -33,15 +32,15 @@ data KeyPairInfo = KeyPairInfo'
     -- digest of the DER encoded private key. If you used ImportKeyPair to
     -- provide AWS the public key, this is the MD5 public key fingerprint as
     -- specified in section 4 of RFC4716.
-    keyFingerprint :: Prelude.Maybe Prelude.Text,
+    keyFingerprint :: Core.Maybe Core.Text,
     -- | The ID of the key pair.
-    keyPairId :: Prelude.Maybe Prelude.Text,
+    keyPairId :: Core.Maybe Core.Text,
     -- | Any tags applied to the key pair.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The name of the key pair.
-    keyName :: Prelude.Maybe Prelude.Text
+    keyName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyPairInfo' with all optional fields omitted.
@@ -65,41 +64,41 @@ newKeyPairInfo ::
   KeyPairInfo
 newKeyPairInfo =
   KeyPairInfo'
-    { keyFingerprint = Prelude.Nothing,
-      keyPairId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      keyName = Prelude.Nothing
+    { keyFingerprint = Core.Nothing,
+      keyPairId = Core.Nothing,
+      tags = Core.Nothing,
+      keyName = Core.Nothing
     }
 
 -- | If you used CreateKeyPair to create the key pair, this is the SHA-1
 -- digest of the DER encoded private key. If you used ImportKeyPair to
 -- provide AWS the public key, this is the MD5 public key fingerprint as
 -- specified in section 4 of RFC4716.
-keyPairInfo_keyFingerprint :: Lens.Lens' KeyPairInfo (Prelude.Maybe Prelude.Text)
+keyPairInfo_keyFingerprint :: Lens.Lens' KeyPairInfo (Core.Maybe Core.Text)
 keyPairInfo_keyFingerprint = Lens.lens (\KeyPairInfo' {keyFingerprint} -> keyFingerprint) (\s@KeyPairInfo' {} a -> s {keyFingerprint = a} :: KeyPairInfo)
 
 -- | The ID of the key pair.
-keyPairInfo_keyPairId :: Lens.Lens' KeyPairInfo (Prelude.Maybe Prelude.Text)
+keyPairInfo_keyPairId :: Lens.Lens' KeyPairInfo (Core.Maybe Core.Text)
 keyPairInfo_keyPairId = Lens.lens (\KeyPairInfo' {keyPairId} -> keyPairId) (\s@KeyPairInfo' {} a -> s {keyPairId = a} :: KeyPairInfo)
 
 -- | Any tags applied to the key pair.
-keyPairInfo_tags :: Lens.Lens' KeyPairInfo (Prelude.Maybe [Tag])
-keyPairInfo_tags = Lens.lens (\KeyPairInfo' {tags} -> tags) (\s@KeyPairInfo' {} a -> s {tags = a} :: KeyPairInfo) Prelude.. Lens.mapping Prelude._Coerce
+keyPairInfo_tags :: Lens.Lens' KeyPairInfo (Core.Maybe [Tag])
+keyPairInfo_tags = Lens.lens (\KeyPairInfo' {tags} -> tags) (\s@KeyPairInfo' {} a -> s {tags = a} :: KeyPairInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the key pair.
-keyPairInfo_keyName :: Lens.Lens' KeyPairInfo (Prelude.Maybe Prelude.Text)
+keyPairInfo_keyName :: Lens.Lens' KeyPairInfo (Core.Maybe Core.Text)
 keyPairInfo_keyName = Lens.lens (\KeyPairInfo' {keyName} -> keyName) (\s@KeyPairInfo' {} a -> s {keyName = a} :: KeyPairInfo)
 
-instance Prelude.FromXML KeyPairInfo where
+instance Core.FromXML KeyPairInfo where
   parseXML x =
     KeyPairInfo'
-      Prelude.<$> (x Prelude..@? "keyFingerprint")
-      Prelude.<*> (x Prelude..@? "keyPairId")
-      Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "keyName")
+      Core.<$> (x Core..@? "keyFingerprint")
+      Core.<*> (x Core..@? "keyPairId")
+      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "keyName")
 
-instance Prelude.Hashable KeyPairInfo
+instance Core.Hashable KeyPairInfo
 
-instance Prelude.NFData KeyPairInfo
+instance Core.NFData KeyPairInfo

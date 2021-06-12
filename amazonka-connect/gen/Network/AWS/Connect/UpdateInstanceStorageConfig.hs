@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,23 +43,23 @@ module Network.AWS.Connect.UpdateInstanceStorageConfig
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateInstanceStorageConfig' smart constructor.
 data UpdateInstanceStorageConfig = UpdateInstanceStorageConfig'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
-    associationId :: Prelude.Text,
+    associationId :: Core.Text,
     -- | A valid resource type.
     resourceType :: InstanceStorageResourceType,
     storageConfig :: InstanceStorageConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateInstanceStorageConfig' with all optional fields omitted.
@@ -80,9 +79,9 @@ data UpdateInstanceStorageConfig = UpdateInstanceStorageConfig'
 -- 'storageConfig', 'updateInstanceStorageConfig_storageConfig' - Undocumented member.
 newUpdateInstanceStorageConfig ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'associationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceType'
   InstanceStorageResourceType ->
   -- | 'storageConfig'
@@ -102,12 +101,12 @@ newUpdateInstanceStorageConfig
       }
 
 -- | The identifier of the Amazon Connect instance.
-updateInstanceStorageConfig_instanceId :: Lens.Lens' UpdateInstanceStorageConfig Prelude.Text
+updateInstanceStorageConfig_instanceId :: Lens.Lens' UpdateInstanceStorageConfig Core.Text
 updateInstanceStorageConfig_instanceId = Lens.lens (\UpdateInstanceStorageConfig' {instanceId} -> instanceId) (\s@UpdateInstanceStorageConfig' {} a -> s {instanceId = a} :: UpdateInstanceStorageConfig)
 
 -- | The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
-updateInstanceStorageConfig_associationId :: Lens.Lens' UpdateInstanceStorageConfig Prelude.Text
+updateInstanceStorageConfig_associationId :: Lens.Lens' UpdateInstanceStorageConfig Core.Text
 updateInstanceStorageConfig_associationId = Lens.lens (\UpdateInstanceStorageConfig' {associationId} -> associationId) (\s@UpdateInstanceStorageConfig' {} a -> s {associationId = a} :: UpdateInstanceStorageConfig)
 
 -- | A valid resource type.
@@ -118,64 +117,53 @@ updateInstanceStorageConfig_resourceType = Lens.lens (\UpdateInstanceStorageConf
 updateInstanceStorageConfig_storageConfig :: Lens.Lens' UpdateInstanceStorageConfig InstanceStorageConfig
 updateInstanceStorageConfig_storageConfig = Lens.lens (\UpdateInstanceStorageConfig' {storageConfig} -> storageConfig) (\s@UpdateInstanceStorageConfig' {} a -> s {storageConfig = a} :: UpdateInstanceStorageConfig)
 
-instance
-  Prelude.AWSRequest
-    UpdateInstanceStorageConfig
-  where
+instance Core.AWSRequest UpdateInstanceStorageConfig where
   type
-    Rs UpdateInstanceStorageConfig =
+    AWSResponse UpdateInstanceStorageConfig =
       UpdateInstanceStorageConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UpdateInstanceStorageConfigResponse'
 
-instance Prelude.Hashable UpdateInstanceStorageConfig
+instance Core.Hashable UpdateInstanceStorageConfig
 
-instance Prelude.NFData UpdateInstanceStorageConfig
+instance Core.NFData UpdateInstanceStorageConfig
 
-instance
-  Prelude.ToHeaders
-    UpdateInstanceStorageConfig
-  where
+instance Core.ToHeaders UpdateInstanceStorageConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateInstanceStorageConfig where
+instance Core.ToJSON UpdateInstanceStorageConfig where
   toJSON UpdateInstanceStorageConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("StorageConfig" Prelude..= storageConfig)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("StorageConfig" Core..= storageConfig)]
       )
 
-instance Prelude.ToPath UpdateInstanceStorageConfig where
+instance Core.ToPath UpdateInstanceStorageConfig where
   toPath UpdateInstanceStorageConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/instance/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/storage-config/",
-        Prelude.toBS associationId
+        Core.toBS associationId
       ]
 
-instance Prelude.ToQuery UpdateInstanceStorageConfig where
+instance Core.ToQuery UpdateInstanceStorageConfig where
   toQuery UpdateInstanceStorageConfig' {..} =
-    Prelude.mconcat
-      ["resourceType" Prelude.=: resourceType]
+    Core.mconcat ["resourceType" Core.=: resourceType]
 
 -- | /See:/ 'newUpdateInstanceStorageConfigResponse' smart constructor.
 data UpdateInstanceStorageConfigResponse = UpdateInstanceStorageConfigResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateInstanceStorageConfigResponse' with all optional fields omitted.
@@ -187,5 +175,5 @@ newUpdateInstanceStorageConfigResponse =
   UpdateInstanceStorageConfigResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateInstanceStorageConfigResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ParametersFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.ParametersFilterKey
 
 -- | This data type is deprecated. Instead, use ParameterStringFilter.
@@ -31,9 +30,9 @@ data ParametersFilter = ParametersFilter'
   { -- | The name of the filter.
     key :: ParametersFilterKey,
     -- | The filter values.
-    values :: Prelude.NonEmpty Prelude.Text
+    values :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParametersFilter' with all optional fields omitted.
@@ -50,12 +49,12 @@ newParametersFilter ::
   -- | 'key'
   ParametersFilterKey ->
   -- | 'values'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   ParametersFilter
 newParametersFilter pKey_ pValues_ =
   ParametersFilter'
     { key = pKey_,
-      values = Prelude._Coerce Lens.# pValues_
+      values = Lens._Coerce Lens.# pValues_
     }
 
 -- | The name of the filter.
@@ -63,18 +62,18 @@ parametersFilter_key :: Lens.Lens' ParametersFilter ParametersFilterKey
 parametersFilter_key = Lens.lens (\ParametersFilter' {key} -> key) (\s@ParametersFilter' {} a -> s {key = a} :: ParametersFilter)
 
 -- | The filter values.
-parametersFilter_values :: Lens.Lens' ParametersFilter (Prelude.NonEmpty Prelude.Text)
-parametersFilter_values = Lens.lens (\ParametersFilter' {values} -> values) (\s@ParametersFilter' {} a -> s {values = a} :: ParametersFilter) Prelude.. Prelude._Coerce
+parametersFilter_values :: Lens.Lens' ParametersFilter (Core.NonEmpty Core.Text)
+parametersFilter_values = Lens.lens (\ParametersFilter' {values} -> values) (\s@ParametersFilter' {} a -> s {values = a} :: ParametersFilter) Core.. Lens._Coerce
 
-instance Prelude.Hashable ParametersFilter
+instance Core.Hashable ParametersFilter
 
-instance Prelude.NFData ParametersFilter
+instance Core.NFData ParametersFilter
 
-instance Prelude.ToJSON ParametersFilter where
+instance Core.ToJSON ParametersFilter where
   toJSON ParametersFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values)
           ]
       )

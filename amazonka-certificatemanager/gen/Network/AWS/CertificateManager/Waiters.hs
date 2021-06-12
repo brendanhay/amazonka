@@ -18,62 +18,60 @@ module Network.AWS.CertificateManager.Waiters where
 import Network.AWS.CertificateManager.DescribeCertificate
 import Network.AWS.CertificateManager.Lens
 import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.CertificateManager.DescribeCertificate' every 60 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newCertificateValidated :: Waiter.Wait DescribeCertificate
+newCertificateValidated :: Core.Wait DescribeCertificate
 newCertificateValidated =
-  Waiter.Wait
-    { Waiter._waitName =
-        "CertificateValidated",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 60,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "CertificateValidated",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "SUCCESS"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeCertificateResponse_certificate
-                Prelude.. Lens._Just
-                Prelude.. Lens.folding
+                Core.. Lens._Just
+                Core.. Lens.folding
                   ( Lens.concatOf
                       ( certificateDetail_domainValidationOptions
-                          Prelude.. Lens._Just
-                          Prelude.. Lens.to Prelude.toList
+                          Core.. Lens._Just
+                          Core.. Lens.to Core.toList
                       )
                   )
-                Prelude.. domainValidation_validationStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. domainValidation_validationStatus
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "PENDING_VALIDATION"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
             ( describeCertificateResponse_certificate
-                Prelude.. Lens._Just
-                Prelude.. Lens.folding
+                Core.. Lens._Just
+                Core.. Lens.folding
                   ( Lens.concatOf
                       ( certificateDetail_domainValidationOptions
-                          Prelude.. Lens._Just
-                          Prelude.. Lens.to Prelude.toList
+                          Core.. Lens._Just
+                          Core.. Lens.to Core.toList
                       )
                   )
-                Prelude.. domainValidation_validationStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. domainValidation_validationStatus
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "FAILED"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeCertificateResponse_certificate
-                Prelude.. Lens._Just
-                Prelude.. certificateDetail_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. certificateDetail_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "ResourceNotFoundException"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
         ]
     }

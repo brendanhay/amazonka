@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,8 @@ module Network.AWS.StorageGateway.ListGateways
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -72,12 +70,12 @@ import Network.AWS.StorageGateway.Types
 data ListGateways = ListGateways'
   { -- | Specifies that the list of gateways returned be limited to the specified
     -- number of items.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | An opaque string that indicates the position at which to begin the
     -- returned list of gateways.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGateways' with all optional fields omitted.
@@ -96,97 +94,95 @@ newListGateways ::
   ListGateways
 newListGateways =
   ListGateways'
-    { limit = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { limit = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
-listGateways_limit :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Natural)
+listGateways_limit :: Lens.Lens' ListGateways (Core.Maybe Core.Natural)
 listGateways_limit = Lens.lens (\ListGateways' {limit} -> limit) (\s@ListGateways' {} a -> s {limit = a} :: ListGateways)
 
 -- | An opaque string that indicates the position at which to begin the
 -- returned list of gateways.
-listGateways_marker :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Text)
+listGateways_marker :: Lens.Lens' ListGateways (Core.Maybe Core.Text)
 listGateways_marker = Lens.lens (\ListGateways' {marker} -> marker) (\s@ListGateways' {} a -> s {marker = a} :: ListGateways)
 
-instance Pager.AWSPager ListGateways where
+instance Core.AWSPager ListGateways where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listGatewaysResponse_marker Prelude.. Lens._Just
+            Lens.^? listGatewaysResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listGatewaysResponse_gateways Prelude.. Lens._Just
+            Lens.^? listGatewaysResponse_gateways Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listGateways_marker
           Lens..~ rs
-          Lens.^? listGatewaysResponse_marker Prelude.. Lens._Just
+          Lens.^? listGatewaysResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListGateways where
-  type Rs ListGateways = ListGatewaysResponse
+instance Core.AWSRequest ListGateways where
+  type AWSResponse ListGateways = ListGatewaysResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListGatewaysResponse'
-            Prelude.<$> (x Prelude..?> "Gateways" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Gateways" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListGateways
+instance Core.Hashable ListGateways
 
-instance Prelude.NFData ListGateways
+instance Core.NFData ListGateways
 
-instance Prelude.ToHeaders ListGateways where
+instance Core.ToHeaders ListGateways where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.ListGateways" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.ListGateways" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListGateways where
+instance Core.ToJSON ListGateways where
   toJSON ListGateways' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Limit" Prelude..=) Prelude.<$> limit,
-            ("Marker" Prelude..=) Prelude.<$> marker
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker
           ]
       )
 
-instance Prelude.ToPath ListGateways where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListGateways where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListGateways where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListGateways where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
   { -- | An array of GatewayInfo objects.
-    gateways :: Prelude.Maybe [GatewayInfo],
+    gateways :: Core.Maybe [GatewayInfo],
     -- | Use the marker in your next request to fetch the next set of gateways in
     -- the list. If there are no more gateways to list, this field does not
     -- appear in the response.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGatewaysResponse' with all optional fields omitted.
@@ -205,27 +201,27 @@ data ListGatewaysResponse = ListGatewaysResponse'
 -- 'httpStatus', 'listGatewaysResponse_httpStatus' - The response's http status code.
 newListGatewaysResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListGatewaysResponse
 newListGatewaysResponse pHttpStatus_ =
   ListGatewaysResponse'
-    { gateways = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { gateways = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of GatewayInfo objects.
-listGatewaysResponse_gateways :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe [GatewayInfo])
-listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Prelude.. Lens.mapping Prelude._Coerce
+listGatewaysResponse_gateways :: Lens.Lens' ListGatewaysResponse (Core.Maybe [GatewayInfo])
+listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Use the marker in your next request to fetch the next set of gateways in
 -- the list. If there are no more gateways to list, this field does not
 -- appear in the response.
-listGatewaysResponse_marker :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe Prelude.Text)
+listGatewaysResponse_marker :: Lens.Lens' ListGatewaysResponse (Core.Maybe Core.Text)
 listGatewaysResponse_marker = Lens.lens (\ListGatewaysResponse' {marker} -> marker) (\s@ListGatewaysResponse' {} a -> s {marker = a} :: ListGatewaysResponse)
 
 -- | The response's http status code.
-listGatewaysResponse_httpStatus :: Lens.Lens' ListGatewaysResponse Prelude.Int
+listGatewaysResponse_httpStatus :: Lens.Lens' ListGatewaysResponse Core.Int
 listGatewaysResponse_httpStatus = Lens.lens (\ListGatewaysResponse' {httpStatus} -> httpStatus) (\s@ListGatewaysResponse' {} a -> s {httpStatus = a} :: ListGatewaysResponse)
 
-instance Prelude.NFData ListGatewaysResponse
+instance Core.NFData ListGatewaysResponse

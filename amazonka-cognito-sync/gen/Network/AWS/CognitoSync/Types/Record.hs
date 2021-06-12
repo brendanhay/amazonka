@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,27 +19,27 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoSync.Types.Record where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The basic data structure of a dataset.
 --
 -- /See:/ 'newRecord' smart constructor.
 data Record = Record'
   { -- | The last modified date of the client device.
-    deviceLastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    deviceLastModifiedDate :: Core.Maybe Core.POSIX,
     -- | The date on which the record was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedDate :: Core.Maybe Core.POSIX,
     -- | The key for the record.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The server sync count for this record.
-    syncCount :: Prelude.Maybe Prelude.Integer,
+    syncCount :: Core.Maybe Core.Integer,
     -- | The value for the record.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The user\/device that made the last change to this record.
-    lastModifiedBy :: Prelude.Maybe Prelude.Text
+    lastModifiedBy :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Record' with all optional fields omitted.
@@ -65,52 +64,52 @@ newRecord ::
   Record
 newRecord =
   Record'
-    { deviceLastModifiedDate = Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      key = Prelude.Nothing,
-      syncCount = Prelude.Nothing,
-      value = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing
+    { deviceLastModifiedDate = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      key = Core.Nothing,
+      syncCount = Core.Nothing,
+      value = Core.Nothing,
+      lastModifiedBy = Core.Nothing
     }
 
 -- | The last modified date of the client device.
-record_deviceLastModifiedDate :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
-record_deviceLastModifiedDate = Lens.lens (\Record' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@Record' {} a -> s {deviceLastModifiedDate = a} :: Record) Prelude.. Lens.mapping Prelude._Time
+record_deviceLastModifiedDate :: Lens.Lens' Record (Core.Maybe Core.UTCTime)
+record_deviceLastModifiedDate = Lens.lens (\Record' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@Record' {} a -> s {deviceLastModifiedDate = a} :: Record) Core.. Lens.mapping Core._Time
 
 -- | The date on which the record was last modified.
-record_lastModifiedDate :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
-record_lastModifiedDate = Lens.lens (\Record' {lastModifiedDate} -> lastModifiedDate) (\s@Record' {} a -> s {lastModifiedDate = a} :: Record) Prelude.. Lens.mapping Prelude._Time
+record_lastModifiedDate :: Lens.Lens' Record (Core.Maybe Core.UTCTime)
+record_lastModifiedDate = Lens.lens (\Record' {lastModifiedDate} -> lastModifiedDate) (\s@Record' {} a -> s {lastModifiedDate = a} :: Record) Core.. Lens.mapping Core._Time
 
 -- | The key for the record.
-record_key :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
+record_key :: Lens.Lens' Record (Core.Maybe Core.Text)
 record_key = Lens.lens (\Record' {key} -> key) (\s@Record' {} a -> s {key = a} :: Record)
 
 -- | The server sync count for this record.
-record_syncCount :: Lens.Lens' Record (Prelude.Maybe Prelude.Integer)
+record_syncCount :: Lens.Lens' Record (Core.Maybe Core.Integer)
 record_syncCount = Lens.lens (\Record' {syncCount} -> syncCount) (\s@Record' {} a -> s {syncCount = a} :: Record)
 
 -- | The value for the record.
-record_value :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
+record_value :: Lens.Lens' Record (Core.Maybe Core.Text)
 record_value = Lens.lens (\Record' {value} -> value) (\s@Record' {} a -> s {value = a} :: Record)
 
 -- | The user\/device that made the last change to this record.
-record_lastModifiedBy :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
+record_lastModifiedBy :: Lens.Lens' Record (Core.Maybe Core.Text)
 record_lastModifiedBy = Lens.lens (\Record' {lastModifiedBy} -> lastModifiedBy) (\s@Record' {} a -> s {lastModifiedBy = a} :: Record)
 
-instance Prelude.FromJSON Record where
+instance Core.FromJSON Record where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Record"
       ( \x ->
           Record'
-            Prelude.<$> (x Prelude..:? "DeviceLastModifiedDate")
-            Prelude.<*> (x Prelude..:? "LastModifiedDate")
-            Prelude.<*> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "SyncCount")
-            Prelude.<*> (x Prelude..:? "Value")
-            Prelude.<*> (x Prelude..:? "LastModifiedBy")
+            Core.<$> (x Core..:? "DeviceLastModifiedDate")
+            Core.<*> (x Core..:? "LastModifiedDate")
+            Core.<*> (x Core..:? "Key")
+            Core.<*> (x Core..:? "SyncCount")
+            Core.<*> (x Core..:? "Value")
+            Core.<*> (x Core..:? "LastModifiedBy")
       )
 
-instance Prelude.Hashable Record
+instance Core.Hashable Record
 
-instance Prelude.NFData Record
+instance Core.NFData Record

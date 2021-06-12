@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.OriginCustomHeader where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains @HeaderName@ and @HeaderValue@ elements, if
 -- any, for this distribution.
@@ -32,11 +31,11 @@ data OriginCustomHeader = OriginCustomHeader'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html Adding Custom Headers to Origin Requests>
     -- in the /Amazon CloudFront Developer Guide/.
-    headerName :: Prelude.Text,
+    headerName :: Core.Text,
     -- | The value for the header that you specified in the @HeaderName@ field.
-    headerValue :: Prelude.Text
+    headerValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OriginCustomHeader' with all optional fields omitted.
@@ -54,9 +53,9 @@ data OriginCustomHeader = OriginCustomHeader'
 -- 'headerValue', 'originCustomHeader_headerValue' - The value for the header that you specified in the @HeaderName@ field.
 newOriginCustomHeader ::
   -- | 'headerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'headerValue'
-  Prelude.Text ->
+  Core.Text ->
   OriginCustomHeader
 newOriginCustomHeader pHeaderName_ pHeaderValue_ =
   OriginCustomHeader'
@@ -68,26 +67,26 @@ newOriginCustomHeader pHeaderName_ pHeaderValue_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html Adding Custom Headers to Origin Requests>
 -- in the /Amazon CloudFront Developer Guide/.
-originCustomHeader_headerName :: Lens.Lens' OriginCustomHeader Prelude.Text
+originCustomHeader_headerName :: Lens.Lens' OriginCustomHeader Core.Text
 originCustomHeader_headerName = Lens.lens (\OriginCustomHeader' {headerName} -> headerName) (\s@OriginCustomHeader' {} a -> s {headerName = a} :: OriginCustomHeader)
 
 -- | The value for the header that you specified in the @HeaderName@ field.
-originCustomHeader_headerValue :: Lens.Lens' OriginCustomHeader Prelude.Text
+originCustomHeader_headerValue :: Lens.Lens' OriginCustomHeader Core.Text
 originCustomHeader_headerValue = Lens.lens (\OriginCustomHeader' {headerValue} -> headerValue) (\s@OriginCustomHeader' {} a -> s {headerValue = a} :: OriginCustomHeader)
 
-instance Prelude.FromXML OriginCustomHeader where
+instance Core.FromXML OriginCustomHeader where
   parseXML x =
     OriginCustomHeader'
-      Prelude.<$> (x Prelude..@ "HeaderName")
-      Prelude.<*> (x Prelude..@ "HeaderValue")
+      Core.<$> (x Core..@ "HeaderName")
+      Core.<*> (x Core..@ "HeaderValue")
 
-instance Prelude.Hashable OriginCustomHeader
+instance Core.Hashable OriginCustomHeader
 
-instance Prelude.NFData OriginCustomHeader
+instance Core.NFData OriginCustomHeader
 
-instance Prelude.ToXML OriginCustomHeader where
+instance Core.ToXML OriginCustomHeader where
   toXML OriginCustomHeader' {..} =
-    Prelude.mconcat
-      [ "HeaderName" Prelude.@= headerName,
-        "HeaderValue" Prelude.@= headerValue
+    Core.mconcat
+      [ "HeaderName" Core.@= headerName,
+        "HeaderValue" Core.@= headerValue
       ]

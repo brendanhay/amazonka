@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.APIGateway.Types.BasePathMapping where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the base path that callers of the API must provide as part of
 -- the URL after the domain name.
@@ -35,13 +34,13 @@ import qualified Network.AWS.Prelude as Prelude
 data BasePathMapping = BasePathMapping'
   { -- | The base path name that callers of the API must provide as part of the
     -- URL after the domain name.
-    basePath :: Prelude.Maybe Prelude.Text,
+    basePath :: Core.Maybe Core.Text,
     -- | The name of the associated stage.
-    stage :: Prelude.Maybe Prelude.Text,
+    stage :: Core.Maybe Core.Text,
     -- | The string identifier of the associated RestApi.
-    restApiId :: Prelude.Maybe Prelude.Text
+    restApiId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BasePathMapping' with all optional fields omitted.
@@ -61,35 +60,35 @@ newBasePathMapping ::
   BasePathMapping
 newBasePathMapping =
   BasePathMapping'
-    { basePath = Prelude.Nothing,
-      stage = Prelude.Nothing,
-      restApiId = Prelude.Nothing
+    { basePath = Core.Nothing,
+      stage = Core.Nothing,
+      restApiId = Core.Nothing
     }
 
 -- | The base path name that callers of the API must provide as part of the
 -- URL after the domain name.
-basePathMapping_basePath :: Lens.Lens' BasePathMapping (Prelude.Maybe Prelude.Text)
+basePathMapping_basePath :: Lens.Lens' BasePathMapping (Core.Maybe Core.Text)
 basePathMapping_basePath = Lens.lens (\BasePathMapping' {basePath} -> basePath) (\s@BasePathMapping' {} a -> s {basePath = a} :: BasePathMapping)
 
 -- | The name of the associated stage.
-basePathMapping_stage :: Lens.Lens' BasePathMapping (Prelude.Maybe Prelude.Text)
+basePathMapping_stage :: Lens.Lens' BasePathMapping (Core.Maybe Core.Text)
 basePathMapping_stage = Lens.lens (\BasePathMapping' {stage} -> stage) (\s@BasePathMapping' {} a -> s {stage = a} :: BasePathMapping)
 
 -- | The string identifier of the associated RestApi.
-basePathMapping_restApiId :: Lens.Lens' BasePathMapping (Prelude.Maybe Prelude.Text)
+basePathMapping_restApiId :: Lens.Lens' BasePathMapping (Core.Maybe Core.Text)
 basePathMapping_restApiId = Lens.lens (\BasePathMapping' {restApiId} -> restApiId) (\s@BasePathMapping' {} a -> s {restApiId = a} :: BasePathMapping)
 
-instance Prelude.FromJSON BasePathMapping where
+instance Core.FromJSON BasePathMapping where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BasePathMapping"
       ( \x ->
           BasePathMapping'
-            Prelude.<$> (x Prelude..:? "basePath")
-            Prelude.<*> (x Prelude..:? "stage")
-            Prelude.<*> (x Prelude..:? "restApiId")
+            Core.<$> (x Core..:? "basePath")
+            Core.<*> (x Core..:? "stage")
+            Core.<*> (x Core..:? "restApiId")
       )
 
-instance Prelude.Hashable BasePathMapping
+instance Core.Hashable BasePathMapping
 
-instance Prelude.NFData BasePathMapping
+instance Core.NFData BasePathMapping

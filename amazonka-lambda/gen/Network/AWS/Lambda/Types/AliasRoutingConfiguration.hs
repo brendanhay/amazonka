@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.AliasRoutingConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html traffic-shifting>
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAliasRoutingConfiguration' smart constructor.
 data AliasRoutingConfiguration = AliasRoutingConfiguration'
   { -- | The second version, and the percentage of traffic that\'s routed to it.
-    additionalVersionWeights :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double)
+    additionalVersionWeights :: Core.Maybe (Core.HashMap Core.Text Core.Double)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AliasRoutingConfiguration' with all optional fields omitted.
@@ -48,33 +47,33 @@ newAliasRoutingConfiguration ::
 newAliasRoutingConfiguration =
   AliasRoutingConfiguration'
     { additionalVersionWeights =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The second version, and the percentage of traffic that\'s routed to it.
-aliasRoutingConfiguration_additionalVersionWeights :: Lens.Lens' AliasRoutingConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
-aliasRoutingConfiguration_additionalVersionWeights = Lens.lens (\AliasRoutingConfiguration' {additionalVersionWeights} -> additionalVersionWeights) (\s@AliasRoutingConfiguration' {} a -> s {additionalVersionWeights = a} :: AliasRoutingConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+aliasRoutingConfiguration_additionalVersionWeights :: Lens.Lens' AliasRoutingConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Double))
+aliasRoutingConfiguration_additionalVersionWeights = Lens.lens (\AliasRoutingConfiguration' {additionalVersionWeights} -> additionalVersionWeights) (\s@AliasRoutingConfiguration' {} a -> s {additionalVersionWeights = a} :: AliasRoutingConfiguration) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AliasRoutingConfiguration where
+instance Core.FromJSON AliasRoutingConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AliasRoutingConfiguration"
       ( \x ->
           AliasRoutingConfiguration'
-            Prelude.<$> ( x Prelude..:? "AdditionalVersionWeights"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> ( x Core..:? "AdditionalVersionWeights"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable AliasRoutingConfiguration
+instance Core.Hashable AliasRoutingConfiguration
 
-instance Prelude.NFData AliasRoutingConfiguration
+instance Core.NFData AliasRoutingConfiguration
 
-instance Prelude.ToJSON AliasRoutingConfiguration where
+instance Core.ToJSON AliasRoutingConfiguration where
   toJSON AliasRoutingConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AdditionalVersionWeights" Prelude..=)
-              Prelude.<$> additionalVersionWeights
+    Core.object
+      ( Core.catMaybes
+          [ ("AdditionalVersionWeights" Core..=)
+              Core.<$> additionalVersionWeights
           ]
       )

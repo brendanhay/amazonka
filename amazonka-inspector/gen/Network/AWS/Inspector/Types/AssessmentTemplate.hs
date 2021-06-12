@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.AssessmentTemplate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.Attribute
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector assessment template. This
 -- data type is used as the response element in the
@@ -33,30 +32,30 @@ data AssessmentTemplate = AssessmentTemplate'
   { -- | The Amazon Resource Name (ARN) of the most recent assessment run
     -- associated with this assessment template. This value exists only when
     -- the value of assessmentRunCount is greaterpa than zero.
-    lastAssessmentRunArn :: Prelude.Maybe Prelude.Text,
+    lastAssessmentRunArn :: Core.Maybe Core.Text,
     -- | The ARN of the assessment template.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | The name of the assessment template.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The ARN of the assessment target that corresponds to this assessment
     -- template.
-    assessmentTargetArn :: Prelude.Text,
+    assessmentTargetArn :: Core.Text,
     -- | The duration in seconds specified for this assessment template. The
     -- default value is 3600 seconds (one hour). The maximum value is 86400
     -- seconds (one day).
-    durationInSeconds :: Prelude.Natural,
+    durationInSeconds :: Core.Natural,
     -- | The rules packages that are specified for this assessment template.
-    rulesPackageArns :: [Prelude.Text],
+    rulesPackageArns :: [Core.Text],
     -- | The user-defined attributes that are assigned to every generated finding
     -- from the assessment run that uses this assessment template.
     userAttributesForFindings :: [Attribute],
     -- | The number of existing assessment runs associated with this assessment
     -- template. This value can be zero or a positive integer.
-    assessmentRunCount :: Prelude.Int,
+    assessmentRunCount :: Core.Int,
     -- | The time at which the assessment template is created.
-    createdAt :: Prelude.POSIX
+    createdAt :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssessmentTemplate' with all optional fields omitted.
@@ -92,17 +91,17 @@ data AssessmentTemplate = AssessmentTemplate'
 -- 'createdAt', 'assessmentTemplate_createdAt' - The time at which the assessment template is created.
 newAssessmentTemplate ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'assessmentTargetArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'durationInSeconds'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'assessmentRunCount'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'createdAt'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   AssessmentTemplate
 newAssessmentTemplate
   pArn_
@@ -113,81 +112,79 @@ newAssessmentTemplate
   pCreatedAt_ =
     AssessmentTemplate'
       { lastAssessmentRunArn =
-          Prelude.Nothing,
+          Core.Nothing,
         arn = pArn_,
         name = pName_,
         assessmentTargetArn = pAssessmentTargetArn_,
         durationInSeconds = pDurationInSeconds_,
-        rulesPackageArns = Prelude.mempty,
-        userAttributesForFindings = Prelude.mempty,
+        rulesPackageArns = Core.mempty,
+        userAttributesForFindings = Core.mempty,
         assessmentRunCount = pAssessmentRunCount_,
-        createdAt = Prelude._Time Lens.# pCreatedAt_
+        createdAt = Core._Time Lens.# pCreatedAt_
       }
 
 -- | The Amazon Resource Name (ARN) of the most recent assessment run
 -- associated with this assessment template. This value exists only when
 -- the value of assessmentRunCount is greaterpa than zero.
-assessmentTemplate_lastAssessmentRunArn :: Lens.Lens' AssessmentTemplate (Prelude.Maybe Prelude.Text)
+assessmentTemplate_lastAssessmentRunArn :: Lens.Lens' AssessmentTemplate (Core.Maybe Core.Text)
 assessmentTemplate_lastAssessmentRunArn = Lens.lens (\AssessmentTemplate' {lastAssessmentRunArn} -> lastAssessmentRunArn) (\s@AssessmentTemplate' {} a -> s {lastAssessmentRunArn = a} :: AssessmentTemplate)
 
 -- | The ARN of the assessment template.
-assessmentTemplate_arn :: Lens.Lens' AssessmentTemplate Prelude.Text
+assessmentTemplate_arn :: Lens.Lens' AssessmentTemplate Core.Text
 assessmentTemplate_arn = Lens.lens (\AssessmentTemplate' {arn} -> arn) (\s@AssessmentTemplate' {} a -> s {arn = a} :: AssessmentTemplate)
 
 -- | The name of the assessment template.
-assessmentTemplate_name :: Lens.Lens' AssessmentTemplate Prelude.Text
+assessmentTemplate_name :: Lens.Lens' AssessmentTemplate Core.Text
 assessmentTemplate_name = Lens.lens (\AssessmentTemplate' {name} -> name) (\s@AssessmentTemplate' {} a -> s {name = a} :: AssessmentTemplate)
 
 -- | The ARN of the assessment target that corresponds to this assessment
 -- template.
-assessmentTemplate_assessmentTargetArn :: Lens.Lens' AssessmentTemplate Prelude.Text
+assessmentTemplate_assessmentTargetArn :: Lens.Lens' AssessmentTemplate Core.Text
 assessmentTemplate_assessmentTargetArn = Lens.lens (\AssessmentTemplate' {assessmentTargetArn} -> assessmentTargetArn) (\s@AssessmentTemplate' {} a -> s {assessmentTargetArn = a} :: AssessmentTemplate)
 
 -- | The duration in seconds specified for this assessment template. The
 -- default value is 3600 seconds (one hour). The maximum value is 86400
 -- seconds (one day).
-assessmentTemplate_durationInSeconds :: Lens.Lens' AssessmentTemplate Prelude.Natural
+assessmentTemplate_durationInSeconds :: Lens.Lens' AssessmentTemplate Core.Natural
 assessmentTemplate_durationInSeconds = Lens.lens (\AssessmentTemplate' {durationInSeconds} -> durationInSeconds) (\s@AssessmentTemplate' {} a -> s {durationInSeconds = a} :: AssessmentTemplate)
 
 -- | The rules packages that are specified for this assessment template.
-assessmentTemplate_rulesPackageArns :: Lens.Lens' AssessmentTemplate [Prelude.Text]
-assessmentTemplate_rulesPackageArns = Lens.lens (\AssessmentTemplate' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentTemplate' {} a -> s {rulesPackageArns = a} :: AssessmentTemplate) Prelude.. Prelude._Coerce
+assessmentTemplate_rulesPackageArns :: Lens.Lens' AssessmentTemplate [Core.Text]
+assessmentTemplate_rulesPackageArns = Lens.lens (\AssessmentTemplate' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentTemplate' {} a -> s {rulesPackageArns = a} :: AssessmentTemplate) Core.. Lens._Coerce
 
 -- | The user-defined attributes that are assigned to every generated finding
 -- from the assessment run that uses this assessment template.
 assessmentTemplate_userAttributesForFindings :: Lens.Lens' AssessmentTemplate [Attribute]
-assessmentTemplate_userAttributesForFindings = Lens.lens (\AssessmentTemplate' {userAttributesForFindings} -> userAttributesForFindings) (\s@AssessmentTemplate' {} a -> s {userAttributesForFindings = a} :: AssessmentTemplate) Prelude.. Prelude._Coerce
+assessmentTemplate_userAttributesForFindings = Lens.lens (\AssessmentTemplate' {userAttributesForFindings} -> userAttributesForFindings) (\s@AssessmentTemplate' {} a -> s {userAttributesForFindings = a} :: AssessmentTemplate) Core.. Lens._Coerce
 
 -- | The number of existing assessment runs associated with this assessment
 -- template. This value can be zero or a positive integer.
-assessmentTemplate_assessmentRunCount :: Lens.Lens' AssessmentTemplate Prelude.Int
+assessmentTemplate_assessmentRunCount :: Lens.Lens' AssessmentTemplate Core.Int
 assessmentTemplate_assessmentRunCount = Lens.lens (\AssessmentTemplate' {assessmentRunCount} -> assessmentRunCount) (\s@AssessmentTemplate' {} a -> s {assessmentRunCount = a} :: AssessmentTemplate)
 
 -- | The time at which the assessment template is created.
-assessmentTemplate_createdAt :: Lens.Lens' AssessmentTemplate Prelude.UTCTime
-assessmentTemplate_createdAt = Lens.lens (\AssessmentTemplate' {createdAt} -> createdAt) (\s@AssessmentTemplate' {} a -> s {createdAt = a} :: AssessmentTemplate) Prelude.. Prelude._Time
+assessmentTemplate_createdAt :: Lens.Lens' AssessmentTemplate Core.UTCTime
+assessmentTemplate_createdAt = Lens.lens (\AssessmentTemplate' {createdAt} -> createdAt) (\s@AssessmentTemplate' {} a -> s {createdAt = a} :: AssessmentTemplate) Core.. Core._Time
 
-instance Prelude.FromJSON AssessmentTemplate where
+instance Core.FromJSON AssessmentTemplate where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AssessmentTemplate"
       ( \x ->
           AssessmentTemplate'
-            Prelude.<$> (x Prelude..:? "lastAssessmentRunArn")
-            Prelude.<*> (x Prelude..: "arn")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "assessmentTargetArn")
-            Prelude.<*> (x Prelude..: "durationInSeconds")
-            Prelude.<*> ( x Prelude..:? "rulesPackageArns"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "userAttributesForFindings"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "assessmentRunCount")
-            Prelude.<*> (x Prelude..: "createdAt")
+            Core.<$> (x Core..:? "lastAssessmentRunArn")
+            Core.<*> (x Core..: "arn")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "assessmentTargetArn")
+            Core.<*> (x Core..: "durationInSeconds")
+            Core.<*> (x Core..:? "rulesPackageArns" Core..!= Core.mempty)
+            Core.<*> ( x Core..:? "userAttributesForFindings"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..: "assessmentRunCount")
+            Core.<*> (x Core..: "createdAt")
       )
 
-instance Prelude.Hashable AssessmentTemplate
+instance Core.Hashable AssessmentTemplate
 
-instance Prelude.NFData AssessmentTemplate
+instance Core.NFData AssessmentTemplate

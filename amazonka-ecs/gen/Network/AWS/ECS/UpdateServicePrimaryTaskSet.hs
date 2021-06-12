@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.ECS.UpdateServicePrimaryTaskSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +56,15 @@ import qualified Network.AWS.Response as Response
 data UpdateServicePrimaryTaskSet = UpdateServicePrimaryTaskSet'
   { -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the service that the task set exists in.
-    cluster :: Prelude.Text,
+    cluster :: Core.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the service that
     -- the task set exists in.
-    service :: Prelude.Text,
+    service :: Core.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the task set to set
     -- as the primary task set in the deployment.
-    primaryTaskSet :: Prelude.Text
+    primaryTaskSet :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServicePrimaryTaskSet' with all optional fields omitted.
@@ -85,11 +84,11 @@ data UpdateServicePrimaryTaskSet = UpdateServicePrimaryTaskSet'
 -- as the primary task set in the deployment.
 newUpdateServicePrimaryTaskSet ::
   -- | 'cluster'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'service'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'primaryTaskSet'
-  Prelude.Text ->
+  Core.Text ->
   UpdateServicePrimaryTaskSet
 newUpdateServicePrimaryTaskSet
   pCluster_
@@ -103,81 +102,72 @@ newUpdateServicePrimaryTaskSet
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service that the task set exists in.
-updateServicePrimaryTaskSet_cluster :: Lens.Lens' UpdateServicePrimaryTaskSet Prelude.Text
+updateServicePrimaryTaskSet_cluster :: Lens.Lens' UpdateServicePrimaryTaskSet Core.Text
 updateServicePrimaryTaskSet_cluster = Lens.lens (\UpdateServicePrimaryTaskSet' {cluster} -> cluster) (\s@UpdateServicePrimaryTaskSet' {} a -> s {cluster = a} :: UpdateServicePrimaryTaskSet)
 
 -- | The short name or full Amazon Resource Name (ARN) of the service that
 -- the task set exists in.
-updateServicePrimaryTaskSet_service :: Lens.Lens' UpdateServicePrimaryTaskSet Prelude.Text
+updateServicePrimaryTaskSet_service :: Lens.Lens' UpdateServicePrimaryTaskSet Core.Text
 updateServicePrimaryTaskSet_service = Lens.lens (\UpdateServicePrimaryTaskSet' {service} -> service) (\s@UpdateServicePrimaryTaskSet' {} a -> s {service = a} :: UpdateServicePrimaryTaskSet)
 
 -- | The short name or full Amazon Resource Name (ARN) of the task set to set
 -- as the primary task set in the deployment.
-updateServicePrimaryTaskSet_primaryTaskSet :: Lens.Lens' UpdateServicePrimaryTaskSet Prelude.Text
+updateServicePrimaryTaskSet_primaryTaskSet :: Lens.Lens' UpdateServicePrimaryTaskSet Core.Text
 updateServicePrimaryTaskSet_primaryTaskSet = Lens.lens (\UpdateServicePrimaryTaskSet' {primaryTaskSet} -> primaryTaskSet) (\s@UpdateServicePrimaryTaskSet' {} a -> s {primaryTaskSet = a} :: UpdateServicePrimaryTaskSet)
 
-instance
-  Prelude.AWSRequest
-    UpdateServicePrimaryTaskSet
-  where
+instance Core.AWSRequest UpdateServicePrimaryTaskSet where
   type
-    Rs UpdateServicePrimaryTaskSet =
+    AWSResponse UpdateServicePrimaryTaskSet =
       UpdateServicePrimaryTaskSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateServicePrimaryTaskSetResponse'
-            Prelude.<$> (x Prelude..?> "taskSet")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "taskSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateServicePrimaryTaskSet
+instance Core.Hashable UpdateServicePrimaryTaskSet
 
-instance Prelude.NFData UpdateServicePrimaryTaskSet
+instance Core.NFData UpdateServicePrimaryTaskSet
 
-instance
-  Prelude.ToHeaders
-    UpdateServicePrimaryTaskSet
-  where
+instance Core.ToHeaders UpdateServicePrimaryTaskSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateServicePrimaryTaskSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateServicePrimaryTaskSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateServicePrimaryTaskSet where
+instance Core.ToJSON UpdateServicePrimaryTaskSet where
   toJSON UpdateServicePrimaryTaskSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("cluster" Prelude..= cluster),
-            Prelude.Just ("service" Prelude..= service),
-            Prelude.Just
-              ("primaryTaskSet" Prelude..= primaryTaskSet)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("cluster" Core..= cluster),
+            Core.Just ("service" Core..= service),
+            Core.Just ("primaryTaskSet" Core..= primaryTaskSet)
           ]
       )
 
-instance Prelude.ToPath UpdateServicePrimaryTaskSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateServicePrimaryTaskSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateServicePrimaryTaskSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateServicePrimaryTaskSet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateServicePrimaryTaskSetResponse' smart constructor.
 data UpdateServicePrimaryTaskSetResponse = UpdateServicePrimaryTaskSetResponse'
-  { taskSet :: Prelude.Maybe TaskSet,
+  { taskSet :: Core.Maybe TaskSet,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServicePrimaryTaskSetResponse' with all optional fields omitted.
@@ -192,23 +182,23 @@ data UpdateServicePrimaryTaskSetResponse = UpdateServicePrimaryTaskSetResponse'
 -- 'httpStatus', 'updateServicePrimaryTaskSetResponse_httpStatus' - The response's http status code.
 newUpdateServicePrimaryTaskSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateServicePrimaryTaskSetResponse
 newUpdateServicePrimaryTaskSetResponse pHttpStatus_ =
   UpdateServicePrimaryTaskSetResponse'
     { taskSet =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateServicePrimaryTaskSetResponse_taskSet :: Lens.Lens' UpdateServicePrimaryTaskSetResponse (Prelude.Maybe TaskSet)
+updateServicePrimaryTaskSetResponse_taskSet :: Lens.Lens' UpdateServicePrimaryTaskSetResponse (Core.Maybe TaskSet)
 updateServicePrimaryTaskSetResponse_taskSet = Lens.lens (\UpdateServicePrimaryTaskSetResponse' {taskSet} -> taskSet) (\s@UpdateServicePrimaryTaskSetResponse' {} a -> s {taskSet = a} :: UpdateServicePrimaryTaskSetResponse)
 
 -- | The response's http status code.
-updateServicePrimaryTaskSetResponse_httpStatus :: Lens.Lens' UpdateServicePrimaryTaskSetResponse Prelude.Int
+updateServicePrimaryTaskSetResponse_httpStatus :: Lens.Lens' UpdateServicePrimaryTaskSetResponse Core.Int
 updateServicePrimaryTaskSetResponse_httpStatus = Lens.lens (\UpdateServicePrimaryTaskSetResponse' {httpStatus} -> httpStatus) (\s@UpdateServicePrimaryTaskSetResponse' {} a -> s {httpStatus = a} :: UpdateServicePrimaryTaskSetResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateServicePrimaryTaskSetResponse

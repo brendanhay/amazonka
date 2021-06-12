@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Support.Types.TrustedAdvisorResourceDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a resource identified by a Trusted Advisor
 -- check.
@@ -30,23 +29,23 @@ import qualified Network.AWS.Prelude as Prelude
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
   { -- | Specifies whether the AWS resource was ignored by Trusted Advisor
     -- because it was marked as suppressed by the user.
-    isSuppressed :: Prelude.Maybe Prelude.Bool,
+    isSuppressed :: Core.Maybe Core.Bool,
     -- | The AWS region in which the identified resource is located.
-    region :: Prelude.Maybe Prelude.Text,
+    region :: Core.Maybe Core.Text,
     -- | The status code for the resource identified in the Trusted Advisor
     -- check.
-    status :: Prelude.Text,
+    status :: Core.Text,
     -- | The unique identifier for the identified resource.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | Additional information about the identified resource. The exact metadata
     -- and its order can be obtained by inspecting the
     -- TrustedAdvisorCheckDescription object returned by the call to
     -- DescribeTrustedAdvisorChecks. __Metadata__ contains all the data that is
     -- shown in the Excel download, even in those cases where the UI shows just
     -- summary data.
-    metadata :: [Prelude.Text]
+    metadata :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrustedAdvisorResourceDetail' with all optional fields omitted.
@@ -74,36 +73,36 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
 -- summary data.
 newTrustedAdvisorResourceDetail ::
   -- | 'status'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   TrustedAdvisorResourceDetail
 newTrustedAdvisorResourceDetail pStatus_ pResourceId_ =
   TrustedAdvisorResourceDetail'
     { isSuppressed =
-        Prelude.Nothing,
-      region = Prelude.Nothing,
+        Core.Nothing,
+      region = Core.Nothing,
       status = pStatus_,
       resourceId = pResourceId_,
-      metadata = Prelude.mempty
+      metadata = Core.mempty
     }
 
 -- | Specifies whether the AWS resource was ignored by Trusted Advisor
 -- because it was marked as suppressed by the user.
-trustedAdvisorResourceDetail_isSuppressed :: Lens.Lens' TrustedAdvisorResourceDetail (Prelude.Maybe Prelude.Bool)
+trustedAdvisorResourceDetail_isSuppressed :: Lens.Lens' TrustedAdvisorResourceDetail (Core.Maybe Core.Bool)
 trustedAdvisorResourceDetail_isSuppressed = Lens.lens (\TrustedAdvisorResourceDetail' {isSuppressed} -> isSuppressed) (\s@TrustedAdvisorResourceDetail' {} a -> s {isSuppressed = a} :: TrustedAdvisorResourceDetail)
 
 -- | The AWS region in which the identified resource is located.
-trustedAdvisorResourceDetail_region :: Lens.Lens' TrustedAdvisorResourceDetail (Prelude.Maybe Prelude.Text)
+trustedAdvisorResourceDetail_region :: Lens.Lens' TrustedAdvisorResourceDetail (Core.Maybe Core.Text)
 trustedAdvisorResourceDetail_region = Lens.lens (\TrustedAdvisorResourceDetail' {region} -> region) (\s@TrustedAdvisorResourceDetail' {} a -> s {region = a} :: TrustedAdvisorResourceDetail)
 
 -- | The status code for the resource identified in the Trusted Advisor
 -- check.
-trustedAdvisorResourceDetail_status :: Lens.Lens' TrustedAdvisorResourceDetail Prelude.Text
+trustedAdvisorResourceDetail_status :: Lens.Lens' TrustedAdvisorResourceDetail Core.Text
 trustedAdvisorResourceDetail_status = Lens.lens (\TrustedAdvisorResourceDetail' {status} -> status) (\s@TrustedAdvisorResourceDetail' {} a -> s {status = a} :: TrustedAdvisorResourceDetail)
 
 -- | The unique identifier for the identified resource.
-trustedAdvisorResourceDetail_resourceId :: Lens.Lens' TrustedAdvisorResourceDetail Prelude.Text
+trustedAdvisorResourceDetail_resourceId :: Lens.Lens' TrustedAdvisorResourceDetail Core.Text
 trustedAdvisorResourceDetail_resourceId = Lens.lens (\TrustedAdvisorResourceDetail' {resourceId} -> resourceId) (\s@TrustedAdvisorResourceDetail' {} a -> s {resourceId = a} :: TrustedAdvisorResourceDetail)
 
 -- | Additional information about the identified resource. The exact metadata
@@ -112,29 +111,22 @@ trustedAdvisorResourceDetail_resourceId = Lens.lens (\TrustedAdvisorResourceDeta
 -- DescribeTrustedAdvisorChecks. __Metadata__ contains all the data that is
 -- shown in the Excel download, even in those cases where the UI shows just
 -- summary data.
-trustedAdvisorResourceDetail_metadata :: Lens.Lens' TrustedAdvisorResourceDetail [Prelude.Text]
-trustedAdvisorResourceDetail_metadata = Lens.lens (\TrustedAdvisorResourceDetail' {metadata} -> metadata) (\s@TrustedAdvisorResourceDetail' {} a -> s {metadata = a} :: TrustedAdvisorResourceDetail) Prelude.. Prelude._Coerce
+trustedAdvisorResourceDetail_metadata :: Lens.Lens' TrustedAdvisorResourceDetail [Core.Text]
+trustedAdvisorResourceDetail_metadata = Lens.lens (\TrustedAdvisorResourceDetail' {metadata} -> metadata) (\s@TrustedAdvisorResourceDetail' {} a -> s {metadata = a} :: TrustedAdvisorResourceDetail) Core.. Lens._Coerce
 
-instance
-  Prelude.FromJSON
-    TrustedAdvisorResourceDetail
-  where
+instance Core.FromJSON TrustedAdvisorResourceDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrustedAdvisorResourceDetail"
       ( \x ->
           TrustedAdvisorResourceDetail'
-            Prelude.<$> (x Prelude..:? "isSuppressed")
-            Prelude.<*> (x Prelude..:? "region")
-            Prelude.<*> (x Prelude..: "status")
-            Prelude.<*> (x Prelude..: "resourceId")
-            Prelude.<*> ( x Prelude..:? "metadata"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "isSuppressed")
+            Core.<*> (x Core..:? "region")
+            Core.<*> (x Core..: "status")
+            Core.<*> (x Core..: "resourceId")
+            Core.<*> (x Core..:? "metadata" Core..!= Core.mempty)
       )
 
-instance
-  Prelude.Hashable
-    TrustedAdvisorResourceDetail
+instance Core.Hashable TrustedAdvisorResourceDetail
 
-instance Prelude.NFData TrustedAdvisorResourceDetail
+instance Core.NFData TrustedAdvisorResourceDetail

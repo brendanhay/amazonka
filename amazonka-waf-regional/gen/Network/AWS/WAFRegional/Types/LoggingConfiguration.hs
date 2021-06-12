@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.LoggingConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.FieldToMatch
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -41,14 +40,14 @@ data LoggingConfiguration = LoggingConfiguration'
   { -- | The parts of the request that you want redacted from the logs. For
     -- example, if you redact the cookie field, the cookie field in the
     -- firehose will be @xxx@.
-    redactedFields :: Prelude.Maybe [FieldToMatch],
+    redactedFields :: Core.Maybe [FieldToMatch],
     -- | The Amazon Resource Name (ARN) of the web ACL that you want to associate
     -- with @LogDestinationConfigs@.
-    resourceArn :: Prelude.Text,
+    resourceArn :: Core.Text,
     -- | An array of Amazon Kinesis Data Firehose ARNs.
-    logDestinationConfigs :: Prelude.NonEmpty Prelude.Text
+    logDestinationConfigs :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoggingConfiguration' with all optional fields omitted.
@@ -68,63 +67,60 @@ data LoggingConfiguration = LoggingConfiguration'
 -- 'logDestinationConfigs', 'loggingConfiguration_logDestinationConfigs' - An array of Amazon Kinesis Data Firehose ARNs.
 newLoggingConfiguration ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'logDestinationConfigs'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   LoggingConfiguration
 newLoggingConfiguration
   pResourceArn_
   pLogDestinationConfigs_ =
     LoggingConfiguration'
       { redactedFields =
-          Prelude.Nothing,
+          Core.Nothing,
         resourceArn = pResourceArn_,
         logDestinationConfigs =
-          Prelude._Coerce Lens.# pLogDestinationConfigs_
+          Lens._Coerce Lens.# pLogDestinationConfigs_
       }
 
 -- | The parts of the request that you want redacted from the logs. For
 -- example, if you redact the cookie field, the cookie field in the
 -- firehose will be @xxx@.
-loggingConfiguration_redactedFields :: Lens.Lens' LoggingConfiguration (Prelude.Maybe [FieldToMatch])
-loggingConfiguration_redactedFields = Lens.lens (\LoggingConfiguration' {redactedFields} -> redactedFields) (\s@LoggingConfiguration' {} a -> s {redactedFields = a} :: LoggingConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+loggingConfiguration_redactedFields :: Lens.Lens' LoggingConfiguration (Core.Maybe [FieldToMatch])
+loggingConfiguration_redactedFields = Lens.lens (\LoggingConfiguration' {redactedFields} -> redactedFields) (\s@LoggingConfiguration' {} a -> s {redactedFields = a} :: LoggingConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the web ACL that you want to associate
 -- with @LogDestinationConfigs@.
-loggingConfiguration_resourceArn :: Lens.Lens' LoggingConfiguration Prelude.Text
+loggingConfiguration_resourceArn :: Lens.Lens' LoggingConfiguration Core.Text
 loggingConfiguration_resourceArn = Lens.lens (\LoggingConfiguration' {resourceArn} -> resourceArn) (\s@LoggingConfiguration' {} a -> s {resourceArn = a} :: LoggingConfiguration)
 
 -- | An array of Amazon Kinesis Data Firehose ARNs.
-loggingConfiguration_logDestinationConfigs :: Lens.Lens' LoggingConfiguration (Prelude.NonEmpty Prelude.Text)
-loggingConfiguration_logDestinationConfigs = Lens.lens (\LoggingConfiguration' {logDestinationConfigs} -> logDestinationConfigs) (\s@LoggingConfiguration' {} a -> s {logDestinationConfigs = a} :: LoggingConfiguration) Prelude.. Prelude._Coerce
+loggingConfiguration_logDestinationConfigs :: Lens.Lens' LoggingConfiguration (Core.NonEmpty Core.Text)
+loggingConfiguration_logDestinationConfigs = Lens.lens (\LoggingConfiguration' {logDestinationConfigs} -> logDestinationConfigs) (\s@LoggingConfiguration' {} a -> s {logDestinationConfigs = a} :: LoggingConfiguration) Core.. Lens._Coerce
 
-instance Prelude.FromJSON LoggingConfiguration where
+instance Core.FromJSON LoggingConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> ( x Prelude..:? "RedactedFields"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "ResourceArn")
-            Prelude.<*> (x Prelude..: "LogDestinationConfigs")
+            Core.<$> (x Core..:? "RedactedFields" Core..!= Core.mempty)
+            Core.<*> (x Core..: "ResourceArn")
+            Core.<*> (x Core..: "LogDestinationConfigs")
       )
 
-instance Prelude.Hashable LoggingConfiguration
+instance Core.Hashable LoggingConfiguration
 
-instance Prelude.NFData LoggingConfiguration
+instance Core.NFData LoggingConfiguration
 
-instance Prelude.ToJSON LoggingConfiguration where
+instance Core.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RedactedFields" Prelude..=)
-              Prelude.<$> redactedFields,
-            Prelude.Just ("ResourceArn" Prelude..= resourceArn),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("RedactedFields" Core..=) Core.<$> redactedFields,
+            Core.Just ("ResourceArn" Core..= resourceArn),
+            Core.Just
               ( "LogDestinationConfigs"
-                  Prelude..= logDestinationConfigs
+                  Core..= logDestinationConfigs
               )
           ]
       )

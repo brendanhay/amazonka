@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Cloud9.Types.EnvironmentLifecycle where
 
 import Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the current creation or deletion lifecycle state of an
 -- AWS Cloud9 development environment.
@@ -40,14 +39,14 @@ data EnvironmentLifecycle = EnvironmentLifecycle'
     -- -   @DELETING@: The environment is in the process of being deleted.
     --
     -- -   @DELETE_FAILED@: The environment failed to delete.
-    status :: Prelude.Maybe EnvironmentLifecycleStatus,
+    status :: Core.Maybe EnvironmentLifecycleStatus,
     -- | Any informational message about the lifecycle state of the environment.
-    reason :: Prelude.Maybe Prelude.Text,
+    reason :: Core.Maybe Core.Text,
     -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
     -- the related AWS resource.
-    failureResource :: Prelude.Maybe Prelude.Text
+    failureResource :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnvironmentLifecycle' with all optional fields omitted.
@@ -77,9 +76,9 @@ newEnvironmentLifecycle ::
   EnvironmentLifecycle
 newEnvironmentLifecycle =
   EnvironmentLifecycle'
-    { status = Prelude.Nothing,
-      reason = Prelude.Nothing,
-      failureResource = Prelude.Nothing
+    { status = Core.Nothing,
+      reason = Core.Nothing,
+      failureResource = Core.Nothing
     }
 
 -- | The current creation or deletion lifecycle state of the environment.
@@ -93,29 +92,29 @@ newEnvironmentLifecycle =
 -- -   @DELETING@: The environment is in the process of being deleted.
 --
 -- -   @DELETE_FAILED@: The environment failed to delete.
-environmentLifecycle_status :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe EnvironmentLifecycleStatus)
+environmentLifecycle_status :: Lens.Lens' EnvironmentLifecycle (Core.Maybe EnvironmentLifecycleStatus)
 environmentLifecycle_status = Lens.lens (\EnvironmentLifecycle' {status} -> status) (\s@EnvironmentLifecycle' {} a -> s {status = a} :: EnvironmentLifecycle)
 
 -- | Any informational message about the lifecycle state of the environment.
-environmentLifecycle_reason :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe Prelude.Text)
+environmentLifecycle_reason :: Lens.Lens' EnvironmentLifecycle (Core.Maybe Core.Text)
 environmentLifecycle_reason = Lens.lens (\EnvironmentLifecycle' {reason} -> reason) (\s@EnvironmentLifecycle' {} a -> s {reason = a} :: EnvironmentLifecycle)
 
 -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
 -- the related AWS resource.
-environmentLifecycle_failureResource :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe Prelude.Text)
+environmentLifecycle_failureResource :: Lens.Lens' EnvironmentLifecycle (Core.Maybe Core.Text)
 environmentLifecycle_failureResource = Lens.lens (\EnvironmentLifecycle' {failureResource} -> failureResource) (\s@EnvironmentLifecycle' {} a -> s {failureResource = a} :: EnvironmentLifecycle)
 
-instance Prelude.FromJSON EnvironmentLifecycle where
+instance Core.FromJSON EnvironmentLifecycle where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EnvironmentLifecycle"
       ( \x ->
           EnvironmentLifecycle'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "reason")
-            Prelude.<*> (x Prelude..:? "failureResource")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "reason")
+            Core.<*> (x Core..:? "failureResource")
       )
 
-instance Prelude.Hashable EnvironmentLifecycle
+instance Core.Hashable EnvironmentLifecycle
 
-instance Prelude.NFData EnvironmentLifecycle
+instance Core.NFData EnvironmentLifecycle

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.Lightsail.CreateRelationalDatabaseSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ data CreateRelationalDatabaseSnapshot = CreateRelationalDatabaseSnapshot'
   { -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The name of the database on which to base your new snapshot.
-    relationalDatabaseName :: Prelude.Text,
+    relationalDatabaseName :: Core.Text,
     -- | The name for your new database snapshot.
     --
     -- Constraints:
@@ -69,9 +68,9 @@ data CreateRelationalDatabaseSnapshot = CreateRelationalDatabaseSnapshot'
     -- -   Must contain from 2 to 255 alphanumeric characters, or hyphens.
     --
     -- -   The first and last character must be a letter or number.
-    relationalDatabaseSnapshotName :: Prelude.Text
+    relationalDatabaseSnapshotName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRelationalDatabaseSnapshot' with all optional fields omitted.
@@ -96,16 +95,16 @@ data CreateRelationalDatabaseSnapshot = CreateRelationalDatabaseSnapshot'
 -- -   The first and last character must be a letter or number.
 newCreateRelationalDatabaseSnapshot ::
   -- | 'relationalDatabaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'relationalDatabaseSnapshotName'
-  Prelude.Text ->
+  Core.Text ->
   CreateRelationalDatabaseSnapshot
 newCreateRelationalDatabaseSnapshot
   pRelationalDatabaseName_
   pRelationalDatabaseSnapshotName_ =
     CreateRelationalDatabaseSnapshot'
       { tags =
-          Prelude.Nothing,
+          Core.Nothing,
         relationalDatabaseName =
           pRelationalDatabaseName_,
         relationalDatabaseSnapshotName =
@@ -115,11 +114,11 @@ newCreateRelationalDatabaseSnapshot
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createRelationalDatabaseSnapshot_tags :: Lens.Lens' CreateRelationalDatabaseSnapshot (Prelude.Maybe [Tag])
-createRelationalDatabaseSnapshot_tags = Lens.lens (\CreateRelationalDatabaseSnapshot' {tags} -> tags) (\s@CreateRelationalDatabaseSnapshot' {} a -> s {tags = a} :: CreateRelationalDatabaseSnapshot) Prelude.. Lens.mapping Prelude._Coerce
+createRelationalDatabaseSnapshot_tags :: Lens.Lens' CreateRelationalDatabaseSnapshot (Core.Maybe [Tag])
+createRelationalDatabaseSnapshot_tags = Lens.lens (\CreateRelationalDatabaseSnapshot' {tags} -> tags) (\s@CreateRelationalDatabaseSnapshot' {} a -> s {tags = a} :: CreateRelationalDatabaseSnapshot) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the database on which to base your new snapshot.
-createRelationalDatabaseSnapshot_relationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseSnapshot Prelude.Text
+createRelationalDatabaseSnapshot_relationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseSnapshot Core.Text
 createRelationalDatabaseSnapshot_relationalDatabaseName = Lens.lens (\CreateRelationalDatabaseSnapshot' {relationalDatabaseName} -> relationalDatabaseName) (\s@CreateRelationalDatabaseSnapshot' {} a -> s {relationalDatabaseName = a} :: CreateRelationalDatabaseSnapshot)
 
 -- | The name for your new database snapshot.
@@ -129,94 +128,82 @@ createRelationalDatabaseSnapshot_relationalDatabaseName = Lens.lens (\CreateRela
 -- -   Must contain from 2 to 255 alphanumeric characters, or hyphens.
 --
 -- -   The first and last character must be a letter or number.
-createRelationalDatabaseSnapshot_relationalDatabaseSnapshotName :: Lens.Lens' CreateRelationalDatabaseSnapshot Prelude.Text
+createRelationalDatabaseSnapshot_relationalDatabaseSnapshotName :: Lens.Lens' CreateRelationalDatabaseSnapshot Core.Text
 createRelationalDatabaseSnapshot_relationalDatabaseSnapshotName = Lens.lens (\CreateRelationalDatabaseSnapshot' {relationalDatabaseSnapshotName} -> relationalDatabaseSnapshotName) (\s@CreateRelationalDatabaseSnapshot' {} a -> s {relationalDatabaseSnapshotName = a} :: CreateRelationalDatabaseSnapshot)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateRelationalDatabaseSnapshot
   where
   type
-    Rs CreateRelationalDatabaseSnapshot =
+    AWSResponse CreateRelationalDatabaseSnapshot =
       CreateRelationalDatabaseSnapshotResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateRelationalDatabaseSnapshotResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateRelationalDatabaseSnapshot
 
-instance
-  Prelude.NFData
-    CreateRelationalDatabaseSnapshot
+instance Core.NFData CreateRelationalDatabaseSnapshot
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     CreateRelationalDatabaseSnapshot
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.CreateRelationalDatabaseSnapshot" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.CreateRelationalDatabaseSnapshot" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    CreateRelationalDatabaseSnapshot
-  where
+instance Core.ToJSON CreateRelationalDatabaseSnapshot where
   toJSON CreateRelationalDatabaseSnapshot' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            Core.Just
               ( "relationalDatabaseName"
-                  Prelude..= relationalDatabaseName
+                  Core..= relationalDatabaseName
               ),
-            Prelude.Just
+            Core.Just
               ( "relationalDatabaseSnapshotName"
-                  Prelude..= relationalDatabaseSnapshotName
+                  Core..= relationalDatabaseSnapshotName
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    CreateRelationalDatabaseSnapshot
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateRelationalDatabaseSnapshot where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CreateRelationalDatabaseSnapshot
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateRelationalDatabaseSnapshotResponse' smart constructor.
 data CreateRelationalDatabaseSnapshotResponse = CreateRelationalDatabaseSnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRelationalDatabaseSnapshotResponse' with all optional fields omitted.
@@ -233,26 +220,26 @@ data CreateRelationalDatabaseSnapshotResponse = CreateRelationalDatabaseSnapshot
 -- 'httpStatus', 'createRelationalDatabaseSnapshotResponse_httpStatus' - The response's http status code.
 newCreateRelationalDatabaseSnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateRelationalDatabaseSnapshotResponse
 newCreateRelationalDatabaseSnapshotResponse
   pHttpStatus_ =
     CreateRelationalDatabaseSnapshotResponse'
       { operations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createRelationalDatabaseSnapshotResponse_operations :: Lens.Lens' CreateRelationalDatabaseSnapshotResponse (Prelude.Maybe [Operation])
-createRelationalDatabaseSnapshotResponse_operations = Lens.lens (\CreateRelationalDatabaseSnapshotResponse' {operations} -> operations) (\s@CreateRelationalDatabaseSnapshotResponse' {} a -> s {operations = a} :: CreateRelationalDatabaseSnapshotResponse) Prelude.. Lens.mapping Prelude._Coerce
+createRelationalDatabaseSnapshotResponse_operations :: Lens.Lens' CreateRelationalDatabaseSnapshotResponse (Core.Maybe [Operation])
+createRelationalDatabaseSnapshotResponse_operations = Lens.lens (\CreateRelationalDatabaseSnapshotResponse' {operations} -> operations) (\s@CreateRelationalDatabaseSnapshotResponse' {} a -> s {operations = a} :: CreateRelationalDatabaseSnapshotResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createRelationalDatabaseSnapshotResponse_httpStatus :: Lens.Lens' CreateRelationalDatabaseSnapshotResponse Prelude.Int
+createRelationalDatabaseSnapshotResponse_httpStatus :: Lens.Lens' CreateRelationalDatabaseSnapshotResponse Core.Int
 createRelationalDatabaseSnapshotResponse_httpStatus = Lens.lens (\CreateRelationalDatabaseSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateRelationalDatabaseSnapshotResponse' {} a -> s {httpStatus = a} :: CreateRelationalDatabaseSnapshotResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateRelationalDatabaseSnapshotResponse

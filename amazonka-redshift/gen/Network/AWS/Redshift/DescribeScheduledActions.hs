@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,8 @@ module Network.AWS.Redshift.DescribeScheduledActions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,26 +59,26 @@ import qualified Network.AWS.Response as Response
 data DescribeScheduledActions = DescribeScheduledActions'
   { -- | The start time in UTC of the scheduled actions to retrieve. Only active
     -- scheduled actions that have invocations after this time are retrieved.
-    startTime :: Prelude.Maybe Prelude.ISO8601,
+    startTime :: Core.Maybe Core.ISO8601,
     -- | The end time in UTC of the scheduled action to retrieve. Only active
     -- scheduled actions that have invocations before this time are retrieved.
-    endTime :: Prelude.Maybe Prelude.ISO8601,
+    endTime :: Core.Maybe Core.ISO8601,
     -- | The type of the scheduled actions to retrieve.
-    targetActionType :: Prelude.Maybe ScheduledActionTypeValues,
+    targetActionType :: Core.Maybe ScheduledActionTypeValues,
     -- | If true, retrieve only active scheduled actions. If false, retrieve only
     -- disabled scheduled actions.
-    active :: Prelude.Maybe Prelude.Bool,
+    active :: Core.Maybe Core.Bool,
     -- | List of scheduled action filters.
-    filters :: Prelude.Maybe [ScheduledActionFilter],
+    filters :: Core.Maybe [ScheduledActionFilter],
     -- | The name of the scheduled action to retrieve.
-    scheduledActionName :: Prelude.Maybe Prelude.Text,
+    scheduledActionName :: Core.Maybe Core.Text,
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeScheduledActions
     -- request exceed the value specified in @MaxRecords@, AWS returns a value
     -- in the @Marker@ field of the response. You can retrieve the next set of
     -- response records by providing the returned marker value in the @Marker@
     -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -90,9 +88,9 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScheduledActions' with all optional fields omitted.
@@ -137,42 +135,41 @@ newDescribeScheduledActions ::
   DescribeScheduledActions
 newDescribeScheduledActions =
   DescribeScheduledActions'
-    { startTime =
-        Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      targetActionType = Prelude.Nothing,
-      active = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      scheduledActionName = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+    { startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      targetActionType = Core.Nothing,
+      active = Core.Nothing,
+      filters = Core.Nothing,
+      scheduledActionName = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The start time in UTC of the scheduled actions to retrieve. Only active
 -- scheduled actions that have invocations after this time are retrieved.
-describeScheduledActions_startTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
-describeScheduledActions_startTime = Lens.lens (\DescribeScheduledActions' {startTime} -> startTime) (\s@DescribeScheduledActions' {} a -> s {startTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Prelude._Time
+describeScheduledActions_startTime :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.UTCTime)
+describeScheduledActions_startTime = Lens.lens (\DescribeScheduledActions' {startTime} -> startTime) (\s@DescribeScheduledActions' {} a -> s {startTime = a} :: DescribeScheduledActions) Core.. Lens.mapping Core._Time
 
 -- | The end time in UTC of the scheduled action to retrieve. Only active
 -- scheduled actions that have invocations before this time are retrieved.
-describeScheduledActions_endTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
-describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Prelude._Time
+describeScheduledActions_endTime :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.UTCTime)
+describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Core.. Lens.mapping Core._Time
 
 -- | The type of the scheduled actions to retrieve.
-describeScheduledActions_targetActionType :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe ScheduledActionTypeValues)
+describeScheduledActions_targetActionType :: Lens.Lens' DescribeScheduledActions (Core.Maybe ScheduledActionTypeValues)
 describeScheduledActions_targetActionType = Lens.lens (\DescribeScheduledActions' {targetActionType} -> targetActionType) (\s@DescribeScheduledActions' {} a -> s {targetActionType = a} :: DescribeScheduledActions)
 
 -- | If true, retrieve only active scheduled actions. If false, retrieve only
 -- disabled scheduled actions.
-describeScheduledActions_active :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Bool)
+describeScheduledActions_active :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.Bool)
 describeScheduledActions_active = Lens.lens (\DescribeScheduledActions' {active} -> active) (\s@DescribeScheduledActions' {} a -> s {active = a} :: DescribeScheduledActions)
 
 -- | List of scheduled action filters.
-describeScheduledActions_filters :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe [ScheduledActionFilter])
-describeScheduledActions_filters = Lens.lens (\DescribeScheduledActions' {filters} -> filters) (\s@DescribeScheduledActions' {} a -> s {filters = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Prelude._Coerce
+describeScheduledActions_filters :: Lens.Lens' DescribeScheduledActions (Core.Maybe [ScheduledActionFilter])
+describeScheduledActions_filters = Lens.lens (\DescribeScheduledActions' {filters} -> filters) (\s@DescribeScheduledActions' {} a -> s {filters = a} :: DescribeScheduledActions) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the scheduled action to retrieve.
-describeScheduledActions_scheduledActionName :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
+describeScheduledActions_scheduledActionName :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.Text)
 describeScheduledActions_scheduledActionName = Lens.lens (\DescribeScheduledActions' {scheduledActionName} -> scheduledActionName) (\s@DescribeScheduledActions' {} a -> s {scheduledActionName = a} :: DescribeScheduledActions)
 
 -- | An optional parameter that specifies the starting point to return a set
@@ -181,7 +178,7 @@ describeScheduledActions_scheduledActionName = Lens.lens (\DescribeScheduledActi
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-describeScheduledActions_marker :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
+describeScheduledActions_marker :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.Text)
 describeScheduledActions_marker = Lens.lens (\DescribeScheduledActions' {marker} -> marker) (\s@DescribeScheduledActions' {} a -> s {marker = a} :: DescribeScheduledActions)
 
 -- | The maximum number of response records to return in each call. If the
@@ -193,34 +190,34 @@ describeScheduledActions_marker = Lens.lens (\DescribeScheduledActions' {marker}
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-describeScheduledActions_maxRecords :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Int)
+describeScheduledActions_maxRecords :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.Int)
 describeScheduledActions_maxRecords = Lens.lens (\DescribeScheduledActions' {maxRecords} -> maxRecords) (\s@DescribeScheduledActions' {} a -> s {maxRecords = a} :: DescribeScheduledActions)
 
-instance Pager.AWSPager DescribeScheduledActions where
+instance Core.AWSPager DescribeScheduledActions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_scheduledActions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeScheduledActions_marker
           Lens..~ rs
           Lens.^? describeScheduledActionsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeScheduledActions where
+instance Core.AWSRequest DescribeScheduledActions where
   type
-    Rs DescribeScheduledActions =
+    AWSResponse DescribeScheduledActions =
       DescribeScheduledActionsResponse
   request = Request.postQuery defaultService
   response =
@@ -228,60 +225,58 @@ instance Prelude.AWSRequest DescribeScheduledActions where
       "DescribeScheduledActionsResult"
       ( \s h x ->
           DescribeScheduledActionsResponse'
-            Prelude.<$> ( x Prelude..@? "ScheduledActions"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "ScheduledAction")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "ScheduledActions" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "ScheduledAction")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScheduledActions
+instance Core.Hashable DescribeScheduledActions
 
-instance Prelude.NFData DescribeScheduledActions
+instance Core.NFData DescribeScheduledActions
 
-instance Prelude.ToHeaders DescribeScheduledActions where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeScheduledActions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeScheduledActions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeScheduledActions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeScheduledActions where
+instance Core.ToQuery DescribeScheduledActions where
   toQuery DescribeScheduledActions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeScheduledActions" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "StartTime" Prelude.=: startTime,
-        "EndTime" Prelude.=: endTime,
-        "TargetActionType" Prelude.=: targetActionType,
-        "Active" Prelude.=: active,
+          Core.=: ("DescribeScheduledActions" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "StartTime" Core.=: startTime,
+        "EndTime" Core.=: endTime,
+        "TargetActionType" Core.=: targetActionType,
+        "Active" Core.=: active,
         "Filters"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "ScheduledActionFilter"
-                Prelude.<$> filters
+          Core.=: Core.toQuery
+            ( Core.toQueryList "ScheduledActionFilter"
+                Core.<$> filters
             ),
-        "ScheduledActionName" Prelude.=: scheduledActionName,
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+        "ScheduledActionName" Core.=: scheduledActionName,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeScheduledActionsResponse' smart constructor.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
   { -- | List of retrieved scheduled actions.
-    scheduledActions :: Prelude.Maybe [ScheduledAction],
+    scheduledActions :: Core.Maybe [ScheduledAction],
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeScheduledActions
     -- request exceed the value specified in @MaxRecords@, AWS returns a value
     -- in the @Marker@ field of the response. You can retrieve the next set of
     -- response records by providing the returned marker value in the @Marker@
     -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScheduledActionsResponse' with all optional fields omitted.
@@ -303,19 +298,19 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
 -- 'httpStatus', 'describeScheduledActionsResponse_httpStatus' - The response's http status code.
 newDescribeScheduledActionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeScheduledActionsResponse
 newDescribeScheduledActionsResponse pHttpStatus_ =
   DescribeScheduledActionsResponse'
     { scheduledActions =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | List of retrieved scheduled actions.
-describeScheduledActionsResponse_scheduledActions :: Lens.Lens' DescribeScheduledActionsResponse (Prelude.Maybe [ScheduledAction])
-describeScheduledActionsResponse_scheduledActions = Lens.lens (\DescribeScheduledActionsResponse' {scheduledActions} -> scheduledActions) (\s@DescribeScheduledActionsResponse' {} a -> s {scheduledActions = a} :: DescribeScheduledActionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeScheduledActionsResponse_scheduledActions :: Lens.Lens' DescribeScheduledActionsResponse (Core.Maybe [ScheduledAction])
+describeScheduledActionsResponse_scheduledActions = Lens.lens (\DescribeScheduledActionsResponse' {scheduledActions} -> scheduledActions) (\s@DescribeScheduledActionsResponse' {} a -> s {scheduledActions = a} :: DescribeScheduledActionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeScheduledActions
@@ -323,13 +318,11 @@ describeScheduledActionsResponse_scheduledActions = Lens.lens (\DescribeSchedule
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-describeScheduledActionsResponse_marker :: Lens.Lens' DescribeScheduledActionsResponse (Prelude.Maybe Prelude.Text)
+describeScheduledActionsResponse_marker :: Lens.Lens' DescribeScheduledActionsResponse (Core.Maybe Core.Text)
 describeScheduledActionsResponse_marker = Lens.lens (\DescribeScheduledActionsResponse' {marker} -> marker) (\s@DescribeScheduledActionsResponse' {} a -> s {marker = a} :: DescribeScheduledActionsResponse)
 
 -- | The response's http status code.
-describeScheduledActionsResponse_httpStatus :: Lens.Lens' DescribeScheduledActionsResponse Prelude.Int
+describeScheduledActionsResponse_httpStatus :: Lens.Lens' DescribeScheduledActionsResponse Core.Int
 describeScheduledActionsResponse_httpStatus = Lens.lens (\DescribeScheduledActionsResponse' {httpStatus} -> httpStatus) (\s@DescribeScheduledActionsResponse' {} a -> s {httpStatus = a} :: DescribeScheduledActionsResponse)
 
-instance
-  Prelude.NFData
-    DescribeScheduledActionsResponse
+instance Core.NFData DescribeScheduledActionsResponse

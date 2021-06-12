@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.WorkflowExecutionSignaledEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.WorkflowExecution
 
 -- | Provides the details of the @WorkflowExecutionSignaled@ event.
@@ -30,7 +29,7 @@ import Network.AWS.SWF.Types.WorkflowExecution
 data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAttributes'
   { -- | The inputs provided with the signal. The decider can use the signal name
     -- and inputs to determine how to process the signal.
-    input :: Prelude.Maybe Prelude.Text,
+    input :: Core.Maybe Core.Text,
     -- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event
     -- corresponding to the @SignalExternalWorkflow@ decision to signal this
     -- workflow execution.The source event with this ID can be found in the
@@ -38,15 +37,15 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
     -- for diagnosing problems by tracing back the chain of events leading up
     -- to this event. This field is set only if the signal was initiated by
     -- another workflow execution.
-    externalInitiatedEventId :: Prelude.Maybe Prelude.Integer,
+    externalInitiatedEventId :: Core.Maybe Core.Integer,
     -- | The workflow execution that sent the signal. This is set only of the
     -- signal was sent by another workflow execution.
-    externalWorkflowExecution :: Prelude.Maybe WorkflowExecution,
+    externalWorkflowExecution :: Core.Maybe WorkflowExecution,
     -- | The name of the signal received. The decider can use the signal name and
     -- inputs to determine how to the process the signal.
-    signalName :: Prelude.Text
+    signalName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionSignaledEventAttributes' with all optional fields omitted.
@@ -74,23 +73,23 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
 -- inputs to determine how to the process the signal.
 newWorkflowExecutionSignaledEventAttributes ::
   -- | 'signalName'
-  Prelude.Text ->
+  Core.Text ->
   WorkflowExecutionSignaledEventAttributes
 newWorkflowExecutionSignaledEventAttributes
   pSignalName_ =
     WorkflowExecutionSignaledEventAttributes'
       { input =
-          Prelude.Nothing,
+          Core.Nothing,
         externalInitiatedEventId =
-          Prelude.Nothing,
+          Core.Nothing,
         externalWorkflowExecution =
-          Prelude.Nothing,
+          Core.Nothing,
         signalName = pSignalName_
       }
 
 -- | The inputs provided with the signal. The decider can use the signal name
 -- and inputs to determine how to process the signal.
-workflowExecutionSignaledEventAttributes_input :: Lens.Lens' WorkflowExecutionSignaledEventAttributes (Prelude.Maybe Prelude.Text)
+workflowExecutionSignaledEventAttributes_input :: Lens.Lens' WorkflowExecutionSignaledEventAttributes (Core.Maybe Core.Text)
 workflowExecutionSignaledEventAttributes_input = Lens.lens (\WorkflowExecutionSignaledEventAttributes' {input} -> input) (\s@WorkflowExecutionSignaledEventAttributes' {} a -> s {input = a} :: WorkflowExecutionSignaledEventAttributes)
 
 -- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event
@@ -100,38 +99,38 @@ workflowExecutionSignaledEventAttributes_input = Lens.lens (\WorkflowExecutionSi
 -- for diagnosing problems by tracing back the chain of events leading up
 -- to this event. This field is set only if the signal was initiated by
 -- another workflow execution.
-workflowExecutionSignaledEventAttributes_externalInitiatedEventId :: Lens.Lens' WorkflowExecutionSignaledEventAttributes (Prelude.Maybe Prelude.Integer)
+workflowExecutionSignaledEventAttributes_externalInitiatedEventId :: Lens.Lens' WorkflowExecutionSignaledEventAttributes (Core.Maybe Core.Integer)
 workflowExecutionSignaledEventAttributes_externalInitiatedEventId = Lens.lens (\WorkflowExecutionSignaledEventAttributes' {externalInitiatedEventId} -> externalInitiatedEventId) (\s@WorkflowExecutionSignaledEventAttributes' {} a -> s {externalInitiatedEventId = a} :: WorkflowExecutionSignaledEventAttributes)
 
 -- | The workflow execution that sent the signal. This is set only of the
 -- signal was sent by another workflow execution.
-workflowExecutionSignaledEventAttributes_externalWorkflowExecution :: Lens.Lens' WorkflowExecutionSignaledEventAttributes (Prelude.Maybe WorkflowExecution)
+workflowExecutionSignaledEventAttributes_externalWorkflowExecution :: Lens.Lens' WorkflowExecutionSignaledEventAttributes (Core.Maybe WorkflowExecution)
 workflowExecutionSignaledEventAttributes_externalWorkflowExecution = Lens.lens (\WorkflowExecutionSignaledEventAttributes' {externalWorkflowExecution} -> externalWorkflowExecution) (\s@WorkflowExecutionSignaledEventAttributes' {} a -> s {externalWorkflowExecution = a} :: WorkflowExecutionSignaledEventAttributes)
 
 -- | The name of the signal received. The decider can use the signal name and
 -- inputs to determine how to the process the signal.
-workflowExecutionSignaledEventAttributes_signalName :: Lens.Lens' WorkflowExecutionSignaledEventAttributes Prelude.Text
+workflowExecutionSignaledEventAttributes_signalName :: Lens.Lens' WorkflowExecutionSignaledEventAttributes Core.Text
 workflowExecutionSignaledEventAttributes_signalName = Lens.lens (\WorkflowExecutionSignaledEventAttributes' {signalName} -> signalName) (\s@WorkflowExecutionSignaledEventAttributes' {} a -> s {signalName = a} :: WorkflowExecutionSignaledEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     WorkflowExecutionSignaledEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkflowExecutionSignaledEventAttributes"
       ( \x ->
           WorkflowExecutionSignaledEventAttributes'
-            Prelude.<$> (x Prelude..:? "input")
-            Prelude.<*> (x Prelude..:? "externalInitiatedEventId")
-            Prelude.<*> (x Prelude..:? "externalWorkflowExecution")
-            Prelude.<*> (x Prelude..: "signalName")
+            Core.<$> (x Core..:? "input")
+            Core.<*> (x Core..:? "externalInitiatedEventId")
+            Core.<*> (x Core..:? "externalWorkflowExecution")
+            Core.<*> (x Core..: "signalName")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     WorkflowExecutionSignaledEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     WorkflowExecutionSignaledEventAttributes

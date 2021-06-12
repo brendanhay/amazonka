@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,9 +35,9 @@ module Network.AWS.FMS.DeleteAppsList
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,9 +45,9 @@ import qualified Network.AWS.Response as Response
 data DeleteAppsList = DeleteAppsList'
   { -- | The ID of the applications list that you want to delete. You can
     -- retrieve this ID from @PutAppsList@, @ListAppsLists@, and @GetAppsList@.
-    listId :: Prelude.Text
+    listId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAppsList' with all optional fields omitted.
@@ -62,59 +61,59 @@ data DeleteAppsList = DeleteAppsList'
 -- retrieve this ID from @PutAppsList@, @ListAppsLists@, and @GetAppsList@.
 newDeleteAppsList ::
   -- | 'listId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAppsList
 newDeleteAppsList pListId_ =
   DeleteAppsList' {listId = pListId_}
 
 -- | The ID of the applications list that you want to delete. You can
 -- retrieve this ID from @PutAppsList@, @ListAppsLists@, and @GetAppsList@.
-deleteAppsList_listId :: Lens.Lens' DeleteAppsList Prelude.Text
+deleteAppsList_listId :: Lens.Lens' DeleteAppsList Core.Text
 deleteAppsList_listId = Lens.lens (\DeleteAppsList' {listId} -> listId) (\s@DeleteAppsList' {} a -> s {listId = a} :: DeleteAppsList)
 
-instance Prelude.AWSRequest DeleteAppsList where
-  type Rs DeleteAppsList = DeleteAppsListResponse
+instance Core.AWSRequest DeleteAppsList where
+  type
+    AWSResponse DeleteAppsList =
+      DeleteAppsListResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteAppsListResponse'
 
-instance Prelude.Hashable DeleteAppsList
+instance Core.Hashable DeleteAppsList
 
-instance Prelude.NFData DeleteAppsList
+instance Core.NFData DeleteAppsList
 
-instance Prelude.ToHeaders DeleteAppsList where
+instance Core.ToHeaders DeleteAppsList where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSFMS_20180101.DeleteAppsList" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSFMS_20180101.DeleteAppsList" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteAppsList where
+instance Core.ToJSON DeleteAppsList where
   toJSON DeleteAppsList' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("ListId" Prelude..= listId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ListId" Core..= listId)]
       )
 
-instance Prelude.ToPath DeleteAppsList where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAppsList where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAppsList where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAppsList where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAppsListResponse' smart constructor.
 data DeleteAppsListResponse = DeleteAppsListResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAppsListResponse' with all optional fields omitted.
@@ -124,4 +123,4 @@ newDeleteAppsListResponse ::
   DeleteAppsListResponse
 newDeleteAppsListResponse = DeleteAppsListResponse'
 
-instance Prelude.NFData DeleteAppsListResponse
+instance Core.NFData DeleteAppsListResponse

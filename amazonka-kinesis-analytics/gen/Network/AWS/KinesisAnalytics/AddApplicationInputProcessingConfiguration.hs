@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.KinesisAnalytics.AddApplicationInputProcessingConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,26 +61,26 @@ import qualified Network.AWS.Response as Response
 data AddApplicationInputProcessingConfiguration = AddApplicationInputProcessingConfiguration'
   { -- | Name of the application to which you want to add the input processing
     -- configuration.
-    applicationName :: Prelude.Text,
+    applicationName :: Core.Text,
     -- | Version of the application to which you want to add the input processing
     -- configuration. You can use the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation to get the current application version. If the version
     -- specified is not the current version, the
     -- @ConcurrentModificationException@ is returned.
-    currentApplicationVersionId :: Prelude.Natural,
+    currentApplicationVersionId :: Core.Natural,
     -- | The ID of the input configuration to add the input processing
     -- configuration to. You can get a list of the input IDs for an application
     -- using the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation.
-    inputId :: Prelude.Text,
+    inputId :: Core.Text,
     -- | The
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration>
     -- to add to the application.
     inputProcessingConfiguration :: InputProcessingConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddApplicationInputProcessingConfiguration' with all optional fields omitted.
@@ -112,11 +111,11 @@ data AddApplicationInputProcessingConfiguration = AddApplicationInputProcessingC
 -- to add to the application.
 newAddApplicationInputProcessingConfiguration ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'currentApplicationVersionId'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'inputId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'inputProcessingConfiguration'
   InputProcessingConfiguration ->
   AddApplicationInputProcessingConfiguration
@@ -137,7 +136,7 @@ newAddApplicationInputProcessingConfiguration
 
 -- | Name of the application to which you want to add the input processing
 -- configuration.
-addApplicationInputProcessingConfiguration_applicationName :: Lens.Lens' AddApplicationInputProcessingConfiguration Prelude.Text
+addApplicationInputProcessingConfiguration_applicationName :: Lens.Lens' AddApplicationInputProcessingConfiguration Core.Text
 addApplicationInputProcessingConfiguration_applicationName = Lens.lens (\AddApplicationInputProcessingConfiguration' {applicationName} -> applicationName) (\s@AddApplicationInputProcessingConfiguration' {} a -> s {applicationName = a} :: AddApplicationInputProcessingConfiguration)
 
 -- | Version of the application to which you want to add the input processing
@@ -146,7 +145,7 @@ addApplicationInputProcessingConfiguration_applicationName = Lens.lens (\AddAppl
 -- operation to get the current application version. If the version
 -- specified is not the current version, the
 -- @ConcurrentModificationException@ is returned.
-addApplicationInputProcessingConfiguration_currentApplicationVersionId :: Lens.Lens' AddApplicationInputProcessingConfiguration Prelude.Natural
+addApplicationInputProcessingConfiguration_currentApplicationVersionId :: Lens.Lens' AddApplicationInputProcessingConfiguration Core.Natural
 addApplicationInputProcessingConfiguration_currentApplicationVersionId = Lens.lens (\AddApplicationInputProcessingConfiguration' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@AddApplicationInputProcessingConfiguration' {} a -> s {currentApplicationVersionId = a} :: AddApplicationInputProcessingConfiguration)
 
 -- | The ID of the input configuration to add the input processing
@@ -154,7 +153,7 @@ addApplicationInputProcessingConfiguration_currentApplicationVersionId = Lens.le
 -- using the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
 -- operation.
-addApplicationInputProcessingConfiguration_inputId :: Lens.Lens' AddApplicationInputProcessingConfiguration Prelude.Text
+addApplicationInputProcessingConfiguration_inputId :: Lens.Lens' AddApplicationInputProcessingConfiguration Core.Text
 addApplicationInputProcessingConfiguration_inputId = Lens.lens (\AddApplicationInputProcessingConfiguration' {inputId} -> inputId) (\s@AddApplicationInputProcessingConfiguration' {} a -> s {inputId = a} :: AddApplicationInputProcessingConfiguration)
 
 -- | The
@@ -164,86 +163,85 @@ addApplicationInputProcessingConfiguration_inputProcessingConfiguration :: Lens.
 addApplicationInputProcessingConfiguration_inputProcessingConfiguration = Lens.lens (\AddApplicationInputProcessingConfiguration' {inputProcessingConfiguration} -> inputProcessingConfiguration) (\s@AddApplicationInputProcessingConfiguration' {} a -> s {inputProcessingConfiguration = a} :: AddApplicationInputProcessingConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AddApplicationInputProcessingConfiguration
   where
   type
-    Rs AddApplicationInputProcessingConfiguration =
+    AWSResponse
+      AddApplicationInputProcessingConfiguration =
       AddApplicationInputProcessingConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddApplicationInputProcessingConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AddApplicationInputProcessingConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     AddApplicationInputProcessingConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     AddApplicationInputProcessingConfiguration
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "KinesisAnalytics_20150814.AddApplicationInputProcessingConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "KinesisAnalytics_20150814.AddApplicationInputProcessingConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     AddApplicationInputProcessingConfiguration
   where
   toJSON
     AddApplicationInputProcessingConfiguration' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ Prelude.Just
-                ("ApplicationName" Prelude..= applicationName),
-              Prelude.Just
+      Core.object
+        ( Core.catMaybes
+            [ Core.Just
+                ("ApplicationName" Core..= applicationName),
+              Core.Just
                 ( "CurrentApplicationVersionId"
-                    Prelude..= currentApplicationVersionId
+                    Core..= currentApplicationVersionId
                 ),
-              Prelude.Just ("InputId" Prelude..= inputId),
-              Prelude.Just
+              Core.Just ("InputId" Core..= inputId),
+              Core.Just
                 ( "InputProcessingConfiguration"
-                    Prelude..= inputProcessingConfiguration
+                    Core..= inputProcessingConfiguration
                 )
             ]
         )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     AddApplicationInputProcessingConfiguration
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     AddApplicationInputProcessingConfiguration
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAddApplicationInputProcessingConfigurationResponse' smart constructor.
 data AddApplicationInputProcessingConfigurationResponse = AddApplicationInputProcessingConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddApplicationInputProcessingConfigurationResponse' with all optional fields omitted.
@@ -256,7 +254,7 @@ data AddApplicationInputProcessingConfigurationResponse = AddApplicationInputPro
 -- 'httpStatus', 'addApplicationInputProcessingConfigurationResponse_httpStatus' - The response's http status code.
 newAddApplicationInputProcessingConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AddApplicationInputProcessingConfigurationResponse
 newAddApplicationInputProcessingConfigurationResponse
   pHttpStatus_ =
@@ -266,9 +264,9 @@ newAddApplicationInputProcessingConfigurationResponse
       }
 
 -- | The response's http status code.
-addApplicationInputProcessingConfigurationResponse_httpStatus :: Lens.Lens' AddApplicationInputProcessingConfigurationResponse Prelude.Int
+addApplicationInputProcessingConfigurationResponse_httpStatus :: Lens.Lens' AddApplicationInputProcessingConfigurationResponse Core.Int
 addApplicationInputProcessingConfigurationResponse_httpStatus = Lens.lens (\AddApplicationInputProcessingConfigurationResponse' {httpStatus} -> httpStatus) (\s@AddApplicationInputProcessingConfigurationResponse' {} a -> s {httpStatus = a} :: AddApplicationInputProcessingConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AddApplicationInputProcessingConfigurationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.Glue.StopCrawler
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopCrawler' smart constructor.
 data StopCrawler = StopCrawler'
   { -- | Name of the crawler to stop.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopCrawler' with all optional fields omitted.
@@ -63,60 +62,56 @@ data StopCrawler = StopCrawler'
 -- 'name', 'stopCrawler_name' - Name of the crawler to stop.
 newStopCrawler ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   StopCrawler
 newStopCrawler pName_ = StopCrawler' {name = pName_}
 
 -- | Name of the crawler to stop.
-stopCrawler_name :: Lens.Lens' StopCrawler Prelude.Text
+stopCrawler_name :: Lens.Lens' StopCrawler Core.Text
 stopCrawler_name = Lens.lens (\StopCrawler' {name} -> name) (\s@StopCrawler' {} a -> s {name = a} :: StopCrawler)
 
-instance Prelude.AWSRequest StopCrawler where
-  type Rs StopCrawler = StopCrawlerResponse
+instance Core.AWSRequest StopCrawler where
+  type AWSResponse StopCrawler = StopCrawlerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopCrawlerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopCrawler
+instance Core.Hashable StopCrawler
 
-instance Prelude.NFData StopCrawler
+instance Core.NFData StopCrawler
 
-instance Prelude.ToHeaders StopCrawler where
+instance Core.ToHeaders StopCrawler where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.StopCrawler" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.StopCrawler" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopCrawler where
+instance Core.ToJSON StopCrawler where
   toJSON StopCrawler' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath StopCrawler where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopCrawler where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopCrawler where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopCrawler where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopCrawlerResponse' smart constructor.
 data StopCrawlerResponse = StopCrawlerResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopCrawlerResponse' with all optional fields omitted.
@@ -129,13 +124,13 @@ data StopCrawlerResponse = StopCrawlerResponse'
 -- 'httpStatus', 'stopCrawlerResponse_httpStatus' - The response's http status code.
 newStopCrawlerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopCrawlerResponse
 newStopCrawlerResponse pHttpStatus_ =
   StopCrawlerResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-stopCrawlerResponse_httpStatus :: Lens.Lens' StopCrawlerResponse Prelude.Int
+stopCrawlerResponse_httpStatus :: Lens.Lens' StopCrawlerResponse Core.Int
 stopCrawlerResponse_httpStatus = Lens.lens (\StopCrawlerResponse' {httpStatus} -> httpStatus) (\s@StopCrawlerResponse' {} a -> s {httpStatus = a} :: StopCrawlerResponse)
 
-instance Prelude.NFData StopCrawlerResponse
+instance Core.NFData StopCrawlerResponse

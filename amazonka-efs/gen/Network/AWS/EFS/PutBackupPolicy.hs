@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,20 +40,20 @@ module Network.AWS.EFS.PutBackupPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutBackupPolicy' smart constructor.
 data PutBackupPolicy = PutBackupPolicy'
   { -- | Specifies which EFS file system to update the backup policy for.
-    fileSystemId :: Prelude.Text,
+    fileSystemId :: Core.Text,
     -- | The backup policy included in the @PutBackupPolicy@ request.
     backupPolicy :: BackupPolicy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBackupPolicy' with all optional fields omitted.
@@ -69,7 +68,7 @@ data PutBackupPolicy = PutBackupPolicy'
 -- 'backupPolicy', 'putBackupPolicy_backupPolicy' - The backup policy included in the @PutBackupPolicy@ request.
 newPutBackupPolicy ::
   -- | 'fileSystemId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'backupPolicy'
   BackupPolicy ->
   PutBackupPolicy
@@ -80,43 +79,43 @@ newPutBackupPolicy pFileSystemId_ pBackupPolicy_ =
     }
 
 -- | Specifies which EFS file system to update the backup policy for.
-putBackupPolicy_fileSystemId :: Lens.Lens' PutBackupPolicy Prelude.Text
+putBackupPolicy_fileSystemId :: Lens.Lens' PutBackupPolicy Core.Text
 putBackupPolicy_fileSystemId = Lens.lens (\PutBackupPolicy' {fileSystemId} -> fileSystemId) (\s@PutBackupPolicy' {} a -> s {fileSystemId = a} :: PutBackupPolicy)
 
 -- | The backup policy included in the @PutBackupPolicy@ request.
 putBackupPolicy_backupPolicy :: Lens.Lens' PutBackupPolicy BackupPolicy
 putBackupPolicy_backupPolicy = Lens.lens (\PutBackupPolicy' {backupPolicy} -> backupPolicy) (\s@PutBackupPolicy' {} a -> s {backupPolicy = a} :: PutBackupPolicy)
 
-instance Prelude.AWSRequest PutBackupPolicy where
-  type Rs PutBackupPolicy = BackupPolicyDescription
+instance Core.AWSRequest PutBackupPolicy where
+  type
+    AWSResponse PutBackupPolicy =
+      BackupPolicyDescription
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutBackupPolicy
+instance Core.Hashable PutBackupPolicy
 
-instance Prelude.NFData PutBackupPolicy
+instance Core.NFData PutBackupPolicy
 
-instance Prelude.ToHeaders PutBackupPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutBackupPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON PutBackupPolicy where
+instance Core.ToJSON PutBackupPolicy where
   toJSON PutBackupPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("BackupPolicy" Prelude..= backupPolicy)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("BackupPolicy" Core..= backupPolicy)]
       )
 
-instance Prelude.ToPath PutBackupPolicy where
+instance Core.ToPath PutBackupPolicy where
   toPath PutBackupPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-02-01/file-systems/",
-        Prelude.toBS fileSystemId,
+        Core.toBS fileSystemId,
         "/backup-policy"
       ]
 
-instance Prelude.ToQuery PutBackupPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutBackupPolicy where
+  toQuery = Core.const Core.mempty

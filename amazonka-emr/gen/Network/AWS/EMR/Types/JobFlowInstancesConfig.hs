@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.JobFlowInstancesConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.InstanceFleetConfig
 import Network.AWS.EMR.Types.InstanceGroupConfig
 import Network.AWS.EMR.Types.PlacementType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A description of the Amazon EC2 instance on which the cluster (job flow)
 -- runs. A valid JobFlowInstancesConfig must contain either InstanceGroups
@@ -41,61 +40,61 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
     -- value, the default of 0.18 is used, unless the @AmiVersion@ parameter is
     -- set in the RunJobFlow call, in which case the default version of Hadoop
     -- for that AMI version is used.
-    hadoopVersion :: Prelude.Maybe Prelude.Text,
+    hadoopVersion :: Core.Maybe Core.Text,
     -- | The name of the EC2 key pair that can be used to connect to the master
     -- node using SSH as the user called \"hadoop.\"
-    ec2KeyName :: Prelude.Maybe Prelude.Text,
+    ec2KeyName :: Core.Maybe Core.Text,
     -- | The instance fleet configuration is available only in Amazon EMR
     -- versions 4.8.0 and later, excluding 5.0.x versions.
     --
     -- Describes the EC2 instances and instance configurations for clusters
     -- that use the instance fleet configuration.
-    instanceFleets :: Prelude.Maybe [InstanceFleetConfig],
+    instanceFleets :: Core.Maybe [InstanceFleetConfig],
     -- | Applies to clusters that use the instance fleet configuration. When
     -- multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and
     -- launches instances in the optimal subnet.
     --
     -- The instance fleet configuration is available only in Amazon EMR
     -- versions 4.8.0 and later, excluding 5.0.x versions.
-    ec2SubnetIds :: Prelude.Maybe [Prelude.Text],
+    ec2SubnetIds :: Core.Maybe [Core.Text],
     -- | The Availability Zone in which the cluster runs.
-    placement :: Prelude.Maybe PlacementType,
+    placement :: Core.Maybe PlacementType,
     -- | A list of additional Amazon EC2 security group IDs for the core and task
     -- nodes.
-    additionalSlaveSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    additionalSlaveSecurityGroups :: Core.Maybe [Core.Text],
     -- | Specifies whether to lock the cluster to prevent the Amazon EC2
     -- instances from being terminated by API call, user intervention, or in
     -- the event of a job-flow error.
-    terminationProtected :: Prelude.Maybe Prelude.Bool,
+    terminationProtected :: Core.Maybe Core.Bool,
     -- | The identifier of the Amazon EC2 security group for the core and task
     -- nodes.
-    emrManagedSlaveSecurityGroup :: Prelude.Maybe Prelude.Text,
+    emrManagedSlaveSecurityGroup :: Core.Maybe Core.Text,
     -- | Configuration for the instance groups in a cluster.
-    instanceGroups :: Prelude.Maybe [InstanceGroupConfig],
+    instanceGroups :: Core.Maybe [InstanceGroupConfig],
     -- | The EC2 instance type of the master node.
-    masterInstanceType :: Prelude.Maybe Prelude.Text,
+    masterInstanceType :: Core.Maybe Core.Text,
     -- | Applies to clusters that use the uniform instance group configuration.
     -- To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set
     -- this parameter to the identifier of the Amazon VPC subnet where you want
     -- the cluster to launch. If you do not specify this value and your account
     -- supports EC2-Classic, the cluster launches in EC2-Classic.
-    ec2SubnetId :: Prelude.Maybe Prelude.Text,
+    ec2SubnetId :: Core.Maybe Core.Text,
     -- | The identifier of the Amazon EC2 security group for the master node.
-    emrManagedMasterSecurityGroup :: Prelude.Maybe Prelude.Text,
+    emrManagedMasterSecurityGroup :: Core.Maybe Core.Text,
     -- | A list of additional Amazon EC2 security group IDs for the master node.
-    additionalMasterSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    additionalMasterSecurityGroups :: Core.Maybe [Core.Text],
     -- | The EC2 instance type of the core and task nodes.
-    slaveInstanceType :: Prelude.Maybe Prelude.Text,
+    slaveInstanceType :: Core.Maybe Core.Text,
     -- | The identifier of the Amazon EC2 security group for the Amazon EMR
     -- service to access clusters in VPC private subnets.
-    serviceAccessSecurityGroup :: Prelude.Maybe Prelude.Text,
+    serviceAccessSecurityGroup :: Core.Maybe Core.Text,
     -- | Specifies whether the cluster should remain available after completing
     -- all steps.
-    keepJobFlowAliveWhenNoSteps :: Prelude.Maybe Prelude.Bool,
+    keepJobFlowAliveWhenNoSteps :: Core.Maybe Core.Bool,
     -- | The number of EC2 instances in the cluster.
-    instanceCount :: Prelude.Maybe Prelude.Int
+    instanceCount :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobFlowInstancesConfig' with all optional fields omitted.
@@ -169,23 +168,23 @@ newJobFlowInstancesConfig ::
 newJobFlowInstancesConfig =
   JobFlowInstancesConfig'
     { hadoopVersion =
-        Prelude.Nothing,
-      ec2KeyName = Prelude.Nothing,
-      instanceFleets = Prelude.Nothing,
-      ec2SubnetIds = Prelude.Nothing,
-      placement = Prelude.Nothing,
-      additionalSlaveSecurityGroups = Prelude.Nothing,
-      terminationProtected = Prelude.Nothing,
-      emrManagedSlaveSecurityGroup = Prelude.Nothing,
-      instanceGroups = Prelude.Nothing,
-      masterInstanceType = Prelude.Nothing,
-      ec2SubnetId = Prelude.Nothing,
-      emrManagedMasterSecurityGroup = Prelude.Nothing,
-      additionalMasterSecurityGroups = Prelude.Nothing,
-      slaveInstanceType = Prelude.Nothing,
-      serviceAccessSecurityGroup = Prelude.Nothing,
-      keepJobFlowAliveWhenNoSteps = Prelude.Nothing,
-      instanceCount = Prelude.Nothing
+        Core.Nothing,
+      ec2KeyName = Core.Nothing,
+      instanceFleets = Core.Nothing,
+      ec2SubnetIds = Core.Nothing,
+      placement = Core.Nothing,
+      additionalSlaveSecurityGroups = Core.Nothing,
+      terminationProtected = Core.Nothing,
+      emrManagedSlaveSecurityGroup = Core.Nothing,
+      instanceGroups = Core.Nothing,
+      masterInstanceType = Core.Nothing,
+      ec2SubnetId = Core.Nothing,
+      emrManagedMasterSecurityGroup = Core.Nothing,
+      additionalMasterSecurityGroups = Core.Nothing,
+      slaveInstanceType = Core.Nothing,
+      serviceAccessSecurityGroup = Core.Nothing,
+      keepJobFlowAliveWhenNoSteps = Core.Nothing,
+      instanceCount = Core.Nothing
     }
 
 -- | Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop
@@ -195,12 +194,12 @@ newJobFlowInstancesConfig =
 -- value, the default of 0.18 is used, unless the @AmiVersion@ parameter is
 -- set in the RunJobFlow call, in which case the default version of Hadoop
 -- for that AMI version is used.
-jobFlowInstancesConfig_hadoopVersion :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
+jobFlowInstancesConfig_hadoopVersion :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe Core.Text)
 jobFlowInstancesConfig_hadoopVersion = Lens.lens (\JobFlowInstancesConfig' {hadoopVersion} -> hadoopVersion) (\s@JobFlowInstancesConfig' {} a -> s {hadoopVersion = a} :: JobFlowInstancesConfig)
 
 -- | The name of the EC2 key pair that can be used to connect to the master
 -- node using SSH as the user called \"hadoop.\"
-jobFlowInstancesConfig_ec2KeyName :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
+jobFlowInstancesConfig_ec2KeyName :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe Core.Text)
 jobFlowInstancesConfig_ec2KeyName = Lens.lens (\JobFlowInstancesConfig' {ec2KeyName} -> ec2KeyName) (\s@JobFlowInstancesConfig' {} a -> s {ec2KeyName = a} :: JobFlowInstancesConfig)
 
 -- | The instance fleet configuration is available only in Amazon EMR
@@ -208,8 +207,8 @@ jobFlowInstancesConfig_ec2KeyName = Lens.lens (\JobFlowInstancesConfig' {ec2KeyN
 --
 -- Describes the EC2 instances and instance configurations for clusters
 -- that use the instance fleet configuration.
-jobFlowInstancesConfig_instanceFleets :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe [InstanceFleetConfig])
-jobFlowInstancesConfig_instanceFleets = Lens.lens (\JobFlowInstancesConfig' {instanceFleets} -> instanceFleets) (\s@JobFlowInstancesConfig' {} a -> s {instanceFleets = a} :: JobFlowInstancesConfig) Prelude.. Lens.mapping Prelude._Coerce
+jobFlowInstancesConfig_instanceFleets :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe [InstanceFleetConfig])
+jobFlowInstancesConfig_instanceFleets = Lens.lens (\JobFlowInstancesConfig' {instanceFleets} -> instanceFleets) (\s@JobFlowInstancesConfig' {} a -> s {instanceFleets = a} :: JobFlowInstancesConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | Applies to clusters that use the instance fleet configuration. When
 -- multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and
@@ -217,35 +216,35 @@ jobFlowInstancesConfig_instanceFleets = Lens.lens (\JobFlowInstancesConfig' {ins
 --
 -- The instance fleet configuration is available only in Amazon EMR
 -- versions 4.8.0 and later, excluding 5.0.x versions.
-jobFlowInstancesConfig_ec2SubnetIds :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe [Prelude.Text])
-jobFlowInstancesConfig_ec2SubnetIds = Lens.lens (\JobFlowInstancesConfig' {ec2SubnetIds} -> ec2SubnetIds) (\s@JobFlowInstancesConfig' {} a -> s {ec2SubnetIds = a} :: JobFlowInstancesConfig) Prelude.. Lens.mapping Prelude._Coerce
+jobFlowInstancesConfig_ec2SubnetIds :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe [Core.Text])
+jobFlowInstancesConfig_ec2SubnetIds = Lens.lens (\JobFlowInstancesConfig' {ec2SubnetIds} -> ec2SubnetIds) (\s@JobFlowInstancesConfig' {} a -> s {ec2SubnetIds = a} :: JobFlowInstancesConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | The Availability Zone in which the cluster runs.
-jobFlowInstancesConfig_placement :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe PlacementType)
+jobFlowInstancesConfig_placement :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe PlacementType)
 jobFlowInstancesConfig_placement = Lens.lens (\JobFlowInstancesConfig' {placement} -> placement) (\s@JobFlowInstancesConfig' {} a -> s {placement = a} :: JobFlowInstancesConfig)
 
 -- | A list of additional Amazon EC2 security group IDs for the core and task
 -- nodes.
-jobFlowInstancesConfig_additionalSlaveSecurityGroups :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe [Prelude.Text])
-jobFlowInstancesConfig_additionalSlaveSecurityGroups = Lens.lens (\JobFlowInstancesConfig' {additionalSlaveSecurityGroups} -> additionalSlaveSecurityGroups) (\s@JobFlowInstancesConfig' {} a -> s {additionalSlaveSecurityGroups = a} :: JobFlowInstancesConfig) Prelude.. Lens.mapping Prelude._Coerce
+jobFlowInstancesConfig_additionalSlaveSecurityGroups :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe [Core.Text])
+jobFlowInstancesConfig_additionalSlaveSecurityGroups = Lens.lens (\JobFlowInstancesConfig' {additionalSlaveSecurityGroups} -> additionalSlaveSecurityGroups) (\s@JobFlowInstancesConfig' {} a -> s {additionalSlaveSecurityGroups = a} :: JobFlowInstancesConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether to lock the cluster to prevent the Amazon EC2
 -- instances from being terminated by API call, user intervention, or in
 -- the event of a job-flow error.
-jobFlowInstancesConfig_terminationProtected :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Bool)
+jobFlowInstancesConfig_terminationProtected :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe Core.Bool)
 jobFlowInstancesConfig_terminationProtected = Lens.lens (\JobFlowInstancesConfig' {terminationProtected} -> terminationProtected) (\s@JobFlowInstancesConfig' {} a -> s {terminationProtected = a} :: JobFlowInstancesConfig)
 
 -- | The identifier of the Amazon EC2 security group for the core and task
 -- nodes.
-jobFlowInstancesConfig_emrManagedSlaveSecurityGroup :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
+jobFlowInstancesConfig_emrManagedSlaveSecurityGroup :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe Core.Text)
 jobFlowInstancesConfig_emrManagedSlaveSecurityGroup = Lens.lens (\JobFlowInstancesConfig' {emrManagedSlaveSecurityGroup} -> emrManagedSlaveSecurityGroup) (\s@JobFlowInstancesConfig' {} a -> s {emrManagedSlaveSecurityGroup = a} :: JobFlowInstancesConfig)
 
 -- | Configuration for the instance groups in a cluster.
-jobFlowInstancesConfig_instanceGroups :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe [InstanceGroupConfig])
-jobFlowInstancesConfig_instanceGroups = Lens.lens (\JobFlowInstancesConfig' {instanceGroups} -> instanceGroups) (\s@JobFlowInstancesConfig' {} a -> s {instanceGroups = a} :: JobFlowInstancesConfig) Prelude.. Lens.mapping Prelude._Coerce
+jobFlowInstancesConfig_instanceGroups :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe [InstanceGroupConfig])
+jobFlowInstancesConfig_instanceGroups = Lens.lens (\JobFlowInstancesConfig' {instanceGroups} -> instanceGroups) (\s@JobFlowInstancesConfig' {} a -> s {instanceGroups = a} :: JobFlowInstancesConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | The EC2 instance type of the master node.
-jobFlowInstancesConfig_masterInstanceType :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
+jobFlowInstancesConfig_masterInstanceType :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe Core.Text)
 jobFlowInstancesConfig_masterInstanceType = Lens.lens (\JobFlowInstancesConfig' {masterInstanceType} -> masterInstanceType) (\s@JobFlowInstancesConfig' {} a -> s {masterInstanceType = a} :: JobFlowInstancesConfig)
 
 -- | Applies to clusters that use the uniform instance group configuration.
@@ -253,72 +252,68 @@ jobFlowInstancesConfig_masterInstanceType = Lens.lens (\JobFlowInstancesConfig' 
 -- this parameter to the identifier of the Amazon VPC subnet where you want
 -- the cluster to launch. If you do not specify this value and your account
 -- supports EC2-Classic, the cluster launches in EC2-Classic.
-jobFlowInstancesConfig_ec2SubnetId :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
+jobFlowInstancesConfig_ec2SubnetId :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe Core.Text)
 jobFlowInstancesConfig_ec2SubnetId = Lens.lens (\JobFlowInstancesConfig' {ec2SubnetId} -> ec2SubnetId) (\s@JobFlowInstancesConfig' {} a -> s {ec2SubnetId = a} :: JobFlowInstancesConfig)
 
 -- | The identifier of the Amazon EC2 security group for the master node.
-jobFlowInstancesConfig_emrManagedMasterSecurityGroup :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
+jobFlowInstancesConfig_emrManagedMasterSecurityGroup :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe Core.Text)
 jobFlowInstancesConfig_emrManagedMasterSecurityGroup = Lens.lens (\JobFlowInstancesConfig' {emrManagedMasterSecurityGroup} -> emrManagedMasterSecurityGroup) (\s@JobFlowInstancesConfig' {} a -> s {emrManagedMasterSecurityGroup = a} :: JobFlowInstancesConfig)
 
 -- | A list of additional Amazon EC2 security group IDs for the master node.
-jobFlowInstancesConfig_additionalMasterSecurityGroups :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe [Prelude.Text])
-jobFlowInstancesConfig_additionalMasterSecurityGroups = Lens.lens (\JobFlowInstancesConfig' {additionalMasterSecurityGroups} -> additionalMasterSecurityGroups) (\s@JobFlowInstancesConfig' {} a -> s {additionalMasterSecurityGroups = a} :: JobFlowInstancesConfig) Prelude.. Lens.mapping Prelude._Coerce
+jobFlowInstancesConfig_additionalMasterSecurityGroups :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe [Core.Text])
+jobFlowInstancesConfig_additionalMasterSecurityGroups = Lens.lens (\JobFlowInstancesConfig' {additionalMasterSecurityGroups} -> additionalMasterSecurityGroups) (\s@JobFlowInstancesConfig' {} a -> s {additionalMasterSecurityGroups = a} :: JobFlowInstancesConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | The EC2 instance type of the core and task nodes.
-jobFlowInstancesConfig_slaveInstanceType :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
+jobFlowInstancesConfig_slaveInstanceType :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe Core.Text)
 jobFlowInstancesConfig_slaveInstanceType = Lens.lens (\JobFlowInstancesConfig' {slaveInstanceType} -> slaveInstanceType) (\s@JobFlowInstancesConfig' {} a -> s {slaveInstanceType = a} :: JobFlowInstancesConfig)
 
 -- | The identifier of the Amazon EC2 security group for the Amazon EMR
 -- service to access clusters in VPC private subnets.
-jobFlowInstancesConfig_serviceAccessSecurityGroup :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
+jobFlowInstancesConfig_serviceAccessSecurityGroup :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe Core.Text)
 jobFlowInstancesConfig_serviceAccessSecurityGroup = Lens.lens (\JobFlowInstancesConfig' {serviceAccessSecurityGroup} -> serviceAccessSecurityGroup) (\s@JobFlowInstancesConfig' {} a -> s {serviceAccessSecurityGroup = a} :: JobFlowInstancesConfig)
 
 -- | Specifies whether the cluster should remain available after completing
 -- all steps.
-jobFlowInstancesConfig_keepJobFlowAliveWhenNoSteps :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Bool)
+jobFlowInstancesConfig_keepJobFlowAliveWhenNoSteps :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe Core.Bool)
 jobFlowInstancesConfig_keepJobFlowAliveWhenNoSteps = Lens.lens (\JobFlowInstancesConfig' {keepJobFlowAliveWhenNoSteps} -> keepJobFlowAliveWhenNoSteps) (\s@JobFlowInstancesConfig' {} a -> s {keepJobFlowAliveWhenNoSteps = a} :: JobFlowInstancesConfig)
 
 -- | The number of EC2 instances in the cluster.
-jobFlowInstancesConfig_instanceCount :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Int)
+jobFlowInstancesConfig_instanceCount :: Lens.Lens' JobFlowInstancesConfig (Core.Maybe Core.Int)
 jobFlowInstancesConfig_instanceCount = Lens.lens (\JobFlowInstancesConfig' {instanceCount} -> instanceCount) (\s@JobFlowInstancesConfig' {} a -> s {instanceCount = a} :: JobFlowInstancesConfig)
 
-instance Prelude.Hashable JobFlowInstancesConfig
+instance Core.Hashable JobFlowInstancesConfig
 
-instance Prelude.NFData JobFlowInstancesConfig
+instance Core.NFData JobFlowInstancesConfig
 
-instance Prelude.ToJSON JobFlowInstancesConfig where
+instance Core.ToJSON JobFlowInstancesConfig where
   toJSON JobFlowInstancesConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("HadoopVersion" Prelude..=)
-              Prelude.<$> hadoopVersion,
-            ("Ec2KeyName" Prelude..=) Prelude.<$> ec2KeyName,
-            ("InstanceFleets" Prelude..=)
-              Prelude.<$> instanceFleets,
-            ("Ec2SubnetIds" Prelude..=) Prelude.<$> ec2SubnetIds,
-            ("Placement" Prelude..=) Prelude.<$> placement,
-            ("AdditionalSlaveSecurityGroups" Prelude..=)
-              Prelude.<$> additionalSlaveSecurityGroups,
-            ("TerminationProtected" Prelude..=)
-              Prelude.<$> terminationProtected,
-            ("EmrManagedSlaveSecurityGroup" Prelude..=)
-              Prelude.<$> emrManagedSlaveSecurityGroup,
-            ("InstanceGroups" Prelude..=)
-              Prelude.<$> instanceGroups,
-            ("MasterInstanceType" Prelude..=)
-              Prelude.<$> masterInstanceType,
-            ("Ec2SubnetId" Prelude..=) Prelude.<$> ec2SubnetId,
-            ("EmrManagedMasterSecurityGroup" Prelude..=)
-              Prelude.<$> emrManagedMasterSecurityGroup,
-            ("AdditionalMasterSecurityGroups" Prelude..=)
-              Prelude.<$> additionalMasterSecurityGroups,
-            ("SlaveInstanceType" Prelude..=)
-              Prelude.<$> slaveInstanceType,
-            ("ServiceAccessSecurityGroup" Prelude..=)
-              Prelude.<$> serviceAccessSecurityGroup,
-            ("KeepJobFlowAliveWhenNoSteps" Prelude..=)
-              Prelude.<$> keepJobFlowAliveWhenNoSteps,
-            ("InstanceCount" Prelude..=)
-              Prelude.<$> instanceCount
+    Core.object
+      ( Core.catMaybes
+          [ ("HadoopVersion" Core..=) Core.<$> hadoopVersion,
+            ("Ec2KeyName" Core..=) Core.<$> ec2KeyName,
+            ("InstanceFleets" Core..=) Core.<$> instanceFleets,
+            ("Ec2SubnetIds" Core..=) Core.<$> ec2SubnetIds,
+            ("Placement" Core..=) Core.<$> placement,
+            ("AdditionalSlaveSecurityGroups" Core..=)
+              Core.<$> additionalSlaveSecurityGroups,
+            ("TerminationProtected" Core..=)
+              Core.<$> terminationProtected,
+            ("EmrManagedSlaveSecurityGroup" Core..=)
+              Core.<$> emrManagedSlaveSecurityGroup,
+            ("InstanceGroups" Core..=) Core.<$> instanceGroups,
+            ("MasterInstanceType" Core..=)
+              Core.<$> masterInstanceType,
+            ("Ec2SubnetId" Core..=) Core.<$> ec2SubnetId,
+            ("EmrManagedMasterSecurityGroup" Core..=)
+              Core.<$> emrManagedMasterSecurityGroup,
+            ("AdditionalMasterSecurityGroups" Core..=)
+              Core.<$> additionalMasterSecurityGroups,
+            ("SlaveInstanceType" Core..=)
+              Core.<$> slaveInstanceType,
+            ("ServiceAccessSecurityGroup" Core..=)
+              Core.<$> serviceAccessSecurityGroup,
+            ("KeepJobFlowAliveWhenNoSteps" Core..=)
+              Core.<$> keepJobFlowAliveWhenNoSteps,
+            ("InstanceCount" Core..=) Core.<$> instanceCount
           ]
       )

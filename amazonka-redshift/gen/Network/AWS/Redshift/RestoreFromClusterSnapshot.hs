@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -81,8 +80,8 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -100,24 +99,24 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- If this option is @true@, enhanced VPC routing is enabled.
     --
     -- Default: false
-    enhancedVpcRouting :: Prelude.Maybe Prelude.Bool,
+    enhancedVpcRouting :: Core.Maybe Core.Bool,
     -- | Reserved.
-    additionalInfo :: Prelude.Maybe Prelude.Text,
+    additionalInfo :: Core.Maybe Core.Text,
     -- | The elastic IP (EIP) address for the cluster.
-    elasticIp :: Prelude.Maybe Prelude.Text,
+    elasticIp :: Core.Maybe Core.Text,
     -- | The name of the subnet group where you want to cluster restored.
     --
     -- A snapshot of cluster in VPC can be restored only in VPC. Therefore, you
     -- must provide subnet group name where you want the cluster restored.
-    clusterSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    clusterSubnetGroupName :: Core.Maybe Core.Text,
     -- | Specifies the name of the HSM client certificate the Amazon Redshift
     -- cluster uses to retrieve the data encryption keys stored in an HSM.
-    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
+    hsmClientCertificateIdentifier :: Core.Maybe Core.Text,
     -- | If @true@, major version upgrades can be applied during the maintenance
     -- window to the Amazon Redshift engine that is running on the cluster.
     --
     -- Default: @true@
-    allowVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    allowVersionUpgrade :: Core.Maybe Core.Bool,
     -- | The number of days that automated snapshots are retained. If the value
     -- is 0, automated snapshots are disabled. Even if automated snapshots are
     -- disabled, you can still create manual snapshots when you want with
@@ -127,7 +126,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- taken.
     --
     -- Constraints: Must be a value from 0 to 35.
-    automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    automatedSnapshotRetentionPeriod :: Core.Maybe Core.Int,
     -- | The name of the parameter group to be associated with this cluster.
     --
     -- Default: The default Amazon Redshift cluster parameter group. For
@@ -141,42 +140,42 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- -   First character must be a letter.
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-    clusterParameterGroupName :: Prelude.Maybe Prelude.Text,
+    clusterParameterGroupName :: Core.Maybe Core.Text,
     -- | The name of the cluster the source snapshot was created from. This
     -- parameter is required if your IAM user has a policy containing a
     -- snapshot resource element that specifies anything other than * for the
     -- cluster name.
-    snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    snapshotClusterIdentifier :: Core.Maybe Core.Text,
     -- | The option to enable relocation for an Amazon Redshift cluster between
     -- Availability Zones after the cluster is restored.
-    availabilityZoneRelocation :: Prelude.Maybe Prelude.Bool,
+    availabilityZoneRelocation :: Core.Maybe Core.Bool,
     -- | A unique identifier for the snapshot schedule.
-    snapshotScheduleIdentifier :: Prelude.Maybe Prelude.Text,
+    snapshotScheduleIdentifier :: Core.Maybe Core.Text,
     -- | If @true@, the cluster can be accessed from a public network.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    publiclyAccessible :: Core.Maybe Core.Bool,
     -- | A list of Virtual Private Cloud (VPC) security groups to be associated
     -- with the cluster.
     --
     -- Default: The default VPC security group is associated with the cluster.
     --
     -- VPC security groups only apply to clusters in VPCs.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    vpcSecurityGroupIds :: Core.Maybe [Core.Text],
     -- | The default number of days to retain a manual snapshot. If the value is
     -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
     -- the retention period of existing snapshots.
     --
     -- The value must be either -1 or an integer between 1 and 3,653.
-    manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    manualSnapshotRetentionPeriod :: Core.Maybe Core.Int,
     -- | The AWS Key Management Service (KMS) key ID of the encryption key that
     -- you want to use to encrypt data in the cluster that you restore from a
     -- shared snapshot.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The Amazon EC2 Availability Zone in which to restore the cluster.
     --
     -- Default: A random, system-chosen Availability Zone.
     --
     -- Example: @us-east-2a@
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | The weekly time range (in UTC) during which automated cluster
     -- maintenance can occur.
     --
@@ -190,15 +189,15 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
     --
     -- Constraints: Minimum 30-minute window.
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    preferredMaintenanceWindow :: Core.Maybe Core.Text,
     -- | The number of nodes specified when provisioning the restored cluster.
-    numberOfNodes :: Prelude.Maybe Prelude.Int,
+    numberOfNodes :: Core.Maybe Core.Int,
     -- | The port number on which the cluster accepts connections.
     --
     -- Default: The same port as the original cluster.
     --
     -- Constraints: Must be between @1115@ and @65535@.
-    port :: Prelude.Maybe Prelude.Int,
+    port :: Core.Maybe Core.Int,
     -- | The node type that the restored cluster will be provisioned with.
     --
     -- Default: The node type of the cluster from which the snapshot was taken.
@@ -213,17 +212,17 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- cluster. For more information about node types, see
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes About Clusters and Nodes>
     -- in the /Amazon Redshift Cluster Management Guide/.
-    nodeType :: Prelude.Maybe Prelude.Text,
+    nodeType :: Core.Maybe Core.Text,
     -- | The AWS customer account used to create or copy the snapshot. Required
     -- if you are restoring a snapshot you do not own, optional if you own the
     -- snapshot.
-    ownerAccount :: Prelude.Maybe Prelude.Text,
+    ownerAccount :: Core.Maybe Core.Text,
     -- | A list of security groups to be associated with this cluster.
     --
     -- Default: The default cluster security group for Amazon Redshift.
     --
     -- Cluster security groups only apply to clusters outside of VPCs.
-    clusterSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    clusterSecurityGroups :: Core.Maybe [Core.Text],
     -- | The name of the maintenance track for the restored cluster. When you
     -- take a snapshot, the snapshot inherits the @MaintenanceTrack@ value from
     -- the cluster. The snapshot might be on a different track than the cluster
@@ -231,18 +230,18 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- a snapshot of a cluster that is on the current track and then change the
     -- cluster to be on the trailing track. In this case, the snapshot and the
     -- source cluster are on different tracks.
-    maintenanceTrackName :: Prelude.Maybe Prelude.Text,
+    maintenanceTrackName :: Core.Maybe Core.Text,
     -- | Specifies the name of the HSM configuration that contains the
     -- information the Amazon Redshift cluster can use to retrieve and store
     -- keys in an HSM.
-    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
+    hsmConfigurationIdentifier :: Core.Maybe Core.Text,
     -- | A list of AWS Identity and Access Management (IAM) roles that can be
     -- used by the cluster to access other AWS services. You must supply the
     -- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
     -- to 10 IAM roles in a single request.
     --
     -- A cluster can have up to 10 IAM roles associated at any time.
-    iamRoles :: Prelude.Maybe [Prelude.Text],
+    iamRoles :: Core.Maybe [Core.Text],
     -- | The identifier of the cluster that will be created from restoring the
     -- snapshot.
     --
@@ -257,14 +256,14 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
     --
     -- -   Must be unique for all clusters within an AWS account.
-    clusterIdentifier :: Prelude.Text,
+    clusterIdentifier :: Core.Text,
     -- | The name of the snapshot from which to create the new cluster. This
     -- parameter isn\'t case sensitive.
     --
     -- Example: @my-snapshot-id@
-    snapshotIdentifier :: Prelude.Text
+    snapshotIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestoreFromClusterSnapshot' with all optional fields omitted.
@@ -447,42 +446,40 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 -- Example: @my-snapshot-id@
 newRestoreFromClusterSnapshot ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'snapshotIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   RestoreFromClusterSnapshot
 newRestoreFromClusterSnapshot
   pClusterIdentifier_
   pSnapshotIdentifier_ =
     RestoreFromClusterSnapshot'
       { enhancedVpcRouting =
-          Prelude.Nothing,
-        additionalInfo = Prelude.Nothing,
-        elasticIp = Prelude.Nothing,
-        clusterSubnetGroupName = Prelude.Nothing,
-        hsmClientCertificateIdentifier =
-          Prelude.Nothing,
-        allowVersionUpgrade = Prelude.Nothing,
-        automatedSnapshotRetentionPeriod =
-          Prelude.Nothing,
-        clusterParameterGroupName = Prelude.Nothing,
-        snapshotClusterIdentifier = Prelude.Nothing,
-        availabilityZoneRelocation = Prelude.Nothing,
-        snapshotScheduleIdentifier = Prelude.Nothing,
-        publiclyAccessible = Prelude.Nothing,
-        vpcSecurityGroupIds = Prelude.Nothing,
-        manualSnapshotRetentionPeriod = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
-        availabilityZone = Prelude.Nothing,
-        preferredMaintenanceWindow = Prelude.Nothing,
-        numberOfNodes = Prelude.Nothing,
-        port = Prelude.Nothing,
-        nodeType = Prelude.Nothing,
-        ownerAccount = Prelude.Nothing,
-        clusterSecurityGroups = Prelude.Nothing,
-        maintenanceTrackName = Prelude.Nothing,
-        hsmConfigurationIdentifier = Prelude.Nothing,
-        iamRoles = Prelude.Nothing,
+          Core.Nothing,
+        additionalInfo = Core.Nothing,
+        elasticIp = Core.Nothing,
+        clusterSubnetGroupName = Core.Nothing,
+        hsmClientCertificateIdentifier = Core.Nothing,
+        allowVersionUpgrade = Core.Nothing,
+        automatedSnapshotRetentionPeriod = Core.Nothing,
+        clusterParameterGroupName = Core.Nothing,
+        snapshotClusterIdentifier = Core.Nothing,
+        availabilityZoneRelocation = Core.Nothing,
+        snapshotScheduleIdentifier = Core.Nothing,
+        publiclyAccessible = Core.Nothing,
+        vpcSecurityGroupIds = Core.Nothing,
+        manualSnapshotRetentionPeriod = Core.Nothing,
+        kmsKeyId = Core.Nothing,
+        availabilityZone = Core.Nothing,
+        preferredMaintenanceWindow = Core.Nothing,
+        numberOfNodes = Core.Nothing,
+        port = Core.Nothing,
+        nodeType = Core.Nothing,
+        ownerAccount = Core.Nothing,
+        clusterSecurityGroups = Core.Nothing,
+        maintenanceTrackName = Core.Nothing,
+        hsmConfigurationIdentifier = Core.Nothing,
+        iamRoles = Core.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         snapshotIdentifier = pSnapshotIdentifier_
       }
@@ -496,34 +493,34 @@ newRestoreFromClusterSnapshot
 -- If this option is @true@, enhanced VPC routing is enabled.
 --
 -- Default: false
-restoreFromClusterSnapshot_enhancedVpcRouting :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Bool)
+restoreFromClusterSnapshot_enhancedVpcRouting :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Bool)
 restoreFromClusterSnapshot_enhancedVpcRouting = Lens.lens (\RestoreFromClusterSnapshot' {enhancedVpcRouting} -> enhancedVpcRouting) (\s@RestoreFromClusterSnapshot' {} a -> s {enhancedVpcRouting = a} :: RestoreFromClusterSnapshot)
 
 -- | Reserved.
-restoreFromClusterSnapshot_additionalInfo :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_additionalInfo :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_additionalInfo = Lens.lens (\RestoreFromClusterSnapshot' {additionalInfo} -> additionalInfo) (\s@RestoreFromClusterSnapshot' {} a -> s {additionalInfo = a} :: RestoreFromClusterSnapshot)
 
 -- | The elastic IP (EIP) address for the cluster.
-restoreFromClusterSnapshot_elasticIp :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_elasticIp :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_elasticIp = Lens.lens (\RestoreFromClusterSnapshot' {elasticIp} -> elasticIp) (\s@RestoreFromClusterSnapshot' {} a -> s {elasticIp = a} :: RestoreFromClusterSnapshot)
 
 -- | The name of the subnet group where you want to cluster restored.
 --
 -- A snapshot of cluster in VPC can be restored only in VPC. Therefore, you
 -- must provide subnet group name where you want the cluster restored.
-restoreFromClusterSnapshot_clusterSubnetGroupName :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_clusterSubnetGroupName :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_clusterSubnetGroupName = Lens.lens (\RestoreFromClusterSnapshot' {clusterSubnetGroupName} -> clusterSubnetGroupName) (\s@RestoreFromClusterSnapshot' {} a -> s {clusterSubnetGroupName = a} :: RestoreFromClusterSnapshot)
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
-restoreFromClusterSnapshot_hsmClientCertificateIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_hsmClientCertificateIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_hsmClientCertificateIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {hsmClientCertificateIdentifier = a} :: RestoreFromClusterSnapshot)
 
 -- | If @true@, major version upgrades can be applied during the maintenance
 -- window to the Amazon Redshift engine that is running on the cluster.
 --
 -- Default: @true@
-restoreFromClusterSnapshot_allowVersionUpgrade :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Bool)
+restoreFromClusterSnapshot_allowVersionUpgrade :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Bool)
 restoreFromClusterSnapshot_allowVersionUpgrade = Lens.lens (\RestoreFromClusterSnapshot' {allowVersionUpgrade} -> allowVersionUpgrade) (\s@RestoreFromClusterSnapshot' {} a -> s {allowVersionUpgrade = a} :: RestoreFromClusterSnapshot)
 
 -- | The number of days that automated snapshots are retained. If the value
@@ -535,7 +532,7 @@ restoreFromClusterSnapshot_allowVersionUpgrade = Lens.lens (\RestoreFromClusterS
 -- taken.
 --
 -- Constraints: Must be a value from 0 to 35.
-restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Int)
+restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Int)
 restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod = Lens.lens (\RestoreFromClusterSnapshot' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@RestoreFromClusterSnapshot' {} a -> s {automatedSnapshotRetentionPeriod = a} :: RestoreFromClusterSnapshot)
 
 -- | The name of the parameter group to be associated with this cluster.
@@ -551,27 +548,27 @@ restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod = Lens.lens (\Restor
 -- -   First character must be a letter.
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-restoreFromClusterSnapshot_clusterParameterGroupName :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_clusterParameterGroupName :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_clusterParameterGroupName = Lens.lens (\RestoreFromClusterSnapshot' {clusterParameterGroupName} -> clusterParameterGroupName) (\s@RestoreFromClusterSnapshot' {} a -> s {clusterParameterGroupName = a} :: RestoreFromClusterSnapshot)
 
 -- | The name of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
 -- cluster name.
-restoreFromClusterSnapshot_snapshotClusterIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_snapshotClusterIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_snapshotClusterIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {snapshotClusterIdentifier = a} :: RestoreFromClusterSnapshot)
 
 -- | The option to enable relocation for an Amazon Redshift cluster between
 -- Availability Zones after the cluster is restored.
-restoreFromClusterSnapshot_availabilityZoneRelocation :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Bool)
+restoreFromClusterSnapshot_availabilityZoneRelocation :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Bool)
 restoreFromClusterSnapshot_availabilityZoneRelocation = Lens.lens (\RestoreFromClusterSnapshot' {availabilityZoneRelocation} -> availabilityZoneRelocation) (\s@RestoreFromClusterSnapshot' {} a -> s {availabilityZoneRelocation = a} :: RestoreFromClusterSnapshot)
 
 -- | A unique identifier for the snapshot schedule.
-restoreFromClusterSnapshot_snapshotScheduleIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_snapshotScheduleIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_snapshotScheduleIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {snapshotScheduleIdentifier} -> snapshotScheduleIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {snapshotScheduleIdentifier = a} :: RestoreFromClusterSnapshot)
 
 -- | If @true@, the cluster can be accessed from a public network.
-restoreFromClusterSnapshot_publiclyAccessible :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Bool)
+restoreFromClusterSnapshot_publiclyAccessible :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Bool)
 restoreFromClusterSnapshot_publiclyAccessible = Lens.lens (\RestoreFromClusterSnapshot' {publiclyAccessible} -> publiclyAccessible) (\s@RestoreFromClusterSnapshot' {} a -> s {publiclyAccessible = a} :: RestoreFromClusterSnapshot)
 
 -- | A list of Virtual Private Cloud (VPC) security groups to be associated
@@ -580,21 +577,21 @@ restoreFromClusterSnapshot_publiclyAccessible = Lens.lens (\RestoreFromClusterSn
 -- Default: The default VPC security group is associated with the cluster.
 --
 -- VPC security groups only apply to clusters in VPCs.
-restoreFromClusterSnapshot_vpcSecurityGroupIds :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe [Prelude.Text])
-restoreFromClusterSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreFromClusterSnapshot' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreFromClusterSnapshot' {} a -> s {vpcSecurityGroupIds = a} :: RestoreFromClusterSnapshot) Prelude.. Lens.mapping Prelude._Coerce
+restoreFromClusterSnapshot_vpcSecurityGroupIds :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe [Core.Text])
+restoreFromClusterSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreFromClusterSnapshot' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreFromClusterSnapshot' {} a -> s {vpcSecurityGroupIds = a} :: RestoreFromClusterSnapshot) Core.. Lens.mapping Lens._Coerce
 
 -- | The default number of days to retain a manual snapshot. If the value is
 -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
 -- the retention period of existing snapshots.
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
-restoreFromClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Int)
+restoreFromClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Int)
 restoreFromClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\RestoreFromClusterSnapshot' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@RestoreFromClusterSnapshot' {} a -> s {manualSnapshotRetentionPeriod = a} :: RestoreFromClusterSnapshot)
 
 -- | The AWS Key Management Service (KMS) key ID of the encryption key that
 -- you want to use to encrypt data in the cluster that you restore from a
 -- shared snapshot.
-restoreFromClusterSnapshot_kmsKeyId :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_kmsKeyId :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_kmsKeyId = Lens.lens (\RestoreFromClusterSnapshot' {kmsKeyId} -> kmsKeyId) (\s@RestoreFromClusterSnapshot' {} a -> s {kmsKeyId = a} :: RestoreFromClusterSnapshot)
 
 -- | The Amazon EC2 Availability Zone in which to restore the cluster.
@@ -602,7 +599,7 @@ restoreFromClusterSnapshot_kmsKeyId = Lens.lens (\RestoreFromClusterSnapshot' {k
 -- Default: A random, system-chosen Availability Zone.
 --
 -- Example: @us-east-2a@
-restoreFromClusterSnapshot_availabilityZone :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_availabilityZone :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_availabilityZone = Lens.lens (\RestoreFromClusterSnapshot' {availabilityZone} -> availabilityZone) (\s@RestoreFromClusterSnapshot' {} a -> s {availabilityZone = a} :: RestoreFromClusterSnapshot)
 
 -- | The weekly time range (in UTC) during which automated cluster
@@ -618,11 +615,11 @@ restoreFromClusterSnapshot_availabilityZone = Lens.lens (\RestoreFromClusterSnap
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 --
 -- Constraints: Minimum 30-minute window.
-restoreFromClusterSnapshot_preferredMaintenanceWindow :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_preferredMaintenanceWindow :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_preferredMaintenanceWindow = Lens.lens (\RestoreFromClusterSnapshot' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@RestoreFromClusterSnapshot' {} a -> s {preferredMaintenanceWindow = a} :: RestoreFromClusterSnapshot)
 
 -- | The number of nodes specified when provisioning the restored cluster.
-restoreFromClusterSnapshot_numberOfNodes :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Int)
+restoreFromClusterSnapshot_numberOfNodes :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Int)
 restoreFromClusterSnapshot_numberOfNodes = Lens.lens (\RestoreFromClusterSnapshot' {numberOfNodes} -> numberOfNodes) (\s@RestoreFromClusterSnapshot' {} a -> s {numberOfNodes = a} :: RestoreFromClusterSnapshot)
 
 -- | The port number on which the cluster accepts connections.
@@ -630,7 +627,7 @@ restoreFromClusterSnapshot_numberOfNodes = Lens.lens (\RestoreFromClusterSnapsho
 -- Default: The same port as the original cluster.
 --
 -- Constraints: Must be between @1115@ and @65535@.
-restoreFromClusterSnapshot_port :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Int)
+restoreFromClusterSnapshot_port :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Int)
 restoreFromClusterSnapshot_port = Lens.lens (\RestoreFromClusterSnapshot' {port} -> port) (\s@RestoreFromClusterSnapshot' {} a -> s {port = a} :: RestoreFromClusterSnapshot)
 
 -- | The node type that the restored cluster will be provisioned with.
@@ -647,13 +644,13 @@ restoreFromClusterSnapshot_port = Lens.lens (\RestoreFromClusterSnapshot' {port}
 -- cluster. For more information about node types, see
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes About Clusters and Nodes>
 -- in the /Amazon Redshift Cluster Management Guide/.
-restoreFromClusterSnapshot_nodeType :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_nodeType :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_nodeType = Lens.lens (\RestoreFromClusterSnapshot' {nodeType} -> nodeType) (\s@RestoreFromClusterSnapshot' {} a -> s {nodeType = a} :: RestoreFromClusterSnapshot)
 
 -- | The AWS customer account used to create or copy the snapshot. Required
 -- if you are restoring a snapshot you do not own, optional if you own the
 -- snapshot.
-restoreFromClusterSnapshot_ownerAccount :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_ownerAccount :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_ownerAccount = Lens.lens (\RestoreFromClusterSnapshot' {ownerAccount} -> ownerAccount) (\s@RestoreFromClusterSnapshot' {} a -> s {ownerAccount = a} :: RestoreFromClusterSnapshot)
 
 -- | A list of security groups to be associated with this cluster.
@@ -661,8 +658,8 @@ restoreFromClusterSnapshot_ownerAccount = Lens.lens (\RestoreFromClusterSnapshot
 -- Default: The default cluster security group for Amazon Redshift.
 --
 -- Cluster security groups only apply to clusters outside of VPCs.
-restoreFromClusterSnapshot_clusterSecurityGroups :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe [Prelude.Text])
-restoreFromClusterSnapshot_clusterSecurityGroups = Lens.lens (\RestoreFromClusterSnapshot' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@RestoreFromClusterSnapshot' {} a -> s {clusterSecurityGroups = a} :: RestoreFromClusterSnapshot) Prelude.. Lens.mapping Prelude._Coerce
+restoreFromClusterSnapshot_clusterSecurityGroups :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe [Core.Text])
+restoreFromClusterSnapshot_clusterSecurityGroups = Lens.lens (\RestoreFromClusterSnapshot' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@RestoreFromClusterSnapshot' {} a -> s {clusterSecurityGroups = a} :: RestoreFromClusterSnapshot) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the maintenance track for the restored cluster. When you
 -- take a snapshot, the snapshot inherits the @MaintenanceTrack@ value from
@@ -671,13 +668,13 @@ restoreFromClusterSnapshot_clusterSecurityGroups = Lens.lens (\RestoreFromCluste
 -- a snapshot of a cluster that is on the current track and then change the
 -- cluster to be on the trailing track. In this case, the snapshot and the
 -- source cluster are on different tracks.
-restoreFromClusterSnapshot_maintenanceTrackName :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_maintenanceTrackName :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_maintenanceTrackName = Lens.lens (\RestoreFromClusterSnapshot' {maintenanceTrackName} -> maintenanceTrackName) (\s@RestoreFromClusterSnapshot' {} a -> s {maintenanceTrackName = a} :: RestoreFromClusterSnapshot)
 
 -- | Specifies the name of the HSM configuration that contains the
 -- information the Amazon Redshift cluster can use to retrieve and store
 -- keys in an HSM.
-restoreFromClusterSnapshot_hsmConfigurationIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreFromClusterSnapshot_hsmConfigurationIdentifier :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe Core.Text)
 restoreFromClusterSnapshot_hsmConfigurationIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {hsmConfigurationIdentifier = a} :: RestoreFromClusterSnapshot)
 
 -- | A list of AWS Identity and Access Management (IAM) roles that can be
@@ -686,8 +683,8 @@ restoreFromClusterSnapshot_hsmConfigurationIdentifier = Lens.lens (\RestoreFromC
 -- to 10 IAM roles in a single request.
 --
 -- A cluster can have up to 10 IAM roles associated at any time.
-restoreFromClusterSnapshot_iamRoles :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe [Prelude.Text])
-restoreFromClusterSnapshot_iamRoles = Lens.lens (\RestoreFromClusterSnapshot' {iamRoles} -> iamRoles) (\s@RestoreFromClusterSnapshot' {} a -> s {iamRoles = a} :: RestoreFromClusterSnapshot) Prelude.. Lens.mapping Prelude._Coerce
+restoreFromClusterSnapshot_iamRoles :: Lens.Lens' RestoreFromClusterSnapshot (Core.Maybe [Core.Text])
+restoreFromClusterSnapshot_iamRoles = Lens.lens (\RestoreFromClusterSnapshot' {iamRoles} -> iamRoles) (\s@RestoreFromClusterSnapshot' {} a -> s {iamRoles = a} :: RestoreFromClusterSnapshot) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the cluster that will be created from restoring the
 -- snapshot.
@@ -703,22 +700,19 @@ restoreFromClusterSnapshot_iamRoles = Lens.lens (\RestoreFromClusterSnapshot' {i
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- -   Must be unique for all clusters within an AWS account.
-restoreFromClusterSnapshot_clusterIdentifier :: Lens.Lens' RestoreFromClusterSnapshot Prelude.Text
+restoreFromClusterSnapshot_clusterIdentifier :: Lens.Lens' RestoreFromClusterSnapshot Core.Text
 restoreFromClusterSnapshot_clusterIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {clusterIdentifier} -> clusterIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {clusterIdentifier = a} :: RestoreFromClusterSnapshot)
 
 -- | The name of the snapshot from which to create the new cluster. This
 -- parameter isn\'t case sensitive.
 --
 -- Example: @my-snapshot-id@
-restoreFromClusterSnapshot_snapshotIdentifier :: Lens.Lens' RestoreFromClusterSnapshot Prelude.Text
+restoreFromClusterSnapshot_snapshotIdentifier :: Lens.Lens' RestoreFromClusterSnapshot Core.Text
 restoreFromClusterSnapshot_snapshotIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {snapshotIdentifier} -> snapshotIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {snapshotIdentifier = a} :: RestoreFromClusterSnapshot)
 
-instance
-  Prelude.AWSRequest
-    RestoreFromClusterSnapshot
-  where
+instance Core.AWSRequest RestoreFromClusterSnapshot where
   type
-    Rs RestoreFromClusterSnapshot =
+    AWSResponse RestoreFromClusterSnapshot =
       RestoreFromClusterSnapshotResponse
   request = Request.postQuery defaultService
   response =
@@ -726,86 +720,82 @@ instance
       "RestoreFromClusterSnapshotResult"
       ( \s h x ->
           RestoreFromClusterSnapshotResponse'
-            Prelude.<$> (x Prelude..@? "Cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreFromClusterSnapshot
+instance Core.Hashable RestoreFromClusterSnapshot
 
-instance Prelude.NFData RestoreFromClusterSnapshot
+instance Core.NFData RestoreFromClusterSnapshot
 
-instance Prelude.ToHeaders RestoreFromClusterSnapshot where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RestoreFromClusterSnapshot where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RestoreFromClusterSnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath RestoreFromClusterSnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RestoreFromClusterSnapshot where
+instance Core.ToQuery RestoreFromClusterSnapshot where
   toQuery RestoreFromClusterSnapshot' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RestoreFromClusterSnapshot" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "EnhancedVpcRouting" Prelude.=: enhancedVpcRouting,
-        "AdditionalInfo" Prelude.=: additionalInfo,
-        "ElasticIp" Prelude.=: elasticIp,
+          Core.=: ("RestoreFromClusterSnapshot" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "EnhancedVpcRouting" Core.=: enhancedVpcRouting,
+        "AdditionalInfo" Core.=: additionalInfo,
+        "ElasticIp" Core.=: elasticIp,
         "ClusterSubnetGroupName"
-          Prelude.=: clusterSubnetGroupName,
+          Core.=: clusterSubnetGroupName,
         "HsmClientCertificateIdentifier"
-          Prelude.=: hsmClientCertificateIdentifier,
-        "AllowVersionUpgrade" Prelude.=: allowVersionUpgrade,
+          Core.=: hsmClientCertificateIdentifier,
+        "AllowVersionUpgrade" Core.=: allowVersionUpgrade,
         "AutomatedSnapshotRetentionPeriod"
-          Prelude.=: automatedSnapshotRetentionPeriod,
+          Core.=: automatedSnapshotRetentionPeriod,
         "ClusterParameterGroupName"
-          Prelude.=: clusterParameterGroupName,
+          Core.=: clusterParameterGroupName,
         "SnapshotClusterIdentifier"
-          Prelude.=: snapshotClusterIdentifier,
+          Core.=: snapshotClusterIdentifier,
         "AvailabilityZoneRelocation"
-          Prelude.=: availabilityZoneRelocation,
+          Core.=: availabilityZoneRelocation,
         "SnapshotScheduleIdentifier"
-          Prelude.=: snapshotScheduleIdentifier,
-        "PubliclyAccessible" Prelude.=: publiclyAccessible,
+          Core.=: snapshotScheduleIdentifier,
+        "PubliclyAccessible" Core.=: publiclyAccessible,
         "VpcSecurityGroupIds"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "VpcSecurityGroupId"
-                Prelude.<$> vpcSecurityGroupIds
+          Core.=: Core.toQuery
+            ( Core.toQueryList "VpcSecurityGroupId"
+                Core.<$> vpcSecurityGroupIds
             ),
         "ManualSnapshotRetentionPeriod"
-          Prelude.=: manualSnapshotRetentionPeriod,
-        "KmsKeyId" Prelude.=: kmsKeyId,
-        "AvailabilityZone" Prelude.=: availabilityZone,
+          Core.=: manualSnapshotRetentionPeriod,
+        "KmsKeyId" Core.=: kmsKeyId,
+        "AvailabilityZone" Core.=: availabilityZone,
         "PreferredMaintenanceWindow"
-          Prelude.=: preferredMaintenanceWindow,
-        "NumberOfNodes" Prelude.=: numberOfNodes,
-        "Port" Prelude.=: port,
-        "NodeType" Prelude.=: nodeType,
-        "OwnerAccount" Prelude.=: ownerAccount,
+          Core.=: preferredMaintenanceWindow,
+        "NumberOfNodes" Core.=: numberOfNodes,
+        "Port" Core.=: port,
+        "NodeType" Core.=: nodeType,
+        "OwnerAccount" Core.=: ownerAccount,
         "ClusterSecurityGroups"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "ClusterSecurityGroupName"
-                Prelude.<$> clusterSecurityGroups
+          Core.=: Core.toQuery
+            ( Core.toQueryList "ClusterSecurityGroupName"
+                Core.<$> clusterSecurityGroups
             ),
-        "MaintenanceTrackName"
-          Prelude.=: maintenanceTrackName,
+        "MaintenanceTrackName" Core.=: maintenanceTrackName,
         "HsmConfigurationIdentifier"
-          Prelude.=: hsmConfigurationIdentifier,
+          Core.=: hsmConfigurationIdentifier,
         "IamRoles"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "IamRoleArn"
-                Prelude.<$> iamRoles
-            ),
-        "ClusterIdentifier" Prelude.=: clusterIdentifier,
-        "SnapshotIdentifier" Prelude.=: snapshotIdentifier
+          Core.=: Core.toQuery
+            (Core.toQueryList "IamRoleArn" Core.<$> iamRoles),
+        "ClusterIdentifier" Core.=: clusterIdentifier,
+        "SnapshotIdentifier" Core.=: snapshotIdentifier
       ]
 
 -- | /See:/ 'newRestoreFromClusterSnapshotResponse' smart constructor.
 data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
-  { cluster :: Prelude.Maybe Cluster,
+  { cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestoreFromClusterSnapshotResponse' with all optional fields omitted.
@@ -820,23 +810,23 @@ data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
 -- 'httpStatus', 'restoreFromClusterSnapshotResponse_httpStatus' - The response's http status code.
 newRestoreFromClusterSnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RestoreFromClusterSnapshotResponse
 newRestoreFromClusterSnapshotResponse pHttpStatus_ =
   RestoreFromClusterSnapshotResponse'
     { cluster =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-restoreFromClusterSnapshotResponse_cluster :: Lens.Lens' RestoreFromClusterSnapshotResponse (Prelude.Maybe Cluster)
+restoreFromClusterSnapshotResponse_cluster :: Lens.Lens' RestoreFromClusterSnapshotResponse (Core.Maybe Cluster)
 restoreFromClusterSnapshotResponse_cluster = Lens.lens (\RestoreFromClusterSnapshotResponse' {cluster} -> cluster) (\s@RestoreFromClusterSnapshotResponse' {} a -> s {cluster = a} :: RestoreFromClusterSnapshotResponse)
 
 -- | The response's http status code.
-restoreFromClusterSnapshotResponse_httpStatus :: Lens.Lens' RestoreFromClusterSnapshotResponse Prelude.Int
+restoreFromClusterSnapshotResponse_httpStatus :: Lens.Lens' RestoreFromClusterSnapshotResponse Core.Int
 restoreFromClusterSnapshotResponse_httpStatus = Lens.lens (\RestoreFromClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@RestoreFromClusterSnapshotResponse' {} a -> s {httpStatus = a} :: RestoreFromClusterSnapshotResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RestoreFromClusterSnapshotResponse

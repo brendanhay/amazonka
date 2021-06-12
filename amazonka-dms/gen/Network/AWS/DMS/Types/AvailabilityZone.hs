@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DMS.Types.AvailabilityZone where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The name of an Availability Zone for use during database migration.
 -- @AvailabilityZone@ is an optional parameter to the
@@ -33,9 +32,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
   { -- | The name of the Availability Zone.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AvailabilityZone' with all optional fields omitted.
@@ -49,20 +48,20 @@ data AvailabilityZone = AvailabilityZone'
 newAvailabilityZone ::
   AvailabilityZone
 newAvailabilityZone =
-  AvailabilityZone' {name = Prelude.Nothing}
+  AvailabilityZone' {name = Core.Nothing}
 
 -- | The name of the Availability Zone.
-availabilityZone_name :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
+availabilityZone_name :: Lens.Lens' AvailabilityZone (Core.Maybe Core.Text)
 availabilityZone_name = Lens.lens (\AvailabilityZone' {name} -> name) (\s@AvailabilityZone' {} a -> s {name = a} :: AvailabilityZone)
 
-instance Prelude.FromJSON AvailabilityZone where
+instance Core.FromJSON AvailabilityZone where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AvailabilityZone"
       ( \x ->
-          AvailabilityZone' Prelude.<$> (x Prelude..:? "Name")
+          AvailabilityZone' Core.<$> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable AvailabilityZone
+instance Core.Hashable AvailabilityZone
 
-instance Prelude.NFData AvailabilityZone
+instance Core.NFData AvailabilityZone

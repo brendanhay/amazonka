@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.ClusterParameterStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes the status of a parameter group.
@@ -52,14 +51,14 @@ data ClusterParameterStatus = ClusterParameterStatus'
     --
     -- -   @unknown-error@: Cannot apply the parameter change right now. The
     --     change will be applied after the cluster reboots.
-    parameterApplyStatus :: Prelude.Maybe Prelude.Text,
+    parameterApplyStatus :: Core.Maybe Core.Text,
     -- | The name of the parameter.
-    parameterName :: Prelude.Maybe Prelude.Text,
+    parameterName :: Core.Maybe Core.Text,
     -- | The error that prevented the parameter from being applied to the
     -- database.
-    parameterApplyErrorDescription :: Prelude.Maybe Prelude.Text
+    parameterApplyErrorDescription :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClusterParameterStatus' with all optional fields omitted.
@@ -103,9 +102,9 @@ newClusterParameterStatus ::
 newClusterParameterStatus =
   ClusterParameterStatus'
     { parameterApplyStatus =
-        Prelude.Nothing,
-      parameterName = Prelude.Nothing,
-      parameterApplyErrorDescription = Prelude.Nothing
+        Core.Nothing,
+      parameterName = Core.Nothing,
+      parameterApplyErrorDescription = Core.Nothing
     }
 
 -- | The status of the parameter that indicates whether the parameter is in
@@ -132,25 +131,25 @@ newClusterParameterStatus =
 --
 -- -   @unknown-error@: Cannot apply the parameter change right now. The
 --     change will be applied after the cluster reboots.
-clusterParameterStatus_parameterApplyStatus :: Lens.Lens' ClusterParameterStatus (Prelude.Maybe Prelude.Text)
+clusterParameterStatus_parameterApplyStatus :: Lens.Lens' ClusterParameterStatus (Core.Maybe Core.Text)
 clusterParameterStatus_parameterApplyStatus = Lens.lens (\ClusterParameterStatus' {parameterApplyStatus} -> parameterApplyStatus) (\s@ClusterParameterStatus' {} a -> s {parameterApplyStatus = a} :: ClusterParameterStatus)
 
 -- | The name of the parameter.
-clusterParameterStatus_parameterName :: Lens.Lens' ClusterParameterStatus (Prelude.Maybe Prelude.Text)
+clusterParameterStatus_parameterName :: Lens.Lens' ClusterParameterStatus (Core.Maybe Core.Text)
 clusterParameterStatus_parameterName = Lens.lens (\ClusterParameterStatus' {parameterName} -> parameterName) (\s@ClusterParameterStatus' {} a -> s {parameterName = a} :: ClusterParameterStatus)
 
 -- | The error that prevented the parameter from being applied to the
 -- database.
-clusterParameterStatus_parameterApplyErrorDescription :: Lens.Lens' ClusterParameterStatus (Prelude.Maybe Prelude.Text)
+clusterParameterStatus_parameterApplyErrorDescription :: Lens.Lens' ClusterParameterStatus (Core.Maybe Core.Text)
 clusterParameterStatus_parameterApplyErrorDescription = Lens.lens (\ClusterParameterStatus' {parameterApplyErrorDescription} -> parameterApplyErrorDescription) (\s@ClusterParameterStatus' {} a -> s {parameterApplyErrorDescription = a} :: ClusterParameterStatus)
 
-instance Prelude.FromXML ClusterParameterStatus where
+instance Core.FromXML ClusterParameterStatus where
   parseXML x =
     ClusterParameterStatus'
-      Prelude.<$> (x Prelude..@? "ParameterApplyStatus")
-      Prelude.<*> (x Prelude..@? "ParameterName")
-      Prelude.<*> (x Prelude..@? "ParameterApplyErrorDescription")
+      Core.<$> (x Core..@? "ParameterApplyStatus")
+      Core.<*> (x Core..@? "ParameterName")
+      Core.<*> (x Core..@? "ParameterApplyErrorDescription")
 
-instance Prelude.Hashable ClusterParameterStatus
+instance Core.Hashable ClusterParameterStatus
 
-instance Prelude.NFData ClusterParameterStatus
+instance Core.NFData ClusterParameterStatus

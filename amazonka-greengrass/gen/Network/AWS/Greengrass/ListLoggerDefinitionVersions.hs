@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.Greengrass.ListLoggerDefinitionVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +54,13 @@ import qualified Network.AWS.Response as Response
 data ListLoggerDefinitionVersions = ListLoggerDefinitionVersions'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text,
+    maxResults :: Core.Maybe Core.Text,
     -- | The ID of the logger definition.
-    loggerDefinitionId :: Prelude.Text
+    loggerDefinitionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListLoggerDefinitionVersions' with all optional fields omitted.
@@ -80,114 +78,104 @@ data ListLoggerDefinitionVersions = ListLoggerDefinitionVersions'
 -- 'loggerDefinitionId', 'listLoggerDefinitionVersions_loggerDefinitionId' - The ID of the logger definition.
 newListLoggerDefinitionVersions ::
   -- | 'loggerDefinitionId'
-  Prelude.Text ->
+  Core.Text ->
   ListLoggerDefinitionVersions
 newListLoggerDefinitionVersions pLoggerDefinitionId_ =
   ListLoggerDefinitionVersions'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+        Core.Nothing,
+      maxResults = Core.Nothing,
       loggerDefinitionId = pLoggerDefinitionId_
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listLoggerDefinitionVersions_nextToken :: Lens.Lens' ListLoggerDefinitionVersions (Prelude.Maybe Prelude.Text)
+listLoggerDefinitionVersions_nextToken :: Lens.Lens' ListLoggerDefinitionVersions (Core.Maybe Core.Text)
 listLoggerDefinitionVersions_nextToken = Lens.lens (\ListLoggerDefinitionVersions' {nextToken} -> nextToken) (\s@ListLoggerDefinitionVersions' {} a -> s {nextToken = a} :: ListLoggerDefinitionVersions)
 
 -- | The maximum number of results to be returned per request.
-listLoggerDefinitionVersions_maxResults :: Lens.Lens' ListLoggerDefinitionVersions (Prelude.Maybe Prelude.Text)
+listLoggerDefinitionVersions_maxResults :: Lens.Lens' ListLoggerDefinitionVersions (Core.Maybe Core.Text)
 listLoggerDefinitionVersions_maxResults = Lens.lens (\ListLoggerDefinitionVersions' {maxResults} -> maxResults) (\s@ListLoggerDefinitionVersions' {} a -> s {maxResults = a} :: ListLoggerDefinitionVersions)
 
 -- | The ID of the logger definition.
-listLoggerDefinitionVersions_loggerDefinitionId :: Lens.Lens' ListLoggerDefinitionVersions Prelude.Text
+listLoggerDefinitionVersions_loggerDefinitionId :: Lens.Lens' ListLoggerDefinitionVersions Core.Text
 listLoggerDefinitionVersions_loggerDefinitionId = Lens.lens (\ListLoggerDefinitionVersions' {loggerDefinitionId} -> loggerDefinitionId) (\s@ListLoggerDefinitionVersions' {} a -> s {loggerDefinitionId = a} :: ListLoggerDefinitionVersions)
 
-instance Pager.AWSPager ListLoggerDefinitionVersions where
+instance Core.AWSPager ListLoggerDefinitionVersions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listLoggerDefinitionVersionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listLoggerDefinitionVersionsResponse_versions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listLoggerDefinitionVersions_nextToken
           Lens..~ rs
           Lens.^? listLoggerDefinitionVersionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    ListLoggerDefinitionVersions
-  where
+instance Core.AWSRequest ListLoggerDefinitionVersions where
   type
-    Rs ListLoggerDefinitionVersions =
+    AWSResponse ListLoggerDefinitionVersions =
       ListLoggerDefinitionVersionsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListLoggerDefinitionVersionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Versions" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Versions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ListLoggerDefinitionVersions
+instance Core.Hashable ListLoggerDefinitionVersions
 
-instance Prelude.NFData ListLoggerDefinitionVersions
+instance Core.NFData ListLoggerDefinitionVersions
 
-instance
-  Prelude.ToHeaders
-    ListLoggerDefinitionVersions
-  where
+instance Core.ToHeaders ListLoggerDefinitionVersions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListLoggerDefinitionVersions where
+instance Core.ToPath ListLoggerDefinitionVersions where
   toPath ListLoggerDefinitionVersions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/definition/loggers/",
-        Prelude.toBS loggerDefinitionId,
+        Core.toBS loggerDefinitionId,
         "/versions"
       ]
 
-instance Prelude.ToQuery ListLoggerDefinitionVersions where
+instance Core.ToQuery ListLoggerDefinitionVersions where
   toQuery ListLoggerDefinitionVersions' {..} =
-    Prelude.mconcat
-      [ "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListLoggerDefinitionVersionsResponse' smart constructor.
 data ListLoggerDefinitionVersionsResponse = ListLoggerDefinitionVersionsResponse'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about a version.
-    versions :: Prelude.Maybe [VersionInformation],
+    versions :: Core.Maybe [VersionInformation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListLoggerDefinitionVersionsResponse' with all optional fields omitted.
@@ -205,29 +193,29 @@ data ListLoggerDefinitionVersionsResponse = ListLoggerDefinitionVersionsResponse
 -- 'httpStatus', 'listLoggerDefinitionVersionsResponse_httpStatus' - The response's http status code.
 newListLoggerDefinitionVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListLoggerDefinitionVersionsResponse
 newListLoggerDefinitionVersionsResponse pHttpStatus_ =
   ListLoggerDefinitionVersionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      versions = Prelude.Nothing,
+        Core.Nothing,
+      versions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listLoggerDefinitionVersionsResponse_nextToken :: Lens.Lens' ListLoggerDefinitionVersionsResponse (Prelude.Maybe Prelude.Text)
+listLoggerDefinitionVersionsResponse_nextToken :: Lens.Lens' ListLoggerDefinitionVersionsResponse (Core.Maybe Core.Text)
 listLoggerDefinitionVersionsResponse_nextToken = Lens.lens (\ListLoggerDefinitionVersionsResponse' {nextToken} -> nextToken) (\s@ListLoggerDefinitionVersionsResponse' {} a -> s {nextToken = a} :: ListLoggerDefinitionVersionsResponse)
 
 -- | Information about a version.
-listLoggerDefinitionVersionsResponse_versions :: Lens.Lens' ListLoggerDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
-listLoggerDefinitionVersionsResponse_versions = Lens.lens (\ListLoggerDefinitionVersionsResponse' {versions} -> versions) (\s@ListLoggerDefinitionVersionsResponse' {} a -> s {versions = a} :: ListLoggerDefinitionVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listLoggerDefinitionVersionsResponse_versions :: Lens.Lens' ListLoggerDefinitionVersionsResponse (Core.Maybe [VersionInformation])
+listLoggerDefinitionVersionsResponse_versions = Lens.lens (\ListLoggerDefinitionVersionsResponse' {versions} -> versions) (\s@ListLoggerDefinitionVersionsResponse' {} a -> s {versions = a} :: ListLoggerDefinitionVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listLoggerDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListLoggerDefinitionVersionsResponse Prelude.Int
+listLoggerDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListLoggerDefinitionVersionsResponse Core.Int
 listLoggerDefinitionVersionsResponse_httpStatus = Lens.lens (\ListLoggerDefinitionVersionsResponse' {httpStatus} -> httpStatus) (\s@ListLoggerDefinitionVersionsResponse' {} a -> s {httpStatus = a} :: ListLoggerDefinitionVersionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListLoggerDefinitionVersionsResponse

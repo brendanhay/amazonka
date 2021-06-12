@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainStatus
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the validation record of each domain name in the SSL\/TLS
 -- certificate.
@@ -31,18 +30,18 @@ import qualified Network.AWS.Prelude as Prelude
 data LoadBalancerTlsCertificateDomainValidationRecord = LoadBalancerTlsCertificateDomainValidationRecord'
   { -- | A fully qualified domain name in the certificate. For example,
     -- @example.com@.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The domain name against which your SSL\/TLS certificate was validated.
-    domainName :: Prelude.Maybe Prelude.Text,
+    domainName :: Core.Maybe Core.Text,
     -- | The validation status. Valid values are listed below.
-    validationStatus :: Prelude.Maybe LoadBalancerTlsCertificateDomainStatus,
+    validationStatus :: Core.Maybe LoadBalancerTlsCertificateDomainStatus,
     -- | The value for that type.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The type of validation record. For example, @CNAME@ for domain
     -- validation.
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerTlsCertificateDomainValidationRecord' with all optional fields omitted.
@@ -68,57 +67,56 @@ newLoadBalancerTlsCertificateDomainValidationRecord ::
 newLoadBalancerTlsCertificateDomainValidationRecord =
   LoadBalancerTlsCertificateDomainValidationRecord'
     { name =
-        Prelude.Nothing,
-      domainName =
-        Prelude.Nothing,
+        Core.Nothing,
+      domainName = Core.Nothing,
       validationStatus =
-        Prelude.Nothing,
-      value = Prelude.Nothing,
-      type' = Prelude.Nothing
+        Core.Nothing,
+      value = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | A fully qualified domain name in the certificate. For example,
 -- @example.com@.
-loadBalancerTlsCertificateDomainValidationRecord_name :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe Prelude.Text)
+loadBalancerTlsCertificateDomainValidationRecord_name :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Core.Maybe Core.Text)
 loadBalancerTlsCertificateDomainValidationRecord_name = Lens.lens (\LoadBalancerTlsCertificateDomainValidationRecord' {name} -> name) (\s@LoadBalancerTlsCertificateDomainValidationRecord' {} a -> s {name = a} :: LoadBalancerTlsCertificateDomainValidationRecord)
 
 -- | The domain name against which your SSL\/TLS certificate was validated.
-loadBalancerTlsCertificateDomainValidationRecord_domainName :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe Prelude.Text)
+loadBalancerTlsCertificateDomainValidationRecord_domainName :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Core.Maybe Core.Text)
 loadBalancerTlsCertificateDomainValidationRecord_domainName = Lens.lens (\LoadBalancerTlsCertificateDomainValidationRecord' {domainName} -> domainName) (\s@LoadBalancerTlsCertificateDomainValidationRecord' {} a -> s {domainName = a} :: LoadBalancerTlsCertificateDomainValidationRecord)
 
 -- | The validation status. Valid values are listed below.
-loadBalancerTlsCertificateDomainValidationRecord_validationStatus :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe LoadBalancerTlsCertificateDomainStatus)
+loadBalancerTlsCertificateDomainValidationRecord_validationStatus :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Core.Maybe LoadBalancerTlsCertificateDomainStatus)
 loadBalancerTlsCertificateDomainValidationRecord_validationStatus = Lens.lens (\LoadBalancerTlsCertificateDomainValidationRecord' {validationStatus} -> validationStatus) (\s@LoadBalancerTlsCertificateDomainValidationRecord' {} a -> s {validationStatus = a} :: LoadBalancerTlsCertificateDomainValidationRecord)
 
 -- | The value for that type.
-loadBalancerTlsCertificateDomainValidationRecord_value :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe Prelude.Text)
+loadBalancerTlsCertificateDomainValidationRecord_value :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Core.Maybe Core.Text)
 loadBalancerTlsCertificateDomainValidationRecord_value = Lens.lens (\LoadBalancerTlsCertificateDomainValidationRecord' {value} -> value) (\s@LoadBalancerTlsCertificateDomainValidationRecord' {} a -> s {value = a} :: LoadBalancerTlsCertificateDomainValidationRecord)
 
 -- | The type of validation record. For example, @CNAME@ for domain
 -- validation.
-loadBalancerTlsCertificateDomainValidationRecord_type :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Prelude.Maybe Prelude.Text)
+loadBalancerTlsCertificateDomainValidationRecord_type :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationRecord (Core.Maybe Core.Text)
 loadBalancerTlsCertificateDomainValidationRecord_type = Lens.lens (\LoadBalancerTlsCertificateDomainValidationRecord' {type'} -> type') (\s@LoadBalancerTlsCertificateDomainValidationRecord' {} a -> s {type' = a} :: LoadBalancerTlsCertificateDomainValidationRecord)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     LoadBalancerTlsCertificateDomainValidationRecord
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LoadBalancerTlsCertificateDomainValidationRecord"
       ( \x ->
           LoadBalancerTlsCertificateDomainValidationRecord'
-            Prelude.<$> (x Prelude..:? "name")
-              Prelude.<*> (x Prelude..:? "domainName")
-              Prelude.<*> (x Prelude..:? "validationStatus")
-              Prelude.<*> (x Prelude..:? "value")
-              Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "name")
+              Core.<*> (x Core..:? "domainName")
+              Core.<*> (x Core..:? "validationStatus")
+              Core.<*> (x Core..:? "value")
+              Core.<*> (x Core..:? "type")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LoadBalancerTlsCertificateDomainValidationRecord
 
 instance
-  Prelude.NFData
+  Core.NFData
     LoadBalancerTlsCertificateDomainValidationRecord

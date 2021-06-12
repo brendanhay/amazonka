@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.APIGateway.Types.StageKey where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A reference to a unique stage identified in the format
 -- @{restApiId}\/{stage}@.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newStageKey' smart constructor.
 data StageKey = StageKey'
   { -- | The stage name associated with the stage key.
-    stageName :: Prelude.Maybe Prelude.Text,
+    stageName :: Core.Maybe Core.Text,
     -- | The string identifier of the associated RestApi.
-    restApiId :: Prelude.Maybe Prelude.Text
+    restApiId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StageKey' with all optional fields omitted.
@@ -50,27 +49,27 @@ newStageKey ::
   StageKey
 newStageKey =
   StageKey'
-    { stageName = Prelude.Nothing,
-      restApiId = Prelude.Nothing
+    { stageName = Core.Nothing,
+      restApiId = Core.Nothing
     }
 
 -- | The stage name associated with the stage key.
-stageKey_stageName :: Lens.Lens' StageKey (Prelude.Maybe Prelude.Text)
+stageKey_stageName :: Lens.Lens' StageKey (Core.Maybe Core.Text)
 stageKey_stageName = Lens.lens (\StageKey' {stageName} -> stageName) (\s@StageKey' {} a -> s {stageName = a} :: StageKey)
 
 -- | The string identifier of the associated RestApi.
-stageKey_restApiId :: Lens.Lens' StageKey (Prelude.Maybe Prelude.Text)
+stageKey_restApiId :: Lens.Lens' StageKey (Core.Maybe Core.Text)
 stageKey_restApiId = Lens.lens (\StageKey' {restApiId} -> restApiId) (\s@StageKey' {} a -> s {restApiId = a} :: StageKey)
 
-instance Prelude.Hashable StageKey
+instance Core.Hashable StageKey
 
-instance Prelude.NFData StageKey
+instance Core.NFData StageKey
 
-instance Prelude.ToJSON StageKey where
+instance Core.ToJSON StageKey where
   toJSON StageKey' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("stageName" Prelude..=) Prelude.<$> stageName,
-            ("restApiId" Prelude..=) Prelude.<$> restApiId
+    Core.object
+      ( Core.catMaybes
+          [ ("stageName" Core..=) Core.<$> stageName,
+            ("restApiId" Core..=) Core.<$> restApiId
           ]
       )

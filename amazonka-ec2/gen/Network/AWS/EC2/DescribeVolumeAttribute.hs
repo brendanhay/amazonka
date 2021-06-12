@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.EC2.DescribeVolumeAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +60,13 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The attribute of the volume. This parameter is required.
     attribute :: VolumeAttributeName,
     -- | The ID of the volume.
-    volumeId :: Prelude.Text
+    volumeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVolumeAttribute' with all optional fields omitted.
@@ -89,11 +88,11 @@ newDescribeVolumeAttribute ::
   -- | 'attribute'
   VolumeAttributeName ->
   -- | 'volumeId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeVolumeAttribute
 newDescribeVolumeAttribute pAttribute_ pVolumeId_ =
   DescribeVolumeAttribute'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       attribute = pAttribute_,
       volumeId = pVolumeId_
     }
@@ -102,7 +101,7 @@ newDescribeVolumeAttribute pAttribute_ pVolumeId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeVolumeAttribute_dryRun :: Lens.Lens' DescribeVolumeAttribute (Prelude.Maybe Prelude.Bool)
+describeVolumeAttribute_dryRun :: Lens.Lens' DescribeVolumeAttribute (Core.Maybe Core.Bool)
 describeVolumeAttribute_dryRun = Lens.lens (\DescribeVolumeAttribute' {dryRun} -> dryRun) (\s@DescribeVolumeAttribute' {} a -> s {dryRun = a} :: DescribeVolumeAttribute)
 
 -- | The attribute of the volume. This parameter is required.
@@ -110,61 +109,59 @@ describeVolumeAttribute_attribute :: Lens.Lens' DescribeVolumeAttribute VolumeAt
 describeVolumeAttribute_attribute = Lens.lens (\DescribeVolumeAttribute' {attribute} -> attribute) (\s@DescribeVolumeAttribute' {} a -> s {attribute = a} :: DescribeVolumeAttribute)
 
 -- | The ID of the volume.
-describeVolumeAttribute_volumeId :: Lens.Lens' DescribeVolumeAttribute Prelude.Text
+describeVolumeAttribute_volumeId :: Lens.Lens' DescribeVolumeAttribute Core.Text
 describeVolumeAttribute_volumeId = Lens.lens (\DescribeVolumeAttribute' {volumeId} -> volumeId) (\s@DescribeVolumeAttribute' {} a -> s {volumeId = a} :: DescribeVolumeAttribute)
 
-instance Prelude.AWSRequest DescribeVolumeAttribute where
+instance Core.AWSRequest DescribeVolumeAttribute where
   type
-    Rs DescribeVolumeAttribute =
+    AWSResponse DescribeVolumeAttribute =
       DescribeVolumeAttributeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeVolumeAttributeResponse'
-            Prelude.<$> ( x Prelude..@? "productCodes"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (x Prelude..@? "volumeId")
-            Prelude.<*> (x Prelude..@? "autoEnableIO")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "productCodes" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (x Core..@? "volumeId")
+            Core.<*> (x Core..@? "autoEnableIO")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVolumeAttribute
+instance Core.Hashable DescribeVolumeAttribute
 
-instance Prelude.NFData DescribeVolumeAttribute
+instance Core.NFData DescribeVolumeAttribute
 
-instance Prelude.ToHeaders DescribeVolumeAttribute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeVolumeAttribute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeVolumeAttribute where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeVolumeAttribute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeVolumeAttribute where
+instance Core.ToQuery DescribeVolumeAttribute where
   toQuery DescribeVolumeAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeVolumeAttribute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "Attribute" Prelude.=: attribute,
-        "VolumeId" Prelude.=: volumeId
+          Core.=: ("DescribeVolumeAttribute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Attribute" Core.=: attribute,
+        "VolumeId" Core.=: volumeId
       ]
 
 -- | /See:/ 'newDescribeVolumeAttributeResponse' smart constructor.
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
   { -- | A list of product codes.
-    productCodes :: Prelude.Maybe [ProductCode],
+    productCodes :: Core.Maybe [ProductCode],
     -- | The ID of the volume.
-    volumeId :: Prelude.Maybe Prelude.Text,
+    volumeId :: Core.Maybe Core.Text,
     -- | The state of @autoEnableIO@ attribute.
-    autoEnableIO :: Prelude.Maybe AttributeBooleanValue,
+    autoEnableIO :: Core.Maybe AttributeBooleanValue,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVolumeAttributeResponse' with all optional fields omitted.
@@ -183,33 +180,31 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
 -- 'httpStatus', 'describeVolumeAttributeResponse_httpStatus' - The response's http status code.
 newDescribeVolumeAttributeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeVolumeAttributeResponse
 newDescribeVolumeAttributeResponse pHttpStatus_ =
   DescribeVolumeAttributeResponse'
     { productCodes =
-        Prelude.Nothing,
-      volumeId = Prelude.Nothing,
-      autoEnableIO = Prelude.Nothing,
+        Core.Nothing,
+      volumeId = Core.Nothing,
+      autoEnableIO = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of product codes.
-describeVolumeAttributeResponse_productCodes :: Lens.Lens' DescribeVolumeAttributeResponse (Prelude.Maybe [ProductCode])
-describeVolumeAttributeResponse_productCodes = Lens.lens (\DescribeVolumeAttributeResponse' {productCodes} -> productCodes) (\s@DescribeVolumeAttributeResponse' {} a -> s {productCodes = a} :: DescribeVolumeAttributeResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeVolumeAttributeResponse_productCodes :: Lens.Lens' DescribeVolumeAttributeResponse (Core.Maybe [ProductCode])
+describeVolumeAttributeResponse_productCodes = Lens.lens (\DescribeVolumeAttributeResponse' {productCodes} -> productCodes) (\s@DescribeVolumeAttributeResponse' {} a -> s {productCodes = a} :: DescribeVolumeAttributeResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the volume.
-describeVolumeAttributeResponse_volumeId :: Lens.Lens' DescribeVolumeAttributeResponse (Prelude.Maybe Prelude.Text)
+describeVolumeAttributeResponse_volumeId :: Lens.Lens' DescribeVolumeAttributeResponse (Core.Maybe Core.Text)
 describeVolumeAttributeResponse_volumeId = Lens.lens (\DescribeVolumeAttributeResponse' {volumeId} -> volumeId) (\s@DescribeVolumeAttributeResponse' {} a -> s {volumeId = a} :: DescribeVolumeAttributeResponse)
 
 -- | The state of @autoEnableIO@ attribute.
-describeVolumeAttributeResponse_autoEnableIO :: Lens.Lens' DescribeVolumeAttributeResponse (Prelude.Maybe AttributeBooleanValue)
+describeVolumeAttributeResponse_autoEnableIO :: Lens.Lens' DescribeVolumeAttributeResponse (Core.Maybe AttributeBooleanValue)
 describeVolumeAttributeResponse_autoEnableIO = Lens.lens (\DescribeVolumeAttributeResponse' {autoEnableIO} -> autoEnableIO) (\s@DescribeVolumeAttributeResponse' {} a -> s {autoEnableIO = a} :: DescribeVolumeAttributeResponse)
 
 -- | The response's http status code.
-describeVolumeAttributeResponse_httpStatus :: Lens.Lens' DescribeVolumeAttributeResponse Prelude.Int
+describeVolumeAttributeResponse_httpStatus :: Lens.Lens' DescribeVolumeAttributeResponse Core.Int
 describeVolumeAttributeResponse_httpStatus = Lens.lens (\DescribeVolumeAttributeResponse' {httpStatus} -> httpStatus) (\s@DescribeVolumeAttributeResponse' {} a -> s {httpStatus = a} :: DescribeVolumeAttributeResponse)
 
-instance
-  Prelude.NFData
-    DescribeVolumeAttributeResponse
+instance Core.NFData DescribeVolumeAttributeResponse

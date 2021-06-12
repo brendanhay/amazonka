@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.Glacier.DeleteVaultAccessPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,11 +60,11 @@ data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVaultAccessPolicy' with all optional fields omitted.
@@ -84,9 +83,9 @@ data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
 -- 'vaultName', 'deleteVaultAccessPolicy_vaultName' - The name of the vault.
 newDeleteVaultAccessPolicy ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVaultAccessPolicy
 newDeleteVaultAccessPolicy pAccountId_ pVaultName_ =
   DeleteVaultAccessPolicy'
@@ -99,49 +98,49 @@ newDeleteVaultAccessPolicy pAccountId_ pVaultName_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-deleteVaultAccessPolicy_accountId :: Lens.Lens' DeleteVaultAccessPolicy Prelude.Text
+deleteVaultAccessPolicy_accountId :: Lens.Lens' DeleteVaultAccessPolicy Core.Text
 deleteVaultAccessPolicy_accountId = Lens.lens (\DeleteVaultAccessPolicy' {accountId} -> accountId) (\s@DeleteVaultAccessPolicy' {} a -> s {accountId = a} :: DeleteVaultAccessPolicy)
 
 -- | The name of the vault.
-deleteVaultAccessPolicy_vaultName :: Lens.Lens' DeleteVaultAccessPolicy Prelude.Text
+deleteVaultAccessPolicy_vaultName :: Lens.Lens' DeleteVaultAccessPolicy Core.Text
 deleteVaultAccessPolicy_vaultName = Lens.lens (\DeleteVaultAccessPolicy' {vaultName} -> vaultName) (\s@DeleteVaultAccessPolicy' {} a -> s {vaultName = a} :: DeleteVaultAccessPolicy)
 
-instance Prelude.AWSRequest DeleteVaultAccessPolicy where
+instance Core.AWSRequest DeleteVaultAccessPolicy where
   type
-    Rs DeleteVaultAccessPolicy =
+    AWSResponse DeleteVaultAccessPolicy =
       DeleteVaultAccessPolicyResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.delete defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.delete defaultService
   response =
     Response.receiveNull
       DeleteVaultAccessPolicyResponse'
 
-instance Prelude.Hashable DeleteVaultAccessPolicy
+instance Core.Hashable DeleteVaultAccessPolicy
 
-instance Prelude.NFData DeleteVaultAccessPolicy
+instance Core.NFData DeleteVaultAccessPolicy
 
-instance Prelude.ToHeaders DeleteVaultAccessPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteVaultAccessPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteVaultAccessPolicy where
+instance Core.ToPath DeleteVaultAccessPolicy where
   toPath DeleteVaultAccessPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/access-policy"
       ]
 
-instance Prelude.ToQuery DeleteVaultAccessPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteVaultAccessPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteVaultAccessPolicyResponse' smart constructor.
 data DeleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVaultAccessPolicyResponse' with all optional fields omitted.
@@ -152,6 +151,4 @@ newDeleteVaultAccessPolicyResponse ::
 newDeleteVaultAccessPolicyResponse =
   DeleteVaultAccessPolicyResponse'
 
-instance
-  Prelude.NFData
-    DeleteVaultAccessPolicyResponse
+instance Core.NFData DeleteVaultAccessPolicyResponse

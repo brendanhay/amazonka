@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.AbortIncompleteMultipartUpload where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Specifies the days since the initiation of an incomplete multipart
@@ -34,9 +33,9 @@ import Network.AWS.S3.Internal
 data AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload'
   { -- | Specifies the number of days after which Amazon S3 aborts an incomplete
     -- multipart upload.
-    daysAfterInitiation :: Prelude.Maybe Prelude.Int
+    daysAfterInitiation :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AbortIncompleteMultipartUpload' with all optional fields omitted.
@@ -53,33 +52,24 @@ newAbortIncompleteMultipartUpload ::
 newAbortIncompleteMultipartUpload =
   AbortIncompleteMultipartUpload'
     { daysAfterInitiation =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies the number of days after which Amazon S3 aborts an incomplete
 -- multipart upload.
-abortIncompleteMultipartUpload_daysAfterInitiation :: Lens.Lens' AbortIncompleteMultipartUpload (Prelude.Maybe Prelude.Int)
+abortIncompleteMultipartUpload_daysAfterInitiation :: Lens.Lens' AbortIncompleteMultipartUpload (Core.Maybe Core.Int)
 abortIncompleteMultipartUpload_daysAfterInitiation = Lens.lens (\AbortIncompleteMultipartUpload' {daysAfterInitiation} -> daysAfterInitiation) (\s@AbortIncompleteMultipartUpload' {} a -> s {daysAfterInitiation = a} :: AbortIncompleteMultipartUpload)
 
-instance
-  Prelude.FromXML
-    AbortIncompleteMultipartUpload
-  where
+instance Core.FromXML AbortIncompleteMultipartUpload where
   parseXML x =
     AbortIncompleteMultipartUpload'
-      Prelude.<$> (x Prelude..@? "DaysAfterInitiation")
+      Core.<$> (x Core..@? "DaysAfterInitiation")
 
-instance
-  Prelude.Hashable
-    AbortIncompleteMultipartUpload
+instance Core.Hashable AbortIncompleteMultipartUpload
 
-instance
-  Prelude.NFData
-    AbortIncompleteMultipartUpload
+instance Core.NFData AbortIncompleteMultipartUpload
 
-instance Prelude.ToXML AbortIncompleteMultipartUpload where
+instance Core.ToXML AbortIncompleteMultipartUpload where
   toXML AbortIncompleteMultipartUpload' {..} =
-    Prelude.mconcat
-      [ "DaysAfterInitiation"
-          Prelude.@= daysAfterInitiation
-      ]
+    Core.mconcat
+      ["DaysAfterInitiation" Core.@= daysAfterInitiation]

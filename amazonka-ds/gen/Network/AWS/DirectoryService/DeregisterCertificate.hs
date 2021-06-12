@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,20 +40,20 @@ module Network.AWS.DirectoryService.DeregisterCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeregisterCertificate' smart constructor.
 data DeregisterCertificate = DeregisterCertificate'
   { -- | The identifier of the directory.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The identifier of the certificate.
-    certificateId :: Prelude.Text
+    certificateId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterCertificate' with all optional fields omitted.
@@ -69,9 +68,9 @@ data DeregisterCertificate = DeregisterCertificate'
 -- 'certificateId', 'deregisterCertificate_certificateId' - The identifier of the certificate.
 newDeregisterCertificate ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'certificateId'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterCertificate
 newDeregisterCertificate
   pDirectoryId_
@@ -82,66 +81,63 @@ newDeregisterCertificate
       }
 
 -- | The identifier of the directory.
-deregisterCertificate_directoryId :: Lens.Lens' DeregisterCertificate Prelude.Text
+deregisterCertificate_directoryId :: Lens.Lens' DeregisterCertificate Core.Text
 deregisterCertificate_directoryId = Lens.lens (\DeregisterCertificate' {directoryId} -> directoryId) (\s@DeregisterCertificate' {} a -> s {directoryId = a} :: DeregisterCertificate)
 
 -- | The identifier of the certificate.
-deregisterCertificate_certificateId :: Lens.Lens' DeregisterCertificate Prelude.Text
+deregisterCertificate_certificateId :: Lens.Lens' DeregisterCertificate Core.Text
 deregisterCertificate_certificateId = Lens.lens (\DeregisterCertificate' {certificateId} -> certificateId) (\s@DeregisterCertificate' {} a -> s {certificateId = a} :: DeregisterCertificate)
 
-instance Prelude.AWSRequest DeregisterCertificate where
+instance Core.AWSRequest DeregisterCertificate where
   type
-    Rs DeregisterCertificate =
+    AWSResponse DeregisterCertificate =
       DeregisterCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterCertificateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterCertificate
+instance Core.Hashable DeregisterCertificate
 
-instance Prelude.NFData DeregisterCertificate
+instance Core.NFData DeregisterCertificate
 
-instance Prelude.ToHeaders DeregisterCertificate where
+instance Core.ToHeaders DeregisterCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.DeregisterCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.DeregisterCertificate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeregisterCertificate where
+instance Core.ToJSON DeregisterCertificate where
   toJSON DeregisterCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just
-              ("CertificateId" Prelude..= certificateId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("CertificateId" Core..= certificateId)
           ]
       )
 
-instance Prelude.ToPath DeregisterCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterCertificateResponse' smart constructor.
 data DeregisterCertificateResponse = DeregisterCertificateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterCertificateResponse' with all optional fields omitted.
@@ -154,7 +150,7 @@ data DeregisterCertificateResponse = DeregisterCertificateResponse'
 -- 'httpStatus', 'deregisterCertificateResponse_httpStatus' - The response's http status code.
 newDeregisterCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeregisterCertificateResponse
 newDeregisterCertificateResponse pHttpStatus_ =
   DeregisterCertificateResponse'
@@ -163,7 +159,7 @@ newDeregisterCertificateResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deregisterCertificateResponse_httpStatus :: Lens.Lens' DeregisterCertificateResponse Prelude.Int
+deregisterCertificateResponse_httpStatus :: Lens.Lens' DeregisterCertificateResponse Core.Int
 deregisterCertificateResponse_httpStatus = Lens.lens (\DeregisterCertificateResponse' {httpStatus} -> httpStatus) (\s@DeregisterCertificateResponse' {} a -> s {httpStatus = a} :: DeregisterCertificateResponse)
 
-instance Prelude.NFData DeregisterCertificateResponse
+instance Core.NFData DeregisterCertificateResponse

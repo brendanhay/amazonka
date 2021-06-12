@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,20 +50,20 @@ module Network.AWS.LexModels.GetBotAlias
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetBotAlias' smart constructor.
 data GetBotAlias = GetBotAlias'
   { -- | The name of the bot alias. The name is case sensitive.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The name of the bot.
-    botName :: Prelude.Text
+    botName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBotAlias' with all optional fields omitted.
@@ -79,90 +78,88 @@ data GetBotAlias = GetBotAlias'
 -- 'botName', 'getBotAlias_botName' - The name of the bot.
 newGetBotAlias ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'botName'
-  Prelude.Text ->
+  Core.Text ->
   GetBotAlias
 newGetBotAlias pName_ pBotName_ =
   GetBotAlias' {name = pName_, botName = pBotName_}
 
 -- | The name of the bot alias. The name is case sensitive.
-getBotAlias_name :: Lens.Lens' GetBotAlias Prelude.Text
+getBotAlias_name :: Lens.Lens' GetBotAlias Core.Text
 getBotAlias_name = Lens.lens (\GetBotAlias' {name} -> name) (\s@GetBotAlias' {} a -> s {name = a} :: GetBotAlias)
 
 -- | The name of the bot.
-getBotAlias_botName :: Lens.Lens' GetBotAlias Prelude.Text
+getBotAlias_botName :: Lens.Lens' GetBotAlias Core.Text
 getBotAlias_botName = Lens.lens (\GetBotAlias' {botName} -> botName) (\s@GetBotAlias' {} a -> s {botName = a} :: GetBotAlias)
 
-instance Prelude.AWSRequest GetBotAlias where
-  type Rs GetBotAlias = GetBotAliasResponse
+instance Core.AWSRequest GetBotAlias where
+  type AWSResponse GetBotAlias = GetBotAliasResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetBotAliasResponse'
-            Prelude.<$> (x Prelude..?> "createdDate")
-            Prelude.<*> (x Prelude..?> "botName")
-            Prelude.<*> (x Prelude..?> "lastUpdatedDate")
-            Prelude.<*> (x Prelude..?> "botVersion")
-            Prelude.<*> (x Prelude..?> "name")
-            Prelude.<*> (x Prelude..?> "description")
-            Prelude.<*> (x Prelude..?> "checksum")
-            Prelude.<*> (x Prelude..?> "conversationLogs")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "createdDate")
+            Core.<*> (x Core..?> "botName")
+            Core.<*> (x Core..?> "lastUpdatedDate")
+            Core.<*> (x Core..?> "botVersion")
+            Core.<*> (x Core..?> "name")
+            Core.<*> (x Core..?> "description")
+            Core.<*> (x Core..?> "checksum")
+            Core.<*> (x Core..?> "conversationLogs")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetBotAlias
+instance Core.Hashable GetBotAlias
 
-instance Prelude.NFData GetBotAlias
+instance Core.NFData GetBotAlias
 
-instance Prelude.ToHeaders GetBotAlias where
+instance Core.ToHeaders GetBotAlias where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetBotAlias where
+instance Core.ToPath GetBotAlias where
   toPath GetBotAlias' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/bots/",
-        Prelude.toBS botName,
+        Core.toBS botName,
         "/aliases/",
-        Prelude.toBS name
+        Core.toBS name
       ]
 
-instance Prelude.ToQuery GetBotAlias where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetBotAlias where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetBotAliasResponse' smart constructor.
 data GetBotAliasResponse = GetBotAliasResponse'
   { -- | The date that the bot alias was created.
-    createdDate :: Prelude.Maybe Prelude.POSIX,
+    createdDate :: Core.Maybe Core.POSIX,
     -- | The name of the bot that the alias points to.
-    botName :: Prelude.Maybe Prelude.Text,
+    botName :: Core.Maybe Core.Text,
     -- | The date that the bot alias was updated. When you create a resource, the
     -- creation date and the last updated date are the same.
-    lastUpdatedDate :: Prelude.Maybe Prelude.POSIX,
+    lastUpdatedDate :: Core.Maybe Core.POSIX,
     -- | The version of the bot that the alias points to.
-    botVersion :: Prelude.Maybe Prelude.Text,
+    botVersion :: Core.Maybe Core.Text,
     -- | The name of the bot alias.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A description of the bot alias.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Checksum of the bot alias.
-    checksum :: Prelude.Maybe Prelude.Text,
+    checksum :: Core.Maybe Core.Text,
     -- | The settings that determine how Amazon Lex uses conversation logs for
     -- the alias.
-    conversationLogs :: Prelude.Maybe ConversationLogsResponse,
+    conversationLogs :: Core.Maybe ConversationLogsResponse,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBotAliasResponse' with all optional fields omitted.
@@ -193,57 +190,57 @@ data GetBotAliasResponse = GetBotAliasResponse'
 -- 'httpStatus', 'getBotAliasResponse_httpStatus' - The response's http status code.
 newGetBotAliasResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBotAliasResponse
 newGetBotAliasResponse pHttpStatus_ =
   GetBotAliasResponse'
-    { createdDate = Prelude.Nothing,
-      botName = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      botVersion = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      checksum = Prelude.Nothing,
-      conversationLogs = Prelude.Nothing,
+    { createdDate = Core.Nothing,
+      botName = Core.Nothing,
+      lastUpdatedDate = Core.Nothing,
+      botVersion = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      checksum = Core.Nothing,
+      conversationLogs = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date that the bot alias was created.
-getBotAliasResponse_createdDate :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
-getBotAliasResponse_createdDate = Lens.lens (\GetBotAliasResponse' {createdDate} -> createdDate) (\s@GetBotAliasResponse' {} a -> s {createdDate = a} :: GetBotAliasResponse) Prelude.. Lens.mapping Prelude._Time
+getBotAliasResponse_createdDate :: Lens.Lens' GetBotAliasResponse (Core.Maybe Core.UTCTime)
+getBotAliasResponse_createdDate = Lens.lens (\GetBotAliasResponse' {createdDate} -> createdDate) (\s@GetBotAliasResponse' {} a -> s {createdDate = a} :: GetBotAliasResponse) Core.. Lens.mapping Core._Time
 
 -- | The name of the bot that the alias points to.
-getBotAliasResponse_botName :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
+getBotAliasResponse_botName :: Lens.Lens' GetBotAliasResponse (Core.Maybe Core.Text)
 getBotAliasResponse_botName = Lens.lens (\GetBotAliasResponse' {botName} -> botName) (\s@GetBotAliasResponse' {} a -> s {botName = a} :: GetBotAliasResponse)
 
 -- | The date that the bot alias was updated. When you create a resource, the
 -- creation date and the last updated date are the same.
-getBotAliasResponse_lastUpdatedDate :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
-getBotAliasResponse_lastUpdatedDate = Lens.lens (\GetBotAliasResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetBotAliasResponse' {} a -> s {lastUpdatedDate = a} :: GetBotAliasResponse) Prelude.. Lens.mapping Prelude._Time
+getBotAliasResponse_lastUpdatedDate :: Lens.Lens' GetBotAliasResponse (Core.Maybe Core.UTCTime)
+getBotAliasResponse_lastUpdatedDate = Lens.lens (\GetBotAliasResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetBotAliasResponse' {} a -> s {lastUpdatedDate = a} :: GetBotAliasResponse) Core.. Lens.mapping Core._Time
 
 -- | The version of the bot that the alias points to.
-getBotAliasResponse_botVersion :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
+getBotAliasResponse_botVersion :: Lens.Lens' GetBotAliasResponse (Core.Maybe Core.Text)
 getBotAliasResponse_botVersion = Lens.lens (\GetBotAliasResponse' {botVersion} -> botVersion) (\s@GetBotAliasResponse' {} a -> s {botVersion = a} :: GetBotAliasResponse)
 
 -- | The name of the bot alias.
-getBotAliasResponse_name :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
+getBotAliasResponse_name :: Lens.Lens' GetBotAliasResponse (Core.Maybe Core.Text)
 getBotAliasResponse_name = Lens.lens (\GetBotAliasResponse' {name} -> name) (\s@GetBotAliasResponse' {} a -> s {name = a} :: GetBotAliasResponse)
 
 -- | A description of the bot alias.
-getBotAliasResponse_description :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
+getBotAliasResponse_description :: Lens.Lens' GetBotAliasResponse (Core.Maybe Core.Text)
 getBotAliasResponse_description = Lens.lens (\GetBotAliasResponse' {description} -> description) (\s@GetBotAliasResponse' {} a -> s {description = a} :: GetBotAliasResponse)
 
 -- | Checksum of the bot alias.
-getBotAliasResponse_checksum :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
+getBotAliasResponse_checksum :: Lens.Lens' GetBotAliasResponse (Core.Maybe Core.Text)
 getBotAliasResponse_checksum = Lens.lens (\GetBotAliasResponse' {checksum} -> checksum) (\s@GetBotAliasResponse' {} a -> s {checksum = a} :: GetBotAliasResponse)
 
 -- | The settings that determine how Amazon Lex uses conversation logs for
 -- the alias.
-getBotAliasResponse_conversationLogs :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe ConversationLogsResponse)
+getBotAliasResponse_conversationLogs :: Lens.Lens' GetBotAliasResponse (Core.Maybe ConversationLogsResponse)
 getBotAliasResponse_conversationLogs = Lens.lens (\GetBotAliasResponse' {conversationLogs} -> conversationLogs) (\s@GetBotAliasResponse' {} a -> s {conversationLogs = a} :: GetBotAliasResponse)
 
 -- | The response's http status code.
-getBotAliasResponse_httpStatus :: Lens.Lens' GetBotAliasResponse Prelude.Int
+getBotAliasResponse_httpStatus :: Lens.Lens' GetBotAliasResponse Core.Int
 getBotAliasResponse_httpStatus = Lens.lens (\GetBotAliasResponse' {httpStatus} -> httpStatus) (\s@GetBotAliasResponse' {} a -> s {httpStatus = a} :: GetBotAliasResponse)
 
-instance Prelude.NFData GetBotAliasResponse
+instance Core.NFData GetBotAliasResponse

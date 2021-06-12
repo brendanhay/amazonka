@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.ResourceDefinitionVersion where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Resource
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a resource definition version.
 --
 -- /See:/ 'newResourceDefinitionVersion' smart constructor.
 data ResourceDefinitionVersion = ResourceDefinitionVersion'
   { -- | A list of resources.
-    resources :: Prelude.Maybe [Resource]
+    resources :: Core.Maybe [Resource]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceDefinitionVersion' with all optional fields omitted.
@@ -47,31 +46,29 @@ newResourceDefinitionVersion ::
 newResourceDefinitionVersion =
   ResourceDefinitionVersion'
     { resources =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | A list of resources.
-resourceDefinitionVersion_resources :: Lens.Lens' ResourceDefinitionVersion (Prelude.Maybe [Resource])
-resourceDefinitionVersion_resources = Lens.lens (\ResourceDefinitionVersion' {resources} -> resources) (\s@ResourceDefinitionVersion' {} a -> s {resources = a} :: ResourceDefinitionVersion) Prelude.. Lens.mapping Prelude._Coerce
+resourceDefinitionVersion_resources :: Lens.Lens' ResourceDefinitionVersion (Core.Maybe [Resource])
+resourceDefinitionVersion_resources = Lens.lens (\ResourceDefinitionVersion' {resources} -> resources) (\s@ResourceDefinitionVersion' {} a -> s {resources = a} :: ResourceDefinitionVersion) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ResourceDefinitionVersion where
+instance Core.FromJSON ResourceDefinitionVersion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceDefinitionVersion"
       ( \x ->
           ResourceDefinitionVersion'
-            Prelude.<$> ( x Prelude..:? "Resources"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Resources" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ResourceDefinitionVersion
+instance Core.Hashable ResourceDefinitionVersion
 
-instance Prelude.NFData ResourceDefinitionVersion
+instance Core.NFData ResourceDefinitionVersion
 
-instance Prelude.ToJSON ResourceDefinitionVersion where
+instance Core.ToJSON ResourceDefinitionVersion where
   toJSON ResourceDefinitionVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Resources" Prelude..=) Prelude.<$> resources]
+    Core.object
+      ( Core.catMaybes
+          [("Resources" Core..=) Core.<$> resources]
       )

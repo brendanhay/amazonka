@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsActionsType where
 
 import Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsEventActionType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The compromised credentials actions type
 --
@@ -31,7 +30,7 @@ data CompromisedCredentialsActionsType = CompromisedCredentialsActionsType'
   { -- | The event action.
     eventAction :: CompromisedCredentialsEventActionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CompromisedCredentialsActionsType' with all optional fields omitted.
@@ -57,33 +56,31 @@ compromisedCredentialsActionsType_eventAction :: Lens.Lens' CompromisedCredentia
 compromisedCredentialsActionsType_eventAction = Lens.lens (\CompromisedCredentialsActionsType' {eventAction} -> eventAction) (\s@CompromisedCredentialsActionsType' {} a -> s {eventAction = a} :: CompromisedCredentialsActionsType)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     CompromisedCredentialsActionsType
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CompromisedCredentialsActionsType"
       ( \x ->
           CompromisedCredentialsActionsType'
-            Prelude.<$> (x Prelude..: "EventAction")
+            Core.<$> (x Core..: "EventAction")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CompromisedCredentialsActionsType
 
 instance
-  Prelude.NFData
+  Core.NFData
     CompromisedCredentialsActionsType
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     CompromisedCredentialsActionsType
   where
   toJSON CompromisedCredentialsActionsType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EventAction" Prelude..= eventAction)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EventAction" Core..= eventAction)]
       )

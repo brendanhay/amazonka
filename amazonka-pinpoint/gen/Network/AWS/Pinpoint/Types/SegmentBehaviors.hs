@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.SegmentBehaviors where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.RecencyDimension
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies dimension settings for including or excluding endpoints from a
 -- segment based on how recently an endpoint was active.
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data SegmentBehaviors = SegmentBehaviors'
   { -- | The dimension settings that are based on how recently an endpoint was
     -- active.
-    recency :: Prelude.Maybe RecencyDimension
+    recency :: Core.Maybe RecencyDimension
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SegmentBehaviors' with all optional fields omitted.
@@ -48,29 +47,28 @@ data SegmentBehaviors = SegmentBehaviors'
 newSegmentBehaviors ::
   SegmentBehaviors
 newSegmentBehaviors =
-  SegmentBehaviors' {recency = Prelude.Nothing}
+  SegmentBehaviors' {recency = Core.Nothing}
 
 -- | The dimension settings that are based on how recently an endpoint was
 -- active.
-segmentBehaviors_recency :: Lens.Lens' SegmentBehaviors (Prelude.Maybe RecencyDimension)
+segmentBehaviors_recency :: Lens.Lens' SegmentBehaviors (Core.Maybe RecencyDimension)
 segmentBehaviors_recency = Lens.lens (\SegmentBehaviors' {recency} -> recency) (\s@SegmentBehaviors' {} a -> s {recency = a} :: SegmentBehaviors)
 
-instance Prelude.FromJSON SegmentBehaviors where
+instance Core.FromJSON SegmentBehaviors where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SegmentBehaviors"
       ( \x ->
-          SegmentBehaviors'
-            Prelude.<$> (x Prelude..:? "Recency")
+          SegmentBehaviors' Core.<$> (x Core..:? "Recency")
       )
 
-instance Prelude.Hashable SegmentBehaviors
+instance Core.Hashable SegmentBehaviors
 
-instance Prelude.NFData SegmentBehaviors
+instance Core.NFData SegmentBehaviors
 
-instance Prelude.ToJSON SegmentBehaviors where
+instance Core.ToJSON SegmentBehaviors where
   toJSON SegmentBehaviors' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Recency" Prelude..=) Prelude.<$> recency]
+    Core.object
+      ( Core.catMaybes
+          [("Recency" Core..=) Core.<$> recency]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.FilterRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.FilterRuleName
 
@@ -36,11 +35,11 @@ data FilterRule = FilterRule'
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
     -- in the /Amazon Simple Storage Service Developer Guide/.
-    name :: Prelude.Maybe FilterRuleName,
+    name :: Core.Maybe FilterRuleName,
     -- | The value that the filter searches for in object key names.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FilterRule' with all optional fields omitted.
@@ -62,8 +61,8 @@ newFilterRule ::
   FilterRule
 newFilterRule =
   FilterRule'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { name = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The object key name prefix or suffix identifying one or more objects to
@@ -72,24 +71,23 @@ newFilterRule =
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
 -- in the /Amazon Simple Storage Service Developer Guide/.
-filterRule_name :: Lens.Lens' FilterRule (Prelude.Maybe FilterRuleName)
+filterRule_name :: Lens.Lens' FilterRule (Core.Maybe FilterRuleName)
 filterRule_name = Lens.lens (\FilterRule' {name} -> name) (\s@FilterRule' {} a -> s {name = a} :: FilterRule)
 
 -- | The value that the filter searches for in object key names.
-filterRule_value :: Lens.Lens' FilterRule (Prelude.Maybe Prelude.Text)
+filterRule_value :: Lens.Lens' FilterRule (Core.Maybe Core.Text)
 filterRule_value = Lens.lens (\FilterRule' {value} -> value) (\s@FilterRule' {} a -> s {value = a} :: FilterRule)
 
-instance Prelude.FromXML FilterRule where
+instance Core.FromXML FilterRule where
   parseXML x =
     FilterRule'
-      Prelude.<$> (x Prelude..@? "Name")
-      Prelude.<*> (x Prelude..@? "Value")
+      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable FilterRule
+instance Core.Hashable FilterRule
 
-instance Prelude.NFData FilterRule
+instance Core.NFData FilterRule
 
-instance Prelude.ToXML FilterRule where
+instance Core.ToXML FilterRule where
   toXML FilterRule' {..} =
-    Prelude.mconcat
-      ["Name" Prelude.@= name, "Value" Prelude.@= value]
+    Core.mconcat
+      ["Name" Core.@= name, "Value" Core.@= value]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.LoadBalancerAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a load balancer attribute.
 --
@@ -82,11 +81,11 @@ data LoadBalancerAttribute = LoadBalancerAttribute'
     -- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
     --     load balancing is enabled. The value is @true@ or @false@. The
     --     default is @false@.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The value of the attribute.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerAttribute' with all optional fields omitted.
@@ -157,8 +156,8 @@ newLoadBalancerAttribute ::
   LoadBalancerAttribute
 newLoadBalancerAttribute =
   LoadBalancerAttribute'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { key = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The name of the attribute.
@@ -216,24 +215,23 @@ newLoadBalancerAttribute =
 -- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
 --     load balancing is enabled. The value is @true@ or @false@. The
 --     default is @false@.
-loadBalancerAttribute_key :: Lens.Lens' LoadBalancerAttribute (Prelude.Maybe Prelude.Text)
+loadBalancerAttribute_key :: Lens.Lens' LoadBalancerAttribute (Core.Maybe Core.Text)
 loadBalancerAttribute_key = Lens.lens (\LoadBalancerAttribute' {key} -> key) (\s@LoadBalancerAttribute' {} a -> s {key = a} :: LoadBalancerAttribute)
 
 -- | The value of the attribute.
-loadBalancerAttribute_value :: Lens.Lens' LoadBalancerAttribute (Prelude.Maybe Prelude.Text)
+loadBalancerAttribute_value :: Lens.Lens' LoadBalancerAttribute (Core.Maybe Core.Text)
 loadBalancerAttribute_value = Lens.lens (\LoadBalancerAttribute' {value} -> value) (\s@LoadBalancerAttribute' {} a -> s {value = a} :: LoadBalancerAttribute)
 
-instance Prelude.FromXML LoadBalancerAttribute where
+instance Core.FromXML LoadBalancerAttribute where
   parseXML x =
     LoadBalancerAttribute'
-      Prelude.<$> (x Prelude..@? "Key")
-      Prelude.<*> (x Prelude..@? "Value")
+      Core.<$> (x Core..@? "Key") Core.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable LoadBalancerAttribute
+instance Core.Hashable LoadBalancerAttribute
 
-instance Prelude.NFData LoadBalancerAttribute
+instance Core.NFData LoadBalancerAttribute
 
-instance Prelude.ToQuery LoadBalancerAttribute where
+instance Core.ToQuery LoadBalancerAttribute where
   toQuery LoadBalancerAttribute' {..} =
-    Prelude.mconcat
-      ["Key" Prelude.=: key, "Value" Prelude.=: value]
+    Core.mconcat
+      ["Key" Core.=: key, "Value" Core.=: value]

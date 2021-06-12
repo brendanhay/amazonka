@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.APIGateway.Types.DocumentationVersion where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A snapshot of the documentation of an API.
 --
@@ -35,13 +34,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDocumentationVersion' smart constructor.
 data DocumentationVersion = DocumentationVersion'
   { -- | The date when the API documentation snapshot is created.
-    createdDate :: Prelude.Maybe Prelude.POSIX,
+    createdDate :: Core.Maybe Core.POSIX,
     -- | The version identifier of the API documentation snapshot.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The description of the API documentation snapshot.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentationVersion' with all optional fields omitted.
@@ -60,35 +59,34 @@ newDocumentationVersion ::
   DocumentationVersion
 newDocumentationVersion =
   DocumentationVersion'
-    { createdDate =
-        Prelude.Nothing,
-      version = Prelude.Nothing,
-      description = Prelude.Nothing
+    { createdDate = Core.Nothing,
+      version = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The date when the API documentation snapshot is created.
-documentationVersion_createdDate :: Lens.Lens' DocumentationVersion (Prelude.Maybe Prelude.UTCTime)
-documentationVersion_createdDate = Lens.lens (\DocumentationVersion' {createdDate} -> createdDate) (\s@DocumentationVersion' {} a -> s {createdDate = a} :: DocumentationVersion) Prelude.. Lens.mapping Prelude._Time
+documentationVersion_createdDate :: Lens.Lens' DocumentationVersion (Core.Maybe Core.UTCTime)
+documentationVersion_createdDate = Lens.lens (\DocumentationVersion' {createdDate} -> createdDate) (\s@DocumentationVersion' {} a -> s {createdDate = a} :: DocumentationVersion) Core.. Lens.mapping Core._Time
 
 -- | The version identifier of the API documentation snapshot.
-documentationVersion_version :: Lens.Lens' DocumentationVersion (Prelude.Maybe Prelude.Text)
+documentationVersion_version :: Lens.Lens' DocumentationVersion (Core.Maybe Core.Text)
 documentationVersion_version = Lens.lens (\DocumentationVersion' {version} -> version) (\s@DocumentationVersion' {} a -> s {version = a} :: DocumentationVersion)
 
 -- | The description of the API documentation snapshot.
-documentationVersion_description :: Lens.Lens' DocumentationVersion (Prelude.Maybe Prelude.Text)
+documentationVersion_description :: Lens.Lens' DocumentationVersion (Core.Maybe Core.Text)
 documentationVersion_description = Lens.lens (\DocumentationVersion' {description} -> description) (\s@DocumentationVersion' {} a -> s {description = a} :: DocumentationVersion)
 
-instance Prelude.FromJSON DocumentationVersion where
+instance Core.FromJSON DocumentationVersion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DocumentationVersion"
       ( \x ->
           DocumentationVersion'
-            Prelude.<$> (x Prelude..:? "createdDate")
-            Prelude.<*> (x Prelude..:? "version")
-            Prelude.<*> (x Prelude..:? "description")
+            Core.<$> (x Core..:? "createdDate")
+            Core.<*> (x Core..:? "version")
+            Core.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable DocumentationVersion
+instance Core.Hashable DocumentationVersion
 
-instance Prelude.NFData DocumentationVersion
+instance Core.NFData DocumentationVersion

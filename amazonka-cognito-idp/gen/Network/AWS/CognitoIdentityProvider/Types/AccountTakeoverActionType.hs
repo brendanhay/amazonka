@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,15 +20,15 @@
 module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionType where
 
 import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverEventActionType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Account takeover action type.
 --
 -- /See:/ 'newAccountTakeoverActionType' smart constructor.
 data AccountTakeoverActionType = AccountTakeoverActionType'
   { -- | Flag specifying whether to send a notification.
-    notify :: Prelude.Bool,
+    notify :: Core.Bool,
     -- | The event action.
     --
     -- -   @BLOCK@ Choosing this action will block the request.
@@ -43,7 +42,7 @@ data AccountTakeoverActionType = AccountTakeoverActionType'
     -- -   @NO_ACTION@ Allow the user sign-in.
     eventAction :: AccountTakeoverEventActionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccountTakeoverActionType' with all optional fields omitted.
@@ -68,7 +67,7 @@ data AccountTakeoverActionType = AccountTakeoverActionType'
 -- -   @NO_ACTION@ Allow the user sign-in.
 newAccountTakeoverActionType ::
   -- | 'notify'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'eventAction'
   AccountTakeoverEventActionType ->
   AccountTakeoverActionType
@@ -79,7 +78,7 @@ newAccountTakeoverActionType pNotify_ pEventAction_ =
     }
 
 -- | Flag specifying whether to send a notification.
-accountTakeoverActionType_notify :: Lens.Lens' AccountTakeoverActionType Prelude.Bool
+accountTakeoverActionType_notify :: Lens.Lens' AccountTakeoverActionType Core.Bool
 accountTakeoverActionType_notify = Lens.lens (\AccountTakeoverActionType' {notify} -> notify) (\s@AccountTakeoverActionType' {} a -> s {notify = a} :: AccountTakeoverActionType)
 
 -- | The event action.
@@ -96,25 +95,25 @@ accountTakeoverActionType_notify = Lens.lens (\AccountTakeoverActionType' {notif
 accountTakeoverActionType_eventAction :: Lens.Lens' AccountTakeoverActionType AccountTakeoverEventActionType
 accountTakeoverActionType_eventAction = Lens.lens (\AccountTakeoverActionType' {eventAction} -> eventAction) (\s@AccountTakeoverActionType' {} a -> s {eventAction = a} :: AccountTakeoverActionType)
 
-instance Prelude.FromJSON AccountTakeoverActionType where
+instance Core.FromJSON AccountTakeoverActionType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AccountTakeoverActionType"
       ( \x ->
           AccountTakeoverActionType'
-            Prelude.<$> (x Prelude..: "Notify")
-            Prelude.<*> (x Prelude..: "EventAction")
+            Core.<$> (x Core..: "Notify")
+            Core.<*> (x Core..: "EventAction")
       )
 
-instance Prelude.Hashable AccountTakeoverActionType
+instance Core.Hashable AccountTakeoverActionType
 
-instance Prelude.NFData AccountTakeoverActionType
+instance Core.NFData AccountTakeoverActionType
 
-instance Prelude.ToJSON AccountTakeoverActionType where
+instance Core.ToJSON AccountTakeoverActionType where
   toJSON AccountTakeoverActionType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Notify" Prelude..= notify),
-            Prelude.Just ("EventAction" Prelude..= eventAction)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Notify" Core..= notify),
+            Core.Just ("EventAction" Core..= eventAction)
           ]
       )

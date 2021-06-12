@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.WorkSpaces.ModifyWorkspaceCreationProperties
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -49,11 +48,11 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newModifyWorkspaceCreationProperties' smart constructor.
 data ModifyWorkspaceCreationProperties = ModifyWorkspaceCreationProperties'
   { -- | The identifier of the directory.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | The default properties for creating WorkSpaces.
     workspaceCreationProperties :: WorkspaceCreationProperties
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyWorkspaceCreationProperties' with all optional fields omitted.
@@ -68,7 +67,7 @@ data ModifyWorkspaceCreationProperties = ModifyWorkspaceCreationProperties'
 -- 'workspaceCreationProperties', 'modifyWorkspaceCreationProperties_workspaceCreationProperties' - The default properties for creating WorkSpaces.
 newModifyWorkspaceCreationProperties ::
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'workspaceCreationProperties'
   WorkspaceCreationProperties ->
   ModifyWorkspaceCreationProperties
@@ -83,7 +82,7 @@ newModifyWorkspaceCreationProperties
       }
 
 -- | The identifier of the directory.
-modifyWorkspaceCreationProperties_resourceId :: Lens.Lens' ModifyWorkspaceCreationProperties Prelude.Text
+modifyWorkspaceCreationProperties_resourceId :: Lens.Lens' ModifyWorkspaceCreationProperties Core.Text
 modifyWorkspaceCreationProperties_resourceId = Lens.lens (\ModifyWorkspaceCreationProperties' {resourceId} -> resourceId) (\s@ModifyWorkspaceCreationProperties' {} a -> s {resourceId = a} :: ModifyWorkspaceCreationProperties)
 
 -- | The default properties for creating WorkSpaces.
@@ -91,79 +90,77 @@ modifyWorkspaceCreationProperties_workspaceCreationProperties :: Lens.Lens' Modi
 modifyWorkspaceCreationProperties_workspaceCreationProperties = Lens.lens (\ModifyWorkspaceCreationProperties' {workspaceCreationProperties} -> workspaceCreationProperties) (\s@ModifyWorkspaceCreationProperties' {} a -> s {workspaceCreationProperties = a} :: ModifyWorkspaceCreationProperties)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ModifyWorkspaceCreationProperties
   where
   type
-    Rs ModifyWorkspaceCreationProperties =
+    AWSResponse ModifyWorkspaceCreationProperties =
       ModifyWorkspaceCreationPropertiesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ModifyWorkspaceCreationPropertiesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ModifyWorkspaceCreationProperties
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyWorkspaceCreationProperties
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ModifyWorkspaceCreationProperties
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.ModifyWorkspaceCreationProperties" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.ModifyWorkspaceCreationProperties" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ModifyWorkspaceCreationProperties
   where
   toJSON ModifyWorkspaceCreationProperties' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceId" Prelude..= resourceId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just
               ( "WorkspaceCreationProperties"
-                  Prelude..= workspaceCreationProperties
+                  Core..= workspaceCreationProperties
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     ModifyWorkspaceCreationProperties
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ModifyWorkspaceCreationProperties
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newModifyWorkspaceCreationPropertiesResponse' smart constructor.
 data ModifyWorkspaceCreationPropertiesResponse = ModifyWorkspaceCreationPropertiesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyWorkspaceCreationPropertiesResponse' with all optional fields omitted.
@@ -176,7 +173,7 @@ data ModifyWorkspaceCreationPropertiesResponse = ModifyWorkspaceCreationProperti
 -- 'httpStatus', 'modifyWorkspaceCreationPropertiesResponse_httpStatus' - The response's http status code.
 newModifyWorkspaceCreationPropertiesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyWorkspaceCreationPropertiesResponse
 newModifyWorkspaceCreationPropertiesResponse
   pHttpStatus_ =
@@ -186,9 +183,9 @@ newModifyWorkspaceCreationPropertiesResponse
       }
 
 -- | The response's http status code.
-modifyWorkspaceCreationPropertiesResponse_httpStatus :: Lens.Lens' ModifyWorkspaceCreationPropertiesResponse Prelude.Int
+modifyWorkspaceCreationPropertiesResponse_httpStatus :: Lens.Lens' ModifyWorkspaceCreationPropertiesResponse Core.Int
 modifyWorkspaceCreationPropertiesResponse_httpStatus = Lens.lens (\ModifyWorkspaceCreationPropertiesResponse' {httpStatus} -> httpStatus) (\s@ModifyWorkspaceCreationPropertiesResponse' {} a -> s {httpStatus = a} :: ModifyWorkspaceCreationPropertiesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyWorkspaceCreationPropertiesResponse

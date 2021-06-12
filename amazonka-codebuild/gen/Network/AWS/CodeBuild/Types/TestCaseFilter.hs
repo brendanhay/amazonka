@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.TestCaseFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A filter used to return specific types of test cases. In order to pass
 -- the filter, the report must meet all of the filter properties.
@@ -40,13 +39,13 @@ data TestCaseFilter = TestCaseFilter'
     -- -   @SKIPPED@
     --
     -- -   @UNKNOWN@
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | A keyword that is used to filter on the @name@ or the @prefix@ of the
     -- test cases. Only test cases where the keyword is a substring of the
     -- @name@ or the @prefix@ will be returned.
-    keyword :: Prelude.Maybe Prelude.Text
+    keyword :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TestCaseFilter' with all optional fields omitted.
@@ -76,8 +75,8 @@ newTestCaseFilter ::
   TestCaseFilter
 newTestCaseFilter =
   TestCaseFilter'
-    { status = Prelude.Nothing,
-      keyword = Prelude.Nothing
+    { status = Core.Nothing,
+      keyword = Core.Nothing
     }
 
 -- | The status used to filter test cases. A @TestCaseFilter@ can have one
@@ -92,24 +91,24 @@ newTestCaseFilter =
 -- -   @SKIPPED@
 --
 -- -   @UNKNOWN@
-testCaseFilter_status :: Lens.Lens' TestCaseFilter (Prelude.Maybe Prelude.Text)
+testCaseFilter_status :: Lens.Lens' TestCaseFilter (Core.Maybe Core.Text)
 testCaseFilter_status = Lens.lens (\TestCaseFilter' {status} -> status) (\s@TestCaseFilter' {} a -> s {status = a} :: TestCaseFilter)
 
 -- | A keyword that is used to filter on the @name@ or the @prefix@ of the
 -- test cases. Only test cases where the keyword is a substring of the
 -- @name@ or the @prefix@ will be returned.
-testCaseFilter_keyword :: Lens.Lens' TestCaseFilter (Prelude.Maybe Prelude.Text)
+testCaseFilter_keyword :: Lens.Lens' TestCaseFilter (Core.Maybe Core.Text)
 testCaseFilter_keyword = Lens.lens (\TestCaseFilter' {keyword} -> keyword) (\s@TestCaseFilter' {} a -> s {keyword = a} :: TestCaseFilter)
 
-instance Prelude.Hashable TestCaseFilter
+instance Core.Hashable TestCaseFilter
 
-instance Prelude.NFData TestCaseFilter
+instance Core.NFData TestCaseFilter
 
-instance Prelude.ToJSON TestCaseFilter where
+instance Core.ToJSON TestCaseFilter where
   toJSON TestCaseFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("status" Prelude..=) Prelude.<$> status,
-            ("keyword" Prelude..=) Prelude.<$> keyword
+    Core.object
+      ( Core.catMaybes
+          [ ("status" Core..=) Core.<$> status,
+            ("keyword" Core..=) Core.<$> keyword
           ]
       )

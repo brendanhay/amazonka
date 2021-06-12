@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,10 +56,9 @@ module Network.AWS.IAM.ListSSHPublicKeys
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,7 +72,7 @@ data ListSSHPublicKeys = ListSSHPublicKeys'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Maybe Prelude.Text,
+    userName :: Core.Maybe Core.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -84,14 +82,14 @@ data ListSSHPublicKeys = ListSSHPublicKeys'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSSHPublicKeys' with all optional fields omitted.
@@ -128,9 +126,9 @@ newListSSHPublicKeys ::
   ListSSHPublicKeys
 newListSSHPublicKeys =
   ListSSHPublicKeys'
-    { userName = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { userName = Core.Nothing,
+      maxItems = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The name of the IAM user to list SSH public keys for. If none is
@@ -141,7 +139,7 @@ newListSSHPublicKeys =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-listSSHPublicKeys_userName :: Lens.Lens' ListSSHPublicKeys (Prelude.Maybe Prelude.Text)
+listSSHPublicKeys_userName :: Lens.Lens' ListSSHPublicKeys (Core.Maybe Core.Text)
 listSSHPublicKeys_userName = Lens.lens (\ListSSHPublicKeys' {userName} -> userName) (\s@ListSSHPublicKeys' {} a -> s {userName = a} :: ListSSHPublicKeys)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -153,74 +151,73 @@ listSSHPublicKeys_userName = Lens.lens (\ListSSHPublicKeys' {userName} -> userNa
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listSSHPublicKeys_maxItems :: Lens.Lens' ListSSHPublicKeys (Prelude.Maybe Prelude.Natural)
+listSSHPublicKeys_maxItems :: Lens.Lens' ListSSHPublicKeys (Core.Maybe Core.Natural)
 listSSHPublicKeys_maxItems = Lens.lens (\ListSSHPublicKeys' {maxItems} -> maxItems) (\s@ListSSHPublicKeys' {} a -> s {maxItems = a} :: ListSSHPublicKeys)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listSSHPublicKeys_marker :: Lens.Lens' ListSSHPublicKeys (Prelude.Maybe Prelude.Text)
+listSSHPublicKeys_marker :: Lens.Lens' ListSSHPublicKeys (Core.Maybe Core.Text)
 listSSHPublicKeys_marker = Lens.lens (\ListSSHPublicKeys' {marker} -> marker) (\s@ListSSHPublicKeys' {} a -> s {marker = a} :: ListSSHPublicKeys)
 
-instance Pager.AWSPager ListSSHPublicKeys where
+instance Core.AWSPager ListSSHPublicKeys where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listSSHPublicKeysResponse_isTruncated
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^? listSSHPublicKeysResponse_marker
-              Prelude.. Lens._Just
+            Lens.^? listSSHPublicKeysResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listSSHPublicKeys_marker
           Lens..~ rs
-          Lens.^? listSSHPublicKeysResponse_marker Prelude.. Lens._Just
+          Lens.^? listSSHPublicKeysResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListSSHPublicKeys where
-  type Rs ListSSHPublicKeys = ListSSHPublicKeysResponse
+instance Core.AWSRequest ListSSHPublicKeys where
+  type
+    AWSResponse ListSSHPublicKeys =
+      ListSSHPublicKeysResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListSSHPublicKeysResult"
       ( \s h x ->
           ListSSHPublicKeysResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-            Prelude.<*> ( x Prelude..@? "SSHPublicKeys"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> ( x Core..@? "SSHPublicKeys" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListSSHPublicKeys
+instance Core.Hashable ListSSHPublicKeys
 
-instance Prelude.NFData ListSSHPublicKeys
+instance Core.NFData ListSSHPublicKeys
 
-instance Prelude.ToHeaders ListSSHPublicKeys where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListSSHPublicKeys where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListSSHPublicKeys where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListSSHPublicKeys where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListSSHPublicKeys where
+instance Core.ToQuery ListSSHPublicKeys where
   toQuery ListSSHPublicKeys' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListSSHPublicKeys" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+          Core.=: ("ListSSHPublicKeys" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the response to a successful ListSSHPublicKeys request.
@@ -234,17 +231,17 @@ data ListSSHPublicKeysResponse = ListSSHPublicKeysResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | A list of the SSH public keys assigned to IAM user.
-    sSHPublicKeys :: Prelude.Maybe [SSHPublicKeyMetadata],
+    sSHPublicKeys :: Core.Maybe [SSHPublicKeyMetadata],
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSSHPublicKeysResponse' with all optional fields omitted.
@@ -271,14 +268,14 @@ data ListSSHPublicKeysResponse = ListSSHPublicKeysResponse'
 -- 'httpStatus', 'listSSHPublicKeysResponse_httpStatus' - The response's http status code.
 newListSSHPublicKeysResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSSHPublicKeysResponse
 newListSSHPublicKeysResponse pHttpStatus_ =
   ListSSHPublicKeysResponse'
     { isTruncated =
-        Prelude.Nothing,
-      sSHPublicKeys = Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      sSHPublicKeys = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -289,21 +286,21 @@ newListSSHPublicKeysResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listSSHPublicKeysResponse_isTruncated :: Lens.Lens' ListSSHPublicKeysResponse (Prelude.Maybe Prelude.Bool)
+listSSHPublicKeysResponse_isTruncated :: Lens.Lens' ListSSHPublicKeysResponse (Core.Maybe Core.Bool)
 listSSHPublicKeysResponse_isTruncated = Lens.lens (\ListSSHPublicKeysResponse' {isTruncated} -> isTruncated) (\s@ListSSHPublicKeysResponse' {} a -> s {isTruncated = a} :: ListSSHPublicKeysResponse)
 
 -- | A list of the SSH public keys assigned to IAM user.
-listSSHPublicKeysResponse_sSHPublicKeys :: Lens.Lens' ListSSHPublicKeysResponse (Prelude.Maybe [SSHPublicKeyMetadata])
-listSSHPublicKeysResponse_sSHPublicKeys = Lens.lens (\ListSSHPublicKeysResponse' {sSHPublicKeys} -> sSHPublicKeys) (\s@ListSSHPublicKeysResponse' {} a -> s {sSHPublicKeys = a} :: ListSSHPublicKeysResponse) Prelude.. Lens.mapping Prelude._Coerce
+listSSHPublicKeysResponse_sSHPublicKeys :: Lens.Lens' ListSSHPublicKeysResponse (Core.Maybe [SSHPublicKeyMetadata])
+listSSHPublicKeysResponse_sSHPublicKeys = Lens.lens (\ListSSHPublicKeysResponse' {sSHPublicKeys} -> sSHPublicKeys) (\s@ListSSHPublicKeysResponse' {} a -> s {sSHPublicKeys = a} :: ListSSHPublicKeysResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listSSHPublicKeysResponse_marker :: Lens.Lens' ListSSHPublicKeysResponse (Prelude.Maybe Prelude.Text)
+listSSHPublicKeysResponse_marker :: Lens.Lens' ListSSHPublicKeysResponse (Core.Maybe Core.Text)
 listSSHPublicKeysResponse_marker = Lens.lens (\ListSSHPublicKeysResponse' {marker} -> marker) (\s@ListSSHPublicKeysResponse' {} a -> s {marker = a} :: ListSSHPublicKeysResponse)
 
 -- | The response's http status code.
-listSSHPublicKeysResponse_httpStatus :: Lens.Lens' ListSSHPublicKeysResponse Prelude.Int
+listSSHPublicKeysResponse_httpStatus :: Lens.Lens' ListSSHPublicKeysResponse Core.Int
 listSSHPublicKeysResponse_httpStatus = Lens.lens (\ListSSHPublicKeysResponse' {httpStatus} -> httpStatus) (\s@ListSSHPublicKeysResponse' {} a -> s {httpStatus = a} :: ListSSHPublicKeysResponse)
 
-instance Prelude.NFData ListSSHPublicKeysResponse
+instance Core.NFData ListSSHPublicKeysResponse

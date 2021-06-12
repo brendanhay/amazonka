@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.BlueGreenUpdatePolicy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TrafficRoutingConfig
 
 -- | Currently, the @BlueGreenUpdatePolicy@ API is not supported.
 --
 -- /See:/ 'newBlueGreenUpdatePolicy' smart constructor.
 data BlueGreenUpdatePolicy = BlueGreenUpdatePolicy'
-  { terminationWaitInSeconds :: Prelude.Maybe Prelude.Natural,
-    maximumExecutionTimeoutInSeconds :: Prelude.Maybe Prelude.Natural,
+  { terminationWaitInSeconds :: Core.Maybe Core.Natural,
+    maximumExecutionTimeoutInSeconds :: Core.Maybe Core.Natural,
     trafficRoutingConfiguration :: TrafficRoutingConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BlueGreenUpdatePolicy' with all optional fields omitted.
@@ -55,50 +54,50 @@ newBlueGreenUpdatePolicy
   pTrafficRoutingConfiguration_ =
     BlueGreenUpdatePolicy'
       { terminationWaitInSeconds =
-          Prelude.Nothing,
-        maximumExecutionTimeoutInSeconds = Prelude.Nothing,
+          Core.Nothing,
+        maximumExecutionTimeoutInSeconds = Core.Nothing,
         trafficRoutingConfiguration =
           pTrafficRoutingConfiguration_
       }
 
 -- |
-blueGreenUpdatePolicy_terminationWaitInSeconds :: Lens.Lens' BlueGreenUpdatePolicy (Prelude.Maybe Prelude.Natural)
+blueGreenUpdatePolicy_terminationWaitInSeconds :: Lens.Lens' BlueGreenUpdatePolicy (Core.Maybe Core.Natural)
 blueGreenUpdatePolicy_terminationWaitInSeconds = Lens.lens (\BlueGreenUpdatePolicy' {terminationWaitInSeconds} -> terminationWaitInSeconds) (\s@BlueGreenUpdatePolicy' {} a -> s {terminationWaitInSeconds = a} :: BlueGreenUpdatePolicy)
 
 -- |
-blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds :: Lens.Lens' BlueGreenUpdatePolicy (Prelude.Maybe Prelude.Natural)
+blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds :: Lens.Lens' BlueGreenUpdatePolicy (Core.Maybe Core.Natural)
 blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds = Lens.lens (\BlueGreenUpdatePolicy' {maximumExecutionTimeoutInSeconds} -> maximumExecutionTimeoutInSeconds) (\s@BlueGreenUpdatePolicy' {} a -> s {maximumExecutionTimeoutInSeconds = a} :: BlueGreenUpdatePolicy)
 
 -- |
 blueGreenUpdatePolicy_trafficRoutingConfiguration :: Lens.Lens' BlueGreenUpdatePolicy TrafficRoutingConfig
 blueGreenUpdatePolicy_trafficRoutingConfiguration = Lens.lens (\BlueGreenUpdatePolicy' {trafficRoutingConfiguration} -> trafficRoutingConfiguration) (\s@BlueGreenUpdatePolicy' {} a -> s {trafficRoutingConfiguration = a} :: BlueGreenUpdatePolicy)
 
-instance Prelude.FromJSON BlueGreenUpdatePolicy where
+instance Core.FromJSON BlueGreenUpdatePolicy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BlueGreenUpdatePolicy"
       ( \x ->
           BlueGreenUpdatePolicy'
-            Prelude.<$> (x Prelude..:? "TerminationWaitInSeconds")
-            Prelude.<*> (x Prelude..:? "MaximumExecutionTimeoutInSeconds")
-            Prelude.<*> (x Prelude..: "TrafficRoutingConfiguration")
+            Core.<$> (x Core..:? "TerminationWaitInSeconds")
+            Core.<*> (x Core..:? "MaximumExecutionTimeoutInSeconds")
+            Core.<*> (x Core..: "TrafficRoutingConfiguration")
       )
 
-instance Prelude.Hashable BlueGreenUpdatePolicy
+instance Core.Hashable BlueGreenUpdatePolicy
 
-instance Prelude.NFData BlueGreenUpdatePolicy
+instance Core.NFData BlueGreenUpdatePolicy
 
-instance Prelude.ToJSON BlueGreenUpdatePolicy where
+instance Core.ToJSON BlueGreenUpdatePolicy where
   toJSON BlueGreenUpdatePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TerminationWaitInSeconds" Prelude..=)
-              Prelude.<$> terminationWaitInSeconds,
-            ("MaximumExecutionTimeoutInSeconds" Prelude..=)
-              Prelude.<$> maximumExecutionTimeoutInSeconds,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("TerminationWaitInSeconds" Core..=)
+              Core.<$> terminationWaitInSeconds,
+            ("MaximumExecutionTimeoutInSeconds" Core..=)
+              Core.<$> maximumExecutionTimeoutInSeconds,
+            Core.Just
               ( "TrafficRoutingConfiguration"
-                  Prelude..= trafficRoutingConfiguration
+                  Core..= trafficRoutingConfiguration
               )
           ]
       )

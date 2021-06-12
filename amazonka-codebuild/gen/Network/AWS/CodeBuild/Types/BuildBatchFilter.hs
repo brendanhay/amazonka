@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeBuild.Types.BuildBatchFilter where
 
 import Network.AWS.CodeBuild.Types.StatusType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies filters when retrieving batch builds.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data BuildBatchFilter = BuildBatchFilter'
   { -- | The status of the batch builds to retrieve. Only batch builds that have
     -- this status will be retrieved.
-    status :: Prelude.Maybe StatusType
+    status :: Core.Maybe StatusType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BuildBatchFilter' with all optional fields omitted.
@@ -47,20 +46,18 @@ data BuildBatchFilter = BuildBatchFilter'
 newBuildBatchFilter ::
   BuildBatchFilter
 newBuildBatchFilter =
-  BuildBatchFilter' {status = Prelude.Nothing}
+  BuildBatchFilter' {status = Core.Nothing}
 
 -- | The status of the batch builds to retrieve. Only batch builds that have
 -- this status will be retrieved.
-buildBatchFilter_status :: Lens.Lens' BuildBatchFilter (Prelude.Maybe StatusType)
+buildBatchFilter_status :: Lens.Lens' BuildBatchFilter (Core.Maybe StatusType)
 buildBatchFilter_status = Lens.lens (\BuildBatchFilter' {status} -> status) (\s@BuildBatchFilter' {} a -> s {status = a} :: BuildBatchFilter)
 
-instance Prelude.Hashable BuildBatchFilter
+instance Core.Hashable BuildBatchFilter
 
-instance Prelude.NFData BuildBatchFilter
+instance Core.NFData BuildBatchFilter
 
-instance Prelude.ToJSON BuildBatchFilter where
+instance Core.ToJSON BuildBatchFilter where
   toJSON BuildBatchFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("status" Prelude..=) Prelude.<$> status]
-      )
+    Core.object
+      (Core.catMaybes [("status" Core..=) Core.<$> status])

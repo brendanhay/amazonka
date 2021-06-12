@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Grantee where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Type
 
@@ -30,11 +29,11 @@ import Network.AWS.S3.Types.Type
 -- /See:/ 'newGrantee' smart constructor.
 data Grantee = Grantee'
   { -- | URI of the grantee group.
-    uri :: Prelude.Maybe Prelude.Text,
+    uri :: Core.Maybe Core.Text,
     -- | The canonical user ID of the grantee.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Screen name of the grantee.
-    displayName :: Prelude.Maybe Prelude.Text,
+    displayName :: Core.Maybe Core.Text,
     -- | Email address of the grantee.
     --
     -- Using email addresses to specify a grantee is only supported in the
@@ -59,11 +58,11 @@ data Grantee = Grantee'
     -- For a list of all the Amazon S3 supported Regions and endpoints, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
     -- in the AWS General Reference.
-    emailAddress :: Prelude.Maybe Prelude.Text,
+    emailAddress :: Core.Maybe Core.Text,
     -- | Type of grantee
     type' :: Type
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Grantee' with all optional fields omitted.
@@ -111,23 +110,23 @@ newGrantee ::
   Grantee
 newGrantee pType_ =
   Grantee'
-    { uri = Prelude.Nothing,
-      id = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      emailAddress = Prelude.Nothing,
+    { uri = Core.Nothing,
+      id = Core.Nothing,
+      displayName = Core.Nothing,
+      emailAddress = Core.Nothing,
       type' = pType_
     }
 
 -- | URI of the grantee group.
-grantee_uri :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_uri :: Lens.Lens' Grantee (Core.Maybe Core.Text)
 grantee_uri = Lens.lens (\Grantee' {uri} -> uri) (\s@Grantee' {} a -> s {uri = a} :: Grantee)
 
 -- | The canonical user ID of the grantee.
-grantee_id :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_id :: Lens.Lens' Grantee (Core.Maybe Core.Text)
 grantee_id = Lens.lens (\Grantee' {id} -> id) (\s@Grantee' {} a -> s {id = a} :: Grantee)
 
 -- | Screen name of the grantee.
-grantee_displayName :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_displayName :: Lens.Lens' Grantee (Core.Maybe Core.Text)
 grantee_displayName = Lens.lens (\Grantee' {displayName} -> displayName) (\s@Grantee' {} a -> s {displayName = a} :: Grantee)
 
 -- | Email address of the grantee.
@@ -154,32 +153,32 @@ grantee_displayName = Lens.lens (\Grantee' {displayName} -> displayName) (\s@Gra
 -- For a list of all the Amazon S3 supported Regions and endpoints, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
 -- in the AWS General Reference.
-grantee_emailAddress :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_emailAddress :: Lens.Lens' Grantee (Core.Maybe Core.Text)
 grantee_emailAddress = Lens.lens (\Grantee' {emailAddress} -> emailAddress) (\s@Grantee' {} a -> s {emailAddress = a} :: Grantee)
 
 -- | Type of grantee
 grantee_type :: Lens.Lens' Grantee Type
 grantee_type = Lens.lens (\Grantee' {type'} -> type') (\s@Grantee' {} a -> s {type' = a} :: Grantee)
 
-instance Prelude.FromXML Grantee where
+instance Core.FromXML Grantee where
   parseXML x =
     Grantee'
-      Prelude.<$> (x Prelude..@? "URI")
-      Prelude.<*> (x Prelude..@? "ID")
-      Prelude.<*> (x Prelude..@? "DisplayName")
-      Prelude.<*> (x Prelude..@? "EmailAddress")
-      Prelude.<*> (x Prelude..@ "xsi:type")
+      Core.<$> (x Core..@? "URI")
+      Core.<*> (x Core..@? "ID")
+      Core.<*> (x Core..@? "DisplayName")
+      Core.<*> (x Core..@? "EmailAddress")
+      Core.<*> (x Core..@ "xsi:type")
 
-instance Prelude.Hashable Grantee
+instance Core.Hashable Grantee
 
-instance Prelude.NFData Grantee
+instance Core.NFData Grantee
 
-instance Prelude.ToXML Grantee where
+instance Core.ToXML Grantee where
   toXML Grantee' {..} =
-    Prelude.mconcat
-      [ "URI" Prelude.@= uri,
-        "ID" Prelude.@= id,
-        "DisplayName" Prelude.@= displayName,
-        "EmailAddress" Prelude.@= emailAddress,
-        "xsi:type" Prelude.@@= type'
+    Core.mconcat
+      [ "URI" Core.@= uri,
+        "ID" Core.@= id,
+        "DisplayName" Core.@= displayName,
+        "EmailAddress" Core.@= emailAddress,
+        "xsi:type" Core.@@= type'
       ]

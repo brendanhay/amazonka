@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.CodeBuild.ImportSourceCredentials
 where
 
 import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +56,13 @@ data ImportSourceCredentials = ImportSourceCredentials'
   { -- | Set to @false@ to prevent overwriting the repository source credentials.
     -- Set to @true@ to overwrite the repository source credentials. The
     -- default value is @true@.
-    shouldOverwrite :: Prelude.Maybe Prelude.Bool,
+    shouldOverwrite :: Core.Maybe Core.Bool,
     -- | The Bitbucket username when the @authType@ is BASIC_AUTH. This parameter
     -- is not valid for other types of source providers or connections.
-    username :: Prelude.Maybe Prelude.Text,
+    username :: Core.Maybe Core.Text,
     -- | For GitHub or GitHub Enterprise, this is the personal access token. For
     -- Bitbucket, this is the app password.
-    token :: Prelude.Sensitive Prelude.Text,
+    token :: Core.Sensitive Core.Text,
     -- | The source provider used for this project.
     serverType :: ServerType,
     -- | The type of authentication used to connect to a GitHub, GitHub
@@ -72,7 +71,7 @@ data ImportSourceCredentials = ImportSourceCredentials'
     -- console.
     authType :: AuthType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportSourceCredentials' with all optional fields omitted.
@@ -100,7 +99,7 @@ data ImportSourceCredentials = ImportSourceCredentials'
 -- console.
 newImportSourceCredentials ::
   -- | 'token'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serverType'
   ServerType ->
   -- | 'authType'
@@ -112,9 +111,9 @@ newImportSourceCredentials
   pAuthType_ =
     ImportSourceCredentials'
       { shouldOverwrite =
-          Prelude.Nothing,
-        username = Prelude.Nothing,
-        token = Prelude._Sensitive Lens.# pToken_,
+          Core.Nothing,
+        username = Core.Nothing,
+        token = Core._Sensitive Lens.# pToken_,
         serverType = pServerType_,
         authType = pAuthType_
       }
@@ -122,18 +121,18 @@ newImportSourceCredentials
 -- | Set to @false@ to prevent overwriting the repository source credentials.
 -- Set to @true@ to overwrite the repository source credentials. The
 -- default value is @true@.
-importSourceCredentials_shouldOverwrite :: Lens.Lens' ImportSourceCredentials (Prelude.Maybe Prelude.Bool)
+importSourceCredentials_shouldOverwrite :: Lens.Lens' ImportSourceCredentials (Core.Maybe Core.Bool)
 importSourceCredentials_shouldOverwrite = Lens.lens (\ImportSourceCredentials' {shouldOverwrite} -> shouldOverwrite) (\s@ImportSourceCredentials' {} a -> s {shouldOverwrite = a} :: ImportSourceCredentials)
 
 -- | The Bitbucket username when the @authType@ is BASIC_AUTH. This parameter
 -- is not valid for other types of source providers or connections.
-importSourceCredentials_username :: Lens.Lens' ImportSourceCredentials (Prelude.Maybe Prelude.Text)
+importSourceCredentials_username :: Lens.Lens' ImportSourceCredentials (Core.Maybe Core.Text)
 importSourceCredentials_username = Lens.lens (\ImportSourceCredentials' {username} -> username) (\s@ImportSourceCredentials' {} a -> s {username = a} :: ImportSourceCredentials)
 
 -- | For GitHub or GitHub Enterprise, this is the personal access token. For
 -- Bitbucket, this is the app password.
-importSourceCredentials_token :: Lens.Lens' ImportSourceCredentials Prelude.Text
-importSourceCredentials_token = Lens.lens (\ImportSourceCredentials' {token} -> token) (\s@ImportSourceCredentials' {} a -> s {token = a} :: ImportSourceCredentials) Prelude.. Prelude._Sensitive
+importSourceCredentials_token :: Lens.Lens' ImportSourceCredentials Core.Text
+importSourceCredentials_token = Lens.lens (\ImportSourceCredentials' {token} -> token) (\s@ImportSourceCredentials' {} a -> s {token = a} :: ImportSourceCredentials) Core.. Core._Sensitive
 
 -- | The source provider used for this project.
 importSourceCredentials_serverType :: Lens.Lens' ImportSourceCredentials ServerType
@@ -146,65 +145,63 @@ importSourceCredentials_serverType = Lens.lens (\ImportSourceCredentials' {serve
 importSourceCredentials_authType :: Lens.Lens' ImportSourceCredentials AuthType
 importSourceCredentials_authType = Lens.lens (\ImportSourceCredentials' {authType} -> authType) (\s@ImportSourceCredentials' {} a -> s {authType = a} :: ImportSourceCredentials)
 
-instance Prelude.AWSRequest ImportSourceCredentials where
+instance Core.AWSRequest ImportSourceCredentials where
   type
-    Rs ImportSourceCredentials =
+    AWSResponse ImportSourceCredentials =
       ImportSourceCredentialsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ImportSourceCredentialsResponse'
-            Prelude.<$> (x Prelude..?> "arn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "arn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ImportSourceCredentials
+instance Core.Hashable ImportSourceCredentials
 
-instance Prelude.NFData ImportSourceCredentials
+instance Core.NFData ImportSourceCredentials
 
-instance Prelude.ToHeaders ImportSourceCredentials where
+instance Core.ToHeaders ImportSourceCredentials where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeBuild_20161006.ImportSourceCredentials" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeBuild_20161006.ImportSourceCredentials" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ImportSourceCredentials where
+instance Core.ToJSON ImportSourceCredentials where
   toJSON ImportSourceCredentials' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("shouldOverwrite" Prelude..=)
-              Prelude.<$> shouldOverwrite,
-            ("username" Prelude..=) Prelude.<$> username,
-            Prelude.Just ("token" Prelude..= token),
-            Prelude.Just ("serverType" Prelude..= serverType),
-            Prelude.Just ("authType" Prelude..= authType)
+    Core.object
+      ( Core.catMaybes
+          [ ("shouldOverwrite" Core..=)
+              Core.<$> shouldOverwrite,
+            ("username" Core..=) Core.<$> username,
+            Core.Just ("token" Core..= token),
+            Core.Just ("serverType" Core..= serverType),
+            Core.Just ("authType" Core..= authType)
           ]
       )
 
-instance Prelude.ToPath ImportSourceCredentials where
-  toPath = Prelude.const "/"
+instance Core.ToPath ImportSourceCredentials where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ImportSourceCredentials where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ImportSourceCredentials where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newImportSourceCredentialsResponse' smart constructor.
 data ImportSourceCredentialsResponse = ImportSourceCredentialsResponse'
   { -- | The Amazon Resource Name (ARN) of the token.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportSourceCredentialsResponse' with all optional fields omitted.
@@ -219,23 +216,21 @@ data ImportSourceCredentialsResponse = ImportSourceCredentialsResponse'
 -- 'httpStatus', 'importSourceCredentialsResponse_httpStatus' - The response's http status code.
 newImportSourceCredentialsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ImportSourceCredentialsResponse
 newImportSourceCredentialsResponse pHttpStatus_ =
   ImportSourceCredentialsResponse'
     { arn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the token.
-importSourceCredentialsResponse_arn :: Lens.Lens' ImportSourceCredentialsResponse (Prelude.Maybe Prelude.Text)
+importSourceCredentialsResponse_arn :: Lens.Lens' ImportSourceCredentialsResponse (Core.Maybe Core.Text)
 importSourceCredentialsResponse_arn = Lens.lens (\ImportSourceCredentialsResponse' {arn} -> arn) (\s@ImportSourceCredentialsResponse' {} a -> s {arn = a} :: ImportSourceCredentialsResponse)
 
 -- | The response's http status code.
-importSourceCredentialsResponse_httpStatus :: Lens.Lens' ImportSourceCredentialsResponse Prelude.Int
+importSourceCredentialsResponse_httpStatus :: Lens.Lens' ImportSourceCredentialsResponse Core.Int
 importSourceCredentialsResponse_httpStatus = Lens.lens (\ImportSourceCredentialsResponse' {httpStatus} -> httpStatus) (\s@ImportSourceCredentialsResponse' {} a -> s {httpStatus = a} :: ImportSourceCredentialsResponse)
 
-instance
-  Prelude.NFData
-    ImportSourceCredentialsResponse
+instance Core.NFData ImportSourceCredentialsResponse

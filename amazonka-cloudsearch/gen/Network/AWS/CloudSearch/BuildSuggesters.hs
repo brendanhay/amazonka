@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudSearch.BuildSuggesters
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newBuildSuggesters' smart constructor.
 data BuildSuggesters = BuildSuggesters'
-  { domainName :: Prelude.Text
+  { domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BuildSuggesters' with all optional fields omitted.
@@ -68,48 +67,48 @@ data BuildSuggesters = BuildSuggesters'
 -- 'domainName', 'buildSuggesters_domainName' - Undocumented member.
 newBuildSuggesters ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   BuildSuggesters
 newBuildSuggesters pDomainName_ =
   BuildSuggesters' {domainName = pDomainName_}
 
 -- | Undocumented member.
-buildSuggesters_domainName :: Lens.Lens' BuildSuggesters Prelude.Text
+buildSuggesters_domainName :: Lens.Lens' BuildSuggesters Core.Text
 buildSuggesters_domainName = Lens.lens (\BuildSuggesters' {domainName} -> domainName) (\s@BuildSuggesters' {} a -> s {domainName = a} :: BuildSuggesters)
 
-instance Prelude.AWSRequest BuildSuggesters where
-  type Rs BuildSuggesters = BuildSuggestersResponse
+instance Core.AWSRequest BuildSuggesters where
+  type
+    AWSResponse BuildSuggesters =
+      BuildSuggestersResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "BuildSuggestersResult"
       ( \s h x ->
           BuildSuggestersResponse'
-            Prelude.<$> ( x Prelude..@? "FieldNames"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "FieldNames" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BuildSuggesters
+instance Core.Hashable BuildSuggesters
 
-instance Prelude.NFData BuildSuggesters
+instance Core.NFData BuildSuggesters
 
-instance Prelude.ToHeaders BuildSuggesters where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders BuildSuggesters where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath BuildSuggesters where
-  toPath = Prelude.const "/"
+instance Core.ToPath BuildSuggesters where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BuildSuggesters where
+instance Core.ToQuery BuildSuggesters where
   toQuery BuildSuggesters' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("BuildSuggesters" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Prelude.=: domainName
+          Core.=: ("BuildSuggesters" :: Core.ByteString),
+        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+        "DomainName" Core.=: domainName
       ]
 
 -- | The result of a @BuildSuggester@ request. Contains a list of the fields
@@ -117,11 +116,11 @@ instance Prelude.ToQuery BuildSuggesters where
 --
 -- /See:/ 'newBuildSuggestersResponse' smart constructor.
 data BuildSuggestersResponse = BuildSuggestersResponse'
-  { fieldNames :: Prelude.Maybe [Prelude.Text],
+  { fieldNames :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BuildSuggestersResponse' with all optional fields omitted.
@@ -136,21 +135,20 @@ data BuildSuggestersResponse = BuildSuggestersResponse'
 -- 'httpStatus', 'buildSuggestersResponse_httpStatus' - The response's http status code.
 newBuildSuggestersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BuildSuggestersResponse
 newBuildSuggestersResponse pHttpStatus_ =
   BuildSuggestersResponse'
-    { fieldNames =
-        Prelude.Nothing,
+    { fieldNames = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-buildSuggestersResponse_fieldNames :: Lens.Lens' BuildSuggestersResponse (Prelude.Maybe [Prelude.Text])
-buildSuggestersResponse_fieldNames = Lens.lens (\BuildSuggestersResponse' {fieldNames} -> fieldNames) (\s@BuildSuggestersResponse' {} a -> s {fieldNames = a} :: BuildSuggestersResponse) Prelude.. Lens.mapping Prelude._Coerce
+buildSuggestersResponse_fieldNames :: Lens.Lens' BuildSuggestersResponse (Core.Maybe [Core.Text])
+buildSuggestersResponse_fieldNames = Lens.lens (\BuildSuggestersResponse' {fieldNames} -> fieldNames) (\s@BuildSuggestersResponse' {} a -> s {fieldNames = a} :: BuildSuggestersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-buildSuggestersResponse_httpStatus :: Lens.Lens' BuildSuggestersResponse Prelude.Int
+buildSuggestersResponse_httpStatus :: Lens.Lens' BuildSuggestersResponse Core.Int
 buildSuggestersResponse_httpStatus = Lens.lens (\BuildSuggestersResponse' {httpStatus} -> httpStatus) (\s@BuildSuggestersResponse' {} a -> s {httpStatus = a} :: BuildSuggestersResponse)
 
-instance Prelude.NFData BuildSuggestersResponse
+instance Core.NFData BuildSuggestersResponse

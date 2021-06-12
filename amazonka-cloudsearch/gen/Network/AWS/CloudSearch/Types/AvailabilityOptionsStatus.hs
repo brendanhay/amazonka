@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,18 +20,18 @@
 module Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus where
 
 import Network.AWS.CloudSearch.Types.OptionStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The status and configuration of the domain\'s availability options.
 --
 -- /See:/ 'newAvailabilityOptionsStatus' smart constructor.
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
   { -- | The availability options configured for the domain.
-    options :: Prelude.Bool,
+    options :: Core.Bool,
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AvailabilityOptionsStatus' with all optional fields omitted.
@@ -47,7 +46,7 @@ data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
 -- 'status', 'availabilityOptionsStatus_status' - Undocumented member.
 newAvailabilityOptionsStatus ::
   -- | 'options'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'status'
   OptionStatus ->
   AvailabilityOptionsStatus
@@ -58,19 +57,18 @@ newAvailabilityOptionsStatus pOptions_ pStatus_ =
     }
 
 -- | The availability options configured for the domain.
-availabilityOptionsStatus_options :: Lens.Lens' AvailabilityOptionsStatus Prelude.Bool
+availabilityOptionsStatus_options :: Lens.Lens' AvailabilityOptionsStatus Core.Bool
 availabilityOptionsStatus_options = Lens.lens (\AvailabilityOptionsStatus' {options} -> options) (\s@AvailabilityOptionsStatus' {} a -> s {options = a} :: AvailabilityOptionsStatus)
 
 -- | Undocumented member.
 availabilityOptionsStatus_status :: Lens.Lens' AvailabilityOptionsStatus OptionStatus
 availabilityOptionsStatus_status = Lens.lens (\AvailabilityOptionsStatus' {status} -> status) (\s@AvailabilityOptionsStatus' {} a -> s {status = a} :: AvailabilityOptionsStatus)
 
-instance Prelude.FromXML AvailabilityOptionsStatus where
+instance Core.FromXML AvailabilityOptionsStatus where
   parseXML x =
     AvailabilityOptionsStatus'
-      Prelude.<$> (x Prelude..@ "Options")
-      Prelude.<*> (x Prelude..@ "Status")
+      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable AvailabilityOptionsStatus
+instance Core.Hashable AvailabilityOptionsStatus
 
-instance Prelude.NFData AvailabilityOptionsStatus
+instance Core.NFData AvailabilityOptionsStatus

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentityProvider.Types.DeviceSecretVerifierConfigType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The device verifier against which it will be authenticated.
 --
 -- /See:/ 'newDeviceSecretVerifierConfigType' smart constructor.
 data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
   { -- | The password verifier.
-    passwordVerifier :: Prelude.Maybe Prelude.Text,
+    passwordVerifier :: Core.Maybe Core.Text,
     -- | The salt.
-    salt :: Prelude.Maybe Prelude.Text
+    salt :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeviceSecretVerifierConfigType' with all optional fields omitted.
@@ -50,35 +49,28 @@ newDeviceSecretVerifierConfigType ::
 newDeviceSecretVerifierConfigType =
   DeviceSecretVerifierConfigType'
     { passwordVerifier =
-        Prelude.Nothing,
-      salt = Prelude.Nothing
+        Core.Nothing,
+      salt = Core.Nothing
     }
 
 -- | The password verifier.
-deviceSecretVerifierConfigType_passwordVerifier :: Lens.Lens' DeviceSecretVerifierConfigType (Prelude.Maybe Prelude.Text)
+deviceSecretVerifierConfigType_passwordVerifier :: Lens.Lens' DeviceSecretVerifierConfigType (Core.Maybe Core.Text)
 deviceSecretVerifierConfigType_passwordVerifier = Lens.lens (\DeviceSecretVerifierConfigType' {passwordVerifier} -> passwordVerifier) (\s@DeviceSecretVerifierConfigType' {} a -> s {passwordVerifier = a} :: DeviceSecretVerifierConfigType)
 
 -- | The salt.
-deviceSecretVerifierConfigType_salt :: Lens.Lens' DeviceSecretVerifierConfigType (Prelude.Maybe Prelude.Text)
+deviceSecretVerifierConfigType_salt :: Lens.Lens' DeviceSecretVerifierConfigType (Core.Maybe Core.Text)
 deviceSecretVerifierConfigType_salt = Lens.lens (\DeviceSecretVerifierConfigType' {salt} -> salt) (\s@DeviceSecretVerifierConfigType' {} a -> s {salt = a} :: DeviceSecretVerifierConfigType)
 
-instance
-  Prelude.Hashable
-    DeviceSecretVerifierConfigType
+instance Core.Hashable DeviceSecretVerifierConfigType
 
-instance
-  Prelude.NFData
-    DeviceSecretVerifierConfigType
+instance Core.NFData DeviceSecretVerifierConfigType
 
-instance
-  Prelude.ToJSON
-    DeviceSecretVerifierConfigType
-  where
+instance Core.ToJSON DeviceSecretVerifierConfigType where
   toJSON DeviceSecretVerifierConfigType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PasswordVerifier" Prelude..=)
-              Prelude.<$> passwordVerifier,
-            ("Salt" Prelude..=) Prelude.<$> salt
+    Core.object
+      ( Core.catMaybes
+          [ ("PasswordVerifier" Core..=)
+              Core.<$> passwordVerifier,
+            ("Salt" Core..=) Core.<$> salt
           ]
       )

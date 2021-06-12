@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.Route53AutoNaming.DeleteNamespace
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -50,9 +49,9 @@ import Network.AWS.Route53AutoNaming.Types
 -- | /See:/ 'newDeleteNamespace' smart constructor.
 data DeleteNamespace = DeleteNamespace'
   { -- | The ID of the namespace that you want to delete.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNamespace' with all optional fields omitted.
@@ -65,67 +64,65 @@ data DeleteNamespace = DeleteNamespace'
 -- 'id', 'deleteNamespace_id' - The ID of the namespace that you want to delete.
 newDeleteNamespace ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteNamespace
 newDeleteNamespace pId_ = DeleteNamespace' {id = pId_}
 
 -- | The ID of the namespace that you want to delete.
-deleteNamespace_id :: Lens.Lens' DeleteNamespace Prelude.Text
+deleteNamespace_id :: Lens.Lens' DeleteNamespace Core.Text
 deleteNamespace_id = Lens.lens (\DeleteNamespace' {id} -> id) (\s@DeleteNamespace' {} a -> s {id = a} :: DeleteNamespace)
 
-instance Prelude.AWSRequest DeleteNamespace where
-  type Rs DeleteNamespace = DeleteNamespaceResponse
+instance Core.AWSRequest DeleteNamespace where
+  type
+    AWSResponse DeleteNamespace =
+      DeleteNamespaceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteNamespaceResponse'
-            Prelude.<$> (x Prelude..?> "OperationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "OperationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteNamespace
+instance Core.Hashable DeleteNamespace
 
-instance Prelude.NFData DeleteNamespace
+instance Core.NFData DeleteNamespace
 
-instance Prelude.ToHeaders DeleteNamespace where
+instance Core.ToHeaders DeleteNamespace where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53AutoNaming_v20170314.DeleteNamespace" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53AutoNaming_v20170314.DeleteNamespace" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteNamespace where
+instance Core.ToJSON DeleteNamespace where
   toJSON DeleteNamespace' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Id" Prelude..= id)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Id" Core..= id)])
 
-instance Prelude.ToPath DeleteNamespace where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteNamespace where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteNamespace where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteNamespace where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteNamespaceResponse' smart constructor.
 data DeleteNamespaceResponse = DeleteNamespaceResponse'
   { -- | A value that you can use to determine whether the request completed
     -- successfully. To get the status of the operation, see
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-    operationId :: Prelude.Maybe Prelude.Text,
+    operationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNamespaceResponse' with all optional fields omitted.
@@ -142,23 +139,23 @@ data DeleteNamespaceResponse = DeleteNamespaceResponse'
 -- 'httpStatus', 'deleteNamespaceResponse_httpStatus' - The response's http status code.
 newDeleteNamespaceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteNamespaceResponse
 newDeleteNamespaceResponse pHttpStatus_ =
   DeleteNamespaceResponse'
     { operationId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A value that you can use to determine whether the request completed
 -- successfully. To get the status of the operation, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-deleteNamespaceResponse_operationId :: Lens.Lens' DeleteNamespaceResponse (Prelude.Maybe Prelude.Text)
+deleteNamespaceResponse_operationId :: Lens.Lens' DeleteNamespaceResponse (Core.Maybe Core.Text)
 deleteNamespaceResponse_operationId = Lens.lens (\DeleteNamespaceResponse' {operationId} -> operationId) (\s@DeleteNamespaceResponse' {} a -> s {operationId = a} :: DeleteNamespaceResponse)
 
 -- | The response's http status code.
-deleteNamespaceResponse_httpStatus :: Lens.Lens' DeleteNamespaceResponse Prelude.Int
+deleteNamespaceResponse_httpStatus :: Lens.Lens' DeleteNamespaceResponse Core.Int
 deleteNamespaceResponse_httpStatus = Lens.lens (\DeleteNamespaceResponse' {httpStatus} -> httpStatus) (\s@DeleteNamespaceResponse' {} a -> s {httpStatus = a} :: DeleteNamespaceResponse)
 
-instance Prelude.NFData DeleteNamespaceResponse
+instance Core.NFData DeleteNamespaceResponse

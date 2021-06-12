@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.EC2.DescribeImageAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,7 +63,7 @@ data DescribeImageAttribute = DescribeImageAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The AMI attribute.
     --
     -- __Note__: Depending on your account privileges, the @blockDeviceMapping@
@@ -73,9 +72,9 @@ data DescribeImageAttribute = DescribeImageAttribute'
     -- AMI.
     attribute :: ImageAttributeName,
     -- | The ID of the AMI.
-    imageId :: Prelude.Text
+    imageId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeImageAttribute' with all optional fields omitted.
@@ -102,11 +101,11 @@ newDescribeImageAttribute ::
   -- | 'attribute'
   ImageAttributeName ->
   -- | 'imageId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeImageAttribute
 newDescribeImageAttribute pAttribute_ pImageId_ =
   DescribeImageAttribute'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       attribute = pAttribute_,
       imageId = pImageId_
     }
@@ -115,7 +114,7 @@ newDescribeImageAttribute pAttribute_ pImageId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeImageAttribute_dryRun :: Lens.Lens' DescribeImageAttribute (Prelude.Maybe Prelude.Bool)
+describeImageAttribute_dryRun :: Lens.Lens' DescribeImageAttribute (Core.Maybe Core.Bool)
 describeImageAttribute_dryRun = Lens.lens (\DescribeImageAttribute' {dryRun} -> dryRun) (\s@DescribeImageAttribute' {} a -> s {dryRun = a} :: DescribeImageAttribute)
 
 -- | The AMI attribute.
@@ -128,58 +127,54 @@ describeImageAttribute_attribute :: Lens.Lens' DescribeImageAttribute ImageAttri
 describeImageAttribute_attribute = Lens.lens (\DescribeImageAttribute' {attribute} -> attribute) (\s@DescribeImageAttribute' {} a -> s {attribute = a} :: DescribeImageAttribute)
 
 -- | The ID of the AMI.
-describeImageAttribute_imageId :: Lens.Lens' DescribeImageAttribute Prelude.Text
+describeImageAttribute_imageId :: Lens.Lens' DescribeImageAttribute Core.Text
 describeImageAttribute_imageId = Lens.lens (\DescribeImageAttribute' {imageId} -> imageId) (\s@DescribeImageAttribute' {} a -> s {imageId = a} :: DescribeImageAttribute)
 
-instance Prelude.AWSRequest DescribeImageAttribute where
+instance Core.AWSRequest DescribeImageAttribute where
   type
-    Rs DescribeImageAttribute =
+    AWSResponse DescribeImageAttribute =
       DescribeImageAttributeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeImageAttributeResponse'
-            Prelude.<$> (x Prelude..@? "ramdisk")
-            Prelude.<*> ( x Prelude..@? "productCodes"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> ( x Prelude..@? "launchPermission"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (x Prelude..@? "imageId")
-            Prelude.<*> (x Prelude..@? "sriovNetSupport")
-            Prelude.<*> ( x Prelude..@? "blockDeviceMapping"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (x Prelude..@? "kernel")
-            Prelude.<*> (x Prelude..@? "description")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ramdisk")
+            Core.<*> ( x Core..@? "productCodes" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> ( x Core..@? "launchPermission" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (x Core..@? "imageId")
+            Core.<*> (x Core..@? "sriovNetSupport")
+            Core.<*> ( x Core..@? "blockDeviceMapping" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (x Core..@? "kernel")
+            Core.<*> (x Core..@? "description")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImageAttribute
+instance Core.Hashable DescribeImageAttribute
 
-instance Prelude.NFData DescribeImageAttribute
+instance Core.NFData DescribeImageAttribute
 
-instance Prelude.ToHeaders DescribeImageAttribute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeImageAttribute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeImageAttribute where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeImageAttribute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeImageAttribute where
+instance Core.ToQuery DescribeImageAttribute where
   toQuery DescribeImageAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeImageAttribute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "Attribute" Prelude.=: attribute,
-        "ImageId" Prelude.=: imageId
+          Core.=: ("DescribeImageAttribute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Attribute" Core.=: attribute,
+        "ImageId" Core.=: imageId
       ]
 
 -- | Describes an image attribute.
@@ -187,26 +182,26 @@ instance Prelude.ToQuery DescribeImageAttribute where
 -- /See:/ 'newDescribeImageAttributeResponse' smart constructor.
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
   { -- | The RAM disk ID.
-    ramdiskId :: Prelude.Maybe AttributeValue,
+    ramdiskId :: Core.Maybe AttributeValue,
     -- | The product codes.
-    productCodes :: Prelude.Maybe [ProductCode],
+    productCodes :: Core.Maybe [ProductCode],
     -- | The launch permissions.
-    launchPermissions :: Prelude.Maybe [LaunchPermission],
+    launchPermissions :: Core.Maybe [LaunchPermission],
     -- | The ID of the AMI.
-    imageId :: Prelude.Maybe Prelude.Text,
+    imageId :: Core.Maybe Core.Text,
     -- | Indicates whether enhanced networking with the Intel 82599 Virtual
     -- Function interface is enabled.
-    sriovNetSupport :: Prelude.Maybe AttributeValue,
+    sriovNetSupport :: Core.Maybe AttributeValue,
     -- | The block device mapping entries.
-    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
+    blockDeviceMappings :: Core.Maybe [BlockDeviceMapping],
     -- | The kernel ID.
-    kernelId :: Prelude.Maybe AttributeValue,
+    kernelId :: Core.Maybe AttributeValue,
     -- | A description for the AMI.
-    description :: Prelude.Maybe AttributeValue,
+    description :: Core.Maybe AttributeValue,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeImageAttributeResponse' with all optional fields omitted.
@@ -236,59 +231,57 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
 -- 'httpStatus', 'describeImageAttributeResponse_httpStatus' - The response's http status code.
 newDescribeImageAttributeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeImageAttributeResponse
 newDescribeImageAttributeResponse pHttpStatus_ =
   DescribeImageAttributeResponse'
     { ramdiskId =
-        Prelude.Nothing,
-      productCodes = Prelude.Nothing,
-      launchPermissions = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      sriovNetSupport = Prelude.Nothing,
-      blockDeviceMappings = Prelude.Nothing,
-      kernelId = Prelude.Nothing,
-      description = Prelude.Nothing,
+        Core.Nothing,
+      productCodes = Core.Nothing,
+      launchPermissions = Core.Nothing,
+      imageId = Core.Nothing,
+      sriovNetSupport = Core.Nothing,
+      blockDeviceMappings = Core.Nothing,
+      kernelId = Core.Nothing,
+      description = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The RAM disk ID.
-describeImageAttributeResponse_ramdiskId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_ramdiskId :: Lens.Lens' DescribeImageAttributeResponse (Core.Maybe AttributeValue)
 describeImageAttributeResponse_ramdiskId = Lens.lens (\DescribeImageAttributeResponse' {ramdiskId} -> ramdiskId) (\s@DescribeImageAttributeResponse' {} a -> s {ramdiskId = a} :: DescribeImageAttributeResponse)
 
 -- | The product codes.
-describeImageAttributeResponse_productCodes :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [ProductCode])
-describeImageAttributeResponse_productCodes = Lens.lens (\DescribeImageAttributeResponse' {productCodes} -> productCodes) (\s@DescribeImageAttributeResponse' {} a -> s {productCodes = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeImageAttributeResponse_productCodes :: Lens.Lens' DescribeImageAttributeResponse (Core.Maybe [ProductCode])
+describeImageAttributeResponse_productCodes = Lens.lens (\DescribeImageAttributeResponse' {productCodes} -> productCodes) (\s@DescribeImageAttributeResponse' {} a -> s {productCodes = a} :: DescribeImageAttributeResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The launch permissions.
-describeImageAttributeResponse_launchPermissions :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [LaunchPermission])
-describeImageAttributeResponse_launchPermissions = Lens.lens (\DescribeImageAttributeResponse' {launchPermissions} -> launchPermissions) (\s@DescribeImageAttributeResponse' {} a -> s {launchPermissions = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeImageAttributeResponse_launchPermissions :: Lens.Lens' DescribeImageAttributeResponse (Core.Maybe [LaunchPermission])
+describeImageAttributeResponse_launchPermissions = Lens.lens (\DescribeImageAttributeResponse' {launchPermissions} -> launchPermissions) (\s@DescribeImageAttributeResponse' {} a -> s {launchPermissions = a} :: DescribeImageAttributeResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the AMI.
-describeImageAttributeResponse_imageId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe Prelude.Text)
+describeImageAttributeResponse_imageId :: Lens.Lens' DescribeImageAttributeResponse (Core.Maybe Core.Text)
 describeImageAttributeResponse_imageId = Lens.lens (\DescribeImageAttributeResponse' {imageId} -> imageId) (\s@DescribeImageAttributeResponse' {} a -> s {imageId = a} :: DescribeImageAttributeResponse)
 
 -- | Indicates whether enhanced networking with the Intel 82599 Virtual
 -- Function interface is enabled.
-describeImageAttributeResponse_sriovNetSupport :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_sriovNetSupport :: Lens.Lens' DescribeImageAttributeResponse (Core.Maybe AttributeValue)
 describeImageAttributeResponse_sriovNetSupport = Lens.lens (\DescribeImageAttributeResponse' {sriovNetSupport} -> sriovNetSupport) (\s@DescribeImageAttributeResponse' {} a -> s {sriovNetSupport = a} :: DescribeImageAttributeResponse)
 
 -- | The block device mapping entries.
-describeImageAttributeResponse_blockDeviceMappings :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [BlockDeviceMapping])
-describeImageAttributeResponse_blockDeviceMappings = Lens.lens (\DescribeImageAttributeResponse' {blockDeviceMappings} -> blockDeviceMappings) (\s@DescribeImageAttributeResponse' {} a -> s {blockDeviceMappings = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeImageAttributeResponse_blockDeviceMappings :: Lens.Lens' DescribeImageAttributeResponse (Core.Maybe [BlockDeviceMapping])
+describeImageAttributeResponse_blockDeviceMappings = Lens.lens (\DescribeImageAttributeResponse' {blockDeviceMappings} -> blockDeviceMappings) (\s@DescribeImageAttributeResponse' {} a -> s {blockDeviceMappings = a} :: DescribeImageAttributeResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The kernel ID.
-describeImageAttributeResponse_kernelId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_kernelId :: Lens.Lens' DescribeImageAttributeResponse (Core.Maybe AttributeValue)
 describeImageAttributeResponse_kernelId = Lens.lens (\DescribeImageAttributeResponse' {kernelId} -> kernelId) (\s@DescribeImageAttributeResponse' {} a -> s {kernelId = a} :: DescribeImageAttributeResponse)
 
 -- | A description for the AMI.
-describeImageAttributeResponse_description :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_description :: Lens.Lens' DescribeImageAttributeResponse (Core.Maybe AttributeValue)
 describeImageAttributeResponse_description = Lens.lens (\DescribeImageAttributeResponse' {description} -> description) (\s@DescribeImageAttributeResponse' {} a -> s {description = a} :: DescribeImageAttributeResponse)
 
 -- | The response's http status code.
-describeImageAttributeResponse_httpStatus :: Lens.Lens' DescribeImageAttributeResponse Prelude.Int
+describeImageAttributeResponse_httpStatus :: Lens.Lens' DescribeImageAttributeResponse Core.Int
 describeImageAttributeResponse_httpStatus = Lens.lens (\DescribeImageAttributeResponse' {httpStatus} -> httpStatus) (\s@DescribeImageAttributeResponse' {} a -> s {httpStatus = a} :: DescribeImageAttributeResponse)
 
-instance
-  Prelude.NFData
-    DescribeImageAttributeResponse
+instance Core.NFData DescribeImageAttributeResponse

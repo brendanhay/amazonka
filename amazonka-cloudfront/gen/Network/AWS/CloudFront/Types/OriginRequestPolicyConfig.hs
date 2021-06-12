@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CloudFront.Types.OriginRequestPolicyConfig where
 import Network.AWS.CloudFront.Types.OriginRequestPolicyCookiesConfig
 import Network.AWS.CloudFront.Types.OriginRequestPolicyHeadersConfig
 import Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringsConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An origin request policy configuration.
 --
@@ -50,9 +49,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newOriginRequestPolicyConfig' smart constructor.
 data OriginRequestPolicyConfig = OriginRequestPolicyConfig'
   { -- | A comment to describe the origin request policy.
-    comment :: Prelude.Maybe Prelude.Text,
+    comment :: Core.Maybe Core.Text,
     -- | A unique name to identify the origin request policy.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The HTTP headers to include in origin requests. These can include
     -- headers from viewer requests and additional headers added by CloudFront.
     headersConfig :: OriginRequestPolicyHeadersConfig,
@@ -62,7 +61,7 @@ data OriginRequestPolicyConfig = OriginRequestPolicyConfig'
     -- requests.
     queryStringsConfig :: OriginRequestPolicyQueryStringsConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OriginRequestPolicyConfig' with all optional fields omitted.
@@ -85,7 +84,7 @@ data OriginRequestPolicyConfig = OriginRequestPolicyConfig'
 -- requests.
 newOriginRequestPolicyConfig ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'headersConfig'
   OriginRequestPolicyHeadersConfig ->
   -- | 'cookiesConfig'
@@ -99,8 +98,7 @@ newOriginRequestPolicyConfig
   pCookiesConfig_
   pQueryStringsConfig_ =
     OriginRequestPolicyConfig'
-      { comment =
-          Prelude.Nothing,
+      { comment = Core.Nothing,
         name = pName_,
         headersConfig = pHeadersConfig_,
         cookiesConfig = pCookiesConfig_,
@@ -108,11 +106,11 @@ newOriginRequestPolicyConfig
       }
 
 -- | A comment to describe the origin request policy.
-originRequestPolicyConfig_comment :: Lens.Lens' OriginRequestPolicyConfig (Prelude.Maybe Prelude.Text)
+originRequestPolicyConfig_comment :: Lens.Lens' OriginRequestPolicyConfig (Core.Maybe Core.Text)
 originRequestPolicyConfig_comment = Lens.lens (\OriginRequestPolicyConfig' {comment} -> comment) (\s@OriginRequestPolicyConfig' {} a -> s {comment = a} :: OriginRequestPolicyConfig)
 
 -- | A unique name to identify the origin request policy.
-originRequestPolicyConfig_name :: Lens.Lens' OriginRequestPolicyConfig Prelude.Text
+originRequestPolicyConfig_name :: Lens.Lens' OriginRequestPolicyConfig Core.Text
 originRequestPolicyConfig_name = Lens.lens (\OriginRequestPolicyConfig' {name} -> name) (\s@OriginRequestPolicyConfig' {} a -> s {name = a} :: OriginRequestPolicyConfig)
 
 -- | The HTTP headers to include in origin requests. These can include
@@ -129,25 +127,25 @@ originRequestPolicyConfig_cookiesConfig = Lens.lens (\OriginRequestPolicyConfig'
 originRequestPolicyConfig_queryStringsConfig :: Lens.Lens' OriginRequestPolicyConfig OriginRequestPolicyQueryStringsConfig
 originRequestPolicyConfig_queryStringsConfig = Lens.lens (\OriginRequestPolicyConfig' {queryStringsConfig} -> queryStringsConfig) (\s@OriginRequestPolicyConfig' {} a -> s {queryStringsConfig = a} :: OriginRequestPolicyConfig)
 
-instance Prelude.FromXML OriginRequestPolicyConfig where
+instance Core.FromXML OriginRequestPolicyConfig where
   parseXML x =
     OriginRequestPolicyConfig'
-      Prelude.<$> (x Prelude..@? "Comment")
-      Prelude.<*> (x Prelude..@ "Name")
-      Prelude.<*> (x Prelude..@ "HeadersConfig")
-      Prelude.<*> (x Prelude..@ "CookiesConfig")
-      Prelude.<*> (x Prelude..@ "QueryStringsConfig")
+      Core.<$> (x Core..@? "Comment")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (x Core..@ "HeadersConfig")
+      Core.<*> (x Core..@ "CookiesConfig")
+      Core.<*> (x Core..@ "QueryStringsConfig")
 
-instance Prelude.Hashable OriginRequestPolicyConfig
+instance Core.Hashable OriginRequestPolicyConfig
 
-instance Prelude.NFData OriginRequestPolicyConfig
+instance Core.NFData OriginRequestPolicyConfig
 
-instance Prelude.ToXML OriginRequestPolicyConfig where
+instance Core.ToXML OriginRequestPolicyConfig where
   toXML OriginRequestPolicyConfig' {..} =
-    Prelude.mconcat
-      [ "Comment" Prelude.@= comment,
-        "Name" Prelude.@= name,
-        "HeadersConfig" Prelude.@= headersConfig,
-        "CookiesConfig" Prelude.@= cookiesConfig,
-        "QueryStringsConfig" Prelude.@= queryStringsConfig
+    Core.mconcat
+      [ "Comment" Core.@= comment,
+        "Name" Core.@= name,
+        "HeadersConfig" Core.@= headersConfig,
+        "CookiesConfig" Core.@= cookiesConfig,
+        "QueryStringsConfig" Core.@= queryStringsConfig
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment
 import Network.AWS.CostExplorer.Types.SavingsPlansSavings
 import Network.AWS.CostExplorer.Types.SavingsPlansUtilization
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The aggregated utilization metrics for your Savings Plans usage.
 --
@@ -33,15 +32,15 @@ data SavingsPlansUtilizationAggregates = SavingsPlansUtilizationAggregates'
   { -- | The amount saved by using existing Savings Plans. Savings returns both
     -- net savings from Savings Plans, as well as the @onDemandCostEquivalent@
     -- of the Savings Plans when considering the utilization rate.
-    savings :: Prelude.Maybe SavingsPlansSavings,
+    savings :: Core.Maybe SavingsPlansSavings,
     -- | The total amortized commitment for a Savings Plans. This includes the
     -- sum of the upfront and recurring Savings Plans fees.
-    amortizedCommitment :: Prelude.Maybe SavingsPlansAmortizedCommitment,
+    amortizedCommitment :: Core.Maybe SavingsPlansAmortizedCommitment,
     -- | A ratio of your effectiveness of using existing Savings Plans to apply
     -- to workloads that are Savings Plans eligible.
     utilization :: SavingsPlansUtilization
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansUtilizationAggregates' with all optional fields omitted.
@@ -67,20 +66,20 @@ newSavingsPlansUtilizationAggregates ::
 newSavingsPlansUtilizationAggregates pUtilization_ =
   SavingsPlansUtilizationAggregates'
     { savings =
-        Prelude.Nothing,
-      amortizedCommitment = Prelude.Nothing,
+        Core.Nothing,
+      amortizedCommitment = Core.Nothing,
       utilization = pUtilization_
     }
 
 -- | The amount saved by using existing Savings Plans. Savings returns both
 -- net savings from Savings Plans, as well as the @onDemandCostEquivalent@
 -- of the Savings Plans when considering the utilization rate.
-savingsPlansUtilizationAggregates_savings :: Lens.Lens' SavingsPlansUtilizationAggregates (Prelude.Maybe SavingsPlansSavings)
+savingsPlansUtilizationAggregates_savings :: Lens.Lens' SavingsPlansUtilizationAggregates (Core.Maybe SavingsPlansSavings)
 savingsPlansUtilizationAggregates_savings = Lens.lens (\SavingsPlansUtilizationAggregates' {savings} -> savings) (\s@SavingsPlansUtilizationAggregates' {} a -> s {savings = a} :: SavingsPlansUtilizationAggregates)
 
 -- | The total amortized commitment for a Savings Plans. This includes the
 -- sum of the upfront and recurring Savings Plans fees.
-savingsPlansUtilizationAggregates_amortizedCommitment :: Lens.Lens' SavingsPlansUtilizationAggregates (Prelude.Maybe SavingsPlansAmortizedCommitment)
+savingsPlansUtilizationAggregates_amortizedCommitment :: Lens.Lens' SavingsPlansUtilizationAggregates (Core.Maybe SavingsPlansAmortizedCommitment)
 savingsPlansUtilizationAggregates_amortizedCommitment = Lens.lens (\SavingsPlansUtilizationAggregates' {amortizedCommitment} -> amortizedCommitment) (\s@SavingsPlansUtilizationAggregates' {} a -> s {amortizedCommitment = a} :: SavingsPlansUtilizationAggregates)
 
 -- | A ratio of your effectiveness of using existing Savings Plans to apply
@@ -89,23 +88,23 @@ savingsPlansUtilizationAggregates_utilization :: Lens.Lens' SavingsPlansUtilizat
 savingsPlansUtilizationAggregates_utilization = Lens.lens (\SavingsPlansUtilizationAggregates' {utilization} -> utilization) (\s@SavingsPlansUtilizationAggregates' {} a -> s {utilization = a} :: SavingsPlansUtilizationAggregates)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     SavingsPlansUtilizationAggregates
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SavingsPlansUtilizationAggregates"
       ( \x ->
           SavingsPlansUtilizationAggregates'
-            Prelude.<$> (x Prelude..:? "Savings")
-            Prelude.<*> (x Prelude..:? "AmortizedCommitment")
-            Prelude.<*> (x Prelude..: "Utilization")
+            Core.<$> (x Core..:? "Savings")
+            Core.<*> (x Core..:? "AmortizedCommitment")
+            Core.<*> (x Core..: "Utilization")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     SavingsPlansUtilizationAggregates
 
 instance
-  Prelude.NFData
+  Core.NFData
     SavingsPlansUtilizationAggregates

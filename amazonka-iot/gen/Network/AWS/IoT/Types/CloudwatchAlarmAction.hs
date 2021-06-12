@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.CloudwatchAlarmAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action that updates a CloudWatch alarm.
 --
 -- /See:/ 'newCloudwatchAlarmAction' smart constructor.
 data CloudwatchAlarmAction = CloudwatchAlarmAction'
   { -- | The IAM role that allows access to the CloudWatch alarm.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The CloudWatch alarm name.
-    alarmName :: Prelude.Text,
+    alarmName :: Core.Text,
     -- | The reason for the alarm change.
-    stateReason :: Prelude.Text,
+    stateReason :: Core.Text,
     -- | The value of the alarm state. Acceptable values are: OK, ALARM,
     -- INSUFFICIENT_DATA.
-    stateValue :: Prelude.Text
+    stateValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloudwatchAlarmAction' with all optional fields omitted.
@@ -57,13 +56,13 @@ data CloudwatchAlarmAction = CloudwatchAlarmAction'
 -- INSUFFICIENT_DATA.
 newCloudwatchAlarmAction ::
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'alarmName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stateReason'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stateValue'
-  Prelude.Text ->
+  Core.Text ->
   CloudwatchAlarmAction
 newCloudwatchAlarmAction
   pRoleArn_
@@ -78,45 +77,45 @@ newCloudwatchAlarmAction
       }
 
 -- | The IAM role that allows access to the CloudWatch alarm.
-cloudwatchAlarmAction_roleArn :: Lens.Lens' CloudwatchAlarmAction Prelude.Text
+cloudwatchAlarmAction_roleArn :: Lens.Lens' CloudwatchAlarmAction Core.Text
 cloudwatchAlarmAction_roleArn = Lens.lens (\CloudwatchAlarmAction' {roleArn} -> roleArn) (\s@CloudwatchAlarmAction' {} a -> s {roleArn = a} :: CloudwatchAlarmAction)
 
 -- | The CloudWatch alarm name.
-cloudwatchAlarmAction_alarmName :: Lens.Lens' CloudwatchAlarmAction Prelude.Text
+cloudwatchAlarmAction_alarmName :: Lens.Lens' CloudwatchAlarmAction Core.Text
 cloudwatchAlarmAction_alarmName = Lens.lens (\CloudwatchAlarmAction' {alarmName} -> alarmName) (\s@CloudwatchAlarmAction' {} a -> s {alarmName = a} :: CloudwatchAlarmAction)
 
 -- | The reason for the alarm change.
-cloudwatchAlarmAction_stateReason :: Lens.Lens' CloudwatchAlarmAction Prelude.Text
+cloudwatchAlarmAction_stateReason :: Lens.Lens' CloudwatchAlarmAction Core.Text
 cloudwatchAlarmAction_stateReason = Lens.lens (\CloudwatchAlarmAction' {stateReason} -> stateReason) (\s@CloudwatchAlarmAction' {} a -> s {stateReason = a} :: CloudwatchAlarmAction)
 
 -- | The value of the alarm state. Acceptable values are: OK, ALARM,
 -- INSUFFICIENT_DATA.
-cloudwatchAlarmAction_stateValue :: Lens.Lens' CloudwatchAlarmAction Prelude.Text
+cloudwatchAlarmAction_stateValue :: Lens.Lens' CloudwatchAlarmAction Core.Text
 cloudwatchAlarmAction_stateValue = Lens.lens (\CloudwatchAlarmAction' {stateValue} -> stateValue) (\s@CloudwatchAlarmAction' {} a -> s {stateValue = a} :: CloudwatchAlarmAction)
 
-instance Prelude.FromJSON CloudwatchAlarmAction where
+instance Core.FromJSON CloudwatchAlarmAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CloudwatchAlarmAction"
       ( \x ->
           CloudwatchAlarmAction'
-            Prelude.<$> (x Prelude..: "roleArn")
-            Prelude.<*> (x Prelude..: "alarmName")
-            Prelude.<*> (x Prelude..: "stateReason")
-            Prelude.<*> (x Prelude..: "stateValue")
+            Core.<$> (x Core..: "roleArn")
+            Core.<*> (x Core..: "alarmName")
+            Core.<*> (x Core..: "stateReason")
+            Core.<*> (x Core..: "stateValue")
       )
 
-instance Prelude.Hashable CloudwatchAlarmAction
+instance Core.Hashable CloudwatchAlarmAction
 
-instance Prelude.NFData CloudwatchAlarmAction
+instance Core.NFData CloudwatchAlarmAction
 
-instance Prelude.ToJSON CloudwatchAlarmAction where
+instance Core.ToJSON CloudwatchAlarmAction where
   toJSON CloudwatchAlarmAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("roleArn" Prelude..= roleArn),
-            Prelude.Just ("alarmName" Prelude..= alarmName),
-            Prelude.Just ("stateReason" Prelude..= stateReason),
-            Prelude.Just ("stateValue" Prelude..= stateValue)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("alarmName" Core..= alarmName),
+            Core.Just ("stateReason" Core..= stateReason),
+            Core.Just ("stateValue" Core..= stateValue)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,22 +43,22 @@ module Network.AWS.ElastiCache.FailoverGlobalReplicationGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newFailoverGlobalReplicationGroup' smart constructor.
 data FailoverGlobalReplicationGroup = FailoverGlobalReplicationGroup'
   { -- | The name of the Global Datastore
-    globalReplicationGroupId :: Prelude.Text,
+    globalReplicationGroupId :: Core.Text,
     -- | The AWS region of the primary cluster of the Global Datastore
-    primaryRegion :: Prelude.Text,
+    primaryRegion :: Core.Text,
     -- | The name of the primary replication group
-    primaryReplicationGroupId :: Prelude.Text
+    primaryReplicationGroupId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailoverGlobalReplicationGroup' with all optional fields omitted.
@@ -76,11 +75,11 @@ data FailoverGlobalReplicationGroup = FailoverGlobalReplicationGroup'
 -- 'primaryReplicationGroupId', 'failoverGlobalReplicationGroup_primaryReplicationGroupId' - The name of the primary replication group
 newFailoverGlobalReplicationGroup ::
   -- | 'globalReplicationGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'primaryRegion'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'primaryReplicationGroupId'
-  Prelude.Text ->
+  Core.Text ->
   FailoverGlobalReplicationGroup
 newFailoverGlobalReplicationGroup
   pGlobalReplicationGroupId_
@@ -95,23 +94,23 @@ newFailoverGlobalReplicationGroup
       }
 
 -- | The name of the Global Datastore
-failoverGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' FailoverGlobalReplicationGroup Prelude.Text
+failoverGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' FailoverGlobalReplicationGroup Core.Text
 failoverGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\FailoverGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@FailoverGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: FailoverGlobalReplicationGroup)
 
 -- | The AWS region of the primary cluster of the Global Datastore
-failoverGlobalReplicationGroup_primaryRegion :: Lens.Lens' FailoverGlobalReplicationGroup Prelude.Text
+failoverGlobalReplicationGroup_primaryRegion :: Lens.Lens' FailoverGlobalReplicationGroup Core.Text
 failoverGlobalReplicationGroup_primaryRegion = Lens.lens (\FailoverGlobalReplicationGroup' {primaryRegion} -> primaryRegion) (\s@FailoverGlobalReplicationGroup' {} a -> s {primaryRegion = a} :: FailoverGlobalReplicationGroup)
 
 -- | The name of the primary replication group
-failoverGlobalReplicationGroup_primaryReplicationGroupId :: Lens.Lens' FailoverGlobalReplicationGroup Prelude.Text
+failoverGlobalReplicationGroup_primaryReplicationGroupId :: Lens.Lens' FailoverGlobalReplicationGroup Core.Text
 failoverGlobalReplicationGroup_primaryReplicationGroupId = Lens.lens (\FailoverGlobalReplicationGroup' {primaryReplicationGroupId} -> primaryReplicationGroupId) (\s@FailoverGlobalReplicationGroup' {} a -> s {primaryReplicationGroupId = a} :: FailoverGlobalReplicationGroup)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     FailoverGlobalReplicationGroup
   where
   type
-    Rs FailoverGlobalReplicationGroup =
+    AWSResponse FailoverGlobalReplicationGroup =
       FailoverGlobalReplicationGroupResponse
   request = Request.postQuery defaultService
   response =
@@ -119,56 +118,45 @@ instance
       "FailoverGlobalReplicationGroupResult"
       ( \s h x ->
           FailoverGlobalReplicationGroupResponse'
-            Prelude.<$> (x Prelude..@? "GlobalReplicationGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "GlobalReplicationGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    FailoverGlobalReplicationGroup
+instance Core.Hashable FailoverGlobalReplicationGroup
+
+instance Core.NFData FailoverGlobalReplicationGroup
 
 instance
-  Prelude.NFData
-    FailoverGlobalReplicationGroup
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     FailoverGlobalReplicationGroup
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    FailoverGlobalReplicationGroup
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath FailoverGlobalReplicationGroup where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    FailoverGlobalReplicationGroup
-  where
+instance Core.ToQuery FailoverGlobalReplicationGroup where
   toQuery FailoverGlobalReplicationGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "FailoverGlobalReplicationGroup" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+          Core.=: ( "FailoverGlobalReplicationGroup" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
         "GlobalReplicationGroupId"
-          Prelude.=: globalReplicationGroupId,
-        "PrimaryRegion" Prelude.=: primaryRegion,
+          Core.=: globalReplicationGroupId,
+        "PrimaryRegion" Core.=: primaryRegion,
         "PrimaryReplicationGroupId"
-          Prelude.=: primaryReplicationGroupId
+          Core.=: primaryReplicationGroupId
       ]
 
 -- | /See:/ 'newFailoverGlobalReplicationGroupResponse' smart constructor.
 data FailoverGlobalReplicationGroupResponse = FailoverGlobalReplicationGroupResponse'
-  { globalReplicationGroup :: Prelude.Maybe GlobalReplicationGroup,
+  { globalReplicationGroup :: Core.Maybe GlobalReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailoverGlobalReplicationGroupResponse' with all optional fields omitted.
@@ -183,24 +171,24 @@ data FailoverGlobalReplicationGroupResponse = FailoverGlobalReplicationGroupResp
 -- 'httpStatus', 'failoverGlobalReplicationGroupResponse_httpStatus' - The response's http status code.
 newFailoverGlobalReplicationGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   FailoverGlobalReplicationGroupResponse
 newFailoverGlobalReplicationGroupResponse
   pHttpStatus_ =
     FailoverGlobalReplicationGroupResponse'
       { globalReplicationGroup =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-failoverGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' FailoverGlobalReplicationGroupResponse (Prelude.Maybe GlobalReplicationGroup)
+failoverGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' FailoverGlobalReplicationGroupResponse (Core.Maybe GlobalReplicationGroup)
 failoverGlobalReplicationGroupResponse_globalReplicationGroup = Lens.lens (\FailoverGlobalReplicationGroupResponse' {globalReplicationGroup} -> globalReplicationGroup) (\s@FailoverGlobalReplicationGroupResponse' {} a -> s {globalReplicationGroup = a} :: FailoverGlobalReplicationGroupResponse)
 
 -- | The response's http status code.
-failoverGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' FailoverGlobalReplicationGroupResponse Prelude.Int
+failoverGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' FailoverGlobalReplicationGroupResponse Core.Int
 failoverGlobalReplicationGroupResponse_httpStatus = Lens.lens (\FailoverGlobalReplicationGroupResponse' {httpStatus} -> httpStatus) (\s@FailoverGlobalReplicationGroupResponse' {} a -> s {httpStatus = a} :: FailoverGlobalReplicationGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     FailoverGlobalReplicationGroupResponse

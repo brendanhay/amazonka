@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,18 +49,18 @@ module Network.AWS.ELBv2.DeleteLoadBalancer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLoadBalancer' smart constructor.
 data DeleteLoadBalancer = DeleteLoadBalancer'
   { -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerArn :: Prelude.Text
+    loadBalancerArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancer' with all optional fields omitted.
@@ -74,7 +73,7 @@ data DeleteLoadBalancer = DeleteLoadBalancer'
 -- 'loadBalancerArn', 'deleteLoadBalancer_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
 newDeleteLoadBalancer ::
   -- | 'loadBalancerArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLoadBalancer
 newDeleteLoadBalancer pLoadBalancerArn_ =
   DeleteLoadBalancer'
@@ -83,12 +82,12 @@ newDeleteLoadBalancer pLoadBalancerArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-deleteLoadBalancer_loadBalancerArn :: Lens.Lens' DeleteLoadBalancer Prelude.Text
+deleteLoadBalancer_loadBalancerArn :: Lens.Lens' DeleteLoadBalancer Core.Text
 deleteLoadBalancer_loadBalancerArn = Lens.lens (\DeleteLoadBalancer' {loadBalancerArn} -> loadBalancerArn) (\s@DeleteLoadBalancer' {} a -> s {loadBalancerArn = a} :: DeleteLoadBalancer)
 
-instance Prelude.AWSRequest DeleteLoadBalancer where
+instance Core.AWSRequest DeleteLoadBalancer where
   type
-    Rs DeleteLoadBalancer =
+    AWSResponse DeleteLoadBalancer =
       DeleteLoadBalancerResponse
   request = Request.postQuery defaultService
   response =
@@ -96,35 +95,34 @@ instance Prelude.AWSRequest DeleteLoadBalancer where
       "DeleteLoadBalancerResult"
       ( \s h x ->
           DeleteLoadBalancerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLoadBalancer
+instance Core.Hashable DeleteLoadBalancer
 
-instance Prelude.NFData DeleteLoadBalancer
+instance Core.NFData DeleteLoadBalancer
 
-instance Prelude.ToHeaders DeleteLoadBalancer where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteLoadBalancer where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteLoadBalancer where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLoadBalancer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLoadBalancer where
+instance Core.ToQuery DeleteLoadBalancer where
   toQuery DeleteLoadBalancer' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteLoadBalancer" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
-        "LoadBalancerArn" Prelude.=: loadBalancerArn
+          Core.=: ("DeleteLoadBalancer" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+        "LoadBalancerArn" Core.=: loadBalancerArn
       ]
 
 -- | /See:/ 'newDeleteLoadBalancerResponse' smart constructor.
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancerResponse' with all optional fields omitted.
@@ -137,7 +135,7 @@ data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
 -- 'httpStatus', 'deleteLoadBalancerResponse_httpStatus' - The response's http status code.
 newDeleteLoadBalancerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteLoadBalancerResponse
 newDeleteLoadBalancerResponse pHttpStatus_ =
   DeleteLoadBalancerResponse'
@@ -146,7 +144,7 @@ newDeleteLoadBalancerResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteLoadBalancerResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerResponse Prelude.Int
+deleteLoadBalancerResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerResponse Core.Int
 deleteLoadBalancerResponse_httpStatus = Lens.lens (\DeleteLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@DeleteLoadBalancerResponse' {} a -> s {httpStatus = a} :: DeleteLoadBalancerResponse)
 
-instance Prelude.NFData DeleteLoadBalancerResponse
+instance Core.NFData DeleteLoadBalancerResponse

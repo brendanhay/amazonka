@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.EventItemResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the status code and message that result from processing an
 -- event.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data EventItemResponse = EventItemResponse'
   { -- | A custom message that\'s returned in the response as a result of
     -- processing the event.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The status code that\'s returned in the response as a result of
     -- processing the event. Possible values are: 202, for events that were
     -- accepted; and, 400, for events that weren\'t valid.
-    statusCode :: Prelude.Maybe Prelude.Int
+    statusCode :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventItemResponse' with all optional fields omitted.
@@ -56,31 +55,31 @@ newEventItemResponse ::
   EventItemResponse
 newEventItemResponse =
   EventItemResponse'
-    { message = Prelude.Nothing,
-      statusCode = Prelude.Nothing
+    { message = Core.Nothing,
+      statusCode = Core.Nothing
     }
 
 -- | A custom message that\'s returned in the response as a result of
 -- processing the event.
-eventItemResponse_message :: Lens.Lens' EventItemResponse (Prelude.Maybe Prelude.Text)
+eventItemResponse_message :: Lens.Lens' EventItemResponse (Core.Maybe Core.Text)
 eventItemResponse_message = Lens.lens (\EventItemResponse' {message} -> message) (\s@EventItemResponse' {} a -> s {message = a} :: EventItemResponse)
 
 -- | The status code that\'s returned in the response as a result of
 -- processing the event. Possible values are: 202, for events that were
 -- accepted; and, 400, for events that weren\'t valid.
-eventItemResponse_statusCode :: Lens.Lens' EventItemResponse (Prelude.Maybe Prelude.Int)
+eventItemResponse_statusCode :: Lens.Lens' EventItemResponse (Core.Maybe Core.Int)
 eventItemResponse_statusCode = Lens.lens (\EventItemResponse' {statusCode} -> statusCode) (\s@EventItemResponse' {} a -> s {statusCode = a} :: EventItemResponse)
 
-instance Prelude.FromJSON EventItemResponse where
+instance Core.FromJSON EventItemResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EventItemResponse"
       ( \x ->
           EventItemResponse'
-            Prelude.<$> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "StatusCode")
+            Core.<$> (x Core..:? "Message")
+            Core.<*> (x Core..:? "StatusCode")
       )
 
-instance Prelude.Hashable EventItemResponse
+instance Core.Hashable EventItemResponse
 
-instance Prelude.NFData EventItemResponse
+instance Core.NFData EventItemResponse

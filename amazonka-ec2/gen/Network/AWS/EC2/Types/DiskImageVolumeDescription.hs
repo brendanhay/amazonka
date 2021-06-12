@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DiskImageVolumeDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a disk image volume.
 --
 -- /See:/ 'newDiskImageVolumeDescription' smart constructor.
 data DiskImageVolumeDescription = DiskImageVolumeDescription'
   { -- | The volume identifier.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The size of the volume, in GiB.
-    size :: Prelude.Maybe Prelude.Integer
+    size :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DiskImageVolumeDescription' with all optional fields omitted.
@@ -50,24 +49,23 @@ newDiskImageVolumeDescription ::
   DiskImageVolumeDescription
 newDiskImageVolumeDescription =
   DiskImageVolumeDescription'
-    { id = Prelude.Nothing,
-      size = Prelude.Nothing
+    { id = Core.Nothing,
+      size = Core.Nothing
     }
 
 -- | The volume identifier.
-diskImageVolumeDescription_id :: Lens.Lens' DiskImageVolumeDescription (Prelude.Maybe Prelude.Text)
+diskImageVolumeDescription_id :: Lens.Lens' DiskImageVolumeDescription (Core.Maybe Core.Text)
 diskImageVolumeDescription_id = Lens.lens (\DiskImageVolumeDescription' {id} -> id) (\s@DiskImageVolumeDescription' {} a -> s {id = a} :: DiskImageVolumeDescription)
 
 -- | The size of the volume, in GiB.
-diskImageVolumeDescription_size :: Lens.Lens' DiskImageVolumeDescription (Prelude.Maybe Prelude.Integer)
+diskImageVolumeDescription_size :: Lens.Lens' DiskImageVolumeDescription (Core.Maybe Core.Integer)
 diskImageVolumeDescription_size = Lens.lens (\DiskImageVolumeDescription' {size} -> size) (\s@DiskImageVolumeDescription' {} a -> s {size = a} :: DiskImageVolumeDescription)
 
-instance Prelude.FromXML DiskImageVolumeDescription where
+instance Core.FromXML DiskImageVolumeDescription where
   parseXML x =
     DiskImageVolumeDescription'
-      Prelude.<$> (x Prelude..@? "id")
-      Prelude.<*> (x Prelude..@? "size")
+      Core.<$> (x Core..@? "id") Core.<*> (x Core..@? "size")
 
-instance Prelude.Hashable DiskImageVolumeDescription
+instance Core.Hashable DiskImageVolumeDescription
 
-instance Prelude.NFData DiskImageVolumeDescription
+instance Core.NFData DiskImageVolumeDescription

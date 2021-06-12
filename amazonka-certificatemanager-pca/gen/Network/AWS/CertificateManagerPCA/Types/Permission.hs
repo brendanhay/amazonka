@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CertificateManagerPCA.Types.Permission where
 
 import Network.AWS.CertificateManagerPCA.Types.ActionType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Permissions designate which private CA actions can be performed by an
 -- AWS service or entity. In order for ACM to automatically renew private
@@ -40,21 +39,21 @@ import qualified Network.AWS.Prelude as Prelude
 data Permission = Permission'
   { -- | The Amazon Resource Number (ARN) of the private CA from which the
     -- permission was issued.
-    certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
+    certificateAuthorityArn :: Core.Maybe Core.Text,
     -- | The time at which the permission was created.
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | The private CA actions that can be performed by the designated AWS
     -- service.
-    actions :: Prelude.Maybe (Prelude.NonEmpty ActionType),
+    actions :: Core.Maybe (Core.NonEmpty ActionType),
     -- | The AWS service or entity that holds the permission. At this time, the
     -- only valid principal is @acm.amazonaws.com@.
-    principal :: Prelude.Maybe Prelude.Text,
+    principal :: Core.Maybe Core.Text,
     -- | The ID of the account that assigned the permission.
-    sourceAccount :: Prelude.Maybe Prelude.Text,
+    sourceAccount :: Core.Maybe Core.Text,
     -- | The name of the policy that is associated with the permission.
-    policy :: Prelude.Maybe Prelude.Text
+    policy :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Permission' with all optional fields omitted.
@@ -82,56 +81,55 @@ newPermission ::
   Permission
 newPermission =
   Permission'
-    { certificateAuthorityArn =
-        Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      actions = Prelude.Nothing,
-      principal = Prelude.Nothing,
-      sourceAccount = Prelude.Nothing,
-      policy = Prelude.Nothing
+    { certificateAuthorityArn = Core.Nothing,
+      createdAt = Core.Nothing,
+      actions = Core.Nothing,
+      principal = Core.Nothing,
+      sourceAccount = Core.Nothing,
+      policy = Core.Nothing
     }
 
 -- | The Amazon Resource Number (ARN) of the private CA from which the
 -- permission was issued.
-permission_certificateAuthorityArn :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
+permission_certificateAuthorityArn :: Lens.Lens' Permission (Core.Maybe Core.Text)
 permission_certificateAuthorityArn = Lens.lens (\Permission' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@Permission' {} a -> s {certificateAuthorityArn = a} :: Permission)
 
 -- | The time at which the permission was created.
-permission_createdAt :: Lens.Lens' Permission (Prelude.Maybe Prelude.UTCTime)
-permission_createdAt = Lens.lens (\Permission' {createdAt} -> createdAt) (\s@Permission' {} a -> s {createdAt = a} :: Permission) Prelude.. Lens.mapping Prelude._Time
+permission_createdAt :: Lens.Lens' Permission (Core.Maybe Core.UTCTime)
+permission_createdAt = Lens.lens (\Permission' {createdAt} -> createdAt) (\s@Permission' {} a -> s {createdAt = a} :: Permission) Core.. Lens.mapping Core._Time
 
 -- | The private CA actions that can be performed by the designated AWS
 -- service.
-permission_actions :: Lens.Lens' Permission (Prelude.Maybe (Prelude.NonEmpty ActionType))
-permission_actions = Lens.lens (\Permission' {actions} -> actions) (\s@Permission' {} a -> s {actions = a} :: Permission) Prelude.. Lens.mapping Prelude._Coerce
+permission_actions :: Lens.Lens' Permission (Core.Maybe (Core.NonEmpty ActionType))
+permission_actions = Lens.lens (\Permission' {actions} -> actions) (\s@Permission' {} a -> s {actions = a} :: Permission) Core.. Lens.mapping Lens._Coerce
 
 -- | The AWS service or entity that holds the permission. At this time, the
 -- only valid principal is @acm.amazonaws.com@.
-permission_principal :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
+permission_principal :: Lens.Lens' Permission (Core.Maybe Core.Text)
 permission_principal = Lens.lens (\Permission' {principal} -> principal) (\s@Permission' {} a -> s {principal = a} :: Permission)
 
 -- | The ID of the account that assigned the permission.
-permission_sourceAccount :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
+permission_sourceAccount :: Lens.Lens' Permission (Core.Maybe Core.Text)
 permission_sourceAccount = Lens.lens (\Permission' {sourceAccount} -> sourceAccount) (\s@Permission' {} a -> s {sourceAccount = a} :: Permission)
 
 -- | The name of the policy that is associated with the permission.
-permission_policy :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
+permission_policy :: Lens.Lens' Permission (Core.Maybe Core.Text)
 permission_policy = Lens.lens (\Permission' {policy} -> policy) (\s@Permission' {} a -> s {policy = a} :: Permission)
 
-instance Prelude.FromJSON Permission where
+instance Core.FromJSON Permission where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Permission"
       ( \x ->
           Permission'
-            Prelude.<$> (x Prelude..:? "CertificateAuthorityArn")
-            Prelude.<*> (x Prelude..:? "CreatedAt")
-            Prelude.<*> (x Prelude..:? "Actions")
-            Prelude.<*> (x Prelude..:? "Principal")
-            Prelude.<*> (x Prelude..:? "SourceAccount")
-            Prelude.<*> (x Prelude..:? "Policy")
+            Core.<$> (x Core..:? "CertificateAuthorityArn")
+            Core.<*> (x Core..:? "CreatedAt")
+            Core.<*> (x Core..:? "Actions")
+            Core.<*> (x Core..:? "Principal")
+            Core.<*> (x Core..:? "SourceAccount")
+            Core.<*> (x Core..:? "Policy")
       )
 
-instance Prelude.Hashable Permission
+instance Core.Hashable Permission
 
-instance Prelude.NFData Permission
+instance Core.NFData Permission

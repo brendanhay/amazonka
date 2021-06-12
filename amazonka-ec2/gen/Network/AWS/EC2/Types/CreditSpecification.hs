@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CreditSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the credit option for CPU usage of a T2, T3, or T3a instance.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data CreditSpecification = CreditSpecification'
   { -- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid
     -- values are @standard@ and @unlimited@.
-    cpuCredits :: Prelude.Maybe Prelude.Text
+    cpuCredits :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreditSpecification' with all optional fields omitted.
@@ -47,18 +46,18 @@ data CreditSpecification = CreditSpecification'
 newCreditSpecification ::
   CreditSpecification
 newCreditSpecification =
-  CreditSpecification' {cpuCredits = Prelude.Nothing}
+  CreditSpecification' {cpuCredits = Core.Nothing}
 
 -- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid
 -- values are @standard@ and @unlimited@.
-creditSpecification_cpuCredits :: Lens.Lens' CreditSpecification (Prelude.Maybe Prelude.Text)
+creditSpecification_cpuCredits :: Lens.Lens' CreditSpecification (Core.Maybe Core.Text)
 creditSpecification_cpuCredits = Lens.lens (\CreditSpecification' {cpuCredits} -> cpuCredits) (\s@CreditSpecification' {} a -> s {cpuCredits = a} :: CreditSpecification)
 
-instance Prelude.FromXML CreditSpecification where
+instance Core.FromXML CreditSpecification where
   parseXML x =
     CreditSpecification'
-      Prelude.<$> (x Prelude..@? "cpuCredits")
+      Core.<$> (x Core..@? "cpuCredits")
 
-instance Prelude.Hashable CreditSpecification
+instance Core.Hashable CreditSpecification
 
-instance Prelude.NFData CreditSpecification
+instance Core.NFData CreditSpecification

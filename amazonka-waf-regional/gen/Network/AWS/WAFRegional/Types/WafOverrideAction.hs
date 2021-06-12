@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.WafOverrideAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.WafOverrideActionType
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -41,7 +40,7 @@ data WafOverrideAction = WafOverrideAction'
     -- @RuleGroup@ . If set to @NONE@, the rule\'s action will take place.
     type' :: WafOverrideActionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WafOverrideAction' with all optional fields omitted.
@@ -65,21 +64,19 @@ newWafOverrideAction pType_ =
 wafOverrideAction_type :: Lens.Lens' WafOverrideAction WafOverrideActionType
 wafOverrideAction_type = Lens.lens (\WafOverrideAction' {type'} -> type') (\s@WafOverrideAction' {} a -> s {type' = a} :: WafOverrideAction)
 
-instance Prelude.FromJSON WafOverrideAction where
+instance Core.FromJSON WafOverrideAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WafOverrideAction"
       ( \x ->
-          WafOverrideAction' Prelude.<$> (x Prelude..: "Type")
+          WafOverrideAction' Core.<$> (x Core..: "Type")
       )
 
-instance Prelude.Hashable WafOverrideAction
+instance Core.Hashable WafOverrideAction
 
-instance Prelude.NFData WafOverrideAction
+instance Core.NFData WafOverrideAction
 
-instance Prelude.ToJSON WafOverrideAction where
+instance Core.ToJSON WafOverrideAction where
   toJSON WafOverrideAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Type" Prelude..= type')]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Type" Core..= type')])

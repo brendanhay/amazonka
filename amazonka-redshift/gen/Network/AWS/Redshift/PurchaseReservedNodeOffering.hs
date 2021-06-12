@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -63,12 +62,12 @@ data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
   { -- | The number of reserved nodes that you want to purchase.
     --
     -- Default: @1@
-    nodeCount :: Prelude.Maybe Prelude.Int,
+    nodeCount :: Core.Maybe Core.Int,
     -- | The unique identifier of the reserved node offering you want to
     -- purchase.
-    reservedNodeOfferingId :: Prelude.Text
+    reservedNodeOfferingId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PurchaseReservedNodeOffering' with all optional fields omitted.
@@ -86,13 +85,13 @@ data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
 -- purchase.
 newPurchaseReservedNodeOffering ::
   -- | 'reservedNodeOfferingId'
-  Prelude.Text ->
+  Core.Text ->
   PurchaseReservedNodeOffering
 newPurchaseReservedNodeOffering
   pReservedNodeOfferingId_ =
     PurchaseReservedNodeOffering'
       { nodeCount =
-          Prelude.Nothing,
+          Core.Nothing,
         reservedNodeOfferingId =
           pReservedNodeOfferingId_
       }
@@ -100,20 +99,17 @@ newPurchaseReservedNodeOffering
 -- | The number of reserved nodes that you want to purchase.
 --
 -- Default: @1@
-purchaseReservedNodeOffering_nodeCount :: Lens.Lens' PurchaseReservedNodeOffering (Prelude.Maybe Prelude.Int)
+purchaseReservedNodeOffering_nodeCount :: Lens.Lens' PurchaseReservedNodeOffering (Core.Maybe Core.Int)
 purchaseReservedNodeOffering_nodeCount = Lens.lens (\PurchaseReservedNodeOffering' {nodeCount} -> nodeCount) (\s@PurchaseReservedNodeOffering' {} a -> s {nodeCount = a} :: PurchaseReservedNodeOffering)
 
 -- | The unique identifier of the reserved node offering you want to
 -- purchase.
-purchaseReservedNodeOffering_reservedNodeOfferingId :: Lens.Lens' PurchaseReservedNodeOffering Prelude.Text
+purchaseReservedNodeOffering_reservedNodeOfferingId :: Lens.Lens' PurchaseReservedNodeOffering Core.Text
 purchaseReservedNodeOffering_reservedNodeOfferingId = Lens.lens (\PurchaseReservedNodeOffering' {reservedNodeOfferingId} -> reservedNodeOfferingId) (\s@PurchaseReservedNodeOffering' {} a -> s {reservedNodeOfferingId = a} :: PurchaseReservedNodeOffering)
 
-instance
-  Prelude.AWSRequest
-    PurchaseReservedNodeOffering
-  where
+instance Core.AWSRequest PurchaseReservedNodeOffering where
   type
-    Rs PurchaseReservedNodeOffering =
+    AWSResponse PurchaseReservedNodeOffering =
       PurchaseReservedNodeOfferingResponse
   request = Request.postQuery defaultService
   response =
@@ -121,46 +117,38 @@ instance
       "PurchaseReservedNodeOfferingResult"
       ( \s h x ->
           PurchaseReservedNodeOfferingResponse'
-            Prelude.<$> (x Prelude..@? "ReservedNode")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ReservedNode")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    PurchaseReservedNodeOffering
+instance Core.Hashable PurchaseReservedNodeOffering
 
-instance Prelude.NFData PurchaseReservedNodeOffering
+instance Core.NFData PurchaseReservedNodeOffering
 
-instance
-  Prelude.ToHeaders
-    PurchaseReservedNodeOffering
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PurchaseReservedNodeOffering where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PurchaseReservedNodeOffering where
-  toPath = Prelude.const "/"
+instance Core.ToPath PurchaseReservedNodeOffering where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PurchaseReservedNodeOffering where
+instance Core.ToQuery PurchaseReservedNodeOffering where
   toQuery PurchaseReservedNodeOffering' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "PurchaseReservedNodeOffering" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "NodeCount" Prelude.=: nodeCount,
+          Core.=: ("PurchaseReservedNodeOffering" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "NodeCount" Core.=: nodeCount,
         "ReservedNodeOfferingId"
-          Prelude.=: reservedNodeOfferingId
+          Core.=: reservedNodeOfferingId
       ]
 
 -- | /See:/ 'newPurchaseReservedNodeOfferingResponse' smart constructor.
 data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
-  { reservedNode :: Prelude.Maybe ReservedNode,
+  { reservedNode :: Core.Maybe ReservedNode,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PurchaseReservedNodeOfferingResponse' with all optional fields omitted.
@@ -175,23 +163,23 @@ data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
 -- 'httpStatus', 'purchaseReservedNodeOfferingResponse_httpStatus' - The response's http status code.
 newPurchaseReservedNodeOfferingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PurchaseReservedNodeOfferingResponse
 newPurchaseReservedNodeOfferingResponse pHttpStatus_ =
   PurchaseReservedNodeOfferingResponse'
     { reservedNode =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-purchaseReservedNodeOfferingResponse_reservedNode :: Lens.Lens' PurchaseReservedNodeOfferingResponse (Prelude.Maybe ReservedNode)
+purchaseReservedNodeOfferingResponse_reservedNode :: Lens.Lens' PurchaseReservedNodeOfferingResponse (Core.Maybe ReservedNode)
 purchaseReservedNodeOfferingResponse_reservedNode = Lens.lens (\PurchaseReservedNodeOfferingResponse' {reservedNode} -> reservedNode) (\s@PurchaseReservedNodeOfferingResponse' {} a -> s {reservedNode = a} :: PurchaseReservedNodeOfferingResponse)
 
 -- | The response's http status code.
-purchaseReservedNodeOfferingResponse_httpStatus :: Lens.Lens' PurchaseReservedNodeOfferingResponse Prelude.Int
+purchaseReservedNodeOfferingResponse_httpStatus :: Lens.Lens' PurchaseReservedNodeOfferingResponse Core.Int
 purchaseReservedNodeOfferingResponse_httpStatus = Lens.lens (\PurchaseReservedNodeOfferingResponse' {httpStatus} -> httpStatus) (\s@PurchaseReservedNodeOfferingResponse' {} a -> s {httpStatus = a} :: PurchaseReservedNodeOfferingResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PurchaseReservedNodeOfferingResponse

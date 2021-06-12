@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +56,15 @@ data AcceptReservedInstancesExchangeQuote = AcceptReservedInstancesExchangeQuote
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The configuration of the target Convertible Reserved Instance to
     -- exchange for your current Convertible Reserved Instances.
-    targetConfigurations :: Prelude.Maybe [TargetConfigurationRequest],
+    targetConfigurations :: Core.Maybe [TargetConfigurationRequest],
     -- | The IDs of the Convertible Reserved Instances to exchange for another
     -- Convertible Reserved Instance of the same or higher value.
-    reservedInstanceIds :: [Prelude.Text]
+    reservedInstanceIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptReservedInstancesExchangeQuote' with all optional fields omitted.
@@ -90,83 +89,81 @@ newAcceptReservedInstancesExchangeQuote ::
 newAcceptReservedInstancesExchangeQuote =
   AcceptReservedInstancesExchangeQuote'
     { dryRun =
-        Prelude.Nothing,
-      targetConfigurations =
-        Prelude.Nothing,
-      reservedInstanceIds = Prelude.mempty
+        Core.Nothing,
+      targetConfigurations = Core.Nothing,
+      reservedInstanceIds = Core.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-acceptReservedInstancesExchangeQuote_dryRun :: Lens.Lens' AcceptReservedInstancesExchangeQuote (Prelude.Maybe Prelude.Bool)
+acceptReservedInstancesExchangeQuote_dryRun :: Lens.Lens' AcceptReservedInstancesExchangeQuote (Core.Maybe Core.Bool)
 acceptReservedInstancesExchangeQuote_dryRun = Lens.lens (\AcceptReservedInstancesExchangeQuote' {dryRun} -> dryRun) (\s@AcceptReservedInstancesExchangeQuote' {} a -> s {dryRun = a} :: AcceptReservedInstancesExchangeQuote)
 
 -- | The configuration of the target Convertible Reserved Instance to
 -- exchange for your current Convertible Reserved Instances.
-acceptReservedInstancesExchangeQuote_targetConfigurations :: Lens.Lens' AcceptReservedInstancesExchangeQuote (Prelude.Maybe [TargetConfigurationRequest])
-acceptReservedInstancesExchangeQuote_targetConfigurations = Lens.lens (\AcceptReservedInstancesExchangeQuote' {targetConfigurations} -> targetConfigurations) (\s@AcceptReservedInstancesExchangeQuote' {} a -> s {targetConfigurations = a} :: AcceptReservedInstancesExchangeQuote) Prelude.. Lens.mapping Prelude._Coerce
+acceptReservedInstancesExchangeQuote_targetConfigurations :: Lens.Lens' AcceptReservedInstancesExchangeQuote (Core.Maybe [TargetConfigurationRequest])
+acceptReservedInstancesExchangeQuote_targetConfigurations = Lens.lens (\AcceptReservedInstancesExchangeQuote' {targetConfigurations} -> targetConfigurations) (\s@AcceptReservedInstancesExchangeQuote' {} a -> s {targetConfigurations = a} :: AcceptReservedInstancesExchangeQuote) Core.. Lens.mapping Lens._Coerce
 
 -- | The IDs of the Convertible Reserved Instances to exchange for another
 -- Convertible Reserved Instance of the same or higher value.
-acceptReservedInstancesExchangeQuote_reservedInstanceIds :: Lens.Lens' AcceptReservedInstancesExchangeQuote [Prelude.Text]
-acceptReservedInstancesExchangeQuote_reservedInstanceIds = Lens.lens (\AcceptReservedInstancesExchangeQuote' {reservedInstanceIds} -> reservedInstanceIds) (\s@AcceptReservedInstancesExchangeQuote' {} a -> s {reservedInstanceIds = a} :: AcceptReservedInstancesExchangeQuote) Prelude.. Prelude._Coerce
+acceptReservedInstancesExchangeQuote_reservedInstanceIds :: Lens.Lens' AcceptReservedInstancesExchangeQuote [Core.Text]
+acceptReservedInstancesExchangeQuote_reservedInstanceIds = Lens.lens (\AcceptReservedInstancesExchangeQuote' {reservedInstanceIds} -> reservedInstanceIds) (\s@AcceptReservedInstancesExchangeQuote' {} a -> s {reservedInstanceIds = a} :: AcceptReservedInstancesExchangeQuote) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AcceptReservedInstancesExchangeQuote
   where
   type
-    Rs AcceptReservedInstancesExchangeQuote =
+    AWSResponse AcceptReservedInstancesExchangeQuote =
       AcceptReservedInstancesExchangeQuoteResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           AcceptReservedInstancesExchangeQuoteResponse'
-            Prelude.<$> (x Prelude..@? "exchangeId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "exchangeId")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AcceptReservedInstancesExchangeQuote
 
 instance
-  Prelude.NFData
+  Core.NFData
     AcceptReservedInstancesExchangeQuote
 
 instance
-  Prelude.ToHeaders
-    AcceptReservedInstancesExchangeQuote
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     AcceptReservedInstancesExchangeQuote
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    AcceptReservedInstancesExchangeQuote
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     AcceptReservedInstancesExchangeQuote
   where
   toQuery AcceptReservedInstancesExchangeQuote' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "AcceptReservedInstancesExchangeQuote" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          ( Prelude.toQueryList "TargetConfiguration"
-              Prelude.<$> targetConfigurations
+          Core.=: ( "AcceptReservedInstancesExchangeQuote" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "TargetConfiguration"
+              Core.<$> targetConfigurations
           ),
-        Prelude.toQueryList
+        Core.toQueryList
           "ReservedInstanceId"
           reservedInstanceIds
       ]
@@ -176,11 +173,11 @@ instance
 -- /See:/ 'newAcceptReservedInstancesExchangeQuoteResponse' smart constructor.
 data AcceptReservedInstancesExchangeQuoteResponse = AcceptReservedInstancesExchangeQuoteResponse'
   { -- | The ID of the successful exchange.
-    exchangeId :: Prelude.Maybe Prelude.Text,
+    exchangeId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptReservedInstancesExchangeQuoteResponse' with all optional fields omitted.
@@ -195,24 +192,24 @@ data AcceptReservedInstancesExchangeQuoteResponse = AcceptReservedInstancesExcha
 -- 'httpStatus', 'acceptReservedInstancesExchangeQuoteResponse_httpStatus' - The response's http status code.
 newAcceptReservedInstancesExchangeQuoteResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AcceptReservedInstancesExchangeQuoteResponse
 newAcceptReservedInstancesExchangeQuoteResponse
   pHttpStatus_ =
     AcceptReservedInstancesExchangeQuoteResponse'
       { exchangeId =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The ID of the successful exchange.
-acceptReservedInstancesExchangeQuoteResponse_exchangeId :: Lens.Lens' AcceptReservedInstancesExchangeQuoteResponse (Prelude.Maybe Prelude.Text)
+acceptReservedInstancesExchangeQuoteResponse_exchangeId :: Lens.Lens' AcceptReservedInstancesExchangeQuoteResponse (Core.Maybe Core.Text)
 acceptReservedInstancesExchangeQuoteResponse_exchangeId = Lens.lens (\AcceptReservedInstancesExchangeQuoteResponse' {exchangeId} -> exchangeId) (\s@AcceptReservedInstancesExchangeQuoteResponse' {} a -> s {exchangeId = a} :: AcceptReservedInstancesExchangeQuoteResponse)
 
 -- | The response's http status code.
-acceptReservedInstancesExchangeQuoteResponse_httpStatus :: Lens.Lens' AcceptReservedInstancesExchangeQuoteResponse Prelude.Int
+acceptReservedInstancesExchangeQuoteResponse_httpStatus :: Lens.Lens' AcceptReservedInstancesExchangeQuoteResponse Core.Int
 acceptReservedInstancesExchangeQuoteResponse_httpStatus = Lens.lens (\AcceptReservedInstancesExchangeQuoteResponse' {httpStatus} -> httpStatus) (\s@AcceptReservedInstancesExchangeQuoteResponse' {} a -> s {httpStatus = a} :: AcceptReservedInstancesExchangeQuoteResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AcceptReservedInstancesExchangeQuoteResponse

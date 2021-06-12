@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.Glue.DeleteConnection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +49,11 @@ import qualified Network.AWS.Response as Response
 data DeleteConnection = DeleteConnection'
   { -- | The ID of the Data Catalog in which the connection resides. If none is
     -- provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the connection to delete.
-    connectionName :: Prelude.Text
+    connectionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConnection' with all optional fields omitted.
@@ -70,72 +69,71 @@ data DeleteConnection = DeleteConnection'
 -- 'connectionName', 'deleteConnection_connectionName' - The name of the connection to delete.
 newDeleteConnection ::
   -- | 'connectionName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteConnection
 newDeleteConnection pConnectionName_ =
   DeleteConnection'
-    { catalogId = Prelude.Nothing,
+    { catalogId = Core.Nothing,
       connectionName = pConnectionName_
     }
 
 -- | The ID of the Data Catalog in which the connection resides. If none is
 -- provided, the AWS account ID is used by default.
-deleteConnection_catalogId :: Lens.Lens' DeleteConnection (Prelude.Maybe Prelude.Text)
+deleteConnection_catalogId :: Lens.Lens' DeleteConnection (Core.Maybe Core.Text)
 deleteConnection_catalogId = Lens.lens (\DeleteConnection' {catalogId} -> catalogId) (\s@DeleteConnection' {} a -> s {catalogId = a} :: DeleteConnection)
 
 -- | The name of the connection to delete.
-deleteConnection_connectionName :: Lens.Lens' DeleteConnection Prelude.Text
+deleteConnection_connectionName :: Lens.Lens' DeleteConnection Core.Text
 deleteConnection_connectionName = Lens.lens (\DeleteConnection' {connectionName} -> connectionName) (\s@DeleteConnection' {} a -> s {connectionName = a} :: DeleteConnection)
 
-instance Prelude.AWSRequest DeleteConnection where
-  type Rs DeleteConnection = DeleteConnectionResponse
+instance Core.AWSRequest DeleteConnection where
+  type
+    AWSResponse DeleteConnection =
+      DeleteConnectionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteConnectionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteConnection
+instance Core.Hashable DeleteConnection
 
-instance Prelude.NFData DeleteConnection
+instance Core.NFData DeleteConnection
 
-instance Prelude.ToHeaders DeleteConnection where
+instance Core.ToHeaders DeleteConnection where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.DeleteConnection" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.DeleteConnection" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteConnection where
+instance Core.ToJSON DeleteConnection where
   toJSON DeleteConnection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("ConnectionName" Prelude..= connectionName)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("ConnectionName" Core..= connectionName)
           ]
       )
 
-instance Prelude.ToPath DeleteConnection where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteConnection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteConnection where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteConnection where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteConnectionResponse' smart constructor.
 data DeleteConnectionResponse = DeleteConnectionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConnectionResponse' with all optional fields omitted.
@@ -148,7 +146,7 @@ data DeleteConnectionResponse = DeleteConnectionResponse'
 -- 'httpStatus', 'deleteConnectionResponse_httpStatus' - The response's http status code.
 newDeleteConnectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteConnectionResponse
 newDeleteConnectionResponse pHttpStatus_ =
   DeleteConnectionResponse'
@@ -157,7 +155,7 @@ newDeleteConnectionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteConnectionResponse_httpStatus :: Lens.Lens' DeleteConnectionResponse Prelude.Int
+deleteConnectionResponse_httpStatus :: Lens.Lens' DeleteConnectionResponse Core.Int
 deleteConnectionResponse_httpStatus = Lens.lens (\DeleteConnectionResponse' {httpStatus} -> httpStatus) (\s@DeleteConnectionResponse' {} a -> s {httpStatus = a} :: DeleteConnectionResponse)
 
-instance Prelude.NFData DeleteConnectionResponse
+instance Core.NFData DeleteConnectionResponse

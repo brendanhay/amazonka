@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.TemporalFilterSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening
 import Network.AWS.MediaLive.Types.TemporalFilterStrength
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Temporal Filter Settings
 --
@@ -34,13 +33,13 @@ data TemporalFilterSettings = TemporalFilterSettings'
     -- filter cleans up the source. - If the source content is already clean,
     -- the filter tends to decrease the bitrate, especially when the rate
     -- control mode is QVBR.
-    postFilterSharpening :: Prelude.Maybe TemporalFilterPostFilterSharpening,
+    postFilterSharpening :: Core.Maybe TemporalFilterPostFilterSharpening,
     -- | Choose a filter strength. We recommend a strength of 1 or 2. A higher
     -- strength might take out good information, resulting in an image that is
     -- overly soft.
-    strength :: Prelude.Maybe TemporalFilterStrength
+    strength :: Core.Maybe TemporalFilterStrength
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TemporalFilterSettings' with all optional fields omitted.
@@ -64,8 +63,8 @@ newTemporalFilterSettings ::
 newTemporalFilterSettings =
   TemporalFilterSettings'
     { postFilterSharpening =
-        Prelude.Nothing,
-      strength = Prelude.Nothing
+        Core.Nothing,
+      strength = Core.Nothing
     }
 
 -- | If you enable this filter, the results are the following: - If the
@@ -73,35 +72,35 @@ newTemporalFilterSettings =
 -- filter cleans up the source. - If the source content is already clean,
 -- the filter tends to decrease the bitrate, especially when the rate
 -- control mode is QVBR.
-temporalFilterSettings_postFilterSharpening :: Lens.Lens' TemporalFilterSettings (Prelude.Maybe TemporalFilterPostFilterSharpening)
+temporalFilterSettings_postFilterSharpening :: Lens.Lens' TemporalFilterSettings (Core.Maybe TemporalFilterPostFilterSharpening)
 temporalFilterSettings_postFilterSharpening = Lens.lens (\TemporalFilterSettings' {postFilterSharpening} -> postFilterSharpening) (\s@TemporalFilterSettings' {} a -> s {postFilterSharpening = a} :: TemporalFilterSettings)
 
 -- | Choose a filter strength. We recommend a strength of 1 or 2. A higher
 -- strength might take out good information, resulting in an image that is
 -- overly soft.
-temporalFilterSettings_strength :: Lens.Lens' TemporalFilterSettings (Prelude.Maybe TemporalFilterStrength)
+temporalFilterSettings_strength :: Lens.Lens' TemporalFilterSettings (Core.Maybe TemporalFilterStrength)
 temporalFilterSettings_strength = Lens.lens (\TemporalFilterSettings' {strength} -> strength) (\s@TemporalFilterSettings' {} a -> s {strength = a} :: TemporalFilterSettings)
 
-instance Prelude.FromJSON TemporalFilterSettings where
+instance Core.FromJSON TemporalFilterSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TemporalFilterSettings"
       ( \x ->
           TemporalFilterSettings'
-            Prelude.<$> (x Prelude..:? "postFilterSharpening")
-            Prelude.<*> (x Prelude..:? "strength")
+            Core.<$> (x Core..:? "postFilterSharpening")
+            Core.<*> (x Core..:? "strength")
       )
 
-instance Prelude.Hashable TemporalFilterSettings
+instance Core.Hashable TemporalFilterSettings
 
-instance Prelude.NFData TemporalFilterSettings
+instance Core.NFData TemporalFilterSettings
 
-instance Prelude.ToJSON TemporalFilterSettings where
+instance Core.ToJSON TemporalFilterSettings where
   toJSON TemporalFilterSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("postFilterSharpening" Prelude..=)
-              Prelude.<$> postFilterSharpening,
-            ("strength" Prelude..=) Prelude.<$> strength
+    Core.object
+      ( Core.catMaybes
+          [ ("postFilterSharpening" Core..=)
+              Core.<$> postFilterSharpening,
+            ("strength" Core..=) Core.<$> strength
           ]
       )

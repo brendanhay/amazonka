@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.MaintenanceWindowRunCommandParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.CloudWatchOutputConfig
 import Network.AWS.SSM.Types.DocumentHashType
 import Network.AWS.SSM.Types.NotificationConfig
@@ -52,26 +51,26 @@ import Network.AWS.SSM.Types.NotificationConfig
 data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParameters'
   { -- | Configurations for sending notifications about command status changes on
     -- a per-instance basis.
-    notificationConfig :: Prelude.Maybe NotificationConfig,
+    notificationConfig :: Core.Maybe NotificationConfig,
     -- | The ARN of the IAM service role to use to publish Amazon Simple
     -- Notification Service (Amazon SNS) notifications for maintenance window
     -- Run Command tasks.
-    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    serviceRoleArn :: Core.Maybe Core.Text,
     -- | The name of the S3 bucket.
-    outputS3BucketName :: Prelude.Maybe Prelude.Text,
+    outputS3BucketName :: Core.Maybe Core.Text,
     -- | Information about the commands to run.
-    comment :: Prelude.Maybe Prelude.Text,
+    comment :: Core.Maybe Core.Text,
     -- | The SHA-256 or SHA-1 hash created by the system when the document was
     -- created. SHA-1 hashes have been deprecated.
-    documentHash :: Prelude.Maybe Prelude.Text,
+    documentHash :: Core.Maybe Core.Text,
     -- | The S3 bucket subfolder.
-    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    outputS3KeyPrefix :: Core.Maybe Core.Text,
     -- | If this time is reached and the command has not already started running,
     -- it doesn\'t run.
-    timeoutSeconds :: Prelude.Maybe Prelude.Natural,
-    cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
+    timeoutSeconds :: Core.Maybe Core.Natural,
+    cloudWatchOutputConfig :: Core.Maybe CloudWatchOutputConfig,
     -- | SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
-    documentHashType :: Prelude.Maybe DocumentHashType,
+    documentHashType :: Core.Maybe DocumentHashType,
     -- | The SSM document version to use in the request. You can specify
     -- \$DEFAULT, $LATEST, or a specific version number. If you run commands by
     -- using the AWS CLI, then you must escape the first two options by using a
@@ -83,11 +82,11 @@ data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParamete
     -- --document-version \"\\$LATEST\"
     --
     -- --document-version \"3\"
-    documentVersion :: Prelude.Maybe Prelude.Text,
+    documentVersion :: Core.Maybe Core.Text,
     -- | The parameters for the RUN_COMMAND task execution.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    parameters :: Core.Maybe (Core.HashMap Core.Text [Core.Text])
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MaintenanceWindowRunCommandParameters' with all optional fields omitted.
@@ -138,59 +137,59 @@ newMaintenanceWindowRunCommandParameters ::
 newMaintenanceWindowRunCommandParameters =
   MaintenanceWindowRunCommandParameters'
     { notificationConfig =
-        Prelude.Nothing,
-      serviceRoleArn = Prelude.Nothing,
-      outputS3BucketName = Prelude.Nothing,
-      comment = Prelude.Nothing,
-      documentHash = Prelude.Nothing,
-      outputS3KeyPrefix = Prelude.Nothing,
-      timeoutSeconds = Prelude.Nothing,
+        Core.Nothing,
+      serviceRoleArn = Core.Nothing,
+      outputS3BucketName = Core.Nothing,
+      comment = Core.Nothing,
+      documentHash = Core.Nothing,
+      outputS3KeyPrefix = Core.Nothing,
+      timeoutSeconds = Core.Nothing,
       cloudWatchOutputConfig =
-        Prelude.Nothing,
-      documentHashType = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
-      parameters = Prelude.Nothing
+        Core.Nothing,
+      documentHashType = Core.Nothing,
+      documentVersion = Core.Nothing,
+      parameters = Core.Nothing
     }
 
 -- | Configurations for sending notifications about command status changes on
 -- a per-instance basis.
-maintenanceWindowRunCommandParameters_notificationConfig :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe NotificationConfig)
+maintenanceWindowRunCommandParameters_notificationConfig :: Lens.Lens' MaintenanceWindowRunCommandParameters (Core.Maybe NotificationConfig)
 maintenanceWindowRunCommandParameters_notificationConfig = Lens.lens (\MaintenanceWindowRunCommandParameters' {notificationConfig} -> notificationConfig) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {notificationConfig = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | The ARN of the IAM service role to use to publish Amazon Simple
 -- Notification Service (Amazon SNS) notifications for maintenance window
 -- Run Command tasks.
-maintenanceWindowRunCommandParameters_serviceRoleArn :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowRunCommandParameters_serviceRoleArn :: Lens.Lens' MaintenanceWindowRunCommandParameters (Core.Maybe Core.Text)
 maintenanceWindowRunCommandParameters_serviceRoleArn = Lens.lens (\MaintenanceWindowRunCommandParameters' {serviceRoleArn} -> serviceRoleArn) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {serviceRoleArn = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | The name of the S3 bucket.
-maintenanceWindowRunCommandParameters_outputS3BucketName :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowRunCommandParameters_outputS3BucketName :: Lens.Lens' MaintenanceWindowRunCommandParameters (Core.Maybe Core.Text)
 maintenanceWindowRunCommandParameters_outputS3BucketName = Lens.lens (\MaintenanceWindowRunCommandParameters' {outputS3BucketName} -> outputS3BucketName) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {outputS3BucketName = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | Information about the commands to run.
-maintenanceWindowRunCommandParameters_comment :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowRunCommandParameters_comment :: Lens.Lens' MaintenanceWindowRunCommandParameters (Core.Maybe Core.Text)
 maintenanceWindowRunCommandParameters_comment = Lens.lens (\MaintenanceWindowRunCommandParameters' {comment} -> comment) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {comment = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | The SHA-256 or SHA-1 hash created by the system when the document was
 -- created. SHA-1 hashes have been deprecated.
-maintenanceWindowRunCommandParameters_documentHash :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowRunCommandParameters_documentHash :: Lens.Lens' MaintenanceWindowRunCommandParameters (Core.Maybe Core.Text)
 maintenanceWindowRunCommandParameters_documentHash = Lens.lens (\MaintenanceWindowRunCommandParameters' {documentHash} -> documentHash) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {documentHash = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | The S3 bucket subfolder.
-maintenanceWindowRunCommandParameters_outputS3KeyPrefix :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowRunCommandParameters_outputS3KeyPrefix :: Lens.Lens' MaintenanceWindowRunCommandParameters (Core.Maybe Core.Text)
 maintenanceWindowRunCommandParameters_outputS3KeyPrefix = Lens.lens (\MaintenanceWindowRunCommandParameters' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {outputS3KeyPrefix = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | If this time is reached and the command has not already started running,
 -- it doesn\'t run.
-maintenanceWindowRunCommandParameters_timeoutSeconds :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Natural)
+maintenanceWindowRunCommandParameters_timeoutSeconds :: Lens.Lens' MaintenanceWindowRunCommandParameters (Core.Maybe Core.Natural)
 maintenanceWindowRunCommandParameters_timeoutSeconds = Lens.lens (\MaintenanceWindowRunCommandParameters' {timeoutSeconds} -> timeoutSeconds) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {timeoutSeconds = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | Undocumented member.
-maintenanceWindowRunCommandParameters_cloudWatchOutputConfig :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe CloudWatchOutputConfig)
+maintenanceWindowRunCommandParameters_cloudWatchOutputConfig :: Lens.Lens' MaintenanceWindowRunCommandParameters (Core.Maybe CloudWatchOutputConfig)
 maintenanceWindowRunCommandParameters_cloudWatchOutputConfig = Lens.lens (\MaintenanceWindowRunCommandParameters' {cloudWatchOutputConfig} -> cloudWatchOutputConfig) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {cloudWatchOutputConfig = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
-maintenanceWindowRunCommandParameters_documentHashType :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe DocumentHashType)
+maintenanceWindowRunCommandParameters_documentHashType :: Lens.Lens' MaintenanceWindowRunCommandParameters (Core.Maybe DocumentHashType)
 maintenanceWindowRunCommandParameters_documentHashType = Lens.lens (\MaintenanceWindowRunCommandParameters' {documentHashType} -> documentHashType) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {documentHashType = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | The SSM document version to use in the request. You can specify
@@ -204,70 +203,65 @@ maintenanceWindowRunCommandParameters_documentHashType = Lens.lens (\Maintenance
 -- --document-version \"\\$LATEST\"
 --
 -- --document-version \"3\"
-maintenanceWindowRunCommandParameters_documentVersion :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowRunCommandParameters_documentVersion :: Lens.Lens' MaintenanceWindowRunCommandParameters (Core.Maybe Core.Text)
 maintenanceWindowRunCommandParameters_documentVersion = Lens.lens (\MaintenanceWindowRunCommandParameters' {documentVersion} -> documentVersion) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {documentVersion = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | The parameters for the RUN_COMMAND task execution.
-maintenanceWindowRunCommandParameters_parameters :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-maintenanceWindowRunCommandParameters_parameters = Lens.lens (\MaintenanceWindowRunCommandParameters' {parameters} -> parameters) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {parameters = a} :: MaintenanceWindowRunCommandParameters) Prelude.. Lens.mapping Prelude._Coerce
+maintenanceWindowRunCommandParameters_parameters :: Lens.Lens' MaintenanceWindowRunCommandParameters (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+maintenanceWindowRunCommandParameters_parameters = Lens.lens (\MaintenanceWindowRunCommandParameters' {parameters} -> parameters) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {parameters = a} :: MaintenanceWindowRunCommandParameters) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     MaintenanceWindowRunCommandParameters
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MaintenanceWindowRunCommandParameters"
       ( \x ->
           MaintenanceWindowRunCommandParameters'
-            Prelude.<$> (x Prelude..:? "NotificationConfig")
-            Prelude.<*> (x Prelude..:? "ServiceRoleArn")
-            Prelude.<*> (x Prelude..:? "OutputS3BucketName")
-            Prelude.<*> (x Prelude..:? "Comment")
-            Prelude.<*> (x Prelude..:? "DocumentHash")
-            Prelude.<*> (x Prelude..:? "OutputS3KeyPrefix")
-            Prelude.<*> (x Prelude..:? "TimeoutSeconds")
-            Prelude.<*> (x Prelude..:? "CloudWatchOutputConfig")
-            Prelude.<*> (x Prelude..:? "DocumentHashType")
-            Prelude.<*> (x Prelude..:? "DocumentVersion")
-            Prelude.<*> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "NotificationConfig")
+            Core.<*> (x Core..:? "ServiceRoleArn")
+            Core.<*> (x Core..:? "OutputS3BucketName")
+            Core.<*> (x Core..:? "Comment")
+            Core.<*> (x Core..:? "DocumentHash")
+            Core.<*> (x Core..:? "OutputS3KeyPrefix")
+            Core.<*> (x Core..:? "TimeoutSeconds")
+            Core.<*> (x Core..:? "CloudWatchOutputConfig")
+            Core.<*> (x Core..:? "DocumentHashType")
+            Core.<*> (x Core..:? "DocumentVersion")
+            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     MaintenanceWindowRunCommandParameters
 
 instance
-  Prelude.NFData
+  Core.NFData
     MaintenanceWindowRunCommandParameters
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     MaintenanceWindowRunCommandParameters
   where
   toJSON MaintenanceWindowRunCommandParameters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NotificationConfig" Prelude..=)
-              Prelude.<$> notificationConfig,
-            ("ServiceRoleArn" Prelude..=)
-              Prelude.<$> serviceRoleArn,
-            ("OutputS3BucketName" Prelude..=)
-              Prelude.<$> outputS3BucketName,
-            ("Comment" Prelude..=) Prelude.<$> comment,
-            ("DocumentHash" Prelude..=) Prelude.<$> documentHash,
-            ("OutputS3KeyPrefix" Prelude..=)
-              Prelude.<$> outputS3KeyPrefix,
-            ("TimeoutSeconds" Prelude..=)
-              Prelude.<$> timeoutSeconds,
-            ("CloudWatchOutputConfig" Prelude..=)
-              Prelude.<$> cloudWatchOutputConfig,
-            ("DocumentHashType" Prelude..=)
-              Prelude.<$> documentHashType,
-            ("DocumentVersion" Prelude..=)
-              Prelude.<$> documentVersion,
-            ("Parameters" Prelude..=) Prelude.<$> parameters
+    Core.object
+      ( Core.catMaybes
+          [ ("NotificationConfig" Core..=)
+              Core.<$> notificationConfig,
+            ("ServiceRoleArn" Core..=) Core.<$> serviceRoleArn,
+            ("OutputS3BucketName" Core..=)
+              Core.<$> outputS3BucketName,
+            ("Comment" Core..=) Core.<$> comment,
+            ("DocumentHash" Core..=) Core.<$> documentHash,
+            ("OutputS3KeyPrefix" Core..=)
+              Core.<$> outputS3KeyPrefix,
+            ("TimeoutSeconds" Core..=) Core.<$> timeoutSeconds,
+            ("CloudWatchOutputConfig" Core..=)
+              Core.<$> cloudWatchOutputConfig,
+            ("DocumentHashType" Core..=)
+              Core.<$> documentHashType,
+            ("DocumentVersion" Core..=) Core.<$> documentVersion,
+            ("Parameters" Core..=) Core.<$> parameters
           ]
       )

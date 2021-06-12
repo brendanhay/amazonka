@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.ElasticSearch.DeletePackage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeletePackage = DeletePackage'
   { -- | Internal ID of the package that you want to delete. Use
     -- @DescribePackages@ to find this value.
-    packageID :: Prelude.Text
+    packageID :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePackage' with all optional fields omitted.
@@ -68,52 +67,54 @@ data DeletePackage = DeletePackage'
 -- @DescribePackages@ to find this value.
 newDeletePackage ::
   -- | 'packageID'
-  Prelude.Text ->
+  Core.Text ->
   DeletePackage
 newDeletePackage pPackageID_ =
   DeletePackage' {packageID = pPackageID_}
 
 -- | Internal ID of the package that you want to delete. Use
 -- @DescribePackages@ to find this value.
-deletePackage_packageID :: Lens.Lens' DeletePackage Prelude.Text
+deletePackage_packageID :: Lens.Lens' DeletePackage Core.Text
 deletePackage_packageID = Lens.lens (\DeletePackage' {packageID} -> packageID) (\s@DeletePackage' {} a -> s {packageID = a} :: DeletePackage)
 
-instance Prelude.AWSRequest DeletePackage where
-  type Rs DeletePackage = DeletePackageResponse
+instance Core.AWSRequest DeletePackage where
+  type
+    AWSResponse DeletePackage =
+      DeletePackageResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeletePackageResponse'
-            Prelude.<$> (x Prelude..?> "PackageDetails")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "PackageDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePackage
+instance Core.Hashable DeletePackage
 
-instance Prelude.NFData DeletePackage
+instance Core.NFData DeletePackage
 
-instance Prelude.ToHeaders DeletePackage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeletePackage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeletePackage where
+instance Core.ToPath DeletePackage where
   toPath DeletePackage' {..} =
-    Prelude.mconcat
-      ["/2015-01-01/packages/", Prelude.toBS packageID]
+    Core.mconcat
+      ["/2015-01-01/packages/", Core.toBS packageID]
 
-instance Prelude.ToQuery DeletePackage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePackage where
+  toQuery = Core.const Core.mempty
 
 -- | Container for response parameters to @ DeletePackage @ operation.
 --
 -- /See:/ 'newDeletePackageResponse' smart constructor.
 data DeletePackageResponse = DeletePackageResponse'
   { -- | @PackageDetails@
-    packageDetails :: Prelude.Maybe PackageDetails,
+    packageDetails :: Core.Maybe PackageDetails,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePackageResponse' with all optional fields omitted.
@@ -128,21 +129,21 @@ data DeletePackageResponse = DeletePackageResponse'
 -- 'httpStatus', 'deletePackageResponse_httpStatus' - The response's http status code.
 newDeletePackageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeletePackageResponse
 newDeletePackageResponse pHttpStatus_ =
   DeletePackageResponse'
     { packageDetails =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | @PackageDetails@
-deletePackageResponse_packageDetails :: Lens.Lens' DeletePackageResponse (Prelude.Maybe PackageDetails)
+deletePackageResponse_packageDetails :: Lens.Lens' DeletePackageResponse (Core.Maybe PackageDetails)
 deletePackageResponse_packageDetails = Lens.lens (\DeletePackageResponse' {packageDetails} -> packageDetails) (\s@DeletePackageResponse' {} a -> s {packageDetails = a} :: DeletePackageResponse)
 
 -- | The response's http status code.
-deletePackageResponse_httpStatus :: Lens.Lens' DeletePackageResponse Prelude.Int
+deletePackageResponse_httpStatus :: Lens.Lens' DeletePackageResponse Core.Int
 deletePackageResponse_httpStatus = Lens.lens (\DeletePackageResponse' {httpStatus} -> httpStatus) (\s@DeletePackageResponse' {} a -> s {httpStatus = a} :: DeletePackageResponse)
 
-instance Prelude.NFData DeletePackageResponse
+instance Core.NFData DeletePackageResponse

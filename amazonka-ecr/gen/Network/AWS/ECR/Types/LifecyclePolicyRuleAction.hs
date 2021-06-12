@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.LifecyclePolicyRuleAction where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.ImageActionType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The type of action to be taken.
 --
 -- /See:/ 'newLifecyclePolicyRuleAction' smart constructor.
 data LifecyclePolicyRuleAction = LifecyclePolicyRuleAction'
   { -- | The type of action to be taken.
-    type' :: Prelude.Maybe ImageActionType
+    type' :: Core.Maybe ImageActionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LifecyclePolicyRuleAction' with all optional fields omitted.
@@ -45,21 +44,21 @@ data LifecyclePolicyRuleAction = LifecyclePolicyRuleAction'
 newLifecyclePolicyRuleAction ::
   LifecyclePolicyRuleAction
 newLifecyclePolicyRuleAction =
-  LifecyclePolicyRuleAction' {type' = Prelude.Nothing}
+  LifecyclePolicyRuleAction' {type' = Core.Nothing}
 
 -- | The type of action to be taken.
-lifecyclePolicyRuleAction_type :: Lens.Lens' LifecyclePolicyRuleAction (Prelude.Maybe ImageActionType)
+lifecyclePolicyRuleAction_type :: Lens.Lens' LifecyclePolicyRuleAction (Core.Maybe ImageActionType)
 lifecyclePolicyRuleAction_type = Lens.lens (\LifecyclePolicyRuleAction' {type'} -> type') (\s@LifecyclePolicyRuleAction' {} a -> s {type' = a} :: LifecyclePolicyRuleAction)
 
-instance Prelude.FromJSON LifecyclePolicyRuleAction where
+instance Core.FromJSON LifecyclePolicyRuleAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LifecyclePolicyRuleAction"
       ( \x ->
           LifecyclePolicyRuleAction'
-            Prelude.<$> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "type")
       )
 
-instance Prelude.Hashable LifecyclePolicyRuleAction
+instance Core.Hashable LifecyclePolicyRuleAction
 
-instance Prelude.NFData LifecyclePolicyRuleAction
+instance Core.NFData LifecyclePolicyRuleAction

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,9 +68,9 @@ module Network.AWS.GameLift.CreatePlayerSession
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,13 +80,13 @@ import qualified Network.AWS.Response as Response
 data CreatePlayerSession = CreatePlayerSession'
   { -- | Developer-defined information related to a player. Amazon GameLift does
     -- not use this data, so it can be formatted as needed for use in the game.
-    playerData :: Prelude.Maybe Prelude.Text,
+    playerData :: Core.Maybe Core.Text,
     -- | A unique identifier for the game session to add a player to.
-    gameSessionId :: Prelude.Text,
+    gameSessionId :: Core.Text,
     -- | A unique identifier for a player. Player IDs are developer-defined.
-    playerId :: Prelude.Text
+    playerId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePlayerSession' with all optional fields omitted.
@@ -105,89 +104,84 @@ data CreatePlayerSession = CreatePlayerSession'
 -- 'playerId', 'createPlayerSession_playerId' - A unique identifier for a player. Player IDs are developer-defined.
 newCreatePlayerSession ::
   -- | 'gameSessionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'playerId'
-  Prelude.Text ->
+  Core.Text ->
   CreatePlayerSession
 newCreatePlayerSession pGameSessionId_ pPlayerId_ =
   CreatePlayerSession'
-    { playerData = Prelude.Nothing,
+    { playerData = Core.Nothing,
       gameSessionId = pGameSessionId_,
       playerId = pPlayerId_
     }
 
 -- | Developer-defined information related to a player. Amazon GameLift does
 -- not use this data, so it can be formatted as needed for use in the game.
-createPlayerSession_playerData :: Lens.Lens' CreatePlayerSession (Prelude.Maybe Prelude.Text)
+createPlayerSession_playerData :: Lens.Lens' CreatePlayerSession (Core.Maybe Core.Text)
 createPlayerSession_playerData = Lens.lens (\CreatePlayerSession' {playerData} -> playerData) (\s@CreatePlayerSession' {} a -> s {playerData = a} :: CreatePlayerSession)
 
 -- | A unique identifier for the game session to add a player to.
-createPlayerSession_gameSessionId :: Lens.Lens' CreatePlayerSession Prelude.Text
+createPlayerSession_gameSessionId :: Lens.Lens' CreatePlayerSession Core.Text
 createPlayerSession_gameSessionId = Lens.lens (\CreatePlayerSession' {gameSessionId} -> gameSessionId) (\s@CreatePlayerSession' {} a -> s {gameSessionId = a} :: CreatePlayerSession)
 
 -- | A unique identifier for a player. Player IDs are developer-defined.
-createPlayerSession_playerId :: Lens.Lens' CreatePlayerSession Prelude.Text
+createPlayerSession_playerId :: Lens.Lens' CreatePlayerSession Core.Text
 createPlayerSession_playerId = Lens.lens (\CreatePlayerSession' {playerId} -> playerId) (\s@CreatePlayerSession' {} a -> s {playerId = a} :: CreatePlayerSession)
 
-instance Prelude.AWSRequest CreatePlayerSession where
+instance Core.AWSRequest CreatePlayerSession where
   type
-    Rs CreatePlayerSession =
+    AWSResponse CreatePlayerSession =
       CreatePlayerSessionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreatePlayerSessionResponse'
-            Prelude.<$> (x Prelude..?> "PlayerSession")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "PlayerSession")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePlayerSession
+instance Core.Hashable CreatePlayerSession
 
-instance Prelude.NFData CreatePlayerSession
+instance Core.NFData CreatePlayerSession
 
-instance Prelude.ToHeaders CreatePlayerSession where
+instance Core.ToHeaders CreatePlayerSession where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.CreatePlayerSession" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("GameLift.CreatePlayerSession" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreatePlayerSession where
+instance Core.ToJSON CreatePlayerSession where
   toJSON CreatePlayerSession' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PlayerData" Prelude..=) Prelude.<$> playerData,
-            Prelude.Just
-              ("GameSessionId" Prelude..= gameSessionId),
-            Prelude.Just ("PlayerId" Prelude..= playerId)
+    Core.object
+      ( Core.catMaybes
+          [ ("PlayerData" Core..=) Core.<$> playerData,
+            Core.Just ("GameSessionId" Core..= gameSessionId),
+            Core.Just ("PlayerId" Core..= playerId)
           ]
       )
 
-instance Prelude.ToPath CreatePlayerSession where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreatePlayerSession where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreatePlayerSession where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreatePlayerSession where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newCreatePlayerSessionResponse' smart constructor.
 data CreatePlayerSessionResponse = CreatePlayerSessionResponse'
   { -- | Object that describes the newly created player session record.
-    playerSession :: Prelude.Maybe PlayerSession,
+    playerSession :: Core.Maybe PlayerSession,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePlayerSessionResponse' with all optional fields omitted.
@@ -202,21 +196,21 @@ data CreatePlayerSessionResponse = CreatePlayerSessionResponse'
 -- 'httpStatus', 'createPlayerSessionResponse_httpStatus' - The response's http status code.
 newCreatePlayerSessionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreatePlayerSessionResponse
 newCreatePlayerSessionResponse pHttpStatus_ =
   CreatePlayerSessionResponse'
     { playerSession =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Object that describes the newly created player session record.
-createPlayerSessionResponse_playerSession :: Lens.Lens' CreatePlayerSessionResponse (Prelude.Maybe PlayerSession)
+createPlayerSessionResponse_playerSession :: Lens.Lens' CreatePlayerSessionResponse (Core.Maybe PlayerSession)
 createPlayerSessionResponse_playerSession = Lens.lens (\CreatePlayerSessionResponse' {playerSession} -> playerSession) (\s@CreatePlayerSessionResponse' {} a -> s {playerSession = a} :: CreatePlayerSessionResponse)
 
 -- | The response's http status code.
-createPlayerSessionResponse_httpStatus :: Lens.Lens' CreatePlayerSessionResponse Prelude.Int
+createPlayerSessionResponse_httpStatus :: Lens.Lens' CreatePlayerSessionResponse Core.Int
 createPlayerSessionResponse_httpStatus = Lens.lens (\CreatePlayerSessionResponse' {httpStatus} -> httpStatus) (\s@CreatePlayerSessionResponse' {} a -> s {httpStatus = a} :: CreatePlayerSessionResponse)
 
-instance Prelude.NFData CreatePlayerSessionResponse
+instance Core.NFData CreatePlayerSessionResponse

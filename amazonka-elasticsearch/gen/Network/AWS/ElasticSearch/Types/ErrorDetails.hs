@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,15 +19,15 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.ErrorDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newErrorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
-  { errorType :: Prelude.Maybe Prelude.Text,
-    errorMessage :: Prelude.Maybe Prelude.Text
+  { errorType :: Core.Maybe Core.Text,
+    errorMessage :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ErrorDetails' with all optional fields omitted.
@@ -45,28 +44,28 @@ newErrorDetails ::
   ErrorDetails
 newErrorDetails =
   ErrorDetails'
-    { errorType = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+    { errorType = Core.Nothing,
+      errorMessage = Core.Nothing
     }
 
 -- | Undocumented member.
-errorDetails_errorType :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
+errorDetails_errorType :: Lens.Lens' ErrorDetails (Core.Maybe Core.Text)
 errorDetails_errorType = Lens.lens (\ErrorDetails' {errorType} -> errorType) (\s@ErrorDetails' {} a -> s {errorType = a} :: ErrorDetails)
 
 -- | Undocumented member.
-errorDetails_errorMessage :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
+errorDetails_errorMessage :: Lens.Lens' ErrorDetails (Core.Maybe Core.Text)
 errorDetails_errorMessage = Lens.lens (\ErrorDetails' {errorMessage} -> errorMessage) (\s@ErrorDetails' {} a -> s {errorMessage = a} :: ErrorDetails)
 
-instance Prelude.FromJSON ErrorDetails where
+instance Core.FromJSON ErrorDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ErrorDetails"
       ( \x ->
           ErrorDetails'
-            Prelude.<$> (x Prelude..:? "ErrorType")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
+            Core.<$> (x Core..:? "ErrorType")
+            Core.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable ErrorDetails
+instance Core.Hashable ErrorDetails
 
-instance Prelude.NFData ErrorDetails
+instance Core.NFData ErrorDetails

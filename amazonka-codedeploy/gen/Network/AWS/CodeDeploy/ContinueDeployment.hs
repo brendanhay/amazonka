@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CodeDeploy.ContinueDeployment
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,14 +51,14 @@ import qualified Network.AWS.Response as Response
 data ContinueDeployment = ContinueDeployment'
   { -- | The unique ID of a blue\/green deployment for which you want to start
     -- rerouting traffic to the replacement environment.
-    deploymentId :: Prelude.Maybe Prelude.Text,
+    deploymentId :: Core.Maybe Core.Text,
     -- | The status of the deployment\'s waiting period. @READY_WAIT@ indicates
     -- that the deployment is ready to start shifting traffic.
     -- @TERMINATION_WAIT@ indicates that the traffic is shifted, but the
     -- original target is not terminated.
-    deploymentWaitType :: Prelude.Maybe DeploymentWaitType
+    deploymentWaitType :: Core.Maybe DeploymentWaitType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContinueDeployment' with all optional fields omitted.
@@ -80,71 +79,68 @@ newContinueDeployment ::
   ContinueDeployment
 newContinueDeployment =
   ContinueDeployment'
-    { deploymentId = Prelude.Nothing,
-      deploymentWaitType = Prelude.Nothing
+    { deploymentId = Core.Nothing,
+      deploymentWaitType = Core.Nothing
     }
 
 -- | The unique ID of a blue\/green deployment for which you want to start
 -- rerouting traffic to the replacement environment.
-continueDeployment_deploymentId :: Lens.Lens' ContinueDeployment (Prelude.Maybe Prelude.Text)
+continueDeployment_deploymentId :: Lens.Lens' ContinueDeployment (Core.Maybe Core.Text)
 continueDeployment_deploymentId = Lens.lens (\ContinueDeployment' {deploymentId} -> deploymentId) (\s@ContinueDeployment' {} a -> s {deploymentId = a} :: ContinueDeployment)
 
 -- | The status of the deployment\'s waiting period. @READY_WAIT@ indicates
 -- that the deployment is ready to start shifting traffic.
 -- @TERMINATION_WAIT@ indicates that the traffic is shifted, but the
 -- original target is not terminated.
-continueDeployment_deploymentWaitType :: Lens.Lens' ContinueDeployment (Prelude.Maybe DeploymentWaitType)
+continueDeployment_deploymentWaitType :: Lens.Lens' ContinueDeployment (Core.Maybe DeploymentWaitType)
 continueDeployment_deploymentWaitType = Lens.lens (\ContinueDeployment' {deploymentWaitType} -> deploymentWaitType) (\s@ContinueDeployment' {} a -> s {deploymentWaitType = a} :: ContinueDeployment)
 
-instance Prelude.AWSRequest ContinueDeployment where
+instance Core.AWSRequest ContinueDeployment where
   type
-    Rs ContinueDeployment =
+    AWSResponse ContinueDeployment =
       ContinueDeploymentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull ContinueDeploymentResponse'
 
-instance Prelude.Hashable ContinueDeployment
+instance Core.Hashable ContinueDeployment
 
-instance Prelude.NFData ContinueDeployment
+instance Core.NFData ContinueDeployment
 
-instance Prelude.ToHeaders ContinueDeployment where
+instance Core.ToHeaders ContinueDeployment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.ContinueDeployment" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.ContinueDeployment" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ContinueDeployment where
+instance Core.ToJSON ContinueDeployment where
   toJSON ContinueDeployment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deploymentId" Prelude..=)
-              Prelude.<$> deploymentId,
-            ("deploymentWaitType" Prelude..=)
-              Prelude.<$> deploymentWaitType
+    Core.object
+      ( Core.catMaybes
+          [ ("deploymentId" Core..=) Core.<$> deploymentId,
+            ("deploymentWaitType" Core..=)
+              Core.<$> deploymentWaitType
           ]
       )
 
-instance Prelude.ToPath ContinueDeployment where
-  toPath = Prelude.const "/"
+instance Core.ToPath ContinueDeployment where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ContinueDeployment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ContinueDeployment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newContinueDeploymentResponse' smart constructor.
 data ContinueDeploymentResponse = ContinueDeploymentResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContinueDeploymentResponse' with all optional fields omitted.
@@ -155,4 +151,4 @@ newContinueDeploymentResponse ::
 newContinueDeploymentResponse =
   ContinueDeploymentResponse'
 
-instance Prelude.NFData ContinueDeploymentResponse
+instance Core.NFData ContinueDeploymentResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the database credentials for connecting to a database on an
 -- Amazon Redshift cluster.
 --
 -- /See:/ 'newRedshiftDatabaseCredentials' smart constructor.
 data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'
-  { username :: Prelude.Text,
-    password :: Prelude.Text
+  { username :: Core.Text,
+    password :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RedshiftDatabaseCredentials' with all optional fields omitted.
@@ -46,9 +45,9 @@ data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'
 -- 'password', 'redshiftDatabaseCredentials_password' - Undocumented member.
 newRedshiftDatabaseCredentials ::
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'password'
-  Prelude.Text ->
+  Core.Text ->
   RedshiftDatabaseCredentials
 newRedshiftDatabaseCredentials pUsername_ pPassword_ =
   RedshiftDatabaseCredentials'
@@ -57,22 +56,22 @@ newRedshiftDatabaseCredentials pUsername_ pPassword_ =
     }
 
 -- | Undocumented member.
-redshiftDatabaseCredentials_username :: Lens.Lens' RedshiftDatabaseCredentials Prelude.Text
+redshiftDatabaseCredentials_username :: Lens.Lens' RedshiftDatabaseCredentials Core.Text
 redshiftDatabaseCredentials_username = Lens.lens (\RedshiftDatabaseCredentials' {username} -> username) (\s@RedshiftDatabaseCredentials' {} a -> s {username = a} :: RedshiftDatabaseCredentials)
 
 -- | Undocumented member.
-redshiftDatabaseCredentials_password :: Lens.Lens' RedshiftDatabaseCredentials Prelude.Text
+redshiftDatabaseCredentials_password :: Lens.Lens' RedshiftDatabaseCredentials Core.Text
 redshiftDatabaseCredentials_password = Lens.lens (\RedshiftDatabaseCredentials' {password} -> password) (\s@RedshiftDatabaseCredentials' {} a -> s {password = a} :: RedshiftDatabaseCredentials)
 
-instance Prelude.Hashable RedshiftDatabaseCredentials
+instance Core.Hashable RedshiftDatabaseCredentials
 
-instance Prelude.NFData RedshiftDatabaseCredentials
+instance Core.NFData RedshiftDatabaseCredentials
 
-instance Prelude.ToJSON RedshiftDatabaseCredentials where
+instance Core.ToJSON RedshiftDatabaseCredentials where
   toJSON RedshiftDatabaseCredentials' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Username" Prelude..= username),
-            Prelude.Just ("Password" Prelude..= password)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Username" Core..= username),
+            Core.Just ("Password" Core..= password)
           ]
       )

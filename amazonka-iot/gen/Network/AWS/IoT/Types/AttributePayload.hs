@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AttributePayload where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The attribute payload.
 --
@@ -36,14 +35,14 @@ data AttributePayload = AttributePayload'
     --
     -- The @merge@ attribute is only valid when calling @UpdateThing@ or
     -- @UpdateThingGroup@.
-    merge :: Prelude.Maybe Prelude.Bool,
+    merge :: Core.Maybe Core.Bool,
     -- | A JSON string containing up to three key-value pair in JSON format. For
     -- example:
     --
     -- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributePayload' with all optional fields omitted.
@@ -71,8 +70,8 @@ newAttributePayload ::
   AttributePayload
 newAttributePayload =
   AttributePayload'
-    { merge = Prelude.Nothing,
-      attributes = Prelude.Nothing
+    { merge = Core.Nothing,
+      attributes = Core.Nothing
     }
 
 -- | Specifies whether the list of attributes provided in the
@@ -84,37 +83,35 @@ newAttributePayload =
 --
 -- The @merge@ attribute is only valid when calling @UpdateThing@ or
 -- @UpdateThingGroup@.
-attributePayload_merge :: Lens.Lens' AttributePayload (Prelude.Maybe Prelude.Bool)
+attributePayload_merge :: Lens.Lens' AttributePayload (Core.Maybe Core.Bool)
 attributePayload_merge = Lens.lens (\AttributePayload' {merge} -> merge) (\s@AttributePayload' {} a -> s {merge = a} :: AttributePayload)
 
 -- | A JSON string containing up to three key-value pair in JSON format. For
 -- example:
 --
 -- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
-attributePayload_attributes :: Lens.Lens' AttributePayload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-attributePayload_attributes = Lens.lens (\AttributePayload' {attributes} -> attributes) (\s@AttributePayload' {} a -> s {attributes = a} :: AttributePayload) Prelude.. Lens.mapping Prelude._Coerce
+attributePayload_attributes :: Lens.Lens' AttributePayload (Core.Maybe (Core.HashMap Core.Text Core.Text))
+attributePayload_attributes = Lens.lens (\AttributePayload' {attributes} -> attributes) (\s@AttributePayload' {} a -> s {attributes = a} :: AttributePayload) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AttributePayload where
+instance Core.FromJSON AttributePayload where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttributePayload"
       ( \x ->
           AttributePayload'
-            Prelude.<$> (x Prelude..:? "merge")
-            Prelude.<*> ( x Prelude..:? "attributes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "merge")
+            Core.<*> (x Core..:? "attributes" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AttributePayload
+instance Core.Hashable AttributePayload
 
-instance Prelude.NFData AttributePayload
+instance Core.NFData AttributePayload
 
-instance Prelude.ToJSON AttributePayload where
+instance Core.ToJSON AttributePayload where
   toJSON AttributePayload' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("merge" Prelude..=) Prelude.<$> merge,
-            ("attributes" Prelude..=) Prelude.<$> attributes
+    Core.object
+      ( Core.catMaybes
+          [ ("merge" Core..=) Core.<$> merge,
+            ("attributes" Core..=) Core.<$> attributes
           ]
       )

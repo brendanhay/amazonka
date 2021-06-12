@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.OfflineStoreStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.OfflineStoreStatusValue
 
 -- | The status of @OfflineStore@.
@@ -30,11 +29,11 @@ import Network.AWS.SageMaker.Types.OfflineStoreStatusValue
 data OfflineStoreStatus = OfflineStoreStatus'
   { -- | The justification for why the OfflineStoreStatus is Blocked (if
     -- applicable).
-    blockedReason :: Prelude.Maybe Prelude.Text,
+    blockedReason :: Core.Maybe Core.Text,
     -- | An @OfflineStore@ status.
     status :: OfflineStoreStatusValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OfflineStoreStatus' with all optional fields omitted.
@@ -54,30 +53,29 @@ newOfflineStoreStatus ::
   OfflineStoreStatus
 newOfflineStoreStatus pStatus_ =
   OfflineStoreStatus'
-    { blockedReason =
-        Prelude.Nothing,
+    { blockedReason = Core.Nothing,
       status = pStatus_
     }
 
 -- | The justification for why the OfflineStoreStatus is Blocked (if
 -- applicable).
-offlineStoreStatus_blockedReason :: Lens.Lens' OfflineStoreStatus (Prelude.Maybe Prelude.Text)
+offlineStoreStatus_blockedReason :: Lens.Lens' OfflineStoreStatus (Core.Maybe Core.Text)
 offlineStoreStatus_blockedReason = Lens.lens (\OfflineStoreStatus' {blockedReason} -> blockedReason) (\s@OfflineStoreStatus' {} a -> s {blockedReason = a} :: OfflineStoreStatus)
 
 -- | An @OfflineStore@ status.
 offlineStoreStatus_status :: Lens.Lens' OfflineStoreStatus OfflineStoreStatusValue
 offlineStoreStatus_status = Lens.lens (\OfflineStoreStatus' {status} -> status) (\s@OfflineStoreStatus' {} a -> s {status = a} :: OfflineStoreStatus)
 
-instance Prelude.FromJSON OfflineStoreStatus where
+instance Core.FromJSON OfflineStoreStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OfflineStoreStatus"
       ( \x ->
           OfflineStoreStatus'
-            Prelude.<$> (x Prelude..:? "BlockedReason")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..:? "BlockedReason")
+            Core.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable OfflineStoreStatus
+instance Core.Hashable OfflineStoreStatus
 
-instance Prelude.NFData OfflineStoreStatus
+instance Core.NFData OfflineStoreStatus

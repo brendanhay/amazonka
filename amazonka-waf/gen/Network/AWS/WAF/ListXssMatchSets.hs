@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.WAF.ListXssMatchSets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -71,14 +69,14 @@ data ListXssMatchSets = ListXssMatchSets'
     -- the second and subsequent @ListXssMatchSets@ requests, specify the value
     -- of @NextMarker@ from the previous response to get information about
     -- another batch of @XssMatchSets@.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Specifies the number of XssMatchSet objects that you want AWS WAF to
     -- return for this request. If you have more @XssMatchSet@ objects than the
     -- number you specify for @Limit@, the response includes a @NextMarker@
     -- value that you can use to get another batch of @Rules@.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListXssMatchSets' with all optional fields omitted.
@@ -103,8 +101,8 @@ newListXssMatchSets ::
   ListXssMatchSets
 newListXssMatchSets =
   ListXssMatchSets'
-    { nextMarker = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextMarker = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more XssMatchSet objects
@@ -113,85 +111,82 @@ newListXssMatchSets =
 -- the second and subsequent @ListXssMatchSets@ requests, specify the value
 -- of @NextMarker@ from the previous response to get information about
 -- another batch of @XssMatchSets@.
-listXssMatchSets_nextMarker :: Lens.Lens' ListXssMatchSets (Prelude.Maybe Prelude.Text)
+listXssMatchSets_nextMarker :: Lens.Lens' ListXssMatchSets (Core.Maybe Core.Text)
 listXssMatchSets_nextMarker = Lens.lens (\ListXssMatchSets' {nextMarker} -> nextMarker) (\s@ListXssMatchSets' {} a -> s {nextMarker = a} :: ListXssMatchSets)
 
 -- | Specifies the number of XssMatchSet objects that you want AWS WAF to
 -- return for this request. If you have more @XssMatchSet@ objects than the
 -- number you specify for @Limit@, the response includes a @NextMarker@
 -- value that you can use to get another batch of @Rules@.
-listXssMatchSets_limit :: Lens.Lens' ListXssMatchSets (Prelude.Maybe Prelude.Natural)
+listXssMatchSets_limit :: Lens.Lens' ListXssMatchSets (Core.Maybe Core.Natural)
 listXssMatchSets_limit = Lens.lens (\ListXssMatchSets' {limit} -> limit) (\s@ListXssMatchSets' {} a -> s {limit = a} :: ListXssMatchSets)
 
-instance Pager.AWSPager ListXssMatchSets where
+instance Core.AWSPager ListXssMatchSets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listXssMatchSetsResponse_nextMarker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listXssMatchSetsResponse_xssMatchSets
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listXssMatchSets_nextMarker
           Lens..~ rs
-          Lens.^? listXssMatchSetsResponse_nextMarker
-            Prelude.. Lens._Just
+          Lens.^? listXssMatchSetsResponse_nextMarker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListXssMatchSets where
-  type Rs ListXssMatchSets = ListXssMatchSetsResponse
+instance Core.AWSRequest ListXssMatchSets where
+  type
+    AWSResponse ListXssMatchSets =
+      ListXssMatchSetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListXssMatchSetsResponse'
-            Prelude.<$> (x Prelude..?> "NextMarker")
-            Prelude.<*> ( x Prelude..?> "XssMatchSets"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextMarker")
+            Core.<*> (x Core..?> "XssMatchSets" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListXssMatchSets
+instance Core.Hashable ListXssMatchSets
 
-instance Prelude.NFData ListXssMatchSets
+instance Core.NFData ListXssMatchSets
 
-instance Prelude.ToHeaders ListXssMatchSets where
+instance Core.ToHeaders ListXssMatchSets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.ListXssMatchSets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.ListXssMatchSets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListXssMatchSets where
+instance Core.ToJSON ListXssMatchSets where
   toJSON ListXssMatchSets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextMarker" Prelude..=) Prelude.<$> nextMarker,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextMarker" Core..=) Core.<$> nextMarker,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListXssMatchSets where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListXssMatchSets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListXssMatchSets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListXssMatchSets where
+  toQuery = Core.const Core.mempty
 
 -- | The response to a ListXssMatchSets request.
 --
@@ -202,13 +197,13 @@ data ListXssMatchSetsResponse = ListXssMatchSetsResponse'
     -- To list more @XssMatchSet@ objects, submit another @ListXssMatchSets@
     -- request, and specify the @NextMarker@ value from the response in the
     -- @NextMarker@ value in the next request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | An array of XssMatchSetSummary objects.
-    xssMatchSets :: Prelude.Maybe [XssMatchSetSummary],
+    xssMatchSets :: Core.Maybe [XssMatchSetSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListXssMatchSetsResponse' with all optional fields omitted.
@@ -229,13 +224,13 @@ data ListXssMatchSetsResponse = ListXssMatchSetsResponse'
 -- 'httpStatus', 'listXssMatchSetsResponse_httpStatus' - The response's http status code.
 newListXssMatchSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListXssMatchSetsResponse
 newListXssMatchSetsResponse pHttpStatus_ =
   ListXssMatchSetsResponse'
     { nextMarker =
-        Prelude.Nothing,
-      xssMatchSets = Prelude.Nothing,
+        Core.Nothing,
+      xssMatchSets = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -244,15 +239,15 @@ newListXssMatchSetsResponse pHttpStatus_ =
 -- To list more @XssMatchSet@ objects, submit another @ListXssMatchSets@
 -- request, and specify the @NextMarker@ value from the response in the
 -- @NextMarker@ value in the next request.
-listXssMatchSetsResponse_nextMarker :: Lens.Lens' ListXssMatchSetsResponse (Prelude.Maybe Prelude.Text)
+listXssMatchSetsResponse_nextMarker :: Lens.Lens' ListXssMatchSetsResponse (Core.Maybe Core.Text)
 listXssMatchSetsResponse_nextMarker = Lens.lens (\ListXssMatchSetsResponse' {nextMarker} -> nextMarker) (\s@ListXssMatchSetsResponse' {} a -> s {nextMarker = a} :: ListXssMatchSetsResponse)
 
 -- | An array of XssMatchSetSummary objects.
-listXssMatchSetsResponse_xssMatchSets :: Lens.Lens' ListXssMatchSetsResponse (Prelude.Maybe [XssMatchSetSummary])
-listXssMatchSetsResponse_xssMatchSets = Lens.lens (\ListXssMatchSetsResponse' {xssMatchSets} -> xssMatchSets) (\s@ListXssMatchSetsResponse' {} a -> s {xssMatchSets = a} :: ListXssMatchSetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listXssMatchSetsResponse_xssMatchSets :: Lens.Lens' ListXssMatchSetsResponse (Core.Maybe [XssMatchSetSummary])
+listXssMatchSetsResponse_xssMatchSets = Lens.lens (\ListXssMatchSetsResponse' {xssMatchSets} -> xssMatchSets) (\s@ListXssMatchSetsResponse' {} a -> s {xssMatchSets = a} :: ListXssMatchSetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listXssMatchSetsResponse_httpStatus :: Lens.Lens' ListXssMatchSetsResponse Prelude.Int
+listXssMatchSetsResponse_httpStatus :: Lens.Lens' ListXssMatchSetsResponse Core.Int
 listXssMatchSetsResponse_httpStatus = Lens.lens (\ListXssMatchSetsResponse' {httpStatus} -> httpStatus) (\s@ListXssMatchSetsResponse' {} a -> s {httpStatus = a} :: ListXssMatchSetsResponse)
 
-instance Prelude.NFData ListXssMatchSetsResponse
+instance Core.NFData ListXssMatchSetsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Beard where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether or not the face has a beard, and the confidence level
 -- in the determination.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBeard' smart constructor.
 data Beard = Beard'
   { -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | Boolean value that indicates whether the face has beard or not.
-    value :: Prelude.Maybe Prelude.Bool
+    value :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Beard' with all optional fields omitted.
@@ -50,28 +49,28 @@ newBeard ::
   Beard
 newBeard =
   Beard'
-    { confidence = Prelude.Nothing,
-      value = Prelude.Nothing
+    { confidence = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | Level of confidence in the determination.
-beard_confidence :: Lens.Lens' Beard (Prelude.Maybe Prelude.Double)
+beard_confidence :: Lens.Lens' Beard (Core.Maybe Core.Double)
 beard_confidence = Lens.lens (\Beard' {confidence} -> confidence) (\s@Beard' {} a -> s {confidence = a} :: Beard)
 
 -- | Boolean value that indicates whether the face has beard or not.
-beard_value :: Lens.Lens' Beard (Prelude.Maybe Prelude.Bool)
+beard_value :: Lens.Lens' Beard (Core.Maybe Core.Bool)
 beard_value = Lens.lens (\Beard' {value} -> value) (\s@Beard' {} a -> s {value = a} :: Beard)
 
-instance Prelude.FromJSON Beard where
+instance Core.FromJSON Beard where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Beard"
       ( \x ->
           Beard'
-            Prelude.<$> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable Beard
+instance Core.Hashable Beard
 
-instance Prelude.NFData Beard
+instance Core.NFData Beard

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.APIGateway.PutGatewayResponse
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,14 +60,14 @@ import qualified Network.AWS.Response as Response
 data PutGatewayResponse = PutGatewayResponse'
   { -- | Response templates of the GatewayResponse as a string-to-string map of
     -- key-value pairs.
-    responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    responseTemplates :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The HTTP status code of the GatewayResponse.
-    statusCode :: Prelude.Maybe Prelude.Text,
+    statusCode :: Core.Maybe Core.Text,
     -- | Response parameters (paths, query strings and headers) of the
     -- GatewayResponse as a string-to-string map of key-value pairs.
-    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    responseParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required]
     --
     -- The response type of the associated GatewayResponse. Valid values are
@@ -95,7 +94,7 @@ data PutGatewayResponse = PutGatewayResponse'
     -- -   UNSUPPORTED_MEDIA_TYPE
     responseType :: GatewayResponseType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutGatewayResponse' with all optional fields omitted.
@@ -141,36 +140,36 @@ data PutGatewayResponse = PutGatewayResponse'
 -- -   UNSUPPORTED_MEDIA_TYPE
 newPutGatewayResponse ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'responseType'
   GatewayResponseType ->
   PutGatewayResponse
 newPutGatewayResponse pRestApiId_ pResponseType_ =
   PutGatewayResponse'
     { responseTemplates =
-        Prelude.Nothing,
-      statusCode = Prelude.Nothing,
-      responseParameters = Prelude.Nothing,
+        Core.Nothing,
+      statusCode = Core.Nothing,
+      responseParameters = Core.Nothing,
       restApiId = pRestApiId_,
       responseType = pResponseType_
     }
 
 -- | Response templates of the GatewayResponse as a string-to-string map of
 -- key-value pairs.
-putGatewayResponse_responseTemplates :: Lens.Lens' PutGatewayResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putGatewayResponse_responseTemplates = Lens.lens (\PutGatewayResponse' {responseTemplates} -> responseTemplates) (\s@PutGatewayResponse' {} a -> s {responseTemplates = a} :: PutGatewayResponse) Prelude.. Lens.mapping Prelude._Coerce
+putGatewayResponse_responseTemplates :: Lens.Lens' PutGatewayResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+putGatewayResponse_responseTemplates = Lens.lens (\PutGatewayResponse' {responseTemplates} -> responseTemplates) (\s@PutGatewayResponse' {} a -> s {responseTemplates = a} :: PutGatewayResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The HTTP status code of the GatewayResponse.
-putGatewayResponse_statusCode :: Lens.Lens' PutGatewayResponse (Prelude.Maybe Prelude.Text)
+putGatewayResponse_statusCode :: Lens.Lens' PutGatewayResponse (Core.Maybe Core.Text)
 putGatewayResponse_statusCode = Lens.lens (\PutGatewayResponse' {statusCode} -> statusCode) (\s@PutGatewayResponse' {} a -> s {statusCode = a} :: PutGatewayResponse)
 
 -- | Response parameters (paths, query strings and headers) of the
 -- GatewayResponse as a string-to-string map of key-value pairs.
-putGatewayResponse_responseParameters :: Lens.Lens' PutGatewayResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putGatewayResponse_responseParameters = Lens.lens (\PutGatewayResponse' {responseParameters} -> responseParameters) (\s@PutGatewayResponse' {} a -> s {responseParameters = a} :: PutGatewayResponse) Prelude.. Lens.mapping Prelude._Coerce
+putGatewayResponse_responseParameters :: Lens.Lens' PutGatewayResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+putGatewayResponse_responseParameters = Lens.lens (\PutGatewayResponse' {responseParameters} -> responseParameters) (\s@PutGatewayResponse' {} a -> s {responseParameters = a} :: PutGatewayResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-putGatewayResponse_restApiId :: Lens.Lens' PutGatewayResponse Prelude.Text
+putGatewayResponse_restApiId :: Lens.Lens' PutGatewayResponse Core.Text
 putGatewayResponse_restApiId = Lens.lens (\PutGatewayResponse' {restApiId} -> restApiId) (\s@PutGatewayResponse' {} a -> s {restApiId = a} :: PutGatewayResponse)
 
 -- | [Required]
@@ -200,46 +199,46 @@ putGatewayResponse_restApiId = Lens.lens (\PutGatewayResponse' {restApiId} -> re
 putGatewayResponse_responseType :: Lens.Lens' PutGatewayResponse GatewayResponseType
 putGatewayResponse_responseType = Lens.lens (\PutGatewayResponse' {responseType} -> responseType) (\s@PutGatewayResponse' {} a -> s {responseType = a} :: PutGatewayResponse)
 
-instance Prelude.AWSRequest PutGatewayResponse where
-  type Rs PutGatewayResponse = GatewayResponse
+instance Core.AWSRequest PutGatewayResponse where
+  type AWSResponse PutGatewayResponse = GatewayResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutGatewayResponse
+instance Core.Hashable PutGatewayResponse
 
-instance Prelude.NFData PutGatewayResponse
+instance Core.NFData PutGatewayResponse
 
-instance Prelude.ToHeaders PutGatewayResponse where
+instance Core.ToHeaders PutGatewayResponse where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutGatewayResponse where
+instance Core.ToJSON PutGatewayResponse where
   toJSON PutGatewayResponse' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("responseTemplates" Prelude..=)
-              Prelude.<$> responseTemplates,
-            ("statusCode" Prelude..=) Prelude.<$> statusCode,
-            ("responseParameters" Prelude..=)
-              Prelude.<$> responseParameters
+    Core.object
+      ( Core.catMaybes
+          [ ("responseTemplates" Core..=)
+              Core.<$> responseTemplates,
+            ("statusCode" Core..=) Core.<$> statusCode,
+            ("responseParameters" Core..=)
+              Core.<$> responseParameters
           ]
       )
 
-instance Prelude.ToPath PutGatewayResponse where
+instance Core.ToPath PutGatewayResponse where
   toPath PutGatewayResponse' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/gatewayresponses/",
-        Prelude.toBS responseType
+        Core.toBS responseType
       ]
 
-instance Prelude.ToQuery PutGatewayResponse where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutGatewayResponse where
+  toQuery = Core.const Core.mempty

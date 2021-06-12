@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -53,7 +52,7 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newAssociateProductWithPortfolio' smart constructor.
 data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
   { -- | The identifier of the source portfolio.
-    sourcePortfolioId :: Prelude.Maybe Prelude.Text,
+    sourcePortfolioId :: Core.Maybe Core.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -61,13 +60,13 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The product identifier.
-    productId :: Prelude.Text,
+    productId :: Core.Text,
     -- | The portfolio identifier.
-    portfolioId :: Prelude.Text
+    portfolioId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateProductWithPortfolio' with all optional fields omitted.
@@ -92,23 +91,23 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
 -- 'portfolioId', 'associateProductWithPortfolio_portfolioId' - The portfolio identifier.
 newAssociateProductWithPortfolio ::
   -- | 'productId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'portfolioId'
-  Prelude.Text ->
+  Core.Text ->
   AssociateProductWithPortfolio
 newAssociateProductWithPortfolio
   pProductId_
   pPortfolioId_ =
     AssociateProductWithPortfolio'
       { sourcePortfolioId =
-          Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
+          Core.Nothing,
+        acceptLanguage = Core.Nothing,
         productId = pProductId_,
         portfolioId = pPortfolioId_
       }
 
 -- | The identifier of the source portfolio.
-associateProductWithPortfolio_sourcePortfolioId :: Lens.Lens' AssociateProductWithPortfolio (Prelude.Maybe Prelude.Text)
+associateProductWithPortfolio_sourcePortfolioId :: Lens.Lens' AssociateProductWithPortfolio (Core.Maybe Core.Text)
 associateProductWithPortfolio_sourcePortfolioId = Lens.lens (\AssociateProductWithPortfolio' {sourcePortfolioId} -> sourcePortfolioId) (\s@AssociateProductWithPortfolio' {} a -> s {sourcePortfolioId = a} :: AssociateProductWithPortfolio)
 
 -- | The language code.
@@ -118,84 +117,73 @@ associateProductWithPortfolio_sourcePortfolioId = Lens.lens (\AssociateProductWi
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-associateProductWithPortfolio_acceptLanguage :: Lens.Lens' AssociateProductWithPortfolio (Prelude.Maybe Prelude.Text)
+associateProductWithPortfolio_acceptLanguage :: Lens.Lens' AssociateProductWithPortfolio (Core.Maybe Core.Text)
 associateProductWithPortfolio_acceptLanguage = Lens.lens (\AssociateProductWithPortfolio' {acceptLanguage} -> acceptLanguage) (\s@AssociateProductWithPortfolio' {} a -> s {acceptLanguage = a} :: AssociateProductWithPortfolio)
 
 -- | The product identifier.
-associateProductWithPortfolio_productId :: Lens.Lens' AssociateProductWithPortfolio Prelude.Text
+associateProductWithPortfolio_productId :: Lens.Lens' AssociateProductWithPortfolio Core.Text
 associateProductWithPortfolio_productId = Lens.lens (\AssociateProductWithPortfolio' {productId} -> productId) (\s@AssociateProductWithPortfolio' {} a -> s {productId = a} :: AssociateProductWithPortfolio)
 
 -- | The portfolio identifier.
-associateProductWithPortfolio_portfolioId :: Lens.Lens' AssociateProductWithPortfolio Prelude.Text
+associateProductWithPortfolio_portfolioId :: Lens.Lens' AssociateProductWithPortfolio Core.Text
 associateProductWithPortfolio_portfolioId = Lens.lens (\AssociateProductWithPortfolio' {portfolioId} -> portfolioId) (\s@AssociateProductWithPortfolio' {} a -> s {portfolioId = a} :: AssociateProductWithPortfolio)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AssociateProductWithPortfolio
   where
   type
-    Rs AssociateProductWithPortfolio =
+    AWSResponse AssociateProductWithPortfolio =
       AssociateProductWithPortfolioResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateProductWithPortfolioResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    AssociateProductWithPortfolio
+instance Core.Hashable AssociateProductWithPortfolio
 
-instance Prelude.NFData AssociateProductWithPortfolio
+instance Core.NFData AssociateProductWithPortfolio
 
-instance
-  Prelude.ToHeaders
-    AssociateProductWithPortfolio
-  where
+instance Core.ToHeaders AssociateProductWithPortfolio where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.AssociateProductWithPortfolio" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.AssociateProductWithPortfolio" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateProductWithPortfolio where
+instance Core.ToJSON AssociateProductWithPortfolio where
   toJSON AssociateProductWithPortfolio' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SourcePortfolioId" Prelude..=)
-              Prelude.<$> sourcePortfolioId,
-            ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Prelude..= productId),
-            Prelude.Just ("PortfolioId" Prelude..= portfolioId)
+    Core.object
+      ( Core.catMaybes
+          [ ("SourcePortfolioId" Core..=)
+              Core.<$> sourcePortfolioId,
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("ProductId" Core..= productId),
+            Core.Just ("PortfolioId" Core..= portfolioId)
           ]
       )
 
-instance Prelude.ToPath AssociateProductWithPortfolio where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateProductWithPortfolio where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    AssociateProductWithPortfolio
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateProductWithPortfolio where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateProductWithPortfolioResponse' smart constructor.
 data AssociateProductWithPortfolioResponse = AssociateProductWithPortfolioResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateProductWithPortfolioResponse' with all optional fields omitted.
@@ -208,7 +196,7 @@ data AssociateProductWithPortfolioResponse = AssociateProductWithPortfolioRespon
 -- 'httpStatus', 'associateProductWithPortfolioResponse_httpStatus' - The response's http status code.
 newAssociateProductWithPortfolioResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateProductWithPortfolioResponse
 newAssociateProductWithPortfolioResponse pHttpStatus_ =
   AssociateProductWithPortfolioResponse'
@@ -217,9 +205,9 @@ newAssociateProductWithPortfolioResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateProductWithPortfolioResponse_httpStatus :: Lens.Lens' AssociateProductWithPortfolioResponse Prelude.Int
+associateProductWithPortfolioResponse_httpStatus :: Lens.Lens' AssociateProductWithPortfolioResponse Core.Int
 associateProductWithPortfolioResponse_httpStatus = Lens.lens (\AssociateProductWithPortfolioResponse' {httpStatus} -> httpStatus) (\s@AssociateProductWithPortfolioResponse' {} a -> s {httpStatus = a} :: AssociateProductWithPortfolioResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateProductWithPortfolioResponse

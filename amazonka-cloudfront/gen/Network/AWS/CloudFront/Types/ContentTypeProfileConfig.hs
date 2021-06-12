@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.ContentTypeProfileConfig where
 
 import Network.AWS.CloudFront.Types.ContentTypeProfiles
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration for a field-level encryption content type-profile
 -- mapping.
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newContentTypeProfileConfig' smart constructor.
 data ContentTypeProfileConfig = ContentTypeProfileConfig'
   { -- | The configuration for a field-level encryption content type-profile.
-    contentTypeProfiles :: Prelude.Maybe ContentTypeProfiles,
+    contentTypeProfiles :: Core.Maybe ContentTypeProfiles,
     -- | The setting in a field-level encryption content type-profile mapping
     -- that specifies what to do when an unknown content type is provided for
     -- the profile. If true, content is forwarded without being encrypted when
     -- the content type is unknown. If false (the default), an error is
     -- returned when the content type is unknown.
-    forwardWhenContentTypeIsUnknown :: Prelude.Bool
+    forwardWhenContentTypeIsUnknown :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContentTypeProfileConfig' with all optional fields omitted.
@@ -57,19 +56,19 @@ data ContentTypeProfileConfig = ContentTypeProfileConfig'
 -- returned when the content type is unknown.
 newContentTypeProfileConfig ::
   -- | 'forwardWhenContentTypeIsUnknown'
-  Prelude.Bool ->
+  Core.Bool ->
   ContentTypeProfileConfig
 newContentTypeProfileConfig
   pForwardWhenContentTypeIsUnknown_ =
     ContentTypeProfileConfig'
       { contentTypeProfiles =
-          Prelude.Nothing,
+          Core.Nothing,
         forwardWhenContentTypeIsUnknown =
           pForwardWhenContentTypeIsUnknown_
       }
 
 -- | The configuration for a field-level encryption content type-profile.
-contentTypeProfileConfig_contentTypeProfiles :: Lens.Lens' ContentTypeProfileConfig (Prelude.Maybe ContentTypeProfiles)
+contentTypeProfileConfig_contentTypeProfiles :: Lens.Lens' ContentTypeProfileConfig (Core.Maybe ContentTypeProfiles)
 contentTypeProfileConfig_contentTypeProfiles = Lens.lens (\ContentTypeProfileConfig' {contentTypeProfiles} -> contentTypeProfiles) (\s@ContentTypeProfileConfig' {} a -> s {contentTypeProfiles = a} :: ContentTypeProfileConfig)
 
 -- | The setting in a field-level encryption content type-profile mapping
@@ -77,24 +76,23 @@ contentTypeProfileConfig_contentTypeProfiles = Lens.lens (\ContentTypeProfileCon
 -- the profile. If true, content is forwarded without being encrypted when
 -- the content type is unknown. If false (the default), an error is
 -- returned when the content type is unknown.
-contentTypeProfileConfig_forwardWhenContentTypeIsUnknown :: Lens.Lens' ContentTypeProfileConfig Prelude.Bool
+contentTypeProfileConfig_forwardWhenContentTypeIsUnknown :: Lens.Lens' ContentTypeProfileConfig Core.Bool
 contentTypeProfileConfig_forwardWhenContentTypeIsUnknown = Lens.lens (\ContentTypeProfileConfig' {forwardWhenContentTypeIsUnknown} -> forwardWhenContentTypeIsUnknown) (\s@ContentTypeProfileConfig' {} a -> s {forwardWhenContentTypeIsUnknown = a} :: ContentTypeProfileConfig)
 
-instance Prelude.FromXML ContentTypeProfileConfig where
+instance Core.FromXML ContentTypeProfileConfig where
   parseXML x =
     ContentTypeProfileConfig'
-      Prelude.<$> (x Prelude..@? "ContentTypeProfiles")
-      Prelude.<*> (x Prelude..@ "ForwardWhenContentTypeIsUnknown")
+      Core.<$> (x Core..@? "ContentTypeProfiles")
+      Core.<*> (x Core..@ "ForwardWhenContentTypeIsUnknown")
 
-instance Prelude.Hashable ContentTypeProfileConfig
+instance Core.Hashable ContentTypeProfileConfig
 
-instance Prelude.NFData ContentTypeProfileConfig
+instance Core.NFData ContentTypeProfileConfig
 
-instance Prelude.ToXML ContentTypeProfileConfig where
+instance Core.ToXML ContentTypeProfileConfig where
   toXML ContentTypeProfileConfig' {..} =
-    Prelude.mconcat
-      [ "ContentTypeProfiles"
-          Prelude.@= contentTypeProfiles,
+    Core.mconcat
+      [ "ContentTypeProfiles" Core.@= contentTypeProfiles,
         "ForwardWhenContentTypeIsUnknown"
-          Prelude.@= forwardWhenContentTypeIsUnknown
+          Core.@= forwardWhenContentTypeIsUnknown
       ]

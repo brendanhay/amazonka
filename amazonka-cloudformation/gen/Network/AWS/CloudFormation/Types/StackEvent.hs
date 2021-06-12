@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,28 +20,28 @@
 module Network.AWS.CloudFormation.Types.StackEvent where
 
 import Network.AWS.CloudFormation.Types.ResourceStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The StackEvent data type.
 --
 -- /See:/ 'newStackEvent' smart constructor.
 data StackEvent = StackEvent'
   { -- | BLOB of the properties used to create the resource.
-    resourceProperties :: Prelude.Maybe Prelude.Text,
+    resourceProperties :: Core.Maybe Core.Text,
     -- | The name or unique identifier associated with the physical instance of
     -- the resource.
-    physicalResourceId :: Prelude.Maybe Prelude.Text,
+    physicalResourceId :: Core.Maybe Core.Text,
     -- | Type of resource. (For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
     -- in the AWS CloudFormation User Guide.)
-    resourceType :: Prelude.Maybe Prelude.Text,
+    resourceType :: Core.Maybe Core.Text,
     -- | Success\/failure message associated with the resource.
-    resourceStatusReason :: Prelude.Maybe Prelude.Text,
+    resourceStatusReason :: Core.Maybe Core.Text,
     -- | The logical name of the resource specified in the template.
-    logicalResourceId :: Prelude.Maybe Prelude.Text,
+    logicalResourceId :: Core.Maybe Core.Text,
     -- | Current status of the resource.
-    resourceStatus :: Prelude.Maybe ResourceStatus,
+    resourceStatus :: Core.Maybe ResourceStatus,
     -- | The token passed to the operation that generated this event.
     --
     -- All events triggered by a given stack operation are assigned the same
@@ -58,17 +57,17 @@ data StackEvent = StackEvent'
     -- the console, each stack event would be assigned the same token in the
     -- following format:
     -- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The unique ID name of the instance of the stack.
-    stackId :: Prelude.Text,
+    stackId :: Core.Text,
     -- | The unique ID of this event.
-    eventId :: Prelude.Text,
+    eventId :: Core.Text,
     -- | The name associated with a stack.
-    stackName :: Prelude.Text,
+    stackName :: Core.Text,
     -- | Time the status was updated.
-    timestamp :: Prelude.ISO8601
+    timestamp :: Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StackEvent' with all optional fields omitted.
@@ -118,13 +117,13 @@ data StackEvent = StackEvent'
 -- 'timestamp', 'stackEvent_timestamp' - Time the status was updated.
 newStackEvent ::
   -- | 'stackId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'eventId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stackName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'timestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   StackEvent
 newStackEvent
   pStackId_
@@ -132,44 +131,44 @@ newStackEvent
   pStackName_
   pTimestamp_ =
     StackEvent'
-      { resourceProperties = Prelude.Nothing,
-        physicalResourceId = Prelude.Nothing,
-        resourceType = Prelude.Nothing,
-        resourceStatusReason = Prelude.Nothing,
-        logicalResourceId = Prelude.Nothing,
-        resourceStatus = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+      { resourceProperties = Core.Nothing,
+        physicalResourceId = Core.Nothing,
+        resourceType = Core.Nothing,
+        resourceStatusReason = Core.Nothing,
+        logicalResourceId = Core.Nothing,
+        resourceStatus = Core.Nothing,
+        clientRequestToken = Core.Nothing,
         stackId = pStackId_,
         eventId = pEventId_,
         stackName = pStackName_,
-        timestamp = Prelude._Time Lens.# pTimestamp_
+        timestamp = Core._Time Lens.# pTimestamp_
       }
 
 -- | BLOB of the properties used to create the resource.
-stackEvent_resourceProperties :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
+stackEvent_resourceProperties :: Lens.Lens' StackEvent (Core.Maybe Core.Text)
 stackEvent_resourceProperties = Lens.lens (\StackEvent' {resourceProperties} -> resourceProperties) (\s@StackEvent' {} a -> s {resourceProperties = a} :: StackEvent)
 
 -- | The name or unique identifier associated with the physical instance of
 -- the resource.
-stackEvent_physicalResourceId :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
+stackEvent_physicalResourceId :: Lens.Lens' StackEvent (Core.Maybe Core.Text)
 stackEvent_physicalResourceId = Lens.lens (\StackEvent' {physicalResourceId} -> physicalResourceId) (\s@StackEvent' {} a -> s {physicalResourceId = a} :: StackEvent)
 
 -- | Type of resource. (For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
 -- in the AWS CloudFormation User Guide.)
-stackEvent_resourceType :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
+stackEvent_resourceType :: Lens.Lens' StackEvent (Core.Maybe Core.Text)
 stackEvent_resourceType = Lens.lens (\StackEvent' {resourceType} -> resourceType) (\s@StackEvent' {} a -> s {resourceType = a} :: StackEvent)
 
 -- | Success\/failure message associated with the resource.
-stackEvent_resourceStatusReason :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
+stackEvent_resourceStatusReason :: Lens.Lens' StackEvent (Core.Maybe Core.Text)
 stackEvent_resourceStatusReason = Lens.lens (\StackEvent' {resourceStatusReason} -> resourceStatusReason) (\s@StackEvent' {} a -> s {resourceStatusReason = a} :: StackEvent)
 
 -- | The logical name of the resource specified in the template.
-stackEvent_logicalResourceId :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
+stackEvent_logicalResourceId :: Lens.Lens' StackEvent (Core.Maybe Core.Text)
 stackEvent_logicalResourceId = Lens.lens (\StackEvent' {logicalResourceId} -> logicalResourceId) (\s@StackEvent' {} a -> s {logicalResourceId = a} :: StackEvent)
 
 -- | Current status of the resource.
-stackEvent_resourceStatus :: Lens.Lens' StackEvent (Prelude.Maybe ResourceStatus)
+stackEvent_resourceStatus :: Lens.Lens' StackEvent (Core.Maybe ResourceStatus)
 stackEvent_resourceStatus = Lens.lens (\StackEvent' {resourceStatus} -> resourceStatus) (\s@StackEvent' {} a -> s {resourceStatus = a} :: StackEvent)
 
 -- | The token passed to the operation that generated this event.
@@ -187,40 +186,40 @@ stackEvent_resourceStatus = Lens.lens (\StackEvent' {resourceStatus} -> resource
 -- the console, each stack event would be assigned the same token in the
 -- following format:
 -- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
-stackEvent_clientRequestToken :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
+stackEvent_clientRequestToken :: Lens.Lens' StackEvent (Core.Maybe Core.Text)
 stackEvent_clientRequestToken = Lens.lens (\StackEvent' {clientRequestToken} -> clientRequestToken) (\s@StackEvent' {} a -> s {clientRequestToken = a} :: StackEvent)
 
 -- | The unique ID name of the instance of the stack.
-stackEvent_stackId :: Lens.Lens' StackEvent Prelude.Text
+stackEvent_stackId :: Lens.Lens' StackEvent Core.Text
 stackEvent_stackId = Lens.lens (\StackEvent' {stackId} -> stackId) (\s@StackEvent' {} a -> s {stackId = a} :: StackEvent)
 
 -- | The unique ID of this event.
-stackEvent_eventId :: Lens.Lens' StackEvent Prelude.Text
+stackEvent_eventId :: Lens.Lens' StackEvent Core.Text
 stackEvent_eventId = Lens.lens (\StackEvent' {eventId} -> eventId) (\s@StackEvent' {} a -> s {eventId = a} :: StackEvent)
 
 -- | The name associated with a stack.
-stackEvent_stackName :: Lens.Lens' StackEvent Prelude.Text
+stackEvent_stackName :: Lens.Lens' StackEvent Core.Text
 stackEvent_stackName = Lens.lens (\StackEvent' {stackName} -> stackName) (\s@StackEvent' {} a -> s {stackName = a} :: StackEvent)
 
 -- | Time the status was updated.
-stackEvent_timestamp :: Lens.Lens' StackEvent Prelude.UTCTime
-stackEvent_timestamp = Lens.lens (\StackEvent' {timestamp} -> timestamp) (\s@StackEvent' {} a -> s {timestamp = a} :: StackEvent) Prelude.. Prelude._Time
+stackEvent_timestamp :: Lens.Lens' StackEvent Core.UTCTime
+stackEvent_timestamp = Lens.lens (\StackEvent' {timestamp} -> timestamp) (\s@StackEvent' {} a -> s {timestamp = a} :: StackEvent) Core.. Core._Time
 
-instance Prelude.FromXML StackEvent where
+instance Core.FromXML StackEvent where
   parseXML x =
     StackEvent'
-      Prelude.<$> (x Prelude..@? "ResourceProperties")
-      Prelude.<*> (x Prelude..@? "PhysicalResourceId")
-      Prelude.<*> (x Prelude..@? "ResourceType")
-      Prelude.<*> (x Prelude..@? "ResourceStatusReason")
-      Prelude.<*> (x Prelude..@? "LogicalResourceId")
-      Prelude.<*> (x Prelude..@? "ResourceStatus")
-      Prelude.<*> (x Prelude..@? "ClientRequestToken")
-      Prelude.<*> (x Prelude..@ "StackId")
-      Prelude.<*> (x Prelude..@ "EventId")
-      Prelude.<*> (x Prelude..@ "StackName")
-      Prelude.<*> (x Prelude..@ "Timestamp")
+      Core.<$> (x Core..@? "ResourceProperties")
+      Core.<*> (x Core..@? "PhysicalResourceId")
+      Core.<*> (x Core..@? "ResourceType")
+      Core.<*> (x Core..@? "ResourceStatusReason")
+      Core.<*> (x Core..@? "LogicalResourceId")
+      Core.<*> (x Core..@? "ResourceStatus")
+      Core.<*> (x Core..@? "ClientRequestToken")
+      Core.<*> (x Core..@ "StackId")
+      Core.<*> (x Core..@ "EventId")
+      Core.<*> (x Core..@ "StackName")
+      Core.<*> (x Core..@ "Timestamp")
 
-instance Prelude.Hashable StackEvent
+instance Core.Hashable StackEvent
 
-instance Prelude.NFData StackEvent
+instance Core.NFData StackEvent

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,28 +19,28 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.StepStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.FailureDetails
 import Network.AWS.EMR.Types.StepState
 import Network.AWS.EMR.Types.StepStateChangeReason
 import Network.AWS.EMR.Types.StepTimeline
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The execution status details of the cluster step.
 --
 -- /See:/ 'newStepStatus' smart constructor.
 data StepStatus = StepStatus'
   { -- | The reason for the step execution status change.
-    stateChangeReason :: Prelude.Maybe StepStateChangeReason,
+    stateChangeReason :: Core.Maybe StepStateChangeReason,
     -- | The details for the step failure including reason, message, and log file
     -- path where the root cause was identified.
-    failureDetails :: Prelude.Maybe FailureDetails,
+    failureDetails :: Core.Maybe FailureDetails,
     -- | The execution state of the cluster step.
-    state :: Prelude.Maybe StepState,
+    state :: Core.Maybe StepState,
     -- | The timeline of the cluster step status over time.
-    timeline :: Prelude.Maybe StepTimeline
+    timeline :: Core.Maybe StepTimeline
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StepStatus' with all optional fields omitted.
@@ -63,41 +62,41 @@ newStepStatus ::
   StepStatus
 newStepStatus =
   StepStatus'
-    { stateChangeReason = Prelude.Nothing,
-      failureDetails = Prelude.Nothing,
-      state = Prelude.Nothing,
-      timeline = Prelude.Nothing
+    { stateChangeReason = Core.Nothing,
+      failureDetails = Core.Nothing,
+      state = Core.Nothing,
+      timeline = Core.Nothing
     }
 
 -- | The reason for the step execution status change.
-stepStatus_stateChangeReason :: Lens.Lens' StepStatus (Prelude.Maybe StepStateChangeReason)
+stepStatus_stateChangeReason :: Lens.Lens' StepStatus (Core.Maybe StepStateChangeReason)
 stepStatus_stateChangeReason = Lens.lens (\StepStatus' {stateChangeReason} -> stateChangeReason) (\s@StepStatus' {} a -> s {stateChangeReason = a} :: StepStatus)
 
 -- | The details for the step failure including reason, message, and log file
 -- path where the root cause was identified.
-stepStatus_failureDetails :: Lens.Lens' StepStatus (Prelude.Maybe FailureDetails)
+stepStatus_failureDetails :: Lens.Lens' StepStatus (Core.Maybe FailureDetails)
 stepStatus_failureDetails = Lens.lens (\StepStatus' {failureDetails} -> failureDetails) (\s@StepStatus' {} a -> s {failureDetails = a} :: StepStatus)
 
 -- | The execution state of the cluster step.
-stepStatus_state :: Lens.Lens' StepStatus (Prelude.Maybe StepState)
+stepStatus_state :: Lens.Lens' StepStatus (Core.Maybe StepState)
 stepStatus_state = Lens.lens (\StepStatus' {state} -> state) (\s@StepStatus' {} a -> s {state = a} :: StepStatus)
 
 -- | The timeline of the cluster step status over time.
-stepStatus_timeline :: Lens.Lens' StepStatus (Prelude.Maybe StepTimeline)
+stepStatus_timeline :: Lens.Lens' StepStatus (Core.Maybe StepTimeline)
 stepStatus_timeline = Lens.lens (\StepStatus' {timeline} -> timeline) (\s@StepStatus' {} a -> s {timeline = a} :: StepStatus)
 
-instance Prelude.FromJSON StepStatus where
+instance Core.FromJSON StepStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StepStatus"
       ( \x ->
           StepStatus'
-            Prelude.<$> (x Prelude..:? "StateChangeReason")
-            Prelude.<*> (x Prelude..:? "FailureDetails")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "Timeline")
+            Core.<$> (x Core..:? "StateChangeReason")
+            Core.<*> (x Core..:? "FailureDetails")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "Timeline")
       )
 
-instance Prelude.Hashable StepStatus
+instance Core.Hashable StepStatus
 
-instance Prelude.NFData StepStatus
+instance Core.NFData StepStatus

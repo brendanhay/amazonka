@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.AssociationFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AssociationFilterKey
 
 -- | Describes a filter.
@@ -33,9 +32,9 @@ data AssociationFilter = AssociationFilter'
     -- @InstanceId@ has been deprecated.
     key :: AssociationFilterKey,
     -- | The filter value.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociationFilter' with all optional fields omitted.
@@ -54,7 +53,7 @@ newAssociationFilter ::
   -- | 'key'
   AssociationFilterKey ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   AssociationFilter
 newAssociationFilter pKey_ pValue_ =
   AssociationFilter' {key = pKey_, value = pValue_}
@@ -66,18 +65,18 @@ associationFilter_key :: Lens.Lens' AssociationFilter AssociationFilterKey
 associationFilter_key = Lens.lens (\AssociationFilter' {key} -> key) (\s@AssociationFilter' {} a -> s {key = a} :: AssociationFilter)
 
 -- | The filter value.
-associationFilter_value :: Lens.Lens' AssociationFilter Prelude.Text
+associationFilter_value :: Lens.Lens' AssociationFilter Core.Text
 associationFilter_value = Lens.lens (\AssociationFilter' {value} -> value) (\s@AssociationFilter' {} a -> s {value = a} :: AssociationFilter)
 
-instance Prelude.Hashable AssociationFilter
+instance Core.Hashable AssociationFilter
 
-instance Prelude.NFData AssociationFilter
+instance Core.NFData AssociationFilter
 
-instance Prelude.ToJSON AssociationFilter where
+instance Core.ToJSON AssociationFilter where
   toJSON AssociationFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("key" Prelude..= key),
-            Prelude.Just ("value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("key" Core..= key),
+            Core.Just ("value" Core..= value)
           ]
       )

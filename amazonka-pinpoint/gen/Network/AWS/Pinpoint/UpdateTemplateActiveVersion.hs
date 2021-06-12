@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Pinpoint.UpdateTemplateActiveVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,13 +54,13 @@ data UpdateTemplateActiveVersion = UpdateTemplateActiveVersion'
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Prelude.Text,
+    templateName :: Core.Text,
     -- | The type of channel that the message template is designed for. Valid
     -- values are: EMAIL, PUSH, SMS, and VOICE.
-    templateType :: Prelude.Text,
+    templateType :: Core.Text,
     templateActiveVersionRequest :: TemplateActiveVersionRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTemplateActiveVersion' with all optional fields omitted.
@@ -82,9 +81,9 @@ data UpdateTemplateActiveVersion = UpdateTemplateActiveVersion'
 -- 'templateActiveVersionRequest', 'updateTemplateActiveVersion_templateActiveVersionRequest' - Undocumented member.
 newUpdateTemplateActiveVersion ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'templateType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'templateActiveVersionRequest'
   TemplateActiveVersionRequest ->
   UpdateTemplateActiveVersion
@@ -104,83 +103,75 @@ newUpdateTemplateActiveVersion
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-updateTemplateActiveVersion_templateName :: Lens.Lens' UpdateTemplateActiveVersion Prelude.Text
+updateTemplateActiveVersion_templateName :: Lens.Lens' UpdateTemplateActiveVersion Core.Text
 updateTemplateActiveVersion_templateName = Lens.lens (\UpdateTemplateActiveVersion' {templateName} -> templateName) (\s@UpdateTemplateActiveVersion' {} a -> s {templateName = a} :: UpdateTemplateActiveVersion)
 
 -- | The type of channel that the message template is designed for. Valid
 -- values are: EMAIL, PUSH, SMS, and VOICE.
-updateTemplateActiveVersion_templateType :: Lens.Lens' UpdateTemplateActiveVersion Prelude.Text
+updateTemplateActiveVersion_templateType :: Lens.Lens' UpdateTemplateActiveVersion Core.Text
 updateTemplateActiveVersion_templateType = Lens.lens (\UpdateTemplateActiveVersion' {templateType} -> templateType) (\s@UpdateTemplateActiveVersion' {} a -> s {templateType = a} :: UpdateTemplateActiveVersion)
 
 -- | Undocumented member.
 updateTemplateActiveVersion_templateActiveVersionRequest :: Lens.Lens' UpdateTemplateActiveVersion TemplateActiveVersionRequest
 updateTemplateActiveVersion_templateActiveVersionRequest = Lens.lens (\UpdateTemplateActiveVersion' {templateActiveVersionRequest} -> templateActiveVersionRequest) (\s@UpdateTemplateActiveVersion' {} a -> s {templateActiveVersionRequest = a} :: UpdateTemplateActiveVersion)
 
-instance
-  Prelude.AWSRequest
-    UpdateTemplateActiveVersion
-  where
+instance Core.AWSRequest UpdateTemplateActiveVersion where
   type
-    Rs UpdateTemplateActiveVersion =
+    AWSResponse UpdateTemplateActiveVersion =
       UpdateTemplateActiveVersionResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateTemplateActiveVersionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateTemplateActiveVersion
+instance Core.Hashable UpdateTemplateActiveVersion
 
-instance Prelude.NFData UpdateTemplateActiveVersion
+instance Core.NFData UpdateTemplateActiveVersion
 
-instance
-  Prelude.ToHeaders
-    UpdateTemplateActiveVersion
-  where
+instance Core.ToHeaders UpdateTemplateActiveVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateTemplateActiveVersion where
+instance Core.ToJSON UpdateTemplateActiveVersion where
   toJSON UpdateTemplateActiveVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "TemplateActiveVersionRequest"
-                  Prelude..= templateActiveVersionRequest
+                  Core..= templateActiveVersionRequest
               )
           ]
       )
 
-instance Prelude.ToPath UpdateTemplateActiveVersion where
+instance Core.ToPath UpdateTemplateActiveVersion where
   toPath UpdateTemplateActiveVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/templates/",
-        Prelude.toBS templateName,
+        Core.toBS templateName,
         "/",
-        Prelude.toBS templateType,
+        Core.toBS templateType,
         "/active-version"
       ]
 
-instance Prelude.ToQuery UpdateTemplateActiveVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateTemplateActiveVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateTemplateActiveVersionResponse' smart constructor.
 data UpdateTemplateActiveVersionResponse = UpdateTemplateActiveVersionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     messageBody :: MessageBody
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTemplateActiveVersionResponse' with all optional fields omitted.
@@ -195,7 +186,7 @@ data UpdateTemplateActiveVersionResponse = UpdateTemplateActiveVersionResponse'
 -- 'messageBody', 'updateTemplateActiveVersionResponse_messageBody' - Undocumented member.
 newUpdateTemplateActiveVersionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'messageBody'
   MessageBody ->
   UpdateTemplateActiveVersionResponse
@@ -209,7 +200,7 @@ newUpdateTemplateActiveVersionResponse
       }
 
 -- | The response's http status code.
-updateTemplateActiveVersionResponse_httpStatus :: Lens.Lens' UpdateTemplateActiveVersionResponse Prelude.Int
+updateTemplateActiveVersionResponse_httpStatus :: Lens.Lens' UpdateTemplateActiveVersionResponse Core.Int
 updateTemplateActiveVersionResponse_httpStatus = Lens.lens (\UpdateTemplateActiveVersionResponse' {httpStatus} -> httpStatus) (\s@UpdateTemplateActiveVersionResponse' {} a -> s {httpStatus = a} :: UpdateTemplateActiveVersionResponse)
 
 -- | Undocumented member.
@@ -217,5 +208,5 @@ updateTemplateActiveVersionResponse_messageBody :: Lens.Lens' UpdateTemplateActi
 updateTemplateActiveVersionResponse_messageBody = Lens.lens (\UpdateTemplateActiveVersionResponse' {messageBody} -> messageBody) (\s@UpdateTemplateActiveVersionResponse' {} a -> s {messageBody = a} :: UpdateTemplateActiveVersionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateTemplateActiveVersionResponse

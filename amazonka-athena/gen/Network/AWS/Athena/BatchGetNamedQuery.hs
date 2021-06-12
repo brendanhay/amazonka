@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,17 +50,17 @@ module Network.AWS.Athena.BatchGetNamedQuery
 where
 
 import Network.AWS.Athena.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchGetNamedQuery' smart constructor.
 data BatchGetNamedQuery = BatchGetNamedQuery'
   { -- | An array of query IDs.
-    namedQueryIds :: Prelude.NonEmpty Prelude.Text
+    namedQueryIds :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetNamedQuery' with all optional fields omitted.
@@ -74,80 +73,74 @@ data BatchGetNamedQuery = BatchGetNamedQuery'
 -- 'namedQueryIds', 'batchGetNamedQuery_namedQueryIds' - An array of query IDs.
 newBatchGetNamedQuery ::
   -- | 'namedQueryIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   BatchGetNamedQuery
 newBatchGetNamedQuery pNamedQueryIds_ =
   BatchGetNamedQuery'
     { namedQueryIds =
-        Prelude._Coerce Lens.# pNamedQueryIds_
+        Lens._Coerce Lens.# pNamedQueryIds_
     }
 
 -- | An array of query IDs.
-batchGetNamedQuery_namedQueryIds :: Lens.Lens' BatchGetNamedQuery (Prelude.NonEmpty Prelude.Text)
-batchGetNamedQuery_namedQueryIds = Lens.lens (\BatchGetNamedQuery' {namedQueryIds} -> namedQueryIds) (\s@BatchGetNamedQuery' {} a -> s {namedQueryIds = a} :: BatchGetNamedQuery) Prelude.. Prelude._Coerce
+batchGetNamedQuery_namedQueryIds :: Lens.Lens' BatchGetNamedQuery (Core.NonEmpty Core.Text)
+batchGetNamedQuery_namedQueryIds = Lens.lens (\BatchGetNamedQuery' {namedQueryIds} -> namedQueryIds) (\s@BatchGetNamedQuery' {} a -> s {namedQueryIds = a} :: BatchGetNamedQuery) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchGetNamedQuery where
+instance Core.AWSRequest BatchGetNamedQuery where
   type
-    Rs BatchGetNamedQuery =
+    AWSResponse BatchGetNamedQuery =
       BatchGetNamedQueryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchGetNamedQueryResponse'
-            Prelude.<$> ( x Prelude..?> "NamedQueries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "UnprocessedNamedQueryIds"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NamedQueries" Core..!@ Core.mempty)
+            Core.<*> ( x Core..?> "UnprocessedNamedQueryIds"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetNamedQuery
+instance Core.Hashable BatchGetNamedQuery
 
-instance Prelude.NFData BatchGetNamedQuery
+instance Core.NFData BatchGetNamedQuery
 
-instance Prelude.ToHeaders BatchGetNamedQuery where
+instance Core.ToHeaders BatchGetNamedQuery where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonAthena.BatchGetNamedQuery" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonAthena.BatchGetNamedQuery" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchGetNamedQuery where
+instance Core.ToJSON BatchGetNamedQuery where
   toJSON BatchGetNamedQuery' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("NamedQueryIds" Prelude..= namedQueryIds)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("NamedQueryIds" Core..= namedQueryIds)]
       )
 
-instance Prelude.ToPath BatchGetNamedQuery where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchGetNamedQuery where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchGetNamedQuery where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchGetNamedQuery where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchGetNamedQueryResponse' smart constructor.
 data BatchGetNamedQueryResponse = BatchGetNamedQueryResponse'
   { -- | Information about the named query IDs submitted.
-    namedQueries :: Prelude.Maybe [NamedQuery],
+    namedQueries :: Core.Maybe [NamedQuery],
     -- | Information about provided query IDs.
-    unprocessedNamedQueryIds :: Prelude.Maybe [UnprocessedNamedQueryId],
+    unprocessedNamedQueryIds :: Core.Maybe [UnprocessedNamedQueryId],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetNamedQueryResponse' with all optional fields omitted.
@@ -164,26 +157,26 @@ data BatchGetNamedQueryResponse = BatchGetNamedQueryResponse'
 -- 'httpStatus', 'batchGetNamedQueryResponse_httpStatus' - The response's http status code.
 newBatchGetNamedQueryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchGetNamedQueryResponse
 newBatchGetNamedQueryResponse pHttpStatus_ =
   BatchGetNamedQueryResponse'
     { namedQueries =
-        Prelude.Nothing,
-      unprocessedNamedQueryIds = Prelude.Nothing,
+        Core.Nothing,
+      unprocessedNamedQueryIds = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the named query IDs submitted.
-batchGetNamedQueryResponse_namedQueries :: Lens.Lens' BatchGetNamedQueryResponse (Prelude.Maybe [NamedQuery])
-batchGetNamedQueryResponse_namedQueries = Lens.lens (\BatchGetNamedQueryResponse' {namedQueries} -> namedQueries) (\s@BatchGetNamedQueryResponse' {} a -> s {namedQueries = a} :: BatchGetNamedQueryResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchGetNamedQueryResponse_namedQueries :: Lens.Lens' BatchGetNamedQueryResponse (Core.Maybe [NamedQuery])
+batchGetNamedQueryResponse_namedQueries = Lens.lens (\BatchGetNamedQueryResponse' {namedQueries} -> namedQueries) (\s@BatchGetNamedQueryResponse' {} a -> s {namedQueries = a} :: BatchGetNamedQueryResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about provided query IDs.
-batchGetNamedQueryResponse_unprocessedNamedQueryIds :: Lens.Lens' BatchGetNamedQueryResponse (Prelude.Maybe [UnprocessedNamedQueryId])
-batchGetNamedQueryResponse_unprocessedNamedQueryIds = Lens.lens (\BatchGetNamedQueryResponse' {unprocessedNamedQueryIds} -> unprocessedNamedQueryIds) (\s@BatchGetNamedQueryResponse' {} a -> s {unprocessedNamedQueryIds = a} :: BatchGetNamedQueryResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchGetNamedQueryResponse_unprocessedNamedQueryIds :: Lens.Lens' BatchGetNamedQueryResponse (Core.Maybe [UnprocessedNamedQueryId])
+batchGetNamedQueryResponse_unprocessedNamedQueryIds = Lens.lens (\BatchGetNamedQueryResponse' {unprocessedNamedQueryIds} -> unprocessedNamedQueryIds) (\s@BatchGetNamedQueryResponse' {} a -> s {unprocessedNamedQueryIds = a} :: BatchGetNamedQueryResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetNamedQueryResponse_httpStatus :: Lens.Lens' BatchGetNamedQueryResponse Prelude.Int
+batchGetNamedQueryResponse_httpStatus :: Lens.Lens' BatchGetNamedQueryResponse Core.Int
 batchGetNamedQueryResponse_httpStatus = Lens.lens (\BatchGetNamedQueryResponse' {httpStatus} -> httpStatus) (\s@BatchGetNamedQueryResponse' {} a -> s {httpStatus = a} :: BatchGetNamedQueryResponse)
 
-instance Prelude.NFData BatchGetNamedQueryResponse
+instance Core.NFData BatchGetNamedQueryResponse

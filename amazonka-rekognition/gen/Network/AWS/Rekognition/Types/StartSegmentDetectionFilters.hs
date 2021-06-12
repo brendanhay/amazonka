@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.StartSegmentDetectionFilters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.StartShotDetectionFilter
 import Network.AWS.Rekognition.Types.StartTechnicalCueDetectionFilter
 
@@ -31,11 +30,11 @@ import Network.AWS.Rekognition.Types.StartTechnicalCueDetectionFilter
 -- /See:/ 'newStartSegmentDetectionFilters' smart constructor.
 data StartSegmentDetectionFilters = StartSegmentDetectionFilters'
   { -- | Filters that are specific to technical cues.
-    technicalCueFilter :: Prelude.Maybe StartTechnicalCueDetectionFilter,
+    technicalCueFilter :: Core.Maybe StartTechnicalCueDetectionFilter,
     -- | Filters that are specific to shot detections.
-    shotFilter :: Prelude.Maybe StartShotDetectionFilter
+    shotFilter :: Core.Maybe StartShotDetectionFilter
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartSegmentDetectionFilters' with all optional fields omitted.
@@ -53,30 +52,28 @@ newStartSegmentDetectionFilters ::
 newStartSegmentDetectionFilters =
   StartSegmentDetectionFilters'
     { technicalCueFilter =
-        Prelude.Nothing,
-      shotFilter = Prelude.Nothing
+        Core.Nothing,
+      shotFilter = Core.Nothing
     }
 
 -- | Filters that are specific to technical cues.
-startSegmentDetectionFilters_technicalCueFilter :: Lens.Lens' StartSegmentDetectionFilters (Prelude.Maybe StartTechnicalCueDetectionFilter)
+startSegmentDetectionFilters_technicalCueFilter :: Lens.Lens' StartSegmentDetectionFilters (Core.Maybe StartTechnicalCueDetectionFilter)
 startSegmentDetectionFilters_technicalCueFilter = Lens.lens (\StartSegmentDetectionFilters' {technicalCueFilter} -> technicalCueFilter) (\s@StartSegmentDetectionFilters' {} a -> s {technicalCueFilter = a} :: StartSegmentDetectionFilters)
 
 -- | Filters that are specific to shot detections.
-startSegmentDetectionFilters_shotFilter :: Lens.Lens' StartSegmentDetectionFilters (Prelude.Maybe StartShotDetectionFilter)
+startSegmentDetectionFilters_shotFilter :: Lens.Lens' StartSegmentDetectionFilters (Core.Maybe StartShotDetectionFilter)
 startSegmentDetectionFilters_shotFilter = Lens.lens (\StartSegmentDetectionFilters' {shotFilter} -> shotFilter) (\s@StartSegmentDetectionFilters' {} a -> s {shotFilter = a} :: StartSegmentDetectionFilters)
 
-instance
-  Prelude.Hashable
-    StartSegmentDetectionFilters
+instance Core.Hashable StartSegmentDetectionFilters
 
-instance Prelude.NFData StartSegmentDetectionFilters
+instance Core.NFData StartSegmentDetectionFilters
 
-instance Prelude.ToJSON StartSegmentDetectionFilters where
+instance Core.ToJSON StartSegmentDetectionFilters where
   toJSON StartSegmentDetectionFilters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TechnicalCueFilter" Prelude..=)
-              Prelude.<$> technicalCueFilter,
-            ("ShotFilter" Prelude..=) Prelude.<$> shotFilter
+    Core.object
+      ( Core.catMaybes
+          [ ("TechnicalCueFilter" Core..=)
+              Core.<$> technicalCueFilter,
+            ("ShotFilter" Core..=) Core.<$> shotFilter
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputDeviceRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for an input device.
 --
 -- /See:/ 'newInputDeviceRequest' smart constructor.
 data InputDeviceRequest = InputDeviceRequest'
   { -- | The unique ID for the device.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputDeviceRequest' with all optional fields omitted.
@@ -44,19 +43,17 @@ data InputDeviceRequest = InputDeviceRequest'
 newInputDeviceRequest ::
   InputDeviceRequest
 newInputDeviceRequest =
-  InputDeviceRequest' {id = Prelude.Nothing}
+  InputDeviceRequest' {id = Core.Nothing}
 
 -- | The unique ID for the device.
-inputDeviceRequest_id :: Lens.Lens' InputDeviceRequest (Prelude.Maybe Prelude.Text)
+inputDeviceRequest_id :: Lens.Lens' InputDeviceRequest (Core.Maybe Core.Text)
 inputDeviceRequest_id = Lens.lens (\InputDeviceRequest' {id} -> id) (\s@InputDeviceRequest' {} a -> s {id = a} :: InputDeviceRequest)
 
-instance Prelude.Hashable InputDeviceRequest
+instance Core.Hashable InputDeviceRequest
 
-instance Prelude.NFData InputDeviceRequest
+instance Core.NFData InputDeviceRequest
 
-instance Prelude.ToJSON InputDeviceRequest where
+instance Core.ToJSON InputDeviceRequest where
   toJSON InputDeviceRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("id" Prelude..=) Prelude.<$> id]
-      )
+    Core.object
+      (Core.catMaybes [("id" Core..=) Core.<$> id])

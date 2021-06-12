@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Comprehend.Types.KeyPhrase where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a key noun phrase.
 --
@@ -32,20 +31,20 @@ data KeyPhrase = KeyPhrase'
     -- @code point@ is the abstract character from a particular graphical
     -- representation. For example, a multi-byte UTF-8 character maps to a
     -- single code point.
-    endOffset :: Prelude.Maybe Prelude.Int,
+    endOffset :: Core.Maybe Core.Int,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- the detection.
-    score :: Prelude.Maybe Prelude.Double,
+    score :: Core.Maybe Core.Double,
     -- | The text of a key noun phrase.
-    text :: Prelude.Maybe Prelude.Text,
+    text :: Core.Maybe Core.Text,
     -- | A character offset in the input text that shows where the key phrase
     -- begins (the first character is at position 0). The offset returns the
     -- position of each UTF-8 code point in the string. A /code point/ is the
     -- abstract character from a particular graphical representation. For
     -- example, a multi-byte UTF-8 character maps to a single code point.
-    beginOffset :: Prelude.Maybe Prelude.Int
+    beginOffset :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyPhrase' with all optional fields omitted.
@@ -75,10 +74,10 @@ newKeyPhrase ::
   KeyPhrase
 newKeyPhrase =
   KeyPhrase'
-    { endOffset = Prelude.Nothing,
-      score = Prelude.Nothing,
-      text = Prelude.Nothing,
-      beginOffset = Prelude.Nothing
+    { endOffset = Core.Nothing,
+      score = Core.Nothing,
+      text = Core.Nothing,
+      beginOffset = Core.Nothing
     }
 
 -- | A character offset in the input text where the key phrase ends. The
@@ -86,16 +85,16 @@ newKeyPhrase =
 -- @code point@ is the abstract character from a particular graphical
 -- representation. For example, a multi-byte UTF-8 character maps to a
 -- single code point.
-keyPhrase_endOffset :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Int)
+keyPhrase_endOffset :: Lens.Lens' KeyPhrase (Core.Maybe Core.Int)
 keyPhrase_endOffset = Lens.lens (\KeyPhrase' {endOffset} -> endOffset) (\s@KeyPhrase' {} a -> s {endOffset = a} :: KeyPhrase)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
-keyPhrase_score :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Double)
+keyPhrase_score :: Lens.Lens' KeyPhrase (Core.Maybe Core.Double)
 keyPhrase_score = Lens.lens (\KeyPhrase' {score} -> score) (\s@KeyPhrase' {} a -> s {score = a} :: KeyPhrase)
 
 -- | The text of a key noun phrase.
-keyPhrase_text :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Text)
+keyPhrase_text :: Lens.Lens' KeyPhrase (Core.Maybe Core.Text)
 keyPhrase_text = Lens.lens (\KeyPhrase' {text} -> text) (\s@KeyPhrase' {} a -> s {text = a} :: KeyPhrase)
 
 -- | A character offset in the input text that shows where the key phrase
@@ -103,21 +102,21 @@ keyPhrase_text = Lens.lens (\KeyPhrase' {text} -> text) (\s@KeyPhrase' {} a -> s
 -- position of each UTF-8 code point in the string. A /code point/ is the
 -- abstract character from a particular graphical representation. For
 -- example, a multi-byte UTF-8 character maps to a single code point.
-keyPhrase_beginOffset :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Int)
+keyPhrase_beginOffset :: Lens.Lens' KeyPhrase (Core.Maybe Core.Int)
 keyPhrase_beginOffset = Lens.lens (\KeyPhrase' {beginOffset} -> beginOffset) (\s@KeyPhrase' {} a -> s {beginOffset = a} :: KeyPhrase)
 
-instance Prelude.FromJSON KeyPhrase where
+instance Core.FromJSON KeyPhrase where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KeyPhrase"
       ( \x ->
           KeyPhrase'
-            Prelude.<$> (x Prelude..:? "EndOffset")
-            Prelude.<*> (x Prelude..:? "Score")
-            Prelude.<*> (x Prelude..:? "Text")
-            Prelude.<*> (x Prelude..:? "BeginOffset")
+            Core.<$> (x Core..:? "EndOffset")
+            Core.<*> (x Core..:? "Score")
+            Core.<*> (x Core..:? "Text")
+            Core.<*> (x Core..:? "BeginOffset")
       )
 
-instance Prelude.Hashable KeyPhrase
+instance Core.Hashable KeyPhrase
 
-instance Prelude.NFData KeyPhrase
+instance Core.NFData KeyPhrase

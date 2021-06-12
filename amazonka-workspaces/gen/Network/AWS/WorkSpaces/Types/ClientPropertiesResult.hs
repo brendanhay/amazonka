@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.ClientPropertiesResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.ClientProperties
 
 -- | Information about the Amazon WorkSpaces client.
@@ -29,11 +28,11 @@ import Network.AWS.WorkSpaces.Types.ClientProperties
 -- /See:/ 'newClientPropertiesResult' smart constructor.
 data ClientPropertiesResult = ClientPropertiesResult'
   { -- | The resource identifier, in the form of a directory ID.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | Information about the Amazon WorkSpaces client.
-    clientProperties :: Prelude.Maybe ClientProperties
+    clientProperties :: Core.Maybe ClientProperties
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClientPropertiesResult' with all optional fields omitted.
@@ -50,29 +49,28 @@ newClientPropertiesResult ::
   ClientPropertiesResult
 newClientPropertiesResult =
   ClientPropertiesResult'
-    { resourceId =
-        Prelude.Nothing,
-      clientProperties = Prelude.Nothing
+    { resourceId = Core.Nothing,
+      clientProperties = Core.Nothing
     }
 
 -- | The resource identifier, in the form of a directory ID.
-clientPropertiesResult_resourceId :: Lens.Lens' ClientPropertiesResult (Prelude.Maybe Prelude.Text)
+clientPropertiesResult_resourceId :: Lens.Lens' ClientPropertiesResult (Core.Maybe Core.Text)
 clientPropertiesResult_resourceId = Lens.lens (\ClientPropertiesResult' {resourceId} -> resourceId) (\s@ClientPropertiesResult' {} a -> s {resourceId = a} :: ClientPropertiesResult)
 
 -- | Information about the Amazon WorkSpaces client.
-clientPropertiesResult_clientProperties :: Lens.Lens' ClientPropertiesResult (Prelude.Maybe ClientProperties)
+clientPropertiesResult_clientProperties :: Lens.Lens' ClientPropertiesResult (Core.Maybe ClientProperties)
 clientPropertiesResult_clientProperties = Lens.lens (\ClientPropertiesResult' {clientProperties} -> clientProperties) (\s@ClientPropertiesResult' {} a -> s {clientProperties = a} :: ClientPropertiesResult)
 
-instance Prelude.FromJSON ClientPropertiesResult where
+instance Core.FromJSON ClientPropertiesResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ClientPropertiesResult"
       ( \x ->
           ClientPropertiesResult'
-            Prelude.<$> (x Prelude..:? "ResourceId")
-            Prelude.<*> (x Prelude..:? "ClientProperties")
+            Core.<$> (x Core..:? "ResourceId")
+            Core.<*> (x Core..:? "ClientProperties")
       )
 
-instance Prelude.Hashable ClientPropertiesResult
+instance Core.Hashable ClientPropertiesResult
 
-instance Prelude.NFData ClientPropertiesResult
+instance Core.NFData ClientPropertiesResult

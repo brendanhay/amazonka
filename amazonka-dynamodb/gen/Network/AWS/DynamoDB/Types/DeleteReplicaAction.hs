@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.DeleteReplicaAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a replica to be removed.
 --
 -- /See:/ 'newDeleteReplicaAction' smart constructor.
 data DeleteReplicaAction = DeleteReplicaAction'
   { -- | The Region of the replica to be removed.
-    regionName :: Prelude.Text
+    regionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicaAction' with all optional fields omitted.
@@ -43,22 +42,22 @@ data DeleteReplicaAction = DeleteReplicaAction'
 -- 'regionName', 'deleteReplicaAction_regionName' - The Region of the replica to be removed.
 newDeleteReplicaAction ::
   -- | 'regionName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteReplicaAction
 newDeleteReplicaAction pRegionName_ =
   DeleteReplicaAction' {regionName = pRegionName_}
 
 -- | The Region of the replica to be removed.
-deleteReplicaAction_regionName :: Lens.Lens' DeleteReplicaAction Prelude.Text
+deleteReplicaAction_regionName :: Lens.Lens' DeleteReplicaAction Core.Text
 deleteReplicaAction_regionName = Lens.lens (\DeleteReplicaAction' {regionName} -> regionName) (\s@DeleteReplicaAction' {} a -> s {regionName = a} :: DeleteReplicaAction)
 
-instance Prelude.Hashable DeleteReplicaAction
+instance Core.Hashable DeleteReplicaAction
 
-instance Prelude.NFData DeleteReplicaAction
+instance Core.NFData DeleteReplicaAction
 
-instance Prelude.ToJSON DeleteReplicaAction where
+instance Core.ToJSON DeleteReplicaAction where
   toJSON DeleteReplicaAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("RegionName" Prelude..= regionName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RegionName" Core..= regionName)]
       )

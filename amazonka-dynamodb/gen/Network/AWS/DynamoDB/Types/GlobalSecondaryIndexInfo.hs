@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.GlobalSecondaryIndexInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.KeySchemaElement
 import Network.AWS.DynamoDB.Types.Projection
 import Network.AWS.DynamoDB.Types.ProvisionedThroughput
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of a global secondary index for the table when
 -- the backup was created.
@@ -32,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newGlobalSecondaryIndexInfo' smart constructor.
 data GlobalSecondaryIndexInfo = GlobalSecondaryIndexInfo'
   { -- | The name of the global secondary index.
-    indexName :: Prelude.Maybe Prelude.Text,
+    indexName :: Core.Maybe Core.Text,
     -- | The complete key schema for a global secondary index, which consists of
     -- one or more pairs of attribute names and key types:
     --
@@ -49,16 +48,16 @@ data GlobalSecondaryIndexInfo = GlobalSecondaryIndexInfo'
     -- \"range attribute\" derives from the way DynamoDB stores items with the
     -- same partition key physically close together, in sorted order by the
     -- sort key value.
-    keySchema :: Prelude.Maybe (Prelude.NonEmpty KeySchemaElement),
+    keySchema :: Core.Maybe (Core.NonEmpty KeySchemaElement),
     -- | Represents attributes that are copied (projected) from the table into
     -- the global secondary index. These are in addition to the primary key
     -- attributes and index key attributes, which are automatically projected.
-    projection :: Prelude.Maybe Projection,
+    projection :: Core.Maybe Projection,
     -- | Represents the provisioned throughput settings for the specified global
     -- secondary index.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput
+    provisionedThroughput :: Core.Maybe ProvisionedThroughput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GlobalSecondaryIndexInfo' with all optional fields omitted.
@@ -97,15 +96,14 @@ newGlobalSecondaryIndexInfo ::
   GlobalSecondaryIndexInfo
 newGlobalSecondaryIndexInfo =
   GlobalSecondaryIndexInfo'
-    { indexName =
-        Prelude.Nothing,
-      keySchema = Prelude.Nothing,
-      projection = Prelude.Nothing,
-      provisionedThroughput = Prelude.Nothing
+    { indexName = Core.Nothing,
+      keySchema = Core.Nothing,
+      projection = Core.Nothing,
+      provisionedThroughput = Core.Nothing
     }
 
 -- | The name of the global secondary index.
-globalSecondaryIndexInfo_indexName :: Lens.Lens' GlobalSecondaryIndexInfo (Prelude.Maybe Prelude.Text)
+globalSecondaryIndexInfo_indexName :: Lens.Lens' GlobalSecondaryIndexInfo (Core.Maybe Core.Text)
 globalSecondaryIndexInfo_indexName = Lens.lens (\GlobalSecondaryIndexInfo' {indexName} -> indexName) (\s@GlobalSecondaryIndexInfo' {} a -> s {indexName = a} :: GlobalSecondaryIndexInfo)
 
 -- | The complete key schema for a global secondary index, which consists of
@@ -124,32 +122,32 @@ globalSecondaryIndexInfo_indexName = Lens.lens (\GlobalSecondaryIndexInfo' {inde
 -- \"range attribute\" derives from the way DynamoDB stores items with the
 -- same partition key physically close together, in sorted order by the
 -- sort key value.
-globalSecondaryIndexInfo_keySchema :: Lens.Lens' GlobalSecondaryIndexInfo (Prelude.Maybe (Prelude.NonEmpty KeySchemaElement))
-globalSecondaryIndexInfo_keySchema = Lens.lens (\GlobalSecondaryIndexInfo' {keySchema} -> keySchema) (\s@GlobalSecondaryIndexInfo' {} a -> s {keySchema = a} :: GlobalSecondaryIndexInfo) Prelude.. Lens.mapping Prelude._Coerce
+globalSecondaryIndexInfo_keySchema :: Lens.Lens' GlobalSecondaryIndexInfo (Core.Maybe (Core.NonEmpty KeySchemaElement))
+globalSecondaryIndexInfo_keySchema = Lens.lens (\GlobalSecondaryIndexInfo' {keySchema} -> keySchema) (\s@GlobalSecondaryIndexInfo' {} a -> s {keySchema = a} :: GlobalSecondaryIndexInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | Represents attributes that are copied (projected) from the table into
 -- the global secondary index. These are in addition to the primary key
 -- attributes and index key attributes, which are automatically projected.
-globalSecondaryIndexInfo_projection :: Lens.Lens' GlobalSecondaryIndexInfo (Prelude.Maybe Projection)
+globalSecondaryIndexInfo_projection :: Lens.Lens' GlobalSecondaryIndexInfo (Core.Maybe Projection)
 globalSecondaryIndexInfo_projection = Lens.lens (\GlobalSecondaryIndexInfo' {projection} -> projection) (\s@GlobalSecondaryIndexInfo' {} a -> s {projection = a} :: GlobalSecondaryIndexInfo)
 
 -- | Represents the provisioned throughput settings for the specified global
 -- secondary index.
-globalSecondaryIndexInfo_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndexInfo (Prelude.Maybe ProvisionedThroughput)
+globalSecondaryIndexInfo_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndexInfo (Core.Maybe ProvisionedThroughput)
 globalSecondaryIndexInfo_provisionedThroughput = Lens.lens (\GlobalSecondaryIndexInfo' {provisionedThroughput} -> provisionedThroughput) (\s@GlobalSecondaryIndexInfo' {} a -> s {provisionedThroughput = a} :: GlobalSecondaryIndexInfo)
 
-instance Prelude.FromJSON GlobalSecondaryIndexInfo where
+instance Core.FromJSON GlobalSecondaryIndexInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GlobalSecondaryIndexInfo"
       ( \x ->
           GlobalSecondaryIndexInfo'
-            Prelude.<$> (x Prelude..:? "IndexName")
-            Prelude.<*> (x Prelude..:? "KeySchema")
-            Prelude.<*> (x Prelude..:? "Projection")
-            Prelude.<*> (x Prelude..:? "ProvisionedThroughput")
+            Core.<$> (x Core..:? "IndexName")
+            Core.<*> (x Core..:? "KeySchema")
+            Core.<*> (x Core..:? "Projection")
+            Core.<*> (x Core..:? "ProvisionedThroughput")
       )
 
-instance Prelude.Hashable GlobalSecondaryIndexInfo
+instance Core.Hashable GlobalSecondaryIndexInfo
 
-instance Prelude.NFData GlobalSecondaryIndexInfo
+instance Core.NFData GlobalSecondaryIndexInfo

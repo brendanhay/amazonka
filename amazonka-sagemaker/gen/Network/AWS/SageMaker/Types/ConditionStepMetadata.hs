@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ConditionStepMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ConditionOutcome
 
 -- | Metadata for a Condition step.
@@ -29,9 +28,9 @@ import Network.AWS.SageMaker.Types.ConditionOutcome
 -- /See:/ 'newConditionStepMetadata' smart constructor.
 data ConditionStepMetadata = ConditionStepMetadata'
   { -- | The outcome of the Condition step evaluation.
-    outcome :: Prelude.Maybe ConditionOutcome
+    outcome :: Core.Maybe ConditionOutcome
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConditionStepMetadata' with all optional fields omitted.
@@ -45,21 +44,21 @@ data ConditionStepMetadata = ConditionStepMetadata'
 newConditionStepMetadata ::
   ConditionStepMetadata
 newConditionStepMetadata =
-  ConditionStepMetadata' {outcome = Prelude.Nothing}
+  ConditionStepMetadata' {outcome = Core.Nothing}
 
 -- | The outcome of the Condition step evaluation.
-conditionStepMetadata_outcome :: Lens.Lens' ConditionStepMetadata (Prelude.Maybe ConditionOutcome)
+conditionStepMetadata_outcome :: Lens.Lens' ConditionStepMetadata (Core.Maybe ConditionOutcome)
 conditionStepMetadata_outcome = Lens.lens (\ConditionStepMetadata' {outcome} -> outcome) (\s@ConditionStepMetadata' {} a -> s {outcome = a} :: ConditionStepMetadata)
 
-instance Prelude.FromJSON ConditionStepMetadata where
+instance Core.FromJSON ConditionStepMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConditionStepMetadata"
       ( \x ->
           ConditionStepMetadata'
-            Prelude.<$> (x Prelude..:? "Outcome")
+            Core.<$> (x Core..:? "Outcome")
       )
 
-instance Prelude.Hashable ConditionStepMetadata
+instance Core.Hashable ConditionStepMetadata
 
-instance Prelude.NFData ConditionStepMetadata
+instance Core.NFData ConditionStepMetadata

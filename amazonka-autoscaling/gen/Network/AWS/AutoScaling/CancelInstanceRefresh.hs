@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,17 +45,17 @@ module Network.AWS.AutoScaling.CancelInstanceRefresh
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCancelInstanceRefresh' smart constructor.
 data CancelInstanceRefresh = CancelInstanceRefresh'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text
+    autoScalingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelInstanceRefresh' with all optional fields omitted.
@@ -69,7 +68,7 @@ data CancelInstanceRefresh = CancelInstanceRefresh'
 -- 'autoScalingGroupName', 'cancelInstanceRefresh_autoScalingGroupName' - The name of the Auto Scaling group.
 newCancelInstanceRefresh ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   CancelInstanceRefresh
 newCancelInstanceRefresh pAutoScalingGroupName_ =
   CancelInstanceRefresh'
@@ -78,12 +77,12 @@ newCancelInstanceRefresh pAutoScalingGroupName_ =
     }
 
 -- | The name of the Auto Scaling group.
-cancelInstanceRefresh_autoScalingGroupName :: Lens.Lens' CancelInstanceRefresh Prelude.Text
+cancelInstanceRefresh_autoScalingGroupName :: Lens.Lens' CancelInstanceRefresh Core.Text
 cancelInstanceRefresh_autoScalingGroupName = Lens.lens (\CancelInstanceRefresh' {autoScalingGroupName} -> autoScalingGroupName) (\s@CancelInstanceRefresh' {} a -> s {autoScalingGroupName = a} :: CancelInstanceRefresh)
 
-instance Prelude.AWSRequest CancelInstanceRefresh where
+instance Core.AWSRequest CancelInstanceRefresh where
   type
-    Rs CancelInstanceRefresh =
+    AWSResponse CancelInstanceRefresh =
       CancelInstanceRefreshResponse
   request = Request.postQuery defaultService
   response =
@@ -91,39 +90,37 @@ instance Prelude.AWSRequest CancelInstanceRefresh where
       "CancelInstanceRefreshResult"
       ( \s h x ->
           CancelInstanceRefreshResponse'
-            Prelude.<$> (x Prelude..@? "InstanceRefreshId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "InstanceRefreshId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelInstanceRefresh
+instance Core.Hashable CancelInstanceRefresh
 
-instance Prelude.NFData CancelInstanceRefresh
+instance Core.NFData CancelInstanceRefresh
 
-instance Prelude.ToHeaders CancelInstanceRefresh where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CancelInstanceRefresh where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CancelInstanceRefresh where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelInstanceRefresh where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelInstanceRefresh where
+instance Core.ToQuery CancelInstanceRefresh where
   toQuery CancelInstanceRefresh' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CancelInstanceRefresh" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName
+          Core.=: ("CancelInstanceRefresh" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newCancelInstanceRefreshResponse' smart constructor.
 data CancelInstanceRefreshResponse = CancelInstanceRefreshResponse'
   { -- | The instance refresh ID.
-    instanceRefreshId :: Prelude.Maybe Prelude.Text,
+    instanceRefreshId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelInstanceRefreshResponse' with all optional fields omitted.
@@ -138,21 +135,21 @@ data CancelInstanceRefreshResponse = CancelInstanceRefreshResponse'
 -- 'httpStatus', 'cancelInstanceRefreshResponse_httpStatus' - The response's http status code.
 newCancelInstanceRefreshResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelInstanceRefreshResponse
 newCancelInstanceRefreshResponse pHttpStatus_ =
   CancelInstanceRefreshResponse'
     { instanceRefreshId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The instance refresh ID.
-cancelInstanceRefreshResponse_instanceRefreshId :: Lens.Lens' CancelInstanceRefreshResponse (Prelude.Maybe Prelude.Text)
+cancelInstanceRefreshResponse_instanceRefreshId :: Lens.Lens' CancelInstanceRefreshResponse (Core.Maybe Core.Text)
 cancelInstanceRefreshResponse_instanceRefreshId = Lens.lens (\CancelInstanceRefreshResponse' {instanceRefreshId} -> instanceRefreshId) (\s@CancelInstanceRefreshResponse' {} a -> s {instanceRefreshId = a} :: CancelInstanceRefreshResponse)
 
 -- | The response's http status code.
-cancelInstanceRefreshResponse_httpStatus :: Lens.Lens' CancelInstanceRefreshResponse Prelude.Int
+cancelInstanceRefreshResponse_httpStatus :: Lens.Lens' CancelInstanceRefreshResponse Core.Int
 cancelInstanceRefreshResponse_httpStatus = Lens.lens (\CancelInstanceRefreshResponse' {httpStatus} -> httpStatus) (\s@CancelInstanceRefreshResponse' {} a -> s {httpStatus = a} :: CancelInstanceRefreshResponse)
 
-instance Prelude.NFData CancelInstanceRefreshResponse
+instance Core.NFData CancelInstanceRefreshResponse

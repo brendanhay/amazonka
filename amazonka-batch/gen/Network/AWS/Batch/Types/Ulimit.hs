@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types.Ulimit where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The @ulimit@ settings to pass to the container.
 --
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newUlimit' smart constructor.
 data Ulimit = Ulimit'
   { -- | The hard limit for the @ulimit@ type.
-    hardLimit :: Prelude.Int,
+    hardLimit :: Core.Int,
     -- | The @type@ of the @ulimit@.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The soft limit for the @ulimit@ type.
-    softLimit :: Prelude.Int
+    softLimit :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Ulimit' with all optional fields omitted.
@@ -53,11 +52,11 @@ data Ulimit = Ulimit'
 -- 'softLimit', 'ulimit_softLimit' - The soft limit for the @ulimit@ type.
 newUlimit ::
   -- | 'hardLimit'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'softLimit'
-  Prelude.Int ->
+  Core.Int ->
   Ulimit
 newUlimit pHardLimit_ pName_ pSoftLimit_ =
   Ulimit'
@@ -67,38 +66,38 @@ newUlimit pHardLimit_ pName_ pSoftLimit_ =
     }
 
 -- | The hard limit for the @ulimit@ type.
-ulimit_hardLimit :: Lens.Lens' Ulimit Prelude.Int
+ulimit_hardLimit :: Lens.Lens' Ulimit Core.Int
 ulimit_hardLimit = Lens.lens (\Ulimit' {hardLimit} -> hardLimit) (\s@Ulimit' {} a -> s {hardLimit = a} :: Ulimit)
 
 -- | The @type@ of the @ulimit@.
-ulimit_name :: Lens.Lens' Ulimit Prelude.Text
+ulimit_name :: Lens.Lens' Ulimit Core.Text
 ulimit_name = Lens.lens (\Ulimit' {name} -> name) (\s@Ulimit' {} a -> s {name = a} :: Ulimit)
 
 -- | The soft limit for the @ulimit@ type.
-ulimit_softLimit :: Lens.Lens' Ulimit Prelude.Int
+ulimit_softLimit :: Lens.Lens' Ulimit Core.Int
 ulimit_softLimit = Lens.lens (\Ulimit' {softLimit} -> softLimit) (\s@Ulimit' {} a -> s {softLimit = a} :: Ulimit)
 
-instance Prelude.FromJSON Ulimit where
+instance Core.FromJSON Ulimit where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Ulimit"
       ( \x ->
           Ulimit'
-            Prelude.<$> (x Prelude..: "hardLimit")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "softLimit")
+            Core.<$> (x Core..: "hardLimit")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "softLimit")
       )
 
-instance Prelude.Hashable Ulimit
+instance Core.Hashable Ulimit
 
-instance Prelude.NFData Ulimit
+instance Core.NFData Ulimit
 
-instance Prelude.ToJSON Ulimit where
+instance Core.ToJSON Ulimit where
   toJSON Ulimit' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("hardLimit" Prelude..= hardLimit),
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("softLimit" Prelude..= softLimit)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("hardLimit" Core..= hardLimit),
+            Core.Just ("name" Core..= name),
+            Core.Just ("softLimit" Core..= softLimit)
           ]
       )

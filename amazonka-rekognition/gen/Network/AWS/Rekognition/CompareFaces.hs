@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -97,8 +96,8 @@ module Network.AWS.Rekognition.CompareFaces
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -117,10 +116,10 @@ data CompareFaces = CompareFaces'
     --
     -- To use quality filtering, the collection you are using must be
     -- associated with version 3 of the face model or higher.
-    qualityFilter :: Prelude.Maybe QualityFilter,
+    qualityFilter :: Core.Maybe QualityFilter,
     -- | The minimum level of confidence in the face matches that a match must
     -- meet to be included in the @FaceMatches@ array.
-    similarityThreshold :: Prelude.Maybe Prelude.Double,
+    similarityThreshold :: Core.Maybe Core.Double,
     -- | The input image as base64-encoded bytes or an S3 object. If you use the
     -- AWS CLI to call Amazon Rekognition operations, passing base64-encoded
     -- image bytes is not supported.
@@ -138,7 +137,7 @@ data CompareFaces = CompareFaces'
     -- more information, see Images in the Amazon Rekognition developer guide.
     targetImage :: Image
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CompareFaces' with all optional fields omitted.
@@ -187,8 +186,8 @@ newCompareFaces ::
   CompareFaces
 newCompareFaces pSourceImage_ pTargetImage_ =
   CompareFaces'
-    { qualityFilter = Prelude.Nothing,
-      similarityThreshold = Prelude.Nothing,
+    { qualityFilter = Core.Nothing,
+      similarityThreshold = Core.Nothing,
       sourceImage = pSourceImage_,
       targetImage = pTargetImage_
     }
@@ -205,12 +204,12 @@ newCompareFaces pSourceImage_ pTargetImage_ =
 --
 -- To use quality filtering, the collection you are using must be
 -- associated with version 3 of the face model or higher.
-compareFaces_qualityFilter :: Lens.Lens' CompareFaces (Prelude.Maybe QualityFilter)
+compareFaces_qualityFilter :: Lens.Lens' CompareFaces (Core.Maybe QualityFilter)
 compareFaces_qualityFilter = Lens.lens (\CompareFaces' {qualityFilter} -> qualityFilter) (\s@CompareFaces' {} a -> s {qualityFilter = a} :: CompareFaces)
 
 -- | The minimum level of confidence in the face matches that a match must
 -- meet to be included in the @FaceMatches@ array.
-compareFaces_similarityThreshold :: Lens.Lens' CompareFaces (Prelude.Maybe Prelude.Double)
+compareFaces_similarityThreshold :: Lens.Lens' CompareFaces (Core.Maybe Core.Double)
 compareFaces_similarityThreshold = Lens.lens (\CompareFaces' {similarityThreshold} -> similarityThreshold) (\s@CompareFaces' {} a -> s {similarityThreshold = a} :: CompareFaces)
 
 -- | The input image as base64-encoded bytes or an S3 object. If you use the
@@ -233,76 +232,69 @@ compareFaces_sourceImage = Lens.lens (\CompareFaces' {sourceImage} -> sourceImag
 compareFaces_targetImage :: Lens.Lens' CompareFaces Image
 compareFaces_targetImage = Lens.lens (\CompareFaces' {targetImage} -> targetImage) (\s@CompareFaces' {} a -> s {targetImage = a} :: CompareFaces)
 
-instance Prelude.AWSRequest CompareFaces where
-  type Rs CompareFaces = CompareFacesResponse
+instance Core.AWSRequest CompareFaces where
+  type AWSResponse CompareFaces = CompareFacesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CompareFacesResponse'
-            Prelude.<$> (x Prelude..?> "SourceImageFace")
-            Prelude.<*> ( x Prelude..?> "UnmatchedFaces"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "FaceMatches"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "TargetImageOrientationCorrection")
-            Prelude.<*> (x Prelude..?> "SourceImageOrientationCorrection")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SourceImageFace")
+            Core.<*> (x Core..?> "UnmatchedFaces" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "FaceMatches" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "TargetImageOrientationCorrection")
+            Core.<*> (x Core..?> "SourceImageOrientationCorrection")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CompareFaces
+instance Core.Hashable CompareFaces
 
-instance Prelude.NFData CompareFaces
+instance Core.NFData CompareFaces
 
-instance Prelude.ToHeaders CompareFaces where
+instance Core.ToHeaders CompareFaces where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.CompareFaces" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.CompareFaces" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CompareFaces where
+instance Core.ToJSON CompareFaces where
   toJSON CompareFaces' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("QualityFilter" Prelude..=)
-              Prelude.<$> qualityFilter,
-            ("SimilarityThreshold" Prelude..=)
-              Prelude.<$> similarityThreshold,
-            Prelude.Just ("SourceImage" Prelude..= sourceImage),
-            Prelude.Just ("TargetImage" Prelude..= targetImage)
+    Core.object
+      ( Core.catMaybes
+          [ ("QualityFilter" Core..=) Core.<$> qualityFilter,
+            ("SimilarityThreshold" Core..=)
+              Core.<$> similarityThreshold,
+            Core.Just ("SourceImage" Core..= sourceImage),
+            Core.Just ("TargetImage" Core..= targetImage)
           ]
       )
 
-instance Prelude.ToPath CompareFaces where
-  toPath = Prelude.const "/"
+instance Core.ToPath CompareFaces where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CompareFaces where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CompareFaces where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCompareFacesResponse' smart constructor.
 data CompareFacesResponse = CompareFacesResponse'
   { -- | The face in the source image that was used for comparison.
-    sourceImageFace :: Prelude.Maybe ComparedSourceImageFace,
+    sourceImageFace :: Core.Maybe ComparedSourceImageFace,
     -- | An array of faces in the target image that did not match the source
     -- image face.
-    unmatchedFaces :: Prelude.Maybe [ComparedFace],
+    unmatchedFaces :: Core.Maybe [ComparedFace],
     -- | An array of faces in the target image that match the source image face.
     -- Each @CompareFacesMatch@ object provides the bounding box, the
     -- confidence level that the bounding box contains a face, and the
     -- similarity score for the face in the bounding box and the face in the
     -- source image.
-    faceMatches :: Prelude.Maybe [CompareFacesMatch],
+    faceMatches :: Core.Maybe [CompareFacesMatch],
     -- | The value of @TargetImageOrientationCorrection@ is always null.
     --
     -- If the input image is in .jpeg format, it might contain exchangeable
@@ -317,7 +309,7 @@ data CompareFacesResponse = CompareFacesResponse'
     -- format and .jpeg images without orientation information in the image
     -- Exif metadata. The bounding box coordinates aren\'t translated and
     -- represent the object locations before the image is rotated.
-    targetImageOrientationCorrection :: Prelude.Maybe OrientationCorrection,
+    targetImageOrientationCorrection :: Core.Maybe OrientationCorrection,
     -- | The value of @SourceImageOrientationCorrection@ is always null.
     --
     -- If the input image is in .jpeg format, it might contain exchangeable
@@ -332,11 +324,11 @@ data CompareFacesResponse = CompareFacesResponse'
     -- format and .jpeg images without orientation information in the image
     -- Exif metadata. The bounding box coordinates aren\'t translated and
     -- represent the object locations before the image is rotated.
-    sourceImageOrientationCorrection :: Prelude.Maybe OrientationCorrection,
+    sourceImageOrientationCorrection :: Core.Maybe OrientationCorrection,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CompareFacesResponse' with all optional fields omitted.
@@ -390,35 +382,35 @@ data CompareFacesResponse = CompareFacesResponse'
 -- 'httpStatus', 'compareFacesResponse_httpStatus' - The response's http status code.
 newCompareFacesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CompareFacesResponse
 newCompareFacesResponse pHttpStatus_ =
   CompareFacesResponse'
     { sourceImageFace =
-        Prelude.Nothing,
-      unmatchedFaces = Prelude.Nothing,
-      faceMatches = Prelude.Nothing,
-      targetImageOrientationCorrection = Prelude.Nothing,
-      sourceImageOrientationCorrection = Prelude.Nothing,
+        Core.Nothing,
+      unmatchedFaces = Core.Nothing,
+      faceMatches = Core.Nothing,
+      targetImageOrientationCorrection = Core.Nothing,
+      sourceImageOrientationCorrection = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The face in the source image that was used for comparison.
-compareFacesResponse_sourceImageFace :: Lens.Lens' CompareFacesResponse (Prelude.Maybe ComparedSourceImageFace)
+compareFacesResponse_sourceImageFace :: Lens.Lens' CompareFacesResponse (Core.Maybe ComparedSourceImageFace)
 compareFacesResponse_sourceImageFace = Lens.lens (\CompareFacesResponse' {sourceImageFace} -> sourceImageFace) (\s@CompareFacesResponse' {} a -> s {sourceImageFace = a} :: CompareFacesResponse)
 
 -- | An array of faces in the target image that did not match the source
 -- image face.
-compareFacesResponse_unmatchedFaces :: Lens.Lens' CompareFacesResponse (Prelude.Maybe [ComparedFace])
-compareFacesResponse_unmatchedFaces = Lens.lens (\CompareFacesResponse' {unmatchedFaces} -> unmatchedFaces) (\s@CompareFacesResponse' {} a -> s {unmatchedFaces = a} :: CompareFacesResponse) Prelude.. Lens.mapping Prelude._Coerce
+compareFacesResponse_unmatchedFaces :: Lens.Lens' CompareFacesResponse (Core.Maybe [ComparedFace])
+compareFacesResponse_unmatchedFaces = Lens.lens (\CompareFacesResponse' {unmatchedFaces} -> unmatchedFaces) (\s@CompareFacesResponse' {} a -> s {unmatchedFaces = a} :: CompareFacesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of faces in the target image that match the source image face.
 -- Each @CompareFacesMatch@ object provides the bounding box, the
 -- confidence level that the bounding box contains a face, and the
 -- similarity score for the face in the bounding box and the face in the
 -- source image.
-compareFacesResponse_faceMatches :: Lens.Lens' CompareFacesResponse (Prelude.Maybe [CompareFacesMatch])
-compareFacesResponse_faceMatches = Lens.lens (\CompareFacesResponse' {faceMatches} -> faceMatches) (\s@CompareFacesResponse' {} a -> s {faceMatches = a} :: CompareFacesResponse) Prelude.. Lens.mapping Prelude._Coerce
+compareFacesResponse_faceMatches :: Lens.Lens' CompareFacesResponse (Core.Maybe [CompareFacesMatch])
+compareFacesResponse_faceMatches = Lens.lens (\CompareFacesResponse' {faceMatches} -> faceMatches) (\s@CompareFacesResponse' {} a -> s {faceMatches = a} :: CompareFacesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The value of @TargetImageOrientationCorrection@ is always null.
 --
@@ -434,7 +426,7 @@ compareFacesResponse_faceMatches = Lens.lens (\CompareFacesResponse' {faceMatche
 -- format and .jpeg images without orientation information in the image
 -- Exif metadata. The bounding box coordinates aren\'t translated and
 -- represent the object locations before the image is rotated.
-compareFacesResponse_targetImageOrientationCorrection :: Lens.Lens' CompareFacesResponse (Prelude.Maybe OrientationCorrection)
+compareFacesResponse_targetImageOrientationCorrection :: Lens.Lens' CompareFacesResponse (Core.Maybe OrientationCorrection)
 compareFacesResponse_targetImageOrientationCorrection = Lens.lens (\CompareFacesResponse' {targetImageOrientationCorrection} -> targetImageOrientationCorrection) (\s@CompareFacesResponse' {} a -> s {targetImageOrientationCorrection = a} :: CompareFacesResponse)
 
 -- | The value of @SourceImageOrientationCorrection@ is always null.
@@ -451,11 +443,11 @@ compareFacesResponse_targetImageOrientationCorrection = Lens.lens (\CompareFaces
 -- format and .jpeg images without orientation information in the image
 -- Exif metadata. The bounding box coordinates aren\'t translated and
 -- represent the object locations before the image is rotated.
-compareFacesResponse_sourceImageOrientationCorrection :: Lens.Lens' CompareFacesResponse (Prelude.Maybe OrientationCorrection)
+compareFacesResponse_sourceImageOrientationCorrection :: Lens.Lens' CompareFacesResponse (Core.Maybe OrientationCorrection)
 compareFacesResponse_sourceImageOrientationCorrection = Lens.lens (\CompareFacesResponse' {sourceImageOrientationCorrection} -> sourceImageOrientationCorrection) (\s@CompareFacesResponse' {} a -> s {sourceImageOrientationCorrection = a} :: CompareFacesResponse)
 
 -- | The response's http status code.
-compareFacesResponse_httpStatus :: Lens.Lens' CompareFacesResponse Prelude.Int
+compareFacesResponse_httpStatus :: Lens.Lens' CompareFacesResponse Core.Int
 compareFacesResponse_httpStatus = Lens.lens (\CompareFacesResponse' {httpStatus} -> httpStatus) (\s@CompareFacesResponse' {} a -> s {httpStatus = a} :: CompareFacesResponse)
 
-instance Prelude.NFData CompareFacesResponse
+instance Core.NFData CompareFacesResponse

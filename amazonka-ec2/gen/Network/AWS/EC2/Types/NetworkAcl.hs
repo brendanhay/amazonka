@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,33 +19,33 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.NetworkAcl where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.NetworkAclAssociation
 import Network.AWS.EC2.Types.NetworkAclEntry
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a network ACL.
 --
 -- /See:/ 'newNetworkAcl' smart constructor.
 data NetworkAcl = NetworkAcl'
   { -- | The ID of the AWS account that owns the network ACL.
-    ownerId :: Prelude.Maybe Prelude.Text,
+    ownerId :: Core.Maybe Core.Text,
     -- | Indicates whether this is the default network ACL for the VPC.
-    isDefault :: Prelude.Maybe Prelude.Bool,
+    isDefault :: Core.Maybe Core.Bool,
     -- | Any tags assigned to the network ACL.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The ID of the VPC for the network ACL.
-    vpcId :: Prelude.Maybe Prelude.Text,
+    vpcId :: Core.Maybe Core.Text,
     -- | The ID of the network ACL.
-    networkAclId :: Prelude.Maybe Prelude.Text,
+    networkAclId :: Core.Maybe Core.Text,
     -- | Any associations between the network ACL and one or more subnets
-    associations :: Prelude.Maybe [NetworkAclAssociation],
+    associations :: Core.Maybe [NetworkAclAssociation],
     -- | One or more entries (rules) in the network ACL.
-    entries :: Prelude.Maybe [NetworkAclEntry]
+    entries :: Core.Maybe [NetworkAclEntry]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkAcl' with all optional fields omitted.
@@ -73,61 +72,60 @@ newNetworkAcl ::
   NetworkAcl
 newNetworkAcl =
   NetworkAcl'
-    { ownerId = Prelude.Nothing,
-      isDefault = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      networkAclId = Prelude.Nothing,
-      associations = Prelude.Nothing,
-      entries = Prelude.Nothing
+    { ownerId = Core.Nothing,
+      isDefault = Core.Nothing,
+      tags = Core.Nothing,
+      vpcId = Core.Nothing,
+      networkAclId = Core.Nothing,
+      associations = Core.Nothing,
+      entries = Core.Nothing
     }
 
 -- | The ID of the AWS account that owns the network ACL.
-networkAcl_ownerId :: Lens.Lens' NetworkAcl (Prelude.Maybe Prelude.Text)
+networkAcl_ownerId :: Lens.Lens' NetworkAcl (Core.Maybe Core.Text)
 networkAcl_ownerId = Lens.lens (\NetworkAcl' {ownerId} -> ownerId) (\s@NetworkAcl' {} a -> s {ownerId = a} :: NetworkAcl)
 
 -- | Indicates whether this is the default network ACL for the VPC.
-networkAcl_isDefault :: Lens.Lens' NetworkAcl (Prelude.Maybe Prelude.Bool)
+networkAcl_isDefault :: Lens.Lens' NetworkAcl (Core.Maybe Core.Bool)
 networkAcl_isDefault = Lens.lens (\NetworkAcl' {isDefault} -> isDefault) (\s@NetworkAcl' {} a -> s {isDefault = a} :: NetworkAcl)
 
 -- | Any tags assigned to the network ACL.
-networkAcl_tags :: Lens.Lens' NetworkAcl (Prelude.Maybe [Tag])
-networkAcl_tags = Lens.lens (\NetworkAcl' {tags} -> tags) (\s@NetworkAcl' {} a -> s {tags = a} :: NetworkAcl) Prelude.. Lens.mapping Prelude._Coerce
+networkAcl_tags :: Lens.Lens' NetworkAcl (Core.Maybe [Tag])
+networkAcl_tags = Lens.lens (\NetworkAcl' {tags} -> tags) (\s@NetworkAcl' {} a -> s {tags = a} :: NetworkAcl) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the VPC for the network ACL.
-networkAcl_vpcId :: Lens.Lens' NetworkAcl (Prelude.Maybe Prelude.Text)
+networkAcl_vpcId :: Lens.Lens' NetworkAcl (Core.Maybe Core.Text)
 networkAcl_vpcId = Lens.lens (\NetworkAcl' {vpcId} -> vpcId) (\s@NetworkAcl' {} a -> s {vpcId = a} :: NetworkAcl)
 
 -- | The ID of the network ACL.
-networkAcl_networkAclId :: Lens.Lens' NetworkAcl (Prelude.Maybe Prelude.Text)
+networkAcl_networkAclId :: Lens.Lens' NetworkAcl (Core.Maybe Core.Text)
 networkAcl_networkAclId = Lens.lens (\NetworkAcl' {networkAclId} -> networkAclId) (\s@NetworkAcl' {} a -> s {networkAclId = a} :: NetworkAcl)
 
 -- | Any associations between the network ACL and one or more subnets
-networkAcl_associations :: Lens.Lens' NetworkAcl (Prelude.Maybe [NetworkAclAssociation])
-networkAcl_associations = Lens.lens (\NetworkAcl' {associations} -> associations) (\s@NetworkAcl' {} a -> s {associations = a} :: NetworkAcl) Prelude.. Lens.mapping Prelude._Coerce
+networkAcl_associations :: Lens.Lens' NetworkAcl (Core.Maybe [NetworkAclAssociation])
+networkAcl_associations = Lens.lens (\NetworkAcl' {associations} -> associations) (\s@NetworkAcl' {} a -> s {associations = a} :: NetworkAcl) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more entries (rules) in the network ACL.
-networkAcl_entries :: Lens.Lens' NetworkAcl (Prelude.Maybe [NetworkAclEntry])
-networkAcl_entries = Lens.lens (\NetworkAcl' {entries} -> entries) (\s@NetworkAcl' {} a -> s {entries = a} :: NetworkAcl) Prelude.. Lens.mapping Prelude._Coerce
+networkAcl_entries :: Lens.Lens' NetworkAcl (Core.Maybe [NetworkAclEntry])
+networkAcl_entries = Lens.lens (\NetworkAcl' {entries} -> entries) (\s@NetworkAcl' {} a -> s {entries = a} :: NetworkAcl) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML NetworkAcl where
+instance Core.FromXML NetworkAcl where
   parseXML x =
     NetworkAcl'
-      Prelude.<$> (x Prelude..@? "ownerId")
-      Prelude.<*> (x Prelude..@? "default")
-      Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "vpcId")
-      Prelude.<*> (x Prelude..@? "networkAclId")
-      Prelude.<*> ( x Prelude..@? "associationSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Prelude..@? "entrySet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "default")
+      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "vpcId")
+      Core.<*> (x Core..@? "networkAclId")
+      Core.<*> ( x Core..@? "associationSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> ( x Core..@? "entrySet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable NetworkAcl
+instance Core.Hashable NetworkAcl
 
-instance Prelude.NFData NetworkAcl
+instance Core.NFData NetworkAcl

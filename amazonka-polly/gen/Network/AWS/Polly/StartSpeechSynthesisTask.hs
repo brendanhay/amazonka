@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.Polly.StartSpeechSynthesisTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Polly.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,16 +75,16 @@ data StartSpeechSynthesisTask = StartSpeechSynthesisTask'
     -- <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices>
     -- operation for the @LanguageCode@ parameter. For example, if no language
     -- code is specified, Aditi will use Indian English rather than Hindi.
-    languageCode :: Prelude.Maybe LanguageCode,
+    languageCode :: Core.Maybe LanguageCode,
     -- | The type of speech marks returned for the input text.
-    speechMarkTypes :: Prelude.Maybe [SpeechMarkType],
+    speechMarkTypes :: Core.Maybe [SpeechMarkType],
     -- | List of one or more pronunciation lexicon names you want the service to
     -- apply during synthesis. Lexicons are applied only if the language of the
     -- lexicon is the same as the language of the voice.
-    lexiconNames :: Prelude.Maybe [Prelude.Text],
+    lexiconNames :: Core.Maybe [Core.Text],
     -- | Specifies whether the input text is plain text or SSML. The default
     -- value is plain text.
-    textType :: Prelude.Maybe TextType,
+    textType :: Core.Maybe TextType,
     -- | The audio frequency specified in Hz.
     --
     -- The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\",
@@ -94,29 +93,29 @@ data StartSpeechSynthesisTask = StartSpeechSynthesisTask'
     --
     -- Valid values for pcm are \"8000\" and \"16000\" The default value is
     -- \"16000\".
-    sampleRate :: Prelude.Maybe Prelude.Text,
+    sampleRate :: Core.Maybe Core.Text,
     -- | Specifies the engine (@standard@ or @neural@) for Amazon Polly to use
     -- when processing input text for speech synthesis. Using a voice that is
     -- not supported for the engine selected will result in an error.
-    engine :: Prelude.Maybe Engine,
+    engine :: Core.Maybe Engine,
     -- | The Amazon S3 key prefix for the output speech file.
-    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    outputS3KeyPrefix :: Core.Maybe Core.Text,
     -- | ARN for the SNS topic optionally used for providing status notification
     -- for a speech synthesis task.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    snsTopicArn :: Core.Maybe Core.Text,
     -- | The format in which the returned output will be encoded. For audio
     -- stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
     -- will be json.
     outputFormat :: OutputFormat,
     -- | Amazon S3 bucket name to which the output file will be saved.
-    outputS3BucketName :: Prelude.Text,
+    outputS3BucketName :: Core.Text,
     -- | The input text to synthesize. If you specify ssml as the TextType,
     -- follow the SSML format for the input text.
-    text :: Prelude.Text,
+    text :: Core.Text,
     -- | Voice ID to use for the synthesis.
     voiceId :: VoiceId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartSpeechSynthesisTask' with all optional fields omitted.
@@ -178,9 +177,9 @@ newStartSpeechSynthesisTask ::
   -- | 'outputFormat'
   OutputFormat ->
   -- | 'outputS3BucketName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'text'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'voiceId'
   VoiceId ->
   StartSpeechSynthesisTask
@@ -191,14 +190,14 @@ newStartSpeechSynthesisTask
   pVoiceId_ =
     StartSpeechSynthesisTask'
       { languageCode =
-          Prelude.Nothing,
-        speechMarkTypes = Prelude.Nothing,
-        lexiconNames = Prelude.Nothing,
-        textType = Prelude.Nothing,
-        sampleRate = Prelude.Nothing,
-        engine = Prelude.Nothing,
-        outputS3KeyPrefix = Prelude.Nothing,
-        snsTopicArn = Prelude.Nothing,
+          Core.Nothing,
+        speechMarkTypes = Core.Nothing,
+        lexiconNames = Core.Nothing,
+        textType = Core.Nothing,
+        sampleRate = Core.Nothing,
+        engine = Core.Nothing,
+        outputS3KeyPrefix = Core.Nothing,
+        snsTopicArn = Core.Nothing,
         outputFormat = pOutputFormat_,
         outputS3BucketName = pOutputS3BucketName_,
         text = pText_,
@@ -215,22 +214,22 @@ newStartSpeechSynthesisTask
 -- <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices>
 -- operation for the @LanguageCode@ parameter. For example, if no language
 -- code is specified, Aditi will use Indian English rather than Hindi.
-startSpeechSynthesisTask_languageCode :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe LanguageCode)
+startSpeechSynthesisTask_languageCode :: Lens.Lens' StartSpeechSynthesisTask (Core.Maybe LanguageCode)
 startSpeechSynthesisTask_languageCode = Lens.lens (\StartSpeechSynthesisTask' {languageCode} -> languageCode) (\s@StartSpeechSynthesisTask' {} a -> s {languageCode = a} :: StartSpeechSynthesisTask)
 
 -- | The type of speech marks returned for the input text.
-startSpeechSynthesisTask_speechMarkTypes :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe [SpeechMarkType])
-startSpeechSynthesisTask_speechMarkTypes = Lens.lens (\StartSpeechSynthesisTask' {speechMarkTypes} -> speechMarkTypes) (\s@StartSpeechSynthesisTask' {} a -> s {speechMarkTypes = a} :: StartSpeechSynthesisTask) Prelude.. Lens.mapping Prelude._Coerce
+startSpeechSynthesisTask_speechMarkTypes :: Lens.Lens' StartSpeechSynthesisTask (Core.Maybe [SpeechMarkType])
+startSpeechSynthesisTask_speechMarkTypes = Lens.lens (\StartSpeechSynthesisTask' {speechMarkTypes} -> speechMarkTypes) (\s@StartSpeechSynthesisTask' {} a -> s {speechMarkTypes = a} :: StartSpeechSynthesisTask) Core.. Lens.mapping Lens._Coerce
 
 -- | List of one or more pronunciation lexicon names you want the service to
 -- apply during synthesis. Lexicons are applied only if the language of the
 -- lexicon is the same as the language of the voice.
-startSpeechSynthesisTask_lexiconNames :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe [Prelude.Text])
-startSpeechSynthesisTask_lexiconNames = Lens.lens (\StartSpeechSynthesisTask' {lexiconNames} -> lexiconNames) (\s@StartSpeechSynthesisTask' {} a -> s {lexiconNames = a} :: StartSpeechSynthesisTask) Prelude.. Lens.mapping Prelude._Coerce
+startSpeechSynthesisTask_lexiconNames :: Lens.Lens' StartSpeechSynthesisTask (Core.Maybe [Core.Text])
+startSpeechSynthesisTask_lexiconNames = Lens.lens (\StartSpeechSynthesisTask' {lexiconNames} -> lexiconNames) (\s@StartSpeechSynthesisTask' {} a -> s {lexiconNames = a} :: StartSpeechSynthesisTask) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether the input text is plain text or SSML. The default
 -- value is plain text.
-startSpeechSynthesisTask_textType :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe TextType)
+startSpeechSynthesisTask_textType :: Lens.Lens' StartSpeechSynthesisTask (Core.Maybe TextType)
 startSpeechSynthesisTask_textType = Lens.lens (\StartSpeechSynthesisTask' {textType} -> textType) (\s@StartSpeechSynthesisTask' {} a -> s {textType = a} :: StartSpeechSynthesisTask)
 
 -- | The audio frequency specified in Hz.
@@ -241,22 +240,22 @@ startSpeechSynthesisTask_textType = Lens.lens (\StartSpeechSynthesisTask' {textT
 --
 -- Valid values for pcm are \"8000\" and \"16000\" The default value is
 -- \"16000\".
-startSpeechSynthesisTask_sampleRate :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe Prelude.Text)
+startSpeechSynthesisTask_sampleRate :: Lens.Lens' StartSpeechSynthesisTask (Core.Maybe Core.Text)
 startSpeechSynthesisTask_sampleRate = Lens.lens (\StartSpeechSynthesisTask' {sampleRate} -> sampleRate) (\s@StartSpeechSynthesisTask' {} a -> s {sampleRate = a} :: StartSpeechSynthesisTask)
 
 -- | Specifies the engine (@standard@ or @neural@) for Amazon Polly to use
 -- when processing input text for speech synthesis. Using a voice that is
 -- not supported for the engine selected will result in an error.
-startSpeechSynthesisTask_engine :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe Engine)
+startSpeechSynthesisTask_engine :: Lens.Lens' StartSpeechSynthesisTask (Core.Maybe Engine)
 startSpeechSynthesisTask_engine = Lens.lens (\StartSpeechSynthesisTask' {engine} -> engine) (\s@StartSpeechSynthesisTask' {} a -> s {engine = a} :: StartSpeechSynthesisTask)
 
 -- | The Amazon S3 key prefix for the output speech file.
-startSpeechSynthesisTask_outputS3KeyPrefix :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe Prelude.Text)
+startSpeechSynthesisTask_outputS3KeyPrefix :: Lens.Lens' StartSpeechSynthesisTask (Core.Maybe Core.Text)
 startSpeechSynthesisTask_outputS3KeyPrefix = Lens.lens (\StartSpeechSynthesisTask' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@StartSpeechSynthesisTask' {} a -> s {outputS3KeyPrefix = a} :: StartSpeechSynthesisTask)
 
 -- | ARN for the SNS topic optionally used for providing status notification
 -- for a speech synthesis task.
-startSpeechSynthesisTask_snsTopicArn :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe Prelude.Text)
+startSpeechSynthesisTask_snsTopicArn :: Lens.Lens' StartSpeechSynthesisTask (Core.Maybe Core.Text)
 startSpeechSynthesisTask_snsTopicArn = Lens.lens (\StartSpeechSynthesisTask' {snsTopicArn} -> snsTopicArn) (\s@StartSpeechSynthesisTask' {} a -> s {snsTopicArn = a} :: StartSpeechSynthesisTask)
 
 -- | The format in which the returned output will be encoded. For audio
@@ -266,77 +265,74 @@ startSpeechSynthesisTask_outputFormat :: Lens.Lens' StartSpeechSynthesisTask Out
 startSpeechSynthesisTask_outputFormat = Lens.lens (\StartSpeechSynthesisTask' {outputFormat} -> outputFormat) (\s@StartSpeechSynthesisTask' {} a -> s {outputFormat = a} :: StartSpeechSynthesisTask)
 
 -- | Amazon S3 bucket name to which the output file will be saved.
-startSpeechSynthesisTask_outputS3BucketName :: Lens.Lens' StartSpeechSynthesisTask Prelude.Text
+startSpeechSynthesisTask_outputS3BucketName :: Lens.Lens' StartSpeechSynthesisTask Core.Text
 startSpeechSynthesisTask_outputS3BucketName = Lens.lens (\StartSpeechSynthesisTask' {outputS3BucketName} -> outputS3BucketName) (\s@StartSpeechSynthesisTask' {} a -> s {outputS3BucketName = a} :: StartSpeechSynthesisTask)
 
 -- | The input text to synthesize. If you specify ssml as the TextType,
 -- follow the SSML format for the input text.
-startSpeechSynthesisTask_text :: Lens.Lens' StartSpeechSynthesisTask Prelude.Text
+startSpeechSynthesisTask_text :: Lens.Lens' StartSpeechSynthesisTask Core.Text
 startSpeechSynthesisTask_text = Lens.lens (\StartSpeechSynthesisTask' {text} -> text) (\s@StartSpeechSynthesisTask' {} a -> s {text = a} :: StartSpeechSynthesisTask)
 
 -- | Voice ID to use for the synthesis.
 startSpeechSynthesisTask_voiceId :: Lens.Lens' StartSpeechSynthesisTask VoiceId
 startSpeechSynthesisTask_voiceId = Lens.lens (\StartSpeechSynthesisTask' {voiceId} -> voiceId) (\s@StartSpeechSynthesisTask' {} a -> s {voiceId = a} :: StartSpeechSynthesisTask)
 
-instance Prelude.AWSRequest StartSpeechSynthesisTask where
+instance Core.AWSRequest StartSpeechSynthesisTask where
   type
-    Rs StartSpeechSynthesisTask =
+    AWSResponse StartSpeechSynthesisTask =
       StartSpeechSynthesisTaskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartSpeechSynthesisTaskResponse'
-            Prelude.<$> (x Prelude..?> "SynthesisTask")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SynthesisTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartSpeechSynthesisTask
+instance Core.Hashable StartSpeechSynthesisTask
 
-instance Prelude.NFData StartSpeechSynthesisTask
+instance Core.NFData StartSpeechSynthesisTask
 
-instance Prelude.ToHeaders StartSpeechSynthesisTask where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders StartSpeechSynthesisTask where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON StartSpeechSynthesisTask where
+instance Core.ToJSON StartSpeechSynthesisTask where
   toJSON StartSpeechSynthesisTask' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("LanguageCode" Prelude..=)
-              Prelude.<$> languageCode,
-            ("SpeechMarkTypes" Prelude..=)
-              Prelude.<$> speechMarkTypes,
-            ("LexiconNames" Prelude..=) Prelude.<$> lexiconNames,
-            ("TextType" Prelude..=) Prelude.<$> textType,
-            ("SampleRate" Prelude..=) Prelude.<$> sampleRate,
-            ("Engine" Prelude..=) Prelude.<$> engine,
-            ("OutputS3KeyPrefix" Prelude..=)
-              Prelude.<$> outputS3KeyPrefix,
-            ("SnsTopicArn" Prelude..=) Prelude.<$> snsTopicArn,
-            Prelude.Just
-              ("OutputFormat" Prelude..= outputFormat),
-            Prelude.Just
-              ("OutputS3BucketName" Prelude..= outputS3BucketName),
-            Prelude.Just ("Text" Prelude..= text),
-            Prelude.Just ("VoiceId" Prelude..= voiceId)
+    Core.object
+      ( Core.catMaybes
+          [ ("LanguageCode" Core..=) Core.<$> languageCode,
+            ("SpeechMarkTypes" Core..=) Core.<$> speechMarkTypes,
+            ("LexiconNames" Core..=) Core.<$> lexiconNames,
+            ("TextType" Core..=) Core.<$> textType,
+            ("SampleRate" Core..=) Core.<$> sampleRate,
+            ("Engine" Core..=) Core.<$> engine,
+            ("OutputS3KeyPrefix" Core..=)
+              Core.<$> outputS3KeyPrefix,
+            ("SnsTopicArn" Core..=) Core.<$> snsTopicArn,
+            Core.Just ("OutputFormat" Core..= outputFormat),
+            Core.Just
+              ("OutputS3BucketName" Core..= outputS3BucketName),
+            Core.Just ("Text" Core..= text),
+            Core.Just ("VoiceId" Core..= voiceId)
           ]
       )
 
-instance Prelude.ToPath StartSpeechSynthesisTask where
-  toPath = Prelude.const "/v1/synthesisTasks"
+instance Core.ToPath StartSpeechSynthesisTask where
+  toPath = Core.const "/v1/synthesisTasks"
 
-instance Prelude.ToQuery StartSpeechSynthesisTask where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartSpeechSynthesisTask where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartSpeechSynthesisTaskResponse' smart constructor.
 data StartSpeechSynthesisTaskResponse = StartSpeechSynthesisTaskResponse'
   { -- | SynthesisTask object that provides information and attributes about a
     -- newly submitted speech synthesis task.
-    synthesisTask :: Prelude.Maybe SynthesisTask,
+    synthesisTask :: Core.Maybe SynthesisTask,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartSpeechSynthesisTaskResponse' with all optional fields omitted.
@@ -352,24 +348,22 @@ data StartSpeechSynthesisTaskResponse = StartSpeechSynthesisTaskResponse'
 -- 'httpStatus', 'startSpeechSynthesisTaskResponse_httpStatus' - The response's http status code.
 newStartSpeechSynthesisTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartSpeechSynthesisTaskResponse
 newStartSpeechSynthesisTaskResponse pHttpStatus_ =
   StartSpeechSynthesisTaskResponse'
     { synthesisTask =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | SynthesisTask object that provides information and attributes about a
 -- newly submitted speech synthesis task.
-startSpeechSynthesisTaskResponse_synthesisTask :: Lens.Lens' StartSpeechSynthesisTaskResponse (Prelude.Maybe SynthesisTask)
+startSpeechSynthesisTaskResponse_synthesisTask :: Lens.Lens' StartSpeechSynthesisTaskResponse (Core.Maybe SynthesisTask)
 startSpeechSynthesisTaskResponse_synthesisTask = Lens.lens (\StartSpeechSynthesisTaskResponse' {synthesisTask} -> synthesisTask) (\s@StartSpeechSynthesisTaskResponse' {} a -> s {synthesisTask = a} :: StartSpeechSynthesisTaskResponse)
 
 -- | The response's http status code.
-startSpeechSynthesisTaskResponse_httpStatus :: Lens.Lens' StartSpeechSynthesisTaskResponse Prelude.Int
+startSpeechSynthesisTaskResponse_httpStatus :: Lens.Lens' StartSpeechSynthesisTaskResponse Core.Int
 startSpeechSynthesisTaskResponse_httpStatus = Lens.lens (\StartSpeechSynthesisTaskResponse' {httpStatus} -> httpStatus) (\s@StartSpeechSynthesisTaskResponse' {} a -> s {httpStatus = a} :: StartSpeechSynthesisTaskResponse)
 
-instance
-  Prelude.NFData
-    StartSpeechSynthesisTaskResponse
+instance Core.NFData StartSpeechSynthesisTaskResponse

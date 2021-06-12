@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.AutoScalingPlans.CreateScalingPlan
 where
 
 import Network.AWS.AutoScalingPlans.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data CreateScalingPlan = CreateScalingPlan'
   { -- | The name of the scaling plan. Names cannot contain vertical bars,
     -- colons, or forward slashes.
-    scalingPlanName :: Prelude.Text,
+    scalingPlanName :: Core.Text,
     -- | A CloudFormation stack or set of tags. You can create one scaling plan
     -- per application source.
     --
@@ -67,7 +66,7 @@ data CreateScalingPlan = CreateScalingPlan'
     -- in the /AWS Auto Scaling API Reference/.
     scalingInstructions :: [ScalingInstruction]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateScalingPlan' with all optional fields omitted.
@@ -94,7 +93,7 @@ data CreateScalingPlan = CreateScalingPlan'
 -- in the /AWS Auto Scaling API Reference/.
 newCreateScalingPlan ::
   -- | 'scalingPlanName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationSource'
   ApplicationSource ->
   CreateScalingPlan
@@ -105,12 +104,12 @@ newCreateScalingPlan
       { scalingPlanName =
           pScalingPlanName_,
         applicationSource = pApplicationSource_,
-        scalingInstructions = Prelude.mempty
+        scalingInstructions = Core.mempty
       }
 
 -- | The name of the scaling plan. Names cannot contain vertical bars,
 -- colons, or forward slashes.
-createScalingPlan_scalingPlanName :: Lens.Lens' CreateScalingPlan Prelude.Text
+createScalingPlan_scalingPlanName :: Lens.Lens' CreateScalingPlan Core.Text
 createScalingPlan_scalingPlanName = Lens.lens (\CreateScalingPlan' {scalingPlanName} -> scalingPlanName) (\s@CreateScalingPlan' {} a -> s {scalingPlanName = a} :: CreateScalingPlan)
 
 -- | A CloudFormation stack or set of tags. You can create one scaling plan
@@ -128,68 +127,66 @@ createScalingPlan_applicationSource = Lens.lens (\CreateScalingPlan' {applicatio
 -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html ScalingInstruction>
 -- in the /AWS Auto Scaling API Reference/.
 createScalingPlan_scalingInstructions :: Lens.Lens' CreateScalingPlan [ScalingInstruction]
-createScalingPlan_scalingInstructions = Lens.lens (\CreateScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@CreateScalingPlan' {} a -> s {scalingInstructions = a} :: CreateScalingPlan) Prelude.. Prelude._Coerce
+createScalingPlan_scalingInstructions = Lens.lens (\CreateScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@CreateScalingPlan' {} a -> s {scalingInstructions = a} :: CreateScalingPlan) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateScalingPlan where
-  type Rs CreateScalingPlan = CreateScalingPlanResponse
+instance Core.AWSRequest CreateScalingPlan where
+  type
+    AWSResponse CreateScalingPlan =
+      CreateScalingPlanResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateScalingPlanResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "ScalingPlanVersion")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "ScalingPlanVersion")
       )
 
-instance Prelude.Hashable CreateScalingPlan
+instance Core.Hashable CreateScalingPlan
 
-instance Prelude.NFData CreateScalingPlan
+instance Core.NFData CreateScalingPlan
 
-instance Prelude.ToHeaders CreateScalingPlan where
+instance Core.ToHeaders CreateScalingPlan where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AnyScaleScalingPlannerFrontendService.CreateScalingPlan" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AnyScaleScalingPlannerFrontendService.CreateScalingPlan" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateScalingPlan where
+instance Core.ToJSON CreateScalingPlan where
   toJSON CreateScalingPlan' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ScalingPlanName" Prelude..= scalingPlanName),
-            Prelude.Just
-              ("ApplicationSource" Prelude..= applicationSource),
-            Prelude.Just
-              ( "ScalingInstructions"
-                  Prelude..= scalingInstructions
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ScalingPlanName" Core..= scalingPlanName),
+            Core.Just
+              ("ApplicationSource" Core..= applicationSource),
+            Core.Just
+              ("ScalingInstructions" Core..= scalingInstructions)
           ]
       )
 
-instance Prelude.ToPath CreateScalingPlan where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateScalingPlan where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateScalingPlan where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateScalingPlan where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateScalingPlanResponse' smart constructor.
 data CreateScalingPlanResponse = CreateScalingPlanResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The version number of the scaling plan. This value is always @1@.
     -- Currently, you cannot have multiple scaling plan versions.
-    scalingPlanVersion :: Prelude.Integer
+    scalingPlanVersion :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateScalingPlanResponse' with all optional fields omitted.
@@ -205,9 +202,9 @@ data CreateScalingPlanResponse = CreateScalingPlanResponse'
 -- Currently, you cannot have multiple scaling plan versions.
 newCreateScalingPlanResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'scalingPlanVersion'
-  Prelude.Integer ->
+  Core.Integer ->
   CreateScalingPlanResponse
 newCreateScalingPlanResponse
   pHttpStatus_
@@ -219,12 +216,12 @@ newCreateScalingPlanResponse
       }
 
 -- | The response's http status code.
-createScalingPlanResponse_httpStatus :: Lens.Lens' CreateScalingPlanResponse Prelude.Int
+createScalingPlanResponse_httpStatus :: Lens.Lens' CreateScalingPlanResponse Core.Int
 createScalingPlanResponse_httpStatus = Lens.lens (\CreateScalingPlanResponse' {httpStatus} -> httpStatus) (\s@CreateScalingPlanResponse' {} a -> s {httpStatus = a} :: CreateScalingPlanResponse)
 
 -- | The version number of the scaling plan. This value is always @1@.
 -- Currently, you cannot have multiple scaling plan versions.
-createScalingPlanResponse_scalingPlanVersion :: Lens.Lens' CreateScalingPlanResponse Prelude.Integer
+createScalingPlanResponse_scalingPlanVersion :: Lens.Lens' CreateScalingPlanResponse Core.Integer
 createScalingPlanResponse_scalingPlanVersion = Lens.lens (\CreateScalingPlanResponse' {scalingPlanVersion} -> scalingPlanVersion) (\s@CreateScalingPlanResponse' {} a -> s {scalingPlanVersion = a} :: CreateScalingPlanResponse)
 
-instance Prelude.NFData CreateScalingPlanResponse
+instance Core.NFData CreateScalingPlanResponse

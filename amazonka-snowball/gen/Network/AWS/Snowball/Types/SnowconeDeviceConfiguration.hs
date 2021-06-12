@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.SnowconeDeviceConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.WirelessConnection
 
 -- | Specifies the device configuration for an AWS Snowcone job.
@@ -29,9 +28,9 @@ import Network.AWS.Snowball.Types.WirelessConnection
 -- /See:/ 'newSnowconeDeviceConfiguration' smart constructor.
 data SnowconeDeviceConfiguration = SnowconeDeviceConfiguration'
   { -- | Configures the wireless connection for the AWS Snowcone device.
-    wirelessConnection :: Prelude.Maybe WirelessConnection
+    wirelessConnection :: Core.Maybe WirelessConnection
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SnowconeDeviceConfiguration' with all optional fields omitted.
@@ -47,31 +46,31 @@ newSnowconeDeviceConfiguration ::
 newSnowconeDeviceConfiguration =
   SnowconeDeviceConfiguration'
     { wirelessConnection =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Configures the wireless connection for the AWS Snowcone device.
-snowconeDeviceConfiguration_wirelessConnection :: Lens.Lens' SnowconeDeviceConfiguration (Prelude.Maybe WirelessConnection)
+snowconeDeviceConfiguration_wirelessConnection :: Lens.Lens' SnowconeDeviceConfiguration (Core.Maybe WirelessConnection)
 snowconeDeviceConfiguration_wirelessConnection = Lens.lens (\SnowconeDeviceConfiguration' {wirelessConnection} -> wirelessConnection) (\s@SnowconeDeviceConfiguration' {} a -> s {wirelessConnection = a} :: SnowconeDeviceConfiguration)
 
-instance Prelude.FromJSON SnowconeDeviceConfiguration where
+instance Core.FromJSON SnowconeDeviceConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SnowconeDeviceConfiguration"
       ( \x ->
           SnowconeDeviceConfiguration'
-            Prelude.<$> (x Prelude..:? "WirelessConnection")
+            Core.<$> (x Core..:? "WirelessConnection")
       )
 
-instance Prelude.Hashable SnowconeDeviceConfiguration
+instance Core.Hashable SnowconeDeviceConfiguration
 
-instance Prelude.NFData SnowconeDeviceConfiguration
+instance Core.NFData SnowconeDeviceConfiguration
 
-instance Prelude.ToJSON SnowconeDeviceConfiguration where
+instance Core.ToJSON SnowconeDeviceConfiguration where
   toJSON SnowconeDeviceConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("WirelessConnection" Prelude..=)
-              Prelude.<$> wirelessConnection
+    Core.object
+      ( Core.catMaybes
+          [ ("WirelessConnection" Core..=)
+              Core.<$> wirelessConnection
           ]
       )

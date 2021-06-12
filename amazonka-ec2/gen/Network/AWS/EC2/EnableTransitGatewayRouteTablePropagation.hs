@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.EC2.EnableTransitGatewayRouteTablePropagation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,13 +54,13 @@ data EnableTransitGatewayRouteTablePropagation = EnableTransitGatewayRouteTableP
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the propagation route table.
-    transitGatewayRouteTableId :: Prelude.Text,
+    transitGatewayRouteTableId :: Core.Text,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Prelude.Text
+    transitGatewayAttachmentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableTransitGatewayRouteTablePropagation' with all optional fields omitted.
@@ -81,16 +80,16 @@ data EnableTransitGatewayRouteTablePropagation = EnableTransitGatewayRouteTableP
 -- 'transitGatewayAttachmentId', 'enableTransitGatewayRouteTablePropagation_transitGatewayAttachmentId' - The ID of the attachment.
 newEnableTransitGatewayRouteTablePropagation ::
   -- | 'transitGatewayRouteTableId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'transitGatewayAttachmentId'
-  Prelude.Text ->
+  Core.Text ->
   EnableTransitGatewayRouteTablePropagation
 newEnableTransitGatewayRouteTablePropagation
   pTransitGatewayRouteTableId_
   pTransitGatewayAttachmentId_ =
     EnableTransitGatewayRouteTablePropagation'
       { dryRun =
-          Prelude.Nothing,
+          Core.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_,
         transitGatewayAttachmentId =
@@ -101,81 +100,81 @@ newEnableTransitGatewayRouteTablePropagation
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-enableTransitGatewayRouteTablePropagation_dryRun :: Lens.Lens' EnableTransitGatewayRouteTablePropagation (Prelude.Maybe Prelude.Bool)
+enableTransitGatewayRouteTablePropagation_dryRun :: Lens.Lens' EnableTransitGatewayRouteTablePropagation (Core.Maybe Core.Bool)
 enableTransitGatewayRouteTablePropagation_dryRun = Lens.lens (\EnableTransitGatewayRouteTablePropagation' {dryRun} -> dryRun) (\s@EnableTransitGatewayRouteTablePropagation' {} a -> s {dryRun = a} :: EnableTransitGatewayRouteTablePropagation)
 
 -- | The ID of the propagation route table.
-enableTransitGatewayRouteTablePropagation_transitGatewayRouteTableId :: Lens.Lens' EnableTransitGatewayRouteTablePropagation Prelude.Text
+enableTransitGatewayRouteTablePropagation_transitGatewayRouteTableId :: Lens.Lens' EnableTransitGatewayRouteTablePropagation Core.Text
 enableTransitGatewayRouteTablePropagation_transitGatewayRouteTableId = Lens.lens (\EnableTransitGatewayRouteTablePropagation' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@EnableTransitGatewayRouteTablePropagation' {} a -> s {transitGatewayRouteTableId = a} :: EnableTransitGatewayRouteTablePropagation)
 
 -- | The ID of the attachment.
-enableTransitGatewayRouteTablePropagation_transitGatewayAttachmentId :: Lens.Lens' EnableTransitGatewayRouteTablePropagation Prelude.Text
+enableTransitGatewayRouteTablePropagation_transitGatewayAttachmentId :: Lens.Lens' EnableTransitGatewayRouteTablePropagation Core.Text
 enableTransitGatewayRouteTablePropagation_transitGatewayAttachmentId = Lens.lens (\EnableTransitGatewayRouteTablePropagation' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@EnableTransitGatewayRouteTablePropagation' {} a -> s {transitGatewayAttachmentId = a} :: EnableTransitGatewayRouteTablePropagation)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     EnableTransitGatewayRouteTablePropagation
   where
   type
-    Rs EnableTransitGatewayRouteTablePropagation =
+    AWSResponse
+      EnableTransitGatewayRouteTablePropagation =
       EnableTransitGatewayRouteTablePropagationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           EnableTransitGatewayRouteTablePropagationResponse'
-            Prelude.<$> (x Prelude..@? "propagation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "propagation")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     EnableTransitGatewayRouteTablePropagation
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableTransitGatewayRouteTablePropagation
 
 instance
-  Prelude.ToHeaders
-    EnableTransitGatewayRouteTablePropagation
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     EnableTransitGatewayRouteTablePropagation
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    EnableTransitGatewayRouteTablePropagation
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     EnableTransitGatewayRouteTablePropagation
   where
   toQuery
     EnableTransitGatewayRouteTablePropagation' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "Action"
-            Prelude.=: ( "EnableTransitGatewayRouteTablePropagation" ::
-                           Prelude.ByteString
-                       ),
-          "Version"
-            Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Prelude.=: dryRun,
+            Core.=: ( "EnableTransitGatewayRouteTablePropagation" ::
+                        Core.ByteString
+                    ),
+          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "DryRun" Core.=: dryRun,
           "TransitGatewayRouteTableId"
-            Prelude.=: transitGatewayRouteTableId,
+            Core.=: transitGatewayRouteTableId,
           "TransitGatewayAttachmentId"
-            Prelude.=: transitGatewayAttachmentId
+            Core.=: transitGatewayAttachmentId
         ]
 
 -- | /See:/ 'newEnableTransitGatewayRouteTablePropagationResponse' smart constructor.
 data EnableTransitGatewayRouteTablePropagationResponse = EnableTransitGatewayRouteTablePropagationResponse'
   { -- | Information about route propagation.
-    propagation :: Prelude.Maybe TransitGatewayPropagation,
+    propagation :: Core.Maybe TransitGatewayPropagation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableTransitGatewayRouteTablePropagationResponse' with all optional fields omitted.
@@ -190,25 +189,25 @@ data EnableTransitGatewayRouteTablePropagationResponse = EnableTransitGatewayRou
 -- 'httpStatus', 'enableTransitGatewayRouteTablePropagationResponse_httpStatus' - The response's http status code.
 newEnableTransitGatewayRouteTablePropagationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   EnableTransitGatewayRouteTablePropagationResponse
 newEnableTransitGatewayRouteTablePropagationResponse
   pHttpStatus_ =
     EnableTransitGatewayRouteTablePropagationResponse'
       { propagation =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Information about route propagation.
-enableTransitGatewayRouteTablePropagationResponse_propagation :: Lens.Lens' EnableTransitGatewayRouteTablePropagationResponse (Prelude.Maybe TransitGatewayPropagation)
+enableTransitGatewayRouteTablePropagationResponse_propagation :: Lens.Lens' EnableTransitGatewayRouteTablePropagationResponse (Core.Maybe TransitGatewayPropagation)
 enableTransitGatewayRouteTablePropagationResponse_propagation = Lens.lens (\EnableTransitGatewayRouteTablePropagationResponse' {propagation} -> propagation) (\s@EnableTransitGatewayRouteTablePropagationResponse' {} a -> s {propagation = a} :: EnableTransitGatewayRouteTablePropagationResponse)
 
 -- | The response's http status code.
-enableTransitGatewayRouteTablePropagationResponse_httpStatus :: Lens.Lens' EnableTransitGatewayRouteTablePropagationResponse Prelude.Int
+enableTransitGatewayRouteTablePropagationResponse_httpStatus :: Lens.Lens' EnableTransitGatewayRouteTablePropagationResponse Core.Int
 enableTransitGatewayRouteTablePropagationResponse_httpStatus = Lens.lens (\EnableTransitGatewayRouteTablePropagationResponse' {httpStatus} -> httpStatus) (\s@EnableTransitGatewayRouteTablePropagationResponse' {} a -> s {httpStatus = a} :: EnableTransitGatewayRouteTablePropagationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableTransitGatewayRouteTablePropagationResponse

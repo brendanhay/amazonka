@@ -722,165 +722,162 @@ import Network.AWS.CodePipeline.Types.WebhookAuthConfiguration
 import Network.AWS.CodePipeline.Types.WebhookAuthenticationType
 import Network.AWS.CodePipeline.Types.WebhookDefinition
 import Network.AWS.CodePipeline.Types.WebhookFilterRule
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-07-09@ of the Amazon CodePipeline SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev =
-        "CodePipeline",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "codepipeline",
-      Prelude._svcSigningName = "codepipeline",
-      Prelude._svcVersion = "2015-07-09",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "CodePipeline",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "CodePipeline",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "codepipeline",
+      Core._serviceSigningName = "codepipeline",
+      Core._serviceVersion = "2015-07-09",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "CodePipeline",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The specified authentication type is in an invalid format.
-_InvalidWebhookAuthenticationParametersException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidWebhookAuthenticationParametersException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidWebhookAuthenticationParametersException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidWebhookAuthenticationParametersException"
 
 -- | The tags limit for a resource has been exceeded.
-_TooManyTagsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyTagsException"
 
 -- | The stage has failed in a later run of the pipeline and the
 -- pipelineExecutionId associated with the request is out of date.
-_NotLatestPipelineExecutionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NotLatestPipelineExecutionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NotLatestPipelineExecutionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NotLatestPipelineExecutionException"
 
 -- | The specified pipeline name is already in use.
-_PipelineNameInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PipelineNameInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PipelineNameInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PipelineNameInUseException"
 
 -- | The approval action has already been approved or rejected.
-_ApprovalAlreadyCompletedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ApprovalAlreadyCompletedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ApprovalAlreadyCompletedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ApprovalAlreadyCompletedException"
 
 -- | Exceeded the total size limit for all variables in the pipeline.
-_OutputVariablesSizeExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OutputVariablesSizeExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OutputVariablesSizeExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OutputVariablesSizeExceededException"
 
 -- | The specified resource ARN is invalid.
-_InvalidArnException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidArnException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidArnException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidArnException"
 
 -- | The structure was specified in an invalid format.
-_InvalidStructureException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidStructureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidStructureException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidStructureException"
 
 -- | Reserved for future use.
-_InvalidBlockerDeclarationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidBlockerDeclarationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidBlockerDeclarationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidBlockerDeclarationException"
 
 -- | Unable to stop the pipeline execution. The execution might already be in
 -- a @Stopped@ state, or it might no longer be in progress.
-_PipelineExecutionNotStoppableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PipelineExecutionNotStoppableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PipelineExecutionNotStoppableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PipelineExecutionNotStoppableException"
 
 -- | The action declaration was specified in an invalid format.
-_InvalidActionDeclarationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidActionDeclarationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidActionDeclarationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidActionDeclarationException"
 
 -- | The specified event filter rule is in an invalid format.
-_InvalidWebhookFilterPatternException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidWebhookFilterPatternException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidWebhookFilterPatternException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidWebhookFilterPatternException"
 
@@ -889,184 +886,184 @@ _InvalidWebhookFilterPatternException =
 -- choose to stop and abandon now, but be aware that this option can lead
 -- to failed tasks or out of sequence tasks. If you already chose to stop
 -- and abandon, you cannot make that request again.
-_DuplicatedStopRequestException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicatedStopRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicatedStopRequestException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicatedStopRequestException"
 
 -- | Unable to modify the tag due to a simultaneous update request.
-_ConcurrentModificationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConcurrentModificationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | The specified action type cannot be found.
-_ActionTypeNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ActionTypeNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ActionTypeNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ActionTypeNotFoundException"
 
 -- | The next token was specified in an invalid format. Make sure that the
 -- next token you provide is the token returned by a previous call.
-_InvalidNextTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidNextTokenException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | The specified resource tags are invalid.
-_InvalidTagsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidTagsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidTagsException"
 
 -- | The nonce was specified in an invalid format.
-_InvalidNonceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidNonceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidNonceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidNonceException"
 
 -- | The specified action type already exists with a different definition.
-_ActionTypeAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ActionTypeAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ActionTypeAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ActionTypeAlreadyExistsException"
 
 -- | The specified webhook was entered in an invalid format or cannot be
 -- found.
-_WebhookNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WebhookNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WebhookNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WebhookNotFoundException"
 
 -- | The pipeline version was specified in an invalid format or cannot be
 -- found.
-_PipelineVersionNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PipelineVersionNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PipelineVersionNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PipelineVersionNotFoundException"
 
 -- | The validation was specified in an invalid format.
-_ValidationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ValidationException"
 
 -- | Unable to retry. The pipeline structure or stage state might have
 -- changed while actions awaited retry, or the stage contains no failed
 -- actions.
-_StageNotRetryableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_StageNotRetryableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _StageNotRetryableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "StageNotRetryableException"
 
 -- | The client token was specified in an invalid format
-_InvalidClientTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidClientTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidClientTokenException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidClientTokenException"
 
 -- | The pipeline execution was specified in an invalid format or cannot be
 -- found, or an execution ID does not belong to the specified pipeline.
-_PipelineExecutionNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PipelineExecutionNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PipelineExecutionNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PipelineExecutionNotFoundException"
 
 -- | The number of pipelines associated with the AWS account has exceeded the
 -- limit allowed for the account.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | Your request cannot be handled because the pipeline is busy handling
 -- ongoing activities. Try again later.
-_ConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | The job was specified in an invalid format or cannot be found.
-_InvalidJobException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidJobException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidJobException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidJobException"
 
 -- | The job state was specified in an invalid format.
-_InvalidJobStateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidJobStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidJobStateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidJobStateException"
 
 -- | The resource was specified in an invalid format.
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The pipeline was specified in an invalid format or cannot be found.
-_PipelineNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PipelineNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PipelineNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PipelineNotFoundException"
 
 -- | The job was specified in an invalid format or cannot be found.
-_JobNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_JobNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _JobNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "JobNotFoundException"
 
 -- | The stage was specified in an invalid format or cannot be found.
-_StageNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_StageNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _StageNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "StageNotFoundException"
 
 -- | The request failed because of an unknown error, exception, or failure.
-_RequestFailedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RequestFailedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _RequestFailedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "RequestFailedException"
 
 -- | The specified action cannot be found.
-_ActionNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ActionNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ActionNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ActionNotFoundException"
 
 -- | The stage declaration was specified in an invalid format.
-_InvalidStageDeclarationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidStageDeclarationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidStageDeclarationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidStageDeclarationException"
 
 -- | The approval request already received a response or has expired.
-_InvalidApprovalTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidApprovalTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidApprovalTokenException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidApprovalTokenException"

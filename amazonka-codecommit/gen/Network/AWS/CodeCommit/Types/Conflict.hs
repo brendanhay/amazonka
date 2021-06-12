@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodeCommit.Types.Conflict where
 
 import Network.AWS.CodeCommit.Types.ConflictMetadata
 import Network.AWS.CodeCommit.Types.MergeHunk
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about conflicts in a merge operation.
 --
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data Conflict = Conflict'
   { -- | A list of hunks that contain the differences between files or lines
     -- causing the conflict.
-    mergeHunks :: Prelude.Maybe [MergeHunk],
+    mergeHunks :: Core.Maybe [MergeHunk],
     -- | Metadata about a conflict in a merge operation.
-    conflictMetadata :: Prelude.Maybe ConflictMetadata
+    conflictMetadata :: Core.Maybe ConflictMetadata
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Conflict' with all optional fields omitted.
@@ -53,31 +52,29 @@ newConflict ::
   Conflict
 newConflict =
   Conflict'
-    { mergeHunks = Prelude.Nothing,
-      conflictMetadata = Prelude.Nothing
+    { mergeHunks = Core.Nothing,
+      conflictMetadata = Core.Nothing
     }
 
 -- | A list of hunks that contain the differences between files or lines
 -- causing the conflict.
-conflict_mergeHunks :: Lens.Lens' Conflict (Prelude.Maybe [MergeHunk])
-conflict_mergeHunks = Lens.lens (\Conflict' {mergeHunks} -> mergeHunks) (\s@Conflict' {} a -> s {mergeHunks = a} :: Conflict) Prelude.. Lens.mapping Prelude._Coerce
+conflict_mergeHunks :: Lens.Lens' Conflict (Core.Maybe [MergeHunk])
+conflict_mergeHunks = Lens.lens (\Conflict' {mergeHunks} -> mergeHunks) (\s@Conflict' {} a -> s {mergeHunks = a} :: Conflict) Core.. Lens.mapping Lens._Coerce
 
 -- | Metadata about a conflict in a merge operation.
-conflict_conflictMetadata :: Lens.Lens' Conflict (Prelude.Maybe ConflictMetadata)
+conflict_conflictMetadata :: Lens.Lens' Conflict (Core.Maybe ConflictMetadata)
 conflict_conflictMetadata = Lens.lens (\Conflict' {conflictMetadata} -> conflictMetadata) (\s@Conflict' {} a -> s {conflictMetadata = a} :: Conflict)
 
-instance Prelude.FromJSON Conflict where
+instance Core.FromJSON Conflict where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Conflict"
       ( \x ->
           Conflict'
-            Prelude.<$> ( x Prelude..:? "mergeHunks"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "conflictMetadata")
+            Core.<$> (x Core..:? "mergeHunks" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "conflictMetadata")
       )
 
-instance Prelude.Hashable Conflict
+instance Core.Hashable Conflict
 
-instance Prelude.NFData Conflict
+instance Core.NFData Conflict

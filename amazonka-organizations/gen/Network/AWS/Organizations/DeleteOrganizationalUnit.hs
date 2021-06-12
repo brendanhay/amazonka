@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Organizations.DeleteOrganizationalUnit
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +57,9 @@ data DeleteOrganizationalUnit = DeleteOrganizationalUnit'
     -- lowercase letters or digits (the ID of the root that contains the OU).
     -- This string is followed by a second \"-\" dash and from 8 to 32
     -- additional lowercase letters or digits.
-    organizationalUnitId :: Prelude.Text
+    organizationalUnitId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganizationalUnit' with all optional fields omitted.
@@ -81,7 +80,7 @@ data DeleteOrganizationalUnit = DeleteOrganizationalUnit'
 -- additional lowercase letters or digits.
 newDeleteOrganizationalUnit ::
   -- | 'organizationalUnitId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteOrganizationalUnit
 newDeleteOrganizationalUnit pOrganizationalUnitId_ =
   DeleteOrganizationalUnit'
@@ -98,59 +97,57 @@ newDeleteOrganizationalUnit pOrganizationalUnitId_ =
 -- lowercase letters or digits (the ID of the root that contains the OU).
 -- This string is followed by a second \"-\" dash and from 8 to 32
 -- additional lowercase letters or digits.
-deleteOrganizationalUnit_organizationalUnitId :: Lens.Lens' DeleteOrganizationalUnit Prelude.Text
+deleteOrganizationalUnit_organizationalUnitId :: Lens.Lens' DeleteOrganizationalUnit Core.Text
 deleteOrganizationalUnit_organizationalUnitId = Lens.lens (\DeleteOrganizationalUnit' {organizationalUnitId} -> organizationalUnitId) (\s@DeleteOrganizationalUnit' {} a -> s {organizationalUnitId = a} :: DeleteOrganizationalUnit)
 
-instance Prelude.AWSRequest DeleteOrganizationalUnit where
+instance Core.AWSRequest DeleteOrganizationalUnit where
   type
-    Rs DeleteOrganizationalUnit =
+    AWSResponse DeleteOrganizationalUnit =
       DeleteOrganizationalUnitResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteOrganizationalUnitResponse'
 
-instance Prelude.Hashable DeleteOrganizationalUnit
+instance Core.Hashable DeleteOrganizationalUnit
 
-instance Prelude.NFData DeleteOrganizationalUnit
+instance Core.NFData DeleteOrganizationalUnit
 
-instance Prelude.ToHeaders DeleteOrganizationalUnit where
+instance Core.ToHeaders DeleteOrganizationalUnit where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.DeleteOrganizationalUnit" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.DeleteOrganizationalUnit" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteOrganizationalUnit where
+instance Core.ToJSON DeleteOrganizationalUnit where
   toJSON DeleteOrganizationalUnit' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "OrganizationalUnitId"
-                  Prelude..= organizationalUnitId
+                  Core..= organizationalUnitId
               )
           ]
       )
 
-instance Prelude.ToPath DeleteOrganizationalUnit where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteOrganizationalUnit where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteOrganizationalUnit where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteOrganizationalUnit where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteOrganizationalUnitResponse' smart constructor.
 data DeleteOrganizationalUnitResponse = DeleteOrganizationalUnitResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganizationalUnitResponse' with all optional fields omitted.
@@ -161,6 +158,4 @@ newDeleteOrganizationalUnitResponse ::
 newDeleteOrganizationalUnitResponse =
   DeleteOrganizationalUnitResponse'
 
-instance
-  Prelude.NFData
-    DeleteOrganizationalUnitResponse
+instance Core.NFData DeleteOrganizationalUnitResponse

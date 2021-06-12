@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.AttackStatisticsDataItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.AttackVolume
 
 -- | A single attack statistics data record. This is returned by
@@ -32,12 +31,12 @@ import Network.AWS.Shield.Types.AttackVolume
 data AttackStatisticsDataItem = AttackStatisticsDataItem'
   { -- | Information about the volume of attacks during the time period. If the
     -- accompanying @AttackCount@ is zero, this setting might be empty.
-    attackVolume :: Prelude.Maybe AttackVolume,
+    attackVolume :: Core.Maybe AttackVolume,
     -- | The number of attacks detected during the time period. This is always
     -- present, but might be zero.
-    attackCount :: Prelude.Integer
+    attackCount :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttackStatisticsDataItem' with all optional fields omitted.
@@ -54,35 +53,35 @@ data AttackStatisticsDataItem = AttackStatisticsDataItem'
 -- present, but might be zero.
 newAttackStatisticsDataItem ::
   -- | 'attackCount'
-  Prelude.Integer ->
+  Core.Integer ->
   AttackStatisticsDataItem
 newAttackStatisticsDataItem pAttackCount_ =
   AttackStatisticsDataItem'
     { attackVolume =
-        Prelude.Nothing,
+        Core.Nothing,
       attackCount = pAttackCount_
     }
 
 -- | Information about the volume of attacks during the time period. If the
 -- accompanying @AttackCount@ is zero, this setting might be empty.
-attackStatisticsDataItem_attackVolume :: Lens.Lens' AttackStatisticsDataItem (Prelude.Maybe AttackVolume)
+attackStatisticsDataItem_attackVolume :: Lens.Lens' AttackStatisticsDataItem (Core.Maybe AttackVolume)
 attackStatisticsDataItem_attackVolume = Lens.lens (\AttackStatisticsDataItem' {attackVolume} -> attackVolume) (\s@AttackStatisticsDataItem' {} a -> s {attackVolume = a} :: AttackStatisticsDataItem)
 
 -- | The number of attacks detected during the time period. This is always
 -- present, but might be zero.
-attackStatisticsDataItem_attackCount :: Lens.Lens' AttackStatisticsDataItem Prelude.Integer
+attackStatisticsDataItem_attackCount :: Lens.Lens' AttackStatisticsDataItem Core.Integer
 attackStatisticsDataItem_attackCount = Lens.lens (\AttackStatisticsDataItem' {attackCount} -> attackCount) (\s@AttackStatisticsDataItem' {} a -> s {attackCount = a} :: AttackStatisticsDataItem)
 
-instance Prelude.FromJSON AttackStatisticsDataItem where
+instance Core.FromJSON AttackStatisticsDataItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttackStatisticsDataItem"
       ( \x ->
           AttackStatisticsDataItem'
-            Prelude.<$> (x Prelude..:? "AttackVolume")
-            Prelude.<*> (x Prelude..: "AttackCount")
+            Core.<$> (x Core..:? "AttackVolume")
+            Core.<*> (x Core..: "AttackCount")
       )
 
-instance Prelude.Hashable AttackStatisticsDataItem
+instance Core.Hashable AttackStatisticsDataItem
 
-instance Prelude.NFData AttackStatisticsDataItem
+instance Core.NFData AttackStatisticsDataItem

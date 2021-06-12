@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.MultiplexVideoSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The video configuration for each program in a multiplex.
 --
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data MultiplexVideoSettings = MultiplexVideoSettings'
   { -- | The constant bitrate configuration for the video encode. When this field
     -- is defined, StatmuxSettings must be undefined.
-    constantBitrate :: Prelude.Maybe Prelude.Natural,
+    constantBitrate :: Core.Maybe Core.Natural,
     -- | Statmux rate control settings. When this field is defined,
     -- ConstantBitrate must be undefined.
-    statmuxSettings :: Prelude.Maybe MultiplexStatmuxVideoSettings
+    statmuxSettings :: Core.Maybe MultiplexStatmuxVideoSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MultiplexVideoSettings' with all optional fields omitted.
@@ -55,41 +54,41 @@ newMultiplexVideoSettings ::
 newMultiplexVideoSettings =
   MultiplexVideoSettings'
     { constantBitrate =
-        Prelude.Nothing,
-      statmuxSettings = Prelude.Nothing
+        Core.Nothing,
+      statmuxSettings = Core.Nothing
     }
 
 -- | The constant bitrate configuration for the video encode. When this field
 -- is defined, StatmuxSettings must be undefined.
-multiplexVideoSettings_constantBitrate :: Lens.Lens' MultiplexVideoSettings (Prelude.Maybe Prelude.Natural)
+multiplexVideoSettings_constantBitrate :: Lens.Lens' MultiplexVideoSettings (Core.Maybe Core.Natural)
 multiplexVideoSettings_constantBitrate = Lens.lens (\MultiplexVideoSettings' {constantBitrate} -> constantBitrate) (\s@MultiplexVideoSettings' {} a -> s {constantBitrate = a} :: MultiplexVideoSettings)
 
 -- | Statmux rate control settings. When this field is defined,
 -- ConstantBitrate must be undefined.
-multiplexVideoSettings_statmuxSettings :: Lens.Lens' MultiplexVideoSettings (Prelude.Maybe MultiplexStatmuxVideoSettings)
+multiplexVideoSettings_statmuxSettings :: Lens.Lens' MultiplexVideoSettings (Core.Maybe MultiplexStatmuxVideoSettings)
 multiplexVideoSettings_statmuxSettings = Lens.lens (\MultiplexVideoSettings' {statmuxSettings} -> statmuxSettings) (\s@MultiplexVideoSettings' {} a -> s {statmuxSettings = a} :: MultiplexVideoSettings)
 
-instance Prelude.FromJSON MultiplexVideoSettings where
+instance Core.FromJSON MultiplexVideoSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MultiplexVideoSettings"
       ( \x ->
           MultiplexVideoSettings'
-            Prelude.<$> (x Prelude..:? "constantBitrate")
-            Prelude.<*> (x Prelude..:? "statmuxSettings")
+            Core.<$> (x Core..:? "constantBitrate")
+            Core.<*> (x Core..:? "statmuxSettings")
       )
 
-instance Prelude.Hashable MultiplexVideoSettings
+instance Core.Hashable MultiplexVideoSettings
 
-instance Prelude.NFData MultiplexVideoSettings
+instance Core.NFData MultiplexVideoSettings
 
-instance Prelude.ToJSON MultiplexVideoSettings where
+instance Core.ToJSON MultiplexVideoSettings where
   toJSON MultiplexVideoSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("constantBitrate" Prelude..=)
-              Prelude.<$> constantBitrate,
-            ("statmuxSettings" Prelude..=)
-              Prelude.<$> statmuxSettings
+    Core.object
+      ( Core.catMaybes
+          [ ("constantBitrate" Core..=)
+              Core.<$> constantBitrate,
+            ("statmuxSettings" Core..=)
+              Core.<$> statmuxSettings
           ]
       )

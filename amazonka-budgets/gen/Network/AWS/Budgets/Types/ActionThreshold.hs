@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.Budgets.Types.ActionThreshold where
 
 import Network.AWS.Budgets.Types.ThresholdType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The trigger threshold of the action.
 --
 -- /See:/ 'newActionThreshold' smart constructor.
 data ActionThreshold = ActionThreshold'
-  { actionThresholdValue :: Prelude.Double,
+  { actionThresholdValue :: Core.Double,
     actionThresholdType :: ThresholdType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionThreshold' with all optional fields omitted.
@@ -46,7 +45,7 @@ data ActionThreshold = ActionThreshold'
 -- 'actionThresholdType', 'actionThreshold_actionThresholdType' - Undocumented member.
 newActionThreshold ::
   -- | 'actionThresholdValue'
-  Prelude.Double ->
+  Core.Double ->
   -- | 'actionThresholdType'
   ThresholdType ->
   ActionThreshold
@@ -60,38 +59,36 @@ newActionThreshold
       }
 
 -- | Undocumented member.
-actionThreshold_actionThresholdValue :: Lens.Lens' ActionThreshold Prelude.Double
+actionThreshold_actionThresholdValue :: Lens.Lens' ActionThreshold Core.Double
 actionThreshold_actionThresholdValue = Lens.lens (\ActionThreshold' {actionThresholdValue} -> actionThresholdValue) (\s@ActionThreshold' {} a -> s {actionThresholdValue = a} :: ActionThreshold)
 
 -- | Undocumented member.
 actionThreshold_actionThresholdType :: Lens.Lens' ActionThreshold ThresholdType
 actionThreshold_actionThresholdType = Lens.lens (\ActionThreshold' {actionThresholdType} -> actionThresholdType) (\s@ActionThreshold' {} a -> s {actionThresholdType = a} :: ActionThreshold)
 
-instance Prelude.FromJSON ActionThreshold where
+instance Core.FromJSON ActionThreshold where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionThreshold"
       ( \x ->
           ActionThreshold'
-            Prelude.<$> (x Prelude..: "ActionThresholdValue")
-            Prelude.<*> (x Prelude..: "ActionThresholdType")
+            Core.<$> (x Core..: "ActionThresholdValue")
+            Core.<*> (x Core..: "ActionThresholdType")
       )
 
-instance Prelude.Hashable ActionThreshold
+instance Core.Hashable ActionThreshold
 
-instance Prelude.NFData ActionThreshold
+instance Core.NFData ActionThreshold
 
-instance Prelude.ToJSON ActionThreshold where
+instance Core.ToJSON ActionThreshold where
   toJSON ActionThreshold' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ActionThresholdValue"
-                  Prelude..= actionThresholdValue
+                  Core..= actionThresholdValue
               ),
-            Prelude.Just
-              ( "ActionThresholdType"
-                  Prelude..= actionThresholdType
-              )
+            Core.Just
+              ("ActionThresholdType" Core..= actionThresholdType)
           ]
       )

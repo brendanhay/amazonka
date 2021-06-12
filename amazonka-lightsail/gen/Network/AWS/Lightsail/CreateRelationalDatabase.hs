@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,9 @@ module Network.AWS.Lightsail.CreateRelationalDatabase
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,18 +82,18 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     -- -   Must not conflict with the preferred maintenance window.
     --
     -- -   Must be at least 30 minutes.
-    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
+    preferredBackupWindow :: Core.Maybe Core.Text,
     -- | The password for the master user of your new database. The password can
     -- include any printable ASCII character except \"\/\", \"\"\", or \"\@\".
     --
     -- Constraints: Must contain 8 to 41 characters.
-    masterUserPassword :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    masterUserPassword :: Core.Maybe (Core.Sensitive Core.Text),
     -- | Specifies the accessibility options for your new database. A value of
     -- @true@ specifies a database that is available to resources outside of
     -- your Lightsail account. A value of @false@ specifies a database that is
     -- available only to your Lightsail resources in the same region as your
     -- database.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    publiclyAccessible :: Core.Maybe Core.Bool,
     -- | The Availability Zone in which to create your new database. Use the
     -- @us-east-2a@ case-sensitive format.
     --
@@ -102,7 +101,7 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     -- operation. Be sure to add the
     -- @include relational database Availability Zones@ parameter to your
     -- request.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | The weekly time range during which system maintenance can occur on your
     -- new database.
     --
@@ -121,11 +120,11 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     -- -   Specified in Coordinated Universal Time (UTC).
     --
     -- -   Example: @Tue:17:00-Tue:17:30@
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    preferredMaintenanceWindow :: Core.Maybe Core.Text,
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The name to use for your new Lightsail database resource.
     --
     -- Constraints:
@@ -133,19 +132,19 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     -- -   Must contain from 2 to 255 alphanumeric characters, or hyphens.
     --
     -- -   The first and last character must be a letter or number.
-    relationalDatabaseName :: Prelude.Text,
+    relationalDatabaseName :: Core.Text,
     -- | The blueprint ID for your new database. A blueprint describes the major
     -- engine version of a database.
     --
     -- You can get a list of database blueprints IDs by using the
     -- @get relational database blueprints@ operation.
-    relationalDatabaseBlueprintId :: Prelude.Text,
+    relationalDatabaseBlueprintId :: Core.Text,
     -- | The bundle ID for your new database. A bundle describes the performance
     -- specifications for your database.
     --
     -- You can get a list of database bundle IDs by using the
     -- @get relational database bundles@ operation.
-    relationalDatabaseBundleId :: Prelude.Text,
+    relationalDatabaseBundleId :: Core.Text,
     -- | The name of the master database created when the Lightsail database
     -- resource is created.
     --
@@ -154,7 +153,7 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     -- -   Must contain from 1 to 64 alphanumeric characters.
     --
     -- -   Cannot be a word reserved by the specified database engine
-    masterDatabaseName :: Prelude.Text,
+    masterDatabaseName :: Core.Text,
     -- | The master user name for your new database.
     --
     -- Constraints:
@@ -172,9 +171,9 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     --     <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6> or
     --     <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7>
     --     respectively.
-    masterUsername :: Prelude.Text
+    masterUsername :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRelationalDatabase' with all optional fields omitted.
@@ -296,15 +295,15 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
 --     respectively.
 newCreateRelationalDatabase ::
   -- | 'relationalDatabaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'relationalDatabaseBlueprintId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'relationalDatabaseBundleId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'masterDatabaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'masterUsername'
-  Prelude.Text ->
+  Core.Text ->
   CreateRelationalDatabase
 newCreateRelationalDatabase
   pRelationalDatabaseName_
@@ -314,12 +313,12 @@ newCreateRelationalDatabase
   pMasterUsername_ =
     CreateRelationalDatabase'
       { preferredBackupWindow =
-          Prelude.Nothing,
-        masterUserPassword = Prelude.Nothing,
-        publiclyAccessible = Prelude.Nothing,
-        availabilityZone = Prelude.Nothing,
-        preferredMaintenanceWindow = Prelude.Nothing,
-        tags = Prelude.Nothing,
+          Core.Nothing,
+        masterUserPassword = Core.Nothing,
+        publiclyAccessible = Core.Nothing,
+        availabilityZone = Core.Nothing,
+        preferredMaintenanceWindow = Core.Nothing,
+        tags = Core.Nothing,
         relationalDatabaseName = pRelationalDatabaseName_,
         relationalDatabaseBlueprintId =
           pRelationalDatabaseBlueprintId_,
@@ -350,22 +349,22 @@ newCreateRelationalDatabase
 -- -   Must not conflict with the preferred maintenance window.
 --
 -- -   Must be at least 30 minutes.
-createRelationalDatabase_preferredBackupWindow :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
+createRelationalDatabase_preferredBackupWindow :: Lens.Lens' CreateRelationalDatabase (Core.Maybe Core.Text)
 createRelationalDatabase_preferredBackupWindow = Lens.lens (\CreateRelationalDatabase' {preferredBackupWindow} -> preferredBackupWindow) (\s@CreateRelationalDatabase' {} a -> s {preferredBackupWindow = a} :: CreateRelationalDatabase)
 
 -- | The password for the master user of your new database. The password can
 -- include any printable ASCII character except \"\/\", \"\"\", or \"\@\".
 --
 -- Constraints: Must contain 8 to 41 characters.
-createRelationalDatabase_masterUserPassword :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
-createRelationalDatabase_masterUserPassword = Lens.lens (\CreateRelationalDatabase' {masterUserPassword} -> masterUserPassword) (\s@CreateRelationalDatabase' {} a -> s {masterUserPassword = a} :: CreateRelationalDatabase) Prelude.. Lens.mapping Prelude._Sensitive
+createRelationalDatabase_masterUserPassword :: Lens.Lens' CreateRelationalDatabase (Core.Maybe Core.Text)
+createRelationalDatabase_masterUserPassword = Lens.lens (\CreateRelationalDatabase' {masterUserPassword} -> masterUserPassword) (\s@CreateRelationalDatabase' {} a -> s {masterUserPassword = a} :: CreateRelationalDatabase) Core.. Lens.mapping Core._Sensitive
 
 -- | Specifies the accessibility options for your new database. A value of
 -- @true@ specifies a database that is available to resources outside of
 -- your Lightsail account. A value of @false@ specifies a database that is
 -- available only to your Lightsail resources in the same region as your
 -- database.
-createRelationalDatabase_publiclyAccessible :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Bool)
+createRelationalDatabase_publiclyAccessible :: Lens.Lens' CreateRelationalDatabase (Core.Maybe Core.Bool)
 createRelationalDatabase_publiclyAccessible = Lens.lens (\CreateRelationalDatabase' {publiclyAccessible} -> publiclyAccessible) (\s@CreateRelationalDatabase' {} a -> s {publiclyAccessible = a} :: CreateRelationalDatabase)
 
 -- | The Availability Zone in which to create your new database. Use the
@@ -375,7 +374,7 @@ createRelationalDatabase_publiclyAccessible = Lens.lens (\CreateRelationalDataba
 -- operation. Be sure to add the
 -- @include relational database Availability Zones@ parameter to your
 -- request.
-createRelationalDatabase_availabilityZone :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
+createRelationalDatabase_availabilityZone :: Lens.Lens' CreateRelationalDatabase (Core.Maybe Core.Text)
 createRelationalDatabase_availabilityZone = Lens.lens (\CreateRelationalDatabase' {availabilityZone} -> availabilityZone) (\s@CreateRelationalDatabase' {} a -> s {availabilityZone = a} :: CreateRelationalDatabase)
 
 -- | The weekly time range during which system maintenance can occur on your
@@ -396,14 +395,14 @@ createRelationalDatabase_availabilityZone = Lens.lens (\CreateRelationalDatabase
 -- -   Specified in Coordinated Universal Time (UTC).
 --
 -- -   Example: @Tue:17:00-Tue:17:30@
-createRelationalDatabase_preferredMaintenanceWindow :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
+createRelationalDatabase_preferredMaintenanceWindow :: Lens.Lens' CreateRelationalDatabase (Core.Maybe Core.Text)
 createRelationalDatabase_preferredMaintenanceWindow = Lens.lens (\CreateRelationalDatabase' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateRelationalDatabase' {} a -> s {preferredMaintenanceWindow = a} :: CreateRelationalDatabase)
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createRelationalDatabase_tags :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe [Tag])
-createRelationalDatabase_tags = Lens.lens (\CreateRelationalDatabase' {tags} -> tags) (\s@CreateRelationalDatabase' {} a -> s {tags = a} :: CreateRelationalDatabase) Prelude.. Lens.mapping Prelude._Coerce
+createRelationalDatabase_tags :: Lens.Lens' CreateRelationalDatabase (Core.Maybe [Tag])
+createRelationalDatabase_tags = Lens.lens (\CreateRelationalDatabase' {tags} -> tags) (\s@CreateRelationalDatabase' {} a -> s {tags = a} :: CreateRelationalDatabase) Core.. Lens.mapping Lens._Coerce
 
 -- | The name to use for your new Lightsail database resource.
 --
@@ -412,7 +411,7 @@ createRelationalDatabase_tags = Lens.lens (\CreateRelationalDatabase' {tags} -> 
 -- -   Must contain from 2 to 255 alphanumeric characters, or hyphens.
 --
 -- -   The first and last character must be a letter or number.
-createRelationalDatabase_relationalDatabaseName :: Lens.Lens' CreateRelationalDatabase Prelude.Text
+createRelationalDatabase_relationalDatabaseName :: Lens.Lens' CreateRelationalDatabase Core.Text
 createRelationalDatabase_relationalDatabaseName = Lens.lens (\CreateRelationalDatabase' {relationalDatabaseName} -> relationalDatabaseName) (\s@CreateRelationalDatabase' {} a -> s {relationalDatabaseName = a} :: CreateRelationalDatabase)
 
 -- | The blueprint ID for your new database. A blueprint describes the major
@@ -420,7 +419,7 @@ createRelationalDatabase_relationalDatabaseName = Lens.lens (\CreateRelationalDa
 --
 -- You can get a list of database blueprints IDs by using the
 -- @get relational database blueprints@ operation.
-createRelationalDatabase_relationalDatabaseBlueprintId :: Lens.Lens' CreateRelationalDatabase Prelude.Text
+createRelationalDatabase_relationalDatabaseBlueprintId :: Lens.Lens' CreateRelationalDatabase Core.Text
 createRelationalDatabase_relationalDatabaseBlueprintId = Lens.lens (\CreateRelationalDatabase' {relationalDatabaseBlueprintId} -> relationalDatabaseBlueprintId) (\s@CreateRelationalDatabase' {} a -> s {relationalDatabaseBlueprintId = a} :: CreateRelationalDatabase)
 
 -- | The bundle ID for your new database. A bundle describes the performance
@@ -428,7 +427,7 @@ createRelationalDatabase_relationalDatabaseBlueprintId = Lens.lens (\CreateRelat
 --
 -- You can get a list of database bundle IDs by using the
 -- @get relational database bundles@ operation.
-createRelationalDatabase_relationalDatabaseBundleId :: Lens.Lens' CreateRelationalDatabase Prelude.Text
+createRelationalDatabase_relationalDatabaseBundleId :: Lens.Lens' CreateRelationalDatabase Core.Text
 createRelationalDatabase_relationalDatabaseBundleId = Lens.lens (\CreateRelationalDatabase' {relationalDatabaseBundleId} -> relationalDatabaseBundleId) (\s@CreateRelationalDatabase' {} a -> s {relationalDatabaseBundleId = a} :: CreateRelationalDatabase)
 
 -- | The name of the master database created when the Lightsail database
@@ -439,7 +438,7 @@ createRelationalDatabase_relationalDatabaseBundleId = Lens.lens (\CreateRelation
 -- -   Must contain from 1 to 64 alphanumeric characters.
 --
 -- -   Cannot be a word reserved by the specified database engine
-createRelationalDatabase_masterDatabaseName :: Lens.Lens' CreateRelationalDatabase Prelude.Text
+createRelationalDatabase_masterDatabaseName :: Lens.Lens' CreateRelationalDatabase Core.Text
 createRelationalDatabase_masterDatabaseName = Lens.lens (\CreateRelationalDatabase' {masterDatabaseName} -> masterDatabaseName) (\s@CreateRelationalDatabase' {} a -> s {masterDatabaseName = a} :: CreateRelationalDatabase)
 
 -- | The master user name for your new database.
@@ -459,93 +458,88 @@ createRelationalDatabase_masterDatabaseName = Lens.lens (\CreateRelationalDataba
 --     <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6> or
 --     <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7>
 --     respectively.
-createRelationalDatabase_masterUsername :: Lens.Lens' CreateRelationalDatabase Prelude.Text
+createRelationalDatabase_masterUsername :: Lens.Lens' CreateRelationalDatabase Core.Text
 createRelationalDatabase_masterUsername = Lens.lens (\CreateRelationalDatabase' {masterUsername} -> masterUsername) (\s@CreateRelationalDatabase' {} a -> s {masterUsername = a} :: CreateRelationalDatabase)
 
-instance Prelude.AWSRequest CreateRelationalDatabase where
+instance Core.AWSRequest CreateRelationalDatabase where
   type
-    Rs CreateRelationalDatabase =
+    AWSResponse CreateRelationalDatabase =
       CreateRelationalDatabaseResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateRelationalDatabaseResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRelationalDatabase
+instance Core.Hashable CreateRelationalDatabase
 
-instance Prelude.NFData CreateRelationalDatabase
+instance Core.NFData CreateRelationalDatabase
 
-instance Prelude.ToHeaders CreateRelationalDatabase where
+instance Core.ToHeaders CreateRelationalDatabase where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.CreateRelationalDatabase" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.CreateRelationalDatabase" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateRelationalDatabase where
+instance Core.ToJSON CreateRelationalDatabase where
   toJSON CreateRelationalDatabase' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("preferredBackupWindow" Prelude..=)
-              Prelude.<$> preferredBackupWindow,
-            ("masterUserPassword" Prelude..=)
-              Prelude.<$> masterUserPassword,
-            ("publiclyAccessible" Prelude..=)
-              Prelude.<$> publiclyAccessible,
-            ("availabilityZone" Prelude..=)
-              Prelude.<$> availabilityZone,
-            ("preferredMaintenanceWindow" Prelude..=)
-              Prelude.<$> preferredMaintenanceWindow,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("preferredBackupWindow" Core..=)
+              Core.<$> preferredBackupWindow,
+            ("masterUserPassword" Core..=)
+              Core.<$> masterUserPassword,
+            ("publiclyAccessible" Core..=)
+              Core.<$> publiclyAccessible,
+            ("availabilityZone" Core..=)
+              Core.<$> availabilityZone,
+            ("preferredMaintenanceWindow" Core..=)
+              Core.<$> preferredMaintenanceWindow,
+            ("tags" Core..=) Core.<$> tags,
+            Core.Just
               ( "relationalDatabaseName"
-                  Prelude..= relationalDatabaseName
+                  Core..= relationalDatabaseName
               ),
-            Prelude.Just
+            Core.Just
               ( "relationalDatabaseBlueprintId"
-                  Prelude..= relationalDatabaseBlueprintId
+                  Core..= relationalDatabaseBlueprintId
               ),
-            Prelude.Just
+            Core.Just
               ( "relationalDatabaseBundleId"
-                  Prelude..= relationalDatabaseBundleId
+                  Core..= relationalDatabaseBundleId
               ),
-            Prelude.Just
-              ("masterDatabaseName" Prelude..= masterDatabaseName),
-            Prelude.Just
-              ("masterUsername" Prelude..= masterUsername)
+            Core.Just
+              ("masterDatabaseName" Core..= masterDatabaseName),
+            Core.Just ("masterUsername" Core..= masterUsername)
           ]
       )
 
-instance Prelude.ToPath CreateRelationalDatabase where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateRelationalDatabase where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateRelationalDatabase where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateRelationalDatabase where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateRelationalDatabaseResponse' smart constructor.
 data CreateRelationalDatabaseResponse = CreateRelationalDatabaseResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRelationalDatabaseResponse' with all optional fields omitted.
@@ -562,25 +556,23 @@ data CreateRelationalDatabaseResponse = CreateRelationalDatabaseResponse'
 -- 'httpStatus', 'createRelationalDatabaseResponse_httpStatus' - The response's http status code.
 newCreateRelationalDatabaseResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateRelationalDatabaseResponse
 newCreateRelationalDatabaseResponse pHttpStatus_ =
   CreateRelationalDatabaseResponse'
     { operations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createRelationalDatabaseResponse_operations :: Lens.Lens' CreateRelationalDatabaseResponse (Prelude.Maybe [Operation])
-createRelationalDatabaseResponse_operations = Lens.lens (\CreateRelationalDatabaseResponse' {operations} -> operations) (\s@CreateRelationalDatabaseResponse' {} a -> s {operations = a} :: CreateRelationalDatabaseResponse) Prelude.. Lens.mapping Prelude._Coerce
+createRelationalDatabaseResponse_operations :: Lens.Lens' CreateRelationalDatabaseResponse (Core.Maybe [Operation])
+createRelationalDatabaseResponse_operations = Lens.lens (\CreateRelationalDatabaseResponse' {operations} -> operations) (\s@CreateRelationalDatabaseResponse' {} a -> s {operations = a} :: CreateRelationalDatabaseResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createRelationalDatabaseResponse_httpStatus :: Lens.Lens' CreateRelationalDatabaseResponse Prelude.Int
+createRelationalDatabaseResponse_httpStatus :: Lens.Lens' CreateRelationalDatabaseResponse Core.Int
 createRelationalDatabaseResponse_httpStatus = Lens.lens (\CreateRelationalDatabaseResponse' {httpStatus} -> httpStatus) (\s@CreateRelationalDatabaseResponse' {} a -> s {httpStatus = a} :: CreateRelationalDatabaseResponse)
 
-instance
-  Prelude.NFData
-    CreateRelationalDatabaseResponse
+instance Core.NFData CreateRelationalDatabaseResponse

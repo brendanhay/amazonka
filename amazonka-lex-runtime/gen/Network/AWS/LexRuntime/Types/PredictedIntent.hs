@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexRuntime.Types.PredictedIntent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types.IntentConfidence
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An intent that Amazon Lex suggests satisfies the user\'s intent.
 -- Includes the name of the intent, the confidence that Amazon Lex has that
@@ -32,14 +31,14 @@ import qualified Network.AWS.Prelude as Prelude
 data PredictedIntent = PredictedIntent'
   { -- | The name of the intent that Amazon Lex suggests satisfies the user\'s
     -- intent.
-    intentName :: Prelude.Maybe Prelude.Text,
+    intentName :: Core.Maybe Core.Text,
     -- | The slot and slot values associated with the predicted intent.
-    slots :: Prelude.Maybe (Prelude.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    slots :: Core.Maybe (Core.Sensitive (Core.HashMap Core.Text Core.Text)),
     -- | Indicates how confident Amazon Lex is that an intent satisfies the
     -- user\'s intent.
-    nluIntentConfidence :: Prelude.Maybe IntentConfidence
+    nluIntentConfidence :: Core.Maybe IntentConfidence
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PredictedIntent' with all optional fields omitted.
@@ -60,36 +59,36 @@ newPredictedIntent ::
   PredictedIntent
 newPredictedIntent =
   PredictedIntent'
-    { intentName = Prelude.Nothing,
-      slots = Prelude.Nothing,
-      nluIntentConfidence = Prelude.Nothing
+    { intentName = Core.Nothing,
+      slots = Core.Nothing,
+      nluIntentConfidence = Core.Nothing
     }
 
 -- | The name of the intent that Amazon Lex suggests satisfies the user\'s
 -- intent.
-predictedIntent_intentName :: Lens.Lens' PredictedIntent (Prelude.Maybe Prelude.Text)
+predictedIntent_intentName :: Lens.Lens' PredictedIntent (Core.Maybe Core.Text)
 predictedIntent_intentName = Lens.lens (\PredictedIntent' {intentName} -> intentName) (\s@PredictedIntent' {} a -> s {intentName = a} :: PredictedIntent)
 
 -- | The slot and slot values associated with the predicted intent.
-predictedIntent_slots :: Lens.Lens' PredictedIntent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-predictedIntent_slots = Lens.lens (\PredictedIntent' {slots} -> slots) (\s@PredictedIntent' {} a -> s {slots = a} :: PredictedIntent) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Coerce)
+predictedIntent_slots :: Lens.Lens' PredictedIntent (Core.Maybe (Core.HashMap Core.Text Core.Text))
+predictedIntent_slots = Lens.lens (\PredictedIntent' {slots} -> slots) (\s@PredictedIntent' {} a -> s {slots = a} :: PredictedIntent) Core.. Lens.mapping (Core._Sensitive Core.. Lens._Coerce)
 
 -- | Indicates how confident Amazon Lex is that an intent satisfies the
 -- user\'s intent.
-predictedIntent_nluIntentConfidence :: Lens.Lens' PredictedIntent (Prelude.Maybe IntentConfidence)
+predictedIntent_nluIntentConfidence :: Lens.Lens' PredictedIntent (Core.Maybe IntentConfidence)
 predictedIntent_nluIntentConfidence = Lens.lens (\PredictedIntent' {nluIntentConfidence} -> nluIntentConfidence) (\s@PredictedIntent' {} a -> s {nluIntentConfidence = a} :: PredictedIntent)
 
-instance Prelude.FromJSON PredictedIntent where
+instance Core.FromJSON PredictedIntent where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PredictedIntent"
       ( \x ->
           PredictedIntent'
-            Prelude.<$> (x Prelude..:? "intentName")
-            Prelude.<*> (x Prelude..:? "slots" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "nluIntentConfidence")
+            Core.<$> (x Core..:? "intentName")
+            Core.<*> (x Core..:? "slots" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "nluIntentConfidence")
       )
 
-instance Prelude.Hashable PredictedIntent
+instance Core.Hashable PredictedIntent
 
-instance Prelude.NFData PredictedIntent
+instance Core.NFData PredictedIntent

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -91,8 +90,8 @@ module Network.AWS.WAF.UpdateByteMatchSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -102,9 +101,9 @@ data UpdateByteMatchSet = UpdateByteMatchSet'
   { -- | The @ByteMatchSetId@ of the ByteMatchSet that you want to update.
     -- @ByteMatchSetId@ is returned by CreateByteMatchSet and by
     -- ListByteMatchSets.
-    byteMatchSetId :: Prelude.Text,
+    byteMatchSetId :: Core.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Prelude.Text,
+    changeToken :: Core.Text,
     -- | An array of @ByteMatchSetUpdate@ objects that you want to insert into or
     -- delete from a ByteMatchSet. For more information, see the applicable
     -- data types:
@@ -115,9 +114,9 @@ data UpdateByteMatchSet = UpdateByteMatchSet'
     --     @TargetString@, and @TextTransformation@
     --
     -- -   FieldToMatch: Contains @Data@ and @Type@
-    updates :: Prelude.NonEmpty ByteMatchSetUpdate
+    updates :: Core.NonEmpty ByteMatchSetUpdate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateByteMatchSet' with all optional fields omitted.
@@ -145,11 +144,11 @@ data UpdateByteMatchSet = UpdateByteMatchSet'
 -- -   FieldToMatch: Contains @Data@ and @Type@
 newUpdateByteMatchSet ::
   -- | 'byteMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'updates'
-  Prelude.NonEmpty ByteMatchSetUpdate ->
+  Core.NonEmpty ByteMatchSetUpdate ->
   UpdateByteMatchSet
 newUpdateByteMatchSet
   pByteMatchSetId_
@@ -159,17 +158,17 @@ newUpdateByteMatchSet
       { byteMatchSetId =
           pByteMatchSetId_,
         changeToken = pChangeToken_,
-        updates = Prelude._Coerce Lens.# pUpdates_
+        updates = Lens._Coerce Lens.# pUpdates_
       }
 
 -- | The @ByteMatchSetId@ of the ByteMatchSet that you want to update.
 -- @ByteMatchSetId@ is returned by CreateByteMatchSet and by
 -- ListByteMatchSets.
-updateByteMatchSet_byteMatchSetId :: Lens.Lens' UpdateByteMatchSet Prelude.Text
+updateByteMatchSet_byteMatchSetId :: Lens.Lens' UpdateByteMatchSet Core.Text
 updateByteMatchSet_byteMatchSetId = Lens.lens (\UpdateByteMatchSet' {byteMatchSetId} -> byteMatchSetId) (\s@UpdateByteMatchSet' {} a -> s {byteMatchSetId = a} :: UpdateByteMatchSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateByteMatchSet_changeToken :: Lens.Lens' UpdateByteMatchSet Prelude.Text
+updateByteMatchSet_changeToken :: Lens.Lens' UpdateByteMatchSet Core.Text
 updateByteMatchSet_changeToken = Lens.lens (\UpdateByteMatchSet' {changeToken} -> changeToken) (\s@UpdateByteMatchSet' {} a -> s {changeToken = a} :: UpdateByteMatchSet)
 
 -- | An array of @ByteMatchSetUpdate@ objects that you want to insert into or
@@ -182,68 +181,65 @@ updateByteMatchSet_changeToken = Lens.lens (\UpdateByteMatchSet' {changeToken} -
 --     @TargetString@, and @TextTransformation@
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
-updateByteMatchSet_updates :: Lens.Lens' UpdateByteMatchSet (Prelude.NonEmpty ByteMatchSetUpdate)
-updateByteMatchSet_updates = Lens.lens (\UpdateByteMatchSet' {updates} -> updates) (\s@UpdateByteMatchSet' {} a -> s {updates = a} :: UpdateByteMatchSet) Prelude.. Prelude._Coerce
+updateByteMatchSet_updates :: Lens.Lens' UpdateByteMatchSet (Core.NonEmpty ByteMatchSetUpdate)
+updateByteMatchSet_updates = Lens.lens (\UpdateByteMatchSet' {updates} -> updates) (\s@UpdateByteMatchSet' {} a -> s {updates = a} :: UpdateByteMatchSet) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UpdateByteMatchSet where
+instance Core.AWSRequest UpdateByteMatchSet where
   type
-    Rs UpdateByteMatchSet =
+    AWSResponse UpdateByteMatchSet =
       UpdateByteMatchSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateByteMatchSetResponse'
-            Prelude.<$> (x Prelude..?> "ChangeToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateByteMatchSet
+instance Core.Hashable UpdateByteMatchSet
 
-instance Prelude.NFData UpdateByteMatchSet
+instance Core.NFData UpdateByteMatchSet
 
-instance Prelude.ToHeaders UpdateByteMatchSet where
+instance Core.ToHeaders UpdateByteMatchSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.UpdateByteMatchSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.UpdateByteMatchSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateByteMatchSet where
+instance Core.ToJSON UpdateByteMatchSet where
   toJSON UpdateByteMatchSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ByteMatchSetId" Prelude..= byteMatchSetId),
-            Prelude.Just ("ChangeToken" Prelude..= changeToken),
-            Prelude.Just ("Updates" Prelude..= updates)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ByteMatchSetId" Core..= byteMatchSetId),
+            Core.Just ("ChangeToken" Core..= changeToken),
+            Core.Just ("Updates" Core..= updates)
           ]
       )
 
-instance Prelude.ToPath UpdateByteMatchSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateByteMatchSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateByteMatchSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateByteMatchSet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateByteMatchSetResponse' smart constructor.
 data UpdateByteMatchSetResponse = UpdateByteMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateByteMatchSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Prelude.Maybe Prelude.Text,
+    changeToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateByteMatchSetResponse' with all optional fields omitted.
@@ -260,23 +256,23 @@ data UpdateByteMatchSetResponse = UpdateByteMatchSetResponse'
 -- 'httpStatus', 'updateByteMatchSetResponse_httpStatus' - The response's http status code.
 newUpdateByteMatchSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateByteMatchSetResponse
 newUpdateByteMatchSetResponse pHttpStatus_ =
   UpdateByteMatchSetResponse'
     { changeToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateByteMatchSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-updateByteMatchSetResponse_changeToken :: Lens.Lens' UpdateByteMatchSetResponse (Prelude.Maybe Prelude.Text)
+updateByteMatchSetResponse_changeToken :: Lens.Lens' UpdateByteMatchSetResponse (Core.Maybe Core.Text)
 updateByteMatchSetResponse_changeToken = Lens.lens (\UpdateByteMatchSetResponse' {changeToken} -> changeToken) (\s@UpdateByteMatchSetResponse' {} a -> s {changeToken = a} :: UpdateByteMatchSetResponse)
 
 -- | The response's http status code.
-updateByteMatchSetResponse_httpStatus :: Lens.Lens' UpdateByteMatchSetResponse Prelude.Int
+updateByteMatchSetResponse_httpStatus :: Lens.Lens' UpdateByteMatchSetResponse Core.Int
 updateByteMatchSetResponse_httpStatus = Lens.lens (\UpdateByteMatchSetResponse' {httpStatus} -> httpStatus) (\s@UpdateByteMatchSetResponse' {} a -> s {httpStatus = a} :: UpdateByteMatchSetResponse)
 
-instance Prelude.NFData UpdateByteMatchSetResponse
+instance Core.NFData UpdateByteMatchSetResponse

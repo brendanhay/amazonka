@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,23 +45,23 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutMetricFilter' smart constructor.
 data PutMetricFilter = PutMetricFilter'
   { -- | The name of the log group.
-    logGroupName :: Prelude.Text,
+    logGroupName :: Core.Text,
     -- | A name for the metric filter.
-    filterName :: Prelude.Text,
+    filterName :: Core.Text,
     -- | A filter pattern for extracting metric data out of ingested log events.
-    filterPattern :: Prelude.Text,
+    filterPattern :: Core.Text,
     -- | A collection of information that defines how metric data gets emitted.
-    metricTransformations :: Prelude.NonEmpty MetricTransformation
+    metricTransformations :: Core.NonEmpty MetricTransformation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutMetricFilter' with all optional fields omitted.
@@ -81,13 +80,13 @@ data PutMetricFilter = PutMetricFilter'
 -- 'metricTransformations', 'putMetricFilter_metricTransformations' - A collection of information that defines how metric data gets emitted.
 newPutMetricFilter ::
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'filterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'filterPattern'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'metricTransformations'
-  Prelude.NonEmpty MetricTransformation ->
+  Core.NonEmpty MetricTransformation ->
   PutMetricFilter
 newPutMetricFilter
   pLogGroupName_
@@ -99,77 +98,73 @@ newPutMetricFilter
         filterName = pFilterName_,
         filterPattern = pFilterPattern_,
         metricTransformations =
-          Prelude._Coerce Lens.# pMetricTransformations_
+          Lens._Coerce Lens.# pMetricTransformations_
       }
 
 -- | The name of the log group.
-putMetricFilter_logGroupName :: Lens.Lens' PutMetricFilter Prelude.Text
+putMetricFilter_logGroupName :: Lens.Lens' PutMetricFilter Core.Text
 putMetricFilter_logGroupName = Lens.lens (\PutMetricFilter' {logGroupName} -> logGroupName) (\s@PutMetricFilter' {} a -> s {logGroupName = a} :: PutMetricFilter)
 
 -- | A name for the metric filter.
-putMetricFilter_filterName :: Lens.Lens' PutMetricFilter Prelude.Text
+putMetricFilter_filterName :: Lens.Lens' PutMetricFilter Core.Text
 putMetricFilter_filterName = Lens.lens (\PutMetricFilter' {filterName} -> filterName) (\s@PutMetricFilter' {} a -> s {filterName = a} :: PutMetricFilter)
 
 -- | A filter pattern for extracting metric data out of ingested log events.
-putMetricFilter_filterPattern :: Lens.Lens' PutMetricFilter Prelude.Text
+putMetricFilter_filterPattern :: Lens.Lens' PutMetricFilter Core.Text
 putMetricFilter_filterPattern = Lens.lens (\PutMetricFilter' {filterPattern} -> filterPattern) (\s@PutMetricFilter' {} a -> s {filterPattern = a} :: PutMetricFilter)
 
 -- | A collection of information that defines how metric data gets emitted.
-putMetricFilter_metricTransformations :: Lens.Lens' PutMetricFilter (Prelude.NonEmpty MetricTransformation)
-putMetricFilter_metricTransformations = Lens.lens (\PutMetricFilter' {metricTransformations} -> metricTransformations) (\s@PutMetricFilter' {} a -> s {metricTransformations = a} :: PutMetricFilter) Prelude.. Prelude._Coerce
+putMetricFilter_metricTransformations :: Lens.Lens' PutMetricFilter (Core.NonEmpty MetricTransformation)
+putMetricFilter_metricTransformations = Lens.lens (\PutMetricFilter' {metricTransformations} -> metricTransformations) (\s@PutMetricFilter' {} a -> s {metricTransformations = a} :: PutMetricFilter) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest PutMetricFilter where
-  type Rs PutMetricFilter = PutMetricFilterResponse
+instance Core.AWSRequest PutMetricFilter where
+  type
+    AWSResponse PutMetricFilter =
+      PutMetricFilterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull PutMetricFilterResponse'
 
-instance Prelude.Hashable PutMetricFilter
+instance Core.Hashable PutMetricFilter
 
-instance Prelude.NFData PutMetricFilter
+instance Core.NFData PutMetricFilter
 
-instance Prelude.ToHeaders PutMetricFilter where
+instance Core.ToHeaders PutMetricFilter where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.PutMetricFilter" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Logs_20140328.PutMetricFilter" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutMetricFilter where
+instance Core.ToJSON PutMetricFilter where
   toJSON PutMetricFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("logGroupName" Prelude..= logGroupName),
-            Prelude.Just ("filterName" Prelude..= filterName),
-            Prelude.Just
-              ("filterPattern" Prelude..= filterPattern),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            Core.Just ("filterName" Core..= filterName),
+            Core.Just ("filterPattern" Core..= filterPattern),
+            Core.Just
               ( "metricTransformations"
-                  Prelude..= metricTransformations
+                  Core..= metricTransformations
               )
           ]
       )
 
-instance Prelude.ToPath PutMetricFilter where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutMetricFilter where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutMetricFilter where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutMetricFilter where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutMetricFilterResponse' smart constructor.
 data PutMetricFilterResponse = PutMetricFilterResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutMetricFilterResponse' with all optional fields omitted.
@@ -179,4 +174,4 @@ newPutMetricFilterResponse ::
   PutMetricFilterResponse
 newPutMetricFilterResponse = PutMetricFilterResponse'
 
-instance Prelude.NFData PutMetricFilterResponse
+instance Core.NFData PutMetricFilterResponse

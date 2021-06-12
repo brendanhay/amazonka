@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -120,9 +119,9 @@ module Network.AWS.LexModels.PutIntent
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -132,12 +131,12 @@ data PutIntent = PutIntent'
     -- @AMAZON.KendraSearchIntent@ intent to connect to an Amazon Kendra index.
     -- For more information, see
     -- <http://docs.aws.amazon.com/lex/latest/dg/built-in-intent-kendra-search.html AMAZON.KendraSearchIntent>.
-    kendraConfiguration :: Prelude.Maybe KendraConfiguration,
+    kendraConfiguration :: Core.Maybe KendraConfiguration,
     -- | A unique identifier for the built-in intent to base this intent on. To
     -- find the signature for an intent, see
     -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
     -- in the /Alexa Skills Kit/.
-    parentIntentSignature :: Prelude.Maybe Prelude.Text,
+    parentIntentSignature :: Core.Maybe Core.Text,
     -- | Specifies a Lambda function to invoke for each user input. You can
     -- invoke this Lambda function to personalize user interaction.
     --
@@ -147,7 +146,7 @@ data PutIntent = PutIntent'
     -- that John is gluten intolerant, you might set the corresponding intent
     -- slot, @GlutenIntolerant@, to true. You might find John\'s phone number
     -- and set the corresponding session attribute.
-    dialogCodeHook :: Prelude.Maybe CodeHook,
+    dialogCodeHook :: Core.Maybe CodeHook,
     -- | The statement that you want Amazon Lex to convey to the user after the
     -- intent is successfully fulfilled by the Lambda function.
     --
@@ -157,22 +156,22 @@ data PutIntent = PutIntent'
     --
     -- The @followUpPrompt@ and @conclusionStatement@ are mutually exclusive.
     -- You can specify only one.
-    conclusionStatement :: Prelude.Maybe Statement,
+    conclusionStatement :: Core.Maybe Statement,
     -- | An array of @InputContext@ objects that lists the contexts that must be
     -- active for Amazon Lex to choose the intent in a conversation with the
     -- user.
-    inputContexts :: Prelude.Maybe [InputContext],
+    inputContexts :: Core.Maybe [InputContext],
     -- | When the user answers \"no\" to the question defined in
     -- @confirmationPrompt@, Amazon Lex responds with this statement to
     -- acknowledge that the intent was canceled.
     --
     -- You must provide both the @rejectionStatement@ and the
     -- @confirmationPrompt@, or neither.
-    rejectionStatement :: Prelude.Maybe Statement,
+    rejectionStatement :: Core.Maybe Statement,
     -- | An array of intent slots. At runtime, Amazon Lex elicits required slot
     -- values from the user using prompts defined in the slots. For more
     -- information, see how-it-works.
-    slots :: Prelude.Maybe [Slot],
+    slots :: Core.Maybe [Slot],
     -- | Required. Describes how the intent is fulfilled. For example, after a
     -- user provides all of the information for a pizza order,
     -- @fulfillmentActivity@ defines how the bot places an order with a local
@@ -181,19 +180,19 @@ data PutIntent = PutIntent'
     -- You might configure Amazon Lex to return all of the intent information
     -- to the client application, or direct it to invoke a Lambda function that
     -- can process the intent (for example, place an order with a pizzeria).
-    fulfillmentActivity :: Prelude.Maybe FulfillmentActivity,
+    fulfillmentActivity :: Core.Maybe FulfillmentActivity,
     -- | When set to @true@ a new numbered version of the intent is created. This
     -- is the same as calling the @CreateIntentVersion@ operation. If you do
     -- not specify @createVersion@, the default is @false@.
-    createVersion :: Prelude.Maybe Prelude.Bool,
+    createVersion :: Core.Maybe Core.Bool,
     -- | An array of utterances (strings) that a user might say to signal the
     -- intent. For example, \"I want {PizzaSize} pizza\", \"Order {Quantity}
     -- {PizzaSize} pizzas\".
     --
     -- In each utterance, a slot name is enclosed in curly braces.
-    sampleUtterances :: Prelude.Maybe [Prelude.Text],
+    sampleUtterances :: Core.Maybe [Core.Text],
     -- | A description of the intent.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Prompts the user to confirm the intent. This question should have a yes
     -- or no answer.
     --
@@ -206,10 +205,10 @@ data PutIntent = PutIntent'
     --
     -- You you must provide both the @rejectionStatement@ and the
     -- @confirmationPrompt@, or neither.
-    confirmationPrompt :: Prelude.Maybe Prompt,
+    confirmationPrompt :: Core.Maybe Prompt,
     -- | An array of @OutputContext@ objects that lists the contexts that the
     -- intent activates when the intent is fulfilled.
-    outputContexts :: Prelude.Maybe [OutputContext],
+    outputContexts :: Core.Maybe [OutputContext],
     -- | Amazon Lex uses this prompt to solicit additional activity after
     -- fulfilling an intent. For example, after the @OrderPizza@ intent is
     -- fulfilled, you might prompt the user to order a drink.
@@ -231,7 +230,7 @@ data PutIntent = PutIntent'
     --
     -- The @followUpPrompt@ field and the @conclusionStatement@ field are
     -- mutually exclusive. You can specify only one.
-    followUpPrompt :: Prelude.Maybe FollowUpPrompt,
+    followUpPrompt :: Core.Maybe FollowUpPrompt,
     -- | Identifies a specific revision of the @$LATEST@ version.
     --
     -- When you create a new intent, leave the @checksum@ field blank. If you
@@ -242,7 +241,7 @@ data PutIntent = PutIntent'
     -- don\'t specify the @ checksum@ field, or if the checksum does not match
     -- the @$LATEST@ version, you get a @PreconditionFailedException@
     -- exception.
-    checksum :: Prelude.Maybe Prelude.Text,
+    checksum :: Core.Maybe Core.Text,
     -- | The name of the intent. The name is /not/ case sensitive.
     --
     -- The name can\'t match a built-in intent name, or a built-in intent name
@@ -253,9 +252,9 @@ data PutIntent = PutIntent'
     -- For a list of built-in intents, see
     -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
     -- in the /Alexa Skills Kit/.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutIntent' with all optional fields omitted.
@@ -392,25 +391,25 @@ data PutIntent = PutIntent'
 -- in the /Alexa Skills Kit/.
 newPutIntent ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   PutIntent
 newPutIntent pName_ =
   PutIntent'
-    { kendraConfiguration = Prelude.Nothing,
-      parentIntentSignature = Prelude.Nothing,
-      dialogCodeHook = Prelude.Nothing,
-      conclusionStatement = Prelude.Nothing,
-      inputContexts = Prelude.Nothing,
-      rejectionStatement = Prelude.Nothing,
-      slots = Prelude.Nothing,
-      fulfillmentActivity = Prelude.Nothing,
-      createVersion = Prelude.Nothing,
-      sampleUtterances = Prelude.Nothing,
-      description = Prelude.Nothing,
-      confirmationPrompt = Prelude.Nothing,
-      outputContexts = Prelude.Nothing,
-      followUpPrompt = Prelude.Nothing,
-      checksum = Prelude.Nothing,
+    { kendraConfiguration = Core.Nothing,
+      parentIntentSignature = Core.Nothing,
+      dialogCodeHook = Core.Nothing,
+      conclusionStatement = Core.Nothing,
+      inputContexts = Core.Nothing,
+      rejectionStatement = Core.Nothing,
+      slots = Core.Nothing,
+      fulfillmentActivity = Core.Nothing,
+      createVersion = Core.Nothing,
+      sampleUtterances = Core.Nothing,
+      description = Core.Nothing,
+      confirmationPrompt = Core.Nothing,
+      outputContexts = Core.Nothing,
+      followUpPrompt = Core.Nothing,
+      checksum = Core.Nothing,
       name = pName_
     }
 
@@ -418,14 +417,14 @@ newPutIntent pName_ =
 -- @AMAZON.KendraSearchIntent@ intent to connect to an Amazon Kendra index.
 -- For more information, see
 -- <http://docs.aws.amazon.com/lex/latest/dg/built-in-intent-kendra-search.html AMAZON.KendraSearchIntent>.
-putIntent_kendraConfiguration :: Lens.Lens' PutIntent (Prelude.Maybe KendraConfiguration)
+putIntent_kendraConfiguration :: Lens.Lens' PutIntent (Core.Maybe KendraConfiguration)
 putIntent_kendraConfiguration = Lens.lens (\PutIntent' {kendraConfiguration} -> kendraConfiguration) (\s@PutIntent' {} a -> s {kendraConfiguration = a} :: PutIntent)
 
 -- | A unique identifier for the built-in intent to base this intent on. To
 -- find the signature for an intent, see
 -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
 -- in the /Alexa Skills Kit/.
-putIntent_parentIntentSignature :: Lens.Lens' PutIntent (Prelude.Maybe Prelude.Text)
+putIntent_parentIntentSignature :: Lens.Lens' PutIntent (Core.Maybe Core.Text)
 putIntent_parentIntentSignature = Lens.lens (\PutIntent' {parentIntentSignature} -> parentIntentSignature) (\s@PutIntent' {} a -> s {parentIntentSignature = a} :: PutIntent)
 
 -- | Specifies a Lambda function to invoke for each user input. You can
@@ -437,7 +436,7 @@ putIntent_parentIntentSignature = Lens.lens (\PutIntent' {parentIntentSignature}
 -- that John is gluten intolerant, you might set the corresponding intent
 -- slot, @GlutenIntolerant@, to true. You might find John\'s phone number
 -- and set the corresponding session attribute.
-putIntent_dialogCodeHook :: Lens.Lens' PutIntent (Prelude.Maybe CodeHook)
+putIntent_dialogCodeHook :: Lens.Lens' PutIntent (Core.Maybe CodeHook)
 putIntent_dialogCodeHook = Lens.lens (\PutIntent' {dialogCodeHook} -> dialogCodeHook) (\s@PutIntent' {} a -> s {dialogCodeHook = a} :: PutIntent)
 
 -- | The statement that you want Amazon Lex to convey to the user after the
@@ -449,14 +448,14 @@ putIntent_dialogCodeHook = Lens.lens (\PutIntent' {dialogCodeHook} -> dialogCode
 --
 -- The @followUpPrompt@ and @conclusionStatement@ are mutually exclusive.
 -- You can specify only one.
-putIntent_conclusionStatement :: Lens.Lens' PutIntent (Prelude.Maybe Statement)
+putIntent_conclusionStatement :: Lens.Lens' PutIntent (Core.Maybe Statement)
 putIntent_conclusionStatement = Lens.lens (\PutIntent' {conclusionStatement} -> conclusionStatement) (\s@PutIntent' {} a -> s {conclusionStatement = a} :: PutIntent)
 
 -- | An array of @InputContext@ objects that lists the contexts that must be
 -- active for Amazon Lex to choose the intent in a conversation with the
 -- user.
-putIntent_inputContexts :: Lens.Lens' PutIntent (Prelude.Maybe [InputContext])
-putIntent_inputContexts = Lens.lens (\PutIntent' {inputContexts} -> inputContexts) (\s@PutIntent' {} a -> s {inputContexts = a} :: PutIntent) Prelude.. Lens.mapping Prelude._Coerce
+putIntent_inputContexts :: Lens.Lens' PutIntent (Core.Maybe [InputContext])
+putIntent_inputContexts = Lens.lens (\PutIntent' {inputContexts} -> inputContexts) (\s@PutIntent' {} a -> s {inputContexts = a} :: PutIntent) Core.. Lens.mapping Lens._Coerce
 
 -- | When the user answers \"no\" to the question defined in
 -- @confirmationPrompt@, Amazon Lex responds with this statement to
@@ -464,14 +463,14 @@ putIntent_inputContexts = Lens.lens (\PutIntent' {inputContexts} -> inputContext
 --
 -- You must provide both the @rejectionStatement@ and the
 -- @confirmationPrompt@, or neither.
-putIntent_rejectionStatement :: Lens.Lens' PutIntent (Prelude.Maybe Statement)
+putIntent_rejectionStatement :: Lens.Lens' PutIntent (Core.Maybe Statement)
 putIntent_rejectionStatement = Lens.lens (\PutIntent' {rejectionStatement} -> rejectionStatement) (\s@PutIntent' {} a -> s {rejectionStatement = a} :: PutIntent)
 
 -- | An array of intent slots. At runtime, Amazon Lex elicits required slot
 -- values from the user using prompts defined in the slots. For more
 -- information, see how-it-works.
-putIntent_slots :: Lens.Lens' PutIntent (Prelude.Maybe [Slot])
-putIntent_slots = Lens.lens (\PutIntent' {slots} -> slots) (\s@PutIntent' {} a -> s {slots = a} :: PutIntent) Prelude.. Lens.mapping Prelude._Coerce
+putIntent_slots :: Lens.Lens' PutIntent (Core.Maybe [Slot])
+putIntent_slots = Lens.lens (\PutIntent' {slots} -> slots) (\s@PutIntent' {} a -> s {slots = a} :: PutIntent) Core.. Lens.mapping Lens._Coerce
 
 -- | Required. Describes how the intent is fulfilled. For example, after a
 -- user provides all of the information for a pizza order,
@@ -481,13 +480,13 @@ putIntent_slots = Lens.lens (\PutIntent' {slots} -> slots) (\s@PutIntent' {} a -
 -- You might configure Amazon Lex to return all of the intent information
 -- to the client application, or direct it to invoke a Lambda function that
 -- can process the intent (for example, place an order with a pizzeria).
-putIntent_fulfillmentActivity :: Lens.Lens' PutIntent (Prelude.Maybe FulfillmentActivity)
+putIntent_fulfillmentActivity :: Lens.Lens' PutIntent (Core.Maybe FulfillmentActivity)
 putIntent_fulfillmentActivity = Lens.lens (\PutIntent' {fulfillmentActivity} -> fulfillmentActivity) (\s@PutIntent' {} a -> s {fulfillmentActivity = a} :: PutIntent)
 
 -- | When set to @true@ a new numbered version of the intent is created. This
 -- is the same as calling the @CreateIntentVersion@ operation. If you do
 -- not specify @createVersion@, the default is @false@.
-putIntent_createVersion :: Lens.Lens' PutIntent (Prelude.Maybe Prelude.Bool)
+putIntent_createVersion :: Lens.Lens' PutIntent (Core.Maybe Core.Bool)
 putIntent_createVersion = Lens.lens (\PutIntent' {createVersion} -> createVersion) (\s@PutIntent' {} a -> s {createVersion = a} :: PutIntent)
 
 -- | An array of utterances (strings) that a user might say to signal the
@@ -495,11 +494,11 @@ putIntent_createVersion = Lens.lens (\PutIntent' {createVersion} -> createVersio
 -- {PizzaSize} pizzas\".
 --
 -- In each utterance, a slot name is enclosed in curly braces.
-putIntent_sampleUtterances :: Lens.Lens' PutIntent (Prelude.Maybe [Prelude.Text])
-putIntent_sampleUtterances = Lens.lens (\PutIntent' {sampleUtterances} -> sampleUtterances) (\s@PutIntent' {} a -> s {sampleUtterances = a} :: PutIntent) Prelude.. Lens.mapping Prelude._Coerce
+putIntent_sampleUtterances :: Lens.Lens' PutIntent (Core.Maybe [Core.Text])
+putIntent_sampleUtterances = Lens.lens (\PutIntent' {sampleUtterances} -> sampleUtterances) (\s@PutIntent' {} a -> s {sampleUtterances = a} :: PutIntent) Core.. Lens.mapping Lens._Coerce
 
 -- | A description of the intent.
-putIntent_description :: Lens.Lens' PutIntent (Prelude.Maybe Prelude.Text)
+putIntent_description :: Lens.Lens' PutIntent (Core.Maybe Core.Text)
 putIntent_description = Lens.lens (\PutIntent' {description} -> description) (\s@PutIntent' {} a -> s {description = a} :: PutIntent)
 
 -- | Prompts the user to confirm the intent. This question should have a yes
@@ -514,13 +513,13 @@ putIntent_description = Lens.lens (\PutIntent' {description} -> description) (\s
 --
 -- You you must provide both the @rejectionStatement@ and the
 -- @confirmationPrompt@, or neither.
-putIntent_confirmationPrompt :: Lens.Lens' PutIntent (Prelude.Maybe Prompt)
+putIntent_confirmationPrompt :: Lens.Lens' PutIntent (Core.Maybe Prompt)
 putIntent_confirmationPrompt = Lens.lens (\PutIntent' {confirmationPrompt} -> confirmationPrompt) (\s@PutIntent' {} a -> s {confirmationPrompt = a} :: PutIntent)
 
 -- | An array of @OutputContext@ objects that lists the contexts that the
 -- intent activates when the intent is fulfilled.
-putIntent_outputContexts :: Lens.Lens' PutIntent (Prelude.Maybe [OutputContext])
-putIntent_outputContexts = Lens.lens (\PutIntent' {outputContexts} -> outputContexts) (\s@PutIntent' {} a -> s {outputContexts = a} :: PutIntent) Prelude.. Lens.mapping Prelude._Coerce
+putIntent_outputContexts :: Lens.Lens' PutIntent (Core.Maybe [OutputContext])
+putIntent_outputContexts = Lens.lens (\PutIntent' {outputContexts} -> outputContexts) (\s@PutIntent' {} a -> s {outputContexts = a} :: PutIntent) Core.. Lens.mapping Lens._Coerce
 
 -- | Amazon Lex uses this prompt to solicit additional activity after
 -- fulfilling an intent. For example, after the @OrderPizza@ intent is
@@ -543,7 +542,7 @@ putIntent_outputContexts = Lens.lens (\PutIntent' {outputContexts} -> outputCont
 --
 -- The @followUpPrompt@ field and the @conclusionStatement@ field are
 -- mutually exclusive. You can specify only one.
-putIntent_followUpPrompt :: Lens.Lens' PutIntent (Prelude.Maybe FollowUpPrompt)
+putIntent_followUpPrompt :: Lens.Lens' PutIntent (Core.Maybe FollowUpPrompt)
 putIntent_followUpPrompt = Lens.lens (\PutIntent' {followUpPrompt} -> followUpPrompt) (\s@PutIntent' {} a -> s {followUpPrompt = a} :: PutIntent)
 
 -- | Identifies a specific revision of the @$LATEST@ version.
@@ -556,7 +555,7 @@ putIntent_followUpPrompt = Lens.lens (\PutIntent' {followUpPrompt} -> followUpPr
 -- don\'t specify the @ checksum@ field, or if the checksum does not match
 -- the @$LATEST@ version, you get a @PreconditionFailedException@
 -- exception.
-putIntent_checksum :: Lens.Lens' PutIntent (Prelude.Maybe Prelude.Text)
+putIntent_checksum :: Lens.Lens' PutIntent (Core.Maybe Core.Text)
 putIntent_checksum = Lens.lens (\PutIntent' {checksum} -> checksum) (\s@PutIntent' {} a -> s {checksum = a} :: PutIntent)
 
 -- | The name of the intent. The name is /not/ case sensitive.
@@ -569,162 +568,149 @@ putIntent_checksum = Lens.lens (\PutIntent' {checksum} -> checksum) (\s@PutInten
 -- For a list of built-in intents, see
 -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
 -- in the /Alexa Skills Kit/.
-putIntent_name :: Lens.Lens' PutIntent Prelude.Text
+putIntent_name :: Lens.Lens' PutIntent Core.Text
 putIntent_name = Lens.lens (\PutIntent' {name} -> name) (\s@PutIntent' {} a -> s {name = a} :: PutIntent)
 
-instance Prelude.AWSRequest PutIntent where
-  type Rs PutIntent = PutIntentResponse
+instance Core.AWSRequest PutIntent where
+  type AWSResponse PutIntent = PutIntentResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutIntentResponse'
-            Prelude.<$> (x Prelude..?> "kendraConfiguration")
-            Prelude.<*> (x Prelude..?> "createdDate")
-            Prelude.<*> (x Prelude..?> "parentIntentSignature")
-            Prelude.<*> (x Prelude..?> "dialogCodeHook")
-            Prelude.<*> (x Prelude..?> "conclusionStatement")
-            Prelude.<*> (x Prelude..?> "lastUpdatedDate")
-            Prelude.<*> ( x Prelude..?> "inputContexts"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "version")
-            Prelude.<*> (x Prelude..?> "rejectionStatement")
-            Prelude.<*> (x Prelude..?> "name")
-            Prelude.<*> (x Prelude..?> "slots" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "fulfillmentActivity")
-            Prelude.<*> (x Prelude..?> "createVersion")
-            Prelude.<*> ( x Prelude..?> "sampleUtterances"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "description")
-            Prelude.<*> (x Prelude..?> "confirmationPrompt")
-            Prelude.<*> ( x Prelude..?> "outputContexts"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "followUpPrompt")
-            Prelude.<*> (x Prelude..?> "checksum")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "kendraConfiguration")
+            Core.<*> (x Core..?> "createdDate")
+            Core.<*> (x Core..?> "parentIntentSignature")
+            Core.<*> (x Core..?> "dialogCodeHook")
+            Core.<*> (x Core..?> "conclusionStatement")
+            Core.<*> (x Core..?> "lastUpdatedDate")
+            Core.<*> (x Core..?> "inputContexts" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "version")
+            Core.<*> (x Core..?> "rejectionStatement")
+            Core.<*> (x Core..?> "name")
+            Core.<*> (x Core..?> "slots" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "fulfillmentActivity")
+            Core.<*> (x Core..?> "createVersion")
+            Core.<*> (x Core..?> "sampleUtterances" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "description")
+            Core.<*> (x Core..?> "confirmationPrompt")
+            Core.<*> (x Core..?> "outputContexts" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "followUpPrompt")
+            Core.<*> (x Core..?> "checksum")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutIntent
+instance Core.Hashable PutIntent
 
-instance Prelude.NFData PutIntent
+instance Core.NFData PutIntent
 
-instance Prelude.ToHeaders PutIntent where
+instance Core.ToHeaders PutIntent where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutIntent where
+instance Core.ToJSON PutIntent where
   toJSON PutIntent' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("kendraConfiguration" Prelude..=)
-              Prelude.<$> kendraConfiguration,
-            ("parentIntentSignature" Prelude..=)
-              Prelude.<$> parentIntentSignature,
-            ("dialogCodeHook" Prelude..=)
-              Prelude.<$> dialogCodeHook,
-            ("conclusionStatement" Prelude..=)
-              Prelude.<$> conclusionStatement,
-            ("inputContexts" Prelude..=)
-              Prelude.<$> inputContexts,
-            ("rejectionStatement" Prelude..=)
-              Prelude.<$> rejectionStatement,
-            ("slots" Prelude..=) Prelude.<$> slots,
-            ("fulfillmentActivity" Prelude..=)
-              Prelude.<$> fulfillmentActivity,
-            ("createVersion" Prelude..=)
-              Prelude.<$> createVersion,
-            ("sampleUtterances" Prelude..=)
-              Prelude.<$> sampleUtterances,
-            ("description" Prelude..=) Prelude.<$> description,
-            ("confirmationPrompt" Prelude..=)
-              Prelude.<$> confirmationPrompt,
-            ("outputContexts" Prelude..=)
-              Prelude.<$> outputContexts,
-            ("followUpPrompt" Prelude..=)
-              Prelude.<$> followUpPrompt,
-            ("checksum" Prelude..=) Prelude.<$> checksum
+    Core.object
+      ( Core.catMaybes
+          [ ("kendraConfiguration" Core..=)
+              Core.<$> kendraConfiguration,
+            ("parentIntentSignature" Core..=)
+              Core.<$> parentIntentSignature,
+            ("dialogCodeHook" Core..=) Core.<$> dialogCodeHook,
+            ("conclusionStatement" Core..=)
+              Core.<$> conclusionStatement,
+            ("inputContexts" Core..=) Core.<$> inputContexts,
+            ("rejectionStatement" Core..=)
+              Core.<$> rejectionStatement,
+            ("slots" Core..=) Core.<$> slots,
+            ("fulfillmentActivity" Core..=)
+              Core.<$> fulfillmentActivity,
+            ("createVersion" Core..=) Core.<$> createVersion,
+            ("sampleUtterances" Core..=)
+              Core.<$> sampleUtterances,
+            ("description" Core..=) Core.<$> description,
+            ("confirmationPrompt" Core..=)
+              Core.<$> confirmationPrompt,
+            ("outputContexts" Core..=) Core.<$> outputContexts,
+            ("followUpPrompt" Core..=) Core.<$> followUpPrompt,
+            ("checksum" Core..=) Core.<$> checksum
           ]
       )
 
-instance Prelude.ToPath PutIntent where
+instance Core.ToPath PutIntent where
   toPath PutIntent' {..} =
-    Prelude.mconcat
-      ["/intents/", Prelude.toBS name, "/versions/$LATEST"]
+    Core.mconcat
+      ["/intents/", Core.toBS name, "/versions/$LATEST"]
 
-instance Prelude.ToQuery PutIntent where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutIntent where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutIntentResponse' smart constructor.
 data PutIntentResponse = PutIntentResponse'
   { -- | Configuration information, if any, required to connect to an Amazon
     -- Kendra index and use the @AMAZON.KendraSearchIntent@ intent.
-    kendraConfiguration :: Prelude.Maybe KendraConfiguration,
+    kendraConfiguration :: Core.Maybe KendraConfiguration,
     -- | The date that the intent was created.
-    createdDate :: Prelude.Maybe Prelude.POSIX,
+    createdDate :: Core.Maybe Core.POSIX,
     -- | A unique identifier for the built-in intent that this intent is based
     -- on.
-    parentIntentSignature :: Prelude.Maybe Prelude.Text,
+    parentIntentSignature :: Core.Maybe Core.Text,
     -- | If defined in the intent, Amazon Lex invokes this Lambda function for
     -- each user input.
-    dialogCodeHook :: Prelude.Maybe CodeHook,
+    dialogCodeHook :: Core.Maybe CodeHook,
     -- | After the Lambda function specified in the@fulfillmentActivity@intent
     -- fulfills the intent, Amazon Lex conveys this statement to the user.
-    conclusionStatement :: Prelude.Maybe Statement,
+    conclusionStatement :: Core.Maybe Statement,
     -- | The date that the intent was updated. When you create a resource, the
     -- creation date and last update dates are the same.
-    lastUpdatedDate :: Prelude.Maybe Prelude.POSIX,
+    lastUpdatedDate :: Core.Maybe Core.POSIX,
     -- | An array of @InputContext@ objects that lists the contexts that must be
     -- active for Amazon Lex to choose the intent in a conversation with the
     -- user.
-    inputContexts :: Prelude.Maybe [InputContext],
+    inputContexts :: Core.Maybe [InputContext],
     -- | The version of the intent. For a new intent, the version is always
     -- @$LATEST@.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | If the user answers \"no\" to the question defined in
     -- @confirmationPrompt@ Amazon Lex responds with this statement to
     -- acknowledge that the intent was canceled.
-    rejectionStatement :: Prelude.Maybe Statement,
+    rejectionStatement :: Core.Maybe Statement,
     -- | The name of the intent.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | An array of intent slots that are configured for the intent.
-    slots :: Prelude.Maybe [Slot],
+    slots :: Core.Maybe [Slot],
     -- | If defined in the intent, Amazon Lex invokes this Lambda function to
     -- fulfill the intent after the user provides all of the information
     -- required by the intent.
-    fulfillmentActivity :: Prelude.Maybe FulfillmentActivity,
+    fulfillmentActivity :: Core.Maybe FulfillmentActivity,
     -- | @True@ if a new version of the intent was created. If the
     -- @createVersion@ field was not specified in the request, the
     -- @createVersion@ field is set to false in the response.
-    createVersion :: Prelude.Maybe Prelude.Bool,
+    createVersion :: Core.Maybe Core.Bool,
     -- | An array of sample utterances that are configured for the intent.
-    sampleUtterances :: Prelude.Maybe [Prelude.Text],
+    sampleUtterances :: Core.Maybe [Core.Text],
     -- | A description of the intent.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | If defined in the intent, Amazon Lex prompts the user to confirm the
     -- intent before fulfilling it.
-    confirmationPrompt :: Prelude.Maybe Prompt,
+    confirmationPrompt :: Core.Maybe Prompt,
     -- | An array of @OutputContext@ objects that lists the contexts that the
     -- intent activates when the intent is fulfilled.
-    outputContexts :: Prelude.Maybe [OutputContext],
+    outputContexts :: Core.Maybe [OutputContext],
     -- | If defined in the intent, Amazon Lex uses this prompt to solicit
     -- additional user activity after the intent is fulfilled.
-    followUpPrompt :: Prelude.Maybe FollowUpPrompt,
+    followUpPrompt :: Core.Maybe FollowUpPrompt,
     -- | Checksum of the @$LATEST@version of the intent created or updated.
-    checksum :: Prelude.Maybe Prelude.Text,
+    checksum :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutIntentResponse' with all optional fields omitted.
@@ -792,128 +778,128 @@ data PutIntentResponse = PutIntentResponse'
 -- 'httpStatus', 'putIntentResponse_httpStatus' - The response's http status code.
 newPutIntentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutIntentResponse
 newPutIntentResponse pHttpStatus_ =
   PutIntentResponse'
     { kendraConfiguration =
-        Prelude.Nothing,
-      createdDate = Prelude.Nothing,
-      parentIntentSignature = Prelude.Nothing,
-      dialogCodeHook = Prelude.Nothing,
-      conclusionStatement = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      inputContexts = Prelude.Nothing,
-      version = Prelude.Nothing,
-      rejectionStatement = Prelude.Nothing,
-      name = Prelude.Nothing,
-      slots = Prelude.Nothing,
-      fulfillmentActivity = Prelude.Nothing,
-      createVersion = Prelude.Nothing,
-      sampleUtterances = Prelude.Nothing,
-      description = Prelude.Nothing,
-      confirmationPrompt = Prelude.Nothing,
-      outputContexts = Prelude.Nothing,
-      followUpPrompt = Prelude.Nothing,
-      checksum = Prelude.Nothing,
+        Core.Nothing,
+      createdDate = Core.Nothing,
+      parentIntentSignature = Core.Nothing,
+      dialogCodeHook = Core.Nothing,
+      conclusionStatement = Core.Nothing,
+      lastUpdatedDate = Core.Nothing,
+      inputContexts = Core.Nothing,
+      version = Core.Nothing,
+      rejectionStatement = Core.Nothing,
+      name = Core.Nothing,
+      slots = Core.Nothing,
+      fulfillmentActivity = Core.Nothing,
+      createVersion = Core.Nothing,
+      sampleUtterances = Core.Nothing,
+      description = Core.Nothing,
+      confirmationPrompt = Core.Nothing,
+      outputContexts = Core.Nothing,
+      followUpPrompt = Core.Nothing,
+      checksum = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Configuration information, if any, required to connect to an Amazon
 -- Kendra index and use the @AMAZON.KendraSearchIntent@ intent.
-putIntentResponse_kendraConfiguration :: Lens.Lens' PutIntentResponse (Prelude.Maybe KendraConfiguration)
+putIntentResponse_kendraConfiguration :: Lens.Lens' PutIntentResponse (Core.Maybe KendraConfiguration)
 putIntentResponse_kendraConfiguration = Lens.lens (\PutIntentResponse' {kendraConfiguration} -> kendraConfiguration) (\s@PutIntentResponse' {} a -> s {kendraConfiguration = a} :: PutIntentResponse)
 
 -- | The date that the intent was created.
-putIntentResponse_createdDate :: Lens.Lens' PutIntentResponse (Prelude.Maybe Prelude.UTCTime)
-putIntentResponse_createdDate = Lens.lens (\PutIntentResponse' {createdDate} -> createdDate) (\s@PutIntentResponse' {} a -> s {createdDate = a} :: PutIntentResponse) Prelude.. Lens.mapping Prelude._Time
+putIntentResponse_createdDate :: Lens.Lens' PutIntentResponse (Core.Maybe Core.UTCTime)
+putIntentResponse_createdDate = Lens.lens (\PutIntentResponse' {createdDate} -> createdDate) (\s@PutIntentResponse' {} a -> s {createdDate = a} :: PutIntentResponse) Core.. Lens.mapping Core._Time
 
 -- | A unique identifier for the built-in intent that this intent is based
 -- on.
-putIntentResponse_parentIntentSignature :: Lens.Lens' PutIntentResponse (Prelude.Maybe Prelude.Text)
+putIntentResponse_parentIntentSignature :: Lens.Lens' PutIntentResponse (Core.Maybe Core.Text)
 putIntentResponse_parentIntentSignature = Lens.lens (\PutIntentResponse' {parentIntentSignature} -> parentIntentSignature) (\s@PutIntentResponse' {} a -> s {parentIntentSignature = a} :: PutIntentResponse)
 
 -- | If defined in the intent, Amazon Lex invokes this Lambda function for
 -- each user input.
-putIntentResponse_dialogCodeHook :: Lens.Lens' PutIntentResponse (Prelude.Maybe CodeHook)
+putIntentResponse_dialogCodeHook :: Lens.Lens' PutIntentResponse (Core.Maybe CodeHook)
 putIntentResponse_dialogCodeHook = Lens.lens (\PutIntentResponse' {dialogCodeHook} -> dialogCodeHook) (\s@PutIntentResponse' {} a -> s {dialogCodeHook = a} :: PutIntentResponse)
 
 -- | After the Lambda function specified in the@fulfillmentActivity@intent
 -- fulfills the intent, Amazon Lex conveys this statement to the user.
-putIntentResponse_conclusionStatement :: Lens.Lens' PutIntentResponse (Prelude.Maybe Statement)
+putIntentResponse_conclusionStatement :: Lens.Lens' PutIntentResponse (Core.Maybe Statement)
 putIntentResponse_conclusionStatement = Lens.lens (\PutIntentResponse' {conclusionStatement} -> conclusionStatement) (\s@PutIntentResponse' {} a -> s {conclusionStatement = a} :: PutIntentResponse)
 
 -- | The date that the intent was updated. When you create a resource, the
 -- creation date and last update dates are the same.
-putIntentResponse_lastUpdatedDate :: Lens.Lens' PutIntentResponse (Prelude.Maybe Prelude.UTCTime)
-putIntentResponse_lastUpdatedDate = Lens.lens (\PutIntentResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@PutIntentResponse' {} a -> s {lastUpdatedDate = a} :: PutIntentResponse) Prelude.. Lens.mapping Prelude._Time
+putIntentResponse_lastUpdatedDate :: Lens.Lens' PutIntentResponse (Core.Maybe Core.UTCTime)
+putIntentResponse_lastUpdatedDate = Lens.lens (\PutIntentResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@PutIntentResponse' {} a -> s {lastUpdatedDate = a} :: PutIntentResponse) Core.. Lens.mapping Core._Time
 
 -- | An array of @InputContext@ objects that lists the contexts that must be
 -- active for Amazon Lex to choose the intent in a conversation with the
 -- user.
-putIntentResponse_inputContexts :: Lens.Lens' PutIntentResponse (Prelude.Maybe [InputContext])
-putIntentResponse_inputContexts = Lens.lens (\PutIntentResponse' {inputContexts} -> inputContexts) (\s@PutIntentResponse' {} a -> s {inputContexts = a} :: PutIntentResponse) Prelude.. Lens.mapping Prelude._Coerce
+putIntentResponse_inputContexts :: Lens.Lens' PutIntentResponse (Core.Maybe [InputContext])
+putIntentResponse_inputContexts = Lens.lens (\PutIntentResponse' {inputContexts} -> inputContexts) (\s@PutIntentResponse' {} a -> s {inputContexts = a} :: PutIntentResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The version of the intent. For a new intent, the version is always
 -- @$LATEST@.
-putIntentResponse_version :: Lens.Lens' PutIntentResponse (Prelude.Maybe Prelude.Text)
+putIntentResponse_version :: Lens.Lens' PutIntentResponse (Core.Maybe Core.Text)
 putIntentResponse_version = Lens.lens (\PutIntentResponse' {version} -> version) (\s@PutIntentResponse' {} a -> s {version = a} :: PutIntentResponse)
 
 -- | If the user answers \"no\" to the question defined in
 -- @confirmationPrompt@ Amazon Lex responds with this statement to
 -- acknowledge that the intent was canceled.
-putIntentResponse_rejectionStatement :: Lens.Lens' PutIntentResponse (Prelude.Maybe Statement)
+putIntentResponse_rejectionStatement :: Lens.Lens' PutIntentResponse (Core.Maybe Statement)
 putIntentResponse_rejectionStatement = Lens.lens (\PutIntentResponse' {rejectionStatement} -> rejectionStatement) (\s@PutIntentResponse' {} a -> s {rejectionStatement = a} :: PutIntentResponse)
 
 -- | The name of the intent.
-putIntentResponse_name :: Lens.Lens' PutIntentResponse (Prelude.Maybe Prelude.Text)
+putIntentResponse_name :: Lens.Lens' PutIntentResponse (Core.Maybe Core.Text)
 putIntentResponse_name = Lens.lens (\PutIntentResponse' {name} -> name) (\s@PutIntentResponse' {} a -> s {name = a} :: PutIntentResponse)
 
 -- | An array of intent slots that are configured for the intent.
-putIntentResponse_slots :: Lens.Lens' PutIntentResponse (Prelude.Maybe [Slot])
-putIntentResponse_slots = Lens.lens (\PutIntentResponse' {slots} -> slots) (\s@PutIntentResponse' {} a -> s {slots = a} :: PutIntentResponse) Prelude.. Lens.mapping Prelude._Coerce
+putIntentResponse_slots :: Lens.Lens' PutIntentResponse (Core.Maybe [Slot])
+putIntentResponse_slots = Lens.lens (\PutIntentResponse' {slots} -> slots) (\s@PutIntentResponse' {} a -> s {slots = a} :: PutIntentResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | If defined in the intent, Amazon Lex invokes this Lambda function to
 -- fulfill the intent after the user provides all of the information
 -- required by the intent.
-putIntentResponse_fulfillmentActivity :: Lens.Lens' PutIntentResponse (Prelude.Maybe FulfillmentActivity)
+putIntentResponse_fulfillmentActivity :: Lens.Lens' PutIntentResponse (Core.Maybe FulfillmentActivity)
 putIntentResponse_fulfillmentActivity = Lens.lens (\PutIntentResponse' {fulfillmentActivity} -> fulfillmentActivity) (\s@PutIntentResponse' {} a -> s {fulfillmentActivity = a} :: PutIntentResponse)
 
 -- | @True@ if a new version of the intent was created. If the
 -- @createVersion@ field was not specified in the request, the
 -- @createVersion@ field is set to false in the response.
-putIntentResponse_createVersion :: Lens.Lens' PutIntentResponse (Prelude.Maybe Prelude.Bool)
+putIntentResponse_createVersion :: Lens.Lens' PutIntentResponse (Core.Maybe Core.Bool)
 putIntentResponse_createVersion = Lens.lens (\PutIntentResponse' {createVersion} -> createVersion) (\s@PutIntentResponse' {} a -> s {createVersion = a} :: PutIntentResponse)
 
 -- | An array of sample utterances that are configured for the intent.
-putIntentResponse_sampleUtterances :: Lens.Lens' PutIntentResponse (Prelude.Maybe [Prelude.Text])
-putIntentResponse_sampleUtterances = Lens.lens (\PutIntentResponse' {sampleUtterances} -> sampleUtterances) (\s@PutIntentResponse' {} a -> s {sampleUtterances = a} :: PutIntentResponse) Prelude.. Lens.mapping Prelude._Coerce
+putIntentResponse_sampleUtterances :: Lens.Lens' PutIntentResponse (Core.Maybe [Core.Text])
+putIntentResponse_sampleUtterances = Lens.lens (\PutIntentResponse' {sampleUtterances} -> sampleUtterances) (\s@PutIntentResponse' {} a -> s {sampleUtterances = a} :: PutIntentResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A description of the intent.
-putIntentResponse_description :: Lens.Lens' PutIntentResponse (Prelude.Maybe Prelude.Text)
+putIntentResponse_description :: Lens.Lens' PutIntentResponse (Core.Maybe Core.Text)
 putIntentResponse_description = Lens.lens (\PutIntentResponse' {description} -> description) (\s@PutIntentResponse' {} a -> s {description = a} :: PutIntentResponse)
 
 -- | If defined in the intent, Amazon Lex prompts the user to confirm the
 -- intent before fulfilling it.
-putIntentResponse_confirmationPrompt :: Lens.Lens' PutIntentResponse (Prelude.Maybe Prompt)
+putIntentResponse_confirmationPrompt :: Lens.Lens' PutIntentResponse (Core.Maybe Prompt)
 putIntentResponse_confirmationPrompt = Lens.lens (\PutIntentResponse' {confirmationPrompt} -> confirmationPrompt) (\s@PutIntentResponse' {} a -> s {confirmationPrompt = a} :: PutIntentResponse)
 
 -- | An array of @OutputContext@ objects that lists the contexts that the
 -- intent activates when the intent is fulfilled.
-putIntentResponse_outputContexts :: Lens.Lens' PutIntentResponse (Prelude.Maybe [OutputContext])
-putIntentResponse_outputContexts = Lens.lens (\PutIntentResponse' {outputContexts} -> outputContexts) (\s@PutIntentResponse' {} a -> s {outputContexts = a} :: PutIntentResponse) Prelude.. Lens.mapping Prelude._Coerce
+putIntentResponse_outputContexts :: Lens.Lens' PutIntentResponse (Core.Maybe [OutputContext])
+putIntentResponse_outputContexts = Lens.lens (\PutIntentResponse' {outputContexts} -> outputContexts) (\s@PutIntentResponse' {} a -> s {outputContexts = a} :: PutIntentResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | If defined in the intent, Amazon Lex uses this prompt to solicit
 -- additional user activity after the intent is fulfilled.
-putIntentResponse_followUpPrompt :: Lens.Lens' PutIntentResponse (Prelude.Maybe FollowUpPrompt)
+putIntentResponse_followUpPrompt :: Lens.Lens' PutIntentResponse (Core.Maybe FollowUpPrompt)
 putIntentResponse_followUpPrompt = Lens.lens (\PutIntentResponse' {followUpPrompt} -> followUpPrompt) (\s@PutIntentResponse' {} a -> s {followUpPrompt = a} :: PutIntentResponse)
 
 -- | Checksum of the @$LATEST@version of the intent created or updated.
-putIntentResponse_checksum :: Lens.Lens' PutIntentResponse (Prelude.Maybe Prelude.Text)
+putIntentResponse_checksum :: Lens.Lens' PutIntentResponse (Core.Maybe Core.Text)
 putIntentResponse_checksum = Lens.lens (\PutIntentResponse' {checksum} -> checksum) (\s@PutIntentResponse' {} a -> s {checksum = a} :: PutIntentResponse)
 
 -- | The response's http status code.
-putIntentResponse_httpStatus :: Lens.Lens' PutIntentResponse Prelude.Int
+putIntentResponse_httpStatus :: Lens.Lens' PutIntentResponse Core.Int
 putIntentResponse_httpStatus = Lens.lens (\PutIntentResponse' {httpStatus} -> httpStatus) (\s@PutIntentResponse' {} a -> s {httpStatus = a} :: PutIntentResponse)
 
-instance Prelude.NFData PutIntentResponse
+instance Core.NFData PutIntentResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,8 +56,8 @@ module Network.AWS.S3.DeleteBucketWebsite
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -68,11 +67,11 @@ data DeleteBucketWebsite = DeleteBucketWebsite'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The bucket name for which you want to remove the website configuration.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketWebsite' with all optional fields omitted.
@@ -94,51 +93,51 @@ newDeleteBucketWebsite ::
 newDeleteBucketWebsite pBucket_ =
   DeleteBucketWebsite'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketWebsite_expectedBucketOwner :: Lens.Lens' DeleteBucketWebsite (Prelude.Maybe Prelude.Text)
+deleteBucketWebsite_expectedBucketOwner :: Lens.Lens' DeleteBucketWebsite (Core.Maybe Core.Text)
 deleteBucketWebsite_expectedBucketOwner = Lens.lens (\DeleteBucketWebsite' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketWebsite' {} a -> s {expectedBucketOwner = a} :: DeleteBucketWebsite)
 
 -- | The bucket name for which you want to remove the website configuration.
 deleteBucketWebsite_bucket :: Lens.Lens' DeleteBucketWebsite BucketName
 deleteBucketWebsite_bucket = Lens.lens (\DeleteBucketWebsite' {bucket} -> bucket) (\s@DeleteBucketWebsite' {} a -> s {bucket = a} :: DeleteBucketWebsite)
 
-instance Prelude.AWSRequest DeleteBucketWebsite where
+instance Core.AWSRequest DeleteBucketWebsite where
   type
-    Rs DeleteBucketWebsite =
+    AWSResponse DeleteBucketWebsite =
       DeleteBucketWebsiteResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteBucketWebsiteResponse'
 
-instance Prelude.Hashable DeleteBucketWebsite
+instance Core.Hashable DeleteBucketWebsite
 
-instance Prelude.NFData DeleteBucketWebsite
+instance Core.NFData DeleteBucketWebsite
 
-instance Prelude.ToHeaders DeleteBucketWebsite where
+instance Core.ToHeaders DeleteBucketWebsite where
   toHeaders DeleteBucketWebsite' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath DeleteBucketWebsite where
+instance Core.ToPath DeleteBucketWebsite where
   toPath DeleteBucketWebsite' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery DeleteBucketWebsite where
-  toQuery = Prelude.const (Prelude.mconcat ["website"])
+instance Core.ToQuery DeleteBucketWebsite where
+  toQuery = Core.const (Core.mconcat ["website"])
 
 -- | /See:/ 'newDeleteBucketWebsiteResponse' smart constructor.
 data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketWebsiteResponse' with all optional fields omitted.
@@ -149,4 +148,4 @@ newDeleteBucketWebsiteResponse ::
 newDeleteBucketWebsiteResponse =
   DeleteBucketWebsiteResponse'
 
-instance Prelude.NFData DeleteBucketWebsiteResponse
+instance Core.NFData DeleteBucketWebsiteResponse

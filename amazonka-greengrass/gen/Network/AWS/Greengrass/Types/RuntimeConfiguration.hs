@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.RuntimeConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.TelemetryConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Runtime configuration for a thing.
 --
 -- /See:/ 'newRuntimeConfiguration' smart constructor.
 data RuntimeConfiguration = RuntimeConfiguration'
   { -- | Configuration for telemetry service.
-    telemetryConfiguration :: Prelude.Maybe TelemetryConfiguration
+    telemetryConfiguration :: Core.Maybe TelemetryConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RuntimeConfiguration' with all optional fields omitted.
@@ -47,22 +46,22 @@ newRuntimeConfiguration ::
 newRuntimeConfiguration =
   RuntimeConfiguration'
     { telemetryConfiguration =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Configuration for telemetry service.
-runtimeConfiguration_telemetryConfiguration :: Lens.Lens' RuntimeConfiguration (Prelude.Maybe TelemetryConfiguration)
+runtimeConfiguration_telemetryConfiguration :: Lens.Lens' RuntimeConfiguration (Core.Maybe TelemetryConfiguration)
 runtimeConfiguration_telemetryConfiguration = Lens.lens (\RuntimeConfiguration' {telemetryConfiguration} -> telemetryConfiguration) (\s@RuntimeConfiguration' {} a -> s {telemetryConfiguration = a} :: RuntimeConfiguration)
 
-instance Prelude.FromJSON RuntimeConfiguration where
+instance Core.FromJSON RuntimeConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RuntimeConfiguration"
       ( \x ->
           RuntimeConfiguration'
-            Prelude.<$> (x Prelude..:? "TelemetryConfiguration")
+            Core.<$> (x Core..:? "TelemetryConfiguration")
       )
 
-instance Prelude.Hashable RuntimeConfiguration
+instance Core.Hashable RuntimeConfiguration
 
-instance Prelude.NFData RuntimeConfiguration
+instance Core.NFData RuntimeConfiguration

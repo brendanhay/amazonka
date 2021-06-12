@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CodeCommit.GetCommentReactions
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,17 +54,17 @@ import qualified Network.AWS.Response as Response
 data GetCommentReactions = GetCommentReactions'
   { -- | An enumeration token that, when provided in a request, returns the next
     -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A non-zero, non-negative integer used to limit the number of returned
     -- results. The default is the same as the allowed maximum, 1,000.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | Optional. The Amazon Resource Name (ARN) of the user or identity for
     -- which you want to get reaction information.
-    reactionUserArn :: Prelude.Maybe Prelude.Text,
+    reactionUserArn :: Core.Maybe Core.Text,
     -- | The ID of the comment for which you want to get reactions information.
-    commentId :: Prelude.Text
+    commentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCommentReactions' with all optional fields omitted.
@@ -87,99 +86,96 @@ data GetCommentReactions = GetCommentReactions'
 -- 'commentId', 'getCommentReactions_commentId' - The ID of the comment for which you want to get reactions information.
 newGetCommentReactions ::
   -- | 'commentId'
-  Prelude.Text ->
+  Core.Text ->
   GetCommentReactions
 newGetCommentReactions pCommentId_ =
   GetCommentReactions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      reactionUserArn = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      reactionUserArn = Core.Nothing,
       commentId = pCommentId_
     }
 
 -- | An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
-getCommentReactions_nextToken :: Lens.Lens' GetCommentReactions (Prelude.Maybe Prelude.Text)
+getCommentReactions_nextToken :: Lens.Lens' GetCommentReactions (Core.Maybe Core.Text)
 getCommentReactions_nextToken = Lens.lens (\GetCommentReactions' {nextToken} -> nextToken) (\s@GetCommentReactions' {} a -> s {nextToken = a} :: GetCommentReactions)
 
 -- | A non-zero, non-negative integer used to limit the number of returned
 -- results. The default is the same as the allowed maximum, 1,000.
-getCommentReactions_maxResults :: Lens.Lens' GetCommentReactions (Prelude.Maybe Prelude.Int)
+getCommentReactions_maxResults :: Lens.Lens' GetCommentReactions (Core.Maybe Core.Int)
 getCommentReactions_maxResults = Lens.lens (\GetCommentReactions' {maxResults} -> maxResults) (\s@GetCommentReactions' {} a -> s {maxResults = a} :: GetCommentReactions)
 
 -- | Optional. The Amazon Resource Name (ARN) of the user or identity for
 -- which you want to get reaction information.
-getCommentReactions_reactionUserArn :: Lens.Lens' GetCommentReactions (Prelude.Maybe Prelude.Text)
+getCommentReactions_reactionUserArn :: Lens.Lens' GetCommentReactions (Core.Maybe Core.Text)
 getCommentReactions_reactionUserArn = Lens.lens (\GetCommentReactions' {reactionUserArn} -> reactionUserArn) (\s@GetCommentReactions' {} a -> s {reactionUserArn = a} :: GetCommentReactions)
 
 -- | The ID of the comment for which you want to get reactions information.
-getCommentReactions_commentId :: Lens.Lens' GetCommentReactions Prelude.Text
+getCommentReactions_commentId :: Lens.Lens' GetCommentReactions Core.Text
 getCommentReactions_commentId = Lens.lens (\GetCommentReactions' {commentId} -> commentId) (\s@GetCommentReactions' {} a -> s {commentId = a} :: GetCommentReactions)
 
-instance Prelude.AWSRequest GetCommentReactions where
+instance Core.AWSRequest GetCommentReactions where
   type
-    Rs GetCommentReactions =
+    AWSResponse GetCommentReactions =
       GetCommentReactionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCommentReactionsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "reactionsForComment"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..?> "reactionsForComment"
+                         Core..!@ Core.mempty
+                     )
       )
 
-instance Prelude.Hashable GetCommentReactions
+instance Core.Hashable GetCommentReactions
 
-instance Prelude.NFData GetCommentReactions
+instance Core.NFData GetCommentReactions
 
-instance Prelude.ToHeaders GetCommentReactions where
+instance Core.ToHeaders GetCommentReactions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.GetCommentReactions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.GetCommentReactions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetCommentReactions where
+instance Core.ToJSON GetCommentReactions where
   toJSON GetCommentReactions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("reactionUserArn" Prelude..=)
-              Prelude.<$> reactionUserArn,
-            Prelude.Just ("commentId" Prelude..= commentId)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("reactionUserArn" Core..=) Core.<$> reactionUserArn,
+            Core.Just ("commentId" Core..= commentId)
           ]
       )
 
-instance Prelude.ToPath GetCommentReactions where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetCommentReactions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetCommentReactions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCommentReactions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCommentReactionsResponse' smart constructor.
 data GetCommentReactionsResponse = GetCommentReactionsResponse'
   { -- | An enumeration token that can be used in a request to return the next
     -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | An array of reactions to the specified comment.
     reactionsForComment :: [ReactionForComment]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCommentReactionsResponse' with all optional fields omitted.
@@ -197,27 +193,27 @@ data GetCommentReactionsResponse = GetCommentReactionsResponse'
 -- 'reactionsForComment', 'getCommentReactionsResponse_reactionsForComment' - An array of reactions to the specified comment.
 newGetCommentReactionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCommentReactionsResponse
 newGetCommentReactionsResponse pHttpStatus_ =
   GetCommentReactionsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      reactionsForComment = Prelude.mempty
+      reactionsForComment = Core.mempty
     }
 
 -- | An enumeration token that can be used in a request to return the next
 -- batch of the results.
-getCommentReactionsResponse_nextToken :: Lens.Lens' GetCommentReactionsResponse (Prelude.Maybe Prelude.Text)
+getCommentReactionsResponse_nextToken :: Lens.Lens' GetCommentReactionsResponse (Core.Maybe Core.Text)
 getCommentReactionsResponse_nextToken = Lens.lens (\GetCommentReactionsResponse' {nextToken} -> nextToken) (\s@GetCommentReactionsResponse' {} a -> s {nextToken = a} :: GetCommentReactionsResponse)
 
 -- | The response's http status code.
-getCommentReactionsResponse_httpStatus :: Lens.Lens' GetCommentReactionsResponse Prelude.Int
+getCommentReactionsResponse_httpStatus :: Lens.Lens' GetCommentReactionsResponse Core.Int
 getCommentReactionsResponse_httpStatus = Lens.lens (\GetCommentReactionsResponse' {httpStatus} -> httpStatus) (\s@GetCommentReactionsResponse' {} a -> s {httpStatus = a} :: GetCommentReactionsResponse)
 
 -- | An array of reactions to the specified comment.
 getCommentReactionsResponse_reactionsForComment :: Lens.Lens' GetCommentReactionsResponse [ReactionForComment]
-getCommentReactionsResponse_reactionsForComment = Lens.lens (\GetCommentReactionsResponse' {reactionsForComment} -> reactionsForComment) (\s@GetCommentReactionsResponse' {} a -> s {reactionsForComment = a} :: GetCommentReactionsResponse) Prelude.. Prelude._Coerce
+getCommentReactionsResponse_reactionsForComment = Lens.lens (\GetCommentReactionsResponse' {reactionsForComment} -> reactionsForComment) (\s@GetCommentReactionsResponse' {} a -> s {reactionsForComment = a} :: GetCommentReactionsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData GetCommentReactionsResponse
+instance Core.NFData GetCommentReactionsResponse

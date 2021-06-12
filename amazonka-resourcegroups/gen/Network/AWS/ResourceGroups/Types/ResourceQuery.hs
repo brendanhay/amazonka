@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ResourceGroups.Types.ResourceQuery where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroups.Types.QueryType
 
 -- | The query that is used to define a resource group or a search for
@@ -127,9 +126,9 @@ data ResourceQuery = ResourceQuery'
     --         values in the filter.
     type' :: QueryType,
     -- | The query that defines a group or a search.
-    query :: Prelude.Text
+    query :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceQuery' with all optional fields omitted.
@@ -189,7 +188,7 @@ newResourceQuery ::
   -- | 'type''
   QueryType ->
   -- | 'query'
-  Prelude.Text ->
+  Core.Text ->
   ResourceQuery
 newResourceQuery pType_ pSearchQuery_ =
   ResourceQuery'
@@ -245,28 +244,27 @@ resourceQuery_type :: Lens.Lens' ResourceQuery QueryType
 resourceQuery_type = Lens.lens (\ResourceQuery' {type'} -> type') (\s@ResourceQuery' {} a -> s {type' = a} :: ResourceQuery)
 
 -- | The query that defines a group or a search.
-resourceQuery_searchQuery :: Lens.Lens' ResourceQuery Prelude.Text
+resourceQuery_searchQuery :: Lens.Lens' ResourceQuery Core.Text
 resourceQuery_searchQuery = Lens.lens (\ResourceQuery' {query} -> query) (\s@ResourceQuery' {} a -> s {query = a} :: ResourceQuery)
 
-instance Prelude.FromJSON ResourceQuery where
+instance Core.FromJSON ResourceQuery where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceQuery"
       ( \x ->
           ResourceQuery'
-            Prelude.<$> (x Prelude..: "Type")
-            Prelude.<*> (x Prelude..: "Query")
+            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Query")
       )
 
-instance Prelude.Hashable ResourceQuery
+instance Core.Hashable ResourceQuery
 
-instance Prelude.NFData ResourceQuery
+instance Core.NFData ResourceQuery
 
-instance Prelude.ToJSON ResourceQuery where
+instance Core.ToJSON ResourceQuery where
   toJSON ResourceQuery' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Prelude..= type'),
-            Prelude.Just ("Query" Prelude..= query)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            Core.Just ("Query" Core..= query)
           ]
       )

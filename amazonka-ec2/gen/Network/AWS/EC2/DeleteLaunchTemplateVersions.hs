@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.EC2.DeleteLaunchTemplateVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,17 +59,17 @@ data DeleteLaunchTemplateVersions = DeleteLaunchTemplateVersions'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the launch template. You must specify either the launch
     -- template ID or launch template name in the request.
-    launchTemplateId :: Prelude.Maybe Prelude.Text,
+    launchTemplateId :: Core.Maybe Core.Text,
     -- | The name of the launch template. You must specify either the launch
     -- template ID or launch template name in the request.
-    launchTemplateName :: Prelude.Maybe Prelude.Text,
+    launchTemplateName :: Core.Maybe Core.Text,
     -- | The version numbers of one or more launch template versions to delete.
-    versions :: [Prelude.Text]
+    versions :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLaunchTemplateVersions' with all optional fields omitted.
@@ -97,100 +96,89 @@ newDeleteLaunchTemplateVersions ::
 newDeleteLaunchTemplateVersions =
   DeleteLaunchTemplateVersions'
     { dryRun =
-        Prelude.Nothing,
-      launchTemplateId = Prelude.Nothing,
-      launchTemplateName = Prelude.Nothing,
-      versions = Prelude.mempty
+        Core.Nothing,
+      launchTemplateId = Core.Nothing,
+      launchTemplateName = Core.Nothing,
+      versions = Core.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteLaunchTemplateVersions_dryRun :: Lens.Lens' DeleteLaunchTemplateVersions (Prelude.Maybe Prelude.Bool)
+deleteLaunchTemplateVersions_dryRun :: Lens.Lens' DeleteLaunchTemplateVersions (Core.Maybe Core.Bool)
 deleteLaunchTemplateVersions_dryRun = Lens.lens (\DeleteLaunchTemplateVersions' {dryRun} -> dryRun) (\s@DeleteLaunchTemplateVersions' {} a -> s {dryRun = a} :: DeleteLaunchTemplateVersions)
 
 -- | The ID of the launch template. You must specify either the launch
 -- template ID or launch template name in the request.
-deleteLaunchTemplateVersions_launchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersions (Prelude.Maybe Prelude.Text)
+deleteLaunchTemplateVersions_launchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersions (Core.Maybe Core.Text)
 deleteLaunchTemplateVersions_launchTemplateId = Lens.lens (\DeleteLaunchTemplateVersions' {launchTemplateId} -> launchTemplateId) (\s@DeleteLaunchTemplateVersions' {} a -> s {launchTemplateId = a} :: DeleteLaunchTemplateVersions)
 
 -- | The name of the launch template. You must specify either the launch
 -- template ID or launch template name in the request.
-deleteLaunchTemplateVersions_launchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersions (Prelude.Maybe Prelude.Text)
+deleteLaunchTemplateVersions_launchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersions (Core.Maybe Core.Text)
 deleteLaunchTemplateVersions_launchTemplateName = Lens.lens (\DeleteLaunchTemplateVersions' {launchTemplateName} -> launchTemplateName) (\s@DeleteLaunchTemplateVersions' {} a -> s {launchTemplateName = a} :: DeleteLaunchTemplateVersions)
 
 -- | The version numbers of one or more launch template versions to delete.
-deleteLaunchTemplateVersions_versions :: Lens.Lens' DeleteLaunchTemplateVersions [Prelude.Text]
-deleteLaunchTemplateVersions_versions = Lens.lens (\DeleteLaunchTemplateVersions' {versions} -> versions) (\s@DeleteLaunchTemplateVersions' {} a -> s {versions = a} :: DeleteLaunchTemplateVersions) Prelude.. Prelude._Coerce
+deleteLaunchTemplateVersions_versions :: Lens.Lens' DeleteLaunchTemplateVersions [Core.Text]
+deleteLaunchTemplateVersions_versions = Lens.lens (\DeleteLaunchTemplateVersions' {versions} -> versions) (\s@DeleteLaunchTemplateVersions' {} a -> s {versions = a} :: DeleteLaunchTemplateVersions) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    DeleteLaunchTemplateVersions
-  where
+instance Core.AWSRequest DeleteLaunchTemplateVersions where
   type
-    Rs DeleteLaunchTemplateVersions =
+    AWSResponse DeleteLaunchTemplateVersions =
       DeleteLaunchTemplateVersionsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteLaunchTemplateVersionsResponse'
-            Prelude.<$> ( x
-                            Prelude..@? "unsuccessfullyDeletedLaunchTemplateVersionSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> ( x
-                            Prelude..@? "successfullyDeletedLaunchTemplateVersionSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x
+                         Core..@? "unsuccessfullyDeletedLaunchTemplateVersionSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> ( x
+                         Core..@? "successfullyDeletedLaunchTemplateVersionSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DeleteLaunchTemplateVersions
+instance Core.Hashable DeleteLaunchTemplateVersions
 
-instance Prelude.NFData DeleteLaunchTemplateVersions
+instance Core.NFData DeleteLaunchTemplateVersions
 
-instance
-  Prelude.ToHeaders
-    DeleteLaunchTemplateVersions
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteLaunchTemplateVersions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteLaunchTemplateVersions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLaunchTemplateVersions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLaunchTemplateVersions where
+instance Core.ToQuery DeleteLaunchTemplateVersions where
   toQuery DeleteLaunchTemplateVersions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteLaunchTemplateVersions" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "LaunchTemplateId" Prelude.=: launchTemplateId,
-        "LaunchTemplateName" Prelude.=: launchTemplateName,
-        Prelude.toQueryList "LaunchTemplateVersion" versions
+          Core.=: ("DeleteLaunchTemplateVersions" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "LaunchTemplateId" Core.=: launchTemplateId,
+        "LaunchTemplateName" Core.=: launchTemplateName,
+        Core.toQueryList "LaunchTemplateVersion" versions
       ]
 
 -- | /See:/ 'newDeleteLaunchTemplateVersionsResponse' smart constructor.
 data DeleteLaunchTemplateVersionsResponse = DeleteLaunchTemplateVersionsResponse'
   { -- | Information about the launch template versions that could not be
     -- deleted.
-    unsuccessfullyDeletedLaunchTemplateVersions :: Prelude.Maybe [DeleteLaunchTemplateVersionsResponseErrorItem],
+    unsuccessfullyDeletedLaunchTemplateVersions :: Core.Maybe [DeleteLaunchTemplateVersionsResponseErrorItem],
     -- | Information about the launch template versions that were successfully
     -- deleted.
-    successfullyDeletedLaunchTemplateVersions :: Prelude.Maybe [DeleteLaunchTemplateVersionsResponseSuccessItem],
+    successfullyDeletedLaunchTemplateVersions :: Core.Maybe [DeleteLaunchTemplateVersionsResponseSuccessItem],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLaunchTemplateVersionsResponse' with all optional fields omitted.
@@ -209,31 +197,31 @@ data DeleteLaunchTemplateVersionsResponse = DeleteLaunchTemplateVersionsResponse
 -- 'httpStatus', 'deleteLaunchTemplateVersionsResponse_httpStatus' - The response's http status code.
 newDeleteLaunchTemplateVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteLaunchTemplateVersionsResponse
 newDeleteLaunchTemplateVersionsResponse pHttpStatus_ =
   DeleteLaunchTemplateVersionsResponse'
     { unsuccessfullyDeletedLaunchTemplateVersions =
-        Prelude.Nothing,
+        Core.Nothing,
       successfullyDeletedLaunchTemplateVersions =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the launch template versions that could not be
 -- deleted.
-deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions :: Lens.Lens' DeleteLaunchTemplateVersionsResponse (Prelude.Maybe [DeleteLaunchTemplateVersionsResponseErrorItem])
-deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions = Lens.lens (\DeleteLaunchTemplateVersionsResponse' {unsuccessfullyDeletedLaunchTemplateVersions} -> unsuccessfullyDeletedLaunchTemplateVersions) (\s@DeleteLaunchTemplateVersionsResponse' {} a -> s {unsuccessfullyDeletedLaunchTemplateVersions = a} :: DeleteLaunchTemplateVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions :: Lens.Lens' DeleteLaunchTemplateVersionsResponse (Core.Maybe [DeleteLaunchTemplateVersionsResponseErrorItem])
+deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions = Lens.lens (\DeleteLaunchTemplateVersionsResponse' {unsuccessfullyDeletedLaunchTemplateVersions} -> unsuccessfullyDeletedLaunchTemplateVersions) (\s@DeleteLaunchTemplateVersionsResponse' {} a -> s {unsuccessfullyDeletedLaunchTemplateVersions = a} :: DeleteLaunchTemplateVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the launch template versions that were successfully
 -- deleted.
-deleteLaunchTemplateVersionsResponse_successfullyDeletedLaunchTemplateVersions :: Lens.Lens' DeleteLaunchTemplateVersionsResponse (Prelude.Maybe [DeleteLaunchTemplateVersionsResponseSuccessItem])
-deleteLaunchTemplateVersionsResponse_successfullyDeletedLaunchTemplateVersions = Lens.lens (\DeleteLaunchTemplateVersionsResponse' {successfullyDeletedLaunchTemplateVersions} -> successfullyDeletedLaunchTemplateVersions) (\s@DeleteLaunchTemplateVersionsResponse' {} a -> s {successfullyDeletedLaunchTemplateVersions = a} :: DeleteLaunchTemplateVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteLaunchTemplateVersionsResponse_successfullyDeletedLaunchTemplateVersions :: Lens.Lens' DeleteLaunchTemplateVersionsResponse (Core.Maybe [DeleteLaunchTemplateVersionsResponseSuccessItem])
+deleteLaunchTemplateVersionsResponse_successfullyDeletedLaunchTemplateVersions = Lens.lens (\DeleteLaunchTemplateVersionsResponse' {successfullyDeletedLaunchTemplateVersions} -> successfullyDeletedLaunchTemplateVersions) (\s@DeleteLaunchTemplateVersionsResponse' {} a -> s {successfullyDeletedLaunchTemplateVersions = a} :: DeleteLaunchTemplateVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteLaunchTemplateVersionsResponse_httpStatus :: Lens.Lens' DeleteLaunchTemplateVersionsResponse Prelude.Int
+deleteLaunchTemplateVersionsResponse_httpStatus :: Lens.Lens' DeleteLaunchTemplateVersionsResponse Core.Int
 deleteLaunchTemplateVersionsResponse_httpStatus = Lens.lens (\DeleteLaunchTemplateVersionsResponse' {httpStatus} -> httpStatus) (\s@DeleteLaunchTemplateVersionsResponse' {} a -> s {httpStatus = a} :: DeleteLaunchTemplateVersionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteLaunchTemplateVersionsResponse

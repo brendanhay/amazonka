@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.StreamSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary of a stream.
 --
 -- /See:/ 'newStreamSummary' smart constructor.
 data StreamSummary = StreamSummary'
   { -- | The stream version.
-    streamVersion :: Prelude.Maybe Prelude.Natural,
+    streamVersion :: Core.Maybe Core.Natural,
     -- | The stream ID.
-    streamId :: Prelude.Maybe Prelude.Text,
+    streamId :: Core.Maybe Core.Text,
     -- | The stream ARN.
-    streamArn :: Prelude.Maybe Prelude.Text,
+    streamArn :: Core.Maybe Core.Text,
     -- | A description of the stream.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StreamSummary' with all optional fields omitted.
@@ -57,40 +56,40 @@ newStreamSummary ::
   StreamSummary
 newStreamSummary =
   StreamSummary'
-    { streamVersion = Prelude.Nothing,
-      streamId = Prelude.Nothing,
-      streamArn = Prelude.Nothing,
-      description = Prelude.Nothing
+    { streamVersion = Core.Nothing,
+      streamId = Core.Nothing,
+      streamArn = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The stream version.
-streamSummary_streamVersion :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Natural)
+streamSummary_streamVersion :: Lens.Lens' StreamSummary (Core.Maybe Core.Natural)
 streamSummary_streamVersion = Lens.lens (\StreamSummary' {streamVersion} -> streamVersion) (\s@StreamSummary' {} a -> s {streamVersion = a} :: StreamSummary)
 
 -- | The stream ID.
-streamSummary_streamId :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
+streamSummary_streamId :: Lens.Lens' StreamSummary (Core.Maybe Core.Text)
 streamSummary_streamId = Lens.lens (\StreamSummary' {streamId} -> streamId) (\s@StreamSummary' {} a -> s {streamId = a} :: StreamSummary)
 
 -- | The stream ARN.
-streamSummary_streamArn :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
+streamSummary_streamArn :: Lens.Lens' StreamSummary (Core.Maybe Core.Text)
 streamSummary_streamArn = Lens.lens (\StreamSummary' {streamArn} -> streamArn) (\s@StreamSummary' {} a -> s {streamArn = a} :: StreamSummary)
 
 -- | A description of the stream.
-streamSummary_description :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
+streamSummary_description :: Lens.Lens' StreamSummary (Core.Maybe Core.Text)
 streamSummary_description = Lens.lens (\StreamSummary' {description} -> description) (\s@StreamSummary' {} a -> s {description = a} :: StreamSummary)
 
-instance Prelude.FromJSON StreamSummary where
+instance Core.FromJSON StreamSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StreamSummary"
       ( \x ->
           StreamSummary'
-            Prelude.<$> (x Prelude..:? "streamVersion")
-            Prelude.<*> (x Prelude..:? "streamId")
-            Prelude.<*> (x Prelude..:? "streamArn")
-            Prelude.<*> (x Prelude..:? "description")
+            Core.<$> (x Core..:? "streamVersion")
+            Core.<*> (x Core..:? "streamId")
+            Core.<*> (x Core..:? "streamArn")
+            Core.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable StreamSummary
+instance Core.Hashable StreamSummary
 
-instance Prelude.NFData StreamSummary
+instance Core.NFData StreamSummary

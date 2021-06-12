@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.Pinpoint.ListTemplateVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,21 +54,21 @@ data ListTemplateVersions = ListTemplateVersions'
   { -- | The string that specifies which page of results to return in a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Prelude.Maybe Prelude.Text,
+    pageSize :: Core.Maybe Core.Text,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Prelude.Text,
+    templateName :: Core.Text,
     -- | The type of channel that the message template is designed for. Valid
     -- values are: EMAIL, PUSH, SMS, and VOICE.
-    templateType :: Prelude.Text
+    templateType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTemplateVersions' with all optional fields omitted.
@@ -96,14 +95,14 @@ data ListTemplateVersions = ListTemplateVersions'
 -- values are: EMAIL, PUSH, SMS, and VOICE.
 newListTemplateVersions ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'templateType'
-  Prelude.Text ->
+  Core.Text ->
   ListTemplateVersions
 newListTemplateVersions pTemplateName_ pTemplateType_ =
   ListTemplateVersions'
-    { nextToken = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      pageSize = Core.Nothing,
       templateName = pTemplateName_,
       templateType = pTemplateType_
     }
@@ -111,79 +110,77 @@ newListTemplateVersions pTemplateName_ pTemplateType_ =
 -- | The string that specifies which page of results to return in a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-listTemplateVersions_nextToken :: Lens.Lens' ListTemplateVersions (Prelude.Maybe Prelude.Text)
+listTemplateVersions_nextToken :: Lens.Lens' ListTemplateVersions (Core.Maybe Core.Text)
 listTemplateVersions_nextToken = Lens.lens (\ListTemplateVersions' {nextToken} -> nextToken) (\s@ListTemplateVersions' {} a -> s {nextToken = a} :: ListTemplateVersions)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-listTemplateVersions_pageSize :: Lens.Lens' ListTemplateVersions (Prelude.Maybe Prelude.Text)
+listTemplateVersions_pageSize :: Lens.Lens' ListTemplateVersions (Core.Maybe Core.Text)
 listTemplateVersions_pageSize = Lens.lens (\ListTemplateVersions' {pageSize} -> pageSize) (\s@ListTemplateVersions' {} a -> s {pageSize = a} :: ListTemplateVersions)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-listTemplateVersions_templateName :: Lens.Lens' ListTemplateVersions Prelude.Text
+listTemplateVersions_templateName :: Lens.Lens' ListTemplateVersions Core.Text
 listTemplateVersions_templateName = Lens.lens (\ListTemplateVersions' {templateName} -> templateName) (\s@ListTemplateVersions' {} a -> s {templateName = a} :: ListTemplateVersions)
 
 -- | The type of channel that the message template is designed for. Valid
 -- values are: EMAIL, PUSH, SMS, and VOICE.
-listTemplateVersions_templateType :: Lens.Lens' ListTemplateVersions Prelude.Text
+listTemplateVersions_templateType :: Lens.Lens' ListTemplateVersions Core.Text
 listTemplateVersions_templateType = Lens.lens (\ListTemplateVersions' {templateType} -> templateType) (\s@ListTemplateVersions' {} a -> s {templateType = a} :: ListTemplateVersions)
 
-instance Prelude.AWSRequest ListTemplateVersions where
+instance Core.AWSRequest ListTemplateVersions where
   type
-    Rs ListTemplateVersions =
+    AWSResponse ListTemplateVersions =
       ListTemplateVersionsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTemplateVersionsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable ListTemplateVersions
+instance Core.Hashable ListTemplateVersions
 
-instance Prelude.NFData ListTemplateVersions
+instance Core.NFData ListTemplateVersions
 
-instance Prelude.ToHeaders ListTemplateVersions where
+instance Core.ToHeaders ListTemplateVersions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListTemplateVersions where
+instance Core.ToPath ListTemplateVersions where
   toPath ListTemplateVersions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/templates/",
-        Prelude.toBS templateName,
+        Core.toBS templateName,
         "/",
-        Prelude.toBS templateType,
+        Core.toBS templateType,
         "/versions"
       ]
 
-instance Prelude.ToQuery ListTemplateVersions where
+instance Core.ToQuery ListTemplateVersions where
   toQuery ListTemplateVersions' {..} =
-    Prelude.mconcat
-      [ "next-token" Prelude.=: nextToken,
-        "page-size" Prelude.=: pageSize
+    Core.mconcat
+      [ "next-token" Core.=: nextToken,
+        "page-size" Core.=: pageSize
       ]
 
 -- | /See:/ 'newListTemplateVersionsResponse' smart constructor.
 data ListTemplateVersionsResponse = ListTemplateVersionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     templateVersionsResponse :: TemplateVersionsResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTemplateVersionsResponse' with all optional fields omitted.
@@ -198,7 +195,7 @@ data ListTemplateVersionsResponse = ListTemplateVersionsResponse'
 -- 'templateVersionsResponse', 'listTemplateVersionsResponse_templateVersionsResponse' - Undocumented member.
 newListTemplateVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'templateVersionsResponse'
   TemplateVersionsResponse ->
   ListTemplateVersionsResponse
@@ -213,11 +210,11 @@ newListTemplateVersionsResponse
       }
 
 -- | The response's http status code.
-listTemplateVersionsResponse_httpStatus :: Lens.Lens' ListTemplateVersionsResponse Prelude.Int
+listTemplateVersionsResponse_httpStatus :: Lens.Lens' ListTemplateVersionsResponse Core.Int
 listTemplateVersionsResponse_httpStatus = Lens.lens (\ListTemplateVersionsResponse' {httpStatus} -> httpStatus) (\s@ListTemplateVersionsResponse' {} a -> s {httpStatus = a} :: ListTemplateVersionsResponse)
 
 -- | Undocumented member.
 listTemplateVersionsResponse_templateVersionsResponse :: Lens.Lens' ListTemplateVersionsResponse TemplateVersionsResponse
 listTemplateVersionsResponse_templateVersionsResponse = Lens.lens (\ListTemplateVersionsResponse' {templateVersionsResponse} -> templateVersionsResponse) (\s@ListTemplateVersionsResponse' {} a -> s {templateVersionsResponse = a} :: ListTemplateVersionsResponse)
 
-instance Prelude.NFData ListTemplateVersionsResponse
+instance Core.NFData ListTemplateVersionsResponse

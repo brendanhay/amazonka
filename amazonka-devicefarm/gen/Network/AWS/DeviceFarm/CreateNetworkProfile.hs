@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,9 @@ module Network.AWS.DeviceFarm.CreateNetworkProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,39 +60,39 @@ import qualified Network.AWS.Response as Response
 data CreateNetworkProfile = CreateNetworkProfile'
   { -- | Time variation in the delay of received packets in milliseconds as an
     -- integer from 0 to 2000.
-    uplinkJitterMs :: Prelude.Maybe Prelude.Integer,
+    uplinkJitterMs :: Core.Maybe Core.Integer,
     -- | Delay time for all packets to destination in milliseconds as an integer
     -- from 0 to 2000.
-    downlinkDelayMs :: Prelude.Maybe Prelude.Integer,
+    downlinkDelayMs :: Core.Maybe Core.Integer,
     -- | The data throughput rate in bits per second, as an integer from 0 to
     -- 104857600.
-    downlinkBandwidthBits :: Prelude.Maybe Prelude.Integer,
+    downlinkBandwidthBits :: Core.Maybe Core.Integer,
     -- | Time variation in the delay of received packets in milliseconds as an
     -- integer from 0 to 2000.
-    downlinkJitterMs :: Prelude.Maybe Prelude.Integer,
+    downlinkJitterMs :: Core.Maybe Core.Integer,
     -- | Proportion of transmitted packets that fail to arrive from 0 to 100
     -- percent.
-    uplinkLossPercent :: Prelude.Maybe Prelude.Natural,
+    uplinkLossPercent :: Core.Maybe Core.Natural,
     -- | Proportion of received packets that fail to arrive from 0 to 100
     -- percent.
-    downlinkLossPercent :: Prelude.Maybe Prelude.Natural,
+    downlinkLossPercent :: Core.Maybe Core.Natural,
     -- | The description of the network profile.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Delay time for all packets to destination in milliseconds as an integer
     -- from 0 to 2000.
-    uplinkDelayMs :: Prelude.Maybe Prelude.Integer,
+    uplinkDelayMs :: Core.Maybe Core.Integer,
     -- | The data throughput rate in bits per second, as an integer from 0 to
     -- 104857600.
-    uplinkBandwidthBits :: Prelude.Maybe Prelude.Integer,
+    uplinkBandwidthBits :: Core.Maybe Core.Integer,
     -- | The type of network profile to create. Valid values are listed here.
-    type' :: Prelude.Maybe NetworkProfileType,
+    type' :: Core.Maybe NetworkProfileType,
     -- | The Amazon Resource Name (ARN) of the project for which you want to
     -- create a network profile.
-    projectArn :: Prelude.Text,
+    projectArn :: Core.Text,
     -- | The name for the new network profile.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNetworkProfile' with all optional fields omitted.
@@ -137,158 +136,153 @@ data CreateNetworkProfile = CreateNetworkProfile'
 -- 'name', 'createNetworkProfile_name' - The name for the new network profile.
 newCreateNetworkProfile ::
   -- | 'projectArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CreateNetworkProfile
 newCreateNetworkProfile pProjectArn_ pName_ =
   CreateNetworkProfile'
     { uplinkJitterMs =
-        Prelude.Nothing,
-      downlinkDelayMs = Prelude.Nothing,
-      downlinkBandwidthBits = Prelude.Nothing,
-      downlinkJitterMs = Prelude.Nothing,
-      uplinkLossPercent = Prelude.Nothing,
-      downlinkLossPercent = Prelude.Nothing,
-      description = Prelude.Nothing,
-      uplinkDelayMs = Prelude.Nothing,
-      uplinkBandwidthBits = Prelude.Nothing,
-      type' = Prelude.Nothing,
+        Core.Nothing,
+      downlinkDelayMs = Core.Nothing,
+      downlinkBandwidthBits = Core.Nothing,
+      downlinkJitterMs = Core.Nothing,
+      uplinkLossPercent = Core.Nothing,
+      downlinkLossPercent = Core.Nothing,
+      description = Core.Nothing,
+      uplinkDelayMs = Core.Nothing,
+      uplinkBandwidthBits = Core.Nothing,
+      type' = Core.Nothing,
       projectArn = pProjectArn_,
       name = pName_
     }
 
 -- | Time variation in the delay of received packets in milliseconds as an
 -- integer from 0 to 2000.
-createNetworkProfile_uplinkJitterMs :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
+createNetworkProfile_uplinkJitterMs :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Integer)
 createNetworkProfile_uplinkJitterMs = Lens.lens (\CreateNetworkProfile' {uplinkJitterMs} -> uplinkJitterMs) (\s@CreateNetworkProfile' {} a -> s {uplinkJitterMs = a} :: CreateNetworkProfile)
 
 -- | Delay time for all packets to destination in milliseconds as an integer
 -- from 0 to 2000.
-createNetworkProfile_downlinkDelayMs :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
+createNetworkProfile_downlinkDelayMs :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Integer)
 createNetworkProfile_downlinkDelayMs = Lens.lens (\CreateNetworkProfile' {downlinkDelayMs} -> downlinkDelayMs) (\s@CreateNetworkProfile' {} a -> s {downlinkDelayMs = a} :: CreateNetworkProfile)
 
 -- | The data throughput rate in bits per second, as an integer from 0 to
 -- 104857600.
-createNetworkProfile_downlinkBandwidthBits :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
+createNetworkProfile_downlinkBandwidthBits :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Integer)
 createNetworkProfile_downlinkBandwidthBits = Lens.lens (\CreateNetworkProfile' {downlinkBandwidthBits} -> downlinkBandwidthBits) (\s@CreateNetworkProfile' {} a -> s {downlinkBandwidthBits = a} :: CreateNetworkProfile)
 
 -- | Time variation in the delay of received packets in milliseconds as an
 -- integer from 0 to 2000.
-createNetworkProfile_downlinkJitterMs :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
+createNetworkProfile_downlinkJitterMs :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Integer)
 createNetworkProfile_downlinkJitterMs = Lens.lens (\CreateNetworkProfile' {downlinkJitterMs} -> downlinkJitterMs) (\s@CreateNetworkProfile' {} a -> s {downlinkJitterMs = a} :: CreateNetworkProfile)
 
 -- | Proportion of transmitted packets that fail to arrive from 0 to 100
 -- percent.
-createNetworkProfile_uplinkLossPercent :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Natural)
+createNetworkProfile_uplinkLossPercent :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Natural)
 createNetworkProfile_uplinkLossPercent = Lens.lens (\CreateNetworkProfile' {uplinkLossPercent} -> uplinkLossPercent) (\s@CreateNetworkProfile' {} a -> s {uplinkLossPercent = a} :: CreateNetworkProfile)
 
 -- | Proportion of received packets that fail to arrive from 0 to 100
 -- percent.
-createNetworkProfile_downlinkLossPercent :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Natural)
+createNetworkProfile_downlinkLossPercent :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Natural)
 createNetworkProfile_downlinkLossPercent = Lens.lens (\CreateNetworkProfile' {downlinkLossPercent} -> downlinkLossPercent) (\s@CreateNetworkProfile' {} a -> s {downlinkLossPercent = a} :: CreateNetworkProfile)
 
 -- | The description of the network profile.
-createNetworkProfile_description :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Text)
+createNetworkProfile_description :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Text)
 createNetworkProfile_description = Lens.lens (\CreateNetworkProfile' {description} -> description) (\s@CreateNetworkProfile' {} a -> s {description = a} :: CreateNetworkProfile)
 
 -- | Delay time for all packets to destination in milliseconds as an integer
 -- from 0 to 2000.
-createNetworkProfile_uplinkDelayMs :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
+createNetworkProfile_uplinkDelayMs :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Integer)
 createNetworkProfile_uplinkDelayMs = Lens.lens (\CreateNetworkProfile' {uplinkDelayMs} -> uplinkDelayMs) (\s@CreateNetworkProfile' {} a -> s {uplinkDelayMs = a} :: CreateNetworkProfile)
 
 -- | The data throughput rate in bits per second, as an integer from 0 to
 -- 104857600.
-createNetworkProfile_uplinkBandwidthBits :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
+createNetworkProfile_uplinkBandwidthBits :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Integer)
 createNetworkProfile_uplinkBandwidthBits = Lens.lens (\CreateNetworkProfile' {uplinkBandwidthBits} -> uplinkBandwidthBits) (\s@CreateNetworkProfile' {} a -> s {uplinkBandwidthBits = a} :: CreateNetworkProfile)
 
 -- | The type of network profile to create. Valid values are listed here.
-createNetworkProfile_type :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe NetworkProfileType)
+createNetworkProfile_type :: Lens.Lens' CreateNetworkProfile (Core.Maybe NetworkProfileType)
 createNetworkProfile_type = Lens.lens (\CreateNetworkProfile' {type'} -> type') (\s@CreateNetworkProfile' {} a -> s {type' = a} :: CreateNetworkProfile)
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to
 -- create a network profile.
-createNetworkProfile_projectArn :: Lens.Lens' CreateNetworkProfile Prelude.Text
+createNetworkProfile_projectArn :: Lens.Lens' CreateNetworkProfile Core.Text
 createNetworkProfile_projectArn = Lens.lens (\CreateNetworkProfile' {projectArn} -> projectArn) (\s@CreateNetworkProfile' {} a -> s {projectArn = a} :: CreateNetworkProfile)
 
 -- | The name for the new network profile.
-createNetworkProfile_name :: Lens.Lens' CreateNetworkProfile Prelude.Text
+createNetworkProfile_name :: Lens.Lens' CreateNetworkProfile Core.Text
 createNetworkProfile_name = Lens.lens (\CreateNetworkProfile' {name} -> name) (\s@CreateNetworkProfile' {} a -> s {name = a} :: CreateNetworkProfile)
 
-instance Prelude.AWSRequest CreateNetworkProfile where
+instance Core.AWSRequest CreateNetworkProfile where
   type
-    Rs CreateNetworkProfile =
+    AWSResponse CreateNetworkProfile =
       CreateNetworkProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateNetworkProfileResponse'
-            Prelude.<$> (x Prelude..?> "networkProfile")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "networkProfile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNetworkProfile
+instance Core.Hashable CreateNetworkProfile
 
-instance Prelude.NFData CreateNetworkProfile
+instance Core.NFData CreateNetworkProfile
 
-instance Prelude.ToHeaders CreateNetworkProfile where
+instance Core.ToHeaders CreateNetworkProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.CreateNetworkProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.CreateNetworkProfile" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateNetworkProfile where
+instance Core.ToJSON CreateNetworkProfile where
   toJSON CreateNetworkProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("uplinkJitterMs" Prelude..=)
-              Prelude.<$> uplinkJitterMs,
-            ("downlinkDelayMs" Prelude..=)
-              Prelude.<$> downlinkDelayMs,
-            ("downlinkBandwidthBits" Prelude..=)
-              Prelude.<$> downlinkBandwidthBits,
-            ("downlinkJitterMs" Prelude..=)
-              Prelude.<$> downlinkJitterMs,
-            ("uplinkLossPercent" Prelude..=)
-              Prelude.<$> uplinkLossPercent,
-            ("downlinkLossPercent" Prelude..=)
-              Prelude.<$> downlinkLossPercent,
-            ("description" Prelude..=) Prelude.<$> description,
-            ("uplinkDelayMs" Prelude..=)
-              Prelude.<$> uplinkDelayMs,
-            ("uplinkBandwidthBits" Prelude..=)
-              Prelude.<$> uplinkBandwidthBits,
-            ("type" Prelude..=) Prelude.<$> type',
-            Prelude.Just ("projectArn" Prelude..= projectArn),
-            Prelude.Just ("name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("uplinkJitterMs" Core..=) Core.<$> uplinkJitterMs,
+            ("downlinkDelayMs" Core..=) Core.<$> downlinkDelayMs,
+            ("downlinkBandwidthBits" Core..=)
+              Core.<$> downlinkBandwidthBits,
+            ("downlinkJitterMs" Core..=)
+              Core.<$> downlinkJitterMs,
+            ("uplinkLossPercent" Core..=)
+              Core.<$> uplinkLossPercent,
+            ("downlinkLossPercent" Core..=)
+              Core.<$> downlinkLossPercent,
+            ("description" Core..=) Core.<$> description,
+            ("uplinkDelayMs" Core..=) Core.<$> uplinkDelayMs,
+            ("uplinkBandwidthBits" Core..=)
+              Core.<$> uplinkBandwidthBits,
+            ("type" Core..=) Core.<$> type',
+            Core.Just ("projectArn" Core..= projectArn),
+            Core.Just ("name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath CreateNetworkProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateNetworkProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateNetworkProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateNetworkProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateNetworkProfileResponse' smart constructor.
 data CreateNetworkProfileResponse = CreateNetworkProfileResponse'
   { -- | The network profile that is returned by the create network profile
     -- request.
-    networkProfile :: Prelude.Maybe NetworkProfile,
+    networkProfile :: Core.Maybe NetworkProfile,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNetworkProfileResponse' with all optional fields omitted.
@@ -304,22 +298,22 @@ data CreateNetworkProfileResponse = CreateNetworkProfileResponse'
 -- 'httpStatus', 'createNetworkProfileResponse_httpStatus' - The response's http status code.
 newCreateNetworkProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateNetworkProfileResponse
 newCreateNetworkProfileResponse pHttpStatus_ =
   CreateNetworkProfileResponse'
     { networkProfile =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The network profile that is returned by the create network profile
 -- request.
-createNetworkProfileResponse_networkProfile :: Lens.Lens' CreateNetworkProfileResponse (Prelude.Maybe NetworkProfile)
+createNetworkProfileResponse_networkProfile :: Lens.Lens' CreateNetworkProfileResponse (Core.Maybe NetworkProfile)
 createNetworkProfileResponse_networkProfile = Lens.lens (\CreateNetworkProfileResponse' {networkProfile} -> networkProfile) (\s@CreateNetworkProfileResponse' {} a -> s {networkProfile = a} :: CreateNetworkProfileResponse)
 
 -- | The response's http status code.
-createNetworkProfileResponse_httpStatus :: Lens.Lens' CreateNetworkProfileResponse Prelude.Int
+createNetworkProfileResponse_httpStatus :: Lens.Lens' CreateNetworkProfileResponse Core.Int
 createNetworkProfileResponse_httpStatus = Lens.lens (\CreateNetworkProfileResponse' {httpStatus} -> httpStatus) (\s@CreateNetworkProfileResponse' {} a -> s {httpStatus = a} :: CreateNetworkProfileResponse)
 
-instance Prelude.NFData CreateNetworkProfileResponse
+instance Core.NFData CreateNetworkProfileResponse

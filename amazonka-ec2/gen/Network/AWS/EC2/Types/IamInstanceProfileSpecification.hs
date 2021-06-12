@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.IamInstanceProfileSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IAM instance profile.
 --
 -- /See:/ 'newIamInstanceProfileSpecification' smart constructor.
 data IamInstanceProfileSpecification = IamInstanceProfileSpecification'
   { -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The name of the instance profile.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IamInstanceProfileSpecification' with all optional fields omitted.
@@ -51,39 +50,30 @@ newIamInstanceProfileSpecification ::
 newIamInstanceProfileSpecification =
   IamInstanceProfileSpecification'
     { arn =
-        Prelude.Nothing,
-      name = Prelude.Nothing
+        Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
-iamInstanceProfileSpecification_arn :: Lens.Lens' IamInstanceProfileSpecification (Prelude.Maybe Prelude.Text)
+iamInstanceProfileSpecification_arn :: Lens.Lens' IamInstanceProfileSpecification (Core.Maybe Core.Text)
 iamInstanceProfileSpecification_arn = Lens.lens (\IamInstanceProfileSpecification' {arn} -> arn) (\s@IamInstanceProfileSpecification' {} a -> s {arn = a} :: IamInstanceProfileSpecification)
 
 -- | The name of the instance profile.
-iamInstanceProfileSpecification_name :: Lens.Lens' IamInstanceProfileSpecification (Prelude.Maybe Prelude.Text)
+iamInstanceProfileSpecification_name :: Lens.Lens' IamInstanceProfileSpecification (Core.Maybe Core.Text)
 iamInstanceProfileSpecification_name = Lens.lens (\IamInstanceProfileSpecification' {name} -> name) (\s@IamInstanceProfileSpecification' {} a -> s {name = a} :: IamInstanceProfileSpecification)
 
-instance
-  Prelude.FromXML
-    IamInstanceProfileSpecification
-  where
+instance Core.FromXML IamInstanceProfileSpecification where
   parseXML x =
     IamInstanceProfileSpecification'
-      Prelude.<$> (x Prelude..@? "arn")
-      Prelude.<*> (x Prelude..@? "name")
+      Core.<$> (x Core..@? "arn") Core.<*> (x Core..@? "name")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     IamInstanceProfileSpecification
 
-instance
-  Prelude.NFData
-    IamInstanceProfileSpecification
+instance Core.NFData IamInstanceProfileSpecification
 
-instance
-  Prelude.ToQuery
-    IamInstanceProfileSpecification
-  where
+instance Core.ToQuery IamInstanceProfileSpecification where
   toQuery IamInstanceProfileSpecification' {..} =
-    Prelude.mconcat
-      ["Arn" Prelude.=: arn, "Name" Prelude.=: name]
+    Core.mconcat
+      ["Arn" Core.=: arn, "Name" Core.=: name]

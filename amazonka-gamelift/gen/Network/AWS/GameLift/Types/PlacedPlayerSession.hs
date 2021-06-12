@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.PlacedPlayerSession where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a player session that was created as part of a
 -- StartGameSessionPlacement request. This object contains only the player
@@ -46,11 +45,11 @@ import qualified Network.AWS.Prelude as Prelude
 data PlacedPlayerSession = PlacedPlayerSession'
   { -- | A unique identifier for a player that is associated with this player
     -- session.
-    playerId :: Prelude.Maybe Prelude.Text,
+    playerId :: Core.Maybe Core.Text,
     -- | A unique identifier for a player session.
-    playerSessionId :: Prelude.Maybe Prelude.Text
+    playerSessionId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlacedPlayerSession' with all optional fields omitted.
@@ -68,29 +67,29 @@ newPlacedPlayerSession ::
   PlacedPlayerSession
 newPlacedPlayerSession =
   PlacedPlayerSession'
-    { playerId = Prelude.Nothing,
-      playerSessionId = Prelude.Nothing
+    { playerId = Core.Nothing,
+      playerSessionId = Core.Nothing
     }
 
 -- | A unique identifier for a player that is associated with this player
 -- session.
-placedPlayerSession_playerId :: Lens.Lens' PlacedPlayerSession (Prelude.Maybe Prelude.Text)
+placedPlayerSession_playerId :: Lens.Lens' PlacedPlayerSession (Core.Maybe Core.Text)
 placedPlayerSession_playerId = Lens.lens (\PlacedPlayerSession' {playerId} -> playerId) (\s@PlacedPlayerSession' {} a -> s {playerId = a} :: PlacedPlayerSession)
 
 -- | A unique identifier for a player session.
-placedPlayerSession_playerSessionId :: Lens.Lens' PlacedPlayerSession (Prelude.Maybe Prelude.Text)
+placedPlayerSession_playerSessionId :: Lens.Lens' PlacedPlayerSession (Core.Maybe Core.Text)
 placedPlayerSession_playerSessionId = Lens.lens (\PlacedPlayerSession' {playerSessionId} -> playerSessionId) (\s@PlacedPlayerSession' {} a -> s {playerSessionId = a} :: PlacedPlayerSession)
 
-instance Prelude.FromJSON PlacedPlayerSession where
+instance Core.FromJSON PlacedPlayerSession where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PlacedPlayerSession"
       ( \x ->
           PlacedPlayerSession'
-            Prelude.<$> (x Prelude..:? "PlayerId")
-            Prelude.<*> (x Prelude..:? "PlayerSessionId")
+            Core.<$> (x Core..:? "PlayerId")
+            Core.<*> (x Core..:? "PlayerSessionId")
       )
 
-instance Prelude.Hashable PlacedPlayerSession
+instance Core.Hashable PlacedPlayerSession
 
-instance Prelude.NFData PlacedPlayerSession
+instance Core.NFData PlacedPlayerSession

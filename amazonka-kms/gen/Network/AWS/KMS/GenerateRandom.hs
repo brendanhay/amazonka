@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,9 @@ module Network.AWS.KMS.GenerateRandom
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,11 +66,11 @@ data GenerateRandom = GenerateRandom'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
     -- To find the ID of a custom key store, use the DescribeCustomKeyStores
     -- operation.
-    customKeyStoreId :: Prelude.Maybe Prelude.Text,
+    customKeyStoreId :: Core.Maybe Core.Text,
     -- | The length of the byte string.
-    numberOfBytes :: Prelude.Maybe Prelude.Natural
+    numberOfBytes :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GenerateRandom' with all optional fields omitted.
@@ -92,8 +91,8 @@ newGenerateRandom ::
   GenerateRandom
 newGenerateRandom =
   GenerateRandom'
-    { customKeyStoreId = Prelude.Nothing,
-      numberOfBytes = Prelude.Nothing
+    { customKeyStoreId = Core.Nothing,
+      numberOfBytes = Core.Nothing
     }
 
 -- | Generates the random byte string in the AWS CloudHSM cluster that is
@@ -101,69 +100,66 @@ newGenerateRandom =
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
 -- To find the ID of a custom key store, use the DescribeCustomKeyStores
 -- operation.
-generateRandom_customKeyStoreId :: Lens.Lens' GenerateRandom (Prelude.Maybe Prelude.Text)
+generateRandom_customKeyStoreId :: Lens.Lens' GenerateRandom (Core.Maybe Core.Text)
 generateRandom_customKeyStoreId = Lens.lens (\GenerateRandom' {customKeyStoreId} -> customKeyStoreId) (\s@GenerateRandom' {} a -> s {customKeyStoreId = a} :: GenerateRandom)
 
 -- | The length of the byte string.
-generateRandom_numberOfBytes :: Lens.Lens' GenerateRandom (Prelude.Maybe Prelude.Natural)
+generateRandom_numberOfBytes :: Lens.Lens' GenerateRandom (Core.Maybe Core.Natural)
 generateRandom_numberOfBytes = Lens.lens (\GenerateRandom' {numberOfBytes} -> numberOfBytes) (\s@GenerateRandom' {} a -> s {numberOfBytes = a} :: GenerateRandom)
 
-instance Prelude.AWSRequest GenerateRandom where
-  type Rs GenerateRandom = GenerateRandomResponse
+instance Core.AWSRequest GenerateRandom where
+  type
+    AWSResponse GenerateRandom =
+      GenerateRandomResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GenerateRandomResponse'
-            Prelude.<$> (x Prelude..?> "Plaintext")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Plaintext")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GenerateRandom
+instance Core.Hashable GenerateRandom
 
-instance Prelude.NFData GenerateRandom
+instance Core.NFData GenerateRandom
 
-instance Prelude.ToHeaders GenerateRandom where
+instance Core.ToHeaders GenerateRandom where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "TrentService.GenerateRandom" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("TrentService.GenerateRandom" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GenerateRandom where
+instance Core.ToJSON GenerateRandom where
   toJSON GenerateRandom' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CustomKeyStoreId" Prelude..=)
-              Prelude.<$> customKeyStoreId,
-            ("NumberOfBytes" Prelude..=)
-              Prelude.<$> numberOfBytes
+    Core.object
+      ( Core.catMaybes
+          [ ("CustomKeyStoreId" Core..=)
+              Core.<$> customKeyStoreId,
+            ("NumberOfBytes" Core..=) Core.<$> numberOfBytes
           ]
       )
 
-instance Prelude.ToPath GenerateRandom where
-  toPath = Prelude.const "/"
+instance Core.ToPath GenerateRandom where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GenerateRandom where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GenerateRandom where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGenerateRandomResponse' smart constructor.
 data GenerateRandomResponse = GenerateRandomResponse'
   { -- | The random byte string. When you use the HTTP API or the AWS CLI, the
     -- value is Base64-encoded. Otherwise, it is not Base64-encoded.
-    plaintext :: Prelude.Maybe (Prelude.Sensitive Prelude.Base64),
+    plaintext :: Core.Maybe (Core.Sensitive Core.Base64),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GenerateRandomResponse' with all optional fields omitted.
@@ -183,12 +179,11 @@ data GenerateRandomResponse = GenerateRandomResponse'
 -- 'httpStatus', 'generateRandomResponse_httpStatus' - The response's http status code.
 newGenerateRandomResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GenerateRandomResponse
 newGenerateRandomResponse pHttpStatus_ =
   GenerateRandomResponse'
-    { plaintext =
-        Prelude.Nothing,
+    { plaintext = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -198,11 +193,11 @@ newGenerateRandomResponse pHttpStatus_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-generateRandomResponse_plaintext :: Lens.Lens' GenerateRandomResponse (Prelude.Maybe Prelude.ByteString)
-generateRandomResponse_plaintext = Lens.lens (\GenerateRandomResponse' {plaintext} -> plaintext) (\s@GenerateRandomResponse' {} a -> s {plaintext = a} :: GenerateRandomResponse) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Base64)
+generateRandomResponse_plaintext :: Lens.Lens' GenerateRandomResponse (Core.Maybe Core.ByteString)
+generateRandomResponse_plaintext = Lens.lens (\GenerateRandomResponse' {plaintext} -> plaintext) (\s@GenerateRandomResponse' {} a -> s {plaintext = a} :: GenerateRandomResponse) Core.. Lens.mapping (Core._Sensitive Core.. Core._Base64)
 
 -- | The response's http status code.
-generateRandomResponse_httpStatus :: Lens.Lens' GenerateRandomResponse Prelude.Int
+generateRandomResponse_httpStatus :: Lens.Lens' GenerateRandomResponse Core.Int
 generateRandomResponse_httpStatus = Lens.lens (\GenerateRandomResponse' {httpStatus} -> httpStatus) (\s@GenerateRandomResponse' {} a -> s {httpStatus = a} :: GenerateRandomResponse)
 
-instance Prelude.NFData GenerateRandomResponse
+instance Core.NFData GenerateRandomResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.ResourceGroups.GetTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -57,9 +56,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetTags' smart constructor.
 data GetTags = GetTags'
   { -- | The ARN of the resource group whose tags you want to retrieve.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTags' with all optional fields omitted.
@@ -72,51 +71,51 @@ data GetTags = GetTags'
 -- 'arn', 'getTags_arn' - The ARN of the resource group whose tags you want to retrieve.
 newGetTags ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   GetTags
 newGetTags pArn_ = GetTags' {arn = pArn_}
 
 -- | The ARN of the resource group whose tags you want to retrieve.
-getTags_arn :: Lens.Lens' GetTags Prelude.Text
+getTags_arn :: Lens.Lens' GetTags Core.Text
 getTags_arn = Lens.lens (\GetTags' {arn} -> arn) (\s@GetTags' {} a -> s {arn = a} :: GetTags)
 
-instance Prelude.AWSRequest GetTags where
-  type Rs GetTags = GetTagsResponse
+instance Core.AWSRequest GetTags where
+  type AWSResponse GetTags = GetTagsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetTagsResponse'
-            Prelude.<$> (x Prelude..?> "Arn")
-            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Arn")
+            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetTags
+instance Core.Hashable GetTags
 
-instance Prelude.NFData GetTags
+instance Core.NFData GetTags
 
-instance Prelude.ToHeaders GetTags where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetTags where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetTags where
+instance Core.ToPath GetTags where
   toPath GetTags' {..} =
-    Prelude.mconcat
-      ["/resources/", Prelude.toBS arn, "/tags"]
+    Core.mconcat
+      ["/resources/", Core.toBS arn, "/tags"]
 
-instance Prelude.ToQuery GetTags where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetTags where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetTagsResponse' smart constructor.
 data GetTagsResponse = GetTagsResponse'
   { -- | The ARN of the tagged resource group.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The tags associated with the specified resource group.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTagsResponse' with all optional fields omitted.
@@ -133,25 +132,25 @@ data GetTagsResponse = GetTagsResponse'
 -- 'httpStatus', 'getTagsResponse_httpStatus' - The response's http status code.
 newGetTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetTagsResponse
 newGetTagsResponse pHttpStatus_ =
   GetTagsResponse'
-    { arn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { arn = Core.Nothing,
+      tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the tagged resource group.
-getTagsResponse_arn :: Lens.Lens' GetTagsResponse (Prelude.Maybe Prelude.Text)
+getTagsResponse_arn :: Lens.Lens' GetTagsResponse (Core.Maybe Core.Text)
 getTagsResponse_arn = Lens.lens (\GetTagsResponse' {arn} -> arn) (\s@GetTagsResponse' {} a -> s {arn = a} :: GetTagsResponse)
 
 -- | The tags associated with the specified resource group.
-getTagsResponse_tags :: Lens.Lens' GetTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getTagsResponse_tags :: Lens.Lens' GetTagsResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Prelude.Int
+getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Core.Int
 getTagsResponse_httpStatus = Lens.lens (\GetTagsResponse' {httpStatus} -> httpStatus) (\s@GetTagsResponse' {} a -> s {httpStatus = a} :: GetTagsResponse)
 
-instance Prelude.NFData GetTagsResponse
+instance Core.NFData GetTagsResponse

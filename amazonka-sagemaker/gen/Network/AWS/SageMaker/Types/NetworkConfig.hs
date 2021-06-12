@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.NetworkConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.VpcConfig
 
 -- | Networking options for a job, such as network traffic encryption between
@@ -31,17 +30,17 @@ import Network.AWS.SageMaker.Types.VpcConfig
 --
 -- /See:/ 'newNetworkConfig' smart constructor.
 data NetworkConfig = NetworkConfig'
-  { vpcConfig :: Prelude.Maybe VpcConfig,
+  { vpcConfig :: Core.Maybe VpcConfig,
     -- | Whether to allow inbound and outbound network calls to and from the
     -- containers used for the processing job.
-    enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
+    enableNetworkIsolation :: Core.Maybe Core.Bool,
     -- | Whether to encrypt all communications between distributed processing
     -- jobs. Choose @True@ to encrypt communications. Encryption provides
     -- greater security for distributed processing jobs, but the processing
     -- might take longer.
-    enableInterContainerTrafficEncryption :: Prelude.Maybe Prelude.Bool
+    enableInterContainerTrafficEncryption :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkConfig' with all optional fields omitted.
@@ -64,53 +63,50 @@ newNetworkConfig ::
   NetworkConfig
 newNetworkConfig =
   NetworkConfig'
-    { vpcConfig = Prelude.Nothing,
-      enableNetworkIsolation = Prelude.Nothing,
-      enableInterContainerTrafficEncryption =
-        Prelude.Nothing
+    { vpcConfig = Core.Nothing,
+      enableNetworkIsolation = Core.Nothing,
+      enableInterContainerTrafficEncryption = Core.Nothing
     }
 
 -- | Undocumented member.
-networkConfig_vpcConfig :: Lens.Lens' NetworkConfig (Prelude.Maybe VpcConfig)
+networkConfig_vpcConfig :: Lens.Lens' NetworkConfig (Core.Maybe VpcConfig)
 networkConfig_vpcConfig = Lens.lens (\NetworkConfig' {vpcConfig} -> vpcConfig) (\s@NetworkConfig' {} a -> s {vpcConfig = a} :: NetworkConfig)
 
 -- | Whether to allow inbound and outbound network calls to and from the
 -- containers used for the processing job.
-networkConfig_enableNetworkIsolation :: Lens.Lens' NetworkConfig (Prelude.Maybe Prelude.Bool)
+networkConfig_enableNetworkIsolation :: Lens.Lens' NetworkConfig (Core.Maybe Core.Bool)
 networkConfig_enableNetworkIsolation = Lens.lens (\NetworkConfig' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@NetworkConfig' {} a -> s {enableNetworkIsolation = a} :: NetworkConfig)
 
 -- | Whether to encrypt all communications between distributed processing
 -- jobs. Choose @True@ to encrypt communications. Encryption provides
 -- greater security for distributed processing jobs, but the processing
 -- might take longer.
-networkConfig_enableInterContainerTrafficEncryption :: Lens.Lens' NetworkConfig (Prelude.Maybe Prelude.Bool)
+networkConfig_enableInterContainerTrafficEncryption :: Lens.Lens' NetworkConfig (Core.Maybe Core.Bool)
 networkConfig_enableInterContainerTrafficEncryption = Lens.lens (\NetworkConfig' {enableInterContainerTrafficEncryption} -> enableInterContainerTrafficEncryption) (\s@NetworkConfig' {} a -> s {enableInterContainerTrafficEncryption = a} :: NetworkConfig)
 
-instance Prelude.FromJSON NetworkConfig where
+instance Core.FromJSON NetworkConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NetworkConfig"
       ( \x ->
           NetworkConfig'
-            Prelude.<$> (x Prelude..:? "VpcConfig")
-            Prelude.<*> (x Prelude..:? "EnableNetworkIsolation")
-            Prelude.<*> ( x
-                            Prelude..:? "EnableInterContainerTrafficEncryption"
-                        )
+            Core.<$> (x Core..:? "VpcConfig")
+            Core.<*> (x Core..:? "EnableNetworkIsolation")
+            Core.<*> (x Core..:? "EnableInterContainerTrafficEncryption")
       )
 
-instance Prelude.Hashable NetworkConfig
+instance Core.Hashable NetworkConfig
 
-instance Prelude.NFData NetworkConfig
+instance Core.NFData NetworkConfig
 
-instance Prelude.ToJSON NetworkConfig where
+instance Core.ToJSON NetworkConfig where
   toJSON NetworkConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VpcConfig" Prelude..=) Prelude.<$> vpcConfig,
-            ("EnableNetworkIsolation" Prelude..=)
-              Prelude.<$> enableNetworkIsolation,
-            ("EnableInterContainerTrafficEncryption" Prelude..=)
-              Prelude.<$> enableInterContainerTrafficEncryption
+    Core.object
+      ( Core.catMaybes
+          [ ("VpcConfig" Core..=) Core.<$> vpcConfig,
+            ("EnableNetworkIsolation" Core..=)
+              Core.<$> enableNetworkIsolation,
+            ("EnableInterContainerTrafficEncryption" Core..=)
+              Core.<$> enableInterContainerTrafficEncryption
           ]
       )

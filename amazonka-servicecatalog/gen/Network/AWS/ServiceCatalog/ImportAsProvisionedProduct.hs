@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,8 +62,8 @@ module Network.AWS.ServiceCatalog.ImportAsProvisionedProduct
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -78,24 +77,24 @@ data ImportAsProvisionedProduct = ImportAsProvisionedProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The product identifier.
-    productId :: Prelude.Text,
+    productId :: Core.Text,
     -- | The identifier of the provisioning artifact.
-    provisioningArtifactId :: Prelude.Text,
+    provisioningArtifactId :: Core.Text,
     -- | The user-friendly name of the provisioned product. The value must be
     -- unique for the AWS account. The name cannot be updated after the product
     -- is provisioned.
-    provisionedProductName :: Prelude.Text,
+    provisionedProductName :: Core.Text,
     -- | The unique identifier of the resource to be imported. It only currently
     -- supports CloudFormation stack IDs.
-    physicalId :: Prelude.Text,
+    physicalId :: Core.Text,
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportAsProvisionedProduct' with all optional fields omitted.
@@ -129,15 +128,15 @@ data ImportAsProvisionedProduct = ImportAsProvisionedProduct'
 -- returned for each repeated request.
 newImportAsProvisionedProduct ::
   -- | 'productId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'provisioningArtifactId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'provisionedProductName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'physicalId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'idempotencyToken'
-  Prelude.Text ->
+  Core.Text ->
   ImportAsProvisionedProduct
 newImportAsProvisionedProduct
   pProductId_
@@ -147,7 +146,7 @@ newImportAsProvisionedProduct
   pIdempotencyToken_ =
     ImportAsProvisionedProduct'
       { acceptLanguage =
-          Prelude.Nothing,
+          Core.Nothing,
         productId = pProductId_,
         provisioningArtifactId =
           pProvisioningArtifactId_,
@@ -164,103 +163,97 @@ newImportAsProvisionedProduct
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-importAsProvisionedProduct_acceptLanguage :: Lens.Lens' ImportAsProvisionedProduct (Prelude.Maybe Prelude.Text)
+importAsProvisionedProduct_acceptLanguage :: Lens.Lens' ImportAsProvisionedProduct (Core.Maybe Core.Text)
 importAsProvisionedProduct_acceptLanguage = Lens.lens (\ImportAsProvisionedProduct' {acceptLanguage} -> acceptLanguage) (\s@ImportAsProvisionedProduct' {} a -> s {acceptLanguage = a} :: ImportAsProvisionedProduct)
 
 -- | The product identifier.
-importAsProvisionedProduct_productId :: Lens.Lens' ImportAsProvisionedProduct Prelude.Text
+importAsProvisionedProduct_productId :: Lens.Lens' ImportAsProvisionedProduct Core.Text
 importAsProvisionedProduct_productId = Lens.lens (\ImportAsProvisionedProduct' {productId} -> productId) (\s@ImportAsProvisionedProduct' {} a -> s {productId = a} :: ImportAsProvisionedProduct)
 
 -- | The identifier of the provisioning artifact.
-importAsProvisionedProduct_provisioningArtifactId :: Lens.Lens' ImportAsProvisionedProduct Prelude.Text
+importAsProvisionedProduct_provisioningArtifactId :: Lens.Lens' ImportAsProvisionedProduct Core.Text
 importAsProvisionedProduct_provisioningArtifactId = Lens.lens (\ImportAsProvisionedProduct' {provisioningArtifactId} -> provisioningArtifactId) (\s@ImportAsProvisionedProduct' {} a -> s {provisioningArtifactId = a} :: ImportAsProvisionedProduct)
 
 -- | The user-friendly name of the provisioned product. The value must be
 -- unique for the AWS account. The name cannot be updated after the product
 -- is provisioned.
-importAsProvisionedProduct_provisionedProductName :: Lens.Lens' ImportAsProvisionedProduct Prelude.Text
+importAsProvisionedProduct_provisionedProductName :: Lens.Lens' ImportAsProvisionedProduct Core.Text
 importAsProvisionedProduct_provisionedProductName = Lens.lens (\ImportAsProvisionedProduct' {provisionedProductName} -> provisionedProductName) (\s@ImportAsProvisionedProduct' {} a -> s {provisionedProductName = a} :: ImportAsProvisionedProduct)
 
 -- | The unique identifier of the resource to be imported. It only currently
 -- supports CloudFormation stack IDs.
-importAsProvisionedProduct_physicalId :: Lens.Lens' ImportAsProvisionedProduct Prelude.Text
+importAsProvisionedProduct_physicalId :: Lens.Lens' ImportAsProvisionedProduct Core.Text
 importAsProvisionedProduct_physicalId = Lens.lens (\ImportAsProvisionedProduct' {physicalId} -> physicalId) (\s@ImportAsProvisionedProduct' {} a -> s {physicalId = a} :: ImportAsProvisionedProduct)
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-importAsProvisionedProduct_idempotencyToken :: Lens.Lens' ImportAsProvisionedProduct Prelude.Text
+importAsProvisionedProduct_idempotencyToken :: Lens.Lens' ImportAsProvisionedProduct Core.Text
 importAsProvisionedProduct_idempotencyToken = Lens.lens (\ImportAsProvisionedProduct' {idempotencyToken} -> idempotencyToken) (\s@ImportAsProvisionedProduct' {} a -> s {idempotencyToken = a} :: ImportAsProvisionedProduct)
 
-instance
-  Prelude.AWSRequest
-    ImportAsProvisionedProduct
-  where
+instance Core.AWSRequest ImportAsProvisionedProduct where
   type
-    Rs ImportAsProvisionedProduct =
+    AWSResponse ImportAsProvisionedProduct =
       ImportAsProvisionedProductResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ImportAsProvisionedProductResponse'
-            Prelude.<$> (x Prelude..?> "RecordDetail")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "RecordDetail")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ImportAsProvisionedProduct
+instance Core.Hashable ImportAsProvisionedProduct
 
-instance Prelude.NFData ImportAsProvisionedProduct
+instance Core.NFData ImportAsProvisionedProduct
 
-instance Prelude.ToHeaders ImportAsProvisionedProduct where
+instance Core.ToHeaders ImportAsProvisionedProduct where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.ImportAsProvisionedProduct" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.ImportAsProvisionedProduct" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ImportAsProvisionedProduct where
+instance Core.ToJSON ImportAsProvisionedProduct where
   toJSON ImportAsProvisionedProduct' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Prelude..= productId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("ProductId" Core..= productId),
+            Core.Just
               ( "ProvisioningArtifactId"
-                  Prelude..= provisioningArtifactId
+                  Core..= provisioningArtifactId
               ),
-            Prelude.Just
+            Core.Just
               ( "ProvisionedProductName"
-                  Prelude..= provisionedProductName
+                  Core..= provisionedProductName
               ),
-            Prelude.Just ("PhysicalId" Prelude..= physicalId),
-            Prelude.Just
-              ("IdempotencyToken" Prelude..= idempotencyToken)
+            Core.Just ("PhysicalId" Core..= physicalId),
+            Core.Just
+              ("IdempotencyToken" Core..= idempotencyToken)
           ]
       )
 
-instance Prelude.ToPath ImportAsProvisionedProduct where
-  toPath = Prelude.const "/"
+instance Core.ToPath ImportAsProvisionedProduct where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ImportAsProvisionedProduct where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ImportAsProvisionedProduct where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newImportAsProvisionedProductResponse' smart constructor.
 data ImportAsProvisionedProductResponse = ImportAsProvisionedProductResponse'
-  { recordDetail :: Prelude.Maybe RecordDetail,
+  { recordDetail :: Core.Maybe RecordDetail,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportAsProvisionedProductResponse' with all optional fields omitted.
@@ -275,23 +268,23 @@ data ImportAsProvisionedProductResponse = ImportAsProvisionedProductResponse'
 -- 'httpStatus', 'importAsProvisionedProductResponse_httpStatus' - The response's http status code.
 newImportAsProvisionedProductResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ImportAsProvisionedProductResponse
 newImportAsProvisionedProductResponse pHttpStatus_ =
   ImportAsProvisionedProductResponse'
     { recordDetail =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-importAsProvisionedProductResponse_recordDetail :: Lens.Lens' ImportAsProvisionedProductResponse (Prelude.Maybe RecordDetail)
+importAsProvisionedProductResponse_recordDetail :: Lens.Lens' ImportAsProvisionedProductResponse (Core.Maybe RecordDetail)
 importAsProvisionedProductResponse_recordDetail = Lens.lens (\ImportAsProvisionedProductResponse' {recordDetail} -> recordDetail) (\s@ImportAsProvisionedProductResponse' {} a -> s {recordDetail = a} :: ImportAsProvisionedProductResponse)
 
 -- | The response's http status code.
-importAsProvisionedProductResponse_httpStatus :: Lens.Lens' ImportAsProvisionedProductResponse Prelude.Int
+importAsProvisionedProductResponse_httpStatus :: Lens.Lens' ImportAsProvisionedProductResponse Core.Int
 importAsProvisionedProductResponse_httpStatus = Lens.lens (\ImportAsProvisionedProductResponse' {httpStatus} -> httpStatus) (\s@ImportAsProvisionedProductResponse' {} a -> s {httpStatus = a} :: ImportAsProvisionedProductResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ImportAsProvisionedProductResponse

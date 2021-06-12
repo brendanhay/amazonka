@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.CodeDeploy.GetOnPremisesInstance
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetOnPremisesInstance' smart constructor.
 data GetOnPremisesInstance = GetOnPremisesInstance'
   { -- | The name of the on-premises instance about which to get information.
-    instanceName :: Prelude.Text
+    instanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOnPremisesInstance' with all optional fields omitted.
@@ -66,7 +65,7 @@ data GetOnPremisesInstance = GetOnPremisesInstance'
 -- 'instanceName', 'getOnPremisesInstance_instanceName' - The name of the on-premises instance about which to get information.
 newGetOnPremisesInstance ::
   -- | 'instanceName'
-  Prelude.Text ->
+  Core.Text ->
   GetOnPremisesInstance
 newGetOnPremisesInstance pInstanceName_ =
   GetOnPremisesInstance'
@@ -75,66 +74,62 @@ newGetOnPremisesInstance pInstanceName_ =
     }
 
 -- | The name of the on-premises instance about which to get information.
-getOnPremisesInstance_instanceName :: Lens.Lens' GetOnPremisesInstance Prelude.Text
+getOnPremisesInstance_instanceName :: Lens.Lens' GetOnPremisesInstance Core.Text
 getOnPremisesInstance_instanceName = Lens.lens (\GetOnPremisesInstance' {instanceName} -> instanceName) (\s@GetOnPremisesInstance' {} a -> s {instanceName = a} :: GetOnPremisesInstance)
 
-instance Prelude.AWSRequest GetOnPremisesInstance where
+instance Core.AWSRequest GetOnPremisesInstance where
   type
-    Rs GetOnPremisesInstance =
+    AWSResponse GetOnPremisesInstance =
       GetOnPremisesInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetOnPremisesInstanceResponse'
-            Prelude.<$> (x Prelude..?> "instanceInfo")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "instanceInfo")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetOnPremisesInstance
+instance Core.Hashable GetOnPremisesInstance
 
-instance Prelude.NFData GetOnPremisesInstance
+instance Core.NFData GetOnPremisesInstance
 
-instance Prelude.ToHeaders GetOnPremisesInstance where
+instance Core.ToHeaders GetOnPremisesInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.GetOnPremisesInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.GetOnPremisesInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetOnPremisesInstance where
+instance Core.ToJSON GetOnPremisesInstance where
   toJSON GetOnPremisesInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("instanceName" Prelude..= instanceName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("instanceName" Core..= instanceName)]
       )
 
-instance Prelude.ToPath GetOnPremisesInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetOnPremisesInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetOnPremisesInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetOnPremisesInstance where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @GetOnPremisesInstance@ operation.
 --
 -- /See:/ 'newGetOnPremisesInstanceResponse' smart constructor.
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
   { -- | Information about the on-premises instance.
-    instanceInfo :: Prelude.Maybe InstanceInfo,
+    instanceInfo :: Core.Maybe InstanceInfo,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOnPremisesInstanceResponse' with all optional fields omitted.
@@ -149,21 +144,21 @@ data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
 -- 'httpStatus', 'getOnPremisesInstanceResponse_httpStatus' - The response's http status code.
 newGetOnPremisesInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetOnPremisesInstanceResponse
 newGetOnPremisesInstanceResponse pHttpStatus_ =
   GetOnPremisesInstanceResponse'
     { instanceInfo =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the on-premises instance.
-getOnPremisesInstanceResponse_instanceInfo :: Lens.Lens' GetOnPremisesInstanceResponse (Prelude.Maybe InstanceInfo)
+getOnPremisesInstanceResponse_instanceInfo :: Lens.Lens' GetOnPremisesInstanceResponse (Core.Maybe InstanceInfo)
 getOnPremisesInstanceResponse_instanceInfo = Lens.lens (\GetOnPremisesInstanceResponse' {instanceInfo} -> instanceInfo) (\s@GetOnPremisesInstanceResponse' {} a -> s {instanceInfo = a} :: GetOnPremisesInstanceResponse)
 
 -- | The response's http status code.
-getOnPremisesInstanceResponse_httpStatus :: Lens.Lens' GetOnPremisesInstanceResponse Prelude.Int
+getOnPremisesInstanceResponse_httpStatus :: Lens.Lens' GetOnPremisesInstanceResponse Core.Int
 getOnPremisesInstanceResponse_httpStatus = Lens.lens (\GetOnPremisesInstanceResponse' {httpStatus} -> httpStatus) (\s@GetOnPremisesInstanceResponse' {} a -> s {httpStatus = a} :: GetOnPremisesInstanceResponse)
 
-instance Prelude.NFData GetOnPremisesInstanceResponse
+instance Core.NFData GetOnPremisesInstanceResponse

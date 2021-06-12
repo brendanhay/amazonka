@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Types.JobInput where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.DetectedProperties
 import Network.AWS.ElasticTranscoder.Types.Encryption
 import Network.AWS.ElasticTranscoder.Types.InputCaptions
 import Network.AWS.ElasticTranscoder.Types.TimeSpan
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the file that you\'re transcoding.
 --
@@ -38,7 +37,7 @@ data JobInput = JobInput'
     --
     -- @3gp@, @aac@, @asf@, @avi@, @divx@, @flv@, @m4a@, @mkv@, @mov@, @mp3@,
     -- @mp4@, @mpeg@, @mpeg-ps@, @mpeg-ts@, @mxf@, @ogg@, @vob@, @wav@, @webm@
-    container :: Prelude.Maybe Prelude.Text,
+    container :: Core.Maybe Core.Text,
     -- | The name of the file to transcode. Elsewhere in the body of the JSON
     -- block is the the ID of the pipeline to use for processing the job. The
     -- @InputBucket@ object in that pipeline tells Elastic Transcoder which
@@ -47,10 +46,10 @@ data JobInput = JobInput'
     -- If the file name includes a prefix, such as @cooking\/lasagna.mpg@,
     -- include the prefix in the key. If the file isn\'t in the specified
     -- bucket, Elastic Transcoder returns an error.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | Settings for clipping an input. Each input can have different clip
     -- settings.
-    timeSpan :: Prelude.Maybe TimeSpan,
+    timeSpan :: Core.Maybe TimeSpan,
     -- | You can configure Elastic Transcoder to transcode captions, or
     -- subtitles, from one format to another. All captions must be in UTF-8.
     -- Elastic Transcoder supports two types of captions:
@@ -101,13 +100,13 @@ data JobInput = JobInput'
     --
     -- For more information on sidecar files, see the Extensible Metadata
     -- Platform and Sidecar file Wikipedia pages.
-    inputCaptions :: Prelude.Maybe InputCaptions,
+    inputCaptions :: Core.Maybe InputCaptions,
     -- | The encryption settings, if any, that are used for decrypting your input
     -- files. If your input file is encrypted, you must specify the mode that
     -- Elastic Transcoder uses to decrypt your file.
-    encryption :: Prelude.Maybe Encryption,
+    encryption :: Core.Maybe Encryption,
     -- | The detected properties of the input file.
-    detectedProperties :: Prelude.Maybe DetectedProperties,
+    detectedProperties :: Core.Maybe DetectedProperties,
     -- | The frame rate of the input file. If you want Elastic Transcoder to
     -- automatically detect the frame rate of the input file, specify @auto@.
     -- If you want to specify the frame rate for the input file, enter one of
@@ -117,7 +116,7 @@ data JobInput = JobInput'
     --
     -- If you specify a value other than @auto@, Elastic Transcoder disables
     -- automatic detection of the frame rate.
-    frameRate :: Prelude.Maybe Prelude.Text,
+    frameRate :: Core.Maybe Core.Text,
     -- | The aspect ratio of the input file. If you want Elastic Transcoder to
     -- automatically detect the aspect ratio of the input file, specify @auto@.
     -- If you want to specify the aspect ratio for the output file, enter one
@@ -127,10 +126,10 @@ data JobInput = JobInput'
     --
     -- If you specify a value other than @auto@, Elastic Transcoder disables
     -- automatic detection of the aspect ratio.
-    aspectRatio :: Prelude.Maybe Prelude.Text,
+    aspectRatio :: Core.Maybe Core.Text,
     -- | This value must be @auto@, which causes Elastic Transcoder to
     -- automatically detect the resolution of the input file.
-    resolution :: Prelude.Maybe Prelude.Text,
+    resolution :: Core.Maybe Core.Text,
     -- | Whether the input file is interlaced. If you want Elastic Transcoder to
     -- automatically detect whether the input file is interlaced, specify
     -- @auto@. If you want to specify whether the input file is interlaced,
@@ -140,9 +139,9 @@ data JobInput = JobInput'
     --
     -- If you specify a value other than @auto@, Elastic Transcoder disables
     -- automatic detection of interlacing.
-    interlaced :: Prelude.Maybe Prelude.Text
+    interlaced :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobInput' with all optional fields omitted.
@@ -265,16 +264,16 @@ newJobInput ::
   JobInput
 newJobInput =
   JobInput'
-    { container = Prelude.Nothing,
-      key = Prelude.Nothing,
-      timeSpan = Prelude.Nothing,
-      inputCaptions = Prelude.Nothing,
-      encryption = Prelude.Nothing,
-      detectedProperties = Prelude.Nothing,
-      frameRate = Prelude.Nothing,
-      aspectRatio = Prelude.Nothing,
-      resolution = Prelude.Nothing,
-      interlaced = Prelude.Nothing
+    { container = Core.Nothing,
+      key = Core.Nothing,
+      timeSpan = Core.Nothing,
+      inputCaptions = Core.Nothing,
+      encryption = Core.Nothing,
+      detectedProperties = Core.Nothing,
+      frameRate = Core.Nothing,
+      aspectRatio = Core.Nothing,
+      resolution = Core.Nothing,
+      interlaced = Core.Nothing
     }
 
 -- | The container type for the input file. If you want Elastic Transcoder to
@@ -284,7 +283,7 @@ newJobInput =
 --
 -- @3gp@, @aac@, @asf@, @avi@, @divx@, @flv@, @m4a@, @mkv@, @mov@, @mp3@,
 -- @mp4@, @mpeg@, @mpeg-ps@, @mpeg-ts@, @mxf@, @ogg@, @vob@, @wav@, @webm@
-jobInput_container :: Lens.Lens' JobInput (Prelude.Maybe Prelude.Text)
+jobInput_container :: Lens.Lens' JobInput (Core.Maybe Core.Text)
 jobInput_container = Lens.lens (\JobInput' {container} -> container) (\s@JobInput' {} a -> s {container = a} :: JobInput)
 
 -- | The name of the file to transcode. Elsewhere in the body of the JSON
@@ -295,12 +294,12 @@ jobInput_container = Lens.lens (\JobInput' {container} -> container) (\s@JobInpu
 -- If the file name includes a prefix, such as @cooking\/lasagna.mpg@,
 -- include the prefix in the key. If the file isn\'t in the specified
 -- bucket, Elastic Transcoder returns an error.
-jobInput_key :: Lens.Lens' JobInput (Prelude.Maybe Prelude.Text)
+jobInput_key :: Lens.Lens' JobInput (Core.Maybe Core.Text)
 jobInput_key = Lens.lens (\JobInput' {key} -> key) (\s@JobInput' {} a -> s {key = a} :: JobInput)
 
 -- | Settings for clipping an input. Each input can have different clip
 -- settings.
-jobInput_timeSpan :: Lens.Lens' JobInput (Prelude.Maybe TimeSpan)
+jobInput_timeSpan :: Lens.Lens' JobInput (Core.Maybe TimeSpan)
 jobInput_timeSpan = Lens.lens (\JobInput' {timeSpan} -> timeSpan) (\s@JobInput' {} a -> s {timeSpan = a} :: JobInput)
 
 -- | You can configure Elastic Transcoder to transcode captions, or
@@ -353,17 +352,17 @@ jobInput_timeSpan = Lens.lens (\JobInput' {timeSpan} -> timeSpan) (\s@JobInput' 
 --
 -- For more information on sidecar files, see the Extensible Metadata
 -- Platform and Sidecar file Wikipedia pages.
-jobInput_inputCaptions :: Lens.Lens' JobInput (Prelude.Maybe InputCaptions)
+jobInput_inputCaptions :: Lens.Lens' JobInput (Core.Maybe InputCaptions)
 jobInput_inputCaptions = Lens.lens (\JobInput' {inputCaptions} -> inputCaptions) (\s@JobInput' {} a -> s {inputCaptions = a} :: JobInput)
 
 -- | The encryption settings, if any, that are used for decrypting your input
 -- files. If your input file is encrypted, you must specify the mode that
 -- Elastic Transcoder uses to decrypt your file.
-jobInput_encryption :: Lens.Lens' JobInput (Prelude.Maybe Encryption)
+jobInput_encryption :: Lens.Lens' JobInput (Core.Maybe Encryption)
 jobInput_encryption = Lens.lens (\JobInput' {encryption} -> encryption) (\s@JobInput' {} a -> s {encryption = a} :: JobInput)
 
 -- | The detected properties of the input file.
-jobInput_detectedProperties :: Lens.Lens' JobInput (Prelude.Maybe DetectedProperties)
+jobInput_detectedProperties :: Lens.Lens' JobInput (Core.Maybe DetectedProperties)
 jobInput_detectedProperties = Lens.lens (\JobInput' {detectedProperties} -> detectedProperties) (\s@JobInput' {} a -> s {detectedProperties = a} :: JobInput)
 
 -- | The frame rate of the input file. If you want Elastic Transcoder to
@@ -375,7 +374,7 @@ jobInput_detectedProperties = Lens.lens (\JobInput' {detectedProperties} -> dete
 --
 -- If you specify a value other than @auto@, Elastic Transcoder disables
 -- automatic detection of the frame rate.
-jobInput_frameRate :: Lens.Lens' JobInput (Prelude.Maybe Prelude.Text)
+jobInput_frameRate :: Lens.Lens' JobInput (Core.Maybe Core.Text)
 jobInput_frameRate = Lens.lens (\JobInput' {frameRate} -> frameRate) (\s@JobInput' {} a -> s {frameRate = a} :: JobInput)
 
 -- | The aspect ratio of the input file. If you want Elastic Transcoder to
@@ -387,12 +386,12 @@ jobInput_frameRate = Lens.lens (\JobInput' {frameRate} -> frameRate) (\s@JobInpu
 --
 -- If you specify a value other than @auto@, Elastic Transcoder disables
 -- automatic detection of the aspect ratio.
-jobInput_aspectRatio :: Lens.Lens' JobInput (Prelude.Maybe Prelude.Text)
+jobInput_aspectRatio :: Lens.Lens' JobInput (Core.Maybe Core.Text)
 jobInput_aspectRatio = Lens.lens (\JobInput' {aspectRatio} -> aspectRatio) (\s@JobInput' {} a -> s {aspectRatio = a} :: JobInput)
 
 -- | This value must be @auto@, which causes Elastic Transcoder to
 -- automatically detect the resolution of the input file.
-jobInput_resolution :: Lens.Lens' JobInput (Prelude.Maybe Prelude.Text)
+jobInput_resolution :: Lens.Lens' JobInput (Core.Maybe Core.Text)
 jobInput_resolution = Lens.lens (\JobInput' {resolution} -> resolution) (\s@JobInput' {} a -> s {resolution = a} :: JobInput)
 
 -- | Whether the input file is interlaced. If you want Elastic Transcoder to
@@ -404,46 +403,45 @@ jobInput_resolution = Lens.lens (\JobInput' {resolution} -> resolution) (\s@JobI
 --
 -- If you specify a value other than @auto@, Elastic Transcoder disables
 -- automatic detection of interlacing.
-jobInput_interlaced :: Lens.Lens' JobInput (Prelude.Maybe Prelude.Text)
+jobInput_interlaced :: Lens.Lens' JobInput (Core.Maybe Core.Text)
 jobInput_interlaced = Lens.lens (\JobInput' {interlaced} -> interlaced) (\s@JobInput' {} a -> s {interlaced = a} :: JobInput)
 
-instance Prelude.FromJSON JobInput where
+instance Core.FromJSON JobInput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobInput"
       ( \x ->
           JobInput'
-            Prelude.<$> (x Prelude..:? "Container")
-            Prelude.<*> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "TimeSpan")
-            Prelude.<*> (x Prelude..:? "InputCaptions")
-            Prelude.<*> (x Prelude..:? "Encryption")
-            Prelude.<*> (x Prelude..:? "DetectedProperties")
-            Prelude.<*> (x Prelude..:? "FrameRate")
-            Prelude.<*> (x Prelude..:? "AspectRatio")
-            Prelude.<*> (x Prelude..:? "Resolution")
-            Prelude.<*> (x Prelude..:? "Interlaced")
+            Core.<$> (x Core..:? "Container")
+            Core.<*> (x Core..:? "Key")
+            Core.<*> (x Core..:? "TimeSpan")
+            Core.<*> (x Core..:? "InputCaptions")
+            Core.<*> (x Core..:? "Encryption")
+            Core.<*> (x Core..:? "DetectedProperties")
+            Core.<*> (x Core..:? "FrameRate")
+            Core.<*> (x Core..:? "AspectRatio")
+            Core.<*> (x Core..:? "Resolution")
+            Core.<*> (x Core..:? "Interlaced")
       )
 
-instance Prelude.Hashable JobInput
+instance Core.Hashable JobInput
 
-instance Prelude.NFData JobInput
+instance Core.NFData JobInput
 
-instance Prelude.ToJSON JobInput where
+instance Core.ToJSON JobInput where
   toJSON JobInput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Container" Prelude..=) Prelude.<$> container,
-            ("Key" Prelude..=) Prelude.<$> key,
-            ("TimeSpan" Prelude..=) Prelude.<$> timeSpan,
-            ("InputCaptions" Prelude..=)
-              Prelude.<$> inputCaptions,
-            ("Encryption" Prelude..=) Prelude.<$> encryption,
-            ("DetectedProperties" Prelude..=)
-              Prelude.<$> detectedProperties,
-            ("FrameRate" Prelude..=) Prelude.<$> frameRate,
-            ("AspectRatio" Prelude..=) Prelude.<$> aspectRatio,
-            ("Resolution" Prelude..=) Prelude.<$> resolution,
-            ("Interlaced" Prelude..=) Prelude.<$> interlaced
+    Core.object
+      ( Core.catMaybes
+          [ ("Container" Core..=) Core.<$> container,
+            ("Key" Core..=) Core.<$> key,
+            ("TimeSpan" Core..=) Core.<$> timeSpan,
+            ("InputCaptions" Core..=) Core.<$> inputCaptions,
+            ("Encryption" Core..=) Core.<$> encryption,
+            ("DetectedProperties" Core..=)
+              Core.<$> detectedProperties,
+            ("FrameRate" Core..=) Core.<$> frameRate,
+            ("AspectRatio" Core..=) Core.<$> aspectRatio,
+            ("Resolution" Core..=) Core.<$> resolution,
+            ("Interlaced" Core..=) Core.<$> interlaced
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.Glue.GetColumnStatisticsForPartition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,17 +57,17 @@ import qualified Network.AWS.Response as Response
 data GetColumnStatisticsForPartition = GetColumnStatisticsForPartition'
   { -- | The ID of the Data Catalog where the partitions in question reside. If
     -- none is supplied, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the catalog database where the partitions reside.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the partitions\' table.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | A list of partition values identifying the partition.
-    partitionValues :: [Prelude.Text],
+    partitionValues :: [Core.Text],
     -- | A list of the column names.
-    columnNames :: [Prelude.Text]
+    columnNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetColumnStatisticsForPartition' with all optional fields omitted.
@@ -90,127 +89,113 @@ data GetColumnStatisticsForPartition = GetColumnStatisticsForPartition'
 -- 'columnNames', 'getColumnStatisticsForPartition_columnNames' - A list of the column names.
 newGetColumnStatisticsForPartition ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   GetColumnStatisticsForPartition
 newGetColumnStatisticsForPartition
   pDatabaseName_
   pTableName_ =
     GetColumnStatisticsForPartition'
       { catalogId =
-          Prelude.Nothing,
+          Core.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
-        partitionValues = Prelude.mempty,
-        columnNames = Prelude.mempty
+        partitionValues = Core.mempty,
+        columnNames = Core.mempty
       }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If
 -- none is supplied, the AWS account ID is used by default.
-getColumnStatisticsForPartition_catalogId :: Lens.Lens' GetColumnStatisticsForPartition (Prelude.Maybe Prelude.Text)
+getColumnStatisticsForPartition_catalogId :: Lens.Lens' GetColumnStatisticsForPartition (Core.Maybe Core.Text)
 getColumnStatisticsForPartition_catalogId = Lens.lens (\GetColumnStatisticsForPartition' {catalogId} -> catalogId) (\s@GetColumnStatisticsForPartition' {} a -> s {catalogId = a} :: GetColumnStatisticsForPartition)
 
 -- | The name of the catalog database where the partitions reside.
-getColumnStatisticsForPartition_databaseName :: Lens.Lens' GetColumnStatisticsForPartition Prelude.Text
+getColumnStatisticsForPartition_databaseName :: Lens.Lens' GetColumnStatisticsForPartition Core.Text
 getColumnStatisticsForPartition_databaseName = Lens.lens (\GetColumnStatisticsForPartition' {databaseName} -> databaseName) (\s@GetColumnStatisticsForPartition' {} a -> s {databaseName = a} :: GetColumnStatisticsForPartition)
 
 -- | The name of the partitions\' table.
-getColumnStatisticsForPartition_tableName :: Lens.Lens' GetColumnStatisticsForPartition Prelude.Text
+getColumnStatisticsForPartition_tableName :: Lens.Lens' GetColumnStatisticsForPartition Core.Text
 getColumnStatisticsForPartition_tableName = Lens.lens (\GetColumnStatisticsForPartition' {tableName} -> tableName) (\s@GetColumnStatisticsForPartition' {} a -> s {tableName = a} :: GetColumnStatisticsForPartition)
 
 -- | A list of partition values identifying the partition.
-getColumnStatisticsForPartition_partitionValues :: Lens.Lens' GetColumnStatisticsForPartition [Prelude.Text]
-getColumnStatisticsForPartition_partitionValues = Lens.lens (\GetColumnStatisticsForPartition' {partitionValues} -> partitionValues) (\s@GetColumnStatisticsForPartition' {} a -> s {partitionValues = a} :: GetColumnStatisticsForPartition) Prelude.. Prelude._Coerce
+getColumnStatisticsForPartition_partitionValues :: Lens.Lens' GetColumnStatisticsForPartition [Core.Text]
+getColumnStatisticsForPartition_partitionValues = Lens.lens (\GetColumnStatisticsForPartition' {partitionValues} -> partitionValues) (\s@GetColumnStatisticsForPartition' {} a -> s {partitionValues = a} :: GetColumnStatisticsForPartition) Core.. Lens._Coerce
 
 -- | A list of the column names.
-getColumnStatisticsForPartition_columnNames :: Lens.Lens' GetColumnStatisticsForPartition [Prelude.Text]
-getColumnStatisticsForPartition_columnNames = Lens.lens (\GetColumnStatisticsForPartition' {columnNames} -> columnNames) (\s@GetColumnStatisticsForPartition' {} a -> s {columnNames = a} :: GetColumnStatisticsForPartition) Prelude.. Prelude._Coerce
+getColumnStatisticsForPartition_columnNames :: Lens.Lens' GetColumnStatisticsForPartition [Core.Text]
+getColumnStatisticsForPartition_columnNames = Lens.lens (\GetColumnStatisticsForPartition' {columnNames} -> columnNames) (\s@GetColumnStatisticsForPartition' {} a -> s {columnNames = a} :: GetColumnStatisticsForPartition) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetColumnStatisticsForPartition
   where
   type
-    Rs GetColumnStatisticsForPartition =
+    AWSResponse GetColumnStatisticsForPartition =
       GetColumnStatisticsForPartitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetColumnStatisticsForPartitionResponse'
-            Prelude.<$> ( x Prelude..?> "ColumnStatisticsList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "Errors" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "ColumnStatisticsList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "Errors" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetColumnStatisticsForPartition
 
-instance
-  Prelude.NFData
-    GetColumnStatisticsForPartition
+instance Core.NFData GetColumnStatisticsForPartition
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetColumnStatisticsForPartition
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.GetColumnStatisticsForPartition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSGlue.GetColumnStatisticsForPartition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    GetColumnStatisticsForPartition
-  where
+instance Core.ToJSON GetColumnStatisticsForPartition where
   toJSON GetColumnStatisticsForPartition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just
-              ("PartitionValues" Prelude..= partitionValues),
-            Prelude.Just ("ColumnNames" Prelude..= columnNames)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just
+              ("PartitionValues" Core..= partitionValues),
+            Core.Just ("ColumnNames" Core..= columnNames)
           ]
       )
 
-instance
-  Prelude.ToPath
-    GetColumnStatisticsForPartition
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetColumnStatisticsForPartition where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    GetColumnStatisticsForPartition
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetColumnStatisticsForPartition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetColumnStatisticsForPartitionResponse' smart constructor.
 data GetColumnStatisticsForPartitionResponse = GetColumnStatisticsForPartitionResponse'
   { -- | List of ColumnStatistics that failed to be retrieved.
-    columnStatisticsList :: Prelude.Maybe [ColumnStatistics],
+    columnStatisticsList :: Core.Maybe [ColumnStatistics],
     -- | Error occurred during retrieving column statistics data.
-    errors :: Prelude.Maybe [ColumnError],
+    errors :: Core.Maybe [ColumnError],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetColumnStatisticsForPartitionResponse' with all optional fields omitted.
@@ -227,29 +212,29 @@ data GetColumnStatisticsForPartitionResponse = GetColumnStatisticsForPartitionRe
 -- 'httpStatus', 'getColumnStatisticsForPartitionResponse_httpStatus' - The response's http status code.
 newGetColumnStatisticsForPartitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetColumnStatisticsForPartitionResponse
 newGetColumnStatisticsForPartitionResponse
   pHttpStatus_ =
     GetColumnStatisticsForPartitionResponse'
       { columnStatisticsList =
-          Prelude.Nothing,
-        errors = Prelude.Nothing,
+          Core.Nothing,
+        errors = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | List of ColumnStatistics that failed to be retrieved.
-getColumnStatisticsForPartitionResponse_columnStatisticsList :: Lens.Lens' GetColumnStatisticsForPartitionResponse (Prelude.Maybe [ColumnStatistics])
-getColumnStatisticsForPartitionResponse_columnStatisticsList = Lens.lens (\GetColumnStatisticsForPartitionResponse' {columnStatisticsList} -> columnStatisticsList) (\s@GetColumnStatisticsForPartitionResponse' {} a -> s {columnStatisticsList = a} :: GetColumnStatisticsForPartitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+getColumnStatisticsForPartitionResponse_columnStatisticsList :: Lens.Lens' GetColumnStatisticsForPartitionResponse (Core.Maybe [ColumnStatistics])
+getColumnStatisticsForPartitionResponse_columnStatisticsList = Lens.lens (\GetColumnStatisticsForPartitionResponse' {columnStatisticsList} -> columnStatisticsList) (\s@GetColumnStatisticsForPartitionResponse' {} a -> s {columnStatisticsList = a} :: GetColumnStatisticsForPartitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Error occurred during retrieving column statistics data.
-getColumnStatisticsForPartitionResponse_errors :: Lens.Lens' GetColumnStatisticsForPartitionResponse (Prelude.Maybe [ColumnError])
-getColumnStatisticsForPartitionResponse_errors = Lens.lens (\GetColumnStatisticsForPartitionResponse' {errors} -> errors) (\s@GetColumnStatisticsForPartitionResponse' {} a -> s {errors = a} :: GetColumnStatisticsForPartitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+getColumnStatisticsForPartitionResponse_errors :: Lens.Lens' GetColumnStatisticsForPartitionResponse (Core.Maybe [ColumnError])
+getColumnStatisticsForPartitionResponse_errors = Lens.lens (\GetColumnStatisticsForPartitionResponse' {errors} -> errors) (\s@GetColumnStatisticsForPartitionResponse' {} a -> s {errors = a} :: GetColumnStatisticsForPartitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getColumnStatisticsForPartitionResponse_httpStatus :: Lens.Lens' GetColumnStatisticsForPartitionResponse Prelude.Int
+getColumnStatisticsForPartitionResponse_httpStatus :: Lens.Lens' GetColumnStatisticsForPartitionResponse Core.Int
 getColumnStatisticsForPartitionResponse_httpStatus = Lens.lens (\GetColumnStatisticsForPartitionResponse' {httpStatus} -> httpStatus) (\s@GetColumnStatisticsForPartitionResponse' {} a -> s {httpStatus = a} :: GetColumnStatisticsForPartitionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetColumnStatisticsForPartitionResponse

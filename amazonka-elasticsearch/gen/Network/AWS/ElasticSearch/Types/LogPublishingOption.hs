@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.LogPublishingOption where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Log Publishing option that is set for given domain.
 -- Attributes and their details:
@@ -34,10 +33,10 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLogPublishingOption' smart constructor.
 data LogPublishingOption = LogPublishingOption'
   { -- | Specifies whether given log publishing option is enabled or not.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    cloudWatchLogsLogGroupArn :: Prelude.Maybe Prelude.Text
+    enabled :: Core.Maybe Core.Bool,
+    cloudWatchLogsLogGroupArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LogPublishingOption' with all optional fields omitted.
@@ -54,38 +53,38 @@ newLogPublishingOption ::
   LogPublishingOption
 newLogPublishingOption =
   LogPublishingOption'
-    { enabled = Prelude.Nothing,
-      cloudWatchLogsLogGroupArn = Prelude.Nothing
+    { enabled = Core.Nothing,
+      cloudWatchLogsLogGroupArn = Core.Nothing
     }
 
 -- | Specifies whether given log publishing option is enabled or not.
-logPublishingOption_enabled :: Lens.Lens' LogPublishingOption (Prelude.Maybe Prelude.Bool)
+logPublishingOption_enabled :: Lens.Lens' LogPublishingOption (Core.Maybe Core.Bool)
 logPublishingOption_enabled = Lens.lens (\LogPublishingOption' {enabled} -> enabled) (\s@LogPublishingOption' {} a -> s {enabled = a} :: LogPublishingOption)
 
 -- | Undocumented member.
-logPublishingOption_cloudWatchLogsLogGroupArn :: Lens.Lens' LogPublishingOption (Prelude.Maybe Prelude.Text)
+logPublishingOption_cloudWatchLogsLogGroupArn :: Lens.Lens' LogPublishingOption (Core.Maybe Core.Text)
 logPublishingOption_cloudWatchLogsLogGroupArn = Lens.lens (\LogPublishingOption' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@LogPublishingOption' {} a -> s {cloudWatchLogsLogGroupArn = a} :: LogPublishingOption)
 
-instance Prelude.FromJSON LogPublishingOption where
+instance Core.FromJSON LogPublishingOption where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LogPublishingOption"
       ( \x ->
           LogPublishingOption'
-            Prelude.<$> (x Prelude..:? "Enabled")
-            Prelude.<*> (x Prelude..:? "CloudWatchLogsLogGroupArn")
+            Core.<$> (x Core..:? "Enabled")
+            Core.<*> (x Core..:? "CloudWatchLogsLogGroupArn")
       )
 
-instance Prelude.Hashable LogPublishingOption
+instance Core.Hashable LogPublishingOption
 
-instance Prelude.NFData LogPublishingOption
+instance Core.NFData LogPublishingOption
 
-instance Prelude.ToJSON LogPublishingOption where
+instance Core.ToJSON LogPublishingOption where
   toJSON LogPublishingOption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Enabled" Prelude..=) Prelude.<$> enabled,
-            ("CloudWatchLogsLogGroupArn" Prelude..=)
-              Prelude.<$> cloudWatchLogsLogGroupArn
+    Core.object
+      ( Core.catMaybes
+          [ ("Enabled" Core..=) Core.<$> enabled,
+            ("CloudWatchLogsLogGroupArn" Core..=)
+              Core.<$> cloudWatchLogsLogGroupArn
           ]
       )

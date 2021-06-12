@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.ResourceSpecificResult where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.PermissionsBoundaryDecisionDetail
 import Network.AWS.IAM.Types.PolicyEvaluationDecisionType
 import Network.AWS.IAM.Types.Statement
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the result of the simulation of a single API operation call on
 -- a single resource.
@@ -37,16 +36,16 @@ data ResourceSpecificResult = ResourceSpecificResult'
     -- single resource. This parameter is returned only for cross-account
     -- simulations. This parameter explains how each policy type contributes to
     -- the resource-specific evaluation decision.
-    evalDecisionDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text PolicyEvaluationDecisionType),
+    evalDecisionDetails :: Core.Maybe (Core.HashMap Core.Text PolicyEvaluationDecisionType),
     -- | Contains information about the effect that a permissions boundary has on
     -- a policy simulation when that boundary is applied to an IAM entity.
-    permissionsBoundaryDecisionDetail :: Prelude.Maybe PermissionsBoundaryDecisionDetail,
+    permissionsBoundaryDecisionDetail :: Core.Maybe PermissionsBoundaryDecisionDetail,
     -- | A list of the statements in the input policies that determine the result
     -- for this part of the simulation. Remember that even if multiple
     -- statements allow the operation on the resource, if /any/ statement
     -- denies that operation, then the explicit deny overrides any allow. In
     -- addition, the deny statement is the only entry included in the result.
-    matchedStatements :: Prelude.Maybe [Statement],
+    matchedStatements :: Core.Maybe [Statement],
     -- | A list of context keys that are required by the included input policies
     -- but that were not provided by one of the input parameters. This list is
     -- used when a list of ARNs is included in the @ResourceArns@ parameter
@@ -56,15 +55,15 @@ data ResourceSpecificResult = ResourceSpecificResult'
     -- the @EvaluationResults@ section. To discover the context keys used by a
     -- set of policies, you can call GetContextKeysForCustomPolicy or
     -- GetContextKeysForPrincipalPolicy.
-    missingContextValues :: Prelude.Maybe [Prelude.Text],
+    missingContextValues :: Core.Maybe [Core.Text],
     -- | The name of the simulated resource, in Amazon Resource Name (ARN)
     -- format.
-    evalResourceName :: Prelude.Text,
+    evalResourceName :: Core.Text,
     -- | The result of the simulation of the simulated API operation on the
     -- resource specified in @EvalResourceName@.
     evalResourceDecision :: PolicyEvaluationDecisionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceSpecificResult' with all optional fields omitted.
@@ -105,7 +104,7 @@ data ResourceSpecificResult = ResourceSpecificResult'
 -- resource specified in @EvalResourceName@.
 newResourceSpecificResult ::
   -- | 'evalResourceName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'evalResourceDecision'
   PolicyEvaluationDecisionType ->
   ResourceSpecificResult
@@ -114,10 +113,10 @@ newResourceSpecificResult
   pEvalResourceDecision_ =
     ResourceSpecificResult'
       { evalDecisionDetails =
-          Prelude.Nothing,
-        permissionsBoundaryDecisionDetail = Prelude.Nothing,
-        matchedStatements = Prelude.Nothing,
-        missingContextValues = Prelude.Nothing,
+          Core.Nothing,
+        permissionsBoundaryDecisionDetail = Core.Nothing,
+        matchedStatements = Core.Nothing,
+        missingContextValues = Core.Nothing,
         evalResourceName = pEvalResourceName_,
         evalResourceDecision = pEvalResourceDecision_
       }
@@ -126,12 +125,12 @@ newResourceSpecificResult
 -- single resource. This parameter is returned only for cross-account
 -- simulations. This parameter explains how each policy type contributes to
 -- the resource-specific evaluation decision.
-resourceSpecificResult_evalDecisionDetails :: Lens.Lens' ResourceSpecificResult (Prelude.Maybe (Prelude.HashMap Prelude.Text PolicyEvaluationDecisionType))
-resourceSpecificResult_evalDecisionDetails = Lens.lens (\ResourceSpecificResult' {evalDecisionDetails} -> evalDecisionDetails) (\s@ResourceSpecificResult' {} a -> s {evalDecisionDetails = a} :: ResourceSpecificResult) Prelude.. Lens.mapping Prelude._Coerce
+resourceSpecificResult_evalDecisionDetails :: Lens.Lens' ResourceSpecificResult (Core.Maybe (Core.HashMap Core.Text PolicyEvaluationDecisionType))
+resourceSpecificResult_evalDecisionDetails = Lens.lens (\ResourceSpecificResult' {evalDecisionDetails} -> evalDecisionDetails) (\s@ResourceSpecificResult' {} a -> s {evalDecisionDetails = a} :: ResourceSpecificResult) Core.. Lens.mapping Lens._Coerce
 
 -- | Contains information about the effect that a permissions boundary has on
 -- a policy simulation when that boundary is applied to an IAM entity.
-resourceSpecificResult_permissionsBoundaryDecisionDetail :: Lens.Lens' ResourceSpecificResult (Prelude.Maybe PermissionsBoundaryDecisionDetail)
+resourceSpecificResult_permissionsBoundaryDecisionDetail :: Lens.Lens' ResourceSpecificResult (Core.Maybe PermissionsBoundaryDecisionDetail)
 resourceSpecificResult_permissionsBoundaryDecisionDetail = Lens.lens (\ResourceSpecificResult' {permissionsBoundaryDecisionDetail} -> permissionsBoundaryDecisionDetail) (\s@ResourceSpecificResult' {} a -> s {permissionsBoundaryDecisionDetail = a} :: ResourceSpecificResult)
 
 -- | A list of the statements in the input policies that determine the result
@@ -139,8 +138,8 @@ resourceSpecificResult_permissionsBoundaryDecisionDetail = Lens.lens (\ResourceS
 -- statements allow the operation on the resource, if /any/ statement
 -- denies that operation, then the explicit deny overrides any allow. In
 -- addition, the deny statement is the only entry included in the result.
-resourceSpecificResult_matchedStatements :: Lens.Lens' ResourceSpecificResult (Prelude.Maybe [Statement])
-resourceSpecificResult_matchedStatements = Lens.lens (\ResourceSpecificResult' {matchedStatements} -> matchedStatements) (\s@ResourceSpecificResult' {} a -> s {matchedStatements = a} :: ResourceSpecificResult) Prelude.. Lens.mapping Prelude._Coerce
+resourceSpecificResult_matchedStatements :: Lens.Lens' ResourceSpecificResult (Core.Maybe [Statement])
+resourceSpecificResult_matchedStatements = Lens.lens (\ResourceSpecificResult' {matchedStatements} -> matchedStatements) (\s@ResourceSpecificResult' {} a -> s {matchedStatements = a} :: ResourceSpecificResult) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of context keys that are required by the included input policies
 -- but that were not provided by one of the input parameters. This list is
@@ -151,12 +150,12 @@ resourceSpecificResult_matchedStatements = Lens.lens (\ResourceSpecificResult' {
 -- the @EvaluationResults@ section. To discover the context keys used by a
 -- set of policies, you can call GetContextKeysForCustomPolicy or
 -- GetContextKeysForPrincipalPolicy.
-resourceSpecificResult_missingContextValues :: Lens.Lens' ResourceSpecificResult (Prelude.Maybe [Prelude.Text])
-resourceSpecificResult_missingContextValues = Lens.lens (\ResourceSpecificResult' {missingContextValues} -> missingContextValues) (\s@ResourceSpecificResult' {} a -> s {missingContextValues = a} :: ResourceSpecificResult) Prelude.. Lens.mapping Prelude._Coerce
+resourceSpecificResult_missingContextValues :: Lens.Lens' ResourceSpecificResult (Core.Maybe [Core.Text])
+resourceSpecificResult_missingContextValues = Lens.lens (\ResourceSpecificResult' {missingContextValues} -> missingContextValues) (\s@ResourceSpecificResult' {} a -> s {missingContextValues = a} :: ResourceSpecificResult) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the simulated resource, in Amazon Resource Name (ARN)
 -- format.
-resourceSpecificResult_evalResourceName :: Lens.Lens' ResourceSpecificResult Prelude.Text
+resourceSpecificResult_evalResourceName :: Lens.Lens' ResourceSpecificResult Core.Text
 resourceSpecificResult_evalResourceName = Lens.lens (\ResourceSpecificResult' {evalResourceName} -> evalResourceName) (\s@ResourceSpecificResult' {} a -> s {evalResourceName = a} :: ResourceSpecificResult)
 
 -- | The result of the simulation of the simulated API operation on the
@@ -164,26 +163,24 @@ resourceSpecificResult_evalResourceName = Lens.lens (\ResourceSpecificResult' {e
 resourceSpecificResult_evalResourceDecision :: Lens.Lens' ResourceSpecificResult PolicyEvaluationDecisionType
 resourceSpecificResult_evalResourceDecision = Lens.lens (\ResourceSpecificResult' {evalResourceDecision} -> evalResourceDecision) (\s@ResourceSpecificResult' {} a -> s {evalResourceDecision = a} :: ResourceSpecificResult)
 
-instance Prelude.FromXML ResourceSpecificResult where
+instance Core.FromXML ResourceSpecificResult where
   parseXML x =
     ResourceSpecificResult'
-      Prelude.<$> ( x Prelude..@? "EvalDecisionDetails"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLMap "entry" "key" "value")
-                  )
-      Prelude.<*> (x Prelude..@? "PermissionsBoundaryDecisionDetail")
-      Prelude.<*> ( x Prelude..@? "MatchedStatements"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Prelude..@? "MissingContextValues"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@ "EvalResourceName")
-      Prelude.<*> (x Prelude..@ "EvalResourceDecision")
+      Core.<$> ( x Core..@? "EvalDecisionDetails"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+               )
+      Core.<*> (x Core..@? "PermissionsBoundaryDecisionDetail")
+      Core.<*> ( x Core..@? "MatchedStatements" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> ( x Core..@? "MissingContextValues"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@ "EvalResourceName")
+      Core.<*> (x Core..@ "EvalResourceDecision")
 
-instance Prelude.Hashable ResourceSpecificResult
+instance Core.Hashable ResourceSpecificResult
 
-instance Prelude.NFData ResourceSpecificResult
+instance Core.NFData ResourceSpecificResult

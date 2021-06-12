@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.TimeBasedAutoScalingConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.WeeklyAutoScalingSchedule
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance\'s time-based auto scaling configuration.
 --
 -- /See:/ 'newTimeBasedAutoScalingConfiguration' smart constructor.
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
   { -- | The instance ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | A @WeeklyAutoScalingSchedule@ object with the instance schedule.
-    autoScalingSchedule :: Prelude.Maybe WeeklyAutoScalingSchedule
+    autoScalingSchedule :: Core.Maybe WeeklyAutoScalingSchedule
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TimeBasedAutoScalingConfiguration' with all optional fields omitted.
@@ -51,35 +50,35 @@ newTimeBasedAutoScalingConfiguration ::
 newTimeBasedAutoScalingConfiguration =
   TimeBasedAutoScalingConfiguration'
     { instanceId =
-        Prelude.Nothing,
-      autoScalingSchedule = Prelude.Nothing
+        Core.Nothing,
+      autoScalingSchedule = Core.Nothing
     }
 
 -- | The instance ID.
-timeBasedAutoScalingConfiguration_instanceId :: Lens.Lens' TimeBasedAutoScalingConfiguration (Prelude.Maybe Prelude.Text)
+timeBasedAutoScalingConfiguration_instanceId :: Lens.Lens' TimeBasedAutoScalingConfiguration (Core.Maybe Core.Text)
 timeBasedAutoScalingConfiguration_instanceId = Lens.lens (\TimeBasedAutoScalingConfiguration' {instanceId} -> instanceId) (\s@TimeBasedAutoScalingConfiguration' {} a -> s {instanceId = a} :: TimeBasedAutoScalingConfiguration)
 
 -- | A @WeeklyAutoScalingSchedule@ object with the instance schedule.
-timeBasedAutoScalingConfiguration_autoScalingSchedule :: Lens.Lens' TimeBasedAutoScalingConfiguration (Prelude.Maybe WeeklyAutoScalingSchedule)
+timeBasedAutoScalingConfiguration_autoScalingSchedule :: Lens.Lens' TimeBasedAutoScalingConfiguration (Core.Maybe WeeklyAutoScalingSchedule)
 timeBasedAutoScalingConfiguration_autoScalingSchedule = Lens.lens (\TimeBasedAutoScalingConfiguration' {autoScalingSchedule} -> autoScalingSchedule) (\s@TimeBasedAutoScalingConfiguration' {} a -> s {autoScalingSchedule = a} :: TimeBasedAutoScalingConfiguration)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     TimeBasedAutoScalingConfiguration
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TimeBasedAutoScalingConfiguration"
       ( \x ->
           TimeBasedAutoScalingConfiguration'
-            Prelude.<$> (x Prelude..:? "InstanceId")
-            Prelude.<*> (x Prelude..:? "AutoScalingSchedule")
+            Core.<$> (x Core..:? "InstanceId")
+            Core.<*> (x Core..:? "AutoScalingSchedule")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     TimeBasedAutoScalingConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     TimeBasedAutoScalingConfiguration

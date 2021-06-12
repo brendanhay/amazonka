@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.Device where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a device.
 --
@@ -29,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 data Device = Device'
   { -- | If true, the device\'s local shadow will be automatically synced with
     -- the cloud.
-    syncShadow :: Prelude.Maybe Prelude.Bool,
+    syncShadow :: Core.Maybe Core.Bool,
     -- | The thing ARN of the device.
-    thingArn :: Prelude.Text,
+    thingArn :: Core.Text,
     -- | A descriptive or arbitrary ID for the device. This value must be unique
     -- within the device definition version. Max length is 128 characters with
     -- pattern \'\'[a-zA-Z0-9:_-]+\'\'.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The ARN of the certificate associated with the device.
-    certificateArn :: Prelude.Text
+    certificateArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Device' with all optional fields omitted.
@@ -61,15 +60,15 @@ data Device = Device'
 -- 'certificateArn', 'device_certificateArn' - The ARN of the certificate associated with the device.
 newDevice ::
   -- | 'thingArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'certificateArn'
-  Prelude.Text ->
+  Core.Text ->
   Device
 newDevice pThingArn_ pId_ pCertificateArn_ =
   Device'
-    { syncShadow = Prelude.Nothing,
+    { syncShadow = Core.Nothing,
       thingArn = pThingArn_,
       id = pId_,
       certificateArn = pCertificateArn_
@@ -77,47 +76,46 @@ newDevice pThingArn_ pId_ pCertificateArn_ =
 
 -- | If true, the device\'s local shadow will be automatically synced with
 -- the cloud.
-device_syncShadow :: Lens.Lens' Device (Prelude.Maybe Prelude.Bool)
+device_syncShadow :: Lens.Lens' Device (Core.Maybe Core.Bool)
 device_syncShadow = Lens.lens (\Device' {syncShadow} -> syncShadow) (\s@Device' {} a -> s {syncShadow = a} :: Device)
 
 -- | The thing ARN of the device.
-device_thingArn :: Lens.Lens' Device Prelude.Text
+device_thingArn :: Lens.Lens' Device Core.Text
 device_thingArn = Lens.lens (\Device' {thingArn} -> thingArn) (\s@Device' {} a -> s {thingArn = a} :: Device)
 
 -- | A descriptive or arbitrary ID for the device. This value must be unique
 -- within the device definition version. Max length is 128 characters with
 -- pattern \'\'[a-zA-Z0-9:_-]+\'\'.
-device_id :: Lens.Lens' Device Prelude.Text
+device_id :: Lens.Lens' Device Core.Text
 device_id = Lens.lens (\Device' {id} -> id) (\s@Device' {} a -> s {id = a} :: Device)
 
 -- | The ARN of the certificate associated with the device.
-device_certificateArn :: Lens.Lens' Device Prelude.Text
+device_certificateArn :: Lens.Lens' Device Core.Text
 device_certificateArn = Lens.lens (\Device' {certificateArn} -> certificateArn) (\s@Device' {} a -> s {certificateArn = a} :: Device)
 
-instance Prelude.FromJSON Device where
+instance Core.FromJSON Device where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Prelude..:? "SyncShadow")
-            Prelude.<*> (x Prelude..: "ThingArn")
-            Prelude.<*> (x Prelude..: "Id")
-            Prelude.<*> (x Prelude..: "CertificateArn")
+            Core.<$> (x Core..:? "SyncShadow")
+            Core.<*> (x Core..: "ThingArn")
+            Core.<*> (x Core..: "Id")
+            Core.<*> (x Core..: "CertificateArn")
       )
 
-instance Prelude.Hashable Device
+instance Core.Hashable Device
 
-instance Prelude.NFData Device
+instance Core.NFData Device
 
-instance Prelude.ToJSON Device where
+instance Core.ToJSON Device where
   toJSON Device' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SyncShadow" Prelude..=) Prelude.<$> syncShadow,
-            Prelude.Just ("ThingArn" Prelude..= thingArn),
-            Prelude.Just ("Id" Prelude..= id),
-            Prelude.Just
-              ("CertificateArn" Prelude..= certificateArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("SyncShadow" Core..=) Core.<$> syncShadow,
+            Core.Just ("ThingArn" Core..= thingArn),
+            Core.Just ("Id" Core..= id),
+            Core.Just ("CertificateArn" Core..= certificateArn)
           ]
       )

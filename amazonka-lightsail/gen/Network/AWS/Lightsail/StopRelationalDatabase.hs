@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.Lightsail.StopRelationalDatabase
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ import qualified Network.AWS.Response as Response
 data StopRelationalDatabase = StopRelationalDatabase'
   { -- | The name of your new database snapshot to be created before stopping
     -- your database.
-    relationalDatabaseSnapshotName :: Prelude.Maybe Prelude.Text,
+    relationalDatabaseSnapshotName :: Core.Maybe Core.Text,
     -- | The name of your database to stop.
-    relationalDatabaseName :: Prelude.Text
+    relationalDatabaseName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopRelationalDatabase' with all optional fields omitted.
@@ -76,87 +75,83 @@ data StopRelationalDatabase = StopRelationalDatabase'
 -- 'relationalDatabaseName', 'stopRelationalDatabase_relationalDatabaseName' - The name of your database to stop.
 newStopRelationalDatabase ::
   -- | 'relationalDatabaseName'
-  Prelude.Text ->
+  Core.Text ->
   StopRelationalDatabase
 newStopRelationalDatabase pRelationalDatabaseName_ =
   StopRelationalDatabase'
     { relationalDatabaseSnapshotName =
-        Prelude.Nothing,
+        Core.Nothing,
       relationalDatabaseName = pRelationalDatabaseName_
     }
 
 -- | The name of your new database snapshot to be created before stopping
 -- your database.
-stopRelationalDatabase_relationalDatabaseSnapshotName :: Lens.Lens' StopRelationalDatabase (Prelude.Maybe Prelude.Text)
+stopRelationalDatabase_relationalDatabaseSnapshotName :: Lens.Lens' StopRelationalDatabase (Core.Maybe Core.Text)
 stopRelationalDatabase_relationalDatabaseSnapshotName = Lens.lens (\StopRelationalDatabase' {relationalDatabaseSnapshotName} -> relationalDatabaseSnapshotName) (\s@StopRelationalDatabase' {} a -> s {relationalDatabaseSnapshotName = a} :: StopRelationalDatabase)
 
 -- | The name of your database to stop.
-stopRelationalDatabase_relationalDatabaseName :: Lens.Lens' StopRelationalDatabase Prelude.Text
+stopRelationalDatabase_relationalDatabaseName :: Lens.Lens' StopRelationalDatabase Core.Text
 stopRelationalDatabase_relationalDatabaseName = Lens.lens (\StopRelationalDatabase' {relationalDatabaseName} -> relationalDatabaseName) (\s@StopRelationalDatabase' {} a -> s {relationalDatabaseName = a} :: StopRelationalDatabase)
 
-instance Prelude.AWSRequest StopRelationalDatabase where
+instance Core.AWSRequest StopRelationalDatabase where
   type
-    Rs StopRelationalDatabase =
+    AWSResponse StopRelationalDatabase =
       StopRelationalDatabaseResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopRelationalDatabaseResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopRelationalDatabase
+instance Core.Hashable StopRelationalDatabase
 
-instance Prelude.NFData StopRelationalDatabase
+instance Core.NFData StopRelationalDatabase
 
-instance Prelude.ToHeaders StopRelationalDatabase where
+instance Core.ToHeaders StopRelationalDatabase where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.StopRelationalDatabase" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.StopRelationalDatabase" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopRelationalDatabase where
+instance Core.ToJSON StopRelationalDatabase where
   toJSON StopRelationalDatabase' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("relationalDatabaseSnapshotName" Prelude..=)
-              Prelude.<$> relationalDatabaseSnapshotName,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("relationalDatabaseSnapshotName" Core..=)
+              Core.<$> relationalDatabaseSnapshotName,
+            Core.Just
               ( "relationalDatabaseName"
-                  Prelude..= relationalDatabaseName
+                  Core..= relationalDatabaseName
               )
           ]
       )
 
-instance Prelude.ToPath StopRelationalDatabase where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopRelationalDatabase where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopRelationalDatabase where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopRelationalDatabase where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopRelationalDatabaseResponse' smart constructor.
 data StopRelationalDatabaseResponse = StopRelationalDatabaseResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopRelationalDatabaseResponse' with all optional fields omitted.
@@ -173,25 +168,23 @@ data StopRelationalDatabaseResponse = StopRelationalDatabaseResponse'
 -- 'httpStatus', 'stopRelationalDatabaseResponse_httpStatus' - The response's http status code.
 newStopRelationalDatabaseResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopRelationalDatabaseResponse
 newStopRelationalDatabaseResponse pHttpStatus_ =
   StopRelationalDatabaseResponse'
     { operations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-stopRelationalDatabaseResponse_operations :: Lens.Lens' StopRelationalDatabaseResponse (Prelude.Maybe [Operation])
-stopRelationalDatabaseResponse_operations = Lens.lens (\StopRelationalDatabaseResponse' {operations} -> operations) (\s@StopRelationalDatabaseResponse' {} a -> s {operations = a} :: StopRelationalDatabaseResponse) Prelude.. Lens.mapping Prelude._Coerce
+stopRelationalDatabaseResponse_operations :: Lens.Lens' StopRelationalDatabaseResponse (Core.Maybe [Operation])
+stopRelationalDatabaseResponse_operations = Lens.lens (\StopRelationalDatabaseResponse' {operations} -> operations) (\s@StopRelationalDatabaseResponse' {} a -> s {operations = a} :: StopRelationalDatabaseResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-stopRelationalDatabaseResponse_httpStatus :: Lens.Lens' StopRelationalDatabaseResponse Prelude.Int
+stopRelationalDatabaseResponse_httpStatus :: Lens.Lens' StopRelationalDatabaseResponse Core.Int
 stopRelationalDatabaseResponse_httpStatus = Lens.lens (\StopRelationalDatabaseResponse' {httpStatus} -> httpStatus) (\s@StopRelationalDatabaseResponse' {} a -> s {httpStatus = a} :: StopRelationalDatabaseResponse)
 
-instance
-  Prelude.NFData
-    StopRelationalDatabaseResponse
+instance Core.NFData StopRelationalDatabaseResponse

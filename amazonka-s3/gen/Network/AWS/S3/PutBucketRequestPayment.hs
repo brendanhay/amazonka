@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.S3.PutBucketRequestPayment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -61,7 +60,7 @@ data PutBucketRequestPayment = PutBucketRequestPayment'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
@@ -69,13 +68,13 @@ data PutBucketRequestPayment = PutBucketRequestPayment'
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
+    contentMD5 :: Core.Maybe Core.Text,
     -- | The bucket name.
     bucket :: BucketName,
     -- | Container for Payer.
     requestPaymentConfiguration :: RequestPaymentConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketRequestPayment' with all optional fields omitted.
@@ -111,8 +110,8 @@ newPutBucketRequestPayment
   pRequestPaymentConfiguration_ =
     PutBucketRequestPayment'
       { expectedBucketOwner =
-          Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
+          Core.Nothing,
+        contentMD5 = Core.Nothing,
         bucket = pBucket_,
         requestPaymentConfiguration =
           pRequestPaymentConfiguration_
@@ -121,7 +120,7 @@ newPutBucketRequestPayment
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketRequestPayment_expectedBucketOwner :: Lens.Lens' PutBucketRequestPayment (Prelude.Maybe Prelude.Text)
+putBucketRequestPayment_expectedBucketOwner :: Lens.Lens' PutBucketRequestPayment (Core.Maybe Core.Text)
 putBucketRequestPayment_expectedBucketOwner = Lens.lens (\PutBucketRequestPayment' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketRequestPayment' {} a -> s {expectedBucketOwner = a} :: PutBucketRequestPayment)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
@@ -131,7 +130,7 @@ putBucketRequestPayment_expectedBucketOwner = Lens.lens (\PutBucketRequestPaymen
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketRequestPayment_contentMD5 :: Lens.Lens' PutBucketRequestPayment (Prelude.Maybe Prelude.Text)
+putBucketRequestPayment_contentMD5 :: Lens.Lens' PutBucketRequestPayment (Core.Maybe Core.Text)
 putBucketRequestPayment_contentMD5 = Lens.lens (\PutBucketRequestPayment' {contentMD5} -> contentMD5) (\s@PutBucketRequestPayment' {} a -> s {contentMD5 = a} :: PutBucketRequestPayment)
 
 -- | The bucket name.
@@ -142,46 +141,46 @@ putBucketRequestPayment_bucket = Lens.lens (\PutBucketRequestPayment' {bucket} -
 putBucketRequestPayment_requestPaymentConfiguration :: Lens.Lens' PutBucketRequestPayment RequestPaymentConfiguration
 putBucketRequestPayment_requestPaymentConfiguration = Lens.lens (\PutBucketRequestPayment' {requestPaymentConfiguration} -> requestPaymentConfiguration) (\s@PutBucketRequestPayment' {} a -> s {requestPaymentConfiguration = a} :: PutBucketRequestPayment)
 
-instance Prelude.AWSRequest PutBucketRequestPayment where
+instance Core.AWSRequest PutBucketRequestPayment where
   type
-    Rs PutBucketRequestPayment =
+    AWSResponse PutBucketRequestPayment =
       PutBucketRequestPaymentResponse
   request = Request.putXML defaultService
   response =
     Response.receiveNull
       PutBucketRequestPaymentResponse'
 
-instance Prelude.Hashable PutBucketRequestPayment
+instance Core.Hashable PutBucketRequestPayment
 
-instance Prelude.NFData PutBucketRequestPayment
+instance Core.NFData PutBucketRequestPayment
 
-instance Prelude.ToElement PutBucketRequestPayment where
+instance Core.ToElement PutBucketRequestPayment where
   toElement PutBucketRequestPayment' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}RequestPaymentConfiguration"
       requestPaymentConfiguration
 
-instance Prelude.ToHeaders PutBucketRequestPayment where
+instance Core.ToHeaders PutBucketRequestPayment where
   toHeaders PutBucketRequestPayment' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "Content-MD5" Prelude.=# contentMD5
+          Core.=# expectedBucketOwner,
+        "Content-MD5" Core.=# contentMD5
       ]
 
-instance Prelude.ToPath PutBucketRequestPayment where
+instance Core.ToPath PutBucketRequestPayment where
   toPath PutBucketRequestPayment' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery PutBucketRequestPayment where
+instance Core.ToQuery PutBucketRequestPayment where
   toQuery =
-    Prelude.const (Prelude.mconcat ["requestPayment"])
+    Core.const (Core.mconcat ["requestPayment"])
 
 -- | /See:/ 'newPutBucketRequestPaymentResponse' smart constructor.
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketRequestPaymentResponse' with all optional fields omitted.
@@ -192,6 +191,4 @@ newPutBucketRequestPaymentResponse ::
 newPutBucketRequestPaymentResponse =
   PutBucketRequestPaymentResponse'
 
-instance
-  Prelude.NFData
-    PutBucketRequestPaymentResponse
+instance Core.NFData PutBucketRequestPaymentResponse

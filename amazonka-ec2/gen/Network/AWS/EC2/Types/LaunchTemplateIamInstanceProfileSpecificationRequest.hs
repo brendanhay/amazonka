@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateIamInstanceProfileSpecificationRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An IAM instance profile.
 --
 -- /See:/ 'newLaunchTemplateIamInstanceProfileSpecificationRequest' smart constructor.
 data LaunchTemplateIamInstanceProfileSpecificationRequest = LaunchTemplateIamInstanceProfileSpecificationRequest'
   { -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The name of the instance profile.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateIamInstanceProfileSpecificationRequest' with all optional fields omitted.
@@ -51,32 +50,31 @@ newLaunchTemplateIamInstanceProfileSpecificationRequest ::
 newLaunchTemplateIamInstanceProfileSpecificationRequest =
   LaunchTemplateIamInstanceProfileSpecificationRequest'
     { arn =
-        Prelude.Nothing,
-      name =
-        Prelude.Nothing
+        Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
-launchTemplateIamInstanceProfileSpecificationRequest_arn :: Lens.Lens' LaunchTemplateIamInstanceProfileSpecificationRequest (Prelude.Maybe Prelude.Text)
+launchTemplateIamInstanceProfileSpecificationRequest_arn :: Lens.Lens' LaunchTemplateIamInstanceProfileSpecificationRequest (Core.Maybe Core.Text)
 launchTemplateIamInstanceProfileSpecificationRequest_arn = Lens.lens (\LaunchTemplateIamInstanceProfileSpecificationRequest' {arn} -> arn) (\s@LaunchTemplateIamInstanceProfileSpecificationRequest' {} a -> s {arn = a} :: LaunchTemplateIamInstanceProfileSpecificationRequest)
 
 -- | The name of the instance profile.
-launchTemplateIamInstanceProfileSpecificationRequest_name :: Lens.Lens' LaunchTemplateIamInstanceProfileSpecificationRequest (Prelude.Maybe Prelude.Text)
+launchTemplateIamInstanceProfileSpecificationRequest_name :: Lens.Lens' LaunchTemplateIamInstanceProfileSpecificationRequest (Core.Maybe Core.Text)
 launchTemplateIamInstanceProfileSpecificationRequest_name = Lens.lens (\LaunchTemplateIamInstanceProfileSpecificationRequest' {name} -> name) (\s@LaunchTemplateIamInstanceProfileSpecificationRequest' {} a -> s {name = a} :: LaunchTemplateIamInstanceProfileSpecificationRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LaunchTemplateIamInstanceProfileSpecificationRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     LaunchTemplateIamInstanceProfileSpecificationRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     LaunchTemplateIamInstanceProfileSpecificationRequest
   where
   toQuery
     LaunchTemplateIamInstanceProfileSpecificationRequest' {..} =
-      Prelude.mconcat
-        ["Arn" Prelude.=: arn, "Name" Prelude.=: name]
+      Core.mconcat
+        ["Arn" Core.=: arn, "Name" Core.=: name]

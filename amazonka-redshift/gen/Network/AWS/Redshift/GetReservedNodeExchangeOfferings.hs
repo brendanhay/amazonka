@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.Redshift.GetReservedNodeExchangeOfferings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -59,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data GetReservedNodeExchangeOfferings = GetReservedNodeExchangeOfferings'
   { -- | A value that indicates the starting point for the next set of
     -- ReservedNodeOfferings.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | An integer setting the maximum number of ReservedNodeOfferings to
     -- retrieve.
-    maxRecords :: Prelude.Maybe Prelude.Int,
+    maxRecords :: Core.Maybe Core.Int,
     -- | A string representing the node identifier for the DC1 Reserved Node to
     -- be exchanged.
-    reservedNodeId :: Prelude.Text
+    reservedNodeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetReservedNodeExchangeOfferings' with all optional fields omitted.
@@ -87,62 +85,62 @@ data GetReservedNodeExchangeOfferings = GetReservedNodeExchangeOfferings'
 -- be exchanged.
 newGetReservedNodeExchangeOfferings ::
   -- | 'reservedNodeId'
-  Prelude.Text ->
+  Core.Text ->
   GetReservedNodeExchangeOfferings
 newGetReservedNodeExchangeOfferings pReservedNodeId_ =
   GetReservedNodeExchangeOfferings'
     { marker =
-        Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
+        Core.Nothing,
+      maxRecords = Core.Nothing,
       reservedNodeId = pReservedNodeId_
     }
 
 -- | A value that indicates the starting point for the next set of
 -- ReservedNodeOfferings.
-getReservedNodeExchangeOfferings_marker :: Lens.Lens' GetReservedNodeExchangeOfferings (Prelude.Maybe Prelude.Text)
+getReservedNodeExchangeOfferings_marker :: Lens.Lens' GetReservedNodeExchangeOfferings (Core.Maybe Core.Text)
 getReservedNodeExchangeOfferings_marker = Lens.lens (\GetReservedNodeExchangeOfferings' {marker} -> marker) (\s@GetReservedNodeExchangeOfferings' {} a -> s {marker = a} :: GetReservedNodeExchangeOfferings)
 
 -- | An integer setting the maximum number of ReservedNodeOfferings to
 -- retrieve.
-getReservedNodeExchangeOfferings_maxRecords :: Lens.Lens' GetReservedNodeExchangeOfferings (Prelude.Maybe Prelude.Int)
+getReservedNodeExchangeOfferings_maxRecords :: Lens.Lens' GetReservedNodeExchangeOfferings (Core.Maybe Core.Int)
 getReservedNodeExchangeOfferings_maxRecords = Lens.lens (\GetReservedNodeExchangeOfferings' {maxRecords} -> maxRecords) (\s@GetReservedNodeExchangeOfferings' {} a -> s {maxRecords = a} :: GetReservedNodeExchangeOfferings)
 
 -- | A string representing the node identifier for the DC1 Reserved Node to
 -- be exchanged.
-getReservedNodeExchangeOfferings_reservedNodeId :: Lens.Lens' GetReservedNodeExchangeOfferings Prelude.Text
+getReservedNodeExchangeOfferings_reservedNodeId :: Lens.Lens' GetReservedNodeExchangeOfferings Core.Text
 getReservedNodeExchangeOfferings_reservedNodeId = Lens.lens (\GetReservedNodeExchangeOfferings' {reservedNodeId} -> reservedNodeId) (\s@GetReservedNodeExchangeOfferings' {} a -> s {reservedNodeId = a} :: GetReservedNodeExchangeOfferings)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     GetReservedNodeExchangeOfferings
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getReservedNodeExchangeOfferingsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getReservedNodeExchangeOfferingsResponse_reservedNodeOfferings
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getReservedNodeExchangeOfferings_marker
           Lens..~ rs
           Lens.^? getReservedNodeExchangeOfferingsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetReservedNodeExchangeOfferings
   where
   type
-    Rs GetReservedNodeExchangeOfferings =
+    AWSResponse GetReservedNodeExchangeOfferings =
       GetReservedNodeExchangeOfferingsResponse
   request = Request.postQuery defaultService
   response =
@@ -150,56 +148,49 @@ instance
       "GetReservedNodeExchangeOfferingsResult"
       ( \s h x ->
           GetReservedNodeExchangeOfferingsResponse'
-            Prelude.<$> ( x Prelude..@? "ReservedNodeOfferings"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "ReservedNodeOffering")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "ReservedNodeOfferings"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "ReservedNodeOffering")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetReservedNodeExchangeOfferings
 
-instance
-  Prelude.NFData
-    GetReservedNodeExchangeOfferings
+instance Core.NFData GetReservedNodeExchangeOfferings
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetReservedNodeExchangeOfferings
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
+
+instance Core.ToPath GetReservedNodeExchangeOfferings where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToPath
-    GetReservedNodeExchangeOfferings
-  where
-  toPath = Prelude.const "/"
-
-instance
-  Prelude.ToQuery
+  Core.ToQuery
     GetReservedNodeExchangeOfferings
   where
   toQuery GetReservedNodeExchangeOfferings' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "GetReservedNodeExchangeOfferings" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords,
-        "ReservedNodeId" Prelude.=: reservedNodeId
+          Core.=: ( "GetReservedNodeExchangeOfferings" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords,
+        "ReservedNodeId" Core.=: reservedNodeId
       ]
 
 -- | /See:/ 'newGetReservedNodeExchangeOfferingsResponse' smart constructor.
 data GetReservedNodeExchangeOfferingsResponse = GetReservedNodeExchangeOfferingsResponse'
   { -- | Returns an array of ReservedNodeOffering objects.
-    reservedNodeOfferings :: Prelude.Maybe [ReservedNodeOffering],
+    reservedNodeOfferings :: Core.Maybe [ReservedNodeOffering],
     -- | An optional parameter that specifies the starting point for returning a
     -- set of response records. When the results of a
     -- @GetReservedNodeExchangeOfferings@ request exceed the value specified in
@@ -207,11 +198,11 @@ data GetReservedNodeExchangeOfferingsResponse = GetReservedNodeExchangeOfferings
     -- response. You can retrieve the next set of response records by providing
     -- the returned marker value in the marker parameter and retrying the
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetReservedNodeExchangeOfferingsResponse' with all optional fields omitted.
@@ -234,20 +225,20 @@ data GetReservedNodeExchangeOfferingsResponse = GetReservedNodeExchangeOfferings
 -- 'httpStatus', 'getReservedNodeExchangeOfferingsResponse_httpStatus' - The response's http status code.
 newGetReservedNodeExchangeOfferingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetReservedNodeExchangeOfferingsResponse
 newGetReservedNodeExchangeOfferingsResponse
   pHttpStatus_ =
     GetReservedNodeExchangeOfferingsResponse'
       { reservedNodeOfferings =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+          Core.Nothing,
+        marker = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns an array of ReservedNodeOffering objects.
-getReservedNodeExchangeOfferingsResponse_reservedNodeOfferings :: Lens.Lens' GetReservedNodeExchangeOfferingsResponse (Prelude.Maybe [ReservedNodeOffering])
-getReservedNodeExchangeOfferingsResponse_reservedNodeOfferings = Lens.lens (\GetReservedNodeExchangeOfferingsResponse' {reservedNodeOfferings} -> reservedNodeOfferings) (\s@GetReservedNodeExchangeOfferingsResponse' {} a -> s {reservedNodeOfferings = a} :: GetReservedNodeExchangeOfferingsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getReservedNodeExchangeOfferingsResponse_reservedNodeOfferings :: Lens.Lens' GetReservedNodeExchangeOfferingsResponse (Core.Maybe [ReservedNodeOffering])
+getReservedNodeExchangeOfferingsResponse_reservedNodeOfferings = Lens.lens (\GetReservedNodeExchangeOfferingsResponse' {reservedNodeOfferings} -> reservedNodeOfferings) (\s@GetReservedNodeExchangeOfferingsResponse' {} a -> s {reservedNodeOfferings = a} :: GetReservedNodeExchangeOfferingsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional parameter that specifies the starting point for returning a
 -- set of response records. When the results of a
@@ -256,13 +247,13 @@ getReservedNodeExchangeOfferingsResponse_reservedNodeOfferings = Lens.lens (\Get
 -- response. You can retrieve the next set of response records by providing
 -- the returned marker value in the marker parameter and retrying the
 -- request.
-getReservedNodeExchangeOfferingsResponse_marker :: Lens.Lens' GetReservedNodeExchangeOfferingsResponse (Prelude.Maybe Prelude.Text)
+getReservedNodeExchangeOfferingsResponse_marker :: Lens.Lens' GetReservedNodeExchangeOfferingsResponse (Core.Maybe Core.Text)
 getReservedNodeExchangeOfferingsResponse_marker = Lens.lens (\GetReservedNodeExchangeOfferingsResponse' {marker} -> marker) (\s@GetReservedNodeExchangeOfferingsResponse' {} a -> s {marker = a} :: GetReservedNodeExchangeOfferingsResponse)
 
 -- | The response's http status code.
-getReservedNodeExchangeOfferingsResponse_httpStatus :: Lens.Lens' GetReservedNodeExchangeOfferingsResponse Prelude.Int
+getReservedNodeExchangeOfferingsResponse_httpStatus :: Lens.Lens' GetReservedNodeExchangeOfferingsResponse Core.Int
 getReservedNodeExchangeOfferingsResponse_httpStatus = Lens.lens (\GetReservedNodeExchangeOfferingsResponse' {httpStatus} -> httpStatus) (\s@GetReservedNodeExchangeOfferingsResponse' {} a -> s {httpStatus = a} :: GetReservedNodeExchangeOfferingsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetReservedNodeExchangeOfferingsResponse

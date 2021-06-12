@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -97,21 +96,21 @@ module Network.AWS.EC2.CreateSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
   { -- | The tags to apply to the snapshot during creation.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the AWS Outpost on which to create a
     -- local snapshot.
     --
@@ -129,13 +128,13 @@ data CreateSnapshot = CreateSnapshot'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Creating local snapshots from volumes on an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    outpostArn :: Prelude.Maybe Prelude.Text,
+    outpostArn :: Core.Maybe Core.Text,
     -- | A description for the snapshot.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The ID of the EBS volume.
-    volumeId :: Prelude.Text
+    volumeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshot' with all optional fields omitted.
@@ -175,27 +174,26 @@ data CreateSnapshot = CreateSnapshot'
 -- 'volumeId', 'createSnapshot_volumeId' - The ID of the EBS volume.
 newCreateSnapshot ::
   -- | 'volumeId'
-  Prelude.Text ->
+  Core.Text ->
   CreateSnapshot
 newCreateSnapshot pVolumeId_ =
   CreateSnapshot'
-    { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      outpostArn = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { tagSpecifications = Core.Nothing,
+      dryRun = Core.Nothing,
+      outpostArn = Core.Nothing,
+      description = Core.Nothing,
       volumeId = pVolumeId_
     }
 
 -- | The tags to apply to the snapshot during creation.
-createSnapshot_tagSpecifications :: Lens.Lens' CreateSnapshot (Prelude.Maybe [TagSpecification])
-createSnapshot_tagSpecifications = Lens.lens (\CreateSnapshot' {tagSpecifications} -> tagSpecifications) (\s@CreateSnapshot' {} a -> s {tagSpecifications = a} :: CreateSnapshot) Prelude.. Lens.mapping Prelude._Coerce
+createSnapshot_tagSpecifications :: Lens.Lens' CreateSnapshot (Core.Maybe [TagSpecification])
+createSnapshot_tagSpecifications = Lens.lens (\CreateSnapshot' {tagSpecifications} -> tagSpecifications) (\s@CreateSnapshot' {} a -> s {tagSpecifications = a} :: CreateSnapshot) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createSnapshot_dryRun :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Bool)
+createSnapshot_dryRun :: Lens.Lens' CreateSnapshot (Core.Maybe Core.Bool)
 createSnapshot_dryRun = Lens.lens (\CreateSnapshot' {dryRun} -> dryRun) (\s@CreateSnapshot' {} a -> s {dryRun = a} :: CreateSnapshot)
 
 -- | The Amazon Resource Name (ARN) of the AWS Outpost on which to create a
@@ -215,46 +213,45 @@ createSnapshot_dryRun = Lens.lens (\CreateSnapshot' {dryRun} -> dryRun) (\s@Crea
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Creating local snapshots from volumes on an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-createSnapshot_outpostArn :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
+createSnapshot_outpostArn :: Lens.Lens' CreateSnapshot (Core.Maybe Core.Text)
 createSnapshot_outpostArn = Lens.lens (\CreateSnapshot' {outpostArn} -> outpostArn) (\s@CreateSnapshot' {} a -> s {outpostArn = a} :: CreateSnapshot)
 
 -- | A description for the snapshot.
-createSnapshot_description :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
+createSnapshot_description :: Lens.Lens' CreateSnapshot (Core.Maybe Core.Text)
 createSnapshot_description = Lens.lens (\CreateSnapshot' {description} -> description) (\s@CreateSnapshot' {} a -> s {description = a} :: CreateSnapshot)
 
 -- | The ID of the EBS volume.
-createSnapshot_volumeId :: Lens.Lens' CreateSnapshot Prelude.Text
+createSnapshot_volumeId :: Lens.Lens' CreateSnapshot Core.Text
 createSnapshot_volumeId = Lens.lens (\CreateSnapshot' {volumeId} -> volumeId) (\s@CreateSnapshot' {} a -> s {volumeId = a} :: CreateSnapshot)
 
-instance Prelude.AWSRequest CreateSnapshot where
-  type Rs CreateSnapshot = Snapshot
+instance Core.AWSRequest CreateSnapshot where
+  type AWSResponse CreateSnapshot = Snapshot
   request = Request.postQuery defaultService
   response =
-    Response.receiveXML (\s h x -> Prelude.parseXML x)
+    Response.receiveXML (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateSnapshot
+instance Core.Hashable CreateSnapshot
 
-instance Prelude.NFData CreateSnapshot
+instance Core.NFData CreateSnapshot
 
-instance Prelude.ToHeaders CreateSnapshot where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateSnapshot where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateSnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateSnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateSnapshot where
+instance Core.ToQuery CreateSnapshot where
   toQuery CreateSnapshot' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateSnapshot" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CreateSnapshot" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "OutpostArn" Prelude.=: outpostArn,
-        "Description" Prelude.=: description,
-        "VolumeId" Prelude.=: volumeId
+        "DryRun" Core.=: dryRun,
+        "OutpostArn" Core.=: outpostArn,
+        "Description" Core.=: description,
+        "VolumeId" Core.=: volumeId
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ResourceGroups.Types.PendingResource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that identifies a resource that is currently pending
 -- addition to the group as a member. Adding a resource to a resource group
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 data PendingResource = PendingResource'
   { -- | The Amazon resource name (ARN) of the resource that\'s in a pending
     -- state.
-    resourceArn :: Prelude.Maybe Prelude.Text
+    resourceArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PendingResource' with all optional fields omitted.
@@ -49,22 +48,21 @@ data PendingResource = PendingResource'
 newPendingResource ::
   PendingResource
 newPendingResource =
-  PendingResource' {resourceArn = Prelude.Nothing}
+  PendingResource' {resourceArn = Core.Nothing}
 
 -- | The Amazon resource name (ARN) of the resource that\'s in a pending
 -- state.
-pendingResource_resourceArn :: Lens.Lens' PendingResource (Prelude.Maybe Prelude.Text)
+pendingResource_resourceArn :: Lens.Lens' PendingResource (Core.Maybe Core.Text)
 pendingResource_resourceArn = Lens.lens (\PendingResource' {resourceArn} -> resourceArn) (\s@PendingResource' {} a -> s {resourceArn = a} :: PendingResource)
 
-instance Prelude.FromJSON PendingResource where
+instance Core.FromJSON PendingResource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PendingResource"
       ( \x ->
-          PendingResource'
-            Prelude.<$> (x Prelude..:? "ResourceArn")
+          PendingResource' Core.<$> (x Core..:? "ResourceArn")
       )
 
-instance Prelude.Hashable PendingResource
+instance Core.Hashable PendingResource
 
-instance Prelude.NFData PendingResource
+instance Core.NFData PendingResource

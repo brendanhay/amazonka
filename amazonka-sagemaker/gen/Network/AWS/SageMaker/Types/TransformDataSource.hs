@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TransformDataSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TransformS3DataSource
 
 -- | Describes the location of the channel data.
@@ -31,7 +30,7 @@ data TransformDataSource = TransformDataSource'
   { -- | The S3 location of the data source that is associated with a channel.
     s3DataSource :: TransformS3DataSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransformDataSource' with all optional fields omitted.
@@ -53,24 +52,22 @@ newTransformDataSource pS3DataSource_ =
 transformDataSource_s3DataSource :: Lens.Lens' TransformDataSource TransformS3DataSource
 transformDataSource_s3DataSource = Lens.lens (\TransformDataSource' {s3DataSource} -> s3DataSource) (\s@TransformDataSource' {} a -> s {s3DataSource = a} :: TransformDataSource)
 
-instance Prelude.FromJSON TransformDataSource where
+instance Core.FromJSON TransformDataSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TransformDataSource"
       ( \x ->
           TransformDataSource'
-            Prelude.<$> (x Prelude..: "S3DataSource")
+            Core.<$> (x Core..: "S3DataSource")
       )
 
-instance Prelude.Hashable TransformDataSource
+instance Core.Hashable TransformDataSource
 
-instance Prelude.NFData TransformDataSource
+instance Core.NFData TransformDataSource
 
-instance Prelude.ToJSON TransformDataSource where
+instance Core.ToJSON TransformDataSource where
   toJSON TransformDataSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("S3DataSource" Prelude..= s3DataSource)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("S3DataSource" Core..= s3DataSource)]
       )

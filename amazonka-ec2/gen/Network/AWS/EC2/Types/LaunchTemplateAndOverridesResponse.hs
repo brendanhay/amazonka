@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetLaunchTemplateOverrides
 import Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a launch template and overrides.
 --
 -- /See:/ 'newLaunchTemplateAndOverridesResponse' smart constructor.
 data LaunchTemplateAndOverridesResponse = LaunchTemplateAndOverridesResponse'
   { -- | The launch template.
-    launchTemplateSpecification :: Prelude.Maybe FleetLaunchTemplateSpecification,
+    launchTemplateSpecification :: Core.Maybe FleetLaunchTemplateSpecification,
     -- | Any parameters that you specify override the same parameters in the
     -- launch template.
-    overrides :: Prelude.Maybe FleetLaunchTemplateOverrides
+    overrides :: Core.Maybe FleetLaunchTemplateOverrides
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateAndOverridesResponse' with all optional fields omitted.
@@ -55,32 +54,32 @@ newLaunchTemplateAndOverridesResponse ::
 newLaunchTemplateAndOverridesResponse =
   LaunchTemplateAndOverridesResponse'
     { launchTemplateSpecification =
-        Prelude.Nothing,
-      overrides = Prelude.Nothing
+        Core.Nothing,
+      overrides = Core.Nothing
     }
 
 -- | The launch template.
-launchTemplateAndOverridesResponse_launchTemplateSpecification :: Lens.Lens' LaunchTemplateAndOverridesResponse (Prelude.Maybe FleetLaunchTemplateSpecification)
+launchTemplateAndOverridesResponse_launchTemplateSpecification :: Lens.Lens' LaunchTemplateAndOverridesResponse (Core.Maybe FleetLaunchTemplateSpecification)
 launchTemplateAndOverridesResponse_launchTemplateSpecification = Lens.lens (\LaunchTemplateAndOverridesResponse' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplateAndOverridesResponse' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplateAndOverridesResponse)
 
 -- | Any parameters that you specify override the same parameters in the
 -- launch template.
-launchTemplateAndOverridesResponse_overrides :: Lens.Lens' LaunchTemplateAndOverridesResponse (Prelude.Maybe FleetLaunchTemplateOverrides)
+launchTemplateAndOverridesResponse_overrides :: Lens.Lens' LaunchTemplateAndOverridesResponse (Core.Maybe FleetLaunchTemplateOverrides)
 launchTemplateAndOverridesResponse_overrides = Lens.lens (\LaunchTemplateAndOverridesResponse' {overrides} -> overrides) (\s@LaunchTemplateAndOverridesResponse' {} a -> s {overrides = a} :: LaunchTemplateAndOverridesResponse)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     LaunchTemplateAndOverridesResponse
   where
   parseXML x =
     LaunchTemplateAndOverridesResponse'
-      Prelude.<$> (x Prelude..@? "launchTemplateSpecification")
-      Prelude.<*> (x Prelude..@? "overrides")
+      Core.<$> (x Core..@? "launchTemplateSpecification")
+      Core.<*> (x Core..@? "overrides")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LaunchTemplateAndOverridesResponse
 
 instance
-  Prelude.NFData
+  Core.NFData
     LaunchTemplateAndOverridesResponse

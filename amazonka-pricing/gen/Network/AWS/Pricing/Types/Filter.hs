@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pricing.Types.Filter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Pricing.Types.FilterType
 
 -- | The constraints that you want all returned products to match.
@@ -44,15 +43,15 @@ data Filter = Filter'
     -- For example, you can filter by the @AmazonEC2@ service code and the
     -- @volumeType@ attribute name to get the prices for only Amazon EC2
     -- volumes.
-    field :: Prelude.Text,
+    field :: Core.Text,
     -- | The service code or attribute value that you want to filter by. If you
     -- are filtering by service code this is the actual service code, such as
     -- @AmazonEC2@. If you are filtering by attribute name, this is the
     -- attribute value that you want the returned products to match, such as a
     -- @Provisioned IOPS@ volume.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Filter' with all optional fields omitted.
@@ -88,9 +87,9 @@ newFilter ::
   -- | 'type''
   FilterType ->
   -- | 'field'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   Filter
 newFilter pType_ pField_ pValue_ =
   Filter'
@@ -117,7 +116,7 @@ filter_type = Lens.lens (\Filter' {type'} -> type') (\s@Filter' {} a -> s {type'
 -- For example, you can filter by the @AmazonEC2@ service code and the
 -- @volumeType@ attribute name to get the prices for only Amazon EC2
 -- volumes.
-filter_field :: Lens.Lens' Filter Prelude.Text
+filter_field :: Lens.Lens' Filter Core.Text
 filter_field = Lens.lens (\Filter' {field} -> field) (\s@Filter' {} a -> s {field = a} :: Filter)
 
 -- | The service code or attribute value that you want to filter by. If you
@@ -125,19 +124,19 @@ filter_field = Lens.lens (\Filter' {field} -> field) (\s@Filter' {} a -> s {fiel
 -- @AmazonEC2@. If you are filtering by attribute name, this is the
 -- attribute value that you want the returned products to match, such as a
 -- @Provisioned IOPS@ volume.
-filter_value :: Lens.Lens' Filter Prelude.Text
+filter_value :: Lens.Lens' Filter Core.Text
 filter_value = Lens.lens (\Filter' {value} -> value) (\s@Filter' {} a -> s {value = a} :: Filter)
 
-instance Prelude.Hashable Filter
+instance Core.Hashable Filter
 
-instance Prelude.NFData Filter
+instance Core.NFData Filter
 
-instance Prelude.ToJSON Filter where
+instance Core.ToJSON Filter where
   toJSON Filter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Prelude..= type'),
-            Prelude.Just ("Field" Prelude..= field),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            Core.Just ("Field" Core..= field),
+            Core.Just ("Value" Core..= value)
           ]
       )

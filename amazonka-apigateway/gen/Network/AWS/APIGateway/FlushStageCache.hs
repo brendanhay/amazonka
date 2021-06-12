@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.APIGateway.FlushStageCache
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,11 +47,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newFlushStageCache' smart constructor.
 data FlushStageCache = FlushStageCache'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The name of the stage to flush its cache.
-    stageName :: Prelude.Text
+    stageName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FlushStageCache' with all optional fields omitted.
@@ -67,9 +66,9 @@ data FlushStageCache = FlushStageCache'
 -- 'stageName', 'flushStageCache_stageName' - [Required] The name of the stage to flush its cache.
 newFlushStageCache ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stageName'
-  Prelude.Text ->
+  Core.Text ->
   FlushStageCache
 newFlushStageCache pRestApiId_ pStageName_ =
   FlushStageCache'
@@ -78,50 +77,52 @@ newFlushStageCache pRestApiId_ pStageName_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-flushStageCache_restApiId :: Lens.Lens' FlushStageCache Prelude.Text
+flushStageCache_restApiId :: Lens.Lens' FlushStageCache Core.Text
 flushStageCache_restApiId = Lens.lens (\FlushStageCache' {restApiId} -> restApiId) (\s@FlushStageCache' {} a -> s {restApiId = a} :: FlushStageCache)
 
 -- | [Required] The name of the stage to flush its cache.
-flushStageCache_stageName :: Lens.Lens' FlushStageCache Prelude.Text
+flushStageCache_stageName :: Lens.Lens' FlushStageCache Core.Text
 flushStageCache_stageName = Lens.lens (\FlushStageCache' {stageName} -> stageName) (\s@FlushStageCache' {} a -> s {stageName = a} :: FlushStageCache)
 
-instance Prelude.AWSRequest FlushStageCache where
-  type Rs FlushStageCache = FlushStageCacheResponse
+instance Core.AWSRequest FlushStageCache where
+  type
+    AWSResponse FlushStageCache =
+      FlushStageCacheResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull FlushStageCacheResponse'
 
-instance Prelude.Hashable FlushStageCache
+instance Core.Hashable FlushStageCache
 
-instance Prelude.NFData FlushStageCache
+instance Core.NFData FlushStageCache
 
-instance Prelude.ToHeaders FlushStageCache where
+instance Core.ToHeaders FlushStageCache where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath FlushStageCache where
+instance Core.ToPath FlushStageCache where
   toPath FlushStageCache' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/stages/",
-        Prelude.toBS stageName,
+        Core.toBS stageName,
         "/cache/data"
       ]
 
-instance Prelude.ToQuery FlushStageCache where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery FlushStageCache where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newFlushStageCacheResponse' smart constructor.
 data FlushStageCacheResponse = FlushStageCacheResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FlushStageCacheResponse' with all optional fields omitted.
@@ -131,4 +132,4 @@ newFlushStageCacheResponse ::
   FlushStageCacheResponse
 newFlushStageCacheResponse = FlushStageCacheResponse'
 
-instance Prelude.NFData FlushStageCacheResponse
+instance Core.NFData FlushStageCacheResponse

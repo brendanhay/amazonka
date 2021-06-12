@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ContinuationEvent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- |
@@ -30,7 +29,7 @@ import Network.AWS.S3.Internal
 data ContinuationEvent = ContinuationEvent'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContinuationEvent' with all optional fields omitted.
@@ -40,10 +39,9 @@ newContinuationEvent ::
   ContinuationEvent
 newContinuationEvent = ContinuationEvent'
 
-instance Prelude.FromXML ContinuationEvent where
-  parseXML =
-    Prelude.const (Prelude.pure ContinuationEvent')
+instance Core.FromXML ContinuationEvent where
+  parseXML = Core.const (Core.pure ContinuationEvent')
 
-instance Prelude.Hashable ContinuationEvent
+instance Core.Hashable ContinuationEvent
 
-instance Prelude.NFData ContinuationEvent
+instance Core.NFData ContinuationEvent

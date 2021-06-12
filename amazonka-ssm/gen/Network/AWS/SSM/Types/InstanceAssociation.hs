@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.InstanceAssociation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | One or more association documents on the instance.
 --
 -- /See:/ 'newInstanceAssociation' smart constructor.
 data InstanceAssociation = InstanceAssociation'
   { -- | The instance ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The association ID.
-    associationId :: Prelude.Maybe Prelude.Text,
+    associationId :: Core.Maybe Core.Text,
     -- | The content of the association document for the instance(s).
-    content :: Prelude.Maybe Prelude.Text,
+    content :: Core.Maybe Core.Text,
     -- | Version information for the association on the instance.
-    associationVersion :: Prelude.Maybe Prelude.Text
+    associationVersion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceAssociation' with all optional fields omitted.
@@ -57,40 +56,40 @@ newInstanceAssociation ::
   InstanceAssociation
 newInstanceAssociation =
   InstanceAssociation'
-    { instanceId = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      content = Prelude.Nothing,
-      associationVersion = Prelude.Nothing
+    { instanceId = Core.Nothing,
+      associationId = Core.Nothing,
+      content = Core.Nothing,
+      associationVersion = Core.Nothing
     }
 
 -- | The instance ID.
-instanceAssociation_instanceId :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
+instanceAssociation_instanceId :: Lens.Lens' InstanceAssociation (Core.Maybe Core.Text)
 instanceAssociation_instanceId = Lens.lens (\InstanceAssociation' {instanceId} -> instanceId) (\s@InstanceAssociation' {} a -> s {instanceId = a} :: InstanceAssociation)
 
 -- | The association ID.
-instanceAssociation_associationId :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
+instanceAssociation_associationId :: Lens.Lens' InstanceAssociation (Core.Maybe Core.Text)
 instanceAssociation_associationId = Lens.lens (\InstanceAssociation' {associationId} -> associationId) (\s@InstanceAssociation' {} a -> s {associationId = a} :: InstanceAssociation)
 
 -- | The content of the association document for the instance(s).
-instanceAssociation_content :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
+instanceAssociation_content :: Lens.Lens' InstanceAssociation (Core.Maybe Core.Text)
 instanceAssociation_content = Lens.lens (\InstanceAssociation' {content} -> content) (\s@InstanceAssociation' {} a -> s {content = a} :: InstanceAssociation)
 
 -- | Version information for the association on the instance.
-instanceAssociation_associationVersion :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
+instanceAssociation_associationVersion :: Lens.Lens' InstanceAssociation (Core.Maybe Core.Text)
 instanceAssociation_associationVersion = Lens.lens (\InstanceAssociation' {associationVersion} -> associationVersion) (\s@InstanceAssociation' {} a -> s {associationVersion = a} :: InstanceAssociation)
 
-instance Prelude.FromJSON InstanceAssociation where
+instance Core.FromJSON InstanceAssociation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceAssociation"
       ( \x ->
           InstanceAssociation'
-            Prelude.<$> (x Prelude..:? "InstanceId")
-            Prelude.<*> (x Prelude..:? "AssociationId")
-            Prelude.<*> (x Prelude..:? "Content")
-            Prelude.<*> (x Prelude..:? "AssociationVersion")
+            Core.<$> (x Core..:? "InstanceId")
+            Core.<*> (x Core..:? "AssociationId")
+            Core.<*> (x Core..:? "Content")
+            Core.<*> (x Core..:? "AssociationVersion")
       )
 
-instance Prelude.Hashable InstanceAssociation
+instance Core.Hashable InstanceAssociation
 
-instance Prelude.NFData InstanceAssociation
+instance Core.NFData InstanceAssociation

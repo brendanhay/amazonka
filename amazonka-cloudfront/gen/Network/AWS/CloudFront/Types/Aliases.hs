@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.Aliases where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this distribution.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data Aliases = Aliases'
   { -- | A complex type that contains the CNAME aliases, if any, that you want to
     -- associate with this distribution.
-    items :: Prelude.Maybe [Prelude.Text],
+    items :: Core.Maybe [Core.Text],
     -- | The number of CNAME aliases, if any, that you want to associate with
     -- this distribution.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Aliases' with all optional fields omitted.
@@ -52,41 +51,40 @@ data Aliases = Aliases'
 -- this distribution.
 newAliases ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   Aliases
 newAliases pQuantity_ =
   Aliases'
-    { items = Prelude.Nothing,
+    { items = Core.Nothing,
       quantity = pQuantity_
     }
 
 -- | A complex type that contains the CNAME aliases, if any, that you want to
 -- associate with this distribution.
-aliases_items :: Lens.Lens' Aliases (Prelude.Maybe [Prelude.Text])
-aliases_items = Lens.lens (\Aliases' {items} -> items) (\s@Aliases' {} a -> s {items = a} :: Aliases) Prelude.. Lens.mapping Prelude._Coerce
+aliases_items :: Lens.Lens' Aliases (Core.Maybe [Core.Text])
+aliases_items = Lens.lens (\Aliases' {items} -> items) (\s@Aliases' {} a -> s {items = a} :: Aliases) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of CNAME aliases, if any, that you want to associate with
 -- this distribution.
-aliases_quantity :: Lens.Lens' Aliases Prelude.Int
+aliases_quantity :: Lens.Lens' Aliases Core.Int
 aliases_quantity = Lens.lens (\Aliases' {quantity} -> quantity) (\s@Aliases' {} a -> s {quantity = a} :: Aliases)
 
-instance Prelude.FromXML Aliases where
+instance Core.FromXML Aliases where
   parseXML x =
     Aliases'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "CNAME")
-                  )
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "CNAME")
+               )
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable Aliases
+instance Core.Hashable Aliases
 
-instance Prelude.NFData Aliases
+instance Core.NFData Aliases
 
-instance Prelude.ToXML Aliases where
+instance Core.ToXML Aliases where
   toXML Aliases' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            (Prelude.toXMLList "CNAME" Prelude.<$> items),
-        "Quantity" Prelude.@= quantity
+          Core.@= Core.toXML (Core.toXMLList "CNAME" Core.<$> items),
+        "Quantity" Core.@= quantity
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,8 +62,8 @@ module Network.AWS.CloudHSM.DescribeHapg
 where
 
 import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,9 +72,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeHapg' smart constructor.
 data DescribeHapg = DescribeHapg'
   { -- | The ARN of the high-availability partition group to describe.
-    hapgArn :: Prelude.Text
+    hapgArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHapg' with all optional fields omitted.
@@ -88,99 +87,97 @@ data DescribeHapg = DescribeHapg'
 -- 'hapgArn', 'describeHapg_hapgArn' - The ARN of the high-availability partition group to describe.
 newDescribeHapg ::
   -- | 'hapgArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeHapg
 newDescribeHapg pHapgArn_ =
   DescribeHapg' {hapgArn = pHapgArn_}
 
 -- | The ARN of the high-availability partition group to describe.
-describeHapg_hapgArn :: Lens.Lens' DescribeHapg Prelude.Text
+describeHapg_hapgArn :: Lens.Lens' DescribeHapg Core.Text
 describeHapg_hapgArn = Lens.lens (\DescribeHapg' {hapgArn} -> hapgArn) (\s@DescribeHapg' {} a -> s {hapgArn = a} :: DescribeHapg)
 
-instance Prelude.AWSRequest DescribeHapg where
-  type Rs DescribeHapg = DescribeHapgResponse
+instance Core.AWSRequest DescribeHapg where
+  type AWSResponse DescribeHapg = DescribeHapgResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeHapgResponse'
-            Prelude.<$> ( x Prelude..?> "HsmsPendingDeletion"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "HapgArn")
-            Prelude.<*> ( x Prelude..?> "PartitionSerialList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "LastModifiedTimestamp")
-            Prelude.<*> (x Prelude..?> "State")
-            Prelude.<*> (x Prelude..?> "Label")
-            Prelude.<*> (x Prelude..?> "HapgSerial")
-            Prelude.<*> ( x Prelude..?> "HsmsPendingRegistration"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "HsmsLastActionFailed"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "HsmsPendingDeletion"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "HapgArn")
+            Core.<*> ( x Core..?> "PartitionSerialList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "LastModifiedTimestamp")
+            Core.<*> (x Core..?> "State")
+            Core.<*> (x Core..?> "Label")
+            Core.<*> (x Core..?> "HapgSerial")
+            Core.<*> ( x Core..?> "HsmsPendingRegistration"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> ( x Core..?> "HsmsLastActionFailed"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHapg
+instance Core.Hashable DescribeHapg
 
-instance Prelude.NFData DescribeHapg
+instance Core.NFData DescribeHapg
 
-instance Prelude.ToHeaders DescribeHapg where
+instance Core.ToHeaders DescribeHapg where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.DescribeHapg" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CloudHsmFrontendService.DescribeHapg" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeHapg where
+instance Core.ToJSON DescribeHapg where
   toJSON DescribeHapg' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("HapgArn" Prelude..= hapgArn)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("HapgArn" Core..= hapgArn)]
       )
 
-instance Prelude.ToPath DescribeHapg where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeHapg where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeHapg where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeHapg where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the output of the DescribeHapg action.
 --
 -- /See:/ 'newDescribeHapgResponse' smart constructor.
 data DescribeHapgResponse = DescribeHapgResponse'
-  { hsmsPendingDeletion :: Prelude.Maybe [Prelude.Text],
+  { hsmsPendingDeletion :: Core.Maybe [Core.Text],
     -- | The ARN of the high-availability partition group.
-    hapgArn :: Prelude.Maybe Prelude.Text,
+    hapgArn :: Core.Maybe Core.Text,
     -- | The list of partition serial numbers that belong to the
     -- high-availability partition group.
-    partitionSerialList :: Prelude.Maybe [Prelude.Text],
+    partitionSerialList :: Core.Maybe [Core.Text],
     -- | The date and time the high-availability partition group was last
     -- modified.
-    lastModifiedTimestamp :: Prelude.Maybe Prelude.Text,
+    lastModifiedTimestamp :: Core.Maybe Core.Text,
     -- | The state of the high-availability partition group.
-    state :: Prelude.Maybe CloudHsmObjectState,
+    state :: Core.Maybe CloudHsmObjectState,
     -- | The label for the high-availability partition group.
-    label :: Prelude.Maybe Prelude.Text,
+    label :: Core.Maybe Core.Text,
     -- | The serial number of the high-availability partition group.
-    hapgSerial :: Prelude.Maybe Prelude.Text,
-    hsmsPendingRegistration :: Prelude.Maybe [Prelude.Text],
-    hsmsLastActionFailed :: Prelude.Maybe [Prelude.Text],
+    hapgSerial :: Core.Maybe Core.Text,
+    hsmsPendingRegistration :: Core.Maybe [Core.Text],
+    hsmsLastActionFailed :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHapgResponse' with all optional fields omitted.
@@ -213,63 +210,63 @@ data DescribeHapgResponse = DescribeHapgResponse'
 -- 'httpStatus', 'describeHapgResponse_httpStatus' - The response's http status code.
 newDescribeHapgResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeHapgResponse
 newDescribeHapgResponse pHttpStatus_ =
   DescribeHapgResponse'
     { hsmsPendingDeletion =
-        Prelude.Nothing,
-      hapgArn = Prelude.Nothing,
-      partitionSerialList = Prelude.Nothing,
-      lastModifiedTimestamp = Prelude.Nothing,
-      state = Prelude.Nothing,
-      label = Prelude.Nothing,
-      hapgSerial = Prelude.Nothing,
-      hsmsPendingRegistration = Prelude.Nothing,
-      hsmsLastActionFailed = Prelude.Nothing,
+        Core.Nothing,
+      hapgArn = Core.Nothing,
+      partitionSerialList = Core.Nothing,
+      lastModifiedTimestamp = Core.Nothing,
+      state = Core.Nothing,
+      label = Core.Nothing,
+      hapgSerial = Core.Nothing,
+      hsmsPendingRegistration = Core.Nothing,
+      hsmsLastActionFailed = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- |
-describeHapgResponse_hsmsPendingDeletion :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe [Prelude.Text])
-describeHapgResponse_hsmsPendingDeletion = Lens.lens (\DescribeHapgResponse' {hsmsPendingDeletion} -> hsmsPendingDeletion) (\s@DescribeHapgResponse' {} a -> s {hsmsPendingDeletion = a} :: DescribeHapgResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeHapgResponse_hsmsPendingDeletion :: Lens.Lens' DescribeHapgResponse (Core.Maybe [Core.Text])
+describeHapgResponse_hsmsPendingDeletion = Lens.lens (\DescribeHapgResponse' {hsmsPendingDeletion} -> hsmsPendingDeletion) (\s@DescribeHapgResponse' {} a -> s {hsmsPendingDeletion = a} :: DescribeHapgResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the high-availability partition group.
-describeHapgResponse_hapgArn :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe Prelude.Text)
+describeHapgResponse_hapgArn :: Lens.Lens' DescribeHapgResponse (Core.Maybe Core.Text)
 describeHapgResponse_hapgArn = Lens.lens (\DescribeHapgResponse' {hapgArn} -> hapgArn) (\s@DescribeHapgResponse' {} a -> s {hapgArn = a} :: DescribeHapgResponse)
 
 -- | The list of partition serial numbers that belong to the
 -- high-availability partition group.
-describeHapgResponse_partitionSerialList :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe [Prelude.Text])
-describeHapgResponse_partitionSerialList = Lens.lens (\DescribeHapgResponse' {partitionSerialList} -> partitionSerialList) (\s@DescribeHapgResponse' {} a -> s {partitionSerialList = a} :: DescribeHapgResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeHapgResponse_partitionSerialList :: Lens.Lens' DescribeHapgResponse (Core.Maybe [Core.Text])
+describeHapgResponse_partitionSerialList = Lens.lens (\DescribeHapgResponse' {partitionSerialList} -> partitionSerialList) (\s@DescribeHapgResponse' {} a -> s {partitionSerialList = a} :: DescribeHapgResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The date and time the high-availability partition group was last
 -- modified.
-describeHapgResponse_lastModifiedTimestamp :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe Prelude.Text)
+describeHapgResponse_lastModifiedTimestamp :: Lens.Lens' DescribeHapgResponse (Core.Maybe Core.Text)
 describeHapgResponse_lastModifiedTimestamp = Lens.lens (\DescribeHapgResponse' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@DescribeHapgResponse' {} a -> s {lastModifiedTimestamp = a} :: DescribeHapgResponse)
 
 -- | The state of the high-availability partition group.
-describeHapgResponse_state :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe CloudHsmObjectState)
+describeHapgResponse_state :: Lens.Lens' DescribeHapgResponse (Core.Maybe CloudHsmObjectState)
 describeHapgResponse_state = Lens.lens (\DescribeHapgResponse' {state} -> state) (\s@DescribeHapgResponse' {} a -> s {state = a} :: DescribeHapgResponse)
 
 -- | The label for the high-availability partition group.
-describeHapgResponse_label :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe Prelude.Text)
+describeHapgResponse_label :: Lens.Lens' DescribeHapgResponse (Core.Maybe Core.Text)
 describeHapgResponse_label = Lens.lens (\DescribeHapgResponse' {label} -> label) (\s@DescribeHapgResponse' {} a -> s {label = a} :: DescribeHapgResponse)
 
 -- | The serial number of the high-availability partition group.
-describeHapgResponse_hapgSerial :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe Prelude.Text)
+describeHapgResponse_hapgSerial :: Lens.Lens' DescribeHapgResponse (Core.Maybe Core.Text)
 describeHapgResponse_hapgSerial = Lens.lens (\DescribeHapgResponse' {hapgSerial} -> hapgSerial) (\s@DescribeHapgResponse' {} a -> s {hapgSerial = a} :: DescribeHapgResponse)
 
 -- |
-describeHapgResponse_hsmsPendingRegistration :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe [Prelude.Text])
-describeHapgResponse_hsmsPendingRegistration = Lens.lens (\DescribeHapgResponse' {hsmsPendingRegistration} -> hsmsPendingRegistration) (\s@DescribeHapgResponse' {} a -> s {hsmsPendingRegistration = a} :: DescribeHapgResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeHapgResponse_hsmsPendingRegistration :: Lens.Lens' DescribeHapgResponse (Core.Maybe [Core.Text])
+describeHapgResponse_hsmsPendingRegistration = Lens.lens (\DescribeHapgResponse' {hsmsPendingRegistration} -> hsmsPendingRegistration) (\s@DescribeHapgResponse' {} a -> s {hsmsPendingRegistration = a} :: DescribeHapgResponse) Core.. Lens.mapping Lens._Coerce
 
 -- |
-describeHapgResponse_hsmsLastActionFailed :: Lens.Lens' DescribeHapgResponse (Prelude.Maybe [Prelude.Text])
-describeHapgResponse_hsmsLastActionFailed = Lens.lens (\DescribeHapgResponse' {hsmsLastActionFailed} -> hsmsLastActionFailed) (\s@DescribeHapgResponse' {} a -> s {hsmsLastActionFailed = a} :: DescribeHapgResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeHapgResponse_hsmsLastActionFailed :: Lens.Lens' DescribeHapgResponse (Core.Maybe [Core.Text])
+describeHapgResponse_hsmsLastActionFailed = Lens.lens (\DescribeHapgResponse' {hsmsLastActionFailed} -> hsmsLastActionFailed) (\s@DescribeHapgResponse' {} a -> s {hsmsLastActionFailed = a} :: DescribeHapgResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeHapgResponse_httpStatus :: Lens.Lens' DescribeHapgResponse Prelude.Int
+describeHapgResponse_httpStatus :: Lens.Lens' DescribeHapgResponse Core.Int
 describeHapgResponse_httpStatus = Lens.lens (\DescribeHapgResponse' {httpStatus} -> httpStatus) (\s@DescribeHapgResponse' {} a -> s {httpStatus = a} :: DescribeHapgResponse)
 
-instance Prelude.NFData DescribeHapgResponse
+instance Core.NFData DescribeHapgResponse

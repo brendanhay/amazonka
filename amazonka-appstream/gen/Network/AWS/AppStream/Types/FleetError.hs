@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.AppStream.Types.FleetError where
 
 import Network.AWS.AppStream.Types.FleetErrorCode
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a fleet error.
 --
 -- /See:/ 'newFleetError' smart constructor.
 data FleetError = FleetError'
   { -- | The error message.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code.
-    errorCode :: Prelude.Maybe FleetErrorCode
+    errorCode :: Core.Maybe FleetErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FleetError' with all optional fields omitted.
@@ -50,28 +49,28 @@ newFleetError ::
   FleetError
 newFleetError =
   FleetError'
-    { errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The error message.
-fleetError_errorMessage :: Lens.Lens' FleetError (Prelude.Maybe Prelude.Text)
+fleetError_errorMessage :: Lens.Lens' FleetError (Core.Maybe Core.Text)
 fleetError_errorMessage = Lens.lens (\FleetError' {errorMessage} -> errorMessage) (\s@FleetError' {} a -> s {errorMessage = a} :: FleetError)
 
 -- | The error code.
-fleetError_errorCode :: Lens.Lens' FleetError (Prelude.Maybe FleetErrorCode)
+fleetError_errorCode :: Lens.Lens' FleetError (Core.Maybe FleetErrorCode)
 fleetError_errorCode = Lens.lens (\FleetError' {errorCode} -> errorCode) (\s@FleetError' {} a -> s {errorCode = a} :: FleetError)
 
-instance Prelude.FromJSON FleetError where
+instance Core.FromJSON FleetError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FleetError"
       ( \x ->
           FleetError'
-            Prelude.<$> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable FleetError
+instance Core.Hashable FleetError
 
-instance Prelude.NFData FleetError
+instance Core.NFData FleetError

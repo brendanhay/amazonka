@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,21 +41,21 @@ module Network.AWS.Connect.UpdateInstanceAttribute
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateInstanceAttribute' smart constructor.
 data UpdateInstanceAttribute = UpdateInstanceAttribute'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The type of attribute.
     attributeType :: InstanceAttributeType,
     -- | The value for the attribute. Maximum character limit is 100.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateInstanceAttribute' with all optional fields omitted.
@@ -73,11 +72,11 @@ data UpdateInstanceAttribute = UpdateInstanceAttribute'
 -- 'value', 'updateInstanceAttribute_value' - The value for the attribute. Maximum character limit is 100.
 newUpdateInstanceAttribute ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'attributeType'
   InstanceAttributeType ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   UpdateInstanceAttribute
 newUpdateInstanceAttribute
   pInstanceId_
@@ -90,7 +89,7 @@ newUpdateInstanceAttribute
       }
 
 -- | The identifier of the Amazon Connect instance.
-updateInstanceAttribute_instanceId :: Lens.Lens' UpdateInstanceAttribute Prelude.Text
+updateInstanceAttribute_instanceId :: Lens.Lens' UpdateInstanceAttribute Core.Text
 updateInstanceAttribute_instanceId = Lens.lens (\UpdateInstanceAttribute' {instanceId} -> instanceId) (\s@UpdateInstanceAttribute' {} a -> s {instanceId = a} :: UpdateInstanceAttribute)
 
 -- | The type of attribute.
@@ -98,57 +97,53 @@ updateInstanceAttribute_attributeType :: Lens.Lens' UpdateInstanceAttribute Inst
 updateInstanceAttribute_attributeType = Lens.lens (\UpdateInstanceAttribute' {attributeType} -> attributeType) (\s@UpdateInstanceAttribute' {} a -> s {attributeType = a} :: UpdateInstanceAttribute)
 
 -- | The value for the attribute. Maximum character limit is 100.
-updateInstanceAttribute_value :: Lens.Lens' UpdateInstanceAttribute Prelude.Text
+updateInstanceAttribute_value :: Lens.Lens' UpdateInstanceAttribute Core.Text
 updateInstanceAttribute_value = Lens.lens (\UpdateInstanceAttribute' {value} -> value) (\s@UpdateInstanceAttribute' {} a -> s {value = a} :: UpdateInstanceAttribute)
 
-instance Prelude.AWSRequest UpdateInstanceAttribute where
+instance Core.AWSRequest UpdateInstanceAttribute where
   type
-    Rs UpdateInstanceAttribute =
+    AWSResponse UpdateInstanceAttribute =
       UpdateInstanceAttributeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UpdateInstanceAttributeResponse'
 
-instance Prelude.Hashable UpdateInstanceAttribute
+instance Core.Hashable UpdateInstanceAttribute
 
-instance Prelude.NFData UpdateInstanceAttribute
+instance Core.NFData UpdateInstanceAttribute
 
-instance Prelude.ToHeaders UpdateInstanceAttribute where
+instance Core.ToHeaders UpdateInstanceAttribute where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateInstanceAttribute where
+instance Core.ToJSON UpdateInstanceAttribute where
   toJSON UpdateInstanceAttribute' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Value" Prelude..= value)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Value" Core..= value)])
 
-instance Prelude.ToPath UpdateInstanceAttribute where
+instance Core.ToPath UpdateInstanceAttribute where
   toPath UpdateInstanceAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/instance/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/attribute/",
-        Prelude.toBS attributeType
+        Core.toBS attributeType
       ]
 
-instance Prelude.ToQuery UpdateInstanceAttribute where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateInstanceAttribute where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateInstanceAttributeResponse' smart constructor.
 data UpdateInstanceAttributeResponse = UpdateInstanceAttributeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateInstanceAttributeResponse' with all optional fields omitted.
@@ -159,6 +154,4 @@ newUpdateInstanceAttributeResponse ::
 newUpdateInstanceAttributeResponse =
   UpdateInstanceAttributeResponse'
 
-instance
-  Prelude.NFData
-    UpdateInstanceAttributeResponse
+instance Core.NFData UpdateInstanceAttributeResponse

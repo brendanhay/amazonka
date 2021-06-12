@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DatasetEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The reference to a data set entry.
 --
 -- /See:/ 'newDatasetEntry' smart constructor.
 data DatasetEntry = DatasetEntry'
   { -- | The presigned URI of the data set item.
-    dataURI :: Prelude.Maybe Prelude.Text,
+    dataURI :: Core.Maybe Core.Text,
     -- | The name of the data set item.
-    entryName :: Prelude.Maybe Prelude.Text
+    entryName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DatasetEntry' with all optional fields omitted.
@@ -49,28 +48,28 @@ newDatasetEntry ::
   DatasetEntry
 newDatasetEntry =
   DatasetEntry'
-    { dataURI = Prelude.Nothing,
-      entryName = Prelude.Nothing
+    { dataURI = Core.Nothing,
+      entryName = Core.Nothing
     }
 
 -- | The presigned URI of the data set item.
-datasetEntry_dataURI :: Lens.Lens' DatasetEntry (Prelude.Maybe Prelude.Text)
+datasetEntry_dataURI :: Lens.Lens' DatasetEntry (Core.Maybe Core.Text)
 datasetEntry_dataURI = Lens.lens (\DatasetEntry' {dataURI} -> dataURI) (\s@DatasetEntry' {} a -> s {dataURI = a} :: DatasetEntry)
 
 -- | The name of the data set item.
-datasetEntry_entryName :: Lens.Lens' DatasetEntry (Prelude.Maybe Prelude.Text)
+datasetEntry_entryName :: Lens.Lens' DatasetEntry (Core.Maybe Core.Text)
 datasetEntry_entryName = Lens.lens (\DatasetEntry' {entryName} -> entryName) (\s@DatasetEntry' {} a -> s {entryName = a} :: DatasetEntry)
 
-instance Prelude.FromJSON DatasetEntry where
+instance Core.FromJSON DatasetEntry where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DatasetEntry"
       ( \x ->
           DatasetEntry'
-            Prelude.<$> (x Prelude..:? "dataURI")
-            Prelude.<*> (x Prelude..:? "entryName")
+            Core.<$> (x Core..:? "dataURI")
+            Core.<*> (x Core..:? "entryName")
       )
 
-instance Prelude.Hashable DatasetEntry
+instance Core.Hashable DatasetEntry
 
-instance Prelude.NFData DatasetEntry
+instance Core.NFData DatasetEntry

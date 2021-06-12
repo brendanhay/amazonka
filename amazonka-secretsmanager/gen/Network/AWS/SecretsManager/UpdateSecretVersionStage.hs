@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -77,8 +76,8 @@ module Network.AWS.SecretsManager.UpdateSecretVersionStage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -92,14 +91,14 @@ data UpdateSecretVersionStage = UpdateSecretVersionStage'
     -- removed from. If the label is attached and you either do not specify
     -- this parameter, or the version ID does not match, then the operation
     -- fails.
-    removeFromVersionId :: Prelude.Maybe Prelude.Text,
+    removeFromVersionId :: Core.Maybe Core.Text,
     -- | (Optional) The secret version ID that you want to add the staging label.
     -- If you want to remove a label from a version, then do not specify this
     -- parameter.
     --
     -- If the staging label is already attached to a different version of the
     -- secret, then you must also specify the @RemoveFromVersionId@ parameter.
-    moveToVersionId :: Prelude.Maybe Prelude.Text,
+    moveToVersionId :: Core.Maybe Core.Text,
     -- | Specifies the secret with the version with the list of staging labels
     -- you want to modify. You can specify either the Amazon Resource Name
     -- (ARN) or the friendly name of the secret.
@@ -122,11 +121,11 @@ data UpdateSecretVersionStage = UpdateSecretVersionStage'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Prelude.Text,
+    secretId :: Core.Text,
     -- | The staging label to add to this version.
-    versionStage :: Prelude.Text
+    versionStage :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSecretVersionStage' with all optional fields omitted.
@@ -177,15 +176,15 @@ data UpdateSecretVersionStage = UpdateSecretVersionStage'
 -- 'versionStage', 'updateSecretVersionStage_versionStage' - The staging label to add to this version.
 newUpdateSecretVersionStage ::
   -- | 'secretId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'versionStage'
-  Prelude.Text ->
+  Core.Text ->
   UpdateSecretVersionStage
 newUpdateSecretVersionStage pSecretId_ pVersionStage_ =
   UpdateSecretVersionStage'
     { removeFromVersionId =
-        Prelude.Nothing,
-      moveToVersionId = Prelude.Nothing,
+        Core.Nothing,
+      moveToVersionId = Core.Nothing,
       secretId = pSecretId_,
       versionStage = pVersionStage_
     }
@@ -197,7 +196,7 @@ newUpdateSecretVersionStage pSecretId_ pVersionStage_ =
 -- removed from. If the label is attached and you either do not specify
 -- this parameter, or the version ID does not match, then the operation
 -- fails.
-updateSecretVersionStage_removeFromVersionId :: Lens.Lens' UpdateSecretVersionStage (Prelude.Maybe Prelude.Text)
+updateSecretVersionStage_removeFromVersionId :: Lens.Lens' UpdateSecretVersionStage (Core.Maybe Core.Text)
 updateSecretVersionStage_removeFromVersionId = Lens.lens (\UpdateSecretVersionStage' {removeFromVersionId} -> removeFromVersionId) (\s@UpdateSecretVersionStage' {} a -> s {removeFromVersionId = a} :: UpdateSecretVersionStage)
 
 -- | (Optional) The secret version ID that you want to add the staging label.
@@ -206,7 +205,7 @@ updateSecretVersionStage_removeFromVersionId = Lens.lens (\UpdateSecretVersionSt
 --
 -- If the staging label is already attached to a different version of the
 -- secret, then you must also specify the @RemoveFromVersionId@ parameter.
-updateSecretVersionStage_moveToVersionId :: Lens.Lens' UpdateSecretVersionStage (Prelude.Maybe Prelude.Text)
+updateSecretVersionStage_moveToVersionId :: Lens.Lens' UpdateSecretVersionStage (Core.Maybe Core.Text)
 updateSecretVersionStage_moveToVersionId = Lens.lens (\UpdateSecretVersionStage' {moveToVersionId} -> moveToVersionId) (\s@UpdateSecretVersionStage' {} a -> s {moveToVersionId = a} :: UpdateSecretVersionStage)
 
 -- | Specifies the secret with the version with the list of staging labels
@@ -231,76 +230,72 @@ updateSecretVersionStage_moveToVersionId = Lens.lens (\UpdateSecretVersionStage'
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-updateSecretVersionStage_secretId :: Lens.Lens' UpdateSecretVersionStage Prelude.Text
+updateSecretVersionStage_secretId :: Lens.Lens' UpdateSecretVersionStage Core.Text
 updateSecretVersionStage_secretId = Lens.lens (\UpdateSecretVersionStage' {secretId} -> secretId) (\s@UpdateSecretVersionStage' {} a -> s {secretId = a} :: UpdateSecretVersionStage)
 
 -- | The staging label to add to this version.
-updateSecretVersionStage_versionStage :: Lens.Lens' UpdateSecretVersionStage Prelude.Text
+updateSecretVersionStage_versionStage :: Lens.Lens' UpdateSecretVersionStage Core.Text
 updateSecretVersionStage_versionStage = Lens.lens (\UpdateSecretVersionStage' {versionStage} -> versionStage) (\s@UpdateSecretVersionStage' {} a -> s {versionStage = a} :: UpdateSecretVersionStage)
 
-instance Prelude.AWSRequest UpdateSecretVersionStage where
+instance Core.AWSRequest UpdateSecretVersionStage where
   type
-    Rs UpdateSecretVersionStage =
+    AWSResponse UpdateSecretVersionStage =
       UpdateSecretVersionStageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateSecretVersionStageResponse'
-            Prelude.<$> (x Prelude..?> "ARN")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ARN")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSecretVersionStage
+instance Core.Hashable UpdateSecretVersionStage
 
-instance Prelude.NFData UpdateSecretVersionStage
+instance Core.NFData UpdateSecretVersionStage
 
-instance Prelude.ToHeaders UpdateSecretVersionStage where
+instance Core.ToHeaders UpdateSecretVersionStage where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.UpdateSecretVersionStage" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "secretsmanager.UpdateSecretVersionStage" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateSecretVersionStage where
+instance Core.ToJSON UpdateSecretVersionStage where
   toJSON UpdateSecretVersionStage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RemoveFromVersionId" Prelude..=)
-              Prelude.<$> removeFromVersionId,
-            ("MoveToVersionId" Prelude..=)
-              Prelude.<$> moveToVersionId,
-            Prelude.Just ("SecretId" Prelude..= secretId),
-            Prelude.Just
-              ("VersionStage" Prelude..= versionStage)
+    Core.object
+      ( Core.catMaybes
+          [ ("RemoveFromVersionId" Core..=)
+              Core.<$> removeFromVersionId,
+            ("MoveToVersionId" Core..=) Core.<$> moveToVersionId,
+            Core.Just ("SecretId" Core..= secretId),
+            Core.Just ("VersionStage" Core..= versionStage)
           ]
       )
 
-instance Prelude.ToPath UpdateSecretVersionStage where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateSecretVersionStage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateSecretVersionStage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateSecretVersionStage where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateSecretVersionStageResponse' smart constructor.
 data UpdateSecretVersionStageResponse = UpdateSecretVersionStageResponse'
   { -- | The ARN of the secret with the modified staging label.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The friendly name of the secret with the modified staging label.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSecretVersionStageResponse' with all optional fields omitted.
@@ -317,28 +312,26 @@ data UpdateSecretVersionStageResponse = UpdateSecretVersionStageResponse'
 -- 'httpStatus', 'updateSecretVersionStageResponse_httpStatus' - The response's http status code.
 newUpdateSecretVersionStageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateSecretVersionStageResponse
 newUpdateSecretVersionStageResponse pHttpStatus_ =
   UpdateSecretVersionStageResponse'
     { arn =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
+        Core.Nothing,
+      name = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the secret with the modified staging label.
-updateSecretVersionStageResponse_arn :: Lens.Lens' UpdateSecretVersionStageResponse (Prelude.Maybe Prelude.Text)
+updateSecretVersionStageResponse_arn :: Lens.Lens' UpdateSecretVersionStageResponse (Core.Maybe Core.Text)
 updateSecretVersionStageResponse_arn = Lens.lens (\UpdateSecretVersionStageResponse' {arn} -> arn) (\s@UpdateSecretVersionStageResponse' {} a -> s {arn = a} :: UpdateSecretVersionStageResponse)
 
 -- | The friendly name of the secret with the modified staging label.
-updateSecretVersionStageResponse_name :: Lens.Lens' UpdateSecretVersionStageResponse (Prelude.Maybe Prelude.Text)
+updateSecretVersionStageResponse_name :: Lens.Lens' UpdateSecretVersionStageResponse (Core.Maybe Core.Text)
 updateSecretVersionStageResponse_name = Lens.lens (\UpdateSecretVersionStageResponse' {name} -> name) (\s@UpdateSecretVersionStageResponse' {} a -> s {name = a} :: UpdateSecretVersionStageResponse)
 
 -- | The response's http status code.
-updateSecretVersionStageResponse_httpStatus :: Lens.Lens' UpdateSecretVersionStageResponse Prelude.Int
+updateSecretVersionStageResponse_httpStatus :: Lens.Lens' UpdateSecretVersionStageResponse Core.Int
 updateSecretVersionStageResponse_httpStatus = Lens.lens (\UpdateSecretVersionStageResponse' {httpStatus} -> httpStatus) (\s@UpdateSecretVersionStageResponse' {} a -> s {httpStatus = a} :: UpdateSecretVersionStageResponse)
 
-instance
-  Prelude.NFData
-    UpdateSecretVersionStageResponse
+instance Core.NFData UpdateSecretVersionStageResponse

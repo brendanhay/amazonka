@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.ApplicationsResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ApplicationResponse
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about all of your applications.
 --
@@ -31,11 +30,11 @@ data ApplicationsResponse = ApplicationsResponse'
   { -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of responses, one for each application that was returned.
-    item :: Prelude.Maybe [ApplicationResponse]
+    item :: Core.Maybe [ApplicationResponse]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplicationsResponse' with all optional fields omitted.
@@ -54,30 +53,30 @@ newApplicationsResponse ::
   ApplicationsResponse
 newApplicationsResponse =
   ApplicationsResponse'
-    { nextToken = Prelude.Nothing,
-      item = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      item = Core.Nothing
     }
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
-applicationsResponse_nextToken :: Lens.Lens' ApplicationsResponse (Prelude.Maybe Prelude.Text)
+applicationsResponse_nextToken :: Lens.Lens' ApplicationsResponse (Core.Maybe Core.Text)
 applicationsResponse_nextToken = Lens.lens (\ApplicationsResponse' {nextToken} -> nextToken) (\s@ApplicationsResponse' {} a -> s {nextToken = a} :: ApplicationsResponse)
 
 -- | An array of responses, one for each application that was returned.
-applicationsResponse_item :: Lens.Lens' ApplicationsResponse (Prelude.Maybe [ApplicationResponse])
-applicationsResponse_item = Lens.lens (\ApplicationsResponse' {item} -> item) (\s@ApplicationsResponse' {} a -> s {item = a} :: ApplicationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+applicationsResponse_item :: Lens.Lens' ApplicationsResponse (Core.Maybe [ApplicationResponse])
+applicationsResponse_item = Lens.lens (\ApplicationsResponse' {item} -> item) (\s@ApplicationsResponse' {} a -> s {item = a} :: ApplicationsResponse) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ApplicationsResponse where
+instance Core.FromJSON ApplicationsResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ApplicationsResponse"
       ( \x ->
           ApplicationsResponse'
-            Prelude.<$> (x Prelude..:? "NextToken")
-            Prelude.<*> (x Prelude..:? "Item" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Item" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ApplicationsResponse
+instance Core.Hashable ApplicationsResponse
 
-instance Prelude.NFData ApplicationsResponse
+instance Core.NFData ApplicationsResponse

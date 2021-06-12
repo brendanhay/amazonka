@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,17 +50,17 @@ module Network.AWS.Connect.DescribeInstance
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeInstance' smart constructor.
 data DescribeInstance = DescribeInstance'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstance' with all optional fields omitted.
@@ -74,57 +73,56 @@ data DescribeInstance = DescribeInstance'
 -- 'instanceId', 'describeInstance_instanceId' - The identifier of the Amazon Connect instance.
 newDescribeInstance ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeInstance
 newDescribeInstance pInstanceId_ =
   DescribeInstance' {instanceId = pInstanceId_}
 
 -- | The identifier of the Amazon Connect instance.
-describeInstance_instanceId :: Lens.Lens' DescribeInstance Prelude.Text
+describeInstance_instanceId :: Lens.Lens' DescribeInstance Core.Text
 describeInstance_instanceId = Lens.lens (\DescribeInstance' {instanceId} -> instanceId) (\s@DescribeInstance' {} a -> s {instanceId = a} :: DescribeInstance)
 
-instance Prelude.AWSRequest DescribeInstance where
-  type Rs DescribeInstance = DescribeInstanceResponse
+instance Core.AWSRequest DescribeInstance where
+  type
+    AWSResponse DescribeInstance =
+      DescribeInstanceResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceResponse'
-            Prelude.<$> (x Prelude..?> "Instance")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Instance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstance
+instance Core.Hashable DescribeInstance
 
-instance Prelude.NFData DescribeInstance
+instance Core.NFData DescribeInstance
 
-instance Prelude.ToHeaders DescribeInstance where
+instance Core.ToHeaders DescribeInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeInstance where
+instance Core.ToPath DescribeInstance where
   toPath DescribeInstance' {..} =
-    Prelude.mconcat
-      ["/instance/", Prelude.toBS instanceId]
+    Core.mconcat ["/instance/", Core.toBS instanceId]
 
-instance Prelude.ToQuery DescribeInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeInstanceResponse' smart constructor.
 data DescribeInstanceResponse = DescribeInstanceResponse'
   { -- | The name of the instance.
-    instance' :: Prelude.Maybe Instance,
+    instance' :: Core.Maybe Instance,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceResponse' with all optional fields omitted.
@@ -139,21 +137,20 @@ data DescribeInstanceResponse = DescribeInstanceResponse'
 -- 'httpStatus', 'describeInstanceResponse_httpStatus' - The response's http status code.
 newDescribeInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeInstanceResponse
 newDescribeInstanceResponse pHttpStatus_ =
   DescribeInstanceResponse'
-    { instance' =
-        Prelude.Nothing,
+    { instance' = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the instance.
-describeInstanceResponse_instance :: Lens.Lens' DescribeInstanceResponse (Prelude.Maybe Instance)
+describeInstanceResponse_instance :: Lens.Lens' DescribeInstanceResponse (Core.Maybe Instance)
 describeInstanceResponse_instance = Lens.lens (\DescribeInstanceResponse' {instance'} -> instance') (\s@DescribeInstanceResponse' {} a -> s {instance' = a} :: DescribeInstanceResponse)
 
 -- | The response's http status code.
-describeInstanceResponse_httpStatus :: Lens.Lens' DescribeInstanceResponse Prelude.Int
+describeInstanceResponse_httpStatus :: Lens.Lens' DescribeInstanceResponse Core.Int
 describeInstanceResponse_httpStatus = Lens.lens (\DescribeInstanceResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceResponse' {} a -> s {httpStatus = a} :: DescribeInstanceResponse)
 
-instance Prelude.NFData DescribeInstanceResponse
+instance Core.NFData DescribeInstanceResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.EventFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EventDimensions
 import Network.AWS.Pinpoint.Types.FilterType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for an event that causes a campaign to be sent or
 -- a journey activity to be performed.
@@ -40,7 +39,7 @@ data EventFilter = EventFilter'
     -- journey activity.
     dimensions :: EventDimensions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventFilter' with all optional fields omitted.
@@ -83,25 +82,25 @@ eventFilter_filterType = Lens.lens (\EventFilter' {filterType} -> filterType) (\
 eventFilter_dimensions :: Lens.Lens' EventFilter EventDimensions
 eventFilter_dimensions = Lens.lens (\EventFilter' {dimensions} -> dimensions) (\s@EventFilter' {} a -> s {dimensions = a} :: EventFilter)
 
-instance Prelude.FromJSON EventFilter where
+instance Core.FromJSON EventFilter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EventFilter"
       ( \x ->
           EventFilter'
-            Prelude.<$> (x Prelude..: "FilterType")
-            Prelude.<*> (x Prelude..: "Dimensions")
+            Core.<$> (x Core..: "FilterType")
+            Core.<*> (x Core..: "Dimensions")
       )
 
-instance Prelude.Hashable EventFilter
+instance Core.Hashable EventFilter
 
-instance Prelude.NFData EventFilter
+instance Core.NFData EventFilter
 
-instance Prelude.ToJSON EventFilter where
+instance Core.ToJSON EventFilter where
   toJSON EventFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("FilterType" Prelude..= filterType),
-            Prelude.Just ("Dimensions" Prelude..= dimensions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FilterType" Core..= filterType),
+            Core.Just ("Dimensions" Core..= dimensions)
           ]
       )

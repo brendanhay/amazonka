@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.MarkerRecordedEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @MarkerRecorded@ event.
 --
 -- /See:/ 'newMarkerRecordedEventAttributes' smart constructor.
 data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes'
   { -- | The details of the marker.
-    details :: Prelude.Maybe Prelude.Text,
+    details :: Core.Maybe Core.Text,
     -- | The name of the marker.
-    markerName :: Prelude.Text,
+    markerName :: Core.Text,
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
     -- decision task that resulted in the @RecordMarker@ decision that
     -- requested this marker. This information can be useful for diagnosing
     -- problems by tracing back the chain of events leading up to this event.
-    decisionTaskCompletedEventId :: Prelude.Integer
+    decisionTaskCompletedEventId :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MarkerRecordedEventAttributes' with all optional fields omitted.
@@ -57,52 +56,47 @@ data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes'
 -- problems by tracing back the chain of events leading up to this event.
 newMarkerRecordedEventAttributes ::
   -- | 'markerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'decisionTaskCompletedEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   MarkerRecordedEventAttributes
 newMarkerRecordedEventAttributes
   pMarkerName_
   pDecisionTaskCompletedEventId_ =
     MarkerRecordedEventAttributes'
       { details =
-          Prelude.Nothing,
+          Core.Nothing,
         markerName = pMarkerName_,
         decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_
       }
 
 -- | The details of the marker.
-markerRecordedEventAttributes_details :: Lens.Lens' MarkerRecordedEventAttributes (Prelude.Maybe Prelude.Text)
+markerRecordedEventAttributes_details :: Lens.Lens' MarkerRecordedEventAttributes (Core.Maybe Core.Text)
 markerRecordedEventAttributes_details = Lens.lens (\MarkerRecordedEventAttributes' {details} -> details) (\s@MarkerRecordedEventAttributes' {} a -> s {details = a} :: MarkerRecordedEventAttributes)
 
 -- | The name of the marker.
-markerRecordedEventAttributes_markerName :: Lens.Lens' MarkerRecordedEventAttributes Prelude.Text
+markerRecordedEventAttributes_markerName :: Lens.Lens' MarkerRecordedEventAttributes Core.Text
 markerRecordedEventAttributes_markerName = Lens.lens (\MarkerRecordedEventAttributes' {markerName} -> markerName) (\s@MarkerRecordedEventAttributes' {} a -> s {markerName = a} :: MarkerRecordedEventAttributes)
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @RecordMarker@ decision that
 -- requested this marker. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-markerRecordedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' MarkerRecordedEventAttributes Prelude.Integer
+markerRecordedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' MarkerRecordedEventAttributes Core.Integer
 markerRecordedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\MarkerRecordedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@MarkerRecordedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: MarkerRecordedEventAttributes)
 
-instance
-  Prelude.FromJSON
-    MarkerRecordedEventAttributes
-  where
+instance Core.FromJSON MarkerRecordedEventAttributes where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MarkerRecordedEventAttributes"
       ( \x ->
           MarkerRecordedEventAttributes'
-            Prelude.<$> (x Prelude..:? "details")
-            Prelude.<*> (x Prelude..: "markerName")
-            Prelude.<*> (x Prelude..: "decisionTaskCompletedEventId")
+            Core.<$> (x Core..:? "details")
+            Core.<*> (x Core..: "markerName")
+            Core.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
-instance
-  Prelude.Hashable
-    MarkerRecordedEventAttributes
+instance Core.Hashable MarkerRecordedEventAttributes
 
-instance Prelude.NFData MarkerRecordedEventAttributes
+instance Core.NFData MarkerRecordedEventAttributes

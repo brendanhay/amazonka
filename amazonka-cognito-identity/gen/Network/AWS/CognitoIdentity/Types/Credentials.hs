@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentity.Types.Credentials where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Credentials for the provided identity ID.
 --
 -- /See:/ 'newCredentials' smart constructor.
 data Credentials = Credentials'
   { -- | The date at which these credentials will expire.
-    expiration :: Prelude.Maybe Prelude.POSIX,
+    expiration :: Core.Maybe Core.POSIX,
     -- | The Secret Access Key portion of the credentials
-    secretKey :: Prelude.Maybe Prelude.Text,
+    secretKey :: Core.Maybe Core.Text,
     -- | The Access Key portion of the credentials.
-    accessKeyId :: Prelude.Maybe Prelude.Text,
+    accessKeyId :: Core.Maybe Core.Text,
     -- | The Session Token portion of the credentials
-    sessionToken :: Prelude.Maybe Prelude.Text
+    sessionToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Credentials' with all optional fields omitted.
@@ -57,40 +56,40 @@ newCredentials ::
   Credentials
 newCredentials =
   Credentials'
-    { expiration = Prelude.Nothing,
-      secretKey = Prelude.Nothing,
-      accessKeyId = Prelude.Nothing,
-      sessionToken = Prelude.Nothing
+    { expiration = Core.Nothing,
+      secretKey = Core.Nothing,
+      accessKeyId = Core.Nothing,
+      sessionToken = Core.Nothing
     }
 
 -- | The date at which these credentials will expire.
-credentials_expiration :: Lens.Lens' Credentials (Prelude.Maybe Prelude.UTCTime)
-credentials_expiration = Lens.lens (\Credentials' {expiration} -> expiration) (\s@Credentials' {} a -> s {expiration = a} :: Credentials) Prelude.. Lens.mapping Prelude._Time
+credentials_expiration :: Lens.Lens' Credentials (Core.Maybe Core.UTCTime)
+credentials_expiration = Lens.lens (\Credentials' {expiration} -> expiration) (\s@Credentials' {} a -> s {expiration = a} :: Credentials) Core.. Lens.mapping Core._Time
 
 -- | The Secret Access Key portion of the credentials
-credentials_secretKey :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
+credentials_secretKey :: Lens.Lens' Credentials (Core.Maybe Core.Text)
 credentials_secretKey = Lens.lens (\Credentials' {secretKey} -> secretKey) (\s@Credentials' {} a -> s {secretKey = a} :: Credentials)
 
 -- | The Access Key portion of the credentials.
-credentials_accessKeyId :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
+credentials_accessKeyId :: Lens.Lens' Credentials (Core.Maybe Core.Text)
 credentials_accessKeyId = Lens.lens (\Credentials' {accessKeyId} -> accessKeyId) (\s@Credentials' {} a -> s {accessKeyId = a} :: Credentials)
 
 -- | The Session Token portion of the credentials
-credentials_sessionToken :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
+credentials_sessionToken :: Lens.Lens' Credentials (Core.Maybe Core.Text)
 credentials_sessionToken = Lens.lens (\Credentials' {sessionToken} -> sessionToken) (\s@Credentials' {} a -> s {sessionToken = a} :: Credentials)
 
-instance Prelude.FromJSON Credentials where
+instance Core.FromJSON Credentials where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Credentials"
       ( \x ->
           Credentials'
-            Prelude.<$> (x Prelude..:? "Expiration")
-            Prelude.<*> (x Prelude..:? "SecretKey")
-            Prelude.<*> (x Prelude..:? "AccessKeyId")
-            Prelude.<*> (x Prelude..:? "SessionToken")
+            Core.<$> (x Core..:? "Expiration")
+            Core.<*> (x Core..:? "SecretKey")
+            Core.<*> (x Core..:? "AccessKeyId")
+            Core.<*> (x Core..:? "SessionToken")
       )
 
-instance Prelude.Hashable Credentials
+instance Core.Hashable Credentials
 
-instance Prelude.NFData Credentials
+instance Core.NFData Credentials

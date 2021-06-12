@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.MemberDataSourceConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on which data sources are enabled for a member
 -- account.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMemberDataSourceConfiguration' smart constructor.
 data MemberDataSourceConfiguration = MemberDataSourceConfiguration'
   { -- | The account ID for the member account.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | Contains information on the status of data sources for the account.
     dataSources :: DataSourceConfigurationsResult
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MemberDataSourceConfiguration' with all optional fields omitted.
@@ -49,7 +48,7 @@ data MemberDataSourceConfiguration = MemberDataSourceConfiguration'
 -- 'dataSources', 'memberDataSourceConfiguration_dataSources' - Contains information on the status of data sources for the account.
 newMemberDataSourceConfiguration ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dataSources'
   DataSourceConfigurationsResult ->
   MemberDataSourceConfiguration
@@ -63,28 +62,23 @@ newMemberDataSourceConfiguration
       }
 
 -- | The account ID for the member account.
-memberDataSourceConfiguration_accountId :: Lens.Lens' MemberDataSourceConfiguration Prelude.Text
+memberDataSourceConfiguration_accountId :: Lens.Lens' MemberDataSourceConfiguration Core.Text
 memberDataSourceConfiguration_accountId = Lens.lens (\MemberDataSourceConfiguration' {accountId} -> accountId) (\s@MemberDataSourceConfiguration' {} a -> s {accountId = a} :: MemberDataSourceConfiguration)
 
 -- | Contains information on the status of data sources for the account.
 memberDataSourceConfiguration_dataSources :: Lens.Lens' MemberDataSourceConfiguration DataSourceConfigurationsResult
 memberDataSourceConfiguration_dataSources = Lens.lens (\MemberDataSourceConfiguration' {dataSources} -> dataSources) (\s@MemberDataSourceConfiguration' {} a -> s {dataSources = a} :: MemberDataSourceConfiguration)
 
-instance
-  Prelude.FromJSON
-    MemberDataSourceConfiguration
-  where
+instance Core.FromJSON MemberDataSourceConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MemberDataSourceConfiguration"
       ( \x ->
           MemberDataSourceConfiguration'
-            Prelude.<$> (x Prelude..: "accountId")
-            Prelude.<*> (x Prelude..: "dataSources")
+            Core.<$> (x Core..: "accountId")
+            Core.<*> (x Core..: "dataSources")
       )
 
-instance
-  Prelude.Hashable
-    MemberDataSourceConfiguration
+instance Core.Hashable MemberDataSourceConfiguration
 
-instance Prelude.NFData MemberDataSourceConfiguration
+instance Core.NFData MemberDataSourceConfiguration

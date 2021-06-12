@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,19 +38,19 @@ module Network.AWS.Config.DeletePendingAggregationRequest
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeletePendingAggregationRequest' smart constructor.
 data DeletePendingAggregationRequest = DeletePendingAggregationRequest'
   { -- | The 12-digit account ID of the account requesting to aggregate data.
-    requesterAccountId :: Prelude.Text,
+    requesterAccountId :: Core.Text,
     -- | The region requesting to aggregate data.
-    requesterAwsRegion :: Prelude.Text
+    requesterAwsRegion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePendingAggregationRequest' with all optional fields omitted.
@@ -66,9 +65,9 @@ data DeletePendingAggregationRequest = DeletePendingAggregationRequest'
 -- 'requesterAwsRegion', 'deletePendingAggregationRequest_requesterAwsRegion' - The region requesting to aggregate data.
 newDeletePendingAggregationRequest ::
   -- | 'requesterAccountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'requesterAwsRegion'
-  Prelude.Text ->
+  Core.Text ->
   DeletePendingAggregationRequest
 newDeletePendingAggregationRequest
   pRequesterAccountId_
@@ -80,19 +79,19 @@ newDeletePendingAggregationRequest
       }
 
 -- | The 12-digit account ID of the account requesting to aggregate data.
-deletePendingAggregationRequest_requesterAccountId :: Lens.Lens' DeletePendingAggregationRequest Prelude.Text
+deletePendingAggregationRequest_requesterAccountId :: Lens.Lens' DeletePendingAggregationRequest Core.Text
 deletePendingAggregationRequest_requesterAccountId = Lens.lens (\DeletePendingAggregationRequest' {requesterAccountId} -> requesterAccountId) (\s@DeletePendingAggregationRequest' {} a -> s {requesterAccountId = a} :: DeletePendingAggregationRequest)
 
 -- | The region requesting to aggregate data.
-deletePendingAggregationRequest_requesterAwsRegion :: Lens.Lens' DeletePendingAggregationRequest Prelude.Text
+deletePendingAggregationRequest_requesterAwsRegion :: Lens.Lens' DeletePendingAggregationRequest Core.Text
 deletePendingAggregationRequest_requesterAwsRegion = Lens.lens (\DeletePendingAggregationRequest' {requesterAwsRegion} -> requesterAwsRegion) (\s@DeletePendingAggregationRequest' {} a -> s {requesterAwsRegion = a} :: DeletePendingAggregationRequest)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeletePendingAggregationRequest
   where
   type
-    Rs DeletePendingAggregationRequest =
+    AWSResponse DeletePendingAggregationRequest =
       DeletePendingAggregationRequestResponse
   request = Request.postJSON defaultService
   response =
@@ -100,64 +99,49 @@ instance
       DeletePendingAggregationRequestResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeletePendingAggregationRequest
 
-instance
-  Prelude.NFData
-    DeletePendingAggregationRequest
+instance Core.NFData DeletePendingAggregationRequest
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeletePendingAggregationRequest
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DeletePendingAggregationRequest" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DeletePendingAggregationRequest" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DeletePendingAggregationRequest
-  where
+instance Core.ToJSON DeletePendingAggregationRequest where
   toJSON DeletePendingAggregationRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("RequesterAccountId" Prelude..= requesterAccountId),
-            Prelude.Just
-              ( "RequesterAwsRegion"
-                  Prelude..= requesterAwsRegion
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("RequesterAccountId" Core..= requesterAccountId),
+            Core.Just
+              ("RequesterAwsRegion" Core..= requesterAwsRegion)
           ]
       )
 
-instance
-  Prelude.ToPath
-    DeletePendingAggregationRequest
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeletePendingAggregationRequest where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeletePendingAggregationRequest
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePendingAggregationRequest where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeletePendingAggregationRequestResponse' smart constructor.
 data DeletePendingAggregationRequestResponse = DeletePendingAggregationRequestResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePendingAggregationRequestResponse' with all optional fields omitted.
@@ -169,5 +153,5 @@ newDeletePendingAggregationRequestResponse =
   DeletePendingAggregationRequestResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeletePendingAggregationRequestResponse

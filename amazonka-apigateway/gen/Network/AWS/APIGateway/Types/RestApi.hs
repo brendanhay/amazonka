@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.APIGateway.Types.RestApi where
 
 import Network.AWS.APIGateway.Types.ApiKeySourceType
 import Network.AWS.APIGateway.Types.EndpointConfiguration
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a REST API.
 --
@@ -32,44 +31,44 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRestApi' smart constructor.
 data RestApi = RestApi'
   { -- | The timestamp when the API was created.
-    createdDate :: Prelude.Maybe Prelude.POSIX,
+    createdDate :: Core.Maybe Core.POSIX,
     -- | The warning messages reported when @failonwarnings@ is turned on during
     -- API import.
-    warnings :: Prelude.Maybe [Prelude.Text],
+    warnings :: Core.Maybe [Core.Text],
     -- | The endpoint configuration of this RestApi showing the endpoint types of
     -- the API.
-    endpointConfiguration :: Prelude.Maybe EndpointConfiguration,
+    endpointConfiguration :: Core.Maybe EndpointConfiguration,
     -- | The list of binary media types supported by the RestApi. By default, the
     -- RestApi supports only UTF-8-encoded text payloads.
-    binaryMediaTypes :: Prelude.Maybe [Prelude.Text],
+    binaryMediaTypes :: Core.Maybe [Core.Text],
     -- | The API\'s identifier. This identifier is unique across all of your APIs
     -- in API Gateway.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | A version identifier for the API.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The API\'s name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The collection of tags. Each tag element is associated with a given
     -- resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The API\'s description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Specifies whether clients can invoke your API by using the default
     -- @execute-api@ endpoint. By default, clients can invoke your API with the
     -- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
     -- To require that clients use a custom domain name to invoke your API,
     -- disable the default endpoint.
-    disableExecuteApiEndpoint :: Prelude.Maybe Prelude.Bool,
+    disableExecuteApiEndpoint :: Core.Maybe Core.Bool,
     -- | A stringified JSON policy document that applies to this RestApi
     -- regardless of the caller and Method configuration.
-    policy :: Prelude.Maybe Prelude.Text,
+    policy :: Core.Maybe Core.Text,
     -- | A nullable integer that is used to enable compression (with non-negative
     -- between 0 and 10485760 (10M) bytes, inclusive) or disable compression
     -- (with a null value) on an API. When compression is enabled, compression
     -- or decompression is not applied on the payload if the payload size is
     -- smaller than this value. Setting it to zero allows compression for any
     -- payload size.
-    minimumCompressionSize :: Prelude.Maybe Prelude.Int,
+    minimumCompressionSize :: Core.Maybe Core.Int,
     -- | The source of the API key for metering requests according to a usage
     -- plan. Valid values are:
     --
@@ -77,9 +76,9 @@ data RestApi = RestApi'
     --     request.
     -- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from
     --     a custom authorizer.
-    apiKeySource :: Prelude.Maybe ApiKeySourceType
+    apiKeySource :: Core.Maybe ApiKeySourceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestApi' with all optional fields omitted.
@@ -139,60 +138,60 @@ newRestApi ::
   RestApi
 newRestApi =
   RestApi'
-    { createdDate = Prelude.Nothing,
-      warnings = Prelude.Nothing,
-      endpointConfiguration = Prelude.Nothing,
-      binaryMediaTypes = Prelude.Nothing,
-      id = Prelude.Nothing,
-      version = Prelude.Nothing,
-      name = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      disableExecuteApiEndpoint = Prelude.Nothing,
-      policy = Prelude.Nothing,
-      minimumCompressionSize = Prelude.Nothing,
-      apiKeySource = Prelude.Nothing
+    { createdDate = Core.Nothing,
+      warnings = Core.Nothing,
+      endpointConfiguration = Core.Nothing,
+      binaryMediaTypes = Core.Nothing,
+      id = Core.Nothing,
+      version = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing,
+      description = Core.Nothing,
+      disableExecuteApiEndpoint = Core.Nothing,
+      policy = Core.Nothing,
+      minimumCompressionSize = Core.Nothing,
+      apiKeySource = Core.Nothing
     }
 
 -- | The timestamp when the API was created.
-restApi_createdDate :: Lens.Lens' RestApi (Prelude.Maybe Prelude.UTCTime)
-restApi_createdDate = Lens.lens (\RestApi' {createdDate} -> createdDate) (\s@RestApi' {} a -> s {createdDate = a} :: RestApi) Prelude.. Lens.mapping Prelude._Time
+restApi_createdDate :: Lens.Lens' RestApi (Core.Maybe Core.UTCTime)
+restApi_createdDate = Lens.lens (\RestApi' {createdDate} -> createdDate) (\s@RestApi' {} a -> s {createdDate = a} :: RestApi) Core.. Lens.mapping Core._Time
 
 -- | The warning messages reported when @failonwarnings@ is turned on during
 -- API import.
-restApi_warnings :: Lens.Lens' RestApi (Prelude.Maybe [Prelude.Text])
-restApi_warnings = Lens.lens (\RestApi' {warnings} -> warnings) (\s@RestApi' {} a -> s {warnings = a} :: RestApi) Prelude.. Lens.mapping Prelude._Coerce
+restApi_warnings :: Lens.Lens' RestApi (Core.Maybe [Core.Text])
+restApi_warnings = Lens.lens (\RestApi' {warnings} -> warnings) (\s@RestApi' {} a -> s {warnings = a} :: RestApi) Core.. Lens.mapping Lens._Coerce
 
 -- | The endpoint configuration of this RestApi showing the endpoint types of
 -- the API.
-restApi_endpointConfiguration :: Lens.Lens' RestApi (Prelude.Maybe EndpointConfiguration)
+restApi_endpointConfiguration :: Lens.Lens' RestApi (Core.Maybe EndpointConfiguration)
 restApi_endpointConfiguration = Lens.lens (\RestApi' {endpointConfiguration} -> endpointConfiguration) (\s@RestApi' {} a -> s {endpointConfiguration = a} :: RestApi)
 
 -- | The list of binary media types supported by the RestApi. By default, the
 -- RestApi supports only UTF-8-encoded text payloads.
-restApi_binaryMediaTypes :: Lens.Lens' RestApi (Prelude.Maybe [Prelude.Text])
-restApi_binaryMediaTypes = Lens.lens (\RestApi' {binaryMediaTypes} -> binaryMediaTypes) (\s@RestApi' {} a -> s {binaryMediaTypes = a} :: RestApi) Prelude.. Lens.mapping Prelude._Coerce
+restApi_binaryMediaTypes :: Lens.Lens' RestApi (Core.Maybe [Core.Text])
+restApi_binaryMediaTypes = Lens.lens (\RestApi' {binaryMediaTypes} -> binaryMediaTypes) (\s@RestApi' {} a -> s {binaryMediaTypes = a} :: RestApi) Core.. Lens.mapping Lens._Coerce
 
 -- | The API\'s identifier. This identifier is unique across all of your APIs
 -- in API Gateway.
-restApi_id :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Text)
+restApi_id :: Lens.Lens' RestApi (Core.Maybe Core.Text)
 restApi_id = Lens.lens (\RestApi' {id} -> id) (\s@RestApi' {} a -> s {id = a} :: RestApi)
 
 -- | A version identifier for the API.
-restApi_version :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Text)
+restApi_version :: Lens.Lens' RestApi (Core.Maybe Core.Text)
 restApi_version = Lens.lens (\RestApi' {version} -> version) (\s@RestApi' {} a -> s {version = a} :: RestApi)
 
 -- | The API\'s name.
-restApi_name :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Text)
+restApi_name :: Lens.Lens' RestApi (Core.Maybe Core.Text)
 restApi_name = Lens.lens (\RestApi' {name} -> name) (\s@RestApi' {} a -> s {name = a} :: RestApi)
 
 -- | The collection of tags. Each tag element is associated with a given
 -- resource.
-restApi_tags :: Lens.Lens' RestApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-restApi_tags = Lens.lens (\RestApi' {tags} -> tags) (\s@RestApi' {} a -> s {tags = a} :: RestApi) Prelude.. Lens.mapping Prelude._Coerce
+restApi_tags :: Lens.Lens' RestApi (Core.Maybe (Core.HashMap Core.Text Core.Text))
+restApi_tags = Lens.lens (\RestApi' {tags} -> tags) (\s@RestApi' {} a -> s {tags = a} :: RestApi) Core.. Lens.mapping Lens._Coerce
 
 -- | The API\'s description.
-restApi_description :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Text)
+restApi_description :: Lens.Lens' RestApi (Core.Maybe Core.Text)
 restApi_description = Lens.lens (\RestApi' {description} -> description) (\s@RestApi' {} a -> s {description = a} :: RestApi)
 
 -- | Specifies whether clients can invoke your API by using the default
@@ -200,12 +199,12 @@ restApi_description = Lens.lens (\RestApi' {description} -> description) (\s@Res
 -- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
 -- To require that clients use a custom domain name to invoke your API,
 -- disable the default endpoint.
-restApi_disableExecuteApiEndpoint :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Bool)
+restApi_disableExecuteApiEndpoint :: Lens.Lens' RestApi (Core.Maybe Core.Bool)
 restApi_disableExecuteApiEndpoint = Lens.lens (\RestApi' {disableExecuteApiEndpoint} -> disableExecuteApiEndpoint) (\s@RestApi' {} a -> s {disableExecuteApiEndpoint = a} :: RestApi)
 
 -- | A stringified JSON policy document that applies to this RestApi
 -- regardless of the caller and Method configuration.
-restApi_policy :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Text)
+restApi_policy :: Lens.Lens' RestApi (Core.Maybe Core.Text)
 restApi_policy = Lens.lens (\RestApi' {policy} -> policy) (\s@RestApi' {} a -> s {policy = a} :: RestApi)
 
 -- | A nullable integer that is used to enable compression (with non-negative
@@ -214,7 +213,7 @@ restApi_policy = Lens.lens (\RestApi' {policy} -> policy) (\s@RestApi' {} a -> s
 -- or decompression is not applied on the payload if the payload size is
 -- smaller than this value. Setting it to zero allows compression for any
 -- payload size.
-restApi_minimumCompressionSize :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Int)
+restApi_minimumCompressionSize :: Lens.Lens' RestApi (Core.Maybe Core.Int)
 restApi_minimumCompressionSize = Lens.lens (\RestApi' {minimumCompressionSize} -> minimumCompressionSize) (\s@RestApi' {} a -> s {minimumCompressionSize = a} :: RestApi)
 
 -- | The source of the API key for metering requests according to a usage
@@ -224,32 +223,30 @@ restApi_minimumCompressionSize = Lens.lens (\RestApi' {minimumCompressionSize} -
 --     request.
 -- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from
 --     a custom authorizer.
-restApi_apiKeySource :: Lens.Lens' RestApi (Prelude.Maybe ApiKeySourceType)
+restApi_apiKeySource :: Lens.Lens' RestApi (Core.Maybe ApiKeySourceType)
 restApi_apiKeySource = Lens.lens (\RestApi' {apiKeySource} -> apiKeySource) (\s@RestApi' {} a -> s {apiKeySource = a} :: RestApi)
 
-instance Prelude.FromJSON RestApi where
+instance Core.FromJSON RestApi where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RestApi"
       ( \x ->
           RestApi'
-            Prelude.<$> (x Prelude..:? "createdDate")
-            Prelude.<*> (x Prelude..:? "warnings" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "endpointConfiguration")
-            Prelude.<*> ( x Prelude..:? "binaryMediaTypes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "version")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..:? "disableExecuteApiEndpoint")
-            Prelude.<*> (x Prelude..:? "policy")
-            Prelude.<*> (x Prelude..:? "minimumCompressionSize")
-            Prelude.<*> (x Prelude..:? "apiKeySource")
+            Core.<$> (x Core..:? "createdDate")
+            Core.<*> (x Core..:? "warnings" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "endpointConfiguration")
+            Core.<*> (x Core..:? "binaryMediaTypes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "version")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "disableExecuteApiEndpoint")
+            Core.<*> (x Core..:? "policy")
+            Core.<*> (x Core..:? "minimumCompressionSize")
+            Core.<*> (x Core..:? "apiKeySource")
       )
 
-instance Prelude.Hashable RestApi
+instance Core.Hashable RestApi
 
-instance Prelude.NFData RestApi
+instance Core.NFData RestApi

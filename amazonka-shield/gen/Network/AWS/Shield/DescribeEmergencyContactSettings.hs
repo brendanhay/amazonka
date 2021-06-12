@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.Shield.DescribeEmergencyContactSettings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -49,7 +48,7 @@ import Network.AWS.Shield.Types
 data DescribeEmergencyContactSettings = DescribeEmergencyContactSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEmergencyContactSettings' with all optional fields omitted.
@@ -61,78 +60,67 @@ newDescribeEmergencyContactSettings =
   DescribeEmergencyContactSettings'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeEmergencyContactSettings
   where
   type
-    Rs DescribeEmergencyContactSettings =
+    AWSResponse DescribeEmergencyContactSettings =
       DescribeEmergencyContactSettingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEmergencyContactSettingsResponse'
-            Prelude.<$> ( x Prelude..?> "EmergencyContactList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "EmergencyContactList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeEmergencyContactSettings
 
-instance
-  Prelude.NFData
-    DescribeEmergencyContactSettings
+instance Core.NFData DescribeEmergencyContactSettings
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeEmergencyContactSettings
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.DescribeEmergencyContactSettings" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.DescribeEmergencyContactSettings" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DescribeEmergencyContactSettings
-  where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DescribeEmergencyContactSettings where
+  toJSON = Core.const (Core.Object Core.mempty)
+
+instance Core.ToPath DescribeEmergencyContactSettings where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToPath
+  Core.ToQuery
     DescribeEmergencyContactSettings
   where
-  toPath = Prelude.const "/"
-
-instance
-  Prelude.ToQuery
-    DescribeEmergencyContactSettings
-  where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEmergencyContactSettingsResponse' smart constructor.
 data DescribeEmergencyContactSettingsResponse = DescribeEmergencyContactSettingsResponse'
   { -- | A list of email addresses and phone numbers that the DDoS Response Team
     -- (DRT) can use to contact you if you have proactive engagement enabled,
     -- for escalations to the DRT and to initiate proactive customer support.
-    emergencyContactList :: Prelude.Maybe [EmergencyContact],
+    emergencyContactList :: Core.Maybe [EmergencyContact],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEmergencyContactSettingsResponse' with all optional fields omitted.
@@ -149,26 +137,26 @@ data DescribeEmergencyContactSettingsResponse = DescribeEmergencyContactSettings
 -- 'httpStatus', 'describeEmergencyContactSettingsResponse_httpStatus' - The response's http status code.
 newDescribeEmergencyContactSettingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEmergencyContactSettingsResponse
 newDescribeEmergencyContactSettingsResponse
   pHttpStatus_ =
     DescribeEmergencyContactSettingsResponse'
       { emergencyContactList =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A list of email addresses and phone numbers that the DDoS Response Team
 -- (DRT) can use to contact you if you have proactive engagement enabled,
 -- for escalations to the DRT and to initiate proactive customer support.
-describeEmergencyContactSettingsResponse_emergencyContactList :: Lens.Lens' DescribeEmergencyContactSettingsResponse (Prelude.Maybe [EmergencyContact])
-describeEmergencyContactSettingsResponse_emergencyContactList = Lens.lens (\DescribeEmergencyContactSettingsResponse' {emergencyContactList} -> emergencyContactList) (\s@DescribeEmergencyContactSettingsResponse' {} a -> s {emergencyContactList = a} :: DescribeEmergencyContactSettingsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEmergencyContactSettingsResponse_emergencyContactList :: Lens.Lens' DescribeEmergencyContactSettingsResponse (Core.Maybe [EmergencyContact])
+describeEmergencyContactSettingsResponse_emergencyContactList = Lens.lens (\DescribeEmergencyContactSettingsResponse' {emergencyContactList} -> emergencyContactList) (\s@DescribeEmergencyContactSettingsResponse' {} a -> s {emergencyContactList = a} :: DescribeEmergencyContactSettingsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEmergencyContactSettingsResponse_httpStatus :: Lens.Lens' DescribeEmergencyContactSettingsResponse Prelude.Int
+describeEmergencyContactSettingsResponse_httpStatus :: Lens.Lens' DescribeEmergencyContactSettingsResponse Core.Int
 describeEmergencyContactSettingsResponse_httpStatus = Lens.lens (\DescribeEmergencyContactSettingsResponse' {httpStatus} -> httpStatus) (\s@DescribeEmergencyContactSettingsResponse' {} a -> s {httpStatus = a} :: DescribeEmergencyContactSettingsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeEmergencyContactSettingsResponse

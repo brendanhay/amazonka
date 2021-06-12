@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.LogEvent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a database log event.
 --
 -- /See:/ 'newLogEvent' smart constructor.
 data LogEvent = LogEvent'
   { -- | The message of the database log event.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The timestamp when the database log event was created.
-    createdAt :: Prelude.Maybe Prelude.POSIX
+    createdAt :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LogEvent' with all optional fields omitted.
@@ -49,28 +48,28 @@ newLogEvent ::
   LogEvent
 newLogEvent =
   LogEvent'
-    { message = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+    { message = Core.Nothing,
+      createdAt = Core.Nothing
     }
 
 -- | The message of the database log event.
-logEvent_message :: Lens.Lens' LogEvent (Prelude.Maybe Prelude.Text)
+logEvent_message :: Lens.Lens' LogEvent (Core.Maybe Core.Text)
 logEvent_message = Lens.lens (\LogEvent' {message} -> message) (\s@LogEvent' {} a -> s {message = a} :: LogEvent)
 
 -- | The timestamp when the database log event was created.
-logEvent_createdAt :: Lens.Lens' LogEvent (Prelude.Maybe Prelude.UTCTime)
-logEvent_createdAt = Lens.lens (\LogEvent' {createdAt} -> createdAt) (\s@LogEvent' {} a -> s {createdAt = a} :: LogEvent) Prelude.. Lens.mapping Prelude._Time
+logEvent_createdAt :: Lens.Lens' LogEvent (Core.Maybe Core.UTCTime)
+logEvent_createdAt = Lens.lens (\LogEvent' {createdAt} -> createdAt) (\s@LogEvent' {} a -> s {createdAt = a} :: LogEvent) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON LogEvent where
+instance Core.FromJSON LogEvent where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LogEvent"
       ( \x ->
           LogEvent'
-            Prelude.<$> (x Prelude..:? "message")
-            Prelude.<*> (x Prelude..:? "createdAt")
+            Core.<$> (x Core..:? "message")
+            Core.<*> (x Core..:? "createdAt")
       )
 
-instance Prelude.Hashable LogEvent
+instance Core.Hashable LogEvent
 
-instance Prelude.NFData LogEvent
+instance Core.NFData LogEvent

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SpotMaintenanceStrategies where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.SpotCapacityRebalance
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The strategies for managing your Spot Instances that are at an elevated
 -- risk of being interrupted.
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 data SpotMaintenanceStrategies = SpotMaintenanceStrategies'
   { -- | The strategy to use when Amazon EC2 emits a signal that your Spot
     -- Instance is at an elevated risk of being interrupted.
-    capacityRebalance :: Prelude.Maybe SpotCapacityRebalance
+    capacityRebalance :: Core.Maybe SpotCapacityRebalance
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SpotMaintenanceStrategies' with all optional fields omitted.
@@ -51,24 +50,24 @@ newSpotMaintenanceStrategies ::
 newSpotMaintenanceStrategies =
   SpotMaintenanceStrategies'
     { capacityRebalance =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The strategy to use when Amazon EC2 emits a signal that your Spot
 -- Instance is at an elevated risk of being interrupted.
-spotMaintenanceStrategies_capacityRebalance :: Lens.Lens' SpotMaintenanceStrategies (Prelude.Maybe SpotCapacityRebalance)
+spotMaintenanceStrategies_capacityRebalance :: Lens.Lens' SpotMaintenanceStrategies (Core.Maybe SpotCapacityRebalance)
 spotMaintenanceStrategies_capacityRebalance = Lens.lens (\SpotMaintenanceStrategies' {capacityRebalance} -> capacityRebalance) (\s@SpotMaintenanceStrategies' {} a -> s {capacityRebalance = a} :: SpotMaintenanceStrategies)
 
-instance Prelude.FromXML SpotMaintenanceStrategies where
+instance Core.FromXML SpotMaintenanceStrategies where
   parseXML x =
     SpotMaintenanceStrategies'
-      Prelude.<$> (x Prelude..@? "capacityRebalance")
+      Core.<$> (x Core..@? "capacityRebalance")
 
-instance Prelude.Hashable SpotMaintenanceStrategies
+instance Core.Hashable SpotMaintenanceStrategies
 
-instance Prelude.NFData SpotMaintenanceStrategies
+instance Core.NFData SpotMaintenanceStrategies
 
-instance Prelude.ToQuery SpotMaintenanceStrategies where
+instance Core.ToQuery SpotMaintenanceStrategies where
   toQuery SpotMaintenanceStrategies' {..} =
-    Prelude.mconcat
-      ["CapacityRebalance" Prelude.=: capacityRebalance]
+    Core.mconcat
+      ["CapacityRebalance" Core.=: capacityRebalance]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.SageMaker.DescribeDeviceFleet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -56,9 +55,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeDeviceFleet' smart constructor.
 data DescribeDeviceFleet = DescribeDeviceFleet'
   { -- | The name of the fleet.
-    deviceFleetName :: Prelude.Text
+    deviceFleetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDeviceFleet' with all optional fields omitted.
@@ -71,7 +70,7 @@ data DescribeDeviceFleet = DescribeDeviceFleet'
 -- 'deviceFleetName', 'describeDeviceFleet_deviceFleetName' - The name of the fleet.
 newDescribeDeviceFleet ::
   -- | 'deviceFleetName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeDeviceFleet
 newDescribeDeviceFleet pDeviceFleetName_ =
   DescribeDeviceFleet'
@@ -80,87 +79,83 @@ newDescribeDeviceFleet pDeviceFleetName_ =
     }
 
 -- | The name of the fleet.
-describeDeviceFleet_deviceFleetName :: Lens.Lens' DescribeDeviceFleet Prelude.Text
+describeDeviceFleet_deviceFleetName :: Lens.Lens' DescribeDeviceFleet Core.Text
 describeDeviceFleet_deviceFleetName = Lens.lens (\DescribeDeviceFleet' {deviceFleetName} -> deviceFleetName) (\s@DescribeDeviceFleet' {} a -> s {deviceFleetName = a} :: DescribeDeviceFleet)
 
-instance Prelude.AWSRequest DescribeDeviceFleet where
+instance Core.AWSRequest DescribeDeviceFleet where
   type
-    Rs DescribeDeviceFleet =
+    AWSResponse DescribeDeviceFleet =
       DescribeDeviceFleetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceFleetResponse'
-            Prelude.<$> (x Prelude..?> "RoleArn")
-            Prelude.<*> (x Prelude..?> "IotRoleAlias")
-            Prelude.<*> (x Prelude..?> "Description")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "DeviceFleetName")
-            Prelude.<*> (x Prelude..:> "DeviceFleetArn")
-            Prelude.<*> (x Prelude..:> "OutputConfig")
-            Prelude.<*> (x Prelude..:> "CreationTime")
-            Prelude.<*> (x Prelude..:> "LastModifiedTime")
+            Core.<$> (x Core..?> "RoleArn")
+            Core.<*> (x Core..?> "IotRoleAlias")
+            Core.<*> (x Core..?> "Description")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "DeviceFleetName")
+            Core.<*> (x Core..:> "DeviceFleetArn")
+            Core.<*> (x Core..:> "OutputConfig")
+            Core.<*> (x Core..:> "CreationTime")
+            Core.<*> (x Core..:> "LastModifiedTime")
       )
 
-instance Prelude.Hashable DescribeDeviceFleet
+instance Core.Hashable DescribeDeviceFleet
 
-instance Prelude.NFData DescribeDeviceFleet
+instance Core.NFData DescribeDeviceFleet
 
-instance Prelude.ToHeaders DescribeDeviceFleet where
+instance Core.ToHeaders DescribeDeviceFleet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DescribeDeviceFleet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.DescribeDeviceFleet" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeDeviceFleet where
+instance Core.ToJSON DescribeDeviceFleet where
   toJSON DescribeDeviceFleet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DeviceFleetName" Prelude..= deviceFleetName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("DeviceFleetName" Core..= deviceFleetName)
           ]
       )
 
-instance Prelude.ToPath DescribeDeviceFleet where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeDeviceFleet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeDeviceFleet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeDeviceFleet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeDeviceFleetResponse' smart constructor.
 data DescribeDeviceFleetResponse = DescribeDeviceFleetResponse'
   { -- | The Amazon Resource Name (ARN) that has access to AWS Internet of Things
     -- (IoT).
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) alias created in AWS Internet of Things
     -- (IoT).
-    iotRoleAlias :: Prelude.Maybe Prelude.Text,
+    iotRoleAlias :: Core.Maybe Core.Text,
     -- | A description of the fleet.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The name of the fleet.
-    deviceFleetName :: Prelude.Text,
+    deviceFleetName :: Core.Text,
     -- | The The Amazon Resource Name (ARN) of the fleet.
-    deviceFleetArn :: Prelude.Text,
+    deviceFleetArn :: Core.Text,
     -- | The output configuration for storing sampled data.
     outputConfig :: EdgeOutputConfig,
     -- | Timestamp of when the device fleet was created.
-    creationTime :: Prelude.POSIX,
+    creationTime :: Core.POSIX,
     -- | Timestamp of when the device fleet was last updated.
-    lastModifiedTime :: Prelude.POSIX
+    lastModifiedTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDeviceFleetResponse' with all optional fields omitted.
@@ -191,17 +186,17 @@ data DescribeDeviceFleetResponse = DescribeDeviceFleetResponse'
 -- 'lastModifiedTime', 'describeDeviceFleetResponse_lastModifiedTime' - Timestamp of when the device fleet was last updated.
 newDescribeDeviceFleetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'deviceFleetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'deviceFleetArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'outputConfig'
   EdgeOutputConfig ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'lastModifiedTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   DescribeDeviceFleetResponse
 newDescribeDeviceFleetResponse
   pHttpStatus_
@@ -212,43 +207,43 @@ newDescribeDeviceFleetResponse
   pLastModifiedTime_ =
     DescribeDeviceFleetResponse'
       { roleArn =
-          Prelude.Nothing,
-        iotRoleAlias = Prelude.Nothing,
-        description = Prelude.Nothing,
+          Core.Nothing,
+        iotRoleAlias = Core.Nothing,
+        description = Core.Nothing,
         httpStatus = pHttpStatus_,
         deviceFleetName = pDeviceFleetName_,
         deviceFleetArn = pDeviceFleetArn_,
         outputConfig = pOutputConfig_,
         creationTime =
-          Prelude._Time Lens.# pCreationTime_,
+          Core._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Prelude._Time Lens.# pLastModifiedTime_
+          Core._Time Lens.# pLastModifiedTime_
       }
 
 -- | The Amazon Resource Name (ARN) that has access to AWS Internet of Things
 -- (IoT).
-describeDeviceFleetResponse_roleArn :: Lens.Lens' DescribeDeviceFleetResponse (Prelude.Maybe Prelude.Text)
+describeDeviceFleetResponse_roleArn :: Lens.Lens' DescribeDeviceFleetResponse (Core.Maybe Core.Text)
 describeDeviceFleetResponse_roleArn = Lens.lens (\DescribeDeviceFleetResponse' {roleArn} -> roleArn) (\s@DescribeDeviceFleetResponse' {} a -> s {roleArn = a} :: DescribeDeviceFleetResponse)
 
 -- | The Amazon Resource Name (ARN) alias created in AWS Internet of Things
 -- (IoT).
-describeDeviceFleetResponse_iotRoleAlias :: Lens.Lens' DescribeDeviceFleetResponse (Prelude.Maybe Prelude.Text)
+describeDeviceFleetResponse_iotRoleAlias :: Lens.Lens' DescribeDeviceFleetResponse (Core.Maybe Core.Text)
 describeDeviceFleetResponse_iotRoleAlias = Lens.lens (\DescribeDeviceFleetResponse' {iotRoleAlias} -> iotRoleAlias) (\s@DescribeDeviceFleetResponse' {} a -> s {iotRoleAlias = a} :: DescribeDeviceFleetResponse)
 
 -- | A description of the fleet.
-describeDeviceFleetResponse_description :: Lens.Lens' DescribeDeviceFleetResponse (Prelude.Maybe Prelude.Text)
+describeDeviceFleetResponse_description :: Lens.Lens' DescribeDeviceFleetResponse (Core.Maybe Core.Text)
 describeDeviceFleetResponse_description = Lens.lens (\DescribeDeviceFleetResponse' {description} -> description) (\s@DescribeDeviceFleetResponse' {} a -> s {description = a} :: DescribeDeviceFleetResponse)
 
 -- | The response's http status code.
-describeDeviceFleetResponse_httpStatus :: Lens.Lens' DescribeDeviceFleetResponse Prelude.Int
+describeDeviceFleetResponse_httpStatus :: Lens.Lens' DescribeDeviceFleetResponse Core.Int
 describeDeviceFleetResponse_httpStatus = Lens.lens (\DescribeDeviceFleetResponse' {httpStatus} -> httpStatus) (\s@DescribeDeviceFleetResponse' {} a -> s {httpStatus = a} :: DescribeDeviceFleetResponse)
 
 -- | The name of the fleet.
-describeDeviceFleetResponse_deviceFleetName :: Lens.Lens' DescribeDeviceFleetResponse Prelude.Text
+describeDeviceFleetResponse_deviceFleetName :: Lens.Lens' DescribeDeviceFleetResponse Core.Text
 describeDeviceFleetResponse_deviceFleetName = Lens.lens (\DescribeDeviceFleetResponse' {deviceFleetName} -> deviceFleetName) (\s@DescribeDeviceFleetResponse' {} a -> s {deviceFleetName = a} :: DescribeDeviceFleetResponse)
 
 -- | The The Amazon Resource Name (ARN) of the fleet.
-describeDeviceFleetResponse_deviceFleetArn :: Lens.Lens' DescribeDeviceFleetResponse Prelude.Text
+describeDeviceFleetResponse_deviceFleetArn :: Lens.Lens' DescribeDeviceFleetResponse Core.Text
 describeDeviceFleetResponse_deviceFleetArn = Lens.lens (\DescribeDeviceFleetResponse' {deviceFleetArn} -> deviceFleetArn) (\s@DescribeDeviceFleetResponse' {} a -> s {deviceFleetArn = a} :: DescribeDeviceFleetResponse)
 
 -- | The output configuration for storing sampled data.
@@ -256,11 +251,11 @@ describeDeviceFleetResponse_outputConfig :: Lens.Lens' DescribeDeviceFleetRespon
 describeDeviceFleetResponse_outputConfig = Lens.lens (\DescribeDeviceFleetResponse' {outputConfig} -> outputConfig) (\s@DescribeDeviceFleetResponse' {} a -> s {outputConfig = a} :: DescribeDeviceFleetResponse)
 
 -- | Timestamp of when the device fleet was created.
-describeDeviceFleetResponse_creationTime :: Lens.Lens' DescribeDeviceFleetResponse Prelude.UTCTime
-describeDeviceFleetResponse_creationTime = Lens.lens (\DescribeDeviceFleetResponse' {creationTime} -> creationTime) (\s@DescribeDeviceFleetResponse' {} a -> s {creationTime = a} :: DescribeDeviceFleetResponse) Prelude.. Prelude._Time
+describeDeviceFleetResponse_creationTime :: Lens.Lens' DescribeDeviceFleetResponse Core.UTCTime
+describeDeviceFleetResponse_creationTime = Lens.lens (\DescribeDeviceFleetResponse' {creationTime} -> creationTime) (\s@DescribeDeviceFleetResponse' {} a -> s {creationTime = a} :: DescribeDeviceFleetResponse) Core.. Core._Time
 
 -- | Timestamp of when the device fleet was last updated.
-describeDeviceFleetResponse_lastModifiedTime :: Lens.Lens' DescribeDeviceFleetResponse Prelude.UTCTime
-describeDeviceFleetResponse_lastModifiedTime = Lens.lens (\DescribeDeviceFleetResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeDeviceFleetResponse' {} a -> s {lastModifiedTime = a} :: DescribeDeviceFleetResponse) Prelude.. Prelude._Time
+describeDeviceFleetResponse_lastModifiedTime :: Lens.Lens' DescribeDeviceFleetResponse Core.UTCTime
+describeDeviceFleetResponse_lastModifiedTime = Lens.lens (\DescribeDeviceFleetResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeDeviceFleetResponse' {} a -> s {lastModifiedTime = a} :: DescribeDeviceFleetResponse) Core.. Core._Time
 
-instance Prelude.NFData DescribeDeviceFleetResponse
+instance Core.NFData DescribeDeviceFleetResponse

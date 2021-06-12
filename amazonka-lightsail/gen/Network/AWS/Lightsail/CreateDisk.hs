@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.Lightsail.CreateDisk
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,24 +58,24 @@ import qualified Network.AWS.Response as Response
 data CreateDisk = CreateDisk'
   { -- | An array of objects that represent the add-ons to enable for the new
     -- disk.
-    addOns :: Prelude.Maybe [AddOnRequest],
+    addOns :: Core.Maybe [AddOnRequest],
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The unique Lightsail disk name (e.g., @my-disk@).
-    diskName :: Prelude.Text,
+    diskName :: Core.Text,
     -- | The Availability Zone where you want to create the disk (e.g.,
     -- @us-east-2a@). Use the same Availability Zone as the Lightsail instance
     -- to which you want to attach the disk.
     --
     -- Use the @get regions@ operation to list the Availability Zones where
     -- Lightsail is currently available.
-    availabilityZone :: Prelude.Text,
+    availabilityZone :: Core.Text,
     -- | The size of the disk in GB (e.g., @32@).
-    sizeInGb :: Prelude.Int
+    sizeInGb :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDisk' with all optional fields omitted.
@@ -105,19 +104,19 @@ data CreateDisk = CreateDisk'
 -- 'sizeInGb', 'createDisk_sizeInGb' - The size of the disk in GB (e.g., @32@).
 newCreateDisk ::
   -- | 'diskName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'availabilityZone'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sizeInGb'
-  Prelude.Int ->
+  Core.Int ->
   CreateDisk
 newCreateDisk
   pDiskName_
   pAvailabilityZone_
   pSizeInGb_ =
     CreateDisk'
-      { addOns = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { addOns = Core.Nothing,
+        tags = Core.Nothing,
         diskName = pDiskName_,
         availabilityZone = pAvailabilityZone_,
         sizeInGb = pSizeInGb_
@@ -125,17 +124,17 @@ newCreateDisk
 
 -- | An array of objects that represent the add-ons to enable for the new
 -- disk.
-createDisk_addOns :: Lens.Lens' CreateDisk (Prelude.Maybe [AddOnRequest])
-createDisk_addOns = Lens.lens (\CreateDisk' {addOns} -> addOns) (\s@CreateDisk' {} a -> s {addOns = a} :: CreateDisk) Prelude.. Lens.mapping Prelude._Coerce
+createDisk_addOns :: Lens.Lens' CreateDisk (Core.Maybe [AddOnRequest])
+createDisk_addOns = Lens.lens (\CreateDisk' {addOns} -> addOns) (\s@CreateDisk' {} a -> s {addOns = a} :: CreateDisk) Core.. Lens.mapping Lens._Coerce
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createDisk_tags :: Lens.Lens' CreateDisk (Prelude.Maybe [Tag])
-createDisk_tags = Lens.lens (\CreateDisk' {tags} -> tags) (\s@CreateDisk' {} a -> s {tags = a} :: CreateDisk) Prelude.. Lens.mapping Prelude._Coerce
+createDisk_tags :: Lens.Lens' CreateDisk (Core.Maybe [Tag])
+createDisk_tags = Lens.lens (\CreateDisk' {tags} -> tags) (\s@CreateDisk' {} a -> s {tags = a} :: CreateDisk) Core.. Lens.mapping Lens._Coerce
 
 -- | The unique Lightsail disk name (e.g., @my-disk@).
-createDisk_diskName :: Lens.Lens' CreateDisk Prelude.Text
+createDisk_diskName :: Lens.Lens' CreateDisk Core.Text
 createDisk_diskName = Lens.lens (\CreateDisk' {diskName} -> diskName) (\s@CreateDisk' {} a -> s {diskName = a} :: CreateDisk)
 
 -- | The Availability Zone where you want to create the disk (e.g.,
@@ -144,74 +143,68 @@ createDisk_diskName = Lens.lens (\CreateDisk' {diskName} -> diskName) (\s@Create
 --
 -- Use the @get regions@ operation to list the Availability Zones where
 -- Lightsail is currently available.
-createDisk_availabilityZone :: Lens.Lens' CreateDisk Prelude.Text
+createDisk_availabilityZone :: Lens.Lens' CreateDisk Core.Text
 createDisk_availabilityZone = Lens.lens (\CreateDisk' {availabilityZone} -> availabilityZone) (\s@CreateDisk' {} a -> s {availabilityZone = a} :: CreateDisk)
 
 -- | The size of the disk in GB (e.g., @32@).
-createDisk_sizeInGb :: Lens.Lens' CreateDisk Prelude.Int
+createDisk_sizeInGb :: Lens.Lens' CreateDisk Core.Int
 createDisk_sizeInGb = Lens.lens (\CreateDisk' {sizeInGb} -> sizeInGb) (\s@CreateDisk' {} a -> s {sizeInGb = a} :: CreateDisk)
 
-instance Prelude.AWSRequest CreateDisk where
-  type Rs CreateDisk = CreateDiskResponse
+instance Core.AWSRequest CreateDisk where
+  type AWSResponse CreateDisk = CreateDiskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateDiskResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDisk
+instance Core.Hashable CreateDisk
 
-instance Prelude.NFData CreateDisk
+instance Core.NFData CreateDisk
 
-instance Prelude.ToHeaders CreateDisk where
+instance Core.ToHeaders CreateDisk where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.CreateDisk" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Lightsail_20161128.CreateDisk" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateDisk where
+instance Core.ToJSON CreateDisk where
   toJSON CreateDisk' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("addOns" Prelude..=) Prelude.<$> addOns,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("diskName" Prelude..= diskName),
-            Prelude.Just
-              ("availabilityZone" Prelude..= availabilityZone),
-            Prelude.Just ("sizeInGb" Prelude..= sizeInGb)
+    Core.object
+      ( Core.catMaybes
+          [ ("addOns" Core..=) Core.<$> addOns,
+            ("tags" Core..=) Core.<$> tags,
+            Core.Just ("diskName" Core..= diskName),
+            Core.Just
+              ("availabilityZone" Core..= availabilityZone),
+            Core.Just ("sizeInGb" Core..= sizeInGb)
           ]
       )
 
-instance Prelude.ToPath CreateDisk where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDisk where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDisk where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateDisk where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateDiskResponse' smart constructor.
 data CreateDiskResponse = CreateDiskResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDiskResponse' with all optional fields omitted.
@@ -228,22 +221,22 @@ data CreateDiskResponse = CreateDiskResponse'
 -- 'httpStatus', 'createDiskResponse_httpStatus' - The response's http status code.
 newCreateDiskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDiskResponse
 newCreateDiskResponse pHttpStatus_ =
   CreateDiskResponse'
-    { operations = Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createDiskResponse_operations :: Lens.Lens' CreateDiskResponse (Prelude.Maybe [Operation])
-createDiskResponse_operations = Lens.lens (\CreateDiskResponse' {operations} -> operations) (\s@CreateDiskResponse' {} a -> s {operations = a} :: CreateDiskResponse) Prelude.. Lens.mapping Prelude._Coerce
+createDiskResponse_operations :: Lens.Lens' CreateDiskResponse (Core.Maybe [Operation])
+createDiskResponse_operations = Lens.lens (\CreateDiskResponse' {operations} -> operations) (\s@CreateDiskResponse' {} a -> s {operations = a} :: CreateDiskResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createDiskResponse_httpStatus :: Lens.Lens' CreateDiskResponse Prelude.Int
+createDiskResponse_httpStatus :: Lens.Lens' CreateDiskResponse Core.Int
 createDiskResponse_httpStatus = Lens.lens (\CreateDiskResponse' {httpStatus} -> httpStatus) (\s@CreateDiskResponse' {} a -> s {httpStatus = a} :: CreateDiskResponse)
 
-instance Prelude.NFData CreateDiskResponse
+instance Core.NFData CreateDiskResponse

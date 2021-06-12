@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.IoT.SetDefaultPolicyVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetDefaultPolicyVersion' smart constructor.
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
   { -- | The policy name.
-    policyName :: Prelude.Text,
+    policyName :: Core.Text,
     -- | The policy version ID.
-    policyVersionId :: Prelude.Text
+    policyVersionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetDefaultPolicyVersion' with all optional fields omitted.
@@ -70,9 +69,9 @@ data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
 -- 'policyVersionId', 'setDefaultPolicyVersion_policyVersionId' - The policy version ID.
 newSetDefaultPolicyVersion ::
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyVersionId'
-  Prelude.Text ->
+  Core.Text ->
   SetDefaultPolicyVersion
 newSetDefaultPolicyVersion
   pPolicyName_
@@ -83,50 +82,49 @@ newSetDefaultPolicyVersion
       }
 
 -- | The policy name.
-setDefaultPolicyVersion_policyName :: Lens.Lens' SetDefaultPolicyVersion Prelude.Text
+setDefaultPolicyVersion_policyName :: Lens.Lens' SetDefaultPolicyVersion Core.Text
 setDefaultPolicyVersion_policyName = Lens.lens (\SetDefaultPolicyVersion' {policyName} -> policyName) (\s@SetDefaultPolicyVersion' {} a -> s {policyName = a} :: SetDefaultPolicyVersion)
 
 -- | The policy version ID.
-setDefaultPolicyVersion_policyVersionId :: Lens.Lens' SetDefaultPolicyVersion Prelude.Text
+setDefaultPolicyVersion_policyVersionId :: Lens.Lens' SetDefaultPolicyVersion Core.Text
 setDefaultPolicyVersion_policyVersionId = Lens.lens (\SetDefaultPolicyVersion' {policyVersionId} -> policyVersionId) (\s@SetDefaultPolicyVersion' {} a -> s {policyVersionId = a} :: SetDefaultPolicyVersion)
 
-instance Prelude.AWSRequest SetDefaultPolicyVersion where
+instance Core.AWSRequest SetDefaultPolicyVersion where
   type
-    Rs SetDefaultPolicyVersion =
+    AWSResponse SetDefaultPolicyVersion =
       SetDefaultPolicyVersionResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveNull
       SetDefaultPolicyVersionResponse'
 
-instance Prelude.Hashable SetDefaultPolicyVersion
+instance Core.Hashable SetDefaultPolicyVersion
 
-instance Prelude.NFData SetDefaultPolicyVersion
+instance Core.NFData SetDefaultPolicyVersion
 
-instance Prelude.ToHeaders SetDefaultPolicyVersion where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetDefaultPolicyVersion where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON SetDefaultPolicyVersion where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON SetDefaultPolicyVersion where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath SetDefaultPolicyVersion where
+instance Core.ToPath SetDefaultPolicyVersion where
   toPath SetDefaultPolicyVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/policies/",
-        Prelude.toBS policyName,
+        Core.toBS policyName,
         "/version/",
-        Prelude.toBS policyVersionId
+        Core.toBS policyVersionId
       ]
 
-instance Prelude.ToQuery SetDefaultPolicyVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SetDefaultPolicyVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSetDefaultPolicyVersionResponse' smart constructor.
 data SetDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetDefaultPolicyVersionResponse' with all optional fields omitted.
@@ -137,6 +135,4 @@ newSetDefaultPolicyVersionResponse ::
 newSetDefaultPolicyVersionResponse =
   SetDefaultPolicyVersionResponse'
 
-instance
-  Prelude.NFData
-    SetDefaultPolicyVersionResponse
+instance Core.NFData SetDefaultPolicyVersionResponse

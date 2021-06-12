@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ProfilerRuleConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ProcessingInstanceType
 
 -- | Configuration information for profiling rules.
@@ -29,26 +28,26 @@ import Network.AWS.SageMaker.Types.ProcessingInstanceType
 -- /See:/ 'newProfilerRuleConfiguration' smart constructor.
 data ProfilerRuleConfiguration = ProfilerRuleConfiguration'
   { -- | Runtime configuration for rule container.
-    ruleParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    ruleParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The instance type to deploy a Debugger custom rule for profiling a
     -- training job.
-    instanceType :: Prelude.Maybe ProcessingInstanceType,
+    instanceType :: Core.Maybe ProcessingInstanceType,
     -- | Path to Amazon S3 storage location for rules.
-    s3OutputPath :: Prelude.Maybe Prelude.Text,
+    s3OutputPath :: Core.Maybe Core.Text,
     -- | The size, in GB, of the ML storage volume attached to the processing
     -- instance.
-    volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
+    volumeSizeInGB :: Core.Maybe Core.Natural,
     -- | Path to local storage location for output of rules. Defaults to
     -- @\/opt\/ml\/processing\/output\/rule\/@.
-    localPath :: Prelude.Maybe Prelude.Text,
+    localPath :: Core.Maybe Core.Text,
     -- | The name of the rule configuration. It must be unique relative to other
     -- rule configuration names.
-    ruleConfigurationName :: Prelude.Text,
+    ruleConfigurationName :: Core.Text,
     -- | The Amazon Elastic Container (ECR) Image for the managed rule
     -- evaluation.
-    ruleEvaluatorImage :: Prelude.Text
+    ruleEvaluatorImage :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProfilerRuleConfiguration' with all optional fields omitted.
@@ -78,96 +77,90 @@ data ProfilerRuleConfiguration = ProfilerRuleConfiguration'
 -- evaluation.
 newProfilerRuleConfiguration ::
   -- | 'ruleConfigurationName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ruleEvaluatorImage'
-  Prelude.Text ->
+  Core.Text ->
   ProfilerRuleConfiguration
 newProfilerRuleConfiguration
   pRuleConfigurationName_
   pRuleEvaluatorImage_ =
     ProfilerRuleConfiguration'
       { ruleParameters =
-          Prelude.Nothing,
-        instanceType = Prelude.Nothing,
-        s3OutputPath = Prelude.Nothing,
-        volumeSizeInGB = Prelude.Nothing,
-        localPath = Prelude.Nothing,
+          Core.Nothing,
+        instanceType = Core.Nothing,
+        s3OutputPath = Core.Nothing,
+        volumeSizeInGB = Core.Nothing,
+        localPath = Core.Nothing,
         ruleConfigurationName = pRuleConfigurationName_,
         ruleEvaluatorImage = pRuleEvaluatorImage_
       }
 
 -- | Runtime configuration for rule container.
-profilerRuleConfiguration_ruleParameters :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-profilerRuleConfiguration_ruleParameters = Lens.lens (\ProfilerRuleConfiguration' {ruleParameters} -> ruleParameters) (\s@ProfilerRuleConfiguration' {} a -> s {ruleParameters = a} :: ProfilerRuleConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+profilerRuleConfiguration_ruleParameters :: Lens.Lens' ProfilerRuleConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
+profilerRuleConfiguration_ruleParameters = Lens.lens (\ProfilerRuleConfiguration' {ruleParameters} -> ruleParameters) (\s@ProfilerRuleConfiguration' {} a -> s {ruleParameters = a} :: ProfilerRuleConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The instance type to deploy a Debugger custom rule for profiling a
 -- training job.
-profilerRuleConfiguration_instanceType :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe ProcessingInstanceType)
+profilerRuleConfiguration_instanceType :: Lens.Lens' ProfilerRuleConfiguration (Core.Maybe ProcessingInstanceType)
 profilerRuleConfiguration_instanceType = Lens.lens (\ProfilerRuleConfiguration' {instanceType} -> instanceType) (\s@ProfilerRuleConfiguration' {} a -> s {instanceType = a} :: ProfilerRuleConfiguration)
 
 -- | Path to Amazon S3 storage location for rules.
-profilerRuleConfiguration_s3OutputPath :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe Prelude.Text)
+profilerRuleConfiguration_s3OutputPath :: Lens.Lens' ProfilerRuleConfiguration (Core.Maybe Core.Text)
 profilerRuleConfiguration_s3OutputPath = Lens.lens (\ProfilerRuleConfiguration' {s3OutputPath} -> s3OutputPath) (\s@ProfilerRuleConfiguration' {} a -> s {s3OutputPath = a} :: ProfilerRuleConfiguration)
 
 -- | The size, in GB, of the ML storage volume attached to the processing
 -- instance.
-profilerRuleConfiguration_volumeSizeInGB :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe Prelude.Natural)
+profilerRuleConfiguration_volumeSizeInGB :: Lens.Lens' ProfilerRuleConfiguration (Core.Maybe Core.Natural)
 profilerRuleConfiguration_volumeSizeInGB = Lens.lens (\ProfilerRuleConfiguration' {volumeSizeInGB} -> volumeSizeInGB) (\s@ProfilerRuleConfiguration' {} a -> s {volumeSizeInGB = a} :: ProfilerRuleConfiguration)
 
 -- | Path to local storage location for output of rules. Defaults to
 -- @\/opt\/ml\/processing\/output\/rule\/@.
-profilerRuleConfiguration_localPath :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe Prelude.Text)
+profilerRuleConfiguration_localPath :: Lens.Lens' ProfilerRuleConfiguration (Core.Maybe Core.Text)
 profilerRuleConfiguration_localPath = Lens.lens (\ProfilerRuleConfiguration' {localPath} -> localPath) (\s@ProfilerRuleConfiguration' {} a -> s {localPath = a} :: ProfilerRuleConfiguration)
 
 -- | The name of the rule configuration. It must be unique relative to other
 -- rule configuration names.
-profilerRuleConfiguration_ruleConfigurationName :: Lens.Lens' ProfilerRuleConfiguration Prelude.Text
+profilerRuleConfiguration_ruleConfigurationName :: Lens.Lens' ProfilerRuleConfiguration Core.Text
 profilerRuleConfiguration_ruleConfigurationName = Lens.lens (\ProfilerRuleConfiguration' {ruleConfigurationName} -> ruleConfigurationName) (\s@ProfilerRuleConfiguration' {} a -> s {ruleConfigurationName = a} :: ProfilerRuleConfiguration)
 
 -- | The Amazon Elastic Container (ECR) Image for the managed rule
 -- evaluation.
-profilerRuleConfiguration_ruleEvaluatorImage :: Lens.Lens' ProfilerRuleConfiguration Prelude.Text
+profilerRuleConfiguration_ruleEvaluatorImage :: Lens.Lens' ProfilerRuleConfiguration Core.Text
 profilerRuleConfiguration_ruleEvaluatorImage = Lens.lens (\ProfilerRuleConfiguration' {ruleEvaluatorImage} -> ruleEvaluatorImage) (\s@ProfilerRuleConfiguration' {} a -> s {ruleEvaluatorImage = a} :: ProfilerRuleConfiguration)
 
-instance Prelude.FromJSON ProfilerRuleConfiguration where
+instance Core.FromJSON ProfilerRuleConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProfilerRuleConfiguration"
       ( \x ->
           ProfilerRuleConfiguration'
-            Prelude.<$> ( x Prelude..:? "RuleParameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "InstanceType")
-            Prelude.<*> (x Prelude..:? "S3OutputPath")
-            Prelude.<*> (x Prelude..:? "VolumeSizeInGB")
-            Prelude.<*> (x Prelude..:? "LocalPath")
-            Prelude.<*> (x Prelude..: "RuleConfigurationName")
-            Prelude.<*> (x Prelude..: "RuleEvaluatorImage")
+            Core.<$> (x Core..:? "RuleParameters" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "InstanceType")
+            Core.<*> (x Core..:? "S3OutputPath")
+            Core.<*> (x Core..:? "VolumeSizeInGB")
+            Core.<*> (x Core..:? "LocalPath")
+            Core.<*> (x Core..: "RuleConfigurationName")
+            Core.<*> (x Core..: "RuleEvaluatorImage")
       )
 
-instance Prelude.Hashable ProfilerRuleConfiguration
+instance Core.Hashable ProfilerRuleConfiguration
 
-instance Prelude.NFData ProfilerRuleConfiguration
+instance Core.NFData ProfilerRuleConfiguration
 
-instance Prelude.ToJSON ProfilerRuleConfiguration where
+instance Core.ToJSON ProfilerRuleConfiguration where
   toJSON ProfilerRuleConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RuleParameters" Prelude..=)
-              Prelude.<$> ruleParameters,
-            ("InstanceType" Prelude..=) Prelude.<$> instanceType,
-            ("S3OutputPath" Prelude..=) Prelude.<$> s3OutputPath,
-            ("VolumeSizeInGB" Prelude..=)
-              Prelude.<$> volumeSizeInGB,
-            ("LocalPath" Prelude..=) Prelude.<$> localPath,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("RuleParameters" Core..=) Core.<$> ruleParameters,
+            ("InstanceType" Core..=) Core.<$> instanceType,
+            ("S3OutputPath" Core..=) Core.<$> s3OutputPath,
+            ("VolumeSizeInGB" Core..=) Core.<$> volumeSizeInGB,
+            ("LocalPath" Core..=) Core.<$> localPath,
+            Core.Just
               ( "RuleConfigurationName"
-                  Prelude..= ruleConfigurationName
+                  Core..= ruleConfigurationName
               ),
-            Prelude.Just
-              ( "RuleEvaluatorImage"
-                  Prelude..= ruleEvaluatorImage
-              )
+            Core.Just
+              ("RuleEvaluatorImage" Core..= ruleEvaluatorImage)
           ]
       )

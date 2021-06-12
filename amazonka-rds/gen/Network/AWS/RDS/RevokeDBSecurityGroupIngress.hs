@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,27 +60,27 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
   { -- | The IP range to revoke access from. Must be a valid CIDR range. If
     -- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
     -- @EC2SecurityGroupOwnerId@ can\'t be provided.
-    cidrip :: Prelude.Maybe Prelude.Text,
+    cidrip :: Core.Maybe Core.Text,
     -- | The AWS account number of the owner of the EC2 security group specified
     -- in the @EC2SecurityGroupName@ parameter. The AWS access key ID isn\'t an
     -- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
     -- be provided. Otherwise, EC2SecurityGroupOwnerId and either
     -- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
-    eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
+    eC2SecurityGroupOwnerId :: Core.Maybe Core.Text,
     -- | The id of the EC2 security group to revoke access from. For VPC DB
     -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
     -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
     -- @EC2SecurityGroupId@ must be provided.
-    eC2SecurityGroupId :: Prelude.Maybe Prelude.Text,
+    eC2SecurityGroupId :: Core.Maybe Core.Text,
     -- | The name of the EC2 security group to revoke access from. For VPC DB
     -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
     -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
     -- @EC2SecurityGroupId@ must be provided.
-    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text,
+    eC2SecurityGroupName :: Core.Maybe Core.Text,
     -- | The name of the DB security group to revoke ingress from.
-    dbSecurityGroupName :: Prelude.Text
+    dbSecurityGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RevokeDBSecurityGroupIngress' with all optional fields omitted.
@@ -114,22 +113,22 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
 -- 'dbSecurityGroupName', 'revokeDBSecurityGroupIngress_dbSecurityGroupName' - The name of the DB security group to revoke ingress from.
 newRevokeDBSecurityGroupIngress ::
   -- | 'dbSecurityGroupName'
-  Prelude.Text ->
+  Core.Text ->
   RevokeDBSecurityGroupIngress
 newRevokeDBSecurityGroupIngress pDBSecurityGroupName_ =
   RevokeDBSecurityGroupIngress'
     { cidrip =
-        Prelude.Nothing,
-      eC2SecurityGroupOwnerId = Prelude.Nothing,
-      eC2SecurityGroupId = Prelude.Nothing,
-      eC2SecurityGroupName = Prelude.Nothing,
+        Core.Nothing,
+      eC2SecurityGroupOwnerId = Core.Nothing,
+      eC2SecurityGroupId = Core.Nothing,
+      eC2SecurityGroupName = Core.Nothing,
       dbSecurityGroupName = pDBSecurityGroupName_
     }
 
 -- | The IP range to revoke access from. Must be a valid CIDR range. If
 -- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
 -- @EC2SecurityGroupOwnerId@ can\'t be provided.
-revokeDBSecurityGroupIngress_cidrip :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeDBSecurityGroupIngress_cidrip :: Lens.Lens' RevokeDBSecurityGroupIngress (Core.Maybe Core.Text)
 revokeDBSecurityGroupIngress_cidrip = Lens.lens (\RevokeDBSecurityGroupIngress' {cidrip} -> cidrip) (\s@RevokeDBSecurityGroupIngress' {} a -> s {cidrip = a} :: RevokeDBSecurityGroupIngress)
 
 -- | The AWS account number of the owner of the EC2 security group specified
@@ -137,33 +136,30 @@ revokeDBSecurityGroupIngress_cidrip = Lens.lens (\RevokeDBSecurityGroupIngress' 
 -- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
 -- be provided. Otherwise, EC2SecurityGroupOwnerId and either
 -- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
-revokeDBSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeDBSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' RevokeDBSecurityGroupIngress (Core.Maybe Core.Text)
 revokeDBSecurityGroupIngress_eC2SecurityGroupOwnerId = Lens.lens (\RevokeDBSecurityGroupIngress' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@RevokeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupOwnerId = a} :: RevokeDBSecurityGroupIngress)
 
 -- | The id of the EC2 security group to revoke access from. For VPC DB
 -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
 -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
-revokeDBSecurityGroupIngress_eC2SecurityGroupId :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeDBSecurityGroupIngress_eC2SecurityGroupId :: Lens.Lens' RevokeDBSecurityGroupIngress (Core.Maybe Core.Text)
 revokeDBSecurityGroupIngress_eC2SecurityGroupId = Lens.lens (\RevokeDBSecurityGroupIngress' {eC2SecurityGroupId} -> eC2SecurityGroupId) (\s@RevokeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupId = a} :: RevokeDBSecurityGroupIngress)
 
 -- | The name of the EC2 security group to revoke access from. For VPC DB
 -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
 -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
-revokeDBSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeDBSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' RevokeDBSecurityGroupIngress (Core.Maybe Core.Text)
 revokeDBSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\RevokeDBSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@RevokeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: RevokeDBSecurityGroupIngress)
 
 -- | The name of the DB security group to revoke ingress from.
-revokeDBSecurityGroupIngress_dbSecurityGroupName :: Lens.Lens' RevokeDBSecurityGroupIngress Prelude.Text
+revokeDBSecurityGroupIngress_dbSecurityGroupName :: Lens.Lens' RevokeDBSecurityGroupIngress Core.Text
 revokeDBSecurityGroupIngress_dbSecurityGroupName = Lens.lens (\RevokeDBSecurityGroupIngress' {dbSecurityGroupName} -> dbSecurityGroupName) (\s@RevokeDBSecurityGroupIngress' {} a -> s {dbSecurityGroupName = a} :: RevokeDBSecurityGroupIngress)
 
-instance
-  Prelude.AWSRequest
-    RevokeDBSecurityGroupIngress
-  where
+instance Core.AWSRequest RevokeDBSecurityGroupIngress where
   type
-    Rs RevokeDBSecurityGroupIngress =
+    AWSResponse RevokeDBSecurityGroupIngress =
       RevokeDBSecurityGroupIngressResponse
   request = Request.postQuery defaultService
   response =
@@ -171,50 +167,41 @@ instance
       "RevokeDBSecurityGroupIngressResult"
       ( \s h x ->
           RevokeDBSecurityGroupIngressResponse'
-            Prelude.<$> (x Prelude..@? "DBSecurityGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DBSecurityGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    RevokeDBSecurityGroupIngress
+instance Core.Hashable RevokeDBSecurityGroupIngress
 
-instance Prelude.NFData RevokeDBSecurityGroupIngress
+instance Core.NFData RevokeDBSecurityGroupIngress
 
-instance
-  Prelude.ToHeaders
-    RevokeDBSecurityGroupIngress
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RevokeDBSecurityGroupIngress where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RevokeDBSecurityGroupIngress where
-  toPath = Prelude.const "/"
+instance Core.ToPath RevokeDBSecurityGroupIngress where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RevokeDBSecurityGroupIngress where
+instance Core.ToQuery RevokeDBSecurityGroupIngress where
   toQuery RevokeDBSecurityGroupIngress' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "RevokeDBSecurityGroupIngress" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "CIDRIP" Prelude.=: cidrip,
+          Core.=: ("RevokeDBSecurityGroupIngress" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "CIDRIP" Core.=: cidrip,
         "EC2SecurityGroupOwnerId"
-          Prelude.=: eC2SecurityGroupOwnerId,
-        "EC2SecurityGroupId" Prelude.=: eC2SecurityGroupId,
-        "EC2SecurityGroupName"
-          Prelude.=: eC2SecurityGroupName,
-        "DBSecurityGroupName" Prelude.=: dbSecurityGroupName
+          Core.=: eC2SecurityGroupOwnerId,
+        "EC2SecurityGroupId" Core.=: eC2SecurityGroupId,
+        "EC2SecurityGroupName" Core.=: eC2SecurityGroupName,
+        "DBSecurityGroupName" Core.=: dbSecurityGroupName
       ]
 
 -- | /See:/ 'newRevokeDBSecurityGroupIngressResponse' smart constructor.
 data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'
-  { dbSecurityGroup :: Prelude.Maybe DBSecurityGroup,
+  { dbSecurityGroup :: Core.Maybe DBSecurityGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RevokeDBSecurityGroupIngressResponse' with all optional fields omitted.
@@ -229,23 +216,23 @@ data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
 -- 'httpStatus', 'revokeDBSecurityGroupIngressResponse_httpStatus' - The response's http status code.
 newRevokeDBSecurityGroupIngressResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RevokeDBSecurityGroupIngressResponse
 newRevokeDBSecurityGroupIngressResponse pHttpStatus_ =
   RevokeDBSecurityGroupIngressResponse'
     { dbSecurityGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-revokeDBSecurityGroupIngressResponse_dbSecurityGroup :: Lens.Lens' RevokeDBSecurityGroupIngressResponse (Prelude.Maybe DBSecurityGroup)
+revokeDBSecurityGroupIngressResponse_dbSecurityGroup :: Lens.Lens' RevokeDBSecurityGroupIngressResponse (Core.Maybe DBSecurityGroup)
 revokeDBSecurityGroupIngressResponse_dbSecurityGroup = Lens.lens (\RevokeDBSecurityGroupIngressResponse' {dbSecurityGroup} -> dbSecurityGroup) (\s@RevokeDBSecurityGroupIngressResponse' {} a -> s {dbSecurityGroup = a} :: RevokeDBSecurityGroupIngressResponse)
 
 -- | The response's http status code.
-revokeDBSecurityGroupIngressResponse_httpStatus :: Lens.Lens' RevokeDBSecurityGroupIngressResponse Prelude.Int
+revokeDBSecurityGroupIngressResponse_httpStatus :: Lens.Lens' RevokeDBSecurityGroupIngressResponse Core.Int
 revokeDBSecurityGroupIngressResponse_httpStatus = Lens.lens (\RevokeDBSecurityGroupIngressResponse' {httpStatus} -> httpStatus) (\s@RevokeDBSecurityGroupIngressResponse' {} a -> s {httpStatus = a} :: RevokeDBSecurityGroupIngressResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RevokeDBSecurityGroupIngressResponse

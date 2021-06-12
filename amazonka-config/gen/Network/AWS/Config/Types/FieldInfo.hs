@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Config.Types.FieldInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the fields such as name of the field.
 --
 -- /See:/ 'newFieldInfo' smart constructor.
 data FieldInfo = FieldInfo'
   { -- | Name of the field.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FieldInfo' with all optional fields omitted.
@@ -43,20 +42,18 @@ data FieldInfo = FieldInfo'
 -- 'name', 'fieldInfo_name' - Name of the field.
 newFieldInfo ::
   FieldInfo
-newFieldInfo = FieldInfo' {name = Prelude.Nothing}
+newFieldInfo = FieldInfo' {name = Core.Nothing}
 
 -- | Name of the field.
-fieldInfo_name :: Lens.Lens' FieldInfo (Prelude.Maybe Prelude.Text)
+fieldInfo_name :: Lens.Lens' FieldInfo (Core.Maybe Core.Text)
 fieldInfo_name = Lens.lens (\FieldInfo' {name} -> name) (\s@FieldInfo' {} a -> s {name = a} :: FieldInfo)
 
-instance Prelude.FromJSON FieldInfo where
+instance Core.FromJSON FieldInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FieldInfo"
-      ( \x ->
-          FieldInfo' Prelude.<$> (x Prelude..:? "Name")
-      )
+      (\x -> FieldInfo' Core.<$> (x Core..:? "Name"))
 
-instance Prelude.Hashable FieldInfo
+instance Core.Hashable FieldInfo
 
-instance Prelude.NFData FieldInfo
+instance Core.NFData FieldInfo

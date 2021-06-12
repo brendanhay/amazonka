@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.SES.UpdateConfigurationSetReputationMetricsEnabled
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -55,13 +54,13 @@ import Network.AWS.SES.Types
 -- /See:/ 'newUpdateConfigurationSetReputationMetricsEnabled' smart constructor.
 data UpdateConfigurationSetReputationMetricsEnabled = UpdateConfigurationSetReputationMetricsEnabled'
   { -- | The name of the configuration set that you want to update.
-    configurationSetName :: Prelude.Text,
+    configurationSetName :: Core.Text,
     -- | Describes whether or not Amazon SES will publish reputation metrics for
     -- the configuration set, such as bounce and complaint rates, to Amazon
     -- CloudWatch.
-    enabled :: Prelude.Bool
+    enabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConfigurationSetReputationMetricsEnabled' with all optional fields omitted.
@@ -78,9 +77,9 @@ data UpdateConfigurationSetReputationMetricsEnabled = UpdateConfigurationSetRepu
 -- CloudWatch.
 newUpdateConfigurationSetReputationMetricsEnabled ::
   -- | 'configurationSetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'enabled'
-  Prelude.Bool ->
+  Core.Bool ->
   UpdateConfigurationSetReputationMetricsEnabled
 newUpdateConfigurationSetReputationMetricsEnabled
   pConfigurationSetName_
@@ -92,21 +91,21 @@ newUpdateConfigurationSetReputationMetricsEnabled
       }
 
 -- | The name of the configuration set that you want to update.
-updateConfigurationSetReputationMetricsEnabled_configurationSetName :: Lens.Lens' UpdateConfigurationSetReputationMetricsEnabled Prelude.Text
+updateConfigurationSetReputationMetricsEnabled_configurationSetName :: Lens.Lens' UpdateConfigurationSetReputationMetricsEnabled Core.Text
 updateConfigurationSetReputationMetricsEnabled_configurationSetName = Lens.lens (\UpdateConfigurationSetReputationMetricsEnabled' {configurationSetName} -> configurationSetName) (\s@UpdateConfigurationSetReputationMetricsEnabled' {} a -> s {configurationSetName = a} :: UpdateConfigurationSetReputationMetricsEnabled)
 
 -- | Describes whether or not Amazon SES will publish reputation metrics for
 -- the configuration set, such as bounce and complaint rates, to Amazon
 -- CloudWatch.
-updateConfigurationSetReputationMetricsEnabled_enabled :: Lens.Lens' UpdateConfigurationSetReputationMetricsEnabled Prelude.Bool
+updateConfigurationSetReputationMetricsEnabled_enabled :: Lens.Lens' UpdateConfigurationSetReputationMetricsEnabled Core.Bool
 updateConfigurationSetReputationMetricsEnabled_enabled = Lens.lens (\UpdateConfigurationSetReputationMetricsEnabled' {enabled} -> enabled) (\s@UpdateConfigurationSetReputationMetricsEnabled' {} a -> s {enabled = a} :: UpdateConfigurationSetReputationMetricsEnabled)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateConfigurationSetReputationMetricsEnabled
   where
   type
-    Rs
+    AWSResponse
       UpdateConfigurationSetReputationMetricsEnabled =
       UpdateConfigurationSetReputationMetricsEnabledResponse
   request = Request.postQuery defaultService
@@ -115,48 +114,46 @@ instance
       UpdateConfigurationSetReputationMetricsEnabledResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateConfigurationSetReputationMetricsEnabled
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateConfigurationSetReputationMetricsEnabled
 
 instance
-  Prelude.ToHeaders
-    UpdateConfigurationSetReputationMetricsEnabled
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     UpdateConfigurationSetReputationMetricsEnabled
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    UpdateConfigurationSetReputationMetricsEnabled
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     UpdateConfigurationSetReputationMetricsEnabled
   where
   toQuery
     UpdateConfigurationSetReputationMetricsEnabled' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "Action"
-            Prelude.=: ( "UpdateConfigurationSetReputationMetricsEnabled" ::
-                           Prelude.ByteString
-                       ),
-          "Version"
-            Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-          "ConfigurationSetName"
-            Prelude.=: configurationSetName,
-          "Enabled" Prelude.=: enabled
+            Core.=: ( "UpdateConfigurationSetReputationMetricsEnabled" ::
+                        Core.ByteString
+                    ),
+          "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          "ConfigurationSetName" Core.=: configurationSetName,
+          "Enabled" Core.=: enabled
         ]
 
 -- | /See:/ 'newUpdateConfigurationSetReputationMetricsEnabledResponse' smart constructor.
 data UpdateConfigurationSetReputationMetricsEnabledResponse = UpdateConfigurationSetReputationMetricsEnabledResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConfigurationSetReputationMetricsEnabledResponse' with all optional fields omitted.
@@ -168,5 +165,5 @@ newUpdateConfigurationSetReputationMetricsEnabledResponse =
   UpdateConfigurationSetReputationMetricsEnabledResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateConfigurationSetReputationMetricsEnabledResponse

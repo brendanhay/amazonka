@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,28 +21,28 @@ module Network.AWS.AutoScaling.Types.Instance where
 
 import Network.AWS.AutoScaling.Types.LaunchTemplateSpecification
 import Network.AWS.AutoScaling.Types.LifecycleState
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an EC2 instance.
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
   { -- | The instance type of the EC2 instance.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    instanceType :: Core.Maybe Core.Text,
     -- | The launch template for the instance.
-    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
+    launchTemplate :: Core.Maybe LaunchTemplateSpecification,
     -- | The launch configuration associated with the instance.
-    launchConfigurationName :: Prelude.Maybe Prelude.Text,
+    launchConfigurationName :: Core.Maybe Core.Text,
     -- | The number of capacity units contributed by the instance based on its
     -- instance type.
     --
     -- Valid Range: Minimum value of 1. Maximum value of 999.
-    weightedCapacity :: Prelude.Maybe Prelude.Text,
+    weightedCapacity :: Core.Maybe Core.Text,
     -- | The ID of the instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The Availability Zone in which the instance is running.
-    availabilityZone :: Prelude.Text,
+    availabilityZone :: Core.Text,
     -- | A description of the current lifecycle state. The @Quarantined@ state is
     -- not used. For information about lifecycle states, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html Instance lifecycle>
@@ -53,12 +52,12 @@ data Instance = Instance'
     -- the instance is healthy and should remain in service. \"Unhealthy\"
     -- means that the instance is unhealthy and that Amazon EC2 Auto Scaling
     -- should terminate and replace it.
-    healthStatus :: Prelude.Text,
+    healthStatus :: Core.Text,
     -- | Indicates whether the instance is protected from termination by Amazon
     -- EC2 Auto Scaling when scaling in.
-    protectedFromScaleIn :: Prelude.Bool
+    protectedFromScaleIn :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Instance' with all optional fields omitted.
@@ -97,15 +96,15 @@ data Instance = Instance'
 -- EC2 Auto Scaling when scaling in.
 newInstance ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'availabilityZone'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lifecycleState'
   LifecycleState ->
   -- | 'healthStatus'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'protectedFromScaleIn'
-  Prelude.Bool ->
+  Core.Bool ->
   Instance
 newInstance
   pInstanceId_
@@ -114,10 +113,10 @@ newInstance
   pHealthStatus_
   pProtectedFromScaleIn_ =
     Instance'
-      { instanceType = Prelude.Nothing,
-        launchTemplate = Prelude.Nothing,
-        launchConfigurationName = Prelude.Nothing,
-        weightedCapacity = Prelude.Nothing,
+      { instanceType = Core.Nothing,
+        launchTemplate = Core.Nothing,
+        launchConfigurationName = Core.Nothing,
+        weightedCapacity = Core.Nothing,
         instanceId = pInstanceId_,
         availabilityZone = pAvailabilityZone_,
         lifecycleState = pLifecycleState_,
@@ -126,30 +125,30 @@ newInstance
       }
 
 -- | The instance type of the EC2 instance.
-instance_instanceType :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_instanceType :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_instanceType = Lens.lens (\Instance' {instanceType} -> instanceType) (\s@Instance' {} a -> s {instanceType = a} :: Instance)
 
 -- | The launch template for the instance.
-instance_launchTemplate :: Lens.Lens' Instance (Prelude.Maybe LaunchTemplateSpecification)
+instance_launchTemplate :: Lens.Lens' Instance (Core.Maybe LaunchTemplateSpecification)
 instance_launchTemplate = Lens.lens (\Instance' {launchTemplate} -> launchTemplate) (\s@Instance' {} a -> s {launchTemplate = a} :: Instance)
 
 -- | The launch configuration associated with the instance.
-instance_launchConfigurationName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_launchConfigurationName :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_launchConfigurationName = Lens.lens (\Instance' {launchConfigurationName} -> launchConfigurationName) (\s@Instance' {} a -> s {launchConfigurationName = a} :: Instance)
 
 -- | The number of capacity units contributed by the instance based on its
 -- instance type.
 --
 -- Valid Range: Minimum value of 1. Maximum value of 999.
-instance_weightedCapacity :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_weightedCapacity :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_weightedCapacity = Lens.lens (\Instance' {weightedCapacity} -> weightedCapacity) (\s@Instance' {} a -> s {weightedCapacity = a} :: Instance)
 
 -- | The ID of the instance.
-instance_instanceId :: Lens.Lens' Instance Prelude.Text
+instance_instanceId :: Lens.Lens' Instance Core.Text
 instance_instanceId = Lens.lens (\Instance' {instanceId} -> instanceId) (\s@Instance' {} a -> s {instanceId = a} :: Instance)
 
 -- | The Availability Zone in which the instance is running.
-instance_availabilityZone :: Lens.Lens' Instance Prelude.Text
+instance_availabilityZone :: Lens.Lens' Instance Core.Text
 instance_availabilityZone = Lens.lens (\Instance' {availabilityZone} -> availabilityZone) (\s@Instance' {} a -> s {availabilityZone = a} :: Instance)
 
 -- | A description of the current lifecycle state. The @Quarantined@ state is
@@ -163,27 +162,27 @@ instance_lifecycleState = Lens.lens (\Instance' {lifecycleState} -> lifecycleSta
 -- the instance is healthy and should remain in service. \"Unhealthy\"
 -- means that the instance is unhealthy and that Amazon EC2 Auto Scaling
 -- should terminate and replace it.
-instance_healthStatus :: Lens.Lens' Instance Prelude.Text
+instance_healthStatus :: Lens.Lens' Instance Core.Text
 instance_healthStatus = Lens.lens (\Instance' {healthStatus} -> healthStatus) (\s@Instance' {} a -> s {healthStatus = a} :: Instance)
 
 -- | Indicates whether the instance is protected from termination by Amazon
 -- EC2 Auto Scaling when scaling in.
-instance_protectedFromScaleIn :: Lens.Lens' Instance Prelude.Bool
+instance_protectedFromScaleIn :: Lens.Lens' Instance Core.Bool
 instance_protectedFromScaleIn = Lens.lens (\Instance' {protectedFromScaleIn} -> protectedFromScaleIn) (\s@Instance' {} a -> s {protectedFromScaleIn = a} :: Instance)
 
-instance Prelude.FromXML Instance where
+instance Core.FromXML Instance where
   parseXML x =
     Instance'
-      Prelude.<$> (x Prelude..@? "InstanceType")
-      Prelude.<*> (x Prelude..@? "LaunchTemplate")
-      Prelude.<*> (x Prelude..@? "LaunchConfigurationName")
-      Prelude.<*> (x Prelude..@? "WeightedCapacity")
-      Prelude.<*> (x Prelude..@ "InstanceId")
-      Prelude.<*> (x Prelude..@ "AvailabilityZone")
-      Prelude.<*> (x Prelude..@ "LifecycleState")
-      Prelude.<*> (x Prelude..@ "HealthStatus")
-      Prelude.<*> (x Prelude..@ "ProtectedFromScaleIn")
+      Core.<$> (x Core..@? "InstanceType")
+      Core.<*> (x Core..@? "LaunchTemplate")
+      Core.<*> (x Core..@? "LaunchConfigurationName")
+      Core.<*> (x Core..@? "WeightedCapacity")
+      Core.<*> (x Core..@ "InstanceId")
+      Core.<*> (x Core..@ "AvailabilityZone")
+      Core.<*> (x Core..@ "LifecycleState")
+      Core.<*> (x Core..@ "HealthStatus")
+      Core.<*> (x Core..@ "ProtectedFromScaleIn")
 
-instance Prelude.Hashable Instance
+instance Core.Hashable Instance
 
-instance Prelude.NFData Instance
+instance Core.NFData Instance

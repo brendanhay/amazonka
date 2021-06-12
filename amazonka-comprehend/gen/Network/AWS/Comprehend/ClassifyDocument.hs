@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,19 +44,19 @@ module Network.AWS.Comprehend.ClassifyDocument
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newClassifyDocument' smart constructor.
 data ClassifyDocument = ClassifyDocument'
   { -- | The document text to be analyzed.
-    text :: Prelude.Sensitive Prelude.Text,
+    text :: Core.Sensitive Core.Text,
     -- | The Amazon Resource Number (ARN) of the endpoint.
-    endpointArn :: Prelude.Text
+    endpointArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClassifyDocument' with all optional fields omitted.
@@ -72,70 +71,70 @@ data ClassifyDocument = ClassifyDocument'
 -- 'endpointArn', 'classifyDocument_endpointArn' - The Amazon Resource Number (ARN) of the endpoint.
 newClassifyDocument ::
   -- | 'text'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'endpointArn'
-  Prelude.Text ->
+  Core.Text ->
   ClassifyDocument
 newClassifyDocument pText_ pEndpointArn_ =
   ClassifyDocument'
     { text =
-        Prelude._Sensitive Lens.# pText_,
+        Core._Sensitive Lens.# pText_,
       endpointArn = pEndpointArn_
     }
 
 -- | The document text to be analyzed.
-classifyDocument_text :: Lens.Lens' ClassifyDocument Prelude.Text
-classifyDocument_text = Lens.lens (\ClassifyDocument' {text} -> text) (\s@ClassifyDocument' {} a -> s {text = a} :: ClassifyDocument) Prelude.. Prelude._Sensitive
+classifyDocument_text :: Lens.Lens' ClassifyDocument Core.Text
+classifyDocument_text = Lens.lens (\ClassifyDocument' {text} -> text) (\s@ClassifyDocument' {} a -> s {text = a} :: ClassifyDocument) Core.. Core._Sensitive
 
 -- | The Amazon Resource Number (ARN) of the endpoint.
-classifyDocument_endpointArn :: Lens.Lens' ClassifyDocument Prelude.Text
+classifyDocument_endpointArn :: Lens.Lens' ClassifyDocument Core.Text
 classifyDocument_endpointArn = Lens.lens (\ClassifyDocument' {endpointArn} -> endpointArn) (\s@ClassifyDocument' {} a -> s {endpointArn = a} :: ClassifyDocument)
 
-instance Prelude.AWSRequest ClassifyDocument where
-  type Rs ClassifyDocument = ClassifyDocumentResponse
+instance Core.AWSRequest ClassifyDocument where
+  type
+    AWSResponse ClassifyDocument =
+      ClassifyDocumentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ClassifyDocumentResponse'
-            Prelude.<$> (x Prelude..?> "Classes" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "Labels" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Classes" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Labels" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ClassifyDocument
+instance Core.Hashable ClassifyDocument
 
-instance Prelude.NFData ClassifyDocument
+instance Core.NFData ClassifyDocument
 
-instance Prelude.ToHeaders ClassifyDocument where
+instance Core.ToHeaders ClassifyDocument where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.ClassifyDocument" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.ClassifyDocument" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ClassifyDocument where
+instance Core.ToJSON ClassifyDocument where
   toJSON ClassifyDocument' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Text" Prelude..= text),
-            Prelude.Just ("EndpointArn" Prelude..= endpointArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Text" Core..= text),
+            Core.Just ("EndpointArn" Core..= endpointArn)
           ]
       )
 
-instance Prelude.ToPath ClassifyDocument where
-  toPath = Prelude.const "/"
+instance Core.ToPath ClassifyDocument where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ClassifyDocument where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ClassifyDocument where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newClassifyDocumentResponse' smart constructor.
 data ClassifyDocumentResponse = ClassifyDocumentResponse'
@@ -144,18 +143,18 @@ data ClassifyDocumentResponse = ClassifyDocumentResponse'
     -- and each document is expected to have only a single class assigned to
     -- it. For example, an animal can be a dog or a cat, but not both at the
     -- same time.
-    classes :: Prelude.Maybe [DocumentClass],
+    classes :: Core.Maybe [DocumentClass],
     -- | The labels used the document being analyzed. These are used for
     -- multi-label trained models. Individual labels represent different
     -- categories that are related in some manner and are not mutually
     -- exclusive. For example, a movie can be just an action movie, or it can
     -- be an action movie, a science fiction movie, and a comedy, all at the
     -- same time.
-    labels :: Prelude.Maybe [DocumentLabel],
+    labels :: Core.Maybe [DocumentLabel],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClassifyDocumentResponse' with all optional fields omitted.
@@ -181,13 +180,12 @@ data ClassifyDocumentResponse = ClassifyDocumentResponse'
 -- 'httpStatus', 'classifyDocumentResponse_httpStatus' - The response's http status code.
 newClassifyDocumentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ClassifyDocumentResponse
 newClassifyDocumentResponse pHttpStatus_ =
   ClassifyDocumentResponse'
-    { classes =
-        Prelude.Nothing,
-      labels = Prelude.Nothing,
+    { classes = Core.Nothing,
+      labels = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -196,8 +194,8 @@ newClassifyDocumentResponse pHttpStatus_ =
 -- and each document is expected to have only a single class assigned to
 -- it. For example, an animal can be a dog or a cat, but not both at the
 -- same time.
-classifyDocumentResponse_classes :: Lens.Lens' ClassifyDocumentResponse (Prelude.Maybe [DocumentClass])
-classifyDocumentResponse_classes = Lens.lens (\ClassifyDocumentResponse' {classes} -> classes) (\s@ClassifyDocumentResponse' {} a -> s {classes = a} :: ClassifyDocumentResponse) Prelude.. Lens.mapping Prelude._Coerce
+classifyDocumentResponse_classes :: Lens.Lens' ClassifyDocumentResponse (Core.Maybe [DocumentClass])
+classifyDocumentResponse_classes = Lens.lens (\ClassifyDocumentResponse' {classes} -> classes) (\s@ClassifyDocumentResponse' {} a -> s {classes = a} :: ClassifyDocumentResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The labels used the document being analyzed. These are used for
 -- multi-label trained models. Individual labels represent different
@@ -205,11 +203,11 @@ classifyDocumentResponse_classes = Lens.lens (\ClassifyDocumentResponse' {classe
 -- exclusive. For example, a movie can be just an action movie, or it can
 -- be an action movie, a science fiction movie, and a comedy, all at the
 -- same time.
-classifyDocumentResponse_labels :: Lens.Lens' ClassifyDocumentResponse (Prelude.Maybe [DocumentLabel])
-classifyDocumentResponse_labels = Lens.lens (\ClassifyDocumentResponse' {labels} -> labels) (\s@ClassifyDocumentResponse' {} a -> s {labels = a} :: ClassifyDocumentResponse) Prelude.. Lens.mapping Prelude._Coerce
+classifyDocumentResponse_labels :: Lens.Lens' ClassifyDocumentResponse (Core.Maybe [DocumentLabel])
+classifyDocumentResponse_labels = Lens.lens (\ClassifyDocumentResponse' {labels} -> labels) (\s@ClassifyDocumentResponse' {} a -> s {labels = a} :: ClassifyDocumentResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-classifyDocumentResponse_httpStatus :: Lens.Lens' ClassifyDocumentResponse Prelude.Int
+classifyDocumentResponse_httpStatus :: Lens.Lens' ClassifyDocumentResponse Core.Int
 classifyDocumentResponse_httpStatus = Lens.lens (\ClassifyDocumentResponse' {httpStatus} -> httpStatus) (\s@ClassifyDocumentResponse' {} a -> s {httpStatus = a} :: ClassifyDocumentResponse)
 
-instance Prelude.NFData ClassifyDocumentResponse
+instance Core.NFData ClassifyDocumentResponse

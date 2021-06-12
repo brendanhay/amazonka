@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.MultiModelConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ModelCacheSetting
 
 -- | Specifies additional configuration for hosting multi-model endpoints.
@@ -35,9 +34,9 @@ data MultiModelConfig = MultiModelConfig'
     -- number of models that are each invoked infrequently, the endpoint might
     -- perform better if you disable model caching. To disable model caching,
     -- set the value of this parameter to @Disabled@.
-    modelCacheSetting :: Prelude.Maybe ModelCacheSetting
+    modelCacheSetting :: Core.Maybe ModelCacheSetting
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MultiModelConfig' with all optional fields omitted.
@@ -57,10 +56,7 @@ data MultiModelConfig = MultiModelConfig'
 newMultiModelConfig ::
   MultiModelConfig
 newMultiModelConfig =
-  MultiModelConfig'
-    { modelCacheSetting =
-        Prelude.Nothing
-    }
+  MultiModelConfig' {modelCacheSetting = Core.Nothing}
 
 -- | Whether to cache models for a multi-model endpoint. By default,
 -- multi-model endpoints cache models so that a model does not have to be
@@ -69,27 +65,27 @@ newMultiModelConfig =
 -- number of models that are each invoked infrequently, the endpoint might
 -- perform better if you disable model caching. To disable model caching,
 -- set the value of this parameter to @Disabled@.
-multiModelConfig_modelCacheSetting :: Lens.Lens' MultiModelConfig (Prelude.Maybe ModelCacheSetting)
+multiModelConfig_modelCacheSetting :: Lens.Lens' MultiModelConfig (Core.Maybe ModelCacheSetting)
 multiModelConfig_modelCacheSetting = Lens.lens (\MultiModelConfig' {modelCacheSetting} -> modelCacheSetting) (\s@MultiModelConfig' {} a -> s {modelCacheSetting = a} :: MultiModelConfig)
 
-instance Prelude.FromJSON MultiModelConfig where
+instance Core.FromJSON MultiModelConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MultiModelConfig"
       ( \x ->
           MultiModelConfig'
-            Prelude.<$> (x Prelude..:? "ModelCacheSetting")
+            Core.<$> (x Core..:? "ModelCacheSetting")
       )
 
-instance Prelude.Hashable MultiModelConfig
+instance Core.Hashable MultiModelConfig
 
-instance Prelude.NFData MultiModelConfig
+instance Core.NFData MultiModelConfig
 
-instance Prelude.ToJSON MultiModelConfig where
+instance Core.ToJSON MultiModelConfig where
   toJSON MultiModelConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ModelCacheSetting" Prelude..=)
-              Prelude.<$> modelCacheSetting
+    Core.object
+      ( Core.catMaybes
+          [ ("ModelCacheSetting" Core..=)
+              Core.<$> modelCacheSetting
           ]
       )

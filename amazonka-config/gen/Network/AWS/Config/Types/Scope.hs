@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Config.Types.Scope where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines which resources trigger an evaluation for an AWS Config rule.
 -- The scope can include one or more resource types, a combination of a tag
@@ -35,20 +34,20 @@ data Scope = Scope'
   { -- | The tag value applied to only those AWS resources that you want to
     -- trigger an evaluation for the rule. If you specify a value for
     -- @TagValue@, you must also specify a value for @TagKey@.
-    tagValue :: Prelude.Maybe Prelude.Text,
+    tagValue :: Core.Maybe Core.Text,
     -- | The tag key that is applied to only those AWS resources that you want to
     -- trigger an evaluation for the rule.
-    tagKey :: Prelude.Maybe Prelude.Text,
+    tagKey :: Core.Maybe Core.Text,
     -- | The ID of the only AWS resource that you want to trigger an evaluation
     -- for the rule. If you specify a resource ID, you must specify one
     -- resource type for @ComplianceResourceTypes@.
-    complianceResourceId :: Prelude.Maybe Prelude.Text,
+    complianceResourceId :: Core.Maybe Core.Text,
     -- | The resource types of only those AWS resources that you want to trigger
     -- an evaluation for the rule. You can only specify one type if you also
     -- specify a resource ID for @ComplianceResourceId@.
-    complianceResourceTypes :: Prelude.Maybe [Prelude.Text]
+    complianceResourceTypes :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Scope' with all optional fields omitted.
@@ -76,62 +75,62 @@ newScope ::
   Scope
 newScope =
   Scope'
-    { tagValue = Prelude.Nothing,
-      tagKey = Prelude.Nothing,
-      complianceResourceId = Prelude.Nothing,
-      complianceResourceTypes = Prelude.Nothing
+    { tagValue = Core.Nothing,
+      tagKey = Core.Nothing,
+      complianceResourceId = Core.Nothing,
+      complianceResourceTypes = Core.Nothing
     }
 
 -- | The tag value applied to only those AWS resources that you want to
 -- trigger an evaluation for the rule. If you specify a value for
 -- @TagValue@, you must also specify a value for @TagKey@.
-scope_tagValue :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
+scope_tagValue :: Lens.Lens' Scope (Core.Maybe Core.Text)
 scope_tagValue = Lens.lens (\Scope' {tagValue} -> tagValue) (\s@Scope' {} a -> s {tagValue = a} :: Scope)
 
 -- | The tag key that is applied to only those AWS resources that you want to
 -- trigger an evaluation for the rule.
-scope_tagKey :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
+scope_tagKey :: Lens.Lens' Scope (Core.Maybe Core.Text)
 scope_tagKey = Lens.lens (\Scope' {tagKey} -> tagKey) (\s@Scope' {} a -> s {tagKey = a} :: Scope)
 
 -- | The ID of the only AWS resource that you want to trigger an evaluation
 -- for the rule. If you specify a resource ID, you must specify one
 -- resource type for @ComplianceResourceTypes@.
-scope_complianceResourceId :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
+scope_complianceResourceId :: Lens.Lens' Scope (Core.Maybe Core.Text)
 scope_complianceResourceId = Lens.lens (\Scope' {complianceResourceId} -> complianceResourceId) (\s@Scope' {} a -> s {complianceResourceId = a} :: Scope)
 
 -- | The resource types of only those AWS resources that you want to trigger
 -- an evaluation for the rule. You can only specify one type if you also
 -- specify a resource ID for @ComplianceResourceId@.
-scope_complianceResourceTypes :: Lens.Lens' Scope (Prelude.Maybe [Prelude.Text])
-scope_complianceResourceTypes = Lens.lens (\Scope' {complianceResourceTypes} -> complianceResourceTypes) (\s@Scope' {} a -> s {complianceResourceTypes = a} :: Scope) Prelude.. Lens.mapping Prelude._Coerce
+scope_complianceResourceTypes :: Lens.Lens' Scope (Core.Maybe [Core.Text])
+scope_complianceResourceTypes = Lens.lens (\Scope' {complianceResourceTypes} -> complianceResourceTypes) (\s@Scope' {} a -> s {complianceResourceTypes = a} :: Scope) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Scope where
+instance Core.FromJSON Scope where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Scope"
       ( \x ->
           Scope'
-            Prelude.<$> (x Prelude..:? "TagValue")
-            Prelude.<*> (x Prelude..:? "TagKey")
-            Prelude.<*> (x Prelude..:? "ComplianceResourceId")
-            Prelude.<*> ( x Prelude..:? "ComplianceResourceTypes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "TagValue")
+            Core.<*> (x Core..:? "TagKey")
+            Core.<*> (x Core..:? "ComplianceResourceId")
+            Core.<*> ( x Core..:? "ComplianceResourceTypes"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable Scope
+instance Core.Hashable Scope
 
-instance Prelude.NFData Scope
+instance Core.NFData Scope
 
-instance Prelude.ToJSON Scope where
+instance Core.ToJSON Scope where
   toJSON Scope' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TagValue" Prelude..=) Prelude.<$> tagValue,
-            ("TagKey" Prelude..=) Prelude.<$> tagKey,
-            ("ComplianceResourceId" Prelude..=)
-              Prelude.<$> complianceResourceId,
-            ("ComplianceResourceTypes" Prelude..=)
-              Prelude.<$> complianceResourceTypes
+    Core.object
+      ( Core.catMaybes
+          [ ("TagValue" Core..=) Core.<$> tagValue,
+            ("TagKey" Core..=) Core.<$> tagKey,
+            ("ComplianceResourceId" Core..=)
+              Core.<$> complianceResourceId,
+            ("ComplianceResourceTypes" Core..=)
+              Core.<$> complianceResourceTypes
           ]
       )

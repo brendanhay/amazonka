@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.TargetGroupAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a target group attribute.
 --
@@ -108,11 +107,11 @@ data TargetGroupAttribute = TargetGroupAttribute'
     -- -   @proxy_protocol_v2.enabled@ - Indicates whether Proxy Protocol
     --     version 2 is enabled. The value is @true@ or @false@. The default is
     --     @false@.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The value of the attribute.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetGroupAttribute' with all optional fields omitted.
@@ -209,8 +208,8 @@ newTargetGroupAttribute ::
   TargetGroupAttribute
 newTargetGroupAttribute =
   TargetGroupAttribute'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { key = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The name of the attribute.
@@ -294,24 +293,23 @@ newTargetGroupAttribute =
 -- -   @proxy_protocol_v2.enabled@ - Indicates whether Proxy Protocol
 --     version 2 is enabled. The value is @true@ or @false@. The default is
 --     @false@.
-targetGroupAttribute_key :: Lens.Lens' TargetGroupAttribute (Prelude.Maybe Prelude.Text)
+targetGroupAttribute_key :: Lens.Lens' TargetGroupAttribute (Core.Maybe Core.Text)
 targetGroupAttribute_key = Lens.lens (\TargetGroupAttribute' {key} -> key) (\s@TargetGroupAttribute' {} a -> s {key = a} :: TargetGroupAttribute)
 
 -- | The value of the attribute.
-targetGroupAttribute_value :: Lens.Lens' TargetGroupAttribute (Prelude.Maybe Prelude.Text)
+targetGroupAttribute_value :: Lens.Lens' TargetGroupAttribute (Core.Maybe Core.Text)
 targetGroupAttribute_value = Lens.lens (\TargetGroupAttribute' {value} -> value) (\s@TargetGroupAttribute' {} a -> s {value = a} :: TargetGroupAttribute)
 
-instance Prelude.FromXML TargetGroupAttribute where
+instance Core.FromXML TargetGroupAttribute where
   parseXML x =
     TargetGroupAttribute'
-      Prelude.<$> (x Prelude..@? "Key")
-      Prelude.<*> (x Prelude..@? "Value")
+      Core.<$> (x Core..@? "Key") Core.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable TargetGroupAttribute
+instance Core.Hashable TargetGroupAttribute
 
-instance Prelude.NFData TargetGroupAttribute
+instance Core.NFData TargetGroupAttribute
 
-instance Prelude.ToQuery TargetGroupAttribute where
+instance Core.ToQuery TargetGroupAttribute where
   toQuery TargetGroupAttribute' {..} =
-    Prelude.mconcat
-      ["Key" Prelude.=: key, "Value" Prelude.=: value]
+    Core.mconcat
+      ["Key" Core.=: key, "Value" Core.=: value]

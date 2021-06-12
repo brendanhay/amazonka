@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.RDS.DescribeValidDBInstanceModifications
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeValidDBInstanceModifications' smart constructor.
 data DescribeValidDBInstanceModifications = DescribeValidDBInstanceModifications'
   { -- | The customer identifier or the ARN of your DB instance.
-    dbInstanceIdentifier :: Prelude.Text
+    dbInstanceIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeValidDBInstanceModifications' with all optional fields omitted.
@@ -68,7 +67,7 @@ data DescribeValidDBInstanceModifications = DescribeValidDBInstanceModifications
 -- 'dbInstanceIdentifier', 'describeValidDBInstanceModifications_dbInstanceIdentifier' - The customer identifier or the ARN of your DB instance.
 newDescribeValidDBInstanceModifications ::
   -- | 'dbInstanceIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   DescribeValidDBInstanceModifications
 newDescribeValidDBInstanceModifications
   pDBInstanceIdentifier_ =
@@ -78,15 +77,15 @@ newDescribeValidDBInstanceModifications
       }
 
 -- | The customer identifier or the ARN of your DB instance.
-describeValidDBInstanceModifications_dbInstanceIdentifier :: Lens.Lens' DescribeValidDBInstanceModifications Prelude.Text
+describeValidDBInstanceModifications_dbInstanceIdentifier :: Lens.Lens' DescribeValidDBInstanceModifications Core.Text
 describeValidDBInstanceModifications_dbInstanceIdentifier = Lens.lens (\DescribeValidDBInstanceModifications' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DescribeValidDBInstanceModifications' {} a -> s {dbInstanceIdentifier = a} :: DescribeValidDBInstanceModifications)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeValidDBInstanceModifications
   where
   type
-    Rs DescribeValidDBInstanceModifications =
+    AWSResponse DescribeValidDBInstanceModifications =
       DescribeValidDBInstanceModificationsResponse
   request = Request.postQuery defaultService
   response =
@@ -94,53 +93,51 @@ instance
       "DescribeValidDBInstanceModificationsResult"
       ( \s h x ->
           DescribeValidDBInstanceModificationsResponse'
-            Prelude.<$> (x Prelude..@? "ValidDBInstanceModificationsMessage")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ValidDBInstanceModificationsMessage")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeValidDBInstanceModifications
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeValidDBInstanceModifications
 
 instance
-  Prelude.ToHeaders
-    DescribeValidDBInstanceModifications
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeValidDBInstanceModifications
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeValidDBInstanceModifications
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeValidDBInstanceModifications
   where
   toQuery DescribeValidDBInstanceModifications' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeValidDBInstanceModifications" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBInstanceIdentifier"
-          Prelude.=: dbInstanceIdentifier
+          Core.=: ( "DescribeValidDBInstanceModifications" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newDescribeValidDBInstanceModificationsResponse' smart constructor.
 data DescribeValidDBInstanceModificationsResponse = DescribeValidDBInstanceModificationsResponse'
-  { validDBInstanceModificationsMessage :: Prelude.Maybe ValidDBInstanceModificationsMessage,
+  { validDBInstanceModificationsMessage :: Core.Maybe ValidDBInstanceModificationsMessage,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeValidDBInstanceModificationsResponse' with all optional fields omitted.
@@ -155,24 +152,24 @@ data DescribeValidDBInstanceModificationsResponse = DescribeValidDBInstanceModif
 -- 'httpStatus', 'describeValidDBInstanceModificationsResponse_httpStatus' - The response's http status code.
 newDescribeValidDBInstanceModificationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeValidDBInstanceModificationsResponse
 newDescribeValidDBInstanceModificationsResponse
   pHttpStatus_ =
     DescribeValidDBInstanceModificationsResponse'
       { validDBInstanceModificationsMessage =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-describeValidDBInstanceModificationsResponse_validDBInstanceModificationsMessage :: Lens.Lens' DescribeValidDBInstanceModificationsResponse (Prelude.Maybe ValidDBInstanceModificationsMessage)
+describeValidDBInstanceModificationsResponse_validDBInstanceModificationsMessage :: Lens.Lens' DescribeValidDBInstanceModificationsResponse (Core.Maybe ValidDBInstanceModificationsMessage)
 describeValidDBInstanceModificationsResponse_validDBInstanceModificationsMessage = Lens.lens (\DescribeValidDBInstanceModificationsResponse' {validDBInstanceModificationsMessage} -> validDBInstanceModificationsMessage) (\s@DescribeValidDBInstanceModificationsResponse' {} a -> s {validDBInstanceModificationsMessage = a} :: DescribeValidDBInstanceModificationsResponse)
 
 -- | The response's http status code.
-describeValidDBInstanceModificationsResponse_httpStatus :: Lens.Lens' DescribeValidDBInstanceModificationsResponse Prelude.Int
+describeValidDBInstanceModificationsResponse_httpStatus :: Lens.Lens' DescribeValidDBInstanceModificationsResponse Core.Int
 describeValidDBInstanceModificationsResponse_httpStatus = Lens.lens (\DescribeValidDBInstanceModificationsResponse' {httpStatus} -> httpStatus) (\s@DescribeValidDBInstanceModificationsResponse' {} a -> s {httpStatus = a} :: DescribeValidDBInstanceModificationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeValidDBInstanceModificationsResponse

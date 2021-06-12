@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.MediaLive.DeleteMultiplex
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +59,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteMultiplex' smart constructor.
 data DeleteMultiplex = DeleteMultiplex'
   { -- | The ID of the multiplex.
-    multiplexId :: Prelude.Text
+    multiplexId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMultiplex' with all optional fields omitted.
@@ -75,90 +74,86 @@ data DeleteMultiplex = DeleteMultiplex'
 -- 'multiplexId', 'deleteMultiplex_multiplexId' - The ID of the multiplex.
 newDeleteMultiplex ::
   -- | 'multiplexId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteMultiplex
 newDeleteMultiplex pMultiplexId_ =
   DeleteMultiplex' {multiplexId = pMultiplexId_}
 
 -- | The ID of the multiplex.
-deleteMultiplex_multiplexId :: Lens.Lens' DeleteMultiplex Prelude.Text
+deleteMultiplex_multiplexId :: Lens.Lens' DeleteMultiplex Core.Text
 deleteMultiplex_multiplexId = Lens.lens (\DeleteMultiplex' {multiplexId} -> multiplexId) (\s@DeleteMultiplex' {} a -> s {multiplexId = a} :: DeleteMultiplex)
 
-instance Prelude.AWSRequest DeleteMultiplex where
-  type Rs DeleteMultiplex = DeleteMultiplexResponse
+instance Core.AWSRequest DeleteMultiplex where
+  type
+    AWSResponse DeleteMultiplex =
+      DeleteMultiplexResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteMultiplexResponse'
-            Prelude.<$> ( x Prelude..?> "availabilityZones"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "arn")
-            Prelude.<*> (x Prelude..?> "id")
-            Prelude.<*> (x Prelude..?> "pipelinesRunningCount")
-            Prelude.<*> (x Prelude..?> "programCount")
-            Prelude.<*> ( x Prelude..?> "destinations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "state")
-            Prelude.<*> (x Prelude..?> "name")
-            Prelude.<*> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "multiplexSettings")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "availabilityZones" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "arn")
+            Core.<*> (x Core..?> "id")
+            Core.<*> (x Core..?> "pipelinesRunningCount")
+            Core.<*> (x Core..?> "programCount")
+            Core.<*> (x Core..?> "destinations" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "state")
+            Core.<*> (x Core..?> "name")
+            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "multiplexSettings")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMultiplex
+instance Core.Hashable DeleteMultiplex
 
-instance Prelude.NFData DeleteMultiplex
+instance Core.NFData DeleteMultiplex
 
-instance Prelude.ToHeaders DeleteMultiplex where
+instance Core.ToHeaders DeleteMultiplex where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteMultiplex where
+instance Core.ToPath DeleteMultiplex where
   toPath DeleteMultiplex' {..} =
-    Prelude.mconcat
-      ["/prod/multiplexes/", Prelude.toBS multiplexId]
+    Core.mconcat
+      ["/prod/multiplexes/", Core.toBS multiplexId]
 
-instance Prelude.ToQuery DeleteMultiplex where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteMultiplex where
+  toQuery = Core.const Core.mempty
 
 -- | Placeholder documentation for DeleteMultiplexResponse
 --
 -- /See:/ 'newDeleteMultiplexResponse' smart constructor.
 data DeleteMultiplexResponse = DeleteMultiplexResponse'
   { -- | A list of availability zones for the multiplex.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    availabilityZones :: Core.Maybe [Core.Text],
     -- | The unique arn of the multiplex.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The unique id of the multiplex.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The number of currently healthy pipelines.
-    pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
+    pipelinesRunningCount :: Core.Maybe Core.Int,
     -- | The number of programs in the multiplex.
-    programCount :: Prelude.Maybe Prelude.Int,
+    programCount :: Core.Maybe Core.Int,
     -- | A list of the multiplex output destinations.
-    destinations :: Prelude.Maybe [MultiplexOutputDestination],
+    destinations :: Core.Maybe [MultiplexOutputDestination],
     -- | The current state of the multiplex.
-    state :: Prelude.Maybe MultiplexState,
+    state :: Core.Maybe MultiplexState,
     -- | The name of the multiplex.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Configuration for a multiplex event.
-    multiplexSettings :: Prelude.Maybe MultiplexSettings,
+    multiplexSettings :: Core.Maybe MultiplexSettings,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMultiplexResponse' with all optional fields omitted.
@@ -191,66 +186,66 @@ data DeleteMultiplexResponse = DeleteMultiplexResponse'
 -- 'httpStatus', 'deleteMultiplexResponse_httpStatus' - The response's http status code.
 newDeleteMultiplexResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteMultiplexResponse
 newDeleteMultiplexResponse pHttpStatus_ =
   DeleteMultiplexResponse'
     { availabilityZones =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      pipelinesRunningCount = Prelude.Nothing,
-      programCount = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      multiplexSettings = Prelude.Nothing,
+        Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      pipelinesRunningCount = Core.Nothing,
+      programCount = Core.Nothing,
+      destinations = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing,
+      multiplexSettings = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of availability zones for the multiplex.
-deleteMultiplexResponse_availabilityZones :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe [Prelude.Text])
-deleteMultiplexResponse_availabilityZones = Lens.lens (\DeleteMultiplexResponse' {availabilityZones} -> availabilityZones) (\s@DeleteMultiplexResponse' {} a -> s {availabilityZones = a} :: DeleteMultiplexResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteMultiplexResponse_availabilityZones :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe [Core.Text])
+deleteMultiplexResponse_availabilityZones = Lens.lens (\DeleteMultiplexResponse' {availabilityZones} -> availabilityZones) (\s@DeleteMultiplexResponse' {} a -> s {availabilityZones = a} :: DeleteMultiplexResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The unique arn of the multiplex.
-deleteMultiplexResponse_arn :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe Prelude.Text)
+deleteMultiplexResponse_arn :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Core.Text)
 deleteMultiplexResponse_arn = Lens.lens (\DeleteMultiplexResponse' {arn} -> arn) (\s@DeleteMultiplexResponse' {} a -> s {arn = a} :: DeleteMultiplexResponse)
 
 -- | The unique id of the multiplex.
-deleteMultiplexResponse_id :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe Prelude.Text)
+deleteMultiplexResponse_id :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Core.Text)
 deleteMultiplexResponse_id = Lens.lens (\DeleteMultiplexResponse' {id} -> id) (\s@DeleteMultiplexResponse' {} a -> s {id = a} :: DeleteMultiplexResponse)
 
 -- | The number of currently healthy pipelines.
-deleteMultiplexResponse_pipelinesRunningCount :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe Prelude.Int)
+deleteMultiplexResponse_pipelinesRunningCount :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Core.Int)
 deleteMultiplexResponse_pipelinesRunningCount = Lens.lens (\DeleteMultiplexResponse' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@DeleteMultiplexResponse' {} a -> s {pipelinesRunningCount = a} :: DeleteMultiplexResponse)
 
 -- | The number of programs in the multiplex.
-deleteMultiplexResponse_programCount :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe Prelude.Int)
+deleteMultiplexResponse_programCount :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Core.Int)
 deleteMultiplexResponse_programCount = Lens.lens (\DeleteMultiplexResponse' {programCount} -> programCount) (\s@DeleteMultiplexResponse' {} a -> s {programCount = a} :: DeleteMultiplexResponse)
 
 -- | A list of the multiplex output destinations.
-deleteMultiplexResponse_destinations :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe [MultiplexOutputDestination])
-deleteMultiplexResponse_destinations = Lens.lens (\DeleteMultiplexResponse' {destinations} -> destinations) (\s@DeleteMultiplexResponse' {} a -> s {destinations = a} :: DeleteMultiplexResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteMultiplexResponse_destinations :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe [MultiplexOutputDestination])
+deleteMultiplexResponse_destinations = Lens.lens (\DeleteMultiplexResponse' {destinations} -> destinations) (\s@DeleteMultiplexResponse' {} a -> s {destinations = a} :: DeleteMultiplexResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The current state of the multiplex.
-deleteMultiplexResponse_state :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe MultiplexState)
+deleteMultiplexResponse_state :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe MultiplexState)
 deleteMultiplexResponse_state = Lens.lens (\DeleteMultiplexResponse' {state} -> state) (\s@DeleteMultiplexResponse' {} a -> s {state = a} :: DeleteMultiplexResponse)
 
 -- | The name of the multiplex.
-deleteMultiplexResponse_name :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe Prelude.Text)
+deleteMultiplexResponse_name :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Core.Text)
 deleteMultiplexResponse_name = Lens.lens (\DeleteMultiplexResponse' {name} -> name) (\s@DeleteMultiplexResponse' {} a -> s {name = a} :: DeleteMultiplexResponse)
 
 -- | A collection of key-value pairs.
-deleteMultiplexResponse_tags :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-deleteMultiplexResponse_tags = Lens.lens (\DeleteMultiplexResponse' {tags} -> tags) (\s@DeleteMultiplexResponse' {} a -> s {tags = a} :: DeleteMultiplexResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteMultiplexResponse_tags :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+deleteMultiplexResponse_tags = Lens.lens (\DeleteMultiplexResponse' {tags} -> tags) (\s@DeleteMultiplexResponse' {} a -> s {tags = a} :: DeleteMultiplexResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Configuration for a multiplex event.
-deleteMultiplexResponse_multiplexSettings :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe MultiplexSettings)
+deleteMultiplexResponse_multiplexSettings :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe MultiplexSettings)
 deleteMultiplexResponse_multiplexSettings = Lens.lens (\DeleteMultiplexResponse' {multiplexSettings} -> multiplexSettings) (\s@DeleteMultiplexResponse' {} a -> s {multiplexSettings = a} :: DeleteMultiplexResponse)
 
 -- | The response's http status code.
-deleteMultiplexResponse_httpStatus :: Lens.Lens' DeleteMultiplexResponse Prelude.Int
+deleteMultiplexResponse_httpStatus :: Lens.Lens' DeleteMultiplexResponse Core.Int
 deleteMultiplexResponse_httpStatus = Lens.lens (\DeleteMultiplexResponse' {httpStatus} -> httpStatus) (\s@DeleteMultiplexResponse' {} a -> s {httpStatus = a} :: DeleteMultiplexResponse)
 
-instance Prelude.NFData DeleteMultiplexResponse
+instance Core.NFData DeleteMultiplexResponse

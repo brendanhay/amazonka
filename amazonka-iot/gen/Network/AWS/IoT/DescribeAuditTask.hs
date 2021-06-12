@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,18 +44,18 @@ module Network.AWS.IoT.DescribeAuditTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAuditTask' smart constructor.
 data DescribeAuditTask = DescribeAuditTask'
   { -- | The ID of the audit whose information you want to get.
-    taskId :: Prelude.Text
+    taskId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAuditTask' with all optional fields omitted.
@@ -69,68 +68,67 @@ data DescribeAuditTask = DescribeAuditTask'
 -- 'taskId', 'describeAuditTask_taskId' - The ID of the audit whose information you want to get.
 newDescribeAuditTask ::
   -- | 'taskId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeAuditTask
 newDescribeAuditTask pTaskId_ =
   DescribeAuditTask' {taskId = pTaskId_}
 
 -- | The ID of the audit whose information you want to get.
-describeAuditTask_taskId :: Lens.Lens' DescribeAuditTask Prelude.Text
+describeAuditTask_taskId :: Lens.Lens' DescribeAuditTask Core.Text
 describeAuditTask_taskId = Lens.lens (\DescribeAuditTask' {taskId} -> taskId) (\s@DescribeAuditTask' {} a -> s {taskId = a} :: DescribeAuditTask)
 
-instance Prelude.AWSRequest DescribeAuditTask where
-  type Rs DescribeAuditTask = DescribeAuditTaskResponse
+instance Core.AWSRequest DescribeAuditTask where
+  type
+    AWSResponse DescribeAuditTask =
+      DescribeAuditTaskResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAuditTaskResponse'
-            Prelude.<$> ( x Prelude..?> "auditDetails"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "scheduledAuditName")
-            Prelude.<*> (x Prelude..?> "taskStatistics")
-            Prelude.<*> (x Prelude..?> "taskStatus")
-            Prelude.<*> (x Prelude..?> "taskStartTime")
-            Prelude.<*> (x Prelude..?> "taskType")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "auditDetails" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "scheduledAuditName")
+            Core.<*> (x Core..?> "taskStatistics")
+            Core.<*> (x Core..?> "taskStatus")
+            Core.<*> (x Core..?> "taskStartTime")
+            Core.<*> (x Core..?> "taskType")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAuditTask
+instance Core.Hashable DescribeAuditTask
 
-instance Prelude.NFData DescribeAuditTask
+instance Core.NFData DescribeAuditTask
 
-instance Prelude.ToHeaders DescribeAuditTask where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAuditTask where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAuditTask where
+instance Core.ToPath DescribeAuditTask where
   toPath DescribeAuditTask' {..} =
-    Prelude.mconcat
-      ["/audit/tasks/", Prelude.toBS taskId]
+    Core.mconcat ["/audit/tasks/", Core.toBS taskId]
 
-instance Prelude.ToQuery DescribeAuditTask where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAuditTask where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAuditTaskResponse' smart constructor.
 data DescribeAuditTaskResponse = DescribeAuditTaskResponse'
   { -- | Detailed information about each check performed during this audit.
-    auditDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text AuditCheckDetails),
+    auditDetails :: Core.Maybe (Core.HashMap Core.Text AuditCheckDetails),
     -- | The name of the scheduled audit (only if the audit was a scheduled
     -- audit).
-    scheduledAuditName :: Prelude.Maybe Prelude.Text,
+    scheduledAuditName :: Core.Maybe Core.Text,
     -- | Statistical information about the audit.
-    taskStatistics :: Prelude.Maybe TaskStatistics,
+    taskStatistics :: Core.Maybe TaskStatistics,
     -- | The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\",
     -- \"FAILED\", or \"CANCELED\".
-    taskStatus :: Prelude.Maybe AuditTaskStatus,
+    taskStatus :: Core.Maybe AuditTaskStatus,
     -- | The time the audit started.
-    taskStartTime :: Prelude.Maybe Prelude.POSIX,
+    taskStartTime :: Core.Maybe Core.POSIX,
     -- | The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".
-    taskType :: Prelude.Maybe AuditTaskType,
+    taskType :: Core.Maybe AuditTaskType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAuditTaskResponse' with all optional fields omitted.
@@ -157,48 +155,48 @@ data DescribeAuditTaskResponse = DescribeAuditTaskResponse'
 -- 'httpStatus', 'describeAuditTaskResponse_httpStatus' - The response's http status code.
 newDescribeAuditTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAuditTaskResponse
 newDescribeAuditTaskResponse pHttpStatus_ =
   DescribeAuditTaskResponse'
     { auditDetails =
-        Prelude.Nothing,
-      scheduledAuditName = Prelude.Nothing,
-      taskStatistics = Prelude.Nothing,
-      taskStatus = Prelude.Nothing,
-      taskStartTime = Prelude.Nothing,
-      taskType = Prelude.Nothing,
+        Core.Nothing,
+      scheduledAuditName = Core.Nothing,
+      taskStatistics = Core.Nothing,
+      taskStatus = Core.Nothing,
+      taskStartTime = Core.Nothing,
+      taskType = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Detailed information about each check performed during this audit.
-describeAuditTaskResponse_auditDetails :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AuditCheckDetails))
-describeAuditTaskResponse_auditDetails = Lens.lens (\DescribeAuditTaskResponse' {auditDetails} -> auditDetails) (\s@DescribeAuditTaskResponse' {} a -> s {auditDetails = a} :: DescribeAuditTaskResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAuditTaskResponse_auditDetails :: Lens.Lens' DescribeAuditTaskResponse (Core.Maybe (Core.HashMap Core.Text AuditCheckDetails))
+describeAuditTaskResponse_auditDetails = Lens.lens (\DescribeAuditTaskResponse' {auditDetails} -> auditDetails) (\s@DescribeAuditTaskResponse' {} a -> s {auditDetails = a} :: DescribeAuditTaskResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the scheduled audit (only if the audit was a scheduled
 -- audit).
-describeAuditTaskResponse_scheduledAuditName :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe Prelude.Text)
+describeAuditTaskResponse_scheduledAuditName :: Lens.Lens' DescribeAuditTaskResponse (Core.Maybe Core.Text)
 describeAuditTaskResponse_scheduledAuditName = Lens.lens (\DescribeAuditTaskResponse' {scheduledAuditName} -> scheduledAuditName) (\s@DescribeAuditTaskResponse' {} a -> s {scheduledAuditName = a} :: DescribeAuditTaskResponse)
 
 -- | Statistical information about the audit.
-describeAuditTaskResponse_taskStatistics :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe TaskStatistics)
+describeAuditTaskResponse_taskStatistics :: Lens.Lens' DescribeAuditTaskResponse (Core.Maybe TaskStatistics)
 describeAuditTaskResponse_taskStatistics = Lens.lens (\DescribeAuditTaskResponse' {taskStatistics} -> taskStatistics) (\s@DescribeAuditTaskResponse' {} a -> s {taskStatistics = a} :: DescribeAuditTaskResponse)
 
 -- | The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\",
 -- \"FAILED\", or \"CANCELED\".
-describeAuditTaskResponse_taskStatus :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe AuditTaskStatus)
+describeAuditTaskResponse_taskStatus :: Lens.Lens' DescribeAuditTaskResponse (Core.Maybe AuditTaskStatus)
 describeAuditTaskResponse_taskStatus = Lens.lens (\DescribeAuditTaskResponse' {taskStatus} -> taskStatus) (\s@DescribeAuditTaskResponse' {} a -> s {taskStatus = a} :: DescribeAuditTaskResponse)
 
 -- | The time the audit started.
-describeAuditTaskResponse_taskStartTime :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeAuditTaskResponse_taskStartTime = Lens.lens (\DescribeAuditTaskResponse' {taskStartTime} -> taskStartTime) (\s@DescribeAuditTaskResponse' {} a -> s {taskStartTime = a} :: DescribeAuditTaskResponse) Prelude.. Lens.mapping Prelude._Time
+describeAuditTaskResponse_taskStartTime :: Lens.Lens' DescribeAuditTaskResponse (Core.Maybe Core.UTCTime)
+describeAuditTaskResponse_taskStartTime = Lens.lens (\DescribeAuditTaskResponse' {taskStartTime} -> taskStartTime) (\s@DescribeAuditTaskResponse' {} a -> s {taskStartTime = a} :: DescribeAuditTaskResponse) Core.. Lens.mapping Core._Time
 
 -- | The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".
-describeAuditTaskResponse_taskType :: Lens.Lens' DescribeAuditTaskResponse (Prelude.Maybe AuditTaskType)
+describeAuditTaskResponse_taskType :: Lens.Lens' DescribeAuditTaskResponse (Core.Maybe AuditTaskType)
 describeAuditTaskResponse_taskType = Lens.lens (\DescribeAuditTaskResponse' {taskType} -> taskType) (\s@DescribeAuditTaskResponse' {} a -> s {taskType = a} :: DescribeAuditTaskResponse)
 
 -- | The response's http status code.
-describeAuditTaskResponse_httpStatus :: Lens.Lens' DescribeAuditTaskResponse Prelude.Int
+describeAuditTaskResponse_httpStatus :: Lens.Lens' DescribeAuditTaskResponse Core.Int
 describeAuditTaskResponse_httpStatus = Lens.lens (\DescribeAuditTaskResponse' {httpStatus} -> httpStatus) (\s@DescribeAuditTaskResponse' {} a -> s {httpStatus = a} :: DescribeAuditTaskResponse)
 
-instance Prelude.NFData DescribeAuditTaskResponse
+instance Core.NFData DescribeAuditTaskResponse

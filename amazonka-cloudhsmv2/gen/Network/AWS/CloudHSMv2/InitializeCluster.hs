@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CloudHSMv2.InitializeCluster
 where
 
 import Network.AWS.CloudHSMv2.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,19 +56,19 @@ import qualified Network.AWS.Response as Response
 data InitializeCluster = InitializeCluster'
   { -- | The identifier (ID) of the cluster that you are claiming. To find the
     -- cluster ID, use DescribeClusters.
-    clusterId :: Prelude.Text,
+    clusterId :: Core.Text,
     -- | The cluster certificate issued (signed) by your issuing certificate
     -- authority (CA). The certificate must be in PEM format and can contain a
     -- maximum of 5000 characters.
-    signedCert :: Prelude.Text,
+    signedCert :: Core.Text,
     -- | The issuing certificate of the issuing certificate authority (CA) that
     -- issued (signed) the cluster certificate. You must use a self-signed
     -- certificate. The certificate used to sign the HSM CSR must be directly
     -- available, and thus must be the root certificate. The certificate must
     -- be in PEM format and can contain a maximum of 5000 characters.
-    trustAnchor :: Prelude.Text
+    trustAnchor :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InitializeCluster' with all optional fields omitted.
@@ -93,11 +92,11 @@ data InitializeCluster = InitializeCluster'
 -- be in PEM format and can contain a maximum of 5000 characters.
 newInitializeCluster ::
   -- | 'clusterId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'signedCert'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'trustAnchor'
-  Prelude.Text ->
+  Core.Text ->
   InitializeCluster
 newInitializeCluster
   pClusterId_
@@ -111,13 +110,13 @@ newInitializeCluster
 
 -- | The identifier (ID) of the cluster that you are claiming. To find the
 -- cluster ID, use DescribeClusters.
-initializeCluster_clusterId :: Lens.Lens' InitializeCluster Prelude.Text
+initializeCluster_clusterId :: Lens.Lens' InitializeCluster Core.Text
 initializeCluster_clusterId = Lens.lens (\InitializeCluster' {clusterId} -> clusterId) (\s@InitializeCluster' {} a -> s {clusterId = a} :: InitializeCluster)
 
 -- | The cluster certificate issued (signed) by your issuing certificate
 -- authority (CA). The certificate must be in PEM format and can contain a
 -- maximum of 5000 characters.
-initializeCluster_signedCert :: Lens.Lens' InitializeCluster Prelude.Text
+initializeCluster_signedCert :: Lens.Lens' InitializeCluster Core.Text
 initializeCluster_signedCert = Lens.lens (\InitializeCluster' {signedCert} -> signedCert) (\s@InitializeCluster' {} a -> s {signedCert = a} :: InitializeCluster)
 
 -- | The issuing certificate of the issuing certificate authority (CA) that
@@ -125,66 +124,66 @@ initializeCluster_signedCert = Lens.lens (\InitializeCluster' {signedCert} -> si
 -- certificate. The certificate used to sign the HSM CSR must be directly
 -- available, and thus must be the root certificate. The certificate must
 -- be in PEM format and can contain a maximum of 5000 characters.
-initializeCluster_trustAnchor :: Lens.Lens' InitializeCluster Prelude.Text
+initializeCluster_trustAnchor :: Lens.Lens' InitializeCluster Core.Text
 initializeCluster_trustAnchor = Lens.lens (\InitializeCluster' {trustAnchor} -> trustAnchor) (\s@InitializeCluster' {} a -> s {trustAnchor = a} :: InitializeCluster)
 
-instance Prelude.AWSRequest InitializeCluster where
-  type Rs InitializeCluster = InitializeClusterResponse
+instance Core.AWSRequest InitializeCluster where
+  type
+    AWSResponse InitializeCluster =
+      InitializeClusterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           InitializeClusterResponse'
-            Prelude.<$> (x Prelude..?> "StateMessage")
-            Prelude.<*> (x Prelude..?> "State")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StateMessage")
+            Core.<*> (x Core..?> "State")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable InitializeCluster
+instance Core.Hashable InitializeCluster
 
-instance Prelude.NFData InitializeCluster
+instance Core.NFData InitializeCluster
 
-instance Prelude.ToHeaders InitializeCluster where
+instance Core.ToHeaders InitializeCluster where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "BaldrApiService.InitializeCluster" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "BaldrApiService.InitializeCluster" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON InitializeCluster where
+instance Core.ToJSON InitializeCluster where
   toJSON InitializeCluster' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ClusterId" Prelude..= clusterId),
-            Prelude.Just ("SignedCert" Prelude..= signedCert),
-            Prelude.Just ("TrustAnchor" Prelude..= trustAnchor)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            Core.Just ("SignedCert" Core..= signedCert),
+            Core.Just ("TrustAnchor" Core..= trustAnchor)
           ]
       )
 
-instance Prelude.ToPath InitializeCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath InitializeCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery InitializeCluster where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery InitializeCluster where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newInitializeClusterResponse' smart constructor.
 data InitializeClusterResponse = InitializeClusterResponse'
   { -- | A description of the cluster\'s state.
-    stateMessage :: Prelude.Maybe Prelude.Text,
+    stateMessage :: Core.Maybe Core.Text,
     -- | The cluster\'s state.
-    state :: Prelude.Maybe ClusterState,
+    state :: Core.Maybe ClusterState,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InitializeClusterResponse' with all optional fields omitted.
@@ -201,26 +200,26 @@ data InitializeClusterResponse = InitializeClusterResponse'
 -- 'httpStatus', 'initializeClusterResponse_httpStatus' - The response's http status code.
 newInitializeClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   InitializeClusterResponse
 newInitializeClusterResponse pHttpStatus_ =
   InitializeClusterResponse'
     { stateMessage =
-        Prelude.Nothing,
-      state = Prelude.Nothing,
+        Core.Nothing,
+      state = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A description of the cluster\'s state.
-initializeClusterResponse_stateMessage :: Lens.Lens' InitializeClusterResponse (Prelude.Maybe Prelude.Text)
+initializeClusterResponse_stateMessage :: Lens.Lens' InitializeClusterResponse (Core.Maybe Core.Text)
 initializeClusterResponse_stateMessage = Lens.lens (\InitializeClusterResponse' {stateMessage} -> stateMessage) (\s@InitializeClusterResponse' {} a -> s {stateMessage = a} :: InitializeClusterResponse)
 
 -- | The cluster\'s state.
-initializeClusterResponse_state :: Lens.Lens' InitializeClusterResponse (Prelude.Maybe ClusterState)
+initializeClusterResponse_state :: Lens.Lens' InitializeClusterResponse (Core.Maybe ClusterState)
 initializeClusterResponse_state = Lens.lens (\InitializeClusterResponse' {state} -> state) (\s@InitializeClusterResponse' {} a -> s {state = a} :: InitializeClusterResponse)
 
 -- | The response's http status code.
-initializeClusterResponse_httpStatus :: Lens.Lens' InitializeClusterResponse Prelude.Int
+initializeClusterResponse_httpStatus :: Lens.Lens' InitializeClusterResponse Core.Int
 initializeClusterResponse_httpStatus = Lens.lens (\InitializeClusterResponse' {httpStatus} -> httpStatus) (\s@InitializeClusterResponse' {} a -> s {httpStatus = a} :: InitializeClusterResponse)
 
-instance Prelude.NFData InitializeClusterResponse
+instance Core.NFData InitializeClusterResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,25 +20,25 @@
 module Network.AWS.Connect.Types.HierarchyGroup where
 
 import Network.AWS.Connect.Types.HierarchyPath
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a hierarchy group.
 --
 -- /See:/ 'newHierarchyGroup' smart constructor.
 data HierarchyGroup = HierarchyGroup'
   { -- | The identifier of the level in the hierarchy group.
-    levelId :: Prelude.Maybe Prelude.Text,
+    levelId :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the hierarchy group.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The identifier of the hierarchy group.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Information about the levels in the hierarchy group.
-    hierarchyPath :: Prelude.Maybe HierarchyPath,
+    hierarchyPath :: Core.Maybe HierarchyPath,
     -- | The name of the hierarchy group.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HierarchyGroup' with all optional fields omitted.
@@ -62,46 +61,46 @@ newHierarchyGroup ::
   HierarchyGroup
 newHierarchyGroup =
   HierarchyGroup'
-    { levelId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      hierarchyPath = Prelude.Nothing,
-      name = Prelude.Nothing
+    { levelId = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      hierarchyPath = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The identifier of the level in the hierarchy group.
-hierarchyGroup_levelId :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
+hierarchyGroup_levelId :: Lens.Lens' HierarchyGroup (Core.Maybe Core.Text)
 hierarchyGroup_levelId = Lens.lens (\HierarchyGroup' {levelId} -> levelId) (\s@HierarchyGroup' {} a -> s {levelId = a} :: HierarchyGroup)
 
 -- | The Amazon Resource Name (ARN) of the hierarchy group.
-hierarchyGroup_arn :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
+hierarchyGroup_arn :: Lens.Lens' HierarchyGroup (Core.Maybe Core.Text)
 hierarchyGroup_arn = Lens.lens (\HierarchyGroup' {arn} -> arn) (\s@HierarchyGroup' {} a -> s {arn = a} :: HierarchyGroup)
 
 -- | The identifier of the hierarchy group.
-hierarchyGroup_id :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
+hierarchyGroup_id :: Lens.Lens' HierarchyGroup (Core.Maybe Core.Text)
 hierarchyGroup_id = Lens.lens (\HierarchyGroup' {id} -> id) (\s@HierarchyGroup' {} a -> s {id = a} :: HierarchyGroup)
 
 -- | Information about the levels in the hierarchy group.
-hierarchyGroup_hierarchyPath :: Lens.Lens' HierarchyGroup (Prelude.Maybe HierarchyPath)
+hierarchyGroup_hierarchyPath :: Lens.Lens' HierarchyGroup (Core.Maybe HierarchyPath)
 hierarchyGroup_hierarchyPath = Lens.lens (\HierarchyGroup' {hierarchyPath} -> hierarchyPath) (\s@HierarchyGroup' {} a -> s {hierarchyPath = a} :: HierarchyGroup)
 
 -- | The name of the hierarchy group.
-hierarchyGroup_name :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
+hierarchyGroup_name :: Lens.Lens' HierarchyGroup (Core.Maybe Core.Text)
 hierarchyGroup_name = Lens.lens (\HierarchyGroup' {name} -> name) (\s@HierarchyGroup' {} a -> s {name = a} :: HierarchyGroup)
 
-instance Prelude.FromJSON HierarchyGroup where
+instance Core.FromJSON HierarchyGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HierarchyGroup"
       ( \x ->
           HierarchyGroup'
-            Prelude.<$> (x Prelude..:? "LevelId")
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "HierarchyPath")
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "LevelId")
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "HierarchyPath")
+            Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable HierarchyGroup
+instance Core.Hashable HierarchyGroup
 
-instance Prelude.NFData HierarchyGroup
+instance Core.NFData HierarchyGroup

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,8 +54,8 @@ module Network.AWS.APIGateway.ImportRestApi
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -89,17 +88,17 @@ data ImportRestApi = ImportRestApi'
     -- The AWS CLI command to set the regional endpoint on the imported API is:
     --
     -- > aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A query parameter to indicate whether to rollback the API creation
     -- (@true@) or not (@false@) when a warning is encountered. The default
     -- value is @false@.
-    failOnWarnings :: Prelude.Maybe Prelude.Bool,
+    failOnWarnings :: Core.Maybe Core.Bool,
     -- | [Required] The POST request body containing external API definitions.
     -- Currently, only OpenAPI definition JSON\/YAML files are supported. The
     -- maximum size of the API definition file is 6MB.
-    body :: Prelude.ByteString
+    body :: Core.ByteString
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportRestApi' with all optional fields omitted.
@@ -143,12 +142,12 @@ data ImportRestApi = ImportRestApi'
 -- maximum size of the API definition file is 6MB.
 newImportRestApi ::
   -- | 'body'
-  Prelude.ByteString ->
+  Core.ByteString ->
   ImportRestApi
 newImportRestApi pBody_ =
   ImportRestApi'
-    { parameters = Prelude.Nothing,
-      failOnWarnings = Prelude.Nothing,
+    { parameters = Core.Nothing,
+      failOnWarnings = Core.Nothing,
       body = pBody_
     }
 
@@ -176,55 +175,55 @@ newImportRestApi pBody_ =
 -- The AWS CLI command to set the regional endpoint on the imported API is:
 --
 -- > aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'
-importRestApi_parameters :: Lens.Lens' ImportRestApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-importRestApi_parameters = Lens.lens (\ImportRestApi' {parameters} -> parameters) (\s@ImportRestApi' {} a -> s {parameters = a} :: ImportRestApi) Prelude.. Lens.mapping Prelude._Coerce
+importRestApi_parameters :: Lens.Lens' ImportRestApi (Core.Maybe (Core.HashMap Core.Text Core.Text))
+importRestApi_parameters = Lens.lens (\ImportRestApi' {parameters} -> parameters) (\s@ImportRestApi' {} a -> s {parameters = a} :: ImportRestApi) Core.. Lens.mapping Lens._Coerce
 
 -- | A query parameter to indicate whether to rollback the API creation
 -- (@true@) or not (@false@) when a warning is encountered. The default
 -- value is @false@.
-importRestApi_failOnWarnings :: Lens.Lens' ImportRestApi (Prelude.Maybe Prelude.Bool)
+importRestApi_failOnWarnings :: Lens.Lens' ImportRestApi (Core.Maybe Core.Bool)
 importRestApi_failOnWarnings = Lens.lens (\ImportRestApi' {failOnWarnings} -> failOnWarnings) (\s@ImportRestApi' {} a -> s {failOnWarnings = a} :: ImportRestApi)
 
 -- | [Required] The POST request body containing external API definitions.
 -- Currently, only OpenAPI definition JSON\/YAML files are supported. The
 -- maximum size of the API definition file is 6MB.
-importRestApi_body :: Lens.Lens' ImportRestApi Prelude.ByteString
+importRestApi_body :: Lens.Lens' ImportRestApi Core.ByteString
 importRestApi_body = Lens.lens (\ImportRestApi' {body} -> body) (\s@ImportRestApi' {} a -> s {body = a} :: ImportRestApi)
 
-instance Prelude.AWSRequest ImportRestApi where
-  type Rs ImportRestApi = RestApi
+instance Core.AWSRequest ImportRestApi where
+  type AWSResponse ImportRestApi = RestApi
   request = Request.postBody defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable ImportRestApi
+instance Core.Hashable ImportRestApi
 
-instance Prelude.NFData ImportRestApi
+instance Core.NFData ImportRestApi
 
-instance Prelude.ToBody ImportRestApi where
-  toBody ImportRestApi' {..} = Prelude.toBody body
+instance Core.ToBody ImportRestApi where
+  toBody ImportRestApi' {..} = Core.toBody body
 
-instance Prelude.ToHeaders ImportRestApi where
+instance Core.ToHeaders ImportRestApi where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ImportRestApi where
-  toPath = Prelude.const "/restapis"
+instance Core.ToPath ImportRestApi where
+  toPath = Core.const "/restapis"
 
-instance Prelude.ToQuery ImportRestApi where
+instance Core.ToQuery ImportRestApi where
   toQuery ImportRestApi' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "parameters"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryMap "entry" "key" "value"
-                Prelude.<$> parameters
+          Core.=: Core.toQuery
+            ( Core.toQueryMap "entry" "key" "value"
+                Core.<$> parameters
             ),
-        "failonwarnings" Prelude.=: failOnWarnings,
+        "failonwarnings" Core.=: failOnWarnings,
         "mode=import"
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.CloudFormation.ListStackResources
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,7 +58,7 @@ import qualified Network.AWS.Response as Response
 data ListStackResources = ListStackResources'
   { -- | A string that identifies the next page of stack resources that you want
     -- to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The name or the unique stack ID that is associated with the stack, which
     -- are not always interchangeable:
     --
@@ -70,9 +68,9 @@ data ListStackResources = ListStackResources'
     -- -   Deleted stacks: You must specify the unique stack ID.
     --
     -- Default: There is no default value.
-    stackName :: Prelude.Text
+    stackName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListStackResources' with all optional fields omitted.
@@ -96,17 +94,17 @@ data ListStackResources = ListStackResources'
 -- Default: There is no default value.
 newListStackResources ::
   -- | 'stackName'
-  Prelude.Text ->
+  Core.Text ->
   ListStackResources
 newListStackResources pStackName_ =
   ListStackResources'
-    { nextToken = Prelude.Nothing,
+    { nextToken = Core.Nothing,
       stackName = pStackName_
     }
 
 -- | A string that identifies the next page of stack resources that you want
 -- to retrieve.
-listStackResources_nextToken :: Lens.Lens' ListStackResources (Prelude.Maybe Prelude.Text)
+listStackResources_nextToken :: Lens.Lens' ListStackResources (Core.Maybe Core.Text)
 listStackResources_nextToken = Lens.lens (\ListStackResources' {nextToken} -> nextToken) (\s@ListStackResources' {} a -> s {nextToken = a} :: ListStackResources)
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -118,34 +116,34 @@ listStackResources_nextToken = Lens.lens (\ListStackResources' {nextToken} -> ne
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-listStackResources_stackName :: Lens.Lens' ListStackResources Prelude.Text
+listStackResources_stackName :: Lens.Lens' ListStackResources Core.Text
 listStackResources_stackName = Lens.lens (\ListStackResources' {stackName} -> stackName) (\s@ListStackResources' {} a -> s {stackName = a} :: ListStackResources)
 
-instance Pager.AWSPager ListStackResources where
+instance Core.AWSPager ListStackResources where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listStackResourcesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listStackResourcesResponse_stackResourceSummaries
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listStackResources_nextToken
           Lens..~ rs
           Lens.^? listStackResourcesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListStackResources where
+instance Core.AWSRequest ListStackResources where
   type
-    Rs ListStackResources =
+    AWSResponse ListStackResources =
       ListStackResourcesResponse
   request = Request.postQuery defaultService
   response =
@@ -153,33 +151,32 @@ instance Prelude.AWSRequest ListStackResources where
       "ListStackResourcesResult"
       ( \s h x ->
           ListStackResourcesResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> ( x Prelude..@? "StackResourceSummaries"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "StackResourceSummaries"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListStackResources
+instance Core.Hashable ListStackResources
 
-instance Prelude.NFData ListStackResources
+instance Core.NFData ListStackResources
 
-instance Prelude.ToHeaders ListStackResources where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListStackResources where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListStackResources where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListStackResources where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListStackResources where
+instance Core.ToQuery ListStackResources where
   toQuery ListStackResources' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListStackResources" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "StackName" Prelude.=: stackName
+          Core.=: ("ListStackResources" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "StackName" Core.=: stackName
       ]
 
 -- | The output for a ListStackResources action.
@@ -188,13 +185,13 @@ instance Prelude.ToQuery ListStackResources where
 data ListStackResourcesResponse = ListStackResourcesResponse'
   { -- | If the output exceeds 1 MB, a string that identifies the next page of
     -- stack resources. If no additional page exists, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @StackResourceSummary@ structures.
-    stackResourceSummaries :: Prelude.Maybe [StackResourceSummary],
+    stackResourceSummaries :: Core.Maybe [StackResourceSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListStackResourcesResponse' with all optional fields omitted.
@@ -212,27 +209,27 @@ data ListStackResourcesResponse = ListStackResourcesResponse'
 -- 'httpStatus', 'listStackResourcesResponse_httpStatus' - The response's http status code.
 newListStackResourcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListStackResourcesResponse
 newListStackResourcesResponse pHttpStatus_ =
   ListStackResourcesResponse'
     { nextToken =
-        Prelude.Nothing,
-      stackResourceSummaries = Prelude.Nothing,
+        Core.Nothing,
+      stackResourceSummaries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the output exceeds 1 MB, a string that identifies the next page of
 -- stack resources. If no additional page exists, this value is null.
-listStackResourcesResponse_nextToken :: Lens.Lens' ListStackResourcesResponse (Prelude.Maybe Prelude.Text)
+listStackResourcesResponse_nextToken :: Lens.Lens' ListStackResourcesResponse (Core.Maybe Core.Text)
 listStackResourcesResponse_nextToken = Lens.lens (\ListStackResourcesResponse' {nextToken} -> nextToken) (\s@ListStackResourcesResponse' {} a -> s {nextToken = a} :: ListStackResourcesResponse)
 
 -- | A list of @StackResourceSummary@ structures.
-listStackResourcesResponse_stackResourceSummaries :: Lens.Lens' ListStackResourcesResponse (Prelude.Maybe [StackResourceSummary])
-listStackResourcesResponse_stackResourceSummaries = Lens.lens (\ListStackResourcesResponse' {stackResourceSummaries} -> stackResourceSummaries) (\s@ListStackResourcesResponse' {} a -> s {stackResourceSummaries = a} :: ListStackResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listStackResourcesResponse_stackResourceSummaries :: Lens.Lens' ListStackResourcesResponse (Core.Maybe [StackResourceSummary])
+listStackResourcesResponse_stackResourceSummaries = Lens.lens (\ListStackResourcesResponse' {stackResourceSummaries} -> stackResourceSummaries) (\s@ListStackResourcesResponse' {} a -> s {stackResourceSummaries = a} :: ListStackResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listStackResourcesResponse_httpStatus :: Lens.Lens' ListStackResourcesResponse Prelude.Int
+listStackResourcesResponse_httpStatus :: Lens.Lens' ListStackResourcesResponse Core.Int
 listStackResourcesResponse_httpStatus = Lens.lens (\ListStackResourcesResponse' {httpStatus} -> httpStatus) (\s@ListStackResourcesResponse' {} a -> s {httpStatus = a} :: ListStackResourcesResponse)
 
-instance Prelude.NFData ListStackResourcesResponse
+instance Core.NFData ListStackResourcesResponse

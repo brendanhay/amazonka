@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.RedshiftInstanceDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the Amazon Redshift instances that AWS recommends that you
 -- purchase.
@@ -29,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRedshiftInstanceDetails' smart constructor.
 data RedshiftInstanceDetails = RedshiftInstanceDetails'
   { -- | Whether the recommendation is for a current-generation instance.
-    currentGeneration :: Prelude.Maybe Prelude.Bool,
+    currentGeneration :: Core.Maybe Core.Bool,
     -- | Whether the recommended reservation is size flexible.
-    sizeFlexEligible :: Prelude.Maybe Prelude.Bool,
+    sizeFlexEligible :: Core.Maybe Core.Bool,
     -- | The instance family of the recommended reservation.
-    family :: Prelude.Maybe Prelude.Text,
+    family :: Core.Maybe Core.Text,
     -- | The type of node that AWS recommends.
-    nodeType :: Prelude.Maybe Prelude.Text,
+    nodeType :: Core.Maybe Core.Text,
     -- | The AWS Region of the recommended reservation.
-    region :: Prelude.Maybe Prelude.Text
+    region :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RedshiftInstanceDetails' with all optional fields omitted.
@@ -63,46 +62,46 @@ newRedshiftInstanceDetails ::
 newRedshiftInstanceDetails =
   RedshiftInstanceDetails'
     { currentGeneration =
-        Prelude.Nothing,
-      sizeFlexEligible = Prelude.Nothing,
-      family = Prelude.Nothing,
-      nodeType = Prelude.Nothing,
-      region = Prelude.Nothing
+        Core.Nothing,
+      sizeFlexEligible = Core.Nothing,
+      family = Core.Nothing,
+      nodeType = Core.Nothing,
+      region = Core.Nothing
     }
 
 -- | Whether the recommendation is for a current-generation instance.
-redshiftInstanceDetails_currentGeneration :: Lens.Lens' RedshiftInstanceDetails (Prelude.Maybe Prelude.Bool)
+redshiftInstanceDetails_currentGeneration :: Lens.Lens' RedshiftInstanceDetails (Core.Maybe Core.Bool)
 redshiftInstanceDetails_currentGeneration = Lens.lens (\RedshiftInstanceDetails' {currentGeneration} -> currentGeneration) (\s@RedshiftInstanceDetails' {} a -> s {currentGeneration = a} :: RedshiftInstanceDetails)
 
 -- | Whether the recommended reservation is size flexible.
-redshiftInstanceDetails_sizeFlexEligible :: Lens.Lens' RedshiftInstanceDetails (Prelude.Maybe Prelude.Bool)
+redshiftInstanceDetails_sizeFlexEligible :: Lens.Lens' RedshiftInstanceDetails (Core.Maybe Core.Bool)
 redshiftInstanceDetails_sizeFlexEligible = Lens.lens (\RedshiftInstanceDetails' {sizeFlexEligible} -> sizeFlexEligible) (\s@RedshiftInstanceDetails' {} a -> s {sizeFlexEligible = a} :: RedshiftInstanceDetails)
 
 -- | The instance family of the recommended reservation.
-redshiftInstanceDetails_family :: Lens.Lens' RedshiftInstanceDetails (Prelude.Maybe Prelude.Text)
+redshiftInstanceDetails_family :: Lens.Lens' RedshiftInstanceDetails (Core.Maybe Core.Text)
 redshiftInstanceDetails_family = Lens.lens (\RedshiftInstanceDetails' {family} -> family) (\s@RedshiftInstanceDetails' {} a -> s {family = a} :: RedshiftInstanceDetails)
 
 -- | The type of node that AWS recommends.
-redshiftInstanceDetails_nodeType :: Lens.Lens' RedshiftInstanceDetails (Prelude.Maybe Prelude.Text)
+redshiftInstanceDetails_nodeType :: Lens.Lens' RedshiftInstanceDetails (Core.Maybe Core.Text)
 redshiftInstanceDetails_nodeType = Lens.lens (\RedshiftInstanceDetails' {nodeType} -> nodeType) (\s@RedshiftInstanceDetails' {} a -> s {nodeType = a} :: RedshiftInstanceDetails)
 
 -- | The AWS Region of the recommended reservation.
-redshiftInstanceDetails_region :: Lens.Lens' RedshiftInstanceDetails (Prelude.Maybe Prelude.Text)
+redshiftInstanceDetails_region :: Lens.Lens' RedshiftInstanceDetails (Core.Maybe Core.Text)
 redshiftInstanceDetails_region = Lens.lens (\RedshiftInstanceDetails' {region} -> region) (\s@RedshiftInstanceDetails' {} a -> s {region = a} :: RedshiftInstanceDetails)
 
-instance Prelude.FromJSON RedshiftInstanceDetails where
+instance Core.FromJSON RedshiftInstanceDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RedshiftInstanceDetails"
       ( \x ->
           RedshiftInstanceDetails'
-            Prelude.<$> (x Prelude..:? "CurrentGeneration")
-            Prelude.<*> (x Prelude..:? "SizeFlexEligible")
-            Prelude.<*> (x Prelude..:? "Family")
-            Prelude.<*> (x Prelude..:? "NodeType")
-            Prelude.<*> (x Prelude..:? "Region")
+            Core.<$> (x Core..:? "CurrentGeneration")
+            Core.<*> (x Core..:? "SizeFlexEligible")
+            Core.<*> (x Core..:? "Family")
+            Core.<*> (x Core..:? "NodeType")
+            Core.<*> (x Core..:? "Region")
       )
 
-instance Prelude.Hashable RedshiftInstanceDetails
+instance Core.Hashable RedshiftInstanceDetails
 
-instance Prelude.NFData RedshiftInstanceDetails
+instance Core.NFData RedshiftInstanceDetails

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Asset where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.GroundTruthManifest
 
 -- | Assets are the images that you use to train and evaluate a model
@@ -30,9 +29,9 @@ import Network.AWS.Rekognition.Types.GroundTruthManifest
 --
 -- /See:/ 'newAsset' smart constructor.
 data Asset = Asset'
-  { groundTruthManifest :: Prelude.Maybe GroundTruthManifest
+  { groundTruthManifest :: Core.Maybe GroundTruthManifest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Asset' with all optional fields omitted.
@@ -45,31 +44,29 @@ data Asset = Asset'
 -- 'groundTruthManifest', 'asset_groundTruthManifest' - Undocumented member.
 newAsset ::
   Asset
-newAsset =
-  Asset' {groundTruthManifest = Prelude.Nothing}
+newAsset = Asset' {groundTruthManifest = Core.Nothing}
 
 -- | Undocumented member.
-asset_groundTruthManifest :: Lens.Lens' Asset (Prelude.Maybe GroundTruthManifest)
+asset_groundTruthManifest :: Lens.Lens' Asset (Core.Maybe GroundTruthManifest)
 asset_groundTruthManifest = Lens.lens (\Asset' {groundTruthManifest} -> groundTruthManifest) (\s@Asset' {} a -> s {groundTruthManifest = a} :: Asset)
 
-instance Prelude.FromJSON Asset where
+instance Core.FromJSON Asset where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Asset"
       ( \x ->
-          Asset'
-            Prelude.<$> (x Prelude..:? "GroundTruthManifest")
+          Asset' Core.<$> (x Core..:? "GroundTruthManifest")
       )
 
-instance Prelude.Hashable Asset
+instance Core.Hashable Asset
 
-instance Prelude.NFData Asset
+instance Core.NFData Asset
 
-instance Prelude.ToJSON Asset where
+instance Core.ToJSON Asset where
   toJSON Asset' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("GroundTruthManifest" Prelude..=)
-              Prelude.<$> groundTruthManifest
+    Core.object
+      ( Core.catMaybes
+          [ ("GroundTruthManifest" Core..=)
+              Core.<$> groundTruthManifest
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.CloudDirectory.UpgradeAppliedSchema
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +60,13 @@ data UpgradeAppliedSchema = UpgradeAppliedSchema'
     -- compatible or not. If schema compatibility fails, an exception would be
     -- thrown else the call would succeed but no changes will be saved. This
     -- parameter is optional.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The revision of the published schema to upgrade the directory to.
-    publishedSchemaArn :: Prelude.Text,
+    publishedSchemaArn :: Core.Text,
     -- | The ARN for the directory to which the upgraded schema will be applied.
-    directoryArn :: Prelude.Text
+    directoryArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpgradeAppliedSchema' with all optional fields omitted.
@@ -87,15 +86,15 @@ data UpgradeAppliedSchema = UpgradeAppliedSchema'
 -- 'directoryArn', 'upgradeAppliedSchema_directoryArn' - The ARN for the directory to which the upgraded schema will be applied.
 newUpgradeAppliedSchema ::
   -- | 'publishedSchemaArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'directoryArn'
-  Prelude.Text ->
+  Core.Text ->
   UpgradeAppliedSchema
 newUpgradeAppliedSchema
   pPublishedSchemaArn_
   pDirectoryArn_ =
     UpgradeAppliedSchema'
-      { dryRun = Prelude.Nothing,
+      { dryRun = Core.Nothing,
         publishedSchemaArn = pPublishedSchemaArn_,
         directoryArn = pDirectoryArn_
       }
@@ -104,68 +103,67 @@ newUpgradeAppliedSchema
 -- compatible or not. If schema compatibility fails, an exception would be
 -- thrown else the call would succeed but no changes will be saved. This
 -- parameter is optional.
-upgradeAppliedSchema_dryRun :: Lens.Lens' UpgradeAppliedSchema (Prelude.Maybe Prelude.Bool)
+upgradeAppliedSchema_dryRun :: Lens.Lens' UpgradeAppliedSchema (Core.Maybe Core.Bool)
 upgradeAppliedSchema_dryRun = Lens.lens (\UpgradeAppliedSchema' {dryRun} -> dryRun) (\s@UpgradeAppliedSchema' {} a -> s {dryRun = a} :: UpgradeAppliedSchema)
 
 -- | The revision of the published schema to upgrade the directory to.
-upgradeAppliedSchema_publishedSchemaArn :: Lens.Lens' UpgradeAppliedSchema Prelude.Text
+upgradeAppliedSchema_publishedSchemaArn :: Lens.Lens' UpgradeAppliedSchema Core.Text
 upgradeAppliedSchema_publishedSchemaArn = Lens.lens (\UpgradeAppliedSchema' {publishedSchemaArn} -> publishedSchemaArn) (\s@UpgradeAppliedSchema' {} a -> s {publishedSchemaArn = a} :: UpgradeAppliedSchema)
 
 -- | The ARN for the directory to which the upgraded schema will be applied.
-upgradeAppliedSchema_directoryArn :: Lens.Lens' UpgradeAppliedSchema Prelude.Text
+upgradeAppliedSchema_directoryArn :: Lens.Lens' UpgradeAppliedSchema Core.Text
 upgradeAppliedSchema_directoryArn = Lens.lens (\UpgradeAppliedSchema' {directoryArn} -> directoryArn) (\s@UpgradeAppliedSchema' {} a -> s {directoryArn = a} :: UpgradeAppliedSchema)
 
-instance Prelude.AWSRequest UpgradeAppliedSchema where
+instance Core.AWSRequest UpgradeAppliedSchema where
   type
-    Rs UpgradeAppliedSchema =
+    AWSResponse UpgradeAppliedSchema =
       UpgradeAppliedSchemaResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpgradeAppliedSchemaResponse'
-            Prelude.<$> (x Prelude..?> "DirectoryArn")
-            Prelude.<*> (x Prelude..?> "UpgradedSchemaArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DirectoryArn")
+            Core.<*> (x Core..?> "UpgradedSchemaArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpgradeAppliedSchema
+instance Core.Hashable UpgradeAppliedSchema
 
-instance Prelude.NFData UpgradeAppliedSchema
+instance Core.NFData UpgradeAppliedSchema
 
-instance Prelude.ToHeaders UpgradeAppliedSchema where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpgradeAppliedSchema where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpgradeAppliedSchema where
+instance Core.ToJSON UpgradeAppliedSchema where
   toJSON UpgradeAppliedSchema' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DryRun" Prelude..=) Prelude.<$> dryRun,
-            Prelude.Just
-              ("PublishedSchemaArn" Prelude..= publishedSchemaArn),
-            Prelude.Just
-              ("DirectoryArn" Prelude..= directoryArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("DryRun" Core..=) Core.<$> dryRun,
+            Core.Just
+              ("PublishedSchemaArn" Core..= publishedSchemaArn),
+            Core.Just ("DirectoryArn" Core..= directoryArn)
           ]
       )
 
-instance Prelude.ToPath UpgradeAppliedSchema where
+instance Core.ToPath UpgradeAppliedSchema where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/schema/upgradeapplied"
 
-instance Prelude.ToQuery UpgradeAppliedSchema where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpgradeAppliedSchema where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpgradeAppliedSchemaResponse' smart constructor.
 data UpgradeAppliedSchemaResponse = UpgradeAppliedSchemaResponse'
   { -- | The ARN of the directory that is returned as part of the response.
-    directoryArn :: Prelude.Maybe Prelude.Text,
+    directoryArn :: Core.Maybe Core.Text,
     -- | The ARN of the upgraded schema that is returned as part of the response.
-    upgradedSchemaArn :: Prelude.Maybe Prelude.Text,
+    upgradedSchemaArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpgradeAppliedSchemaResponse' with all optional fields omitted.
@@ -182,26 +180,26 @@ data UpgradeAppliedSchemaResponse = UpgradeAppliedSchemaResponse'
 -- 'httpStatus', 'upgradeAppliedSchemaResponse_httpStatus' - The response's http status code.
 newUpgradeAppliedSchemaResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpgradeAppliedSchemaResponse
 newUpgradeAppliedSchemaResponse pHttpStatus_ =
   UpgradeAppliedSchemaResponse'
     { directoryArn =
-        Prelude.Nothing,
-      upgradedSchemaArn = Prelude.Nothing,
+        Core.Nothing,
+      upgradedSchemaArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the directory that is returned as part of the response.
-upgradeAppliedSchemaResponse_directoryArn :: Lens.Lens' UpgradeAppliedSchemaResponse (Prelude.Maybe Prelude.Text)
+upgradeAppliedSchemaResponse_directoryArn :: Lens.Lens' UpgradeAppliedSchemaResponse (Core.Maybe Core.Text)
 upgradeAppliedSchemaResponse_directoryArn = Lens.lens (\UpgradeAppliedSchemaResponse' {directoryArn} -> directoryArn) (\s@UpgradeAppliedSchemaResponse' {} a -> s {directoryArn = a} :: UpgradeAppliedSchemaResponse)
 
 -- | The ARN of the upgraded schema that is returned as part of the response.
-upgradeAppliedSchemaResponse_upgradedSchemaArn :: Lens.Lens' UpgradeAppliedSchemaResponse (Prelude.Maybe Prelude.Text)
+upgradeAppliedSchemaResponse_upgradedSchemaArn :: Lens.Lens' UpgradeAppliedSchemaResponse (Core.Maybe Core.Text)
 upgradeAppliedSchemaResponse_upgradedSchemaArn = Lens.lens (\UpgradeAppliedSchemaResponse' {upgradedSchemaArn} -> upgradedSchemaArn) (\s@UpgradeAppliedSchemaResponse' {} a -> s {upgradedSchemaArn = a} :: UpgradeAppliedSchemaResponse)
 
 -- | The response's http status code.
-upgradeAppliedSchemaResponse_httpStatus :: Lens.Lens' UpgradeAppliedSchemaResponse Prelude.Int
+upgradeAppliedSchemaResponse_httpStatus :: Lens.Lens' UpgradeAppliedSchemaResponse Core.Int
 upgradeAppliedSchemaResponse_httpStatus = Lens.lens (\UpgradeAppliedSchemaResponse' {httpStatus} -> httpStatus) (\s@UpgradeAppliedSchemaResponse' {} a -> s {httpStatus = a} :: UpgradeAppliedSchemaResponse)
 
-instance Prelude.NFData UpgradeAppliedSchemaResponse
+instance Core.NFData UpgradeAppliedSchemaResponse

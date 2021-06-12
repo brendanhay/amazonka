@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,8 +56,8 @@ module Network.AWS.SecretsManager.GetRandomPassword
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -68,31 +67,31 @@ data GetRandomPassword = GetRandomPassword'
   { -- | A string that includes characters that should not be included in the
     -- generated password. The default is that all characters from the included
     -- sets can be used.
-    excludeCharacters :: Prelude.Maybe Prelude.Text,
+    excludeCharacters :: Core.Maybe Core.Text,
     -- | Specifies that the generated password should not include lowercase
     -- letters. The default if you do not include this switch parameter is that
     -- lowercase letters can be included.
-    excludeLowercase :: Prelude.Maybe Prelude.Bool,
+    excludeLowercase :: Core.Maybe Core.Bool,
     -- | Specifies that the generated password can include the space character.
     -- The default if you do not include this switch parameter is that the
     -- space character is not included.
-    includeSpace :: Prelude.Maybe Prelude.Bool,
+    includeSpace :: Core.Maybe Core.Bool,
     -- | A boolean value that specifies whether the generated password must
     -- include at least one of every allowed character type. The default value
     -- is @True@ and the operation requires at least one of every character
     -- type.
-    requireEachIncludedType :: Prelude.Maybe Prelude.Bool,
+    requireEachIncludedType :: Core.Maybe Core.Bool,
     -- | Specifies that the generated password should not include digits. The
     -- default if you do not include this switch parameter is that digits can
     -- be included.
-    excludeNumbers :: Prelude.Maybe Prelude.Bool,
+    excludeNumbers :: Core.Maybe Core.Bool,
     -- | The desired length of the generated password. The default value if you
     -- do not include this parameter is 32 characters.
-    passwordLength :: Prelude.Maybe Prelude.Natural,
+    passwordLength :: Core.Maybe Core.Natural,
     -- | Specifies that the generated password should not include uppercase
     -- letters. The default if you do not include this switch parameter is that
     -- uppercase letters can be included.
-    excludeUppercase :: Prelude.Maybe Prelude.Bool,
+    excludeUppercase :: Core.Maybe Core.Bool,
     -- | Specifies that the generated password should not include punctuation
     -- characters. The default if you do not include this switch parameter is
     -- that punctuation characters can be included.
@@ -102,9 +101,9 @@ data GetRandomPassword = GetRandomPassword'
     -- @ExcludeCharacters@ or @ExcludePunctuation@:
     --
     -- @! \" # $ % & \' ( ) * + , - . \/ : ; \< = > ? \@ [ \\ ] ^ _ \` { | } ~@
-    excludePunctuation :: Prelude.Maybe Prelude.Bool
+    excludePunctuation :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRandomPassword' with all optional fields omitted.
@@ -156,56 +155,56 @@ newGetRandomPassword ::
 newGetRandomPassword =
   GetRandomPassword'
     { excludeCharacters =
-        Prelude.Nothing,
-      excludeLowercase = Prelude.Nothing,
-      includeSpace = Prelude.Nothing,
-      requireEachIncludedType = Prelude.Nothing,
-      excludeNumbers = Prelude.Nothing,
-      passwordLength = Prelude.Nothing,
-      excludeUppercase = Prelude.Nothing,
-      excludePunctuation = Prelude.Nothing
+        Core.Nothing,
+      excludeLowercase = Core.Nothing,
+      includeSpace = Core.Nothing,
+      requireEachIncludedType = Core.Nothing,
+      excludeNumbers = Core.Nothing,
+      passwordLength = Core.Nothing,
+      excludeUppercase = Core.Nothing,
+      excludePunctuation = Core.Nothing
     }
 
 -- | A string that includes characters that should not be included in the
 -- generated password. The default is that all characters from the included
 -- sets can be used.
-getRandomPassword_excludeCharacters :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Text)
+getRandomPassword_excludeCharacters :: Lens.Lens' GetRandomPassword (Core.Maybe Core.Text)
 getRandomPassword_excludeCharacters = Lens.lens (\GetRandomPassword' {excludeCharacters} -> excludeCharacters) (\s@GetRandomPassword' {} a -> s {excludeCharacters = a} :: GetRandomPassword)
 
 -- | Specifies that the generated password should not include lowercase
 -- letters. The default if you do not include this switch parameter is that
 -- lowercase letters can be included.
-getRandomPassword_excludeLowercase :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
+getRandomPassword_excludeLowercase :: Lens.Lens' GetRandomPassword (Core.Maybe Core.Bool)
 getRandomPassword_excludeLowercase = Lens.lens (\GetRandomPassword' {excludeLowercase} -> excludeLowercase) (\s@GetRandomPassword' {} a -> s {excludeLowercase = a} :: GetRandomPassword)
 
 -- | Specifies that the generated password can include the space character.
 -- The default if you do not include this switch parameter is that the
 -- space character is not included.
-getRandomPassword_includeSpace :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
+getRandomPassword_includeSpace :: Lens.Lens' GetRandomPassword (Core.Maybe Core.Bool)
 getRandomPassword_includeSpace = Lens.lens (\GetRandomPassword' {includeSpace} -> includeSpace) (\s@GetRandomPassword' {} a -> s {includeSpace = a} :: GetRandomPassword)
 
 -- | A boolean value that specifies whether the generated password must
 -- include at least one of every allowed character type. The default value
 -- is @True@ and the operation requires at least one of every character
 -- type.
-getRandomPassword_requireEachIncludedType :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
+getRandomPassword_requireEachIncludedType :: Lens.Lens' GetRandomPassword (Core.Maybe Core.Bool)
 getRandomPassword_requireEachIncludedType = Lens.lens (\GetRandomPassword' {requireEachIncludedType} -> requireEachIncludedType) (\s@GetRandomPassword' {} a -> s {requireEachIncludedType = a} :: GetRandomPassword)
 
 -- | Specifies that the generated password should not include digits. The
 -- default if you do not include this switch parameter is that digits can
 -- be included.
-getRandomPassword_excludeNumbers :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
+getRandomPassword_excludeNumbers :: Lens.Lens' GetRandomPassword (Core.Maybe Core.Bool)
 getRandomPassword_excludeNumbers = Lens.lens (\GetRandomPassword' {excludeNumbers} -> excludeNumbers) (\s@GetRandomPassword' {} a -> s {excludeNumbers = a} :: GetRandomPassword)
 
 -- | The desired length of the generated password. The default value if you
 -- do not include this parameter is 32 characters.
-getRandomPassword_passwordLength :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Natural)
+getRandomPassword_passwordLength :: Lens.Lens' GetRandomPassword (Core.Maybe Core.Natural)
 getRandomPassword_passwordLength = Lens.lens (\GetRandomPassword' {passwordLength} -> passwordLength) (\s@GetRandomPassword' {} a -> s {passwordLength = a} :: GetRandomPassword)
 
 -- | Specifies that the generated password should not include uppercase
 -- letters. The default if you do not include this switch parameter is that
 -- uppercase letters can be included.
-getRandomPassword_excludeUppercase :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
+getRandomPassword_excludeUppercase :: Lens.Lens' GetRandomPassword (Core.Maybe Core.Bool)
 getRandomPassword_excludeUppercase = Lens.lens (\GetRandomPassword' {excludeUppercase} -> excludeUppercase) (\s@GetRandomPassword' {} a -> s {excludeUppercase = a} :: GetRandomPassword)
 
 -- | Specifies that the generated password should not include punctuation
@@ -217,75 +216,73 @@ getRandomPassword_excludeUppercase = Lens.lens (\GetRandomPassword' {excludeUppe
 -- @ExcludeCharacters@ or @ExcludePunctuation@:
 --
 -- @! \" # $ % & \' ( ) * + , - . \/ : ; \< = > ? \@ [ \\ ] ^ _ \` { | } ~@
-getRandomPassword_excludePunctuation :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
+getRandomPassword_excludePunctuation :: Lens.Lens' GetRandomPassword (Core.Maybe Core.Bool)
 getRandomPassword_excludePunctuation = Lens.lens (\GetRandomPassword' {excludePunctuation} -> excludePunctuation) (\s@GetRandomPassword' {} a -> s {excludePunctuation = a} :: GetRandomPassword)
 
-instance Prelude.AWSRequest GetRandomPassword where
-  type Rs GetRandomPassword = GetRandomPasswordResponse
+instance Core.AWSRequest GetRandomPassword where
+  type
+    AWSResponse GetRandomPassword =
+      GetRandomPasswordResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRandomPasswordResponse'
-            Prelude.<$> (x Prelude..?> "RandomPassword")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "RandomPassword")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetRandomPassword
+instance Core.Hashable GetRandomPassword
 
-instance Prelude.NFData GetRandomPassword
+instance Core.NFData GetRandomPassword
 
-instance Prelude.ToHeaders GetRandomPassword where
+instance Core.ToHeaders GetRandomPassword where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.GetRandomPassword" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "secretsmanager.GetRandomPassword" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetRandomPassword where
+instance Core.ToJSON GetRandomPassword where
   toJSON GetRandomPassword' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExcludeCharacters" Prelude..=)
-              Prelude.<$> excludeCharacters,
-            ("ExcludeLowercase" Prelude..=)
-              Prelude.<$> excludeLowercase,
-            ("IncludeSpace" Prelude..=) Prelude.<$> includeSpace,
-            ("RequireEachIncludedType" Prelude..=)
-              Prelude.<$> requireEachIncludedType,
-            ("ExcludeNumbers" Prelude..=)
-              Prelude.<$> excludeNumbers,
-            ("PasswordLength" Prelude..=)
-              Prelude.<$> passwordLength,
-            ("ExcludeUppercase" Prelude..=)
-              Prelude.<$> excludeUppercase,
-            ("ExcludePunctuation" Prelude..=)
-              Prelude.<$> excludePunctuation
+    Core.object
+      ( Core.catMaybes
+          [ ("ExcludeCharacters" Core..=)
+              Core.<$> excludeCharacters,
+            ("ExcludeLowercase" Core..=)
+              Core.<$> excludeLowercase,
+            ("IncludeSpace" Core..=) Core.<$> includeSpace,
+            ("RequireEachIncludedType" Core..=)
+              Core.<$> requireEachIncludedType,
+            ("ExcludeNumbers" Core..=) Core.<$> excludeNumbers,
+            ("PasswordLength" Core..=) Core.<$> passwordLength,
+            ("ExcludeUppercase" Core..=)
+              Core.<$> excludeUppercase,
+            ("ExcludePunctuation" Core..=)
+              Core.<$> excludePunctuation
           ]
       )
 
-instance Prelude.ToPath GetRandomPassword where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRandomPassword where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetRandomPassword where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRandomPassword where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetRandomPasswordResponse' smart constructor.
 data GetRandomPasswordResponse = GetRandomPasswordResponse'
   { -- | A string with the generated password.
-    randomPassword :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    randomPassword :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRandomPasswordResponse' with all optional fields omitted.
@@ -300,21 +297,21 @@ data GetRandomPasswordResponse = GetRandomPasswordResponse'
 -- 'httpStatus', 'getRandomPasswordResponse_httpStatus' - The response's http status code.
 newGetRandomPasswordResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRandomPasswordResponse
 newGetRandomPasswordResponse pHttpStatus_ =
   GetRandomPasswordResponse'
     { randomPassword =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A string with the generated password.
-getRandomPasswordResponse_randomPassword :: Lens.Lens' GetRandomPasswordResponse (Prelude.Maybe Prelude.Text)
-getRandomPasswordResponse_randomPassword = Lens.lens (\GetRandomPasswordResponse' {randomPassword} -> randomPassword) (\s@GetRandomPasswordResponse' {} a -> s {randomPassword = a} :: GetRandomPasswordResponse) Prelude.. Lens.mapping Prelude._Sensitive
+getRandomPasswordResponse_randomPassword :: Lens.Lens' GetRandomPasswordResponse (Core.Maybe Core.Text)
+getRandomPasswordResponse_randomPassword = Lens.lens (\GetRandomPasswordResponse' {randomPassword} -> randomPassword) (\s@GetRandomPasswordResponse' {} a -> s {randomPassword = a} :: GetRandomPasswordResponse) Core.. Lens.mapping Core._Sensitive
 
 -- | The response's http status code.
-getRandomPasswordResponse_httpStatus :: Lens.Lens' GetRandomPasswordResponse Prelude.Int
+getRandomPasswordResponse_httpStatus :: Lens.Lens' GetRandomPasswordResponse Core.Int
 getRandomPasswordResponse_httpStatus = Lens.lens (\GetRandomPasswordResponse' {httpStatus} -> httpStatus) (\s@GetRandomPasswordResponse' {} a -> s {httpStatus = a} :: GetRandomPasswordResponse)
 
-instance Prelude.NFData GetRandomPasswordResponse
+instance Core.NFData GetRandomPasswordResponse

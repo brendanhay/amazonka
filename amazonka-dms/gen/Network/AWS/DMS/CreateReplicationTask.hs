@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.DMS.CreateReplicationTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,19 +65,19 @@ data CreateReplicationTask = CreateReplicationTask'
     -- certain source and target endpoints. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
     -- in the /AWS Database Migration Service User Guide./
-    taskData :: Prelude.Maybe Prelude.Text,
+    taskData :: Core.Maybe Core.Text,
     -- | Overall settings for the task, in JSON format. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for AWS Database Migration Service Tasks>
     -- in the /AWS Database Migration User Guide./
-    replicationTaskSettings :: Prelude.Maybe Prelude.Text,
+    replicationTaskSettings :: Core.Maybe Core.Text,
     -- | One or more tags to be assigned to the replication task.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Indicates the start time for a change data capture (CDC) operation. Use
     -- either CdcStartTime or CdcStartPosition to specify when you want a CDC
     -- operation to start. Specifying both values results in an error.
     --
     -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-    cdcStartTime :: Prelude.Maybe Prelude.POSIX,
+    cdcStartTime :: Core.Maybe Core.POSIX,
     -- | A friendly name for the resource identifier at the end of the
     -- @EndpointArn@ response parameter that is returned in the created
     -- @Endpoint@ object. The value for this parameter can have up to 31
@@ -89,7 +88,7 @@ data CreateReplicationTask = CreateReplicationTask'
     -- @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@. If you don\'t
     -- specify a @ResourceIdentifier@ value, AWS DMS generates a default
     -- identifier value for the end of @EndpointArn@.
-    resourceIdentifier :: Prelude.Maybe Prelude.Text,
+    resourceIdentifier :: Core.Maybe Core.Text,
     -- | Indicates when you want a change data capture (CDC) operation to stop.
     -- The value can be either server time or commit time.
     --
@@ -98,7 +97,7 @@ data CreateReplicationTask = CreateReplicationTask'
     --
     -- Commit time example: --cdc-stop-position “commit_time:
     -- 2018-02-09T12:12:12 “
-    cdcStopPosition :: Prelude.Maybe Prelude.Text,
+    cdcStopPosition :: Core.Maybe Core.Text,
     -- | Indicates when you want a change data capture (CDC) operation to start.
     -- Use either CdcStartPosition or CdcStartTime to specify when you want a
     -- CDC operation to start. Specifying both values results in an error.
@@ -118,7 +117,7 @@ data CreateReplicationTask = CreateReplicationTask'
     -- connection attribute to the name of this logical replication slot. For
     -- more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS>.
-    cdcStartPosition :: Prelude.Maybe Prelude.Text,
+    cdcStartPosition :: Core.Maybe Core.Text,
     -- | An identifier for the replication task.
     --
     -- Constraints:
@@ -128,15 +127,15 @@ data CreateReplicationTask = CreateReplicationTask'
     -- -   First character must be a letter.
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-    replicationTaskIdentifier :: Prelude.Text,
+    replicationTaskIdentifier :: Core.Text,
     -- | An Amazon Resource Name (ARN) that uniquely identifies the source
     -- endpoint.
-    sourceEndpointArn :: Prelude.Text,
+    sourceEndpointArn :: Core.Text,
     -- | An Amazon Resource Name (ARN) that uniquely identifies the target
     -- endpoint.
-    targetEndpointArn :: Prelude.Text,
+    targetEndpointArn :: Core.Text,
     -- | The Amazon Resource Name (ARN) of a replication instance.
-    replicationInstanceArn :: Prelude.Text,
+    replicationInstanceArn :: Core.Text,
     -- | The migration type. Valid values: @full-load@ | @cdc@ |
     -- @full-load-and-cdc@
     migrationType :: MigrationTypeValue,
@@ -144,9 +143,9 @@ data CreateReplicationTask = CreateReplicationTask'
     -- see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html Using Table Mapping to Specify Task Settings>
     -- in the /AWS Database Migration Service User Guide./
-    tableMappings :: Prelude.Text
+    tableMappings :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateReplicationTask' with all optional fields omitted.
@@ -240,17 +239,17 @@ data CreateReplicationTask = CreateReplicationTask'
 -- in the /AWS Database Migration Service User Guide./
 newCreateReplicationTask ::
   -- | 'replicationTaskIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sourceEndpointArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetEndpointArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'replicationInstanceArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'migrationType'
   MigrationTypeValue ->
   -- | 'tableMappings'
-  Prelude.Text ->
+  Core.Text ->
   CreateReplicationTask
 newCreateReplicationTask
   pReplicationTaskIdentifier_
@@ -260,13 +259,13 @@ newCreateReplicationTask
   pMigrationType_
   pTableMappings_ =
     CreateReplicationTask'
-      { taskData = Prelude.Nothing,
-        replicationTaskSettings = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        cdcStartTime = Prelude.Nothing,
-        resourceIdentifier = Prelude.Nothing,
-        cdcStopPosition = Prelude.Nothing,
-        cdcStartPosition = Prelude.Nothing,
+      { taskData = Core.Nothing,
+        replicationTaskSettings = Core.Nothing,
+        tags = Core.Nothing,
+        cdcStartTime = Core.Nothing,
+        resourceIdentifier = Core.Nothing,
+        cdcStopPosition = Core.Nothing,
+        cdcStartPosition = Core.Nothing,
         replicationTaskIdentifier =
           pReplicationTaskIdentifier_,
         sourceEndpointArn = pSourceEndpointArn_,
@@ -280,26 +279,26 @@ newCreateReplicationTask
 -- certain source and target endpoints. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
 -- in the /AWS Database Migration Service User Guide./
-createReplicationTask_taskData :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
+createReplicationTask_taskData :: Lens.Lens' CreateReplicationTask (Core.Maybe Core.Text)
 createReplicationTask_taskData = Lens.lens (\CreateReplicationTask' {taskData} -> taskData) (\s@CreateReplicationTask' {} a -> s {taskData = a} :: CreateReplicationTask)
 
 -- | Overall settings for the task, in JSON format. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for AWS Database Migration Service Tasks>
 -- in the /AWS Database Migration User Guide./
-createReplicationTask_replicationTaskSettings :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
+createReplicationTask_replicationTaskSettings :: Lens.Lens' CreateReplicationTask (Core.Maybe Core.Text)
 createReplicationTask_replicationTaskSettings = Lens.lens (\CreateReplicationTask' {replicationTaskSettings} -> replicationTaskSettings) (\s@CreateReplicationTask' {} a -> s {replicationTaskSettings = a} :: CreateReplicationTask)
 
 -- | One or more tags to be assigned to the replication task.
-createReplicationTask_tags :: Lens.Lens' CreateReplicationTask (Prelude.Maybe [Tag])
-createReplicationTask_tags = Lens.lens (\CreateReplicationTask' {tags} -> tags) (\s@CreateReplicationTask' {} a -> s {tags = a} :: CreateReplicationTask) Prelude.. Lens.mapping Prelude._Coerce
+createReplicationTask_tags :: Lens.Lens' CreateReplicationTask (Core.Maybe [Tag])
+createReplicationTask_tags = Lens.lens (\CreateReplicationTask' {tags} -> tags) (\s@CreateReplicationTask' {} a -> s {tags = a} :: CreateReplicationTask) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates the start time for a change data capture (CDC) operation. Use
 -- either CdcStartTime or CdcStartPosition to specify when you want a CDC
 -- operation to start. Specifying both values results in an error.
 --
 -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-createReplicationTask_cdcStartTime :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.UTCTime)
-createReplicationTask_cdcStartTime = Lens.lens (\CreateReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@CreateReplicationTask' {} a -> s {cdcStartTime = a} :: CreateReplicationTask) Prelude.. Lens.mapping Prelude._Time
+createReplicationTask_cdcStartTime :: Lens.Lens' CreateReplicationTask (Core.Maybe Core.UTCTime)
+createReplicationTask_cdcStartTime = Lens.lens (\CreateReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@CreateReplicationTask' {} a -> s {cdcStartTime = a} :: CreateReplicationTask) Core.. Lens.mapping Core._Time
 
 -- | A friendly name for the resource identifier at the end of the
 -- @EndpointArn@ response parameter that is returned in the created
@@ -311,7 +310,7 @@ createReplicationTask_cdcStartTime = Lens.lens (\CreateReplicationTask' {cdcStar
 -- @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@. If you don\'t
 -- specify a @ResourceIdentifier@ value, AWS DMS generates a default
 -- identifier value for the end of @EndpointArn@.
-createReplicationTask_resourceIdentifier :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
+createReplicationTask_resourceIdentifier :: Lens.Lens' CreateReplicationTask (Core.Maybe Core.Text)
 createReplicationTask_resourceIdentifier = Lens.lens (\CreateReplicationTask' {resourceIdentifier} -> resourceIdentifier) (\s@CreateReplicationTask' {} a -> s {resourceIdentifier = a} :: CreateReplicationTask)
 
 -- | Indicates when you want a change data capture (CDC) operation to stop.
@@ -322,7 +321,7 @@ createReplicationTask_resourceIdentifier = Lens.lens (\CreateReplicationTask' {r
 --
 -- Commit time example: --cdc-stop-position “commit_time:
 -- 2018-02-09T12:12:12 “
-createReplicationTask_cdcStopPosition :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
+createReplicationTask_cdcStopPosition :: Lens.Lens' CreateReplicationTask (Core.Maybe Core.Text)
 createReplicationTask_cdcStopPosition = Lens.lens (\CreateReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@CreateReplicationTask' {} a -> s {cdcStopPosition = a} :: CreateReplicationTask)
 
 -- | Indicates when you want a change data capture (CDC) operation to start.
@@ -344,7 +343,7 @@ createReplicationTask_cdcStopPosition = Lens.lens (\CreateReplicationTask' {cdcS
 -- connection attribute to the name of this logical replication slot. For
 -- more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS>.
-createReplicationTask_cdcStartPosition :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
+createReplicationTask_cdcStartPosition :: Lens.Lens' CreateReplicationTask (Core.Maybe Core.Text)
 createReplicationTask_cdcStartPosition = Lens.lens (\CreateReplicationTask' {cdcStartPosition} -> cdcStartPosition) (\s@CreateReplicationTask' {} a -> s {cdcStartPosition = a} :: CreateReplicationTask)
 
 -- | An identifier for the replication task.
@@ -356,21 +355,21 @@ createReplicationTask_cdcStartPosition = Lens.lens (\CreateReplicationTask' {cdc
 -- -   First character must be a letter.
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-createReplicationTask_replicationTaskIdentifier :: Lens.Lens' CreateReplicationTask Prelude.Text
+createReplicationTask_replicationTaskIdentifier :: Lens.Lens' CreateReplicationTask Core.Text
 createReplicationTask_replicationTaskIdentifier = Lens.lens (\CreateReplicationTask' {replicationTaskIdentifier} -> replicationTaskIdentifier) (\s@CreateReplicationTask' {} a -> s {replicationTaskIdentifier = a} :: CreateReplicationTask)
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies the source
 -- endpoint.
-createReplicationTask_sourceEndpointArn :: Lens.Lens' CreateReplicationTask Prelude.Text
+createReplicationTask_sourceEndpointArn :: Lens.Lens' CreateReplicationTask Core.Text
 createReplicationTask_sourceEndpointArn = Lens.lens (\CreateReplicationTask' {sourceEndpointArn} -> sourceEndpointArn) (\s@CreateReplicationTask' {} a -> s {sourceEndpointArn = a} :: CreateReplicationTask)
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies the target
 -- endpoint.
-createReplicationTask_targetEndpointArn :: Lens.Lens' CreateReplicationTask Prelude.Text
+createReplicationTask_targetEndpointArn :: Lens.Lens' CreateReplicationTask Core.Text
 createReplicationTask_targetEndpointArn = Lens.lens (\CreateReplicationTask' {targetEndpointArn} -> targetEndpointArn) (\s@CreateReplicationTask' {} a -> s {targetEndpointArn = a} :: CreateReplicationTask)
 
 -- | The Amazon Resource Name (ARN) of a replication instance.
-createReplicationTask_replicationInstanceArn :: Lens.Lens' CreateReplicationTask Prelude.Text
+createReplicationTask_replicationInstanceArn :: Lens.Lens' CreateReplicationTask Core.Text
 createReplicationTask_replicationInstanceArn = Lens.lens (\CreateReplicationTask' {replicationInstanceArn} -> replicationInstanceArn) (\s@CreateReplicationTask' {} a -> s {replicationInstanceArn = a} :: CreateReplicationTask)
 
 -- | The migration type. Valid values: @full-load@ | @cdc@ |
@@ -382,91 +381,86 @@ createReplicationTask_migrationType = Lens.lens (\CreateReplicationTask' {migrat
 -- see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html Using Table Mapping to Specify Task Settings>
 -- in the /AWS Database Migration Service User Guide./
-createReplicationTask_tableMappings :: Lens.Lens' CreateReplicationTask Prelude.Text
+createReplicationTask_tableMappings :: Lens.Lens' CreateReplicationTask Core.Text
 createReplicationTask_tableMappings = Lens.lens (\CreateReplicationTask' {tableMappings} -> tableMappings) (\s@CreateReplicationTask' {} a -> s {tableMappings = a} :: CreateReplicationTask)
 
-instance Prelude.AWSRequest CreateReplicationTask where
+instance Core.AWSRequest CreateReplicationTask where
   type
-    Rs CreateReplicationTask =
+    AWSResponse CreateReplicationTask =
       CreateReplicationTaskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateReplicationTaskResponse'
-            Prelude.<$> (x Prelude..?> "ReplicationTask")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ReplicationTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateReplicationTask
+instance Core.Hashable CreateReplicationTask
 
-instance Prelude.NFData CreateReplicationTask
+instance Core.NFData CreateReplicationTask
 
-instance Prelude.ToHeaders CreateReplicationTask where
+instance Core.ToHeaders CreateReplicationTask where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.CreateReplicationTask" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.CreateReplicationTask" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateReplicationTask where
+instance Core.ToJSON CreateReplicationTask where
   toJSON CreateReplicationTask' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TaskData" Prelude..=) Prelude.<$> taskData,
-            ("ReplicationTaskSettings" Prelude..=)
-              Prelude.<$> replicationTaskSettings,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("CdcStartTime" Prelude..=) Prelude.<$> cdcStartTime,
-            ("ResourceIdentifier" Prelude..=)
-              Prelude.<$> resourceIdentifier,
-            ("CdcStopPosition" Prelude..=)
-              Prelude.<$> cdcStopPosition,
-            ("CdcStartPosition" Prelude..=)
-              Prelude.<$> cdcStartPosition,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("TaskData" Core..=) Core.<$> taskData,
+            ("ReplicationTaskSettings" Core..=)
+              Core.<$> replicationTaskSettings,
+            ("Tags" Core..=) Core.<$> tags,
+            ("CdcStartTime" Core..=) Core.<$> cdcStartTime,
+            ("ResourceIdentifier" Core..=)
+              Core.<$> resourceIdentifier,
+            ("CdcStopPosition" Core..=) Core.<$> cdcStopPosition,
+            ("CdcStartPosition" Core..=)
+              Core.<$> cdcStartPosition,
+            Core.Just
               ( "ReplicationTaskIdentifier"
-                  Prelude..= replicationTaskIdentifier
+                  Core..= replicationTaskIdentifier
               ),
-            Prelude.Just
-              ("SourceEndpointArn" Prelude..= sourceEndpointArn),
-            Prelude.Just
-              ("TargetEndpointArn" Prelude..= targetEndpointArn),
-            Prelude.Just
+            Core.Just
+              ("SourceEndpointArn" Core..= sourceEndpointArn),
+            Core.Just
+              ("TargetEndpointArn" Core..= targetEndpointArn),
+            Core.Just
               ( "ReplicationInstanceArn"
-                  Prelude..= replicationInstanceArn
+                  Core..= replicationInstanceArn
               ),
-            Prelude.Just
-              ("MigrationType" Prelude..= migrationType),
-            Prelude.Just
-              ("TableMappings" Prelude..= tableMappings)
+            Core.Just ("MigrationType" Core..= migrationType),
+            Core.Just ("TableMappings" Core..= tableMappings)
           ]
       )
 
-instance Prelude.ToPath CreateReplicationTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateReplicationTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateReplicationTask where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateReplicationTask where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newCreateReplicationTaskResponse' smart constructor.
 data CreateReplicationTaskResponse = CreateReplicationTaskResponse'
   { -- | The replication task that was created.
-    replicationTask :: Prelude.Maybe ReplicationTask,
+    replicationTask :: Core.Maybe ReplicationTask,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateReplicationTaskResponse' with all optional fields omitted.
@@ -481,21 +475,21 @@ data CreateReplicationTaskResponse = CreateReplicationTaskResponse'
 -- 'httpStatus', 'createReplicationTaskResponse_httpStatus' - The response's http status code.
 newCreateReplicationTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateReplicationTaskResponse
 newCreateReplicationTaskResponse pHttpStatus_ =
   CreateReplicationTaskResponse'
     { replicationTask =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The replication task that was created.
-createReplicationTaskResponse_replicationTask :: Lens.Lens' CreateReplicationTaskResponse (Prelude.Maybe ReplicationTask)
+createReplicationTaskResponse_replicationTask :: Lens.Lens' CreateReplicationTaskResponse (Core.Maybe ReplicationTask)
 createReplicationTaskResponse_replicationTask = Lens.lens (\CreateReplicationTaskResponse' {replicationTask} -> replicationTask) (\s@CreateReplicationTaskResponse' {} a -> s {replicationTask = a} :: CreateReplicationTaskResponse)
 
 -- | The response's http status code.
-createReplicationTaskResponse_httpStatus :: Lens.Lens' CreateReplicationTaskResponse Prelude.Int
+createReplicationTaskResponse_httpStatus :: Lens.Lens' CreateReplicationTaskResponse Core.Int
 createReplicationTaskResponse_httpStatus = Lens.lens (\CreateReplicationTaskResponse' {httpStatus} -> httpStatus) (\s@CreateReplicationTaskResponse' {} a -> s {httpStatus = a} :: CreateReplicationTaskResponse)
 
-instance Prelude.NFData CreateReplicationTaskResponse
+instance Core.NFData CreateReplicationTaskResponse

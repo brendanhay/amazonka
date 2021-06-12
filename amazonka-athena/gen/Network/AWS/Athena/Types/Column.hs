@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Athena.Types.Column where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains metadata for a column in a table.
 --
 -- /See:/ 'newColumn' smart constructor.
 data Column = Column'
   { -- | Optional information about the column.
-    comment :: Prelude.Maybe Prelude.Text,
+    comment :: Core.Maybe Core.Text,
     -- | The data type of the column.
-    type' :: Prelude.Maybe Prelude.Text,
+    type' :: Core.Maybe Core.Text,
     -- | The name of the column.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Column' with all optional fields omitted.
@@ -51,38 +50,38 @@ data Column = Column'
 -- 'name', 'column_name' - The name of the column.
 newColumn ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Column
 newColumn pName_ =
   Column'
-    { comment = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { comment = Core.Nothing,
+      type' = Core.Nothing,
       name = pName_
     }
 
 -- | Optional information about the column.
-column_comment :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
+column_comment :: Lens.Lens' Column (Core.Maybe Core.Text)
 column_comment = Lens.lens (\Column' {comment} -> comment) (\s@Column' {} a -> s {comment = a} :: Column)
 
 -- | The data type of the column.
-column_type :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
+column_type :: Lens.Lens' Column (Core.Maybe Core.Text)
 column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 
 -- | The name of the column.
-column_name :: Lens.Lens' Column Prelude.Text
+column_name :: Lens.Lens' Column Core.Text
 column_name = Lens.lens (\Column' {name} -> name) (\s@Column' {} a -> s {name = a} :: Column)
 
-instance Prelude.FromJSON Column where
+instance Core.FromJSON Column where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Column"
       ( \x ->
           Column'
-            Prelude.<$> (x Prelude..:? "Comment")
-            Prelude.<*> (x Prelude..:? "Type")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..:? "Comment")
+            Core.<*> (x Core..:? "Type")
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Column
+instance Core.Hashable Column
 
-instance Prelude.NFData Column
+instance Core.NFData Column

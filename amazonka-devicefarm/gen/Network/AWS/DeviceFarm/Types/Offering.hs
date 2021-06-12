@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,28 +19,28 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.Offering where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.DevicePlatform
 import Network.AWS.DeviceFarm.Types.OfferingType
 import Network.AWS.DeviceFarm.Types.RecurringCharge
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the metadata of a device offering.
 --
 -- /See:/ 'newOffering' smart constructor.
 data Offering = Offering'
   { -- | The platform of the device (for example, @ANDROID@ or @IOS@).
-    platform :: Prelude.Maybe DevicePlatform,
+    platform :: Core.Maybe DevicePlatform,
     -- | The ID that corresponds to a device offering.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | A string that describes the offering.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Specifies whether there are recurring charges for the offering.
-    recurringCharges :: Prelude.Maybe [RecurringCharge],
+    recurringCharges :: Core.Maybe [RecurringCharge],
     -- | The type of offering (for example, @RECURRING@) for a device.
-    type' :: Prelude.Maybe OfferingType
+    type' :: Core.Maybe OfferingType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Offering' with all optional fields omitted.
@@ -64,48 +63,46 @@ newOffering ::
   Offering
 newOffering =
   Offering'
-    { platform = Prelude.Nothing,
-      id = Prelude.Nothing,
-      description = Prelude.Nothing,
-      recurringCharges = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { platform = Core.Nothing,
+      id = Core.Nothing,
+      description = Core.Nothing,
+      recurringCharges = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The platform of the device (for example, @ANDROID@ or @IOS@).
-offering_platform :: Lens.Lens' Offering (Prelude.Maybe DevicePlatform)
+offering_platform :: Lens.Lens' Offering (Core.Maybe DevicePlatform)
 offering_platform = Lens.lens (\Offering' {platform} -> platform) (\s@Offering' {} a -> s {platform = a} :: Offering)
 
 -- | The ID that corresponds to a device offering.
-offering_id :: Lens.Lens' Offering (Prelude.Maybe Prelude.Text)
+offering_id :: Lens.Lens' Offering (Core.Maybe Core.Text)
 offering_id = Lens.lens (\Offering' {id} -> id) (\s@Offering' {} a -> s {id = a} :: Offering)
 
 -- | A string that describes the offering.
-offering_description :: Lens.Lens' Offering (Prelude.Maybe Prelude.Text)
+offering_description :: Lens.Lens' Offering (Core.Maybe Core.Text)
 offering_description = Lens.lens (\Offering' {description} -> description) (\s@Offering' {} a -> s {description = a} :: Offering)
 
 -- | Specifies whether there are recurring charges for the offering.
-offering_recurringCharges :: Lens.Lens' Offering (Prelude.Maybe [RecurringCharge])
-offering_recurringCharges = Lens.lens (\Offering' {recurringCharges} -> recurringCharges) (\s@Offering' {} a -> s {recurringCharges = a} :: Offering) Prelude.. Lens.mapping Prelude._Coerce
+offering_recurringCharges :: Lens.Lens' Offering (Core.Maybe [RecurringCharge])
+offering_recurringCharges = Lens.lens (\Offering' {recurringCharges} -> recurringCharges) (\s@Offering' {} a -> s {recurringCharges = a} :: Offering) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of offering (for example, @RECURRING@) for a device.
-offering_type :: Lens.Lens' Offering (Prelude.Maybe OfferingType)
+offering_type :: Lens.Lens' Offering (Core.Maybe OfferingType)
 offering_type = Lens.lens (\Offering' {type'} -> type') (\s@Offering' {} a -> s {type' = a} :: Offering)
 
-instance Prelude.FromJSON Offering where
+instance Core.FromJSON Offering where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Offering"
       ( \x ->
           Offering'
-            Prelude.<$> (x Prelude..:? "platform")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> ( x Prelude..:? "recurringCharges"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "platform")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "recurringCharges" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable Offering
+instance Core.Hashable Offering
 
-instance Prelude.NFData Offering
+instance Core.NFData Offering

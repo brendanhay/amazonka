@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Organizations.Types.HandshakeResource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.HandshakeResourceType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains additional data that is needed to process a handshake.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data HandshakeResource = HandshakeResource'
   { -- | When needed, contains an additional array of @HandshakeResource@
     -- objects.
-    resources :: Prelude.Maybe [HandshakeResource],
+    resources :: Core.Maybe [HandshakeResource],
     -- | The information that is passed to the other party in the handshake. The
     -- format of the value string must match the requirements of the specified
     -- type.
-    value :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    value :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The type of information being passed, specifying how the value is to be
     -- interpreted by the other party:
     --
@@ -53,9 +52,9 @@ data HandshakeResource = HandshakeResource'
     --
     -- -   @NOTES@ - Additional text provided by the handshake initiator and
     --     intended for the recipient to read.
-    type' :: Prelude.Maybe HandshakeResourceType
+    type' :: Core.Maybe HandshakeResourceType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HandshakeResource' with all optional fields omitted.
@@ -94,21 +93,21 @@ newHandshakeResource ::
   HandshakeResource
 newHandshakeResource =
   HandshakeResource'
-    { resources = Prelude.Nothing,
-      value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { resources = Core.Nothing,
+      value = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | When needed, contains an additional array of @HandshakeResource@
 -- objects.
-handshakeResource_resources :: Lens.Lens' HandshakeResource (Prelude.Maybe [HandshakeResource])
-handshakeResource_resources = Lens.lens (\HandshakeResource' {resources} -> resources) (\s@HandshakeResource' {} a -> s {resources = a} :: HandshakeResource) Prelude.. Lens.mapping Prelude._Coerce
+handshakeResource_resources :: Lens.Lens' HandshakeResource (Core.Maybe [HandshakeResource])
+handshakeResource_resources = Lens.lens (\HandshakeResource' {resources} -> resources) (\s@HandshakeResource' {} a -> s {resources = a} :: HandshakeResource) Core.. Lens.mapping Lens._Coerce
 
 -- | The information that is passed to the other party in the handshake. The
 -- format of the value string must match the requirements of the specified
 -- type.
-handshakeResource_value :: Lens.Lens' HandshakeResource (Prelude.Maybe Prelude.Text)
-handshakeResource_value = Lens.lens (\HandshakeResource' {value} -> value) (\s@HandshakeResource' {} a -> s {value = a} :: HandshakeResource) Prelude.. Lens.mapping Prelude._Sensitive
+handshakeResource_value :: Lens.Lens' HandshakeResource (Core.Maybe Core.Text)
+handshakeResource_value = Lens.lens (\HandshakeResource' {value} -> value) (\s@HandshakeResource' {} a -> s {value = a} :: HandshakeResource) Core.. Lens.mapping Core._Sensitive
 
 -- | The type of information being passed, specifying how the value is to be
 -- interpreted by the other party:
@@ -128,22 +127,20 @@ handshakeResource_value = Lens.lens (\HandshakeResource' {value} -> value) (\s@H
 --
 -- -   @NOTES@ - Additional text provided by the handshake initiator and
 --     intended for the recipient to read.
-handshakeResource_type :: Lens.Lens' HandshakeResource (Prelude.Maybe HandshakeResourceType)
+handshakeResource_type :: Lens.Lens' HandshakeResource (Core.Maybe HandshakeResourceType)
 handshakeResource_type = Lens.lens (\HandshakeResource' {type'} -> type') (\s@HandshakeResource' {} a -> s {type' = a} :: HandshakeResource)
 
-instance Prelude.FromJSON HandshakeResource where
+instance Core.FromJSON HandshakeResource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HandshakeResource"
       ( \x ->
           HandshakeResource'
-            Prelude.<$> ( x Prelude..:? "Resources"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Value")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Resources" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Value")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable HandshakeResource
+instance Core.Hashable HandshakeResource
 
-instance Prelude.NFData HandshakeResource
+instance Core.NFData HandshakeResource

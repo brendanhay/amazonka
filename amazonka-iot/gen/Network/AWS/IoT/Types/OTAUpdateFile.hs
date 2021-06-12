@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,30 +19,30 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.OTAUpdateFile where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.CodeSigning
 import Network.AWS.IoT.Types.FileLocation
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a file to be associated with an OTA update.
 --
 -- /See:/ 'newOTAUpdateFile' smart constructor.
 data OTAUpdateFile = OTAUpdateFile'
   { -- | The file version.
-    fileVersion :: Prelude.Maybe Prelude.Text,
+    fileVersion :: Core.Maybe Core.Text,
     -- | The location of the updated firmware.
-    fileLocation :: Prelude.Maybe FileLocation,
+    fileLocation :: Core.Maybe FileLocation,
     -- | A list of name\/attribute pairs.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The name of the file.
-    fileName :: Prelude.Maybe Prelude.Text,
+    fileName :: Core.Maybe Core.Text,
     -- | An integer value you can include in the job document to allow your
     -- devices to identify the type of file received from the cloud.
-    fileType :: Prelude.Maybe Prelude.Natural,
+    fileType :: Core.Maybe Core.Natural,
     -- | The code signing method of the file.
-    codeSigning :: Prelude.Maybe CodeSigning
+    codeSigning :: Core.Maybe CodeSigning
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OTAUpdateFile' with all optional fields omitted.
@@ -69,68 +68,66 @@ newOTAUpdateFile ::
   OTAUpdateFile
 newOTAUpdateFile =
   OTAUpdateFile'
-    { fileVersion = Prelude.Nothing,
-      fileLocation = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      fileName = Prelude.Nothing,
-      fileType = Prelude.Nothing,
-      codeSigning = Prelude.Nothing
+    { fileVersion = Core.Nothing,
+      fileLocation = Core.Nothing,
+      attributes = Core.Nothing,
+      fileName = Core.Nothing,
+      fileType = Core.Nothing,
+      codeSigning = Core.Nothing
     }
 
 -- | The file version.
-oTAUpdateFile_fileVersion :: Lens.Lens' OTAUpdateFile (Prelude.Maybe Prelude.Text)
+oTAUpdateFile_fileVersion :: Lens.Lens' OTAUpdateFile (Core.Maybe Core.Text)
 oTAUpdateFile_fileVersion = Lens.lens (\OTAUpdateFile' {fileVersion} -> fileVersion) (\s@OTAUpdateFile' {} a -> s {fileVersion = a} :: OTAUpdateFile)
 
 -- | The location of the updated firmware.
-oTAUpdateFile_fileLocation :: Lens.Lens' OTAUpdateFile (Prelude.Maybe FileLocation)
+oTAUpdateFile_fileLocation :: Lens.Lens' OTAUpdateFile (Core.Maybe FileLocation)
 oTAUpdateFile_fileLocation = Lens.lens (\OTAUpdateFile' {fileLocation} -> fileLocation) (\s@OTAUpdateFile' {} a -> s {fileLocation = a} :: OTAUpdateFile)
 
 -- | A list of name\/attribute pairs.
-oTAUpdateFile_attributes :: Lens.Lens' OTAUpdateFile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-oTAUpdateFile_attributes = Lens.lens (\OTAUpdateFile' {attributes} -> attributes) (\s@OTAUpdateFile' {} a -> s {attributes = a} :: OTAUpdateFile) Prelude.. Lens.mapping Prelude._Coerce
+oTAUpdateFile_attributes :: Lens.Lens' OTAUpdateFile (Core.Maybe (Core.HashMap Core.Text Core.Text))
+oTAUpdateFile_attributes = Lens.lens (\OTAUpdateFile' {attributes} -> attributes) (\s@OTAUpdateFile' {} a -> s {attributes = a} :: OTAUpdateFile) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the file.
-oTAUpdateFile_fileName :: Lens.Lens' OTAUpdateFile (Prelude.Maybe Prelude.Text)
+oTAUpdateFile_fileName :: Lens.Lens' OTAUpdateFile (Core.Maybe Core.Text)
 oTAUpdateFile_fileName = Lens.lens (\OTAUpdateFile' {fileName} -> fileName) (\s@OTAUpdateFile' {} a -> s {fileName = a} :: OTAUpdateFile)
 
 -- | An integer value you can include in the job document to allow your
 -- devices to identify the type of file received from the cloud.
-oTAUpdateFile_fileType :: Lens.Lens' OTAUpdateFile (Prelude.Maybe Prelude.Natural)
+oTAUpdateFile_fileType :: Lens.Lens' OTAUpdateFile (Core.Maybe Core.Natural)
 oTAUpdateFile_fileType = Lens.lens (\OTAUpdateFile' {fileType} -> fileType) (\s@OTAUpdateFile' {} a -> s {fileType = a} :: OTAUpdateFile)
 
 -- | The code signing method of the file.
-oTAUpdateFile_codeSigning :: Lens.Lens' OTAUpdateFile (Prelude.Maybe CodeSigning)
+oTAUpdateFile_codeSigning :: Lens.Lens' OTAUpdateFile (Core.Maybe CodeSigning)
 oTAUpdateFile_codeSigning = Lens.lens (\OTAUpdateFile' {codeSigning} -> codeSigning) (\s@OTAUpdateFile' {} a -> s {codeSigning = a} :: OTAUpdateFile)
 
-instance Prelude.FromJSON OTAUpdateFile where
+instance Core.FromJSON OTAUpdateFile where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OTAUpdateFile"
       ( \x ->
           OTAUpdateFile'
-            Prelude.<$> (x Prelude..:? "fileVersion")
-            Prelude.<*> (x Prelude..:? "fileLocation")
-            Prelude.<*> ( x Prelude..:? "attributes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "fileName")
-            Prelude.<*> (x Prelude..:? "fileType")
-            Prelude.<*> (x Prelude..:? "codeSigning")
+            Core.<$> (x Core..:? "fileVersion")
+            Core.<*> (x Core..:? "fileLocation")
+            Core.<*> (x Core..:? "attributes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "fileName")
+            Core.<*> (x Core..:? "fileType")
+            Core.<*> (x Core..:? "codeSigning")
       )
 
-instance Prelude.Hashable OTAUpdateFile
+instance Core.Hashable OTAUpdateFile
 
-instance Prelude.NFData OTAUpdateFile
+instance Core.NFData OTAUpdateFile
 
-instance Prelude.ToJSON OTAUpdateFile where
+instance Core.ToJSON OTAUpdateFile where
   toJSON OTAUpdateFile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("fileVersion" Prelude..=) Prelude.<$> fileVersion,
-            ("fileLocation" Prelude..=) Prelude.<$> fileLocation,
-            ("attributes" Prelude..=) Prelude.<$> attributes,
-            ("fileName" Prelude..=) Prelude.<$> fileName,
-            ("fileType" Prelude..=) Prelude.<$> fileType,
-            ("codeSigning" Prelude..=) Prelude.<$> codeSigning
+    Core.object
+      ( Core.catMaybes
+          [ ("fileVersion" Core..=) Core.<$> fileVersion,
+            ("fileLocation" Core..=) Core.<$> fileLocation,
+            ("attributes" Core..=) Core.<$> attributes,
+            ("fileName" Core..=) Core.<$> fileName,
+            ("fileType" Core..=) Core.<$> fileType,
+            ("codeSigning" Core..=) Core.<$> codeSigning
           ]
       )

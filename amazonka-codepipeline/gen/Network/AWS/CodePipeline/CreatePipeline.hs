@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CodePipeline.CreatePipeline
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +57,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreatePipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
   { -- | The tags for the pipeline.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Represents the structure of actions and stages to be performed in the
     -- pipeline.
     pipeline :: PipelineDeclaration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePipeline' with all optional fields omitted.
@@ -83,78 +82,78 @@ newCreatePipeline ::
   CreatePipeline
 newCreatePipeline pPipeline_ =
   CreatePipeline'
-    { tags = Prelude.Nothing,
+    { tags = Core.Nothing,
       pipeline = pPipeline_
     }
 
 -- | The tags for the pipeline.
-createPipeline_tags :: Lens.Lens' CreatePipeline (Prelude.Maybe [Tag])
-createPipeline_tags = Lens.lens (\CreatePipeline' {tags} -> tags) (\s@CreatePipeline' {} a -> s {tags = a} :: CreatePipeline) Prelude.. Lens.mapping Prelude._Coerce
+createPipeline_tags :: Lens.Lens' CreatePipeline (Core.Maybe [Tag])
+createPipeline_tags = Lens.lens (\CreatePipeline' {tags} -> tags) (\s@CreatePipeline' {} a -> s {tags = a} :: CreatePipeline) Core.. Lens.mapping Lens._Coerce
 
 -- | Represents the structure of actions and stages to be performed in the
 -- pipeline.
 createPipeline_pipeline :: Lens.Lens' CreatePipeline PipelineDeclaration
 createPipeline_pipeline = Lens.lens (\CreatePipeline' {pipeline} -> pipeline) (\s@CreatePipeline' {} a -> s {pipeline = a} :: CreatePipeline)
 
-instance Prelude.AWSRequest CreatePipeline where
-  type Rs CreatePipeline = CreatePipelineResponse
+instance Core.AWSRequest CreatePipeline where
+  type
+    AWSResponse CreatePipeline =
+      CreatePipelineResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreatePipelineResponse'
-            Prelude.<$> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "pipeline")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "tags" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "pipeline")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePipeline
+instance Core.Hashable CreatePipeline
 
-instance Prelude.NFData CreatePipeline
+instance Core.NFData CreatePipeline
 
-instance Prelude.ToHeaders CreatePipeline where
+instance Core.ToHeaders CreatePipeline where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.CreatePipeline" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.CreatePipeline" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreatePipeline where
+instance Core.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("pipeline" Prelude..= pipeline)
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            Core.Just ("pipeline" Core..= pipeline)
           ]
       )
 
-instance Prelude.ToPath CreatePipeline where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreatePipeline where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreatePipeline where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreatePipeline where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @CreatePipeline@ action.
 --
 -- /See:/ 'newCreatePipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
   { -- | Specifies the tags applied to the pipeline.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Represents the structure of actions and stages to be performed in the
     -- pipeline.
-    pipeline :: Prelude.Maybe PipelineDeclaration,
+    pipeline :: Core.Maybe PipelineDeclaration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePipelineResponse' with all optional fields omitted.
@@ -172,26 +171,26 @@ data CreatePipelineResponse = CreatePipelineResponse'
 -- 'httpStatus', 'createPipelineResponse_httpStatus' - The response's http status code.
 newCreatePipelineResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreatePipelineResponse
 newCreatePipelineResponse pHttpStatus_ =
   CreatePipelineResponse'
-    { tags = Prelude.Nothing,
-      pipeline = Prelude.Nothing,
+    { tags = Core.Nothing,
+      pipeline = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Specifies the tags applied to the pipeline.
-createPipelineResponse_tags :: Lens.Lens' CreatePipelineResponse (Prelude.Maybe [Tag])
-createPipelineResponse_tags = Lens.lens (\CreatePipelineResponse' {tags} -> tags) (\s@CreatePipelineResponse' {} a -> s {tags = a} :: CreatePipelineResponse) Prelude.. Lens.mapping Prelude._Coerce
+createPipelineResponse_tags :: Lens.Lens' CreatePipelineResponse (Core.Maybe [Tag])
+createPipelineResponse_tags = Lens.lens (\CreatePipelineResponse' {tags} -> tags) (\s@CreatePipelineResponse' {} a -> s {tags = a} :: CreatePipelineResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Represents the structure of actions and stages to be performed in the
 -- pipeline.
-createPipelineResponse_pipeline :: Lens.Lens' CreatePipelineResponse (Prelude.Maybe PipelineDeclaration)
+createPipelineResponse_pipeline :: Lens.Lens' CreatePipelineResponse (Core.Maybe PipelineDeclaration)
 createPipelineResponse_pipeline = Lens.lens (\CreatePipelineResponse' {pipeline} -> pipeline) (\s@CreatePipelineResponse' {} a -> s {pipeline = a} :: CreatePipelineResponse)
 
 -- | The response's http status code.
-createPipelineResponse_httpStatus :: Lens.Lens' CreatePipelineResponse Prelude.Int
+createPipelineResponse_httpStatus :: Lens.Lens' CreatePipelineResponse Core.Int
 createPipelineResponse_httpStatus = Lens.lens (\CreatePipelineResponse' {httpStatus} -> httpStatus) (\s@CreatePipelineResponse' {} a -> s {httpStatus = a} :: CreatePipelineResponse)
 
-instance Prelude.NFData CreatePipelineResponse
+instance Core.NFData CreatePipelineResponse

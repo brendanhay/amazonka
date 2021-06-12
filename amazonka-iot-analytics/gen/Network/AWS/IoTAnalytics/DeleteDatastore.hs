@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,18 +35,18 @@ module Network.AWS.IoTAnalytics.DeleteDatastore
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDatastore' smart constructor.
 data DeleteDatastore = DeleteDatastore'
   { -- | The name of the data store to delete.
-    datastoreName :: Prelude.Text
+    datastoreName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDatastore' with all optional fields omitted.
@@ -60,41 +59,43 @@ data DeleteDatastore = DeleteDatastore'
 -- 'datastoreName', 'deleteDatastore_datastoreName' - The name of the data store to delete.
 newDeleteDatastore ::
   -- | 'datastoreName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDatastore
 newDeleteDatastore pDatastoreName_ =
   DeleteDatastore' {datastoreName = pDatastoreName_}
 
 -- | The name of the data store to delete.
-deleteDatastore_datastoreName :: Lens.Lens' DeleteDatastore Prelude.Text
+deleteDatastore_datastoreName :: Lens.Lens' DeleteDatastore Core.Text
 deleteDatastore_datastoreName = Lens.lens (\DeleteDatastore' {datastoreName} -> datastoreName) (\s@DeleteDatastore' {} a -> s {datastoreName = a} :: DeleteDatastore)
 
-instance Prelude.AWSRequest DeleteDatastore where
-  type Rs DeleteDatastore = DeleteDatastoreResponse
+instance Core.AWSRequest DeleteDatastore where
+  type
+    AWSResponse DeleteDatastore =
+      DeleteDatastoreResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteDatastoreResponse'
 
-instance Prelude.Hashable DeleteDatastore
+instance Core.Hashable DeleteDatastore
 
-instance Prelude.NFData DeleteDatastore
+instance Core.NFData DeleteDatastore
 
-instance Prelude.ToHeaders DeleteDatastore where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteDatastore where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteDatastore where
+instance Core.ToPath DeleteDatastore where
   toPath DeleteDatastore' {..} =
-    Prelude.mconcat
-      ["/datastores/", Prelude.toBS datastoreName]
+    Core.mconcat
+      ["/datastores/", Core.toBS datastoreName]
 
-instance Prelude.ToQuery DeleteDatastore where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDatastore where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDatastoreResponse' smart constructor.
 data DeleteDatastoreResponse = DeleteDatastoreResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDatastoreResponse' with all optional fields omitted.
@@ -104,4 +105,4 @@ newDeleteDatastoreResponse ::
   DeleteDatastoreResponse
 newDeleteDatastoreResponse = DeleteDatastoreResponse'
 
-instance Prelude.NFData DeleteDatastoreResponse
+instance Core.NFData DeleteDatastoreResponse

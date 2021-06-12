@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.EMR.GetBlockPublicAccessConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data GetBlockPublicAccessConfiguration = GetBlockPublicAccessConfiguration'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBlockPublicAccessConfiguration' with all optional fields omitted.
@@ -63,73 +62,70 @@ newGetBlockPublicAccessConfiguration =
   GetBlockPublicAccessConfiguration'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetBlockPublicAccessConfiguration
   where
   type
-    Rs GetBlockPublicAccessConfiguration =
+    AWSResponse GetBlockPublicAccessConfiguration =
       GetBlockPublicAccessConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetBlockPublicAccessConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Prelude..:> "BlockPublicAccessConfiguration")
-              Prelude.<*> ( x
-                              Prelude..:> "BlockPublicAccessConfigurationMetadata"
-                          )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "BlockPublicAccessConfiguration")
+            Core.<*> ( x
+                         Core..:> "BlockPublicAccessConfigurationMetadata"
+                     )
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetBlockPublicAccessConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetBlockPublicAccessConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetBlockPublicAccessConfiguration
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.GetBlockPublicAccessConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.GetBlockPublicAccessConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     GetBlockPublicAccessConfiguration
   where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+  toJSON = Core.const (Core.Object Core.mempty)
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     GetBlockPublicAccessConfiguration
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     GetBlockPublicAccessConfiguration
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetBlockPublicAccessConfigurationResponse' smart constructor.
 data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A configuration for Amazon EMR block public access. The configuration
     -- applies to all clusters created in your account for the current Region.
     -- The configuration specifies whether block public access is enabled. If
@@ -155,7 +151,7 @@ data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurati
     -- public access is updated, Amazon EMR updates this metadata.
     blockPublicAccessConfigurationMetadata :: BlockPublicAccessConfigurationMetadata
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBlockPublicAccessConfigurationResponse' with all optional fields omitted.
@@ -192,7 +188,7 @@ data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurati
 -- public access is updated, Amazon EMR updates this metadata.
 newGetBlockPublicAccessConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'blockPublicAccessConfiguration'
   BlockPublicAccessConfiguration ->
   -- | 'blockPublicAccessConfigurationMetadata'
@@ -212,7 +208,7 @@ newGetBlockPublicAccessConfigurationResponse
       }
 
 -- | The response's http status code.
-getBlockPublicAccessConfigurationResponse_httpStatus :: Lens.Lens' GetBlockPublicAccessConfigurationResponse Prelude.Int
+getBlockPublicAccessConfigurationResponse_httpStatus :: Lens.Lens' GetBlockPublicAccessConfigurationResponse Core.Int
 getBlockPublicAccessConfigurationResponse_httpStatus = Lens.lens (\GetBlockPublicAccessConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetBlockPublicAccessConfigurationResponse' {} a -> s {httpStatus = a} :: GetBlockPublicAccessConfigurationResponse)
 
 -- | A configuration for Amazon EMR block public access. The configuration
@@ -244,5 +240,5 @@ getBlockPublicAccessConfigurationResponse_blockPublicAccessConfigurationMetadata
 getBlockPublicAccessConfigurationResponse_blockPublicAccessConfigurationMetadata = Lens.lens (\GetBlockPublicAccessConfigurationResponse' {blockPublicAccessConfigurationMetadata} -> blockPublicAccessConfigurationMetadata) (\s@GetBlockPublicAccessConfigurationResponse' {} a -> s {blockPublicAccessConfigurationMetadata = a} :: GetBlockPublicAccessConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetBlockPublicAccessConfigurationResponse

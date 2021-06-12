@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.Pinpoint.DeleteEventStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data DeleteEventStream = DeleteEventStream'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEventStream' with all optional fields omitted.
@@ -66,60 +65,60 @@ data DeleteEventStream = DeleteEventStream'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteEventStream ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteEventStream
 newDeleteEventStream pApplicationId_ =
   DeleteEventStream' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteEventStream_applicationId :: Lens.Lens' DeleteEventStream Prelude.Text
+deleteEventStream_applicationId :: Lens.Lens' DeleteEventStream Core.Text
 deleteEventStream_applicationId = Lens.lens (\DeleteEventStream' {applicationId} -> applicationId) (\s@DeleteEventStream' {} a -> s {applicationId = a} :: DeleteEventStream)
 
-instance Prelude.AWSRequest DeleteEventStream where
-  type Rs DeleteEventStream = DeleteEventStreamResponse
+instance Core.AWSRequest DeleteEventStream where
+  type
+    AWSResponse DeleteEventStream =
+      DeleteEventStreamResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteEventStreamResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteEventStream
+instance Core.Hashable DeleteEventStream
 
-instance Prelude.NFData DeleteEventStream
+instance Core.NFData DeleteEventStream
 
-instance Prelude.ToHeaders DeleteEventStream where
+instance Core.ToHeaders DeleteEventStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteEventStream where
+instance Core.ToPath DeleteEventStream where
   toPath DeleteEventStream' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/eventstream"
       ]
 
-instance Prelude.ToQuery DeleteEventStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteEventStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteEventStreamResponse' smart constructor.
 data DeleteEventStreamResponse = DeleteEventStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     eventStream :: EventStream
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEventStreamResponse' with all optional fields omitted.
@@ -134,7 +133,7 @@ data DeleteEventStreamResponse = DeleteEventStreamResponse'
 -- 'eventStream', 'deleteEventStreamResponse_eventStream' - Undocumented member.
 newDeleteEventStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'eventStream'
   EventStream ->
   DeleteEventStreamResponse
@@ -148,11 +147,11 @@ newDeleteEventStreamResponse
       }
 
 -- | The response's http status code.
-deleteEventStreamResponse_httpStatus :: Lens.Lens' DeleteEventStreamResponse Prelude.Int
+deleteEventStreamResponse_httpStatus :: Lens.Lens' DeleteEventStreamResponse Core.Int
 deleteEventStreamResponse_httpStatus = Lens.lens (\DeleteEventStreamResponse' {httpStatus} -> httpStatus) (\s@DeleteEventStreamResponse' {} a -> s {httpStatus = a} :: DeleteEventStreamResponse)
 
 -- | Undocumented member.
 deleteEventStreamResponse_eventStream :: Lens.Lens' DeleteEventStreamResponse EventStream
 deleteEventStreamResponse_eventStream = Lens.lens (\DeleteEventStreamResponse' {eventStream} -> eventStream) (\s@DeleteEventStreamResponse' {} a -> s {eventStream = a} :: DeleteEventStreamResponse)
 
-instance Prelude.NFData DeleteEventStreamResponse
+instance Core.NFData DeleteEventStreamResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ProductViewSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.ProductType
 
 -- | Summary information about a product view.
@@ -30,36 +29,36 @@ import Network.AWS.ServiceCatalog.Types.ProductType
 data ProductViewSummary = ProductViewSummary'
   { -- | The distributor of the product. Contact the product administrator for
     -- the significance of this value.
-    distributor :: Prelude.Maybe Prelude.Text,
+    distributor :: Core.Maybe Core.Text,
     -- | The product view identifier.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the product.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Indicates whether the product has a default path. If the product does
     -- not have a default path, call ListLaunchPaths to disambiguate between
     -- paths. Otherwise, ListLaunchPaths is not required, and the output of
     -- ProductViewSummary can be used directly with
     -- DescribeProvisioningParameters.
-    hasDefaultPath :: Prelude.Maybe Prelude.Bool,
+    hasDefaultPath :: Core.Maybe Core.Bool,
     -- | Short description of the product.
-    shortDescription :: Prelude.Maybe Prelude.Text,
+    shortDescription :: Core.Maybe Core.Text,
     -- | The URL information to obtain support for this Product.
-    supportUrl :: Prelude.Maybe Prelude.Text,
+    supportUrl :: Core.Maybe Core.Text,
     -- | The description of the support for this Product.
-    supportDescription :: Prelude.Maybe Prelude.Text,
+    supportDescription :: Core.Maybe Core.Text,
     -- | The owner of the product. Contact the product administrator for the
     -- significance of this value.
-    owner :: Prelude.Maybe Prelude.Text,
+    owner :: Core.Maybe Core.Text,
     -- | The product identifier.
-    productId :: Prelude.Maybe Prelude.Text,
+    productId :: Core.Maybe Core.Text,
     -- | The email contact information to obtain support for this Product.
-    supportEmail :: Prelude.Maybe Prelude.Text,
+    supportEmail :: Core.Maybe Core.Text,
     -- | The product type. Contact the product administrator for the significance
     -- of this value. If this value is @MARKETPLACE@, the product was created
     -- by AWS Marketplace.
-    type' :: Prelude.Maybe ProductType
+    type' :: Core.Maybe ProductType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProductViewSummary' with all optional fields omitted.
@@ -102,30 +101,30 @@ newProductViewSummary ::
   ProductViewSummary
 newProductViewSummary =
   ProductViewSummary'
-    { distributor = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      hasDefaultPath = Prelude.Nothing,
-      shortDescription = Prelude.Nothing,
-      supportUrl = Prelude.Nothing,
-      supportDescription = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      productId = Prelude.Nothing,
-      supportEmail = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { distributor = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      hasDefaultPath = Core.Nothing,
+      shortDescription = Core.Nothing,
+      supportUrl = Core.Nothing,
+      supportDescription = Core.Nothing,
+      owner = Core.Nothing,
+      productId = Core.Nothing,
+      supportEmail = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The distributor of the product. Contact the product administrator for
 -- the significance of this value.
-productViewSummary_distributor :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_distributor :: Lens.Lens' ProductViewSummary (Core.Maybe Core.Text)
 productViewSummary_distributor = Lens.lens (\ProductViewSummary' {distributor} -> distributor) (\s@ProductViewSummary' {} a -> s {distributor = a} :: ProductViewSummary)
 
 -- | The product view identifier.
-productViewSummary_id :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_id :: Lens.Lens' ProductViewSummary (Core.Maybe Core.Text)
 productViewSummary_id = Lens.lens (\ProductViewSummary' {id} -> id) (\s@ProductViewSummary' {} a -> s {id = a} :: ProductViewSummary)
 
 -- | The name of the product.
-productViewSummary_name :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_name :: Lens.Lens' ProductViewSummary (Core.Maybe Core.Text)
 productViewSummary_name = Lens.lens (\ProductViewSummary' {name} -> name) (\s@ProductViewSummary' {} a -> s {name = a} :: ProductViewSummary)
 
 -- | Indicates whether the product has a default path. If the product does
@@ -133,59 +132,59 @@ productViewSummary_name = Lens.lens (\ProductViewSummary' {name} -> name) (\s@Pr
 -- paths. Otherwise, ListLaunchPaths is not required, and the output of
 -- ProductViewSummary can be used directly with
 -- DescribeProvisioningParameters.
-productViewSummary_hasDefaultPath :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Bool)
+productViewSummary_hasDefaultPath :: Lens.Lens' ProductViewSummary (Core.Maybe Core.Bool)
 productViewSummary_hasDefaultPath = Lens.lens (\ProductViewSummary' {hasDefaultPath} -> hasDefaultPath) (\s@ProductViewSummary' {} a -> s {hasDefaultPath = a} :: ProductViewSummary)
 
 -- | Short description of the product.
-productViewSummary_shortDescription :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_shortDescription :: Lens.Lens' ProductViewSummary (Core.Maybe Core.Text)
 productViewSummary_shortDescription = Lens.lens (\ProductViewSummary' {shortDescription} -> shortDescription) (\s@ProductViewSummary' {} a -> s {shortDescription = a} :: ProductViewSummary)
 
 -- | The URL information to obtain support for this Product.
-productViewSummary_supportUrl :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_supportUrl :: Lens.Lens' ProductViewSummary (Core.Maybe Core.Text)
 productViewSummary_supportUrl = Lens.lens (\ProductViewSummary' {supportUrl} -> supportUrl) (\s@ProductViewSummary' {} a -> s {supportUrl = a} :: ProductViewSummary)
 
 -- | The description of the support for this Product.
-productViewSummary_supportDescription :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_supportDescription :: Lens.Lens' ProductViewSummary (Core.Maybe Core.Text)
 productViewSummary_supportDescription = Lens.lens (\ProductViewSummary' {supportDescription} -> supportDescription) (\s@ProductViewSummary' {} a -> s {supportDescription = a} :: ProductViewSummary)
 
 -- | The owner of the product. Contact the product administrator for the
 -- significance of this value.
-productViewSummary_owner :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_owner :: Lens.Lens' ProductViewSummary (Core.Maybe Core.Text)
 productViewSummary_owner = Lens.lens (\ProductViewSummary' {owner} -> owner) (\s@ProductViewSummary' {} a -> s {owner = a} :: ProductViewSummary)
 
 -- | The product identifier.
-productViewSummary_productId :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_productId :: Lens.Lens' ProductViewSummary (Core.Maybe Core.Text)
 productViewSummary_productId = Lens.lens (\ProductViewSummary' {productId} -> productId) (\s@ProductViewSummary' {} a -> s {productId = a} :: ProductViewSummary)
 
 -- | The email contact information to obtain support for this Product.
-productViewSummary_supportEmail :: Lens.Lens' ProductViewSummary (Prelude.Maybe Prelude.Text)
+productViewSummary_supportEmail :: Lens.Lens' ProductViewSummary (Core.Maybe Core.Text)
 productViewSummary_supportEmail = Lens.lens (\ProductViewSummary' {supportEmail} -> supportEmail) (\s@ProductViewSummary' {} a -> s {supportEmail = a} :: ProductViewSummary)
 
 -- | The product type. Contact the product administrator for the significance
 -- of this value. If this value is @MARKETPLACE@, the product was created
 -- by AWS Marketplace.
-productViewSummary_type :: Lens.Lens' ProductViewSummary (Prelude.Maybe ProductType)
+productViewSummary_type :: Lens.Lens' ProductViewSummary (Core.Maybe ProductType)
 productViewSummary_type = Lens.lens (\ProductViewSummary' {type'} -> type') (\s@ProductViewSummary' {} a -> s {type' = a} :: ProductViewSummary)
 
-instance Prelude.FromJSON ProductViewSummary where
+instance Core.FromJSON ProductViewSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProductViewSummary"
       ( \x ->
           ProductViewSummary'
-            Prelude.<$> (x Prelude..:? "Distributor")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "HasDefaultPath")
-            Prelude.<*> (x Prelude..:? "ShortDescription")
-            Prelude.<*> (x Prelude..:? "SupportUrl")
-            Prelude.<*> (x Prelude..:? "SupportDescription")
-            Prelude.<*> (x Prelude..:? "Owner")
-            Prelude.<*> (x Prelude..:? "ProductId")
-            Prelude.<*> (x Prelude..:? "SupportEmail")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Distributor")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "HasDefaultPath")
+            Core.<*> (x Core..:? "ShortDescription")
+            Core.<*> (x Core..:? "SupportUrl")
+            Core.<*> (x Core..:? "SupportDescription")
+            Core.<*> (x Core..:? "Owner")
+            Core.<*> (x Core..:? "ProductId")
+            Core.<*> (x Core..:? "SupportEmail")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable ProductViewSummary
+instance Core.Hashable ProductViewSummary
 
-instance Prelude.NFData ProductViewSummary
+instance Core.NFData ProductViewSummary

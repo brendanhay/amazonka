@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.IoT.GetPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +57,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetPolicy' smart constructor.
 data GetPolicy = GetPolicy'
   { -- | The name of the policy.
-    policyName :: Prelude.Text
+    policyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPolicy' with all optional fields omitted.
@@ -73,69 +72,68 @@ data GetPolicy = GetPolicy'
 -- 'policyName', 'getPolicy_policyName' - The name of the policy.
 newGetPolicy ::
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   GetPolicy
 newGetPolicy pPolicyName_ =
   GetPolicy' {policyName = pPolicyName_}
 
 -- | The name of the policy.
-getPolicy_policyName :: Lens.Lens' GetPolicy Prelude.Text
+getPolicy_policyName :: Lens.Lens' GetPolicy Core.Text
 getPolicy_policyName = Lens.lens (\GetPolicy' {policyName} -> policyName) (\s@GetPolicy' {} a -> s {policyName = a} :: GetPolicy)
 
-instance Prelude.AWSRequest GetPolicy where
-  type Rs GetPolicy = GetPolicyResponse
+instance Core.AWSRequest GetPolicy where
+  type AWSResponse GetPolicy = GetPolicyResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetPolicyResponse'
-            Prelude.<$> (x Prelude..?> "lastModifiedDate")
-            Prelude.<*> (x Prelude..?> "policyName")
-            Prelude.<*> (x Prelude..?> "policyDocument")
-            Prelude.<*> (x Prelude..?> "creationDate")
-            Prelude.<*> (x Prelude..?> "defaultVersionId")
-            Prelude.<*> (x Prelude..?> "generationId")
-            Prelude.<*> (x Prelude..?> "policyArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "lastModifiedDate")
+            Core.<*> (x Core..?> "policyName")
+            Core.<*> (x Core..?> "policyDocument")
+            Core.<*> (x Core..?> "creationDate")
+            Core.<*> (x Core..?> "defaultVersionId")
+            Core.<*> (x Core..?> "generationId")
+            Core.<*> (x Core..?> "policyArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetPolicy
+instance Core.Hashable GetPolicy
 
-instance Prelude.NFData GetPolicy
+instance Core.NFData GetPolicy
 
-instance Prelude.ToHeaders GetPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetPolicy where
+instance Core.ToPath GetPolicy where
   toPath GetPolicy' {..} =
-    Prelude.mconcat
-      ["/policies/", Prelude.toBS policyName]
+    Core.mconcat ["/policies/", Core.toBS policyName]
 
-instance Prelude.ToQuery GetPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | The output from the GetPolicy operation.
 --
 -- /See:/ 'newGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
   { -- | The date the policy was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedDate :: Core.Maybe Core.POSIX,
     -- | The policy name.
-    policyName :: Prelude.Maybe Prelude.Text,
+    policyName :: Core.Maybe Core.Text,
     -- | The JSON document that describes the policy.
-    policyDocument :: Prelude.Maybe Prelude.Text,
+    policyDocument :: Core.Maybe Core.Text,
     -- | The date the policy was created.
-    creationDate :: Prelude.Maybe Prelude.POSIX,
+    creationDate :: Core.Maybe Core.POSIX,
     -- | The default policy version ID.
-    defaultVersionId :: Prelude.Maybe Prelude.Text,
+    defaultVersionId :: Core.Maybe Core.Text,
     -- | The generation ID of the policy.
-    generationId :: Prelude.Maybe Prelude.Text,
+    generationId :: Core.Maybe Core.Text,
     -- | The policy ARN.
-    policyArn :: Prelude.Maybe Prelude.Text,
+    policyArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPolicyResponse' with all optional fields omitted.
@@ -162,51 +160,50 @@ data GetPolicyResponse = GetPolicyResponse'
 -- 'httpStatus', 'getPolicyResponse_httpStatus' - The response's http status code.
 newGetPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetPolicyResponse
 newGetPolicyResponse pHttpStatus_ =
   GetPolicyResponse'
-    { lastModifiedDate =
-        Prelude.Nothing,
-      policyName = Prelude.Nothing,
-      policyDocument = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      defaultVersionId = Prelude.Nothing,
-      generationId = Prelude.Nothing,
-      policyArn = Prelude.Nothing,
+    { lastModifiedDate = Core.Nothing,
+      policyName = Core.Nothing,
+      policyDocument = Core.Nothing,
+      creationDate = Core.Nothing,
+      defaultVersionId = Core.Nothing,
+      generationId = Core.Nothing,
+      policyArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date the policy was last modified.
-getPolicyResponse_lastModifiedDate :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.UTCTime)
-getPolicyResponse_lastModifiedDate = Lens.lens (\GetPolicyResponse' {lastModifiedDate} -> lastModifiedDate) (\s@GetPolicyResponse' {} a -> s {lastModifiedDate = a} :: GetPolicyResponse) Prelude.. Lens.mapping Prelude._Time
+getPolicyResponse_lastModifiedDate :: Lens.Lens' GetPolicyResponse (Core.Maybe Core.UTCTime)
+getPolicyResponse_lastModifiedDate = Lens.lens (\GetPolicyResponse' {lastModifiedDate} -> lastModifiedDate) (\s@GetPolicyResponse' {} a -> s {lastModifiedDate = a} :: GetPolicyResponse) Core.. Lens.mapping Core._Time
 
 -- | The policy name.
-getPolicyResponse_policyName :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_policyName :: Lens.Lens' GetPolicyResponse (Core.Maybe Core.Text)
 getPolicyResponse_policyName = Lens.lens (\GetPolicyResponse' {policyName} -> policyName) (\s@GetPolicyResponse' {} a -> s {policyName = a} :: GetPolicyResponse)
 
 -- | The JSON document that describes the policy.
-getPolicyResponse_policyDocument :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_policyDocument :: Lens.Lens' GetPolicyResponse (Core.Maybe Core.Text)
 getPolicyResponse_policyDocument = Lens.lens (\GetPolicyResponse' {policyDocument} -> policyDocument) (\s@GetPolicyResponse' {} a -> s {policyDocument = a} :: GetPolicyResponse)
 
 -- | The date the policy was created.
-getPolicyResponse_creationDate :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.UTCTime)
-getPolicyResponse_creationDate = Lens.lens (\GetPolicyResponse' {creationDate} -> creationDate) (\s@GetPolicyResponse' {} a -> s {creationDate = a} :: GetPolicyResponse) Prelude.. Lens.mapping Prelude._Time
+getPolicyResponse_creationDate :: Lens.Lens' GetPolicyResponse (Core.Maybe Core.UTCTime)
+getPolicyResponse_creationDate = Lens.lens (\GetPolicyResponse' {creationDate} -> creationDate) (\s@GetPolicyResponse' {} a -> s {creationDate = a} :: GetPolicyResponse) Core.. Lens.mapping Core._Time
 
 -- | The default policy version ID.
-getPolicyResponse_defaultVersionId :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_defaultVersionId :: Lens.Lens' GetPolicyResponse (Core.Maybe Core.Text)
 getPolicyResponse_defaultVersionId = Lens.lens (\GetPolicyResponse' {defaultVersionId} -> defaultVersionId) (\s@GetPolicyResponse' {} a -> s {defaultVersionId = a} :: GetPolicyResponse)
 
 -- | The generation ID of the policy.
-getPolicyResponse_generationId :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_generationId :: Lens.Lens' GetPolicyResponse (Core.Maybe Core.Text)
 getPolicyResponse_generationId = Lens.lens (\GetPolicyResponse' {generationId} -> generationId) (\s@GetPolicyResponse' {} a -> s {generationId = a} :: GetPolicyResponse)
 
 -- | The policy ARN.
-getPolicyResponse_policyArn :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_policyArn :: Lens.Lens' GetPolicyResponse (Core.Maybe Core.Text)
 getPolicyResponse_policyArn = Lens.lens (\GetPolicyResponse' {policyArn} -> policyArn) (\s@GetPolicyResponse' {} a -> s {policyArn = a} :: GetPolicyResponse)
 
 -- | The response's http status code.
-getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Prelude.Int
+getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Core.Int
 getPolicyResponse_httpStatus = Lens.lens (\GetPolicyResponse' {httpStatus} -> httpStatus) (\s@GetPolicyResponse' {} a -> s {httpStatus = a} :: GetPolicyResponse)
 
-instance Prelude.NFData GetPolicyResponse
+instance Core.NFData GetPolicyResponse

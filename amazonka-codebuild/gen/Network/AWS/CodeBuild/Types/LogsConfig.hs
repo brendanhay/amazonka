@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodeBuild.Types.LogsConfig where
 
 import Network.AWS.CodeBuild.Types.CloudWatchLogsConfig
 import Network.AWS.CodeBuild.Types.S3LogsConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about logs for a build project. These can be logs in Amazon
 -- CloudWatch Logs, built in a specified S3 bucket, or both.
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data LogsConfig = LogsConfig'
   { -- | Information about logs built to an S3 bucket for a build project. S3
     -- logs are not enabled by default.
-    s3Logs :: Prelude.Maybe S3LogsConfig,
+    s3Logs :: Core.Maybe S3LogsConfig,
     -- | Information about Amazon CloudWatch Logs for a build project. Amazon
     -- CloudWatch Logs are enabled by default.
-    cloudWatchLogs :: Prelude.Maybe CloudWatchLogsConfig
+    cloudWatchLogs :: Core.Maybe CloudWatchLogsConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LogsConfig' with all optional fields omitted.
@@ -56,40 +55,39 @@ newLogsConfig ::
   LogsConfig
 newLogsConfig =
   LogsConfig'
-    { s3Logs = Prelude.Nothing,
-      cloudWatchLogs = Prelude.Nothing
+    { s3Logs = Core.Nothing,
+      cloudWatchLogs = Core.Nothing
     }
 
 -- | Information about logs built to an S3 bucket for a build project. S3
 -- logs are not enabled by default.
-logsConfig_s3Logs :: Lens.Lens' LogsConfig (Prelude.Maybe S3LogsConfig)
+logsConfig_s3Logs :: Lens.Lens' LogsConfig (Core.Maybe S3LogsConfig)
 logsConfig_s3Logs = Lens.lens (\LogsConfig' {s3Logs} -> s3Logs) (\s@LogsConfig' {} a -> s {s3Logs = a} :: LogsConfig)
 
 -- | Information about Amazon CloudWatch Logs for a build project. Amazon
 -- CloudWatch Logs are enabled by default.
-logsConfig_cloudWatchLogs :: Lens.Lens' LogsConfig (Prelude.Maybe CloudWatchLogsConfig)
+logsConfig_cloudWatchLogs :: Lens.Lens' LogsConfig (Core.Maybe CloudWatchLogsConfig)
 logsConfig_cloudWatchLogs = Lens.lens (\LogsConfig' {cloudWatchLogs} -> cloudWatchLogs) (\s@LogsConfig' {} a -> s {cloudWatchLogs = a} :: LogsConfig)
 
-instance Prelude.FromJSON LogsConfig where
+instance Core.FromJSON LogsConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LogsConfig"
       ( \x ->
           LogsConfig'
-            Prelude.<$> (x Prelude..:? "s3Logs")
-            Prelude.<*> (x Prelude..:? "cloudWatchLogs")
+            Core.<$> (x Core..:? "s3Logs")
+            Core.<*> (x Core..:? "cloudWatchLogs")
       )
 
-instance Prelude.Hashable LogsConfig
+instance Core.Hashable LogsConfig
 
-instance Prelude.NFData LogsConfig
+instance Core.NFData LogsConfig
 
-instance Prelude.ToJSON LogsConfig where
+instance Core.ToJSON LogsConfig where
   toJSON LogsConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("s3Logs" Prelude..=) Prelude.<$> s3Logs,
-            ("cloudWatchLogs" Prelude..=)
-              Prelude.<$> cloudWatchLogs
+    Core.object
+      ( Core.catMaybes
+          [ ("s3Logs" Core..=) Core.<$> s3Logs,
+            ("cloudWatchLogs" Core..=) Core.<$> cloudWatchLogs
           ]
       )

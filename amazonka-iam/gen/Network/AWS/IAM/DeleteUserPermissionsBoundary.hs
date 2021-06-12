@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.IAM.DeleteUserPermissionsBoundary
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data DeleteUserPermissionsBoundary = DeleteUserPermissionsBoundary'
   { -- | The name (friendly name, not ARN) of the IAM user from which you want to
     -- remove the permissions boundary.
-    userName :: Prelude.Text
+    userName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPermissionsBoundary' with all optional fields omitted.
@@ -66,7 +65,7 @@ data DeleteUserPermissionsBoundary = DeleteUserPermissionsBoundary'
 -- remove the permissions boundary.
 newDeleteUserPermissionsBoundary ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUserPermissionsBoundary
 newDeleteUserPermissionsBoundary pUserName_ =
   DeleteUserPermissionsBoundary'
@@ -76,56 +75,45 @@ newDeleteUserPermissionsBoundary pUserName_ =
 
 -- | The name (friendly name, not ARN) of the IAM user from which you want to
 -- remove the permissions boundary.
-deleteUserPermissionsBoundary_userName :: Lens.Lens' DeleteUserPermissionsBoundary Prelude.Text
+deleteUserPermissionsBoundary_userName :: Lens.Lens' DeleteUserPermissionsBoundary Core.Text
 deleteUserPermissionsBoundary_userName = Lens.lens (\DeleteUserPermissionsBoundary' {userName} -> userName) (\s@DeleteUserPermissionsBoundary' {} a -> s {userName = a} :: DeleteUserPermissionsBoundary)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteUserPermissionsBoundary
   where
   type
-    Rs DeleteUserPermissionsBoundary =
+    AWSResponse DeleteUserPermissionsBoundary =
       DeleteUserPermissionsBoundaryResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteUserPermissionsBoundaryResponse'
 
-instance
-  Prelude.Hashable
-    DeleteUserPermissionsBoundary
+instance Core.Hashable DeleteUserPermissionsBoundary
 
-instance Prelude.NFData DeleteUserPermissionsBoundary
+instance Core.NFData DeleteUserPermissionsBoundary
 
-instance
-  Prelude.ToHeaders
-    DeleteUserPermissionsBoundary
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteUserPermissionsBoundary where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteUserPermissionsBoundary where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteUserPermissionsBoundary where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteUserPermissionsBoundary
-  where
+instance Core.ToQuery DeleteUserPermissionsBoundary where
   toQuery DeleteUserPermissionsBoundary' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteUserPermissionsBoundary" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName
+          Core.=: ("DeleteUserPermissionsBoundary" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName
       ]
 
 -- | /See:/ 'newDeleteUserPermissionsBoundaryResponse' smart constructor.
 data DeleteUserPermissionsBoundaryResponse = DeleteUserPermissionsBoundaryResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPermissionsBoundaryResponse' with all optional fields omitted.
@@ -137,5 +125,5 @@ newDeleteUserPermissionsBoundaryResponse =
   DeleteUserPermissionsBoundaryResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteUserPermissionsBoundaryResponse

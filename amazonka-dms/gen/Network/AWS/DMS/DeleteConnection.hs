@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.DMS.DeleteConnection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data DeleteConnection = DeleteConnection'
   { -- | The Amazon Resource Name (ARN) string that uniquely identifies the
     -- endpoint.
-    endpointArn :: Prelude.Text,
+    endpointArn :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceArn :: Prelude.Text
+    replicationInstanceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConnection' with all optional fields omitted.
@@ -73,9 +72,9 @@ data DeleteConnection = DeleteConnection'
 -- 'replicationInstanceArn', 'deleteConnection_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 newDeleteConnection ::
   -- | 'endpointArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'replicationInstanceArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteConnection
 newDeleteConnection
   pEndpointArn_
@@ -87,71 +86,71 @@ newDeleteConnection
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the
 -- endpoint.
-deleteConnection_endpointArn :: Lens.Lens' DeleteConnection Prelude.Text
+deleteConnection_endpointArn :: Lens.Lens' DeleteConnection Core.Text
 deleteConnection_endpointArn = Lens.lens (\DeleteConnection' {endpointArn} -> endpointArn) (\s@DeleteConnection' {} a -> s {endpointArn = a} :: DeleteConnection)
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
-deleteConnection_replicationInstanceArn :: Lens.Lens' DeleteConnection Prelude.Text
+deleteConnection_replicationInstanceArn :: Lens.Lens' DeleteConnection Core.Text
 deleteConnection_replicationInstanceArn = Lens.lens (\DeleteConnection' {replicationInstanceArn} -> replicationInstanceArn) (\s@DeleteConnection' {} a -> s {replicationInstanceArn = a} :: DeleteConnection)
 
-instance Prelude.AWSRequest DeleteConnection where
-  type Rs DeleteConnection = DeleteConnectionResponse
+instance Core.AWSRequest DeleteConnection where
+  type
+    AWSResponse DeleteConnection =
+      DeleteConnectionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteConnectionResponse'
-            Prelude.<$> (x Prelude..?> "Connection")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Connection")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteConnection
+instance Core.Hashable DeleteConnection
 
-instance Prelude.NFData DeleteConnection
+instance Core.NFData DeleteConnection
 
-instance Prelude.ToHeaders DeleteConnection where
+instance Core.ToHeaders DeleteConnection where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.DeleteConnection" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.DeleteConnection" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteConnection where
+instance Core.ToJSON DeleteConnection where
   toJSON DeleteConnection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("EndpointArn" Prelude..= endpointArn),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EndpointArn" Core..= endpointArn),
+            Core.Just
               ( "ReplicationInstanceArn"
-                  Prelude..= replicationInstanceArn
+                  Core..= replicationInstanceArn
               )
           ]
       )
 
-instance Prelude.ToPath DeleteConnection where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteConnection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteConnection where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteConnection where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newDeleteConnectionResponse' smart constructor.
 data DeleteConnectionResponse = DeleteConnectionResponse'
   { -- | The connection that is being deleted.
-    connection :: Prelude.Maybe Connection,
+    connection :: Core.Maybe Connection,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConnectionResponse' with all optional fields omitted.
@@ -166,21 +165,21 @@ data DeleteConnectionResponse = DeleteConnectionResponse'
 -- 'httpStatus', 'deleteConnectionResponse_httpStatus' - The response's http status code.
 newDeleteConnectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteConnectionResponse
 newDeleteConnectionResponse pHttpStatus_ =
   DeleteConnectionResponse'
     { connection =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The connection that is being deleted.
-deleteConnectionResponse_connection :: Lens.Lens' DeleteConnectionResponse (Prelude.Maybe Connection)
+deleteConnectionResponse_connection :: Lens.Lens' DeleteConnectionResponse (Core.Maybe Connection)
 deleteConnectionResponse_connection = Lens.lens (\DeleteConnectionResponse' {connection} -> connection) (\s@DeleteConnectionResponse' {} a -> s {connection = a} :: DeleteConnectionResponse)
 
 -- | The response's http status code.
-deleteConnectionResponse_httpStatus :: Lens.Lens' DeleteConnectionResponse Prelude.Int
+deleteConnectionResponse_httpStatus :: Lens.Lens' DeleteConnectionResponse Core.Int
 deleteConnectionResponse_httpStatus = Lens.lens (\DeleteConnectionResponse' {httpStatus} -> httpStatus) (\s@DeleteConnectionResponse' {} a -> s {httpStatus = a} :: DeleteConnectionResponse)
 
-instance Prelude.NFData DeleteConnectionResponse
+instance Core.NFData DeleteConnectionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glacier.Types.CSVInput where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.FileHeaderInfo
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the comma-separated value (CSV) file to
 -- select from.
@@ -30,24 +29,24 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCSVInput' smart constructor.
 data CSVInput = CSVInput'
   { -- | A value used to separate individual records from each other.
-    recordDelimiter :: Prelude.Maybe Prelude.Text,
+    recordDelimiter :: Core.Maybe Core.Text,
     -- | A value used as an escape character where the field delimiter is part of
     -- the value.
-    quoteCharacter :: Prelude.Maybe Prelude.Text,
+    quoteCharacter :: Core.Maybe Core.Text,
     -- | Describes the first line of input. Valid values are @None@, @Ignore@,
     -- and @Use@.
-    fileHeaderInfo :: Prelude.Maybe FileHeaderInfo,
+    fileHeaderInfo :: Core.Maybe FileHeaderInfo,
     -- | A value used to separate individual fields from each other within a
     -- record.
-    fieldDelimiter :: Prelude.Maybe Prelude.Text,
+    fieldDelimiter :: Core.Maybe Core.Text,
     -- | A single character used to indicate that a row should be ignored when
     -- the character is present at the start of that row.
-    comments :: Prelude.Maybe Prelude.Text,
+    comments :: Core.Maybe Core.Text,
     -- | A single character used for escaping the quotation-mark character inside
     -- an already escaped value.
-    quoteEscapeCharacter :: Prelude.Maybe Prelude.Text
+    quoteEscapeCharacter :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CSVInput' with all optional fields omitted.
@@ -77,75 +76,72 @@ newCSVInput ::
   CSVInput
 newCSVInput =
   CSVInput'
-    { recordDelimiter = Prelude.Nothing,
-      quoteCharacter = Prelude.Nothing,
-      fileHeaderInfo = Prelude.Nothing,
-      fieldDelimiter = Prelude.Nothing,
-      comments = Prelude.Nothing,
-      quoteEscapeCharacter = Prelude.Nothing
+    { recordDelimiter = Core.Nothing,
+      quoteCharacter = Core.Nothing,
+      fileHeaderInfo = Core.Nothing,
+      fieldDelimiter = Core.Nothing,
+      comments = Core.Nothing,
+      quoteEscapeCharacter = Core.Nothing
     }
 
 -- | A value used to separate individual records from each other.
-cSVInput_recordDelimiter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
+cSVInput_recordDelimiter :: Lens.Lens' CSVInput (Core.Maybe Core.Text)
 cSVInput_recordDelimiter = Lens.lens (\CSVInput' {recordDelimiter} -> recordDelimiter) (\s@CSVInput' {} a -> s {recordDelimiter = a} :: CSVInput)
 
 -- | A value used as an escape character where the field delimiter is part of
 -- the value.
-cSVInput_quoteCharacter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
+cSVInput_quoteCharacter :: Lens.Lens' CSVInput (Core.Maybe Core.Text)
 cSVInput_quoteCharacter = Lens.lens (\CSVInput' {quoteCharacter} -> quoteCharacter) (\s@CSVInput' {} a -> s {quoteCharacter = a} :: CSVInput)
 
 -- | Describes the first line of input. Valid values are @None@, @Ignore@,
 -- and @Use@.
-cSVInput_fileHeaderInfo :: Lens.Lens' CSVInput (Prelude.Maybe FileHeaderInfo)
+cSVInput_fileHeaderInfo :: Lens.Lens' CSVInput (Core.Maybe FileHeaderInfo)
 cSVInput_fileHeaderInfo = Lens.lens (\CSVInput' {fileHeaderInfo} -> fileHeaderInfo) (\s@CSVInput' {} a -> s {fileHeaderInfo = a} :: CSVInput)
 
 -- | A value used to separate individual fields from each other within a
 -- record.
-cSVInput_fieldDelimiter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
+cSVInput_fieldDelimiter :: Lens.Lens' CSVInput (Core.Maybe Core.Text)
 cSVInput_fieldDelimiter = Lens.lens (\CSVInput' {fieldDelimiter} -> fieldDelimiter) (\s@CSVInput' {} a -> s {fieldDelimiter = a} :: CSVInput)
 
 -- | A single character used to indicate that a row should be ignored when
 -- the character is present at the start of that row.
-cSVInput_comments :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
+cSVInput_comments :: Lens.Lens' CSVInput (Core.Maybe Core.Text)
 cSVInput_comments = Lens.lens (\CSVInput' {comments} -> comments) (\s@CSVInput' {} a -> s {comments = a} :: CSVInput)
 
 -- | A single character used for escaping the quotation-mark character inside
 -- an already escaped value.
-cSVInput_quoteEscapeCharacter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
+cSVInput_quoteEscapeCharacter :: Lens.Lens' CSVInput (Core.Maybe Core.Text)
 cSVInput_quoteEscapeCharacter = Lens.lens (\CSVInput' {quoteEscapeCharacter} -> quoteEscapeCharacter) (\s@CSVInput' {} a -> s {quoteEscapeCharacter = a} :: CSVInput)
 
-instance Prelude.FromJSON CSVInput where
+instance Core.FromJSON CSVInput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CSVInput"
       ( \x ->
           CSVInput'
-            Prelude.<$> (x Prelude..:? "RecordDelimiter")
-            Prelude.<*> (x Prelude..:? "QuoteCharacter")
-            Prelude.<*> (x Prelude..:? "FileHeaderInfo")
-            Prelude.<*> (x Prelude..:? "FieldDelimiter")
-            Prelude.<*> (x Prelude..:? "Comments")
-            Prelude.<*> (x Prelude..:? "QuoteEscapeCharacter")
+            Core.<$> (x Core..:? "RecordDelimiter")
+            Core.<*> (x Core..:? "QuoteCharacter")
+            Core.<*> (x Core..:? "FileHeaderInfo")
+            Core.<*> (x Core..:? "FieldDelimiter")
+            Core.<*> (x Core..:? "Comments")
+            Core.<*> (x Core..:? "QuoteEscapeCharacter")
       )
 
-instance Prelude.Hashable CSVInput
+instance Core.Hashable CSVInput
 
-instance Prelude.NFData CSVInput
+instance Core.NFData CSVInput
 
-instance Prelude.ToJSON CSVInput where
+instance Core.ToJSON CSVInput where
   toJSON CSVInput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RecordDelimiter" Prelude..=)
-              Prelude.<$> recordDelimiter,
-            ("QuoteCharacter" Prelude..=)
-              Prelude.<$> quoteCharacter,
-            ("FileHeaderInfo" Prelude..=)
-              Prelude.<$> fileHeaderInfo,
-            ("FieldDelimiter" Prelude..=)
-              Prelude.<$> fieldDelimiter,
-            ("Comments" Prelude..=) Prelude.<$> comments,
-            ("QuoteEscapeCharacter" Prelude..=)
-              Prelude.<$> quoteEscapeCharacter
+    Core.object
+      ( Core.catMaybes
+          [ ("RecordDelimiter" Core..=)
+              Core.<$> recordDelimiter,
+            ("QuoteCharacter" Core..=) Core.<$> quoteCharacter,
+            ("FileHeaderInfo" Core..=) Core.<$> fileHeaderInfo,
+            ("FieldDelimiter" Core..=) Core.<$> fieldDelimiter,
+            ("Comments" Core..=) Core.<$> comments,
+            ("QuoteEscapeCharacter" Core..=)
+              Core.<$> quoteEscapeCharacter
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.CloudWatchDashboard where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a CloudWatch dashboard.
 --
 -- /See:/ 'newCloudWatchDashboard' smart constructor.
 data CloudWatchDashboard = CloudWatchDashboard'
   { -- | The name of the CloudWatch dashboard.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloudWatchDashboard' with all optional fields omitted.
@@ -44,21 +43,20 @@ data CloudWatchDashboard = CloudWatchDashboard'
 newCloudWatchDashboard ::
   CloudWatchDashboard
 newCloudWatchDashboard =
-  CloudWatchDashboard' {name = Prelude.Nothing}
+  CloudWatchDashboard' {name = Core.Nothing}
 
 -- | The name of the CloudWatch dashboard.
-cloudWatchDashboard_name :: Lens.Lens' CloudWatchDashboard (Prelude.Maybe Prelude.Text)
+cloudWatchDashboard_name :: Lens.Lens' CloudWatchDashboard (Core.Maybe Core.Text)
 cloudWatchDashboard_name = Lens.lens (\CloudWatchDashboard' {name} -> name) (\s@CloudWatchDashboard' {} a -> s {name = a} :: CloudWatchDashboard)
 
-instance Prelude.FromJSON CloudWatchDashboard where
+instance Core.FromJSON CloudWatchDashboard where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CloudWatchDashboard"
       ( \x ->
-          CloudWatchDashboard'
-            Prelude.<$> (x Prelude..:? "Name")
+          CloudWatchDashboard' Core.<$> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable CloudWatchDashboard
+instance Core.Hashable CloudWatchDashboard
 
-instance Prelude.NFData CloudWatchDashboard
+instance Core.NFData CloudWatchDashboard

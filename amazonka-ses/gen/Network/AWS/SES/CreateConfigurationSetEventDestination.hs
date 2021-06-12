@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.SES.CreateConfigurationSetEventDestination
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -69,12 +68,12 @@ import Network.AWS.SES.Types
 data CreateConfigurationSetEventDestination = CreateConfigurationSetEventDestination'
   { -- | The name of the configuration set that the event destination should be
     -- associated with.
-    configurationSetName :: Prelude.Text,
+    configurationSetName :: Core.Text,
     -- | An object that describes the AWS service that email sending event
     -- information will be published to.
     eventDestination :: EventDestination
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateConfigurationSetEventDestination' with all optional fields omitted.
@@ -91,7 +90,7 @@ data CreateConfigurationSetEventDestination = CreateConfigurationSetEventDestina
 -- information will be published to.
 newCreateConfigurationSetEventDestination ::
   -- | 'configurationSetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'eventDestination'
   EventDestination ->
   CreateConfigurationSetEventDestination
@@ -107,7 +106,7 @@ newCreateConfigurationSetEventDestination
 
 -- | The name of the configuration set that the event destination should be
 -- associated with.
-createConfigurationSetEventDestination_configurationSetName :: Lens.Lens' CreateConfigurationSetEventDestination Prelude.Text
+createConfigurationSetEventDestination_configurationSetName :: Lens.Lens' CreateConfigurationSetEventDestination Core.Text
 createConfigurationSetEventDestination_configurationSetName = Lens.lens (\CreateConfigurationSetEventDestination' {configurationSetName} -> configurationSetName) (\s@CreateConfigurationSetEventDestination' {} a -> s {configurationSetName = a} :: CreateConfigurationSetEventDestination)
 
 -- | An object that describes the AWS service that email sending event
@@ -116,11 +115,12 @@ createConfigurationSetEventDestination_eventDestination :: Lens.Lens' CreateConf
 createConfigurationSetEventDestination_eventDestination = Lens.lens (\CreateConfigurationSetEventDestination' {eventDestination} -> eventDestination) (\s@CreateConfigurationSetEventDestination' {} a -> s {eventDestination = a} :: CreateConfigurationSetEventDestination)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateConfigurationSetEventDestination
   where
   type
-    Rs CreateConfigurationSetEventDestination =
+    AWSResponse
+      CreateConfigurationSetEventDestination =
       CreateConfigurationSetEventDestinationResponse
   request = Request.postQuery defaultService
   response =
@@ -128,44 +128,42 @@ instance
       "CreateConfigurationSetEventDestinationResult"
       ( \s h x ->
           CreateConfigurationSetEventDestinationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateConfigurationSetEventDestination
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateConfigurationSetEventDestination
 
 instance
-  Prelude.ToHeaders
-    CreateConfigurationSetEventDestination
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     CreateConfigurationSetEventDestination
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    CreateConfigurationSetEventDestination
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     CreateConfigurationSetEventDestination
   where
   toQuery CreateConfigurationSetEventDestination' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "CreateConfigurationSetEventDestination" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "ConfigurationSetName"
-          Prelude.=: configurationSetName,
-        "EventDestination" Prelude.=: eventDestination
+          Core.=: ( "CreateConfigurationSetEventDestination" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "ConfigurationSetName" Core.=: configurationSetName,
+        "EventDestination" Core.=: eventDestination
       ]
 
 -- | An empty element returned on a successful request.
@@ -173,9 +171,9 @@ instance
 -- /See:/ 'newCreateConfigurationSetEventDestinationResponse' smart constructor.
 data CreateConfigurationSetEventDestinationResponse = CreateConfigurationSetEventDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateConfigurationSetEventDestinationResponse' with all optional fields omitted.
@@ -188,7 +186,7 @@ data CreateConfigurationSetEventDestinationResponse = CreateConfigurationSetEven
 -- 'httpStatus', 'createConfigurationSetEventDestinationResponse_httpStatus' - The response's http status code.
 newCreateConfigurationSetEventDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateConfigurationSetEventDestinationResponse
 newCreateConfigurationSetEventDestinationResponse
   pHttpStatus_ =
@@ -198,9 +196,9 @@ newCreateConfigurationSetEventDestinationResponse
       }
 
 -- | The response's http status code.
-createConfigurationSetEventDestinationResponse_httpStatus :: Lens.Lens' CreateConfigurationSetEventDestinationResponse Prelude.Int
+createConfigurationSetEventDestinationResponse_httpStatus :: Lens.Lens' CreateConfigurationSetEventDestinationResponse Core.Int
 createConfigurationSetEventDestinationResponse_httpStatus = Lens.lens (\CreateConfigurationSetEventDestinationResponse' {httpStatus} -> httpStatus) (\s@CreateConfigurationSetEventDestinationResponse' {} a -> s {httpStatus = a} :: CreateConfigurationSetEventDestinationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateConfigurationSetEventDestinationResponse

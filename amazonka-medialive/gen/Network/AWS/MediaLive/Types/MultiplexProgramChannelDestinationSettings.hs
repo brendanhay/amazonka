@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.MultiplexProgramChannelDestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Multiplex Program Input Destination Settings for outputting a Channel to
 -- a Multiplex
@@ -33,12 +32,12 @@ data MultiplexProgramChannelDestinationSettings = MultiplexProgramChannelDestina
     -- will handle the connection of the two MediaLive pipelines to the two
     -- Multiplex instances. The Multiplex must be in the same region as the
     -- Channel.
-    multiplexId :: Prelude.Maybe Prelude.Text,
+    multiplexId :: Core.Maybe Core.Text,
     -- | The program name of the Multiplex program that the encoder is providing
     -- output to.
-    programName :: Prelude.Maybe Prelude.Text
+    programName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MultiplexProgramChannelDestinationSettings' with all optional fields omitted.
@@ -61,8 +60,8 @@ newMultiplexProgramChannelDestinationSettings ::
 newMultiplexProgramChannelDestinationSettings =
   MultiplexProgramChannelDestinationSettings'
     { multiplexId =
-        Prelude.Nothing,
-      programName = Prelude.Nothing
+        Core.Nothing,
+      programName = Core.Nothing
     }
 
 -- | The ID of the Multiplex that the encoder is providing output to. You do
@@ -70,44 +69,44 @@ newMultiplexProgramChannelDestinationSettings =
 -- will handle the connection of the two MediaLive pipelines to the two
 -- Multiplex instances. The Multiplex must be in the same region as the
 -- Channel.
-multiplexProgramChannelDestinationSettings_multiplexId :: Lens.Lens' MultiplexProgramChannelDestinationSettings (Prelude.Maybe Prelude.Text)
+multiplexProgramChannelDestinationSettings_multiplexId :: Lens.Lens' MultiplexProgramChannelDestinationSettings (Core.Maybe Core.Text)
 multiplexProgramChannelDestinationSettings_multiplexId = Lens.lens (\MultiplexProgramChannelDestinationSettings' {multiplexId} -> multiplexId) (\s@MultiplexProgramChannelDestinationSettings' {} a -> s {multiplexId = a} :: MultiplexProgramChannelDestinationSettings)
 
 -- | The program name of the Multiplex program that the encoder is providing
 -- output to.
-multiplexProgramChannelDestinationSettings_programName :: Lens.Lens' MultiplexProgramChannelDestinationSettings (Prelude.Maybe Prelude.Text)
+multiplexProgramChannelDestinationSettings_programName :: Lens.Lens' MultiplexProgramChannelDestinationSettings (Core.Maybe Core.Text)
 multiplexProgramChannelDestinationSettings_programName = Lens.lens (\MultiplexProgramChannelDestinationSettings' {programName} -> programName) (\s@MultiplexProgramChannelDestinationSettings' {} a -> s {programName = a} :: MultiplexProgramChannelDestinationSettings)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     MultiplexProgramChannelDestinationSettings
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MultiplexProgramChannelDestinationSettings"
       ( \x ->
           MultiplexProgramChannelDestinationSettings'
-            Prelude.<$> (x Prelude..:? "multiplexId")
-              Prelude.<*> (x Prelude..:? "programName")
+            Core.<$> (x Core..:? "multiplexId")
+            Core.<*> (x Core..:? "programName")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     MultiplexProgramChannelDestinationSettings
 
 instance
-  Prelude.NFData
+  Core.NFData
     MultiplexProgramChannelDestinationSettings
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     MultiplexProgramChannelDestinationSettings
   where
   toJSON
     MultiplexProgramChannelDestinationSettings' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ ("multiplexId" Prelude..=) Prelude.<$> multiplexId,
-              ("programName" Prelude..=) Prelude.<$> programName
+      Core.object
+        ( Core.catMaybes
+            [ ("multiplexId" Core..=) Core.<$> multiplexId,
+              ("programName" Core..=) Core.<$> programName
             ]
         )

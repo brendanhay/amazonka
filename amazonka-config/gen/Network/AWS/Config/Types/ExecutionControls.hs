@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.Config.Types.ExecutionControls where
 
 import Network.AWS.Config.Types.SsmControls
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The controls that AWS Config uses for executing remediations.
 --
 -- /See:/ 'newExecutionControls' smart constructor.
 data ExecutionControls = ExecutionControls'
   { -- | A SsmControls object.
-    ssmControls :: Prelude.Maybe SsmControls
+    ssmControls :: Core.Maybe SsmControls
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExecutionControls' with all optional fields omitted.
@@ -45,28 +44,28 @@ data ExecutionControls = ExecutionControls'
 newExecutionControls ::
   ExecutionControls
 newExecutionControls =
-  ExecutionControls' {ssmControls = Prelude.Nothing}
+  ExecutionControls' {ssmControls = Core.Nothing}
 
 -- | A SsmControls object.
-executionControls_ssmControls :: Lens.Lens' ExecutionControls (Prelude.Maybe SsmControls)
+executionControls_ssmControls :: Lens.Lens' ExecutionControls (Core.Maybe SsmControls)
 executionControls_ssmControls = Lens.lens (\ExecutionControls' {ssmControls} -> ssmControls) (\s@ExecutionControls' {} a -> s {ssmControls = a} :: ExecutionControls)
 
-instance Prelude.FromJSON ExecutionControls where
+instance Core.FromJSON ExecutionControls where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExecutionControls"
       ( \x ->
           ExecutionControls'
-            Prelude.<$> (x Prelude..:? "SsmControls")
+            Core.<$> (x Core..:? "SsmControls")
       )
 
-instance Prelude.Hashable ExecutionControls
+instance Core.Hashable ExecutionControls
 
-instance Prelude.NFData ExecutionControls
+instance Core.NFData ExecutionControls
 
-instance Prelude.ToJSON ExecutionControls where
+instance Core.ToJSON ExecutionControls where
   toJSON ExecutionControls' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("SsmControls" Prelude..=) Prelude.<$> ssmControls]
+    Core.object
+      ( Core.catMaybes
+          [("SsmControls" Core..=) Core.<$> ssmControls]
       )

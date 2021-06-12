@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.IntegerParameterRangeSpecification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines the possible values for an integer hyperparameter.
 --
 -- /See:/ 'newIntegerParameterRangeSpecification' smart constructor.
 data IntegerParameterRangeSpecification = IntegerParameterRangeSpecification'
   { -- | The minimum integer value allowed.
-    minValue :: Prelude.Text,
+    minValue :: Core.Text,
     -- | The maximum integer value allowed.
-    maxValue :: Prelude.Text
+    maxValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IntegerParameterRangeSpecification' with all optional fields omitted.
@@ -47,9 +46,9 @@ data IntegerParameterRangeSpecification = IntegerParameterRangeSpecification'
 -- 'maxValue', 'integerParameterRangeSpecification_maxValue' - The maximum integer value allowed.
 newIntegerParameterRangeSpecification ::
   -- | 'minValue'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'maxValue'
-  Prelude.Text ->
+  Core.Text ->
   IntegerParameterRangeSpecification
 newIntegerParameterRangeSpecification
   pMinValue_
@@ -61,42 +60,42 @@ newIntegerParameterRangeSpecification
       }
 
 -- | The minimum integer value allowed.
-integerParameterRangeSpecification_minValue :: Lens.Lens' IntegerParameterRangeSpecification Prelude.Text
+integerParameterRangeSpecification_minValue :: Lens.Lens' IntegerParameterRangeSpecification Core.Text
 integerParameterRangeSpecification_minValue = Lens.lens (\IntegerParameterRangeSpecification' {minValue} -> minValue) (\s@IntegerParameterRangeSpecification' {} a -> s {minValue = a} :: IntegerParameterRangeSpecification)
 
 -- | The maximum integer value allowed.
-integerParameterRangeSpecification_maxValue :: Lens.Lens' IntegerParameterRangeSpecification Prelude.Text
+integerParameterRangeSpecification_maxValue :: Lens.Lens' IntegerParameterRangeSpecification Core.Text
 integerParameterRangeSpecification_maxValue = Lens.lens (\IntegerParameterRangeSpecification' {maxValue} -> maxValue) (\s@IntegerParameterRangeSpecification' {} a -> s {maxValue = a} :: IntegerParameterRangeSpecification)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     IntegerParameterRangeSpecification
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IntegerParameterRangeSpecification"
       ( \x ->
           IntegerParameterRangeSpecification'
-            Prelude.<$> (x Prelude..: "MinValue")
-            Prelude.<*> (x Prelude..: "MaxValue")
+            Core.<$> (x Core..: "MinValue")
+            Core.<*> (x Core..: "MaxValue")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     IntegerParameterRangeSpecification
 
 instance
-  Prelude.NFData
+  Core.NFData
     IntegerParameterRangeSpecification
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     IntegerParameterRangeSpecification
   where
   toJSON IntegerParameterRangeSpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("MinValue" Prelude..= minValue),
-            Prelude.Just ("MaxValue" Prelude..= maxValue)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MinValue" Core..= minValue),
+            Core.Just ("MaxValue" Core..= maxValue)
           ]
       )

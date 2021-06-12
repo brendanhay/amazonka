@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.IKEVersionsRequestListValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The IKE version that is permitted for the VPN tunnel.
 --
 -- /See:/ 'newIKEVersionsRequestListValue' smart constructor.
 data IKEVersionsRequestListValue = IKEVersionsRequestListValue'
   { -- | The IKE version.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IKEVersionsRequestListValue' with all optional fields omitted.
@@ -45,19 +44,16 @@ data IKEVersionsRequestListValue = IKEVersionsRequestListValue'
 newIKEVersionsRequestListValue ::
   IKEVersionsRequestListValue
 newIKEVersionsRequestListValue =
-  IKEVersionsRequestListValue'
-    { value =
-        Prelude.Nothing
-    }
+  IKEVersionsRequestListValue' {value = Core.Nothing}
 
 -- | The IKE version.
-iKEVersionsRequestListValue_value :: Lens.Lens' IKEVersionsRequestListValue (Prelude.Maybe Prelude.Text)
+iKEVersionsRequestListValue_value :: Lens.Lens' IKEVersionsRequestListValue (Core.Maybe Core.Text)
 iKEVersionsRequestListValue_value = Lens.lens (\IKEVersionsRequestListValue' {value} -> value) (\s@IKEVersionsRequestListValue' {} a -> s {value = a} :: IKEVersionsRequestListValue)
 
-instance Prelude.Hashable IKEVersionsRequestListValue
+instance Core.Hashable IKEVersionsRequestListValue
 
-instance Prelude.NFData IKEVersionsRequestListValue
+instance Core.NFData IKEVersionsRequestListValue
 
-instance Prelude.ToQuery IKEVersionsRequestListValue where
+instance Core.ToQuery IKEVersionsRequestListValue where
   toQuery IKEVersionsRequestListValue' {..} =
-    Prelude.mconcat ["Value" Prelude.=: value]
+    Core.mconcat ["Value" Core.=: value]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.PartitionError where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.ErrorDetail
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a partition error.
 --
 -- /See:/ 'newPartitionError' smart constructor.
 data PartitionError = PartitionError'
   { -- | The details about the partition error.
-    errorDetail :: Prelude.Maybe ErrorDetail,
+    errorDetail :: Core.Maybe ErrorDetail,
     -- | The values that define the partition.
-    partitionValues :: Prelude.Maybe [Prelude.Text]
+    partitionValues :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PartitionError' with all optional fields omitted.
@@ -50,30 +49,28 @@ newPartitionError ::
   PartitionError
 newPartitionError =
   PartitionError'
-    { errorDetail = Prelude.Nothing,
-      partitionValues = Prelude.Nothing
+    { errorDetail = Core.Nothing,
+      partitionValues = Core.Nothing
     }
 
 -- | The details about the partition error.
-partitionError_errorDetail :: Lens.Lens' PartitionError (Prelude.Maybe ErrorDetail)
+partitionError_errorDetail :: Lens.Lens' PartitionError (Core.Maybe ErrorDetail)
 partitionError_errorDetail = Lens.lens (\PartitionError' {errorDetail} -> errorDetail) (\s@PartitionError' {} a -> s {errorDetail = a} :: PartitionError)
 
 -- | The values that define the partition.
-partitionError_partitionValues :: Lens.Lens' PartitionError (Prelude.Maybe [Prelude.Text])
-partitionError_partitionValues = Lens.lens (\PartitionError' {partitionValues} -> partitionValues) (\s@PartitionError' {} a -> s {partitionValues = a} :: PartitionError) Prelude.. Lens.mapping Prelude._Coerce
+partitionError_partitionValues :: Lens.Lens' PartitionError (Core.Maybe [Core.Text])
+partitionError_partitionValues = Lens.lens (\PartitionError' {partitionValues} -> partitionValues) (\s@PartitionError' {} a -> s {partitionValues = a} :: PartitionError) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON PartitionError where
+instance Core.FromJSON PartitionError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PartitionError"
       ( \x ->
           PartitionError'
-            Prelude.<$> (x Prelude..:? "ErrorDetail")
-            Prelude.<*> ( x Prelude..:? "PartitionValues"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ErrorDetail")
+            Core.<*> (x Core..:? "PartitionValues" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable PartitionError
+instance Core.Hashable PartitionError
 
-instance Prelude.NFData PartitionError
+instance Core.NFData PartitionError

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.MetadataKeyValuePair where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure containing a key value pair for metadata.
 --
 -- /See:/ 'newMetadataKeyValuePair' smart constructor.
 data MetadataKeyValuePair = MetadataKeyValuePair'
   { -- | A metadata key.
-    metadataKey :: Prelude.Maybe Prelude.Text,
+    metadataKey :: Core.Maybe Core.Text,
     -- | A metadata key’s corresponding value.
-    metadataValue :: Prelude.Maybe Prelude.Text
+    metadataValue :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetadataKeyValuePair' with all optional fields omitted.
@@ -49,29 +48,27 @@ newMetadataKeyValuePair ::
   MetadataKeyValuePair
 newMetadataKeyValuePair =
   MetadataKeyValuePair'
-    { metadataKey =
-        Prelude.Nothing,
-      metadataValue = Prelude.Nothing
+    { metadataKey = Core.Nothing,
+      metadataValue = Core.Nothing
     }
 
 -- | A metadata key.
-metadataKeyValuePair_metadataKey :: Lens.Lens' MetadataKeyValuePair (Prelude.Maybe Prelude.Text)
+metadataKeyValuePair_metadataKey :: Lens.Lens' MetadataKeyValuePair (Core.Maybe Core.Text)
 metadataKeyValuePair_metadataKey = Lens.lens (\MetadataKeyValuePair' {metadataKey} -> metadataKey) (\s@MetadataKeyValuePair' {} a -> s {metadataKey = a} :: MetadataKeyValuePair)
 
 -- | A metadata key’s corresponding value.
-metadataKeyValuePair_metadataValue :: Lens.Lens' MetadataKeyValuePair (Prelude.Maybe Prelude.Text)
+metadataKeyValuePair_metadataValue :: Lens.Lens' MetadataKeyValuePair (Core.Maybe Core.Text)
 metadataKeyValuePair_metadataValue = Lens.lens (\MetadataKeyValuePair' {metadataValue} -> metadataValue) (\s@MetadataKeyValuePair' {} a -> s {metadataValue = a} :: MetadataKeyValuePair)
 
-instance Prelude.Hashable MetadataKeyValuePair
+instance Core.Hashable MetadataKeyValuePair
 
-instance Prelude.NFData MetadataKeyValuePair
+instance Core.NFData MetadataKeyValuePair
 
-instance Prelude.ToJSON MetadataKeyValuePair where
+instance Core.ToJSON MetadataKeyValuePair where
   toJSON MetadataKeyValuePair' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MetadataKey" Prelude..=) Prelude.<$> metadataKey,
-            ("MetadataValue" Prelude..=)
-              Prelude.<$> metadataValue
+    Core.object
+      ( Core.catMaybes
+          [ ("MetadataKey" Core..=) Core.<$> metadataKey,
+            ("MetadataValue" Core..=) Core.<$> metadataValue
           ]
       )

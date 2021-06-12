@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Lightsail.DisableAddOn
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +53,9 @@ data DisableAddOn = DisableAddOn'
   { -- | The add-on type to disable.
     addOnType :: AddOnType,
     -- | The name of the source resource for which to disable the add-on.
-    resourceName :: Prelude.Text
+    resourceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableAddOn' with all optional fields omitted.
@@ -73,7 +72,7 @@ newDisableAddOn ::
   -- | 'addOnType'
   AddOnType ->
   -- | 'resourceName'
-  Prelude.Text ->
+  Core.Text ->
   DisableAddOn
 newDisableAddOn pAddOnType_ pResourceName_ =
   DisableAddOn'
@@ -86,67 +85,62 @@ disableAddOn_addOnType :: Lens.Lens' DisableAddOn AddOnType
 disableAddOn_addOnType = Lens.lens (\DisableAddOn' {addOnType} -> addOnType) (\s@DisableAddOn' {} a -> s {addOnType = a} :: DisableAddOn)
 
 -- | The name of the source resource for which to disable the add-on.
-disableAddOn_resourceName :: Lens.Lens' DisableAddOn Prelude.Text
+disableAddOn_resourceName :: Lens.Lens' DisableAddOn Core.Text
 disableAddOn_resourceName = Lens.lens (\DisableAddOn' {resourceName} -> resourceName) (\s@DisableAddOn' {} a -> s {resourceName = a} :: DisableAddOn)
 
-instance Prelude.AWSRequest DisableAddOn where
-  type Rs DisableAddOn = DisableAddOnResponse
+instance Core.AWSRequest DisableAddOn where
+  type AWSResponse DisableAddOn = DisableAddOnResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DisableAddOnResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisableAddOn
+instance Core.Hashable DisableAddOn
 
-instance Prelude.NFData DisableAddOn
+instance Core.NFData DisableAddOn
 
-instance Prelude.ToHeaders DisableAddOn where
+instance Core.ToHeaders DisableAddOn where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.DisableAddOn" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.DisableAddOn" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableAddOn where
+instance Core.ToJSON DisableAddOn where
   toJSON DisableAddOn' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("addOnType" Prelude..= addOnType),
-            Prelude.Just
-              ("resourceName" Prelude..= resourceName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("addOnType" Core..= addOnType),
+            Core.Just ("resourceName" Core..= resourceName)
           ]
       )
 
-instance Prelude.ToPath DisableAddOn where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableAddOn where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableAddOn where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableAddOn where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableAddOnResponse' smart constructor.
 data DisableAddOnResponse = DisableAddOnResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableAddOnResponse' with all optional fields omitted.
@@ -163,22 +157,22 @@ data DisableAddOnResponse = DisableAddOnResponse'
 -- 'httpStatus', 'disableAddOnResponse_httpStatus' - The response's http status code.
 newDisableAddOnResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisableAddOnResponse
 newDisableAddOnResponse pHttpStatus_ =
   DisableAddOnResponse'
-    { operations = Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-disableAddOnResponse_operations :: Lens.Lens' DisableAddOnResponse (Prelude.Maybe [Operation])
-disableAddOnResponse_operations = Lens.lens (\DisableAddOnResponse' {operations} -> operations) (\s@DisableAddOnResponse' {} a -> s {operations = a} :: DisableAddOnResponse) Prelude.. Lens.mapping Prelude._Coerce
+disableAddOnResponse_operations :: Lens.Lens' DisableAddOnResponse (Core.Maybe [Operation])
+disableAddOnResponse_operations = Lens.lens (\DisableAddOnResponse' {operations} -> operations) (\s@DisableAddOnResponse' {} a -> s {operations = a} :: DisableAddOnResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-disableAddOnResponse_httpStatus :: Lens.Lens' DisableAddOnResponse Prelude.Int
+disableAddOnResponse_httpStatus :: Lens.Lens' DisableAddOnResponse Core.Int
 disableAddOnResponse_httpStatus = Lens.lens (\DisableAddOnResponse' {httpStatus} -> httpStatus) (\s@DisableAddOnResponse' {} a -> s {httpStatus = a} :: DisableAddOnResponse)
 
-instance Prelude.NFData DisableAddOnResponse
+instance Core.NFData DisableAddOnResponse

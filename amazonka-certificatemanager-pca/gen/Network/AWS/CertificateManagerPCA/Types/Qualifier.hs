@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CertificateManagerPCA.Types.Qualifier where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines a @PolicyInformation@ qualifier. ACM Private CA supports the
 -- <https://tools.ietf.org/html/rfc5280#section-4.2.1.4 certification practice statement (CPS) qualifier>
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data Qualifier = Qualifier'
   { -- | Contains a pointer to a certification practice statement (CPS) published
     -- by the CA.
-    cpsUri :: Prelude.Text
+    cpsUri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Qualifier' with all optional fields omitted.
@@ -47,22 +46,22 @@ data Qualifier = Qualifier'
 -- by the CA.
 newQualifier ::
   -- | 'cpsUri'
-  Prelude.Text ->
+  Core.Text ->
   Qualifier
 newQualifier pCpsUri_ = Qualifier' {cpsUri = pCpsUri_}
 
 -- | Contains a pointer to a certification practice statement (CPS) published
 -- by the CA.
-qualifier_cpsUri :: Lens.Lens' Qualifier Prelude.Text
+qualifier_cpsUri :: Lens.Lens' Qualifier Core.Text
 qualifier_cpsUri = Lens.lens (\Qualifier' {cpsUri} -> cpsUri) (\s@Qualifier' {} a -> s {cpsUri = a} :: Qualifier)
 
-instance Prelude.Hashable Qualifier
+instance Core.Hashable Qualifier
 
-instance Prelude.NFData Qualifier
+instance Core.NFData Qualifier
 
-instance Prelude.ToJSON Qualifier where
+instance Core.ToJSON Qualifier where
   toJSON Qualifier' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("CpsUri" Prelude..= cpsUri)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CpsUri" Core..= cpsUri)]
       )

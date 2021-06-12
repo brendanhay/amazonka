@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.SES.UpdateConfigurationSetEventDestination
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -68,12 +67,12 @@ import Network.AWS.SES.Types
 data UpdateConfigurationSetEventDestination = UpdateConfigurationSetEventDestination'
   { -- | The name of the configuration set that contains the event destination
     -- that you want to update.
-    configurationSetName :: Prelude.Text,
+    configurationSetName :: Core.Text,
     -- | The event destination object that you want to apply to the specified
     -- configuration set.
     eventDestination :: EventDestination
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConfigurationSetEventDestination' with all optional fields omitted.
@@ -90,7 +89,7 @@ data UpdateConfigurationSetEventDestination = UpdateConfigurationSetEventDestina
 -- configuration set.
 newUpdateConfigurationSetEventDestination ::
   -- | 'configurationSetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'eventDestination'
   EventDestination ->
   UpdateConfigurationSetEventDestination
@@ -106,7 +105,7 @@ newUpdateConfigurationSetEventDestination
 
 -- | The name of the configuration set that contains the event destination
 -- that you want to update.
-updateConfigurationSetEventDestination_configurationSetName :: Lens.Lens' UpdateConfigurationSetEventDestination Prelude.Text
+updateConfigurationSetEventDestination_configurationSetName :: Lens.Lens' UpdateConfigurationSetEventDestination Core.Text
 updateConfigurationSetEventDestination_configurationSetName = Lens.lens (\UpdateConfigurationSetEventDestination' {configurationSetName} -> configurationSetName) (\s@UpdateConfigurationSetEventDestination' {} a -> s {configurationSetName = a} :: UpdateConfigurationSetEventDestination)
 
 -- | The event destination object that you want to apply to the specified
@@ -115,11 +114,12 @@ updateConfigurationSetEventDestination_eventDestination :: Lens.Lens' UpdateConf
 updateConfigurationSetEventDestination_eventDestination = Lens.lens (\UpdateConfigurationSetEventDestination' {eventDestination} -> eventDestination) (\s@UpdateConfigurationSetEventDestination' {} a -> s {eventDestination = a} :: UpdateConfigurationSetEventDestination)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateConfigurationSetEventDestination
   where
   type
-    Rs UpdateConfigurationSetEventDestination =
+    AWSResponse
+      UpdateConfigurationSetEventDestination =
       UpdateConfigurationSetEventDestinationResponse
   request = Request.postQuery defaultService
   response =
@@ -127,44 +127,42 @@ instance
       "UpdateConfigurationSetEventDestinationResult"
       ( \s h x ->
           UpdateConfigurationSetEventDestinationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateConfigurationSetEventDestination
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateConfigurationSetEventDestination
 
 instance
-  Prelude.ToHeaders
-    UpdateConfigurationSetEventDestination
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     UpdateConfigurationSetEventDestination
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    UpdateConfigurationSetEventDestination
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     UpdateConfigurationSetEventDestination
   where
   toQuery UpdateConfigurationSetEventDestination' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "UpdateConfigurationSetEventDestination" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "ConfigurationSetName"
-          Prelude.=: configurationSetName,
-        "EventDestination" Prelude.=: eventDestination
+          Core.=: ( "UpdateConfigurationSetEventDestination" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "ConfigurationSetName" Core.=: configurationSetName,
+        "EventDestination" Core.=: eventDestination
       ]
 
 -- | An empty element returned on a successful request.
@@ -172,9 +170,9 @@ instance
 -- /See:/ 'newUpdateConfigurationSetEventDestinationResponse' smart constructor.
 data UpdateConfigurationSetEventDestinationResponse = UpdateConfigurationSetEventDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConfigurationSetEventDestinationResponse' with all optional fields omitted.
@@ -187,7 +185,7 @@ data UpdateConfigurationSetEventDestinationResponse = UpdateConfigurationSetEven
 -- 'httpStatus', 'updateConfigurationSetEventDestinationResponse_httpStatus' - The response's http status code.
 newUpdateConfigurationSetEventDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateConfigurationSetEventDestinationResponse
 newUpdateConfigurationSetEventDestinationResponse
   pHttpStatus_ =
@@ -197,9 +195,9 @@ newUpdateConfigurationSetEventDestinationResponse
       }
 
 -- | The response's http status code.
-updateConfigurationSetEventDestinationResponse_httpStatus :: Lens.Lens' UpdateConfigurationSetEventDestinationResponse Prelude.Int
+updateConfigurationSetEventDestinationResponse_httpStatus :: Lens.Lens' UpdateConfigurationSetEventDestinationResponse Core.Int
 updateConfigurationSetEventDestinationResponse_httpStatus = Lens.lens (\UpdateConfigurationSetEventDestinationResponse' {httpStatus} -> httpStatus) (\s@UpdateConfigurationSetEventDestinationResponse' {} a -> s {httpStatus = a} :: UpdateConfigurationSetEventDestinationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateConfigurationSetEventDestinationResponse

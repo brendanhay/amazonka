@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.AutomationExecution where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AutomationExecutionStatus
 import Network.AWS.SSM.Types.AutomationSubtype
 import Network.AWS.SSM.Types.ExecutionMode
@@ -38,86 +37,86 @@ import Network.AWS.SSM.Types.TargetLocation
 -- /See:/ 'newAutomationExecution' smart constructor.
 data AutomationExecution = AutomationExecution'
   { -- | The MaxErrors value specified by the user when the execution started.
-    maxErrors :: Prelude.Maybe Prelude.Text,
+    maxErrors :: Core.Maybe Core.Text,
     -- | The action of the step that is currently running.
-    currentAction :: Prelude.Maybe Prelude.Text,
+    currentAction :: Core.Maybe Core.Text,
     -- | The AutomationExecutionId of the parent automation.
-    parentAutomationExecutionId :: Prelude.Maybe Prelude.Text,
+    parentAutomationExecutionId :: Core.Maybe Core.Text,
     -- | The list of execution outputs as defined in the automation document.
-    outputs :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    outputs :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The automation execution mode.
-    mode :: Prelude.Maybe ExecutionMode,
+    mode :: Core.Maybe ExecutionMode,
     -- | A message describing why an execution has failed, if the status is set
     -- to Failed.
-    failureMessage :: Prelude.Maybe Prelude.Text,
+    failureMessage :: Core.Maybe Core.Text,
     -- | The time the execution finished.
-    executionEndTime :: Prelude.Maybe Prelude.POSIX,
+    executionEndTime :: Core.Maybe Core.POSIX,
     -- | The name of the Automation document used during the execution.
-    documentName :: Prelude.Maybe Prelude.Text,
+    documentName :: Core.Maybe Core.Text,
     -- | The execution ID.
-    automationExecutionId :: Prelude.Maybe Prelude.Text,
+    automationExecutionId :: Core.Maybe Core.Text,
     -- | The name of the Change Manager change request.
-    changeRequestName :: Prelude.Maybe Prelude.Text,
+    changeRequestName :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the user who ran the automation.
-    executedBy :: Prelude.Maybe Prelude.Text,
+    executedBy :: Core.Maybe Core.Text,
     -- | An aggregate of step execution statuses displayed in the AWS Console for
     -- a multi-Region and multi-account Automation execution.
-    progressCounters :: Prelude.Maybe ProgressCounters,
+    progressCounters :: Core.Maybe ProgressCounters,
     -- | A list of resolved targets in the rate control execution.
-    resolvedTargets :: Prelude.Maybe ResolvedTargets,
+    resolvedTargets :: Core.Maybe ResolvedTargets,
     -- | The specified targets.
-    targets :: Prelude.Maybe [Target],
+    targets :: Core.Maybe [Target],
     -- | The combination of AWS Regions and\/or AWS accounts where you want to
     -- run the Automation.
-    targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
+    targetLocations :: Core.Maybe (Core.NonEmpty TargetLocation),
     -- | The parameter name.
-    targetParameterName :: Prelude.Maybe Prelude.Text,
+    targetParameterName :: Core.Maybe Core.Text,
     -- | The time the execution started.
-    executionStartTime :: Prelude.Maybe Prelude.POSIX,
+    executionStartTime :: Core.Maybe Core.POSIX,
     -- | The name of the step that is currently running.
-    currentStepName :: Prelude.Maybe Prelude.Text,
+    currentStepName :: Core.Maybe Core.Text,
     -- | The ID of a State Manager association used in the Automation operation.
-    associationId :: Prelude.Maybe Prelude.Text,
+    associationId :: Core.Maybe Core.Text,
     -- | The ID of an OpsItem that is created to represent a Change Manager
     -- change request.
-    opsItemId :: Prelude.Maybe Prelude.Text,
+    opsItemId :: Core.Maybe Core.Text,
     -- | The date and time the Automation operation is scheduled to start.
-    scheduledTime :: Prelude.Maybe Prelude.POSIX,
+    scheduledTime :: Core.Maybe Core.POSIX,
     -- | The MaxConcurrency value specified by the user when the execution
     -- started.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
+    maxConcurrency :: Core.Maybe Core.Text,
     -- | A boolean value that indicates if the response contains the full list of
     -- the Automation step executions. If true, use the
     -- DescribeAutomationStepExecutions API action to get the full list of step
     -- executions.
-    stepExecutionsTruncated :: Prelude.Maybe Prelude.Bool,
+    stepExecutionsTruncated :: Core.Maybe Core.Bool,
     -- | The target of the execution.
-    target :: Prelude.Maybe Prelude.Text,
+    target :: Core.Maybe Core.Text,
     -- | The execution status of the Automation.
-    automationExecutionStatus :: Prelude.Maybe AutomationExecutionStatus,
+    automationExecutionStatus :: Core.Maybe AutomationExecutionStatus,
     -- | The specified key-value mapping of document parameters to target
     -- resources.
-    targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
+    targetMaps :: Core.Maybe [Core.HashMap Core.Text [Core.Text]],
     -- | Information about the Automation runbooks (Automation documents) that
     -- are run as part of a runbook workflow.
     --
     -- The Automation runbooks specified for the runbook workflow can\'t run
     -- until all required approvals for the change request have been received.
-    runbooks :: Prelude.Maybe (Prelude.NonEmpty Runbook),
+    runbooks :: Core.Maybe (Core.NonEmpty Runbook),
     -- | A list of details about the current state of all steps that comprise an
     -- execution. An Automation document contains a list of steps that are run
     -- in order.
-    stepExecutions :: Prelude.Maybe [StepExecution],
+    stepExecutions :: Core.Maybe [StepExecution],
     -- | The subtype of the Automation operation. Currently, the only supported
     -- value is @ChangeRequest@.
-    automationSubtype :: Prelude.Maybe AutomationSubtype,
+    automationSubtype :: Core.Maybe AutomationSubtype,
     -- | The version of the document to use during execution.
-    documentVersion :: Prelude.Maybe Prelude.Text,
+    documentVersion :: Core.Maybe Core.Text,
     -- | The key-value map of execution parameters, which were supplied when
     -- calling StartAutomationExecution.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    parameters :: Core.Maybe (Core.HashMap Core.Text [Core.Text])
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutomationExecution' with all optional fields omitted.
@@ -209,225 +208,219 @@ newAutomationExecution ::
   AutomationExecution
 newAutomationExecution =
   AutomationExecution'
-    { maxErrors = Prelude.Nothing,
-      currentAction = Prelude.Nothing,
-      parentAutomationExecutionId = Prelude.Nothing,
-      outputs = Prelude.Nothing,
-      mode = Prelude.Nothing,
-      failureMessage = Prelude.Nothing,
-      executionEndTime = Prelude.Nothing,
-      documentName = Prelude.Nothing,
-      automationExecutionId = Prelude.Nothing,
-      changeRequestName = Prelude.Nothing,
-      executedBy = Prelude.Nothing,
-      progressCounters = Prelude.Nothing,
-      resolvedTargets = Prelude.Nothing,
-      targets = Prelude.Nothing,
-      targetLocations = Prelude.Nothing,
-      targetParameterName = Prelude.Nothing,
-      executionStartTime = Prelude.Nothing,
-      currentStepName = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      opsItemId = Prelude.Nothing,
-      scheduledTime = Prelude.Nothing,
-      maxConcurrency = Prelude.Nothing,
-      stepExecutionsTruncated = Prelude.Nothing,
-      target = Prelude.Nothing,
-      automationExecutionStatus = Prelude.Nothing,
-      targetMaps = Prelude.Nothing,
-      runbooks = Prelude.Nothing,
-      stepExecutions = Prelude.Nothing,
-      automationSubtype = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
-      parameters = Prelude.Nothing
+    { maxErrors = Core.Nothing,
+      currentAction = Core.Nothing,
+      parentAutomationExecutionId = Core.Nothing,
+      outputs = Core.Nothing,
+      mode = Core.Nothing,
+      failureMessage = Core.Nothing,
+      executionEndTime = Core.Nothing,
+      documentName = Core.Nothing,
+      automationExecutionId = Core.Nothing,
+      changeRequestName = Core.Nothing,
+      executedBy = Core.Nothing,
+      progressCounters = Core.Nothing,
+      resolvedTargets = Core.Nothing,
+      targets = Core.Nothing,
+      targetLocations = Core.Nothing,
+      targetParameterName = Core.Nothing,
+      executionStartTime = Core.Nothing,
+      currentStepName = Core.Nothing,
+      associationId = Core.Nothing,
+      opsItemId = Core.Nothing,
+      scheduledTime = Core.Nothing,
+      maxConcurrency = Core.Nothing,
+      stepExecutionsTruncated = Core.Nothing,
+      target = Core.Nothing,
+      automationExecutionStatus = Core.Nothing,
+      targetMaps = Core.Nothing,
+      runbooks = Core.Nothing,
+      stepExecutions = Core.Nothing,
+      automationSubtype = Core.Nothing,
+      documentVersion = Core.Nothing,
+      parameters = Core.Nothing
     }
 
 -- | The MaxErrors value specified by the user when the execution started.
-automationExecution_maxErrors :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_maxErrors :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_maxErrors = Lens.lens (\AutomationExecution' {maxErrors} -> maxErrors) (\s@AutomationExecution' {} a -> s {maxErrors = a} :: AutomationExecution)
 
 -- | The action of the step that is currently running.
-automationExecution_currentAction :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_currentAction :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_currentAction = Lens.lens (\AutomationExecution' {currentAction} -> currentAction) (\s@AutomationExecution' {} a -> s {currentAction = a} :: AutomationExecution)
 
 -- | The AutomationExecutionId of the parent automation.
-automationExecution_parentAutomationExecutionId :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_parentAutomationExecutionId :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_parentAutomationExecutionId = Lens.lens (\AutomationExecution' {parentAutomationExecutionId} -> parentAutomationExecutionId) (\s@AutomationExecution' {} a -> s {parentAutomationExecutionId = a} :: AutomationExecution)
 
 -- | The list of execution outputs as defined in the automation document.
-automationExecution_outputs :: Lens.Lens' AutomationExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-automationExecution_outputs = Lens.lens (\AutomationExecution' {outputs} -> outputs) (\s@AutomationExecution' {} a -> s {outputs = a} :: AutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+automationExecution_outputs :: Lens.Lens' AutomationExecution (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+automationExecution_outputs = Lens.lens (\AutomationExecution' {outputs} -> outputs) (\s@AutomationExecution' {} a -> s {outputs = a} :: AutomationExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | The automation execution mode.
-automationExecution_mode :: Lens.Lens' AutomationExecution (Prelude.Maybe ExecutionMode)
+automationExecution_mode :: Lens.Lens' AutomationExecution (Core.Maybe ExecutionMode)
 automationExecution_mode = Lens.lens (\AutomationExecution' {mode} -> mode) (\s@AutomationExecution' {} a -> s {mode = a} :: AutomationExecution)
 
 -- | A message describing why an execution has failed, if the status is set
 -- to Failed.
-automationExecution_failureMessage :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_failureMessage :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_failureMessage = Lens.lens (\AutomationExecution' {failureMessage} -> failureMessage) (\s@AutomationExecution' {} a -> s {failureMessage = a} :: AutomationExecution)
 
 -- | The time the execution finished.
-automationExecution_executionEndTime :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.UTCTime)
-automationExecution_executionEndTime = Lens.lens (\AutomationExecution' {executionEndTime} -> executionEndTime) (\s@AutomationExecution' {} a -> s {executionEndTime = a} :: AutomationExecution) Prelude.. Lens.mapping Prelude._Time
+automationExecution_executionEndTime :: Lens.Lens' AutomationExecution (Core.Maybe Core.UTCTime)
+automationExecution_executionEndTime = Lens.lens (\AutomationExecution' {executionEndTime} -> executionEndTime) (\s@AutomationExecution' {} a -> s {executionEndTime = a} :: AutomationExecution) Core.. Lens.mapping Core._Time
 
 -- | The name of the Automation document used during the execution.
-automationExecution_documentName :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_documentName :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_documentName = Lens.lens (\AutomationExecution' {documentName} -> documentName) (\s@AutomationExecution' {} a -> s {documentName = a} :: AutomationExecution)
 
 -- | The execution ID.
-automationExecution_automationExecutionId :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_automationExecutionId :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_automationExecutionId = Lens.lens (\AutomationExecution' {automationExecutionId} -> automationExecutionId) (\s@AutomationExecution' {} a -> s {automationExecutionId = a} :: AutomationExecution)
 
 -- | The name of the Change Manager change request.
-automationExecution_changeRequestName :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_changeRequestName :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_changeRequestName = Lens.lens (\AutomationExecution' {changeRequestName} -> changeRequestName) (\s@AutomationExecution' {} a -> s {changeRequestName = a} :: AutomationExecution)
 
 -- | The Amazon Resource Name (ARN) of the user who ran the automation.
-automationExecution_executedBy :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_executedBy :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_executedBy = Lens.lens (\AutomationExecution' {executedBy} -> executedBy) (\s@AutomationExecution' {} a -> s {executedBy = a} :: AutomationExecution)
 
 -- | An aggregate of step execution statuses displayed in the AWS Console for
 -- a multi-Region and multi-account Automation execution.
-automationExecution_progressCounters :: Lens.Lens' AutomationExecution (Prelude.Maybe ProgressCounters)
+automationExecution_progressCounters :: Lens.Lens' AutomationExecution (Core.Maybe ProgressCounters)
 automationExecution_progressCounters = Lens.lens (\AutomationExecution' {progressCounters} -> progressCounters) (\s@AutomationExecution' {} a -> s {progressCounters = a} :: AutomationExecution)
 
 -- | A list of resolved targets in the rate control execution.
-automationExecution_resolvedTargets :: Lens.Lens' AutomationExecution (Prelude.Maybe ResolvedTargets)
+automationExecution_resolvedTargets :: Lens.Lens' AutomationExecution (Core.Maybe ResolvedTargets)
 automationExecution_resolvedTargets = Lens.lens (\AutomationExecution' {resolvedTargets} -> resolvedTargets) (\s@AutomationExecution' {} a -> s {resolvedTargets = a} :: AutomationExecution)
 
 -- | The specified targets.
-automationExecution_targets :: Lens.Lens' AutomationExecution (Prelude.Maybe [Target])
-automationExecution_targets = Lens.lens (\AutomationExecution' {targets} -> targets) (\s@AutomationExecution' {} a -> s {targets = a} :: AutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+automationExecution_targets :: Lens.Lens' AutomationExecution (Core.Maybe [Target])
+automationExecution_targets = Lens.lens (\AutomationExecution' {targets} -> targets) (\s@AutomationExecution' {} a -> s {targets = a} :: AutomationExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | The combination of AWS Regions and\/or AWS accounts where you want to
 -- run the Automation.
-automationExecution_targetLocations :: Lens.Lens' AutomationExecution (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
-automationExecution_targetLocations = Lens.lens (\AutomationExecution' {targetLocations} -> targetLocations) (\s@AutomationExecution' {} a -> s {targetLocations = a} :: AutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+automationExecution_targetLocations :: Lens.Lens' AutomationExecution (Core.Maybe (Core.NonEmpty TargetLocation))
+automationExecution_targetLocations = Lens.lens (\AutomationExecution' {targetLocations} -> targetLocations) (\s@AutomationExecution' {} a -> s {targetLocations = a} :: AutomationExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | The parameter name.
-automationExecution_targetParameterName :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_targetParameterName :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_targetParameterName = Lens.lens (\AutomationExecution' {targetParameterName} -> targetParameterName) (\s@AutomationExecution' {} a -> s {targetParameterName = a} :: AutomationExecution)
 
 -- | The time the execution started.
-automationExecution_executionStartTime :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.UTCTime)
-automationExecution_executionStartTime = Lens.lens (\AutomationExecution' {executionStartTime} -> executionStartTime) (\s@AutomationExecution' {} a -> s {executionStartTime = a} :: AutomationExecution) Prelude.. Lens.mapping Prelude._Time
+automationExecution_executionStartTime :: Lens.Lens' AutomationExecution (Core.Maybe Core.UTCTime)
+automationExecution_executionStartTime = Lens.lens (\AutomationExecution' {executionStartTime} -> executionStartTime) (\s@AutomationExecution' {} a -> s {executionStartTime = a} :: AutomationExecution) Core.. Lens.mapping Core._Time
 
 -- | The name of the step that is currently running.
-automationExecution_currentStepName :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_currentStepName :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_currentStepName = Lens.lens (\AutomationExecution' {currentStepName} -> currentStepName) (\s@AutomationExecution' {} a -> s {currentStepName = a} :: AutomationExecution)
 
 -- | The ID of a State Manager association used in the Automation operation.
-automationExecution_associationId :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_associationId :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_associationId = Lens.lens (\AutomationExecution' {associationId} -> associationId) (\s@AutomationExecution' {} a -> s {associationId = a} :: AutomationExecution)
 
 -- | The ID of an OpsItem that is created to represent a Change Manager
 -- change request.
-automationExecution_opsItemId :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_opsItemId :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_opsItemId = Lens.lens (\AutomationExecution' {opsItemId} -> opsItemId) (\s@AutomationExecution' {} a -> s {opsItemId = a} :: AutomationExecution)
 
 -- | The date and time the Automation operation is scheduled to start.
-automationExecution_scheduledTime :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.UTCTime)
-automationExecution_scheduledTime = Lens.lens (\AutomationExecution' {scheduledTime} -> scheduledTime) (\s@AutomationExecution' {} a -> s {scheduledTime = a} :: AutomationExecution) Prelude.. Lens.mapping Prelude._Time
+automationExecution_scheduledTime :: Lens.Lens' AutomationExecution (Core.Maybe Core.UTCTime)
+automationExecution_scheduledTime = Lens.lens (\AutomationExecution' {scheduledTime} -> scheduledTime) (\s@AutomationExecution' {} a -> s {scheduledTime = a} :: AutomationExecution) Core.. Lens.mapping Core._Time
 
 -- | The MaxConcurrency value specified by the user when the execution
 -- started.
-automationExecution_maxConcurrency :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_maxConcurrency :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_maxConcurrency = Lens.lens (\AutomationExecution' {maxConcurrency} -> maxConcurrency) (\s@AutomationExecution' {} a -> s {maxConcurrency = a} :: AutomationExecution)
 
 -- | A boolean value that indicates if the response contains the full list of
 -- the Automation step executions. If true, use the
 -- DescribeAutomationStepExecutions API action to get the full list of step
 -- executions.
-automationExecution_stepExecutionsTruncated :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Bool)
+automationExecution_stepExecutionsTruncated :: Lens.Lens' AutomationExecution (Core.Maybe Core.Bool)
 automationExecution_stepExecutionsTruncated = Lens.lens (\AutomationExecution' {stepExecutionsTruncated} -> stepExecutionsTruncated) (\s@AutomationExecution' {} a -> s {stepExecutionsTruncated = a} :: AutomationExecution)
 
 -- | The target of the execution.
-automationExecution_target :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_target :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_target = Lens.lens (\AutomationExecution' {target} -> target) (\s@AutomationExecution' {} a -> s {target = a} :: AutomationExecution)
 
 -- | The execution status of the Automation.
-automationExecution_automationExecutionStatus :: Lens.Lens' AutomationExecution (Prelude.Maybe AutomationExecutionStatus)
+automationExecution_automationExecutionStatus :: Lens.Lens' AutomationExecution (Core.Maybe AutomationExecutionStatus)
 automationExecution_automationExecutionStatus = Lens.lens (\AutomationExecution' {automationExecutionStatus} -> automationExecutionStatus) (\s@AutomationExecution' {} a -> s {automationExecutionStatus = a} :: AutomationExecution)
 
 -- | The specified key-value mapping of document parameters to target
 -- resources.
-automationExecution_targetMaps :: Lens.Lens' AutomationExecution (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
-automationExecution_targetMaps = Lens.lens (\AutomationExecution' {targetMaps} -> targetMaps) (\s@AutomationExecution' {} a -> s {targetMaps = a} :: AutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+automationExecution_targetMaps :: Lens.Lens' AutomationExecution (Core.Maybe [Core.HashMap Core.Text [Core.Text]])
+automationExecution_targetMaps = Lens.lens (\AutomationExecution' {targetMaps} -> targetMaps) (\s@AutomationExecution' {} a -> s {targetMaps = a} :: AutomationExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the Automation runbooks (Automation documents) that
 -- are run as part of a runbook workflow.
 --
 -- The Automation runbooks specified for the runbook workflow can\'t run
 -- until all required approvals for the change request have been received.
-automationExecution_runbooks :: Lens.Lens' AutomationExecution (Prelude.Maybe (Prelude.NonEmpty Runbook))
-automationExecution_runbooks = Lens.lens (\AutomationExecution' {runbooks} -> runbooks) (\s@AutomationExecution' {} a -> s {runbooks = a} :: AutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+automationExecution_runbooks :: Lens.Lens' AutomationExecution (Core.Maybe (Core.NonEmpty Runbook))
+automationExecution_runbooks = Lens.lens (\AutomationExecution' {runbooks} -> runbooks) (\s@AutomationExecution' {} a -> s {runbooks = a} :: AutomationExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of details about the current state of all steps that comprise an
 -- execution. An Automation document contains a list of steps that are run
 -- in order.
-automationExecution_stepExecutions :: Lens.Lens' AutomationExecution (Prelude.Maybe [StepExecution])
-automationExecution_stepExecutions = Lens.lens (\AutomationExecution' {stepExecutions} -> stepExecutions) (\s@AutomationExecution' {} a -> s {stepExecutions = a} :: AutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+automationExecution_stepExecutions :: Lens.Lens' AutomationExecution (Core.Maybe [StepExecution])
+automationExecution_stepExecutions = Lens.lens (\AutomationExecution' {stepExecutions} -> stepExecutions) (\s@AutomationExecution' {} a -> s {stepExecutions = a} :: AutomationExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | The subtype of the Automation operation. Currently, the only supported
 -- value is @ChangeRequest@.
-automationExecution_automationSubtype :: Lens.Lens' AutomationExecution (Prelude.Maybe AutomationSubtype)
+automationExecution_automationSubtype :: Lens.Lens' AutomationExecution (Core.Maybe AutomationSubtype)
 automationExecution_automationSubtype = Lens.lens (\AutomationExecution' {automationSubtype} -> automationSubtype) (\s@AutomationExecution' {} a -> s {automationSubtype = a} :: AutomationExecution)
 
 -- | The version of the document to use during execution.
-automationExecution_documentVersion :: Lens.Lens' AutomationExecution (Prelude.Maybe Prelude.Text)
+automationExecution_documentVersion :: Lens.Lens' AutomationExecution (Core.Maybe Core.Text)
 automationExecution_documentVersion = Lens.lens (\AutomationExecution' {documentVersion} -> documentVersion) (\s@AutomationExecution' {} a -> s {documentVersion = a} :: AutomationExecution)
 
 -- | The key-value map of execution parameters, which were supplied when
 -- calling StartAutomationExecution.
-automationExecution_parameters :: Lens.Lens' AutomationExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-automationExecution_parameters = Lens.lens (\AutomationExecution' {parameters} -> parameters) (\s@AutomationExecution' {} a -> s {parameters = a} :: AutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+automationExecution_parameters :: Lens.Lens' AutomationExecution (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+automationExecution_parameters = Lens.lens (\AutomationExecution' {parameters} -> parameters) (\s@AutomationExecution' {} a -> s {parameters = a} :: AutomationExecution) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AutomationExecution where
+instance Core.FromJSON AutomationExecution where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutomationExecution"
       ( \x ->
           AutomationExecution'
-            Prelude.<$> (x Prelude..:? "MaxErrors")
-            Prelude.<*> (x Prelude..:? "CurrentAction")
-            Prelude.<*> (x Prelude..:? "ParentAutomationExecutionId")
-            Prelude.<*> (x Prelude..:? "Outputs" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Mode")
-            Prelude.<*> (x Prelude..:? "FailureMessage")
-            Prelude.<*> (x Prelude..:? "ExecutionEndTime")
-            Prelude.<*> (x Prelude..:? "DocumentName")
-            Prelude.<*> (x Prelude..:? "AutomationExecutionId")
-            Prelude.<*> (x Prelude..:? "ChangeRequestName")
-            Prelude.<*> (x Prelude..:? "ExecutedBy")
-            Prelude.<*> (x Prelude..:? "ProgressCounters")
-            Prelude.<*> (x Prelude..:? "ResolvedTargets")
-            Prelude.<*> (x Prelude..:? "Targets" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "TargetLocations")
-            Prelude.<*> (x Prelude..:? "TargetParameterName")
-            Prelude.<*> (x Prelude..:? "ExecutionStartTime")
-            Prelude.<*> (x Prelude..:? "CurrentStepName")
-            Prelude.<*> (x Prelude..:? "AssociationId")
-            Prelude.<*> (x Prelude..:? "OpsItemId")
-            Prelude.<*> (x Prelude..:? "ScheduledTime")
-            Prelude.<*> (x Prelude..:? "MaxConcurrency")
-            Prelude.<*> (x Prelude..:? "StepExecutionsTruncated")
-            Prelude.<*> (x Prelude..:? "Target")
-            Prelude.<*> (x Prelude..:? "AutomationExecutionStatus")
-            Prelude.<*> ( x Prelude..:? "TargetMaps"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Runbooks")
-            Prelude.<*> ( x Prelude..:? "StepExecutions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "AutomationSubtype")
-            Prelude.<*> (x Prelude..:? "DocumentVersion")
-            Prelude.<*> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "MaxErrors")
+            Core.<*> (x Core..:? "CurrentAction")
+            Core.<*> (x Core..:? "ParentAutomationExecutionId")
+            Core.<*> (x Core..:? "Outputs" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Mode")
+            Core.<*> (x Core..:? "FailureMessage")
+            Core.<*> (x Core..:? "ExecutionEndTime")
+            Core.<*> (x Core..:? "DocumentName")
+            Core.<*> (x Core..:? "AutomationExecutionId")
+            Core.<*> (x Core..:? "ChangeRequestName")
+            Core.<*> (x Core..:? "ExecutedBy")
+            Core.<*> (x Core..:? "ProgressCounters")
+            Core.<*> (x Core..:? "ResolvedTargets")
+            Core.<*> (x Core..:? "Targets" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "TargetLocations")
+            Core.<*> (x Core..:? "TargetParameterName")
+            Core.<*> (x Core..:? "ExecutionStartTime")
+            Core.<*> (x Core..:? "CurrentStepName")
+            Core.<*> (x Core..:? "AssociationId")
+            Core.<*> (x Core..:? "OpsItemId")
+            Core.<*> (x Core..:? "ScheduledTime")
+            Core.<*> (x Core..:? "MaxConcurrency")
+            Core.<*> (x Core..:? "StepExecutionsTruncated")
+            Core.<*> (x Core..:? "Target")
+            Core.<*> (x Core..:? "AutomationExecutionStatus")
+            Core.<*> (x Core..:? "TargetMaps" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Runbooks")
+            Core.<*> (x Core..:? "StepExecutions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "AutomationSubtype")
+            Core.<*> (x Core..:? "DocumentVersion")
+            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AutomationExecution
+instance Core.Hashable AutomationExecution
 
-instance Prelude.NFData AutomationExecution
+instance Core.NFData AutomationExecution

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,8 +61,8 @@ module Network.AWS.CloudSearchDomains.Suggest
 where
 
 import Network.AWS.CloudSearchDomains.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,13 +71,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSuggest' smart constructor.
 data Suggest = Suggest'
   { -- | Specifies the maximum number of suggestions to return.
-    size :: Prelude.Maybe Prelude.Integer,
+    size :: Core.Maybe Core.Integer,
     -- | Specifies the string for which you want to get suggestions.
-    query :: Prelude.Text,
+    query :: Core.Text,
     -- | Specifies the name of the suggester to use to find suggested matches.
-    suggester :: Prelude.Text
+    suggester :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Suggest' with all optional fields omitted.
@@ -95,65 +94,63 @@ data Suggest = Suggest'
 -- 'suggester', 'suggest_suggester' - Specifies the name of the suggester to use to find suggested matches.
 newSuggest ::
   -- | 'query'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'suggester'
-  Prelude.Text ->
+  Core.Text ->
   Suggest
 newSuggest pQuery_ pSuggester_ =
   Suggest'
-    { size = Prelude.Nothing,
+    { size = Core.Nothing,
       query = pQuery_,
       suggester = pSuggester_
     }
 
 -- | Specifies the maximum number of suggestions to return.
-suggest_size :: Lens.Lens' Suggest (Prelude.Maybe Prelude.Integer)
+suggest_size :: Lens.Lens' Suggest (Core.Maybe Core.Integer)
 suggest_size = Lens.lens (\Suggest' {size} -> size) (\s@Suggest' {} a -> s {size = a} :: Suggest)
 
 -- | Specifies the string for which you want to get suggestions.
-suggest_query :: Lens.Lens' Suggest Prelude.Text
+suggest_query :: Lens.Lens' Suggest Core.Text
 suggest_query = Lens.lens (\Suggest' {query} -> query) (\s@Suggest' {} a -> s {query = a} :: Suggest)
 
 -- | Specifies the name of the suggester to use to find suggested matches.
-suggest_suggester :: Lens.Lens' Suggest Prelude.Text
+suggest_suggester :: Lens.Lens' Suggest Core.Text
 suggest_suggester = Lens.lens (\Suggest' {suggester} -> suggester) (\s@Suggest' {} a -> s {suggester = a} :: Suggest)
 
-instance Prelude.AWSRequest Suggest where
-  type Rs Suggest = SuggestResponse
+instance Core.AWSRequest Suggest where
+  type AWSResponse Suggest = SuggestResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SuggestResponse'
-            Prelude.<$> (x Prelude..?> "status")
-            Prelude.<*> (x Prelude..?> "suggest")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "status")
+            Core.<*> (x Core..?> "suggest")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable Suggest
+instance Core.Hashable Suggest
 
-instance Prelude.NFData Suggest
+instance Core.NFData Suggest
 
-instance Prelude.ToHeaders Suggest where
+instance Core.ToHeaders Suggest where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath Suggest where
-  toPath = Prelude.const "/2013-01-01/suggest"
+instance Core.ToPath Suggest where
+  toPath = Core.const "/2013-01-01/suggest"
 
-instance Prelude.ToQuery Suggest where
+instance Core.ToQuery Suggest where
   toQuery Suggest' {..} =
-    Prelude.mconcat
-      [ "size" Prelude.=: size,
-        "q" Prelude.=: query,
-        "suggester" Prelude.=: suggester,
+    Core.mconcat
+      [ "size" Core.=: size,
+        "q" Core.=: query,
+        "suggester" Core.=: suggester,
         "format=sdk&pretty=true"
       ]
 
@@ -163,13 +160,13 @@ instance Prelude.ToQuery Suggest where
 data SuggestResponse = SuggestResponse'
   { -- | The status of a @SuggestRequest@. Contains the resource ID (@rid@) and
     -- how long it took to process the request (@timems@).
-    status :: Prelude.Maybe SuggestStatus,
+    status :: Core.Maybe SuggestStatus,
     -- | Container for the matching search suggestion information.
-    suggest :: Prelude.Maybe SuggestModel,
+    suggest :: Core.Maybe SuggestModel,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuggestResponse' with all optional fields omitted.
@@ -187,26 +184,26 @@ data SuggestResponse = SuggestResponse'
 -- 'httpStatus', 'suggestResponse_httpStatus' - The response's http status code.
 newSuggestResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SuggestResponse
 newSuggestResponse pHttpStatus_ =
   SuggestResponse'
-    { status = Prelude.Nothing,
-      suggest = Prelude.Nothing,
+    { status = Core.Nothing,
+      suggest = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of a @SuggestRequest@. Contains the resource ID (@rid@) and
 -- how long it took to process the request (@timems@).
-suggestResponse_status :: Lens.Lens' SuggestResponse (Prelude.Maybe SuggestStatus)
+suggestResponse_status :: Lens.Lens' SuggestResponse (Core.Maybe SuggestStatus)
 suggestResponse_status = Lens.lens (\SuggestResponse' {status} -> status) (\s@SuggestResponse' {} a -> s {status = a} :: SuggestResponse)
 
 -- | Container for the matching search suggestion information.
-suggestResponse_suggest :: Lens.Lens' SuggestResponse (Prelude.Maybe SuggestModel)
+suggestResponse_suggest :: Lens.Lens' SuggestResponse (Core.Maybe SuggestModel)
 suggestResponse_suggest = Lens.lens (\SuggestResponse' {suggest} -> suggest) (\s@SuggestResponse' {} a -> s {suggest = a} :: SuggestResponse)
 
 -- | The response's http status code.
-suggestResponse_httpStatus :: Lens.Lens' SuggestResponse Prelude.Int
+suggestResponse_httpStatus :: Lens.Lens' SuggestResponse Core.Int
 suggestResponse_httpStatus = Lens.lens (\SuggestResponse' {httpStatus} -> httpStatus) (\s@SuggestResponse' {} a -> s {httpStatus = a} :: SuggestResponse)
 
-instance Prelude.NFData SuggestResponse
+instance Core.NFData SuggestResponse

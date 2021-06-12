@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.Budgets.UpdateBudget
 where
 
 import Network.AWS.Budgets.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,11 +61,11 @@ import qualified Network.AWS.Response as Response
 data UpdateBudget = UpdateBudget'
   { -- | The @accountId@ that is associated with the budget that you want to
     -- update.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The budget that you want to update your budget to.
     newBudget' :: Budget
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateBudget' with all optional fields omitted.
@@ -82,7 +81,7 @@ data UpdateBudget = UpdateBudget'
 -- 'newBudget'', 'updateBudget_newBudget' - The budget that you want to update your budget to.
 newUpdateBudget ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'newBudget''
   Budget ->
   UpdateBudget
@@ -94,65 +93,63 @@ newUpdateBudget pAccountId_ pNewBudget_ =
 
 -- | The @accountId@ that is associated with the budget that you want to
 -- update.
-updateBudget_accountId :: Lens.Lens' UpdateBudget Prelude.Text
+updateBudget_accountId :: Lens.Lens' UpdateBudget Core.Text
 updateBudget_accountId = Lens.lens (\UpdateBudget' {accountId} -> accountId) (\s@UpdateBudget' {} a -> s {accountId = a} :: UpdateBudget)
 
 -- | The budget that you want to update your budget to.
 updateBudget_newBudget :: Lens.Lens' UpdateBudget Budget
 updateBudget_newBudget = Lens.lens (\UpdateBudget' {newBudget'} -> newBudget') (\s@UpdateBudget' {} a -> s {newBudget' = a} :: UpdateBudget)
 
-instance Prelude.AWSRequest UpdateBudget where
-  type Rs UpdateBudget = UpdateBudgetResponse
+instance Core.AWSRequest UpdateBudget where
+  type AWSResponse UpdateBudget = UpdateBudgetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateBudgetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBudget
+instance Core.Hashable UpdateBudget
 
-instance Prelude.NFData UpdateBudget
+instance Core.NFData UpdateBudget
 
-instance Prelude.ToHeaders UpdateBudget where
+instance Core.ToHeaders UpdateBudget where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSBudgetServiceGateway.UpdateBudget" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSBudgetServiceGateway.UpdateBudget" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateBudget where
+instance Core.ToJSON UpdateBudget where
   toJSON UpdateBudget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Prelude..= accountId),
-            Prelude.Just ("NewBudget" Prelude..= newBudget')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("NewBudget" Core..= newBudget')
           ]
       )
 
-instance Prelude.ToPath UpdateBudget where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateBudget where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateBudget where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateBudget where
+  toQuery = Core.const Core.mempty
 
 -- | Response of UpdateBudget
 --
 -- /See:/ 'newUpdateBudgetResponse' smart constructor.
 data UpdateBudgetResponse = UpdateBudgetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateBudgetResponse' with all optional fields omitted.
@@ -165,13 +162,13 @@ data UpdateBudgetResponse = UpdateBudgetResponse'
 -- 'httpStatus', 'updateBudgetResponse_httpStatus' - The response's http status code.
 newUpdateBudgetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateBudgetResponse
 newUpdateBudgetResponse pHttpStatus_ =
   UpdateBudgetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateBudgetResponse_httpStatus :: Lens.Lens' UpdateBudgetResponse Prelude.Int
+updateBudgetResponse_httpStatus :: Lens.Lens' UpdateBudgetResponse Core.Int
 updateBudgetResponse_httpStatus = Lens.lens (\UpdateBudgetResponse' {httpStatus} -> httpStatus) (\s@UpdateBudgetResponse' {} a -> s {httpStatus = a} :: UpdateBudgetResponse)
 
-instance Prelude.NFData UpdateBudgetResponse
+instance Core.NFData UpdateBudgetResponse

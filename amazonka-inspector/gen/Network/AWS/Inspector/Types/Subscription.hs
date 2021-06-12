@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.Subscription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.EventSubscription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used as a response element in the
 -- ListEventSubscriptions action.
@@ -31,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 data Subscription = Subscription'
   { -- | The ARN of the assessment template that is used during the event for
     -- which the SNS notification is sent.
-    resourceArn :: Prelude.Text,
+    resourceArn :: Core.Text,
     -- | The ARN of the Amazon Simple Notification Service (SNS) topic to which
     -- the SNS notifications are sent.
-    topicArn :: Prelude.Text,
+    topicArn :: Core.Text,
     -- | The list of existing event subscriptions.
-    eventSubscriptions :: Prelude.NonEmpty EventSubscription
+    eventSubscriptions :: Core.NonEmpty EventSubscription
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Subscription' with all optional fields omitted.
@@ -57,11 +56,11 @@ data Subscription = Subscription'
 -- 'eventSubscriptions', 'subscription_eventSubscriptions' - The list of existing event subscriptions.
 newSubscription ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'topicArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'eventSubscriptions'
-  Prelude.NonEmpty EventSubscription ->
+  Core.NonEmpty EventSubscription ->
   Subscription
 newSubscription
   pResourceArn_
@@ -71,34 +70,34 @@ newSubscription
       { resourceArn = pResourceArn_,
         topicArn = pTopicArn_,
         eventSubscriptions =
-          Prelude._Coerce Lens.# pEventSubscriptions_
+          Lens._Coerce Lens.# pEventSubscriptions_
       }
 
 -- | The ARN of the assessment template that is used during the event for
 -- which the SNS notification is sent.
-subscription_resourceArn :: Lens.Lens' Subscription Prelude.Text
+subscription_resourceArn :: Lens.Lens' Subscription Core.Text
 subscription_resourceArn = Lens.lens (\Subscription' {resourceArn} -> resourceArn) (\s@Subscription' {} a -> s {resourceArn = a} :: Subscription)
 
 -- | The ARN of the Amazon Simple Notification Service (SNS) topic to which
 -- the SNS notifications are sent.
-subscription_topicArn :: Lens.Lens' Subscription Prelude.Text
+subscription_topicArn :: Lens.Lens' Subscription Core.Text
 subscription_topicArn = Lens.lens (\Subscription' {topicArn} -> topicArn) (\s@Subscription' {} a -> s {topicArn = a} :: Subscription)
 
 -- | The list of existing event subscriptions.
-subscription_eventSubscriptions :: Lens.Lens' Subscription (Prelude.NonEmpty EventSubscription)
-subscription_eventSubscriptions = Lens.lens (\Subscription' {eventSubscriptions} -> eventSubscriptions) (\s@Subscription' {} a -> s {eventSubscriptions = a} :: Subscription) Prelude.. Prelude._Coerce
+subscription_eventSubscriptions :: Lens.Lens' Subscription (Core.NonEmpty EventSubscription)
+subscription_eventSubscriptions = Lens.lens (\Subscription' {eventSubscriptions} -> eventSubscriptions) (\s@Subscription' {} a -> s {eventSubscriptions = a} :: Subscription) Core.. Lens._Coerce
 
-instance Prelude.FromJSON Subscription where
+instance Core.FromJSON Subscription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Subscription"
       ( \x ->
           Subscription'
-            Prelude.<$> (x Prelude..: "resourceArn")
-            Prelude.<*> (x Prelude..: "topicArn")
-            Prelude.<*> (x Prelude..: "eventSubscriptions")
+            Core.<$> (x Core..: "resourceArn")
+            Core.<*> (x Core..: "topicArn")
+            Core.<*> (x Core..: "eventSubscriptions")
       )
 
-instance Prelude.Hashable Subscription
+instance Core.Hashable Subscription
 
-instance Prelude.NFData Subscription
+instance Core.NFData Subscription

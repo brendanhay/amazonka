@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.StepAdjustment where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes information used to create a step adjustment for a step
 -- scaling policy.
@@ -66,20 +65,20 @@ data StepAdjustment = StepAdjustment'
     -- indicates positive infinity.
     --
     -- The upper bound must be greater than the lower bound.
-    metricIntervalUpperBound :: Prelude.Maybe Prelude.Double,
+    metricIntervalUpperBound :: Core.Maybe Core.Double,
     -- | The lower bound for the difference between the alarm threshold and the
     -- CloudWatch metric. If the metric value is above the breach threshold,
     -- the lower bound is inclusive (the metric must be greater than or equal
     -- to the threshold plus the lower bound). Otherwise, it is exclusive (the
     -- metric must be greater than the threshold plus the lower bound). A null
     -- value indicates negative infinity.
-    metricIntervalLowerBound :: Prelude.Maybe Prelude.Double,
+    metricIntervalLowerBound :: Core.Maybe Core.Double,
     -- | The amount by which to scale, based on the specified adjustment type. A
     -- positive value adds to the current capacity while a negative number
     -- removes from the current capacity.
-    scalingAdjustment :: Prelude.Int
+    scalingAdjustment :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StepAdjustment' with all optional fields omitted.
@@ -110,13 +109,13 @@ data StepAdjustment = StepAdjustment'
 -- removes from the current capacity.
 newStepAdjustment ::
   -- | 'scalingAdjustment'
-  Prelude.Int ->
+  Core.Int ->
   StepAdjustment
 newStepAdjustment pScalingAdjustment_ =
   StepAdjustment'
     { metricIntervalUpperBound =
-        Prelude.Nothing,
-      metricIntervalLowerBound = Prelude.Nothing,
+        Core.Nothing,
+      metricIntervalLowerBound = Core.Nothing,
       scalingAdjustment = pScalingAdjustment_
     }
 
@@ -128,7 +127,7 @@ newStepAdjustment pScalingAdjustment_ =
 -- indicates positive infinity.
 --
 -- The upper bound must be greater than the lower bound.
-stepAdjustment_metricIntervalUpperBound :: Lens.Lens' StepAdjustment (Prelude.Maybe Prelude.Double)
+stepAdjustment_metricIntervalUpperBound :: Lens.Lens' StepAdjustment (Core.Maybe Core.Double)
 stepAdjustment_metricIntervalUpperBound = Lens.lens (\StepAdjustment' {metricIntervalUpperBound} -> metricIntervalUpperBound) (\s@StepAdjustment' {} a -> s {metricIntervalUpperBound = a} :: StepAdjustment)
 
 -- | The lower bound for the difference between the alarm threshold and the
@@ -137,32 +136,32 @@ stepAdjustment_metricIntervalUpperBound = Lens.lens (\StepAdjustment' {metricInt
 -- to the threshold plus the lower bound). Otherwise, it is exclusive (the
 -- metric must be greater than the threshold plus the lower bound). A null
 -- value indicates negative infinity.
-stepAdjustment_metricIntervalLowerBound :: Lens.Lens' StepAdjustment (Prelude.Maybe Prelude.Double)
+stepAdjustment_metricIntervalLowerBound :: Lens.Lens' StepAdjustment (Core.Maybe Core.Double)
 stepAdjustment_metricIntervalLowerBound = Lens.lens (\StepAdjustment' {metricIntervalLowerBound} -> metricIntervalLowerBound) (\s@StepAdjustment' {} a -> s {metricIntervalLowerBound = a} :: StepAdjustment)
 
 -- | The amount by which to scale, based on the specified adjustment type. A
 -- positive value adds to the current capacity while a negative number
 -- removes from the current capacity.
-stepAdjustment_scalingAdjustment :: Lens.Lens' StepAdjustment Prelude.Int
+stepAdjustment_scalingAdjustment :: Lens.Lens' StepAdjustment Core.Int
 stepAdjustment_scalingAdjustment = Lens.lens (\StepAdjustment' {scalingAdjustment} -> scalingAdjustment) (\s@StepAdjustment' {} a -> s {scalingAdjustment = a} :: StepAdjustment)
 
-instance Prelude.FromXML StepAdjustment where
+instance Core.FromXML StepAdjustment where
   parseXML x =
     StepAdjustment'
-      Prelude.<$> (x Prelude..@? "MetricIntervalUpperBound")
-      Prelude.<*> (x Prelude..@? "MetricIntervalLowerBound")
-      Prelude.<*> (x Prelude..@ "ScalingAdjustment")
+      Core.<$> (x Core..@? "MetricIntervalUpperBound")
+      Core.<*> (x Core..@? "MetricIntervalLowerBound")
+      Core.<*> (x Core..@ "ScalingAdjustment")
 
-instance Prelude.Hashable StepAdjustment
+instance Core.Hashable StepAdjustment
 
-instance Prelude.NFData StepAdjustment
+instance Core.NFData StepAdjustment
 
-instance Prelude.ToQuery StepAdjustment where
+instance Core.ToQuery StepAdjustment where
   toQuery StepAdjustment' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "MetricIntervalUpperBound"
-          Prelude.=: metricIntervalUpperBound,
+          Core.=: metricIntervalUpperBound,
         "MetricIntervalLowerBound"
-          Prelude.=: metricIntervalLowerBound,
-        "ScalingAdjustment" Prelude.=: scalingAdjustment
+          Core.=: metricIntervalLowerBound,
+        "ScalingAdjustment" Core.=: scalingAdjustment
       ]

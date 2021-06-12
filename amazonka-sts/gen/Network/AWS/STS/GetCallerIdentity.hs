@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.STS.GetCallerIdentity
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.STS.Types
@@ -59,7 +58,7 @@ import Network.AWS.STS.Types
 data GetCallerIdentity = GetCallerIdentity'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCallerIdentity' with all optional fields omitted.
@@ -69,38 +68,39 @@ newGetCallerIdentity ::
   GetCallerIdentity
 newGetCallerIdentity = GetCallerIdentity'
 
-instance Prelude.AWSRequest GetCallerIdentity where
-  type Rs GetCallerIdentity = GetCallerIdentityResponse
+instance Core.AWSRequest GetCallerIdentity where
+  type
+    AWSResponse GetCallerIdentity =
+      GetCallerIdentityResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "GetCallerIdentityResult"
       ( \s h x ->
           GetCallerIdentityResponse'
-            Prelude.<$> (x Prelude..@? "Arn")
-            Prelude.<*> (x Prelude..@? "UserId")
-            Prelude.<*> (x Prelude..@? "Account")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Arn")
+            Core.<*> (x Core..@? "UserId")
+            Core.<*> (x Core..@? "Account")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetCallerIdentity
+instance Core.Hashable GetCallerIdentity
 
-instance Prelude.NFData GetCallerIdentity
+instance Core.NFData GetCallerIdentity
 
-instance Prelude.ToHeaders GetCallerIdentity where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetCallerIdentity where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetCallerIdentity where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetCallerIdentity where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetCallerIdentity where
+instance Core.ToQuery GetCallerIdentity where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ("GetCallerIdentity" :: Prelude.ByteString),
-            "Version"
-              Prelude.=: ("2011-06-15" :: Prelude.ByteString)
+              Core.=: ("GetCallerIdentity" :: Core.ByteString),
+            "Version" Core.=: ("2011-06-15" :: Core.ByteString)
           ]
       )
 
@@ -110,21 +110,21 @@ instance Prelude.ToQuery GetCallerIdentity where
 -- /See:/ 'newGetCallerIdentityResponse' smart constructor.
 data GetCallerIdentityResponse = GetCallerIdentityResponse'
   { -- | The AWS ARN associated with the calling entity.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The unique identifier of the calling entity. The exact value depends on
     -- the type of entity that is making the call. The values returned are
     -- those listed in the __aws:userid__ column in the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table>
     -- found on the __Policy Variables__ reference page in the /IAM User
     -- Guide/.
-    userId :: Prelude.Maybe Prelude.Text,
+    userId :: Core.Maybe Core.Text,
     -- | The AWS account ID number of the account that owns or contains the
     -- calling entity.
-    account :: Prelude.Maybe Prelude.Text,
+    account :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCallerIdentityResponse' with all optional fields omitted.
@@ -149,18 +149,18 @@ data GetCallerIdentityResponse = GetCallerIdentityResponse'
 -- 'httpStatus', 'getCallerIdentityResponse_httpStatus' - The response's http status code.
 newGetCallerIdentityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCallerIdentityResponse
 newGetCallerIdentityResponse pHttpStatus_ =
   GetCallerIdentityResponse'
-    { arn = Prelude.Nothing,
-      userId = Prelude.Nothing,
-      account = Prelude.Nothing,
+    { arn = Core.Nothing,
+      userId = Core.Nothing,
+      account = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The AWS ARN associated with the calling entity.
-getCallerIdentityResponse_arn :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
+getCallerIdentityResponse_arn :: Lens.Lens' GetCallerIdentityResponse (Core.Maybe Core.Text)
 getCallerIdentityResponse_arn = Lens.lens (\GetCallerIdentityResponse' {arn} -> arn) (\s@GetCallerIdentityResponse' {} a -> s {arn = a} :: GetCallerIdentityResponse)
 
 -- | The unique identifier of the calling entity. The exact value depends on
@@ -169,16 +169,16 @@ getCallerIdentityResponse_arn = Lens.lens (\GetCallerIdentityResponse' {arn} -> 
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table>
 -- found on the __Policy Variables__ reference page in the /IAM User
 -- Guide/.
-getCallerIdentityResponse_userId :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
+getCallerIdentityResponse_userId :: Lens.Lens' GetCallerIdentityResponse (Core.Maybe Core.Text)
 getCallerIdentityResponse_userId = Lens.lens (\GetCallerIdentityResponse' {userId} -> userId) (\s@GetCallerIdentityResponse' {} a -> s {userId = a} :: GetCallerIdentityResponse)
 
 -- | The AWS account ID number of the account that owns or contains the
 -- calling entity.
-getCallerIdentityResponse_account :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
+getCallerIdentityResponse_account :: Lens.Lens' GetCallerIdentityResponse (Core.Maybe Core.Text)
 getCallerIdentityResponse_account = Lens.lens (\GetCallerIdentityResponse' {account} -> account) (\s@GetCallerIdentityResponse' {} a -> s {account = a} :: GetCallerIdentityResponse)
 
 -- | The response's http status code.
-getCallerIdentityResponse_httpStatus :: Lens.Lens' GetCallerIdentityResponse Prelude.Int
+getCallerIdentityResponse_httpStatus :: Lens.Lens' GetCallerIdentityResponse Core.Int
 getCallerIdentityResponse_httpStatus = Lens.lens (\GetCallerIdentityResponse' {httpStatus} -> httpStatus) (\s@GetCallerIdentityResponse' {} a -> s {httpStatus = a} :: GetCallerIdentityResponse)
 
-instance Prelude.NFData GetCallerIdentityResponse
+instance Core.NFData GetCallerIdentityResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.IAM.GetAccountSummary
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data GetAccountSummary = GetAccountSummary'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAccountSummary' with all optional fields omitted.
@@ -62,40 +61,39 @@ newGetAccountSummary ::
   GetAccountSummary
 newGetAccountSummary = GetAccountSummary'
 
-instance Prelude.AWSRequest GetAccountSummary where
-  type Rs GetAccountSummary = GetAccountSummaryResponse
+instance Core.AWSRequest GetAccountSummary where
+  type
+    AWSResponse GetAccountSummary =
+      GetAccountSummaryResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "GetAccountSummaryResult"
       ( \s h x ->
           GetAccountSummaryResponse'
-            Prelude.<$> ( x Prelude..@? "SummaryMap"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLMap "entry" "key" "value")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "SummaryMap" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccountSummary
+instance Core.Hashable GetAccountSummary
 
-instance Prelude.NFData GetAccountSummary
+instance Core.NFData GetAccountSummary
 
-instance Prelude.ToHeaders GetAccountSummary where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetAccountSummary where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetAccountSummary where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetAccountSummary where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetAccountSummary where
+instance Core.ToQuery GetAccountSummary where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ("GetAccountSummary" :: Prelude.ByteString),
-            "Version"
-              Prelude.=: ("2010-05-08" :: Prelude.ByteString)
+              Core.=: ("GetAccountSummary" :: Core.ByteString),
+            "Version" Core.=: ("2010-05-08" :: Core.ByteString)
           ]
       )
 
@@ -105,11 +103,11 @@ instance Prelude.ToQuery GetAccountSummary where
 data GetAccountSummaryResponse = GetAccountSummaryResponse'
   { -- | A set of key–value pairs containing information about IAM entity usage
     -- and IAM quotas.
-    summaryMap :: Prelude.Maybe (Prelude.HashMap SummaryKeyType Prelude.Int),
+    summaryMap :: Core.Maybe (Core.HashMap SummaryKeyType Core.Int),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAccountSummaryResponse' with all optional fields omitted.
@@ -125,22 +123,22 @@ data GetAccountSummaryResponse = GetAccountSummaryResponse'
 -- 'httpStatus', 'getAccountSummaryResponse_httpStatus' - The response's http status code.
 newGetAccountSummaryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetAccountSummaryResponse
 newGetAccountSummaryResponse pHttpStatus_ =
   GetAccountSummaryResponse'
     { summaryMap =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A set of key–value pairs containing information about IAM entity usage
 -- and IAM quotas.
-getAccountSummaryResponse_summaryMap :: Lens.Lens' GetAccountSummaryResponse (Prelude.Maybe (Prelude.HashMap SummaryKeyType Prelude.Int))
-getAccountSummaryResponse_summaryMap = Lens.lens (\GetAccountSummaryResponse' {summaryMap} -> summaryMap) (\s@GetAccountSummaryResponse' {} a -> s {summaryMap = a} :: GetAccountSummaryResponse) Prelude.. Lens.mapping Prelude._Coerce
+getAccountSummaryResponse_summaryMap :: Lens.Lens' GetAccountSummaryResponse (Core.Maybe (Core.HashMap SummaryKeyType Core.Int))
+getAccountSummaryResponse_summaryMap = Lens.lens (\GetAccountSummaryResponse' {summaryMap} -> summaryMap) (\s@GetAccountSummaryResponse' {} a -> s {summaryMap = a} :: GetAccountSummaryResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getAccountSummaryResponse_httpStatus :: Lens.Lens' GetAccountSummaryResponse Prelude.Int
+getAccountSummaryResponse_httpStatus :: Lens.Lens' GetAccountSummaryResponse Core.Int
 getAccountSummaryResponse_httpStatus = Lens.lens (\GetAccountSummaryResponse' {httpStatus} -> httpStatus) (\s@GetAccountSummaryResponse' {} a -> s {httpStatus = a} :: GetAccountSummaryResponse)
 
-instance Prelude.NFData GetAccountSummaryResponse
+instance Core.NFData GetAccountSummaryResponse

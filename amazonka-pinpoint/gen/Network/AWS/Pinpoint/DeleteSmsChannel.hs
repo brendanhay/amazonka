@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.DeleteSmsChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DeleteSmsChannel = DeleteSmsChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSmsChannel' with all optional fields omitted.
@@ -67,60 +66,60 @@ data DeleteSmsChannel = DeleteSmsChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteSmsChannel ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSmsChannel
 newDeleteSmsChannel pApplicationId_ =
   DeleteSmsChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteSmsChannel_applicationId :: Lens.Lens' DeleteSmsChannel Prelude.Text
+deleteSmsChannel_applicationId :: Lens.Lens' DeleteSmsChannel Core.Text
 deleteSmsChannel_applicationId = Lens.lens (\DeleteSmsChannel' {applicationId} -> applicationId) (\s@DeleteSmsChannel' {} a -> s {applicationId = a} :: DeleteSmsChannel)
 
-instance Prelude.AWSRequest DeleteSmsChannel where
-  type Rs DeleteSmsChannel = DeleteSmsChannelResponse
+instance Core.AWSRequest DeleteSmsChannel where
+  type
+    AWSResponse DeleteSmsChannel =
+      DeleteSmsChannelResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteSmsChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteSmsChannel
+instance Core.Hashable DeleteSmsChannel
 
-instance Prelude.NFData DeleteSmsChannel
+instance Core.NFData DeleteSmsChannel
 
-instance Prelude.ToHeaders DeleteSmsChannel where
+instance Core.ToHeaders DeleteSmsChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteSmsChannel where
+instance Core.ToPath DeleteSmsChannel where
   toPath DeleteSmsChannel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/channels/sms"
       ]
 
-instance Prelude.ToQuery DeleteSmsChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteSmsChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteSmsChannelResponse' smart constructor.
 data DeleteSmsChannelResponse = DeleteSmsChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     sMSChannelResponse :: SMSChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSmsChannelResponse' with all optional fields omitted.
@@ -135,7 +134,7 @@ data DeleteSmsChannelResponse = DeleteSmsChannelResponse'
 -- 'sMSChannelResponse', 'deleteSmsChannelResponse_sMSChannelResponse' - Undocumented member.
 newDeleteSmsChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'sMSChannelResponse'
   SMSChannelResponse ->
   DeleteSmsChannelResponse
@@ -149,11 +148,11 @@ newDeleteSmsChannelResponse
       }
 
 -- | The response's http status code.
-deleteSmsChannelResponse_httpStatus :: Lens.Lens' DeleteSmsChannelResponse Prelude.Int
+deleteSmsChannelResponse_httpStatus :: Lens.Lens' DeleteSmsChannelResponse Core.Int
 deleteSmsChannelResponse_httpStatus = Lens.lens (\DeleteSmsChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteSmsChannelResponse' {} a -> s {httpStatus = a} :: DeleteSmsChannelResponse)
 
 -- | Undocumented member.
 deleteSmsChannelResponse_sMSChannelResponse :: Lens.Lens' DeleteSmsChannelResponse SMSChannelResponse
 deleteSmsChannelResponse_sMSChannelResponse = Lens.lens (\DeleteSmsChannelResponse' {sMSChannelResponse} -> sMSChannelResponse) (\s@DeleteSmsChannelResponse' {} a -> s {sMSChannelResponse = a} :: DeleteSmsChannelResponse)
 
-instance Prelude.NFData DeleteSmsChannelResponse
+instance Core.NFData DeleteSmsChannelResponse

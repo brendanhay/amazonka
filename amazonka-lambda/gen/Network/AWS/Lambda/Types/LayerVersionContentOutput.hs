@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.LayerVersionContentOutput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about a version of an
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer>.
@@ -29,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLayerVersionContentOutput' smart constructor.
 data LayerVersionContentOutput = LayerVersionContentOutput'
   { -- | The Amazon Resource Name (ARN) for a signing profile version.
-    signingProfileVersionArn :: Prelude.Maybe Prelude.Text,
+    signingProfileVersionArn :: Core.Maybe Core.Text,
     -- | The SHA-256 hash of the layer archive.
-    codeSha256 :: Prelude.Maybe Prelude.Text,
+    codeSha256 :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of a signing job.
-    signingJobArn :: Prelude.Maybe Prelude.Text,
+    signingJobArn :: Core.Maybe Core.Text,
     -- | The size of the layer archive in bytes.
-    codeSize :: Prelude.Maybe Prelude.Integer,
+    codeSize :: Core.Maybe Core.Integer,
     -- | A link to the layer archive in Amazon S3 that is valid for 10 minutes.
-    location :: Prelude.Maybe Prelude.Text
+    location :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LayerVersionContentOutput' with all optional fields omitted.
@@ -63,46 +62,46 @@ newLayerVersionContentOutput ::
 newLayerVersionContentOutput =
   LayerVersionContentOutput'
     { signingProfileVersionArn =
-        Prelude.Nothing,
-      codeSha256 = Prelude.Nothing,
-      signingJobArn = Prelude.Nothing,
-      codeSize = Prelude.Nothing,
-      location = Prelude.Nothing
+        Core.Nothing,
+      codeSha256 = Core.Nothing,
+      signingJobArn = Core.Nothing,
+      codeSize = Core.Nothing,
+      location = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for a signing profile version.
-layerVersionContentOutput_signingProfileVersionArn :: Lens.Lens' LayerVersionContentOutput (Prelude.Maybe Prelude.Text)
+layerVersionContentOutput_signingProfileVersionArn :: Lens.Lens' LayerVersionContentOutput (Core.Maybe Core.Text)
 layerVersionContentOutput_signingProfileVersionArn = Lens.lens (\LayerVersionContentOutput' {signingProfileVersionArn} -> signingProfileVersionArn) (\s@LayerVersionContentOutput' {} a -> s {signingProfileVersionArn = a} :: LayerVersionContentOutput)
 
 -- | The SHA-256 hash of the layer archive.
-layerVersionContentOutput_codeSha256 :: Lens.Lens' LayerVersionContentOutput (Prelude.Maybe Prelude.Text)
+layerVersionContentOutput_codeSha256 :: Lens.Lens' LayerVersionContentOutput (Core.Maybe Core.Text)
 layerVersionContentOutput_codeSha256 = Lens.lens (\LayerVersionContentOutput' {codeSha256} -> codeSha256) (\s@LayerVersionContentOutput' {} a -> s {codeSha256 = a} :: LayerVersionContentOutput)
 
 -- | The Amazon Resource Name (ARN) of a signing job.
-layerVersionContentOutput_signingJobArn :: Lens.Lens' LayerVersionContentOutput (Prelude.Maybe Prelude.Text)
+layerVersionContentOutput_signingJobArn :: Lens.Lens' LayerVersionContentOutput (Core.Maybe Core.Text)
 layerVersionContentOutput_signingJobArn = Lens.lens (\LayerVersionContentOutput' {signingJobArn} -> signingJobArn) (\s@LayerVersionContentOutput' {} a -> s {signingJobArn = a} :: LayerVersionContentOutput)
 
 -- | The size of the layer archive in bytes.
-layerVersionContentOutput_codeSize :: Lens.Lens' LayerVersionContentOutput (Prelude.Maybe Prelude.Integer)
+layerVersionContentOutput_codeSize :: Lens.Lens' LayerVersionContentOutput (Core.Maybe Core.Integer)
 layerVersionContentOutput_codeSize = Lens.lens (\LayerVersionContentOutput' {codeSize} -> codeSize) (\s@LayerVersionContentOutput' {} a -> s {codeSize = a} :: LayerVersionContentOutput)
 
 -- | A link to the layer archive in Amazon S3 that is valid for 10 minutes.
-layerVersionContentOutput_location :: Lens.Lens' LayerVersionContentOutput (Prelude.Maybe Prelude.Text)
+layerVersionContentOutput_location :: Lens.Lens' LayerVersionContentOutput (Core.Maybe Core.Text)
 layerVersionContentOutput_location = Lens.lens (\LayerVersionContentOutput' {location} -> location) (\s@LayerVersionContentOutput' {} a -> s {location = a} :: LayerVersionContentOutput)
 
-instance Prelude.FromJSON LayerVersionContentOutput where
+instance Core.FromJSON LayerVersionContentOutput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LayerVersionContentOutput"
       ( \x ->
           LayerVersionContentOutput'
-            Prelude.<$> (x Prelude..:? "SigningProfileVersionArn")
-            Prelude.<*> (x Prelude..:? "CodeSha256")
-            Prelude.<*> (x Prelude..:? "SigningJobArn")
-            Prelude.<*> (x Prelude..:? "CodeSize")
-            Prelude.<*> (x Prelude..:? "Location")
+            Core.<$> (x Core..:? "SigningProfileVersionArn")
+            Core.<*> (x Core..:? "CodeSha256")
+            Core.<*> (x Core..:? "SigningJobArn")
+            Core.<*> (x Core..:? "CodeSize")
+            Core.<*> (x Core..:? "Location")
       )
 
-instance Prelude.Hashable LayerVersionContentOutput
+instance Core.Hashable LayerVersionContentOutput
 
-instance Prelude.NFData LayerVersionContentOutput
+instance Core.NFData LayerVersionContentOutput

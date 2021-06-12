@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.SageMaker.DeleteEndpointConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -54,9 +53,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteEndpointConfig' smart constructor.
 data DeleteEndpointConfig = DeleteEndpointConfig'
   { -- | The name of the endpoint configuration that you want to delete.
-    endpointConfigName :: Prelude.Text
+    endpointConfigName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEndpointConfig' with all optional fields omitted.
@@ -69,7 +68,7 @@ data DeleteEndpointConfig = DeleteEndpointConfig'
 -- 'endpointConfigName', 'deleteEndpointConfig_endpointConfigName' - The name of the endpoint configuration that you want to delete.
 newDeleteEndpointConfig ::
   -- | 'endpointConfigName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteEndpointConfig
 newDeleteEndpointConfig pEndpointConfigName_ =
   DeleteEndpointConfig'
@@ -78,58 +77,54 @@ newDeleteEndpointConfig pEndpointConfigName_ =
     }
 
 -- | The name of the endpoint configuration that you want to delete.
-deleteEndpointConfig_endpointConfigName :: Lens.Lens' DeleteEndpointConfig Prelude.Text
+deleteEndpointConfig_endpointConfigName :: Lens.Lens' DeleteEndpointConfig Core.Text
 deleteEndpointConfig_endpointConfigName = Lens.lens (\DeleteEndpointConfig' {endpointConfigName} -> endpointConfigName) (\s@DeleteEndpointConfig' {} a -> s {endpointConfigName = a} :: DeleteEndpointConfig)
 
-instance Prelude.AWSRequest DeleteEndpointConfig where
+instance Core.AWSRequest DeleteEndpointConfig where
   type
-    Rs DeleteEndpointConfig =
+    AWSResponse DeleteEndpointConfig =
       DeleteEndpointConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteEndpointConfigResponse'
 
-instance Prelude.Hashable DeleteEndpointConfig
+instance Core.Hashable DeleteEndpointConfig
 
-instance Prelude.NFData DeleteEndpointConfig
+instance Core.NFData DeleteEndpointConfig
 
-instance Prelude.ToHeaders DeleteEndpointConfig where
+instance Core.ToHeaders DeleteEndpointConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteEndpointConfig" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DeleteEndpointConfig" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteEndpointConfig where
+instance Core.ToJSON DeleteEndpointConfig where
   toJSON DeleteEndpointConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "EndpointConfigName"
-                  Prelude..= endpointConfigName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("EndpointConfigName" Core..= endpointConfigName)
           ]
       )
 
-instance Prelude.ToPath DeleteEndpointConfig where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteEndpointConfig where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteEndpointConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteEndpointConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteEndpointConfigResponse' smart constructor.
 data DeleteEndpointConfigResponse = DeleteEndpointConfigResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEndpointConfigResponse' with all optional fields omitted.
@@ -140,4 +135,4 @@ newDeleteEndpointConfigResponse ::
 newDeleteEndpointConfigResponse =
   DeleteEndpointConfigResponse'
 
-instance Prelude.NFData DeleteEndpointConfigResponse
+instance Core.NFData DeleteEndpointConfigResponse

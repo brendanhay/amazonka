@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,9 +59,8 @@ module Network.AWS.StepFunctions.ListExecutions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -75,22 +73,22 @@ data ListExecutions = ListExecutions'
     -- arguments unchanged. Each pagination token expires after 24 hours. Using
     -- an expired pagination token will return an /HTTP 400 InvalidToken/
     -- error.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results that are returned per call. You can use
     -- @nextToken@ to obtain further pages of results. The default is 100 and
     -- the maximum allowed page size is 1000. A value of 0 uses the default.
     --
     -- This is only an upper limit. The actual number of results returned per
     -- call might be fewer than the specified maximum.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | If specified, only list the executions whose current execution status
     -- matches the given filter.
-    statusFilter :: Prelude.Maybe ExecutionStatus,
+    statusFilter :: Core.Maybe ExecutionStatus,
     -- | The Amazon Resource Name (ARN) of the state machine whose executions is
     -- listed.
-    stateMachineArn :: Prelude.Text
+    stateMachineArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListExecutions' with all optional fields omitted.
@@ -121,13 +119,13 @@ data ListExecutions = ListExecutions'
 -- listed.
 newListExecutions ::
   -- | 'stateMachineArn'
-  Prelude.Text ->
+  Core.Text ->
   ListExecutions
 newListExecutions pStateMachineArn_ =
   ListExecutions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      statusFilter = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      statusFilter = Core.Nothing,
       stateMachineArn = pStateMachineArn_
     }
 
@@ -137,7 +135,7 @@ newListExecutions pStateMachineArn_ =
 -- arguments unchanged. Each pagination token expires after 24 hours. Using
 -- an expired pagination token will return an /HTTP 400 InvalidToken/
 -- error.
-listExecutions_nextToken :: Lens.Lens' ListExecutions (Prelude.Maybe Prelude.Text)
+listExecutions_nextToken :: Lens.Lens' ListExecutions (Core.Maybe Core.Text)
 listExecutions_nextToken = Lens.lens (\ListExecutions' {nextToken} -> nextToken) (\s@ListExecutions' {} a -> s {nextToken = a} :: ListExecutions)
 
 -- | The maximum number of results that are returned per call. You can use
@@ -146,87 +144,84 @@ listExecutions_nextToken = Lens.lens (\ListExecutions' {nextToken} -> nextToken)
 --
 -- This is only an upper limit. The actual number of results returned per
 -- call might be fewer than the specified maximum.
-listExecutions_maxResults :: Lens.Lens' ListExecutions (Prelude.Maybe Prelude.Natural)
+listExecutions_maxResults :: Lens.Lens' ListExecutions (Core.Maybe Core.Natural)
 listExecutions_maxResults = Lens.lens (\ListExecutions' {maxResults} -> maxResults) (\s@ListExecutions' {} a -> s {maxResults = a} :: ListExecutions)
 
 -- | If specified, only list the executions whose current execution status
 -- matches the given filter.
-listExecutions_statusFilter :: Lens.Lens' ListExecutions (Prelude.Maybe ExecutionStatus)
+listExecutions_statusFilter :: Lens.Lens' ListExecutions (Core.Maybe ExecutionStatus)
 listExecutions_statusFilter = Lens.lens (\ListExecutions' {statusFilter} -> statusFilter) (\s@ListExecutions' {} a -> s {statusFilter = a} :: ListExecutions)
 
 -- | The Amazon Resource Name (ARN) of the state machine whose executions is
 -- listed.
-listExecutions_stateMachineArn :: Lens.Lens' ListExecutions Prelude.Text
+listExecutions_stateMachineArn :: Lens.Lens' ListExecutions Core.Text
 listExecutions_stateMachineArn = Lens.lens (\ListExecutions' {stateMachineArn} -> stateMachineArn) (\s@ListExecutions' {} a -> s {stateMachineArn = a} :: ListExecutions)
 
-instance Pager.AWSPager ListExecutions where
+instance Core.AWSPager ListExecutions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listExecutionsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. listExecutionsResponse_executions) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listExecutions_nextToken
           Lens..~ rs
-          Lens.^? listExecutionsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listExecutionsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListExecutions where
-  type Rs ListExecutions = ListExecutionsResponse
+instance Core.AWSRequest ListExecutions where
+  type
+    AWSResponse ListExecutions =
+      ListExecutionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListExecutionsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "executions"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "executions" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListExecutions
+instance Core.Hashable ListExecutions
 
-instance Prelude.NFData ListExecutions
+instance Core.NFData ListExecutions
 
-instance Prelude.ToHeaders ListExecutions where
+instance Core.ToHeaders ListExecutions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSStepFunctions.ListExecutions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSStepFunctions.ListExecutions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListExecutions where
+instance Core.ToJSON ListExecutions where
   toJSON ListExecutions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("statusFilter" Prelude..=) Prelude.<$> statusFilter,
-            Prelude.Just
-              ("stateMachineArn" Prelude..= stateMachineArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("statusFilter" Core..=) Core.<$> statusFilter,
+            Core.Just
+              ("stateMachineArn" Core..= stateMachineArn)
           ]
       )
 
-instance Prelude.ToPath ListExecutions where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListExecutions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListExecutions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListExecutions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListExecutionsResponse' smart constructor.
 data ListExecutionsResponse = ListExecutionsResponse'
@@ -236,13 +231,13 @@ data ListExecutionsResponse = ListExecutionsResponse'
     -- arguments unchanged. Each pagination token expires after 24 hours. Using
     -- an expired pagination token will return an /HTTP 400 InvalidToken/
     -- error.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The list of matching executions.
     executions :: [ExecutionListItem]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListExecutionsResponse' with all optional fields omitted.
@@ -264,14 +259,13 @@ data ListExecutionsResponse = ListExecutionsResponse'
 -- 'executions', 'listExecutionsResponse_executions' - The list of matching executions.
 newListExecutionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListExecutionsResponse
 newListExecutionsResponse pHttpStatus_ =
   ListExecutionsResponse'
-    { nextToken =
-        Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      executions = Prelude.mempty
+      executions = Core.mempty
     }
 
 -- | If @nextToken@ is returned, there are more results available. The value
@@ -280,15 +274,15 @@ newListExecutionsResponse pHttpStatus_ =
 -- arguments unchanged. Each pagination token expires after 24 hours. Using
 -- an expired pagination token will return an /HTTP 400 InvalidToken/
 -- error.
-listExecutionsResponse_nextToken :: Lens.Lens' ListExecutionsResponse (Prelude.Maybe Prelude.Text)
+listExecutionsResponse_nextToken :: Lens.Lens' ListExecutionsResponse (Core.Maybe Core.Text)
 listExecutionsResponse_nextToken = Lens.lens (\ListExecutionsResponse' {nextToken} -> nextToken) (\s@ListExecutionsResponse' {} a -> s {nextToken = a} :: ListExecutionsResponse)
 
 -- | The response's http status code.
-listExecutionsResponse_httpStatus :: Lens.Lens' ListExecutionsResponse Prelude.Int
+listExecutionsResponse_httpStatus :: Lens.Lens' ListExecutionsResponse Core.Int
 listExecutionsResponse_httpStatus = Lens.lens (\ListExecutionsResponse' {httpStatus} -> httpStatus) (\s@ListExecutionsResponse' {} a -> s {httpStatus = a} :: ListExecutionsResponse)
 
 -- | The list of matching executions.
 listExecutionsResponse_executions :: Lens.Lens' ListExecutionsResponse [ExecutionListItem]
-listExecutionsResponse_executions = Lens.lens (\ListExecutionsResponse' {executions} -> executions) (\s@ListExecutionsResponse' {} a -> s {executions = a} :: ListExecutionsResponse) Prelude.. Prelude._Coerce
+listExecutionsResponse_executions = Lens.lens (\ListExecutionsResponse' {executions} -> executions) (\s@ListExecutionsResponse' {} a -> s {executions = a} :: ListExecutionsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListExecutionsResponse
+instance Core.NFData ListExecutionsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.IAM.AttachGroupPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,15 +57,15 @@ data AttachGroupPolicy = AttachGroupPolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    groupName :: Prelude.Text,
+    groupName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Prelude.Text
+    policyArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachGroupPolicy' with all optional fields omitted.
@@ -90,9 +89,9 @@ data AttachGroupPolicy = AttachGroupPolicy'
 -- in the /AWS General Reference/.
 newAttachGroupPolicy ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyArn'
-  Prelude.Text ->
+  Core.Text ->
   AttachGroupPolicy
 newAttachGroupPolicy pGroupName_ pPolicyArn_ =
   AttachGroupPolicy'
@@ -106,7 +105,7 @@ newAttachGroupPolicy pGroupName_ pPolicyArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-attachGroupPolicy_groupName :: Lens.Lens' AttachGroupPolicy Prelude.Text
+attachGroupPolicy_groupName :: Lens.Lens' AttachGroupPolicy Core.Text
 attachGroupPolicy_groupName = Lens.lens (\AttachGroupPolicy' {groupName} -> groupName) (\s@AttachGroupPolicy' {} a -> s {groupName = a} :: AttachGroupPolicy)
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
@@ -114,41 +113,42 @@ attachGroupPolicy_groupName = Lens.lens (\AttachGroupPolicy' {groupName} -> grou
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-attachGroupPolicy_policyArn :: Lens.Lens' AttachGroupPolicy Prelude.Text
+attachGroupPolicy_policyArn :: Lens.Lens' AttachGroupPolicy Core.Text
 attachGroupPolicy_policyArn = Lens.lens (\AttachGroupPolicy' {policyArn} -> policyArn) (\s@AttachGroupPolicy' {} a -> s {policyArn = a} :: AttachGroupPolicy)
 
-instance Prelude.AWSRequest AttachGroupPolicy where
-  type Rs AttachGroupPolicy = AttachGroupPolicyResponse
+instance Core.AWSRequest AttachGroupPolicy where
+  type
+    AWSResponse AttachGroupPolicy =
+      AttachGroupPolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull AttachGroupPolicyResponse'
 
-instance Prelude.Hashable AttachGroupPolicy
+instance Core.Hashable AttachGroupPolicy
 
-instance Prelude.NFData AttachGroupPolicy
+instance Core.NFData AttachGroupPolicy
 
-instance Prelude.ToHeaders AttachGroupPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AttachGroupPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AttachGroupPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachGroupPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AttachGroupPolicy where
+instance Core.ToQuery AttachGroupPolicy where
   toQuery AttachGroupPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AttachGroupPolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "GroupName" Prelude.=: groupName,
-        "PolicyArn" Prelude.=: policyArn
+          Core.=: ("AttachGroupPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "GroupName" Core.=: groupName,
+        "PolicyArn" Core.=: policyArn
       ]
 
 -- | /See:/ 'newAttachGroupPolicyResponse' smart constructor.
 data AttachGroupPolicyResponse = AttachGroupPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachGroupPolicyResponse' with all optional fields omitted.
@@ -159,4 +159,4 @@ newAttachGroupPolicyResponse ::
 newAttachGroupPolicyResponse =
   AttachGroupPolicyResponse'
 
-instance Prelude.NFData AttachGroupPolicyResponse
+instance Core.NFData AttachGroupPolicyResponse

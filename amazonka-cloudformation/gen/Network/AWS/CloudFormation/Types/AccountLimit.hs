@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFormation.Types.AccountLimit where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The AccountLimit data type.
 --
@@ -43,11 +42,11 @@ data AccountLimit = AccountLimit'
   { -- | The name of the account limit.
     --
     -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The value that is associated with the account limit name.
-    value :: Prelude.Maybe Prelude.Int
+    value :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccountLimit' with all optional fields omitted.
@@ -66,26 +65,25 @@ newAccountLimit ::
   AccountLimit
 newAccountLimit =
   AccountLimit'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { name = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The name of the account limit.
 --
 -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
-accountLimit_name :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Text)
+accountLimit_name :: Lens.Lens' AccountLimit (Core.Maybe Core.Text)
 accountLimit_name = Lens.lens (\AccountLimit' {name} -> name) (\s@AccountLimit' {} a -> s {name = a} :: AccountLimit)
 
 -- | The value that is associated with the account limit name.
-accountLimit_value :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Int)
+accountLimit_value :: Lens.Lens' AccountLimit (Core.Maybe Core.Int)
 accountLimit_value = Lens.lens (\AccountLimit' {value} -> value) (\s@AccountLimit' {} a -> s {value = a} :: AccountLimit)
 
-instance Prelude.FromXML AccountLimit where
+instance Core.FromXML AccountLimit where
   parseXML x =
     AccountLimit'
-      Prelude.<$> (x Prelude..@? "Name")
-      Prelude.<*> (x Prelude..@? "Value")
+      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable AccountLimit
+instance Core.Hashable AccountLimit
 
-instance Prelude.NFData AccountLimit
+instance Core.NFData AccountLimit

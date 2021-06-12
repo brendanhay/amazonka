@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CodeCommit.UpdatePullRequestStatus
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,13 +50,13 @@ import qualified Network.AWS.Response as Response
 data UpdatePullRequestStatus = UpdatePullRequestStatus'
   { -- | The system-generated ID of the pull request. To get this ID, use
     -- ListPullRequests.
-    pullRequestId :: Prelude.Text,
+    pullRequestId :: Core.Text,
     -- | The status of the pull request. The only valid operations are to update
     -- the status from @OPEN@ to @OPEN@, @OPEN@ to @CLOSED@ or from @CLOSED@ to
     -- @CLOSED@.
     pullRequestStatus :: PullRequestStatusEnum
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePullRequestStatus' with all optional fields omitted.
@@ -75,7 +74,7 @@ data UpdatePullRequestStatus = UpdatePullRequestStatus'
 -- @CLOSED@.
 newUpdatePullRequestStatus ::
   -- | 'pullRequestId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'pullRequestStatus'
   PullRequestStatusEnum ->
   UpdatePullRequestStatus
@@ -90,7 +89,7 @@ newUpdatePullRequestStatus
 
 -- | The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
-updatePullRequestStatus_pullRequestId :: Lens.Lens' UpdatePullRequestStatus Prelude.Text
+updatePullRequestStatus_pullRequestId :: Lens.Lens' UpdatePullRequestStatus Core.Text
 updatePullRequestStatus_pullRequestId = Lens.lens (\UpdatePullRequestStatus' {pullRequestId} -> pullRequestId) (\s@UpdatePullRequestStatus' {} a -> s {pullRequestId = a} :: UpdatePullRequestStatus)
 
 -- | The status of the pull request. The only valid operations are to update
@@ -99,63 +98,60 @@ updatePullRequestStatus_pullRequestId = Lens.lens (\UpdatePullRequestStatus' {pu
 updatePullRequestStatus_pullRequestStatus :: Lens.Lens' UpdatePullRequestStatus PullRequestStatusEnum
 updatePullRequestStatus_pullRequestStatus = Lens.lens (\UpdatePullRequestStatus' {pullRequestStatus} -> pullRequestStatus) (\s@UpdatePullRequestStatus' {} a -> s {pullRequestStatus = a} :: UpdatePullRequestStatus)
 
-instance Prelude.AWSRequest UpdatePullRequestStatus where
+instance Core.AWSRequest UpdatePullRequestStatus where
   type
-    Rs UpdatePullRequestStatus =
+    AWSResponse UpdatePullRequestStatus =
       UpdatePullRequestStatusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdatePullRequestStatusResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "pullRequest")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "pullRequest")
       )
 
-instance Prelude.Hashable UpdatePullRequestStatus
+instance Core.Hashable UpdatePullRequestStatus
 
-instance Prelude.NFData UpdatePullRequestStatus
+instance Core.NFData UpdatePullRequestStatus
 
-instance Prelude.ToHeaders UpdatePullRequestStatus where
+instance Core.ToHeaders UpdatePullRequestStatus where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.UpdatePullRequestStatus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.UpdatePullRequestStatus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdatePullRequestStatus where
+instance Core.ToJSON UpdatePullRequestStatus where
   toJSON UpdatePullRequestStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("pullRequestId" Prelude..= pullRequestId),
-            Prelude.Just
-              ("pullRequestStatus" Prelude..= pullRequestStatus)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pullRequestId" Core..= pullRequestId),
+            Core.Just
+              ("pullRequestStatus" Core..= pullRequestStatus)
           ]
       )
 
-instance Prelude.ToPath UpdatePullRequestStatus where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdatePullRequestStatus where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdatePullRequestStatus where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdatePullRequestStatus where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdatePullRequestStatusResponse' smart constructor.
 data UpdatePullRequestStatusResponse = UpdatePullRequestStatusResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Information about the pull request.
     pullRequest :: PullRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePullRequestStatusResponse' with all optional fields omitted.
@@ -170,7 +166,7 @@ data UpdatePullRequestStatusResponse = UpdatePullRequestStatusResponse'
 -- 'pullRequest', 'updatePullRequestStatusResponse_pullRequest' - Information about the pull request.
 newUpdatePullRequestStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'pullRequest'
   PullRequest ->
   UpdatePullRequestStatusResponse
@@ -184,13 +180,11 @@ newUpdatePullRequestStatusResponse
       }
 
 -- | The response's http status code.
-updatePullRequestStatusResponse_httpStatus :: Lens.Lens' UpdatePullRequestStatusResponse Prelude.Int
+updatePullRequestStatusResponse_httpStatus :: Lens.Lens' UpdatePullRequestStatusResponse Core.Int
 updatePullRequestStatusResponse_httpStatus = Lens.lens (\UpdatePullRequestStatusResponse' {httpStatus} -> httpStatus) (\s@UpdatePullRequestStatusResponse' {} a -> s {httpStatus = a} :: UpdatePullRequestStatusResponse)
 
 -- | Information about the pull request.
 updatePullRequestStatusResponse_pullRequest :: Lens.Lens' UpdatePullRequestStatusResponse PullRequest
 updatePullRequestStatusResponse_pullRequest = Lens.lens (\UpdatePullRequestStatusResponse' {pullRequest} -> pullRequest) (\s@UpdatePullRequestStatusResponse' {} a -> s {pullRequest = a} :: UpdatePullRequestStatusResponse)
 
-instance
-  Prelude.NFData
-    UpdatePullRequestStatusResponse
+instance Core.NFData UpdatePullRequestStatusResponse

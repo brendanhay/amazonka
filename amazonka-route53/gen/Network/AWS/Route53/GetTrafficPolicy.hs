@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.Route53.GetTrafficPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -56,12 +55,12 @@ import Network.AWS.Route53.Types
 -- /See:/ 'newGetTrafficPolicy' smart constructor.
 data GetTrafficPolicy = GetTrafficPolicy'
   { -- | The ID of the traffic policy that you want to get information about.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The version number of the traffic policy that you want to get
     -- information about.
-    version :: Prelude.Natural
+    version :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTrafficPolicy' with all optional fields omitted.
@@ -77,62 +76,64 @@ data GetTrafficPolicy = GetTrafficPolicy'
 -- information about.
 newGetTrafficPolicy ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Natural ->
+  Core.Natural ->
   GetTrafficPolicy
 newGetTrafficPolicy pId_ pVersion_ =
   GetTrafficPolicy' {id = pId_, version = pVersion_}
 
 -- | The ID of the traffic policy that you want to get information about.
-getTrafficPolicy_id :: Lens.Lens' GetTrafficPolicy Prelude.Text
+getTrafficPolicy_id :: Lens.Lens' GetTrafficPolicy Core.Text
 getTrafficPolicy_id = Lens.lens (\GetTrafficPolicy' {id} -> id) (\s@GetTrafficPolicy' {} a -> s {id = a} :: GetTrafficPolicy)
 
 -- | The version number of the traffic policy that you want to get
 -- information about.
-getTrafficPolicy_version :: Lens.Lens' GetTrafficPolicy Prelude.Natural
+getTrafficPolicy_version :: Lens.Lens' GetTrafficPolicy Core.Natural
 getTrafficPolicy_version = Lens.lens (\GetTrafficPolicy' {version} -> version) (\s@GetTrafficPolicy' {} a -> s {version = a} :: GetTrafficPolicy)
 
-instance Prelude.AWSRequest GetTrafficPolicy where
-  type Rs GetTrafficPolicy = GetTrafficPolicyResponse
+instance Core.AWSRequest GetTrafficPolicy where
+  type
+    AWSResponse GetTrafficPolicy =
+      GetTrafficPolicyResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetTrafficPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "TrafficPolicy")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "TrafficPolicy")
       )
 
-instance Prelude.Hashable GetTrafficPolicy
+instance Core.Hashable GetTrafficPolicy
 
-instance Prelude.NFData GetTrafficPolicy
+instance Core.NFData GetTrafficPolicy
 
-instance Prelude.ToHeaders GetTrafficPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetTrafficPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetTrafficPolicy where
+instance Core.ToPath GetTrafficPolicy where
   toPath GetTrafficPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2013-04-01/trafficpolicy/",
-        Prelude.toBS id,
+        Core.toBS id,
         "/",
-        Prelude.toBS version
+        Core.toBS version
       ]
 
-instance Prelude.ToQuery GetTrafficPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetTrafficPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | A complex type that contains the response information for the request.
 --
 -- /See:/ 'newGetTrafficPolicyResponse' smart constructor.
 data GetTrafficPolicyResponse = GetTrafficPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains settings for the specified traffic policy.
     trafficPolicy :: TrafficPolicy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTrafficPolicyResponse' with all optional fields omitted.
@@ -147,7 +148,7 @@ data GetTrafficPolicyResponse = GetTrafficPolicyResponse'
 -- 'trafficPolicy', 'getTrafficPolicyResponse_trafficPolicy' - A complex type that contains settings for the specified traffic policy.
 newGetTrafficPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'trafficPolicy'
   TrafficPolicy ->
   GetTrafficPolicyResponse
@@ -161,11 +162,11 @@ newGetTrafficPolicyResponse
       }
 
 -- | The response's http status code.
-getTrafficPolicyResponse_httpStatus :: Lens.Lens' GetTrafficPolicyResponse Prelude.Int
+getTrafficPolicyResponse_httpStatus :: Lens.Lens' GetTrafficPolicyResponse Core.Int
 getTrafficPolicyResponse_httpStatus = Lens.lens (\GetTrafficPolicyResponse' {httpStatus} -> httpStatus) (\s@GetTrafficPolicyResponse' {} a -> s {httpStatus = a} :: GetTrafficPolicyResponse)
 
 -- | A complex type that contains settings for the specified traffic policy.
 getTrafficPolicyResponse_trafficPolicy :: Lens.Lens' GetTrafficPolicyResponse TrafficPolicy
 getTrafficPolicyResponse_trafficPolicy = Lens.lens (\GetTrafficPolicyResponse' {trafficPolicy} -> trafficPolicy) (\s@GetTrafficPolicyResponse' {} a -> s {trafficPolicy = a} :: GetTrafficPolicyResponse)
 
-instance Prelude.NFData GetTrafficPolicyResponse
+instance Core.NFData GetTrafficPolicyResponse

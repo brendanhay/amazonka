@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,17 +48,17 @@ module Network.AWS.Comprehend.DeleteDocumentClassifier
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDocumentClassifier' smart constructor.
 data DeleteDocumentClassifier = DeleteDocumentClassifier'
   { -- | The Amazon Resource Name (ARN) that identifies the document classifier.
-    documentClassifierArn :: Prelude.Text
+    documentClassifierArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDocumentClassifier' with all optional fields omitted.
@@ -72,7 +71,7 @@ data DeleteDocumentClassifier = DeleteDocumentClassifier'
 -- 'documentClassifierArn', 'deleteDocumentClassifier_documentClassifierArn' - The Amazon Resource Name (ARN) that identifies the document classifier.
 newDeleteDocumentClassifier ::
   -- | 'documentClassifierArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDocumentClassifier
 newDeleteDocumentClassifier pDocumentClassifierArn_ =
   DeleteDocumentClassifier'
@@ -81,63 +80,61 @@ newDeleteDocumentClassifier pDocumentClassifierArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier.
-deleteDocumentClassifier_documentClassifierArn :: Lens.Lens' DeleteDocumentClassifier Prelude.Text
+deleteDocumentClassifier_documentClassifierArn :: Lens.Lens' DeleteDocumentClassifier Core.Text
 deleteDocumentClassifier_documentClassifierArn = Lens.lens (\DeleteDocumentClassifier' {documentClassifierArn} -> documentClassifierArn) (\s@DeleteDocumentClassifier' {} a -> s {documentClassifierArn = a} :: DeleteDocumentClassifier)
 
-instance Prelude.AWSRequest DeleteDocumentClassifier where
+instance Core.AWSRequest DeleteDocumentClassifier where
   type
-    Rs DeleteDocumentClassifier =
+    AWSResponse DeleteDocumentClassifier =
       DeleteDocumentClassifierResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDocumentClassifierResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDocumentClassifier
+instance Core.Hashable DeleteDocumentClassifier
 
-instance Prelude.NFData DeleteDocumentClassifier
+instance Core.NFData DeleteDocumentClassifier
 
-instance Prelude.ToHeaders DeleteDocumentClassifier where
+instance Core.ToHeaders DeleteDocumentClassifier where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.DeleteDocumentClassifier" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.DeleteDocumentClassifier" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteDocumentClassifier where
+instance Core.ToJSON DeleteDocumentClassifier where
   toJSON DeleteDocumentClassifier' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "DocumentClassifierArn"
-                  Prelude..= documentClassifierArn
+                  Core..= documentClassifierArn
               )
           ]
       )
 
-instance Prelude.ToPath DeleteDocumentClassifier where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDocumentClassifier where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDocumentClassifier where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDocumentClassifier where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDocumentClassifierResponse' smart constructor.
 data DeleteDocumentClassifierResponse = DeleteDocumentClassifierResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDocumentClassifierResponse' with all optional fields omitted.
@@ -150,7 +147,7 @@ data DeleteDocumentClassifierResponse = DeleteDocumentClassifierResponse'
 -- 'httpStatus', 'deleteDocumentClassifierResponse_httpStatus' - The response's http status code.
 newDeleteDocumentClassifierResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteDocumentClassifierResponse
 newDeleteDocumentClassifierResponse pHttpStatus_ =
   DeleteDocumentClassifierResponse'
@@ -159,9 +156,7 @@ newDeleteDocumentClassifierResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteDocumentClassifierResponse_httpStatus :: Lens.Lens' DeleteDocumentClassifierResponse Prelude.Int
+deleteDocumentClassifierResponse_httpStatus :: Lens.Lens' DeleteDocumentClassifierResponse Core.Int
 deleteDocumentClassifierResponse_httpStatus = Lens.lens (\DeleteDocumentClassifierResponse' {httpStatus} -> httpStatus) (\s@DeleteDocumentClassifierResponse' {} a -> s {httpStatus = a} :: DeleteDocumentClassifierResponse)
 
-instance
-  Prelude.NFData
-    DeleteDocumentClassifierResponse
+instance Core.NFData DeleteDocumentClassifierResponse

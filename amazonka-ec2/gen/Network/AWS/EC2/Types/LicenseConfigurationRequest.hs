@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LicenseConfigurationRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a license configuration.
 --
 -- /See:/ 'newLicenseConfigurationRequest' smart constructor.
 data LicenseConfigurationRequest = LicenseConfigurationRequest'
   { -- | The Amazon Resource Name (ARN) of the license configuration.
-    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
+    licenseConfigurationArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LicenseConfigurationRequest' with all optional fields omitted.
@@ -47,20 +46,20 @@ newLicenseConfigurationRequest ::
 newLicenseConfigurationRequest =
   LicenseConfigurationRequest'
     { licenseConfigurationArn =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
-licenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' LicenseConfigurationRequest (Prelude.Maybe Prelude.Text)
+licenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' LicenseConfigurationRequest (Core.Maybe Core.Text)
 licenseConfigurationRequest_licenseConfigurationArn = Lens.lens (\LicenseConfigurationRequest' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LicenseConfigurationRequest' {} a -> s {licenseConfigurationArn = a} :: LicenseConfigurationRequest)
 
-instance Prelude.Hashable LicenseConfigurationRequest
+instance Core.Hashable LicenseConfigurationRequest
 
-instance Prelude.NFData LicenseConfigurationRequest
+instance Core.NFData LicenseConfigurationRequest
 
-instance Prelude.ToQuery LicenseConfigurationRequest where
+instance Core.ToQuery LicenseConfigurationRequest where
   toQuery LicenseConfigurationRequest' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "LicenseConfigurationArn"
-          Prelude.=: licenseConfigurationArn
+          Core.=: licenseConfigurationArn
       ]

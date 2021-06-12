@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.PolicyStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | The container element for a bucket\'s policy status.
@@ -30,9 +29,9 @@ import Network.AWS.S3.Internal
 data PolicyStatus = PolicyStatus'
   { -- | The policy status for this bucket. @TRUE@ indicates that this bucket is
     -- public. @FALSE@ indicates that the bucket is not public.
-    isPublic :: Prelude.Maybe Prelude.Bool
+    isPublic :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyStatus' with all optional fields omitted.
@@ -47,18 +46,17 @@ data PolicyStatus = PolicyStatus'
 newPolicyStatus ::
   PolicyStatus
 newPolicyStatus =
-  PolicyStatus' {isPublic = Prelude.Nothing}
+  PolicyStatus' {isPublic = Core.Nothing}
 
 -- | The policy status for this bucket. @TRUE@ indicates that this bucket is
 -- public. @FALSE@ indicates that the bucket is not public.
-policyStatus_isPublic :: Lens.Lens' PolicyStatus (Prelude.Maybe Prelude.Bool)
+policyStatus_isPublic :: Lens.Lens' PolicyStatus (Core.Maybe Core.Bool)
 policyStatus_isPublic = Lens.lens (\PolicyStatus' {isPublic} -> isPublic) (\s@PolicyStatus' {} a -> s {isPublic = a} :: PolicyStatus)
 
-instance Prelude.FromXML PolicyStatus where
+instance Core.FromXML PolicyStatus where
   parseXML x =
-    PolicyStatus'
-      Prelude.<$> (x Prelude..@? "IsPublic")
+    PolicyStatus' Core.<$> (x Core..@? "IsPublic")
 
-instance Prelude.Hashable PolicyStatus
+instance Core.Hashable PolicyStatus
 
-instance Prelude.NFData PolicyStatus
+instance Core.NFData PolicyStatus

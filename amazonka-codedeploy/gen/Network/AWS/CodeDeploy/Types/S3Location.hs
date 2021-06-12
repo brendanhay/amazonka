@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeDeploy.Types.S3Location where
 
 import Network.AWS.CodeDeploy.Types.BundleType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the location of application artifacts stored in Amazon
 -- S3.
@@ -34,10 +33,10 @@ data S3Location = S3Location'
     --
     -- If the ETag is not specified as an input parameter, ETag validation of
     -- the object is skipped.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The name of the Amazon S3 object that represents the bundled artifacts
     -- for the application revision.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The file type of the application revision. Must be one of the following:
     --
     -- -   @tar@: A tar archive file.
@@ -45,18 +44,18 @@ data S3Location = S3Location'
     -- -   @tgz@: A compressed tar archive file.
     --
     -- -   @zip@: A zip archive file.
-    bundleType :: Prelude.Maybe BundleType,
+    bundleType :: Core.Maybe BundleType,
     -- | A specific version of the Amazon S3 object that represents the bundled
     -- artifacts for the application revision.
     --
     -- If the version is not specified, the system uses the most recent version
     -- by default.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the Amazon S3 bucket where the application revision is
     -- stored.
-    bucket :: Prelude.Maybe Prelude.Text
+    bucket :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3Location' with all optional fields omitted.
@@ -95,11 +94,11 @@ newS3Location ::
   S3Location
 newS3Location =
   S3Location'
-    { eTag = Prelude.Nothing,
-      key = Prelude.Nothing,
-      bundleType = Prelude.Nothing,
-      version = Prelude.Nothing,
-      bucket = Prelude.Nothing
+    { eTag = Core.Nothing,
+      key = Core.Nothing,
+      bundleType = Core.Nothing,
+      version = Core.Nothing,
+      bucket = Core.Nothing
     }
 
 -- | The ETag of the Amazon S3 object that represents the bundled artifacts
@@ -107,12 +106,12 @@ newS3Location =
 --
 -- If the ETag is not specified as an input parameter, ETag validation of
 -- the object is skipped.
-s3Location_eTag :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_eTag :: Lens.Lens' S3Location (Core.Maybe Core.Text)
 s3Location_eTag = Lens.lens (\S3Location' {eTag} -> eTag) (\s@S3Location' {} a -> s {eTag = a} :: S3Location)
 
 -- | The name of the Amazon S3 object that represents the bundled artifacts
 -- for the application revision.
-s3Location_key :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_key :: Lens.Lens' S3Location (Core.Maybe Core.Text)
 s3Location_key = Lens.lens (\S3Location' {key} -> key) (\s@S3Location' {} a -> s {key = a} :: S3Location)
 
 -- | The file type of the application revision. Must be one of the following:
@@ -122,7 +121,7 @@ s3Location_key = Lens.lens (\S3Location' {key} -> key) (\s@S3Location' {} a -> s
 -- -   @tgz@: A compressed tar archive file.
 --
 -- -   @zip@: A zip archive file.
-s3Location_bundleType :: Lens.Lens' S3Location (Prelude.Maybe BundleType)
+s3Location_bundleType :: Lens.Lens' S3Location (Core.Maybe BundleType)
 s3Location_bundleType = Lens.lens (\S3Location' {bundleType} -> bundleType) (\s@S3Location' {} a -> s {bundleType = a} :: S3Location)
 
 -- | A specific version of the Amazon S3 object that represents the bundled
@@ -130,39 +129,39 @@ s3Location_bundleType = Lens.lens (\S3Location' {bundleType} -> bundleType) (\s@
 --
 -- If the version is not specified, the system uses the most recent version
 -- by default.
-s3Location_version :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_version :: Lens.Lens' S3Location (Core.Maybe Core.Text)
 s3Location_version = Lens.lens (\S3Location' {version} -> version) (\s@S3Location' {} a -> s {version = a} :: S3Location)
 
 -- | The name of the Amazon S3 bucket where the application revision is
 -- stored.
-s3Location_bucket :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_bucket :: Lens.Lens' S3Location (Core.Maybe Core.Text)
 s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' {} a -> s {bucket = a} :: S3Location)
 
-instance Prelude.FromJSON S3Location where
+instance Core.FromJSON S3Location where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Prelude..:? "eTag")
-            Prelude.<*> (x Prelude..:? "key")
-            Prelude.<*> (x Prelude..:? "bundleType")
-            Prelude.<*> (x Prelude..:? "version")
-            Prelude.<*> (x Prelude..:? "bucket")
+            Core.<$> (x Core..:? "eTag")
+            Core.<*> (x Core..:? "key")
+            Core.<*> (x Core..:? "bundleType")
+            Core.<*> (x Core..:? "version")
+            Core.<*> (x Core..:? "bucket")
       )
 
-instance Prelude.Hashable S3Location
+instance Core.Hashable S3Location
 
-instance Prelude.NFData S3Location
+instance Core.NFData S3Location
 
-instance Prelude.ToJSON S3Location where
+instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("eTag" Prelude..=) Prelude.<$> eTag,
-            ("key" Prelude..=) Prelude.<$> key,
-            ("bundleType" Prelude..=) Prelude.<$> bundleType,
-            ("version" Prelude..=) Prelude.<$> version,
-            ("bucket" Prelude..=) Prelude.<$> bucket
+    Core.object
+      ( Core.catMaybes
+          [ ("eTag" Core..=) Core.<$> eTag,
+            ("key" Core..=) Core.<$> key,
+            ("bundleType" Core..=) Core.<$> bundleType,
+            ("version" Core..=) Core.<$> version,
+            ("bucket" Core..=) Core.<$> bucket
           ]
       )

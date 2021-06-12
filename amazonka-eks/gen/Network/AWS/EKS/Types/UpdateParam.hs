@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.UpdateParam where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.UpdateParamType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the details of an update request.
 --
 -- /See:/ 'newUpdateParam' smart constructor.
 data UpdateParam = UpdateParam'
   { -- | The value of the keys submitted as part of an update request.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The keys associated with an update request.
-    type' :: Prelude.Maybe UpdateParamType
+    type' :: Core.Maybe UpdateParamType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateParam' with all optional fields omitted.
@@ -50,28 +49,27 @@ newUpdateParam ::
   UpdateParam
 newUpdateParam =
   UpdateParam'
-    { value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { value = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The value of the keys submitted as part of an update request.
-updateParam_value :: Lens.Lens' UpdateParam (Prelude.Maybe Prelude.Text)
+updateParam_value :: Lens.Lens' UpdateParam (Core.Maybe Core.Text)
 updateParam_value = Lens.lens (\UpdateParam' {value} -> value) (\s@UpdateParam' {} a -> s {value = a} :: UpdateParam)
 
 -- | The keys associated with an update request.
-updateParam_type :: Lens.Lens' UpdateParam (Prelude.Maybe UpdateParamType)
+updateParam_type :: Lens.Lens' UpdateParam (Core.Maybe UpdateParamType)
 updateParam_type = Lens.lens (\UpdateParam' {type'} -> type') (\s@UpdateParam' {} a -> s {type' = a} :: UpdateParam)
 
-instance Prelude.FromJSON UpdateParam where
+instance Core.FromJSON UpdateParam where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UpdateParam"
       ( \x ->
           UpdateParam'
-            Prelude.<$> (x Prelude..:? "value")
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "value") Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable UpdateParam
+instance Core.Hashable UpdateParam
 
-instance Prelude.NFData UpdateParam
+instance Core.NFData UpdateParam

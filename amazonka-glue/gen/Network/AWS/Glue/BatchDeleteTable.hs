@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.Glue.BatchDeleteTable
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,14 +62,14 @@ import qualified Network.AWS.Response as Response
 data BatchDeleteTable = BatchDeleteTable'
   { -- | The ID of the Data Catalog where the table resides. If none is provided,
     -- the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the catalog database in which the tables to delete reside.
     -- For Hive compatibility, this name is entirely lowercase.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | A list of the table to delete.
-    tablesToDelete :: [Prelude.Text]
+    tablesToDelete :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteTable' with all optional fields omitted.
@@ -89,84 +88,82 @@ data BatchDeleteTable = BatchDeleteTable'
 -- 'tablesToDelete', 'batchDeleteTable_tablesToDelete' - A list of the table to delete.
 newBatchDeleteTable ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   BatchDeleteTable
 newBatchDeleteTable pDatabaseName_ =
   BatchDeleteTable'
-    { catalogId = Prelude.Nothing,
+    { catalogId = Core.Nothing,
       databaseName = pDatabaseName_,
-      tablesToDelete = Prelude.mempty
+      tablesToDelete = Core.mempty
     }
 
 -- | The ID of the Data Catalog where the table resides. If none is provided,
 -- the AWS account ID is used by default.
-batchDeleteTable_catalogId :: Lens.Lens' BatchDeleteTable (Prelude.Maybe Prelude.Text)
+batchDeleteTable_catalogId :: Lens.Lens' BatchDeleteTable (Core.Maybe Core.Text)
 batchDeleteTable_catalogId = Lens.lens (\BatchDeleteTable' {catalogId} -> catalogId) (\s@BatchDeleteTable' {} a -> s {catalogId = a} :: BatchDeleteTable)
 
 -- | The name of the catalog database in which the tables to delete reside.
 -- For Hive compatibility, this name is entirely lowercase.
-batchDeleteTable_databaseName :: Lens.Lens' BatchDeleteTable Prelude.Text
+batchDeleteTable_databaseName :: Lens.Lens' BatchDeleteTable Core.Text
 batchDeleteTable_databaseName = Lens.lens (\BatchDeleteTable' {databaseName} -> databaseName) (\s@BatchDeleteTable' {} a -> s {databaseName = a} :: BatchDeleteTable)
 
 -- | A list of the table to delete.
-batchDeleteTable_tablesToDelete :: Lens.Lens' BatchDeleteTable [Prelude.Text]
-batchDeleteTable_tablesToDelete = Lens.lens (\BatchDeleteTable' {tablesToDelete} -> tablesToDelete) (\s@BatchDeleteTable' {} a -> s {tablesToDelete = a} :: BatchDeleteTable) Prelude.. Prelude._Coerce
+batchDeleteTable_tablesToDelete :: Lens.Lens' BatchDeleteTable [Core.Text]
+batchDeleteTable_tablesToDelete = Lens.lens (\BatchDeleteTable' {tablesToDelete} -> tablesToDelete) (\s@BatchDeleteTable' {} a -> s {tablesToDelete = a} :: BatchDeleteTable) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchDeleteTable where
-  type Rs BatchDeleteTable = BatchDeleteTableResponse
+instance Core.AWSRequest BatchDeleteTable where
+  type
+    AWSResponse BatchDeleteTable =
+      BatchDeleteTableResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteTableResponse'
-            Prelude.<$> (x Prelude..?> "Errors" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Errors" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeleteTable
+instance Core.Hashable BatchDeleteTable
 
-instance Prelude.NFData BatchDeleteTable
+instance Core.NFData BatchDeleteTable
 
-instance Prelude.ToHeaders BatchDeleteTable where
+instance Core.ToHeaders BatchDeleteTable where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.BatchDeleteTable" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.BatchDeleteTable" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchDeleteTable where
+instance Core.ToJSON BatchDeleteTable where
   toJSON BatchDeleteTable' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just
-              ("TablesToDelete" Prelude..= tablesToDelete)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TablesToDelete" Core..= tablesToDelete)
           ]
       )
 
-instance Prelude.ToPath BatchDeleteTable where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchDeleteTable where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchDeleteTable where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchDeleteTable where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchDeleteTableResponse' smart constructor.
 data BatchDeleteTableResponse = BatchDeleteTableResponse'
   { -- | A list of errors encountered in attempting to delete the specified
     -- tables.
-    errors :: Prelude.Maybe [TableError],
+    errors :: Core.Maybe [TableError],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteTableResponse' with all optional fields omitted.
@@ -182,21 +179,21 @@ data BatchDeleteTableResponse = BatchDeleteTableResponse'
 -- 'httpStatus', 'batchDeleteTableResponse_httpStatus' - The response's http status code.
 newBatchDeleteTableResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchDeleteTableResponse
 newBatchDeleteTableResponse pHttpStatus_ =
   BatchDeleteTableResponse'
-    { errors = Prelude.Nothing,
+    { errors = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of errors encountered in attempting to delete the specified
 -- tables.
-batchDeleteTableResponse_errors :: Lens.Lens' BatchDeleteTableResponse (Prelude.Maybe [TableError])
-batchDeleteTableResponse_errors = Lens.lens (\BatchDeleteTableResponse' {errors} -> errors) (\s@BatchDeleteTableResponse' {} a -> s {errors = a} :: BatchDeleteTableResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchDeleteTableResponse_errors :: Lens.Lens' BatchDeleteTableResponse (Core.Maybe [TableError])
+batchDeleteTableResponse_errors = Lens.lens (\BatchDeleteTableResponse' {errors} -> errors) (\s@BatchDeleteTableResponse' {} a -> s {errors = a} :: BatchDeleteTableResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchDeleteTableResponse_httpStatus :: Lens.Lens' BatchDeleteTableResponse Prelude.Int
+batchDeleteTableResponse_httpStatus :: Lens.Lens' BatchDeleteTableResponse Core.Int
 batchDeleteTableResponse_httpStatus = Lens.lens (\BatchDeleteTableResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteTableResponse' {} a -> s {httpStatus = a} :: BatchDeleteTableResponse)
 
-instance Prelude.NFData BatchDeleteTableResponse
+instance Core.NFData BatchDeleteTableResponse

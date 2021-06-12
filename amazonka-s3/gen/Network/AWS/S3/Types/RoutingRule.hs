@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.RoutingRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Condition
 import Network.AWS.S3.Types.Redirect
@@ -38,13 +37,13 @@ data RoutingRule = RoutingRule'
     -- the @\/docs@ folder, redirect to the @\/documents@ folder. 2. If request
     -- results in HTTP error 4xx, redirect request to another host where you
     -- might process the error.
-    condition :: Prelude.Maybe Condition,
+    condition :: Core.Maybe Condition,
     -- | Container for redirect information. You can redirect requests to another
     -- host, to another page, or with another protocol. In the event of an
     -- error, you can specify a different error code to return.
     redirect :: Redirect
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RoutingRule' with all optional fields omitted.
@@ -69,7 +68,7 @@ newRoutingRule ::
   RoutingRule
 newRoutingRule pRedirect_ =
   RoutingRule'
-    { condition = Prelude.Nothing,
+    { condition = Core.Nothing,
       redirect = pRedirect_
     }
 
@@ -78,7 +77,7 @@ newRoutingRule pRedirect_ =
 -- the @\/docs@ folder, redirect to the @\/documents@ folder. 2. If request
 -- results in HTTP error 4xx, redirect request to another host where you
 -- might process the error.
-routingRule_condition :: Lens.Lens' RoutingRule (Prelude.Maybe Condition)
+routingRule_condition :: Lens.Lens' RoutingRule (Core.Maybe Condition)
 routingRule_condition = Lens.lens (\RoutingRule' {condition} -> condition) (\s@RoutingRule' {} a -> s {condition = a} :: RoutingRule)
 
 -- | Container for redirect information. You can redirect requests to another
@@ -87,19 +86,19 @@ routingRule_condition = Lens.lens (\RoutingRule' {condition} -> condition) (\s@R
 routingRule_redirect :: Lens.Lens' RoutingRule Redirect
 routingRule_redirect = Lens.lens (\RoutingRule' {redirect} -> redirect) (\s@RoutingRule' {} a -> s {redirect = a} :: RoutingRule)
 
-instance Prelude.FromXML RoutingRule where
+instance Core.FromXML RoutingRule where
   parseXML x =
     RoutingRule'
-      Prelude.<$> (x Prelude..@? "Condition")
-      Prelude.<*> (x Prelude..@ "Redirect")
+      Core.<$> (x Core..@? "Condition")
+      Core.<*> (x Core..@ "Redirect")
 
-instance Prelude.Hashable RoutingRule
+instance Core.Hashable RoutingRule
 
-instance Prelude.NFData RoutingRule
+instance Core.NFData RoutingRule
 
-instance Prelude.ToXML RoutingRule where
+instance Core.ToXML RoutingRule where
   toXML RoutingRule' {..} =
-    Prelude.mconcat
-      [ "Condition" Prelude.@= condition,
-        "Redirect" Prelude.@= redirect
+    Core.mconcat
+      [ "Condition" Core.@= condition,
+        "Redirect" Core.@= redirect
       ]

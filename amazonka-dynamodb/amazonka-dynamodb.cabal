@@ -227,10 +227,10 @@ library
     Network.AWS.DynamoDB.UpdateTimeToLive
     Network.AWS.DynamoDB.Waiters
 
-  reexported-modules: Network.AWS.Prelude
+  reexported-modules: Network.AWS
   build-depends:
-    , amazonka-core  >=1.6.1 && <1.6.2
-    , base           >=4.13  && <5
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-dynamodb-test
   type:             exitcode-stdio-1.0
@@ -248,7 +248,7 @@ test-suite amazonka-dynamodb-test
     Test.AWS.Gen.DynamoDB
 
   build-depends:
-    , amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka              >=1.6.1 && <1.6.2
     , amazonka-dynamodb
     , amazonka-test         >=1.6.1 && <1.6.2
     , base

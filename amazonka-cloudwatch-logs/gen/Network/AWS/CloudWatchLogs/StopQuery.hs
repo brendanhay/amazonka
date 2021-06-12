@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudWatchLogs.StopQuery
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data StopQuery = StopQuery'
   { -- | The ID number of the query to stop. To find this ID number, use
     -- @DescribeQueries@.
-    queryId :: Prelude.Text
+    queryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopQuery' with all optional fields omitted.
@@ -68,65 +67,63 @@ data StopQuery = StopQuery'
 -- @DescribeQueries@.
 newStopQuery ::
   -- | 'queryId'
-  Prelude.Text ->
+  Core.Text ->
   StopQuery
 newStopQuery pQueryId_ =
   StopQuery' {queryId = pQueryId_}
 
 -- | The ID number of the query to stop. To find this ID number, use
 -- @DescribeQueries@.
-stopQuery_queryId :: Lens.Lens' StopQuery Prelude.Text
+stopQuery_queryId :: Lens.Lens' StopQuery Core.Text
 stopQuery_queryId = Lens.lens (\StopQuery' {queryId} -> queryId) (\s@StopQuery' {} a -> s {queryId = a} :: StopQuery)
 
-instance Prelude.AWSRequest StopQuery where
-  type Rs StopQuery = StopQueryResponse
+instance Core.AWSRequest StopQuery where
+  type AWSResponse StopQuery = StopQueryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopQueryResponse'
-            Prelude.<$> (x Prelude..?> "success")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "success")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopQuery
+instance Core.Hashable StopQuery
 
-instance Prelude.NFData StopQuery
+instance Core.NFData StopQuery
 
-instance Prelude.ToHeaders StopQuery where
+instance Core.ToHeaders StopQuery where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("Logs_20140328.StopQuery" :: Prelude.ByteString),
+              Core.=# ("Logs_20140328.StopQuery" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopQuery where
+instance Core.ToJSON StopQuery where
   toJSON StopQuery' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("queryId" Prelude..= queryId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("queryId" Core..= queryId)]
       )
 
-instance Prelude.ToPath StopQuery where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopQuery where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopQuery where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopQuery where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopQueryResponse' smart constructor.
 data StopQueryResponse = StopQueryResponse'
   { -- | This is true if the query was stopped by the @StopQuery@ operation.
-    success :: Prelude.Maybe Prelude.Bool,
+    success :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopQueryResponse' with all optional fields omitted.
@@ -141,20 +138,20 @@ data StopQueryResponse = StopQueryResponse'
 -- 'httpStatus', 'stopQueryResponse_httpStatus' - The response's http status code.
 newStopQueryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopQueryResponse
 newStopQueryResponse pHttpStatus_ =
   StopQueryResponse'
-    { success = Prelude.Nothing,
+    { success = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | This is true if the query was stopped by the @StopQuery@ operation.
-stopQueryResponse_success :: Lens.Lens' StopQueryResponse (Prelude.Maybe Prelude.Bool)
+stopQueryResponse_success :: Lens.Lens' StopQueryResponse (Core.Maybe Core.Bool)
 stopQueryResponse_success = Lens.lens (\StopQueryResponse' {success} -> success) (\s@StopQueryResponse' {} a -> s {success = a} :: StopQueryResponse)
 
 -- | The response's http status code.
-stopQueryResponse_httpStatus :: Lens.Lens' StopQueryResponse Prelude.Int
+stopQueryResponse_httpStatus :: Lens.Lens' StopQueryResponse Core.Int
 stopQueryResponse_httpStatus = Lens.lens (\StopQueryResponse' {httpStatus} -> httpStatus) (\s@StopQueryResponse' {} a -> s {httpStatus = a} :: StopQueryResponse)
 
-instance Prelude.NFData StopQueryResponse
+instance Core.NFData StopQueryResponse

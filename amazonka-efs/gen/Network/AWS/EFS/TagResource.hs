@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,19 +40,19 @@ module Network.AWS.EFS.TagResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The ID specifying the EFS resource that you want to create a tag for.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -68,56 +67,52 @@ data TagResource = TagResource'
 -- 'tags', 'tagResource_tags' -
 newTagResource ::
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   TagResource
 newTagResource pResourceId_ =
   TagResource'
     { resourceId = pResourceId_,
-      tags = Prelude.mempty
+      tags = Core.mempty
     }
 
 -- | The ID specifying the EFS resource that you want to create a tag for.
-tagResource_resourceId :: Lens.Lens' TagResource Prelude.Text
+tagResource_resourceId :: Lens.Lens' TagResource Core.Text
 tagResource_resourceId = Lens.lens (\TagResource' {resourceId} -> resourceId) (\s@TagResource' {} a -> s {resourceId = a} :: TagResource)
 
 -- |
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Prelude._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagResource where
-  type Rs TagResource = TagResourceResponse
+instance Core.AWSRequest TagResource where
+  type AWSResponse TagResource = TagResourceResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull TagResourceResponse'
 
-instance Prelude.Hashable TagResource
+instance Core.Hashable TagResource
 
-instance Prelude.NFData TagResource
+instance Core.NFData TagResource
 
-instance Prelude.ToHeaders TagResource where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders TagResource where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON TagResource where
+instance Core.ToJSON TagResource where
   toJSON TagResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Tags" Prelude..= tags)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Tags" Core..= tags)])
 
-instance Prelude.ToPath TagResource where
+instance Core.ToPath TagResource where
   toPath TagResource' {..} =
-    Prelude.mconcat
-      [ "/2015-02-01/resource-tags/",
-        Prelude.toBS resourceId
-      ]
+    Core.mconcat
+      ["/2015-02-01/resource-tags/", Core.toBS resourceId]
 
-instance Prelude.ToQuery TagResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TagResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResourceResponse' with all optional fields omitted.
@@ -127,4 +122,4 @@ newTagResourceResponse ::
   TagResourceResponse
 newTagResourceResponse = TagResourceResponse'
 
-instance Prelude.NFData TagResourceResponse
+instance Core.NFData TagResourceResponse

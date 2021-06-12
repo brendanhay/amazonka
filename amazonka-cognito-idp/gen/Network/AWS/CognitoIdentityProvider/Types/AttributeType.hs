@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentityProvider.Types.AttributeType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies whether the attribute is standard or custom.
 --
 -- /See:/ 'newAttributeType' smart constructor.
 data AttributeType = AttributeType'
   { -- | The value of the attribute.
-    value :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    value :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The name of the attribute.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributeType' with all optional fields omitted.
@@ -47,41 +46,37 @@ data AttributeType = AttributeType'
 -- 'name', 'attributeType_name' - The name of the attribute.
 newAttributeType ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   AttributeType
 newAttributeType pName_ =
-  AttributeType'
-    { value = Prelude.Nothing,
-      name = pName_
-    }
+  AttributeType' {value = Core.Nothing, name = pName_}
 
 -- | The value of the attribute.
-attributeType_value :: Lens.Lens' AttributeType (Prelude.Maybe Prelude.Text)
-attributeType_value = Lens.lens (\AttributeType' {value} -> value) (\s@AttributeType' {} a -> s {value = a} :: AttributeType) Prelude.. Lens.mapping Prelude._Sensitive
+attributeType_value :: Lens.Lens' AttributeType (Core.Maybe Core.Text)
+attributeType_value = Lens.lens (\AttributeType' {value} -> value) (\s@AttributeType' {} a -> s {value = a} :: AttributeType) Core.. Lens.mapping Core._Sensitive
 
 -- | The name of the attribute.
-attributeType_name :: Lens.Lens' AttributeType Prelude.Text
+attributeType_name :: Lens.Lens' AttributeType Core.Text
 attributeType_name = Lens.lens (\AttributeType' {name} -> name) (\s@AttributeType' {} a -> s {name = a} :: AttributeType)
 
-instance Prelude.FromJSON AttributeType where
+instance Core.FromJSON AttributeType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttributeType"
       ( \x ->
           AttributeType'
-            Prelude.<$> (x Prelude..:? "Value")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..:? "Value") Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable AttributeType
+instance Core.Hashable AttributeType
 
-instance Prelude.NFData AttributeType
+instance Core.NFData AttributeType
 
-instance Prelude.ToJSON AttributeType where
+instance Core.ToJSON AttributeType where
   toJSON AttributeType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Value" Prelude..=) Prelude.<$> value,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("Value" Core..=) Core.<$> value,
+            Core.Just ("Name" Core..= name)
           ]
       )

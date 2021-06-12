@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,24 +51,23 @@ module Network.AWS.ELBv2.DescribeSSLPolicies
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeSSLPolicies' smart constructor.
 data DescribeSSLPolicies = DescribeSSLPolicies'
   { -- | The names of the policies.
-    names :: Prelude.Maybe [Prelude.Text],
+    names :: Core.Maybe [Core.Text],
     -- | The maximum number of results to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    pageSize :: Core.Maybe Core.Natural,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSSLPolicies' with all optional fields omitted.
@@ -89,49 +87,49 @@ newDescribeSSLPolicies ::
   DescribeSSLPolicies
 newDescribeSSLPolicies =
   DescribeSSLPolicies'
-    { names = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { names = Core.Nothing,
+      pageSize = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The names of the policies.
-describeSSLPolicies_names :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe [Prelude.Text])
-describeSSLPolicies_names = Lens.lens (\DescribeSSLPolicies' {names} -> names) (\s@DescribeSSLPolicies' {} a -> s {names = a} :: DescribeSSLPolicies) Prelude.. Lens.mapping Prelude._Coerce
+describeSSLPolicies_names :: Lens.Lens' DescribeSSLPolicies (Core.Maybe [Core.Text])
+describeSSLPolicies_names = Lens.lens (\DescribeSSLPolicies' {names} -> names) (\s@DescribeSSLPolicies' {} a -> s {names = a} :: DescribeSSLPolicies) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to return with this call.
-describeSSLPolicies_pageSize :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe Prelude.Natural)
+describeSSLPolicies_pageSize :: Lens.Lens' DescribeSSLPolicies (Core.Maybe Core.Natural)
 describeSSLPolicies_pageSize = Lens.lens (\DescribeSSLPolicies' {pageSize} -> pageSize) (\s@DescribeSSLPolicies' {} a -> s {pageSize = a} :: DescribeSSLPolicies)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
-describeSSLPolicies_marker :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe Prelude.Text)
+describeSSLPolicies_marker :: Lens.Lens' DescribeSSLPolicies (Core.Maybe Core.Text)
 describeSSLPolicies_marker = Lens.lens (\DescribeSSLPolicies' {marker} -> marker) (\s@DescribeSSLPolicies' {} a -> s {marker = a} :: DescribeSSLPolicies)
 
-instance Pager.AWSPager DescribeSSLPolicies where
+instance Core.AWSPager DescribeSSLPolicies where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeSSLPoliciesResponse_nextMarker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeSSLPoliciesResponse_sslPolicies
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeSSLPolicies_marker
           Lens..~ rs
           Lens.^? describeSSLPoliciesResponse_nextMarker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeSSLPolicies where
+instance Core.AWSRequest DescribeSSLPolicies where
   type
-    Rs DescribeSSLPolicies =
+    AWSResponse DescribeSSLPolicies =
       DescribeSSLPoliciesResponse
   request = Request.postQuery defaultService
   response =
@@ -139,49 +137,47 @@ instance Prelude.AWSRequest DescribeSSLPolicies where
       "DescribeSSLPoliciesResult"
       ( \s h x ->
           DescribeSSLPoliciesResponse'
-            Prelude.<$> (x Prelude..@? "NextMarker")
-            Prelude.<*> ( x Prelude..@? "SslPolicies"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextMarker")
+            Core.<*> ( x Core..@? "SslPolicies" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSSLPolicies
+instance Core.Hashable DescribeSSLPolicies
 
-instance Prelude.NFData DescribeSSLPolicies
+instance Core.NFData DescribeSSLPolicies
 
-instance Prelude.ToHeaders DescribeSSLPolicies where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeSSLPolicies where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeSSLPolicies where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSSLPolicies where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeSSLPolicies where
+instance Core.ToQuery DescribeSSLPolicies where
   toQuery DescribeSSLPolicies' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeSSLPolicies" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
+          Core.=: ("DescribeSSLPolicies" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
         "Names"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> names),
-        "PageSize" Prelude.=: pageSize,
-        "Marker" Prelude.=: marker
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> names),
+        "PageSize" Core.=: pageSize,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeSSLPoliciesResponse' smart constructor.
 data DescribeSSLPoliciesResponse = DescribeSSLPoliciesResponse'
   { -- | If there are additional results, this is the marker for the next set of
     -- results. Otherwise, this is null.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Information about the security policies.
-    sslPolicies :: Prelude.Maybe [SslPolicy],
+    sslPolicies :: Core.Maybe [SslPolicy],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSSLPoliciesResponse' with all optional fields omitted.
@@ -199,27 +195,27 @@ data DescribeSSLPoliciesResponse = DescribeSSLPoliciesResponse'
 -- 'httpStatus', 'describeSSLPoliciesResponse_httpStatus' - The response's http status code.
 newDescribeSSLPoliciesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSSLPoliciesResponse
 newDescribeSSLPoliciesResponse pHttpStatus_ =
   DescribeSSLPoliciesResponse'
     { nextMarker =
-        Prelude.Nothing,
-      sslPolicies = Prelude.Nothing,
+        Core.Nothing,
+      sslPolicies = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
-describeSSLPoliciesResponse_nextMarker :: Lens.Lens' DescribeSSLPoliciesResponse (Prelude.Maybe Prelude.Text)
+describeSSLPoliciesResponse_nextMarker :: Lens.Lens' DescribeSSLPoliciesResponse (Core.Maybe Core.Text)
 describeSSLPoliciesResponse_nextMarker = Lens.lens (\DescribeSSLPoliciesResponse' {nextMarker} -> nextMarker) (\s@DescribeSSLPoliciesResponse' {} a -> s {nextMarker = a} :: DescribeSSLPoliciesResponse)
 
 -- | Information about the security policies.
-describeSSLPoliciesResponse_sslPolicies :: Lens.Lens' DescribeSSLPoliciesResponse (Prelude.Maybe [SslPolicy])
-describeSSLPoliciesResponse_sslPolicies = Lens.lens (\DescribeSSLPoliciesResponse' {sslPolicies} -> sslPolicies) (\s@DescribeSSLPoliciesResponse' {} a -> s {sslPolicies = a} :: DescribeSSLPoliciesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeSSLPoliciesResponse_sslPolicies :: Lens.Lens' DescribeSSLPoliciesResponse (Core.Maybe [SslPolicy])
+describeSSLPoliciesResponse_sslPolicies = Lens.lens (\DescribeSSLPoliciesResponse' {sslPolicies} -> sslPolicies) (\s@DescribeSSLPoliciesResponse' {} a -> s {sslPolicies = a} :: DescribeSSLPoliciesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSSLPoliciesResponse_httpStatus :: Lens.Lens' DescribeSSLPoliciesResponse Prelude.Int
+describeSSLPoliciesResponse_httpStatus :: Lens.Lens' DescribeSSLPoliciesResponse Core.Int
 describeSSLPoliciesResponse_httpStatus = Lens.lens (\DescribeSSLPoliciesResponse' {httpStatus} -> httpStatus) (\s@DescribeSSLPoliciesResponse' {} a -> s {httpStatus = a} :: DescribeSSLPoliciesResponse)
 
-instance Prelude.NFData DescribeSSLPoliciesResponse
+instance Core.NFData DescribeSSLPoliciesResponse

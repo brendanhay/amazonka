@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.MaxCountRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A lifecycle rule that deletes the oldest application version when the
 -- maximum count is exceeded.
@@ -29,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMaxCountRule' smart constructor.
 data MaxCountRule = MaxCountRule'
   { -- | Specify the maximum number of application versions to retain.
-    maxCount :: Prelude.Maybe Prelude.Int,
+    maxCount :: Core.Maybe Core.Int,
     -- | Set to @true@ to delete a version\'s source bundle from Amazon S3 when
     -- Elastic Beanstalk deletes the application version.
-    deleteSourceFromS3 :: Prelude.Maybe Prelude.Bool,
+    deleteSourceFromS3 :: Core.Maybe Core.Bool,
     -- | Specify @true@ to apply the rule, or @false@ to disable it.
-    enabled :: Prelude.Bool
+    enabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MaxCountRule' with all optional fields omitted.
@@ -54,43 +53,43 @@ data MaxCountRule = MaxCountRule'
 -- 'enabled', 'maxCountRule_enabled' - Specify @true@ to apply the rule, or @false@ to disable it.
 newMaxCountRule ::
   -- | 'enabled'
-  Prelude.Bool ->
+  Core.Bool ->
   MaxCountRule
 newMaxCountRule pEnabled_ =
   MaxCountRule'
-    { maxCount = Prelude.Nothing,
-      deleteSourceFromS3 = Prelude.Nothing,
+    { maxCount = Core.Nothing,
+      deleteSourceFromS3 = Core.Nothing,
       enabled = pEnabled_
     }
 
 -- | Specify the maximum number of application versions to retain.
-maxCountRule_maxCount :: Lens.Lens' MaxCountRule (Prelude.Maybe Prelude.Int)
+maxCountRule_maxCount :: Lens.Lens' MaxCountRule (Core.Maybe Core.Int)
 maxCountRule_maxCount = Lens.lens (\MaxCountRule' {maxCount} -> maxCount) (\s@MaxCountRule' {} a -> s {maxCount = a} :: MaxCountRule)
 
 -- | Set to @true@ to delete a version\'s source bundle from Amazon S3 when
 -- Elastic Beanstalk deletes the application version.
-maxCountRule_deleteSourceFromS3 :: Lens.Lens' MaxCountRule (Prelude.Maybe Prelude.Bool)
+maxCountRule_deleteSourceFromS3 :: Lens.Lens' MaxCountRule (Core.Maybe Core.Bool)
 maxCountRule_deleteSourceFromS3 = Lens.lens (\MaxCountRule' {deleteSourceFromS3} -> deleteSourceFromS3) (\s@MaxCountRule' {} a -> s {deleteSourceFromS3 = a} :: MaxCountRule)
 
 -- | Specify @true@ to apply the rule, or @false@ to disable it.
-maxCountRule_enabled :: Lens.Lens' MaxCountRule Prelude.Bool
+maxCountRule_enabled :: Lens.Lens' MaxCountRule Core.Bool
 maxCountRule_enabled = Lens.lens (\MaxCountRule' {enabled} -> enabled) (\s@MaxCountRule' {} a -> s {enabled = a} :: MaxCountRule)
 
-instance Prelude.FromXML MaxCountRule where
+instance Core.FromXML MaxCountRule where
   parseXML x =
     MaxCountRule'
-      Prelude.<$> (x Prelude..@? "MaxCount")
-      Prelude.<*> (x Prelude..@? "DeleteSourceFromS3")
-      Prelude.<*> (x Prelude..@ "Enabled")
+      Core.<$> (x Core..@? "MaxCount")
+      Core.<*> (x Core..@? "DeleteSourceFromS3")
+      Core.<*> (x Core..@ "Enabled")
 
-instance Prelude.Hashable MaxCountRule
+instance Core.Hashable MaxCountRule
 
-instance Prelude.NFData MaxCountRule
+instance Core.NFData MaxCountRule
 
-instance Prelude.ToQuery MaxCountRule where
+instance Core.ToQuery MaxCountRule where
   toQuery MaxCountRule' {..} =
-    Prelude.mconcat
-      [ "MaxCount" Prelude.=: maxCount,
-        "DeleteSourceFromS3" Prelude.=: deleteSourceFromS3,
-        "Enabled" Prelude.=: enabled
+    Core.mconcat
+      [ "MaxCount" Core.=: maxCount,
+        "DeleteSourceFromS3" Core.=: deleteSourceFromS3,
+        "Enabled" Core.=: enabled
       ]

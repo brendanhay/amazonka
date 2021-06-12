@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.ResourceGroups.UngroupResources
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -59,11 +58,11 @@ import qualified Network.AWS.Response as Response
 data UngroupResources = UngroupResources'
   { -- | The name or the ARN of the resource group from which to remove the
     -- resources.
-    group' :: Prelude.Text,
+    group' :: Core.Text,
     -- | The ARNs of the resources to be removed from the group.
-    resourceArns :: Prelude.NonEmpty Prelude.Text
+    resourceArns :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UngroupResources' with all optional fields omitted.
@@ -79,79 +78,80 @@ data UngroupResources = UngroupResources'
 -- 'resourceArns', 'ungroupResources_resourceArns' - The ARNs of the resources to be removed from the group.
 newUngroupResources ::
   -- | 'group''
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceArns'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   UngroupResources
 newUngroupResources pGroup_ pResourceArns_ =
   UngroupResources'
     { group' = pGroup_,
-      resourceArns = Prelude._Coerce Lens.# pResourceArns_
+      resourceArns = Lens._Coerce Lens.# pResourceArns_
     }
 
 -- | The name or the ARN of the resource group from which to remove the
 -- resources.
-ungroupResources_group :: Lens.Lens' UngroupResources Prelude.Text
+ungroupResources_group :: Lens.Lens' UngroupResources Core.Text
 ungroupResources_group = Lens.lens (\UngroupResources' {group'} -> group') (\s@UngroupResources' {} a -> s {group' = a} :: UngroupResources)
 
 -- | The ARNs of the resources to be removed from the group.
-ungroupResources_resourceArns :: Lens.Lens' UngroupResources (Prelude.NonEmpty Prelude.Text)
-ungroupResources_resourceArns = Lens.lens (\UngroupResources' {resourceArns} -> resourceArns) (\s@UngroupResources' {} a -> s {resourceArns = a} :: UngroupResources) Prelude.. Prelude._Coerce
+ungroupResources_resourceArns :: Lens.Lens' UngroupResources (Core.NonEmpty Core.Text)
+ungroupResources_resourceArns = Lens.lens (\UngroupResources' {resourceArns} -> resourceArns) (\s@UngroupResources' {} a -> s {resourceArns = a} :: UngroupResources) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UngroupResources where
-  type Rs UngroupResources = UngroupResourcesResponse
+instance Core.AWSRequest UngroupResources where
+  type
+    AWSResponse UngroupResources =
+      UngroupResourcesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UngroupResourcesResponse'
-            Prelude.<$> (x Prelude..?> "Succeeded")
-            Prelude.<*> (x Prelude..?> "Pending" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "Failed" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Succeeded")
+            Core.<*> (x Core..?> "Pending" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Failed" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UngroupResources
+instance Core.Hashable UngroupResources
 
-instance Prelude.NFData UngroupResources
+instance Core.NFData UngroupResources
 
-instance Prelude.ToHeaders UngroupResources where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UngroupResources where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UngroupResources where
+instance Core.ToJSON UngroupResources where
   toJSON UngroupResources' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Group" Prelude..= group'),
-            Prelude.Just
-              ("ResourceArns" Prelude..= resourceArns)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Group" Core..= group'),
+            Core.Just ("ResourceArns" Core..= resourceArns)
           ]
       )
 
-instance Prelude.ToPath UngroupResources where
-  toPath = Prelude.const "/ungroup-resources"
+instance Core.ToPath UngroupResources where
+  toPath = Core.const "/ungroup-resources"
 
-instance Prelude.ToQuery UngroupResources where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UngroupResources where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUngroupResourcesResponse' smart constructor.
 data UngroupResourcesResponse = UngroupResourcesResponse'
   { -- | A list of resources that were successfully removed from the group by
     -- this operation.
-    succeeded :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    succeeded :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | A list of any resources that are still in the process of being removed
     -- from the group by this operation. These pending removals continue
     -- asynchronously. You can check the status of pending removals by using
     -- the @ ListGroupResources @ operation. After the resource is successfully
     -- removed, it no longer appears in the response.
-    pending :: Prelude.Maybe [PendingResource],
+    pending :: Core.Maybe [PendingResource],
     -- | A list of any resources that failed to be removed from the group by this
     -- operation.
-    failed :: Prelude.Maybe [FailedResource],
+    failed :: Core.Maybe [FailedResource],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UngroupResourcesResponse' with all optional fields omitted.
@@ -176,37 +176,36 @@ data UngroupResourcesResponse = UngroupResourcesResponse'
 -- 'httpStatus', 'ungroupResourcesResponse_httpStatus' - The response's http status code.
 newUngroupResourcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UngroupResourcesResponse
 newUngroupResourcesResponse pHttpStatus_ =
   UngroupResourcesResponse'
-    { succeeded =
-        Prelude.Nothing,
-      pending = Prelude.Nothing,
-      failed = Prelude.Nothing,
+    { succeeded = Core.Nothing,
+      pending = Core.Nothing,
+      failed = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of resources that were successfully removed from the group by
 -- this operation.
-ungroupResourcesResponse_succeeded :: Lens.Lens' UngroupResourcesResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-ungroupResourcesResponse_succeeded = Lens.lens (\UngroupResourcesResponse' {succeeded} -> succeeded) (\s@UngroupResourcesResponse' {} a -> s {succeeded = a} :: UngroupResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+ungroupResourcesResponse_succeeded :: Lens.Lens' UngroupResourcesResponse (Core.Maybe (Core.NonEmpty Core.Text))
+ungroupResourcesResponse_succeeded = Lens.lens (\UngroupResourcesResponse' {succeeded} -> succeeded) (\s@UngroupResourcesResponse' {} a -> s {succeeded = a} :: UngroupResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of any resources that are still in the process of being removed
 -- from the group by this operation. These pending removals continue
 -- asynchronously. You can check the status of pending removals by using
 -- the @ ListGroupResources @ operation. After the resource is successfully
 -- removed, it no longer appears in the response.
-ungroupResourcesResponse_pending :: Lens.Lens' UngroupResourcesResponse (Prelude.Maybe [PendingResource])
-ungroupResourcesResponse_pending = Lens.lens (\UngroupResourcesResponse' {pending} -> pending) (\s@UngroupResourcesResponse' {} a -> s {pending = a} :: UngroupResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+ungroupResourcesResponse_pending :: Lens.Lens' UngroupResourcesResponse (Core.Maybe [PendingResource])
+ungroupResourcesResponse_pending = Lens.lens (\UngroupResourcesResponse' {pending} -> pending) (\s@UngroupResourcesResponse' {} a -> s {pending = a} :: UngroupResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of any resources that failed to be removed from the group by this
 -- operation.
-ungroupResourcesResponse_failed :: Lens.Lens' UngroupResourcesResponse (Prelude.Maybe [FailedResource])
-ungroupResourcesResponse_failed = Lens.lens (\UngroupResourcesResponse' {failed} -> failed) (\s@UngroupResourcesResponse' {} a -> s {failed = a} :: UngroupResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+ungroupResourcesResponse_failed :: Lens.Lens' UngroupResourcesResponse (Core.Maybe [FailedResource])
+ungroupResourcesResponse_failed = Lens.lens (\UngroupResourcesResponse' {failed} -> failed) (\s@UngroupResourcesResponse' {} a -> s {failed = a} :: UngroupResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-ungroupResourcesResponse_httpStatus :: Lens.Lens' UngroupResourcesResponse Prelude.Int
+ungroupResourcesResponse_httpStatus :: Lens.Lens' UngroupResourcesResponse Core.Int
 ungroupResourcesResponse_httpStatus = Lens.lens (\UngroupResourcesResponse' {httpStatus} -> httpStatus) (\s@UngroupResourcesResponse' {} a -> s {httpStatus = a} :: UngroupResourcesResponse)
 
-instance Prelude.NFData UngroupResourcesResponse
+instance Core.NFData UngroupResourcesResponse

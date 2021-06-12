@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ExportSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ExportStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information about an export task.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ExportSummary = ExportSummary'
   { -- | Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
     -- FAILED.
-    exportStatus :: Prelude.Maybe ExportStatus,
+    exportStatus :: Core.Maybe ExportStatus,
     -- | The Amazon Resource Name (ARN) of the export.
-    exportArn :: Prelude.Maybe Prelude.Text
+    exportArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportSummary' with all optional fields omitted.
@@ -52,29 +51,29 @@ newExportSummary ::
   ExportSummary
 newExportSummary =
   ExportSummary'
-    { exportStatus = Prelude.Nothing,
-      exportArn = Prelude.Nothing
+    { exportStatus = Core.Nothing,
+      exportArn = Core.Nothing
     }
 
 -- | Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
 -- FAILED.
-exportSummary_exportStatus :: Lens.Lens' ExportSummary (Prelude.Maybe ExportStatus)
+exportSummary_exportStatus :: Lens.Lens' ExportSummary (Core.Maybe ExportStatus)
 exportSummary_exportStatus = Lens.lens (\ExportSummary' {exportStatus} -> exportStatus) (\s@ExportSummary' {} a -> s {exportStatus = a} :: ExportSummary)
 
 -- | The Amazon Resource Name (ARN) of the export.
-exportSummary_exportArn :: Lens.Lens' ExportSummary (Prelude.Maybe Prelude.Text)
+exportSummary_exportArn :: Lens.Lens' ExportSummary (Core.Maybe Core.Text)
 exportSummary_exportArn = Lens.lens (\ExportSummary' {exportArn} -> exportArn) (\s@ExportSummary' {} a -> s {exportArn = a} :: ExportSummary)
 
-instance Prelude.FromJSON ExportSummary where
+instance Core.FromJSON ExportSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExportSummary"
       ( \x ->
           ExportSummary'
-            Prelude.<$> (x Prelude..:? "ExportStatus")
-            Prelude.<*> (x Prelude..:? "ExportArn")
+            Core.<$> (x Core..:? "ExportStatus")
+            Core.<*> (x Core..:? "ExportArn")
       )
 
-instance Prelude.Hashable ExportSummary
+instance Core.Hashable ExportSummary
 
-instance Prelude.NFData ExportSummary
+instance Core.NFData ExportSummary

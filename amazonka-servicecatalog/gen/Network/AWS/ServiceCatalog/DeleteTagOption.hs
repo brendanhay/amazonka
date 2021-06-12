@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.ServiceCatalog.DeleteTagOption
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -51,9 +50,9 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newDeleteTagOption' smart constructor.
 data DeleteTagOption = DeleteTagOption'
   { -- | The TagOption identifier.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTagOption' with all optional fields omitted.
@@ -66,62 +65,60 @@ data DeleteTagOption = DeleteTagOption'
 -- 'id', 'deleteTagOption_id' - The TagOption identifier.
 newDeleteTagOption ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTagOption
 newDeleteTagOption pId_ = DeleteTagOption' {id = pId_}
 
 -- | The TagOption identifier.
-deleteTagOption_id :: Lens.Lens' DeleteTagOption Prelude.Text
+deleteTagOption_id :: Lens.Lens' DeleteTagOption Core.Text
 deleteTagOption_id = Lens.lens (\DeleteTagOption' {id} -> id) (\s@DeleteTagOption' {} a -> s {id = a} :: DeleteTagOption)
 
-instance Prelude.AWSRequest DeleteTagOption where
-  type Rs DeleteTagOption = DeleteTagOptionResponse
+instance Core.AWSRequest DeleteTagOption where
+  type
+    AWSResponse DeleteTagOption =
+      DeleteTagOptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTagOptionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTagOption
+instance Core.Hashable DeleteTagOption
 
-instance Prelude.NFData DeleteTagOption
+instance Core.NFData DeleteTagOption
 
-instance Prelude.ToHeaders DeleteTagOption where
+instance Core.ToHeaders DeleteTagOption where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DeleteTagOption" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DeleteTagOption" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteTagOption where
+instance Core.ToJSON DeleteTagOption where
   toJSON DeleteTagOption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Id" Prelude..= id)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Id" Core..= id)])
 
-instance Prelude.ToPath DeleteTagOption where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTagOption where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTagOption where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteTagOption where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteTagOptionResponse' smart constructor.
 data DeleteTagOptionResponse = DeleteTagOptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTagOptionResponse' with all optional fields omitted.
@@ -134,13 +131,13 @@ data DeleteTagOptionResponse = DeleteTagOptionResponse'
 -- 'httpStatus', 'deleteTagOptionResponse_httpStatus' - The response's http status code.
 newDeleteTagOptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTagOptionResponse
 newDeleteTagOptionResponse pHttpStatus_ =
   DeleteTagOptionResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteTagOptionResponse_httpStatus :: Lens.Lens' DeleteTagOptionResponse Prelude.Int
+deleteTagOptionResponse_httpStatus :: Lens.Lens' DeleteTagOptionResponse Core.Int
 deleteTagOptionResponse_httpStatus = Lens.lens (\DeleteTagOptionResponse' {httpStatus} -> httpStatus) (\s@DeleteTagOptionResponse' {} a -> s {httpStatus = a} :: DeleteTagOptionResponse)
 
-instance Prelude.NFData DeleteTagOptionResponse
+instance Core.NFData DeleteTagOptionResponse

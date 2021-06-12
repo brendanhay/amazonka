@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.EC2.ModifyHosts
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,7 +70,7 @@ data ModifyHosts = ModifyHosts'
     -- type only, omit this parameter and specify __InstanceType__ instead. You
     -- cannot specify __InstanceFamily__ and __InstanceType__ in the same
     -- request.
-    instanceFamily :: Prelude.Maybe Prelude.Text,
+    instanceFamily :: Core.Maybe Core.Text,
     -- | Specifies the instance type to be supported by the Dedicated Host.
     -- Specify this parameter to modify a Dedicated Host to support only a
     -- specific instance type.
@@ -80,18 +79,18 @@ data ModifyHosts = ModifyHosts'
     -- types in its current instance family, omit this parameter and specify
     -- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
     -- __InstanceFamily__ in the same request.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    instanceType :: Core.Maybe Core.Text,
     -- | Specify whether to enable or disable auto-placement.
-    autoPlacement :: Prelude.Maybe AutoPlacement,
+    autoPlacement :: Core.Maybe AutoPlacement,
     -- | Indicates whether to enable or disable host recovery for the Dedicated
     -- Host. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
     -- in the /Amazon EC2 User Guide/.
-    hostRecovery :: Prelude.Maybe HostRecovery,
+    hostRecovery :: Core.Maybe HostRecovery,
     -- | The IDs of the Dedicated Hosts to modify.
-    hostIds :: [Prelude.Text]
+    hostIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyHosts' with all optional fields omitted.
@@ -131,11 +130,11 @@ newModifyHosts ::
   ModifyHosts
 newModifyHosts =
   ModifyHosts'
-    { instanceFamily = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      autoPlacement = Prelude.Nothing,
-      hostRecovery = Prelude.Nothing,
-      hostIds = Prelude.mempty
+    { instanceFamily = Core.Nothing,
+      instanceType = Core.Nothing,
+      autoPlacement = Core.Nothing,
+      hostRecovery = Core.Nothing,
+      hostIds = Core.mempty
     }
 
 -- | Specifies the instance family to be supported by the Dedicated Host.
@@ -146,7 +145,7 @@ newModifyHosts =
 -- type only, omit this parameter and specify __InstanceType__ instead. You
 -- cannot specify __InstanceFamily__ and __InstanceType__ in the same
 -- request.
-modifyHosts_instanceFamily :: Lens.Lens' ModifyHosts (Prelude.Maybe Prelude.Text)
+modifyHosts_instanceFamily :: Lens.Lens' ModifyHosts (Core.Maybe Core.Text)
 modifyHosts_instanceFamily = Lens.lens (\ModifyHosts' {instanceFamily} -> instanceFamily) (\s@ModifyHosts' {} a -> s {instanceFamily = a} :: ModifyHosts)
 
 -- | Specifies the instance type to be supported by the Dedicated Host.
@@ -157,77 +156,73 @@ modifyHosts_instanceFamily = Lens.lens (\ModifyHosts' {instanceFamily} -> instan
 -- types in its current instance family, omit this parameter and specify
 -- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
 -- __InstanceFamily__ in the same request.
-modifyHosts_instanceType :: Lens.Lens' ModifyHosts (Prelude.Maybe Prelude.Text)
+modifyHosts_instanceType :: Lens.Lens' ModifyHosts (Core.Maybe Core.Text)
 modifyHosts_instanceType = Lens.lens (\ModifyHosts' {instanceType} -> instanceType) (\s@ModifyHosts' {} a -> s {instanceType = a} :: ModifyHosts)
 
 -- | Specify whether to enable or disable auto-placement.
-modifyHosts_autoPlacement :: Lens.Lens' ModifyHosts (Prelude.Maybe AutoPlacement)
+modifyHosts_autoPlacement :: Lens.Lens' ModifyHosts (Core.Maybe AutoPlacement)
 modifyHosts_autoPlacement = Lens.lens (\ModifyHosts' {autoPlacement} -> autoPlacement) (\s@ModifyHosts' {} a -> s {autoPlacement = a} :: ModifyHosts)
 
 -- | Indicates whether to enable or disable host recovery for the Dedicated
 -- Host. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
 -- in the /Amazon EC2 User Guide/.
-modifyHosts_hostRecovery :: Lens.Lens' ModifyHosts (Prelude.Maybe HostRecovery)
+modifyHosts_hostRecovery :: Lens.Lens' ModifyHosts (Core.Maybe HostRecovery)
 modifyHosts_hostRecovery = Lens.lens (\ModifyHosts' {hostRecovery} -> hostRecovery) (\s@ModifyHosts' {} a -> s {hostRecovery = a} :: ModifyHosts)
 
 -- | The IDs of the Dedicated Hosts to modify.
-modifyHosts_hostIds :: Lens.Lens' ModifyHosts [Prelude.Text]
-modifyHosts_hostIds = Lens.lens (\ModifyHosts' {hostIds} -> hostIds) (\s@ModifyHosts' {} a -> s {hostIds = a} :: ModifyHosts) Prelude.. Prelude._Coerce
+modifyHosts_hostIds :: Lens.Lens' ModifyHosts [Core.Text]
+modifyHosts_hostIds = Lens.lens (\ModifyHosts' {hostIds} -> hostIds) (\s@ModifyHosts' {} a -> s {hostIds = a} :: ModifyHosts) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest ModifyHosts where
-  type Rs ModifyHosts = ModifyHostsResponse
+instance Core.AWSRequest ModifyHosts where
+  type AWSResponse ModifyHosts = ModifyHostsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyHostsResponse'
-            Prelude.<$> ( x Prelude..@? "unsuccessful"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> ( x Prelude..@? "successful"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "unsuccessful" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> ( x Core..@? "successful" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyHosts
+instance Core.Hashable ModifyHosts
 
-instance Prelude.NFData ModifyHosts
+instance Core.NFData ModifyHosts
 
-instance Prelude.ToHeaders ModifyHosts where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyHosts where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyHosts where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyHosts where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyHosts where
+instance Core.ToQuery ModifyHosts where
   toQuery ModifyHosts' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("ModifyHosts" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "InstanceFamily" Prelude.=: instanceFamily,
-        "InstanceType" Prelude.=: instanceType,
-        "AutoPlacement" Prelude.=: autoPlacement,
-        "HostRecovery" Prelude.=: hostRecovery,
-        Prelude.toQueryList "HostId" hostIds
+    Core.mconcat
+      [ "Action" Core.=: ("ModifyHosts" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "InstanceFamily" Core.=: instanceFamily,
+        "InstanceType" Core.=: instanceType,
+        "AutoPlacement" Core.=: autoPlacement,
+        "HostRecovery" Core.=: hostRecovery,
+        Core.toQueryList "HostId" hostIds
       ]
 
 -- | /See:/ 'newModifyHostsResponse' smart constructor.
 data ModifyHostsResponse = ModifyHostsResponse'
   { -- | The IDs of the Dedicated Hosts that could not be modified. Check whether
     -- the setting you requested can be used.
-    unsuccessful :: Prelude.Maybe [UnsuccessfulItem],
+    unsuccessful :: Core.Maybe [UnsuccessfulItem],
     -- | The IDs of the Dedicated Hosts that were successfully modified.
-    successful :: Prelude.Maybe [Prelude.Text],
+    successful :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyHostsResponse' with all optional fields omitted.
@@ -245,27 +240,26 @@ data ModifyHostsResponse = ModifyHostsResponse'
 -- 'httpStatus', 'modifyHostsResponse_httpStatus' - The response's http status code.
 newModifyHostsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyHostsResponse
 newModifyHostsResponse pHttpStatus_ =
   ModifyHostsResponse'
-    { unsuccessful =
-        Prelude.Nothing,
-      successful = Prelude.Nothing,
+    { unsuccessful = Core.Nothing,
+      successful = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IDs of the Dedicated Hosts that could not be modified. Check whether
 -- the setting you requested can be used.
-modifyHostsResponse_unsuccessful :: Lens.Lens' ModifyHostsResponse (Prelude.Maybe [UnsuccessfulItem])
-modifyHostsResponse_unsuccessful = Lens.lens (\ModifyHostsResponse' {unsuccessful} -> unsuccessful) (\s@ModifyHostsResponse' {} a -> s {unsuccessful = a} :: ModifyHostsResponse) Prelude.. Lens.mapping Prelude._Coerce
+modifyHostsResponse_unsuccessful :: Lens.Lens' ModifyHostsResponse (Core.Maybe [UnsuccessfulItem])
+modifyHostsResponse_unsuccessful = Lens.lens (\ModifyHostsResponse' {unsuccessful} -> unsuccessful) (\s@ModifyHostsResponse' {} a -> s {unsuccessful = a} :: ModifyHostsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The IDs of the Dedicated Hosts that were successfully modified.
-modifyHostsResponse_successful :: Lens.Lens' ModifyHostsResponse (Prelude.Maybe [Prelude.Text])
-modifyHostsResponse_successful = Lens.lens (\ModifyHostsResponse' {successful} -> successful) (\s@ModifyHostsResponse' {} a -> s {successful = a} :: ModifyHostsResponse) Prelude.. Lens.mapping Prelude._Coerce
+modifyHostsResponse_successful :: Lens.Lens' ModifyHostsResponse (Core.Maybe [Core.Text])
+modifyHostsResponse_successful = Lens.lens (\ModifyHostsResponse' {successful} -> successful) (\s@ModifyHostsResponse' {} a -> s {successful = a} :: ModifyHostsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-modifyHostsResponse_httpStatus :: Lens.Lens' ModifyHostsResponse Prelude.Int
+modifyHostsResponse_httpStatus :: Lens.Lens' ModifyHostsResponse Core.Int
 modifyHostsResponse_httpStatus = Lens.lens (\ModifyHostsResponse' {httpStatus} -> httpStatus) (\s@ModifyHostsResponse' {} a -> s {httpStatus = a} :: ModifyHostsResponse)
 
-instance Prelude.NFData ModifyHostsResponse
+instance Core.NFData ModifyHostsResponse

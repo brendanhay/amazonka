@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EC2.DescribeConversionTasks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,11 +58,11 @@ data DescribeConversionTasks = DescribeConversionTasks'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The conversion task IDs.
-    conversionTaskIds :: Prelude.Maybe [Prelude.Text]
+    conversionTaskIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeConversionTasks' with all optional fields omitted.
@@ -83,69 +82,67 @@ newDescribeConversionTasks ::
   DescribeConversionTasks
 newDescribeConversionTasks =
   DescribeConversionTasks'
-    { dryRun = Prelude.Nothing,
-      conversionTaskIds = Prelude.Nothing
+    { dryRun = Core.Nothing,
+      conversionTaskIds = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeConversionTasks_dryRun :: Lens.Lens' DescribeConversionTasks (Prelude.Maybe Prelude.Bool)
+describeConversionTasks_dryRun :: Lens.Lens' DescribeConversionTasks (Core.Maybe Core.Bool)
 describeConversionTasks_dryRun = Lens.lens (\DescribeConversionTasks' {dryRun} -> dryRun) (\s@DescribeConversionTasks' {} a -> s {dryRun = a} :: DescribeConversionTasks)
 
 -- | The conversion task IDs.
-describeConversionTasks_conversionTaskIds :: Lens.Lens' DescribeConversionTasks (Prelude.Maybe [Prelude.Text])
-describeConversionTasks_conversionTaskIds = Lens.lens (\DescribeConversionTasks' {conversionTaskIds} -> conversionTaskIds) (\s@DescribeConversionTasks' {} a -> s {conversionTaskIds = a} :: DescribeConversionTasks) Prelude.. Lens.mapping Prelude._Coerce
+describeConversionTasks_conversionTaskIds :: Lens.Lens' DescribeConversionTasks (Core.Maybe [Core.Text])
+describeConversionTasks_conversionTaskIds = Lens.lens (\DescribeConversionTasks' {conversionTaskIds} -> conversionTaskIds) (\s@DescribeConversionTasks' {} a -> s {conversionTaskIds = a} :: DescribeConversionTasks) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeConversionTasks where
+instance Core.AWSRequest DescribeConversionTasks where
   type
-    Rs DescribeConversionTasks =
+    AWSResponse DescribeConversionTasks =
       DescribeConversionTasksResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeConversionTasksResponse'
-            Prelude.<$> ( x Prelude..@? "conversionTasks"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "conversionTasks" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConversionTasks
+instance Core.Hashable DescribeConversionTasks
 
-instance Prelude.NFData DescribeConversionTasks
+instance Core.NFData DescribeConversionTasks
 
-instance Prelude.ToHeaders DescribeConversionTasks where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeConversionTasks where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeConversionTasks where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeConversionTasks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeConversionTasks where
+instance Core.ToQuery DescribeConversionTasks where
   toQuery DescribeConversionTasks' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeConversionTasks" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          ( Prelude.toQueryList "ConversionTaskId"
-              Prelude.<$> conversionTaskIds
+          Core.=: ("DescribeConversionTasks" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "ConversionTaskId"
+              Core.<$> conversionTaskIds
           )
       ]
 
 -- | /See:/ 'newDescribeConversionTasksResponse' smart constructor.
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
   { -- | Information about the conversion tasks.
-    conversionTasks :: Prelude.Maybe [ConversionTask],
+    conversionTasks :: Core.Maybe [ConversionTask],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeConversionTasksResponse' with all optional fields omitted.
@@ -160,23 +157,21 @@ data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
 -- 'httpStatus', 'describeConversionTasksResponse_httpStatus' - The response's http status code.
 newDescribeConversionTasksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeConversionTasksResponse
 newDescribeConversionTasksResponse pHttpStatus_ =
   DescribeConversionTasksResponse'
     { conversionTasks =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the conversion tasks.
-describeConversionTasksResponse_conversionTasks :: Lens.Lens' DescribeConversionTasksResponse (Prelude.Maybe [ConversionTask])
-describeConversionTasksResponse_conversionTasks = Lens.lens (\DescribeConversionTasksResponse' {conversionTasks} -> conversionTasks) (\s@DescribeConversionTasksResponse' {} a -> s {conversionTasks = a} :: DescribeConversionTasksResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeConversionTasksResponse_conversionTasks :: Lens.Lens' DescribeConversionTasksResponse (Core.Maybe [ConversionTask])
+describeConversionTasksResponse_conversionTasks = Lens.lens (\DescribeConversionTasksResponse' {conversionTasks} -> conversionTasks) (\s@DescribeConversionTasksResponse' {} a -> s {conversionTasks = a} :: DescribeConversionTasksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeConversionTasksResponse_httpStatus :: Lens.Lens' DescribeConversionTasksResponse Prelude.Int
+describeConversionTasksResponse_httpStatus :: Lens.Lens' DescribeConversionTasksResponse Core.Int
 describeConversionTasksResponse_httpStatus = Lens.lens (\DescribeConversionTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeConversionTasksResponse' {} a -> s {httpStatus = a} :: DescribeConversionTasksResponse)
 
-instance
-  Prelude.NFData
-    DescribeConversionTasksResponse
+instance Core.NFData DescribeConversionTasksResponse

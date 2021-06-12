@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,18 +42,18 @@ module Network.AWS.OpsWorks.StartInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartInstance' smart constructor.
 data StartInstance = StartInstance'
   { -- | The instance ID.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartInstance' with all optional fields omitted.
@@ -67,58 +66,58 @@ data StartInstance = StartInstance'
 -- 'instanceId', 'startInstance_instanceId' - The instance ID.
 newStartInstance ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   StartInstance
 newStartInstance pInstanceId_ =
   StartInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-startInstance_instanceId :: Lens.Lens' StartInstance Prelude.Text
+startInstance_instanceId :: Lens.Lens' StartInstance Core.Text
 startInstance_instanceId = Lens.lens (\StartInstance' {instanceId} -> instanceId) (\s@StartInstance' {} a -> s {instanceId = a} :: StartInstance)
 
-instance Prelude.AWSRequest StartInstance where
-  type Rs StartInstance = StartInstanceResponse
+instance Core.AWSRequest StartInstance where
+  type
+    AWSResponse StartInstance =
+      StartInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull StartInstanceResponse'
 
-instance Prelude.Hashable StartInstance
+instance Core.Hashable StartInstance
 
-instance Prelude.NFData StartInstance
+instance Core.NFData StartInstance
 
-instance Prelude.ToHeaders StartInstance where
+instance Core.ToHeaders StartInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.StartInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.StartInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartInstance where
+instance Core.ToJSON StartInstance where
   toJSON StartInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("InstanceId" Prelude..= instanceId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("InstanceId" Core..= instanceId)]
       )
 
-instance Prelude.ToPath StartInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartInstanceResponse' smart constructor.
 data StartInstanceResponse = StartInstanceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartInstanceResponse' with all optional fields omitted.
@@ -128,4 +127,4 @@ newStartInstanceResponse ::
   StartInstanceResponse
 newStartInstanceResponse = StartInstanceResponse'
 
-instance Prelude.NFData StartInstanceResponse
+instance Core.NFData StartInstanceResponse

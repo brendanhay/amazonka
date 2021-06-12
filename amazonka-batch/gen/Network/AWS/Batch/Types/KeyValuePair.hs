@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types.KeyValuePair where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A key-value pair object.
 --
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 data KeyValuePair = KeyValuePair'
   { -- | The name of the key-value pair. For environment variables, this is the
     -- name of the environment variable.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The value of the key-value pair. For environment variables, this is the
     -- value of the environment variable.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyValuePair' with all optional fields omitted.
@@ -53,39 +52,38 @@ newKeyValuePair ::
   KeyValuePair
 newKeyValuePair =
   KeyValuePair'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { name = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The name of the key-value pair. For environment variables, this is the
 -- name of the environment variable.
-keyValuePair_name :: Lens.Lens' KeyValuePair (Prelude.Maybe Prelude.Text)
+keyValuePair_name :: Lens.Lens' KeyValuePair (Core.Maybe Core.Text)
 keyValuePair_name = Lens.lens (\KeyValuePair' {name} -> name) (\s@KeyValuePair' {} a -> s {name = a} :: KeyValuePair)
 
 -- | The value of the key-value pair. For environment variables, this is the
 -- value of the environment variable.
-keyValuePair_value :: Lens.Lens' KeyValuePair (Prelude.Maybe Prelude.Text)
+keyValuePair_value :: Lens.Lens' KeyValuePair (Core.Maybe Core.Text)
 keyValuePair_value = Lens.lens (\KeyValuePair' {value} -> value) (\s@KeyValuePair' {} a -> s {value = a} :: KeyValuePair)
 
-instance Prelude.FromJSON KeyValuePair where
+instance Core.FromJSON KeyValuePair where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KeyValuePair"
       ( \x ->
           KeyValuePair'
-            Prelude.<$> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "value")
+            Core.<$> (x Core..:? "name") Core.<*> (x Core..:? "value")
       )
 
-instance Prelude.Hashable KeyValuePair
+instance Core.Hashable KeyValuePair
 
-instance Prelude.NFData KeyValuePair
+instance Core.NFData KeyValuePair
 
-instance Prelude.ToJSON KeyValuePair where
+instance Core.ToJSON KeyValuePair where
   toJSON KeyValuePair' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("name" Prelude..=) Prelude.<$> name,
-            ("value" Prelude..=) Prelude.<$> value
+    Core.object
+      ( Core.catMaybes
+          [ ("name" Core..=) Core.<$> name,
+            ("value" Core..=) Core.<$> value
           ]
       )

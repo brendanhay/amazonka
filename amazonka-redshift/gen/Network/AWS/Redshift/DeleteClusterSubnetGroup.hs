@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.Redshift.DeleteClusterSubnetGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -47,9 +46,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteClusterSubnetGroup' smart constructor.
 data DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
   { -- | The name of the cluster subnet group name to be deleted.
-    clusterSubnetGroupName :: Prelude.Text
+    clusterSubnetGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteClusterSubnetGroup' with all optional fields omitted.
@@ -62,7 +61,7 @@ data DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
 -- 'clusterSubnetGroupName', 'deleteClusterSubnetGroup_clusterSubnetGroupName' - The name of the cluster subnet group name to be deleted.
 newDeleteClusterSubnetGroup ::
   -- | 'clusterSubnetGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteClusterSubnetGroup
 newDeleteClusterSubnetGroup pClusterSubnetGroupName_ =
   DeleteClusterSubnetGroup'
@@ -71,44 +70,43 @@ newDeleteClusterSubnetGroup pClusterSubnetGroupName_ =
     }
 
 -- | The name of the cluster subnet group name to be deleted.
-deleteClusterSubnetGroup_clusterSubnetGroupName :: Lens.Lens' DeleteClusterSubnetGroup Prelude.Text
+deleteClusterSubnetGroup_clusterSubnetGroupName :: Lens.Lens' DeleteClusterSubnetGroup Core.Text
 deleteClusterSubnetGroup_clusterSubnetGroupName = Lens.lens (\DeleteClusterSubnetGroup' {clusterSubnetGroupName} -> clusterSubnetGroupName) (\s@DeleteClusterSubnetGroup' {} a -> s {clusterSubnetGroupName = a} :: DeleteClusterSubnetGroup)
 
-instance Prelude.AWSRequest DeleteClusterSubnetGroup where
+instance Core.AWSRequest DeleteClusterSubnetGroup where
   type
-    Rs DeleteClusterSubnetGroup =
+    AWSResponse DeleteClusterSubnetGroup =
       DeleteClusterSubnetGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteClusterSubnetGroupResponse'
 
-instance Prelude.Hashable DeleteClusterSubnetGroup
+instance Core.Hashable DeleteClusterSubnetGroup
 
-instance Prelude.NFData DeleteClusterSubnetGroup
+instance Core.NFData DeleteClusterSubnetGroup
 
-instance Prelude.ToHeaders DeleteClusterSubnetGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteClusterSubnetGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteClusterSubnetGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteClusterSubnetGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteClusterSubnetGroup where
+instance Core.ToQuery DeleteClusterSubnetGroup where
   toQuery DeleteClusterSubnetGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteClusterSubnetGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+          Core.=: ("DeleteClusterSubnetGroup" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
         "ClusterSubnetGroupName"
-          Prelude.=: clusterSubnetGroupName
+          Core.=: clusterSubnetGroupName
       ]
 
 -- | /See:/ 'newDeleteClusterSubnetGroupResponse' smart constructor.
 data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteClusterSubnetGroupResponse' with all optional fields omitted.
@@ -119,6 +117,4 @@ newDeleteClusterSubnetGroupResponse ::
 newDeleteClusterSubnetGroupResponse =
   DeleteClusterSubnetGroupResponse'
 
-instance
-  Prelude.NFData
-    DeleteClusterSubnetGroupResponse
+instance Core.NFData DeleteClusterSubnetGroupResponse

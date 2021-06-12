@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,9 @@ module Network.AWS.EC2.RegisterTransitGatewayMulticastGroupSources
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,16 +65,16 @@ data RegisterTransitGatewayMulticastGroupSources = RegisterTransitGatewayMultica
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
+    transitGatewayMulticastDomainId :: Core.Maybe Core.Text,
     -- | The group sources\' network interface IDs to register with the transit
     -- gateway multicast group.
-    networkInterfaceIds :: Prelude.Maybe [Prelude.Text],
+    networkInterfaceIds :: Core.Maybe [Core.Text],
     -- | The IP address assigned to the transit gateway multicast group.
-    groupIpAddress :: Prelude.Maybe Prelude.Text
+    groupIpAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterTransitGatewayMulticastGroupSources' with all optional fields omitted.
@@ -101,102 +100,101 @@ newRegisterTransitGatewayMulticastGroupSources ::
 newRegisterTransitGatewayMulticastGroupSources =
   RegisterTransitGatewayMulticastGroupSources'
     { dryRun =
-        Prelude.Nothing,
+        Core.Nothing,
       transitGatewayMulticastDomainId =
-        Prelude.Nothing,
+        Core.Nothing,
       networkInterfaceIds =
-        Prelude.Nothing,
-      groupIpAddress =
-        Prelude.Nothing
+        Core.Nothing,
+      groupIpAddress = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-registerTransitGatewayMulticastGroupSources_dryRun :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Prelude.Maybe Prelude.Bool)
+registerTransitGatewayMulticastGroupSources_dryRun :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Core.Maybe Core.Bool)
 registerTransitGatewayMulticastGroupSources_dryRun = Lens.lens (\RegisterTransitGatewayMulticastGroupSources' {dryRun} -> dryRun) (\s@RegisterTransitGatewayMulticastGroupSources' {} a -> s {dryRun = a} :: RegisterTransitGatewayMulticastGroupSources)
 
 -- | The ID of the transit gateway multicast domain.
-registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Prelude.Maybe Prelude.Text)
+registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Core.Maybe Core.Text)
 registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId = Lens.lens (\RegisterTransitGatewayMulticastGroupSources' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@RegisterTransitGatewayMulticastGroupSources' {} a -> s {transitGatewayMulticastDomainId = a} :: RegisterTransitGatewayMulticastGroupSources)
 
 -- | The group sources\' network interface IDs to register with the transit
 -- gateway multicast group.
-registerTransitGatewayMulticastGroupSources_networkInterfaceIds :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Prelude.Maybe [Prelude.Text])
-registerTransitGatewayMulticastGroupSources_networkInterfaceIds = Lens.lens (\RegisterTransitGatewayMulticastGroupSources' {networkInterfaceIds} -> networkInterfaceIds) (\s@RegisterTransitGatewayMulticastGroupSources' {} a -> s {networkInterfaceIds = a} :: RegisterTransitGatewayMulticastGroupSources) Prelude.. Lens.mapping Prelude._Coerce
+registerTransitGatewayMulticastGroupSources_networkInterfaceIds :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Core.Maybe [Core.Text])
+registerTransitGatewayMulticastGroupSources_networkInterfaceIds = Lens.lens (\RegisterTransitGatewayMulticastGroupSources' {networkInterfaceIds} -> networkInterfaceIds) (\s@RegisterTransitGatewayMulticastGroupSources' {} a -> s {networkInterfaceIds = a} :: RegisterTransitGatewayMulticastGroupSources) Core.. Lens.mapping Lens._Coerce
 
 -- | The IP address assigned to the transit gateway multicast group.
-registerTransitGatewayMulticastGroupSources_groupIpAddress :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Prelude.Maybe Prelude.Text)
+registerTransitGatewayMulticastGroupSources_groupIpAddress :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Core.Maybe Core.Text)
 registerTransitGatewayMulticastGroupSources_groupIpAddress = Lens.lens (\RegisterTransitGatewayMulticastGroupSources' {groupIpAddress} -> groupIpAddress) (\s@RegisterTransitGatewayMulticastGroupSources' {} a -> s {groupIpAddress = a} :: RegisterTransitGatewayMulticastGroupSources)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     RegisterTransitGatewayMulticastGroupSources
   where
   type
-    Rs RegisterTransitGatewayMulticastGroupSources =
+    AWSResponse
+      RegisterTransitGatewayMulticastGroupSources =
       RegisterTransitGatewayMulticastGroupSourcesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           RegisterTransitGatewayMulticastGroupSourcesResponse'
-            Prelude.<$> (x Prelude..@? "registeredMulticastGroupSources")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "registeredMulticastGroupSources")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RegisterTransitGatewayMulticastGroupSources
 
 instance
-  Prelude.NFData
+  Core.NFData
     RegisterTransitGatewayMulticastGroupSources
 
 instance
-  Prelude.ToHeaders
-    RegisterTransitGatewayMulticastGroupSources
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     RegisterTransitGatewayMulticastGroupSources
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    RegisterTransitGatewayMulticastGroupSources
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     RegisterTransitGatewayMulticastGroupSources
   where
   toQuery
     RegisterTransitGatewayMulticastGroupSources' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "Action"
-            Prelude.=: ( "RegisterTransitGatewayMulticastGroupSources" ::
-                           Prelude.ByteString
-                       ),
-          "Version"
-            Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Prelude.=: dryRun,
+            Core.=: ( "RegisterTransitGatewayMulticastGroupSources" ::
+                        Core.ByteString
+                    ),
+          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "DryRun" Core.=: dryRun,
           "TransitGatewayMulticastDomainId"
-            Prelude.=: transitGatewayMulticastDomainId,
-          Prelude.toQuery
-            ( Prelude.toQueryList "NetworkInterfaceIds"
-                Prelude.<$> networkInterfaceIds
+            Core.=: transitGatewayMulticastDomainId,
+          Core.toQuery
+            ( Core.toQueryList "NetworkInterfaceIds"
+                Core.<$> networkInterfaceIds
             ),
-          "GroupIpAddress" Prelude.=: groupIpAddress
+          "GroupIpAddress" Core.=: groupIpAddress
         ]
 
 -- | /See:/ 'newRegisterTransitGatewayMulticastGroupSourcesResponse' smart constructor.
 data RegisterTransitGatewayMulticastGroupSourcesResponse = RegisterTransitGatewayMulticastGroupSourcesResponse'
   { -- | Information about the transit gateway multicast group sources.
-    registeredMulticastGroupSources :: Prelude.Maybe TransitGatewayMulticastRegisteredGroupSources,
+    registeredMulticastGroupSources :: Core.Maybe TransitGatewayMulticastRegisteredGroupSources,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterTransitGatewayMulticastGroupSourcesResponse' with all optional fields omitted.
@@ -211,25 +209,25 @@ data RegisterTransitGatewayMulticastGroupSourcesResponse = RegisterTransitGatewa
 -- 'httpStatus', 'registerTransitGatewayMulticastGroupSourcesResponse_httpStatus' - The response's http status code.
 newRegisterTransitGatewayMulticastGroupSourcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterTransitGatewayMulticastGroupSourcesResponse
 newRegisterTransitGatewayMulticastGroupSourcesResponse
   pHttpStatus_ =
     RegisterTransitGatewayMulticastGroupSourcesResponse'
       { registeredMulticastGroupSources =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Information about the transit gateway multicast group sources.
-registerTransitGatewayMulticastGroupSourcesResponse_registeredMulticastGroupSources :: Lens.Lens' RegisterTransitGatewayMulticastGroupSourcesResponse (Prelude.Maybe TransitGatewayMulticastRegisteredGroupSources)
+registerTransitGatewayMulticastGroupSourcesResponse_registeredMulticastGroupSources :: Lens.Lens' RegisterTransitGatewayMulticastGroupSourcesResponse (Core.Maybe TransitGatewayMulticastRegisteredGroupSources)
 registerTransitGatewayMulticastGroupSourcesResponse_registeredMulticastGroupSources = Lens.lens (\RegisterTransitGatewayMulticastGroupSourcesResponse' {registeredMulticastGroupSources} -> registeredMulticastGroupSources) (\s@RegisterTransitGatewayMulticastGroupSourcesResponse' {} a -> s {registeredMulticastGroupSources = a} :: RegisterTransitGatewayMulticastGroupSourcesResponse)
 
 -- | The response's http status code.
-registerTransitGatewayMulticastGroupSourcesResponse_httpStatus :: Lens.Lens' RegisterTransitGatewayMulticastGroupSourcesResponse Prelude.Int
+registerTransitGatewayMulticastGroupSourcesResponse_httpStatus :: Lens.Lens' RegisterTransitGatewayMulticastGroupSourcesResponse Core.Int
 registerTransitGatewayMulticastGroupSourcesResponse_httpStatus = Lens.lens (\RegisterTransitGatewayMulticastGroupSourcesResponse' {httpStatus} -> httpStatus) (\s@RegisterTransitGatewayMulticastGroupSourcesResponse' {} a -> s {httpStatus = a} :: RegisterTransitGatewayMulticastGroupSourcesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RegisterTransitGatewayMulticastGroupSourcesResponse

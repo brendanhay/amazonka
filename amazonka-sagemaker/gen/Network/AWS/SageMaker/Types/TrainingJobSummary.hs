@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TrainingJobSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TrainingJobStatus
 
 -- | Provides summary information about a training job.
@@ -29,21 +28,21 @@ import Network.AWS.SageMaker.Types.TrainingJobStatus
 -- /See:/ 'newTrainingJobSummary' smart constructor.
 data TrainingJobSummary = TrainingJobSummary'
   { -- | Timestamp when the training job was last modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | A timestamp that shows when the training job ended. This field is set
     -- only if the training job has one of the terminal statuses (@Completed@,
     -- @Failed@, or @Stopped@).
-    trainingEndTime :: Prelude.Maybe Prelude.POSIX,
+    trainingEndTime :: Core.Maybe Core.POSIX,
     -- | The name of the training job that you want a summary for.
-    trainingJobName :: Prelude.Text,
+    trainingJobName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the training job.
-    trainingJobArn :: Prelude.Text,
+    trainingJobArn :: Core.Text,
     -- | A timestamp that shows when the training job was created.
-    creationTime :: Prelude.POSIX,
+    creationTime :: Core.POSIX,
     -- | The status of the training job.
     trainingJobStatus :: TrainingJobStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrainingJobSummary' with all optional fields omitted.
@@ -68,11 +67,11 @@ data TrainingJobSummary = TrainingJobSummary'
 -- 'trainingJobStatus', 'trainingJobSummary_trainingJobStatus' - The status of the training job.
 newTrainingJobSummary ::
   -- | 'trainingJobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'trainingJobArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'trainingJobStatus'
   TrainingJobStatus ->
   TrainingJobSummary
@@ -83,54 +82,54 @@ newTrainingJobSummary
   pTrainingJobStatus_ =
     TrainingJobSummary'
       { lastModifiedTime =
-          Prelude.Nothing,
-        trainingEndTime = Prelude.Nothing,
+          Core.Nothing,
+        trainingEndTime = Core.Nothing,
         trainingJobName = pTrainingJobName_,
         trainingJobArn = pTrainingJobArn_,
-        creationTime = Prelude._Time Lens.# pCreationTime_,
+        creationTime = Core._Time Lens.# pCreationTime_,
         trainingJobStatus = pTrainingJobStatus_
       }
 
 -- | Timestamp when the training job was last modified.
-trainingJobSummary_lastModifiedTime :: Lens.Lens' TrainingJobSummary (Prelude.Maybe Prelude.UTCTime)
-trainingJobSummary_lastModifiedTime = Lens.lens (\TrainingJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@TrainingJobSummary' {} a -> s {lastModifiedTime = a} :: TrainingJobSummary) Prelude.. Lens.mapping Prelude._Time
+trainingJobSummary_lastModifiedTime :: Lens.Lens' TrainingJobSummary (Core.Maybe Core.UTCTime)
+trainingJobSummary_lastModifiedTime = Lens.lens (\TrainingJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@TrainingJobSummary' {} a -> s {lastModifiedTime = a} :: TrainingJobSummary) Core.. Lens.mapping Core._Time
 
 -- | A timestamp that shows when the training job ended. This field is set
 -- only if the training job has one of the terminal statuses (@Completed@,
 -- @Failed@, or @Stopped@).
-trainingJobSummary_trainingEndTime :: Lens.Lens' TrainingJobSummary (Prelude.Maybe Prelude.UTCTime)
-trainingJobSummary_trainingEndTime = Lens.lens (\TrainingJobSummary' {trainingEndTime} -> trainingEndTime) (\s@TrainingJobSummary' {} a -> s {trainingEndTime = a} :: TrainingJobSummary) Prelude.. Lens.mapping Prelude._Time
+trainingJobSummary_trainingEndTime :: Lens.Lens' TrainingJobSummary (Core.Maybe Core.UTCTime)
+trainingJobSummary_trainingEndTime = Lens.lens (\TrainingJobSummary' {trainingEndTime} -> trainingEndTime) (\s@TrainingJobSummary' {} a -> s {trainingEndTime = a} :: TrainingJobSummary) Core.. Lens.mapping Core._Time
 
 -- | The name of the training job that you want a summary for.
-trainingJobSummary_trainingJobName :: Lens.Lens' TrainingJobSummary Prelude.Text
+trainingJobSummary_trainingJobName :: Lens.Lens' TrainingJobSummary Core.Text
 trainingJobSummary_trainingJobName = Lens.lens (\TrainingJobSummary' {trainingJobName} -> trainingJobName) (\s@TrainingJobSummary' {} a -> s {trainingJobName = a} :: TrainingJobSummary)
 
 -- | The Amazon Resource Name (ARN) of the training job.
-trainingJobSummary_trainingJobArn :: Lens.Lens' TrainingJobSummary Prelude.Text
+trainingJobSummary_trainingJobArn :: Lens.Lens' TrainingJobSummary Core.Text
 trainingJobSummary_trainingJobArn = Lens.lens (\TrainingJobSummary' {trainingJobArn} -> trainingJobArn) (\s@TrainingJobSummary' {} a -> s {trainingJobArn = a} :: TrainingJobSummary)
 
 -- | A timestamp that shows when the training job was created.
-trainingJobSummary_creationTime :: Lens.Lens' TrainingJobSummary Prelude.UTCTime
-trainingJobSummary_creationTime = Lens.lens (\TrainingJobSummary' {creationTime} -> creationTime) (\s@TrainingJobSummary' {} a -> s {creationTime = a} :: TrainingJobSummary) Prelude.. Prelude._Time
+trainingJobSummary_creationTime :: Lens.Lens' TrainingJobSummary Core.UTCTime
+trainingJobSummary_creationTime = Lens.lens (\TrainingJobSummary' {creationTime} -> creationTime) (\s@TrainingJobSummary' {} a -> s {creationTime = a} :: TrainingJobSummary) Core.. Core._Time
 
 -- | The status of the training job.
 trainingJobSummary_trainingJobStatus :: Lens.Lens' TrainingJobSummary TrainingJobStatus
 trainingJobSummary_trainingJobStatus = Lens.lens (\TrainingJobSummary' {trainingJobStatus} -> trainingJobStatus) (\s@TrainingJobSummary' {} a -> s {trainingJobStatus = a} :: TrainingJobSummary)
 
-instance Prelude.FromJSON TrainingJobSummary where
+instance Core.FromJSON TrainingJobSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrainingJobSummary"
       ( \x ->
           TrainingJobSummary'
-            Prelude.<$> (x Prelude..:? "LastModifiedTime")
-            Prelude.<*> (x Prelude..:? "TrainingEndTime")
-            Prelude.<*> (x Prelude..: "TrainingJobName")
-            Prelude.<*> (x Prelude..: "TrainingJobArn")
-            Prelude.<*> (x Prelude..: "CreationTime")
-            Prelude.<*> (x Prelude..: "TrainingJobStatus")
+            Core.<$> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..:? "TrainingEndTime")
+            Core.<*> (x Core..: "TrainingJobName")
+            Core.<*> (x Core..: "TrainingJobArn")
+            Core.<*> (x Core..: "CreationTime")
+            Core.<*> (x Core..: "TrainingJobStatus")
       )
 
-instance Prelude.Hashable TrainingJobSummary
+instance Core.Hashable TrainingJobSummary
 
-instance Prelude.NFData TrainingJobSummary
+instance Core.NFData TrainingJobSummary
